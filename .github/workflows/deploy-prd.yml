@@ -15,8 +15,8 @@ jobs:
       APP_ENV: prod
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 14
           cache: "npm"
@@ -34,7 +34,7 @@ jobs:
           find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
 
       - name: Gatsby main cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: gatsby-cache-folder
         with:
           path: .cache
@@ -43,7 +43,7 @@ jobs:
             ${{ runner.os }}-cache-gatsby-
 
       - name: Gatsby Public Folder
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: gatsby-public-folder
         with:
           path: public/
