@@ -147,7 +147,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         </tr>
         <tr>
             <td style="vertical-align: top;">Security</td>
-            <td>ATECC608B Crypto Microchip </td>
+            <td>ATECC608B Crypto Microchip® </td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Degree of Protection</td>
@@ -201,7 +201,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
     </thead>
     <tbody>
         <tr>
-            <td rowspan="15" style="vertical-align: top;">ATECC608B Crypto Microchip</td>
+            <td rowspan="15" style="vertical-align: top;">ATECC608B Crypto Microchip®</td>
             <td>Cryptographic co-processor with secure hardware-based key storage</td>
         </tr>
         <tr>
@@ -465,7 +465,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 **Note:** The LED above the *User Programmable button* (Ref: 3D) is only available on Arduino Opta® WiFi (AFX00002).
 
 ### Microcontroller
-The microcontroller is a dual-core *STM32H747XI*. The main processor is a *Cortex M7* running at up to 480 MHz and the second one is a Cortex M4 running at up to 240 MHz.
+The microcontroller is a dual-core *STM32H747XI*. The main processor is a *Cortex®-M7* running at up to 480 MHz and the second one is a Cortex®-M4 running at up to 240 MHz.
 
 Arduino Opta® can be programmed using the libraries developed for it as part of the standard Arduino Core library.
 

@@ -59,7 +59,7 @@ Thanks to the low power consumption of the Vision Shield, it is well suited for 
 
 - **Predictive maintenance:** The combination of machine vision and machine learning capabilities of the Vision Shield and the Portenta H7 opens up possibilities for predictive maintenance based on subtle differences in the visual representation of machinery. These capabilities are further enhanced with the two MP34DT05 MEMS microphones included in the Vision Shield.
 
-- **Surveillance:** The Vision Shield is able to provide surveillance capabilities in areas with low Wi-Fi penetration (e.g. warehouse) and large areas (e.g. shopping centres). The OpenMV libraries enable the Vision Shield to identify objects and alert the operator via LoRa® while saving a snapshot on the microSD storage slot. 
+- **Surveillance:** The Vision Shield is able to provide surveillance capabilities in areas with low Wi-Fi® penetration (e.g. warehouse) and large areas (e.g. shopping centres). The OpenMV libraries enable the Vision Shield to identify objects and alert the operator via LoRa® while saving a snapshot on the microSD storage slot. 
 
 ### Related Products
 The Vision Shield is developed as an add-on shield that requires the Portenta H7.
@@ -124,9 +124,9 @@ LoRa® connectivity is provided by the Murata CMWX1ZZABZ module. This module con
 ### Power
 The Portenta H7 supplies 3.3V power to the LoRa® module (ASX00026 only), microSD slot and dual microphones via the 3.3V output via the high density connector. An onboard LDO regulator supplies a 2.8V output (300mA) for the camera module.
 
+<div style="break-after:page"></div>
 
 ## Board Operation
-
 
 ### Getting Started – IDE
 If you want to program your Arduino board while offline you need to install the Arduino Desktop IDE **[1]** To connect the board to your computer, you’ll need a USB cable. This also provides power to the board, as indicated by the LED.
@@ -180,6 +180,8 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 | 6                            | SWO      | I/O           | Single Wire Debug Trace                        |
 | 10                           | RESET    | Input         | CPU Reset                                      |
 | 7,11,12,13,14,15,17,18,19,20 | NC       | Not Connected |                                                |
+
+<div style="break-after:page"></div>
 
 ### High Density Connector
 ![High density connector pinout](assets/visionShield_HD_pinout.png)

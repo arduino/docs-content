@@ -335,7 +335,7 @@ Laboratory equipment, Computer vision
          <td></td>
       </tr>
       <tr>
-         <td rowspan="15" style="vertical-align: top;" >ATECC608 Microchip  Crypto (optional)</td>
+         <td rowspan="15" style="vertical-align: top;" >ATECC608 Microchip®  Crypto (optional)</td>
          <td>Protected storage for up to 16 Keys, certificates or data</td>
          <td></td>
       </tr>
@@ -555,18 +555,18 @@ Depending on the variant, some of the components does not apply. The image below
 ![Board Topology](assets/collectiveH7_boardTopology_top_80.png)
 
 
-| **Ref.** | **Description**                       | **Ref.**         | **Description**             |
-|----------|---------------------------------------|------------------|-----------------------------|
-| U1       | Main processor                        | U10              | Power Manager               |
-| U2       | QSPI Flash Memory                     | U11              | Crypto Chip (NXP)*          |
-| U3       | USB HS PHY                            | U12, U13, U14    | ESD protection*             |
-| U4       | SDRAM                                 | U16              | Crypto Chip (Microchip)     |
-| U5       | Ethernet PHY                          | J1, J2           | High Density Connectors     |
-| U6       | MIPI to USB-C®/DisplayPort converter* | ANT1             | Antenna or U.FL Connector** |
-| U7       | Level Shifter*                        | JANALOG JDIGITAL | MKR Compatible headers      |
-| U8       | I2C level shifter*                    | J4               | Battery Connector           |
-| U9       | Wifi/BT Module**                      | J5               | ESLOV Connector             |
-| J6       | Connector micro UFL                   |                  |                             |
+| **Ref.** |            **Description**            |     **Ref.**     |       **Description**       |
+|:--------:|:-------------------------------------:|:----------------:|:---------------------------:|
+|    U1    |             Main processor            |        U10       |        Power manager        |
+|    U2    |           QSPI Flash memory           |        U11       |     Crypto chip (NXP®)*     |
+|    U3    |               USB HS PHY              |   U12, U13, U14  |       ESD protection*       |
+|    U4    |                 SDRAM                 |        U16       |   Crypto chip (Microchip®)  |
+|    U5    |              Ethernet PHY             |      J1, J2      |   High Density connectors   |
+|    U6    | MIPI to USB-C®/DisplayPort converter* |       ANT1       | Antenna or U.FL connector** |
+|    U7    |             Level shifter*            | JANALOG JDIGITAL |    MKR compatible headers   |
+|    U8    |           I2C level shifter*          |        J4        |      Battery connector      |
+|    U9    |       Wi-Fi®/Bluetooth® module**      |        J5        |       ESLOV connector       |
+|    J6    |          Micro UFL connector          |                  |                             |
 
 <p>
 * &emsp;&nbsp;&nbsp; = Only with Portenta H7 <br />
