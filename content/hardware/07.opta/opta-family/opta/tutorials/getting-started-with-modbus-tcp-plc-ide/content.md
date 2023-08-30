@@ -369,7 +369,7 @@ IF counter >= 2500 THEN
 END_IF;
 ```
 
-The `counter` is a global variable for the client Opta™. `counter_rec`, on the other hand, is the Modbus variable storing information retrieved from the server Opta™. This variable was defined during the 'Read Input Registers' Modbus function's configuration.
+The `counter` is a global variable for the client Opta™ which can be edited under `Global_vars`. `counter_rec`, on the other hand, is the Modbus variable storing information retrieved from the server Opta™. This variable was defined during the 'Read Input Registers' Modbus function's configuration.
 
 The complete workspace interface for client Opta™ should resemble the following image once the main PLC code has been successfully compiled and downloaded to the client Opta™:
 
