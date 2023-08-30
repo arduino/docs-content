@@ -172,4 +172,4 @@ Now try rotating your device to see if the image behaves correctly. If the image
 
 ## Conclusion
 
-Now you know how to use the GIGA Display Shields IMU sensor to gather readings for device orientation. And how to use these readings to make an image on the GIGA display shield maintain the correct orientation depending on what way it is facing. 
+Now you know how to use the GIGA Display Shield's IMU sensor to gather readings for device orientation, and how to use these readings to make an image on the GIGA Display Shield maintain the correct orientation depending on what way it is facing. 
