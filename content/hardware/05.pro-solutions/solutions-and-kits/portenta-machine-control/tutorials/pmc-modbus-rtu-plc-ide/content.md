@@ -42,7 +42,7 @@ In this tutorial, you will discover how to establish Modbus RTU communication be
 - [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
 - [Arduino PLC IDE software](https://www.arduino.cc/en/software#arduino-plc-ide)
 - If you have a Portenta Machine Control, you will need a unique PLC IDE License key for your device. Get your license key [here](https://store.arduino.cc/products/plc-key-portenta-machine-control). Go to section [__License Activation with Product Key (Portenta Machine Control)__](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license#6-license-activation-with-product-key-portenta-machine-control) to know more.
-- [Portenta Machine Control Modbus RTU PLC IDE Project Example File]( )
+- [Portenta Machine Control Modbus RTU PLC IDE Project Example File](assets/ModbusRTU_PMC_Example.zip)
 
 ## Modbus Protocol
 
@@ -162,7 +162,7 @@ It will require you to fill in basic information under the `General` tab and par
 - Address type
 - Swap words mode
 
-These informations will help identify and correctly communicate with the target device.
+These information will help identify and correctly communicate with the target device.
 
 #### PLC IDE Modbus Custom Editor
 <br></br>
@@ -185,7 +185,7 @@ To create a live handshake verification procedure between two Portenta Machine C
 
 Based on the counter data it receives from the "Modbus RTU Server Portenta Machine Control," the "Modbus RTU Client Portenta Machine Control" will activate the relay and the status LED. You may learn how to configure the Modbus RTU role for each Portenta Machine Control device using the role-specific sections.
 
-You may access the entire example project [here](assets/ModbusTCP_Opta_Example.zip) if you would like to test it right away. Every setting and component is ready to be assembled and uploaded to the corresponding Portenta Machine Control.
+You may access the entire example project [here](assets/ModbusRTU_PMC_Example.zip) if you would like to test it right away. Every setting and component is ready to be assembled and uploaded to the corresponding Portenta Machine Control.
 
 The following sections will demonstrate how to set up each Portenta Machine Control according to its function in a Modbus RTU connection.
 
@@ -302,7 +302,7 @@ Finally, Portenta Machine Control is now ready as a Modbus RTU Client.
 
 ### Testing Modbus RTU Communication Between Portenta Machine Control Devices (PLC IDE)
 
-You can access the complete example project [here](assets/ModbusTCP_Opta_Example.zip). You can download the compressed file, extract it, and use the pre-configured example project for your Portenta Machine Control devices.
+You can access the complete example project [here](assets/ModbusRTU_PMC_Example.zip). You can download the compressed file, extract it, and use the pre-configured example project for your Portenta Machine Control devices.
 
 Set both Portenta Machine Control devices running with the corresponding main PLC code with the hardware setup explained in [this section](#hardware-setup).
 
