@@ -5,7 +5,7 @@ author: Benjamin Dannegård
 tags: [Display, IMU, orientation, lvgl]
 ---
 
-Any modern device with a screen uses sensors to determine the correct orientation in which an image should be displayed. Using the Arduino GIGA R1 WiFi with the GIGA Display Shield we can read values given by the onboard IMU to determine what orientation an image should be given. This tutorial will show you how to manipulate an image on the GIGA Display Shield using lvgl and readings from the IMU sensor.
+Any modern device with a screen uses sensors to determine the correct orientation in which an image should be displayed. Using the Arduino GIGA R1 WiFi with the GIGA Display Shield we can read values given by the onboard IMU to determine what orientation an image should be given. This tutorial will show you how to manipulate an image on the GIGA Display Shield using LVGL and readings from the IMU sensor.
 
 ## Hardware & Software Needed
 
