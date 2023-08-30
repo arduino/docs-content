@@ -70,6 +70,12 @@ Work files: [Inkscape SVGs in zip File](https://content.arduino.cc/assets/Arduin
 - **Email/url:** rottyfish@yahoo.com
 - [Greek PDF version](https://content.arduino.cc/assets/arduino_comic_v0004_GREEK.pdf)
 
+**GUJARATI / ગુજરાતી** 
+
+* **Translated by:** Maitreya Deepak Korekar
+* **Email:** korekarmaitreya@gmail.com
+* [PDF Version](/resources/arduino-comics/arduino-comic-gujarati.pdf)
+
 **INDONESIAN / BAHASA INDONESIA**
 
 - **Translated by:** Moriano Mordekhai
