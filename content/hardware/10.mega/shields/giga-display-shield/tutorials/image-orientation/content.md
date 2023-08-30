@@ -9,8 +9,8 @@ Any modern device with a screen uses sensors to determine the correct orientatio
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1)
-- [GIGA Display Shield]()
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1)
+- [Arduino GIGA Display Shield]()
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [Arduino_BMI270_BMM150 library](https://reference.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/)
 - [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video)
