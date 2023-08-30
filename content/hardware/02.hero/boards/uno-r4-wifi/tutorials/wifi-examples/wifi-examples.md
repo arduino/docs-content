@@ -63,5 +63,8 @@ You will need to create this file, or remove the `#include "arduino_secrets.h"` 
 ### Wi-Fi® Web Client Repeating
 <CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/WiFiS3/examples/WiFiWebClientRepeating/WiFiWebClientRepeating.ino" className="arduino"/>
 
+### Wi-Fi® Web Client SSL
+<CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/WiFiS3/examples/WiFiWebClientSSL/WiFiWebClientSSL.ino" className="arduino"/>
+
 ### Wi-Fi® Web Server
 <CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/WiFiS3/examples/WiFiWebServer/WiFiWebServer.ino" className="arduino"/>

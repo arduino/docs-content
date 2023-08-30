@@ -82,11 +82,7 @@ After loading the script, we should be seeing a green light blink on the board.
 
 So what just happened? We just loaded a script to our board, instructing it to blink a green LED every second. This is to confirm things are working, and if you see blinking green light, you successfully installed and uploaded a script to your board!
 
-## Summary
-
-Congratulations! You’ve completed the installation chapter of MicroPython 101.
-
-Having trouble? Continue to the troubleshooting section. Otherwise, move on to the [Next chapter](/micropython-course/course/python-cc).
+If you ever want to return your board to program it with the Arduino IDE, you need to put it in bootloader mode. You can read about what this means and how to do it in the [Nano ESP32 Cheat sheet](https://docs.arduino.cc/tutorials/nano-esp32/cheat-sheet#arduino-bootloader-mode).
 
 ## Troubleshooting
 Got stuck? Here are a few common issues you may run into and tips on how to move forward.
@@ -104,3 +100,10 @@ Go back to step 3 in the [Step by Step](#step-by-step) section, and make sure th
 If you cannot connect to your board in the code editor, make sure you're selecting the right port.
 
 You can try **disconnecting** any other serial device such as other arduino boards from your computer, to make sure that only one device appears in the list.
+
+
+## Summary
+
+Congratulations! You’ve completed the installation chapter of MicroPython 101.
+
+Having trouble? Continue to the troubleshooting section. Otherwise, move on to the [Next chapter](/micropython-course/course/python-cc).

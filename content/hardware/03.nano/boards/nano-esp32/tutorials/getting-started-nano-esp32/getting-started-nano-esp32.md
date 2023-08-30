@@ -2,6 +2,8 @@
 title: Getting Started with Nano ESP32
 description: A step-by-step guide to install the board package needed for the Nano ESP32.
 author: Karl Söderby
+hardware:
+  - hardware/03.nano/boards/nano-esp32
 tags: [ESP32, Installation, IDE]
 ---
 
@@ -22,17 +24,19 @@ To install it, you will need the Arduino IDE, which you can download from the [A
 2. Install the Arduino IDE on your local machine.
 3. Open the Arduino IDE.
 
-![The Arduino IDE.](./assets/open-ide.png)
+![The Arduino IDE.](./assets/ide.png)
 
 ## Install Board Package
 
 To install the board package, open the "Board Manager" from the menu to the left. Search for Nano ESP32 and install the latest version (or the version you want to use).
 
-![Install Nano ESP32 boards package.](./assets/esp32boards.png)
+![Install Nano ESP32 boards package.](./assets/core.png)
 
 You should now be able to select your board in the board selector. You will need to have your board connected to your computer via the USB-C® connector at this point.
 
-![Arduino Nano ESP32 board found.](./assets/nanoboarddetected.png)
+![Arduino Nano ESP32 board found.](./assets/selector.png)
+
+***Note: You may see two versions for the Nano ESP32 available to pick in the board selector, one USB(COM21 in picture) and DFU(3-2 in picture). If you do, select the one with USB.***
 
 Congratulations, you have now successfully installed the Nano ESP32 board package via the Arduino IDE.
 
@@ -44,7 +48,7 @@ To compile and upload sketches, you can use the:
 
 There are several examples available for the Nano ESP32 board, which can be accessed directly in the IDE, through **File > Examples**. These examples can be used directly without external libraries.
 
-![Nano ESP32 examples.](./assets/nano-examples.png)
+![Nano ESP32 examples.](./assets/examples.png)
 
 ## Summary
 

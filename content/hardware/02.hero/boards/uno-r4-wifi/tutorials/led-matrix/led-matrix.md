@@ -280,10 +280,38 @@ delay(1000);
 ## Animation Generation
 We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. This tool is part of [Arduino labs](https://labs.arduino.cc), and is therefore considered experimental software. 
 
-[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool.
+To use the tool you need to upload the following sketch, allowing the board to read serial inputs send by the browser. 
+
+You can also find the sketch in **File > Examples > LED_Matrix > LivePreview**
+
+```arduino
+#include "Arduino_LED_Matrix.h"
+
+ArduinoLEDMatrix matrix;
+
+void setup() {
+  Serial.begin(115200);
+  matrix.begin();
+}
+
+uint32_t frame[] = {
+  0, 0, 0, 0xFFFF
+};
+
+void loop() {
+  if(Serial.available() >= 12){
+    frame[0] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[1] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[2] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    matrix.loadFrame(frame);
+  }
+}
+```
+
+[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool. 
 
 
-![LED Matrix Editor](./assets/led-matrix-editor.png)
+![LED Matrix Editor](./assets/led-matrix-tool.png)
 
 Once you've made your animations, you can export them from the tool in the format that lets you use them like [previously discussed](#how-to-write-a-frame).
 
