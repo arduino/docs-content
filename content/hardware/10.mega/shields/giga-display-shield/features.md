@@ -1,8 +1,8 @@
 <FeatureDescription>
 
-The GIGA Display Shield comes with a 3.97” 480x800 RGB touch screen, a digital microphone and on-board IMU, that can easily be mounted on the GIGA R1 WiFi board. An arducam connector is located at the top of the shield.
+The GIGA Display Shield comes with a 3.97” 480x800 RGB touch screen, a digital microphone and on-board IMU, that can easily be mounted on the GIGA R1 WiFi board. An Arducam® connector is located at the top of the shield.
 
-Using the fast dual core microcontroller (480MHz / 240MHz) of the GIGA R1 WiFi powerful visual solutions can be developed using the LVGL library or the ArduinoGraphics library.
+Using the fast dual core microcontroller (480 MHz / 240 MHz) of the GIGA R1 WiFi, powerful visual solutions can be developed using the LVGL library or the ArduinoGraphics library.
 
 </FeatureDescription>
 

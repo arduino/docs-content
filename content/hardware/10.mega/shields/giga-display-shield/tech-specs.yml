@@ -8,7 +8,7 @@ Connectors:
 Display:
   Size: 3.97”
   Resolution: 480x800 RGB
-  Color: 16.7M
+  Color: 16.7 million
   Touch Mode: Five points and Gestures
   Interface: I2C
 Sensors:
