@@ -149,7 +149,7 @@ It will require you to fill in basic information under the `General` tab and par
 - Address type
 - Swap words mode
 
-These informations will help identify and correctly communicate with the target device.
+These information will help identify and correctly communicate with the target device.
 
 #### PLC IDE Modbus Custom Editor
 <br></br>
