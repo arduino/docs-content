@@ -22,8 +22,7 @@ Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board 
 
 ## Using the IMU Readings With the Image
 
-Now to first get the readings from the IMU we will use the `"Arduino_BMI270_BMM150.h"` library. The `"Arduino_H7_Video.h"` and 
-`"lvgl.h"` libraries will help us handle the image. Set up the display dimensions with `Arduino_H7_Video Display(800, 480, GigaDisplayShield);`. To use the IMU set it up with `BoschSensorClass imu(Wire1);`. Next, we can give the image its attributes.
+Now to first get the readings from the IMU we will use the `"Arduino_BMI270_BMM150.h"` library. The `"Arduino_H7_Video.h"` and `"lvgl.h"` libraries will help us handle the image. Set up the display dimensions with `Arduino_H7_Video Display(800, 480, GigaDisplayShield);`. To use the IMU set it up with `BoschSensorClass imu(Wire1);`. Next, we can give the image its attributes.
 
 ```arduino
 #include "Arduino_BMI270_BMM150.h"
