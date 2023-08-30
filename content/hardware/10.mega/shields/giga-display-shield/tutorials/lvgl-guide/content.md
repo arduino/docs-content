@@ -1,25 +1,25 @@
 ---
 title: Guide for Using LVGL With the GIGA Display Shield
-description: 'Learn how to use LVGL with the GIGA display shield'
+description: 'Learn how to use LVGL with the GIGA Display Shield.'
 author: Benjamin Dannegård
 tags: [Display, LVGL]
 ---
 
 ## Introduction
 
-LVGL is a very powerful graphical framework that is compatible with the Giga Display Shield. It will allow you to put components on the screen like buttons, images, loading bars, sliders, checkboxes etc. It also allows you fully customize the screenspace on the display. This guide will go through the different components in detail so you can learn how to best implement it to your project.
+LVGL is a very powerful graphical framework that is compatible with the GIGA Display Shield. It will allow you to put components on the screen like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. This guide will go through the different components in detail so you can learn how to best implement it to your project.
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1).
-- [GIGA Display Shield](/hardware/giga-display-shield)
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1)
+- [Arduino GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library.
-- [Arduino_GigaDisplayTouch](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch) library.
+- [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library
+- [Arduino_GigaDisplayTouch](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch) library
 
 ## Downloading the Library and Core
 
-The GIGA core includes a library that will help us handle the display, so make sure you have the latest version of the core. This library is called **Arduino_H7_Video**.
+The GIGA core includes a library that will help us handle the display, so make sure you have the latest version of the core.
 
 In this guide, we will be using three different libraries:
 - **Arduino_H7_Video**, this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed)
@@ -62,13 +62,13 @@ TouchDetector.begin();
 
 ### LVGL Screen Configuration
 
-When creating elements, information about the screen and placement needs to be provided. Lets create a pointer variable that can be used whenever the screenspace needs to be used. The pointer variable will be named `screen` and to use the current screen for the pointer use `lv_scr_act()`.
+When creating elements, information about the screen and placement needs to be provided. Let's create a pointer variable that can be used whenever the screenspace needs to be used. The pointer variable will be named `screen` and to use the current screen for the pointer use `lv_scr_act()`.
 
 ```arduino
   lv_obj_t * screen = lv_obj_create(lv_scr_act());
 ```
 
-The size of the screen space needs to be set for the pointer that is declared. The size can be set to anything within the displays size parameters. To make it easy we can use the entire size:
+The size of the screen space needs to be set for the pointer that is declared. The size can be set to anything within the display's size parameters. To make it easy we can use the entire size:
 
 ```arduino
   lv_obj_set_size(screen, Display.width(), Display.height());
@@ -148,7 +148,7 @@ To make sure we see the image use the align function to make it centered. Then a
   lv_obj_set_size(img1, 200, 150);
 ```
 
-![An image rendered on the display shield with LVGL](assets/image.svg)
+![An image rendered on the Display Shield with LVGL](assets/image.svg)
 
 ## Functional Elements
 
@@ -175,7 +175,7 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
   lv_obj_add_state(checkbox, LV_STATE_CHECKED);
 ```
 
-![Checkboxes rendered on the display shield with LVGL](assets/checkboxes.svg)
+![Checkboxes rendered on the Display Shield with LVGL](assets/checkboxes.svg)
 
 ### Radio Button
 
@@ -200,7 +200,7 @@ The size of the radio button is set with `lv_style_set_radius`. To make the radi
   lv_style_set_bg_img_src(&style_radio_chk, NULL);
 ```
 
-![Radio buttons rendered on the display shield with LVGL](assets/radio-buttons.svg)
+![Radio buttons rendered on the Display Shield with LVGL](assets/radio-buttons.svg)
 
 ### Slider
 
@@ -224,7 +224,7 @@ Now the value of the slider needs to be defined, here the max value of the slide
   lv_slider_set_value(slider, 75, LV_ANIM_OFF);
 ```
 
-If you want a label by your slider it can be created like you would create any other label. Using `lv_obj_align_to` allows for the label to be attached to the slider element. Changing the `LV_ALIGN_OUT_BOTTOM_MID` to determine where the text will be relative to the slider. You can find all the different options for alignment [here.](https://docs.lvgl.io/master/widgets/obj.html#coordinates)
+If you want a label by your slider it can be created like you would create any other label. Using `lv_obj_align_to` allows for the label to be attached to the slider element. Changing the `LV_ALIGN_OUT_BOTTOM_MID` to determine where the text will be relative to the slider. You can find all the different options for alignment [here](https://docs.lvgl.io/master/widgets/obj.html#coordinates).
 
 ```arduino
   label = lv_label_create(obj);
@@ -232,11 +232,11 @@ If you want a label by your slider it can be created like you would create any o
   lv_obj_align_to(label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
 ```
 
-![Slider rendered on the display shield with LVGL](assets/slider.svg)
+![Slider rendered on the Display Shield with LVGL](assets/slider.svg)
 
 ### Bar
 
-To make a bar, for example a loading bar, we need to include some animation. Lets first set up the slider itself and then move on to the animation.
+To make a bar, like a loading bar, we need to include some animation. Let's first set up the slider itself and then move on to the animation.
 
 `obj` will be a pointer that will be used to hold the information about the screenspace information for the bar. The `bar` pointer will be used for the elements of the bar itself.
 
@@ -305,11 +305,11 @@ static void set_bar_val(void * bar, int32_t val) {
 }
 ```
 
-![A bar rendered on the display shield with LVGL](assets/bar.gif)
+![A bar rendered on the Display Shield with LVGL](assets/bar.gif)
 
 ### Button
 
-A button will need two parts, the design of the button itself and the callback event function which determines what happens when the button is pressed. Lets start with designing the button.
+A button will need two parts, the design of the button itself and the callback event function which determines what happens when the button is pressed. Let's start with designing the button.
 
 
 `obj` will be a pointer that will be used to hold the information about the screenspace information for the button. The `button` pointer will be used for the elements in the button itself. The `label` pointer will be used for the text that will be put on the button.
@@ -332,7 +332,7 @@ Set the size of the button with `lv_obj_set_size(btn, WIDTH, HEIGHT)`. For examp
   lv_obj_set_size(btn, 100, 40);
 ```
 
-Lets make the label on the button a child of the button by using `label = lv_label_create(button)`. Then the label can be set to whatever text it needs to be and center the text on top of the button so that it looks correct. The button will now say `Click me!` at the center of it.
+Let's make the label on the button a child of the button by using `label = lv_label_create(button)`. Then the label can be set to whatever text it needs to be and center the text on top of the button so that it looks correct. The button will now say `Click me!` at the center of it.
 
 ```arduino
   label = lv_label_create(button);
@@ -340,13 +340,13 @@ Lets make the label on the button a child of the button by using `label = lv_lab
   lv_obj_center(label);
 ```
 
-When the button is clicked we need to assign it a function to execute, lets call this function `button_event_callback`. Assign it to the correct button and set it to be executed when the button is clicked with `LV_EVENT_CLICKED`.
+When the button is clicked we need to assign it a function to execute, let's call this function `button_event_callback`. Assign it to the correct button and set it to be executed when the button is clicked with `LV_EVENT_CLICKED`.
 
 ```arduino
   lv_obj_add_event_cb(button, button_event_callback, LV_EVENT_CLICKED, NULL);
 ```
 
-Now lets create the callback function that will be called when the button is clicked. By creating pointers that will point to the original elements we can change them easily in our function. This function will make it so that when the button is clicked the label text on the button will be changed to `Clicked!`.
+Now let's create the callback function that will be called when the button is clicked. By creating pointers that will point to the original elements we can change them easily in our function. This function will make it so that when the button is clicked the label text on the button will be changed to `Clicked!`.
 
 
 ```arduino
@@ -357,14 +357,16 @@ static void button_event_callback(lv_event_t * e) {
 }
 ```
 
-![A button rendered on the display shield with LVGL](assets/button.svg)
-![Button when it has been clicked](assets/button-clicked.svg)
+![A button rendered on the Display Shield with LVGL](assets/button.svg)
+![Button when it has been pressed](assets/button-clicked.svg)
 
 ## Conclusion
 
-This guide went through the building blocks of the different components that can be implemented with lvgl. To see these examples in a full running example sketch go to **File->Examples->Arduino_H7_Video->LVGLDemo**.
+This guide went through the building blocks of the different components that can be implemented with LVGL. To see these examples in a full running example sketch go to **File > Examples > Arduino_H7_Video > LVGLDemo**.
+
 ![Example in the IDE](assets/example-in-ide.svg)
+
 This example sketch will show the different components in a 2x2 grid.
 
 ## Next Step
-LVGL has a lot of customizability, if you are interested in playing around more with this, you can find many different examples on the official website for [LVGL](https://docs.lvgl.io/master/examples.html). These can easily be put in a sketch for the display shield just remember to use the display-specific configuration that was shown at the [start of this tutorial](#display-shield-configuration).
+LVGL has a lot of customizability, if you are interested in playing around more with this, you can find many different examples on the official website for [LVGL](https://docs.lvgl.io/master/examples.html). These can easily be put in a sketch for the GIGA Display Shield just remember to use the display-specific configuration that was shown at the [start of this tutorial](#display-shield-configuration).
