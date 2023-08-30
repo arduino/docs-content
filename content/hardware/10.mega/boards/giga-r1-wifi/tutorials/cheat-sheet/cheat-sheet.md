@@ -30,7 +30,7 @@ You can also visit the documentation platform for the [GIGA R1](/hardware/giga-r
 
 ## Datasheet
 
-The full datasheet are available as a downloadable PDF from the link below:
+The full datasheet is available as a downloadable PDF from the link below:
 
 - [Download the GIGA R1 datasheet](/resources/datasheets/ABX00063-datasheet.pdf)
 
