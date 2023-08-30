@@ -75,7 +75,7 @@ The entire procedure is divided into three distinct stages:
 
   During this step, the Modbus TCP role, either Client or Server, is designated to the desired Portenta Machine Control. Based on this role within the Modbus TCP, 'Status variables' are outlined or a Modbus node is established to identify the communicating devices under this protocol.
 
-* __PLC Program__, developed subsequent to device initialization, envelopes around Modbus TCP and other properties. The hightlight of this step bases on minimal configuration or coding needed for the Modbus TCP specifics within the PLC code.
+* __PLC Program__, developed subsequent to device initialization, envelopes around Modbus TCP and other properties. The highlight of this step bases on minimal configuration or coding needed for the Modbus TCP specifics within the PLC code.
 
   The process has been simplified for user convenience. Just by referencing preset variables in your PLC code, the system autonomously handles data transfer through Modbus TCP. This approach leverages prior device setup, eliminating repetitive tasks and enhancing seamless communication.
 
@@ -190,7 +190,7 @@ In this example, we will make a minor adjustment to the default example code by 
 
 -- TEST SETUP
 
-For those eager to dive right in, the full example project is available for download [here](assets/ModbusTCP_Opta_Example.zip). All crucial configurations and components are incorporated, so it is ready to be compiled and uploaded to the corresponding Portenta Machine Control device.
+For those eager to dive right in, the full example project is available for download [here](assets/ModbusTCP_PMC_Example.zip). All crucial configurations and components are incorporated, so it is ready to be compiled and uploaded to the corresponding Portenta Machine Control device.
 
 Subsequent sections will delve into the setup of each Portenta Machine Control, explaining their specific roles in Modbus TCP communication.
 
