@@ -1,7 +1,7 @@
 Board:
   Name: Arduino® Portenta HAT Carrier
   SKU: ASX00049
-USB port: USBA
+USB port: USB A
 Ethernet: RJ45 GBit
 Memory slot: Micro SD card
 Debug: JTAG
