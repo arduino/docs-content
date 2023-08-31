@@ -20,7 +20,7 @@ The GIGA Display Shield comes with an Arducam camera connector. In this tutorial
 
 ## Downloading the Library and Core
 
-The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shields camera connector. To install the core for Giga boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version. Now open the library tab on the left, search for **Arducam_dvp** and install this library.
+The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version. Now open the library tab on the left, search for **Arducam_dvp**, and install this library.
 
 ![Library tab in the Arduino IDE](assets/ide-library.svg)
 
