@@ -11,8 +11,8 @@ The Giga Display shield comes with an arducam camera connector. In this tutorial
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1).
-- [GIGA Display Shield]()
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1)
+- [Arduino GIGA Display Shield]()
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - HM01B0 or HM0360 camera
 - [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video)
@@ -38,7 +38,7 @@ Connect the camera to the connector on the front of the display shield as shown 
 
 ## Full Sketch
 
-Open the example sketch by going to **File->Examples->Camera->GigaCameraDisplay** in the Arduino IDE. Whichever of the compatible cameras you are using the sketch will include libraries and definitions for them all, meaning no modification to the sketch is necessary to get it working. The sketch will capture frames into the framebuffer and then print a live camera feed to the display.
+Open the example sketch by going to **File > Examples > Camera > GigaCameraDisplay** in the Arduino IDE. Whichever of the compatible cameras you are using the sketch will include libraries and definitions for them all, meaning no modification to the sketch is necessary to get it working. The sketch will capture frames into the framebuffer and then print a live camera feed to the display.
 
 ```arduino
 #include "arducam_dvp.h"
@@ -142,5 +142,5 @@ void loop() {
 
 ## Conclusion
 
-This tutorial went through how to connect a compatible camera to the shield and also how to test it out quickly with the example sketch included in the core.
+This tutorial went through how to connect a compatible camera to the shield and also how to test it out quickly with the example sketch included in the core. Now you should see a live feed from the camera on your GIGA Display Shield!
 
