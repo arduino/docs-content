@@ -196,6 +196,15 @@ Upload the code in the snippet above to your MKR WiFi 1010 board. When it has su
 
 We can now move on to the next step: **setting up Alexa.**
 
+### Over the Air Uploads
+
+Did you know that the Arduino IoT Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
+
+***Over the Air uploads require an Entry plan to the Arduino IoT Cloud***
+
+To use this feature, make sure the board has power. If your board is already connected to the IoT Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino IoT Cloud interface, and you should see it being discovered just as if it was connected via USB.
+
+
 ## Step 2: Setting up Alexa
 
 We will now need the Amazon Alexa app which can be downloaded from the [Apple App Store](https://apps.apple.com/us/app/amazon-alexa/id944011620) or the [Google Play Store](https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en). Once installed, login with your existing account or create a new one.

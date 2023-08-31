@@ -47,7 +47,7 @@ Saves your sketch.
 ![Serial Monitor button.](assets/IDE_SERMON_File.jpg)
 
 _Serial Monitor_
-Opens the [serial monitor](#serialmonitor).
+Opens the [serial monitor](#serial-monitor).
 
 Additional commands are found within the five menus: **File**, **Edit**, **Sketch**, **Tools**, **Help**. The menus are context sensitive, which means only those items relevant to the work currently being carried out are available.
 

@@ -19,7 +19,7 @@ software:
 
 The **Arduino UNO** is our most popular and globally recognized development board, and has become a staple in the maker community and education since its release. The **Arduino UNO R4 WiFi** board is part of the 4th revision of UNO boards, and the first to feature a 32-bit MCU (RA4M1 series from Renesas).
 
-This document serves as a technical overview for the UNO R4 WiFi, where you will a collection of links to resources and guides to help you get get started with your next project. 
+This document serves as a technical overview for the UNO R4 WiFi, where you will a collection of links to resources and guides to help you get started with your next project. 
 
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish (although this is an advanced option and requires some hacking).
 
@@ -48,7 +48,7 @@ The UNO R4 WiFi can be programmed either via the Arduino IDE, Arduino Web Editor
 
 ### Arduino IDE
 
-To install the board in the Arduino IDE, search for "UNO R4" in the board manager, and install the core/package.
+To use the board in the Arduino IDE, you need to install the latest version of the **Arduino UNO R4 Boards** package from the boards manager.
 
 Read more in the [Getting Started with the UNO R4 WiFi](/tutorials/uno-r4-wifi/r4-wifi-getting-started) guide.
 
@@ -241,12 +241,6 @@ const uint32_t frames[][4] = {
 
   ```
 
-- `Arduino_LED_Matrix.begin()` - Initialises the LED matrix itself, making it ready to display frames.
-- `Arduino_LED_Matrix.autoscroll()` - Sets an automatic time interval in ms for the matrix to scroll through the frames.
-- `Arduino_LED_Matrix.next()` -  Manually moves to the next frame.
-- `Arduino_LED_Matrix.on()` -  Manually turn a single pixel on.
-- `Arduino_LED_Matrix.off()` -  Manually turn a single pixel off.
-
 ## DAC
 
 The UNO R4 WiFi also has a DAC with up to 12-bit resolution, that can act as a genuine analog output pin which means it's even more capable than PWM pins.
@@ -269,7 +263,10 @@ To learn more about the DAC capabilities of the UNO R4 WiFi, check out the [DAC 
 
 ## RTC
 
+
 A real-time clock (RTC) is used to measure the time, and is useful in any time-tracking applications.
+
+***The UNO R4 WiFi features a VRTC pin, that is used to keep the onboard RTC running, even when the boards power supply is is cut off. In order to use this, apply a voltage in the range of 1.6 - 3.6 V to the VRTC pin.***
 
 Below is a minimal example that shows how to obtain the date and time from the RTC:
 
@@ -319,7 +316,7 @@ EEPROM, also referred to as 'data' memory, is type of memory that can retain dat
 
 ```arduino
 EEPROM.write(address, val);
-EEPROM.read(address)
+EEPROM.read(address);
 ```
 
 It has a limited amount of write cycles, meaning that it is best suited for read-only applications. Make sure to never use `write()` inside `void loop()` because you may use all write cycles for the chip.
@@ -404,6 +401,8 @@ Wire.endTransmission(); //stop transmit
 
 ![Qwiic Connector on UNO WiFi R4](assets/QWIIC.png)
 
+***The Qwiic connector on the UNO R4 WiFi is connected to the secondary I2C bus (IIC0), which uses the `Wire1` object rather than the `Wire` object. Please note that the Qwiic connector is 3.3 V only.***
+
 The UNO R4 WiFi features a Qwiic/STEMMA connector that you can use to connect modules, often allowing you to daisy chain several modules and control all of them through a single connector.
 
 Qwiic or STEMMA are both names for a type of connector developed by SparkFun and Adafruit respectively, that bundles the I2C pins of a development board and breakout modules. What this means is that if you have a development board (such as for example the Arduino UNO R4 WiFi) and a breakout module, and both have a Qwiic or STEMMA connector, you can hook them up together and with absolutely minimal wiring you can quickly create multi-faceted projects. 
@@ -430,6 +429,8 @@ The UNO R4 WiFi board features 2 separate hardware serial ports.
 
 - One port is exposed via USB-C®, and 
 - One is exposed via RX/TX pins.
+
+This is one of the few things that are distinctly different from UNO R3 to UNO R4, as the UNO R3 only features one hardware serial port, that is connected to **both** the USB port and the RX/TX pins on the board.
 
 The pins used for UART on the UNO R4 WiFi are the following:
 
@@ -489,7 +490,7 @@ keyboard.press('W');
 mouse.move(x,y);
 ```
 
-This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that are pre-bundled into the core and require no installation.
+This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that you can install from the library manager in the IDE.
 
 To learn more about the HID capabilities of the UNO R4 WiFi, check out the [HID Guide](/tutorials/uno-r4-wifi/usb-hid).
 
@@ -577,6 +578,8 @@ Thanks to the ESP32 module, the UNO R4 WiFi has Bluetooth® LE and Bluetooth® 5
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish. By default, the ESP32's is used mainly as a radio module using Wi-Fi® and Bluetooth®.
 
 Overwriting the ESP32's firmware disrupts the communication between the two MCUs, but enables them to act independently. 
+
+***Note: To reprogram the ESP32 module, you need to short the ESP_Download pin to GND while resetting the board. This will put the ESP32 module in a bootloader state where you can establish a connection to it and reprogram the module.***
 
 To reprogram the ESP32 board you can either find UART-pads next to the ESP32 Module, that are laid out as shown in the image below:
 

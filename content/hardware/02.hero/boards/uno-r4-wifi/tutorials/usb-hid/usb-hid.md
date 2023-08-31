@@ -36,7 +36,17 @@ To turn your board into an HID, you can use the **keyboard/mouse** API that is b
 - [Keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/)
 - [Mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/)
 
-In the section below, you will a couple of useful examples to get you started!
+## Sketch Upload Interference
+
+As a consequence of the multi-processor design of the UNO R4 WiFi board, uploads may fail with a "`No device found on ...`" error when the board is running a sketch that uses the HID capabilities.
+
+For this reason, you should use the following procedure to upload under these conditions:
+
+**1.** Press and release the button marked "**RESET**" on the board quickly twice. The LED marked "**L**" on the board should now be pulsing.
+
+**2.** Select the port of the board from the menu in Arduino IDE. The port might have changed after the previous step, so make sure to verify that it is selected.
+
+**3.** Upload your sketch as usual.
 
 ## Keyboard
 
@@ -57,6 +67,7 @@ To emulate a keyboard, we can use the `press()` and `releaseAll()` methods. This
 
 void setup() {
   Keyboard.begin();
+  delay(1000);
 }
 
 void loop() {
@@ -66,6 +77,14 @@ void loop() {
   delay(1000); 
 }
 ```
+
+To see more examples, please refer to links below:
+
+- [Keyboard and Mouse Control Tutorial](/built-in-examples/usb/KeyboardAndMouseControl)
+- [Keyboard Reprogram Tutorial](/built-in-examples/usb/KeyboardReprogram)
+- [Keyboard Serial Tutorial](/built-in-examples/usb/KeyboardSerial)
+- [Keyboard Logout Tutorial](/built-in-examples/usb/KeyboardLogout)
+- [Keyboard Message Tutorial](/built-in-examples/usb/KeyboardMessage)
 
 ## Mouse 
 
@@ -86,6 +105,7 @@ The following example moves both axis of mouse just slightly (10 points), back a
 
 void setup() {
   Mouse.begin();
+  delay(1000);
 }
 
 void loop() {
@@ -95,6 +115,12 @@ void loop() {
   delay(1000); 
 }
 ```
+
+To see more examples, please refer to links below:
+
+- [Keyboard and Mouse Control Tutorial](/built-in-examples/usb/KeyboardAndMouseControl)
+- [Button Mouse Control Tutorial](/built-in-examples/usb/ButtonMouseControl)
+- [Joystick Mouse Control Tutorial](/built-in-examples/usb/JoystickMouseControl)
 
 ## Summary
 

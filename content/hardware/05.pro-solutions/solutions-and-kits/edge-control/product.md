@@ -6,4 +6,4 @@ core: arduino:mbed_edge
 certifications: [RoHS, REACH, WEEE, FCC, CE, RCM, UKCA]
 ---
 
-A remote monitoring and control solution, optimized for outdoor environments. Collect real-time data from smart sensors and leverage all on the edge.
+A remote monitoring and control solution, optimized for outdoor environments. Collect real-time data from smart sensors and leverage all on the edge.   

@@ -17,7 +17,7 @@ software:
   - ide-v2
 ---
 
-The Arduino® UNO R4 Minima is a development board with the classic UNO form factor, based on the [RA4M1](/resources/datasheets/ra4m1-datasheet.pdf) microcontroller from Renesas microcontroller from [Renesas](https://www.renesas.com/). It now comes with 32 kB of RAM memory, a clock speed of 48 MHz, and a USB-C® port.
+The Arduino® UNO R4 Minima is a development board with the classic UNO form factor, based on the [RA4M1](/resources/datasheets/ra4m1-datasheet.pdf) microcontroller made by [Renesas](https://www.renesas.com/). It now comes with 32 kB of RAM memory, a clock speed of 48 MHz, and a USB-C® port.
 
 This is the first UNO board that uses a 32-bit architecture, being previously based on an 8-bit AVR architecture.
 
@@ -47,7 +47,7 @@ The UNO R4 Minima can be programmed either via the Arduino IDE, Arduino Web Edit
 
 ### Arduino IDE
 
-To install the board in the Arduino IDE, search for "Renesas" in the board manager, and install the core/package.
+To use the board in the Arduino IDE, you need to install the latest version of the **Arduino UNO R4 Boards** package from the boards manager.
 
 Read more in the [Getting Started with the UNO R4 Minima](/tutorials/uno-r4-minima/minima-getting-started) guide.
 
@@ -145,14 +145,16 @@ The **RA4M1** has an internal OPAMP that is exposed on the UNO R4 Minima as foll
 
 PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
 
-The UNO R4 Minima has six PWM-capable pins marked with ~ on the headers. The PWM-capable pins are:
+The UNO R4 Minima supports PWM on pins marked with ~ on the headers. Officially supported pins are:
 
-- D3~
-- D5~
-- D6~
-- D9~
-- D10~
-- D11~
+| Pin | RA4M1 | Timer   |
+| --- | ----- | ------- |
+| D3  | P104  | GTIOC1B |
+| D5  | P102  | GTIOC2B |
+| D6  | P106  | GTIOC0B |
+| D9  | P303  | GTIOC7B |
+| D10 | P112  | GTIOC3B |
+| D11 | P109  | GTIOC1A |
 
 You may use them as analog output pins with the function: 
 
@@ -204,7 +206,7 @@ However you may change this write resolution if you need to, to up to 12 bits, a
 analogWriteResolution(12);
 ```
 
-To learn more about the ADC capabilities of the UNO R4 Minima, check out the [DAC Guide](/tutorials/uno-r4-minima/dac).
+To learn more about the DAC capabilities of the UNO R4 Minima, check out the [DAC Guide](/tutorials/uno-r4-minima/dac).
 
 ## RTC
 
@@ -255,10 +257,11 @@ To learn more about the RTC capabilities of the UNO R4 Minima, check out the [RT
 ## EEPROM
 
 EEPROM, also referred to as 'data' memory, is a type of memory that can retain data even after the board has been powered off.
+The Arduino Uno R4 Minima has 8 kB EEPROM.
 
 ```arduino
 EEPROM.write(address, val);
-EEPROM.read(address)
+EEPROM.read(address);
 ```
 
 It has a limited amount of write cycles, meaning that it is best suited for read-only applications. Make sure to never use `write()` inside `void loop()` because you may use all write cycles for the chip.
@@ -273,12 +276,12 @@ If you want to read more about the EEPROM check out [this article about Arduino 
 
 The UNO R4 Minima features a Serial Peripheral Interface (SPI) bus. The bus (connector), ‘SPI’ uses the following pins:
 
-| Pin  | Type | 
-| ---- | ---- | 
-| D13  | SCK  |
-| D12  | CIP  |
-| D11  | COP  |
-| D10  | CS   |
+| Pin  | Type  | 
+| ---- | ----- | 
+| D13  | SCK   |
+| D12  | CIPO  |
+| D11  | COPI  |
+| D10  | CS    |
 
 The following example shows how to use SPI:
 
@@ -344,6 +347,8 @@ The UNO R4 Minima board features two separate hardware serial ports.
 - One port is exposed via USB-C®, and 
 - One is exposed via RX/TX pins.
 
+This is one of the few things that are distinctly different from UNO R3 to UNO R4, as the UNO R3 only features one hardware serial port, that is connected to **both** the USB port and the RX/TX pins on the board.
+
 ### Native USB
 
 Sending serial data to your computer is done using the standard `Serial` object. I
@@ -395,7 +400,7 @@ keyboard.press('W');
 mouse.move(x,y);
 ```
 
-This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that are pre-bundled into the core and require no installation.
+This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that you can install from the library manager in the IDE.
 
 To learn more about the HID capabilities of the UNO R4 Minima, check out the [HID Guide](/tutorials/uno-r4-minima/usb-hid).
 

@@ -5,6 +5,8 @@ tags:
   - RTC
   - Alarm
 author: 'Karl Söderby'
+hardware:
+  - hardware/02.hero/boards/uno-r4-wifi
 ---
 
 In this tutorial you will learn how to access the EEPROM (memory) on an **Arduino UNO R4 WiFi** board. The EEPROM is embedded in the UNO R4 WiFi's microcontroller (RA4M1).
@@ -42,7 +44,7 @@ EEPROM.read(0); //reads first byte
 
 There are several more methods available when working with EEPROM, and you can read more about this in the [A Guide to EEPROM](https://docs.arduino.cc/learn/programming/eeprom-guide).
 
-***Please note: EEPROM is a type of memory with limited amount of write cycles. Be cautious when writing to this memory as you may significantly reduce the lifespan of this memory.***
+***Please note: EEPROM is a type of memory with a limited amount of write cycles. Be cautious when writing to this memory as you may significantly reduce the lifespan of this memory.***
 
 ### EEPROM Write 
 
@@ -55,7 +57,7 @@ int addr = 0;
 byte value = 100; 
 
 void setup() {
-  EEPROM.write(addr, val);
+  EEPROM.write(addr, value);
 }
 void loop(){ 
 }
@@ -63,23 +65,23 @@ void loop(){
 
 ### EEPROM Read
 
-A minimal example on how to **read** from the EEPROM can be found below:
+A minimal example of how to **read** from the EEPROM can be found below:
 
 ```arduino
 #include <EEPROM.h>
 
-int address = 0;
+int addr = 0;
 byte value;
 
 void setup() {
   Serial.begin(9600);
   value = EEPROM.read(addr);
   while (!Serial) {
-    ;
+
   }
 
   Serial.print("Address 0: ");
-  Serial.println(addr);
+  Serial.println(value);
 }
 
 void loop() {

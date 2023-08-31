@@ -120,6 +120,8 @@ There you will find the complete list of all members who have access to your Sha
 
 There are multiple role types in Arduino Cloud for Business to allow the admin to have full control of the rights/permissions each user has in the Shared Space. In this way, the admin can set up Role-Based-Access-Control (RBAC) by assigning profiles and sharing with any number of users.
 
+By default the member who has activated the plan and created the workspace is set as Admin. The Role-Based-Access-Control can support multiple Admins with same permissions.
+
 The table below reports the list of supported roles and corresponding permissions.
 
 |                                           | Admin | Editor  | Service Account |
@@ -137,8 +139,6 @@ The table below reports the list of supported roles and corresponding permission
 | **Create/edit/delete API keys**           |       |         | X               |
 
 \[1\] It can add/remove only Editors.
-
-Thus, the only role with full permissions is the *Admin*, which corresponds to the owner of the Arduino Cloud for Business plan.
 
 In addition to editor role, we added a Service Account, which should be one dedicated to the creation and maintenance of API Keys Tokens. We recommend having at least one Service Account for each Shared Space and linking it to a non-personal email account. In this way, API Keys do not risk getting lost with the cancellation of a personal email address.
 
@@ -385,10 +385,6 @@ Build and train professional-grade predictive models with just a few lines of co
 ## Additional Tutorials
 
 You can find more tutorials on the [Arduino IoT Cloud documentation page](https://docs.arduino.cc/arduino-cloud/).
-
-## Support
-
-Sentence provided by Content team.
 
 ## Congratulations
 

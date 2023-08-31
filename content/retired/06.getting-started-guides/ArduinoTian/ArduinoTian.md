@@ -29,7 +29,7 @@ If you want to program your Arduino Tian while offline you need to install the [
 
 #### Installing Drivers for the Arduino Tian
 
-Arduino Tian uses the CP201x driver and you must install it on the computer before you connect the board. You find the drivers for your OS at this [link](http://www.silabs.com/products/interface/Pages/CP2105EK.aspx). Please download the package for your OS and proceed as described below.
+Arduino Tian uses the CP201x driver and you must install it on the computer before you connect the board. You find the drivers for your OS at this [link](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads). Please download the package for your OS and proceed as described below.
 
 **OSX**
 You downloaded a ZIP file that contains an installable package. Please extract it and proceed launching the extracted package. The installation procedure is assisted and you will end up with a Virtual COM port available every time you connect the Tian board and that is the one to use in the Arduino Software (IDE) to program the board.

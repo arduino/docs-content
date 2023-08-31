@@ -5,7 +5,7 @@ title: 'WiFi Web Client Repeating'
 description: 'Set up your WiFi Shield to repeatedly make HTTP calls to a server.'
 ---
 
-This example shows you how to make repeated HTTP requests using a WiFi shield.  It connects to  [http://www.arduino.cc/latest.txt](/latest.txt). The content of the page is viewable through your Arduino Software (IDE) serial window.
+This example shows you how to make repeated HTTP requests using a WiFi shield.  It connects to  [http://www.arduino.cc/latest.txt](http://www.arduino.cc/latest.txt). The content of the page is viewable through your Arduino Software (IDE) serial window.
 
 This example is written for a network using WPA encryption. For  WEP or WPA, change the Wifi.begin() call accordingly.
 

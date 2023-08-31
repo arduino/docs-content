@@ -1,14 +1,6 @@
 ---
 title: "Audio Basics with Arduino"
 description: "Learn how to create tones and even entire songs using an Arduino."
-source:
-  [
-    "https://playground.arduino.cc/Main/Freqout/",
-    "https://playground.arduino.cc/Code/MusicalAlgoFun/",
-    "https://playground.arduino.cc/Code/PCMAudio/",
-    "https://playground.arduino.cc/Main/RickRoll/",
-    "https://playground.arduino.cc/Main/Smoothstep/",
-  ]
 author: "Paul Badger, Alexandre Quessy, Michael Smith, Samantha Lagestee, Dan Thompson"
 ---
 

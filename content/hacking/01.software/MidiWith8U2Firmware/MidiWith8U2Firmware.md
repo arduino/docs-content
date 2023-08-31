@@ -10,7 +10,7 @@ Following the instructions on the [Programming 8U2 instructions](/hacking/softwa
 
 You can read the Wikipedia [MIDI](http://en.wikipedia.org/wiki/MIDI) entry for complete information on the specification, but in a nutshell, MIDI is a useful protocol for controlling synthesizers, sequencers, and other musical devices. MIDI devices are generally grouped in two broad classes: controllers (i.e. devices that generate MIDI signals based on human actions) and synthesizers (including samplers, sequencers, and so forth).
 
-For more information, see this [introduction to MIDI](http://www.tigoe.net/pcomp/code/communication/midi) or this [example](http://itp.nyu.edu/physcomp/Labs/MIDIOutput).
+For more information, see this [introduction to MIDI](https://www.tigoe.com/pcomp/code/communication/midi/) or this [example](http://itp.nyu.edu/physcomp/Labs/MIDIOutput).
 
 The Serial.print() function will send a MIDI command to the software synthesizer of your choice (in this example we will use Cycling74's Max/MSP, but any application that accepts MIDI will do).
 

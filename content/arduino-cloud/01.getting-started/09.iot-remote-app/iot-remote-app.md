@@ -23,6 +23,8 @@ The phone's sensor data is automatically stored in cloud variables, which you ca
 
 To use the Arduino IoT Cloud Remote app, visit Google Play / App Store and search for **"Arduino IoT Cloud Remote"**. Links are available just above.
 
+***NOTE: The IoT Remote app requires iOS 12.4 or later for iOS the version. If you are using Android, version 8.0 or later is required. Make sure the iOS or Android version on your device is up to date before downloading the app.***
+
 After installing the app, you will need to log in to your Arduino account. If you do not have one, you can [sign up here](https://login.arduino.cc/login).
 
 After you login, you will discover all of your dashboards (if you have any), in the main menu. 

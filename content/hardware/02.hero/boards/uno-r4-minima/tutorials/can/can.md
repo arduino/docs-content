@@ -22,10 +22,10 @@ The goals of this tutorial are:
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 - [Arduino R4 Minima](https://store.arduino.cc/uno-r4-minima)
 - [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
-- CAN transceiver module\* 
+- CAN transceiver module * 
 - Jumper wires
 
-In this tutorial, we are using a SN65HVD230 breakout module. 
+* In this tutorial, we are using a SN65HVD230 breakout module. 
 
 ## Controller Area Network (CAN)
 
@@ -45,7 +45,7 @@ To connect the CAN transceiver, follow the table and circuit diagram below:
 | ------------- | --------------- |
 | D5 (CANRX0)   | CANRX           |
 | D4 (CANTX0)   | CANTX           |
-| 5 V            | VIN/VCC/5 V      |
+| 3.3 V         | VCC             |
 | GND           | GND             |
 
 Then, between the CAN transceivers, connect the following:
@@ -79,80 +79,13 @@ CanMsg msg(CAN_ID, sizeof(msg_data), msg_data);
 
 After you have crafted a CAN message, we can send it off, by using the `CAN.write()` method. The following example creates a CAN message that increases each time `void loop()` is executed. 
 
-```arduino
-#include <Arduino_CAN.h>
-
-static uint32_t const CAN_ID = 0x20;
-
-void setup()
-{
-  Serial.begin(115200);
-  while (!Serial) { }
-
-  if (!CAN.begin(CanBitRate::BR_250k))
-  {
-    Serial.println("CAN.begin(...) failed.");
-    for (;;) {}
-  }
-}
-
-static uint32_t msg_cnt = 0;
-
-void loop()
-{
-  /* Assemble a CAN message with the format of
-   * 0xCA 0xFE 0x00 0x00 [4 byte message counter]
-   */
-  uint8_t const msg_data[] = {0xCA,0xFE,0,0,0,0,0,0};
-  memcpy((void *)(msg_data + 4), &msg_cnt, sizeof(msg_cnt));
-  CanMsg msg(CAN_ID, sizeof(msg_data), msg_data);
-
-  /* Transmit the CAN message, capture and display an
-   * error core in case of failure.
-   */
-  if (int const rc = CAN.write(msg); rc < 0)
-  {
-    Serial.print  ("CAN.write(...) failed with error code ");
-    Serial.println(rc);
-    for (;;) { }
-  }
-
-  /* Increase the message counter. */
-  msg_cnt++;
-
-  /* Only send one message per second. */
-  delay(1000);
-}
-```
+<CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/Arduino_CAN/examples/CANWrite/CANWrite.ino" className="arduino"/>
 
 ### CAN Read
 
 To read an incoming CAN message, first use `CAN.available()` to check if data is available, before using `CAN.read()` to read the message.
 
-```arduino
-#include <Arduino_CAN.h>
-
-void setup()
-{
-  Serial.begin(115200);
-  while (!Serial) { }
-
-  if (!CAN.begin(CanBitRate::BR_250k))
-  {
-    Serial.println("CAN.begin(...) failed.");
-    for (;;) {}
-  }
-}
-
-void loop()
-{
-  if (CAN.available())
-  {
-    CanMsg const msg = CAN.read();
-    Serial.println(msg);
-  }
-}
-```
+<CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/Arduino_CAN/examples/CANRead/CANRead.ino" className="arduino"/>
 
 ## Summary
 

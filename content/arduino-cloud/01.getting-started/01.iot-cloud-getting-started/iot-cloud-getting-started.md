@@ -45,7 +45,7 @@ Below is a list of Arduino IoT Cloud features.
 
 To use the Arduino IoT Cloud, a **cloud compatible board** is required. You can choose between using an official Arduino board, or a board based on the ESP32 / ESP8266 microcontroller. The Arduino IoT Cloud currently supports connection via Wi-Fi, LoRaWAN® (via The Things Network) and mobile networks.
 
-***All cloud-compatible Arduino boards come with a hardware secure element (such as the [ECC508](/resources/datasheets/ATECC508A-datasheet.pdf) cryptochip), where you can store your security keys.***
+***All cloud-compatible Arduino boards come with a hardware secure element (such as the [ECC508](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/20005928A.pdf) cryptochip), where you can store your security keys.***
 
 ### Wi-Fi
 
@@ -63,6 +63,7 @@ The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - [Opta](https://docs.arduino.cc/hardware/opta).
+- [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
 
 Connection via Wi-Fi is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the cloud via your home/work/school router.
 
@@ -185,6 +186,14 @@ The editor also has a **Serial Monitor Tool**, which can be opened by clicking t
 After we have successfully uploaded the code, we can open the **“Serial Monitor”** tab to view information regarding our connection. If it is successful, it will print **“connected to network_name”** and **“connected to cloud”**. If it fails to connect, it will print the errors here as well.
 
 ***The cloud editor is a mirrored "minimal" version of the Web Editor. Any changes you make will also be reflected in the Web Editor, which is more suitable for developing more advanced sketches.***
+
+#### Over the Air Uploads
+
+Did you know that the Arduino IoT Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
+
+***Over the Air uploads require an Entry plan to the Arduino IoT Cloud***
+
+To use this feature, make sure the board has power. If your board is already connected to the IoT Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino IoT Cloud interface, and you should see it being discovered just as if it was connected via USB.
 
 ### 8. Creating a Dashboard
 

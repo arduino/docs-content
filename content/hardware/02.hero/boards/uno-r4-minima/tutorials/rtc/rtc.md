@@ -25,7 +25,7 @@ The goals of this project are:
 
 ## Real-Time Clock (RTC)
 
-The RTC on the UNO R4 Minima can be accessed using the [RTC]() library that is included in the [Renesas]() core. This library allows you to set/get the time as well as using alarms to trigger interrupts. 
+The RTC on the UNO R4 Minima can be accessed using the [RTC](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/RTC) library that is included in the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core. This library allows you to set/get the time as well as using alarms to trigger interrupts. 
 
 There are many practical examples using an RTC, and the examples provided in this page will help you get started with it.
 
@@ -50,7 +50,7 @@ void setup() {
   
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTime(startTime)
+  RTC.setTime(startTime);
 }
 
 void loop(){
@@ -75,7 +75,7 @@ void setup() {
   
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTime(startTime)
+  RTC.setTime(startTime);
 }
 
 void loop(){
@@ -109,7 +109,7 @@ void setup() {
   
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTime(startTime)
+  RTC.setTime(startTime);
 }
 
 void loop() {
@@ -144,7 +144,6 @@ void loop() {
 To retrieve the Unix timestamp, use the `getUnixTime()` method.
 
 ```arduino
-```arduino
 #include "RTC.h"
 
 void setup() {
@@ -154,7 +153,7 @@ void setup() {
   
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTime(startTime)
+  RTC.setTime(startTime);
 }
 
 void loop() {

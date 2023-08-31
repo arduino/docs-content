@@ -25,7 +25,7 @@ Some of the important use cases for LPWAN's include the following applications:
 - **Smart grids**: electricity, water, and gas metering.
 - **Smart agriculture**: land condition monitoring, animal tracking, geofencing. 
 
-***If you want to read more about LPWAN's, check out [this article](/learn/wireless/low-power-wide-area-networks-101) from the Learn section.***
+***If you want to read more about LPWAN's, check out [this article](/learn/communication/low-power-wide-area-networks-101) from the Learn section.***
 
 Several LPWAN technologies use **licensed** or **unlicensed frequencies** and **proprietary** or **open** specifications. **LoRa®** and its Media Access Control (MAC) layer protocol implementation, **LoRaWAN®**, is currently one of the existing LPWAN gaining the most traction to support IoT devices and services. 
 
@@ -156,7 +156,7 @@ Arduino® brings LoRa® connectivity to your projects with several boards, addon
 
 ### Arduino® Boards with LoRa® Connectivity
 
-The MKR WAN [1300](https://store.arduino.cc/products/arduino-mkr-wan-1300-lora-connectivity) and [1310](https://store.arduino.cc/products/arduino-mkr-wan-1310) boards provide you with a practical and cost-effective solution to applications that require LoRa® connectivity and low-power consumption. The MKR WAN 1300 and 1310 boards are based on a [SAMD21 microcontroller](https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf) from Microchip®; they also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf) module from Murata® for LoRa® connectivity, the [ATECC508](https://docs.arduino.cc/resources/datasheets/ATECC508A-datasheet.pdf) cryptoauthentication device for security, and a 2MB SPI Flash memory for onboard storage. 
+The MKR WAN [1300](https://store.arduino.cc/products/arduino-mkr-wan-1300-lora-connectivity) and [1310](https://store.arduino.cc/products/arduino-mkr-wan-1310) boards provide you with a practical and cost-effective solution to applications that require LoRa® connectivity and low-power consumption. The MKR WAN 1300 and 1310 boards are based on a [SAMD21 microcontroller](https://content.arduino.cc/assets/mkr-microchip_samd21_family_full_datasheet-ds40001882d.pdf) from Microchip®; they also features a [CMCMWX1ZZABZ](https://content.arduino.cc/assets/mkrwan1310-murata_lora_module-type_abz.pdf) module from Murata® for LoRa® connectivity, the [ATECC508](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/20005928A.pdf) cryptoauthentication device for security, and a 2MB SPI Flash memory for onboard storage. 
 
 ![The Arduino® MKR WAN 1310 board.](assets/lorawan-101_img10.png)
 

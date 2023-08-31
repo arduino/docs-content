@@ -29,7 +29,7 @@ In this section, we will dedicate some time to learn about some fundamentals in 
   - [Sensors & Actuators](#sensors--actuators)
   - [Serial Communication Protocols](#serial-communication-protocols)
   - [Memory](#memory)
-  - [Embedded Components](#embedded-components)
+  - [Embedded Sensors](#embedded-sensors)
   - [Internet of Things (IoT)](#internet-of-things-iot)
 
 ### Arduino API
@@ -49,7 +49,7 @@ In this section you will learn how to set up your development environment as wel
 
   - [A Typical Workflow](#a-typical-workflow)
   - [Arduino IDE 1.8.x](#arduino-ide-18x)
-  - [Arduino IDE 2](#arduino-ide-20x)
+  - [Arduino IDE 2](#arduino-ide-2)
   - [Arduino IoT Cloud](#arduino-iot-cloud)
   - [Web Editor](#web-editor)
   - [Library Manager](#library-manager)

@@ -11,11 +11,57 @@ So what do you need to start your first project with MicroPython and Arduino? Fi
 
 In order to understand which board is more suitable to your project, you can visit the documentation of each board.
 
+## Arduino MicroPython Installer
+
+We have developed a tool for installing the MicroPython firmware to your Arduino boards with a simple click. This tool lets you plug in the board, select it from a menu, and automatically flash the latest firmware, or a custom one of your choice to the board. 
+
+Download [Arduino MicroPython Installer here](https://labs.arduino.cc/en/labs/micropython-installer). 
+
+Arduino MicroPython Installer is part of [Arduino Labs](https://labs.arduino.cc), and is therefore considered experimental software.
+
+To get started, open the app and plug in your board to the computer. You should now see it pop up ready to be selected in the list. If it doesn't, try putting it in bootloader mode by double tapping the reset button. 
+
+![Arduino Nano ESP32 detected!](./assets/board-selected.png)
+
+Now, uploading the MicroPython firmware is as easy as pressing **"install MicroPython"** and waiting for a couple of seconds while the installer tool takes care of everything else.
+
+![Firmware Successfully Uploaded!](./assets/flashed.png)
+
+
+If you don't want to use the Arduino MicroPython Installer tool, these are the per-board steps for manual installation:
+
+## Nano ESP32
+
+Software required:
+- MicroPython Firmware
+- [esptool.py](https://github.com/espressif/esptool) installed
+- [Python](https://www.python.org) installed on your computer
+​
+First prepare the board for a new firmware upload by shorting the B1 pin to GND and pressing the reset button.
+
+Then run the following esptool command to erase the flash, replace `{port-name}` with the name of the port your board is connected to:
+
+​
+```
+esptool.py --chip esp32s3 --port {port-name} erase_flash
+```
+​
+Then run this command to upload the new firmware, replace `{firmware.bin}` with the name of your firmware binary file, and `{port-name}` with the name of the port your board is connected to:
+
+
+​
+```
+esptool.py --chip esp32s3 --port {port-name} write_flash -z 0 {firmware.bin}
+
+```
+​
+Now your board should be prepared to be programmed with MicroPython!
+
 ## Nano 33 BLE & Nano 33 BLE Sense
 
-- [Nano 33 BLE documentation](/hardware/nano-ble).
-- [Nano 33 BLE Sense documentation.](/hardware/nano-ble-sense)
-- [Nano 33 BLE Sense Rev2 documentation.](/hardware/nano-ble-sense-rev2)
+- [Nano 33 BLE documentation](/hardware/nano-33-ble).
+- [Nano 33 BLE Sense documentation.](/hardware/nano-33-ble-sense)
+- [Nano 33 BLE Sense Rev2 documentation.](/hardware/nano-33-ble-sense-rev2)
 
 ![Nano 33 BLE.](assets/ble.png)
 

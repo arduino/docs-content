@@ -13,7 +13,7 @@ libraries:
   - name:  Arduino BMI270_BMM150
     url: https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/
   - name: Arduino HS300x
-    url: https://www.arduino.cc/en/Reference/ArduinoHS300x
+    url: https://reference.arduino.cc/reference/en/libraries/arduino_hs300x/
   - name: Arduino APDS9960
     url: https://www.arduino.cc/en/Reference/ArduinoAPDS9960
   - name: Arduino SPI
@@ -206,9 +206,9 @@ The magnetometer data can be accessed through the following commands:
 
 If you want to learn more on how to use the IMU, please check out the tutorial below:
 
-- [Accessing IMU gyroscope data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu_gyroscope)
-- [Accessing IMU accelerometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu_accelerometer)
-- [Accessing IMU magnetometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu_magnetometer)
+- [Accessing IMU gyroscope data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu-gyroscope)
+- [Accessing IMU accelerometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu-accelerometer)
+- [Accessing IMU magnetometer data with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/imu-magnetometer)
 
 ## Proximity and Gesture Detection
 
@@ -261,7 +261,7 @@ The **HS3003** capacitive digital sensor measures relative humidity and temperat
 
 ### HS3003 Library
 
-To access the data from the HS3003 module, we need to install the [HS3003](https://github.com/arduino-libraries/Arduino_HS3003) library, which comes with examples that can be used directly with the Nano 33 BLE Sense Rev2.
+To access the data from the HS3003 module, we need to install the [Arduino_HS300x](https://github.com/arduino-libraries/Arduino_HS300x) library, which comes with examples that can be used directly with the Nano 33 BLE Sense Rev2.
 
 It can be installed directly from the library manager through the IDE of your choice. To use it, we need to include it at the top of the sketch:
 
@@ -288,7 +288,7 @@ Serial.println(HS300x.readHumidity());
 
 If you want to learn more on how to use the temperature and humidity sensor, please check out the tutorial below:
 
-- [Reading Temperature & Humidity on Nano 33 BLE Sense Rev2](https://docs.arduino.cc/tutorials/nano-33-ble-sense-rev2/humidity_and_temperature_sensor)
+- [Reading Temperature & Humidity on Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/humidity-and-temperature-sensor)
 
 ## Pressure Sensor
 
@@ -326,7 +326,7 @@ BARO.readPressure();
 
 If you want to learn more on how to use the temperature and humidity sensor, please check out the tutorial below:
 
-- [Access Barometric Pressure Sensor Data on Nano 33 BLE Sense Rev2](https://docs.arduino.cc/tutorials/nano-33-ble-sense-rev2/barometric_sensor)
+- [Access Barometric Pressure Sensor Data on Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense-rev2/barometric-sensor)
 
 ## Microphone
 

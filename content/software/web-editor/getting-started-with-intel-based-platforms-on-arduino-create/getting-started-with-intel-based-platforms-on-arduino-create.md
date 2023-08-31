@@ -32,7 +32,7 @@ All you need to get started is an Arduino Profile.
 
 ![Create your Arduino account.](assets/screenshot_2017-08-08_14_17_39_hUVJ4SxyAh.png)
 
-Note that you can also use this account to write posts on [Arduino’s official Forum](http://forum.arduino.cc/index.php?board=101.0), buy products on the [online store](https://store.arduino.cc/), add comments on the [blog](https://blog.arduino.cc/), as well as create tutorials on the Arduino Project Hub (YAY!).
+Note that you can also use this account to write posts on [Arduino’s official Forum](https://forum.arduino.cc/c/software/intel-based-platforms/144), buy products on the [online store](https://store.arduino.cc/), add comments on the [blog](https://blog.arduino.cc/), as well as create tutorials on the Arduino Project Hub (YAY!).
 
 ### Logging In To The Arduino Web Editor
 

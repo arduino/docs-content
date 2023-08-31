@@ -4,7 +4,7 @@ description: "Get off the ground with the Arduino UNO R4 WiFi's built in LED mat
 tags:
   - Guide
   - LED Matrix
-author: 'Jacob Hylén'
+author: 'Jacob Hylén & Tom Igoe'
 hardware:
   - hardware/02.hero/boards/uno-r4-wifi
 software:
@@ -14,7 +14,6 @@ software:
 ---
 
 The **Arduino UNO R4 WiFi** comes with a built in 12x8 LED Matrix, that is available to be programmed to display graphics, animations, act as an interface, or even play games on. 
-
 ## Goals
 
 The matrix and its API are developed to be programmed in a few different ways, each suited for different applications. This guide will walk you through the basic concepts for programming the LED matrix, and get you started with creating your own animations, while highlighting two different ways of handling the LEDs to create animations and images. This makes it easier for you to decide what method fits your needs best!
@@ -66,18 +65,86 @@ The LED Matrix library for the UNO R4 WiFi works on the principle of creating a 
 
 A frame is what we call the "image" that is displayed at any given moment on the matrix. If an animation is a series of images, a frame is one of those images in the series.
 
-How this frame is created can vary quite a lot, and you can choose whatever way is the easiest for your application, but most of the time you'll be creating an array that holds the frame in three 32-bit integers. A frame like this is difficult for a person to interpret, but it is efficient and therefore the way to go if you're making animations or graphics to display the states of a program or interfaces. You can create frames and animations such as this one by [this browser tool](#animation-generation) developed by Arduino. Such a frame may look similar to this:
+In order to control the 12x8 LED matrix on the UNO R4 WiFi, you need a space in memory that's at least 96 bits in size. The library provides two ways to do this. 
 
-```
-const uint32_t heart[] = {
-	0x3184a444,
-	0x44042081,
-	0x100a0040
+The first is simply to make a two-dimensional array of bytes like so:
+```arduino
+byte frame[8][12] = {
+  { 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0 },
+  { 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0 },
+  { 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0 },
+  { 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0 },
+  { 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
 };
 ```
 
-Now if you've got several different frames, you can load and display them like this:
+This option is simple to understand, because you can see the image in the pattern of the array, and it is easy to edit in runtime. The ones in the array above form a heart, and that's the image you'd see on the screen.
+
+To target an individual pixel you select its address and change the value, remember that you'll need to start counting at 0. So, the following line will target the third pixel from the left and the second from the top, then turn it on:
+
+```arduino
+frame[2][1] = 1;
+
+matrix.renderBitmap(frame, 8, 12);
 ```
+
+This method takes more memory than is needed, however. Even though each LED needs only a single bit to store its state, you're using eight bits (a byte). The more memory-efficient method to store a frame is to use an array of 32-bit integers.
+
+In this section we'll walk through the process and the concept of how you may create one of these frames yourself. Though we have developed a tool that can do this for you, so you can [click here](#animation-generation) if you want to skip this exercise.
+
+Here's the same heart in that form:
+
+```arduino
+unsigned long frame[] = {
+  0x3184a444,
+  0x42081100,
+  0xa0040000
+};
+```
+An unsigned long variable holds 32 bits, and 96/32 is 3, so an unsigned long array is an efficient way to hold all the bits you need for the LED matrix. 
+
+But how do those hexadecimal values relate to the positions of the pixels? To find out, convert the hexadecimal values to binary values. Here's a code snippet that will do this:
+
+```arduino
+for (int b = 0; b < 3; b++) {
+    Serial.println(frame[b], BIN);
+  }
+```
+
+This will print out all the bit values of the array. The output will look like this:
+
+```arduino
+110001100001001010010001000100
+1000010000010000001000100000000
+10100000000001000000000000000000
+```
+
+This method doesn't show you all the bits, though. Each array element should have 32 bits. If you add zeros to show all 32 bits of each element, you get:
+
+```arduino
+00110001100001001010010001000100
+01000010000010000001000100000000
+10100000000001000000000000000000
+```
+Now divide it into groups of 12 bits and you've got the heart back:
+```arduino
+001100011000
+010010100100
+010001000100
+001000001000
+000100010000
+000010100000
+000001000000
+000000000000
+```
+
+***Hint: You can see the heart easier if you highlight all "1"s on the page by pressing CTRL/command + F and search for "1".***
+
+If you've got several different frames, you can load and display them like this:
+```arduino
 const uint32_t happy[] = {
 	0x19819,
 	0x80000001,
@@ -90,43 +157,24 @@ const uint32_t heart[] = {
 	0x100a0040
 };
 
-matrix.loadFrame(happy);
+  matrix.loadFrame(happy);
   delay(500);
+
   matrix.loadFrame(heart);
   delay(500);
 ```
 
-
-You may also represent your frame with an array of individual bits, where each pixel is represented by a bit, and can be accessed by its row and column (this way being a good choice if you need to generate frames from within a sketch, for instance if you are making a game). This `frame` array contains a representation of each pixel in the matrix laid out in the same 12x8 grid.
-
-```
-uint8_t frame[8][12] = {
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-  { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
-};
-
-```
-To target an individual pixel you select its address and change the value, remember that you'll need to start counting at 0. So, the following line will target the third pixel from the left and the second from the top, then turn it on:
-```
-frame[2][1] = 1;
-matrix.renderBitmap(frame, 8, 12);
-```
-
 ## Testing It Out
 
-Let's apply these concepts, with two basic sketches that display different frames on your board. First, let's load 3x32-bit integer frames and load them one by one.
+Let's apply these concepts, with two basic sketches that display different frames on your board. First, let's create 3x32-bit integer frames and load them one by one.
 
 Here's a sketch that will first load a smiley face on your matrix, and then change it to a heart.
 
-```
+```arduino
 #include "Arduino_LED_Matrix.h"
+
 ArduinoLEDMatrix matrix;
+
 void setup() {
   Serial.begin(115200);
   matrix.begin();
@@ -146,6 +194,7 @@ const uint32_t heart[] = {
 void loop(){
   matrix.loadFrame(happy);
   delay(500);
+
   matrix.loadFrame(heart);
   delay(500);
 }
@@ -155,9 +204,11 @@ The sketch is pretty simple, and yet the outcome is very expressive and can help
 
 Now let's change approach and create a bitmap that we change in runtime. This sketch includes several functions that each draw part of a face, and then winks the left eye by turning off certain pixels. 
 
-```
+```arduino
 #include "Arduino_LED_Matrix.h"
+
 ArduinoLEDMatrix matrix;
+
 void setup() {
   Serial.begin(115200);
   matrix.begin();
@@ -175,7 +226,7 @@ uint8_t frame[8][12] = {
 };
 
 void leftEye(){
-//Left eye
+  //Left eye
   frame[1][3] = 1;
   frame[1][4] = 1;
   frame[2][3] = 1;
@@ -191,7 +242,7 @@ void wink(){
 }
 
 void rightEye(){
-//Right eye
+  //Right eye
   frame[1][8] = 1;
   frame[1][9] = 1;
   frame[2][8] = 1;
@@ -199,7 +250,7 @@ void rightEye(){
 }
 
 void mouth(){
-//Mouth
+  //Mouth
   frame[5][3] = 1;
   frame[5][9] = 1;
   frame[6][3] = 1;
@@ -220,6 +271,7 @@ matrix.renderBitmap(frame, 8, 12);
 
 delay(1000);
 wink();
+
 matrix.renderBitmap(frame, 8, 12);
 delay(1000);
 }
@@ -228,10 +280,38 @@ delay(1000);
 ## Animation Generation
 We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. This tool is part of [Arduino labs](https://labs.arduino.cc), and is therefore considered experimental software. 
 
-[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool.
+To use the tool you need to upload the following sketch, allowing the board to read serial inputs send by the browser. 
+
+You can also find the sketch in **File > Examples > LED_Matrix > LivePreview**
+
+```arduino
+#include "Arduino_LED_Matrix.h"
+
+ArduinoLEDMatrix matrix;
+
+void setup() {
+  Serial.begin(115200);
+  matrix.begin();
+}
+
+uint32_t frame[] = {
+  0, 0, 0, 0xFFFF
+};
+
+void loop() {
+  if(Serial.available() >= 12){
+    frame[0] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[1] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[2] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    matrix.loadFrame(frame);
+  }
+}
+```
+
+[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool. 
 
 
-![LED Matrix Editor](./assets/led-matrix-editor.png)
+![LED Matrix Editor](./assets/led-matrix-tool.png)
 
 Once you've made your animations, you can export them from the tool in the format that lets you use them like [previously discussed](#how-to-write-a-frame).
 

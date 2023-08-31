@@ -5,6 +5,8 @@ tags:
   - RTC
   - Alarm
 author: 'Karl Söderby'
+hardware:
+  - hardware/02.hero/boards/uno-r4-wifi
 ---
 
 In this tutorial you will learn how to access the real-time clock (RTC) on an **Arduino UNO R4 WiFi** board. The RTC is embedded in the UNO R4 WiFi's microcontroller (RA4M1).
@@ -27,6 +29,8 @@ The goals of this project are:
 
 The RTC on the UNO R4 WiFi can be accessed using the [RTC](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/RTC) library that is included in the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core. This library allows you to set/get the time as well as using alarms to trigger interrupts. 
 
+***The UNO R4 WiFi features a VRTC pin, that is used to keep the onboard RTC running, even when the boards power supply is is cut off. In order to use this, apply a voltage in the range of 1.6 - 3.6 V to the VRTC pin.***
+
 There are many practical examples using an RTC, and the examples provided in this page will help you get started with it.
 
 ### Set Time
@@ -36,7 +40,7 @@ There are many practical examples using an RTC, and the examples provided in thi
 
 To set the starting time for the RTC, you can create an `RTCTime` object. Here you can specify the day, month, year, hour, minute, second, and specify day of week as well as daylight saving mode.
 
-Then to set the time, use the `setTime()` method. 
+Then to set the time, use the `setTime()` method.
 
 Example:
 
@@ -50,7 +54,7 @@ void setup() {
   
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTime(startTime)
+  RTC.setTime(startTime);
 }
 
 void loop(){
@@ -75,7 +79,7 @@ void setup() {
   
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTime(startTime)
+  RTC.setTime(startTime);
 }
 
 void loop(){
@@ -109,7 +113,7 @@ void setup() {
   
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTime(startTime)
+  RTC.setTime(startTime);
 }
 
 void loop() {
@@ -144,7 +148,6 @@ void loop() {
 To retrieve the Unix timestamp, use the `getUnixTime()` method.
 
 ```arduino
-```arduino
 #include "RTC.h"
 
 void setup() {
@@ -154,7 +157,7 @@ void setup() {
   
   RTCTime startTime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTime(startTime)
+  RTC.setTime(startTime);
 }
 
 void loop() {

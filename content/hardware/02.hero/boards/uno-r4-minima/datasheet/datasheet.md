@@ -207,8 +207,8 @@ In case you need to power external devices that require more power, e.g. servo m
 | 12  | D6        | Digital | GPIO 6 (PWM~)                                    |
 | 13  | D5/CANRX0 | Digital | GPIO 5 (PWM~) / CAN Transmitter (TX)             |
 | 14  | D4/CANTX0 | Digital | GPIO 4 / CAN Receiver (RX)                       |
-| 15  | D3        | Digital | GPIO 3 (PWM~)                                    |
-| 16  | D2        | Digital | GPIO 2                                           |
+| 15  | D3        | Digital | GPIO 3 (PWM~) / Interrupt Pin                  |
+| 16  | D2        | Digital | GPIO 2 / Interrupt Pin                         |
 | 17  | D1/TX0    | Digital | GPIO 1 / Serial 0 Transmitter (TX)               |
 | 18  | D0/TX0    | Digital | GPIO 0 / Serial 0 Receiver    (RX)               |
 
@@ -365,6 +365,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Changes** |
-| ---------- | ----------- |
-| 06/19/2023 | Release     |
+| Date       | **Revision** | **Changes**        |
+| ---------- | ------------ | ------------------ |
+| 25/07/2023 | 2            | Update Pin Table   |
+| 06/19/2023 | 1            | First Release      |

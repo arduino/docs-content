@@ -16,7 +16,7 @@ hardware:
 
 ## Overview
 
-The Media Access Control (MAC) address is essential for computer networking and devices with Internet of Things (IoT) capabilities, such as the [Opta™](https://store.arduino.cc/pages/opta). In this tutorial, we will learn how to retrieve the MAC address of an Opta™ device using the Arduino ecosystem tools.
+The Media Access Control (MAC) address is essential for computer networking and devices with Internet of Things (IoT) capabilities, such as the [Opta™](/hardware/opta). In this tutorial, we will learn how to retrieve the MAC address of an Opta™ device using the Arduino ecosystem tools.
 
 ![The Opta™ MAC address retrieval](assets/mac-address-retrieval.png)
 

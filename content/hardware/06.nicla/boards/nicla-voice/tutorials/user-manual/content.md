@@ -96,25 +96,34 @@ The complete STEP files are available and downloadable from the link below:
 The Nicla voice can be powered by:
 
 - Using a Micro USB cable (not included). 
-- Using an external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#board-pinout) of the user manual).
+- Using an external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#pinout) of the user manual).
 - Using a **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
 - Using the onboard **ESLOV connector**, which has a dedicated 5V power line.
 
 ![Different ways to power the Nicla Voice](assets/user-manual-6.png)
+
+The onboard battery charger of your board is, by default, **disabled**. To enable it, you can use the `enableCharge()` function defined in the Nicla Voice board core:
+
+```arduino
+// Enabling the battery charger 
+// The function parameter defines the charging current in mA
+nicla::enableCharge(100);
+```
 
 ### NDP120 Processor Firmware Update
 
 It is recommended to update the NDP120 processor firmware and the built-in speech recognition model to the latest release. Follow these three steps to complete the update process:
 
 1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board in the Arduino IDE first before navigating to the examples**.
-2. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, and the updated NDP120 processor firmware and speech recognition model, in a known location on your computer. 
-3. Open a new terminal in the location where the .zip file was extracted and execute the following command:
+2. After uploading the sketch, **format your board's external Flash memory** before uploading the updated NDP120 processor firmwares files. You can do this by navigating to the Arduino IDE Serial Monitor and typing `F` and then Enter.
+3. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, and the updated NDP120 processor firmware and speech recognition model, in a known location on your computer. 
+4. Open a new terminal in the location where the .zip file was extracted and execute the following command:
 
     ```
-    ./syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
+    syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
     ```
 
-    Replace `portName` and `filename` with the relevant information. Three different files must be uploaded to the board by executing the following three commands:
+    Replace `portName` and `filename` with the relevant information. Three different files must be uploaded to the board by executing the following three commands, for example in Windows the commands are the following:
 
     ```
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 mcu_fw_120_v91.synpkg
@@ -133,6 +142,17 @@ It is recommended to update the NDP120 processor firmware and the built-in speec
     ![Uploader feedback messages](assets/user-manual-4.png)
 
 After uploading the three files, your board's firmware is updated to the latest release and ready to be used.
+
+#### External Memory Format
+
+Your board NDP120 processor files (firmware and models) are stored in your board's external Flash memory. It is recommended to **format your Nicla Voice external Flash memory** every time you are going to update the processor firmware or when you are going to update/add models to the external Flash memory.
+
+Follow these steps to perform the external memory format process:
+
+1. Upload the `Syntiant_upload_fw_ymodem` sketch. This sketch can be found in the board's built-in examples by navigating to **File -> Examples -> NDP -> Syntiant_upload_fw_ymodem**. **Remember to select the board in the Arduino IDE first before navigating to the examples**.
+2. After uploading the sketch, navigate to the IDE's Serial Monitor, type `F`, and press `Enter`. Your board's external memory should be formatted now, you can confirm this by typing an `L` and pressing `Enter`.
+
+After completing this process, you can upload NDP processor's firmware and model files to your board's external memory without issues as explained before.
 
 ### Built-in Speech Recognition Example
 
@@ -441,7 +461,7 @@ The onboard magnetometer of the Nicla Voice can be used to determine the board's
 
 #### Accelerometer and Gyroscope Data
 
-The example code below shows how to get acceleration (m/s<sup>2</sup>) and angular velocity (in °/s) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor and Serial Plotter.
+The example sketch below shows how to get acceleration (m/s<sup>2</sup>) and angular velocity (in °/s) data from the onboard IMU and streams it to the Arduino IDE Serial Monitor and Serial Plotter. The sketch needs the `BMI270_Init.h` header file to be in the same directory as the sketch. You can download the example sketch and the header files [here](assets/nv_acc_gyro_test.rar).
 
 ```arduino
 /**
@@ -718,7 +738,7 @@ When the board is not moving, you should see acceleration measurements close to 
 
 #### Magnetometer Data
 
-The example code below shows how to get raw magnetic field and Hall resistance data from the onboard magnetometer and stream it to the Arduino IDE Serial Monitor and Serial Plotter.
+The example code below shows how to get raw magnetic field and Hall resistance data from the onboard magnetometer and stream it to the Arduino IDE Serial Monitor and Serial Plotter. You can download the example sketch [here](assets/nv_mag_test.rar).
 
 ```arduino
 /**
@@ -876,7 +896,7 @@ void loop() {
 }
 ```
 
-Here you can find a step-by-step explanation of the code:
+Here you can find a step-by-step explanation of the sketch:
 
 First, the necessary libraries are included: 
 

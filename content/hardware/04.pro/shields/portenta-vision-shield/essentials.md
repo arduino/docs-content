@@ -1,5 +1,5 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement link="https://www.arduino.cc/pro/tutorials/portenta-h7/por-openmv-bt" title="Quickstart Guide" type="getting-started">
+    <EssentialElement link="/tutorials/portenta-vision-shield/getting-started-camera" title="Quickstart Guide" type="getting-started">
         A quick guide to installing your shield with OpenMV IDE.
     </EssentialElement>
 

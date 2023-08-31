@@ -14,7 +14,7 @@ Check if your project is upside down with the **tilt module**. Make a small keyb
 The kit includes:  
 1 [Arduino ADK board rev.3](https://docs.arduino.cc/retired/boards/arduino-mega-adk-rev3)  
 1 USB cable type A/B  
-1 [Breadboard 830pt with Wire Kit](http://store.arduino.cc/ww/index.php?main%5Fpage=product%5Finfo&cPath=6%5F32&products%5Fid=25)  
+1 Breadboard 830pt with Wire Kit
 10 [LEDs (red)](http://arduino.cc/documents/datasheets/LEDR-L-7113ID-12V%28Ver1287713938.7%29.pdf)  
 10 [LEDs (green)](http://arduino.cc/documents/datasheets/LEDG-L-7113GT%28Ver1286952261.13%29.pdf)  
 10 [LEDs (yellow)](http://arduino.cc/documents/datasheets/LEDY-L-7113YT.pdf)  
@@ -22,14 +22,14 @@ The kit includes:
 5 [Photoresistor](http://arduino.cc/documents/datasheets/LDR-VT90N2.pdf)  
 8 [Potentiometer 10kilohm](http://arduino.cc/documents/datasheets/ACP%5Fpotentiometers.pdf)  
 176 Resistors Kit  
-2 [Continuous rotation servo motor](http://store.arduino.cc/it/index.php?main%5Fpage=product%5Finfo&cPath=16%5F20&products%5Fid=177)  
-1 [Tilt sensor](http://store.arduino.cc/it/index.php?main%5Fpage=product%5Finfo&cPath=16%5F19&products%5Fid=116)  
+2 Continuous rotation servo motor
+1 Tilt sensor
 5 [Pushbuttons](http://arduino.cc/documents/datasheets/Button.pdf)  
 1 [Piezo capsule](http://arduino.cc/documents/datasheets/PIEZO-PKM22EPPH4001-BO.pdf)  
 1 Temperature Sensor TMP36  
-1 [Relay Module](http://store.arduino.cc/it/index.php?main%5Fpage=product%5Finfo&cPath=16&products%5Fid=113)  
+1 Relay Module
 1 Ultrasound Sensor  
 1 5V voltage regulator TO220  
-2 [100cm Connection wire for modules](http://store.arduino.cc/it/index.php?main%5Fpage=product%5Finfo&cPath=16&products%5Fid=118)  
-3 [50cm Connection wire for modules](http://store.arduino.cc/it/index.php?main%5Fpage=product%5Finfo&cPath=16&products%5Fid=120)  
+2 100cm Connection wire for modules
+3 50cm Connection wire for modules
 2 32X16 RG Bicolor LED Dot Matrix Unit Board SPI
