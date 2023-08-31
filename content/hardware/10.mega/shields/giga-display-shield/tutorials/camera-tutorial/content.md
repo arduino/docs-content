@@ -33,7 +33,7 @@ The GIGA Display Shield is compatible with the following cameras:
 
 Connect the camera to the connector on the front of the display shield as shown in the image below.
 
-![Camera connected to the Giga display shield](assets/camera-connected.svg)
+![Camera connected to the GIGA Display Shield](assets/camera-connected.svg)
 
 ## Full Sketch
 
