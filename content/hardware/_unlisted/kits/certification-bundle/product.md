@@ -1,4 +1,4 @@
 ---
 title: Certification Bundle
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

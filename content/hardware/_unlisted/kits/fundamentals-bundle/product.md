@@ -1,4 +1,4 @@
 ---
 title: Fundamentals Bundle
-certifications: [CE]
+certifications: [CE, UKCA]
 ---
