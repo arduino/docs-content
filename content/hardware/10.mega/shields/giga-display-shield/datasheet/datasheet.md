@@ -16,11 +16,11 @@ The Arduino GIGA Display Shield (from now on referred to as GIGA Display Shield)
 Human-Machine Interface, Display, Shield
 
 # Features
-Note: This board is passive and requires a GIGA R1 WiFi board to function.
+Note: The GIGA Display Shield requires a GIGA R1 WiFi board to function. It has no microcontroller and cannot be programmed independently.
 
 - **KD040WVFID026-01-C025A** 3.97" TFT Display
   - 480x800 resolution
-  - 16.7 Million colors
+  - 16.7 million colors
   - 0.108 mm pixel size
   - Captive Touch sensor
   - 5-point and gesture support
@@ -53,7 +53,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 
 - **Interaction Design Prototyping:** Quickly explore novel interaction design concepts and develop new ways to communicate with technology, including social robots that respond to sound.
 
-- **Voice Assistant** Use the included microphone, together with the edge computing power of the GIGA R1 WiFi board for voice automation with visual feedback. 
+- **Voice Assistant** Use the included microphone, together with the edge computing power of the GIGA R1 WiFi for voice automation with visual feedback. 
 
 
 ## Accessories (Not Included)
@@ -102,16 +102,16 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 | **Ref.** | **Description**                        | **Ref.** | **Description**                        |
 |----------|----------------------------------------|----------|----------------------------------------|
 | U2       | IS31FL3197-QFLS2-TR                    | U3       | LV52204MTTBG LED Driver IC             |
-| U7       | BMI270 6-axis IMU                      | J3       | 21TW-247 Camera Connector 2.54mm Header |        
+| U7       | BMI270 6-axis IMU                      | J3       | 21TW-247 Camera Connector 2.54 mm Header |        
 | J4       | F32Q-1A7H1-11020 Display Connector     | J5       | F32Q-1A7H1-11008 Touch Connector       |
-| J6       | 2.54mm Header GIGA Connector           | J7       | 2.54mm Header GIGA Connector           |
+| J6       | 2.54 mm Header GIGA Connector           | J7       | 2.54mm Header GIGA Connector           |
 
 ## TFT Display
 
 The KD040WVFID026-01-C025A TFT Display has a 3.97" diagonal size with two connectors. The J4 connector for video (DSI) signals and the J5 connector for the touch panel signals. TFT display and capacitance touch panel resolution is 480 x 800 with a pixel size of 0.108 mm. The touch module communicates via I2C to the main board. The edge LED backlight is driven by the LV52204MTTBG (U3) LED Driver.
 
 ## 6-Axis IMU
-The GIGA Display Shield provides 6-axis IMU capabilities, via the 6-axis BMI270 (U7) IMU. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer. The information obtained can be used for measuring raw movement parameters as well as for machine learning. The BMI270 is connected to the GIGA R1 WiFi board via a common I2C connection.
+The GIGA Display Shield provides 6-axis IMU capabilities, via the 6-axis BMI270 (U7) IMU. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer. The information obtained can be used for measuring raw movement parameters as well as for machine learning. The BMI270 is connected to the GIGA R1 WiFi via a common I2C connection.
 
 ## RGB LED
 
@@ -125,13 +125,13 @@ The MP34DT06JTR is an ultra-compact, low-power, omnidirectional, digital MEMS mi
 
 ![Arduino GIGA Display Shield Power Tree](assets/GIGA_Display_Shield_Power_Tree.svg)
 
-The 3V3 voltage power is delivered by the GIGA R1 WiFi (J6 and J7) board. All on-board logic including the microphone (U1) and IMU (U7) operate at 3V3. The RGB LED Driver includes an integrated charge pump which increases the voltage as defined by the I2C commands. The edge backlight intensity is controlled by the LED driver (U3).
+The 3V3 voltage power is delivered by the GIGA R1 WiFi (J6 and J7). All onboard logic including the microphone (U1) and IMU (U7) operate at 3V3. The RGB LED Driver includes an integrated charge pump which increases the voltage as defined by the I2C commands. The edge backlight intensity is controlled by the LED driver (U3).
 
 ## Board Operation
 
 ### Getting Started - IDE
 
-If you want to program your GIGA Display Shield while offline you need to install the Arduino® Desktop IDE **[1]**. A GIGA R1 WiFi board is needed to use it. 
+If you want to program your GIGA Display Shield while offline you need to install the Arduino® Desktop IDE **[1]**. A GIGA R1 WiFi is needed to use it. 
 
 ### Getting Started - Arduino Web Editor
 
@@ -228,7 +228,7 @@ This equipment should be installed and operated with minimum distance 20 cm betw
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**Important:** The operating temperature of the EUT can’t exceed 65℃ and shouldn’t be lower than 0℃.
+**Important:** The operating temperature of the EUT can’t exceed 65 ℃ and shouldn’t be lower than 0 ℃.
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
