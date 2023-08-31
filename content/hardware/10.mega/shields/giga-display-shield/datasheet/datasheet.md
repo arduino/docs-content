@@ -22,7 +22,7 @@ Note: This board is passive and requires a GIGA R1 WiFi board to function.
   - 480x800 resolution
   - 16.7 Million colors
   - 0.108 mm pixel size
-  - Captive Touch sensor
+  - Capacitive Touch sensor
   - 5-point and gesture support
   - Edge LED backlight
 - **BMI270** 6-axis IMU (Accelerometer and Gyroscope)
