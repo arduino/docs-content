@@ -3,7 +3,7 @@ title: Nicla Vision
 url_shop: https://store.arduino.cc/products/nicla-vision
 url_guide: /tutorials/nicla-vision/getting-started
 core: arduino:mbed_nicla
-certifications: [CE]
+certifications: [CE, UKCA]
 productCode: '120'
 ---
 
