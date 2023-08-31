@@ -139,7 +139,7 @@ If you decide to disable Modbus RTU for Opta™, you can select the option 'none
 
 The General Modbus Node allows to add information regarding the devices compatible with the Modbus messaging service.
 
-![Arduino PLC IDE - General Modbus Node Configuration](assets/opta_plcide_generalNode.svg)
+![Arduino PLC IDE - General Modbus Node Configuration](assets/opta_plcide_generalNode.png)
 
 It will require you to fill in basic information under the `General` tab and parameters to manage under the `Parametrization` tab. The basic information consists of:
 
@@ -158,7 +158,7 @@ The Modbus Custom Editor allows you to define a Modbus node with set of pre-defi
 
 To open the Modbus Custom Editor window, go to `Tools -> Run Modbus Custom Editor` on PLC IDE.
 
-![Arduino PLC IDE - Modbus Custom Editor Configuration](assets/opta_plcide_customModbus.svg)
+![Arduino PLC IDE - Modbus Custom Editor Configuration](assets/opta_plcide_customModbus.png)
 
 It is a useful feature to have frequently deployed device configuration stored that is compatible with Modbus protocol.
 
@@ -183,11 +183,13 @@ To set Opta™ as a Modbus RTU Server, navigate to the `RS485 SerialPort` tab lo
 - Serial Mode: N,8,1 (No parity, 8 data bits, 1 stop bit)
 - Slave settings (Modbus address): 10
 
+![Arduino PLC IDE - Opta™ Modbus RTU Server Configuration](assets/opta_plcide_server_modbusMainConfig.png)
+
 Alternative values can be used per requirements if needed.
 
 The following image shows the `Status variables (volatile)` window. Here, we will define the `cnt` variable, assigning its access address and datatype for Modbus RTU transmission.
 
-![Arduino PLC IDE - Opta™ Server Status Variable](assets/opta_plcide_server_statVar.svg)
+![Arduino PLC IDE - Opta™ Server Status Variable](assets/opta_plcide_server_statVar.png)
 
 The `cnt` status variable uses the following parameters:
 
@@ -197,7 +199,7 @@ The `cnt` status variable uses the following parameters:
 
 With these settings ready, you need to go to `Resources -> Opta`, select the corresponding port, and begin the `Manual sketch download` process. Then you need to go to `On-line -> Set up Communication` and activate Modbus RTU with the higher USB port number assigned for Opta™.
 
-![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Server Opta™)](assets/opta_plcide_device_connection_slave.gif)
+![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Server Opta™)](assets/opta_plcide_device_connection.gif)
 
 Proceed with `On-line -> Connect` and it will establish communication between your computer and the Opta™ server. If everything is fine, you will be able to observe the message found at the lower right corner of the PLC IDE software stating that it is connected.
 
@@ -217,7 +219,7 @@ END_IF;
 
 The Opta™ server device's task runs a simple counter and resets whenever the counter reaches `2750`. Use the `Download PLC code` option or press `F7` to initiate the code's compilation and uploading process to Opta™. A successful upload will resemble the image provided below.
 
-![Arduino PLC IDE - Opta™ Server Main Code](assets/opta_plcide_server_mainCode.svg)
+![Arduino PLC IDE - Opta™ Server Main Code](assets/opta_plcide_server_mainCode.png)
 
 Upon completing these steps, you will have successfully configured an Opta™ device as a Modbus RTU Server. The next section will guide you through setting up another Opta™ as a Modbus RTU Client.
 
@@ -228,6 +230,8 @@ To set Opta™ as a Modbus RTU Client, navigate to the `RS485 SerialPort` tab lo
 
 - Baud Rate: 19200 b/s
 - Serial Mode: N,8,1 (No parity, 8 data bits, 1 stop bit)
+
+![Arduino PLC IDE - Opta™ Modbus RTU Client Configuration](assets/opta_plcide_client_modbusMainConfig.png)
 
 Alternative values can be used per requirements if needed.
 
@@ -241,11 +245,11 @@ To establish communication with the configured Modbus RTU Server Opta™, Modbus
 
 For these settings, follow the configuration pattern used for the Modbus RTU Server Opta™. The most important detail to set is the Modbus address. Ensure this address matches the one given to the server Opta™ or any other compatible device should you add more nodes. The setup should resemble the image provided:
 
-![Arduino PLC IDE - Opta™ Client Node](assets/opta_plcide_client_nodeConfig.svg)
+![Arduino PLC IDE - Opta™ Client Node](assets/opta_plcide_client_nodeConfig.png)
 
 Once you have established the Modbus node for the client Opta™, it is time to determine the Modbus function that will fetch the counter (`cnt`) data from the server Opta™. Right-click on `Opta_RTU_1` or any other name you set with, and the 'Add' option will show up, displaying a device catalog window with all available Modbus functions:
 
-![Arduino PLC IDE - Modbus Functions](assets/opta_plcide_modbus_functions.svg)
+![Arduino PLC IDE - Modbus Functions](assets/opta_plcide_modbus_functions.png)
 
 To retrieve counter information from the server Opta™, select the 'Modbus FC-04 (Read Input Registers)' function. The 'General' tab needs to be configured with the following parameters to ensure correct data access:
 
@@ -257,7 +261,7 @@ Subsequently, you will need to define a variable to store the counter data retri
 
 The following image shows a visual representation of the anticipated configuration:
 
-![Arduino PLC IDE - Opta™ Client Modbus Function of the Node (Input Reg.)](assets/opta_plcide_client_modbusFunctionConfig_reg.svg)
+![Arduino PLC IDE - Opta™ Client Modbus Function of the Node (Input Reg.)](assets/opta_plcide_client_modbusFunctionConfig_reg.png)
 
 In this tutorial's demonstration, the client Opta™ is configured to use status LEDs and relays as response to certain action. We have the flexibility to assign variables to these status LEDs. For the present example, we will use designations ranging from `LED1` to `LED4` for the corresponding status LEDs.
 
@@ -265,11 +269,11 @@ For example, to use the `relay_1` and `LED1` variables for the first relay and s
 
 The following image shows a glimpse into how the configuration should appear within the PLC IDE interface:
 
-![Arduino PLC IDE - Opta™ Client Status LED Table](assets/opta_plcide_client_ledSet.svg)
+![Arduino PLC IDE - Opta™ Client Status LED Table](assets/opta_plcide_client_ledSet.png)
 
 Relays also need specific designations to reference them in the main PLC code. Below is a table presenting the variable names designated for the relays:
 
-![Arduino PLC IDE - Opta™ Client Relay Table](assets/opta_plcide_client_relaySet.svg)
+![Arduino PLC IDE - Opta™ Client Relay Table](assets/opta_plcide_client_relaySet.png)
 
 The program outlined below is designed to retrieve counter data, oversee status LEDs, and handle the corresponding relays. Proper functioning of Modbus RTU communication ensures the efficient execution of the aforementioned tasks.
 
@@ -330,7 +334,7 @@ Set both Opta™ devices running with the corresponding main PLC code with the h
 
 The following short clip shows a briefly expected behavior of the example project.
 
-![Example Project Result](assets/opta_plcide_example_result.gif)
+![Example Project Result](assets/opta_plcide_rtu_example_result.gif)
 
 ## Conclusion
 
