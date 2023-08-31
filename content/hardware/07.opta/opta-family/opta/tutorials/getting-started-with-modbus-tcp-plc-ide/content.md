@@ -142,7 +142,7 @@ To configure the Modbus TCP communication, we need to know the IP address of eac
 
 Opta™ can also be configured manually with a specific IP address. This method is viable to assign devices with specific addresses to operate under certain policies if required. For this configuration, the IP setting must be defined by using the sketch found within the `Resources` tab of the PLC IDE. The following image shows what the configuration could look like inside the sketch.
 
-![Opta™ Manual IP Configuration](assets/opta_plcide_ipconfig.svg)
+![Opta™ Manual IP Configuration](assets/opta_plcide_ipconfig.png)
 
 If the IP address for Opta™ is set manually, it is necessary to configure the Ethernet interface on your computer by introducing a manual IP address setting under *IPv4*. The information set under the IPv4 configuration follows the gateway setting. A stable connection with Opta™ using the PLC IDE is essential for project development. The following image shows a configuration example on Windows 11 operating system:
 
