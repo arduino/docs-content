@@ -26,7 +26,7 @@ The Arduino Mbed OS Giga Boards core contains most of the libraries you need to 
 
 ## Compatible Cameras
 
-The Giga Display shield is compatible with the following cameras:
+The GIGA Display Shield is compatible with the following cameras:
 
 - [HM01B0](https://www.arducam.com/product/hm01b0-qvga-monochrome-dvp-camera-module-for-arduino-giga-r1-wifi-board/)
 - [HM0360](https://www.arducam.com/product/hm0360-vga-monochrome-dvp-camera-module-for-arduino-giga-r1-wifi-board/)
