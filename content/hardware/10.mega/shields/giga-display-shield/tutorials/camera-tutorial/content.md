@@ -35,10 +35,13 @@ Connect the camera to the connector on the front of the display shield as shown 
 
 ![Camera connected to the Giga display shield](assets/camera-connected.svg)
 
-
 ## Full Sketch
 
-Open the example sketch by going to **File > Examples > Camera > GigaCameraDisplay** in the Arduino IDE. Whichever of the compatible cameras you are using the sketch will include libraries and definitions for them all, meaning no modification to the sketch is necessary to get it working. The sketch will capture frames into the framebuffer and then print a live camera feed to the display.
+Open the example sketch by going to **File > Examples > Camera > GigaCameraDisplay** in the Arduino IDE.
+
+![Opening the example sketch in the Arduino IDE](assets/ide-example.svg)
+
+Whichever of the compatible cameras you are using the sketch will include libraries and definitions for them all, meaning no modification to the sketch is necessary to get it working. The sketch will capture frames into the framebuffer and then print a live camera feed to the display.
 
 ```arduino
 #include "arducam_dvp.h"
