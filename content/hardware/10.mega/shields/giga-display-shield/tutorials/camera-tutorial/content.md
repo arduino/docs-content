@@ -7,7 +7,7 @@ tags: [Display, Camera, Arducam]
 
 ## Introduction
 
-The Giga Display shield comes with an Arducam camera connector. In this tutorial we will go through what cameras are compatible with the Display shield, how to connect the camera and how to run a sketch that will stream the camera feed to the display.
+The GIGA Display Shield comes with an Arducam camera connector. In this tutorial, we will go through what cameras are compatible with the display shield, how to connect the camera, and how to run a sketch to stream the camera feed to the display.
 
 ## Hardware & Software Needed
 
