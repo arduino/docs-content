@@ -1,4 +1,4 @@
 ---
 title: 101
-certifications: [CE]
+certifications: [CE, UKCA]
 ---
