@@ -4,7 +4,7 @@ url_shop: https://store.arduino.cc/arduino-zero
 url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-samd
 core: arduino:samd
 forumCategorySlug: '/hardware/arduino-zero/74'
-certifications: [CE]
+certifications: [CE, UKCA]
 productCode: '016'
 ---
 
