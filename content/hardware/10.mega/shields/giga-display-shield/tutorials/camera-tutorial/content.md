@@ -1,5 +1,5 @@
 ---
-title: Using the Camera Connector on the Giga Display Shield
+title: Using the Camera Connector on the GIGA Display Shield
 description: 'Learn how to use the camera connector with the GIGA display shield'
 author: Benjamin Dannegård
 tags: [Display, Camera, Arducam]
