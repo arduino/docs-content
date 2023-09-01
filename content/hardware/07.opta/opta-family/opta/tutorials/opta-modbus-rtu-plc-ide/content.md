@@ -336,6 +336,8 @@ The following short clip shows a briefly expected behavior of the example projec
 
 ![Example Project Result](assets/opta_plcide_rtu_example_result.gif)
 
+The left window shows the client Opta™, while the right window represents the server Opta™.
+
 ## Conclusion
 
 In this tutorial, you have learned to configure the workspace environment to work with Modbus RTU using Arduino PLC IDE and verified that Opta™ has been correctly set up and Modbus RTU communication is effective using an example project that controls Opta™ device's on-board features such as relays and status LEDs based on customized example.
