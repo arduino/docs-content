@@ -132,7 +132,7 @@ To establish Modbus TCP communication, it is necessary to identify the IP addres
 
 It is also feasible to assign a custom IP address to the Portenta Machine Control. This approach is especially useful when specific addresses need to be designated due to particular operational criteria. To achieve this, we will employ the sketch located in the `Resources` tab of the PLC IDE. An attached image offers an overview of the setup possibilities within the sketch.
 
-![Portenta Machine Control Manual IP Configuration](assets/opta_plcide_ipconfig.svg)
+![Portenta Machine Control Manual IP Configuration](assets/pmc_plcide_ipconfig.png)
 
 If opting to manually set the IP address for the Portenta Machine Control, it is also necessary to adjust the computer's Ethernet interface in the *IPv4* settings. The information input in the IPv4 configurations should correspond to the gateway settings. Ensuring a stable connection to the Portenta Machine Control via the PLC IDE is pivotal for a successful project execution. Below, an illustrative setup is depicted for the Windows 11 operating system:
 
@@ -140,7 +140,7 @@ If opting to manually set the IP address for the Portenta Machine Control, it is
 
 The IP address set for the Portenta Machine Control is essential for establishing and developing in the Arduino PLC IDE environment. To pair with the Portenta Machine Control device, activate the Modbus TCP feature and enter its unique IP address by navigating to `On-line -> Set up communication`. To verify the link between the Portenta Machine Control and development platform, execute the `ping <Portenta Machine Control IP Address>` command in a terminal.
 
-![Arduino PLC IDE - Device Connection Procedure](assets/pmc_plcide_device_connection_master.gif)
+![Arduino PLC IDE - Device Connection Procedure](assets/pmc_plcide_device_connection.gif)
 
 It is important to remember a proper setup is vital when interfacing with the PLC IDE and Portenta Machine Control. Once the Portenta Machine Control properties are all set, you can connect and monitor the status of both devices.
 
@@ -149,7 +149,7 @@ It is important to remember a proper setup is vital when interfacing with the PL
 
 The image below shows the panel we'll encounter when accessing the Modbus TCP configuration panel in the PLC IDE.
 
-![Arduino PLC IDE - Modbus Role Configuration](assets/opta_plcide_ethernet_config.svg)
+![Arduino PLC IDE - Modbus Role Configuration](assets/pmc_plcide_ethernet_config.svg)
 
 There are two options on the Modbus TCP configuration panel:
 
@@ -165,7 +165,7 @@ If "Modbus TCP Master" is selected, the Portenta Machine Control device assumes 
 
 The General Modbus Node allows to add information regarding the devices compatible with the Modbus messaging service.
 
-![Arduino PLC IDE - General Modbus Node Configuration](assets/opta_plcide_generalNode.svg)
+![Arduino PLC IDE - General Modbus Node Configuration](assets/pmc_plcide_generalNode.svg)
 
 We will need to provide fundamental details in the `General` tab. Crucially it includes the IP address of the Modbus TCP compatible device with which we aim to communicate. Depending on the project's needs and your preferences, additional properties can be set.
 
@@ -178,7 +178,7 @@ We can also add a Modbus node through the `Ethernet` configuration tab using the
 
 It will let us specify the device version and parameters, along with predefined Modbus functions. Once set up, it can be integrated later within the `Ethernet` configuration tab.
 
-![Arduino PLC IDE - Modbus Custom Editor Configuration](assets/opta_plcide_customModbus.svg)
+![Arduino PLC IDE - Modbus Custom Editor Configuration](assets/pmc_plcide_customModbus.svg)
 
 It is a useful feature to have frequently deployed device configuration stored that is compatible with Modbus protocol.
   
@@ -205,7 +205,7 @@ Here are the necessary Ethernet properties for the Modbus TCP Server Portenta Ma
 void setup()
 {
     // Configure static IP address
-    IPAddress ip(192, 168, 1, 5);
+    IPAddress ip(192, 168, 1, 2);
 	  IPAddress dns(192, 168, 1, 23);
     IPAddress gateway(192, 168, 1, 23);
     IPAddress subnet(255, 255, 255, 0);
@@ -214,13 +214,13 @@ void setup()
 }
 ```
 
-The properties — such as `ip`, `dns`, `gateway`, and `subnet` — are used as arguments in the `Ethernet.begin()` method to determine the settings for Portenta Machine Control. These can be configured according to your preferences or network requirements. For instance, `ip(192, 168, 1, 5)` indicates the IP address given to the Modbus TCP Server Portenta Machine Control.
+The properties — such as `ip`, `dns`, `gateway`, and `subnet` — are used as arguments in the `Ethernet.begin()` method to determine the settings for Portenta Machine Control. These can be configured according to your preferences or network requirements. For instance, `ip(192, 168, 1, 2)` indicates the IP address given to the Modbus TCP Server Portenta Machine Control.
 
 Upon starting a new project file in the PLC IDE, some crucial lines within the sketch might be commented out. To activate the necessary configurations, these lines should be uncommented. After making these changes, the sketch should be uploaded to the Portenta Machine Control via the `Portenta Machine Control Configuration` window.
 
 The subsequent image presents the `Status variables (volatile)` window. In this window, the `cnt` variable will be defined, where its access address and datatype will be specified for Modbus TCP communication.
 
-![Arduino PLC IDE - Portenta Machine Control Server Status Variable](assets/opta_plcide_server_statVar.svg)
+![Arduino PLC IDE - Portenta Machine Control Server Status Variable](assets/pmc_plcide_server_statVar.svg)
 
 The `cnt` status variable uses the following parameters:
 
@@ -228,9 +228,9 @@ The `cnt` status variable uses the following parameters:
 * Name: cnt
 * PLC type: INT
 
-To get started with these configurations, navigate to `Resources -> Opta`, select the corresponding port, and begin the `Manual sketch download`. Following that, go to `On-line -> Set up Communication` and activate the Modbus TCP using the designated IP address for the Portenta Machine Control.
+To get started with these configurations, navigate to `Resources -> Portenta Machine Control`, select the corresponding port, and begin the `Manual sketch download`. Following that, go to `On-line -> Set up Communication` and activate the Modbus TCP using the designated IP address for the Portenta Machine Control.
 
-![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Server Portenta Machine Control)](assets/opta_plcide_device_connection_slave.gif)
+![Arduino PLC IDE - Device Connection Procedure](assets/pmc_plcide_device_connection_server.gif)
 
 Next, select `On-line -> Connect` to establish a connection between your computer and the Portenta Machine Control server. If all is set up correctly, a notification will appear in the bottom right corner of the PLC IDE software, indicating a successful connection.
 
@@ -241,16 +241,31 @@ Icons `(1)` and `(2)` represent the different connection states: the Portenta Ma
 Finally, you will need to compile and upload the main PLC code to the Portenta Machine Control. Access the `main` tab in the `Project` panel and enter the following code:
 
 ```arduino
-cnt := cnt + 1;
+counter_buffer := counter_buffer + 1;
 
-IF cnt >= 2750 THEN
-    cnt := 0;
+IF counter_buffer >= delay_buffer THEN
+	IF cnt < 255 THEN
+	    cnt := cnt + 1;
+	ELSE
+	    cnt := 0;
+	END_IF;
+	counter_buffer := 0;
 END_IF;
+
+// Translate count to binary
+DO_0 := cnt AND 1;
+DO_1 := SHR(cnt,1) AND 1;
+DO_2 := SHR(cnt,2) AND 1;
+DO_3 := SHR(cnt,3) AND 1;
+DO_4 := SHR(cnt,4) AND 1;
+DO_5 := SHR(cnt,5) AND 1;
+DO_6 := SHR(cnt,6) AND 1;
+DO_7 := SHR(cnt,7) AND 1;
 ```
 
 The task running on the Portenta Machine Control server increments a basic counter, which resets once it hits `2750`. To begin the compilation and uploading of the code to the Portenta Machine Control, either choose the `Download PLC code` option or hit `F7`. An image illustrating a successful upload can be seen below.
 
-![Arduino PLC IDE - Portenta Machine Control Server Main Code](assets/opta_plcide_server_mainCode.svg)
+![Arduino PLC IDE - Portenta Machine Control Server Main Code](assets/pmc_plcide_server_mainCode.svg)
 
 Upon completing these instructions, you will have set up the Portenta Machine Control device as a Modbus TCP Server. The subsequent section will walk you through the process of configuring another Portenta Machine Control as a Modbus TCP Client.
 
@@ -268,11 +283,11 @@ To begin communication with the configured Modbus TCP Server Portenta Machine Co
 
 The settings for these properties should mirror those for the Modbus TCP Server Portenta Machine Control. The IP address is the most vital configuration to take into account. Ensure that this address matches the one given to the server Portenta Machine Control, or to any other compatible devices if you plan on adding more nodes. The final configuration should resemble the image provided:
 
-![Arduino PLC IDE - Portenta Machine Control Client Node](assets/opta_plcide_client_nodeConfig.svg)
+![Arduino PLC IDE - Portenta Machine Control Client Node](assets/pmc_plcide_client_nodeConfig.png)
 
 When defining the Modbus node for the Client Portenta Machine Control, it is essential to specify the Modbus function that will extract the counter (`cnt`) data from the server Portenta Machine Control. By right-clicking on `PMC_TCP_1` or any other name you have chosen, we will see the 'Add' option. Clicking on it will display a device catalog window showcasing a selection of Modbus functions:
 
-![Arduino PLC IDE - Modbus Functions](assets/opta_plcide_modbus_functions.svg)
+![Arduino PLC IDE - Modbus Functions](assets/pmc_plcide_modbus_functions.png)
 
 To retrieve counter information from the server Portenta Machine Control, choose the 'Modbus FC-04 (Read Input Registers)' function. To ensure correct data access, set up the 'General' tab using the subsequent parameters:
 
@@ -280,13 +295,13 @@ To retrieve counter information from the server Portenta Machine Control, choose
 * Polling time: 0 ms (Continuous Read)
 * Timeout: 1000 ms
 
-![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node](assets/opta_plcide_client_modbusFunctionConfig.svg)
+![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node](assets/pmc_plcide_client_modbusFunctionConfig.svg)
 
 Next, a variable needs to be defined to hold the counter data from the server Portenta Machine Control. To add this variable, go to the `Input Reg.` tab in the Modbus function configuration window. Create a variable called `counter_rec` to store the data transmitted via the protocol.
 
 The following image shows a visual representation of the expected configuration:
 
-![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node (Input Reg.)](assets/opta_plcide_client_modbusFunctionConfig_reg.svg)
+![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node (Input Reg.)](assets/pmc_plcide_client_modbusFunctionConfig_reg.svg)
 
 The Modbus TCP Client Portenta Machine Control will use the following Ethernet properties for this example.
 
@@ -295,38 +310,47 @@ The Modbus TCP Client Portenta Machine Control will use the following Ethernet p
 void setup()
 {
     // Configure static IP address
-    IPAddress ip(192, 168, 1, 3);
-    IPAddress dns(192, 168, 1, 25);
-    IPAddress gateway(192, 168, 1, 25);
+    IPAddress ip(192, 168, 1, 1);
+    IPAddress dns(192, 168, 1, 3);
+    IPAddress gateway(192, 168, 1, 3);
     IPAddress subnet(255, 255, 255, 0);
     // If the cable is not connected this will block the start of PLC with about 60s of timeout!
     Ethernet.begin(ip, dns, gateway, subnet);
 }
 ```
 
-The `ip(192, 168, 1, 3)` represents the IP address of the Modbus TCP Master Portenta Machine Control. While you can modify the Internet Protocol properties as needed, it is essential to make sure the `subnet` aligns with that of your computer.
+The `ip(192, 168, 1, 1)` represents the IP address of the Modbus TCP Master Portenta Machine Control. While you can modify the Internet Protocol properties as needed, it is essential to make sure the `subnet` aligns with that of your computer.
 
 TODO EXPLAIN USED ONBOARD ELEMENTS OF THE PMC
 
 The image below shows how it should look within the PLC IDE interface:
 
-![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/opta_plcide_client_ledSet.svg)
+![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/pmc_plcide_client_ledSet.svg)
 
 The OBJECT also needs labels to reference it later in the main PLC code. A table displaying the variable names designated for OBJECT can be seen below:
 
-![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/opta_plcide_client_relaySet.svg)
+![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/pmc_plcide_client_relaySet.svg)
 
 The main program below will be used to fetch counter data, control OBJECTS, and manage corresponding OBJECTS. A successful Modbus TCP communication will process previous tasks accordingly.
 
 ```arduino
-WIP
+counter := counter + 1;
+
+IF counter >= 500 THEN
+	DIO_0 := 1;
+END_IF;
+
+IF counter >= 1000 THEN
+	DIO_0 := 0;
+	counter := 0;
+END_IF;
 ```
 
 The `counter` serves as a universal variable for the client Portenta Machine Control. Conversely, `counter_rec` is the Modbus variable that stores data fetched from the server Portenta Machine Control. We defined this variable when configuring the 'Read Input Registers' Modbus function.
 
 The complete workspace interface for client Portenta Machine Control should resemble the following image once the main PLC code has been successfully compiled and downloaded to the client Portenta Machine Control:
 
-![Arduino PLC IDE - Portenta Machine Control Client Main Code](assets/opta_plcide_client_mainCode.png)
+![Arduino PLC IDE - Portenta Machine Control Client Main Code](assets/pmc_plcide_client_mainCode.png)
 
 Finally, Portenta Machine Control is now ready as a Modbus TCP Client.
 
@@ -340,7 +364,7 @@ Set both Portenta Machine Control devices running with the corresponding main PL
 
 For a visual representation of this behavior, refer to the following clip:
 
-![Modbus TCP Example PLC IDE Project Result](assets/opta_plcide_example_result.gif)
+![Modbus TCP Example PLC IDE Project Result](assets/pmc_plcide_example_result.gif)
 
 In the clip, the left window represents the Modbus TCP Client Portenta Machine Control, while the right window shows the Modbus TCP Server Portenta Machine Control.
 
