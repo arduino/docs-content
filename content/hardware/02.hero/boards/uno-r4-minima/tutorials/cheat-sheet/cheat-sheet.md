@@ -119,7 +119,7 @@ The UNO R4 Minima has six analog input pins (A0-A5) that can be read by using th
 ***A4 and A5 pins are both connected to the same I2C bus.***
 
 ```arduino
-value = analogRead(pin, value);
+value = analogRead(pin);
 ```
 
 The reference voltage of these pins is 5 V.
