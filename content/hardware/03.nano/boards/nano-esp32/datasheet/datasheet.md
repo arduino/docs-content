@@ -91,7 +91,7 @@ The Nano ESP32 uses the [Arduino Core for ESP32 boards](https://github.com/ardui
 | **Ref.** | **Description**                                  |
 | -------- | ------------------------------------------------ |
 | M1       | NORA-W106-10B (ESP32-S3 SoC)                     |
-| J1       | CX90B-16P USB-C® connector                        |
+| J1       | CX90B-16P USB-C® connector                       |
 | JP1      | 1x15 analog header                               |
 | JP2      | 1x15 digital header                              |
 | U2       | MP2322GQH step down converter                    |
@@ -428,17 +428,18 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Ref                       | Link                                                                                            |
-| ------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino Web Editor (Cloud)       | <https://create.arduino.cc/editor>                                                              |
+| Ref                          | Link                                                                                            |
+| ---------------------------- | ----------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)        | <https://www.arduino.cc/en/Main/Software>                                                       |
+| Arduino Web Editor (Cloud)   | <https://create.arduino.cc/editor>                                                              |
 | Web Editor - Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Project Hub               | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
-| Library Reference         | <https://github.com/arduino-libraries/>                                                         |
-| Online Store              | <https://store.arduino.cc/>                                                                     |
+| Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
+| Library Reference            | <https://github.com/arduino-libraries/>                                                         |
+| Online Store                 | <https://store.arduino.cc/>                                                                     |
 
 ## Change Log
 
-| **Date**   | **Changes** |
-| ---------- | ----------- |
-| 08/06/2023 | Release     |
+| **Date**   | **Changes**                  |
+| ---------- | ---------------------------- |
+| 08/06/2023 | Release                      |
+| 09/01/2023 | Update power tree flowchart. |
