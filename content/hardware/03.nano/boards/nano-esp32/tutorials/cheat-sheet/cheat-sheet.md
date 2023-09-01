@@ -45,13 +45,49 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 - [Download the Nano ESP32 datasheet](/resources/datasheets/ABX00083-datasheet.pdf)
 
-## Nano ESP32 Core
+## Arduino ESP32 Core
 
 This board is based on the [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32), that is derived from the original ESP32 core. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
 
 ![ESP32 examples in the IDE.](assets/esp32-examples.png)
 
 To install the core, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the core, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
+
+## ESP32 Pin Map
+
+The Nano ESP32's default pins are designed to match the **Nano form factor**. This pin mapping is done in the official Arduino ESP32 core (see just above). See below the pin map to understand how the physical pins correlate to the ESP32: 
+
+| Nano  | ESP32  |
+| ----- | ------ |
+| D0    | GPIO44 |
+| D1    | GPIO43 |
+| D2    | GPIO5  |
+| D3    | GPIO6  |
+| D4    | GPIO7  |
+| D5    | GPIO8  |
+| D6    | GPIO9  |
+| D7    | GPIO10 |
+| D8    | GPIO17 |
+| D9    | GPIO18 |
+| D10   | GPIO21 |
+| D11   | GPIO38 |
+| D12   | GPIO47 |
+| D13   | GPIO48 |
+| A0    | GPIO1  |
+| A1    | GPIO2  |
+| A2    | GPIO3  |
+| A3    | GPIO4  |
+| A4    | GPIO11 |
+| A5    | GPIO12 |
+| A6    | GPIO13 |
+| A7    | GPIO14 |
+| BOOT0 | GPIO46 |
+| BOOT1 | GPIO0  |
+
+See the pinout below for a better visual translation:
+
+![Nano / ESP32 pinout](assets/esp-pinout.png)
+
 
 ## Arduino Bootloader Mode
 The Nano ESP32 has a feature that we call Arduino Bootloader-mode, what this means is that you are able to put the board in a sort of recovery mode by double pressing the reset button while the board is powered on.
