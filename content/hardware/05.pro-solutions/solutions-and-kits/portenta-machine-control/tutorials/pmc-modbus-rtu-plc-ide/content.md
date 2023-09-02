@@ -13,6 +13,7 @@ software:
   - plc-ide
 hardware:
   - hardware/07.opta/opta-family/opta
+  - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
 ---
 
 ## Overview
@@ -109,7 +110,7 @@ The previous illustration resembles a setup consisting of two Portenta Machine C
 
 Both configuration can be used to establish a Modbus RTU based communication. The Modbus RTU communication network can be scaled up by integrating additional protocol compatible devices as Portenta Machine Control or Opta™.
 
-If we are connecting a Portenta Machine Control and an Opta™, the setup show below can help you understand the overall connection.
+If we are connecting a Portenta Machine Control and an Opta™, the setup shown below can help you understand the overall connection.
 
 ![RS-485 interface between Portenta Machine Control and Opta™ for Modbus RTU](assets/pmc_opta_rtu_plcide_hardware_connection.png)
 
@@ -152,7 +153,7 @@ If you decide to disable Modbus RTU for the Portenta Machine Control, you can se
 
 The General Modbus Node allows to add information regarding the devices compatible with the Modbus messaging service.
 
-![Arduino PLC IDE - General Modbus Node Configuration](assets/opta_plcide_generalNode.svg)
+![Arduino PLC IDE - General Modbus Node Configuration](assets/pmc_plcide_generalNode.svg)
 
 It will require you to fill in basic information under the `General` tab and parameters to manage under the `Parametrization` tab. The basic information consists of:
 
@@ -171,7 +172,7 @@ The Modbus Custom Editor allows you to define a Modbus node with set of pre-defi
 
 To open the Modbus Custom Editor window, go to `Tools -> Run Modbus Custom Editor` on PLC IDE.
 
-![Arduino PLC IDE - Modbus Custom Editor Configuration](assets/opta_plcide_customModbus.svg)
+![Arduino PLC IDE - Modbus Custom Editor Configuration](assets/pmc_plcide_customModbus.svg)
 
 It is a useful feature to have frequently deployed device configuration stored that is compatible with Modbus protocol.
 
@@ -203,7 +204,7 @@ Alternative values can be used per requirements if needed.
 
 The subsequent image displays the `Status variables (volatile)` window. Within this window, we will define the `cnt` variable, specifying its access address and data type for Modbus RTU transmission.
 
-![Arduino PLC IDE - Portenta Machine Control Server Status Variable](assets/opta_plcide_server_statVar.svg)
+![Arduino PLC IDE - Portenta Machine Control Server Status Variable](assets/pmc_plcide_server_statVar.svg)
 
 The `cnt` status variable uses the following parameters:
 
@@ -211,9 +212,9 @@ The `cnt` status variable uses the following parameters:
 * Name: cnt
 * PLC type: INT
 
-Upon finalizing the settings, go to `Resources -> Opta` and select the corresponding port, subsequently beginning the `Manual sketch download` process. Navigate to `On-line -> Set up Communication` and activate Modbus RTU, ensuring that the elevated USB port number designated for the Portenta Machine Control is selected.
+Upon finalizing the settings, go to `Resources -> Portenta Machine Control` and select the corresponding port, subsequently beginning the `Manual sketch download` process. Navigate to `On-line -> Set up Communication` and activate Modbus RTU, ensuring that the elevated USB port number designated for the Portenta Machine Control is selected.
 
-![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Server Portenta Machine Control)](assets/opta_plcide_device_connection_slave.gif)
+![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Server Portenta Machine Control)](assets/pmc_plcide_device_connection_slave.gif)
 
 Proceed with `On-line -> Connect` to set up a connection with the Portenta Machine Control server. If everything is set up correctly, we will see a message in the bottom right of the PLC IDE software that says it is connected.
 
@@ -233,7 +234,7 @@ END_IF;
 
 The role of the Portenta Machine Control server is to continually count until it hits `2750`, then reset. To transfer this counting task to the Portenta Machine Control, you can either select `Download PLC code` or simply hit `F7`. Once everything is in place, a successful upload will look like the image shown below.
 
-![Arduino PLC IDE - Portenta Machine Control Server Main Code](assets/opta_plcide_server_mainCode.svg)
+![Arduino PLC IDE - Portenta Machine Control Server Main Code](assets/pmc_plcide_server_mainCode.svg)
 
 Upon completing these steps, you will have effectively set up a Portenta Machine Control device to function as a Modbus RTU Server. The following section will guide you on how to configure another Portenta Machine Control as a Modbus RTU Client.
 
@@ -258,11 +259,11 @@ To establish communication with the pre-configured Modbus RTU Server Portenta Ma
 
 Use the configuration model applied to the Modbus RTU Server Portenta Machine Control for these settings. The important detail to consider is the Modbus address. Make sure this address corresponds with that of the server Portenta Machine Control or any other compatible device, in case more nodes are added. The setup should resemble the image provided:
 
-![Arduino PLC IDE - Portenta Machine Control Client Node](assets/opta_plcide_client_nodeConfig.svg)
+![Arduino PLC IDE - Portenta Machine Control Client Node](assets/pmc_plcide_client_nodeConfig.svg)
 
 After setting up the Modbus node for the client Portenta Machine Control,we need to specify the Modbus function responsible for retrieving the counter (`cnt`) data from the server Portenta Machine Control. Right-click on `PMC_RTU_1` or any other name you set with, to see the 'Add' option, which will bring forth a device catalog window showcasing all available Modbus functions:
 
-![Arduino PLC IDE - Modbus Functions](assets/opta_plcide_modbus_functions.svg)
+![Arduino PLC IDE - Modbus Functions](assets/pmc_plcide_modbus_functions.svg)
 
 To retrieve the counter data from the server Portenta Machine Control, select the 'Modbus FC-04 (Read Input Registers)' function. Configure the 'General' tab with the following parameters to ensure correct data access:
 
@@ -274,17 +275,17 @@ Next, you will need to designate a variable to hold the counter data captured fr
 
 The following image shows a visual representation of the anticipated configuration:
 
-![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node (Input Reg.)](assets/opta_plcide_client_modbusFunctionConfig_reg.svg)
+![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node (Input Reg.)](assets/pmc_plcide_client_modbusFunctionConfig_reg.svg)
 
 In this tutorial's demonstration, the client Portenta Machine Control is configured to use WIP
 
 The image below shows how it should look within the PLC IDE interface:
 
-![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/opta_plcide_client_ledSet.svg)
+![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/pmc_plcide_client_ledSet.svg)
 
 The OBJECT also needs labels to reference it later in the main PLC code. A table displaying the variable names designated for OBJECT can be seen below:
 
-![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/opta_plcide_client_relaySet.svg)
+![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/pmc_plcide_client_relaySet.svg)
 
 The main program below will be used to fetch counter data, control OBJECTS, and manage corresponding OBJECTS. A successful Modbus TCP communication will process previous tasks accordingly.
 
@@ -296,7 +297,7 @@ The `counter` variable serves as a global reference for the client Portenta Mach
 
 Once you have successfully compiled and downloaded the main PLC code, the interface for the client Portenta Machine Control should mirror the image provided below:
 
-![Arduino PLC IDE - Portenta Machine Control Client Main Code](assets/opta_plcide_client_mainCode.png)
+![Arduino PLC IDE - Portenta Machine Control Client Main Code](assets/pmc_plcide_client_mainCode.png)
 
 Finally, Portenta Machine Control is now ready as a Modbus RTU Client.
 
@@ -308,7 +309,7 @@ Set both Portenta Machine Control devices running with the corresponding main PL
 
 The following short clip shows a briefly expected behavior of the example project.
 
-![Example Project Result](assets/opta_plcide_example_result.gif)
+![Example Project Result](assets/pmc_plcide_example_result.gif)
 
 ## Conclusion
 
