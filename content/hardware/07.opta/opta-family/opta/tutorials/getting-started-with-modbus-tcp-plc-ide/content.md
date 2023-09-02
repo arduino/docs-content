@@ -150,7 +150,7 @@ If the IP address for Opta™ is set manually, it is necessary to configure the 
 
 The configured IP address for Opta™ also serves to connect and develop within the Arduino PLC IDE environment. The Modbus TCP option must be activated and set with Opta™ device's assigned IP address by going to `On-line -> Set up communication`. The connection between Opta™ and the development environment can be verified with the`ping <Opta™ IP Address>` command using a terminal.
 
-![Arduino PLC IDE - Device Connection Procedure](assets/opta_plcide_device_connection_master.gif)
+![Arduino PLC IDE - Device Connection Procedure](assets/opta_plcide_device_connection.gif)
 
 Keep in mind that the correct configuration is key to work with PLC IDE and Opta™. Once the properties of the Opta™ devices are correctly set, we will be able to seamlessly connect to Opta™ and monitor the states of both devices.
 
@@ -243,7 +243,7 @@ The `cnt` status variable uses the following parameters:
 
 With these settings ready, you need to go to `Resources -> Opta`, select the corresponding port, and begin the `Manual sketch download` process. Then you need to go to `On-line -> Set up Communication` and activate Modbus TCP with the assigned IP address for Opta™.
 
-![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Server Opta™)](assets/opta_plcide_device_connection_slave.gif)
+![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Server Opta™)](assets/opta_plcide_device_connection_server.gif)
 
 Proceed with `On-line -> Connect` and it will establish communication between your computer and the Opta™ server. If everything is fine, you will be able to observe the message found at the lower right corner of the PLC IDE software stating that it is connected.
 
