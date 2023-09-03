@@ -20,6 +20,8 @@ hardware:
 
 The Portenta Machine Control boasts adaptable, high-quality industrial hardware and offers a diverse array of connection options. Its capabilities are further amplified by the Arduino PLC IDE software, optimizing the device for robust field operations. Moreover, the Portenta Machine Control is compatible with Modbus protocols, and with the Arduino PLC IDE, their integration is made straightforward.
 
+![Portenta Machine Control with Modbus RTU Overview ](assets/pmc_plcide_general_system.png)
+
 In this tutorial, you will discover how to establish Modbus RTU communication between two Portenta Machine Control devices through the Arduino PLC IDE.
 
 ## Goals
@@ -193,12 +195,14 @@ The following sections will demonstrate how to set up each Portenta Machine Cont
 #### Modbus RTU Server Portenta Machine Control
 <br></br>
 
-To configure the Portenta Machine Control as a Modbus RTU Server, navigate to the `RS485 SerialPort` tab in the `Resources` panel within the PLC IDE. It will open a `Modbus Configuration` window where you should choose the `Modbus RTU Slave` setting. For the purpose of the tutorial example, we will employ the following properties for the client Portenta Machine Control:
+To configure the Portenta Machine Control as a Modbus RTU Server, navigate to the `RS485 SerialPort` tab in the `Resources` panel within the PLC IDE. It will open a `Modbus Configuration` window where you should choose the `Modbus RTU Slave` setting. For the purpose of the tutorial example, we will employ the following properties for the server Portenta Machine Control:
 
 - Port type: `RS485`
 - Baud Rate: 19200 b/s
 - Serial Mode: N,8,1 (No parity, 8 data bits, 1 stop bit)
 - Slave settings (Modbus address): 10
+
+![Arduino PLC IDE - Portenta Machine Control Server Modbus Configuration](assets/pmc_plcide_server_modbus.png)
 
 Alternative values can be used per requirements if needed.
 
@@ -262,6 +266,8 @@ To configure the Portenta Machine Control as a Modbus RTU Client, navigate to th
 - Baud Rate: 19200 b/s
 - Serial Mode: N,8,1 (No parity, 8 data bits, 1 stop bit)
 
+![Arduino PLC IDE - Portenta Machine Control Client Modbus Configuration](assets/pmc_plcide_client_modbus.png)
+
 Alternative values can be used per requirements if needed.
 
 To establish communication with the pre-configured Modbus RTU Server Portenta Machine Control, add a Modbus node by right-clicking the `RS485 SerialPort` tab within the `Resources` section. Once ready, you will see an 'Add' option. Use this to insert a 'Generic Modbus' node. For this example, configure the node with the following parameters:
@@ -296,7 +302,7 @@ In this tutorial's demonstration, the client Portenta Machine Control is configu
 
 The image below shows how it should look within the PLC IDE interface:
 
-![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/pmc_plcide_client_ledSet.svg)
+![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/pmc_plcide_device_localDO.png)
 
 The OBJECT also needs labels to reference it later in the main PLC code. A table displaying the variable names designated for OBJECT can be seen below:
 
