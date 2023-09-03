@@ -340,7 +340,7 @@ Set both Portenta Machine Control devices running with the corresponding main PL
 
 The following short clip shows a briefly expected behavior of the example project.
 
-![Example Project Result](assets/pmc_plcide_example_result.gif)
+![Example Project Result](assets/pmc_plcide_rtu_example_result.gif)
 
 ## Conclusion
 
