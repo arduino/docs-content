@@ -127,7 +127,7 @@ For appropriate Modbus RTU operation, it requires some considerations to be take
 #### Portenta Machine Control Basic Configuration
 <br></br>
 
-The Modbus RTU communication for the Portenta Machine Control does not require special pre-configuration. You will only have to make a manual sketch download with the desired protocol role with its properties, and its onboard elements to be used. These onboard elements can be programmable digital I/Os and encoders.
+The Modbus RTU communication for the Portenta Machine Control does not require special pre-configuration. You will only have to make a manual sketch download with the desired protocol role with its properties, and its onboard elements to be used. These onboard elements can be programmable digital I/Os and dedicated digital outputs.
 
 Portenta Machine Control can be initialized further in the process if additional changes in configuration is required.
 
@@ -153,7 +153,7 @@ If you decide to disable Modbus RTU for the Portenta Machine Control, you can se
 
 The General Modbus Node allows to add information regarding the devices compatible with the Modbus messaging service.
 
-![Arduino PLC IDE - General Modbus Node Configuration](assets/pmc_plcide_generalNode.svg)
+![Arduino PLC IDE - General Modbus Node Configuration](assets/pmc_plcide_generalNode.png)
 
 It will require you to fill in basic information under the `General` tab and parameters to manage under the `Parametrization` tab. The basic information consists of:
 
@@ -172,7 +172,7 @@ The Modbus Custom Editor allows you to define a Modbus node with set of pre-defi
 
 To open the Modbus Custom Editor window, go to `Tools -> Run Modbus Custom Editor` on PLC IDE.
 
-![Arduino PLC IDE - Modbus Custom Editor Configuration](assets/pmc_plcide_customModbus.svg)
+![Arduino PLC IDE - Modbus Custom Editor Configuration](assets/pmc_plcide_customModbus.png)
 
 It is a useful feature to have frequently deployed device configuration stored that is compatible with Modbus protocol.
 
@@ -214,7 +214,7 @@ The `cnt` status variable uses the following parameters:
 
 Upon finalizing the settings, go to `Resources -> Portenta Machine Control` and select the corresponding port, subsequently beginning the `Manual sketch download` process. Navigate to `On-line -> Set up Communication` and activate Modbus RTU, ensuring that the elevated USB port number designated for the Portenta Machine Control is selected.
 
-![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Server Portenta Machine Control)](assets/pmc_plcide_device_connection_slave.gif)
+![Arduino PLC IDE - Device Connection Procedure (Modbus TCP Server Portenta Machine Control)](assets/pmc_plcide_device_connection_server.gif)
 
 Proceed with `On-line -> Connect` to set up a connection with the Portenta Machine Control server. If everything is set up correctly, we will see a message in the bottom right of the PLC IDE software that says it is connected.
 
@@ -225,11 +225,26 @@ Symbols `(1)` and `(2)` show different connection statuses: Portenta Machine Con
 To get the main PLC code onto the Portenta Machine Control, go to the `main` tab in the `Project` section. Then, you can enter the following code:
 
 ```arduino
-cnt := cnt + 1;
+counter_buffer := counter_buffer + 1;
 
-IF cnt >= 2750 THEN
-    cnt := 0;
+IF counter_buffer >= delay_buffer THEN
+	IF cnt < 255 THEN
+	    cnt := cnt + 1;
+	ELSE
+	    cnt := 0;
+	END_IF;
+	counter_buffer := 0;
 END_IF;
+
+// Translate count to binary
+DO_0 := cnt AND 1;
+DO_1 := SHR(cnt,1) AND 1;
+DO_2 := SHR(cnt,2) AND 1;
+DO_3 := SHR(cnt,3) AND 1;
+DO_4 := SHR(cnt,4) AND 1;
+DO_5 := SHR(cnt,5) AND 1;
+DO_6 := SHR(cnt,6) AND 1;
+DO_7 := SHR(cnt,7) AND 1;
 ```
 
 The role of the Portenta Machine Control server is to continually count until it hits `2750`, then reset. To transfer this counting task to the Portenta Machine Control, you can either select `Download PLC code` or simply hit `F7`. Once everything is in place, a successful upload will look like the image shown below.
@@ -259,11 +274,11 @@ To establish communication with the pre-configured Modbus RTU Server Portenta Ma
 
 Use the configuration model applied to the Modbus RTU Server Portenta Machine Control for these settings. The important detail to consider is the Modbus address. Make sure this address corresponds with that of the server Portenta Machine Control or any other compatible device, in case more nodes are added. The setup should resemble the image provided:
 
-![Arduino PLC IDE - Portenta Machine Control Client Node](assets/pmc_plcide_client_nodeConfig.svg)
+![Arduino PLC IDE - Portenta Machine Control Client Node](assets/pmc_plcide_client_nodeConfig.png)
 
 After setting up the Modbus node for the client Portenta Machine Control,we need to specify the Modbus function responsible for retrieving the counter (`cnt`) data from the server Portenta Machine Control. Right-click on `PMC_RTU_1` or any other name you set with, to see the 'Add' option, which will bring forth a device catalog window showcasing all available Modbus functions:
 
-![Arduino PLC IDE - Modbus Functions](assets/pmc_plcide_modbus_functions.svg)
+![Arduino PLC IDE - Modbus Functions](assets/pmc_plcide_modbus_functions.png)
 
 To retrieve the counter data from the server Portenta Machine Control, select the 'Modbus FC-04 (Read Input Registers)' function. Configure the 'General' tab with the following parameters to ensure correct data access:
 
@@ -275,7 +290,7 @@ Next, you will need to designate a variable to hold the counter data captured fr
 
 The following image shows a visual representation of the anticipated configuration:
 
-![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node (Input Reg.)](assets/pmc_plcide_client_modbusFunctionConfig_reg.svg)
+![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node (Input Reg.)](assets/pmc_plcide_client_modbusFunctionConfig_reg.png)
 
 In this tutorial's demonstration, the client Portenta Machine Control is configured to use WIP
 
@@ -290,7 +305,17 @@ The OBJECT also needs labels to reference it later in the main PLC code. A table
 The main program below will be used to fetch counter data, control OBJECTS, and manage corresponding OBJECTS. A successful Modbus TCP communication will process previous tasks accordingly.
 
 ```arduino
-WIP
+counter := counter + 1;
+
+IF counter >= 500 THEN
+	DIO_0 := 1;
+END_IF;
+
+IF counter >= 1000 THEN
+	DIO_0 := 0;
+	counter := 0;
+END_IF;
+
 ```
 
 The `counter` variable serves as a global reference for the client Portenta Machine Control. On the other hand, `counter_rec` is tailored for Modbus, storing the data retrieved from the server Portenta Machine Control. We established this variable when setting up the 'Read Input Registers' Modbus function.
@@ -313,7 +338,7 @@ The following short clip shows a briefly expected behavior of the example projec
 
 ## Conclusion
 
-In this tutorial, you have learned to configure the workspace environment to work with Modbus RTU using Arduino PLC IDE and verified that Portenta Machine Control has been correctly set up and Modbus RTU communication is effective using an example project that controls Portenta Machine Control device's on-board features such as programmable digital I/Os and encoders based on customized example.
+In this tutorial, you have learned to configure the workspace environment to work with Modbus RTU using Arduino PLC IDE and verified that Portenta Machine Control has been correctly set up and Modbus RTU communication is effective using an example project that controls Portenta Machine Control device's on-board features such as programmable digital I/Os and dedicated digital outputs based on customized example.
 
 ### Next Steps
 
