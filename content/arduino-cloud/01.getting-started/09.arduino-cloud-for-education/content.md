@@ -233,7 +233,7 @@ To create a Thing, click on **Create Thing** next to the device of your interest
 
 If you want to explore more on how Things work, check [here](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#3-creating-a-thing).
 
-***With a Free Plan you can only connect two Things with the IoT Cloud at the a time.                                    With a School Plan each member you've included in your plan can connect up to five Things to a Device.***
+***With a Free Plan you can only connect two Things with the IoT Cloud at a time. With a School Plan, each member you've included in your plan can connect up to five Things to a Device.***
 
 The image below highlights the important elements that we will use frequently. Each number is explained below the image.
 
