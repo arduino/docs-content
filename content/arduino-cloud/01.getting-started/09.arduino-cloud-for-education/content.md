@@ -23,7 +23,7 @@ In this article, you will get a general overview of the major features of the Ar
 
 * [Arduino Cloud ](https://cloud.arduino.cc/plans#school)
 
-## How to create an account
+## How to Create an Account
 
 In order to get started with Arduino Cloud, you need to [have an Arduino account](https://auth.arduino.cc/login.). An **Arduino account gives** you **full access to all Arduino websites, apps**, and **services**.
 
