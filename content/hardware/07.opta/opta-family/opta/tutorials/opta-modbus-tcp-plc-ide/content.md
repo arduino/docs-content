@@ -223,8 +223,6 @@ void setup()
     // If the cable is not connected this will block the start of PLC with about 60s of timeout!
     Ethernet.begin(ip, dns, gateway, subnet);
 }
-
-...
 ```
 
 These properties — `ip`, `dns`, `gateway`, and `subnet` — are provided as arguments to the `Ethernet.begin()` method, setting its properties for Opta™. It can be adjusted as per your preference or based on network prerequisites. For instance, `ip(192, 168, 1, 2)` denotes the IP address assigned to the Modbus TCP Server Opta™.
@@ -315,7 +313,6 @@ void setup()
     // If the cable is not connected this will block the start of PLC with about 60s of timeout!
     Ethernet.begin(ip, dns, gateway, subnet);
 }
-
 ```
 
 The `ip(192, 168, 1, 1)` represents the IP address of the Modbus TCP Client Opta™. The Internet Protocol properties can be adjusted as required, but ensuring the `subnet` matches your computer's is crucial.
