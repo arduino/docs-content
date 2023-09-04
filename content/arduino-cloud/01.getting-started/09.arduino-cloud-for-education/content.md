@@ -400,7 +400,7 @@ Check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/ota-getting
 
 ### Billing
 
-School plan is specifically designed for institutions that aim to cover a larger amount of users. The billing account can be managed by a single Arduino account that then will grant access to different users and assign a role.
+School Plan is specifically designed for institutions that aim to cover a larger amount of users. The billing account can be managed by a single Arduino account that then will grant access to different users and assign a role.
 
 ### Junior Account
 
