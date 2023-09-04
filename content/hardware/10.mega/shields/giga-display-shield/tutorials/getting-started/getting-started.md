@@ -103,16 +103,16 @@ This shield has a built in RGB pixel that is controlled via I2C. To use this, in
 ```arduino
 #include <Arduino_GigaDisplayRGB.h>
 
-GigaDisplayRGB rgb;
+GigaDisplayRGB rgb; //create rgb object
 
 void setup() {
-  rgb.begin();
+  rgb.begin(); //init the library
 }
 
 void loop() {
-  rgb.on(0, 0, 255);
+  rgb.on(0, 0, 255); //turn on blue pixel
   delay(1000);
-  rgb.off();
+  rgb.off(); //turn off all pixels
   delay(1000);
 }
 ```
