@@ -52,7 +52,7 @@ Once you've logged in, you are free to check out our free content in `Arduino Cl
 
 ![free courses in the cloud](assets/free-courses.png "Free Content Courses in the Cloud")
 
-In this section you get access to several free online courses, for different age groups and topics. This library of courses get widen and extended regularly with new releases.
+Here, you get access to several free online courses, for different age groups and topics. This library of courses gets widened and extended regularly with new releases.
 
 ***With a School Plan you unlock access to extra online courses.***
 
