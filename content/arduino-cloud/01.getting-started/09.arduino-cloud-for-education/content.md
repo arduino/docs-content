@@ -408,7 +408,7 @@ If your students are **under the age of 14**, they need parental consent to sign
 
 ## Arduino IoT Cloud Remote
 
-Arduino IoT Cloud Remote App allows you to monitor your dashboards anywhere, anytime, from a **mobile device** i.e smartphone or tablet for *free*. Download it from either [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) or the [Apple App Store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) depending on your device.
+Arduino IoT Cloud Remote app allows you to monitor your dashboards anywhere, anytime, from a **mobile device** i.e. smartphone or tablet for **free**. Download it from either [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) or the [Apple App Store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) depending on your device.
 
 ***Do you want to get started with IoT Cloud Remote app? Read [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/iot-remote-phone-sensors#phone-setup).***
 
