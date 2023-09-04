@@ -1,7 +1,7 @@
 ---
 beta: true
 title: 'Getting started with Arduino Cloud for Education'
-description: 'Get a general overview of Arduino Cloud for Education and its features'
+description: 'Get a general overview of Arduino Cloud for Education and its features.'
 difficulty: intermediate
 tags:
   - IoT Cloud
