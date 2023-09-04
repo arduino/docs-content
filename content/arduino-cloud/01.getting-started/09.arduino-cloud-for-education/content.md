@@ -33,7 +33,7 @@ If you do not have an account yet, feel free to create a new one. You can follow
 
 After the registration is completed, you should verify your email address by clicking CONFIRM NOW in the email that was automatically sent to your inbox.
 
-Now let's explore https://cloud.arduino.cc/home/
+Now let's explore https://cloud.arduino.cc/home/.
 
 ![Arduino Cloud home](assets/cloud-home.png "Arduino Cloud Homepage View")
 
