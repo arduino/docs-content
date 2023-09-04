@@ -12,7 +12,6 @@ software:
   - iot-cloud
 ---
 
-
 ## Introduction
 
 The [Arduino Cloud for Schools](https://cloud.arduino.cc/schools/) is a tool that provides an online space for teachers and students. 
@@ -50,7 +49,7 @@ By default, any new user who created an Arduino account has access to Arduino Cl
 
 Once you've logged in, you are free to check out our free content in `Arduino Cloud > home > Courses` or click [here](https://cloud.arduino.cc/home/courses). 
 
-![Free Content Courses in the Cloud](assets/free-courses.png "Free Content Courses in the Cloud")
+![Free Content Courses in the Cloud](assets/free-courses.png)
 
 Here, you get access to several free online courses, for different age groups and topics. This library of courses gets widened and extended regularly with new releases.
 
@@ -62,13 +61,13 @@ Here, you get access to several free online courses, for different age groups an
 
 In your Arduino Cloud *Free plan* comes with two **spaces** by default:
 
-![Free courses in the Cloud](assets/join-space.png "My Cloud - default Space")
+![Free courses in the Cloud](assets/join-space.png)
 
 * **My Cloud**. My Cloud is an *automatically* created private space once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class. This space is free and includes *two Things*, unlimited dashboards, 100 MB of sketch storage, and 1-day data retention by default.
 * **New shared space**. A *shared space* is a space you can use with all your students. There is no limit in the number of members, who can all access the resources within its space.
 * **Join Space**. Here you copy and paste the space code that another admin or teacher shared with you to join their space. See image below:
 
-![Join Space](assets/joinspace.png "Join Space - Insert Code")
+![Join Space](assets/joinspace.png)
 
 ### Create a shared space
 
@@ -92,7 +91,7 @@ You can switch to other Shared Spaces at any time using the corresponding menu, 
 
 ***With a Free Plan or School Plan there is no limitations in the number of Shared Space you can have.***
 
-![shared space vs private](assets/my-school.PNG "Switch between Space Menu")
+![Switch between Space Menu](assets/my-school.PNG "Switch between Space Menu")
 
 ### Change Shared Space Settings
 
@@ -374,11 +373,11 @@ To learn how to use triggers that allow you to send notifications based on set c
 
 With a *School plan* any educator that is part of a Shared Space can create assignments and share a sketch directly from the Arduino Web Editor, that is part of the Arduino Cloud apps.
 
-![share sketch with google classroom](assets/google-integration-arduino-cloud02.png "Share your Sketch to Google Classroom")
+![Share sketch with Google Classroom](assets/google-integration-arduino-cloud02.png "Share your Sketch to Google Classroom")
 
 It is also possible to share the content of a course or give it as an assignment.
 
-![share content with google classroom](assets/google-classroom-content-share.png "Share content course with Google Classroom")
+![Share content with Google Classroom](assets/google-classroom-content-share.png "Share content course with Google Classroom")
 
 ### Arduino Cloud API
 
@@ -386,7 +385,7 @@ For more customizable IoT projects, the *School Plan* gives full access to Ardui
 
 To use the APIs, you need to create an API Key Token in the API Keys section of your Space.
 
-![cloud api keys](assets/api-keys.png "Create API key from your Space")
+![Cloud Api keys](assets/api-keys.png "Create API key from your Space")
 
 If you want to start creating your own API Keys Token, take a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).
 
