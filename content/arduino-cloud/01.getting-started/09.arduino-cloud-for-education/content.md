@@ -318,7 +318,7 @@ You will get an email like the one below with a link allowing you to download al
 
 ![Link to download your data](assets/email-data.png "Link to download your data")
 
-You are now ready to monitor and manipulate all your Cloud data.
+You are now ready to monitor and edit all your Cloud data.
 
 ## School Plan
 
