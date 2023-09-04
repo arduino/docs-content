@@ -403,7 +403,7 @@ School Plan is specifically designed for institutions that aim to cover a larger
 
 ### Junior Account
 
-If your students are **under the age of 14**, they need parental consent to sign up for an Arduino account. We recommend to read [this tutorial](https://support.arduino.cc/hc/en-us/articles/360022234360) to learn how to manage a Junior account. Arduino Education provides [several solutions for middle school](https://www.arduino.cc/education/middle-school/) students. The content courses included in the *School Plan* are only partially available for minor users. They will get access only to COPPA compliant courses. 
+If your students are **under the age of 14**, they need parental consent to sign up for an Arduino account. We recommend to read [this tutorial](https://support.arduino.cc/hc/en-us/articles/360022234360) to learn how to manage a Junior account. Arduino Education provides [several solutions for middle school](https://www.arduino.cc/education/middle-school/) students. The content courses included in the *School Plan* are only partially available for minor users. They will get access only to COPPA-compliant courses. 
 
 ## Arduino IoT Cloud Remote
 
