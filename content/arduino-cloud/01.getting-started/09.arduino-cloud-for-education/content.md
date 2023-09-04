@@ -33,7 +33,7 @@ If you do not have an account yet, feel free to create a new one. You can follow
 
 After the registration is completed, you should verify your email address by clicking CONFIRM NOW in the email that was automatically sent to your inbox.
 
-Now let's explore https://cloud.arduino.cc/home/:
+Now let's explore https://cloud.arduino.cc/home/
 
 ![Arduino Cloud home](assets/cloud-home.png "Arduino Cloud Homepage View")
 
@@ -50,23 +50,25 @@ By default, any new user who created an Arduino account has access to Arduino Cl
 
 Once you've logged in, you are free to check out our free content in `Arduino Cloud > home > Courses` or click [here](https://cloud.arduino.cc/home/courses). 
 
-![free courses in the cloud](assets/free-courses.PNG "Free Content Courses in the Cloud")
+![free courses in the cloud](assets/free-courses.png "Free Content Courses in the Cloud")
 
 In this section you get access to several free online courses, for different age groups and topics. This library of courses get widen and extended regularly with new releases.
 
 ***With a School Plan you unlock access to extra online courses.***
 
+***
+
 ## Manage Your Spaces
 
-In your Arduino Cloud free plan comes with two **spaces** by default:
+In your Arduino Cloud *Free plan* comes with two **spaces** by default:
 
-![free courses in the cloud](assets/join-space.PNG "My Cloud - default Space")
+![free courses in the cloud](assets/join-space.png "My Cloud - default Space")
 
 * **My Cloud**. My Cloud is an *automatically* created private space once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class. This space is free and includes *two Things*, unlimited dashboards, 100MB of Sketch storage, 1 day data retention by default.
 * **New shared space**. A *Shared Space* is a space you can use with all your students. There is no limit in the number of members, who can all access the resources within its space.
-* **Join Space** - copy paste here the space code that another admin or teacher shared with you to join their space. Like in the image below.
+* **Join Space** - copy paste here the space code that another admin or teacher shared with you to join their space. Like in the image below:
 
-![join space](assets/joinspace.PNG "Join Space - Insert Code")
+![join space](assets/joinspace.png "Join Space - Insert Code")
 
 ### Create a shared space
 
@@ -86,11 +88,11 @@ Congratulations! Now you own a Shared Space linked to your Arduino account.
 
 ### Switch Between Spaces
 
-You can switch to other Shared Spaces at any time using the corresponding menu, which you can find at the top right-hand corner, and click on it.
+You can switch to other Shared Spaces at any time using the corresponding menu, which you can find at the top right-corner, and click on it.
 
 ***With a Free Plan or School Plan there is no limitations in the number of Shared Space you can have.***
 
-![shared space vs private](assets/my-school.PNG)
+![shared space vs private](assets/my-school.PNG "Switch between Space Menu")
 
 ### Change Shared Space Settings
 
@@ -116,7 +118,7 @@ You can add members in **three possible ways**:
 
 3. **Copy pasting the link** and share it with the whole class.
 
-![Invite members through email](assets/add-member.PNG)
+![Invite members through email](assets/add-member.PNG "Invite a member")
 
 ### Role types
 
@@ -126,11 +128,9 @@ There are [three role types](https://cloud.arduino.cc/home/roles-permissions) in
 * Teacher
 * Students
 
-By default the member who has activated the plan and created the workspace is set as *Admin*. It is possible to have multiple Admins with same permissions. The admin has full control of the rights/permissions each user has in the Shared Space:
+By default the member who has activated the plan and created the class-space is set as *Admin*. It is possible to have multiple Admins with same permissions. The admin has full control of the rights/permissions each user has in a Shared Space.
 
-The list of supported roles and corresponding permissions can be found here:
-
-https://cloud.arduino.cc/home/roles-permissions
+The list of supported roles and corresponding permissions can be found here: https://cloud.arduino.cc/home/roles-permissions
 
 Important to remember are **Student role limitations:**
 
@@ -138,9 +138,11 @@ Important to remember are **Student role limitations:**
 * They are not allowed to assign members roles
 * They are not allowed to view the Plan Management and Payment information
 
-![school user roles differences](assets/users-roles.PNG)
+![school user roles differences](assets/users-roles.PNG "Users role limitations")
 
 ***There is no limitation on the numbers of members you can add into a Shared Space.***
+
+***
 
 ## CLOUD APPS
 
@@ -150,39 +152,40 @@ On the left menu bar in https://cloud.arduino.cc/home/ are listed the Cloud apps
 * IoT Cloud
 * Triggers
 
-![Cloud APPS](assets/leftsidebare.PNG)
+![Cloud APPS](assets/leftsidebare.PNG "Left sidebar menu in Cloud homepage")
 
 With a *Free* *Plan* you have access both to Arduino Web Editor and Arduino IoT Cloud, with **different limitations**. We'll discuss more in details below what those limitations are.
 
 With a *Free Plan* you won't have access to Cloud Triggers, so you'll see something similar to this:
 
-![Triggers with a free plan](assets/triggers-free-plan.PNG)
+![Triggers with a free plan](assets/triggers-free-plan.PNG "Triggers Cloud feature")
 
 If you want to unlock this function, you'll need to upgrade to a [School Plan](https://digital-store.arduino.cc/education/purchase).
 
 ### What is Arduino Web Editor?
 
-[Arduino Web Editor](http://create.arduino.cc/editor) allows you to **write code** and **upload sketches** to any Arduino board after installing a **[simple plug-in](https://create.arduino.cc/getting-started/plugin/welcome) for your browser**. Your Sketchbook will be stored in the Cloud and accessible from any device. If you have a *Free Plan* you can store to a maximum of 100 MB of sketches. You can import your Sketchbook via a .zip file. Arduino Web Editor is part of Arduino Cloud, that simplifies a project by bringing all the different tools you need together in one place. This is a complementary solutions for schools or institutions that don't want to install [Arduino IDE](https://www.arduino.cc/en/software) to program their devices.
+[Arduino Web Editor](http://create.arduino.cc/editor) allows you to **write code** and **upload sketches** to any Arduino board after installing a **[simple plug-in](https://create.arduino.cc/getting-started/plugin/welcome) for your browser**. Your Sketchbook will be stored in the Cloud and accessible from any device. If you have a *Free Plan* you can store to a maximum of 100 MB of sketches.
+
+You can import your Sketchbook via a .zip file. Arduino Web Editor is part of Arduino Cloud, that simplifies a project by bringing all the different tools you need together in one place. This is a complementary solutions for schools or institutions that don't want to install [Arduino IDE](https://www.arduino.cc/en/software) to program their devices.
 
 If you want to know more about Arduino Web Editor [visit this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor).
 
 A **lite version of the Web Editor** is included in the Arduino IoT Cloud, under `Things > Sketch`, which is actually a preview of a sketch saved on the Web Editor. 
 
-![Arduino IoT Cloud lite Editor](assets/gs-thing-editor.png)
+![Arduino IoT Cloud lite Editor](assets/gs-thing-editor.png "Arduino IoT Cloud lite Editor")
 
 ***The Arduino Cloud Free Plan allows a maximum online space to store your sketches and libraries of 100 MB and a maximum of 25 code compilations per day by default.                                                                                                                                                                                    The Arduino Cloud School Plan allows unlimited online storage space and unlimited code compilations for your sketches.***
 
 You can check how many times you've left to verify and upload your program from the [Cloud home](https://cloud.arduino.cc/home/), on the `Feature Usage` menu on the left bottom corner.
 
-![feature usage menu](assets/features-usage.png) 
+![feature usage menu](assets/features-usage.png "Feature Usage Menu") 
 
-***
 
 ### What is Arduino IoT Cloud?
 
 Arduino IoT Cloud is an easy-to-use Internet of Things application platform. Arduino IoT Cloud makes the creation of connected objects quick, simple, and secure. You can connect multiple devices and allow them to exchange real-time data. You can also monitor them from anywhere using a simple user interface. It is integrated into your Arduino Cloud Space. 
 
-
+***
 
 ## IoT Projects Management
 
