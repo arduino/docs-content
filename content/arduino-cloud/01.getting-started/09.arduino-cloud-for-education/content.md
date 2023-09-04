@@ -272,7 +272,7 @@ When we create variables here, they are automatically generated in a sketch, and
 
 To learn more on the different types of Variables go to [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).
 
-***The Arduino Cloud Free Plan allows a maximum number of 5 variables per each Thing by default.                                                                                                                                                                                    The Arduino Cloud School Plan allows unlimited number of variables per each Thing.***
+***The Arduino Cloud Free Plan allows a maximum number of 5 variables per Thing by default. The Arduino Cloud School Plan allows an unlimited number of variables per Thing.***
 
 ### Dashboards
 
