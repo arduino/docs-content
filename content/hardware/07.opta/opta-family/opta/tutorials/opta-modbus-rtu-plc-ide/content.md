@@ -19,6 +19,8 @@ hardware:
 
 Opta™ has scalable industrial-grade hardware with a wide range of connectivity choices. Opta™ is enhanced by the Arduino PLC IDE software, which makes the most of the device for solid field deployments. Opta™ supports Modbus protocols, and the Arduino PLC IDE makes it simple to implement them.
 
+![System overview of Opta™ with Modbus RTU using PLC IDE](assets/opta_plcide_modbusrtu_overview.png)
+
 In this tutorial, you will learn how to implement Modbus RTU based communication between two Opta™ devices using Arduino PLC IDE.
 
 ## Goals
@@ -76,7 +78,7 @@ The entire procedure is divided into three distinct stages:
 
 * __System Operation__ represents the anticipated outcome post the Modbus RTU configuration and the execution of the PLC program based on the developer's designed logic. Consequently, we can observe the device engaging in communication with other devices through Modbus RTU.
 
-The diagram presented shows the uniformity of the Modbus RTU setup across various Arduino devices using the PLC IDE. One main advantage of this system is its adaptability. Regardless of the specifics of the Modbus RTU setup, the PLC program consistently performs effectively. Its design ensures that it can be used in many different environments.
+The diagram presented shows the uniformity of the Modbus RTU setup across devices like Opta and Portenta Machine Control using the PLC IDE. One main advantage of this system is its adaptability. Regardless of the specifics of the Modbus RTU setup, the PLC program consistently performs effectively. Its design ensures that it can be used in many different environments.
 
 In addition, when developing the PLC code, there is no limitation to a single language. The system adheres to the IEC61131-3 standard, allowing one to select from the languages outlined in this standard. This ensures a balance between user convenience and accurate code development.
 
