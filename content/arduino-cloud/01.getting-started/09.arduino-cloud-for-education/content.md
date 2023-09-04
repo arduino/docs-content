@@ -39,8 +39,8 @@ Now let's explore https://cloud.arduino.cc/home/.
 
 The Arduino Cloud for Education consists of **two main subscriptions**:
 
-* **Free Plan**  
-* **School Plan** 
+* Free Plan
+* School Plan
 
 By default, any new user who created an Arduino account has access to Arduino Cloud with a *Free Plan*.
 
