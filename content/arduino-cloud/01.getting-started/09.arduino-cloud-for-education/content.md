@@ -278,7 +278,7 @@ To learn more on the different types of Variables go to [this tutorial](https://
 
 Dashboards are used to visualize real-time data and to enable direct interaction with the board through the IoT Cloud. Go to `Dashboard` and click the green button `Create`. We'll link `Variables` we've created before to a *Widget*.
 
-***With a Free Plan is not possible to share your Dashboard with other users.  If you want to unlock this function, you'll need to upgrade to a [School Plan](https://digital-store.arduino.cc/education/purchase).***
+***With a Free Plan is not possible to share your Dashboard with other users. If you want to unlock this function, you'll need to upgrade to a [School Plan](https://digital-store.arduino.cc/education/purchase).***
 
 ![Dashboard example](assets/dashboard-example.png "Dashboard example")
 
