@@ -50,7 +50,7 @@ By default, any new user who created an Arduino account has access to Arduino Cl
 
 Once you've logged in, you are free to check out our free content in `Arduino Cloud > home > Courses` or click [here](https://cloud.arduino.cc/home/courses). 
 
-![free courses in the cloud](assets/free-courses.png "Free Content Courses in the Cloud")
+![Free Content Courses in the Cloud](assets/free-courses.png "Free Content Courses in the Cloud")
 
 Here, you get access to several free online courses, for different age groups and topics. This library of courses gets widened and extended regularly with new releases.
 
@@ -62,13 +62,13 @@ Here, you get access to several free online courses, for different age groups an
 
 In your Arduino Cloud *Free plan* comes with two **spaces** by default:
 
-![free courses in the cloud](assets/join-space.png "My Cloud - default Space")
+![Free courses in the Cloud](assets/join-space.png "My Cloud - default Space")
 
 * **My Cloud**. My Cloud is an *automatically* created private space once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class. This space is free and includes *two Things*, unlimited dashboards, 100 MB of sketch storage, and 1-day data retention by default.
 * **New shared space**. A *shared space* is a space you can use with all your students. There is no limit in the number of members, who can all access the resources within its space.
 * **Join Space**. Here you copy and paste the space code that another admin or teacher shared with you to join their space. See image below:
 
-![join space](assets/joinspace.png "Join Space - Insert Code")
+![Join Space](assets/joinspace.png "Join Space - Insert Code")
 
 ### Create a shared space
 
@@ -336,16 +336,15 @@ To upgrade from a *Free Plan* to *School Plan* and get access to the features me
 
 https://digital-store.arduino.cc/education/purchase/institution
 
-1. If you're not logged in with an Arduino account, you'll be redirected to the login page.
-   **Select the institution Space you want to add your members' seats to** or click Set up new shared Space to make a brand new one.
+**1. ** If you're not logged in with an Arduino account, you'll be redirected to the login page. **Select the institution Space you want to add your members' seats to** or click Set up new shared Space to make a brand new one.
 
 ![Select the institution space](assets/school-plan.png "Purchase School Plan")
 
-2. Add as many members seats you need for your classes.
+**2.** **Add as many members seats** you need for your classes.
 
 ![add members to the school plan](assets/configure-your-plan.png "Configure your School Plan")
 
-3. Then click on the button Add Billing Information and fill in with your educational institution information and payment method.
+**3.** Then click on the button Add Billing Information and fill in with your educational institution information and payment method.
 
 ![add billing information](assets/add-billing-information.png "Add billing information")
 
