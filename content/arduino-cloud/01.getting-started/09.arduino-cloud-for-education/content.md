@@ -392,7 +392,7 @@ To use the APIs, you need to create an API Key Token in the API Keys section of 
 
 If you want to start creating your own API Keys Token, take a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).
 
-### Over the Air Uploads
+### Over-the-air Uploads
 
 This feature, included in the Arduino Cloud *School Plan*, allows you to upload programs wirelessly to your Arduino boards. If you have a compatible board connected to a Wi-Fi®/Ethernet network and configured it to work with OTA, you won’t need to physically connect the board to the computer in order to upload new sketches to it. 
 
