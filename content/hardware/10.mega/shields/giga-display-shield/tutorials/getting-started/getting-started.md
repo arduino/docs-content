@@ -7,7 +7,7 @@ tags: [Displays, LVGL, GIGA, IMU]
 
 The [GIGA Display Shield](/hardware/giga-display-shield) is an accessory shield designed for the [GIGA R1 WiFi](/hardware/giga-r1) board. With it, you can render fast & sophisticated user interfaces on a **800x480** display with **touch support**.
 
-In this guide you will learn how to set your board up with the GIGA R1 WiFi board & how to get started with the supported frameworks.
+In this guide you will learn how to set your board up with the GIGA R1 WiFi board & become familiar with the available libraries to control it.
 
 ## Hardware & Software Needed
 
@@ -88,9 +88,17 @@ IMU.begin() //for other boards
 imu.begin() //for GIGA Display Shield
 ```
 
+## Microphone
+
+This shield has an embedded omnidirectional microphone, **MP34DT06JTR**, which can be used to together with the [PDM](https://docs.arduino.cc/learn/built-in-libraries/pdm) library. This library is shipped with the GIGA core, so there's no need to install it.
+
+Below is a minimal sketch that will print out the samples in the serial plotter (a tool that is part of the Arduino IDE). 
+
+<CodeBlock url="https://github.com/arduino/ArduinoCore-mbed/blob/main/libraries/PDM/examples/PDMSerialPlotter/PDMSerialPlotter.ino" className="arduino"/>
+
 ## RGB
 
-This shield has a built in RGB pixel that is controlled via I2C. To use this, install the [Arduino_GigaDisplayRGB]() library. The following sketch is a minimal example that will blink the blue pixel every second.
+This shield has a built in RGB pixel that is controlled via I2C. To use this, install the [Arduino_GigaDisplayRGB](https://github.com/arduino-libraries/Arduino_GigaDisplayRGB) library. The following sketch is a minimal example that will blink the blue pixel every second.
 
 ```arduino
 #include <Arduino_GigaDisplayRGB.h>
@@ -109,3 +117,8 @@ void loop() {
 }
 ```
 
+## Summary
+
+In this guide we have covered the requirements & installation needs for using the GIGA Display Shield, as well as demonstrating how to access the RGB, IMU & Microphone peripherals. 
+
+For more tutorials, visit the [documentation page for GIGA Display Shield](/hardware/giga-display-shield).
