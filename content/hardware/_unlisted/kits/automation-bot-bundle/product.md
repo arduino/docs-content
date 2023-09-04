@@ -1,4 +1,4 @@
 ---
-title: Voice Controlled Light Bundle
+title: Automation Bot Bundle
 certifications: [CE, UKCA]
 ---
