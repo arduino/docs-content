@@ -244,7 +244,7 @@ The image below highlights the important elements that we will use frequently. E
 3. **Thing tab:** There are two different tabs: **Setup**, **Sketch** and **Metadata**. The setup is the current view, while the sketch works as the Arduino IDE, where the Serial Monitor is detachable.
 4. **Variables:** By clicking the **Add variable** button, we can create variables that will be incorporated in a sketch later on. These variables can then be linked to a dashboard.
 5. **Device configuration:** To associate our Thing with a device, detach or change it.
-6. **Network configuration:** Here, we will enter the name and password of our Wi-Fi network, which will be necessary to communicate with the IoT Cloud.
+6. **Network configuration:** Here, we will enter the name and password of our Wi-Fi® network, which will be necessary to communicate with the IoT Cloud.
 
 ### Filter your Things or Devices
 
