@@ -189,7 +189,7 @@ Arduino IoT Cloud is an easy-to-use Internet of Things application platform. Ard
 
 ## IoT Projects Management
 
-In your IoT projects with Arduino you'll need **three elements**:
+In your IoT projects with Arduino you will need **three elements**:
 
 1. [The **Arduino IoT Cloud**](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
 2. [The **Arduino Create Agent**:](https://create.arduino.cc/getting-started/plugin/welcome) the middle man between Arduino’s Web Editor, Arduino IoT Cloud and your computer. It allows you to use the browser to edit and deploy sketches to your Arduino board.
