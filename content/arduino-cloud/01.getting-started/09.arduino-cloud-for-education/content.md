@@ -55,7 +55,6 @@ Here, you get access to several free online courses, for different age groups an
 
 ***With a School Plan you unlock access to extra online courses.***
 
-***
 
 ## Manage Your Spaces
 
@@ -335,17 +334,17 @@ To upgrade from a *Free Plan* to *School Plan* and get access to the features me
 
 https://digital-store.arduino.cc/education/purchase/institution
 
-**1. ** If you're not logged in with an Arduino account, you'll be redirected to the login page. **Select the institution Space you want to add your members' seats to** or click Set up new shared Space to make a brand new one.
+1. If you're not logged in with an Arduino account, you'll be redirected to the login page. **Select the institution Space you want to add your members' seats to** or click Set up new shared Space to make a brand new one.
 
-![Select the institution space](assets/school-plan.png "Purchase School Plan")
+	![Select the institution space](assets/school-plan.png "Purchase School Plan")
 
-**2.** **Add as many members seats** you need for your classes.
+2. **Add as many members seats** you need for your classes.
 
-![add members to the school plan](assets/configure-your-plan.png "Configure your School Plan")
+	![add members to the school plan](assets/configure-your-plan.png "Configure your School Plan")
 
-**3.** Then click on the button Add Billing Information and fill in with your educational institution information and payment method.
+3. Then click on the button Add Billing Information and fill in with your educational institution information and payment method.
 
-![add billing information](assets/add-billing-information.png "Add billing information")
+	![add billing information](assets/add-billing-information.png "Add billing information")
 
 Congratulations! Now you own a *School Plan* linked to your Arduino account. You should have received a confirmation email. Continue reading to discover more about the additional functions you've now unlocked.
 
