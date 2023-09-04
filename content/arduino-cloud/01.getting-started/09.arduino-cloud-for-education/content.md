@@ -384,7 +384,7 @@ It is also possible to share the content of a course or give it as an assignment
 
 ### Arduino Cloud API
 
-For more customizable IoT projects, the *School Plan* gives full access to Arduino IoT Cloud back-end, offering to control Things and Devices via Arduino rest APIs in [Javascript](https://www.npmjs.com/package/@arduino/arduino-iot-client), [Python](https://pypi.org/project/arduino-iot-client/), or [Go](https://github.com/arduino/iot-client-go). With Arduino rest APIs, you can send and receive data from an external services or web properties, personalizing your school projects. You will be able to manage up to **10 requests per second**, guaranteeing stable data sharing.
+For more customizable IoT projects, the *School Plan* gives full access to Arduino IoT Cloud back-end, offering to control Things and Devices via Arduino rest APIs in [JavaScript](https://www.npmjs.com/package/@arduino/arduino-iot-client), [Python](https://pypi.org/project/arduino-iot-client/), or [Go](https://github.com/arduino/iot-client-go). With Arduino rest APIs, you can send and receive data from external services or web properties, personalizing your school projects. You will be able to manage up to **10 requests per second**, guaranteeing stable data sharing.
 
 To use the APIs, you need to create an API Key Token in the API Keys section of your Space.
 
