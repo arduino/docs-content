@@ -64,9 +64,9 @@ In your Arduino Cloud *Free plan* comes with two **spaces** by default:
 
 ![free courses in the cloud](assets/join-space.png "My Cloud - default Space")
 
-* **My Cloud**. My Cloud is an *automatically* created private space once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class. This space is free and includes *two Things*, unlimited dashboards, 100MB of Sketch storage, 1 day data retention by default.
-* **New shared space**. A *Shared Space* is a space you can use with all your students. There is no limit in the number of members, who can all access the resources within its space.
-* **Join Space** - copy paste here the space code that another admin or teacher shared with you to join their space. Like in the image below:
+* **My Cloud**. My Cloud is an *automatically* created private space once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class. This space is free and includes *two Things*, unlimited dashboards, 100 MB of sketch storage, and 1-day data retention by default.
+* **New shared space**. A *shared space* is a space you can use with all your students. There is no limit in the number of members, who can all access the resources within its space.
+* **Join Space**. Here you copy and paste the space code that another admin or teacher shared with you to join their space. See image below:
 
 ![join space](assets/joinspace.png "Join Space - Insert Code")
 
