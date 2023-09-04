@@ -296,7 +296,7 @@ You can read more about Advance Chart Widget [here](https://docs.arduino.cc/ardu
 
 ### Data Export
 
-Arduino Cloud, both with *Free* or *School plan*, allows any user to download historical data from Arduino IoT Cloud Things and Variables. The data are downloaded in **.csv** format to be ready for further evaluation or manipulation.
+Arduino Cloud, both with *Free* or *School Plan*, allows any user to download historical data from Arduino IoT Cloud Things and Variables. The data are downloaded in **.csv** format to be ready for further editing.
 
 ***The Arduino Cloud Free Plan allows only 1 day of data retention by default. The Arduino Cloud for School Plan includes 6 months of data retention by default; this means that your data will be available and downloadable from your Arduino Cloud account for 6 months.***
 
