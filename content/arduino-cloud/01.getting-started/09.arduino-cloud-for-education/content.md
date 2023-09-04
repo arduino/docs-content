@@ -49,7 +49,7 @@ By default, any new user who created an Arduino account has access to Arduino Cl
 
 Once you've logged in, you are free to check out our free content in `Arduino Cloud > home > Courses` or click [here](https://cloud.arduino.cc/home/courses). 
 
-![Free Content Courses in the Cloud](assets/free-courses.png)
+![Free Content Courses in the Cloud](assets/content.png)
 
 Here, you get access to several free online courses, for different age groups and topics. This library of courses gets widened and extended regularly with new releases.
 
@@ -60,13 +60,15 @@ Here, you get access to several free online courses, for different age groups an
 
 In your Arduino Cloud *Free plan* comes with two **spaces** by default:
 
-![Free courses in the Cloud](assets/join-space.png)
+![Free courses in the Cloud](assets/my-cloud-space.png)
+
 
 * **My Cloud**. My Cloud is an *automatically* created private space once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class. This space is free and includes *two Things*, unlimited dashboards, 100 MB of sketch storage, and 1-day data retention by default.
 * **New shared space**. A *shared space* is a space you can use with all your students. There is no limit in the number of members, who can all access the resources within its space.
 * **Join Space**. Here you copy and paste the space code that another admin or teacher shared with you to join their space. See image below:
 
-![Join Space](assets/joinspace.png)
+
+![Join Space](assets/copy-code-join.png)
 
 ### Create a shared space
 
