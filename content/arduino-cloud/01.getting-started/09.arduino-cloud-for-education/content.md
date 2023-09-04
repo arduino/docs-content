@@ -199,7 +199,7 @@ In your IoT projects with Arduino you will need **three elements**:
 
 The Arduino IoT Cloud is compatible with multiple Arduino boards or devices based on the ESP32 / ESP8266 microcontrollers. The Arduino IoT Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRaWAN® (via The Things Network), and cellular connectivity. You can check the [full list of compatible hardware here](https://support.arduino.cc/hc/en-us/articles/360016077320-What-devices-can-be-used-with-Arduino-IoT-Cloud-).
 
-If your device is compatible with Arduino IoT Cloud, you can start to *Setup your Device* in your Shared Space by connecting it to your computer through a USB cable.
+If your device is compatible with Arduino IoT Cloud, you can start to **Setup your Device** in your Shared Space by connecting it to your computer through a USB cable.
 
 ![Device selection](assets/device-onboarding.png "Device selection")
 
