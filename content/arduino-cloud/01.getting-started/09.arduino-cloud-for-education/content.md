@@ -192,7 +192,7 @@ Arduino IoT Cloud is an easy-to-use Internet of Things application platform. Ard
 In your IoT projects with Arduino you'll need **three elements**:
 
 1. [The **Arduino IoT Cloud**](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
-2. [The **Arduino Create Agent**:](https://create.arduino.cc/getting-started/plugin/welcome) the middle man between Arduino’s Web Editor, Arduino IoT Cloud and your computer. It allows you to use the browser to edit and deploy sketches to your Arduino board, and is required to be installed when using this kit.
+2. [The **Arduino Create Agent**:](https://create.arduino.cc/getting-started/plugin/welcome) the middle man between Arduino’s Web Editor, Arduino IoT Cloud and your computer. It allows you to use the browser to edit and deploy sketches to your Arduino board.
 3. **A device** of your choice.
 
 ### Setup a Device in Arduino IoT Cloud
@@ -205,17 +205,17 @@ If your device is compatible with Arduino IoT Cloud, you can start to *Setup you
 
 The agent will start looking for your board. When your board has been found, the following screen will appear. Click on **Configure**.
 
-![set up board in the cloud](assets/setup-cloud-board.png)
+![set up board in the cloud](assets/setup-cloud-board.png "Setup board in the Cloud")
 
 Select a board name to be able to correctly identify your device and click on **Next**.  
 
-![Give a name to the device](assets/name-device.png)
+![Give a name to the device](assets/name-device.png "Give a name to the device")
 
 Define the connection type you want to use with your board and click on **Next.** 
 
 If the onboarding proceeds as expected, the following page will appear confirming that your device has been successfully set up.
 
-![successfully set up device](assets/congratulations-setup.png)
+![successfully set up device](assets/congratulations-setup.png "Successfully setup device")
 
 The `Devices` tab displays the name, status, and linked `Things` for each of the configured devices. Clicking on the device allows for renaming it, as well as accessing more information about the device, such as its ID number, type, FQBN, serial number, firmware version, linked Thing, latest activity, and the date when the device was added.
 
@@ -233,7 +233,7 @@ To create a Thing, click on **Create Thing** next to the device of your interest
 
 If you want to explore more on how Things work, check [here](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#3-creating-a-thing).
 
-***With a Free Plan you can only connect two Things with the IoT Cloud at the a time.                                    With a School Plan each member you've included in your plan can connect up tp five Things to a Device.***
+***With a Free Plan you can only connect two Things with the IoT Cloud at the a time.                                    With a School Plan each member you've included in your plan can connect up to five Things to a Device.***
 
 The image below highlights the important elements that we will use frequently. Each number is explained below the image.
 
@@ -241,7 +241,7 @@ The image below highlights the important elements that we will use frequently. E
 
 1. **Name of thing:** By clicking on "Untitled", we can rename our thing to anything we like. 
 2. **Navigation menu:** This helps to navigate between Things, Dashboards and Devices. 
-3. **Thing tab:** There are two different tabs: **Setup**, **Sketch** and **Metadata**. The setup is the current view, while the sketch works as the Arduino IDE where the Serial Monitor is detachable.
+3. **Thing tab:** There are two different tabs: **Setup**, **Sketch** and **Metadata**. The setup is the current view, while the sketch works as the Arduino IDE, where the Serial Monitor is detachable.
 4. **Variables:** By clicking the **Add variable** button, we can create variables that will be incorporated in a sketch later on. These variables can then be linked to a dashboard.
 5. **Device configuration:** To associate our Thing with a device, detach or change it.
 6. **Network configuration:** Here, we will enter the name and password of our Wi-Fi network, which will be necessary to communicate with the IoT Cloud.
@@ -264,33 +264,33 @@ You can go back to the Things tab and start filtering your Things according to t
 
 ### Variables
 
-In order to retrieve and store information we need to create Variables in the Arduino IoT Cloud are very similar to the variables we create in a regular sketch. 
+In order to retrieve and store information we need to create Variables in the Arduino IoT Cloud, they are very similar to the variables we create in a regular sketch. 
 
 ![variables in the Arduino IoT Cloud](assets/variables.PNG "Variables associated to a Thing")
 
 When we create variables here, they are automatically generated in a sketch, and when we upload the code to the board, the variables used in the sketch synchronize with the variables in the cloud.
 
-To learn more on the different types of Variables and their features go to [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).
+To learn more on the different types of Variables go to [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).
 
 ***The Arduino Cloud Free Plan allows a maximum number of 5 variables per each Thing by default.                                                                                                                                                                                    The Arduino Cloud School Plan allows unlimited number of variables per each Thing.***
 
 ### Dashboards
 
-Dashboards are used to visualize real-time data and to enable direct interaction with the board through the IoT Cloud. Go to `Dashboard` and click the green button `Create`. We'll link `Variables` we've created before to a **Widget**.
+Dashboards are used to visualize real-time data and to enable direct interaction with the board through the IoT Cloud. Go to `Dashboard` and click the green button `Create`. We'll link `Variables` we've created before to a *Widget*.
 
-With a *Free Plan* is not possible to share your Dashboard with other users.
+***With a Free Plan is not possible to share your Dashboard with other users.  If you want to unlock this function, you'll need to upgrade to a [School Plan](https://digital-store.arduino.cc/education/purchase).***
 
 ![Dashboard example](assets/dashboard-example.png "Dashboard example")
 
-Widgets are the ‘building blocks’ of a dashboard, and are directly linked to our properties. They allow us to visualize the data we get from sensors. There are several different widgets: gauges, sliders, switches, color palettes, messenger and more.
+**Widgets** are the ‘building blocks’ of a dashboard, and are directly linked to our properties. They allow us to visualize the data we get from sensors. There are several different widgets: gauges, sliders, switches, color palettes, messenger and more.
 
 ![widgets selection](assets/widgets.PNG "Widgets Selection")
 
 If you want to learn more on how to customize your dashboard and widgets, check [this link](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets).
 
-***If want to use to Advanced Chart Widget for your IoT projects, that allows you to visualize multiple variables in one chart, you'll need access to the School Plan***
+***If want to use to Advanced Chart Widget for your IoT projects, that allows you to visualize multiple variables in one chart, you'll need access to the School Plan.***
 
-![advance widget](assets/advanced-chart.gif)
+![advance widget](assets/advanced-chart.gif "Advanced Chart Widget")
 
 You can read more about Advance Chart Widget [here](https://docs.arduino.cc/arduino-cloud/features/advanced-chart).
 
@@ -309,7 +309,7 @@ From here you can select all the variables you want to download by checking the 
 
 When you have selected the data, click on the **Select Data Source** button.
 
-![Export your data](assets/download-data.png "Exporte your data")
+![Export your data](assets/download-data.png "Export your data")
 
 At this point, click on **Get data** to receive your data by email.
 
@@ -333,7 +333,24 @@ As an Educator you might need:
 
 ### Buy a School Plan
 
+To upgrade from a *Free Plan* to *School Plan* and get access to the features mentioned in this article, go here:
 
+https://digital-store.arduino.cc/education/purchase/institution
+
+1. If you're not logged in with an Arduino account, you'll be redirected to the login page.
+   **Select the institution Space you want to add your members' seats to** or click Set up new shared Space to make a brand new one.
+
+![Select the institution space](assets/school-plan.png "Purchase School Plan")
+
+2. Add as many members seats you need for your classes.
+
+![add members to the school plan](assets/configure-your-plan.png "Configure your School Plan")
+
+3. Then click on the button Add Billing Information and fill in with your educational institution information and payment method.
+
+![add billing information](assets/add-billing-information.png "Add billing information")
+
+Congratulations! Now you own a *School Plan* linked to your Arduino account. You should have received a confirmation email. Continue reading to discover more about the additional functions you've now unlocked.
 
 ### Sharing Dashboards
 
