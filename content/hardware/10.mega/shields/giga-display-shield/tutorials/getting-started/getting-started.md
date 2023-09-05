@@ -98,10 +98,10 @@ Below is a minimal sketch that will print out the samples in the serial plotter 
 
 ## RGB
 
-This shield has a built in RGB pixel that is controlled via I2C. To use this, install the [Arduino_GigaDisplayRGB](https://github.com/arduino-libraries/Arduino_GigaDisplayRGB) library. The following sketch is a minimal example that will blink the blue pixel every second.
+This shield has a built in RGB pixel that is controlled via I2C. To use this, install the [Arduino_GigaDisplay](https://github.com/arduino-libraries/Arduino_GigaDisplay) library. The following sketch is a minimal example that will blink the blue pixel every second.
 
 ```arduino
-#include <Arduino_GigaDisplayRGB.h>
+#include <Arduino_GigaDisplay.h>
 
 GigaDisplayRGB rgb; //create rgb object
 
