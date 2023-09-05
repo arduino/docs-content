@@ -137,28 +137,14 @@ Using an online image converter you can pick any image you would like to be disp
 
 We will be using the example sketch "ArduinoLogo" as the basis for the sketch that lets us display an image. The example sketch can be found under **File->Examples->Arduino_H7_Video->ArduinoLogo**.
 
-Now there are two ways of using the image that we converted in the last step. One way is to convert the `.bin` file into a `.h` file, then put this file in the same folder as the sketch and include it in the code. In this case first include it with:
-
-```arduino
-#include "img_arduinologo.h"
-```
-
-And change the name of the file to the correct one for the one you are using.
-
-The other way is to use the macro inside the example sketch. This makes use of the `incbin.h` translation library. The necessary files are located in the folder for the example sketch. 
-
-### Using it in a sketch
-
-The complete code can be found as an example in the **Arduino_H7_video** library, it is called **ArduinoLogo**
-
 Running the example sketch as is will display the Arduino logo on the screen, like in the image below:
 
 ![Arduino Logo on the GIGA Display Shield]()
 
-Now to use an custom image, after following the steps above, we need to modify the example sketch a bit.
+Now to use the image that we converted in the last step. Using the macro inside the example sketch. This makes use of the `incbin.h` translation library. The necessary files are located in the folder for the example sketch. 
 
 
-## Full sketch
+### Full sketch
 
 ## Conclusion
 
