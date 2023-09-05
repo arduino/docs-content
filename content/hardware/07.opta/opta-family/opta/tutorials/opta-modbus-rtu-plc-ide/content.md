@@ -78,7 +78,7 @@ The entire procedure is divided into three distinct stages:
 
 * __System Operation__ represents the anticipated outcome post the Modbus RTU configuration and the execution of the PLC program based on the developer's designed logic. Consequently, we can observe the device engaging in communication with other devices through Modbus RTU.
 
-The diagram presented shows the uniformity of the Modbus RTU setup across devices like Opta and Portenta Machine Control using the PLC IDE. One main advantage of this system is its adaptability. Regardless of the specifics of the Modbus RTU setup, the PLC program consistently performs effectively. Its design ensures that it can be used in many different environments.
+The diagram presented shows the uniformity of the Modbus RTU setup across devices like Opta™ and Portenta Machine Control using the PLC IDE. One main advantage of this system is its adaptability. Regardless of the specifics of the Modbus RTU setup, the PLC program consistently performs effectively. Its design ensures that it can be used in many different environments.
 
 In addition, when developing the PLC code, there is no limitation to a single language. The system adheres to the IEC61131-3 standard, allowing one to select from the languages outlined in this standard. This ensures a balance between user convenience and accurate code development.
 
@@ -109,6 +109,8 @@ The two Opta™ devices will communicate using Modbus RTU. It is enabled by usin
 
 The Modbus RTU communication network can be scaled up by integrating additional protocol compatible devices as Opta™ or Portenta Machine Control.
 
+***Opta™ does not come equipped with integrated termination resistors; therefore, it is essential to follow the Modbus protocol specifications, which require the addition of termination resistors. Should you experience inconsistencies in data transmission when using Opta™ alongside other Modbus RTU compatible devices, it is advised to switch the A(-) and B(+) lines and initiate the process again.***
+
 ### Workspace Pre-Configuration
 
 For appropriate Modbus RTU operation, it requires some considerations to be taken into account beforehand to properly enable and use Modbus RTU on Opta™ using PLC IDE. Following subsections will help briefly explain such aspects.
@@ -116,6 +118,7 @@ For appropriate Modbus RTU operation, it requires some considerations to be take
 ***It is recommendable to check out [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license#3-project-setup) to familiarize with Arduino PLC IDE environment.***
 
 #### Opta™ Basic Configuration
+<br></br>
 
 The Modbus RTU communication for Opta™ does not require special pre-configuration. You will only have to make a manual sketch download with the desired protocol role with its properties, and its onboard elements to be used. These onboard elements can be status LEDs and relays.
 
@@ -258,6 +261,8 @@ To retrieve counter information from the server Opta™, select the 'Modbus FC-0
 * Start address: 25000
 * Polling time: 0 ms (Continuous Read)
 * Timeout: 1000 ms
+
+![Arduino PLC IDE - Opta™ Client Modbus Function of the Node](assets/opta_plcide_client_modbusFunctionConfig.png)
 
 Subsequently, you will need to define a variable to store the counter data retrieved from the server Opta™. To do this, navigate to the `Input Reg.` tab found within the Modbus function configuration interface. Introduce a variable named `counter_rec` to capture the data transmitted through the protocol.
 
