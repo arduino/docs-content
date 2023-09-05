@@ -81,7 +81,7 @@ Now that the drawing is done the `Display.endDraw()` function can be called.
 }
 ```
 
-The complete code can be found as an example in the **Arduino_H7_video** library, it is called **ArduinoLogoDrawing**. Now upload the entire sketch and you should see the Arduino logo being drawn on the display. 
+The complete code can be found as an example in the **Arduino_H7_video** library, it is called **ArduinoLogoDrawing**. The full sketch is also below. Now upload the entire sketch and you should see the Arduino logo being drawn on the display. 
 
 ### Full Sketch
 
@@ -119,12 +119,46 @@ void loop() { }
 
 ```
 
-## Testing It Out
+### Testing It Out
 
 Now that it is all uploaded your GIGA Display Shield should look like the image below:
 
 ![Sketch running on the GIGA Display Shield](assets/draw-on-shield.jpg)
 
+## Displaying Images
+
+Now let's have a look at how we can use the **ArduinoGraphics** library to display images on the GIGA Display Shield.
+
+### Converting an Image
+
+Using an online image converter you can pick any image you would like to be displayed on the display shield. However keep in mind the display is 480x800 in size. The format of the converted image needs to be Binary RGB565. Using an online image converter like the [LVGL image converter tool](https://lvgl.io/tools/imageconverter) will let you pick this as an option. Simply pick the "Binary RGB565" option under "Output format", your desired color format and hit "Convert". You will now have an image that is ready for use in an Arduino sketch.
+
+### Displaying the Image on the Display
+
+We will be using the example sketch "ArduinoLogo" as the basis for the sketch that lets us display an image. The example sketch can be found under **File->Examples->Arduino_H7_Video->ArduinoLogo**.
+
+Now there are two ways of using the image that we converted in the last step. One way is to convert the `.bin` file into a `.h` file, then put this file in the same folder as the sketch and include it in the code. In this case first include it with:
+
+```arduino
+#include "img_arduinologo.h"
+```
+
+And change the name of the file to the correct one for the one you are using.
+
+The other way is to use the macro inside the example sketch. This makes use of the `incbin.h` translation library. The necessary files are located in the folder for the example sketch. 
+
+### Using it in a sketch
+
+The complete code can be found as an example in the **Arduino_H7_video** library, it is called **ArduinoLogo**
+
+Running the example sketch as is will display the Arduino logo on the screen, like in the image below:
+
+![Arduino Logo on the GIGA Display Shield]()
+
+Now to use an custom image, after following the steps above, we need to modify the example sketch a bit.
+
+
+## Full sketch
 
 ## Conclusion
 
