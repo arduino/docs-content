@@ -5,7 +5,7 @@ author: Karl Söderby
 tags: [Display, Touch Screen]
 ---
 
-The [GIGA Display Shield](/hardware/giga-display-shield) has an advanced touch interface, supported via the [Arduino_GigaDisplayTouch]() library.
+The [GIGA Display Shield](/hardware/giga-display-shield) has an advanced touch interface, supported via the [Arduino_GigaDisplayTouch](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch) library.
 
 This library is used to return the number of contact points, and the `x,y` coordinates for each of these. For example, touching the screen with two fingers somewhere on the screen would generate the following:
 
@@ -35,7 +35,7 @@ This library works with the [lvgl](https://github.com/lvgl/lvgl) framework, whic
 
 ***Learn more about how to use the lvgl framework with the GIGA Display Shield in [this tutorial](/tutorials/giga-display-shield/lvgl-guide).***
 
-## Print Coordinates Example
+## Coordinates Example
 
 To retrieve the coordinates when touching the display, we can use the **Touch_Polling** example from the library. You will find it at **Arduino_GigaDisplayTouch > Touch_Polling** in the IDE (library needs to be installed), or you will find it just below:
 
@@ -50,9 +50,9 @@ Touch controller init - OK
 Seeing this, you can start touching the display area with one or more fingers. The serial monitor will print out how many "contacts" aka fingers you are using, and the coordinates for each point. Here's an example response:
 
 ```
-Contacts: 2
-245 346
-178 473
+Contacts: 2 <---- two fingers used
+245 346 <---- x = 245, y = 346
+178 473 <---- x = 178, y = 473
 ```
 
 In this case, we have two touchpoints, and the coordinates for each of them printed below (`x`,`y`). And that's pretty much it to obtain a successful reading from the touch interface. 
@@ -61,4 +61,4 @@ You can use this to build customised gestures on the screen such as swiping two 
 
 ## Summary
 
-In this tutorial, we have explored the **Arduino_GigaDisplayTouch** library and tested out an example that allows us to read the coordinates of our touches.
+In this tutorial, we have explored the **Arduino_GigaDisplayTouch** library and tested out an example that allows us to read the coordinates of our touches. This library is essential for developing sophisticated touch displays using the lvgl framework.
