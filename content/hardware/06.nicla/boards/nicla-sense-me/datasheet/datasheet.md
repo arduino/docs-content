@@ -8,7 +8,7 @@ author: Ali Jahangiri
 ![Nicla Sense ME](assets/featured.png)
 
 # Description 
-The **Arduino® Nicla Sense ME** is our smallest form factor yet, with a range of industrial-grade sensors packed into a tiny footprint. Measure process parameters such as temperature, humidity and movement. Dive into edge computing with powerful data fusion capabilities. Make your own industrial-grade wireless sensing network with the onboard BHI260AP, BMP390, BMM150 and BME688 Bosch sensors.
+The **Arduino® Nicla Sense ME** is our smallest form factor yet, with a range of industrial-grade sensors packed into a tiny footprint. Measure process parameters such as temperature, humidity and movement. Dive into edge computing with powerful data fusion capabilities. Make your own industrial-grade wireless sensing network with the onboard BHI260AP, BMP390, BMM150 and BME688 Bosch® sensors.
 
 # Target areas:
 wireless sensor networks, data fusion, artificial intelligence, gas detection
@@ -16,7 +16,7 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
 # Features
 - **ANNA-B112** Bluetooth®  Module
   - **nRF52832** System-on-chip
-    - 64 MHz ARM® Cortex-M4F microcontroller 
+    - 64 MHz Arm® Cortex®-M4F microcontroller 
     - 64 KB SRAM
     - 512 KB Flash
     - RAM mapped FIFOs using EasyDMA
@@ -27,7 +27,7 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
   - Internal antenna
   - Internal 32 MHz oscillator
   - 1.8V Operating Voltage
-- **Bosch BHI260AP** - AI smart sensor hub with integrated IMU
+- **Bosch® BHI260AP** - AI smart sensor hub with integrated IMU
   - Fuser 2 CPU Core
     - 32 Bit Synopsys DesignWare ARC™ EM4™ CPU
     - floating point RISC Processor
@@ -42,7 +42,7 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
     - Relative and absolute orientation
   - External 2MB FLASH connected via QSPI
   
-- **Bosch BMP390** High-performance pressure sensor
+- **Bosch® BMP390** High-performance pressure sensor
   - Operation range: 300-1250 hPa
   - Absolute accuracy pressure (typ.): ± 0.5 hPa
   - Relative accuracy pressure (typ.): ± 3.33 hPa (equivalent to ±25 cm)
@@ -51,13 +51,13 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
   - Long-term stability (12 months): ± 0.016 hPa
   - Max sampling rate: 200 Hz
   - Integrated 512 byte FIFO buffer
-- **Bosch BMM150** 3-axis Magnetometer
+- **Bosch® BMM150** 3-axis Magnetometer
   - Magnetic range typ.
     - X,Y axis: ±1300μT
     - Z axis: ±2500μT
   - Resolution: 0.3μT
   - Non-linearity: <1% FS
-- **Bosch BME688** Environmental sensing with Artificial Intelligence
+- **Bosch® BME688** Environmental sensing with Artificial Intelligence
   - Operating range
     - Pressure: 300-1100 hPa
     - Humidity: 0-100%
@@ -164,15 +164,15 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | J5       | SM05B-SRSS-TB(LF)(SN) 5-pin Eslov connector | J7       | microUSB connector                                     |
 
 ### Microcontroller
-The Arduino® Nicla Sense ME is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with a floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as an SPI host for the data logging 2MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. 
-### Bosch BHI260 Smart Sensor System with Built-in 6-Axis IMU
-The Bosch BHI260 is an ultra-low power programmable sensor, combining a Fuser2 core processor, 6-axis IMU (gyroscope and accelerometer) together with a sensor fusion software framework. The BHI260 is a smart sensor core (hosting a programmable recognition system), that handles communication with other sensors on the **Arduino Nicla Sense ME** via I2C and SPI connections. There is also a dedicated 2MB Flash (U2) used to store execute-in-place (XiP) code as well as data storage, such as Bosch sensor fusion algorithm (BSX) calibration data. The BHI 260 is capable of loading custom algorithms that can be trained on a PC. The generated smart algorithm then operates on this chip.
-### Bosch BME688 Environmental Sensor
-The **Arduino Nicla Sense ME** is able to perform environmental monitoring via the Bosch BME688 sensor (U6). This provides capabilities for pressure, humidity, temperature as well as Volatile Organic Compound (VOC) detection. The Bosch BME688 performs gas detection via an eNose metal oxide semiconductor array with a typical gas scan cycle of 10.8 seconds.
-### Bosch BMP390 Pressure Sensor
-Industrial grade accuracy and stability in pressure measurements are provided by the BMP390 (U3) designed for prolonged use, with a relative accuracy of ±0.03 hPa and an RMS of 0.02 Pa in high-resolution mode. The Bosch BMP390 is suitable for rapid measurements with a sampling rate of 200 Hz, or for low-power use with a sampling rate of 1 Hz, consuming less than 3.2 µA. U3 is controlled via an SPI interface to the BHI260 (U2), on the same bus as the BME688 (U6).
-### Bosch BMM150 3-Axis Magnetometer
-The Bosch BMM150 (U4) provides accurate 3-axis measurements of the magnetic field with compass-level accuracy. Combined with the BHI260 IMU (U2), Bosch sensor fusion can be used to obtain high-accuracy spatial orientation and motion vectors for the detection of heading in autonomous robots as well as predictive maintenance. There is a dedicated I2C connection to the BHI260 (U2), acting as the host.
+The Arduino® Nicla Sense ME is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an Arm® Cortex®-M4 microcontroller with a floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as an SPI host for the data logging 2MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. 
+### Bosch® BHI260 Smart Sensor System with Built-in 6-Axis IMU
+The Bosch® BHI260 is an ultra-low power programmable sensor, combining a Fuser2 core processor, 6-axis IMU (gyroscope and accelerometer) together with a sensor fusion software framework. The BHI260 is a smart sensor core (hosting a programmable recognition system), that handles communication with other sensors on the **Arduino Nicla Sense ME** via I2C and SPI connections. There is also a dedicated 2MB Flash (U2) used to store execute-in-place (XiP) code as well as data storage, such as Bosch® sensor fusion algorithm (BSX) calibration data. The BHI 260 is capable of loading custom algorithms that can be trained on a PC. The generated smart algorithm then operates on this chip.
+### Bosch® BME688 Environmental Sensor
+The **Arduino Nicla Sense ME** is able to perform environmental monitoring via the Bosch® BME688 sensor (U6). This provides capabilities for pressure, humidity, temperature as well as Volatile Organic Compound (VOC) detection. The Bosch® BME688 performs gas detection via an eNose metal oxide semiconductor array with a typical gas scan cycle of 10.8 seconds.
+### Bosch® BMP390 Pressure Sensor
+Industrial grade accuracy and stability in pressure measurements are provided by the BMP390 (U3) designed for prolonged use, with a relative accuracy of ±0.03 hPa and an RMS of 0.02 Pa in high-resolution mode. The Bosch® BMP390 is suitable for rapid measurements with a sampling rate of 200 Hz, or for low-power use with a sampling rate of 1 Hz, consuming less than 3.2 µA. U3 is controlled via an SPI interface to the BHI260 (U2), on the same bus as the BME688 (U6).
+### Bosch® BMM150 3-Axis Magnetometer
+The Bosch® BMM150 (U4) provides accurate 3-axis measurements of the magnetic field with compass-level accuracy. Combined with the BHI260 IMU (U2), Bosch® sensor fusion can be used to obtain high-accuracy spatial orientation and motion vectors for the detection of heading in autonomous robots as well as predictive maintenance. There is a dedicated I2C connection to the BHI260 (U2), acting as the host.
 ### RGB LED
 An I2C LED driver (U8) drives the RGB LED (DL1) and is capable of a maximum output of 40 mA. It is driven by the ANN-B112 (U5) microcontroller. 
 
@@ -188,7 +188,7 @@ Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V
 
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your Arduino® Nicla Sense ME while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Nicla Sense ME to your computer, you’ll need a micro USB cable. This also provides power to the board, as indicated by the LED. The Arduino core is operated on the ANNA-B112 while the Bosch Smart Sensor framework operates on the BHI260.
+If you want to program your Arduino® Nicla Sense ME while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Nicla Sense ME to your computer, you’ll need a micro USB cable. This also provides power to the board, as indicated by the LED. The Arduino core is operated on the ANNA-B112 while the Bosch® Smart Sensor framework operates on the BHI260.
 
 ### Getting Started - Arduino Web Editor
 All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin. 

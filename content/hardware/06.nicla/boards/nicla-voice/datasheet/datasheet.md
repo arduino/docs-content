@@ -19,7 +19,7 @@ noise and vibration detection, low-power speech recognition, contactless operati
 
 - **ANNA-B112** Bluetooth®  Module with integrated microprocessor
   - **nRF52832** System-on-chip
-    - 64 MHz ARM® Cortex-M4F microcontroller 
+    - 64 MHz Arm® Cortex®-M4F microcontroller 
     - 64 KB SRAM
     - 512 KB Flash
     - RAM mapped FIFOs using EasyDMA
@@ -170,7 +170,7 @@ The measurements have been performed with VBAT = 3.7 V. Alexa demo corresponds t
 | -------- | -------------------------------- | -------- | ------------------------------------------ |
 | DL1      | RGB LED                          | MD1      | u-blox ANNA-B112                           |
 | PB1      | Push Button                      | D1       | Schottky Diode, PMEG4005EPK                |
-| D2       | Resistor array PRTR5V0U0F        | U1       | Arm® Cortex M0 ATSAM-D11                   |
+| D2       | Resistor array PRTR5V0U0F        | U1       | Arm® Cortex®-M0 ATSAM-D11                   |
 | U2       | Microphone IM69D130V01           | U3       | Syntiant® Neural Decision Processor NDP120 |
 | U4       | Magnetic Sensor BMM150           | U5       | LDO TPS7A0511PDQNR                         |
 | U7       | Flash, 128MX1. AT25QL128A        | U8       | RGB LED Driver IS31FL3194                  |
@@ -184,7 +184,7 @@ The measurements have been performed with VBAT = 3.7 V. Alexa demo corresponds t
 ![Nicla Voice Front View](assets/front.svg)
 
 ### Microcontroller
-The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7). While the module itself runs at 1.8 V, a level shifter can adjust the logic level between 1.8 V and 3.3 V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the Syntiant® NDP120 IC (U3).
+The Arduino® Nicla Voice is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an Arm® Cortex®-M4 microcontroller with floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7). While the module itself runs at 1.8 V, a level shifter can adjust the logic level between 1.8 V and 3.3 V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. The ANNA-B112 acts as the SPI host for the data logging 16MB flash (U7) and the Syntiant® NDP120 IC (U3).
 
 ### Neural Decision Processor
 The Arduino® Nicla Voice integrates a Neural Decision Processor™ NDP120 from Syntiant® (U3). The NDP120 leverages Syntiant Core 2™ ultra-low-power deep neural network inference engine to move larger neural networks into always-on domains with the capacity to run multiple applications simultaneously with minimal power consumption, including keyword spotting and event detection. The Syntiant® NDP120 IC (U3) also acts as the SPI host for the BMM150 3-axis magnetometer (U4) and the BMI270 6-axis IMU (U15).

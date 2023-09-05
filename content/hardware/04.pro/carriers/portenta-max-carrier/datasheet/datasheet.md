@@ -71,6 +71,8 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 
 >  (1) RF performance of the SARA-R4 modem above 65°C may be affected, although module is fully functional
 
+<div style="break-after:page"></div>
+
 ## Functional Overview
 
 ### Block Diagram
@@ -88,7 +90,7 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 | U9       | DSC6111HI2B 12MHz MEMS Oscillator IC                   | U10            | SN74LVC1G125 Single Bus Buffer Gate IC                    |
 | U11      | BQ24195RGET 4.5A Single Cell Charger IC                | U12            | AP7311 1.8V 150mA LDO Linear Regulator IC                 |
 | U13      | TPS54620 6A Buck Regulator IC                          | U14            | AP2112K-3.3TRG1 3.3V 600mA LDO Regulator IC               |
-| U15      | STM32F405RG 168MHz 32 bit ARM Cortex-M4 MCU IC         | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC                  |
+| U15      | STM32F405RG 168MHz 32 bit Arm® Cortex®-M4 MCU IC         | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC                  |
 | U23      | CMWX1ZZABZ-078 Murrata LoRa® module                    | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection      |
 | J1, J2   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors      | J3             | Right-Angle SMA Connector for Modem                       |
 | J4       | 2-1734248-0 FPC Connector                              | J5             | FW-20-05-G-D-254-150 Signal Break                         |
@@ -156,7 +158,7 @@ The Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1
 ### Micro SD Card Slot
 The on board Micro SD card can be used for data logging operations.
 
-### FEATURES SUPPORTED BY PORTENTA BOARDS
+### Features Supported By Portenta Boards
 The supported features depend upon your choice of Portenta board used together with the Portenta Max Carrier.
 
 | Function                 | Portenta H7 Support | Portenta X8 Support | Notes                                                                   |
@@ -297,7 +299,7 @@ Voltage range and max current are provided as a general guideline only. Consult 
 | 39  | PWM3         | Digital  | PWM Output 3                      |
 | 40  | CAN1_RX      | Digital  | CAN Receive Line                  |
 
-### microSD Module
+### MicroSD Module
 | Pin | **Function** | **Type** | **Description**                             |
 | --- | ------------ | -------- | ------------------------------------------- |
 | 1   | DATA2        | Digital  | Data bit 2                                  |
@@ -391,6 +393,8 @@ Note: Functions of pins 2-5 are dependent upon the configured protocol for the S
 | 50  | GND          | Power        | Ground                                  |
 | 51  | NC           | NC           | Not Connected                           |
 | 52  | +3V3_PCIE    | Power        | +3V3 Power Rail                         |
+
+<div style="break-after:page"></div>
 
 ## Mechanical Information
 ### Board Outline
