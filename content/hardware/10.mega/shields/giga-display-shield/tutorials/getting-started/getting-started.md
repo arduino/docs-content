@@ -1,7 +1,7 @@
 ---
 title: 'Getting Started with the GIGA Display Shield'
-description: 'Learn how to set up and use the GIGA Display Shield and get an overview of it's features.'
-author: Karl Söderby
+description: 'Learn how to set up and use the GIGA Display Shield and get an overview of the features.'
+author: 'Karl Söderby'
 tags: [Displays, LVGL, GIGA, IMU]
 ---
 
