@@ -57,5 +57,24 @@ For the development process in this tutorial, we'll employ Edge Impulse®, an es
 
 First, if you still need an Arduino Cloud account, please create one [here](https://cloud.arduino.cc/home/). You can then access the Machine Learning Tools integration via the Arduino Cloud, as shown in the image below.
 
-With your account set up and running, create a new project. With your new project, we can capture data for our motion detection model. 
+![Arduino Cloud welcome page](assets/motion-detection-001.png)
+
+With your account set up and running, create a new project. With your new project created, we are ready to capture data for your motion detection model. 
+
+### IMU Data Capture with Edge Impulse®
+
+We can capture data from the onboard IMU of the Nicla Board using Edge Impulse®. To do this, check out the following [article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-voice) from Edge Impulse® documentation. 
+
+We can start collecting IMU data With your Nicla Voice board connected to your Machine Learning Tools account. In the Machine Learning Tools, go to the **Data acquisition** tab on the left side of the window. **Data acquisition** is the tool from the Machine Learning Tools integration where IMU data is sampled and stored. To sample new data, go to **Collect data**, select your Nicla Voice board, set the label to `left-right`, the sample length to `5000`, the sensor to `Inertial`, and the frequency to `100Hz`. This means that data from the onboard IMU of the Nicla Voice will be sampled for five seconds and stored with the `left-right` label. Labels can be edited later if needed.
+
+Click **Start sampling** and move your Nicla Voice board from left to right, as shown below. After the sampling and storing process is finished, you should see a new line under **Collected data**; you can access the raw sampled data graphed as shown in the image below.
+
+Machine learning works best with lots of data, so a single sample won't cut it. Let's build the dataset for the motion detection application using the following four classes; record around 3 minutes of data per class:
+
+- `left-right`: horizontal movements, from left to right.
+- `up-down`: vertical movements, starting up and going down.
+- `z-idle`: random movements that are not from left to right or starting up and going down. 
+
+***The Syntiant NDP processors require a **negative class** on which no predictions will occur; in our example, this is the `z_idle` class. Make sure the class name is last in alphabetical order.***
+
 
