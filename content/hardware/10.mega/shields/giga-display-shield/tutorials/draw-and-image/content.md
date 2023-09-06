@@ -157,7 +157,7 @@ Uncomment these lines, and change the path to the image to the correct one. For 
 By default the image we import will be called `test`. The line `Image img_arduinologo(ENCODING_RGB16, (uint8_t *) texture_raw, 300, 300);` needs to have one argument changed, `texture_raw` should now be `testData`. So the line should be `Image img_arduinologo(ENCODING_RGB16, (uint8_t *) testData, 300, 300);`.
 
 
-### Full sketch
+### Full Sketch
 
 ```arduino
 /*
