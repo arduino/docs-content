@@ -127,6 +127,8 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 **<sup>2</sup>** : If the internal V<sub>DDIO_EXT</sub> is disabled, it is possible to supply it externally.
 
+<div style="break-after:page"></div>
+
 ## Functional Overview
 
 ### Block Diagram
@@ -411,7 +413,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Hexavalent Chromium (Cr6+)             | 1000                    |
 | Poly Brominated Biphenyls (PBB)        | 1000                    |
 | Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
-| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
 | Benzyl butyl phthalate (BBP)           | 1000                    |
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
@@ -421,6 +423,7 @@ Exemptions: No exemptions are claimed.
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ### Conflict Minerals Declaration 
+
 As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas. 
 
 ## FCC Caution
