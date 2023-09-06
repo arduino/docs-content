@@ -139,7 +139,7 @@ We will be using the example sketch "ArduinoLogo" as the basis for the sketch th
 
 Running the example sketch as is will display the Arduino logo on the screen, like in the image below:
 
-![Arduino Logo on the GIGA Display Shield]()
+[Arduino Logo on the GIGA Display Shield]()
 
 Now to use the image that we converted in the last step. Use the macro inside the example sketch. This makes use of the `incbin.h` translation library. The necessary files are located in the folder for the example sketch.
 
