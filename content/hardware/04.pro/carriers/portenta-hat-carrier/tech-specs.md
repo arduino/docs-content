@@ -1,1 +1,1 @@
-Here you will find the technical specifications for the Portenta HAT Carrier.
+Here you will find the technical specifications for the Portenta Hat Carrier.

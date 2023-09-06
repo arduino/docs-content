@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The **Portenta HAT Carrier** allows compatibility between the Portenta X8 and Raspberry Pi Hats, making it quick and easy to develop industrial applications and customized projects using a familiar form factor, leveraging the vast commercial variety of Raspberry Pi Hats. 
+The **Portenta Hat Carrier** allows compatibility between the Portenta X8 and Raspberry Pi Hats, making it quick and easy to develop industrial applications and customized projects using a familiar form factor, leveraging the vast commercial variety of Raspberry Pi Hats. 
 
 
 </FeatureDescription>
@@ -16,7 +16,7 @@ The **Portenta HAT Carrier** allows compatibility between the Portenta X8 and Ra
 
 <Feature title="MIPI CSI Camera Connector" image="camera">
 
-  The Portenta HAT Carrier allows rapid development of machine vision applications alongside the Portenta family.
+  The Portenta Hat Carrier allows rapid development of machine vision applications alongside the Portenta family.
 
 </Feature>
 
@@ -28,7 +28,7 @@ The **Portenta HAT Carrier** allows compatibility between the Portenta X8 and Ra
 
 <Feature title="JTAG connector" image="connection">
 
-  The Portenta HAT Carrier allows for easy debugging through the JTAG connector.
+  The Portenta Hat Carrier allows for easy debugging through the JTAG connector.
 
 </Feature>
 
