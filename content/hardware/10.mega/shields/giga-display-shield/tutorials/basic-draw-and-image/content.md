@@ -1,6 +1,6 @@
 ---
-title: Using Basic Draw Functions with the GIGA Display Shield
-description: 'Learn how to use basic draw functions to create images on the GIGA Display Shield.'
+title: Using Basic Draw and Image Functions with the GIGA Display Shield
+description: 'Learn how to use basic draw functions to create and display images on the GIGA Display Shield.'
 author: Benjamin Dannegård
 tags: [Display, Draw]
 ---
