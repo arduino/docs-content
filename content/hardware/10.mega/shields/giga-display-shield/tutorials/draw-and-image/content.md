@@ -18,7 +18,7 @@ This is a great tutorial for getting started with your shield and exploring what
 
 ## Downloading the Library and Core
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it. Now you have to install the library needed for the graphical display features. To do this, go to **Tools > Manage libraries..**, search for **ArduinoGraphics**, and install it.
+Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the core. Now you have to install the library needed for the graphical display features. To do this, go to **Tools > Manage libraries..**, search for **ArduinoGraphics**, and install it.
 
 ## Using Draw Feature in a Sketch
 
@@ -81,7 +81,7 @@ Now that the drawing is done the `Display.endDraw()` function can be called.
 }
 ```
 
-The complete code can be found as an example in the **Arduino_H7_video** library, it is called **ArduinoLogoDrawing**. Now upload the entire sketch and you should see the Arduino logo being drawn on the display. 
+The complete code can be found as an example in the **Arduino_H7_video** library, it is called **ArduinoLogoDrawing**. The full sketch is also below. Now upload the entire sketch and you should see the Arduino logo being drawn on the display. 
 
 ### Full Sketch
 
@@ -119,12 +119,81 @@ void loop() { }
 
 ```
 
-## Testing It Out
+### Testing It Out
 
 Now that it is all uploaded your GIGA Display Shield should look like the image below:
 
 ![Sketch running on the GIGA Display Shield](assets/draw-on-shield.jpg)
 
+## Displaying Images
+
+Now let's have a look at how we can use the **ArduinoGraphics** library to display images on the GIGA Display Shield.
+
+### Converting an Image
+
+Using an online image converter you can pick any image you would like to be displayed on the display shield. However keep in mind the display is 480x800 in size. The format of the converted image needs to be Binary RGB565. Using an online image converter like the [LVGL image converter tool](https://lvgl.io/tools/imageconverter) will let you pick this as an option. Simply pick the "Binary RGB565" option under "Output format", your desired color format and hit "Convert". You will now have an image that is ready for use in an Arduino sketch.
+
+### Displaying the Image on the Display
+
+We will be using the example sketch "ArduinoLogo" as the basis for the sketch that lets us display an image. The example sketch can be found under **File->Examples->Arduino_H7_Video->ArduinoLogo**.
+
+Running the example sketch as is will display the Arduino logo on the screen, like in the image below:
+
+[Arduino Logo on the GIGA Display Shield]()
+
+Now to use the image that we converted in the last step. Use the macro inside the example sketch. This makes use of the `incbin.h` translation library. The necessary files are located in the folder for the example sketch.
+
+At the start of the sketch you can see these lines commented out:
+```arduino
+/*
+#define INCBIN_PREFIX
+#include "incbin.h"
+INCBIN(test, "/home/user/Downloads/test.bin");
+*/
+```
+
+Uncomment these lines, and change the path to the image to the correct one. For Mac and Linux users the syntax of the path is correct as `"/home/user/Downloads/test.bin"`. For Windows users the path needs to be an absolute path, like this: `"C:\USERNAME\Downloads\test.bin"`. Now we need to change the `Image` variable to use our image.
+
+By default the image we import will be called `test`. The line `Image img_arduinologo(ENCODING_RGB16, (uint8_t *) texture_raw, 300, 300);` needs to have one argument changed, `texture_raw` should now be `testData`. So the line should be `Image img_arduinologo(ENCODING_RGB16, (uint8_t *) testData, 300, 300);`.
+
+
+### Full Sketch
+
+```arduino
+/*
+  ArduinoLogo
+
+  created 17 Apr 2023
+  by Leonardo Cavagnis
+*/
+
+#include "Arduino_H7_Video.h"
+#include "ArduinoGraphics.h"
+
+#include "img_arduinologo.h"
+// Alternatively, any raw RGB565 image can be included on demand using this macro
+// Online image converter: https://lvgl.io/tools/imageconverter (Output format: Binary RGB565)
+/*
+#define INCBIN_PREFIX
+#include "incbin.h"
+INCBIN(test, "/home/user/Downloads/test.bin");
+*/
+
+Arduino_H7_Video Display(800, 480, GigaDisplayShield);
+//Arduino_H7_Video Display(1024, 768, USBCVideo);
+
+Image img_arduinologo(ENCODING_RGB16, (uint8_t *) texture_raw, 300, 300);
+
+void setup() {
+  Display.begin();
+
+  Display.beginDraw();
+  Display.image(img_arduinologo, (Display.width() - img_arduinologo.width())/2, (Display.height() - img_arduinologo.height())/2);
+  Display.endDraw();
+}
+
+void loop() { }
+```
 
 ## Conclusion
 
