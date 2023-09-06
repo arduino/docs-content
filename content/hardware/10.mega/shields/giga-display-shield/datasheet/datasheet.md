@@ -82,7 +82,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 
 ## Block Diagram
 
-![Arduino GIGA Display Shield Block Diagram](assets/GIGA_Display_Shield_Block_Diagram.svg)
+![Arduino GIGA Display Shield Block Diagram](assets/GIGA_Display_Shield_Block_Diagram.png)
 
 ## Board Topology
 
@@ -123,7 +123,7 @@ The MP34DT06JTR is an ultra-compact, low-power, omnidirectional, digital MEMS mi
 
 ## Power Tree
 
-![Arduino GIGA Display Shield Power Tree](assets/GIGA_Display_Shield_Power_Tree.svg)
+![Arduino GIGA Display Shield Power Tree](assets/GIGA_Display_Shield_Power_Tree.png)
 
 The 3V3 voltage power is delivered by the GIGA R1 WiFi (J6 and J7). All onboard logic including the microphone (U1) and IMU (U7) operate at 3V3. The RGB LED Driver includes an integrated charge pump which increases the voltage as defined by the I2C commands. The edge backlight intensity is controlled by the LED driver (U3).
 
