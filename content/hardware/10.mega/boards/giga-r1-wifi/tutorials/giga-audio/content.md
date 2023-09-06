@@ -463,7 +463,7 @@ The GIGA R1 12-bit DAC channels can also be used to read `.wav` files from a USB
 For this example, you will need:
 - A speaker, that has a built in amplifier.
 - A USB mass storage device (USB stick).\*
-- [USBHostMbed5](https://github.com/facchinm/USBHostMbed5) library installed.
+- [Arduino_USBHostMbed5](https://github.com/arduino-libraries/Arduino_USBHostMbed5) library installed.
 
 ***\*USB mass storage devices connected needs to be formatted with the FAT32 as a file system, using the MBR partitioning scheme. Read more in the [USB Mass Storage](/tutorials/giga-r1-wifi/giga-usb/#usb-mass-storage) section.***
 
@@ -471,7 +471,7 @@ For this example, you will need:
 
 The **Arduino_AdvancedAnalog** library contains the necessary functions that enable us to use the advanced capabilities of the GIGA R1 DACs. 
 
-To read `.wav` files from the USB stick we are using the **USBHostMbed5** library. It is important that the USB stick is formatted properly, and that we define its name in the sketch. In this case, we name it `USB_DRIVE`, and is defined like this: 
+To read `.wav` files from the USB stick we are using the **Arduino_USBHostMbed5** library. It is important that the USB stick is formatted properly, and that we define its name in the sketch. In this case, we name it `USB_DRIVE`, and is defined like this: 
 
 ```arduino 
 mbed::FATFileSystem usb("USB_DRIVE");
@@ -501,7 +501,7 @@ Note that to start the sketch, you need to open Serial Monitor due to the `while
 
 #include <Arduino_AdvancedAnalog.h>
 #include <DigitalOut.h>
-#include <USBHostMbed5.h>
+#include <Arduino_USBHostMbed5.h>
 #include <FATFileSystem.h>
 
 AdvancedDAC dac1(A12);
@@ -675,7 +675,7 @@ You can download them from [this link](/resources/misc/giga_audio_examples.zip).
 
 #include <Arduino_AdvancedAnalog.h>
 #include <DigitalOut.h>
-#include <USBHostMbed5.h>
+#include <Arduino_USBHostMbed5.h>
 #include <FATFileSystem.h>
 
 AdvancedDAC dac1(A12);

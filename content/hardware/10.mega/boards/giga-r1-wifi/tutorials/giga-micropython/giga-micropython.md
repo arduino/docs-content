@@ -5,9 +5,7 @@ author: Karl Söderby
 tags: [MicroPython, dfu-util]
 ---
 
-***Please note that MicroPython support for the GIGA R1 is currently in an experimental phase.***
-
-***To learn more about MicroPython, please visit [MicroPython with Arduino](/learn/programming/arduino-and-python). This article is specific only to the GIGA R1 board.***
+***Please note: MicroPython documentation for all boards has moved to [MicroPython Docs Page](/micropython). Please refer to that page for the most up to date documentation.***
 
 [MicroPython](https://micropython.org/) is an implementation of Python in a *micro* format. It can be installed on the GIGA R1, where instead of compiling and uploading sketches, the board has a built-in interpreter that converts Python code to machine code in runtime.
 
@@ -28,9 +26,9 @@ You will need the following software/tools installed:
 
 ## Installation
 
-Following the steps below will install MicroPython on the **M7** core. 
+***Note: a new tool has been added that makes it a lot easier to install MicroPython on your board. Visit the [MicroPython installation page](/micropython/basics/board-installation) for more information.***
 
-***Please note that after this installation is complete, your board will no longer be detected as an Arduino device. In order to go back to using the Arduino programming environment, you need to reset the board. This is simply done by double tapping the reset button.***
+Following the steps below will install MicroPython on the **M7** core.
 
 **1.** Download the [GIGAR1_MP_FW.dfu](/resources/firmware/GIGAR1_MP_FW.dfu) firmware (latest firmware is always available at the [MicroPython with Arduino](/micropython/) page).
 
@@ -59,6 +57,8 @@ Done parsing DfuSe file
 ![GIGA R1 mass storage.](assets/giga-msd.png)
 
 Congratulations! You have now installed MicroPython on the GIGA R1 board.
+
+***Please note that after this installation is complete, your board will no longer be detected as an Arduino device. In order to go back to using the Arduino programming environment, you need to reset the board. This is simply done by double tapping the reset button.***
 
 ## Programming Your Board
 
