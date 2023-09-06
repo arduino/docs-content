@@ -276,7 +276,19 @@ matrix.renderBitmap(frame, 8, 12);
 delay(1000);
 }
 ```
- 
+
+## Scrolling Text Example
+
+The LED Matrix now supports printing characters via the [ArduinoGraphics](https://github.com/arduino-libraries/ArduinoGraphics) library. With it, you are able to:
+- Set a start location for the text via `matrix.beginText(x,y, 0xFFFFFF)`. The "0xFFFFFF" represents the default color (red). As the **ArduinoGraphics** library supports other hardware with multiple colors, we need to specify it.
+- Print the text via `matrix.printText("This message is printed")`
+- End the print and (optionally) specify scroll direction with `matrix.endText(direction)`
+  - `SCROLL_LEFT`, `SCROLL_RIGHT` are supported. Leave blank if no scroll is desired.
+
+The example below simply prints out **"Hello World!"** on the matrix.
+
+<CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/Arduino_LED_Matrix/examples/TextWithArduinoGraphics/TextWithArduinoGraphics.ino" className="arduino"/>
+
 ## Animation Generation
 We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. This tool is part of [Arduino labs](https://labs.arduino.cc), and is therefore considered experimental software. 
 
