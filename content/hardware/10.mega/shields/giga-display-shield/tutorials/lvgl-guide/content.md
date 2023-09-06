@@ -14,7 +14,7 @@ LVGL is a very powerful graphical framework that is compatible with the GIGA Dis
 - [Arduino GIGA R1 WiFi](/hardware/giga-r1)
 - [Arduino GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library
+- [LVGL library](https://reference.arduino.cc/reference/en/libraries/lvgl/)
 - [Arduino_GigaDisplayTouch](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch) library
 
 ## Downloading the Library and Core
@@ -22,9 +22,9 @@ LVGL is a very powerful graphical framework that is compatible with the GIGA Dis
 The GIGA core includes a library that will help us handle the display, so make sure you have the latest version of the core.
 
 In this guide, we will be using three different libraries:
-- **Arduino_H7_Video**, this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed)
+- **[Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video)**, this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed)
 - **Arduino_GigaDisplayTouch**
-- **lvgl** 
+- **LVGL** 
 
 Open the library manager and install the latest version of **Arduino_GigaDisplayTouch** and **lvgl**.
 
@@ -150,6 +150,52 @@ To make sure we see the image use the align function to make it centered. Then a
 
 ![An image rendered on the Display Shield with LVGL](assets/image.svg)
 
+### Full Example
+
+```arduino
+#include "Arduino_H7_Video.h"
+#include "lvgl.h"
+
+Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
+
+void setup() {
+  Display.begin();
+
+  lv_obj_t * screen = lv_obj_create(lv_scr_act());
+  lv_obj_set_size(screen, Display.width(), Display.height());
+
+  static lv_coord_t col_dsc[] = { 500, LV_GRID_TEMPLATE_LAST};
+  static lv_coord_t row_dsc[] = { 400, LV_GRID_TEMPLATE_LAST};
+
+  lv_obj_t * grid = lv_obj_create(lv_scr_act());
+
+  lv_obj_set_grid_dsc_array(grid, col_dsc, row_dsc);
+
+  lv_obj_set_size(grid, Display.width(), Display.height());
+
+  lv_obj_center(grid);
+
+  lv_obj_t * obj;
+  lv_obj_t * img1;
+
+  obj = lv_obj_create(grid);
+  lv_obj_set_grid_cell(obj, LV_GRID_ALIGN_STRETCH, 0, 1,
+                        LV_GRID_ALIGN_STRETCH, 0, 1);
+
+  LV_IMG_DECLARE(img_arduinologo);
+
+  img1 = lv_img_create(obj);
+  lv_img_set_src(img1, &img_arduinologo);
+
+  lv_obj_align(img1, LV_ALIGN_CENTER, 0, 0);
+  lv_obj_set_size(img1, 200, 150);
+}
+
+void loop() {
+  lv_timer_handler();
+}
+```
+
 ## Functional Elements
 
 ### Checkbox
@@ -177,6 +223,56 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
 
 ![Checkboxes rendered on the Display Shield with LVGL](assets/checkboxes.svg)
 
+### Full Example
+
+```arduino
+#include "Arduino_H7_Video.h"
+#include "lvgl.h"
+#include "Arduino_GigaDisplayTouch.h"
+
+Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
+Arduino_GigaDisplayTouch  TouchDetector;
+
+void setup() {
+  Display.begin();
+  TouchDetector.begin();
+
+  lv_obj_t * screen = lv_obj_create(lv_scr_act());
+  lv_obj_set_size(screen, Display.width(), Display.height());
+
+  static lv_coord_t col_dsc[] = { 500, LV_GRID_TEMPLATE_LAST};
+  static lv_coord_t row_dsc[] = { 400, LV_GRID_TEMPLATE_LAST};
+
+  lv_obj_t * grid = lv_obj_create(lv_scr_act());
+
+  lv_obj_set_grid_dsc_array(grid, col_dsc, row_dsc);
+
+  lv_obj_set_size(grid, Display.width(), Display.height());
+
+  lv_obj_center(grid);
+
+  lv_obj_t * obj;
+
+  obj = lv_obj_create(grid);
+  lv_obj_set_grid_cell(obj, LV_GRID_ALIGN_STRETCH, 0, 1,
+                        LV_GRID_ALIGN_STRETCH, 0, 1);
+  lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_COLUMN);
+
+  lv_obj_t * cb;
+  cb = lv_checkbox_create(obj);
+  lv_checkbox_set_text(cb, "Apple");
+
+  cb = lv_checkbox_create(obj);
+  lv_checkbox_set_text(cb, "Banana");
+  lv_obj_add_state(cb, LV_STATE_CHECKED);
+}
+
+void loop() {
+  lv_timer_handler();
+}
+
+```
+
 ### Radio Button
 
 A radio button is created in the same way as a checkbox, but with some additional calls to change the style of the element. Adding these two style elements will allow for them to be added to the checkbox options.
@@ -201,6 +297,69 @@ The size of the radio button is set with `lv_style_set_radius`. To make the radi
 ```
 
 ![Radio buttons rendered on the Display Shield with LVGL](assets/radio-buttons.svg)
+
+### Full Example
+
+```arduino
+#include "Arduino_H7_Video.h"
+#include "lvgl.h"
+#include "Arduino_GigaDisplayTouch.h"
+
+Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
+Arduino_GigaDisplayTouch  TouchDetector;
+
+void setup() {
+  Display.begin();
+  TouchDetector.begin();
+
+  lv_obj_t * screen = lv_obj_create(lv_scr_act());
+  lv_obj_set_size(screen, Display.width(), Display.height());
+
+  static lv_coord_t col_dsc[] = { 500, LV_GRID_TEMPLATE_LAST};
+  static lv_coord_t row_dsc[] = { 400, LV_GRID_TEMPLATE_LAST};
+
+  lv_obj_t * grid = lv_obj_create(lv_scr_act());
+
+  lv_obj_set_grid_dsc_array(grid, col_dsc, row_dsc);
+
+  lv_obj_set_size(grid, Display.width(), Display.height());
+
+  lv_obj_center(grid);
+
+  lv_obj_t * obj;
+
+  obj = lv_obj_create(grid);
+  lv_obj_set_grid_cell(obj, LV_GRID_ALIGN_STRETCH, 0, 1,
+                        LV_GRID_ALIGN_STRETCH, 0, 1);
+  lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_COLUMN);
+
+  lv_obj_t * cb;
+
+  static lv_style_t style_radio;
+  static lv_style_t style_radio_chk;
+  lv_style_init(&style_radio);
+  lv_style_set_radius(&style_radio, LV_RADIUS_CIRCLE);
+  lv_style_init(&style_radio_chk);
+  lv_style_set_bg_img_src(&style_radio_chk, NULL);
+  
+  cb = lv_checkbox_create(obj);
+  lv_checkbox_set_text(cb, "Lemon");
+  lv_obj_add_flag(cb, LV_OBJ_FLAG_EVENT_BUBBLE);
+  lv_obj_add_style(cb, &style_radio, LV_PART_INDICATOR);
+  lv_obj_add_style(cb, &style_radio_chk, LV_PART_INDICATOR | LV_STATE_CHECKED);
+  
+  cb = lv_checkbox_create(obj);
+  lv_checkbox_set_text(cb, "Melon");
+  lv_obj_add_flag(cb, LV_OBJ_FLAG_EVENT_BUBBLE);
+  lv_obj_add_style(cb, &style_radio, LV_PART_INDICATOR);
+  lv_obj_add_style(cb, &style_radio_chk, LV_PART_INDICATOR | LV_STATE_CHECKED);
+  lv_obj_add_state(cb, LV_STATE_CHECKED);
+}
+
+void loop() {
+  lv_timer_handler();
+}
+```
 
 ### Slider
 
@@ -233,6 +392,57 @@ If you want a label by your slider it can be created like you would create any o
 ```
 
 ![Slider rendered on the Display Shield with LVGL](assets/slider.svg)
+
+### Full Example
+
+```arduino
+#include "Arduino_H7_Video.h"
+#include "Arduino_GigaDisplayTouch.h"
+
+#include "lvgl.h"
+
+Arduino_H7_Video          Display(800, 480, GigaDisplayShield); /* Arduino_H7_Video Display(1024, 768, USBCVideo); */
+Arduino_GigaDisplayTouch  TouchDetector;
+
+void setup() {
+  Display.begin();
+  TouchDetector.begin();
+
+  lv_obj_t * screen = lv_obj_create(lv_scr_act());
+  lv_obj_set_size(screen, Display.width(), Display.height());
+
+  static lv_coord_t col_dsc[] = { 500, LV_GRID_TEMPLATE_LAST};
+  static lv_coord_t row_dsc[] = { 400, LV_GRID_TEMPLATE_LAST};
+
+  lv_obj_t * grid = lv_obj_create(lv_scr_act());
+
+  lv_obj_set_grid_dsc_array(grid, col_dsc, row_dsc);
+
+  lv_obj_set_size(grid, Display.width(), Display.height());
+
+  lv_obj_center(grid);
+
+  lv_obj_t * label;
+  lv_obj_t * obj;
+
+  obj = lv_obj_create(grid);
+  lv_obj_set_grid_cell(obj, LV_GRID_ALIGN_STRETCH, 0, 1,
+                        LV_GRID_ALIGN_STRETCH, 0, 1);
+  lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_COLUMN);
+
+  lv_obj_t * slider = lv_slider_create(obj);
+  lv_slider_set_value(slider, 75, LV_ANIM_OFF);
+  lv_obj_center(slider);
+  label = lv_label_create(obj);
+  lv_label_set_text(label, "Drag me!");
+  lv_obj_align_to(label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
+
+}
+
+void loop() {
+  lv_timer_handler();
+}
+```
 
 ### Bar
 
@@ -307,6 +517,69 @@ static void set_bar_val(void * bar, int32_t val) {
 
 ![A bar rendered on the Display Shield with LVGL](assets/bar.gif)
 
+### Full Example
+
+```arduino
+#include "Arduino_H7_Video.h"
+#include "Arduino_GigaDisplayTouch.h"
+
+#include "lvgl.h"
+
+Arduino_H7_Video          Display(800, 480, GigaDisplayShield); /* Arduino_H7_Video Display(1024, 768, USBCVideo); */
+Arduino_GigaDisplayTouch  TouchDetector;
+
+static void set_slider_val(void * bar, int32_t val) {
+  lv_bar_set_value((lv_obj_t *)bar, val, LV_ANIM_ON);
+}
+
+void setup() {
+  Display.begin();
+  TouchDetector.begin();
+
+  lv_obj_t * screen = lv_obj_create(lv_scr_act());
+  lv_obj_set_size(screen, Display.width(), Display.height());
+
+  static lv_coord_t col_dsc[] = { 500, LV_GRID_TEMPLATE_LAST};
+  static lv_coord_t row_dsc[] = { 400, LV_GRID_TEMPLATE_LAST};
+
+  lv_obj_t * grid = lv_obj_create(lv_scr_act());
+
+  lv_obj_set_grid_dsc_array(grid, col_dsc, row_dsc);
+
+  lv_obj_set_size(grid, Display.width(), Display.height());
+
+  lv_obj_center(grid);
+
+  lv_obj_t * label;
+  lv_obj_t * obj;
+
+  obj = lv_obj_create(grid);
+  lv_obj_set_grid_cell(obj, LV_GRID_ALIGN_STRETCH, 0, 1,
+                        LV_GRID_ALIGN_STRETCH, 0, 1);
+  lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_COLUMN);
+
+  lv_obj_t * bar = lv_bar_create(obj);
+  lv_obj_set_size(bar, 200, 20);
+  lv_obj_center(bar);
+  lv_bar_set_value(bar, 70, LV_ANIM_OFF);
+
+  lv_anim_t a;
+  lv_anim_init(&a);
+  lv_anim_set_exec_cb(&a, set_slider_val);
+  lv_anim_set_time(&a, 3000);
+  lv_anim_set_playback_time(&a, 3000);
+  lv_anim_set_var(&a, bar);
+  lv_anim_set_values(&a, 0, 100);
+  lv_anim_set_repeat_count(&a, LV_ANIM_REPEAT_INFINITE);
+  lv_anim_start(&a);
+
+}
+
+void loop() {
+  lv_timer_handler();
+}
+```
+
 ### Button
 
 A button will need two parts, the design of the button itself and the callback event function which determines what happens when the button is pressed. Let's start with designing the button.
@@ -359,6 +632,64 @@ static void button_event_callback(lv_event_t * e) {
 
 ![A button rendered on the Display Shield with LVGL](assets/button.svg)
 ![Button when it has been pressed](assets/button-clicked.svg)
+
+### Full Example
+
+```arduino
+#include "Arduino_H7_Video.h"
+#include "lvgl.h"
+#include "Arduino_GigaDisplayTouch.h"
+
+Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
+Arduino_GigaDisplayTouch  TouchDetector;
+
+static void btn_event_cb(lv_event_t * e) {
+  lv_obj_t * btn = lv_event_get_target(e);
+  lv_obj_t * label = lv_obj_get_child(btn, 0);
+  lv_label_set_text_fmt(label, "Clicked!");
+}
+
+void setup() {
+  Display.begin();
+  TouchDetector.begin();
+
+  lv_obj_t * screen = lv_obj_create(lv_scr_act());
+  lv_obj_set_size(screen, Display.width(), Display.height());
+
+  static lv_coord_t col_dsc[] = { 500, LV_GRID_TEMPLATE_LAST};
+  static lv_coord_t row_dsc[] = { 400, LV_GRID_TEMPLATE_LAST};
+
+  lv_obj_t * grid = lv_obj_create(lv_scr_act());
+
+  lv_obj_set_grid_dsc_array(grid, col_dsc, row_dsc);
+
+  lv_obj_set_size(grid, Display.width(), Display.height());
+
+  lv_obj_center(grid);
+
+  lv_obj_t * label;
+  lv_obj_t * obj;
+
+  obj = lv_obj_create(grid);
+  lv_obj_set_grid_cell(obj, LV_GRID_ALIGN_STRETCH, 0, 1,
+                        LV_GRID_ALIGN_STRETCH, 0, 1);
+  lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_COLUMN);
+
+  lv_obj_t * btn = lv_btn_create(obj);
+  lv_obj_set_size(btn, 100, 40);
+  lv_obj_center(btn);
+  lv_obj_add_event_cb(btn, btn_event_cb, LV_EVENT_CLICKED, NULL);
+
+  label = lv_label_create(btn);
+  lv_label_set_text(label, "Click me!");
+  lv_obj_center(label);
+
+}
+
+void loop() {
+  lv_timer_handler();
+}
+```
 
 ## Conclusion
 

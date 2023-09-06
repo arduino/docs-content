@@ -15,12 +15,11 @@ The GIGA Display Shield comes with an Arducam camera connector. In this tutorial
 - [Arduino GIGA Display Shield]()
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - HM01B0 or HM0360 camera
-- [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video)
 - [Arducam_dvp library](https://www.arduino.cc/reference/en/libraries/arducam_dvp/)
 
 ## Downloading the Library and Core
 
-The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version. Now open the library tab on the left, search for **Arducam_dvp**, and install this library.
+The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the core. Now open the library tab on the left, search for **Arducam_dvp**, and install this library.
 
 ![Library tab in the Arduino IDE](assets/ide-library.svg)
 
