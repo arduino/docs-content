@@ -67,7 +67,7 @@ Finally, after completing all steps above the last step is to start the debuggin
 
 ![Start Debugging](./assets/startDebugging.png)
 
-***Note: During the upload you will see a debug_custom.json being created at the top of the IDE. If you want to debug using another board it's important that you delete this file otherwise the IDE will use the wrong debugger and fail. You can find the file inside your sketch folder at ~\Documents\Arduino\skecthes\"Your Sketch".***
+***Note: During the upload you will see a debug_custom.json being created at the top of the IDE. If you want to debug using another board it's important that you delete this file otherwise the IDE will use the wrong debugger and fail. You can find the file inside your sketch folder at ~\Documents\Arduino\sketches\"Your Sketch".***
 
 After starting the debugging session you will have to press the continue button **several times** until you reach you main sketch and the breakpoints you set. This is due to how the recovery system works and is **expected behavior**.
 
@@ -75,7 +75,7 @@ After starting the debugging session you will have to press the continue button 
 
 ## Restore Normal Upload Functionality
 
-Debug-enabled sketches will only accept updates with the above instructions. To restore normal upload functionality, set **Tools** > **USB Mode** to "**Normal mode (Tiny USB)**". You can also uncheck "**Optimize for Debugging**" to increase compilation speed. 
+Debug-enabled sketches will only accept updates with the above instructions. To restore normal upload functionality, set **Tools** > **USB Mode** to "**Normal mode (Tiny USB)**". You can also uncheck "**Optimize for Debugging**" to increase compilation speed.
 
 Then repeat the steps described above:
 
