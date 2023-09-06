@@ -18,7 +18,7 @@ This is a great tutorial for getting started with your shield and exploring what
 
 ## Downloading the Library and Core
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it. Now you have to install the library needed for the graphical display features. To do this, go to **Tools > Manage libraries..**, search for **ArduinoGraphics**, and install it.
+Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the core. Now you have to install the library needed for the graphical display features. To do this, go to **Tools > Manage libraries..**, search for **ArduinoGraphics**, and install it.
 
 ## Using Draw Feature in a Sketch
 
@@ -141,10 +141,59 @@ Running the example sketch as is will display the Arduino logo on the screen, li
 
 ![Arduino Logo on the GIGA Display Shield]()
 
-Now to use the image that we converted in the last step. Using the macro inside the example sketch. This makes use of the `incbin.h` translation library. The necessary files are located in the folder for the example sketch. 
+Now to use the image that we converted in the last step. Use the macro inside the example sketch. This makes use of the `incbin.h` translation library. The necessary files are located in the folder for the example sketch.
+
+At the start of the sketch you can see these lines commented out:
+```arduino
+/*
+#define INCBIN_PREFIX
+#include "incbin.h"
+INCBIN(test, "/home/user/Downloads/test.bin");
+*/
+```
+
+Uncomment these lines, and change the path to the image to the correct one. For Mac and Linux users the syntax of the path is correct as `"/home/user/Downloads/test.bin"`. For Windows users the path needs to be an absolute path, like this: `"C:\USERNAME\Downloads\test.bin"`. Now we need to change the `Image` variable to use our image.
+
+By default the image we import will be called `test`. The line `Image img_arduinologo(ENCODING_RGB16, (uint8_t *) texture_raw, 300, 300);` needs to have one argument changed, `texture_raw` should now be `testData`. So the line should be `Image img_arduinologo(ENCODING_RGB16, (uint8_t *) testData, 300, 300);`.
 
 
 ### Full sketch
+
+```arduino
+/*
+  ArduinoLogo
+
+  created 17 Apr 2023
+  by Leonardo Cavagnis
+*/
+
+#include "Arduino_H7_Video.h"
+#include "ArduinoGraphics.h"
+
+#include "img_arduinologo.h"
+// Alternatively, any raw RGB565 image can be included on demand using this macro
+// Online image converter: https://lvgl.io/tools/imageconverter (Output format: Binary RGB565)
+/*
+#define INCBIN_PREFIX
+#include "incbin.h"
+INCBIN(test, "/home/user/Downloads/test.bin");
+*/
+
+Arduino_H7_Video Display(800, 480, GigaDisplayShield);
+//Arduino_H7_Video Display(1024, 768, USBCVideo);
+
+Image img_arduinologo(ENCODING_RGB16, (uint8_t *) texture_raw, 300, 300);
+
+void setup() {
+  Display.begin();
+
+  Display.beginDraw();
+  Display.image(img_arduinologo, (Display.width() - img_arduinologo.width())/2, (Display.height() - img_arduinologo.height())/2);
+  Display.endDraw();
+}
+
+void loop() { }
+```
 
 ## Conclusion
 
