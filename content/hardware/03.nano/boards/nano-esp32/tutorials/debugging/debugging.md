@@ -49,7 +49,7 @@ If this is your first time debugging your code we recommend starting with the cl
 
 Before starting a debug session make sure to always do one of the following:
 
-- Either connect a jumper cable between the **GND** and the **B1** pins, press the reset button **once**, and remove the jumper cable. The RGB LED will turn on with a green or blue color. Inside **Tools**, the board will be shown as a random ESP32 board. 
+- Either connect a jumper cable between the **GND** and the **B1** pins and press the reset button **once**. The RGB LED will turn on with a green or blue color. Remove the jumper cable and you should see the RGB LED light up in a purple or yellow color. Then inside **Tools**, the board will be shown as a random ESP32 board.
 
 ***This is because in this mode all ESP32 chips share the same identifier assigned to USB devices, therefore the IDE selects a random ESP32 board.***
 
