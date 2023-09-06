@@ -182,7 +182,7 @@ The following sections will demonstrate how to set up each Opta™ according to 
 #### Modbus RTU Server Opta™
 <br></br>
 
-To set Opta™ as a Modbus RTU Server, navigate to the `RS485 SerialPort` tab located in the `Resources` panel of the PLC IDE. A window named `Modbus Configuration` will open and we will need to select `Modbus RTU Slave` option. For the purpose of the tutorial example, we will use the following properties for client Opta™:
+To set Opta™ as a Modbus RTU Server, navigate to the `RS485 SerialPort` tab located in the `Resources` panel of the PLC IDE. A window named `Modbus Configuration` will open and we will need to select `Modbus RTU Slave` option. For the purpose of the tutorial example, we will use the following properties for server Opta™:
 
 - Baud Rate: 19200 b/s
 - Serial Mode: N,8,1 (No parity, 8 data bits, 1 stop bit)
