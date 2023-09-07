@@ -25,7 +25,7 @@ The MKR VIDOR 4000 is nothing less than a powerhouse of a board, packing a huge 
 
 ### Microcontroller Block
 
-The board's microcontroller is a low power Arm® Cortex®-M0 32-bit SAMD21, like in the other boards within the Arduino MKR family. The WiFi and Bluetooth® connectivity is performed with a module from u-blox, the NINA-W10, a low power chipset operating in the 2.4GHz range. On top of those, secure communication is ensured through the Microchip® ECC508 crypto chip. Besides that, you can find a battery charger, and a directionable RGB LED on-board.
+The board's microcontroller is a low power Arm® Cortex®-M0 32-bit SAMD21, like in the other boards within the Arduino MKR family. The WiFi and Bluetooth® connectivity is performed with a module from u-blox, the NINA-W10, a low power chipset operating in the 2.4GHz range. On top of that, secure communication is ensured through the Microchip® ECC508 crypto chip. Also, you can find a battery charger, and a directionable RGB LED on-board.
 
 <div style="text-align:center;">
 
@@ -339,7 +339,7 @@ The MKR Vidor can be powered through one of these interfaces:
 - **Vin:** This pin can be used to power the board with a regulated 5 V source. If the power is fed through this pin, the USB power source is disconnected. This is the only way you can supply 5 V (range is 5 V to maximum 6 V) to the board not using USB. The pin is only an INPUT.
 - **5V:** This pin outputs 5 V from the board when powered from the USB connector or from the VIN pin of the board. It is unregulated and the voltage is taken directly from the inputs.
 - **VCC:** This pin outputs 3.3 V through the on-board voltage regulator. This voltage is 3.3 V if USB or VIN is used.
-- **Battery:** 3.7 V single-cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector JST S2B-PH-SM4-TB(LF)(SN). Mating connector is JST PHR-2.
+- **Battery:** 3.7 V single-cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector JST S2B-PH-SM4-TB(LF)(SN). The mating connector is JST PHR-2.
 
 </div>
 
