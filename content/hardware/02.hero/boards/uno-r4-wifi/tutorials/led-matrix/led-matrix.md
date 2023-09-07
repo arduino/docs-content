@@ -1,6 +1,6 @@
 ---
 title: "Using the Arduino UNO R4 WiFi LED Matrix"
-description: "Get off the ground with the Arduino UNO R4 WiFi's built in LED matrix. Learn the different techniques for controlling it, create animations, graphics or even games."
+description: "Get off the ground with the Arduino UNO R4 WiFi built-in LED matrix. Learn the different techniques for controlling it, create animations, graphics or even games."
 tags:
   - Guide
   - LED Matrix
@@ -323,7 +323,7 @@ void loop() {
 [Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool. 
 
 
-![LED Matrix Editor](./assets/led-matrix-tool.png)
+![LED Matrix Editor](assets/led-matrix-tool.png)
 
 Once you've made your animations, you can export them from the tool in the format that lets you use them like [previously discussed](#how-to-write-a-frame).
 
