@@ -23,7 +23,7 @@ FPGA, IoT, automation, industry, smart cities, signal processing
 The MKR VIDOR 4000 is nothing less than a powerhouse of a board, packing a huge set of features into a small form factor. It features the Intel® Cyclone® 10CL016 for FPGA (Field Programming Gate Array), allowing you to configure a large set of pins to accommodate any of your preferences. But why stop there? The board also has a camera connector, a Micro HDMI connector, Wi-Fi / Bluetooth® connectivity through the NINA-W102 module, and cyber-security through the ECC508 crypto chip. Just like the other members of the MKR family, it uses the popular Cortex-M0 32-bit SAMD21 microprocessor.
 </p>
 
-### Microcontroller block
+### Microcontroller Block
 
 The board's microcontroller is a low power Arm® Cortex®-M0 32-bit SAMD21, like in the other boards within the Arduino MKR family. The WiFi and Bluetooth® connectivity is performed with a module from u-blox, the NINA-W10, a low power chipset operating in the 2.4GHz range. On top of those, secure communication is ensured through the Microchip® ECC508 crypto chip. Besides that, you can find a battery charger, and a directionable RGB LED on-board.
 
@@ -141,7 +141,7 @@ The board's microcontroller is a low power Arm® Cortex®-M0 32-bit SAMD21, like
 </div>
 
 
-### FPGA block
+### FPGA Block
 
 The FPGA is the Intel® Cyclone® 10CL016. It contains 16K logic elements, 504 kB of embedded RAM, and x56 18x18 bits HW multipliers for high-speed DSP operations. Each pin can toggle at over 150 MHz and can be configured for functions such as UARTs, (Q)SPI, high-resolution/high-frequency PWM, quadrature encoder, I2C, I2S, Sigma Delta DAC, etc.
 
