@@ -7,7 +7,7 @@ hardware:
 tags: [ESP32, Pin Configuration]
 ---
 
-The [Arduino Nano ESP32](https://store.arduino.cc/nano-esp32) is a Nano form factor board based on an ESP32-S3 SoC. This board is part of the [Arduino Nano Family](https://store.arduino.cc/pages/nano-family), and follows the pinout of that specific form factor by default.
+The [Arduino Nano ESP32](https://store.arduino.cc/nano-esp32) is a Nano form factor board based on an ESP32-S3 SoC. This board is part of the [Arduino Nano Family](https://store.arduino.cc/pages/nano-family), and follows the same pinout as all Nano boards. This is very convenient if you want to port a project from another Nano board, as you can preserve the same wiring and pin numbers in the code.
 
 When programming the board in the "default" mode, the pins labelled on the board matches the pins in the program, **but does not match the ESP32-S3**. This mode can be changed to use the "ESP32" pins instead.
 
