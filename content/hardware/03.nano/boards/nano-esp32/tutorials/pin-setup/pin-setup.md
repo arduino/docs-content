@@ -14,20 +14,20 @@ The [Arduino Nano ESP32](https://store.arduino.cc/nano-esp32) is a Nano form fac
 This means that if you want to control a pin you can simply use the pin number that is printed on the board itself:
 
 ```arduino
-// This will enable the pin marked with "8" on the board:
+// This will enable the pin marked with "D8" on the board:
 digitalWrite(8, HIGH);
 ```
 
 ### Compatibility Mode
 
-However, some libraries previously written for ESP32 boards (to name a few: OneWire, FastLED, ESP32Servo) don't support the pin numbers printed on the board and require you to refer to the internal microcontroller's GPIO number instead.  For instance, to refer to the pin labelled "8" on the board such libraries expect you to write `17` in your code as that's the GPIO number corresponding to that pin.
+However, some libraries previously written for ESP32 boards (to name a few: OneWire, FastLED, ESP32Servo) don't support the pin numbers printed on the board and require you to refer to the internal microcontroller's GPIO number instead.  For instance, to refer to the pin labelled "D8" on the board such libraries expect you to write `17` in your code as that's the GPIO number corresponding to that pin.
 
 For this purpose, we added a compatibility mode so that you can choose which numbering scheme you want to use:
 
 * when porting an existing Arduino project from another Nano board, it's convenient to use the "Arduino pin" scheme which reflects the numbers printed on the board
 * when using third-party libraries for ESP32, you should use the "GPIO number" scheme which corresponds to the internal numbers
 
-To change this configuration, simply connect your board, go to **Tools > Pin Numbering > Select Option**. More details are available in this tutorial.
+To change this configuration, simply connect your board, go to **Tools > Pin Numbering** and then select your option. More details are available in this tutorial.
 
 ## Software & Hardware Needed
 
@@ -41,12 +41,12 @@ So why does the Nano ESP32 pins not match the ESP32 (MCU) pins? The Nano ESP32 w
 
 This makes it possible to migrate an older Nano board, to a newer generation Nano (like the Nano ESP32), without having to change your hardware setup. 
 
-This of course brings a separate issue, which is that by default, the Nano ESP32 does not use the ESP32's pinout. An example of this is:
-- Pin `2` is actually `5`
-- Pin `5` is actually `8`
+This of course brings a separate issue, which is that this numbering does not match the ESP32's native GPIO assignment. An example of this is:
+- Pin `2` is actually GPIO `5`
+- Pin `5` is actually GPIO `8`
 - and so on (see the full [pin map](#nano-esp32-pin-map)).
 
-It is common in a board's design that the actual microcontroller's pins doesn't match the header pins.
+It is common in a board's design that the actual microcontroller's pins don't match the header pins.
 
 ### Default & Legacy Options
 
@@ -72,17 +72,15 @@ pinMode(5, OUTPUT);
 
 You can also control pins using labels such as `D0`, `D1`, `D2`. These labels are predefined in the core, and are adjusted based on what configuration you make. 
 
-For example, if you are using the `GPIO number (legacy)` option:
+For example, the following code will access the same pin, regardless of what configuration you use:
 
 ```arduino
 /*
 This will configure the "D2" physical pin on your board 
-(but will internally configure pin 5 on the ESP32)
+(but will internally configure GPIO 5 on the ESP32)
 */
 pinMode(D2, OUTPUT);
 ```
-
-
 
 ## Change Pin Configuration
 
