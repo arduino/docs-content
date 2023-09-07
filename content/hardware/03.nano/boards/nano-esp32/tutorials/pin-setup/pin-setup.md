@@ -7,14 +7,18 @@ hardware:
 tags: [ESP32, Pin Configuration]
 ---
 
+## Overview
+
 The [Arduino Nano ESP32](https://store.arduino.cc/nano-esp32) is a Nano form factor board based on an ESP32-S3 SoC. This board is part of the [Arduino Nano Family](https://store.arduino.cc/pages/nano-family), and follows the same pinout as all Nano boards. This is very convenient if you want to port a project from another Nano board, as you can preserve the same wiring and pin numbers in the code.
 
 This means that if you want to control a pin you can simply use the pin number that is printed on the board itself:
 
-```
+```arduino
 // This will enable the pin marked with "8" on the board:
 digitalWrite(8, HIGH);
 ```
+
+### Compatibility Mode
 
 However, some libraries previously written for ESP32 boards (to name a few: OneWire, FastLED, ESP32Servo) don't support the pin numbers printed on the board and require you to refer to the internal microcontroller's GPIO number instead.  For instance, to refer to the pin labelled "8" on the board such libraries expect you to write `17` in your code as that's the GPIO number corresponding to that pin.
 
@@ -40,33 +44,45 @@ This makes it possible to migrate an older Nano board, to a newer generation Nan
 This of course brings a separate issue, which is that by default, the Nano ESP32 does not use the ESP32's pinout. An example of this is:
 - Pin `2` is actually `5`
 - Pin `5` is actually `8`
-- and so on..
+- and so on (see the full [pin map](#nano-esp32-pin-map)).
 
 It is common in a board's design that the actual microcontroller's pins doesn't match the header pins.
 
-Luckily, we have two configurations available to choose between:
-- **Nano (Default)**
-- **ESP32-S3 (Legacy)**.  
+### Default & Legacy Options
 
-So, let's say we are configuring a pin in a sketch:
+Luckily, we have two configurations available to choose between:
+- `By Arduino pin (default)`
+- `By GPIO number (legacy)`.  
+
+So, let's say we are configuring a pin in a sketch, using the `Arduino pin (default)` option:
 
 ```arduino
 // with default configuration, this enables pin 2 as an output
 pinMode(2, OUTPUT);
 ```
 
-But, using the ESP32 configuration (legacy):
+But, when using the `GPIO number (legacy)` option, we would need to configure it like this:
 
 ```arduino
 // with ESP32 configuration, this enables pin 2 as an output
 pinMode(5, OUTPUT);
 ```
 
-### Which Pin Config Should I Choose?
+### Pin Labels
 
-The answer to this depends on what platform you prefer most: if you are most familiar with Arduino & the Nano form factor, we recommend you use the default (Nano).
+You can also control pins using labels such as `D0`, `D1`, `D2`. These labels are predefined in the core, and are adjusted based on what configuration you make. 
 
-If you experience with the ESP32 platform, and not so much with the Arduino platform, the legacy (ESP32) configuration might be a better option. However please bare in mind that pins in the code will not match the Nano ESP32's physical pin labels.
+For example, if you are using the `GPIO number (legacy)` option:
+
+```arduino
+/*
+This will configure the "D2" physical pin on your board 
+(but will internally configure pin 5 on the ESP32)
+*/
+pinMode(D2, OUTPUT);
+```
+
+
 
 ## Change Pin Configuration
 
