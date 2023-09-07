@@ -184,9 +184,7 @@ The example project will be used to test the Modbus RTU connection between two P
 
 To create a live handshake verification procedure between two Portenta Machine Control devices, the example project will slightly modify its default example code using the counter ('cnt') variable and broadcast the counter data.
 
--- TEST SETUP
-
-Based on the counter data it receives from the "Modbus RTU Server Portenta Machine Control," the "Modbus RTU Client Portenta Machine Control" will activate the relay and the status LED. You may learn how to configure the Modbus RTU role for each Portenta Machine Control device using the role-specific sections.
+Based on the counter data it receives from the "Modbus RTU Server Portenta Machine Control," the "Modbus RTU Client Portenta Machine Control" will control the programmable digital I/Os and the digital outputs. Each Portenta Machine Control will have a simple dedicated task using previously mentioned elements. You will learn how to configure the Modbus RTU role for each Portenta Machine Control device and its processes using the role-specific sections.
 
 You may access the entire example project [here](assets/ModbusRTU_PMC_Example.zip) if you would like to test it right away. Every setting and component is ready to be assembled and uploaded to the corresponding Portenta Machine Control.
 
@@ -206,11 +204,11 @@ To configure the Portenta Machine Control as a Modbus RTU Server, navigate to th
 
 Alternative values can be used per requirements if needed.
 
-The subsequent image displays the `Status variables (volatile)` window. Within this window, we will define the `cnt` variable, specifying its access address and data type for Modbus RTU transmission.
+The subsequent image displays the `Status variables (volatile)` window. Within this window, we will define the `counter_stack` variable, specifying its access address and data type for Modbus RTU transmission.
 
-![Arduino PLC IDE - Portenta Machine Control Server Status Variable](assets/pmc_plcide_server_statVar.svg)
+![Arduino PLC IDE - Portenta Machine Control Server Status Variable](assets/pmc_plcide_server_statVar.png)
 
-The `cnt` status variable uses the following parameters:
+The `counter_stack` status variable uses the following parameters:
 
 * Address: 25000 (dec) / 0x61A8 (hex)
 * Name: cnt
@@ -238,6 +236,7 @@ IF counter_buffer >= delay_buffer THEN
 	    cnt := 0;
 	END_IF;
 	counter_buffer := 0;
+	counter_stack := counter_stack + 1;
 END_IF;
 
 // Translate count to binary
@@ -249,11 +248,21 @@ DO_4 := SHR(cnt,4) AND 1;
 DO_5 := SHR(cnt,5) AND 1;
 DO_6 := SHR(cnt,6) AND 1;
 DO_7 := SHR(cnt,7) AND 1;
+
+IF counter_stack > 50 THEN
+	counter_stack := 0;
+END_IF;
 ```
 
-The role of the Portenta Machine Control server is to continually count until it hits `2750`, then reset. To transfer this counting task to the Portenta Machine Control, you can either select `Download PLC code` or simply hit `F7`. Once everything is in place, a successful upload will look like the image shown below.
+The role of the Portenta Machine Control server will be to use a binary counter programmed with digital outputs parametrized with a sub-counter variable. The sub-counter variable will be defined as `cnt` and cycle within 8-Bit map value. The counter speed will be controlled by `counter_buffer` and `delay_buffer` as a customizable timed factor. We will use the `counter_stack` as the shared Modbus counter variable for the client Portenta Machine Control.
 
-![Arduino PLC IDE - Portenta Machine Control Server Main Code](assets/pmc_plcide_server_mainCode.svg)
+![Arduino PLC IDE - Portenta Machine Control Server Global Variables](assets/pmc_plcide_server_globalVars.png)
+
+The `counter_buffer` and `delay_buffer` variables are added using `New Variable` option found within right-clicking on `Global_vars`. The `counter_buffer` can be added as an `automatic` variable, while `delay_buffer` variable has been added initially as a `constant` variable with initial value assigned.
+
+To upload the main PLC code to the Portenta Machine Control, you can either select `Download PLC code` or simply hit `F7`. Once everything is in place, a successful upload will look like the image shown below.
+
+![Arduino PLC IDE - Portenta Machine Control Server Main Code](assets/pmc_plcide_server_mainCode.png)
 
 Upon completing these steps, you will have effectively set up a Portenta Machine Control device to function as a Modbus RTU Server. The following section will guide you on how to configure another Portenta Machine Control as a Modbus RTU Client.
 
@@ -302,31 +311,59 @@ In this tutorial's demonstration, the client Portenta Machine Control is configu
 
 The image below shows how it should look within the PLC IDE interface:
 
-![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/pmc_plcide_device_localDO.png)
+![Arduino PLC IDE - Portenta Machine Control Client Digital Outputs Table](assets/pmc_plcide_device_localDO.png)
 
 The OBJECT also needs labels to reference it later in the main PLC code. A table displaying the variable names designated for OBJECT can be seen below:
 
-![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/pmc_plcide_client_relaySet.svg)
+![Arduino PLC IDE - Portenta Machine Control Client Digital Programmable I/O Table](assets/pmc_plcide_device_DIO.png)
 
-The main program below will be used to fetch counter data, control OBJECTS, and manage corresponding OBJECTS. A successful Modbus TCP communication will process previous tasks accordingly.
+The main program below will be used to fetch counter data, control programmable digital I/Os, and manage corresponding digital outputs. A successful Modbus RTU communication will process previous tasks accordingly.
 
 ```arduino
-counter := counter + 1;
+counter := counter_rec;
 
-IF counter >= 500 THEN
+IF counter >= 10 THEN
 	DIO_0 := 1;
 END_IF;
 
-IF counter >= 1000 THEN
-	DIO_0 := 0;
-	counter := 0;
+IF counter >= 20 THEN
+	DIO_1 := 1;
 END_IF;
 
+IF counter >= 30 THEN
+	DIO_2 := 1;
+END_IF;
+
+IF counter >= 40 THEN
+	DIO_3 := 1;
+END_IF;
+
+IF counter >= 50 THEN
+	DIO_0 := 0;
+	DIO_1 := 0;
+	DIO_2 := 0;
+	DIO_3 := 0;
+	server_opCycle := server_opCycle + 1;
+END_IF;
+
+// Translate count to binary
+DO_0 := server_opCycle AND 1;
+DO_1 := SHR(server_opCycle,1) AND 1;
+DO_2 := SHR(server_opCycle,2) AND 1;
+DO_3 := SHR(server_opCycle,3) AND 1;
+DO_4 := SHR(server_opCycle,4) AND 1;
+DO_5 := SHR(server_opCycle,5) AND 1;
+DO_6 := SHR(server_opCycle,6) AND 1;
+DO_7 := SHR(server_opCycle,7) AND 1;
 ```
 
-The `counter` variable serves as a global reference for the client Portenta Machine Control. On the other hand, `counter_rec` is tailored for Modbus, storing the data retrieved from the server Portenta Machine Control. We established this variable when setting up the 'Read Input Registers' Modbus function.
+The `counter` variable serves as a global reference for the client Portenta Machine Control. On the other hand, `counter_rec` is tailored for Modbus, storing the data retrieved from the server Portenta Machine Control which is related to `counter_stack` data from server Portenta Machine Control. We established this variable when setting up the 'Read Input Registers' Modbus function.
 
-Once you have successfully compiled and downloaded the main PLC code, the interface for the client Portenta Machine Control should mirror the image provided below:
+The client Portenta Machine Control will use four digital programmable outputs and complete digital outputs as a operation indicator. Each time the `counter` marks new tenth value, it will activate corresponding digital programmable output to first digit of the counter value. For example, if the `counter` reaches `10`, the digital programmable output #1 will turn on.
+
+Once the `counter` reaches `50` and resets, it will flag that one operation cycle has been completed. This will process will loop and use the digital outputs as a process cycle counter represented in a form of binary counter. This cyclic counter value is stored using `server_opCycle`.
+
+With this, we will compile and upload the main PLC code, the interface for the client Portenta Machine Control should mirror the image provided below:
 
 ![Arduino PLC IDE - Portenta Machine Control Client Main Code](assets/pmc_plcide_client_mainCode.png)
 
@@ -341,6 +378,18 @@ Set both Portenta Machine Control devices running with the corresponding main PL
 The following short clip shows a briefly expected behavior of the example project.
 
 ![Example Project Result](assets/pmc_plcide_rtu_example_result.gif)
+
+The server Portenta Machine Control will:
+
+- Run a binary counter using digital outputs as visual indicators, mapped within 8-Bit boundary.
+- Shared Modbus counter variable will increase every time 8-Bit binary counter completes one cycle.
+- Binary counter speed can be controlled modifying buffer variables with desired values.
+
+The client Portenta Machine Control will:
+
+- Receive server counter information via Modbus protocol.
+- Translate and trigger corresponding programmable digital I/Os.
+- Use complete unit cycle of the programmable digital I/Os and represent total operation cycle with binary counter visualized using digital outputs.
 
 ## Conclusion
 
