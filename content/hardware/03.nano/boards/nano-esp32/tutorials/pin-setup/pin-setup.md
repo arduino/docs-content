@@ -9,7 +9,19 @@ tags: [ESP32, Pin Configuration]
 
 The [Arduino Nano ESP32](https://store.arduino.cc/nano-esp32) is a Nano form factor board based on an ESP32-S3 SoC. This board is part of the [Arduino Nano Family](https://store.arduino.cc/pages/nano-family), and follows the same pinout as all Nano boards. This is very convenient if you want to port a project from another Nano board, as you can preserve the same wiring and pin numbers in the code.
 
-When programming the board in the "default" mode, the pins labelled on the board matches the pins in the program, **but does not match the ESP32-S3**. This mode can be changed to use the "ESP32" pins instead.
+This means that if you want to control a pin you can simply use the pin number that is printed on the board itself:
+
+```
+// This will enable the pin marked with "8" on the board:
+digitalWrite(8, HIGH);
+```
+
+However, some libraries previously written for ESP32 boards (to name a few: OneWire, FastLED, ESP32Servo) don't support the pin numbers printed on the board and require you to refer to the internal microcontroller's GPIO number instead.  For instance, to refer to the pin labelled "8" on the board such libraries expect you to write `17` in your code as that's the GPIO number corresponding to that pin.
+
+For this purpose, we added a compatibility mode so that you can choose which numbering scheme you want to use:
+
+* when porting an existing Arduino project from another Nano board, it's convenient to use the "Arduino pin" scheme which reflects the numbers printed on the board
+* when using third-party libraries for ESP32, you should use the "GPIO number" scheme which corresponds to the internal numbers
 
 To change this configuration, simply connect your board, go to **Tools > Pin Numbering > Select Option**. More details are available in this tutorial.
 
