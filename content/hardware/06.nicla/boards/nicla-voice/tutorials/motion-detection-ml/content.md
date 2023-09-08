@@ -91,4 +91,32 @@ Machine Learning works best with lots of data, so that a single sample won't cut
 
 ***The Syntiant NDP processors require a **negative class** on which no predictions will occur; in our example, this is the `z_idle` class. Make sure the negative class name is last in alphabetical order.***
 
+### Impulse Design
 
+With the training dataset captured, you can design an `impulse`.  An `impulse` takes raw data, uses signal processing to extract features, and then uses a learning block to classify new data. Signal processing blocks always return the same values for the same input and are used to make raw data easier to process, while learning blocks learn from past experiences.
+
+In this tutorial, we are going to use the following processing blocks:
+
+- `IMU Syntiant` processing block: This block prescales raw data to 8-bit values to match Nicla's Voice NDP processor input requirements.
+- `Classification` learning block: This block takes the generated features and learns to distinguish between different classes (`left-right`, `up-down`, or `z-idle`).
+
+
+To set both blocks, navigate to **Create impulse**, set the window size to 600 ms, increase to 200, and add the `IMU Syntiant` and `Classification` blocks; then click `Save impulse`.
+
+***The Syntiant NDP101 processor requires the number of generated features to be divisible by four. In our example, we have three axes sampled at 100 Hz with a 600 ms window leading to 180 (60x3) features divisible by four.***
+
+#### IMU Syntiant Block Configuration
+
+To configure the `IMU Syntiant` processing block, navigate to **Syntiant IMU** in the menu on the left. This will show you the raw data on top of the screen (you can select other files via the drop-down menu) and the processed features on the right. 
+
+The `Scale 16 bits to 8 bits` option converts your raw data to 8-bit and normalizes it to the [-1, 1] range. Click `Save parameters`. This will send you to the `Feature generation` screen; click `Generate features` to start the process.
+
+Afterward, the `Feature explorer` will load. This plots of all the extracted features against all the generated windows. You can use this graph to compare your complete data set. A good rule of thumb is that if you can visually separate the data on several axes, then the Machine Learning model will also be able to do so.
+
+#### Classification Block Configuration
+
+With all data processed, it's time to start training a neural network. Neural networks are algorithms modeled loosely after the human brain that can learn to recognize patterns that appear in their training data. The network we're training here will take the processing block features as input and try to map this to one of the three classes (`left-right`, `up-down`, or `z-idle`).
+
+Click on `Classifier` in the left-hand menu. You'll see the following:
+
+With everything in place, click Start training. When it's complete, you'll see the Last training performance panel appear at the bottom of the page:
