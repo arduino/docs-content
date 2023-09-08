@@ -89,7 +89,7 @@ Machine Learning works best with lots of data, so that a single sample won't cut
 - `up-down`: vertical movements, starting up and going down.
 - `z-idle`: random movements that are not from left to right or starting up and going down. 
 
-***The Syntiant NDP processors require a **negative class** on which no predictions will occur; in our example, this is the `z_idle` class. Make sure the negative class name is last in alphabetical order.***
+***The Syntiant NDP processors require a negative class on which no predictions will occur; in our example, this is the `z_idle` class. Make sure the negative class name is last in alphabetical order.***
 
 ### Impulse Design
 
@@ -109,9 +109,9 @@ To set both blocks, navigate to **Create impulse**, set the window size to 600 m
 
 To configure the `IMU Syntiant` processing block, navigate to **Syntiant IMU** in the menu on the left. This will show you the raw data on top of the screen (you can select other files via the drop-down menu) and the processed features on the right. 
 
-The `Scale 16 bits to 8 bits` option converts your raw data to 8-bit and normalizes it to the [-1, 1] range. Click `Save parameters`. This will send you to the `Feature generation` screen; click `Generate features` to start the process.
+The `Scale 16 bits to 8 bits` option converts your raw data to 8-bit and normalizes it to the [-1, 1] range. Click `Save parameters`; this will send you to the `Feature generation` screen. Click the `Generate features` button to start the process.
 
-Afterward, the `Feature explorer` will load. This plots of all the extracted features against all the generated windows. You can use this graph to compare your complete data set. A good rule of thumb is that if you can visually separate the data on several axes, then the Machine Learning model will also be able to do so.
+After a while, the `Feature explorer` scree will load. This screen plots of all the extracted features against all the generated windows; you can use this graph to compare your complete data set. A good rule of thumb is that **if you can visually separate the data on several axes, then the Machine Learning model will also be able to do so**.
 
 #### Classification Block Configuration
 
@@ -120,3 +120,5 @@ With all data processed, it's time to start training a neural network. Neural ne
 Click on `Classifier` in the left-hand menu. You'll see the following:
 
 With everything in place, click Start training. When it's complete, you'll see the Last training performance panel appear at the bottom of the page:
+
+Congratulations, you've trained a neural network with Edge Impulse® and ready to deploy on your Nicla Voice board!
