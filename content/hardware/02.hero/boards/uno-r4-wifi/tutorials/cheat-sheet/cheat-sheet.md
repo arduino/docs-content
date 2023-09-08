@@ -101,10 +101,10 @@ If you just need a quick overview of the pins functionality, this is a full tabl
 | D11 | Digital   | SPI (COPI), GPIO pin, PWM         |
 | D12 | Digital   | SPI (CIPO), GPIO pin              |
 | D13 | Digital   | SPI (SCK), GPIO pin, Built-in LED |
-| A0  | Digital   | Analog In, DAC                    |
+| A0  | Analog    | Analog In, DAC OUT                |
 | A1  | Analog in | Analog In, OPAMP +                |
 | A2  | Analog in | Analog In, OPAMP -                |
-| A3  | Analog in | Analog In, OPAMP OUT              |
+| A3  | Analog    | Analog In, OPAMP OUT              |
 | A4  | Analog in | Analog In, SDA\*                  |
 | A5  | Analog in | Analog In, SCL\*                  |
 
