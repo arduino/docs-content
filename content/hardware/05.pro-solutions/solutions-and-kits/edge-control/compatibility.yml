@@ -8,21 +8,20 @@ hardware:
     - portenta-h7
     - portenta-h7-lite
     - portenta-h7-lite-connected
-    - portenta-vision-shield
     #- mkr-1000-wifi
     #- mkr-fox-1200
     - mkr-gsm-1400
-    #- mkr-nb-1500
+    - mkr-nb-1500
     #- mkr-vidor-4000
     #- mkr-wan-1300
-    #- mkr-wan-1310
+    - mkr-wan-1310
     - mkr-wifi-1010
     #- mkr-zero
   shields:
-    - vision-shield-lora
-    - vision-shield-ethernet
     - mkr-env-shield
-  carriers:
-    - portenta-breakout
-  05.pro-solutions:
+
+  pro-solutions:
     - enclosure-kit
+
+  sensors:
+    - soil-humidity-sensor-watermark-2-m-75-cm-pack-of-6
