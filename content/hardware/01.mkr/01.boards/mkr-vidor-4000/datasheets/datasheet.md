@@ -9,7 +9,8 @@ author: Julián Caro Linares
 
 # Description 
 
-<p style="text-align: justify;">The Arduino MKR Vidor 4000 is without a doubt the most advanced and featured-packed board in the MKR family and the only one with a FPGA chip on board. With a camera & HDMI connector, a Wi-Fi® / Bluetooth® module and up to 25 configurable pins, the board offers a huge range of possibilities to implement solutions in different environments and applications.</p>
+<p style="text-align: justify;">The Arduino MKR Vidor 4000 (from now on referred to as MKR Vidor 4000) is without a doubt the most advanced and featured-packed board in the MKR family and the only one with a FPGA chip on board. With a camera & HDMI connector, a Wi-Fi® / Bluetooth® module and up to 25 configurable pins, the board offers a huge range of possibilities to implement solutions in different environments and applications.</p>
+
 
 # Target Areas
 
@@ -20,12 +21,14 @@ FPGA, IoT, automation, industry, smart cities, signal processing
 ## Features
 
 <p style="text-align: justify;">
-The MKR VIDOR 4000 is nothing less than a powerhouse of a board, packing a huge set of features into a small form factor. It features the Intel® Cyclone® 10CL016 for FPGA (Field Programming Gate Array), allowing you to configure a large set of pins to accommodate any of your preferences. But why stop there? The board also has a camera connector, a Micro HDMI connector, Wi-Fi / Bluetooth® connectivity through the NINA-W102 module, and cyber-security through the ECC508 crypto chip. Just like the other members of the MKR family, it uses the popular Cortex-M0 32-bit SAMD21 microprocessor.
+The MKR Vidor 4000 is nothing less than a powerhouse of a board, packing a huge set of features into a small form factor. It features the Intel® Cyclone® 10CL016 for FPGA (Field Programming Gate Array), allowing you to configure a large set of pins to accommodate any of your preferences. But why stop there? The board also has a camera connector, a Micro HDMI connector, Wi-Fi® / Bluetooth® connectivity through the NINA-W102 module, and cyber-security through the ECC508 crypto chip. Just like the other members of the MKR family, it uses the popular Arm® Cortex®-M0 32-bit SAMD21 microprocessor.
+
 </p>
 
 ### Microcontroller Block
 
-The board's microcontroller is a low power Arm® Cortex®-M0 32-bit SAMD21, like in the other boards within the Arduino MKR family. The WiFi and Bluetooth® connectivity is performed with a module from u-blox, the NINA-W10, a low power chipset operating in the 2.4GHz range. On top of that, secure communication is ensured through the Microchip® ECC508 crypto chip. Also, you can find a battery charger, and a directionable RGB LED on-board.
+The board's microcontroller is a low power Arm® Cortex®-M0 32-bit SAMD21, like in the other boards within the Arduino MKR family. The Wi-Fi® and Bluetooth® connectivity is performed with a module from u-blox, the NINA-W10, a low power chipset operating in the 2.4GHz range. On top of that, secure communication is ensured through the Microchip® ECC508 crypto chip. Also, you can find a battery charger, and a directionable RGB LED on-board.
+
 
 <div style="text-align:center;">
 
@@ -39,7 +42,8 @@ The board's microcontroller is a low power Arm® Cortex®-M0 32-bit SAMD21, like
 	<tbody>
 		<tr>
 			<td rowspan="1">Microcontroller</th>
-			<td colspan="2">SAMD21 Cortex®-M0+ 32bit low power ARM MCU</td>
+			<td colspan="2">SAMD21 Arm® Cortex®-M0+ 32bit low power ARM MCU</td>
+
 		</tr>
 		<tr>
 			<td rowspan="1">USB connector</th>
@@ -73,11 +77,13 @@ The board's microcontroller is a low power Arm® Cortex®-M0 32-bit SAMD21, like
 		<tr>
 			<td rowspan="3">Connectivity</th>
 			<td rowspan="1">Bluetooth®</th>
-			<td colspan="1">Nina W102 uBlox module</td>
+			<td colspan="1">Nina W102 u-blox® module</td>
+
 		</tr>
 		<tr>
 			<td rowspan="1">Wi-Fi®</th>
-			<td colspan="1">Nina W102 uBlox module</td>
+			<td colspan="1">Nina W102 u-blox® module</td>
+
 		</tr>
 		<tr>
 			<td rowspan="1">Secure element</th>
@@ -129,11 +135,13 @@ The board's microcontroller is a low power Arm® Cortex®-M0 32-bit SAMD21, like
 		<tr>
 			<td rowspan="2">Memory</th>
 			<td rowspan="1">SAMD21G18A</th>
-			<td colspan="1">256 KB Flash, 32 KB SRAM</td>
+			<td colspan="1">256 kB Flash, 32 kB SRAM</td>
+
 		</tr>
 		<tr>
-			<td rowspan="1">Nina W102 uBlox module</th>
-			<td colspan="1">448 KB ROM, 520 KB SRAM, 2 MB Flash</td>
+			<td rowspan="1">Nina W102 u-blox® module</td>
+			<td colspan="1">448 kB ROM, 520 kB SRAM, 2 MB Flash</td>
+
 		</tr>
 	</tbody>
 </table>
@@ -230,7 +238,8 @@ The board comes with 8 MB of SRAM to support the FPGA operations on video and au
     </thead>
     <tbody>
       <tr>
-        <td rowspan="2">Nina W102 uBlox module</td>
+        <td rowspan="2">Nina W102 u-blox® module</td>
+
         <td>2.4 GHz Wi-­Fi® (802.11 b/g/n) support</td>
       </tr>
       <tr>
@@ -279,18 +288,20 @@ The board comes with 8 MB of SRAM to support the FPGA operations on video and au
 
 ### Related Products
 
-- Arduino® MKR Family boards 
-- Arduino® MKR Family Shields
-- Arduino® MKD Family Carriers
+- Arduino MKR Family boards 
+- Arduino MKR Family shields
+- Arduino MKR Family carriers
 
-**Note**: Check the Arduino® official documentation to know more about the compatibility and specifications of each of these products.
+**Note**: Check the Arduino official documentation to know more about the compatibility and specifications of each of these products.
+
 
 ## Ratings
 
 ### Recommended Operating Conditions
 
 <p style="text-align: justify;">
-The following table is a comprehensive guideline for the optimal use of the MKR Vidor, outlining typical operating conditions and design limits. The operating conditions of the Vidor are largely a function based on its component's specifications.
+The following table is a comprehensive guideline for the optimal use of the MKR Vidor 4000, outlining typical operating conditions and design limits. The operating conditions of the MKR Vidor 4000 are largely a function based on its component's specifications.
+
 </p>
 
 <div style="text-align:center;">
@@ -308,7 +319,8 @@ The following table is a comprehensive guideline for the optimal use of the MKR 
 ## Functional Overview
 
 <p style="text-align: justify;">
-The cores of the MKR Vidor are the SAMD21 Cortex®-M0+ microcontroller and the Intel® Cyclone® 10CL016 FPGA. The board also contains several peripherals connected to the microcontroller and the FPGA blocks.
+The cores of the MKR Vidor 4000 are the SAMD21 Arm® Cortex®-M0+ microcontroller and the Intel® Cyclone® 10CL016 FPGA. The board also contains several peripherals connected to the microcontroller and the FPGA blocks.
+
 </p>
 
 **![Board Overview](assets/Vidor_Mappa.jpg)**
@@ -325,7 +337,8 @@ The pinout of the main FPGA connections is shown in Figure 2.
 
 **![Figure 2. MKR Vidor FPGA pinout](assets/MKR_Vidor_Pinout_fpga.png)**
 
-Check the official Arduino® documentation to see the full pinout document and the schematics of the product.
+Check the official Arduino documentation to see the full pinout document and the schematics of the product.
+
 
 <div style="page-break-after: always;"></div>
 
@@ -349,7 +362,8 @@ The MKR Vidor can be powered through one of these interfaces:
 
 ### Getting Started - IDE
 
-If you want to program your MKR Vidor while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the MKR Vidor to your computer, you will need a Micro USB-B cable.
+If you want to program your MKR Vidor 4000 while offline you need to install the Arduino Desktop IDE **[1]**. To connect the MKR Vidor 4000 to your computer, you will need a micro USB-B cable.
+
 
 ### Getting Started - Intel Cyclone HDL & Synthesis
 
@@ -358,28 +372,33 @@ If you want to use HDL Languages to design, synthesize and upload new circuits i
 
 ### Getting Started - Arduino Web Editor
 
-All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[3]** by just installing a simple plugin.
+All Arduino devices work out-of-the-box on the Arduino Web Editor **[3]** by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[4]** to start coding on the browser and upload your sketches onto your device.
+The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[4]** to start coding on the browser and upload your sketches onto your device.
+
 
 ### Getting Started - Arduino IoT Cloud
 
-All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+
 
 ### Sample Sketches
 
-Sample sketches for MKR Vidor can be found either in the “Examples” menu in the Arduino® IDE or the “MKR Vidor Documentation” section of Arduino® **[5]**.
+Sample sketches for MKR Vidor 4000 can be found either in the “Examples” menu in the Arduino IDE or the “MKR Vidor Documentation” section of Arduino **[5]**.
+
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[6]**, the Arduino® Library Reference **[7]** and the online store **[8]** where you will be able to complement your MKR Vidor product with additional extensions, sensors and actuators.
+Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[6]**, the Arduino Library Reference **[7]** and the online store **[8]** where you will be able to complement your MKR Vidor 4000 product with additional extensions, sensors and actuators.
+
 </div>
 
 ## Mechanical Information
 
 ### Board Dimensions
 
-MKR Vidor board dimensions and weight are the following:
+MKR Vidor 4000 board dimensions and weight are the following:
+
 
 <div style="text-align:center;">
   <table>
@@ -402,7 +421,8 @@ MKR Vidor board dimensions and weight are the following:
 </div>
 
 
-The MKR Vidor has two 2.22 mm drilled mounting holes to provide for mechanical fixing.
+The MKR Vidor 4000 has two 2.22 mm drilled mounting holes to provide for mechanical fixing.
+
 
 <div style="page-break-after: always;"></div>
 
@@ -497,7 +517,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino IDE (Cloud)                                 | https://create.arduino.cc/editor                                                            |
 | Arduino Cloud - Getting started                     | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started             |
 | MKR Vidor Documentation                             | https://docs.arduino.cc/hardware/mkr-vidor-4000                                             |
-| Project Hub                                         | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                    |
+| Arduino Project Hub                                         | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                    |
+
 | Library Reference                                   | https://www.arduino.cc/reference/en/                                                        |
 | Online Store                                        | https://store.arduino.cc/                                                                   |
          
