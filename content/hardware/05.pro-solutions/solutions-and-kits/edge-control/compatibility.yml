@@ -24,4 +24,4 @@ hardware:
     - enclosure-kit
 
   sensors:
-    - [Soil Humidity Sensor - Watermark](https://store-usa.arduino.cc/products/soil-humidity-sensor-watermark-2-m-75-cm-pack-of-6)
+    - soil-humidity-sensor-watermark-2-m-75-cm-pack-of-6
