@@ -188,7 +188,7 @@ With the necessary prerequisites in place and the tools for Modbus TCP configura
 
 In this example, we will make a minor adjustment to the default example code by using the counter (`cnt`) variable. The counter information will be transmitted, facilitating real-time handshake verification between both Portenta Machine Control devices. For this tutorial, we will assign Ethernet properties manually to each device.
 
--- TEST SETUP
+Through the counter information provided by the 'Modbus TCP Server Portenta Machine Control', the 'Modbus TCP Client Portenta Machine Control' oversees the programmable digital I/Os and digital outputs. Each Portenta Machine Control focuses on a specific function using the elements mentioned earlier. You will learn to set the Modbus TCP role for each Portenta Machine Control device, following the sections dedicated for each specific role.
 
 For those eager to dive right in, the full example project is available for download [here](assets/ModbusTCP_PMC_Example.zip). All crucial configurations and components are incorporated, so it is ready to be compiled and uploaded to the corresponding Portenta Machine Control device.
 
@@ -250,6 +250,7 @@ IF counter_buffer >= delay_buffer THEN
 	    cnt := 0;
 	END_IF;
 	counter_buffer := 0;
+	counter_stack := counter_stack + 1;
 END_IF;
 
 // Translate count to binary
@@ -261,9 +262,19 @@ DO_4 := SHR(cnt,4) AND 1;
 DO_5 := SHR(cnt,5) AND 1;
 DO_6 := SHR(cnt,6) AND 1;
 DO_7 := SHR(cnt,7) AND 1;
+
+IF counter_stack > 50 THEN
+	counter_stack := 0;
+END_IF;
 ```
 
-The task running on the Portenta Machine Control server increments a basic counter, which resets once it hits `2750`. To begin the compilation and uploading of the code to the Portenta Machine Control, either choose the `Download PLC code` option or hit `F7`. An image illustrating a successful upload can be seen below.
+The main role of the Portenta Machine Control server is to operate a binary counter, programmed using digital outputs determined by a sub-counter variable, `cnt`. This variable operates within an 8-Bit value range. The counter's speed is modulated through `counter_buffer` and `delay_buffer`, using as adjustable timing parameters. For the client Portenta Machine Control, the shared Modbus counter variable known as `counter_stack` is used.
+
+![Arduino PLC IDE - Portenta Machine Control Server Global Variables](assets/pmc_plcide_server_mainCode.svg)
+
+To integrate the `counter_buffer` and `delay_buffer` variables, access the `New Variable` option by right-clicking on `Global_vars`. While `counter_buffer` can be designated as an `automatic` variable, `delay_buffer` was originally defined as a `constant` variable with a set value.
+
+For deploying the main PLC code to the Portenta Machine Control, choose `Download PLC code` or simply press `F7`. With everything set up correctly, a successful upload should resemble the following image.
 
 ![Arduino PLC IDE - Portenta Machine Control Server Main Code](assets/pmc_plcide_server_mainCode.svg)
 
@@ -321,32 +332,67 @@ void setup()
 
 The `ip(192, 168, 1, 1)` represents the IP address of the Modbus TCP Master Portenta Machine Control. While you can modify the Internet Protocol properties as needed, it is essential to make sure the `subnet` aligns with that of your computer.
 
-TODO EXPLAIN USED ONBOARD ELEMENTS OF THE PMC
+Next, set up a variable to store the counter data received from the server Portenta Machine Control. Navigate to the `Input Reg.` tab in the Modbus function configuration menu. From there, define a variable named `counter_rec` to save the data transmitted via the protocol.
 
-The image below shows how it should look within the PLC IDE interface:
+Refer to the subsequent image for a visual guide to the desired configuration:
 
-![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/pmc_plcide_client_ledSet.svg)
+![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node (Input Reg.)](assets/pmc_plcide_client_modbusFunctionConfig_reg.png)
 
-The OBJECT also needs labels to reference it later in the main PLC code. A table displaying the variable names designated for OBJECT can be seen below:
+For the purposes of this tutorial, the client Portenta Machine Control has been set up to use digital programmable I/Os and digital outputs.
 
-![Arduino PLC IDE - Portenta Machine Control Client OBJECT Table](assets/pmc_plcide_client_relaySet.svg)
+The image below provides a glimpse of its appearance within the PLC IDE interface:
 
-The main program below will be used to fetch counter data, control OBJECTS, and manage corresponding OBJECTS. A successful Modbus TCP communication will process previous tasks accordingly.
+![Arduino PLC IDE - Portenta Machine Control Client Digital Outputs Table](assets/pmc_plcide_device_localDO.png)
+
+These elements also needs labels to reference it later in the main PLC code. A table displaying the variable names designated for digital programmable I/Os can be seen below:
+
+![Arduino PLC IDE - Portenta Machine Control Client Digital Programmable I/O Table](assets/pmc_plcide_device_DIO.png)
+
+The main program below will be used to fetch counter data, control programmable digital I/Os, and manage corresponding digital outputs. A successful Modbus TCP communication will process previous tasks accordingly.
 
 ```arduino
-counter := counter + 1;
+counter := counter_rec;
 
-IF counter >= 500 THEN
+IF counter >= 10 THEN
 	DIO_0 := 1;
 END_IF;
 
-IF counter >= 1000 THEN
-	DIO_0 := 0;
-	counter := 0;
+IF counter >= 20 THEN
+	DIO_1 := 1;
 END_IF;
+
+IF counter >= 30 THEN
+	DIO_2 := 1;
+END_IF;
+
+IF counter >= 40 THEN
+	DIO_3 := 1;
+END_IF;
+
+IF counter >= 50 THEN
+	DIO_0 := 0;
+	DIO_1 := 0;
+	DIO_2 := 0;
+	DIO_3 := 0;
+	server_opCycle := server_opCycle + 1;
+END_IF;
+
+// Translate count to binary
+DO_0 := server_opCycle AND 1;
+DO_1 := SHR(server_opCycle,1) AND 1;
+DO_2 := SHR(server_opCycle,2) AND 1;
+DO_3 := SHR(server_opCycle,3) AND 1;
+DO_4 := SHR(server_opCycle,4) AND 1;
+DO_5 := SHR(server_opCycle,5) AND 1;
+DO_6 := SHR(server_opCycle,6) AND 1;
+DO_7 := SHR(server_opCycle,7) AND 1;
 ```
 
-The `counter` serves as a universal variable for the client Portenta Machine Control. Conversely, `counter_rec` is the Modbus variable that stores data fetched from the server Portenta Machine Control. We defined this variable when configuring the 'Read Input Registers' Modbus function.
+The `counter` variable acts as a universal reference for the client Portenta Machine Control. While, `counter_rec` is specifically defined for use with Modbus transactions, capturing data from the server Portenta Machine Control that relates to the `counter_stack` data. This particular variable was established during the 'Read Input Registers' Modbus function setup.
+
+For operational indications, the client Portenta Machine Control will employ four digital programmable outputs, complemented by the full suite of digital outputs. Every time the `counter` registers a multiple of ten, the corresponding digital programmable output tied to that counter's first digit will be engaged. As an example, when the `counter` value reaches `10`, digital programmable output #1 gets activated.
+
+When the `counter` achieves a value of `50` and then resets, it marks the end of an operational cycle. This mechanism is recurrent, with digital outputs representing the process cycle count in the form of a binary counter. The repeating counter value is stored in the `server_opCycle`.
 
 The complete workspace interface for client Portenta Machine Control should resemble the following image once the main PLC code has been successfully compiled and downloaded to the client Portenta Machine Control:
 
@@ -360,13 +406,21 @@ You can access the complete example project [here](assets/ModbusTCP_PMC_Example.
 
 Set both Portenta Machine Control devices running with the corresponding main PLC code with the hardware setup explained in [this section](#hardware-setup). You will be able to observe the following results on client Portenta Machine Control periodically:
 
--- TEST RESULTS
-
-For a visual representation of this behavior, refer to the following clip:
-
 ![Modbus TCP Example PLC IDE Project Result](assets/pmc_plcide_example_result.gif)
 
 In the clip, the left window represents the Modbus TCP Client Portenta Machine Control, while the right window shows the Modbus TCP Server Portenta Machine Control.
+
+The server Portenta Machine Control is tasked to:
+
+- Run a binary counter, using digital outputs as visual cues, all encapsulated within an 8-Bit range.
+- Increase the shared Modbus counter variable whenever the 8-Bit binary counter finishes a cycle.
+- Tune the binary counter's pace by altering buffer variables to match preferred timing factors.
+
+On the other hand, the client Portenta Machine Control will:
+
+- Retrieve server-side counter data using the Modbus protocol.
+- Decode and trigger the appropriate programmable digital I/Os.
+- Harness the complete cycle of the programmable digital I/Os to denote the cumulative operation cycles, displayed through digital outputs in binary counter format.
 
 ## Conclusion
 
