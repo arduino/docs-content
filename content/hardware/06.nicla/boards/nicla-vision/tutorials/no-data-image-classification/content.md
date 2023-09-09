@@ -1,13 +1,13 @@
 ---
-title: No Data Image Classification with Remyx AI
+title: Image Classification with Remyx AI
 difficulty: beginner
 tags: [Machine Learning, Remyx AI, TinyML, Tensorflow]
-description: This tutorial teaches you how to create a machine learning model without data using Remyx AI to classify images on the Arduino Nicla Vision.
-author: Terry Rodriguez & Salma Mayorquin
+description: This tutorial teaches you how to create a custom image classifier using Remyx AI to tag images from the Arduino Nicla Vision.
+author: Salma Mayorquin
 ---
 
 ## Overview 
-This tutorial teaches you how to train a custom machine learning model with Remyx AI and to do image classification on the Arduino Nicla Vision. The Machine Learning (ML) model will use the TensorFlow Lite format and run on OpenMV.
+This tutorial shows you how to create a custom computer vision model with Remyx AI to classify images on the Arduino Nicla Vision. The Machine Learning (ML) model will use the TensorFlow Lite format and run on OpenMV.
 
 ## Goals
 
@@ -20,15 +20,12 @@ This tutorial teaches you how to train a custom machine learning model with Remy
 - [Nicla Vision board](https://store.arduino.cc/products/nicla-vision)
 - Micro USB cable
 - A [Remyx AI](https://engine.remyx.ai/) account for training the ML model
-- Up to 5 objects you'd like to classify. Objects commonly found on the internet will work well. 
+- Up to 5 objects you'd like to classify. 
 
-This example will use the labels `empty tent interior` and `dog` for a dog presence classifier.
-
-## Machine Learning on the Edge
-Machine learning has been a common practice on powerful computers, but it is a relatively new territory when it comes to microcontrollers. Although these smaller devices might struggle with high-speed, high-resolution tasks, they offer many benefits. For example, they can run on low power for extended periods, and they can operate without an internet connection, ensuring data privacy. Microcontrollers can even be set to activate only when a sensor detects activity, making them an excellent choice for battery-powered devices.
+This demo identifies the scene using the labels `empty tent interior` and `dog` for doghouse occupancy detection.
 
 ## The Remyx AI Platform
-Remyx AI is a platform that allows anyone to create a custom vision model without data or machine learning expertise required. The engine applies state-of-the-art automatic data labeling, generative AI, and model training to minimize the upfront requirements of getting started. This training method may also provide more privacy as your data will not be collected and used for training.
+Remyx AI makes it easy to create custom vision models, even if you're not an expert. You don't need pre-labeled data, and your privacy is safeguarded because your data isn't collected. The platform is designed to generate models that are optimized for microcontrollers, making it ideal for low-power, battery-operated devices.
 
 ### 1. Create your ML Model
 Using the Remyx Engine to create a custom image classifier is very straightforward. Chat with the Remyx Agent found in the Home tab and describe your project. Include information about your chosen device, in this case, the Arduino Nicla Vision, and define the labels you want to classify. Here's an example:
