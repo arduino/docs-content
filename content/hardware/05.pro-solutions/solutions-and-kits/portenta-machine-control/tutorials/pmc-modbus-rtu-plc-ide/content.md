@@ -184,7 +184,7 @@ The example project will be used to test the Modbus RTU connection between two P
 
 To create a live handshake verification procedure between two Portenta Machine Control devices, the example project will slightly modify its default example code using the counter ('cnt') variable and broadcast the counter data.
 
-Based on the counter data it receives from the "Modbus RTU Server Portenta Machine Control," the "Modbus RTU Client Portenta Machine Control" will control the programmable digital I/Os and the digital outputs. Each Portenta Machine Control will have a simple dedicated task using previously mentioned elements. You will learn how to configure the Modbus RTU role for each Portenta Machine Control device and its processes using the role-specific sections.
+Using the counter data from the 'Modbus RTU Server Portenta Machine Control', the 'Modbus RTU Client Portenta Machine Control' manages the programmable digital I/Os and digital outputs. Each Portenta Machine Control is assigned a simple task using the aforementioned elements. You will learn to configure the Modbus RTU role for each Portenta Machine Control device, using the sections dedicated to each role.
 
 You may access the entire example project [here](assets/ModbusRTU_PMC_Example.zip) if you would like to test it right away. Every setting and component is ready to be assembled and uploaded to the corresponding Portenta Machine Control.
 
@@ -254,11 +254,11 @@ IF counter_stack > 50 THEN
 END_IF;
 ```
 
-The role of the Portenta Machine Control server will be to use a binary counter programmed with digital outputs parametrized with a sub-counter variable. The sub-counter variable will be defined as `cnt` and cycle within 8-Bit map value. The counter speed will be controlled by `counter_buffer` and `delay_buffer` as a customizable timed factor. We will use the `counter_stack` as the shared Modbus counter variable for the client Portenta Machine Control.
+The main function of the Portenta Machine Control server is to use a binary counter, which is programmed with digital outputs parameterized by a sub-counter variable named `cnt`. This `cnt` variable cycles within an 8-Bit map value. The pace of the counter is adjusted using the `counter_buffer` and `delay_buffer`, which serve as customizable timing factors. For the client Portenta Machine Control, the shared Modbus counter variable will be used and is defined as `counter_stack`.
 
 ![Arduino PLC IDE - Portenta Machine Control Server Global Variables](assets/pmc_plcide_server_globalVars.png)
 
-The `counter_buffer` and `delay_buffer` variables are added using `New Variable` option found within right-clicking on `Global_vars`. The `counter_buffer` can be added as an `automatic` variable, while `delay_buffer` variable has been added initially as a `constant` variable with initial value assigned.
+To add the `counter_buffer` and `delay_buffer` variables, use the `New Variable` option, which can be found by right-clicking on `Global_vars`. The `counter_buffer` can be set as an `automatic` variable. On the other hand, the `delay_buffer` was initially added as a `constant` variable with a predefined value.
 
 To upload the main PLC code to the Portenta Machine Control, you can either select `Download PLC code` or simply hit `F7`. Once everything is in place, a successful upload will look like the image shown below.
 
@@ -357,11 +357,11 @@ DO_6 := SHR(server_opCycle,6) AND 1;
 DO_7 := SHR(server_opCycle,7) AND 1;
 ```
 
-The `counter` variable serves as a global reference for the client Portenta Machine Control. On the other hand, `counter_rec` is tailored for Modbus, storing the data retrieved from the server Portenta Machine Control which is related to `counter_stack` data from server Portenta Machine Control. We established this variable when setting up the 'Read Input Registers' Modbus function.
+The `counter` variable serves as a global reference for the client Portenta Machine Control. Conversely, `counter_rec` dedicated for Modbus transaction, storing the data obtained from the server Portenta Machine Control, which pertains to the `counter_stack` data. This variable was set up during the configuration of the 'Read Input Registers' Modbus function.
 
-The client Portenta Machine Control will use four digital programmable outputs and complete digital outputs as a operation indicator. Each time the `counter` marks new tenth value, it will activate corresponding digital programmable output to first digit of the counter value. For example, if the `counter` reaches `10`, the digital programmable output #1 will turn on.
+The client Portenta Machine Control will utilize four digital programmable outputs, with the complete digital outputs serving as an operation indicator. Each time the `counter` marks a new tenth value, it will activate the digital programmable output corresponding to the first digit of that counter value. For instance, when the `counter` reaches `10`, digital programmable output #1 will be activated.
 
-Once the `counter` reaches `50` and resets, it will flag that one operation cycle has been completed. This will process will loop and use the digital outputs as a process cycle counter represented in a form of binary counter. This cyclic counter value is stored using `server_opCycle`.
+Once the `counter` hits `50` and resets, it signifies the completion of one operation cycle. This process will continuously loop, using the digital outputs as a process cycle counter, displayed as a binary counter. The cyclic counter value is stored in the `server_opCycle`.
 
 With this, we will compile and upload the main PLC code, the interface for the client Portenta Machine Control should mirror the image provided below:
 
@@ -381,15 +381,15 @@ The following short clip shows a briefly expected behavior of the example projec
 
 The server Portenta Machine Control will:
 
-- Run a binary counter using digital outputs as visual indicators, mapped within 8-Bit boundary.
-- Shared Modbus counter variable will increase every time 8-Bit binary counter completes one cycle.
-- Binary counter speed can be controlled modifying buffer variables with desired values.
+- Execute a binary counter with digital outputs working as visual indicators, all contained within an 8-Bit boundary.
+- Increase the shared Modbus counter variable each time the 8-Bit binary counter completes a cycle.
+- Adjust the binary counter's speed by modifying buffer variables according to the desired values.
 
 The client Portenta Machine Control will:
 
-- Receive server counter information via Modbus protocol.
-- Translate and trigger corresponding programmable digital I/Os.
-- Use complete unit cycle of the programmable digital I/Os and represent total operation cycle with binary counter visualized using digital outputs.
+- Acquire server counter data through the Modbus protocol.
+- Interpret and activate the corresponding programmable digital I/Os.
+- Use the full cycle of the programmable digital I/Os to represent the total number of operation cycle, visualized using digital outputs as a binary counter.
 
 ## Conclusion
 
