@@ -332,12 +332,6 @@ void setup()
 
 The `ip(192, 168, 1, 1)` represents the IP address of the Modbus TCP Master Portenta Machine Control. While you can modify the Internet Protocol properties as needed, it is essential to make sure the `subnet` aligns with that of your computer.
 
-Next, set up a variable to store the counter data received from the server Portenta Machine Control. Navigate to the `Input Reg.` tab in the Modbus function configuration menu. From there, define a variable named `counter_rec` to save the data transmitted via the protocol.
-
-Refer to the subsequent image for a visual guide to the desired configuration:
-
-![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node (Input Reg.)](assets/pmc_plcide_client_modbusFunctionConfig_reg.png)
-
 For the purposes of this tutorial, the client Portenta Machine Control has been set up to use digital programmable I/Os and digital outputs.
 
 The image below provides a glimpse of its appearance within the PLC IDE interface:
