@@ -293,7 +293,7 @@ Use the configuration model applied to the Modbus RTU Server Portenta Machine Co
 
 After setting up the Modbus node for the client Portenta Machine Control,we need to specify the Modbus function responsible for retrieving the counter (`cnt`) data from the server Portenta Machine Control. Right-click on `PMC_RTU_1` or any other name you set with, to see the 'Add' option, which will bring forth a device catalog window showcasing all available Modbus functions:
 
-![Arduino PLC IDE - Modbus Functions](assets/pmc_plcide_modbus_functions.png)
+![Arduino PLC IDE - Modbus Functions](assets/pmc_plcide_client_modbusFunctionConfig_reg.png)
 
 To retrieve the counter data from the server Portenta Machine Control, select the 'Modbus FC-04 (Read Input Registers)' function. Configure the 'General' tab with the following parameters to ensure correct data access:
 
@@ -301,19 +301,21 @@ To retrieve the counter data from the server Portenta Machine Control, select th
 * Polling time: 0 ms (Continuous Read)
 * Timeout: 1000 ms
 
+![Arduino PLC IDE - Modbus Functions](assets/pmc_plcide_modbus_functions.png)
+
 Next, you will need to designate a variable to hold the counter data captured from the server Portenta Machine Control. To do this, go to the `Input Reg.` tab located in the Modbus function configuration menu. Create a variable named `counter_rec` to store the data sent via the protocol.
 
 The following image shows a visual representation of the anticipated configuration:
 
-![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node (Input Reg.)](assets/pmc_plcide_client_modbusFunctionConfig_reg.png)
+![Arduino PLC IDE - Portenta Machine Control Client Modbus Function of the Node (Input Reg.)](assets/pmc_plcide_client_modbusFunctionInput_reg.png)
 
-In this tutorial's demonstration, the client Portenta Machine Control is configured to use WIP
+In this tutorial's demonstration, the client Portenta Machine Control is configured to use digital programmable I/Os and digital outputs.
 
-The image below shows how it should look within the PLC IDE interface:
+The image below shows how digital outputs configuration should look within the PLC IDE interface:
 
 ![Arduino PLC IDE - Portenta Machine Control Client Digital Outputs Table](assets/pmc_plcide_device_localDO.png)
 
-The OBJECT also needs labels to reference it later in the main PLC code. A table displaying the variable names designated for OBJECT can be seen below:
+The digital programmable I/Os also needs labels to reference it later in the main PLC code. A table displaying the variable names designated for digital programmable I/Os can be seen below:
 
 ![Arduino PLC IDE - Portenta Machine Control Client Digital Programmable I/O Table](assets/pmc_plcide_device_DIO.png)
 
