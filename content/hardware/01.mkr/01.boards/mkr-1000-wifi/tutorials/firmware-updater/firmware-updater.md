@@ -55,7 +55,7 @@ To update the firmware you should choose the right type of board. You can find y
 
 Choose in the dropdown list the model corresponding to your unit and proceed clicking on the **Update Firmware button**. A bar at the bottom will show you the progress of the procedure that includes erasing, writing and verifying of the firmware. At the end you get a clear notice of the successful operation.
 
-![Success!](assets/firmware_uploaded_101.png)
+![Firmware Updates Successfully!](assets/firmware_uploaded_101.png)
 
 ## Certificate Uploading
 
@@ -69,7 +69,7 @@ The procedure starts connecting your board (either the one with the shield plugg
 
 There you find on the left an empty list and on the right the buttons to add or remove the URL from which you want to download the root certificates. The URL should be exactly the one to which you need to connect. Add all the websites' URLs needed and then proceed with the uploading process. Please remember that you erase all the existing certificates when you load a new set. Press the ''Upload Certificates to WiFi module" and wait for the confirmation message.
 
-![Success!](assets/certificates_uploaded_101.png)
+![Certificates Uploaded Successfully!](assets/certificates_uploaded_101.png)
 
 ## Programming the Board
 When you load the sketch on the board, it prepares the communication between the plug-in and the WiFi chip. It opens up the communication through the serial port to the WiFi module hosted on the board. It is necessary to perform all the procedures managed by the Firmware Upgrader Plugin. Everything will be managed by the plug-in, but it is important to upload this sketch first.
