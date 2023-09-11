@@ -5,7 +5,7 @@ Microcontroller: Raspberry Pi RP2040
 USB connector: Micro USB
 Pins:
   Built-in LED Pin: 13
-  Digital I/O Pins: 20
+  Digital I/O Pins: 22
   Analog input pins: 8
   PWM pins: 20 (except A6, A7)
   External interrupts: 20 (except A6, A7)
