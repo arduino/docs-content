@@ -79,8 +79,6 @@ Before starting a debug session you need to upload your sketch using one of the 
 
 After uploading a sketch using **either** Method 1 or Method 2 make sure to also **manually reset** the board by pressing the reset button **once**. Otherwise, it may not properly connect via USB and not show up inside the IDE.
 
-### Start Debugging
-
 Finally, after completing all necessary steps above the last step is to start the debugging sessions via the **Start Debugging** button found at the top of the IDE next to the Upload button.
 
 ![Start Debugging](./assets/startDebugging.png)
@@ -97,6 +95,12 @@ Error: esp_usb_jtag: could not find or open device!
 ```
 
 To fix this, you can copy [this file](https://raw.githubusercontent.com/espressif/openocd-esp32/master/contrib/60-openocd.rules) in your `/etc/udev/rules.d/` folder (as root).
+
+### Debugging on Windows
+
+On Windows machines it's important to accept the driver installation when prompted when the core is installed.
+
+### Start Debugging
 
 After starting the debugging session you have to press the continue button **several times** until you reach your main sketch and the breakpoints you set. This is due to how the recovery system works is expected behavior.
 
