@@ -118,17 +118,21 @@ In this tutorial, we are going to use the following processing blocks:
 
 To set both blocks, navigate to the **Create impulse** tab, select the window size to `600` ms, increase it to `200`, add the `IMU Syntiant` and `Classification` blocks, and click the **Save impulse** button. Your impulse should be as shown below:
 
-![Designed Impulse with its learning and processing blocks](assets/motion-detection-006.png)
+![Designed Impulse with its learning and processing blocks](assets/motion-detection-007.png)
 
 ***The Syntiant NDP101 processor requires the number of generated features to be divisible by four. In our example, we have three axes sampled at 100 Hz with a 600 ms window leading to 180 (60x3) features divisible by four.***
 
 #### IMU Syntiant Block Configuration
 
-To configure the **IMU Syntiant** processing block, navigate to **Syntiant IMU** in the menu on the left. This will show you the raw data on top of the screen (you can select other files via the drop-down menu) and the processed features on the right. 
+To configure the **IMU Syntiant** processing block, navigate to the **Syntiant IMU** tab. You will see the raw data on top of the window (you can select other files via the drop-down menu) and the processed features on the right. 
 
-The **Scale 16 bits to 8 bits** option converts your raw data to 8-bit and normalizes it to the [-1, 1] range. Click `Save parameters`; this will send you to the `Feature generation` screen. Click the `Generate features` button to start the process.
+![Syntiant IMU processing parameters configuration](assets/motion-detection-008.png)
 
-After a while, the `Feature explorer` scree will load. This screen plots of all the extracted features against all the generated windows; you can use this graph to compare your complete data set. A good rule of thumb is that **if you can visually separate the data on several axes, then the Machine Learning model will also be able to do so**.
+Click the **Scale 16 bits to 8 bits** option; this converts your raw data to 8-bit and normalizes it to the [-1, 1] range. Then, click the **Save parameters** button to send you to the **Feature generation** window. Click the **Generate features** button on that window to start the feature generation process.
+
+![Syntiant IMU feature generation process](assets/motion-detection-009.png)
+
+After a while, the **Feature explorer** window will load. This screen plots all the extracted features against all the generated windows as shown in the image above; you can use this graph to compare your complete data set. A good rule of thumb is that **if you can visually separate the data on several axes, then the Machine Learning model will also be able to do so**.
 
 #### Classification Block Configuration
 
