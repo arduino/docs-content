@@ -11,7 +11,6 @@ software:
   - ide-v1
   - web-editor
 author: "Arduino"
-contributeURL: content/tutorials/generic
 ---
 
 
@@ -26,7 +25,7 @@ This tutorial will guide you in the process of updating the firmware or loading 
 - [MKR1000 WiFi](/hardware/mkr-1000-wifi) or WiFi Shield 101 connected to an Arduino board
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 
-
+***Note: As of Arduino IDE 2.2.0, the procedure covered in this article no longer works as described for this version. However, you can still use Arduino IDE 1.x.***
 
 ## Circuit
 
