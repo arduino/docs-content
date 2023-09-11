@@ -1,5 +1,5 @@
 ---
-title: 'Firmware Updater'
+title: 'Update MKR1000 WiFi Firmware'
 description: 'Update the firmware or loading certificates on your MKR1000 WiFi board or WiFi Shield 101'
 difficulty: beginner
 tags: 
@@ -9,7 +9,6 @@ hardware:
   - hardware/01.mkr/01.boards/mkr-1000-wifi
 software:
   - ide-v1
-  - ide-v2
   - web-editor
 author: "Arduino"
 contributeURL: content/tutorials/generic
@@ -51,7 +50,7 @@ Upload the sketch and keep the board (either the one with the shield plugged in,
 
 If not is not on the list, please check that it is properly configured in the **Tools** menu.
 
-To update the firmware you should choose the right typer of board. You can find your model looking at the WiFi module: the first line in the sticker or the last line of the silk print on the right side of the PCB shows the microcontroller model. It can be either MR210PA or MR510PB and the last letter shows yor model accordingly.
+To update the firmware you should choose the right type of board. You can find your model looking at the WiFi module: the first line in the sticker or the last line of the silk print on the right side of the PCB shows the microcontroller model. It can be either MR210PA or MR510PB and the last letter shows yor model accordingly.
 
 
 
