@@ -342,10 +342,10 @@ The Nano ESP32 has a second SPI port (HSPI). To use it, we need to create an obj
 ```arduino
 //define SPI2 pins manually
 //you can also choose any other free pins
-#define SPI2_SCK 2
-#define SPI2_CIPO 3
-#define SPI2_COPI 4
-#define SPI2_CS 5
+#define SPI2_SCK D2
+#define SPI2_CIPO D3
+#define SPI2_COPI D4
+#define SPI2_CS D5
 
 //create SPI2 object
 SPIClass SPI2(HSPI);
