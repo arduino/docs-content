@@ -27,7 +27,26 @@ Debugging is an essential skill for anyone working with technology, whether you'
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32) installed (2.0.12 or newer)
 
-## IDE Setup
+***It's important to use the "Arduino ESP32 Boards" by "Arduino" and not the "esp32" by "Espressif Systems". For Windows users this is paramount, otherwise no drivers will be ever installed and no debugging can be performed.***
+
+## System Setup
+
+### Debugging on Linux
+
+When debugging on a Linux machine you may encounter the following error, due to your user not having the authorization to connect:
+
+```
+Error: libusb_open() failed with LIBUSB_ERROR_ACCESS
+Error: esp_usb_jtag: could not find or open device!
+```
+
+To fix this, you can copy [this file](https://raw.githubusercontent.com/espressif/openocd-esp32/master/contrib/60-openocd.rules) in your `/etc/udev/rules.d/` folder (as root).
+
+### Debugging on Windows
+
+On Windows machines it's important to accept the driver installation when prompted during the core installation.
+
+### IDE Setup
 
 To use the debugging feature on the Nano ESP32, you need to have the IDE 2.2.0 or a newer version installed. After you install it, you have to configure the IDE as follows:
 
@@ -75,32 +94,17 @@ Before starting a debug session you need to upload your sketch using one of the 
 
 - Select the port next to the **USB symbol** and upload a sketch like normal.
 
-### After Successful Upload
+### Manual Reset
 
 After uploading a sketch using **either** Method 1 or Method 2 make sure to also **manually reset** the board by pressing the reset button **once**. Otherwise, it may not properly connect via USB and not show up inside the IDE.
+
+### Start Debugging
 
 Finally, after completing all necessary steps above the last step is to start the debugging sessions via the **Start Debugging** button found at the top of the IDE next to the Upload button.
 
 ![Start Debugging](./assets/startDebugging.png)
 
 ***Note: During the upload you will see a debug_custom.json appear in the file view. If you want to debug using another board it's important that you delete this file otherwise the IDE will use the wrong debugger and fail. You can find the file inside your sketch folder, typically at `~/documents/Arduino/<yoursketch>`***
-
-### Debugging on Linux
-
-When debugging on a Linux machine you may encounter the following error, due to your user not having the authorization to connect:
-
-```
-Error: libusb_open() failed with LIBUSB_ERROR_ACCESS
-Error: esp_usb_jtag: could not find or open device!
-```
-
-To fix this, you can copy [this file](https://raw.githubusercontent.com/espressif/openocd-esp32/master/contrib/60-openocd.rules) in your `/etc/udev/rules.d/` folder (as root).
-
-### Debugging on Windows
-
-On Windows machines it's important to accept the driver installation when prompted when the core is installed.
-
-### Start Debugging
 
 After starting the debugging session you have to press the continue button **several times** until you reach your main sketch and the breakpoints you set. This is due to how the recovery system works is expected behavior.
 
