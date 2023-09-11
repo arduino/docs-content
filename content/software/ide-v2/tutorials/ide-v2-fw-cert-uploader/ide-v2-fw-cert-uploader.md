@@ -26,12 +26,14 @@ The following boards are based on the [NINA-W10 series](https://content.arduino.
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
 - [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
 - [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
-- [MKR Vidor 4000](https://store.arduino.cc/arduino-mkr-vidor-4000)
+- [MKR Vidor 4000](https://store.arduino.cc/arduino-mkr-vidor-4000) /*
 
 The following boards are based on the [ATWINC1500](https://www.microchip.com/en-us/product/ATWINC1500) module.
 
-- [MKR 1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi)
+- [MKR 1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi) /*
 - [WiFi Shield 101](https://docs.arduino.cc/retired/shields/arduino-wifi-shield-101)
+
+/* As of [Arduino IDE 2.2.0](https://github.com/arduino/arduino-ide/releases/tag/2.2.0) this board is no longer supported.
 
 ## When to Update Firmware
 
@@ -57,7 +59,7 @@ To update the Firmware, follow the below steps:
 
 **1.** Connect your board to your computer.
 
-**2.** Open the Arduino IDE 2, and navigate to **Tools > WiFi101 / WiFiNINA Firmware Updater**.
+**2.** Open the Arduino IDE 2, and navigate to **Tools > Firmware Updater**.
 
 ![Selecting the Firmware Updater Tool.](assets/fw-cert-img01.png)
 
