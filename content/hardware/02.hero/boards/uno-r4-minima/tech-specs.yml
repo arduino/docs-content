@@ -9,6 +9,7 @@ Pins:
   Analog input pins: 6
   DAC: 1
   PWM pins: 6
+  External interrupts: 2,3
 Communication:
   UART: Yes, 1x
   I2C: Yes, 1x
