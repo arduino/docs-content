@@ -108,23 +108,25 @@ As a starting point, consider that you will need more samples, **at least severa
 
 ### Impulse Design
 
-With the training dataset captured, you can design an "impulse".  An "impulse" takes raw data, uses signal processing to extract features, and then uses a learning block to classify new data. Signal processing blocks always return the same values for the same input and are used to make raw data easier to process, while learning blocks learn from past experiences.
+With the training dataset captured, you can design an **impulse**; an impulse takes raw data, uses signal processing to extract features, and then uses a learning block to classify new data. Signal processing blocks always return the same values for the same input and are used to make raw data easier to process, while learning blocks learn from past experiences.
 
 In this tutorial, we are going to use the following processing blocks:
 
-- `IMU Syntiant` processing block: This block prescales raw data to 8-bit values to match Nicla's Voice NDP processor input requirements.
-- `Classification` learning block: This block takes the generated features and learns to distinguish between different classes (`left-right`, `up-down`, or `z-idle`).
+- **IMU Syntiant processing block**: This block prescales raw data to 8-bit values to match Nicla's Voice NDP processor input requirements.
+- **Classification learning block**: This block takes the generated features and learns to distinguish between different classes (`left-right`, `up-down`, or `z-idle`).
 
 
-To set both blocks, navigate to the **Create impulse** tab, set the window size to `600` ms, increase to `200`, and add the `IMU Syntiant` and `Classification` blocks; then click the **Save impulse** button.
+To set both blocks, navigate to the **Create impulse** tab, select the window size to `600` ms, increase it to `200`, add the `IMU Syntiant` and `Classification` blocks, and click the **Save impulse** button. Your impulse should be as shown below:
+
+![Designed Impulse with its learning and processing blocks](assets/motion-detection-006.png)
 
 ***The Syntiant NDP101 processor requires the number of generated features to be divisible by four. In our example, we have three axes sampled at 100 Hz with a 600 ms window leading to 180 (60x3) features divisible by four.***
 
 #### IMU Syntiant Block Configuration
 
-To configure the `IMU Syntiant` processing block, navigate to **Syntiant IMU** in the menu on the left. This will show you the raw data on top of the screen (you can select other files via the drop-down menu) and the processed features on the right. 
+To configure the **IMU Syntiant** processing block, navigate to **Syntiant IMU** in the menu on the left. This will show you the raw data on top of the screen (you can select other files via the drop-down menu) and the processed features on the right. 
 
-The `Scale 16 bits to 8 bits` option converts your raw data to 8-bit and normalizes it to the [-1, 1] range. Click `Save parameters`; this will send you to the `Feature generation` screen. Click the `Generate features` button to start the process.
+The **Scale 16 bits to 8 bits** option converts your raw data to 8-bit and normalizes it to the [-1, 1] range. Click `Save parameters`; this will send you to the `Feature generation` screen. Click the `Generate features` button to start the process.
 
 After a while, the `Feature explorer` scree will load. This screen plots of all the extracted features against all the generated windows; you can use this graph to compare your complete data set. A good rule of thumb is that **if you can visually separate the data on several axes, then the Machine Learning model will also be able to do so**.
 
