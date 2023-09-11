@@ -63,37 +63,52 @@ With your account set up and running, create a new project. With your new projec
 
 ### IMU Data Capture with Edge Impulse®
 
-We can capture data from the onboard IMU of the Nicla Board using Edge Impulse®. To do this, check out the following [article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-voice) from Edge Impulse® documentation. Follow the steps described in the article to connect your Nicla Voice board to Edge Impulse®; if your device is connected, under the **Devices** tab on the left side of the window, you should see your board connected as shown in the image below:
+We can capture data from the onboard IMU of the Nicla Board using Edge Impulse®. To do this, check out the following [article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-voice) from Edge Impulse® documentation. Follow the steps described in the article to connect your Nicla Voice board to Edge Impulse®; when your board is connected, under the **Devices** tab on the left side of the window, you should see your it as shown in the image below (green dot):
 
 ![Device connected to Edge Impulse®](assets/motion-detection-002.png)
 
-We can start collecting IMU data With your Nicla Voice board connected to your Machine Learning Tools account. In the Machine Learning Tools, go to the **Data acquisition** tab on the left side of the window. **Data acquisition** is the tool from the Machine Learning Tools integration where IMU data is sampled and stored. To sample new data, go to **Collect data**.
+You can now start collecting IMU data with your Nicla Voice board connected to your Machine Learning Tools account. In the Machine Learning Tools, go to the **Data acquisition** tab on the left side of the window. **Data acquisition** is the tool from the Machine Learning Tools where IMU data can be sampled and stored. To sample new data, go to the **Collect data** window.
 
 ![Data collection on Edge Impulse®](assets/motion-detection-003.png)
 
-Select your Nicla Voice board, set the label to `left-right`, the sample length to `5000`, the sensor to `Inertial`, and the frequency to `100Hz`. This means that data from the onboard IMU of the Nicla Voice will be sampled for five seconds and stored with the `left-right` label. Labels can be edited later if needed. Click **Start sampling** and move your Nicla Voice board from left to right, as shown below. 
+Select your Nicla Voice board, set the label to `left-right`, the sample length to `5000` ms, the sensor to `Inertial`, and the frequency to `100Hz`. This configuration means that data from the onboard IMU of your Nicla Voice board will be sampled for five seconds (5000 ms) and stored with the `left-right` label (labels can be edited later if needed). Click the **Start sampling** button and move your Nicla Voice board from left to right, as shown below. 
 
 ![`left-right` movement](assets/motion-detection-004.gif)
 
-After the sampling and storing process is finished, you should see a new line under **Collected data**; you can access the raw sampled data graphed as shown in the image below. 
+After the sampling and storing process is finished, you should see a new line under the **Collected data** window; when the data is selected, you can graph the raw sampled data as shown in the image below. 
 
 ![Data collection on Edge Impulse®](assets/motion-detection-005.png)
 
-Repeat the process but for a different type of movement. Set the label to `up-down`, the sample length to `5000`, the sensor to `Inertial`, and the frequency to `100Hz`, same as before. Click **Start sampling** and move your Nicla Voice board from up to down, as shown below. 
+Let's repeat the process but for a different type of movement. Set the label to `up-down`, the sample length to `5000` ms, the sensor to `Inertial`, and the frequency to `100Hz` (same as before). Click the **Start sampling** button and move your Nicla Voice board up and down, as shown below. 
 
 ![`up-down` movement](assets/motion-detection-006.gif)
 
-Machine Learning works best with lots of data, so that a single sample won't cut it. Let's build the dataset for the motion detection application using the following **three classes**; record around 3 minutes of data per class:
+Now its time to build the **dataset** for the motion detection application using the following **three classes**:
 
 - `left-right`: horizontal movements, from left to right.
 - `up-down`: vertical movements, starting up and going down.
 - `z-idle`: random movements that are not from left to right or starting up and going down. 
 
-***The Syntiant NDP processors require a negative class on which no predictions will occur; in our example, this is the `z_idle` class. Make sure the negative class name is last in alphabetical order.***
+***The Syntiant NDP processors require a negative class on which no predictions will occur; in our application, this is the `z_idle` class. Make sure the negative class name is last in alphabetical order.***
+
+Split your data into **training**, **test**, and **validation** sets; **a common split ratio is 70% for training, 15% for testing, and 15% for validation**. For demonstration purposes, record around **four minutes** of data per class; in this case, you need to allocate approximately the following amounts of data for each set:
+
+- **Training**: 2.8 minutes (70% of 4 minutes).
+- **Testing**: 0.6 minutes (15% of 4 minutes).
+- **Validation**: 0.6 minutes (15% of 4 minutes).
+
+The number of samples required for a motion detection model depends on several factors. There is no one-size-fits-all answer, but some general guidelines to determine the appropriate sample size are the following:
+
+- **Data complexity**: With complex patterns, larger sample size.
+- **Type of motion detection technique**: Supervised methods require more samples than unsupervised methods.
+- **Model performance**: More data is only sometimes better.
+- **The rarity of movements**: A larger sample size is needed if anomalies are rare events.
+
+As a starting point, consider that you will need more samples, **at least several hundred to a few thousand**, for a more robust model.
 
 ### Impulse Design
 
-With the training dataset captured, you can design an `impulse`.  An `impulse` takes raw data, uses signal processing to extract features, and then uses a learning block to classify new data. Signal processing blocks always return the same values for the same input and are used to make raw data easier to process, while learning blocks learn from past experiences.
+With the training dataset captured, you can design an "impulse".  An "impulse" takes raw data, uses signal processing to extract features, and then uses a learning block to classify new data. Signal processing blocks always return the same values for the same input and are used to make raw data easier to process, while learning blocks learn from past experiences.
 
 In this tutorial, we are going to use the following processing blocks:
 
@@ -101,7 +116,7 @@ In this tutorial, we are going to use the following processing blocks:
 - `Classification` learning block: This block takes the generated features and learns to distinguish between different classes (`left-right`, `up-down`, or `z-idle`).
 
 
-To set both blocks, navigate to **Create impulse**, set the window size to 600 ms, increase to 200, and add the `IMU Syntiant` and `Classification` blocks; then click `Save impulse`.
+To set both blocks, navigate to the **Create impulse** tab, set the window size to `600` ms, increase to `200`, and add the `IMU Syntiant` and `Classification` blocks; then click the **Save impulse** button.
 
 ***The Syntiant NDP101 processor requires the number of generated features to be divisible by four. In our example, we have three axes sampled at 100 Hz with a 600 ms window leading to 180 (60x3) features divisible by four.***
 
