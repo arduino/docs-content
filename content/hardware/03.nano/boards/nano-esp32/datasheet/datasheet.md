@@ -196,8 +196,8 @@ Read more about the I2S protocol in [Espressif's Peripheral API - InterIC Sounds
 ### Serial Peripheral Interface (SPI)
 
 - SCK - D13
-- COPI - D12
-- CIPO - D11  
+- CIPO - D12
+- COPI - D11  
 - CS - D10
 
 The SPI controller is by default assigned to the pins above.
@@ -276,45 +276,45 @@ The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and 
 
 ### Analog (JP1)
 
-| Pin | Function | Type   | Description                             |
-| --- | -------- | ------ | --------------------------------------- |
-| 1   | SCK      | NC     | Serial Clock                            |
-| 2   | +3V3     | Power  | +3V3 Power Rail                         |
-| 3   | BOOT0    | Mode   | Board Reset 0                           |
-| 4   | A0       | Analog | Analog input 0                          |
-| 5   | A1       | Analog | Analog input 1                          |
-| 6   | A2       | Analog | Analog input 2                          |
-| 7   | A3       | Analog | Analog input 3                          |
-| 8   | A4       | Analog | Analog input 4 / I²C Serial Datal (SDA) |
-| 9   | A5       | Analog | Analog input 5 / I²C Serial Clock (SCL) |
-| 10  | A6       | Analog | Analog input 6                          |
-| 11  | A7       | Analog | Analog input 7                          |
-| 12  | VUSB     | Power  | USB power (5V)                          |
-| 13  | BOOT1    | Mode   | Board Reset 1                           |
-| 14  | GND      | Power  | Ground                                  |
-| 15  | VIN      | Power  | Voltage Input                           |
+| Pin | Function  | Type   | Description                             |
+| --- | --------- | ------ | --------------------------------------- |
+| 1   | D13 / SCK | NC     | Serial Clock                            |
+| 2   | +3V3      | Power  | +3V3 Power Rail                         |
+| 3   | BOOT0     | Mode   | Board Reset 0                           |
+| 4   | A0        | Analog | Analog input 0                          |
+| 5   | A1        | Analog | Analog input 1                          |
+| 6   | A2        | Analog | Analog input 2                          |
+| 7   | A3        | Analog | Analog input 3                          |
+| 8   | A4        | Analog | Analog input 4 / I²C Serial Datal (SDA) |
+| 9   | A5        | Analog | Analog input 5 / I²C Serial Clock (SCL) |
+| 10  | A6        | Analog | Analog input 6                          |
+| 11  | A7        | Analog | Analog input 7                          |
+| 12  | VUSB      | Power  | USB power (5V)                          |
+| 13  | BOOT1     | Mode   | Board Reset 1                           |
+| 14  | GND       | Power  | Ground                                  |
+| 15  | VIN       | Power  | Voltage Input                           |
 
 ### Digital (JP2)
 
-| Pin | Function     | Type     | Description                        |
-| --- | ------------ | -------- | ---------------------------------- |
-| 1   | D12 / CIPO\* | Digital  | Controller In Peripheral Out       |
-| 2   | D11 / COPI\* | Digital  | Controller Out Peripheral In       |
-| 3   | D10          | Digital  | Chip Select                        |
-| 4   | D9           | Digital  | GPIO 9                             |
-| 5   | D8           | Digital  | GPIO 8                             |
-| 6   | D7           | Digital  | GPIO 7                             |
-| 7   | D6           | Digital  | GPIO 6                             |
-| 8   | D5           | Digital  | GPIO 5                             |
-| 9   | D4           | Digital  | GPIO 4                             |
-| 10  | D3           | Digital  | GPIO 3                             |
-| 11  | D2           | Digital  | GPIO 2                             |
-| 12  | GND          | Power    | Ground                             |
-| 13  | RST          | Internal | Reset                              |
-| 14  | D1/RX        | Digital  | GPIO 4 / Serial 0 Receiver (RX)    |
-| 15  | D0/TX        | Digital  | GPIO 3 / Serial 0 Transmitter (TX) |
+| Pin | Function     | Type     | Description                             |
+| --- | ------------ | -------- | --------------------------------------- |
+| 1   | D12 / CIPO\* | Digital  | Controller In Peripheral Out            |
+| 2   | D11 / COPI\* | Digital  | Controller Out Peripheral In            |
+| 3   | D10 / CS\*   | Digital  | Chip Select                             |
+| 4   | D9           | Digital  | Digital pin 9                           |
+| 5   | D8           | Digital  | Digital pin 8                           |
+| 6   | D7           | Digital  | Digital pin 7                           |
+| 7   | D6           | Digital  | Digital pin 6                           |
+| 8   | D5           | Digital  | Digital pin 5                           |
+| 9   | D4           | Digital  | Digital pin 4                           |
+| 10  | D3           | Digital  | Digital pin 3                           |
+| 11  | D2           | Digital  | Digital pin 2                           |
+| 12  | GND          | Power    | Ground                                  |
+| 13  | RST          | Internal | Reset                                   |
+| 14  | D1/RX        | Digital  | Digital pin 1 / Serial Receiver (RX)    |
+| 15  | D0/TX        | Digital  | Digital pin 0 / Serial Transmitter (TX) |
 
-\*CIPO/COPI replaces the MISO/MOSI terminology. 
+\*CIPO/COPI/CS replaces the MISO/MOSI/SS terminology. 
 
 ## Mounting Holes And Board Outline
 
@@ -443,3 +443,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | ---------- | ---------------------------- |
 | 08/06/2023 | Release                      |
 | 09/01/2023 | Update power tree flowchart. |
+| 09/11/2023 | Update SPI section.          |
