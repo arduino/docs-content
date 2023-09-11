@@ -152,8 +152,16 @@ From the **Model** performance window, we can see the **model's accuracy**. Accu
 
 Now that you have trained a neural network with Edge Impulse®, we are ready to deploy and test it on your Nicla Voice board!
 
-### Deploying an Impulse
+### Deploying and Running an Impulse
 
 It's time to test your model on your Nicla Voice board. Click on the **Deployment** tab, and then under the **Search deployment options** button, select the **Arduino Nicla Voice** option. You can also configure posterior parameters to define, for example, thresholds at which your model activates; in this demonstration, we will not change the default posterior parameters.
 
-Click on the **Build** button. This will start a process on which a binary file containing your impulse is built; this file can then be runned on your Nicla Voice board.
+Click on the **Build** button. This will start a process on which a binary file containing your impulse is built; this file can then be run on your Nicla Voice board. After completing the building process, you'll be prompted to download a .zip file containing the binary file and save it on your computer.
+
+![Model performance window](assets/motion-detection-012.png)
+
+After unzipping the downloaded file, run the appropriate flashing script for your computer's operative system (Linux, Mac, or Windows) to flash your Nicla Voice board with the motion recognition model and associated firmware. 
+
+## Conclusion
+
+In this tutorial
