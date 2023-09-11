@@ -160,8 +160,8 @@ Click on the **Build** button. This will start a process on which a binary file 
 
 ![Model performance window](assets/motion-detection-012.png)
 
-After unzipping the downloaded file, run the appropriate flashing script for your computer's operative system (Linux, Mac, or Windows) to flash your Nicla Voice board with the motion recognition model and associated firmware. 
+After unzipping the downloaded file, run the appropriate flashing script for your computer's operating system (Linux, Mac, or Windows) to flash your Nicla Voice board with the motion recognition model and associated firmware. 
 
 ## Conclusion
 
-In this tutorial
+In this tutorial, you learned how to use your Nicla Voice board with the Machine Learning Tools integration of the Arduino Cloud to develop a simple motion detection application. Not only have you created a simple motion detection application, but you've also laid the groundwork for exploring more advanced and sophisticated applications in the future.
