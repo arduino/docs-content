@@ -123,6 +123,7 @@ To set both blocks, navigate to the **Create impulse** tab, select the window si
 ***The Syntiant NDP101 processor requires the number of generated features to be divisible by four. In our example, we have three axes sampled at 100 Hz with a 600 ms window leading to 180 (60x3) features divisible by four.***
 
 #### IMU Syntiant Block Configuration
+<br></br>
 
 To configure the **IMU Syntiant** processing block, navigate to the **Syntiant IMU** tab. You will see the raw data on top of the window (you can select other files via the drop-down menu) and the processed features on the right. 
 
@@ -132,14 +133,27 @@ Click the **Scale 16 bits to 8 bits** option; this converts your raw data to 8-b
 
 ![Syntiant IMU feature generation process](assets/motion-detection-009.png)
 
-After a while, the **Feature explorer** window will load. This screen plots all the extracted features against all the generated windows as shown in the image above; you can use this graph to compare your complete data set. A good rule of thumb is that **if you can visually separate the data on several axes, then the Machine Learning model will also be able to do so**.
+After a while, the **Feature explorer** window will load. This screen plots all the extracted features against all the generated windows, as shown in the image above; you can use this graph to compare your complete data set. A good rule of thumb is that **if you can visually separate the data on several axes, then the Machine Learning model will also be able to do so**.
 
 #### Classification Block Configuration
+<br></br>
 
-With all data processed, it's time to start training a neural network. Neural networks are algorithms modeled loosely after the human brain that can learn to recognize patterns that appear in their training data. The network we're training here will take the processing block features as input and try to map this to one of the three classes (`left-right`, `up-down`, or `z-idle`).
+Now, it's time to start training a neural network. Neural networks are algorithms that can learn to recognize patterns in their training data, for example, certain types of movements. The neural network you will train will take the processing block features as input and try to map it to one of the three classes of our model (`left-right`, `up-down`, or `z-idle`).
 
-Click on `Classifier` in the left-hand menu. You'll see the following:
+Click on the **Classifier** tab, you'll see the following window:
 
-With everything in place, click Start training. When it's complete, you'll see the Last training performance panel appear at the bottom of the page:
+![Neural network settings window](assets/motion-detection-010.png)
 
-Congratulations, you've trained a neural network with Edge Impulse® and ready to deploy on your Nicla Voice board!
+Click the **Start training**. When it's complete, you'll see the **Model** performance window appear at the bottom-right of the window:
+
+![Model performance window](assets/motion-detection-011.png)
+
+From the **Model** performance window, we can see the **model's accuracy**. Accuracy refers to the percentage of windows of movement that were correctly classified; the higher the number, the better. However,** an accuracy of 100% is unlikely and often a sign that your model has overfit the training data**. For most applications, an accuracy above 85% is very good. The confusion matrix shows the balance of correctly versus incorrectly classified.
+
+Now that you have trained a neural network with Edge Impulse®, we are ready to deploy and test it on your Nicla Voice board!
+
+### Deploying an Impulse
+
+It's time to test your model on your Nicla Voice board. Click on the **Deployment** tab, and then under the **Search deployment options** button, select the **Arduino Nicla Voice** option. You can also configure posterior parameters to define, for example, thresholds at which your model activates; in this demonstration, we will not change the default posterior parameters.
+
+Click on the **Build** button. This will start a process on which a binary file containing your impulse is built; this file can then be runned on your Nicla Voice board.
