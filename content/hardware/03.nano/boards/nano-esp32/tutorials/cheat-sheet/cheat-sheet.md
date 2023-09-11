@@ -253,7 +253,7 @@ analogWrite(pin,value);
 
 ![I2C Pins](assets/nano-esp32-i2c.png)
 
-The default pins used for I2C on the Nano ESP32 are the following:
+The default pins used for the **main I2C bus** on the Nano ESP32 are the following:
 
 | Pin | Function | Description          |
 | --- | -------- | -------------------- |
@@ -280,6 +280,19 @@ Wire.write(byte(0x00)); //send instruction byte
 Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
+
+### Second I2C Bus
+
+The Nano ESP32 has a second I2C bus, accessed via `Wire1`. To use it, you will need to set two free pins for SDA & SCL.
+
+For example:
+
+```arduino
+//initializes second I2C bus on pins D4,D5
+Wire1.begin(D4, D5); //sda, scl
+```
+
+***`Wire` and `Wire1` can be used simultaneously, a great feature when working with devices that may share the same addresses.***
 
 ## SPI
 
@@ -317,6 +330,29 @@ void setup() {
 }
 
 void loop() {
+}
+```
+
+### Second SPI Port (HSPI)
+
+The Nano ESP32 has a second SPI port (HSPI). To use it, we need to create an object using `SPIClass`, and initialize communication on a specific set of pins.
+
+***The HSPI port's default pins are: `GPIO14` (SCK), `GPIO12` (CIPO), `GPIO13` (COPI), `GPIO15` (CS). As some of these pins are not accessible on the Nano ESP32, you will need to configure them manually. See the definitions at the top of the code example below.***
+
+```arduino
+//define SPI2 pins manually
+//you can also choose any other free pins
+#define SPI2_SCK D2
+#define SPI2_CIPO D3
+#define SPI2_COPI D4
+#define SPI2_CS D5
+
+//create SPI2 object
+SPIClass SPI2(HSPI);
+
+void setup() {
+//initialize SPI communication
+  SPI2.begin(SPI2_SCK, SPI2_CIPO, SPI2_COPI, SPI2_CS);
 }
 ```
 
