@@ -439,8 +439,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Changes**                  |
-| ---------- | ---------------------------- |
-| 08/06/2023 | Release                      |
-| 09/01/2023 | Update power tree flowchart. |
-| 09/11/2023 | Update SPI section.          |
+| **Date**   | **Changes**                                            |
+| ---------- | ------------------------------------------------------ |
+| 08/06/2023 | Release                                                |
+| 09/01/2023 | Update power tree flowchart.                           |
+| 09/11/2023 | Update SPI section, update analog/digital pin section. |
