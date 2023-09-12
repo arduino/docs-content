@@ -74,7 +74,7 @@ Before starting a debug session you need to upload your sketch using one of the 
 
 - Connect a jumper cable between the **GND** and the **B1** pins and press the reset button **once**. The RGB LED will turn on with a green or blue color.
 
-- Remove the jumper cable and you should see the RGB LED light up in a purple or yellow color, which means you sucessfully entered the **ROM Boot mode**. Note that inside **Tools**, the board will be shown as a random ESP32 board.
+- Remove the jumper cable and you should see the RGB LED light up in a purple or yellow color, which means you successfully entered the **ROM Boot mode**. Note that inside **Tools**, the board will be shown as a random ESP32 board.
 
 ***This is because in this mode all ESP32 chips share the same identifier assigned to USB devices, therefore the IDE selects a random ESP32 board.***
 
