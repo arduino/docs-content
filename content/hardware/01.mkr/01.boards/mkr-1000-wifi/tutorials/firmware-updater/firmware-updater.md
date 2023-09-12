@@ -1,5 +1,5 @@
 ---
-title: 'Update MKR1000 WiFi Firmware'
+title: 'Update MKR 1000 WiFi Firmware'
 description: 'Update the firmware or loading certificates on your MKR1000 WiFi board or WiFi Shield 101'
 difficulty: beginner
 tags: 
