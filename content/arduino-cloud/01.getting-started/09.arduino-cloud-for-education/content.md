@@ -26,7 +26,7 @@ In this article, you will get a general overview of the major features of the Ar
 
 In order to get started with Arduino Cloud, you need to [have an Arduino account](https://auth.arduino.cc/login.). An **Arduino account gives** you **full access to all Arduino websites, apps**, and **services**.
 
-If you do not have an account yet, feel free to create a new one. You can follow [this tutorial](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) for a step by step explanation on how to do it.
+If you do not have an account yet, feel free to create a new one. You can follow [this tutorial](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) for a step-by-step explanation on how to do it.
 
 ![Arduino Cloud login](assets/arduino-account-login.png "Arduino Cloud login")
 
