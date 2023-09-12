@@ -99,6 +99,40 @@ The Nicla Sense ME can be powered by:
 
 ![Nicla Sense ME battery powered](assets/battery-white.png)
 
+### Hello World Example
+
+Let's program the Nicla Sense ME with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the Arduino IDE and that the Nicla Sense ME core and the board itself are working as expected. 
+
+Copy and paste the code below into a new sketch in the Arduino IDE.
+
+```arduino
+#include "Nicla_System.h"
+
+void setup() {
+  // Initialize LED_BUILTIN as an output (this will turn on the LED)
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  // Turn the built-in LED off
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  // Turn the built-in LED on
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}
+```
+
+For the Nicla Sense ME, the `LED_BUILTIN` macro represents **all the LEDs** of the built-in RGB LED of the board, shining in **white**.
+
+To upload the code to the Nicla Sense ME, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
+
+![Uploading a sketch to the Nicla Sense ME in the Arduino IDE](assets/BOARD.png)
+
+You should see now all the LEDs of the built-in RGB LED turn on for one second, then off for one second, repeatedly.
+
+![Hello World example running in the Nicla Sense ME](assets/White-blink.gif)
+
 ### Battery Charging 
 
 One of the characteristic features of the Nicla Sense ME is power management, the BQ25120 battery charger IC is configurable by the user, which means that its charging parameters can be customized by software. We listed the main ones below:
