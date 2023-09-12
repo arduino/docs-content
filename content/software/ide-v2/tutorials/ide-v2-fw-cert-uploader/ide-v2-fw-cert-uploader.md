@@ -33,7 +33,8 @@ The following boards are based on the [ATWINC1500](https://www.microchip.com/en-
 - [MKR 1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi) /*
 - [WiFi Shield 101](https://docs.arduino.cc/retired/shields/arduino-wifi-shield-101)
 
-/* As of [Arduino IDE 2.2.0](https://github.com/arduino/arduino-ide/releases/tag/2.2.0) this board is no longer supported.
+/* As of [Arduino IDE 2.2.0](https://github.com/arduino/arduino-ide/releases/tag/2.2.0), these boards are no longer supported. Update is still supported via the legacy IDE. See [this tutorial](/tutorials/mkr-1000-wifi/firmware-updater) for more information.
+
 
 ## When to Update Firmware
 
