@@ -1,5 +1,5 @@
 ---
-title: 'Firmware Updater'
+title: 'Update MKR 1000 WiFi Firmware'
 description: 'Update the firmware or loading certificates on your MKR1000 WiFi board or WiFi Shield 101'
 difficulty: beginner
 tags: 
@@ -9,10 +9,8 @@ hardware:
   - hardware/01.mkr/01.boards/mkr-1000-wifi
 software:
   - ide-v1
-  - ide-v2
   - web-editor
 author: "Arduino"
-contributeURL: content/tutorials/generic
 ---
 
 
@@ -27,7 +25,7 @@ This tutorial will guide you in the process of updating the firmware or loading 
 - [MKR1000 WiFi](/hardware/mkr-1000-wifi) or WiFi Shield 101 connected to an Arduino board
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 
-
+***Note: As of Arduino IDE 2.2.0, the procedure covered in this article no longer works as described for this version. However, you can still use Arduino IDE 1.x.***
 
 ## Circuit
 
@@ -51,13 +49,13 @@ Upload the sketch and keep the board (either the one with the shield plugged in,
 
 If not is not on the list, please check that it is properly configured in the **Tools** menu.
 
-To update the firmware you should choose the right typer of board. You can find your model looking at the WiFi module: the first line in the sticker or the last line of the silk print on the right side of the PCB shows the microcontroller model. It can be either MR210PA or MR510PB and the last letter shows yor model accordingly.
+To update the firmware you should choose the right type of board. You can find your model looking at the WiFi module: the first line in the sticker or the last line of the silk print on the right side of the PCB shows the microcontroller model. It can be either MR210PA or MR510PB and the last letter shows yor model accordingly.
 
 
 
 Choose in the dropdown list the model corresponding to your unit and proceed clicking on the **Update Firmware button**. A bar at the bottom will show you the progress of the procedure that includes erasing, writing and verifying of the firmware. At the end you get a clear notice of the successful operation.
 
-![Success!](assets/firmware_uploaded_101.png)
+![Firmware Updates Successfully!](assets/firmware_uploaded_101.png)
 
 ## Certificate Uploading
 
@@ -71,7 +69,7 @@ The procedure starts connecting your board (either the one with the shield plugg
 
 There you find on the left an empty list and on the right the buttons to add or remove the URL from which you want to download the root certificates. The URL should be exactly the one to which you need to connect. Add all the websites' URLs needed and then proceed with the uploading process. Please remember that you erase all the existing certificates when you load a new set. Press the ''Upload Certificates to WiFi module" and wait for the confirmation message.
 
-![Success!](assets/certificates_uploaded_101.png)
+![Certificates Uploaded Successfully!](assets/certificates_uploaded_101.png)
 
 ## Programming the Board
 When you load the sketch on the board, it prepares the communication between the plug-in and the WiFi chip. It opens up the communication through the serial port to the WiFi module hosted on the board. It is necessary to perform all the procedures managed by the Firmware Upgrader Plugin. Everything will be managed by the plug-in, but it is important to upload this sketch first.
