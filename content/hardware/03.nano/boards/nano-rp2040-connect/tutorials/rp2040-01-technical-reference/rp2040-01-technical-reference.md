@@ -79,11 +79,10 @@ If you need help to get started, you can go through the [Nano RP2040 Connect wit
 
 ## Upgrading the Firmware
 
-If you need to upgrade the firmware on your Nano RP2040 Connect, follow the link below to a detailed guide.
+If you need to upgrade the firmware on your Nano RP2040 Connect,  you can do so by using the Arduino IDE 2. See the link below for a more detailed guide.
 
-- [Upgrading Nano RP2040 Connect NINA firmware](/tutorials/nano-rp2040-connect/rp2040-upgrading-nina-firmware)
+- [Upgrading Nano RP2040 Connect NINA firmware](/software/ide-v2/tutorials/ide-v2-fw-cert-uploader)
 
-***This guide is for updating the firmware on the NINA W-102 module (Wi-Fi).***
 
 ## Bootloader
 
