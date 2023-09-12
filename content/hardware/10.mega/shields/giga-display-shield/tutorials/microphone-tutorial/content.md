@@ -1,11 +1,11 @@
 ---
-title: Microphone Tutorial
-description: "Learn how to use the GIGA Display Shield's microphone."
+title: Microphone With LVGL Tutorial
+description: "Learn how to use the GIGA Display Shield's microphone together with LVGL."
 author: Benjamin Dannegård
 tags: [Display, microphone, LVGL]
 ---
 
-
+The GIGA Display Shield comes equiped with on-board microphone and with the help of LVGL the microphones readings can be visualized on the screen. This tutorial will show you how to create a sketch that ties together the microphones readings with visual elements on the screen.
 
 ## Hardware & Software Needed
 
@@ -16,7 +16,7 @@ tags: [Display, microphone, LVGL]
 
 ## Downloading the Library and Core
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the core. Now you have to install the library needed for handling the image. Go to **Tools > Manage libraries..**, search for **LVGL**, and install it. This library will be used for the visual elements.
+Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) and [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm) are included in the core. Now you have to install the library needed for handling the visual component. Go to **Tools > Manage libraries..**, search for **LVGL**, and install it.
 
 ## Getting Microphone Readings
 
@@ -24,19 +24,11 @@ Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board 
 
 To test the microphone we can use the **PDMSerialPlotter** example sketch. This sketch can be found in **File > Examples > PDM** in the Arduino IDE. This sketch will print readings in the serial monitor. Upload the sketch and check so that readings are appearing in the serial monitor.
 
-![]()
-
+![Example sketch printing values in the serial monitor]()
 
 ## Using the Microphone Readings
 
-Now we can combine these readings with LVGL elements to visualize the readings. First, the libraries we need are:
-
-```arduino
-
-```
-
-
-Creating the screen elements that will hold the bar that will react to the microphone readings.
+Now let's create a sketch that combines the microphone readings with a visual component. First, the libraries we need are, `PDM.h` which will handle the microphone readings and `lvgl.h` will handle the visual elements on the screen.
 
 ```arduino
 #include <PDM.h>
@@ -44,11 +36,36 @@ Creating the screen elements that will hold the bar that will react to the micro
 #include "lvgl.h"
 ```
 
-`PDM.h` will handle the microphone readings and `lvgl.h` will handle the visual elements on the screen.
-
-Then we can create the bar:
+In the `setup()` we can start the display with `Display.begin();` and the microphone with `PDM.onReceive(onPDMdata);`. This will call the `void onPDMdata()` function at the bottom of the sketch. This function handles collecting and storing the readings from the microphone.
 
 ```arduino
+void setup() {
+  Display.begin();
+
+  PDM.onReceive(onPDMdata);
+
+  if (!PDM.begin(channels, frequency)) {
+    Serial.println("Failed to start PDM!");
+    while (1);
+  }
+}
+```
+
+In the `setup()` we will also create our LVGL bar and animation for that bar. Make sure you also define the `lv_obj_t * obj;` and `lv_anim_t a;` variables outside of the `setup()` function so they can be used in the `loop()` function later. Now `obj` will be the name of bar object. These next lines will set the bars position, size and values. After that we can initialize the animation and set the time for the animation. Then set the animation to our bar with `lv_anim_set_var(&a, obj);`.
+
+```arduino
+  // Create the bar
+  obj = lv_bar_create(lv_scr_act());
+  lv_obj_set_size(obj, 600, 50);
+  lv_obj_center(obj);
+  lv_bar_set_value(obj, 500, LV_ANIM_OFF);
+  
+  // Create the animation for the bar
+  lv_anim_init(&a);
+  lv_anim_set_exec_cb(&a, set_slider_val);
+  lv_anim_set_time(&a, 300);
+  lv_anim_set_playback_time(&a, 300);
+  lv_anim_set_var(&a, obj);
 ```
 
 Now we have to include the microphone readings in the sketch:
@@ -60,6 +77,8 @@ And lastly make the visual elements react to the readings:
 
 ```arduino
 ```
+
+![Gif of sketch running]()
 
 ### Full Sketch
 
@@ -130,12 +149,11 @@ void loop() {
       }
       lv_anim_set_values(&a, 0, micValue);
       lv_anim_start(&a);
-      //lastmicValue = micValue;
     }
 
     // Clear the read count
     samplesRead = 0;
-    delay(100);
+    delay(10);
   }
   lv_timer_handler();
 }
@@ -158,3 +176,5 @@ void onPDMdata() {
 ```
 
 ## Conclusion
+
+Now you know how to get readings from the GIGA Display Shields on-board microphone. How to create simple visual elements with LVGL. And then how these two components could be put together in a sketch to utilize the Display Shields screen and on-board components.
