@@ -28,13 +28,13 @@ In order to get started with Arduino Cloud, you need to [have an Arduino account
 
 If you do not have an account yet, feel free to create a new one. You can follow [this tutorial](https://support.arduino.cc/hc/en-us/articles/360016724040-Create-an-Arduino-account) for a step-by-step explanation on how to do it.
 
-![Arduino Cloud login](assets/arduino-account-login.png "Arduino Cloud login")
+![Arduino Cloud login](assets/arduino-account-login.png)
 
 After the registration is completed, you should verify your email address by clicking CONFIRM NOW in the email that was automatically sent to your inbox.
 
 Now let's explore https://cloud.arduino.cc/home/.
 
-![Arduino Cloud home](assets/cloud-home.png "Arduino Cloud Homepage View")
+![Arduino Cloud Homepage view](assets/cloud-home.png)
 
 The Arduino Cloud for Education consists of **two main subscriptions**:
 
@@ -47,7 +47,7 @@ By default, any new user who created an Arduino account has access to Arduino Cl
 
 ### Access to free online courses content
 
-Once you've logged in, you are free to check out our free content in `Arduino Cloud > home > Courses` or click [here](https://cloud.arduino.cc/home/courses). 
+Once you've logged in, you are free to check out our free content in `Arduino Cloud > Home > Courses` or click [here](https://cloud.arduino.cc/home/courses). 
 
 ![Free Content Courses in the Cloud](assets/content.png)
 
@@ -74,15 +74,15 @@ In your Arduino Cloud *Free plan* comes with two **spaces** by default:
 
 Open the top-right space selection menu and click on *New shared space*.
 
-![New shared space creation](assets/join-space-highlight.png "New shared space creation")
+![New shared space creation](assets/join-space-highlight.png)
 
 Then you will be asked which type of Shared Space you want to create (i.e. For Business or For Education). Click on **For Education** and proceed with creating a online space to share with your students or other colleagues.  
 
-![Shared Space type selection](assets/shared-space-type-selection.png "Shared Space Type Selection")
+![Shared Space type selection](assets/shared-space-type-selection.png)
 
 Fill in additional information.
 
-![Fill in school information for the new Space](assets/fillinschoolinfo.PNG "Fill in School Information")
+![Fill in school information for the new Space](assets/fillinschoolinfo.PNG)
 
 Congratulations! Now you own a Shared Space linked to your Arduino account.
 
@@ -92,13 +92,13 @@ You can switch to other Shared Spaces at any time using the corresponding menu, 
 
 ***With a Free Plan or School Plan there is no limitations in the number of Shared Space you can have.***
 
-![Switch between Space Menu](assets/my-school.PNG "Switch between Space Menu")
+![Switch between Space Menu](assets/my-school.PNG)
 
 ### Change Shared Space Settings
 
 To change the current settings of your Shared Space, navigate to the **General Settings** tab using the sidebar.
 
-![Shared Space settings](assets/shared-space-settings.png "Shared space settings")
+![Shared Space settings](assets/shared-space-settings.png)
 
 Here you can edit for example your displayed name or change the logo of your Space.
 
@@ -118,7 +118,7 @@ You can add members in **three possible ways**:
 
 3. **Copy pasting the link** and share it with the whole class.
 
-![Invite members through email](assets/add-member.PNG "Invite a member")
+![Invite members through email](assets/add-member.PNG)
 
 ### Role types
 
@@ -138,13 +138,13 @@ Important to remember are **Student role limitations:**
 * They are not allowed to assign members roles
 * They are not allowed to view the Plan Management and Payment information
 
-![school user roles differences](assets/users-roles.PNG "Users role limitations")
+![school user roles differences](assets/users-roles.PNG)
 
 ***There is no limitation on the numbers of members you can add into a Shared Space.***
 
 ***
 
-## CLOUD APPS
+## Cloud Apps
 
 On the left menu bar in https://cloud.arduino.cc/home/ are listed the Cloud apps:
 
@@ -152,13 +152,13 @@ On the left menu bar in https://cloud.arduino.cc/home/ are listed the Cloud apps
 * IoT Cloud
 * Triggers
 
-![Cloud APPS](assets/leftsidebare.PNG "Left sidebar menu in Cloud homepage")
+![Cloud Apps](assets/leftsidebare.PNG)
 
 With a *Free* *Plan* you have access both to Arduino Web Editor and Arduino IoT Cloud, with **different limitations**. We'll discuss more in details below what those limitations are.
 
 With a *Free Plan* you won't have access to Cloud Triggers, so you'll see something similar to this:
 
-![Triggers with a free plan](assets/triggers-free-plan.PNG "Triggers Cloud feature")
+![Triggers with a free plan](assets/triggers-free-plan.PNG)
 
 If you want to unlock this function, you'll need to upgrade to a [School Plan](https://digital-store.arduino.cc/education/purchase).
 
@@ -172,13 +172,13 @@ If you want to know more about Arduino Web Editor [visit this link](https://docs
 
 A **lite version of the Web Editor** is included in the Arduino IoT Cloud, under `Things > Sketch`, which is actually a preview of a sketch saved on the Web Editor. 
 
-![Arduino IoT Cloud lite Editor](assets/gs-thing-editor.png "Arduino IoT Cloud lite Editor")
+![Arduino IoT Cloud lite Editor](assets/gs-thing-editor.png)
 
-***The Arduino Cloud Free Plan allows a maximum online space to store your sketches and libraries of 100 MB and a maximum of 25 code compilations per day by default.                                                                                                                                                                                    The Arduino Cloud School Plan allows unlimited online storage space and unlimited code compilations for your sketches.***
+***The Arduino Cloud Free Plan allows a maximum online space to store your sketches and libraries of 100 MB and a maximum of 25 code compilations per day by default. <br> The Arduino Cloud School Plan allows unlimited online storage space and unlimited code compilations for your sketches.***
 
 You can check how many times you have left to verify and upload your program from the [Cloud home](https://cloud.arduino.cc/home/), on the `Feature Usage` menu on the left bottom corner.
 
-![feature usage menu](assets/features-usage.png "Feature Usage Menu") 
+![Feature usage menu](assets/features-usage.png) 
 
 
 ### What is Arduino IoT Cloud?
@@ -191,8 +191,8 @@ Arduino IoT Cloud is an easy-to-use Internet of Things application platform. Ard
 
 In your IoT projects with Arduino you will need **three elements**:
 
-1. [The **Arduino IoT Cloud**](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
-2. [The **Arduino Create Agent**:](https://create.arduino.cc/getting-started/plugin/welcome) the middle man between Arduino’s Web Editor, Arduino IoT Cloud and your computer. It allows you to use the browser to edit and deploy sketches to your Arduino board.
+1. The [**Arduino IoT Cloud**](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
+2. The [**Arduino Create Agent**]:(https://create.arduino.cc/getting-started/plugin/welcome) the middle man between Arduino’s Web Editor, Arduino IoT Cloud and your computer. It allows you to use the browser to edit and deploy sketches to your Arduino board.
 3. **A device** of your choice.
 
 ### Setup a Device in Arduino IoT Cloud
@@ -201,27 +201,27 @@ The Arduino IoT Cloud is compatible with multiple Arduino boards or devices base
 
 If your device is compatible with Arduino IoT Cloud, you can start to **Setup your Device** in your Shared Space by connecting it to your computer through a USB cable.
 
-![Device selection](assets/device-onboarding.png "Device selection")
+![Device selection](assets/device-onboarding.png)
 
 The agent will start looking for your board. When your board has been found, the following screen will appear. Click on **Configure**.
 
-![set up board in the cloud](assets/setup-cloud-board.png "Setup board in the Cloud")
+![set up board in the cloud](assets/setup-cloud-board.png)
 
 Select a board name to be able to correctly identify your device and click on **Next**.  
 
-![Give a name to the device](assets/name-device.png "Give a name to the device")
+![Give a name to the device](assets/name-device.png)
 
 Define the connection type you want to use with your board and click on **Next.** 
 
 If the onboarding proceeds as expected, the following page will appear confirming that your device has been successfully set up.
 
-![successfully set up device](assets/congratulations-setup.png "Successfully setup device")
+![successfully set up device](assets/congratulations-setup.png)
 
 The `Devices` tab displays the name, status, and linked `Things` for each of the configured devices. Clicking on the device allows for renaming it, as well as accessing more information about the device, such as its ID number, type, FQBN, serial number, firmware version, linked Thing, latest activity, and the date when the device was added.
 
 The device status indicates whether it is connected to the Arduino IoT Cloud (online), or not connected (offline).
 
-![List of devices in your Arduino IoT Cloud](assets/devices-list.png "List of devices in your Arduino IoT Cloud")
+![List of devices in your Arduino IoT Cloud](assets/devices-list.png)
 
 ### Link A Thing To Your Device
 
@@ -237,7 +237,7 @@ If you want to explore more on how Things work, check [here](https://docs.arduin
 
 The image below highlights the important elements that we will use frequently. Each number is explained below the image.
 
-![things overview](assets/edu-tutorial-thing-overview.png "Thing tab Overview")
+![Thing tab Overview](assets/edu-tutorial-thing-overview.png)
 
 1. **Name of thing:** By clicking on "Untitled", we can rename our thing to anything we like. 
 2. **Navigation menu:** This helps to navigate between Things, Dashboards and Devices. 
@@ -248,19 +248,19 @@ The image below highlights the important elements that we will use frequently. E
 
 ### Filter your Things or Devices
 
-You can search and filter among your Things/Devices by going to **Things** or **Devices** tab in [Arduino IoT Cloud](https://create.arduino.cc/iot/devices)
+You can search and filter among your Things/Devices by going to **Things** or **Devices** tab in [Arduino IoT Cloud](https://create.arduino.cc/iot/devices).
 
-![Search and filter among devices](assets/search-things.png "Search and filter among devices")
+![Search and filter among devices](assets/search-things.png)
 
 If you want to **create your tag**, which you can use as a filtering option, go to Things tab, click on the Thing you would like to tag and go to the **Metadata** tab as shown in the figure below. Click on **Add**. You can add an unlimited number of tags to each Thing.
 
-![Thing metadata](assets/thing-metadata.png "Thing metadata").
+![Thing metadata](assets/thing-metadata.png)
 
 
 
 You can go back to the Things tab and start filtering your Things according to the new tag you have just created.
 
-![New tag filtering](assets/new-tag-filtering.png "New tag filtering")
+![New tag filtering](assets/new-tag-filtering.png)
 
 ### Variables
 
