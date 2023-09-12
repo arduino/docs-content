@@ -9,6 +9,8 @@ tags: [ESP32, Debugging, IDE]
 
 Debugging skills are valuable not only for tackling complex projects but also for beginners and those working on intermediate-level projects, as they offer valuable insights into the specific behavior of your code.
 
+***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. For more information read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012).***
+
 ## What Is Debugging?
 
 Debugging is an essential skill for anyone working with technology, whether you're a software developer, a student learning to code, or someone who just wants to understand how computers work. Here's why it's so crucial:
@@ -27,7 +29,7 @@ Debugging is an essential skill for anyone working with technology, whether you'
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32) installed (2.0.12 or newer)
 
-***It's important to use the "Arduino ESP32 Boards" by "Arduino" and not the "esp32" by "Espressif Systems". For Windows users this is paramount, otherwise no drivers will be ever installed and no debugging can be performed.***
+***It's important to use the "Arduino ESP32 Boards" core by "Arduino" and not the "esp32" core by "Espressif Systems". For Windows users this is paramount, otherwise no drivers will be ever installed and no debugging can be performed.***
 
 ## System Setup
 
@@ -70,21 +72,25 @@ Before starting a debug session you need to upload your sketch using one of the 
 
 ### Method 1
 
-- Connect a jumper cable between the **GND** and the **B1** pins and press the reset button **once**. The RGB LED will turn on with a green or blue color. 
+- Connect a jumper cable between the **GND** and the **B1** pins and press the reset button **once**. The RGB LED will turn on with a green or blue color.
 
-- Remove the jumper cable and you should see the RGB LED light up in a purple or yellow color. Note that inside **Tools**, the board will be shown as a random ESP32 board.
+- Remove the jumper cable and you should see the RGB LED light up in a purple or yellow color, which means you sucessfully entered the **ROM Boot mode**. Note that inside **Tools**, the board will be shown as a random ESP32 board.
 
 ***This is because in this mode all ESP32 chips share the same identifier assigned to USB devices, therefore the IDE selects a random ESP32 board.***
 
-- Continue to select **Tools** > **Board** > **Arduino Nano ESP32** as well as the correct **Port**.
+- Continue by clicking on the drop-down menu.
 
-![Select Port](./assets/selectPort.png)
+![Drop-Down Menu](./assets/drop-down-menu.png)
+
+- Then type "Arduino ESP32" and select the correct Port. Make sure to select the option by Arduino!
+
+![Change Board](./assets/changeBoard.png)
 
 - After that select **Sketch** > **Upload Using Programmer**.
 
 ### Method 2
 
-- Slowly double-tap the reset button to enter the recovery / Device Firmware Update (DFU) mode.
+- Slowly double-tap the reset button to enter the Arduino bootloader mode.
 
 ***Performing the double press can be a little tricky. Press it once, wait until you see the RGB LED flashing in different colours, then press again. If done correctly the RGB LED will start fading slowly.***
 
