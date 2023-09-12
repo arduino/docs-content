@@ -174,7 +174,9 @@ A **lite version of the Web Editor** is included in the Arduino IoT Cloud, under
 
 ![Arduino IoT Cloud lite Editor](assets/gs-thing-editor.png)
 
-***The Arduino Cloud Free Plan allows a maximum online space to store your sketches and libraries of 100 MB and a maximum of 25 code compilations per day by default. <br> The Arduino Cloud School Plan allows unlimited online storage space and unlimited code compilations for your sketches.***
+***The Arduino Cloud Free Plan allows a maximum online space to store your sketches and libraries of 100 MB and a maximum of 25 code compilations per day by default. 
+
+ The Arduino Cloud School Plan allows unlimited online storage space and unlimited code compilations for your sketches.***
 
 You can check how many times you have left to verify and upload your program from the [Cloud home](https://cloud.arduino.cc/home/), on the `Feature Usage` menu on the left bottom corner.
 
