@@ -1,11 +1,13 @@
 ---
-title: 'Motion Detection with the Nicla Voice and Edge Impulse®'
-description: "Learn how to create a simple motion detection application with the Arduino® Nicla Voice and the Edge Impulse® platform."
+title: 'Motion Detection with the Nicla Voice and the Machine Learning Tools'
+description: "Learn how to create a simple motion detection application with the Arduino® Nicla Voice and the Arduino Cloud Machine Learning Tools powered by Edge Impulse®."
 difficulty: intermediate 
 tags:
   - Nicla
   - Machine Learning
   - IMU
+  - Machine Learning Tools
+  - Edge Impulse
 author: 'José Bagur, Christopher Mendez, and Benjamin Dannegård'
 software:
   - ide-v2
@@ -21,15 +23,15 @@ The Nicla Voice is a versatile board that can be used for various projects and a
 
 ![The Nicla Voice board](assets/motion-detection-013.png)
 
-The simple motion detection application will be based on a TinyML model developed with Edge Impulse®, a leading platform in developing intelligent devices and a powerful facilitator for TinyML applications. With Edge Impulse®, we will capture data from your Nicla's Voice onboard IMU, create and train a TinyML model specifically designed for motion detection, and deploy it into the board for testing and validation. By the end of this tutorial, you will have a fully functional motion detection application running on your Nicla Voice board and a solid foundation in applying TinyML to real-world applications.
+The simple motion detection application will be based on a TinyML model developed with  the Arduino Cloud Machine Learning Tools powered by Edge Impulse®, a leading platform in developing intelligent devices and a powerful facilitator for TinyML applications. With the Machine Learning Tools, we will capture data from your Nicla's Voice onboard IMU, create and train a TinyML model specifically designed for motion detection, and deploy it into the board for testing and validation. By the end of this tutorial, you will have a fully functional motion detection application running on your Nicla Voice board and a solid foundation in applying TinyML to real-world applications.
 
 ## Goals
 
 - Understand the key features and capabilities of the Nicla Voice board.
 - Set up a Nicla Voice board and prepare it for developing of a motion detection application.
-- Become familiar with the Edge Impulse® platform, its interface, and its key features.
-- Collect motion data from the Nicla Voice board's onboard IMU using Edge Impulse®.
-- Develop, train, and validate a TinyML model designed for motion detection using Edge Impulse®.
+- Become familiar with the Machine Learning Tools integration of the Arduino Cloud, its interface, and its key features.
+- Collect motion data from the Nicla Voice board's onboard IMU using using the Arduino Cloud Machine Learning Tools.
+- Develop, train, and validate a TinyML model designed for motion detection using the Machine Learning Tools.
 - Deploy the trained TinyML model onto the Nicla Voice board and test its real-time motion detection capabilities.
 - Gain practical experience and foundational knowledge in developing TinyML applications for real-world scenarios.
 
@@ -51,35 +53,35 @@ Motion detection technology, which identifies and measures physical movement, is
 
 Within this context, TinyML emerges as a transformative new force. As a specialized branch of Machine Learning, TinyML was explicitly developed for devices with limited computational power, such as microcontrollers. Despite its compact nature, TinyML brings robust Machine Learning capabilities without imposing significant power or computational burdens. Its essence lies in converting raw data into actionable insights. A TinyML model can discern specific movements and irregularities by interpreting patterns from the IMU data, empowering a device to interact dynamically with its environment.
 
-For the development process in this tutorial, we'll employ Edge Impulse®, an essential platform in TinyML application development. This platform features an interesting suite of tools for data acquisition, model design, model training, and deploying our motion detection model on the Nicla Voice board. This approach facilitates the design and implementation of complex models directly on the board. By combining the capabilities of the Nicla Voice board, the advantages of an IMU-based motion detection model, and the versatility of a platform like Edge Impulse®, this tutorial aims to provide an exhaustive perspective on constructing tangible real-world applications.
+For the development process in this tutorial, we'll employ Machine Learning Tools, an essential platform in TinyML application development. This platform features an interesting suite of tools for data acquisition, model design, model training, and deploying our motion detection model on the Nicla Voice board. This approach facilitates the design and implementation of complex models directly on the board. By combining the capabilities of the Nicla Voice board, the advantages of an IMU-based motion detection model, and the versatility of a platform like the Arduino Cloud, this tutorial aims to provide an exhaustive perspective on constructing tangible real-world applications.
 
 ## Instructions
 
 ### Creating an Arduino Cloud Account
 
-First, if you still need an Arduino Cloud account, please create one [here](https://cloud.arduino.cc/home/). You can then access the Machine Learning Tools integration via the Arduino Cloud, as shown in the image below.
+First, if you still need an Arduino Cloud account, please create one [here](https://cloud.arduino.cc/home/). You can then access the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) integration via the Arduino Cloud, as shown in the image below.
 
 ![Arduino Cloud welcome page](assets/motion-detection-001.png)
 
 With your account set up and running, create a new project. With your new project created, we are ready to capture data for your motion detection model. 
 
-### IMU Data Capture with Edge Impulse®
+### IMU Data Capture with the Machine Learning Tools®
 
-We can capture data from the onboard IMU of the Nicla Board using Edge Impulse®. To do this, check out the following [article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-voice) from Edge Impulse® documentation. Follow the steps described in the article to connect your Nicla Voice board to Edge Impulse®; when your board is connected, under the **Devices** tab on the left side of the window, you should see your it as shown in the image below (green dot):
+We can capture data from the onboard IMU of the Nicla Board using the Machine Learning Tools. To do this, check out the following [article](https://docs.edgeimpulse.com/docs/development-platforms/officially-supported-mcu-targets/arduino-nicla-voice) from Edge Impulse® documentation. Follow the steps described in the article to connect your Nicla Voice board to the Machine Learning Tools; when your board is connected, under the **Devices** tab on the left side of the window, you should see your it as shown in the image below (green dot):
 
-![Device connected to Edge Impulse®](assets/motion-detection-002.png)
+![Device connected to the Machine Learning Tools](assets/motion-detection-002.png)
 
-You can now start collecting IMU data with your Nicla Voice board connected to your Machine Learning Tools account. In the Machine Learning Tools, go to the **Data acquisition** tab on the left side of the window. **Data acquisition** is the tool from the Machine Learning Tools where IMU data can be sampled and stored. To sample new data, go to the **Collect data** window.
+You can now start collecting IMU data with your Nicla Voice board connected to your Arduino Cloud account via its Machine Learning Tools integration. In the Machine Learning Tools, go to the **Data acquisition** tab on the left side of the window. **Data acquisition** is the tool from the Machine Learning Tools where IMU data can be sampled and stored. To sample new data, go to the **Collect data** window.
 
-![Data collection on Edge Impulse®](assets/motion-detection-003.png)
+![Data collection on the Machine Learning Tools](assets/motion-detection-003.png)
 
 Select your Nicla Voice board, set the label to `left-right`, the sample length to `5000` ms, the sensor to `Inertial`, and the frequency to `100Hz`. This configuration means that data from the onboard IMU of your Nicla Voice board will be sampled for five seconds (5000 ms) and stored with the `left-right` label (labels can be edited later if needed). Click the **Start sampling** button and move your Nicla Voice board from left to right, as shown below. 
 
 ![`left-right` movement](assets/motion-detection-004.gif)
 
-After the sampling and storing process is finished, you should see a new line under the **Collected data** window; when the data is selected, you can graph the raw sampled data as shown in the image below. 
+After the sampling and storing process is finished, you should see a new line under the **Collected data** window; when the data is selected, the raw sampled data is graphed as shown in the image below. 
 
-![Data collection on Edge Impulse®](assets/motion-detection-005.png)
+![Data collection on the Machine Learning Tools](assets/motion-detection-005.png)
 
 Let's repeat the process but for a different type of movement. Set the label to `up-down`, the sample length to `5000` ms, the sensor to `Inertial`, and the frequency to `100Hz` (same as before). Click the **Start sampling** button and move your Nicla Voice board up and down, as shown below. 
 
@@ -117,7 +119,6 @@ In this tutorial, we are going to use the following processing blocks:
 - **IMU Syntiant processing block**: This block prescales raw data to 8-bit values to match Nicla's Voice NDP processor input requirements.
 - **Classification learning block**: This block takes the generated features and learns to distinguish between different classes (`left-right`, `up-down`, or `z-idle`).
 
-
 To set both blocks, navigate to the **Create impulse** tab, select the window size to `600` ms, increase it to `200`, add the `IMU Syntiant` and `Classification` blocks, and click the **Save impulse** button. Your impulse should be as shown below:
 
 ![Designed Impulse with its learning and processing blocks](assets/motion-detection-007.png)
@@ -150,9 +151,9 @@ Click the **Start training**. When it's complete, you'll see the **Model** perfo
 
 ![Model performance window](assets/motion-detection-011.png)
 
-From the **Model** performance window, we can see the **model's accuracy**. Accuracy refers to the percentage of windows of movement that were correctly classified; the higher the number, the better. However,** an accuracy of 100% is unlikely and often a sign that your model has overfit the training data**. For most applications, an accuracy above 85% is very good. The confusion matrix shows the balance of correctly versus incorrectly classified.
+From the **Model** performance window, we can see the **model's accuracy**. Accuracy refers to the percentage of windows of movement that were correctly classified; the higher the number, the better. However, **an accuracy of 100% is unlikely and often a sign that your model has overfit the training data**. For most applications, an accuracy above 85% is very good. The confusion matrix shows the balance of correctly versus incorrectly classified.
 
-Now that you have trained a neural network with Edge Impulse®, we are ready to deploy and test it on your Nicla Voice board!
+Now that you have trained a neural network with the Machine Learning Tools, we are ready to deploy and test it on your Nicla Voice board!
 
 ### Deploying and Running an Impulse
 
