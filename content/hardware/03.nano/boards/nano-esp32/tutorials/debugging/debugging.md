@@ -94,6 +94,8 @@ Before starting a debug session you need to upload your sketch using one of the 
 
 ***Performing the double press can be a little tricky. Press it once, wait until you see the RGB LED flashing in different colours, then press again. If done correctly the RGB LED will start fading slowly.***
 
+![Arduino bootloader mode](./assets/arduinoBootloderMode.gif)
+
 - You should see two ports in the drop-down menu, one showing a USB symbol and another one showing a cube.
 
 ![DFU Mode](./assets/dfuMode.png)
