@@ -266,11 +266,11 @@ You can go back to the Things tab and start filtering your Things according to t
 
 In order to retrieve and store information we need to create Variables in the Arduino IoT Cloud, they are very similar to the variables we create in a regular sketch. 
 
-![variables in the Arduino IoT Cloud](assets/variables.PNG "Variables associated to a Thing")
+![Variables associated to a Thing](assets/variables.PNG)
 
 When we create variables here, they are automatically generated in a sketch, and when we upload the code to the board, the variables used in the sketch synchronize with the variables in the cloud.
 
-To learn more on the different types of Variables go to [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).
+To learn more about the different types of variables, go to [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).
 
 ***The Arduino Cloud Free Plan allows a maximum number of 5 variables per Thing by default. The Arduino Cloud School Plan allows an unlimited number of variables per Thing.***
 
@@ -280,17 +280,17 @@ Dashboards are used to visualize real-time data and to enable direct interaction
 
 ***With a Free Plan is not possible to share your Dashboard with other users. If you want to unlock this function, you'll need to upgrade to a [School Plan](https://digital-store.arduino.cc/education/purchase).***
 
-![Dashboard example](assets/dashboard-example.png "Dashboard example")
+![Dashboard example](assets/dashboard-example.png)
 
 **Widgets** are the ‘building blocks’ of a dashboard, and are directly linked to our properties. They allow us to visualize the data we get from sensors. There are several different widgets: gauges, sliders, switches, color palettes, messenger and more.
 
-![widgets selection](assets/widgets.PNG "Widgets Selection")
+![Widgets Selection](assets/widgets.PNG)
 
 If you want to learn more on how to customize your dashboard and widgets, check [this link](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets).
 
 ***If want to use to Advanced Chart Widget for your IoT projects, that allows you to visualize multiple variables in one chart, you'll need access to the School Plan.***
 
-![advance widget](assets/advanced-chart.gif "Advanced Chart Widget")
+![Advanced Chart Widget](assets/advanced-chart.gif)
 
 You can read more about Advance Chart Widget [here](https://docs.arduino.cc/arduino-cloud/features/advanced-chart).
 
@@ -302,21 +302,21 @@ Arduino Cloud, both with *Free* or *School Plan*, allows any user to download hi
 
 To start exporting your data locally, navigate into one of your dashboards on the [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards). While inside a dashboard, press the **Download** icon in the upper right corner. This will open a new window that will allow you to select which historical data you would like to download.
 
-![Download icon](assets/download-button.png "Download icon")
+![Download icon](assets/download-button.png)
 
 From here you can select all the variables you want to download by checking the boxes as well as the time frame you are interested in.
 
 When you have selected the data, click on the **Select Data Source** button.
 
-![Export your data](assets/download-data.png "Export your data")
+![Export your data](assets/download-data.png)
 
 At this point, click on **Get data** to receive your data by email.
 
-![Get your data](assets/get-data.png "Get your data")
+![Get your data](assets/get-data.png)
 
 You will get an email like the one below with a link allowing you to download all your data.
 
-![Link to download your data](assets/email-data.png "Link to download your data")
+![Link to download your data](assets/email-data.png)
 
 You are now ready to monitor and edit all your Cloud data.
 
@@ -338,15 +338,15 @@ https://digital-store.arduino.cc/education/purchase/institution
 
 1. If you're not logged in with an Arduino account, you'll be redirected to the login page. **Select the institution Space you want to add your members' seats to** or click Set up new shared Space to make a brand new one.
 
-	![Select the institution space](assets/school-plan.png "Purchase School Plan")
+	![Select the institution space](assets/school-plan.png)
 
 2. **Add as many members seats** you need for your classes.
 
-	![add members to the school plan](assets/configure-your-plan.png "Configure your School Plan")
+	![add members to the school plan](assets/configure-your-plan.png)
 
 3. Then click on the button Add Billing Information and fill in with your educational institution information and payment method.
 
-	![add billing information](assets/add-billing-information.png "Add billing information")
+	![add billing information](assets/add-billing-information.png)
 
 Congratulations! Now you own a *School Plan* linked to your Arduino account. You should have received a confirmation email. Continue reading to discover more about the additional functions you've now unlocked.
 
@@ -356,13 +356,13 @@ With a *School Plan* is possible to share any Dashboard with anyone. Go to the [
 
 As shown in the image below you can either send it directly to the user's *email* or *username*, or *share the link* with your class.
 
-![Share your dashboard](assets/dashboard-sharing.png "Share your dashboard")
+![Share your dashboard](assets/dashboard-sharing.png)
 
 You can check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/sharing-dashboards) to learn more about sharing a dashboard.
 
 ### Cloud Triggers
 
-![cloud triggers with school plan](assets/available_triggers.png "Cloud Triggers")
+![cloud triggers with school plan](assets/available_triggers.png)
 
 Triggers are used in many IoT projects to monitor specific variables within your Things and receive notifications.  This is super useful when you monitor data and you need to know about any change as soon as it happens. This could be anything from different values in environmental monitoring or something security related such as movement detection. 
 
@@ -374,11 +374,11 @@ To learn how to use triggers that allow you to send notifications based on set c
 
 With a *School plan* any educator that is part of a Shared Space can create assignments and share a sketch directly from the Arduino Web Editor, that is part of the Arduino Cloud apps.
 
-![Share sketch with Google Classroom](assets/google-integration-arduino-cloud02.png "Share your Sketch to Google Classroom")
+![Share sketch with Google Classroom](assets/google-integration-arduino-cloud02.png)
 
 It is also possible to share the content of a course or give it as an assignment.
 
-![Share content with Google Classroom](assets/google-classroom-content-share.png "Share content course with Google Classroom")
+![Share content with Google Classroom](assets/google-classroom-content-share.png)
 
 ### Arduino Cloud API
 
@@ -386,7 +386,7 @@ For more customizable IoT projects, the *School Plan* gives full access to Ardui
 
 To use the APIs, you need to create an API Key Token in the API Keys section of your Space.
 
-![Cloud Api keys](assets/api-keys.png "Create API key from your Space")
+![Create API key from your Space](assets/api-keys.png)
 
 If you want to start creating your own API Keys Token, take a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).
 
