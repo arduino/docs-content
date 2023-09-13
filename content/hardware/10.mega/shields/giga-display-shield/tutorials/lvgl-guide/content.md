@@ -701,3 +701,5 @@ This example sketch will show the different components in a 2x2 grid.
 
 ## Next Step
 LVGL has a lot of customizability, if you are interested in playing around more with this, you can find many different examples on the official website for [LVGL](https://docs.lvgl.io/master/examples.html). These can easily be put in a sketch for the GIGA Display Shield just remember to use the display-specific configuration that was shown at the [start of this tutorial](#display-shield-configuration).
+
+The GIGA Display Shield features some on-board sensors, like an IMU and a microphone. To see how these can be used with LVGL check out our [Orientation tutorial](/tutorials/image-orientation), which will show you how to use the on-board IMU to rotate an image. Or have a look at our [Microphone tutorial](/tutorials/microphone-tutorial), which will show you how to merge microphone readings with LVGL components.
