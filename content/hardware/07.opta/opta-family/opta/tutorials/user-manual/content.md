@@ -563,9 +563,10 @@ The sketch below tests the output relays and status LEDs of an Opta™ device. T
 
 ```arduino
 /*
-  Opta's™ Output Relays 
+  Opta's Output Relays 
   Name: opta_outputs_relays_example.ino
-  Purpose: This sketch tests the output relays of Opta™ devices.
+  Purpose: This sketch tests the output relays of Opta devices.
+
 
   @author Arduino PRO Content Team
   @version 2.0 22/07/23
