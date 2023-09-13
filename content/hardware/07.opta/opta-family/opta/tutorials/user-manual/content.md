@@ -636,7 +636,8 @@ Opta™ devices (all variants) feature an onboard low-power 10BASE-T/100BASE-TX 
 
 ![Onboard RJ45 connector in Opta™ devices](assets/user-manual-13.png)
 
-Some of the key capabilities of Opta™'s Ethernet transceiver are the following:
+Some of the key capabilities of Opta's Ethernet transceiver are the following:
+
 
 - **Speed and duplex mode**: It can operate at 10 Mbps (10BASE-T) or 100 Mbps (100BASE-TX). It also features auto-negotiation, which means it can automatically determine the best speed and duplex mode for communication.
 - **HP Auto-MDIX**: This feature allows you to use a straight-through or crossover Ethernet cable.
