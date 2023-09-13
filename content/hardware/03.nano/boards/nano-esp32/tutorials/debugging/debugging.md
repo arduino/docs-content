@@ -116,7 +116,7 @@ Finally, after completing all necessary steps above the last step is to start th
 
 ***Note: During the upload you will see a debug_custom.json appear in the file view. If you want to debug using another board it's important that you delete this file otherwise the IDE will use the wrong debugger and fail. You can find the file inside your sketch folder, typically at `~/documents/Arduino/<yoursketch>`***
 
-After starting the debugging session you have to press the continue button **several times** until you reach your main sketch and the breakpoints you set. This is due to how the recovery system works is expected behavior.
+After starting the debugging session you have to press the continue button **several times** until you reach your main sketch and the breakpoints you set. This is due to how the recovery system works and is expected behavior.
 
 ![Continue Button](./assets/continueBtn.png)
 
