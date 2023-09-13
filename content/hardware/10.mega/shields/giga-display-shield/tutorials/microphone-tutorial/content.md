@@ -24,7 +24,7 @@ Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board 
 
 To test the microphone we can use the **PDMSerialPlotter** example sketch. This sketch can be found in **File > Examples > PDM** in the Arduino IDE. This sketch will print readings in the serial monitor. Upload the sketch and check so that readings are appearing in the serial monitor.
 
-![Example sketch printing values in the serial monitor]()
+![Example sketch printing values in the serial monitor](assets/pdm-test-sketch.svg)
 
 ### Using the Microphone Readings
 
