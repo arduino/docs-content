@@ -302,7 +302,7 @@ The sketch below shows how to monitor digital states on Opta's input terminals `
   Opta's Digital Input Terminals
   Name: opta_digital_inputs_example.ino
   Purpose: This sketch demonstrates the use of I1, I2, and I3 input 
-  terminals as digital inputs on Opta™.
+  terminals as digital inputs on Opta.
 
   @author Arduino PRO Content Team
   @version 2.0 23/07/23
