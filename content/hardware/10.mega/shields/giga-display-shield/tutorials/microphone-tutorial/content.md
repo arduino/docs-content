@@ -198,7 +198,7 @@ void onPDMdata() {
 
 ## Conclusion
 
-Now you know how to get readings from the GIGA Display Shields on-board microphone. How to create simple visual elements with LVGL. And then how these two components could be put together in a sketch to utilize the Display Shields screen and on-board components.
+Now you know how to get readings from the GIGA Display Shield's on-board microphone and how to create simple visual elements with LVGL. And lastly, how these two components could be put together in a sketch to utilize the shield's screen and on-board components.
 
 ## Next Step
 Now that you know how to use the on-board microphone, feel free to explore the shield's other features, like the IMU with our [Orientation tutorial](/tutorials/image-orientation). Or if you rather dive deeper into LVGL, take a look at our [LVGL guide](tutorials/lvgl-guide).
