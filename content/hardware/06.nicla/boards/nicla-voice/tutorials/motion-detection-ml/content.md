@@ -106,7 +106,8 @@ The number of samples required for a motion detection model depends on several f
 
 - **Data complexity**: With complex patterns, larger sample size.
 - **Type of motion detection technique**: Supervised methods require more samples than unsupervised methods.
-- **Model performance**: More data is only sometimes better.
+- **Model performance**: More data is not always better.
+
 - **The rarity of movements**: A larger sample size is needed if anomalies are rare events.
 
 As a starting point, consider that you will need more samples, **at least several hundred to a few thousand**, for a more robust model.
