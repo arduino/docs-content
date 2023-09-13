@@ -9,8 +9,6 @@ tags: [ESP32, Debugging, IDE]
 
 Debugging skills are valuable not only for tackling complex projects but also for beginners and those working on intermediate-level projects, as they offer valuable insights into the specific behavior of your code.
 
-***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. For more information read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012).***
-
 ## What Is Debugging?
 
 Debugging is an essential skill for anyone working with technology, whether you're a software developer, a student learning to code, or someone who just wants to understand how computers work. Here's why it's so crucial:
@@ -74,7 +72,11 @@ Before starting a debug session you need to upload your sketch using one of the 
 
 - Connect a jumper cable between the **GND** and the **B1** pins and press the reset button **once**. The RGB LED will turn on with a green or blue color.
 
-- Remove the jumper cable and you should see the RGB LED light up in a purple or yellow color, which means you successfully entered the **ROM Boot mode**. Note that inside **Tools**, the board will be shown as a random ESP32 board.
+- Remove the jumper cable and you should see the RGB LED light up in a purple or yellow color, which means you successfully entered the **ROM Boot mode**.
+
+***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. For more information read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012).***
+
+Note that inside **Tools**, the board will be shown as a random ESP32 board.
 
 ***This is because in this mode all ESP32 chips share the same identifier assigned to USB devices, therefore the IDE selects a random ESP32 board.***
 
@@ -94,7 +96,7 @@ Before starting a debug session you need to upload your sketch using one of the 
 
 ***Performing the double press can be a little tricky. Press it once, wait until you see the RGB LED flashing in different colours, then press again. If done correctly the RGB LED will start fading slowly.***
 
-![Arduino bootloader mode](./assets/arduinoBootloderMode.gif)
+![Arduino bootloader mode](./assets/arduinoBootloaderMode.gif)
 
 - You should see two ports in the drop-down menu, one showing a USB symbol and another one showing a cube.
 
