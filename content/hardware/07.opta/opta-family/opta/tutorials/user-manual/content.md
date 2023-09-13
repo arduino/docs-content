@@ -180,13 +180,13 @@ Opta™ has an **onboard USB®-C port** that can be used for programming the dev
 
 ## Electrical Terminals
 
-This user manual section covers Opta™'s electrical terminals, showing their main hardware and software characteristics. Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and eight of them can be used as digital/analog inputs.
+This user manual section covers Opta's electrical terminals, showing their main hardware and software characteristics. Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and eight of them can be used as digital/analog inputs.
 
 ### Power Supply
 
-As shown in the image below, the first four terminals, from left to right, are Opta™'s power supply terminals; two are marked with `+` signs and two with `-` signs. An external +12 VDC to +24 VDC power supply can be connected to these terminals. 
+As shown in the image below, the first four terminals, from left to right, are Opta's power supply terminals; two are marked with `+` signs and two with `-` signs. An external +12 VDC to +24 VDC power supply can be connected to these terminals. 
 
-Opta™'s maximum power consumption at +12 VDC is 2 W, and at +24 VDC is 2.2 W.
+Opta's maximum power consumption at +12 VDC is 2 W, and at +24 VDC is 2.2 W.
 
 ![Power supply terminals in Opta™ devices](assets/user-manual_8.png)
 
