@@ -131,7 +131,7 @@ The complete STEP files (for all Opta™ variants) are available and downloadabl
 Opta™ can be powered in different ways:
 
 - Using a **USB-C® cable** (not included) for programming purposes only. **Opta™'s output ports (relay outputs) are not powered via its USB-C® port**.
-- Using an external **+12 VDC to +24 VDC power supply** connected to Opta™'s power supply terminals. Please, refer to the [pinout section](#pinout) of the user manual.
+- Using an external **+12 VDC to +24 VDC power supply** connected to Opta's power supply terminals. Please, refer to the [pinout section](#pinout) of the user manual.
 
 ![Different ways to power Opta™ devices](assets/user-manual_5.png)
 
