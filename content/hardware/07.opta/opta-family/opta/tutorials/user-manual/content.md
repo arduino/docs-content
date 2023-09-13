@@ -364,7 +364,7 @@ User-programmable LEDs are mapped as described in the following table:
 | `USER` (WiFi variant only) |    `LED_USER`/`LEDB`    |
 |           `RESET`          |      `LED_BUILTIN`      |
 
-The sketch below shows how to create a Knight Rider-style "scanning" effect using Opta™'s user LEDs. It works by sequentially lighting up each user's LED, creating a visual effect of scanning back and forth. This effect is achieved by defining an array of the user LED identifiers and using loops to cycle through these identifiers, turning each user LED on and off in sequence.
+The sketch below shows how to create a Knight Rider-style "scanning" effect using Opta™s user LEDs. It works by sequentially lighting up each user's LED, creating a visual effect of scanning back and forth. This effect is achieved by defining an array of the user LED identifiers and using loops to cycle through these identifiers, turning each user LED on and off in sequence.
 
 ```arduino
 /**
