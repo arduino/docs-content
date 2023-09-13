@@ -439,7 +439,8 @@ To read the status of the user button:
 
 - Add the `digitalRead(BTN_USER)` instruction in your sketch.
 
-The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. 
+The sketch below shows how to use Opta's programmable user button to control the sequence of status LEDs, `D0` to `D3`. 
+
 
 ```arduino
 /**
