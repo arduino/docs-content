@@ -876,7 +876,7 @@ To learn more about the Modbus interface in Opta™ devices, check out our [Gett
 
 ### Wi-Fi®
 
-Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing Opta™ to connect to Wi-Fi® networks and interact with other devices Over-The-Air (OTA).
+Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing Opta™ to connect to Wi-Fi® networks and interact with other devices over-the-air (OTA).
 
 Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the following:
 
