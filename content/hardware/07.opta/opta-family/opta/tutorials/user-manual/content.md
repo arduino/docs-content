@@ -537,7 +537,8 @@ You should now be able to control the status LED sequence by pressing Opta's pro
 
 ## Relays
 
-Opta™ devices (all variants) have four Normally Open (NO) 10 A relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
+Opta™ devices (all variants) have four **Normally Open (NO)** 10 A relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
+
 
 ![Output relays in Opta™ devices](assets/user-manual-12.png)
 
