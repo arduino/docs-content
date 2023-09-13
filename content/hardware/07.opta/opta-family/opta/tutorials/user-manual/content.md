@@ -865,7 +865,8 @@ Opta™ RS485 and WiFi variants incorporate a built-in Modbus interface, enablin
 
 Modbus RTU, generally operating in half-duplex mode, with its capability to handle noisy and long-distance transmission lines, makes it an excellent choice for industrial environments. Modbus RTU communication is supported using the Arduino Opta's RS-485 physical interface. 
 
-***Opta® does not have internal terminator resistors, so they must be added following the Modbus protocol specification if necessary.***
+***Opta™ does not have internal terminator resistors, so they must be added following the Modbus protocol specification if necessary.***
+
 
 Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration with existing computer networks and facilitates data communication over long distances using the existing network infrastructure. It operates in full-duplex mode, allowing simultaneous sending and receiving of data.
 
