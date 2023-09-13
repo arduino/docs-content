@@ -16,7 +16,7 @@ The GIGA Display Shield comes equipped with on-board microphone and with the hel
 
 ## Downloading the Library and Core
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) and [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm) are included in the core. Now you have to install the library needed for handling the visual component. Go to **Tools > Manage libraries..**, search for **LVGL**, and install it.
+Make sure the latest GIGA core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) and [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm) are included in the core. Now you have to install the library needed for handling the visual component. Go to **Tools > Manage libraries..**, search for **LVGL**, and install it.
 
 ## Microphone Readings With The Shield
 
