@@ -5,7 +5,7 @@ author: Benjamin Dannegård
 tags: [Display, microphone, LVGL]
 ---
 
-The GIGA Display Shield comes equiped with on-board microphone and with the help of LVGL the microphones readings can be visualized on the screen. This tutorial will show you how to create a sketch that ties together the microphones readings with visual elements on the screen.
+The GIGA Display Shield comes equipped with on-board microphone and with the help of LVGL the microphones readings can be visualized on the screen. This tutorial will show you how to create a sketch that ties together the microphones readings with visual elements on the screen.
 
 ## Hardware & Software Needed
 
