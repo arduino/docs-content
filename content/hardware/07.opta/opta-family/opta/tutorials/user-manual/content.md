@@ -774,7 +774,8 @@ Opta™ RS485 and WiFi variants have a built-in RS-485 interface, enabling the c
 
 ![RS-485 interface in Opta™ devices](assets/user-manual-15.png)
 
-***Opta™ RS485 and WiFi variants RS-485 interface operates in a half-duplex mode. This means it can send or receive data at any given time, but not simultaneously.***
+***The Opta™ RS485 and WiFi variants' RS-485 interface operates in a half-duplex mode. This means it can send or receive data at any given time, but not simultaneously.***
+
 
 RS-485 data lines in Opta™ RS485 and Opta™ WiFi variants are labeled as described in the following table:
 
