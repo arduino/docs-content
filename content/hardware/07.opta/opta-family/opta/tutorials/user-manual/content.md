@@ -65,11 +65,11 @@ The main differences between each one of the variants are related to their conne
 
 Opta™ features a secure, certified, and durable design that enables it for automation and industrial applications. 
 
-![Opta™ main components (WiFi variant)](assets/user-manual_1.png)
+![Opta™ WiFi main components](assets/user-manual_1.png)
 
 Here's an overview of the device's main components shown in the image above:
 
-- **Microcontroller**: At the heart of Opta™ is the STM32H747XI, a powerful and high-performance microcontroller from STMicroelectronics®. The STM32H747XI is built around an Arm® Cortex®-M7 and Cortex®-M4 32-bit RISC cores. The Cortex®-M7 core operates at up to 480 MHz, and the Cortex®-M4 core at up to 240 MHz.
+- **Microcontroller**: At the heart of Opta™ is the STM32H747XI, a powerful and high-performance microcontroller from STMicroelectronics®. The STM32H747XI is built around an Arm® Cortex®-M7 and Arm® Cortex®-M4 32-bit RISC cores. The Arm® Cortex®-M7 core operates at up to 480 MHz, and the Arm® Cortex®-M4 core at up to 240 MHz.
 - **Wireless connectivity**: Opta™ (WiFi variant only) supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® Low Energy (4.2 supported by firmware and 5.1 supported by hardware), allowing the device to communicate wirelessly with other devices and systems. 
 - **Ethernet connectivity**: Opta™ (all variants) features an onboard, high-performance 10/100 Mbps Ethernet transceiver accessible through its onboard RJ45 connector.
 - **Security**: Opta™ features an onboard ready-to-use secure element, the ATECC608B from Microchip®, specifically designed for IoT devices that provides advanced security features, being perfect for Industrial IoT (IIoT) environments where security is critical.
@@ -82,7 +82,7 @@ Here's an overview of the device's main components shown in the image above:
 
 ### Opta™ Core and Libraries
 
-The **`Arduino Mbed OS Opta Boards`** core contains the libraries and examples to work with Opta™'s peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® module (WiFi variant only). To install the core for Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` core version.
+The `Arduino Mbed OS Opta Boards` core contains the libraries and examples to work with Opta™'s peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® module (WiFi variant only). To install the core for Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` core version.
 
 ![Installing the Arduino Mbed OS Opta Boards core in the Arduino IDE](assets/user-manual-3.png)
 
@@ -130,8 +130,8 @@ The complete STEP files (for all Opta™ variants) are available and downloadabl
 
 Opta™ can be powered in different ways:
 
-- Using a **USB-C® cable** (not included) for programming purposes only. **Opta™'s output ports (relay outputs) are not powered via its USB-C® port**.
-- Using an external **+12 VDC to +24 VDC power supply** connected to Opta™'s power supply terminals. Please, refer to the [pinout section](#pinout) of the user manual.
+- Using a **USB-C® cable** (not included) for programming purposes only. **Opta's output ports (relay outputs) are not powered via its USB-C® port**.
+- Using an external **+12 VDC to +24 VDC power supply** connected to Opta's power supply terminals. Please, refer to the [pinout section](#pinout) of the user manual.
 
 ![Different ways to power Opta™ devices](assets/user-manual_5.png)
 
@@ -180,13 +180,13 @@ Opta™ has an **onboard USB®-C port** that can be used for programming the dev
 
 ## Electrical Terminals
 
-This user manual section covers Opta™'s electrical terminals, showing their main hardware and software characteristics. Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and eight of them can be used as digital/analog inputs.
+This user manual section covers Opta's electrical terminals, showing their main hardware and software characteristics. Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and eight of them can be used as digital/analog inputs.
 
 ### Power Supply
 
-As shown in the image below, the first four terminals, from left to right, are Opta™'s power supply terminals; two are marked with `+` signs and two with `-` signs. An external +12 VDC to +24 VDC power supply can be connected to these terminals. 
+As shown in the image below, the first four terminals, from left to right, are Opta's power supply terminals; two are marked with `+` signs and two with `-` signs. An external +12 VDC to +24 VDC power supply can be connected to these terminals. 
 
-Opta™'s maximum power consumption at +12 VDC is 2 W, and at +24 VDC is 2.2 W.
+Opta's maximum power consumption at +12 VDC is 2 W, and at +24 VDC is 2.2 W.
 
 ![Power supply terminals in Opta™ devices](assets/user-manual_8.png)
 
@@ -222,14 +222,14 @@ The analog input terminals can be used through the built-in functions of the [Ar
 
 - Add the `analogReadResolution()` instruction in your sketch's `setup()` function.
 
-The sketch below shows how to monitor analog voltages on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes real-time changes.
+The sketch below shows how to monitor analog voltages on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes real-time changes.
 
 ```arduino
 /**
   Opta's Analog Input Terminals
   Name: opta_analog_inputs_example.ino
   Purpose: This sketch demonstrates the use of I1, I2, and I3 input 
-  terminals as analog inputs on Opta™.
+  terminals as analog inputs on Opta.
 
   @author Arduino PRO Content Team
   @version 2.0 22/07/23
@@ -295,14 +295,14 @@ The input terminals can be used through the built-in functions of the [Arduino p
 
 - Add the `pinMode(pinName, INPUT)` instruction in your sketch's `setup()` function. 
 
-The sketch below shows how to monitor digital states on Opta™'s input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets them as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor real-time changes.
+The sketch below shows how to monitor digital states on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets them as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor real-time changes.
 
 ```arduino
 /**
   Opta's Digital Input Terminals
   Name: opta_digital_inputs_example.ino
   Purpose: This sketch demonstrates the use of I1, I2, and I3 input 
-  terminals as digital inputs on Opta™.
+  terminals as digital inputs on Opta.
 
   @author Arduino PRO Content Team
   @version 2.0 23/07/23
@@ -364,14 +364,15 @@ User-programmable LEDs are mapped as described in the following table:
 | `USER` (WiFi variant only) |    `LED_USER`/`LEDB`    |
 |           `RESET`          |      `LED_BUILTIN`      |
 
-The sketch below shows how to create a Knight Rider-style "scanning" effect using Opta™'s user LEDs. It works by sequentially lighting up each user's LED, creating a visual effect of scanning back and forth. This effect is achieved by defining an array of the user LED identifiers and using loops to cycle through these identifiers, turning each user LED on and off in sequence.
+The sketch below shows how to create a Knight Rider-style "scanning" effect using Opta™s user LEDs. It works by sequentially lighting up each user's LED, creating a visual effect of scanning back and forth. This effect is achieved by defining an array of the user LED identifiers and using loops to cycle through these identifiers, turning each user LED on and off in sequence.
 
 ```arduino
 /**
   Opta's Knight Rider Scanning Effect
   Name: opta_knight_rider_example.ino
   Purpose: This sketch demonstrates a Knight Rider scanning effect using 
-  the user LEDs of Opta™ devices.
+  the user LEDs of Opta devices.
+
 
   @author Arduino PRO Content Team
   @version 2.0 22/07/23
@@ -417,7 +418,8 @@ void loop() {
 }
 ```
 
-You should see a Knight Rider-style "scanning" effect with Opta™'s user LEDs.
+You should see a Knight Rider-style "scanning" effect with Opta's user LEDs.
+
 
 ![Opta™ Knight Rider scanning effect](assets/user-manual-21_2.gif)
 
@@ -437,7 +439,8 @@ To read the status of the user button:
 
 - Add the `digitalRead(BTN_USER)` instruction in your sketch.
 
-The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. 
+The sketch below shows how to use Opta's programmable user button to control the sequence of status LEDs, `D0` to `D3`. 
+
 
 ```arduino
 /**
@@ -527,13 +530,15 @@ void changeLights() {
 
 The sketch initializes the state of the user's LEDs and button, along with variables for button debouncing. This sketch continuously reads the state of the user button, debounces the button input to avoid false triggering due to electrical noise, and increments a counter each time the button is pressed. It then passes the control to the `changeLights()` function. This function first turns off all LEDs and then, depending on the value of the counter, turns on the corresponding LED. With each button press, the counter increments, and a different LED lights up, cycling back to the beginning after the final LED.
 
-You should now be able to control the status LED sequence by pressing Opta™'s programmable user button.
+You should now be able to control the status LED sequence by pressing Opta's programmable user button.
+
 
 ![Opta™ user button](assets/user-manual-22_2.gif)
 
 ## Relays
 
-Opta™ devices (all variants) have four Normally Open (NO) 10 A relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
+Opta™ devices (all variants) have four **Normally Open (NO)** 10 A relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
+
 
 ![Output relays in Opta™ devices](assets/user-manual-12.png)
 
@@ -558,9 +563,10 @@ The sketch below tests the output relays and status LEDs of an Opta™ device. T
 
 ```arduino
 /*
-  Opta's™ Output Relays 
+  Opta's Output Relays 
   Name: opta_outputs_relays_example.ino
-  Purpose: This sketch tests the output relays of Opta™ devices.
+  Purpose: This sketch tests the output relays of Opta devices.
+
 
   @author Arduino PRO Content Team
   @version 2.0 22/07/23
@@ -630,7 +636,8 @@ Opta™ devices (all variants) feature an onboard low-power 10BASE-T/100BASE-TX 
 
 ![Onboard RJ45 connector in Opta™ devices](assets/user-manual-13.png)
 
-Some of the key capabilities of Opta™'s Ethernet transceiver are the following:
+Some of the key capabilities of Opta's Ethernet transceiver are the following:
+
 
 - **Speed and duplex mode**: It can operate at 10 Mbps (10BASE-T) or 100 Mbps (100BASE-TX). It also features auto-negotiation, which means it can automatically determine the best speed and duplex mode for communication.
 - **HP Auto-MDIX**: This feature allows you to use a straight-through or crossover Ethernet cable.
@@ -767,7 +774,8 @@ Opta™ RS485 and WiFi variants have a built-in RS-485 interface, enabling the c
 
 ![RS-485 interface in Opta™ devices](assets/user-manual-15.png)
 
-***Opta™ RS485 and WiFi variants RS-485 interface operates in a half-duplex mode. This means it can send or receive data at any given time, but not simultaneously.***
+***The Opta™ RS485 and WiFi variants' RS-485 interface operates in a half-duplex mode. This means it can send or receive data at any given time, but not simultaneously.***
+
 
 RS-485 data lines in Opta™ RS485 and Opta™ WiFi variants are labeled as described in the following table:
 
@@ -776,13 +784,15 @@ RS-485 data lines in Opta™ RS485 and Opta™ WiFi variants are labeled as desc
 |                `A`               |      `A(-)`      |
 |                `B`               |      `B(+)`      |
 
-***RS-485 data lines labels differ between manufacturers. Most manufacturers will use '+' and '–' to label the data lines or variations such as 'D+' and 'D-.' Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the '-' line should be connected to the A terminal, and the '+' line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
+***RS-485 data lines labels differ between manufacturers. Most manufacturers will use `+` and `–` to label the data lines or variations such as `D+` and `D-`. Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the `-` line should be connected to the A terminal, and the `+` line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
+
 
 To enable communication on Opta™ devices via its RS-485 interface, you can use the [`ArduinoRS485` library](https://www.arduino.cc/reference/en/libraries/arduinors485/). Let's use an example code demonstrating some of its RS-485 capabilities. Here is an example of using the `ArduinoRS485` library to transmit messages via the RS-485 interface on an Opta™ device.
 
 ```arduino
 /*
-  Opta's™ Basic RS-485 Communication
+  Opta's Basic RS-485 Communication
+
   Name: opta_basic_rs485_example.ino
   Purpose: This sketch tests the RS-485 interface of 
   Opta RS485 and Opta WiFi devices.
@@ -855,7 +865,8 @@ Opta™ RS485 and WiFi variants incorporate a built-in Modbus interface, enablin
 
 Modbus RTU, generally operating in half-duplex mode, with its capability to handle noisy and long-distance transmission lines, makes it an excellent choice for industrial environments. Modbus RTU communication is supported using the Arduino Opta's RS-485 physical interface. 
 
-***Opta® does not have internal terminator resistors, so they must be added following the Modbus protocol specification if necessary.***
+***Opta™ does not have internal terminator resistors, so they must be added following the Modbus protocol specification if necessary.***
+
 
 Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration with existing computer networks and facilitates data communication over long distances using the existing network infrastructure. It operates in full-duplex mode, allowing simultaneous sending and receiving of data.
 
@@ -865,7 +876,7 @@ To learn more about the Modbus interface in Opta™ devices, check out our [Gett
 
 ### Wi-Fi®
 
-Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing Opta™ to connect to Wi-Fi® networks and interact with other devices Over-The-Air (OTA).
+Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing Opta™ to connect to Wi-Fi® networks and interact with other devices over-the-air (OTA).
 
 Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the following:
 
@@ -877,9 +888,11 @@ The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use 
 
 The sketch below enables an Opta™ device to connect to the Internet via Wi-Fi® (like the Ethernet example). Once connected, it performs a `GET` request to the [`ip-api.com`](https://ip-api.com/) server to fetch details related to its IP address. It then parses the received JSON object using the [`Arduino_JSON` library](https://github.com/arduino-libraries/Arduino_JSON) to extract key IP details: IP address, city, region, and country. This data is then printed to the Arduino IDE's Serial Monitor.
 
-You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking the ellipsis (the three horizontal dots) button on the top right of the Arduino IDE 2.0.
+You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking the ellipsis (the three horizontal dots) button on the top right of the Arduino IDE 2.
 
-![Creating a tab in the Arduino IDE 2.0](assets/user-manual-16.png)
+
+![Creating a tab in the Arduino IDE 2](assets/user-manual-16.png)
+
 
 Put `arduino_secrets.h` as the "Name for new file" and enter the following code on the header file:
 
@@ -1156,7 +1169,7 @@ void loop() {
 
 After importing the necessary libraries and defining the Bluetooth® Low Energy service and characteristic, the `setup()` function initializes the Opta™ device and sets up the Bluetooth® Low Energy service and characteristic. The sketch then starts advertising the defined service to allow connections.
 
-In the `loop()` function, the sketch constantly checks for a Bluetooth® Low Energy connection. When a central device connects to the device, the Opta™'s built-in USER LED stays solidly on, and the sketch begins continuously reading the voltage level from an analog input terminal, mapping it to a voltage value between 0 and 10 VDC, and transmitting it to the central device via the defined Bluetooth® Low Energy characteristic. If no central device is connected, the USER LED blinks regularly. The non-blocking approach of the sketch allows simultaneous tasks on it, such as sensor data reading and LED control.
+In the `loop()` function, the sketch constantly checks for a Bluetooth® Low Energy connection. When a central device connects to the device, the Opta's built-in USER LED stays solidly on, and the sketch begins continuously reading the voltage level from an analog input terminal, mapping it to a voltage value between 0 and 10 VDC, and transmitting it to the central device via the defined Bluetooth® Low Energy characteristic. If no central device is connected, the USER LED blinks regularly. The non-blocking approach of the sketch allows simultaneous tasks on it, such as sensor data reading and LED control.
 
 You should be able now to connect to your Opta™ using a central device. The Bluetooth® Low Energy service and characteristic information are shown in the image below using the nRF Connect for Mobile app.
 
@@ -1166,17 +1179,17 @@ To learn more about Bluetooth Low Energy® connectivity in Opta™ devices, chec
 
 ## Interrupts
 
-**Opta's™ analog/digital programmable inputs and user-programmable button are interrupt capable**. An interrupt is a signal that prompts Opta's™ microcontroller to stop its current execution and start executing a special routine known as the Interrupt Service Routine (ISR). Once the ISR finishes, the microcontroller resumes executing its previous routine.
+**Opta's analog/digital programmable inputs and user-programmable button are interrupt capable**. An interrupt is a signal that prompts Opta's microcontroller to stop its current execution and start executing a special routine known as the Interrupt Service Routine (ISR). Once the ISR finishes, the microcontroller resumes executing its previous routine.
 
-Interrupts are particularly useful when reacting instantly to an external event, such as a button press or a sensor signal. Without interrupts, you would have to constantly poll the status of a button or a sensor in the main loop of your running sketch. With interrupts, you can let your Opta's™ microcontroller do other tasks and only react when a desired event occurs.
+Interrupts are particularly useful when reacting instantly to an external event, such as a button press or a sensor signal. Without interrupts, you would have to constantly poll the status of a button or a sensor in the main loop of your running sketch. With interrupts, you can let your Opta's microcontroller do other tasks and only react when a desired event occurs.
 
-***Due to Opta's™ microcontroller interrupt structure, interrupts in terminals `I1` and `I3` cannot be used simultaneously; you need to choose just one to avoid issues with them.***
+***Due to Opta's microcontroller interrupt structure, interrupts in terminals `I1` and `I3` cannot be used simultaneously; you need to choose just one to avoid issues with them.***
 
-Interrupts can be used through the built-in functions of the Arduino programming language. To enable interrupts in your Opta™s analog/digital programmable inputs and user-programmable button:
+Interrupts can be used through the built-in functions of the Arduino programming language. To enable interrupts in your Opta's analog/digital programmable inputs and user-programmable button:
 
 - Add the `attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)`  instruction in your sketch's `setup()` function. Notice that the `pin` parameter can be `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, or `BTN_USER`; the `ISR` parameter is the ISR function to call when the interrupt occurs, and the `mode` parameter defines when the interrupt should be triggered (`LOW`, `CHANGE`, `RISING`, or `FALLING`). 
 
-The sketch below shows how to use Opta™'s programmable user button to control the sequence of status LEDs, `D0` to `D3`. In the original code shown in the [User Button section](#user-button), the user button's state was continuously checked inside the main loop of the sketch, and when a change was detected, the LEDs were updated accordingly. While this approach works for simple tasks, it becomes inefficient when your Opta™ has to perform more complex tasks or react to multiple inputs. In the modified code, we've set up an interrupt that triggers on a falling edge (`FALLING`) of the signal from the user button, which means it triggers when the button is pressed. 
+The sketch below shows how to use Opta's programmable user button to control the sequence of status LEDs, `D0` to `D3`. In the original code shown in the [User Button section](#user-button), the user button's state was continuously checked inside the main loop of the sketch, and when a change was detected, the LEDs were updated accordingly. While this approach works for simple tasks, it becomes inefficient when your Opta™ has to perform more complex tasks or react to multiple inputs. In the modified code, we've set up an interrupt that triggers on a falling edge (`FALLING`) of the signal from the user button, which means it triggers when the button is pressed. 
 
 ```arduino
 /**
@@ -1276,7 +1289,7 @@ To learn more about interrupts in Opta™ devices, check out our [Getting Starte
 
 Opta™ device's (all variants) microcontroller (the STM32H747XI) features a low-power Real-Time Clock (RTC) with sub-second accuracy and hardware calendar accessible through specific RTC management methods from Mbed™️.
 
-Some of the key capabilities of Opta™'s onboard RTC are the following:
+Some of the key capabilities of Opta's onboard RTC are the following:
 
 - Calendar with subsecond, seconds, minutes, hours (12 or 24 formats), week day, date, month, and years in BCD (binary-coded decimal) format.
 - Automatic correction for 28, 29 (leap year), 30, and 31 days of the month.
@@ -1285,9 +1298,9 @@ Some of the key capabilities of Opta™'s onboard RTC are the following:
 
 The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi® network, synchronizes its onboard RTC with a Network Time Protocol (NTP) server using the [`NTPClient` library](https://www.arduino.cc/reference/en/libraries/ntpclient/), and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager. 
 
-You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking the ellipsis (the three horizontal dots) button on the top right of the Arduino IDE 2.0.
+You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking the ellipsis (the three horizontal dots) button on the top right of the Arduino IDE 2.
 
-![Creating a tab in the Arduino IDE 2.0](assets/user-manual-16.png)
+![Creating a tab in the Arduino IDE 2](assets/user-manual-16.png)
 
 Put `arduino_secrets.h` as the "Name for new file" and enter the following code on the header file:
 
