@@ -52,7 +52,7 @@ The difference between each of the variants can be found in the following table:
 
 |       **Feature**      |    **Opta™ Lite**   |   **Opta™ RS485**   |      **Opta™ WiFi**     |
 |:----------------------:|:-------------------:|:-------------------:|:-----------------------:|
-|        **`SKU`**       |      `AFX00003`     |      `AFX00001`     |        `AFX00003`       |
+|        **`SKU`**       |      `AFX00003`     |      `AFX00001`     |        `AFX00002`       |
 |        **`USB`**       |       `USB-C®`      |       `USB-C®`      |         `USB-C®`        |
 | **`Ethernet Support`** | `10/100BASE-T Port` | `10/100BASE-T Port` |   `10/100BASE-T Port`   |
 |      **`RS-485 `**     |        `N/A`        |    `Half-duplex`    |      `Half-duplex`      |
