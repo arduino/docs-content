@@ -97,7 +97,7 @@ void loop() {
 }
 ```
 
-In the section below you can find the full sketch. If you upload it to your GIGA Display Shield, you should see the same result as the gif below is showing.
+In the section below you can find the full sketch. If you upload it to your GIGA Display Shield, you should see the same result as the GIF below is showing.
 
 [Gif of sketch running]()
 
