@@ -1289,7 +1289,7 @@ To learn more about interrupts in Opta™ devices, check out our [Getting Starte
 
 Opta™ device's (all variants) microcontroller (the STM32H747XI) features a low-power Real-Time Clock (RTC) with sub-second accuracy and hardware calendar accessible through specific RTC management methods from Mbed™️.
 
-Some of the key capabilities of Opta™'s onboard RTC are the following:
+Some of the key capabilities of Opta's onboard RTC are the following:
 
 - Calendar with subsecond, seconds, minutes, hours (12 or 24 formats), week day, date, month, and years in BCD (binary-coded decimal) format.
 - Automatic correction for 28, 29 (leap year), 30, and 31 days of the month.
