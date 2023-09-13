@@ -891,7 +891,8 @@ The sketch below enables an Opta™ device to connect to the Internet via Wi-Fi�
 You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking the ellipsis (the three horizontal dots) button on the top right of the Arduino IDE 2.
 
 
-![Creating a tab in the Arduino IDE 2.0](assets/user-manual-16.png)
+![Creating a tab in the Arduino IDE 2](assets/user-manual-16.png)
+
 
 Put `arduino_secrets.h` as the "Name for new file" and enter the following code on the header file:
 
