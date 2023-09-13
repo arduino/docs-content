@@ -1401,38 +1401,38 @@ You can download the example code [here](assets/opta_rtc_example.zip). To learn 
 
 ## Arduino IoT Cloud
 
-Opta™ WiFi variant is fully compatible with the [Arduino IoT Cloud](https://cloud.arduino.cc/), simplifying how professional applications are developed and tracked. By using the Arduino IoT Cloud, you can, for example, monitor your Opta's input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware OTA. 
+Opta™ WiFi variant is fully compatible with the [Arduino IoT Cloud](https://cloud.arduino.cc/), simplifying how professional applications are developed and tracked. By using the IoT Cloud, you can, for example, monitor your Opta's input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware OTA. 
 
-In case it is the first time you are using the Arduino IoT Cloud:
+In case it is the first time you are using the IoT Cloud:
 
-- To use the Arduino IoT Cloud, you need an account. If you do not have an account, create one for free here.
-- To use the Arduino Web Editor or Arduino IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent here.
+- To use the IoT Cloud, you need an account. If you do not have an account, create one for free here.
+- To use the Arduino Web Editor or IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent here.
 
-Let's walk through a step-by-step demonstration of how to use your Opta™ WiFi device with the Arduino IoT Cloud.
+Let's walk through a step-by-step demonstration of how to use your Opta™ WiFi device with the IoT Cloud.
 
-Log in to your Arduino IoT Cloud account; you should see the following:
+Log in to your IoT Cloud account; you should see the following:
 
-![Arduino IoT Cloud initial page](assets/user-manual-26.png)
+![IoT Cloud initial page](assets/user-manual-26.png)
 
-First, provision your Opta™ device on your Arduino IoT Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
+First, provision your Opta™ device on your IoT Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
 
-![Arduino IoT Cloud initial page](assets/user-manual-27.png)
+![IoT Cloud initial page](assets/user-manual-27.png)
 
 The Setup Device pop-up window will appear. Navigate into **AUTOMATIC** and select the **Arduino board** option:
 
-![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-28.png)
+![IoT Cloud Setup Device pop-up window](assets/user-manual-28.png)
 
-After a while, your Opta™ device should be discovered by the Arduino IoT Cloud, as shown below:
+After a while, your Opta™ device should be discovered by the IoT Cloud, as shown below:
 
-![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-29.png)
+![IoT Cloud Setup Device pop-up window](assets/user-manual-29.png)
 
-Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device. Your Opta™ will be configured to communicate securely with the Arduino IoT Cloud; this process can take a while.
+Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device. Your Opta™ will be configured to communicate securely with the IoT Cloud; this process can take a while.
 
-![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-30.png)
+![IoT Cloud Setup Device pop-up window](assets/user-manual-30.png)
 
-Once your Opta™ has been configured, let's create a "Thing" to test the connection between your board and the Arduino IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name.
+Once your Opta™ has been configured, let's create a "Thing" to test the connection between your board and the IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name.
 
-![Arduino IoT Cloud "Thing" setup](assets/user-manual-31.png)
+![IoT Cloud "Thing" setup](assets/user-manual-31.png)
 
 Navigate into **Associate Device** and click the **Select Device** button. Select your Opta™ device and associate it with your "Thing." Then, navigate into **Network** and click the **Configure** button; enter your network credentials.
 
@@ -1447,11 +1447,11 @@ Add one variable with the following characteristics:
 - **Variable permission**: `Read & Write`
 - **Variable update policy**: `On change`
 
-![Arduino IoT Cloud "Thing" variable setup](assets/user-manual-33.png)
+![IoT Cloud "Thing" variable setup](assets/user-manual-33.png)
 
 You should see the `led` variable in the Cloud Variables section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; this will create a new dashboard and give your dashboard a name.
 
-![Arduino IoT Cloud Dashboards page](assets/user-manual-34.png)
+![IoT Cloud Dashboards page](assets/user-manual-34.png)
 
 Add the following widgets to your dashboard:
 
@@ -1460,7 +1460,7 @@ Add the following widgets to your dashboard:
 
 Your dashboard should look like the following:
 
-![Arduino IoT Cloud Dashboard setup](assets/user-manual-35.png)
+![IoT Cloud Dashboard setup](assets/user-manual-35.png)
 
 Go back to your **Things** and open the "Thing" you created. In the "Thing" setup page, navigate into Sketch, where you should see the online editor.
 
@@ -1579,13 +1579,13 @@ If you encounter any issues or have questions while working with Opta™ devices
 
 ### Help Center
 
-Explore our Help Center, which offers a comprehensive collection of articles and guides for Opta™ devices. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+Explore our Help Center, which offers a comprehensive collection of articles and guides for Opta™ devices. The Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
 - [Opta™ help center page](https://support.arduino.cc/hc/en-us/categories/360001637274-Hardware-Support)
 
 ### Forum
 
-Join our community forum to connect with other Opta™ devices users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to Opta™.
+Join our community forum to connect with other Opta™ devices users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to Opta™.
 
 - [Opta™ category in the Arduino Forum](https://forum.arduino.cc/c/hardware/opta/179)
 
