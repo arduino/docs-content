@@ -229,7 +229,7 @@ The sketch below shows how to monitor analog voltages on Opta's input terminals 
   Opta's Analog Input Terminals
   Name: opta_analog_inputs_example.ino
   Purpose: This sketch demonstrates the use of I1, I2, and I3 input 
-  terminals as analog inputs on Opta™.
+  terminals as analog inputs on Opta.
 
   @author Arduino PRO Content Team
   @version 2.0 22/07/23
