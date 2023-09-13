@@ -784,7 +784,8 @@ RS-485 data lines in Opta™ RS485 and Opta™ WiFi variants are labeled as desc
 |                `A`               |      `A(-)`      |
 |                `B`               |      `B(+)`      |
 
-***RS-485 data lines labels differ between manufacturers. Most manufacturers will use '+' and '–' to label the data lines or variations such as 'D+' and 'D-.' Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the '-' line should be connected to the A terminal, and the '+' line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
+***RS-485 data lines labels differ between manufacturers. Most manufacturers will use `+` and `–` to label the data lines or variations such as `D+` and `D-`. Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the `-` line should be connected to the A terminal, and the `+` line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
+
 
 To enable communication on Opta™ devices via its RS-485 interface, you can use the [`ArduinoRS485` library](https://www.arduino.cc/reference/en/libraries/arduinors485/). Let's use an example code demonstrating some of its RS-485 capabilities. Here is an example of using the `ArduinoRS485` library to transmit messages via the RS-485 interface on an Opta™ device.
 
