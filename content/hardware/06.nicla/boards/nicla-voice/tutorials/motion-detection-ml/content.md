@@ -114,7 +114,8 @@ As a starting point, consider that you will need more samples, **at least severa
 
 ### Impulse Design
 
-With the training dataset captured, you can design an **impulse**; an impulse takes raw data, uses signal processing to extract features, and then uses a learning block to classify new data. Signal processing blocks always return the same values for the same input and are used to make raw data easier to process, while learning blocks learn from past experiences.
+With the training dataset captured, you can design an **impulse**; an impulse takes raw data, leverages signal processing to extract features, and then uses a learning block to classify new data. Signal processing blocks always return the same values for the same input and are used to make raw data easier to process, while learning blocks learn from past experiences.
+
 
 In this tutorial, we are going to use the following processing blocks:
 
