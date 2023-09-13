@@ -530,7 +530,8 @@ void changeLights() {
 
 The sketch initializes the state of the user's LEDs and button, along with variables for button debouncing. This sketch continuously reads the state of the user button, debounces the button input to avoid false triggering due to electrical noise, and increments a counter each time the button is pressed. It then passes the control to the `changeLights()` function. This function first turns off all LEDs and then, depending on the value of the counter, turns on the corresponding LED. With each button press, the counter increments, and a different LED lights up, cycling back to the beginning after the final LED.
 
-You should now be able to control the status LED sequence by pressing Opta™'s programmable user button.
+You should now be able to control the status LED sequence by pressing Opta's programmable user button.
+
 
 ![Opta™ user button](assets/user-manual-22_2.gif)
 
