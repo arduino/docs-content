@@ -371,7 +371,8 @@ The sketch below shows how to create a Knight Rider-style "scanning" effect usin
   Opta's Knight Rider Scanning Effect
   Name: opta_knight_rider_example.ino
   Purpose: This sketch demonstrates a Knight Rider scanning effect using 
-  the user LEDs of Opta™ devices.
+  the user LEDs of Opta devices.
+
 
   @author Arduino PRO Content Team
   @version 2.0 22/07/23
