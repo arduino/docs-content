@@ -51,7 +51,7 @@ void setup() {
 }
 ```
 
-In the `setup()` we will also create our LVGL bar and animation for that bar. Make sure you also define the `lv_obj_t * obj;` and `lv_anim_t a;` variables outside of the `setup()` function so they can be used in the `loop()` function later. Now `obj` will be the name of bar object. These next lines will set the bars position, size and values. After that we can initialize the animation and set the time for the animation. Then set the animation to our bar with `lv_anim_set_var(&a, obj);`.
+In the `setup()` we will also create our LVGL bar and animation for that bar. Make sure you also define the `lv_obj_t * obj;` and `lv_anim_t a;` variables outside of the `setup()` function so they can be used in the `loop()` function later. Now `obj` will be the name of bar object. These next lines will set the bar's position, size and values. After that we can initialize the animation and set the time for the animation. Then we set the animation to our bar with `lv_anim_set_var(&a, obj);`.
 
 ```arduino
   // Create the bar
