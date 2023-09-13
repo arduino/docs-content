@@ -791,7 +791,8 @@ To enable communication on Opta™ devices via its RS-485 interface, you can use
 
 ```arduino
 /*
-  Opta's™ Basic RS-485 Communication
+  Opta's Basic RS-485 Communication
+
   Name: opta_basic_rs485_example.ino
   Purpose: This sketch tests the RS-485 interface of 
   Opta RS485 and Opta WiFi devices.
