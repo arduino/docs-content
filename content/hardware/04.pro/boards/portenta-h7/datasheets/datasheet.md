@@ -445,6 +445,7 @@ Laboratory equipment, Computer vision
          <td rowspan="3" style="vertical-align: top;" >ATECC608 Microchip®  Crypto (optional)</td>
          <td>Internal high-quality FIPS 800-90 A/B/C Random Number Generator (RNG)</td>
          <td></td>
+         <td rowspan="3" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
          <td>Two high-endurance monotonic counters</td>
