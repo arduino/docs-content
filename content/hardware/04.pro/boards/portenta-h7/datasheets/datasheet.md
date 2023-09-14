@@ -227,9 +227,9 @@ Laboratory equipment, Computer vision
    <tbody>
       <tr>
          <td rowspan="14" style="vertical-align: top;" >ST STM32H747XI Processor</td>
-         <td rowspan="19" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
          <td>Graphics</td>
          <td></td>
+         <td rowspan="19" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
          <td>Chrom.ART graphical hardware Accelerator<sup>TM </sup>(DMA2D) to reduce CPU load</td>
