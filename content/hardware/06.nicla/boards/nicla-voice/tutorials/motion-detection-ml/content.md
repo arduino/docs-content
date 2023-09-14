@@ -23,7 +23,7 @@ The Nicla Voice is a versatile board that can be used for various projects and a
 
 ![The Nicla Voice board](assets/motion-detection-013.png)
 
-The simple motion detection application will be based on a TinyML model developed with  the Arduino Cloud Machine Learning Tools powered by Edge Impulse®, a leading platform in developing intelligent devices and a powerful facilitator for TinyML applications. With the Machine Learning Tools, we will capture data from your Nicla's Voice onboard IMU, create and train a TinyML model specifically designed for motion detection, and deploy it into the board for testing and validation. By the end of this tutorial, you will have a fully functional motion detection application running on your Nicla Voice board and a solid foundation in applying TinyML to real-world applications.
+The simple motion detection application will be based on a TinyML model developed with the [Arduino Cloud Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) powered by Edge Impulse®, a leading platform in developing intelligent devices and a powerful facilitator for TinyML applications. With the Machine Learning Tools, we will capture data from your Nicla's Voice onboard IMU, create and train a TinyML model specifically designed for motion detection, and deploy it into the board for testing and validation. By the end of this tutorial, you will have a fully functional motion detection application running on your Nicla Voice board and a solid foundation in applying TinyML to real-world applications.
 
 ## Goals
 
@@ -49,20 +49,19 @@ The simple motion detection application will be based on a TinyML model develope
 
 ## Motion Detection and TinyML
 
-Motion detection technology, which identifies and measures physical movement, is vital in many fields. The precision and scope of motion detection can be significantly improved by using an IMU, an advanced device designed to capture the acceleration and angular velocity. This enhanced capability is important in real-world applications such as wearable fitness trackers, vehicle safety and navigation systems, and robotic movement controls.
-
+Motion detection technology, which identifies and measures physical movement, is vital in many fields. The precision and scope of motion detection can be significantly improved by using an IMU, an advanced device designed to capture the force and angular velocity. This enhanced capability is important in real-world applications such as wearable fitness trackers, vehicle safety and navigation systems, and robotic movement controls.
 
 Within this context, TinyML emerges as a transformative new force. As a specialized branch of Machine Learning, TinyML was explicitly developed for devices with limited computational power, such as microcontrollers. Despite its compact nature, TinyML brings robust Machine Learning capabilities without imposing significant power or computational burdens. Its essence lies in converting raw data into actionable insights. A TinyML model can discern specific movements and irregularities by interpreting patterns from the IMU data, empowering a device to interact dynamically with its environment.
 
-For the development process in this tutorial, we'll employ Machine Learning Tools, an essential platform in TinyML application development. This platform features an interesting suite of tools for data acquisition, model design, model training, and deploying our motion detection model on the Nicla Voice board. This approach facilitates the design and implementation of complex models directly on the board. By combining the capabilities of the Nicla Voice board, the advantages of an IMU-based motion detection model, and the versatility of a platform like the Arduino Cloud, this tutorial aims to provide an exhaustive perspective on constructing tangible real-world applications.
+For the development process in this tutorial, we'll employ the Machine Learning Tools, an great platform for TinyML application development. This platform features an interesting suite of tools for data acquisition, model design, model training, and deploying our motion detection model on the Nicla Voice board. This approach facilitates the design and implementation of complex models directly on the board. By combining the capabilities of the Nicla Voice board, the advantages of an IMU-based motion detection model, and the versatility of a platform like the Arduino Cloud, this tutorial aims to provide an exhaustive perspective on constructing tangible real-world applications.
 
 ## Instructions
 
 ### Creating an Arduino Cloud Account
 
-First, if you still need an Arduino Cloud account, please create one [here](https://cloud.arduino.cc/home/). You can then access the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) integration via the Arduino Cloud, as shown in the image below.
+First, if you still need a Cloud account, please create one [here](https://cloud.arduino.cc/home/). You can then access the [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) integration via your Cloud account, as shown in the image below.
 
-![Arduino Cloud welcome page](assets/motion-detection-001.png)
+![Cloud welcome page](assets/motion-detection-001.png)
 
 With your account set up and running, create a new project. With your new project created, we are ready to capture data for your motion detection model. 
 
@@ -72,7 +71,7 @@ We can capture data from the onboard IMU of the Nicla Board using the Machine Le
 
 ![Device connected to the Machine Learning Tools](assets/motion-detection-002.png)
 
-You can now start collecting IMU data with your Nicla Voice board connected to your Arduino Cloud account via its Machine Learning Tools integration. In the Machine Learning Tools, go to the **Data acquisition** tab on the left side of the window. **Data acquisition** is the tool from the Machine Learning Tools where IMU data can be sampled and stored. To sample new data, go to the **Collect data** window.
+You can now start collecting IMU data with your Nicla Voice board connected to your Cloud account via its Machine Learning Tools integration. In the Machine Learning Tools, go to the **Data acquisition** tab on the left side of the window. **Data acquisition** is the tool from the Machine Learning Tools where IMU data can be sampled and stored. To sample new data, go to the **Collect data** window.
 
 ![Data collection on the Machine Learning Tools](assets/motion-detection-003.png)
 
@@ -106,16 +105,14 @@ The number of samples required for a motion detection model depends on several f
 
 - **Data complexity**: With complex patterns, larger sample size.
 - **Type of motion detection technique**: Supervised methods require more samples than unsupervised methods.
-- **Model performance**: More data is not always better.
-
+- **Model performance**: More data is only sometimes better.
 - **The rarity of movements**: A larger sample size is needed if anomalies are rare events.
 
 As a starting point, consider that you will need more samples, **at least several hundred to a few thousand**, for a more robust model.
 
 ### Impulse Design
 
-With the training dataset captured, you can design an **impulse**; an impulse takes raw data, leverages signal processing to extract features, and then uses a learning block to classify new data. Signal processing blocks always return the same values for the same input and are used to make raw data easier to process, while learning blocks learn from past experiences.
-
+With the training dataset captured, you can design an **impulse**; an impulse takes raw data, uses signal processing to extract features, and then uses a learning block to classify new data. Signal processing blocks always return the same values for the same input and are used to make raw data easier to process, while learning blocks learn from past experiences.
 
 In this tutorial, we are going to use the following processing blocks:
 
@@ -160,14 +157,44 @@ Now that you have trained a neural network with the Machine Learning Tools, we a
 
 ### Deploying and Running an Impulse
 
-It's time to test your model on your Nicla Voice board. Click on the **Deployment** tab, and then under the **Search deployment options** button, select the **Arduino Nicla Voice** option. You can also configure posterior parameters to define, for example, thresholds at which your model activates; in this demonstration, we will not change the default posterior parameters.
+It's time to test your model on your Nicla Voice board. Click on the **Deployment** tab, and then under the **Search deployment options** button, select the **Arduino Nicla Voice** option as shown below: 
 
-Click on the **Build** button. This will start a process on which a binary file containing your impulse is built; this file can then be run on your Nicla Voice board. After completing the building process, you'll be prompted to download a .zip file containing the binary file and save it on your computer.
+![Configure your deployment window](assets/motion-detection-014.png)
 
-![Model performance window](assets/motion-detection-012.png)
+Then, configure posterior parameters to define, for example, thresholds at which your model activates; posterior parameters are used to tune the precision of the neural network activations to minimize the False Rejection Rate and False Activation Rate. Click on the **Find posterior parameters** button and select the classes you want to detect; **make sure to uncheck the last class**, in this application, the `z-idle` class.
+
+![Find posterior parameters window](assets/motion-detection-015.png)
+
+***You can also deploy and run your impulse through a library  generated by the Machine Learning Tools for the Syntiant NDP101 processor of your Nicla Voice board. This library can also be built in the Deployment tab.***
+
+Click on the **Build** button. This will start a process on which a binary file containing your impulse is built; this file can then be run on your Nicla Voice board. After completing the building process, you'll be prompted to download a `.zip` file containing the binary file and save it on your computer.
 
 After unzipping the downloaded file, run the appropriate flashing script for your computer's operating system (Linux, Mac, or Windows) to flash your Nicla Voice board with the motion recognition model and associated firmware. 
 
+#### Running the Model
+<br></br>
+
+With your Nicla Voice board flashed, open a new terminal window and run the following command:
+
+```cmd
+$ edge-impulse-run-impulse
+```
+
+This command will sample data from your Nicla's Voice onboard IMU, make inferences, and then classify the movement made on your board. You should see the following output in the terminal window when your Nicla Voice board is moved in horizontal movements, from left to right. 
+
+![Impulse running in the Nicla Voice board](assets/motion-detection-016.png)
+
+When the board is moved in vertical movements, starting up and going down, you should see the following output in the terminal window:
+
+![Impulse running in the Nicla Voice board](assets/motion-detection-017.png)
+
 ## Conclusion
 
-In this tutorial, you learned how to use your Nicla Voice board with the Machine Learning Tools integration of the Arduino Cloud to develop a simple motion detection application. Not only have you created a simple motion detection application, but you've also laid the groundwork for exploring more advanced and sophisticated applications in the future.
+In this tutorial, you learned how to use your Nicla Voice board with the Machine Learning Tools integration of the Arduino Cloud to develop a simple motion detection application. Not only have you created a simple motion detection application, but you've also laid the groundwork for exploring more advanced and sophisticated applications in the future. You can access the 
+
+### Next Steps
+
+¿Interested in learning more about Machine Learning or learning about the Nicla Voice hardware and software capabilities? Check out the following tutorials and applications notes:
+
+- [Audio Analysis with Machine Learning and the Nicla Voice](https://docs.arduino.cc/tutorials/nicla-voice/getting-started-ml)
+- [Door Intruder Detector Using ML with the Nicla Voice](https://docs.arduino.cc/tutorials/nicla-voice/ei-intruder-detector)
