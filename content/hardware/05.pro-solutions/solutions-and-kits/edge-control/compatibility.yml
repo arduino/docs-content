@@ -20,8 +20,6 @@ hardware:
   shields:
     - mkr-env-shield
 
-  pro-solutions:
+  enclosures:
     - enclosure-kit
 
-  sensors:
-    - soil-humidity-sensor-watermark-2-m-75-cm-pack-of-6
