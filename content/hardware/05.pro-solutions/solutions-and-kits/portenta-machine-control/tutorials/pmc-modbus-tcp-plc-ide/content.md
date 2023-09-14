@@ -206,11 +206,11 @@ void setup()
 {
     // Configure static IP address
     IPAddress ip(192, 168, 1, 2);
-	  IPAddress dns(192, 168, 1, 23);
+	IPAddress dns(192, 168, 1, 23);
     IPAddress gateway(192, 168, 1, 23);
     IPAddress subnet(255, 255, 255, 0);
-	  // If cable is not connected this will block the start of PLC with about 60s of timeout!
-	  Ethernet.begin(ip, dns, gateway, subnet);
+	// If cable is not connected this will block the start of PLC with about 60s of timeout!
+	Ethernet.begin(ip, dns, gateway, subnet);
 }
 ```
 
@@ -220,7 +220,7 @@ Upon starting a new project file in the PLC IDE, some crucial lines within the s
 
 The subsequent image presents the `Status variables (volatile)` window. In this window, the `cnt` variable will be defined, where its access address and datatype will be specified for Modbus TCP communication.
 
-![Arduino PLC IDE - Portenta Machine Control Server Status Variable](assets/pmc_plcide_server_statVar.svg)
+![Arduino PLC IDE - Portenta Machine Control Server Status Variable](assets/pmc_plcide_server_statVar.png)
 
 The `cnt` status variable uses the following parameters:
 
@@ -270,15 +270,11 @@ END_IF;
 
 The main role of the Portenta Machine Control server is to operate a binary counter, programmed using digital outputs determined by a sub-counter variable, `cnt`. This variable operates within an 8-Bit value range. The counter's speed is modulated through `counter_buffer` and `delay_buffer`, using as adjustable timing parameters. For the client Portenta Machine Control, the shared Modbus counter variable known as `counter_stack` is used.
 
-![Arduino PLC IDE - Portenta Machine Control Server Global Variables](assets/pmc_plcide_server_mainCode.svg)
+![Arduino PLC IDE - Portenta Machine Control Server Global Variables](assets/pmc_plcide_server_globalVars.png)
 
 To integrate the `counter_buffer` and `delay_buffer` variables, access the `New Variable` option by right-clicking on `Global_vars`. While `counter_buffer` can be designated as an `automatic` variable, `delay_buffer` was originally defined as a `constant` variable with a set value.
 
-For deploying the main PLC code to the Portenta Machine Control, choose `Download PLC code` or simply press `F7`. With everything set up correctly, a successful upload should resemble the following image.
-
-![Arduino PLC IDE - Portenta Machine Control Server Main Code](assets/pmc_plcide_server_mainCode.svg)
-
-Upon completing these instructions, you will have set up the Portenta Machine Control device as a Modbus TCP Server. The subsequent section will walk you through the process of configuring another Portenta Machine Control as a Modbus TCP Client.
+For deploying the main PLC code to the Portenta Machine Control, choose `Download PLC code` or simply press `F7`. Upon completing these instructions, you will have set up the Portenta Machine Control device as a Modbus TCP Server. The subsequent section will walk you through the process of configuring another Portenta Machine Control as a Modbus TCP Client.
 
 #### Modbus TCP Client Portenta Machine Control
 <br></br>
@@ -288,7 +284,7 @@ To configure the Portenta Machine Control as a Modbus TCP Client, start by acces
 To begin communication with the configured Modbus TCP Server Portenta Machine Control, you can add a Modbus node. Right-click on the 'Ethernet' section within the 'Resources' panel. It will reveal the 'Add' button. Click on it to introduce a 'Generic Modbus' node. For this example, we can set the node using these specific parameters:
 
 * Name: PMC_TCP_1
-* IP address: 192.168.1.5
+* IP address: 192.168.1.2
 * Minimum polling time: 1 ms
 * Address type: Modbus
 
@@ -424,7 +420,7 @@ Furthermore, through a practical example, you have learned how to ensure that th
 
 ### Next Steps
 
-Now that you have learned to implement the Modbus TCP between Portenta Machine Control devices using Arduino PLC IDE, try expanding the setup by integrating additional Modbus TCP compatible devices into the communication network.
+Now that you have learned to implement the Modbus TCP between Portenta Machine Control devices using Arduino PLC IDE, try expanding the setup by integrating additional Modbus TCP compatible devices into the communication network. You can enhance this setup further with Opta™. Learn more about it by watching this [video](https://youtu.be/reBrbCq86uQ).
 
 Additionally, you can explore the possibilities by leveraging the onboard features of the Portenta Machine Control device combined with the Modbus TCP communication network. This combination offers a robust enhancement solution for industrial management systems.
 
