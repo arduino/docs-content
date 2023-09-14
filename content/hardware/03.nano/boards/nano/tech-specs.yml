@@ -19,7 +19,7 @@ Power:
 Clock speed:
   Processor: ATmega328 16 MHz
 Memory:
-  ATmega328P: 2KB SRAM, 32KB flash 1KB EEPROM
+  ATmega328P: 2KB SRAM, 32KB Flash, 1KB EEPROM
 Dimensions:
   Weight: 7 g
   Width: 18 mm
