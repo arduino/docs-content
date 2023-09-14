@@ -90,13 +90,13 @@ Laboratory equipment, Computer vision
    </thead>
    <tbody>
       <tr>
-         <td rowspan="35" style="vertical-align: top;" >ST STM32H747XI Processor</td>
+         <td rowspan="12" style="vertical-align: top;" >ST STM32H747XI Processor</td>
          <td style="vertical-align: top;">Dual Core</td>
          <td>
             <p>Arm® Cortex®-M7 core at up to 480 MHz with double-precision FPU and 16K data + 16K instruction L1 cache</p>
             <p>Arm® 32-bit Cortex®-M4 core at up to 240 MHz with FPU, Adaptive real-time accelerator (ART AcceleratorTM)</p>
          </td>
-         <td rowspan="37" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
+         <td rowspan="12" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
          <td style="vertical-align: top;">Flash Memory</td>
@@ -164,7 +164,7 @@ Laboratory equipment, Computer vision
    </thead>
    <tbody>
       <tr>
-         <td rowspan="35" style="vertical-align: top;" >ST STM32H747XI Processor</td>
+         <td rowspan="9" style="vertical-align: top;" >ST STM32H747XI Processor</td>
          <td style="vertical-align: top;">Up to 35 communication peripherals</td>
          <td style="vertical-align: top;">
             <p>4× I2Cs FM+ interfaces (SMBus/PMBus)</p>
