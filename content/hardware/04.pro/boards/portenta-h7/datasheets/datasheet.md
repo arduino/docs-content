@@ -149,6 +149,9 @@ Laboratory equipment, Computer vision
          <td>1x basic DMA with request router capabilities </td>
          <td></td>
       </tr>
+   </tbody>
+   <tbody>
+
       <tr>
          <td style="vertical-align: top;">Up to 35 communication peripherals</td>
          <td style="vertical-align: top;">
