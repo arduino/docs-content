@@ -345,6 +345,7 @@ Laboratory equipment, Computer vision
    </thead>
    <tbody>      
       <tr>
+         <td rowspan="8" style="vertical-align: top;" >High Density connectors </td>
          <td>1x SPI </td>
          <td></td>
       </tr>
@@ -377,7 +378,8 @@ Laboratory equipment, Computer vision
          <td></td>
       </tr>
       <tr>
-         <td rowspan="15" style="vertical-align: top;" >ATECC608 Microchip®  Crypto (optional)</td>
+         <td rowspan="4" style="vertical-align: top;" >ATECC608 Microchip®  Crypto (optional)</td>
+         <td rowspan="9" style="vertical-align: top;">SE050C2 Secure element</td>
          <td>Protected storage for up to 16 Keys, certificates or data</td>
          <td></td>
       </tr>
@@ -429,6 +431,19 @@ Laboratory equipment, Computer vision
          <td>Internal high-quality FIPS 800-90 A/B/C Random Number Generator (RNG)</td>
          <td></td>
       </tr>
+</table>
+
+<table>
+   <thead>
+      <tr style="text-align: middle;">
+         <th width="30%">Component</th>
+         <th colspan="2">Details</th>
+         <th>
+            <p> Supported boards </p>
+         </th>
+      </tr>
+   </thead>
+   <tbody>  
       <tr>
          <td>Two high-endurance monotonic counters</td>
          <td></td>
@@ -438,10 +453,10 @@ Laboratory equipment, Computer vision
          <td></td>
       </tr>
       <tr>
-         <td rowspan="8" style="vertical-align: top;">SE050C2 Secure element</td>
+         <td rowspan="11" style="vertical-align: top;">SE050C2 Secure element</td>
          <td>Ready-to-use IoT secure element solution</td>
          <td></td>
-         <td rowspan="8" ><p style="text-align: right">H7 full</p></td>
+         <td rowspan="11" ><p style="text-align: right">H7 full</p></td>
       </tr>
       <tr>
          <td>Securely storing and provisioning credentials and performing cryptographic operations</td>
