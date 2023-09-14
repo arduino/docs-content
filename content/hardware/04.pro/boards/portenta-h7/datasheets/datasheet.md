@@ -428,10 +428,6 @@ Laboratory equipment, Computer vision
          <td>Full ECDSA code signature validation, optional stored digest/signature – optional communication key disablement prior to secure boot</td>
          <td></td>
       </tr>
-      <tr>
-         <td>Internal high-quality FIPS 800-90 A/B/C Random Number Generator (RNG)</td>
-         <td></td>
-      </tr>
 </table>
 
 <table>
@@ -445,6 +441,11 @@ Laboratory equipment, Computer vision
       </tr>
    </thead>
    <tbody>  
+      <tr>
+         <td rowspan="3" style="vertical-align: top;" >ATECC608 Microchip®  Crypto (optional)</td>
+         <td>Internal high-quality FIPS 800-90 A/B/C Random Number Generator (RNG)</td>
+         <td></td>
+      </tr>
       <tr>
          <td>Two high-endurance monotonic counters</td>
          <td></td>
