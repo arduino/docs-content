@@ -82,7 +82,7 @@ Then you will be asked which type of Shared Space you want to create (i.e. For B
 
 Fill in additional information.
 
-![Fill in school information for the new Space](assets/fillinschoolinfo.PNG)
+![Fill in school information for the new Space](assets/fillinschoolinfo.png)
 
 Congratulations! Now you own a Shared Space linked to your Arduino account.
 
@@ -92,7 +92,7 @@ You can switch to other Shared Spaces at any time using the corresponding menu, 
 
 ***With a Free Plan or School Plan there is no limitations in the number of Shared Space you can have.***
 
-![Switch between Space Menu](assets/my-school.PNG)
+![Switch between Space Menu](assets/my-school.png)
 
 ### Change Shared Space Settings
 
@@ -118,7 +118,7 @@ You can add members in **three possible ways**:
 
 3. **Copy pasting the link** and share it with the whole class.
 
-![Invite members through email](assets/add-member.PNG)
+![Invite members through email](assets/add-member.png)
 
 ### Role types
 
@@ -138,7 +138,7 @@ Important to remember are **Student role limitations:**
 * They are not allowed to assign members roles
 * They are not allowed to view the Plan Management and Payment information
 
-![school user roles differences](assets/users-roles.PNG)
+![school user roles differences](assets/users-roles.png)
 
 ***There is no limitation on the numbers of members you can add into a Shared Space.***
 
@@ -152,13 +152,13 @@ On the left menu bar in https://cloud.arduino.cc/home/ are listed the Cloud apps
 * IoT Cloud
 * Triggers
 
-![Cloud Apps](assets/leftsidebare.PNG)
+![Cloud Apps](assets/leftsidebare.png)
 
 With a *Free* *Plan* you have access both to Arduino Web Editor and Arduino IoT Cloud, with **different limitations**. We'll discuss more in details below what those limitations are.
 
 With a *Free Plan* you won't have access to Cloud Triggers, so you'll see something similar to this:
 
-![Triggers with a free plan](assets/triggers-free-plan.PNG)
+![Triggers with a free plan](assets/triggers-free-plan.png)
 
 If you want to unlock this function, you'll need to upgrade to a [School Plan](https://digital-store.arduino.cc/education/purchase).
 
@@ -268,7 +268,7 @@ You can go back to the Things tab and start filtering your Things according to t
 
 In order to retrieve and store information we need to create Variables in the Arduino IoT Cloud, they are very similar to the variables we create in a regular sketch. 
 
-![Variables associated to a Thing](assets/variables.PNG)
+![Variables associated to a Thing](assets/variables.png)
 
 When we create variables here, they are automatically generated in a sketch, and when we upload the code to the board, the variables used in the sketch synchronize with the variables in the cloud.
 
@@ -286,7 +286,7 @@ Dashboards are used to visualize real-time data and to enable direct interaction
 
 **Widgets** are the ‘building blocks’ of a dashboard, and are directly linked to our properties. They allow us to visualize the data we get from sensors. There are several different widgets: gauges, sliders, switches, color palettes, messenger and more.
 
-![Widgets Selection](assets/widgets.PNG)
+![Widgets Selection](assets/widgets.png)
 
 If you want to learn more on how to customize your dashboard and widgets, check [this link](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets).
 
