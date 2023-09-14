@@ -228,6 +228,7 @@ Laboratory equipment, Computer vision
       <tr>
          <td rowspan="14" style="vertical-align: top;" >ST STM32H747XI Processor</td>
          <td>Graphics</td>
+         <td></td>
          <td rowspan="19" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
