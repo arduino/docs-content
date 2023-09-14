@@ -102,7 +102,10 @@ The IEC 61131-3 programming languages include:
 
 In the PLC IDE, you can mix PLC programming with standard Arduino sketches within the integrated sketch editor and share variables between the two environments. You can also automate tasks in your software applications; this gives you control over scheduling and repetition, enhancing the reliability and efficiency of your project. Moreover, communication protocols such as CANOpen, Modbus RTU, and Modbus TCP can be managed effortlessly using integrated no-code fieldbus configurators.
 
-[Click here](https://www.arduino.cc/pro/software-plc-ide) and [here](https://docs.arduino.cc/hardware/opta)  to access all the tutorials that will show you how to start with the Arduino PLC IDE and use IEC 61131-3 programming languages with Opta™.
+Check out the following resources that will show you how to start with the Arduino PLC IDE and use use IEC 61131-3 programming languages with Opta™:
+
+- [Arduino PLC IDE download page](https://www.arduino.cc/pro/software-plc-ide)
+- [Arduino PLC IDE and Opta™ tutorials](https://docs.arduino.cc/hardware/opta)
 
 ### Pinout
 
