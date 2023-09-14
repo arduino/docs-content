@@ -182,6 +182,7 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td>8-bit camera interface (up to 80 MHz)</td>
+         <td></td>
       </tr>
       <tr>
          <td>11 analog peripherals</td>
