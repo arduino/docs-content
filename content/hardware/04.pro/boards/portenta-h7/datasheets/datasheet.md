@@ -178,6 +178,7 @@ Laboratory equipment, Computer vision
             <p>2× USB OTG interfaces (1FS, 1HS/FS) crystal-less solution with LPM and BCD</p>
             <p>Ethernet MAC interface with DMA controller</p>
          </td>
+         <td rowspan="9" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
          <td>8-bit camera interface (up to 80 MHz)</td>
@@ -226,6 +227,7 @@ Laboratory equipment, Computer vision
    <tbody>
       <tr>
          <td rowspan="14" style="vertical-align: top;" >ST STM32H747XI Processor</td>
+         <td rowspan="19" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
          <td>Graphics</td>
          <td></td>
       </tr>
