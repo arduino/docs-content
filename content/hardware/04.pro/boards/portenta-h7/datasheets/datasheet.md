@@ -314,7 +314,7 @@ Laboratory equipment, Computer vision
          <td rowspan="13" style="vertical-align: top;" >High Density connectors </td>
          <td>1x10/100 Ethernet with PHY</td>
          <td></td>
-         <td rowspan="28" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
+         <td rowspan="5" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
          <td>1x CAN</td>
