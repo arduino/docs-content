@@ -164,6 +164,7 @@ Laboratory equipment, Computer vision
    </thead>
    <tbody>
       <tr>
+         <td rowspan="35" style="vertical-align: top;" >ST STM32H747XI Processor</td>
          <td style="vertical-align: top;">Up to 35 communication peripherals</td>
          <td style="vertical-align: top;">
             <p>4× I2Cs FM+ interfaces (SMBus/PMBus)</p>
