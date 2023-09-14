@@ -1,5 +1,5 @@
 ---
-title: 'Nicla Voice Motion Detection via Machine Learning Tools'
+title: 'Motion Detection with Nicla Voice and Machine Learning Tools'
 description: "Learn how to create a simple motion detection application with the Arduino® Nicla Voice and the Arduino Cloud Machine Learning Tools powered by Edge Impulse®."
 difficulty: intermediate 
 tags:
