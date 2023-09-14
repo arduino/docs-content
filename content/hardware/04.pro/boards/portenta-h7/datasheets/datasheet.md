@@ -348,7 +348,6 @@ Laboratory equipment, Computer vision
       <tr>
          <td rowspan="8" style="vertical-align: top;" >High Density connectors </td>
          <td>1x SPI </td>
-         <td></td>
          <td rowspan="21" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
