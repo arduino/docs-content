@@ -381,7 +381,6 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td rowspan="4" style="vertical-align: top;" >ATECC608 Microchip®  Crypto (optional)</td>
-         <td rowspan="9" style="vertical-align: top;">SE050C2 Secure element</td>
          <td>Protected storage for up to 16 Keys, certificates or data</td>
          <td></td>
       </tr>
