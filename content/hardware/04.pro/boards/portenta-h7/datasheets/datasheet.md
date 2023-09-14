@@ -150,8 +150,19 @@ Laboratory equipment, Computer vision
          <td></td>
       </tr>
    </tbody>
-   <tbody>
+</table>
 
+<table>
+   <thead>
+      <tr style="text-align: middle;">
+         <th width="30%">Component</th>
+         <th colspan="2">Details</th>
+         <th>
+            <p> Supported boards </p>
+         </th>
+      </tr>
+   </thead>
+   <tbody>
       <tr>
          <td style="vertical-align: top;">Up to 35 communication peripherals</td>
          <td style="vertical-align: top;">
