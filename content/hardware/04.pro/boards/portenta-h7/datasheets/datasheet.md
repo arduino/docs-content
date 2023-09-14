@@ -455,10 +455,10 @@ Laboratory equipment, Computer vision
          <td></td>
       </tr>
       <tr>
-         <td rowspan="11" style="vertical-align: top;">SE050C2 Secure element</td>
+         <td rowspan="8" style="vertical-align: top;">SE050C2 Secure element</td>
          <td>Ready-to-use IoT secure element solution</td>
          <td></td>
-         <td rowspan="11" ><p style="text-align: right">H7 full</p></td>
+         <td rowspan="8" ><p style="text-align: right">H7 full</p></td>
       </tr>
       <tr>
          <td>Securely storing and provisioning credentials and performing cryptographic operations</td>
