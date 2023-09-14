@@ -225,6 +225,7 @@ Laboratory equipment, Computer vision
    </thead>
    <tbody>
       <tr>
+         <td rowspan="35" style="vertical-align: top;" >ST STM32H747XI Processor</td>
          <td>Graphics</td>
          <td></td>
       </tr>
