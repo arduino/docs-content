@@ -296,7 +296,6 @@ Laboratory equipment, Computer vision
          <td rowspan="4" style="vertical-align: top;" >USB-C®</td>
          <td>High speed (optional/FUll Speed USB)</td>
          <td></td>
-         <td rowspan="3"></td>
       </tr>
       <tr>
          <td>Host and Device operation</td>
