@@ -169,6 +169,8 @@ Then, configure posterior parameters to define, for example, thresholds at which
 
 Click on the **Build** button. This will start a process on which a binary file containing your impulse is built; this file can then be run on your Nicla Voice board. After completing the building process, you'll be prompted to download a `.zip` file containing the binary file and save it on your computer.
 
+![Nicla Voice firmware generation](assets/motion-detection-012.png)
+
 After unzipping the downloaded file, run the appropriate flashing script for your computer's operating system (Linux, Mac, or Windows) to flash your Nicla Voice board with the motion recognition model and associated firmware. 
 
 #### Running the Model
@@ -176,7 +178,7 @@ After unzipping the downloaded file, run the appropriate flashing script for you
 
 With your Nicla Voice board flashed, open a new terminal window and run the following command:
 
-```cmd
+```
 $ edge-impulse-run-impulse
 ```
 
