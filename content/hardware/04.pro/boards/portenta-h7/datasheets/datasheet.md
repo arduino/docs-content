@@ -329,6 +329,19 @@ Laboratory equipment, Computer vision
          <td>1x SD Card</td>
          <td></td>
       </tr>
+</table>
+
+<table>
+   <thead>
+      <tr style="text-align: middle;">
+         <th width="30%">Component</th>
+         <th colspan="2">Details</th>
+         <th>
+            <p> Supported boards </p>
+         </th>
+      </tr>
+   </thead>
+   <tbody>      
       <tr>
          <td>1x SPI </td>
          <td></td>
