@@ -77,7 +77,7 @@ Laboratory equipment, Computer vision
 
 # CONTENTS
 
-<h2>Features</h2>
+## Features
 
 ### Microcontroller
 
