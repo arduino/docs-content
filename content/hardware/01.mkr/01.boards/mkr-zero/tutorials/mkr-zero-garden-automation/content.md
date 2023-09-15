@@ -3,6 +3,9 @@ title: 'Home Gardening Automation with MKR Zero'
 difficulty: intermediate
 compatible-products: [mkr-zero]
 description: "Do you like home gardening but you've never had a green thumb? This could be the right solution for you!"
+tags:
+  - Automation
+  - Gardening
 author: 'Benjamin Dannegård'
 hardware:
   - hardware/01.mkr/01.boards/mkr-zero
@@ -154,7 +157,7 @@ We'll need to add to our code the include of the library and the creation of a n
 
 ```arduino
 #include <Dps310.h>
-// Dps310 Opject
+// Dps310 Object
 Dps310 Dps310PressureSensor = Dps310();
 //more oversamplig (7 is the highest usable value) means more precision!
 const int dps310_oversampling = 7;
@@ -283,7 +286,7 @@ For a basic test of the display, we can start from the OLED_Hello_World example:
 
 ![Library example](assets/sketch-4-library-2.jpg)
 
-To include the display in our main skecth, we have to include the required libraries:
+To include the display in our main sketch, we have to include the required libraries:
 
 ```arduino
 #include <Wire.h>
