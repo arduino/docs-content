@@ -78,6 +78,9 @@ Laboratory equipment, Computer vision
 # CONTENTS
 
 <h2>Features</h2>
+
+### Microcontroller
+
 <table>
    <thead>
       <tr style="text-align: middle;">
@@ -90,13 +93,13 @@ Laboratory equipment, Computer vision
    </thead>
    <tbody>
       <tr>
-         <td rowspan="12" style="vertical-align: top;" >ST STM32H747XI Processor</td>
+         <td rowspan="35" style="vertical-align: top;" >ST STM32H747XI Processor</td>
          <td style="vertical-align: top;">Dual Core</td>
          <td>
             <p>Arm® Cortex®-M7 core at up to 480 MHz with double-precision FPU and 16K data + 16K instruction L1 cache</p>
             <p>Arm® 32-bit Cortex®-M4 core at up to 240 MHz with FPU, Adaptive real-time accelerator (ART AcceleratorTM)</p>
          </td>
-         <td rowspan="12" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
+         <td rowspan="35" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
          <td style="vertical-align: top;">Flash Memory</td>
@@ -146,25 +149,10 @@ Laboratory equipment, Computer vision
          <td></td>
       </tr>
       <tr>
-         <td>1x basic DMA with request router capabilities </td>
+         <td>1x basic DMA with request router capabilities</td>
          <td></td>
       </tr>
-   </tbody>
-</table>
-
-<table>
-   <thead>
-      <tr style="text-align: middle;">
-         <th width="30%">Component</th>
-         <th colspan="2">Details</th>
-         <th>
-            <p> Supported boards </p>
-         </th>
-      </tr>
-   </thead>
-   <tbody>
       <tr>
-         <td rowspan="9" style="vertical-align: top;" >ST STM32H747XI Processor</td>
          <td style="vertical-align: top;">Up to 35 communication peripherals</td>
          <td style="vertical-align: top;">
             <p>4× I2Cs FM+ interfaces (SMBus/PMBus)</p>
@@ -178,7 +166,6 @@ Laboratory equipment, Computer vision
             <p>2× USB OTG interfaces (1FS, 1HS/FS) crystal-less solution with LPM and BCD</p>
             <p>Ethernet MAC interface with DMA controller</p>
          </td>
-         <td rowspan="9" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
          <td>8-bit camera interface (up to 80 MHz)</td>
@@ -212,24 +199,9 @@ Laboratory equipment, Computer vision
          <td>1x digital filters for sigma delta modulator (DFSDM) with 8 channel/4 filters</td>
          <td></td>
       </tr>
-</table>
-
-<table>
-   <thead>
-      <tr style="text-align: middle;">
-         <th width="30%">Component</th>
-         <th colspan="2">Details</th>
-         <th>
-            <p> Supported boards </p>
-         </th>
-      </tr>
-   </thead>
-   <tbody>
       <tr>
-         <td rowspan="14" style="vertical-align: top;" >ST STM32H747XI Processor</td>
          <td>Graphics</td>
          <td></td>
-         <td rowspan="19" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
          <td>Chrom.ART graphical hardware Accelerator<sup>TM </sup>(DMA2D) to reduce CPU load</td>
@@ -283,56 +255,10 @@ Laboratory equipment, Computer vision
          <td>96-bit unique ID </td>
          <td></td>
       </tr>
-      <tr>
-         <td rowspan="2" style="vertical-align: top;">External memories</td>
-         <td>SDRAM</td>
-         <td>8 MByte</td>
-      </tr>
-      <tr>
-         <td>QSPI Flash</td>
-         <td>16 MByte</td>
-      </tr>
-      <tr>
-         <td rowspan="4" style="vertical-align: top;" >USB-C®</td>
-         <td>High speed (optional/FUll Speed USB)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Host and Device operation</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Power Delivery support (optional)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>DisplayPort</td>
-         <td></td>
-         <td style="text-align: right">H7 full</td>
-      </tr>
-      <tr>
-         <td rowspan="13" style="vertical-align: top;" >High Density connectors </td>
-         <td>1x10/100 Ethernet with PHY</td>
-         <td></td>
-         <td rowspan="5" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
-      </tr>
-      <tr>
-         <td>1x CAN</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>4x UART (2 with flow control)</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>3x I2C</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>1x SD Card</td>
-         <td></td>
-      </tr>
+   </tbody>
 </table>
+
+### Memory
 
 <table>
    <thead>
@@ -344,97 +270,178 @@ Laboratory equipment, Computer vision
          </th>
       </tr>
    </thead>
-   <tbody>      
+   <tbody>
       <tr>
-         <td rowspan="8" style="vertical-align: top;" >High Density connectors </td>
-         <td>1x SPI </td>
-         <td></td>
-         <td rowspan="21" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
+         <td rowspan="2" style="vertical-align: top;">External memories</td>
+         <td>SDRAM</td>
+         <td>8 MByte</td>
+         <td rowspan="2" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
       </tr>
       <tr>
-         <td>1x I2S</td>
-         <td></td>
+         <td>QSPI Flash</td>
+         <td>16 MByte</td>
       </tr>
-      <tr>
-         <td>1x PDM input</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>2 lane MIPI DSI output</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>8 bit parallel camera interface</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>10x PWM output</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>7x GPIO</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>8x ADC inputs with separate VREF</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td rowspan="13" style="vertical-align: top;" >ATECC608 Microchip®  Crypto (optional)</td>
-         <td>Protected storage for up to 16 Keys, certificates or data</td>
-         <td></td>
-      </tr>
-         <tr>
-            <td>Hardware support for asymmetric sign, verify, key agreement – ECDSA: FIPS186-3 Elliptic Curve Digital Signature</td>
-            <td></td>
-         </tr>
-      <tr>
-         <td>ECDH: FIPS SP800-56A Elliptic Curve Diffie-Hellman</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>NIST standard P256 elliptic curve support</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Hardware support for symmetric algorithms</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>SHA-256 & HMAC hash including off-chip context save/restore</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>AES-128: encrypt/decrypt, galois field multiply for GCM</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Networking key management support</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Turnkey PRF/HKDF calculation for TLS 1.2 & 1.3</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Ephemeral key generation and key agreement in SRAM – Small message encryption with keys entirely protected</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Secure boot support</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Full ECDSA code signature validation, optional stored digest/signature – optional communication key disablement prior to secure boot</td>
-         <td></td>
-      </tr>
+   <tbody>
 </table>
+
+### USB
 
 <table>
    <thead>
       <tr style="text-align: middle;">
          <th width="30%">Component</th>
-         <th colspan="2">Details</th>
+         <th colspan="1">Details</th>
+         <th>
+            <p> Supported boards </p>
+         </th>
+      </tr>
+   </thead> 
+   <tbody>     
+      <tr>
+         <td rowspan="4" style="vertical-align: top;" >USB-C®</td>
+         <td>High speed (optional/FUll Speed USB)</td>
+         <td rowspan="3" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
+      </tr>
+      <tr>
+         <td>Host and Device operation</td>
+      </tr>
+      <tr>
+         <td>Power Delivery support (optional)</td>
+      </tr>
+      <tr>
+         <td>DisplayPort</td>
+         <td style="text-align: right">H7 full</td>
+      </tr>
+   <tbody>
+</table>
+
+### HD Connectors
+
+<table>
+   <thead>
+      <tr style="text-align: middle;">
+         <th width="30%">Component</th>
+         <th colspan="1">Details</th>
+         <th>
+            <p> Supported boards </p>
+         </th>
+      </tr>
+   </thead> 
+   <tbody>     
+      <tr>
+         <td rowspan="13" style="vertical-align: top;" >High Density connectors </td>
+         <td>1x10/100 Ethernet with PHY</td>
+         <td rowspan="13" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
+      </tr>
+      <tr>
+         <td>1x CAN</td>
+      </tr>
+      <tr>
+         <td>4x UART (2 with flow control)</td>
+      </tr>
+      <tr>
+         <td>3x I2C</td>
+      </tr>
+      <tr>
+         <td>1x SD Card</td>
+      </tr>
+      <tr>
+         <td>1x SPI </td>
+      </tr>
+      <tr>
+         <td>1x I2S</td>
+      </tr>
+      <tr>
+         <td>1x PDM input</td>
+      </tr>
+      <tr>
+         <td>2 lane MIPI DSI output</td>
+      </tr>
+      <tr>
+         <td>8 bit parallel camera interface</td>
+      </tr>
+      <tr>
+         <td>10x PWM output</td>
+      </tr>
+      <tr>
+         <td>7x GPIO</td>
+      </tr>
+      <tr>
+         <td>8x ADC inputs with separate VREF</td>
+      </tr>
+   <tbody>
+</table>
+
+### Crypto Chip
+
+<table>
+   <thead>
+      <tr style="text-align: middle;">
+         <th width="30%">Component</th>
+         <th colspan="1">Details</th>
+         <th>
+            <p> Supported boards </p>
+         </th>
+      </tr>
+   </thead>
+   <tbody>         
+      <tr>
+         <td rowspan="15" style="vertical-align: top;" >ATECC608 Microchip®  Crypto (optional)</td>
+         <td>Protected storage for up to 16 Keys, certificates or data</td>
+         <td rowspan="15" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
+      </tr>
+         <tr>
+            <td>Hardware support for asymmetric sign, verify, key agreement – ECDSA: FIPS186-3 Elliptic Curve Digital Signature</td>
+         </tr>
+      <tr>
+         <td>ECDH: FIPS SP800-56A Elliptic Curve Diffie-Hellman</td>
+      </tr>
+      <tr>
+         <td>NIST standard P256 elliptic curve support</td>
+      </tr>
+      <tr>
+         <td>Hardware support for symmetric algorithms</td>
+      </tr>
+      <tr>
+         <td>SHA-256 & HMAC hash including off-chip context save/restore</td>
+      </tr>
+      <tr>
+         <td>AES-128: encrypt/decrypt, galois field multiply for GCM</td>
+      </tr>
+      <tr>
+         <td>Networking key management support</td>
+      </tr>
+      <tr>
+         <td>Turnkey PRF/HKDF calculation for TLS 1.2 & 1.3</td>
+      </tr>
+      <tr>
+         <td>Ephemeral key generation and key agreement in SRAM – Small message encryption with keys entirely protected</td>
+      </tr>
+      <tr>
+         <td>Secure boot support</td>
+      </tr>
+      <tr>
+         <td>Full ECDSA code signature validation, optional stored digest/signature – optional communication key disablement prior to secure boot</td>
+      </tr>
+      <tr>
+         <td>Internal high-quality FIPS 800-90 A/B/C Random Number Generator (RNG)</td>
+      </tr>
+      <tr>
+         <td>Two high-endurance monotonic counters</td>
+      </tr>
+      <tr>
+         <td>Guaranteed unique 72-bit serial number</td>
+      </tr>
+   <tbody>
+</table>
+
+### Secure Element
+
+<table>
+   <thead>
+      <tr style="text-align: middle;">
+         <th width="30%">Component</th>
+         <th colspan="1">Details</th>
          <th>
             <p> Supported boards </p>
          </th>
@@ -442,103 +449,120 @@ Laboratory equipment, Computer vision
    </thead>
    <tbody>  
       <tr>
-         <td rowspan="3" style="vertical-align: top;" >ATECC608 Microchip®  Crypto (optional)</td>
-         <td>Internal high-quality FIPS 800-90 A/B/C Random Number Generator (RNG)</td>
-         <td></td>
-         <td rowspan="3" style="vertical-align: top;" ><p style="text-align: right">All</p></td>
-      </tr>
-      <tr>
-         <td>Two high-endurance monotonic counters</td>
-         <td></td>
-      </tr>
-      <tr>
-         <td>Guaranteed unique 72-bit serial number</td>
-         <td></td>
-      </tr>
-      <tr>
          <td rowspan="8" style="vertical-align: top;">SE050C2 Secure element</td>
          <td>Ready-to-use IoT secure element solution</td>
-         <td></td>
          <td rowspan="8" ><p style="text-align: right">H7 full</p></td>
       </tr>
       <tr>
          <td>Securely storing and provisioning credentials and performing cryptographic operations</td>
-         <td></td>
       </tr>
       <tr>
          <td>based on NXP's Integral Security Architecture 3.0™</td>
-         <td></td>
       </tr>
       <tr>
          <td>CC EAL 6+ certified HW</td>
-         <td></td>
       </tr>
       <tr>
          <td>FIPS 140-2 certified platform with Security Level 3</td>
-         <td></td>
       </tr>
       <tr>
          <td>Support for RSA and ECC asymmetric cryptography algorithms</td>
-         <td></td>
       </tr>
       <tr>
          <td>Support for SCP03 protocol</td>
-         <td></td>
       </tr>
       <tr>
          <td>up to 100 Mio write cycles / 25 years</td>
-         <td></td>
       </tr>
+   </tbody>
+</table>
+
+### MKR Compatibility
+
+<table>
+   <thead>
+      <tr style="text-align: middle;">
+         <th width="30%">Component</th>
+         <th colspan="1">Details</th>
+         <th>
+            <p> Supported boards </p>
+         </th>
+      </tr>
+   </thead>
+   <tbody>  
       <tr>
          <td rowspan="5" style="vertical-align: top;" >MKR compatible header</td>
          <td>7x PWM channels</td>
-         <td></td>
-         <td rowspan="10" style="vertical-align: top;"><p style="text-align: right">All</p></td>
+         <td rowspan="5" style="vertical-align: top;"><p style="text-align: right">All</p></td>
       </tr>
       <tr>
          <td>7x ADC channels</td>
-         <td></td>
       </tr>
       <tr>
          <td>1x SPI</td>
-         <td></td>
       </tr>
       <tr>
          <td>1x UART</td>
-         <td></td>
       </tr>
       <tr>
          <td>1x I2C</td>
-         <td></td>
       </tr>
+   </tbody>
+</table>
+
+### ESLOV
+
+<table>
+   <thead>
+      <tr style="text-align: middle;">
+         <th width="30%">Component</th>
+         <th colspan="1">Details</th>
+         <th>
+            <p> Supported boards </p>
+         </th>
+      </tr>
+   </thead>
+   <tbody>        
       <tr>
          <td style="vertical-align: top;">ESLOV Connector</td>
          <td style="vertical-align: top;"><p>I2C port with automatic device enumeration</p></td>
-         <td></td>
+         <td rowspan="1" style="vertical-align: top;"><p style="text-align: right">All</p></td>
       </tr>
+   </tbody>
+</table>
+
+### Power Management
+
+<table>
+   <thead>
+      <tr style="text-align: middle;">
+         <th width="30%">Component</th>
+         <th colspan="1">Details</th>
+         <th>
+            <p> Supported boards </p>
+         </th>
+      </tr>
+   </thead>
+   <tbody>       
       <tr>
          <td rowspan="4" style="vertical-align: top;">NXP PF1550 Programmable PMIC</td>
          <td>Dynamic voltage scaling</td>
-         <td></td>
+         <td rowspan="4" style="vertical-align: top;"><p style="text-align: right">All</p></td>
       </tr>
       <tr>
          <td>
             <p>Programmable independent </p>
             <p>1A voltage output to carrier board</p>
          </td>
-         <td></td>
       </tr>
       <tr>
          <td>Programmable I/O voltage</td>
-         <td></td>
       </tr>
       <tr>
          <td>Integrated Li-Po/Li-lon Battery charger</td>
-         <td></td>
       </tr>
    </tbody>
 </table>
-
 
 ## Ratings
 ### Recommended Operating Conditions
