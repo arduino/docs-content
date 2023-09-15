@@ -18,13 +18,9 @@ software:
   - web-editor
 ---
 
-Gardens are a way to contribute to contrast the global warming.
+Gardens are a way to contribute to contrast the global warming. Maybe you don't have a backyard, but you have a balcony or a windowsill, in which you could put some plants!
 
-Maybe you don't have a backyard, but you have a balcony or a windowsill, in which you could put some plants!
-
-Of course you have to take care of them, and here I am.
-
-Even if you don't have a green thumb (like me), you can successfully grow plants thanks to this project: an HGA, aka "Home Gardening Automation" system!
+Of course you have to take care of them, and here I am. Even if you don't have a green thumb (like me), you can successfully grow plants thanks to this project: an HGA, aka "Home Gardening Automation" system!
 
 ## Hardware & Software Needed
 
@@ -69,7 +65,6 @@ Then you have to add to the recipe:
 
 Of course you can reach the same setup using a breadboard, floating wires, spare components and a few time more!
 
-
 ## Programming the Board
 
 To use the MKRZERO board, there are 2 options. Either using the Arduino Web Editor or using the Arduino IDE. You can find more information on the Web Editor and IDE setup for the MKRZERO at [this link](https://docs.arduino.cc/hardware/mkr-zero).
@@ -77,7 +72,6 @@ To use the MKRZERO board, there are 2 options. Either using the Arduino Web Edit
 After connecting your Arduino to the usb port, be sure to have selected the right board and the right port
 
 Let's start sketching!
-
 
 ## Sketch #1: Water Level Sensor
 
@@ -281,11 +275,101 @@ We have to add only another piece of code: the one that will turn off the relay 
    }
 ```
 
-## The Sketch #4: OLED Display
+## Sketch #4: OLED Display
 
-### Troubleshoot
+The last component is the Oled Display!
 
+It's quite small but the definition is high enough: it allows you to display graphics or up to 8 rows of text.
 
+We'll use it to display all the sensors' measurements.
 
-## Conclusion
+As already done for the pressure sensor., we have to use the Library Manager in order to install the right library. Just search for "oled" and star the Grove Oled Display 0.96 library
 
+![]()
+
+For a basic test of the display, we can start from the OLED_Hello_World example:
+
+![]()
+
+To include the display in our main skecth, we have to include the required libraries:
+
+```arduino
+#include <Wire.h>
+#include <SeeedOLED.h>
+```
+
+and to initialize the display in the setup and clear it at least at the beginning:
+
+```arduino
+Wire.begin();
+SeeedOled.init();
+SeeedOled.setNormalDisplay();      //Set display to normal mode
+SeeedOled.setPageMode();           //Set addressing mode to Page Mode
+SeeedOled.clearDisplay();          //Clear the display
+```
+
+Now we can use it in our loop.
+
+For every element we want to display, we have to specify the row and the column where we want it to appear using the `setTextXY` function.
+
+Then for every data type, there's a different function to print it:
+
+- String: `putString()`
+
+- int: `putNumber()`
+
+- float: `putFloat()`
+
+Instead of using `clearDisplay` at every loop (it makes the display flickering!) we can "empty" the row used to display the measurements by putting a string of spaces, and then at the same position, write the new value!
+
+The last row is used to display how many minutes ago was the last watering!
+
+So at the end of the loop, just before the last curly bracket, we can put these rows:
+
+```arduino
+//1^ & 2^ rows: the moisture value
+ SeeedOled.setTextXY(0, 0);           
+ SeeedOled.putString("Moisture:");
+ //empty the row
+ SeeedOled.setTextXY(1, 2);
+ SeeedOled.putString("        ");
+ //...and then write the new value
+ SeeedOled.setTextXY(1, 2);
+ SeeedOled.putNumber(moistureStatus);
+ //3^ & 4^ rows: the temperature value
+ SeeedOled.setTextXY(2, 0);
+ SeeedOled.putString("Temperature (C):");
+ SeeedOled.setTextXY(3, 2);
+ SeeedOled.putString("        ");
+ SeeedOled.setTextXY(3, 2);
+ SeeedOled.putFloat(temperature);
+ //5^ & 6^ rows: the pressure value
+ SeeedOled.setTextXY(4, 0);
+ SeeedOled.putString("Pressure (hPa):");
+ SeeedOled.setTextXY(5, 2);
+ SeeedOled.putString("        ");
+ SeeedOled.setTextXY(5, 2);
+ SeeedOled.putFloat(pressure);
+ //7^ & 8^ rows: Last watering
+ SeeedOled.setTextXY(6, 0);
+ SeeedOled.putString("Last (min. ago):");
+ SeeedOled.setTextXY(7, 2);
+ SeeedOled.putString("        ");
+ SeeedOled.setTextXY(7, 2);
+ //milliseconds / 1000 -> seconds / 60 -> minutes
+ SeeedOled.putNumber(last_watering_ago / 1000 / 60); 
+```
+
+The result:
+
+![]()
+
+## Next Step
+
+Now we have a fully automated system that will help us taking care of our plants at home. If we want to power the board and all the components, included the pump or valve, using a singular power supply, we have to switch to a 12V one. The MKR Connector Carrier is already ready to this voltage: there's screw block in which we can attach external power supply (VIN and GND).
+
+In this simple schema you can find the power circuit and how to connect to it the relay and the pump.
+
+![]()
+
+The next improvements are then up to you! You could try to estimate the weather forecast upon the pressure variation! Or avoid watering if the temperature it too high. Or again, you could add a solar panel and a battery in order to have an off-grid system! And why not use the I2S combined to an uSD card to let your plants talk?
