@@ -365,6 +365,9 @@ The client Portenta Machine Control will utilize four digital programmable outpu
 
 Once the `counter` hits `50` and resets, it signifies the completion of one operation cycle. This process will continuously loop, using the digital outputs as a process cycle counter, displayed as a binary counter. The cyclic counter value is stored in the `server_opCycle`.
 
+
+![Arduino PLC IDE - Portenta Machine Control Client Global Variables](assets/pmc_plcide_client_globalVars.png)
+
 With this, we will compile and upload the main PLC code, the interface for the client Portenta Machine Control should mirror the image provided below:
 
 ![Arduino PLC IDE - Portenta Machine Control Client Main Code](assets/pmc_plcide_client_mainCode.png)
