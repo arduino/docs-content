@@ -115,6 +115,10 @@ To get started with MicroPython, please visit [MicroPython 101](/micropython-cou
 
 In this course, you will fundamental knowledge to get started, as well as a large selection of examples for popular third-party components.
 
+### Reset Your Board
+
+If you have installed MicroPython but wish to go back to classic Arduino / C++ programming, it is easy to do so. Simply **double tap** the **RESET** button on the board (there's only one button). The board will enter boot mode (you should see a pulsing green light), and will be visible in the Arduino IDE. 
+
 ## Arduino IoT Cloud
 
 Nano ESP32 is supported in the [Arduino IoT Cloud](https://create.arduino.cc/iot/) platform. You can connect to the cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
