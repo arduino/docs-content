@@ -1,4 +1,4 @@
 ---
 title: Greenhouse Kit
-certifications: [UKCA]
+certifications: [CE, UKCA]
 ---
