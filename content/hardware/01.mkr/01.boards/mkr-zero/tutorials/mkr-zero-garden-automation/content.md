@@ -2,7 +2,7 @@
 title: 'Home Gardening Automation with MKR Zero'
 difficulty: intermediate
 compatible-products: [mkr-zero]
-description: 'Do you like home gardening but you've never had a green thumb? This could be the right solution for you!'
+description: "Do you like home gardening but you've never had a green thumb? This could be the right solution for you!"
 author: 'Benjamin Dannegård'
 hardware:
   - hardware/01.mkr/01.boards/mkr-zero
