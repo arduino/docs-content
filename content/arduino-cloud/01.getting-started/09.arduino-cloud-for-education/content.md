@@ -224,7 +224,7 @@ Define the connection type you want to use with your board and click on **Next.*
 
 If the onboarding proceeds as expected, the following page will appear confirming that your device has been successfully set up.
 
-![successfully set up device](assets/congratulations-setup.png)
+![Successfully set up device](assets/congratulations-setup.png)
 
 The `Devices` tab displays the name, status, and linked `Things` for each of the configured devices. Clicking on the device allows for renaming it, as well as accessing more information about the device, such as its ID number, type, FQBN, serial number, firmware version, linked Thing, latest activity, and the date when the device was added.
 
