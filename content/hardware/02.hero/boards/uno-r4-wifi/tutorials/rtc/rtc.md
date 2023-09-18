@@ -262,6 +262,13 @@ To retrieve and store the current time, we can make a request to an NTP server, 
  
 <CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/RTC/examples/RTC_NTPSync/RTC_NTPSync.ino" className="arduino"/>
 
+Please also note that you will need to create a new tab called `arduino_secrets.h`. This is used to store your credentials. In this file, you will need to add:
+
+```arduino
+#define SECRET_SSID "" //network name
+#define SECRET_PASS "" //network password
+```
+
 ## Summary
 
 This tutorial shows how to use the RTC on the UNO R4 WiFi, such as setting a start time, setting an alarm, or obtaining time in calendar or unix format.
