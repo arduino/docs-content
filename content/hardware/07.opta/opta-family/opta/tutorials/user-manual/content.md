@@ -24,7 +24,7 @@ This user manual will provide a comprehensive overview of Opta™, covering its 
 
 - [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - USB-C® cable (x1)
-- 24 VDC/0.5 A power supply (x1)
+- +12-24 VDC/0.5 A power supply (x1)
 
 ### Software Requirements
 
@@ -36,9 +36,9 @@ This user manual will provide a comprehensive overview of Opta™, covering its 
 
 ## Opta™ Overview
 
-Opta™ is a secure micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IoT) capabilities. Developed in partnership with Finder®, this device supports both the Arduino programming language and standard IEC-61131-3 PLC programming languages, such as Ladder Diagram (LD), Sequential Function Chart (SFC), Function Block Diagram (FBD), Structured Text (ST), and Instruction List (IL), making it an ideal device for automation engineers.
+Opta™ is a secure micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IoT) capabilities. Developed in partnership with Finder®, this device supports both the Arduino programming language and standard IEC-61131-3 PLC programming languages, such as Ladder Diagram (LD), Sequential Function Chart (SFC), Function Block Diagram (FBD), Structured Text (ST), and Instruction List (IL), making it an ideal device for automation engineers. 
 
-![Opta™ (WiFi variant)](assets/user-manual-2_2.gif)
+![Opta™ DIN rail mounting (WiFi variant)](assets/user-manual-2_2.gif)
 
 Based on the STM32H747XI from STMicroelectronics®, a high-performance Arm® Cortex®-M7 + Cortex®-M4 microcontroller, Opta™ is a perfect option for a wide range of applications, from real-time control to predictive maintenance applications.
 
@@ -46,7 +46,7 @@ Based on the STM32H747XI from STMicroelectronics®, a high-performance Arm® Cor
 
 There are three variants of Opta™ created to fit the different needs of each industry and application. 
 
-![Opta™ Variants](assets/user-manual-23.png)
+![Opta™ Variants](assets/user-manual-23.png) 
 
 The difference between each of the variants can be found in the following table:
 
@@ -65,7 +65,7 @@ The main differences between each one of the variants are related to their conne
 
 Opta™ features a secure, certified, and durable design that enables it for automation and industrial applications. 
 
-![Opta™ WiFi main components](assets/user-manual_1.png)
+![Opta™ WiFi main components](assets/user-manual-1_2.png)
 
 Here's an overview of the device's main components shown in the image above:
 
@@ -77,8 +77,6 @@ Here's an overview of the device's main components shown in the image above:
 - **Analog and digital peripherals**: Opta™ features analog and digital peripherals such as eight analog/digital input ports and four digital outputs ports (relay outputs). 
 - **RS-485 connectivity**: Opta™ (RS485 and WiFi variants) features a physical RS-485 communication interface available through an onboard terminal connector that can be used for standard communication interfaces like Modbus RTU or custom communication protocols.
 - **Form factor**: Opta™ devices can be mounted standalone on a DIN rail, a grid, or a panel, providing quick and easy access to all input/output ports and peripherals.
-
-![Opta™ DIN rail mounting (WiFi variant)](assets/user-manual-2_3.gif)
 
 ### Opta™ Core and Libraries
 
@@ -100,7 +98,7 @@ The IEC 61131-3 programming languages include:
 - Sequential Function Chart (SFC)
 - Instruction List (IL)
 
-In the PLC IDE, you can mix PLC programming with standard Arduino sketches within the integrated sketch editor and share variables between the two environments. You can also automate tasks in your software applications; this gives you control over scheduling and repetition, enhancing the reliability and efficiency of your project. Moreover, communication protocols such as CANOpen, Modbus RTU, and Modbus TCP can be managed effortlessly using integrated no-code fieldbus configurators.
+In the PLC IDE, you can mix PLC programming with standard Arduino sketches within the integrated sketch editor and share variables between the two environments. You can also automate tasks in your software applications; this gives you control over scheduling and repetition, enhancing the reliability and efficiency of your project. Moreover, communication protocols such as Modbus RTU and Modbus TCP can be managed effortlessly using integrated no-code fieldbus configurators.
 
 Check out the following resources that will show you how to start with the Arduino PLC IDE and use use IEC 61131-3 programming languages with Opta™:
 
@@ -350,7 +348,7 @@ void readAndPrint(int terminal, int terminalNumber) {
 }
 ```
 
-## Status LEDs
+## LEDs
 
 Opta™ Lite and Opta™ RS485 devices have **four user-programmable LEDs**, and **Opta™ WiFi devices have an [extra one](#user-led-wifi-variant-only)**. 
 
@@ -423,8 +421,33 @@ void loop() {
 
 You should see a Knight Rider-style "scanning" effect with Opta's user LEDs.
 
-
 ![Opta™ Knight Rider scanning effect](assets/user-manual-21_2.gif)
+
+You also have another user-programmable LED located on top of the RESET button of the device; this green user LED is represented with the `LED_BUILTIN` macro and it is available in all Opta™ variants. 
+
+***The USER LED located above the USER BUTTON is only available on Opta™ WiFi (AFX00002).***
+
+The blink code that uses the green `LED_BUILTIN` LED is shown below:
+
+```arduino
+void setup() {
+  // Initialize LED_USER as an output 
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  // Turn the USER LED off
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  // Turn the USER LED on
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}
+```
+
+You should see the green LED on top of your device's RESET button turn on for one second, then off for one second, repeatedly. 
+
+![Opta™ blink with the the green RESET LED](assets/user-manual-19_2.gif)
 
 ## User Button
 
@@ -603,32 +626,6 @@ void loop() {
 }
 ```
 
-## User LED (WiFi Variant Only)
-
-With the Opta™ WiFi variant, you also have another user-programmable LED located on top of the USER button of the device; this blue user LED is represented with the `LED_USER` macro. The modified blink code that uses the blue `LED_USER` is shown below:
-
-```arduino
-void setup() {
-  // Initialize LED_USER as an output 
-  pinMode(LED_USER, OUTPUT);
-}
-
-void loop() {
-  // Turn the USER LED off
-  digitalWrite(LED_USER, HIGH);
-  delay(1000);
-  // Turn the USER LED on
-  digitalWrite(LED_USER, LOW);
-  delay(1000);
-}
-```
-
-You should see the blue LED on top of your device's USER button turn on for one second, then off for one second, repeatedly. 
-
-![Opta™ blink](assets/user-manual-20_2.gif)
-
-***The USER LED located above the USER BUTTON is only available on Opta™ WiFi (AFX00002).***
-
 ## Communication
 
 This user manual section covers the different communication interfaces and protocols supported by Opta™ devices, including the Ethernet, RS-485, Modbus, Wi-Fi®, and Bluetooth®.
@@ -638,14 +635,6 @@ This user manual section covers the different communication interfaces and proto
 Opta™ devices (all variants) feature an onboard low-power 10BASE-T/100BASE-TX Ethernet physical layer (PHY) transceiver. The transceiver complies with the IEEE 802.3 and 802.3u standards and supports communication with an Ethernet MAC through a standard RMII interface. The Ethernet transceiver is accessible through the onboard RJ45 connector.
 
 ![Onboard RJ45 connector in Opta™ devices](assets/user-manual-13.png)
-
-Some of the key capabilities of Opta's Ethernet transceiver are the following:
-
-
-- **Speed and duplex mode**: It can operate at 10 Mbps (10BASE-T) or 100 Mbps (100BASE-TX). It also features auto-negotiation, which means it can automatically determine the best speed and duplex mode for communication.
-- **HP Auto-MDIX**: This feature allows you to use a straight-through or crossover Ethernet cable.
-- **Wake on LAN (WoL)**: The device can be programmed to detect certain types of packets and trigger an interrupt.
-- **Cable diagnostics**: The transceiver can detect issues with the Ethernet cable and determine its location.
 
 The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box: the [`Ethernet` library](https://www.arduino.cc/reference/en/libraries/ethernet/). Let's use an example code demonstrating some of the transceiver's capabilities. 
 
@@ -769,7 +758,7 @@ You should see the following output in the Arduino IDE's Serial Monitor:
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-24_2.png)
 
-You can download the example code [here](assets/opta_ethernet_web_client.zip). To learn more about Ethernet connectivity in Opta devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
+You can download the example code [here](assets/opta_ethernet_web_client.zip).
 
 ### RS-485
 
@@ -1417,14 +1406,14 @@ You can download the example code [here](assets/opta_rtc_example.zip). To learn 
 
 ## Arduino IoT Cloud
 
-Opta™ WiFi variant is fully compatible with the [Arduino IoT Cloud](https://cloud.arduino.cc/), simplifying how professional applications are developed and tracked. By using the IoT Cloud, you can, for example, monitor your Opta's input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware OTA. 
+All Opta™ variants are fully compatible with the [Arduino IoT Cloud](https://cloud.arduino.cc/), simplifying how professional applications are developed and tracked. By using the IoT Cloud, you can, for example, monitor your Opta's input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware OTA. 
 
 In case it is the first time you are using the IoT Cloud:
 
 - To use the IoT Cloud, you need an account. If you do not have an account, create one for free here.
 - To use the Arduino Web Editor or IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent here.
 
-Let's walk through a step-by-step demonstration of how to use your Opta™ WiFi device with the IoT Cloud.
+Let's walk through a step-by-step demonstration of how to use an Opta™ device with the IoT Cloud.
 
 Log in to your IoT Cloud account; you should see the following:
 
