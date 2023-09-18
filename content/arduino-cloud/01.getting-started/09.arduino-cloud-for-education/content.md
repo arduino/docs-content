@@ -123,7 +123,7 @@ You can add members in **three possible ways**:
 
 3. **Copy pasting the link** and share it with the whole class.
 
-![Invite members through email](assets/add-member.png)
+![Invite members through email](assets/add-members.png)
 
 ### Role types
 
