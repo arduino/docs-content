@@ -960,7 +960,7 @@ The following example was created by Samantha Lagestee in 2017. Inspired by the 
 
 ```
 
-/\* Rick Roll Code
+/* Rick Roll Code
 AUTHOR: Samantha Lagestee
 Copyright 2017 samilagestee at gmail dot com
 
@@ -973,7 +973,7 @@ Copyright 2017 samilagestee at gmail dot com
     is not the creative property of the author. This code simply
     plays a Piezo buzzer rendition of the song.
 
-\*/
+*/
 
 #define a3f 208 // 208 Hz
 #define b3f 233 // 233 Hz
@@ -1068,7 +1068,7 @@ int song1_chorus_rhythmn[] =
 3, 3, 3, 1, 2, 2, 2, 4, 8, 4
 };
 
-char\* lyrics_chorus[] =
+char* lyrics_chorus[] =
 { "Never ", "", "gonna ", "", "give ", "you ", "up\r\n",
 "Never ", "", "gonna ", "", "let ", "you ", "down", "", "\r\n",
 "Never ", "", "gonna ", "", "run ", "around ", "", "", "", "and ", "desert ", "", "you\r\n",
@@ -1079,90 +1079,91 @@ char\* lyrics_chorus[] =
 
 void setup()
 {
-pinMode(piezo, OUTPUT);
-pinMode(led, OUTPUT);
-digitalWrite(led, LOW);
-Serial.begin(9600);
-flag = true;
-a = 4;
-b = 0;
-c = 0;
+  pinMode(piezo, OUTPUT);
+  pinMode(led, OUTPUT);
+  digitalWrite(led, LOW);
+  Serial.begin(9600);
+  flag = true;
+  a = 4;
+  b = 0;
+  c = 0;
 }
 
 void loop()
 {
-// edit code here to define play conditions
-/_
-if (CONDITION 1) { // play
-flag = true;
-}
-else if (CONDITION2) { // pause
-flag = false;
-}
-_/
-
-// play next step in song
-if (flag == true) {
-play();
-}
+  // edit code here to define play conditions
+  /*
+  if (CONDITION 1) { // play
+    flag = true;
+  }
+  else if (CONDITION2) { // pause
+    flag = false;
+  }
+  */
+  
+  // play next step in song
+  if (flag == true) {
+    play();
+  }
 }
 
 void play() {
-int notelength;
-if (a == 1 || a == 2) { // Intro
-// intro
-notelength = beatlength _ song1_intro_rhythmn[b];
-if (song1_intro_melody[b] > 0) { // if not a rest, play note
-digitalWrite(led, HIGH);
-tone(piezo, song1_intro_melody[b], notelength);
-}
-b++;
-if (b >= sizeof(song1_intro_melody) / sizeof(int)) {
-a++;
-b = 0;
-c = 0;
-}
-}
-else if (a == 3 || a == 5) { // Verse 1
-// verse
-notelength = beatlength _ 2 _ song1_verse1_rhythmn[b];
-if (song1_verse1_melody[b] > 0) {
-digitalWrite(led, HIGH);
-Serial.print(lyrics_verse1[c]);
-tone(piezo, song1_verse1_melody[b], notelength);
-c++;
-}
-b++;
-if (b >= sizeof(song1_verse1_melody) / sizeof(int)) {
-a++;
-b = 0;
-c = 0;
-}
-}
-else if (a == 4 || a == 6) { //chorus
-// chorus
-notelength = beatlength _ song1_chorus_rhythmn[b];
-if (song1_chorus_melody[b] > 0) {
-digitalWrite(led, HIGH);
-Serial.print(lyrics_chorus[c]);
-tone(piezo, song1_chorus_melody[b], notelength);
-c++;
-}
-b++;
-if (b >= sizeof(song1_chorus_melody) / sizeof(int)) {
-Serial.println("");
-a++;
-b = 0;
-c = 0;
-}
-}
-delay(notelength); // necessary because piezo is on independent timer
-noTone(piezo);
-digitalWrite(led, LOW);
-delay(notelength \* beatseparationconstant); // create separation between notes
-if (a == 7) { // loop back around to beginning of song
-a = 1;
-}
+  int notelength;
+  if (a == 1 || a == 2) { // Intro
+    // intro
+    notelength = beatlength * song1_intro_rhythmn[b];
+    if (song1_intro_melody[b] > 0) { // if not a rest, play note
+    digitalWrite(led, HIGH);
+    tone(piezo, song1_intro_melody[b], notelength);
+    }
+
+    b++;
+    if (b >= sizeof(song1_intro_melody) / sizeof(int)) {
+      a++;
+      b = 0;
+      c = 0;
+    }
+  } else if (a == 3 || a == 5) { // Verse 1
+    // verse
+    notelength = beatlength * 2 * song1_verse1_rhythmn[b];
+    if (song1_verse1_melody[b] > 0) {
+    digitalWrite(led, HIGH);
+    Serial.print(lyrics_verse1[c]);
+    tone(piezo, song1_verse1_melody[b], notelength);
+    c++;
+    }
+    b++;
+    if (b >= sizeof(song1_verse1_melody) / sizeof(int)) {
+    a++;
+    b = 0;
+    c = 0;
+    }
+  } else if (a == 4 || a == 6) { //chorus
+    // chorus
+    notelength = beatlength * song1_chorus_rhythmn[b];
+    if (song1_chorus_melody[b] > 0) {
+      digitalWrite(led, HIGH);
+      Serial.print(lyrics_chorus[c]);
+      tone(piezo, song1_chorus_melody[b], notelength);
+      c++;
+    }
+
+    b++;
+    if (b >= sizeof(song1_chorus_melody) / sizeof(int)) {
+      Serial.println("");
+      a++;
+      b = 0;
+      c = 0;
+    }
+  }
+
+  delay(notelength); // necessary because piezo is on independent timer
+  noTone(piezo);
+  digitalWrite(led, LOW);
+  delay(notelength * beatseparationconstant); // create separation between notes
+  if (a == 7) { // loop back around to beginning of song
+    a = 1;
+  }
 }
 ```
 
