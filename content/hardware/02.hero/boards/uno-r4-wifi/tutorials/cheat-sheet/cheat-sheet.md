@@ -499,7 +499,7 @@ The UNO R4 WiFi has an extended set of Serial methods that can be enabled whenev
 
 - `Serial.baud()` - Returns the baud rate **(int)** currently used.
 - `Serial.stopbits()` - Returns the number of stop bits **(int)** used in the communication.
-- `Serial.paritytype() - Returns the type of parity **(int)** used in the communication.
+- `Serial.paritytype()` - Returns the type of parity **(int)** used in the communication.
 - `Serial.numbits()` - Returns the number of data bits **(int)** used in the communication.
 - `Serial.dtr()` - Returns the status of the Data Terminal Ready (DTR) signal **(bool)** and also sets the- ignore_dtr flag to true if the DTR signal is actively used.
 - `Serial.rts()` - Returns the status of the Request to Send (RTS) signal **(bool)**.
