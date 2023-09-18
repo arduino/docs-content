@@ -199,7 +199,9 @@ Subsequent sections will delve into the setup of each Portenta Machine Control, 
 
 To configure the Portenta Machine Control as a Modbus TCP Server, navigate to the `Ethernet` tab found in the `Resources` panel of the PLC IDE. The `Modbus TCP Slave` mode is always enabled, so there is no need to adjust settings in this window. Yet, for the Portenta Machine Control to operate seamlessly with Modbus TCP, specific properties must be set.
 
-Here are the necessary Ethernet properties for the Modbus TCP Server Portenta Machine Control.
+Upon starting a new project file in the PLC IDE, Ethernet properties within the sketch might be commented out. To activate the necessary configurations, these lines should be uncommented. The sketch is located under `Resources` panel of the PLC IDE. After making these changes, the sketch should be uploaded to the Portenta Machine Control via the `Portenta Machine Control Configuration` window.
+
+The following are the necessary Ethernet properties within the sketch for the Modbus TCP Server Portenta Machine Control.
 
 ```arduino
 void setup()
@@ -216,7 +218,7 @@ void setup()
 
 The properties — such as `ip`, `dns`, `gateway`, and `subnet` — are used as arguments in the `Ethernet.begin()` method to determine the settings for Portenta Machine Control. These can be configured according to your preferences or network requirements. For instance, `ip(192, 168, 1, 2)` indicates the IP address given to the Modbus TCP Server Portenta Machine Control.
 
-Upon starting a new project file in the PLC IDE, some crucial lines within the sketch might be commented out. To activate the necessary configurations, these lines should be uncommented. After making these changes, the sketch should be uploaded to the Portenta Machine Control via the `Portenta Machine Control Configuration` window.
+***The __Ethernet.begin(ip, dns, gateway, subnet)__ method will delay initialization for 60 seconds if either the RJ45 cable is not connected or the Ethernet properties, like the IP address, are improperly configured. It can be extended using __Ethernet.begin(NULL, ip, dns, gateway, subnet, connection_timeout)__ method, where `connection_timeout` defines a timeout for establishing a Data Layer connection.***
 
 The subsequent image presents the `Status variables (volatile)` window. In this window, the `cnt` variable will be defined, where its access address and datatype will be specified for Modbus TCP communication.
 
