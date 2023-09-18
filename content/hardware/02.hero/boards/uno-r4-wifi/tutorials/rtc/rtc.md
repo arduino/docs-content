@@ -256,6 +256,12 @@ void alarm_cbk() {
 }
 ```
 
+## Network Time Protocol (NTP)
+
+To retrieve and store the current time, we can make a request to an NTP server, `pool.ntp.org`. This will retrieve the UNIX time stamp and store it in an `RTC` object. 
+ 
+<CodeBlock url="https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/RTC/examples/RTC_NTPSync/RTC_NTPSync.ino" className="arduino"/>
+
 ## Summary
 
 This tutorial shows how to use the RTC on the UNO R4 WiFi, such as setting a start time, setting an alarm, or obtaining time in calendar or unix format.
