@@ -214,7 +214,7 @@ If your device is compatible with Arduino IoT Cloud, you can start to **Setup yo
 
 The agent will start looking for your board. When your board has been found, the following screen will appear. Click on **Configure**.
 
-![set up board in the cloud](assets/setup-cloud-board.png)
+![Set up board in the cloud](assets/setup-cloud-board.png)
 
 Select a board name to be able to correctly identify your device and click on **Next**.  
 
