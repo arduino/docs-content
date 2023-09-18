@@ -161,13 +161,13 @@ On the left menu bar in https://cloud.arduino.cc/home/ are listed the Cloud apps
 
 
 
-![Cloud Apps](assets/leftsidebare.png)
+![Cloud Apps](assets/leftsidebar.png)
 
 With a *Free* *Plan* you have access both to Arduino Web Editor and Arduino IoT Cloud, with **different limitations**. We'll discuss more in details below what those limitations are.
 
 With a *Free Plan* you won't have access to Cloud Triggers, so you'll see something similar to this:
 
-![Triggers with a free plan](assets/triggers-free-plan.png)
+![Triggers with a free plan](assets/triggersfree-plan.png)
 
 If you want to unlock this function, you'll need to upgrade to a [School Plan](https://digital-store.arduino.cc/education/purchase).
 
@@ -201,7 +201,7 @@ Arduino IoT Cloud is an easy-to-use Internet of Things application platform. Ard
 In your IoT projects with Arduino you will need **three elements**:
 
 1. The [**Arduino IoT Cloud**](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
-2. The [**Arduino Create Agent**]:(https://create.arduino.cc/getting-started/plugin/welcome) the middle man between Arduino’s Web Editor, Arduino IoT Cloud and your computer. It allows you to use the browser to edit and deploy sketches to your Arduino board.
+2. The [**Arduino Create Agent**](https://create.arduino.cc/getting-started/plugin/welcome) the middle man between Arduino’s Web Editor, Arduino IoT Cloud and your computer. It allows you to use the browser to edit and deploy sketches to your Arduino board.
 3. **A device** of your choice.
 
 ### Setup a Device in Arduino IoT Cloud
@@ -275,7 +275,7 @@ You can go back to the Things tab and start filtering your Things according to t
 
 In order to retrieve and store information we need to create Variables in the Arduino IoT Cloud, they are very similar to the variables we create in a regular sketch. 
 
-![Variables associated to a Thing](assets/variables.png)
+![Variables associated to a Thing](assets/variable.png)
 
 When we create variables here, they are automatically generated in a sketch, and when we upload the code to the board, the variables used in the sketch synchronize with the variables in the cloud.
 
@@ -293,7 +293,7 @@ Dashboards are used to visualize real-time data and to enable direct interaction
 
 **Widgets** are the ‘building blocks’ of a dashboard, and are directly linked to our properties. They allow us to visualize the data we get from sensors. There are several different widgets: gauges, sliders, switches, color palettes, messenger and more.
 
-![Widgets Selection](assets/widgets.png)
+![Widgets Selection](assets/widget.png)
 
 If you want to learn more on how to customize your dashboard and widgets, check [this link](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets).
 
