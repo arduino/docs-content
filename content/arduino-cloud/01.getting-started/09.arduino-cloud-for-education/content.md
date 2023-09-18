@@ -62,7 +62,13 @@ In your Arduino Cloud *Free plan* comes with two **spaces** by default:
 ![Free courses in the Cloud](assets/my-cloud-space.png)
 
 
-* **My Cloud**. My Cloud is an *automatically* created private space once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class. This space is free and includes *two Things*, unlimited dashboards, 100 MB of sketch storage, and 1-day data retention by default.
+* **My Cloud**. My Cloud is an *automatically* created private space once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class. This space is free and includes
+
+  * *two Things*, 
+  * unlimited dashboards, 
+  * 100 MB of sketch storage, 
+  * 1-day data retention by default.
+
 * **New shared space**. A *shared space* is a space you can use with all your students. There is no limit in the number of members, who can all access the resources within its space.
 * **Join Space**. Here you copy and paste the space code that another admin or teacher shared with you to join their space. See image below:
 
@@ -81,7 +87,7 @@ Then you will be asked which type of Shared Space you want to create (i.e. For B
 
 Fill in additional information.
 
-![Fill in school information for the new Space](assets/fillinschoolinfo.png)
+![Fill in school information for the new Space](assets/fillschoolinfo.png)
 
 Congratulations! Now you own a Shared Space linked to your Arduino account.
 
@@ -91,7 +97,7 @@ You can switch to other Shared Spaces at any time using the corresponding menu, 
 
 ***With a Free Plan or School Plan there is no limitations in the number of Shared Space you can have.***
 
-![Switch between Space Menu](assets/my-school.png)
+![Switch between Space Menu](assets/my-school-share.png)
 
 ### Change Shared Space Settings
 
@@ -121,7 +127,7 @@ You can add members in **three possible ways**:
 
 ### Role types
 
-There are [three role types](https://cloud.arduino.cc/home/roles-permissions) in Arduino Cloud for Schools: 
+There are three role types in Arduino Cloud for Schools: 
 
 * Admin
 * Teacher
@@ -137,7 +143,7 @@ Important to remember are **Student role limitations:**
 * They are not allowed to assign members roles
 * They are not allowed to view the Plan Management and Payment information
 
-![school user roles differences](assets/users-roles.png)
+![school user roles differences](assets/user-roles.png)
 
 ***There is no limitation on the numbers of members you can add into a Shared Space.***
 
@@ -147,9 +153,13 @@ Important to remember are **Student role limitations:**
 
 On the left menu bar in https://cloud.arduino.cc/home/ are listed the Cloud apps:
 
-* Web Editor
-* IoT Cloud
-* Triggers
+| Arduino Cloud Apps | Free Plan | School Plan |
+| :----------------: | :-------: | :---------: |
+|     Web Editor     |     x     |      x      |
+|     IoT Cloud      |     x     |      x      |
+|      Triggers      |           |      x      |
+
+
 
 ![Cloud Apps](assets/leftsidebare.png)
 
@@ -173,9 +183,7 @@ A **lite version of the Web Editor** is included in the Arduino IoT Cloud, under
 
 ![Arduino IoT Cloud lite Editor](assets/gs-thing-editor.png)
 
-***The Arduino Cloud Free Plan allows a maximum online space to store your sketches and libraries of 100 MB and a maximum of 25 code compilations per day by default. 
-
- The Arduino Cloud School Plan allows unlimited online storage space and unlimited code compilations for your sketches.***
+***The Arduino Cloud Free Plan allows a maximum online space to store your sketches and libraries of 100 MB and a maximum of 25 code compilations per day by default. The Arduino Cloud School Plan allows unlimited online storage space and unlimited code compilations for your sketches.***
 
 You can check how many times you have left to verify and upload your program from the [Cloud home](https://cloud.arduino.cc/home/), on the `Feature Usage` menu on the left bottom corner.
 
