@@ -864,7 +864,11 @@ Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration w
 
 The many nodes connected in a Modbus network, whether RTU or TCP, allow high flexibility and scalability in constructing automation and control systems.
 
-To learn more about the Modbus interface in Opta™ devices, check out our [Getting Started with Modbus RTU on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu).
+To learn more about the Modbus interface in Opta™ devices, check out the following tutorials and application notes:
+
+- [Getting Started with Modbus RTU on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu).
+- [Modbus TCP On Opta™ Using PLC IDE](https://docs.arduino.cc/tutorials/opta/opta-modbus-tcp-plc-ide)
+- [Tank Level Monitoring with the Opta™](https://docs.arduino.cc/tutorials/opta/tank-level-app-note)
 
 ### Wi-Fi®
 
