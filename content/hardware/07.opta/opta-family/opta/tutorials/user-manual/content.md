@@ -847,8 +847,6 @@ void loop() {
 
 The sketch starts with the `configureRS485()` function, which initializes the RS-485 interface with the defined baud rate and turns off data receiving. The `printlnRS485()` function handles the transmission of text messages. It starts the transmission, sends the message followed by a carriage return and newline character, and ends the transmission. The `setup()` function calls the `configureRS485()` function to configure the RS-485 interface and then sends a confirmation message. The `loop()` function repeatedly sends a message every two seconds using the `printlnRS485()` function.
 
-To learn more about the RS-485 interface in Opta™ devices, check out our [Getting Started with RS-485 on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-rs485).
-
 ### Modbus (RTU/TCP)
 
 Opta™ RS485 and WiFi variants incorporate a built-in Modbus interface, enabling the implementation of robust and reliable data transmission systems. Modbus, in its RTU version that utilizes RS-485 serial transmission or in its TCP version that operates over Ethernet, remains one of the most widely used protocols for industrial automation applications, building management systems, and process control, among others.
@@ -863,12 +861,6 @@ Modbus RTU, generally operating in half-duplex mode, with its capability to hand
 Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration with existing computer networks and facilitates data communication over long distances using the existing network infrastructure. It operates in full-duplex mode, allowing simultaneous sending and receiving of data.
 
 The many nodes connected in a Modbus network, whether RTU or TCP, allow high flexibility and scalability in constructing automation and control systems.
-
-To learn more about the Modbus interface in Opta™ devices, check out the following tutorials and application notes:
-
-- [Getting Started with Modbus RTU on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu).
-- [Modbus TCP On Opta™ Using PLC IDE](https://docs.arduino.cc/tutorials/opta/opta-modbus-tcp-plc-ide)
-- [Tank Level Monitoring with the Opta™](https://docs.arduino.cc/tutorials/opta/tank-level-app-note)
 
 ### Wi-Fi®
 
@@ -1031,8 +1023,6 @@ Since the data is fetched only once, there's no need for repeatedly sending `HTT
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-17_2.png)
 
-You can download the example code [here](assets/opta_wifi_web_client_example.zip). To learn more about Wi-Fi® connectivity in Opta™ devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
-
 ### Bluetooth Low Energy®
 
 Opta™ WiFi variant devices feature an onboard Bluetooth Low Energy® module, which supports Bluetooth 5.1 BR/EDR/LE up to 3 Mbps PHY data rate. Bluetooth 4.2 is supported by Arduino firmware.
@@ -1171,8 +1161,6 @@ You should be able now to connect to your Opta™ using a central device. The Bl
 
 ![Bluetooth® Low Energy service and characteristic information from an Opta™ device](assets/user-manual-14.png)
 
-To learn more about Bluetooth Low Energy® connectivity in Opta™ devices, check out our [Bluetooth® Low Energy, Wi-Fi® and Ethernet on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity).
-
 ## Interrupts
 
 **Opta's analog/digital programmable inputs and user-programmable button are interrupt capable**. An interrupt is a signal that prompts Opta's microcontroller to stop its current execution and start executing a special routine known as the Interrupt Service Routine (ISR). Once the ISR finishes, the microcontroller resumes executing its previous routine.
@@ -1278,8 +1266,6 @@ void changeLights() {
 ```
 
 **Note**: The example code above employs a "debouncing" technique to ensure that the user button press is recognized as a singular event despite any rapid electrical fluctuations that can occur when physically pressing the button. Upon detecting a press through an interrupt, the sketch waits for a brief interval (150 milliseconds, set by the `debounceDelay` variable) before processing the press. This delay ensures that any additional "noise" or fluctuations don't trigger multiple registrations of the same press, ensuring precise LED sequencing operation.
-
-To learn more about interrupts in Opta™ devices, check out our [Getting Started with Interrupts on Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-with-interrupts).
 
 ## Real-Time Clock (RTC)
 
