@@ -1023,6 +1023,8 @@ Since the data is fetched only once, there's no need for repeatedly sending `HTT
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-17_2.png)
 
+You can download the example code [here](assets/opta_wifi_web_client_example.zip).
+
 ### Bluetooth Low Energy®
 
 Opta™ WiFi variant devices feature an onboard Bluetooth Low Energy® module, which supports Bluetooth 5.1 BR/EDR/LE up to 3 Mbps PHY data rate. Bluetooth 4.2 is supported by Arduino firmware.
