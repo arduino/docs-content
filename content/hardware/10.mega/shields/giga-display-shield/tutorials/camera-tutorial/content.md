@@ -15,11 +15,10 @@ The GIGA Display Shield comes with an Arducam camera connector. In this tutorial
 - [Arduino GIGA Display Shield]()
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - HM01B0, HM0360, GC2145 or OV7675 camera
-- [Arducam_dvp library](https://www.arduino.cc/reference/en/libraries/arducam_dvp/)
 
 ## Downloading the Library and Core
 
-The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the core. Now open the library tab on the left, search for **Arducam_dvp**, and install this library.
+The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the core. Now open the library tab on the left, search for [**Arducam_dvp**](https://www.arduino.cc/reference/en/libraries/arducam_dvp/), and install this library.
 
 ![Library tab in the Arduino IDE](assets/ide-library.svg)
 
@@ -29,8 +28,8 @@ The GIGA Display Shield is compatible with the following cameras:
 
 - [HM01B0](https://www.arducam.com/product/hm01b0-qvga-monochrome-dvp-camera-module-for-arduino-giga-r1-wifi-board/)
 - [HM0360](https://www.arducam.com/product/hm0360-vga-monochrome-dvp-camera-module-for-arduino-giga-r1-wifi-board/)
-- [GC2145]
-- [OV7675]
+- [GC2145](https://www.arducam.com/product/2mp-gc2145-color-dvp-camera-module-for-arduino-giga-r1-wifi-board/)
+- [OV7675](https://store.arduino.cc/products/arducam-camera-module?queryID=undefined)
 
 Connect the camera to the connector on the front of the display shield as shown in the image below.
 
@@ -156,4 +155,3 @@ void loop() {
 ## Conclusion
 
 This tutorial went through how to connect a compatible camera to the shield and also how to test it out quickly with the example sketch included in the core. Now you should see a live feed from the camera on your GIGA Display Shield!
-
