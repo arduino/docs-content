@@ -511,6 +511,8 @@ Supported links:
 
 ## USB HID
 
+***Please note that due to how the USB port is implemented on the UNO R4 WiFi, when using HID the board may show up as a different USB port. If this happens, simply double-tap the reset button, and select your board again.***
+
 This board can act as an HID (keyboard/mouse) and send keystrokes or coordinates to your computer via native USB.
 
 ```arduino
