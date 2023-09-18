@@ -369,16 +369,6 @@ As shown in the image below you can either send it directly to the user's *email
 
 You can check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/sharing-dashboards) to learn more about sharing a dashboard.
 
-### Cloud Triggers
-
-![cloud triggers with school plan](assets/available_triggers.png)
-
-Triggers are used in many IoT projects to monitor specific variables within your Things and receive notifications.  This is super useful when you monitor data and you need to know about any change as soon as it happens. This could be anything from different values in environmental monitoring or something security related such as movement detection. 
-
-***With a School Plan you have 10 notifications per day for 10 members of your Shared Space. There is no limitations on how many triggers you can create for your projects and you can combine them together.***
-
-To learn how to use triggers that allow you to send notifications based on set conditions, [read this tutorial](https://docs.arduino.cc/arduino-cloud/features/triggers).
-
 ### Google Classroom Integration
 
 With a *School plan* any educator that is part of a Shared Space can create assignments and share a sketch directly from the Arduino Web Editor, that is part of the Arduino Cloud apps.
@@ -389,15 +379,7 @@ It is also possible to share the content of a course or give it as an assignment
 
 ![Share content with Google Classroom](assets/google-classroom-content-share.png)
 
-### Arduino Cloud API
 
-For more customizable IoT projects, the *School Plan* gives full access to Arduino IoT Cloud back-end, offering to control Things and Devices via Arduino rest APIs in [JavaScript](https://www.npmjs.com/package/@arduino/arduino-iot-client), [Python](https://pypi.org/project/arduino-iot-client/), or [Go](https://github.com/arduino/iot-client-go). With Arduino rest APIs, you can send and receive data from external services or web properties, personalizing your school projects. You will be able to manage up to **10 requests per second**, guaranteeing stable data sharing.
-
-To use the APIs, you need to create an API Key Token in the API Keys section of your Space.
-
-![Create API key from your Space](assets/api-keys.png)
-
-If you want to start creating your own API Keys Token, take a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).
 
 ### Over-the-air Uploads
 
