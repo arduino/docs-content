@@ -424,6 +424,18 @@ And to write something, we can use the following command:
 Serial1.write("Hello world!");
 ```
 
+### Serial Event
+
+The [serialEvent()](https://www.arduino.cc/reference/en/language/functions/communication/serial/serialevent/) method is supported on older revisions of the UNO board, but **not** on the UNO R4 boards (or any other newer Arduino boards).
+
+However, as this method is only used to detect serial data and execute a function, you can also use `Serial.available()` to detect when new data is available:
+
+```arduino
+if(Serial.available() > 0) {
+  //code goes here
+}
+```
+
 ## USB HID
 
 This board can act as an HID (keyboard/mouse) and send keystrokes or coordinates to your computer via native USB.
