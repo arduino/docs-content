@@ -238,7 +238,7 @@ To use a device in IoT Cloud, you need to [create a Thing](https://create.arduin
 
 To create a Thing, click on **Create Thing** next to the device of your interest, and your Thing will be automatically created for you. 
 
-![create a thing from device tab](assets/create-a-thing.png "Create Thing button")
+![Create a thing from device tab](assets/create-a-thing.png "Create Thing button")
 
 If you want to explore more on how Things work, check [here](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#3-creating-a-thing).
 
