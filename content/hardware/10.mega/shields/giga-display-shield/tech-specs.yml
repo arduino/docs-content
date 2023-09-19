@@ -17,9 +17,7 @@ Sensors:
 Pins:
   LED: 1 RGB LED (I2C)
 Power:
-  Circuit operating voltage: 
-  Input voltage (VIN): 
-  DC Current per I/O Pin: 
+  Circuit operating voltage: 3.3V
 Dimensions:
-  Width: 
-  Length: 
+  Width: 80 mm
+  Length: 106 mm
