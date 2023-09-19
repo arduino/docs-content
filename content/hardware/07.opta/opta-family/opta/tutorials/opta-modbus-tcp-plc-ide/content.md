@@ -140,9 +140,11 @@ We highly recommend reviewing [this tutorial](https://docs.arduino.cc/tutorials/
 
 To configure the Modbus TCP communication, we need to know the IP address of each Opta™. When Opta™ is connected to a computer using the RJ-45 cable and the Ethernet switch, and the ethernet configuration is left as default, an IP address is automatically provided to Opta™ by the external *Dynamic Host Configuration Protocol (DHCP)* server. You will need to scan for the address and use that IP address as the device address of Opta™. To find the automatically assigned IP address, it is possible to use this [scanner](https://angryip.org/) to identify the address.
 
-Opta™ can also be configured manually with a specific IP address. This method is viable to assign devices with specific addresses to operate under certain policies if required. For this configuration, the IP setting must be defined by using the sketch found within the `Resources` tab of the PLC IDE. The following image shows what the configuration could look like inside the sketch.
+Opta™ can also be configured manually with a specific IP address using __Ethernet.begin()__ method. This method is viable to assign devices with specific addresses to operate under certain policies if required. For this configuration, the IP setting must be defined by using the sketch found within the `Resources` tab of the PLC IDE. The following image shows what the configuration could look like inside the sketch.
 
 ![Opta™ Manual IP Configuration](assets/opta_plcide_ipconfig.png)
+
+***The __Ethernet.begin(ip, dns, gateway, subnet)__ method postpones initialization for 60 seconds when the RJ45 cable is found to be disconnected or when Ethernet settings, such as the IP address, are improperly configured. The __Ethernet.begin(NULL, ip, dns, gateway, subnet, connection_timeout)__ method can be used to extend initialization process and tweak the `connection_timeout` value. This parameter sets the timeout period for the Data Layer connection to be established.***
 
 If the IP address for Opta™ is set manually, it is necessary to configure the Ethernet interface on your computer by introducing a manual IP address setting under *IPv4*. The information set under the IPv4 configuration follows the gateway setting. A stable connection with Opta™ using the PLC IDE is essential for project development. The following image shows a configuration example on Windows 11 operating system:
 
@@ -207,9 +209,11 @@ In the sections that follow, the configuration of each Opta™, based on its des
 #### Modbus TCP Server Opta™
 <br></br>
 
-To set Opta™ as a Modbus TCP Server, navigate to the `Ethernet` tab located in the `Resources` panel of the PLC IDE. Since the `Modbus TCP Slave` mode is always enabled, you don't have to change any setting in the current window. However, certain properties are essential for Opta™ to work properly with Modbus TCP, thus it requires the subsequent configuration.
+To set Opta™ as a Modbus TCP Server, navigate to the `Ethernet` tab located in the `Resources` panel of the PLC IDE. Since the `Modbus TCP Slave` mode is always enabled, you don't have to change any setting in the current window. Ethernet properties are essential for Opta™ to work properly with Modbus TCP, thus it requires a proper Ethernet configuration.
 
-The Modbus TCP Server Opta™ will employ the following Ethernet properties.
+When initializing a project file in PLC IDE, Ethernet properties within the sketch are commented out. These lines should be uncommented to activate the configurations. Once this is done, the sketch should be manually downloaded to Opta™ through the `Opta™ Configuration` window.
+
+The Modbus TCP Server Opta™ will employ the following Ethernet properties within the sketch.
 
 ```arduino
 
@@ -226,8 +230,6 @@ void setup()
 ```
 
 These properties — `ip`, `dns`, `gateway`, and `subnet` — are provided as arguments to the `Ethernet.begin()` method, setting its properties for Opta™. It can be adjusted as per your preference or based on network prerequisites. For instance, `ip(192, 168, 1, 2)` denotes the IP address assigned to the Modbus TCP Server Opta™.
-
-When initializing a project file in PLC IDE, certain essential lines within the sketch are commented out. These lines should be uncommented to activate the configurations. Once this is done, the sketch should be manually downloaded to Opta™ through the `Opta™ Configuration` window.
 
 The following image shows the `Status variables (volatile)` window. Here, we will define the `cnt` variable, assigning its access address and datatype for Modbus TCP transmission.
 
