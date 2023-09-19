@@ -93,7 +93,7 @@ One of the many features of the Portenta Max Carrier is the Murata CMWX1ZZABZ-07
 
 The appropriate antenna and frequencies depend on the region. The common frequencies are 915 MHz for North America and Australia and 863 MHz for the European region. Frequencies are on a range, so for example in the Australia region it is possible to use a 928 MHz compatible antenna and configuration.
 
-For more in-depth information about LoRa® and LoRaWAN®, please read [The Arduino Guide to LoRa® and LoRaWAN®](https://docs.arduino.cc/learn/communication/lorawan-101).
+For more in-depth information about LoRa® and LoRaWAN®, please read [The Arduino Guide to LoRa® and LoRaWAN®](/learn/communication/lorawan-101).
 
 ### Ethernet
 
