@@ -1,7 +1,7 @@
 ---
 title: UNO R3
 url_shop: https://store.arduino.cc/arduino-uno-rev3
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-avr
+url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#avr
 core: arduino:avr
 certifications: [CE, FCC, GB4943, IC, RCM, REACH, RoHS, UKCA, WEEE]
 productCode: '001'

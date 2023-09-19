@@ -1,5 +1,5 @@
 ---
-title: 'Using the Board Manager'
+title: 'Getting Started - Core Installation'
 difficulty: beginner
 description: 'Learn how the new board manager tool works, and how to easily install the boards you want to use in the Arduino IDE 2.'
 tags:
@@ -29,6 +29,97 @@ What a core does is to act as a layer between all of this microcontroller-specif
 For example, an Arduino UNO has an **ATmega328P**, which uses the **AVR core**, while an Arduino Nano 33 IoT has a **SAMD21** microcontroller, where we need to use the **SAMD core**. However, regardless of what microcontroller is on the board we are using, `digitalWrite(LED_BUILTIN, HIGH)` will turn on the built-in LED, and `analogRead(A0)` will read the analog pin 0 and check for a voltage.
 
 In conclusion, to use a specific board, we need to install a specific core. 
+
+
+## What Core Should I Install?
+
+Do you have an Arduino board in your hands, but are not sure what core you need to install? When you plug a board in to your computer, and you don't have the appropriate core installed, the IDE should automatically prompt you to install it. But, in case you need it anyways, you can find a list of boards and the core packages they belong to below:
+
+### AVR
+- [UNO R3](/hardware/uno-rev3)
+- [UNO R3 SMD](/hardware/uno-rev3-smd)
+- [UNO Mini Limited Edition](/hardware/uno-mini-le)
+- [Leonardo](/hardware/leonardo)
+- [Micro](/hardware/micro)
+- [Nano](/hardware/nano)
+- [Mega 2560](/hardware/mega-2560)
+
+The AVR core comes pre-installed when you download the Arduino IDE, so if you have one of these boards - Great! You're already done and won't need to install it yourself. You can, however, still find it in the board manager if you want to change what version of the core you have installed. 
+
+### MegaAVR
+- [UNO WiFi Rev2](/hardware/uno-wifi-rev2)
+- [Nano Every](/hardware/nano-every)
+
+To install the **MegaAVR** core, follow the [steps detailed below](#installing-a-core), but search for "**MegaAVR**".
+
+### UNO R4 
+- [UNO R4 Minima](/hardware/uno-r4-minima)
+- [UNO R4 WiFi](/hardware/uno-r4-wifi)
+
+To install the **UNO R4** core, follow the [steps detailed below](#installing-a-core), but search for "**UNO R4**".
+
+### SAM
+- [Due](/hardware/due)
+
+To install the **SAM** core, follow the [steps detailed below](#installing-a-core), but search for "**SAM**".
+
+### SAMD
+- [Zero](/hardware/zero)
+- [Nano 33 IoT](/hardware/nano-33-iot)
+- [MKR 1000 WiFi](/hardware/mkr-1000-wifi)
+- [MKR Zero](/hardware/mkr-zero)
+- [MKR WiFi 1010](/hardware/mkr-wifi-1010)
+- [MKR FOX 1200](/hardware/mkr-fox-1200)
+- [MKR WAN 1300](/hardware/mkr-wan1300)
+- [MKR WAN 1310](/hardware/mkr-wan1310)
+- [MKR GSM 1400](/hardware/mkr-gsm-1400)
+- [MKR NB 1500](/hardware/mkr-nb-1500)
+- [MKR Vidor 4000](/hardware/mkr-vidor-4000)
+
+To install the **SAMD** core, follow the [steps detailed below](#installing-a-core), but search for "**SAMD**".
+
+### Mbed OS GIGA 
+- [GIGA R1 WiFi](/hardware/giga-r1-wifi)
+
+To install the **Mbed OS GIGA** core, follow the [steps detailed below](#installing-a-core), but search for "**Mbed OS GIGA**".
+
+### Mbed OS Nano
+- [Nano RP2040 Connect](/hardware/nano-rp2040-connect)
+- [Nano 33 BLE](/hardware/nano-33-ble)
+- [Nano 33 BLE Sense](/hardware/nano-33-ble-sense)
+- [Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2)
+
+To install the **Mbed OS Nano** core, follow the [steps detailed below](#installing-a-core), but search for "**Mbed OS Nano**".
+
+### Mbed OS Portenta
+- [Portenta H7](/hardware/portenta-h7)
+- [Portenta H7-lite](/hardware/portenta-h7-lite)
+- [Portenta H7-lite-connected](/hardware/portenta-h7-lite-connected)
+- [Portenta X8](/hardware/portenta-x8)
+
+To install the **Mbed OS Portenta** core, follow the [steps detailed below](#installing-a-core), but search for "**Mbed OS Portenta**".
+
+### Mbed OS Nicla
+- [Nicla Sense ME](/hardware/nicla-sense-me)
+- [Nicla Vision](/hardware/nicla-vision)
+- [Nicla Voice](/hardware/nicla-voice)
+
+To install the **Mbed OS Nicla** core, follow the [steps detailed below](#installing-a-core), but search for "**Mbed OS Nicla**".
+
+### Mbed OS Edge boards
+- [Edge Control](/hardware/edge-control)
+
+To install the **Mbed OS Edge** core, follow the [steps detailed below](#installing-a-core), but search for "**Mbed OS Edge**".
+
+### Renesas Portenta
+- [Portenta C33](/hardware/portenta-c33)
+
+To install the **Renesas Portenta** core, follow the [steps detailed below](#installing-a-core), but search for "**Renesas Portenta**".
+
+### ESP32
+- [Nano ESP32](/hardware/nano-esp32)
+
+To install the **ESP32** core, follow the [steps detailed below](#installing-a-core), but search for "**ESP32**".
 
 ## Installing a Core
 

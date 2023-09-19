@@ -1,7 +1,7 @@
 ---
 title: Due
 url_shop: https://store.arduino.cc/arduino-due
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-sam
+url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#sam
 core: arduino:sam
 forumCategorySlug: '/hardware/arduino-due/64'
 productCode: '009'
