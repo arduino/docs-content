@@ -116,7 +116,7 @@ The Portenta Max Carrier and the Portenta X8 are connected with High Density con
 
 If you wish to use the Portenta X8 and Max Carrier with the Arduino IDE, please follow our [Uploading sketches to Arduino Portenta X8 tutorial](/tutorials/portenta-x8/uploading-sketches-m4). Also, make sure that you have the latest version of the Portenta Core installed. Go to **Tools > Boards > board manager...** and search for **Arduino Mbed OS Portenta boards**. When this is installed and your Portenta X8 board is connected to the computer, the board should be assigned a port in the Arduino IDE.
 
-If you want to use the Portenta X8 and Max Carrier with a FoundriesFactory, Python® scripts and Linux containers, Please take a look at our [Portenta X8 User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual). You may also find our tutorial on how to [manage dockers on the Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/docker-container) useful.
+If you want to use the Portenta X8 and Max Carrier with a FoundriesFactory, Python® scripts and Linux containers, Please take a look at our [Portenta X8 User Manual](/tutorials/portenta-x8/01.user-manual). You may also find our tutorial on how to [manage dockers on the Portenta X8](/tutorials/portenta-x8/05.docker-container) useful.
 
 ## Quick Reference Tables for the Portenta Max Carrier
 
