@@ -130,9 +130,11 @@ We highly recommend reviewing [this tutorial](https://docs.arduino.cc/tutorials/
 
 To establish Modbus TCP communication, it is necessary to identify the IP address of each Portenta Machine Control device. When you connect the Portenta Machine Control to a computer using an RJ-45 cable via an Ethernet port with standard ethernet settings, it automatically obtains an IP address from the external *Dynamic Host Configuration Protocol (DHCP)* server. To locate these auto-assigned IP addresses, utilizing tools like this [scanner](https://angryip.org/) can prove invaluable.
 
-It is also feasible to assign a custom IP address to the Portenta Machine Control. This approach is especially useful when specific addresses need to be designated due to particular operational criteria. To achieve this, we will employ the sketch located in the `Resources` tab of the PLC IDE. An attached image offers an overview of the setup possibilities within the sketch.
+It is also feasible to assign a custom IP address with desired properties to the Portenta Machine Control using __Ethernet.begin()__  method. This approach is especially useful when specific addresses need to be designated due to particular operational criteria. To achieve this, we will employ the sketch located in the `Resources` tab of the PLC IDE. An attached image offers an overview of the setup possibilities within the sketch.
 
 ![Portenta Machine Control Manual IP Configuration](assets/pmc_plcide_ipconfig.png)
+
+***The __Ethernet.begin(ip, dns, gateway, subnet)__ method will delay initialization for 60 seconds if either the RJ45 cable is not connected or the Ethernet properties, like the IP address, are improperly configured. It can be extended using __Ethernet.begin(NULL, ip, dns, gateway, subnet, connection_timeout)__ method, where `connection_timeout` defines a timeout for establishing a Data Layer connection.***
 
 If opting to manually set the IP address for the Portenta Machine Control, it is also necessary to adjust the computer's Ethernet interface in the *IPv4* settings. The information input in the IPv4 configurations should correspond to the gateway settings. Ensuring a stable connection to the Portenta Machine Control via the PLC IDE is pivotal for a successful project execution. Below, an illustrative setup is depicted for the Windows 11 operating system:
 
@@ -217,8 +219,6 @@ void setup()
 ```
 
 The properties — such as `ip`, `dns`, `gateway`, and `subnet` — are used as arguments in the `Ethernet.begin()` method to determine the settings for Portenta Machine Control. These can be configured according to your preferences or network requirements. For instance, `ip(192, 168, 1, 2)` indicates the IP address given to the Modbus TCP Server Portenta Machine Control.
-
-***The __Ethernet.begin(ip, dns, gateway, subnet)__ method will delay initialization for 60 seconds if either the RJ45 cable is not connected or the Ethernet properties, like the IP address, are improperly configured. It can be extended using __Ethernet.begin(NULL, ip, dns, gateway, subnet, connection_timeout)__ method, where `connection_timeout` defines a timeout for establishing a Data Layer connection.***
 
 The subsequent image presents the `Status variables (volatile)` window. In this window, the `cnt` variable will be defined, where its access address and datatype will be specified for Modbus TCP communication.
 
