@@ -253,7 +253,7 @@ void setup() {
 
   // Enable analog inputs on Opta
   // Set the resolution of the ADC to 12 bits.
-  analogReadResolution(12); 
+  analogReadResolution(12);
 }
 
 void loop() {
@@ -273,7 +273,7 @@ void readAndPrint(int terminal, int terminalNumber) {
 
   // Convert the terminal value to its corresponding voltage. 
   float voltage = terminalValue * (VOLTAGE_MAX / RESOLUTION) / DIVIDER;
-  
+
   // Print the terminal value and its corresponding voltage.
   Serial.print("I");
   Serial.print(terminalNumber);
@@ -294,7 +294,7 @@ The input voltage range for each digital input terminal is the following:
 
 The input terminals can be used through the built-in functions of the [Arduino programming language](https://www.arduino.cc/reference/en/). To use the input terminals as digital inputs:
 
-- Add the `pinMode(pinName, INPUT)` instruction in your sketch's `setup()` function. 
+- Add the `pinMode(pinName, INPUT)` instruction in your sketch's `setup()` function.
 
 The sketch below shows how to monitor digital states on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets them as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor real-time changes.
 
@@ -302,7 +302,7 @@ The sketch below shows how to monitor digital states on Opta's input terminals `
 /**
   Opta's Digital Input Terminals
   Name: opta_digital_inputs_example.ino
-  Purpose: This sketch demonstrates the use of I1, I2, and I3 input 
+  Purpose: This sketch demonstrates the use of I1, I2, and I3 input
   terminals as digital inputs on Opta.
 
   @author Arduino PRO Content Team
@@ -862,6 +862,12 @@ Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration w
 
 The many nodes connected in a Modbus network, whether RTU or TCP, allow high flexibility and scalability in constructing automation and control systems.
 
+To learn more about the Modbus interface in Opta™ devices, check out the following tutorials and application notes:
+
+- [Getting Started with Modbus RTU on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu).
+- [Modbus TCP On Opta™ Using PLC IDE](https://docs.arduino.cc/tutorials/opta/opta-modbus-tcp-plc-ide)
+- [Tank Level Monitoring with the Opta™](https://docs.arduino.cc/tutorials/opta/tank-level-app-note)
+
 ### Wi-Fi®
 
 Opta™ WiFi variant devices feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing Opta™ to connect to Wi-Fi® networks and interact with other devices over-the-air (OTA).
@@ -870,7 +876,7 @@ Some of the key capabilities of Opta™'s onboard Wi-Fi® module are the followi
 
 - **Wireless connectivity**: The onboard Wi-Fi® module supports IEEE 802.11b/g/n Wi-Fi® standards, enabling devices to establish reliable and high-speed wireless connections to access the Internet and communicate with other devices.
 - **Secure communication**: The onboard module incorporates various security protocols such as WEP, WPA, WPA2, and WPA3, ensuring robust data encryption and protection against unauthorized access during wireless communication.
-- **Onboard antenna**: Opta™ WiFi devices feature an onboard  Wi-Fi® antenna specifically designed, matched, and certified for the onboard Wi-Fi® module requirements. 
+- **Onboard antenna**: Opta™ WiFi devices feature an onboard  Wi-Fi® antenna specifically designed, matched, and certified for the onboard Wi-Fi® module requirements.
 
 The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module right out of the box: the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/). Let's walk through an example code demonstrating some of the module's capabilities.
 
