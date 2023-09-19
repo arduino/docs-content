@@ -864,7 +864,7 @@ The many nodes connected in a Modbus network, whether RTU or TCP, allow high fle
 
 To learn more about the Modbus interface in Opta™ devices, check out the following tutorials and application notes:
 
-- [Getting Started with Modbus RTU on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu).
+- [Getting Started with Modbus RTU on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu)
 - [Modbus TCP On Opta™ Using PLC IDE](https://docs.arduino.cc/tutorials/opta/opta-modbus-tcp-plc-ide)
 - [Tank Level Monitoring with the Opta™](https://docs.arduino.cc/tutorials/opta/tank-level-app-note)
 
