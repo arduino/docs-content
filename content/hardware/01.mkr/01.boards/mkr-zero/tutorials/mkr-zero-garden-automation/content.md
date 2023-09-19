@@ -6,7 +6,7 @@ description: "Do you like home gardening but you've never had a green thumb? Thi
 tags:
   - Automation
   - Gardening
-author: 'Benjamin Dannegård'
+author: 'Arduino'
 hardware:
   - hardware/01.mkr/01.boards/mkr-zero
 software:
