@@ -134,7 +134,7 @@ It is also feasible to assign a custom IP address with desired properties to the
 
 ![Portenta Machine Control Manual IP Configuration](assets/pmc_plcide_ipconfig.png)
 
-***The __Ethernet.begin(ip, dns, gateway, subnet)__ method will delay initialization for 60 seconds if either the RJ45 cable is not connected or the Ethernet properties, like the IP address, are improperly configured. It can be extended using __Ethernet.begin(NULL, ip, dns, gateway, subnet, connection_timeout)__ method, where `connection_timeout` defines a timeout for establishing a Data Layer connection.***
+***The __Ethernet.begin(ip, dns, gateway, subnet)__ method will delay initialization for 60 seconds if either the RJ45 cable is not connected or the Ethernet properties, like the IP address, are misconfigured. This behavior can be modified with the __Ethernet.begin(NULL, ip, dns, gateway, subnet, connection_timeout)__ method by adjusting the `connection_timeout` argument. This parameter defines the timeout for establishing a Data Layer connection.***
 
 If opting to manually set the IP address for the Portenta Machine Control, it is also necessary to adjust the computer's Ethernet interface in the *IPv4* settings. The information input in the IPv4 configurations should correspond to the gateway settings. Ensuring a stable connection to the Portenta Machine Control via the PLC IDE is pivotal for a successful project execution. Below, an illustrative setup is depicted for the Windows 11 operating system:
 
