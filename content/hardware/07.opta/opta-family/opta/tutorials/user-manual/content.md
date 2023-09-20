@@ -11,8 +11,11 @@ author: 'José Bagur and Julián Caro Linares'
 hardware:
   - hardware/07.opta/opta-family/opta
 software:
+  - ide-v1
   - ide-v2
+  - arduino-cli
   - web-editor
+  - plc-ide
   - iot-cloud
 ---
 
@@ -350,7 +353,7 @@ void readAndPrint(int terminal, int terminalNumber) {
 
 ## LEDs
 
-Opta™ Lite and Opta™ RS485 devices have **four user-programmable LEDs**, and **Opta™ WiFi devices have an [extra one](#user-led-wifi-variant-only)**. 
+Opta™ Lite and Opta™ RS485 devices have **four user-programmable LEDs**, and **Opta™ WiFi devices have an [extra one](#leds)**. 
 
 ![User-programmable LEDs in Opta™ devices](assets/user-manual-10.png)
 
