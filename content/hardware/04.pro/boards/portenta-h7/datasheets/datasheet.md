@@ -281,7 +281,7 @@ Laboratory equipment, Computer vision
          <td>QSPI Flash</td>
          <td>16 MByte</td>
       </tr>
-   <tbody>
+   </tbody>
 </table>
 
 ### USB
@@ -312,7 +312,7 @@ Laboratory equipment, Computer vision
          <td>DisplayPort</td>
          <td style="text-align: right">H7 full</td>
       </tr>
-   <tbody>
+   </tbody>
 </table>
 
 ### HD Connectors
@@ -369,7 +369,7 @@ Laboratory equipment, Computer vision
       <tr>
          <td>8x ADC inputs with separate VREF</td>
       </tr>
-   <tbody>
+   </tbody>
 </table>
 
 ### Crypto Chip
@@ -432,7 +432,7 @@ Laboratory equipment, Computer vision
       <tr>
          <td>Guaranteed unique 72-bit serial number</td>
       </tr>
-   <tbody>
+   </tbody>
 </table>
 
 ### Secure Element
