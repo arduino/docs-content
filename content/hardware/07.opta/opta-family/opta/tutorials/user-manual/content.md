@@ -16,6 +16,7 @@ software:
   - arduino-cli
   - web-editor
   - plc-ide
+  - iot-cloud
 ---
 
 This user manual will provide a comprehensive overview of Opta™, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure, and use all the main features of an Opta™ device. 
