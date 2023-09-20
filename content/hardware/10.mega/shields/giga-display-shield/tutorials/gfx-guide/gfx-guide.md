@@ -1,13 +1,13 @@
 ---
-title: 'Getting Started with the GIGA Display Shield'
-description: 'Learn how to set up and use the GIGA Display Shield and get an overview of the features.'
+title: 'GIGA Display Shield GFX Guide'
+description: 'Learn how to draw shapes, print text and other useful methods with the GFX library.'
 author: 'Karl Söderby'
-tags: [Displays, LVGL, GIGA, IMU]
+tags: [Displays, GIGA, GFX]
 ---
 
 The [GIGA Display Shield](/hardware/giga-display-shield) is compatible with the [Adafruit_GFX](https://github.com/adafruit/Adafruit-GFX-Library) graphics core library.
 
-To access it, we have a library called [Arduino_GigaDisplay_GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX) designed specifically for the shield. In this guide, we will get started with some of the essential methods of the library, that will allow us to e.g. print values, text, draw shapes.
+To access it, we can use a layer library called [Arduino_GigaDisplay_GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX) designed specifically for the shield. In this guide, we will get started with some of the essential methods of the library, that will allow us to e.g. print values, text, draw shapes.
 
 ## Goals
 
@@ -121,7 +121,9 @@ A minimal example for drawing geometrical shapes can be seen below:
 
 ## GFX & Touch Example
 
-The GFX library can be used together with the [Arduino_GigaDisplay_Touch](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch) library
+The GFX library can be used together with the [Arduino_GigaDisplay_Touch](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch) library. The below example demonstrates how to read a touch point and trigger a function, using a simple if statement.
+
+***Learn more about the Giga Display's touch interface in the [Touch Interface Guide](/tutorials/giga-display-shield/basic-touch).***
 
 ## Summary
 
