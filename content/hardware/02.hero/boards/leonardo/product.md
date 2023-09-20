@@ -1,7 +1,7 @@
 ---
 title: Leonardo
 url_shop: https://store.arduino.cc/arduino-leonardo-with-headers
-url_guide: https://www.arduino.cc/en/Guide/ArduinoLeonardoMicro
+url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#avr
 core: arduino:avr
 productCode: '008'
 certifications: [CE, UKCA]

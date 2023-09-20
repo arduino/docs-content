@@ -1,7 +1,7 @@
 ---
 title: UNO R3 SMD
 url_shop: https://store.arduino.cc/products/arduino-uno-rev3-smd
-url_guide: https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-avr
+url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#avr
 core: arduino:avr
 certifications: [CE, UKCA]
 ---

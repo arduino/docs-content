@@ -1,7 +1,7 @@
 ---
 title: Nano 33 BLE
 url_shop: https://store.arduino.cc/arduino-nano-33-ble
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano
+url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#mbed-os-nano
 core: arduino:mbed_nano
 forumCategorySlug: '/hardware/nano-family/nano-33-ble/159'
 certifications: [FCC, IC, REACH, CE, RoHS, WEEE, RCM, UKCA, MIC]
