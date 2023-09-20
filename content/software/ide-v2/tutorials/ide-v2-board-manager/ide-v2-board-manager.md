@@ -83,7 +83,7 @@ Do you have an Arduino board in your hands, but are not sure what core you need 
 
 ### AVR
 
-The AVR Boards package is based on the Arduino AVR Core, and includes the following boards:
+The **AVR Boards** package is based on the **Arduino AVR Core**, and includes the following boards:
 
 - [UNO R3](/hardware/uno-rev3)
 - [UNO R3 SMD](/hardware/uno-rev3-smd)
@@ -93,7 +93,7 @@ The AVR Boards package is based on the Arduino AVR Core, and includes the follow
 - [Nano](/hardware/nano)
 - [Mega 2560](/hardware/mega-2560)
 
-The AVR core comes pre-installed when you download the Arduino IDE, so if you have one of these boards - Great! You're already done and won't need to install it yourself. You can, however, still find it in the board manager if you want to change what version of the core you have installed. For detailed instructions on how to do this, [follow the steps above](#installing-a-core).
+The **AVR core** comes pre-installed when you download the Arduino IDE, so if you have one of these boards - Great! You're already done and won't need to install it yourself. You can, however, still find it in the board manager if you want to change what version of the core you have installed. For detailed instructions on how to do this, [follow the steps above](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -101,12 +101,12 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### MegaAVR
 
-The MegaAVR Boards package is based on the Arduino AVR Core, and includes the following boards:
+The **MegaAVR Boards package** is based on the **Arduino AVR Core**, and includes the following boards:
 
 - [UNO WiFi Rev2](/hardware/uno-wifi-rev2)
 - [Nano Every](/hardware/nano-every)
 
-You can install this package in the board manager by searching for "Arduino MegaAVR Boards". For detailed instructions, see the [Installing a Board Package section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino MegaAVR Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -114,12 +114,12 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### UNO R4 
 
-The UNO R4 Boards package is based on the Arduino Renesas Core, and includes the following boards:
+The **UNO R4 Boards** package is based on the **Arduino Renesas Core**, and includes the following boards:
 
 - [UNO R4 Minima](/hardware/uno-r4-minima)
 - [UNO R4 WiFi](/hardware/uno-r4-wifi)
 
-You can install this package in the board manager by searching for "Arduino UNO R4 Boards". For detailed instructions, see the [Installing a Board Package section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino UNO R4 Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -127,11 +127,11 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### SAM
 
-The SAM Boards package is based on the Arduino SAM Core, and includes the following boards:
+The **SAM Boards** package is based on the **Arduino SAM Core**, and includes the following boards:
 
 - [Due](/hardware/due)
 
-You can install this package in the board manager by searching for "Arduino SAM Boards". For detailed instructions, see the [Installing a Board Package section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino SAM Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -139,7 +139,7 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### SAMD
 
-The SAMD Boards package is based on the Arduino SAMD Core, and includes the following boards:
+The **SAMD Boards** package is based on the **Arduino SAMD Core**, and includes the following boards:
 
 - [Zero](/hardware/zero)
 - [Nano 33 IoT](/hardware/nano-33-iot)
@@ -154,7 +154,7 @@ The SAMD Boards package is based on the Arduino SAMD Core, and includes the foll
 - [MKR Vidor 4000](/hardware/mkr-vidor-4000)
 
 
-You can install this package in the board manager by searching for "Arduino SAMD Boards". For detailed instructions, see the [Installing a Board Package section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino SAMD Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -162,11 +162,11 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### Mbed OS GIGA 
 
-The Mbed OS GIGA Boards package is based on the Arduino Mbed Core, and includes the following boards:
+The **Mbed OS GIGA Boards** package is based on the **Arduino Mbed Core**, and includes the following boards:
 
 - [GIGA R1 WiFi](/hardware/giga-r1-wifi)
 
-You can install this package in the board manager by searching for "Arduino Mbed OS GIGA Boards". For detailed instructions, see the [Installing a Board Package section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Mbed OS GIGA Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -174,14 +174,14 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### Mbed OS Nano
 
-The Mbed OS Nano Boards package is based on the Arduino Mbed Core, and includes the following boards:
+The **Mbed OS Nano Boards** package is based on the **Arduino Mbed Core**, and includes the following boards:
 
 - [Nano RP2040 Connect](/hardware/nano-rp2040-connect)
 - [Nano 33 BLE](/hardware/nano-33-ble)
 - [Nano 33 BLE Sense](/hardware/nano-33-ble-sense)
 - [Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2)
 
-You can install this package in the board manager by searching for "Arduino Mbed OS Nano Boards". For detailed instructions, see the [Installing a Board Package section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Mbed OS Nano Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -189,14 +189,14 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### Mbed OS Portenta
 
-The Mbed OS Portenta Boards package is based on the Arduino Mbed Core, and includes the following boards:
+The **Mbed OS Portenta Boards** package is based on the **Arduino Mbed Core**, and includes the following boards:
 
 - [Portenta H7](/hardware/portenta-h7)
 - [Portenta H7-lite](/hardware/portenta-h7-lite)
 - [Portenta H7-lite-connected](/hardware/portenta-h7-lite-connected)
 - [Portenta X8](/hardware/portenta-x8)
 
-You can install this package in the board manager by searching for "Arduino Mbed OS Portenta Boards". For detailed instructions, see the [Installing a Board Package section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Mbed OS Portenta Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -204,13 +204,13 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### Mbed OS Nicla
 
-The Mbed OS Nicla Boards package is based on the Arduino Mbed Core, and includes the following boards:
+The **Mbed OS Nicla Boards** package is based on the **Arduino Mbed Core**, and includes the following boards:
 
 - [Nicla Sense ME](/hardware/nicla-sense-me)
 - [Nicla Vision](/hardware/nicla-vision)
 - [Nicla Voice](/hardware/nicla-voice)
 
-You can install this package in the board manager by searching for "Arduino Mbed OS Nicla Boards". For detailed instructions, see the [Installing a Board Package section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Mbed OS Nicla Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -218,11 +218,11 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### Mbed OS Edge boards
 
-The Mbed OS Edge Boards package is based on the Arduino Mbed Core, and includes the following boards:
+The **Mbed OS Edge Boards** package is based on the **Arduino Mbed Core**, and includes the following boards:
 
 - [Edge Control](/hardware/edge-control)
 
-You can install this package in the board manager by searching for "Arduino Mbed OS Edge Boards". For detailed instructions, see the [Installing a Board Package section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Mbed OS Edge Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -230,11 +230,11 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### Renesas Portenta
 
-The Renesas Portenta Boards package is based on the Arduino Renesas Core, and includes the following boards:
+The **Renesas Portenta Boards** package is based on the **Arduino Renesas Core**, and includes the following boards:
 
 - [Portenta C33](/hardware/portenta-c33)
 
-You can install this package in the board manager by searching for "Arduino Renesas Portenta Boards". For detailed instructions, see the [Installing a Board Package section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Renesas Portenta Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -242,11 +242,11 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### ESP32
 
-The ESP32 Boards package is based on the Arduino-esp32 core, and includes the following boards:
+The **ESP32 Boards** package is based on the **Arduino-esp32 core**, and includes the following boards:
 
 - [Nano ESP32](/hardware/nano-esp32)
 
-You can install this package in the board manager by searching for "Arduino ESP32 Boards". For detailed instructions, see the [Installing a Board Package section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino ESP32 Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
