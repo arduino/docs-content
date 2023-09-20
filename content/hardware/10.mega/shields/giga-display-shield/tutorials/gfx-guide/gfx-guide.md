@@ -57,12 +57,11 @@ The above example will simply print `Hello World!` at the `x` and `y` coordinate
 
 There are several methods available. In this section, we will list out a number of useful ones. To see the full list, check out Adafruit's documentation of this library in [this page](https://learn.adafruit.com/adafruit-gfx-graphics-library).
 
-### Essentials
+### Coordinates
 
-The most basic commands that you will need to know is how to change the coordinates, background color and updating screen:
-- `fillScreen(color)` - sets the background color for the display.
+The coordinates in the GFX library is easy to work with. Most methods have the coordinates as parameters (x,y). To set the cursor (position) on the display, you can utilize the following method: 
+
 - `setCursor(x, y)` - set the cursor on the display.
-- `print(content)` - prints the content on the display.
 
 ### Color
 
@@ -71,6 +70,7 @@ To change color of text, pixels, background etc, you can first define the color 
 - `#define YELLOW 0xFFE0`
 
 Then use it anywhere in the code for coloring, such as:
+- `fillScreen(YELLOW)` - sets the background color for the display.
 - `drawPixel(x, y, YELLOW)` - color a single pixel.
 - `setTextColor(YELLOW)` - color the text.
 - `fillRect(x, y, width, height, YELLOW)` color a rectangle.
@@ -78,26 +78,53 @@ Then use it anywhere in the code for coloring, such as:
 Read more about the color format and generate the colors your want at the following page:
 - [RGB Color Picker](https://rgbcolorpicker.com/565) (external link)
 
+### Text
+
+To display text on the screen, use the following methods:
+
+- `setTextSize(size)` - set the size for the text. Any number between `1` (very small) to `80` (one digit covers the screen) works on this display.
+- `setTextColor(color,background_color)` - sets color and optionally background color. This is useful when overwriting an existing number (like printing sensor values continuously).
+- `print(content)` print something to the screen.
+
+A minimal example for using text methods can be found below:
+
+```arduino
+#include "Arduino_GigaDisplay_GFX.h"
+
+GigaDisplay_GFX display; // create the object
+
+#define BLACK 0x0000
+
+void setup() {
+  display.begin();
+  display.fillScreen(BLACK);
+  display.setCursor(10,10); //x,y
+  display.setTextSize(5); //adjust text size
+  display.print("Hello World!"); //print
+}
+void loop(){}
+```
+
 ### Pixels & Shapes
 
-To draw pixels and shapes, use the following methods. This will draw the outl
+To draw pixels and shapes, use the following methods.
 
 - `drawPixel(x, y, color)` - draws a pixel at the coordinates specified.
 - `drawRect(x, y, height, width, color)` - draws a rectangle at the coordinates with the height and width & color specified.
 - `drawRoundRect(x, y, height, width, border-radius, color)` - rounded rectangle with the border-radius specified.
 - `drawTriangle(x0, y0, x1, y1, x2, y2, color)` - draws a triangle at the coordinates specified. 
-- `drawCircle(x, y, radius)` - draws a circle with specified radius.
+- `drawCircle(x, y, radius, color)` - draws a circle with specified radius.
 
+The above methods will draw the desired shape's outline, but it will not fill it. To do so, simply use `fillRect()`, `fillTriangle()` etc.
 
-### Text
+A minimal example for drawing geometrical shapes can be seen below:
 
-- `setTextSize(size)` - set the size for the text. Any number between 1-80~ works on this display.
-- `setTextColor(color,background_color)` - sets color and optionally background color. This is useful when overwriting an existing number (like printing sensor values continuously).
+## GFX & Touch Example
 
-
+The GFX library can be used together with the [Arduino_GigaDisplay_Touch](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch) library
 
 ## Summary
 
-In this guide we have covered the requirements & installation needs for using the GIGA Display Shield, as well as demonstrating how to access the RGB, IMU & Microphone peripherals. 
+In this guide we have covered some basic methods of the GFX library, such as writing text, drawing rectangles and changing colors & text sizes. The GFX library is easy to get started with for beginners, but can also be used to build sophisticated and powerful UIs with advanced usage.
 
 For more tutorials, visit the [documentation page for GIGA Display Shield](/hardware/giga-display-shield).
