@@ -54,13 +54,37 @@ Here is an overview of the board's architecture's main components shown in the i
 
 ### Board Core and Libraries
 
-To install the core for the Edge Control, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Edge Control` and install the latest `Arduino Mbed OS Nicla Boards` version.
+To install the core for the Edge Control, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Edge Control` and install the latest `Arduino Mbed OS Edge Boards` version.
 
-![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader](assets/bsp-install.png)
+![Installing the Arduino Mbed OS Edge Boards core in the Arduino IDE bootloader](assets/bsp-install.png)
 
 The **Arduino_EdgeControl** library contains the examples you need to work with the board's components, such as the different sensors, outputs and adds on like the LCD included with the [Enclosure Kit](https://store-usa.arduino.cc/products/edge-control-enclosure-kit?selectedStore=us).
 
 ![Installing the Arduino Edge Control library](assets/library-install.png)
 
+### Pinout
 
+![Edge Control pinout](assets/simple-pinout.png)
+
+The full pinout is available and downloadable as PDF from the link below:
+
+- [Edge Control pinout](https://docs.arduino.cc/resources/pinouts/AKX00034-full-pinout.pdf)
+
+### Datasheet
+
+The complete datasheet is available and downloadable as PDF from the link below:
+
+- [Edge Control datasheet](https://docs.arduino.cc/resources/datasheets/AKX00034-datasheet.pdf)
+
+### Schematics
+
+The complete schematics are available and downloadable as PDF from the link below:
+
+- [Edge Control schematics](https://docs.arduino.cc/resources/schematics/AKX00044-schematics.pdf)
+
+### STEP Files
+
+The complete STEP files are available and downloadable from the link below:
+
+- [Edge Control STEP files](https://docs.arduino.cc/static/38d409dd238978baf03b79eac9bb752f/AKX00044-step.zip)
 
