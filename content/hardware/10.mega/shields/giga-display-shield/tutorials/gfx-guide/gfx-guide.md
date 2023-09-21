@@ -26,7 +26,8 @@ In this guide we will cover:
 
 To install the library, open the Arduino IDE and search for the **Arduino_GigaDisplay_GFX** library in the **Library Manager**.
 
-![Install the library.]()
+You can also manually download the library in the official GitHub repository. For any issues with the libraries, please report them here as well.
+- [Arduino_GigaDisplay_GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX)
 
 ## Basic Example
 
@@ -118,6 +119,25 @@ To draw pixels and shapes, use the following methods.
 The above methods will draw the desired shape's outline, but it will not fill it. To do so, simply use `fillRect()`, `fillTriangle()` etc.
 
 A minimal example for drawing geometrical shapes can be seen below:
+
+```arduino
+#include "Arduino_GigaDisplay_GFX.h"
+
+GigaDisplay_GFX display;
+
+#define WHITE 0xffff
+#define BLACK 0x0000
+
+void setup() {
+  display.begin();
+  display.fillScreen(WHITE);
+  display.drawTriangle(100, 200, 300, 400, 300, 600, BLACK);
+  display.drawCircle(100, 100, 50, BLACK);
+  display.drawRect(10, 650, 300, 80, BLACK);
+  display.drawRoundRect(300, 50, 100, 100, 30, BLACK);
+}
+void loop() {}
+```
 
 ## GFX & Touch Example
 
