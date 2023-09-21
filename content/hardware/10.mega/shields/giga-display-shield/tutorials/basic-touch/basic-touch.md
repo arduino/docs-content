@@ -17,7 +17,7 @@ This library is used to return the number of contact points, and the `x,y` coord
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1).
+- [GIGA R1 WiFi](/hardware/giga-r1-wifi).
 - [GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
@@ -58,6 +58,46 @@ Contacts: 2 <---- two fingers used
 In this case, we have two touchpoints, and the coordinates for each of them printed below (`x`,`y`). And that's pretty much it to obtain a successful reading from the touch interface. 
 
 You can use this to build customized gestures on the screen, such as swiping two fingers left to trigger an animation or three fingers up to change the background color.
+
+### Full Sketch
+
+```arduino
+#include "Arduino_GigaDisplayTouch.h"
+
+Arduino_GigaDisplayTouch touchDetector;
+
+void setup() {
+  Serial.begin(115200);
+  while(!Serial) {}
+
+  if (touchDetector.begin()) {
+    Serial.print("Touch controller init - OK");
+  } else {
+    Serial.print("Touch controller init - FAILED");
+    while(1) ;
+  }
+}
+
+void loop() {
+  uint8_t contacts;
+  GDTpoint_t points[5];
+  
+  contacts = touchDetector.getTouchPoints(points);
+
+  if (contacts > 0) {
+    Serial.print("Contacts: ");
+    Serial.println(contacts);
+
+    for (uint8_t i = 0; i < contacts; i++) {
+      Serial.print(points[i].x);
+      Serial.print(" ");
+      Serial.println(points[i].y);
+    }
+  }
+
+  delay(1);
+}
+```
 
 ## Summary
 

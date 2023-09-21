@@ -13,12 +13,12 @@ To access it, we can use a layer library called [Arduino_GigaDisplay_GFX](https:
 
 In this guide we will cover:
 - Learn how to draw and print to the display,
-- how to draw basic shapes (circles, rectangles etc)
-- how to update values on the screen,
+- How to draw basic shapes (circles, rectangles etc)
+- How to update values on the screen,
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1).
+- [GIGA R1 WiFi](/hardware/giga-r1-wifi).
 - [GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
