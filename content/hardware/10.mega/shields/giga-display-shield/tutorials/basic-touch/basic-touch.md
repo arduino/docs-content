@@ -7,7 +7,7 @@ tags: [Display, Touch Screen]
 
 The [GIGA Display Shield](/hardware/giga-display-shield) has an advanced touch interface, supported via the [Arduino_GigaDisplayTouch](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch) library.
 
-This library is used to return the number of contact points, and the `x,y` coordinates for each of these. For example, touching the screen with two fingers somewhere on the screen would generate the following:
+This library is used to return the number of contact points, and the `x,y` coordinates for each of these. For example, touching the screen with two fingers would generate the following:
 
 - `x` - 0-480 (x-axis)
 - `y` - 0-800 (y-axis)
@@ -23,7 +23,7 @@ This library is used to return the number of contact points, and the `x,y` coord
 
 ## Install Arduino_GigaDisplayTouch
 
-The [Arduino_GigaDisplayTouch](https://www.arduino.cc/reference/en/libraries/arduino_gigadisplaytouch/) is used to read touchpoints across the screen, and returns the number of **contacts** and **coordinates**. 
+The [Arduino_GigaDisplayTouch library](https://www.arduino.cc/reference/en/libraries/arduino_gigadisplaytouch/) is used to read touchpoints across the screen, returning the number of **contacts** and **coordinates**. 
 
 ![Install Arduino_GigaDisplayTouch](assets/install-touchlib.png)
 
@@ -47,7 +47,7 @@ Upload the example to your GIGA R1 WiFi board, and open the **Serial Monitor** t
 Touch controller init - OK
 ```
 
-Seeing this, you can start touching the display area with one or more fingers. The serial monitor will print out how many "contacts" aka fingers you are using, and the coordinates for each point. Here's an example response:
+Seeing this, you can start touching the display area with one or more fingers. The serial monitor will print out how many "contacts",aka fingers, you are using and the coordinates for each point. Here's an example response:
 
 ```
 Contacts: 2 <---- two fingers used
@@ -57,8 +57,8 @@ Contacts: 2 <---- two fingers used
 
 In this case, we have two touchpoints, and the coordinates for each of them printed below (`x`,`y`). And that's pretty much it to obtain a successful reading from the touch interface. 
 
-You can use this to build customised gestures on the screen such as swiping two fingers left to trigger an animation, or three fingers up to change the background color.
+You can use this to build customized gestures on the screen, such as swiping two fingers left to trigger an animation or three fingers up to change the background color.
 
 ## Summary
 
-In this tutorial, we have explored the **Arduino_GigaDisplayTouch** library and tested out an example that allows us to read the coordinates of our touches. This library is essential for developing sophisticated touch displays using the lvgl framework.
+In this tutorial, we have explored the **Arduino_GigaDisplayTouch** library and tested out an example that allows us to read the coordinates of our touches. This library is essential for developing sophisticated touch displays using lvgl or other supported frameworks.
