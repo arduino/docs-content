@@ -2,6 +2,9 @@
 title: 'Getting Started with the GIGA Display Shield'
 description: 'Learn how to set up and use the GIGA Display Shield and get an overview of the features.'
 author: 'Karl Söderby'
+hardware:
+  - hardware/08.mega/boards/giga-r1-wifi
+  - hardware/08.mega/shields/giga-display-shield
 tags: [Displays, LVGL, GIGA, IMU]
 ---
 
@@ -119,6 +122,6 @@ void loop() {
 
 ## Summary
 
-In this guide we have covered the requirements & installation needs for using the GIGA Display Shield, as well as demonstrating how to access the RGB, IMU & Microphone peripherals. 
+In this guide we covered the requirements & installation needs for using the GIGA Display Shield, as well as demonstrating how to access the RGB, IMU & Microphone peripherals. 
 
 For more tutorials, visit the [documentation page for GIGA Display Shield](/hardware/giga-display-shield).
