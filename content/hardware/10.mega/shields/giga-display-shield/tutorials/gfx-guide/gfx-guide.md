@@ -60,7 +60,7 @@ There are several methods available. In this section, we will list out a number 
 
 ### Coordinates
 
-The coordinates in the GFX library is easy to work with. Most methods have the coordinates as parameters (x,y). To set the cursor (position) on the display, you can utilize the following method: 
+The coordinates in the GFX library are easy to work with. Most methods have the coordinates as parameters (x,y). To set the cursor (position) on the display, you can utilize the following method: 
 
 - `setCursor(x, y)` - set the cursor on the display.
 
