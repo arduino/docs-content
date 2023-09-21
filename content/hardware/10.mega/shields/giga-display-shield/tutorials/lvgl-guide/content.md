@@ -1,5 +1,5 @@
 ---
-title: Guide for Using LVGL With the GIGA Display Shield
+title: GIGA Display Shield LVGL Guide
 description: 'Learn how to use LVGL with the GIGA Display Shield.'
 author: Benjamin Dannegård
 tags: [Display, LVGL]

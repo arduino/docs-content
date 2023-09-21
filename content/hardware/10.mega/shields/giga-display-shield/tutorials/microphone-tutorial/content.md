@@ -1,6 +1,6 @@
 ---
-title: Microphone With LVGL Tutorial
-description: "Learn how to use the GIGA Display Shield's microphone together with LVGL."
+title: GIGA Display Shield Microphone & LVGL Tutorial
+description: "Learn how to use the GIGA Display Shield's microphone with LVGL."
 author: Benjamin Dannegård
 tags: [Display, microphone, LVGL]
 ---
@@ -20,11 +20,11 @@ Make sure the latest GIGA core is installed in the Arduino IDE. **Tools > Board 
 
 ## Microphone Readings With The Shield
 
-### Microphone Test Sketch
+### Test Microphone
 
 To test the microphone we can use the **PDMSerialPlotter** example sketch. This sketch can be found in **File > Examples > PDM** in the Arduino IDE. This sketch will print readings in the serial monitor. Upload the sketch and check so that readings are appearing in the serial monitor.
 
-![Example sketch printing values in the serial monitor](assets/pdm-test-sketch.svg)
+![Example sketch printing values in the serial monitor](assets/pdm-test-sketch.png)
 
 ### Using the Microphone Readings
 
@@ -102,6 +102,8 @@ In the section below you can find the full sketch. If you upload it to your GIGA
 [GIF of sketch running]()
 
 ### Full Sketch
+
+You will find the full sketch in the example below:
 
 ```arduino
 #include <PDM.h>
