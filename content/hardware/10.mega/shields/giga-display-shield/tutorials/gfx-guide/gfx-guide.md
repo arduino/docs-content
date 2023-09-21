@@ -123,6 +123,86 @@ A minimal example for drawing geometrical shapes can be seen below:
 
 The GFX library can be used together with the [Arduino_GigaDisplay_Touch](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch) library. The below example demonstrates how to read a touch point and trigger a function, using a simple if statement.
 
+The example below is very minimal, and it simply switches on and off a boolean whenever the screen is touched. But it is a good example to get started with if you plan to build your own UI with a touch interface.
+
+```arduino
+#include "Arduino_GigaDisplay_GFX.h"
+#include "Arduino_GigaDisplayTouch.h"
+
+Arduino_GigaDisplayTouch touchDetector;
+GigaDisplay_GFX display;
+
+#define WHITE 0xffff
+#define BLACK 0x0000
+
+#define screen_size_x 480
+#define screen_size_y 800
+
+int touch_x;
+int touch_y;
+
+//increase or decrease the sensitivity of the touch.
+int trigger_sensitivity = 5;
+bool switch_1;
+int counter;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  display.begin();
+
+  if (touchDetector.begin()) {
+    Serial.print("Touch controller init - OK");
+  } else {
+    Serial.print("Touch controller init - FAILED");
+    while (1)
+      ;
+  }
+}
+
+void loop() {
+  uint8_t contacts;
+  GDTpoint_t points[5];
+  contacts = touchDetector.getTouchPoints(points);
+  
+  if (contacts > 0) {
+    Serial.print("Contacts: ");
+    Serial.println(contacts);
+
+    counter++;
+
+    //record the x,y coordinates 
+    for (uint8_t i = 0; i < contacts; i++) {
+      touch_x = points[i].x;
+      touch_y = points[i].y;
+    }
+
+    //as the display is 480x800, any time you touch the screen it will trigger
+    //the trigger sensitivity is set to "5". 
+    if (touch_x < screen_size_x && touch_y < screen_size_y && counter > trigger_sensitivity) {
+      switch_1 = !switch_1;
+      Serial.println("switched");
+      changeSwitch();
+      delay(250);
+    }
+  }
+}
+
+void changeSwitch() {
+  if (switch_1) {
+    display.fillScreen(BLACK);
+    display.setTextColor(WHITE);
+  } else {
+    display.fillScreen(WHITE);
+    display.setTextColor(BLACK);
+  }
+  display.setCursor(50, screen_size_y/2);
+  display.setTextSize(5);
+  display.print("Switched");
+  counter = 0;
+}
+```
+
 ***Learn more about the Giga Display's touch interface in the [Touch Interface Guide](/tutorials/giga-display-shield/basic-touch).***
 
 ## Summary
