@@ -98,6 +98,5 @@ The Edge Control can be powered by:
 - Using a **12V lead-acid battery** connected to `BATT+` pin and `GND`. **It can be powered for up to 34 months on a 12V/5Ah battery**.
 - Using a whole **off grid** power system including an **18V Solar Panel** and a **12V lead-acid battery**.
 
-![Edge Control solar and battery powered](assets/green-power.png)
 ![Edge Control powered by external power supply](assets/ext-power.png)
-
+![Edge Control solar and battery powered](assets/green-power.png)
