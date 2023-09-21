@@ -155,12 +155,12 @@ For the Edge Control, the `EXP_LED1` macro represents the **Green LED** of the o
 The custom power management of the Edge Control lets you turn on just the board peripherals and power rails you need, as the LED is connected to the IO Expander is needed to enable the 3.3v and battery source, also the expander using these functions:
 
 ```arduino
-  Power.on(PWR_3V3);
-  Power.on(PWR_VBAT);
-  .
-  .
-  .
-  Expander.begin();
+Power.on(PWR_3V3);
+Power.on(PWR_VBAT);
+.
+.
+.
+Expander.begin();
 ```
 
 To upload the code to the Edge Control, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
@@ -172,3 +172,4 @@ To upload the code to the Edge Control, click the **Verify** button to compile t
 You should see now the onboard LED turn on for half a second, then off, repeatedly.
 
 ![Hello World example running in the Edge Control](assets/Blink.gif)
+
