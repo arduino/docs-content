@@ -5,13 +5,13 @@ author: 'Karl Söderby'
 tags: [Displays, LVGL, GIGA, IMU]
 ---
 
-The [GIGA Display Shield](/hardware/giga-display-shield) is an accessory shield designed for the [GIGA R1 WiFi](/hardware/giga-r1) board. With it, you can render fast & sophisticated user interfaces on a **800x480** display with **touch support**.
+The [GIGA Display Shield](/hardware/giga-display-shield) is an accessory shield designed for the [GIGA R1 WiFi](/hardware/giga-r1-wifi) board. With it, you can render fast & sophisticated user interfaces on a **800x480** display with **touch support**.
 
 In this guide you will learn how to set your board up with the GIGA R1 WiFi board & become familiar with the available libraries to control it.
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1).
+- [GIGA R1 WiFi](/hardware/giga-r1-wifi).
 - [GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
@@ -34,7 +34,7 @@ The GIGA Display Shield requires you to install the core for GIGA boards, along 
 
 ### Install GIGA Core
 
-To use the shield you will need to have a GIGA R1 WiFi board. To use the GIGA R1 WiFi, you will need to install the **GIGA core**, which can be done directly in the Arduino IDE, under "Board Manager".
+To use the shield you will need a GIGA R1 WiFi board. You also need to install the **GIGA core**, which can be done directly in the Arduino IDE, under "Board Manager".
 
 ![Install GIGA core.](assets/install-giga.png)
 
@@ -81,7 +81,7 @@ To access **BMI270**, use the [BMI270-250](https://www.arduino.cc/reference/en/l
 BoschSensorClass imu(Wire1);
 ``` 
 
-Note that the examples uses the default `IMU` (uppercase) class, which you will need to replace. Example:
+Note that the examples use the default `IMU` (uppercase) class, which you will need to replace. Example:
 
 ```
 IMU.begin() //for other boards
@@ -90,9 +90,9 @@ imu.begin() //for GIGA Display Shield
 
 ## Microphone
 
-This shield has an embedded omnidirectional microphone, **MP34DT06JTR**, which can be used to together with the [PDM](https://docs.arduino.cc/learn/built-in-libraries/pdm) library. This library is shipped with the GIGA core, so there's no need to install it.
+This shield has an embedded omnidirectional microphone, **MP34DT06JTR**, which can be used together with the [PDM](https://docs.arduino.cc/learn/built-in-libraries/pdm) library. This library is shipped with the GIGA core, so there's no need to manually install it.
 
-Below is a minimal sketch that will print out the samples in the serial plotter (a tool that is part of the Arduino IDE). 
+Below is a minimal sketch that will print out the samples in the serial plotter (See [Using the Serial Plotter Tool](/software/ide-v2/tutorials/ide-v2-serial-plotter) for more information). 
 
 <CodeBlock url="https://github.com/arduino/ArduinoCore-mbed/blob/main/libraries/PDM/examples/PDMSerialPlotter/PDMSerialPlotter.ino" className="arduino"/>
 
