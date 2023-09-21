@@ -98,5 +98,77 @@ The Edge Control can be powered by:
 - Using a **12V lead-acid battery** connected to `BATT+` pin and `GND`. **It can be powered for up to 34 months on a 12V/5Ah battery**.
 - Using a whole **off grid** power system including an **18V Solar Panel** and a **12V lead-acid battery**.
 
-![Edge Control powered by external power supply](assets/ext-power.png)
-![Edge Control solar and battery powered](assets/green-power.png)
+![Edge Control powered by external power supply](assets/ext-power-v2.png)
+![Edge Control solar and battery powered](assets/green-power-v2.png)
+
+### Hello World Example
+
+Let's program the Edge Control with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the Arduino IDE and that the Edge control core and the board itself are working as expected. 
+
+There are two ways to program this example in the board:
+
+- Navigate to **File > Examples > Arduino_EdgeControl > Basic > Blink.**
+- Copy and paste the code below into a new sketch in the Arduino IDE.
+
+```arduino
+#include <Arduino_EdgeControl.h>
+
+void setup() {
+  Serial.begin(9600);
+
+  auto startNow = millis() + 2500;
+  while (!Serial && millis() < startNow)
+    ;
+
+  delay(1000);
+  Serial.println("Hello, Challenge!");
+
+  Power.on(PWR_3V3);
+  Power.on(PWR_VBAT);
+
+  Wire.begin();
+
+  delay(500);
+
+  Serial.print("IO Expander initializazion ");
+  if (!Expander.begin()) {
+    Serial.println("failed.");
+    Serial.println("Please, be sure to enable gated 3V3 and 5V power rails");
+    Serial.println("via Power.on(PWR_3V3) and Power.on(PWR_VBAT).");
+  }
+  Serial.println("succeeded.");
+
+  Expander.pinMode(EXP_LED1, OUTPUT);
+}
+
+void loop() {
+  Serial.println("Blink");
+  Expander.digitalWrite(EXP_LED1, LOW);
+  delay(500);
+  Expander.digitalWrite(EXP_LED1, HIGH);
+  delay(500);
+}
+```
+
+For the Edge Control, the `EXP_LED1` macro represents the **Green LED** of the of the board.
+
+The custom power management of the Edge Control lets you turn on just the board peripherals and power rails you need, as the LED is connected to the IO Expander is needed to enable the 3.3v and battery source, also the expander using these functions:
+
+```arduino
+  Power.on(PWR_3V3);
+  Power.on(PWR_VBAT);
+  .
+  .
+  .
+  Expander.begin();
+```
+
+To upload the code to the Edge Control, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
+
+![Uploading a sketch to the Edge Control in the Arduino IDE](assets/board-selection.png)
+
+***The Edge Control should be powered by an external power source or a battery so the blink works.***
+
+You should see now the onboard LED turn on for half a second, then off, repeatedly.
+
+![Hello World example running in the Edge Control](assets/Blink.gif)
