@@ -173,3 +173,20 @@ You should see now the onboard LED turn on for half a second, then off, repeated
 
 ![Hello World example running in the Edge Control](assets/Blink.gif)
 
+## Inputs
+### Analog Inputs
+### IRQ Inputs
+### 4-20mA Inputs
+### Watermark Inputs
+
+
+## Outputs
+### Latching Outputs
+### Latching Commands
+### Relay Contacts
+
+### Power Outputs
+
+## Edge Control Enclosure Kit
+
+## Communication
