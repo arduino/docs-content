@@ -50,7 +50,7 @@ In this section, we will go through the fundamental elements of an LVGL sketch:
 
 ### Display Shield Configuration
 
-The first thing we need to do is to define the display we are using, by creating a object using the `Arduino_H7_Video` class, specifying the heigh, width and type of display.
+The first thing we need to do is to define the display we are using, by creating a object using the `Arduino_H7_Video` class, specifying the height, width and type of display.
 
 ```arduino
 Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
