@@ -381,18 +381,18 @@ Have fun creating interactive interfaces or animation on your UNO R4 WiFi!
 
 To write more advanced sketches on your own, you may use the full API of the library as found below.
 
- Members                                                     | Descriptions                                
--------------------------------------------------------------|---------------------------------------------
-`public ` [`ArduinoLEDMatrix`](#)`()`                        | The main class for controlling the LED matrix.
-`public void` [`autoscroll`](#)`(int32_t interval_ms)`       | Sets the time in ms for each frame to be displayed.
-`public void` [`begin`](#)`()`                               | Start the LED matrix.
-`public void` [`next`](#)`()`                                | Manually move to the next frame in the sequence.
-`public void` [`loadFrame`](#)`(const uint32_t buffer[3])`   | Load a new single frame that is not in any sequence.
-`public void` [`renderFrame`](#)`(uint8:t frameNumber)`      | Render the loaded frame.
-`public void` [`loadSequence`](#)`(uint8_t *arr)`            | Loads the pixels into the buffer but does not display them.
-`public void` [`play`](#)`(bool loop = false)`               | Start playing the sequence of frames, with the option to loop indefinitely or play once.
-`public bool` [`sequenceDone`](#)`()`                        | checks if the sequence has finished playing.
-`public void` [`loadPixels`](#)`(uint8_t *arr, size_t size)` | Loads the pixels into the buffer but does not display them.
+ Members                                                       | Descriptions                                
+---------------------------------------------------------------|---------------------------------------------
+`public ` [`ArduinoLEDMatrix`](#)`()`                          | The main class for controlling the LED matrix.
+`public void` [`autoscroll`](#)`(int32_t interval_ms)`         | Sets the time in ms for each frame to be displayed.
+`public void` [`begin`](#)`()`                                 | Start the LED matrix.
+`public void` [`next`](#)`()`                                  | Manually move to the next frame in the sequence.
+`public void` [`loadFrame`](#)`(const uint32_t buffer[3])`     | Load a new single frame that is not in any sequence.
+`public void` [`renderFrame`](#)`(uint8:t frameNumber)`        | Render the loaded frame.
+`public void` [`loadSequence`](#)`(const uint32_t frames[][4])`| Loads an animation sequence into the buffer but does not display it.
+`public void` [`play`](#)`(bool loop = false)`                 | Start playing the sequence of frames, with the option to loop indefinitely or play once.
+`public bool` [`sequenceDone`](#)`()`                          | checks if the sequence has finished playing.
+`public void` [`loadPixels`](#)`(uint8_t *arr, size_t size)`   | Loads the pixels into the buffer but does not display them.
 
 ## Members
 
@@ -426,9 +426,9 @@ loads a single frame that is not part of a sequence.
 
 Render a specific frame from a sequence
 
-**public void loadSequence(const uint8_t *arr[][4])**
+**public void loadSequence(const uint32_t frames[][4])**
 
-Sets the current frame to frame 0 in the sequence.
+ Loads an animation sequence into the buffer but does not display it.
 
 **Parameters**
 * `frameNumber` Specifies which frame of the sequence should be rendered. 
