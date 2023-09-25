@@ -106,6 +106,8 @@ void setup() {
 void loop(){}
 ```
 
+![Text sketch running on the GIGA Display Shield](assets/text-on-display.svg)
+
 ### Pixels & Shapes
 
 To draw pixels and shapes, use the following methods.
@@ -138,6 +140,8 @@ void setup() {
 }
 void loop() {}
 ```
+
+![Shapes sketch running on the GIGA Display Shield](assets/shapes-on-display.svg)
 
 ## GFX & Touch Example
 
