@@ -3,8 +3,8 @@ title: Using Draw and Image Functions with the GIGA Display Shield
 description: 'Learn how to use basic draw functions to create and display images on the GIGA Display Shield.'
 author: Benjamin Dannegård
 hardware:
-  - hardware/08.mega/boards/giga-r1-wifi
-  - hardware/08.mega/shields/giga-display-shield
+  - hardware/10.mega/boards/giga-r1-wifi
+  - hardware/10.mega/shields/giga-display-shield
 tags: [Display, Draw]
 ---
 
@@ -140,7 +140,9 @@ Using an online image converter you can pick any image you would like to be disp
 
 We will be using the example sketch "ArduinoLogo" as the basis for the sketch that lets us display an image. The example sketch can be found under **File->Examples->Arduino_H7_Video->ArduinoLogo**.
 
-Running the example sketch as is will display the Arduino logo on the screen, like in the image shown above.
+Running the example sketch as is will display the Arduino logo on the screen, like in the image below:
+
+[Arduino Logo on the GIGA Display Shield](assets/logo-img.svg)
 
 Now to use the image that we converted in the last step. Use the macro inside the example sketch. This makes use of the `incbin.h` translation library. The necessary files are located in the folder for the example sketch.
 
