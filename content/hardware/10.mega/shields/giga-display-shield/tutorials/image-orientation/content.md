@@ -33,7 +33,9 @@ Arduino_H7_Video          Display(800, 480, GigaDisplayShield); /* Arduino_H7_Vi
 BoschSensorClass imu(Wire1);
 ```
 
-Start receiving IMU readings with `imu.begin();` and start the display with `Display.begin();`. Then we can assign attributes to the images such as its source, alignment and how the rotation should behave. For more information on image attributes with LVGL, check out our [LVGL tutorial](lvgl-guide#image).
+Start receiving IMU readings with `imu.begin();` and start the display with `Display.begin();`.
+
+Then we can assign attributes to the images such as its source, alignment and how the rotation should behave. For more information on image attributes with LVGL, check out our [LVGL tutorial](lvgl-guide#image).
 
 ```arduino
 LV_IMG_DECLARE(img_arduinologo);
@@ -52,7 +54,9 @@ void setup() {
 }
 ```
 
-Now all that is left is to change the image depending on the IMU readings. First, declare the variables that will hold the values. Then to assign them the IMU reading values use `imu.readAcceleration(x, y, z);`. Next, we use `if ()` statements to change the rotation variable depending on the readings we are getting. And at the end, we render the image with the correct rotation. When the correct rotation has been calculated, we can apply it to the image using `lv_img_set_angle(img, rot_angle);`.
+Now all that is left is to change the image depending on the IMU readings. First, declare the variables that will hold the values. Then to assign them the IMU reading values use `imu.readAcceleration(x, y, z);`.
+
+Next, we use `if ()` statements to change the rotation variable depending on the readings we are getting. And at the end, we render the image with the correct rotation. When the correct rotation has been calculated, we can apply it to the image using `lv_img_set_angle(img, rot_angle);`.
 
 ```arduino
 uint8_t rotation = 0;
@@ -160,7 +164,7 @@ void loop() {
 
 ### Using Another Image 
 
-Any image could be the sketch. This tutorial and the example uses an image of the Arduino logo. Alternatively, any raw RGB565 image can be used. If you have an image you want to use, you can use this [online image converter](https://lvgl.io/tools/imageconverter), or any other software that lets you convert an image to a raw RGB565 image. This website will output in the Binary RGB565 format. For further instructions on how to display your own image, have a look at our [Text and Image tutorial](text-and-image).
+Any image could be used in the sketch. This tutorial and the example uses an image of the Arduino logo. Alternatively, any raw RGB565 image can be used. If you have an image you want to use, you can use this [online image converter](https://lvgl.io/tools/imageconverter), or any other software that lets you convert an image to a raw RGB565 image. This website will output in the Binary RGB565 format. For further instructions on how to display your own image, have a look at our [Text and Image tutorial](text-and-image).
 
 ## Testing It Out
 
