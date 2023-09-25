@@ -1,5 +1,5 @@
 ---
-title: Screen Orientation With IMU Readings
+title: GIGA Display Shield Automatic Screen Orientation with IMU
 description: "Learn how to use the GIGA Display Shield's IMU to determine the shield's orientation."
 author: Benjamin Dannegård
 tags: [Display, IMU, orientation, LVGL]
