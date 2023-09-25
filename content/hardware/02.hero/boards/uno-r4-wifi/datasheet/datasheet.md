@@ -424,6 +424,21 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
 English:
 User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -472,6 +487,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**        |
 | ---------- | ------------ | ------------------ |
+| 19/09/2023 | 4            | Update FCC section |
 | 25/07/2023 | 3            | Update Pin Table   |
 | 30/06/2023 | 2            | Update Pinout File |
 | 08/06/2023 | 1            | First Release      |
