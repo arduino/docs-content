@@ -1,5 +1,5 @@
 ---
-title: GIGA Display Shield Microphone & LVGL Tutorial
+title: GIGA Display Shield Microphone Guide
 description: "Learn how to use the GIGA Display Shield's microphone with LVGL."
 author: Benjamin Dannegård
 tags: [Display, microphone, LVGL]
