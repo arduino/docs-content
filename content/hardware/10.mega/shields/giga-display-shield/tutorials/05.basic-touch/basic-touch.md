@@ -71,9 +71,9 @@ The IRQ example demonstrates how to set up an interrupt that triggers a function
 
 An important factor to consider is that the `loop()` on the GIGA R1 is executed at a very fast rate, meaning that you will register several touches each time you touch the screen.
 
-This means that whenever you tap the screen, even quickly, you register somewhere between **5-20 touches**. So if you want a specific function to execute on a specific touch point, you will need to implement a delay in your code. 
+This means that whenever you tap the screen, even quickly, you register somewhere between **5-20 touches**. So if you want a specific function to only execute once on a specific touch point, you will need to implement a delay in your code. 
 
-Using the convential, but blocking `delay(microseconds)`, is possible but not ideal. The best method to register only a single touch is through using the `millis()` method.
+Using the conventional, but blocking `delay(microseconds)` method is possible but not ideal. The best method to register only a single touch is through using the `millis()` method.
 
 The example below is based on the **Polling Example**, and limits the if statement to only execute once every `250` milliseconds. This can be edited in the `threshold` variable.
 
@@ -119,7 +119,7 @@ void loop() {
 }
 ```
 
-## GFX Boolean Example
+## GFX Touch Example
 
 The below example requires uses the [Arduino_GigaDisplay_GFX](https://github.com/arduino/Arduino_GigaDisplay_GFX) library, and demonstrates how to change a boolean whenever you touch the screen. It implements the `millis()` function to limit the number of executions. 
 
