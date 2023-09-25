@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started - Core Installation'
+title: 'Installing a Core in the IDE 2'
 difficulty: beginner
 description: 'Learn how the new board manager tool works, and how to easily install the boards you want to use in the Arduino IDE 2.'
 tags:
