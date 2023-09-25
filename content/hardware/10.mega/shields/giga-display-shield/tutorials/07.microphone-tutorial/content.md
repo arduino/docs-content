@@ -5,6 +5,7 @@ author: Benjamin Dannegård
 tags: [Display, microphone, LVGL]
 ---
 
+
 The GIGA Display Shield comes equipped with on-board microphone that when combined with the visual element of the GIGA Display Screen can be used in a number of ways. For example, using the LVGL framework the display can be used to show an animated volume indicator. Using the [Arduino_Graphics]() or [Arduino_GigaDisplay_GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX) libraries we can detect when a loud noise, like a clap is made and change a visual element on the screen. This tutorial will take a closer look at the [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm) to see how this can be used. And then re-create the two sketches mentioned.
 
 ## Hardware & Software Needed
@@ -190,6 +191,7 @@ void onPDMdata() {
   samplesRead = bytesAvailable / 2;
 }
 ```
+
 
 [GIF of sketch running]()
 
