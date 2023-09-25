@@ -177,16 +177,16 @@ You should now see the onboard LED turn on for half a second, then off, repeated
 ### Analog Inputs
 The Edge Control has **eight analog input pins**, mapped as follows: 
 
-|       **Input Name**      | **Arduino Pin Mapping**|
-|:-------------------------:|:----------------------:|
-|      `INPUT_05V_CH01`     |           `0`          |
-|      `INPUT_05V_CH02`     |           `1`          |
-|      `INPUT_05V_CH03`     |           `2`          |
-|      `INPUT_05V_CH04`     |           `3`          |
-|      `INPUT_05V_CH05`     |           `4`          |
-|      `INPUT_05V_CH06`     |           `5`          |
-|      `INPUT_05V_CH07`     |           `6`          |
-|      `INPUT_05V_CH08`     |           `7`          |
+|       **Input Name**      |        **Arduino Pin Mapping**      |
+|:-------------------------:|:-----------------------------------:|
+|      `0-5V Channel 1`     |           `INPUT_05V_CH01`          |
+|      `0-5V Channel 2`     |           `INPUT_05V_CH02`          |
+|      `0-5V Channel 3`     |           `INPUT_05V_CH03`          |
+|      `0-5V Channel 4`     |           `INPUT_05V_CH04`          |
+|      `0-5V Channel 5`     |           `INPUT_05V_CH05`          |
+|      `0-5V Channel 6`     |           `INPUT_05V_CH06`          |
+|      `0-5V Channel 7`     |           `INPUT_05V_CH07`          |
+|      `0-5V Channel 8`     |           `INPUT_05V_CH08`          |
 
 Every pin can be used through the built-in functions of the Arduino programming language. 
 
@@ -304,8 +304,94 @@ Voltages getAverageAnalogRead(int pin)
 
 ```
 
-
 ### IRQ Inputs
+
+The Edge Control has **six interrupt request input pins**, mapped as follows: 
+
+|             **Input Name**           |    **Arduino Pin Mapping**   |
+|:------------------------------------:|:----------------------------:|
+|      `Interrupt Request Input 1`     |           `IRQ_CH1`          |
+|      `Interrupt Request Input 2`     |           `IRQ_CH2`          |
+|      `Interrupt Request Input 3`     |           `IRQ_CH3`          |
+|      `Interrupt Request Input 4`     |           `IRQ_CH4`          |
+|      `Interrupt Request Input 5`     |           `IRQ_CH5`          |
+|      `Interrupt Request Input 6`     |           `IRQ_CH6`          |
+
+The IRQ inputs of the Edge Control can be used through the built-in functions of the Arduino programming language. The configuration of an interrupt pin is done in the `setup()` function with the built-in function `attachInterrupt()` as shown below:
+
+```arduino
+attachInterrupt(digitalPinToInterrupt(pin), ISR, mode);
+```
+- The `pin` argument defines the input channel that will fire the interrupt.
+- The `ISR` argument defines the callback function of the interrupt.
+- The `mode` argument defines when the interrupt should be triggered.
+
+The example code shown below counts the pulses on every IRQ input and prints the counter value on the IDE Serial Monitor:
+
+This example code could also be found on  **File > Examples > Arduino_EdgeControl > Basic > IRQCounter**
+
+![IRQ input example wiring](assets/IRQ_example.png)
+
+```arduino
+/*
+    Testing strategy: alternatively create a short-time connection between
+    WAKEUP 1-6 and any of the +BAT_ext pins (the row above the WAKEUP ones).
+
+    Check IRQChannelMap for advanced C++ implementation.
+*/
+
+#include <Arduino_EdgeControl.h>
+
+volatile int irqCounts[6] { };
+
+enum IRQChannelsIndex {
+    irqChannel1 = 0,
+    irqChannel2,
+    irqChannel3,
+    irqChannel4,
+    irqChannel5,
+    irqChannel6
+};
+
+
+void setup()
+{
+    EdgeControl.begin();
+    
+    Serial.begin(115200);
+
+    // Wait for Serial Monitor or start after 2.5s
+    for (const auto timeout = millis() + 2500; millis() < timeout && !Serial; delay(250));
+
+    // Init IRQ INPUT pins
+    for (auto pin = IRQ_CH1; pin <= IRQ_CH6; pin++)
+        pinMode(pin, INPUT);
+
+    // Attach callbacks to IRQ pins
+    attachInterrupt(digitalPinToInterrupt(IRQ_CH1), []{ irqCounts[irqChannel1]++; }, RISING);
+    attachInterrupt(digitalPinToInterrupt(IRQ_CH2), []{ irqCounts[irqChannel2]++; }, RISING);
+    attachInterrupt(digitalPinToInterrupt(IRQ_CH3), []{ irqCounts[irqChannel3]++; }, RISING);
+    attachInterrupt(digitalPinToInterrupt(IRQ_CH4), []{ irqCounts[irqChannel4]++; }, RISING);
+    attachInterrupt(digitalPinToInterrupt(IRQ_CH5), []{ irqCounts[irqChannel5]++; }, RISING);
+    attachInterrupt(digitalPinToInterrupt(IRQ_CH6), []{ irqCounts[irqChannel6]++; }, RISING);
+
+}
+
+void loop()
+{
+    // Check for received IRQ every second.
+    Serial.println("--------");
+    for (unsigned int i = irqChannel1; i <= irqChannel6; i++) { 
+        Serial.print("IRQ Channel: ");
+        Serial.print(i + 1);
+        Serial.print(" - ");
+        Serial.println(irqCounts[i]);
+    }
+    delay(1000);
+}
+
+```
+
 ### 4-20mA Inputs
 ### Watermark Inputs
 
