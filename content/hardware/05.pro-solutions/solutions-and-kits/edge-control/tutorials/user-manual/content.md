@@ -169,12 +169,142 @@ To upload the code to the Edge Control, click the **Verify** button to compile t
 
 ***The Edge Control should be powered by an external power source or a battery so the blink works.***
 
-You should see now the onboard LED turn on for half a second, then off, repeatedly.
+You should now see the onboard LED turn on for half a second, then off, repeatedly.
 
 ![Hello World example running in the Edge Control](assets/Blink.gif)
 
 ## Inputs
 ### Analog Inputs
+The Edge Control has **eight analog input pins**, mapped as follows: 
+
+|       **Input Name**      | **Arduino Pin Mapping**|
+|:-------------------------:|:----------------------:|
+|      `INPUT_05V_CH01`     |           `0`          |
+|      `INPUT_05V_CH02`     |           `1`          |
+|      `INPUT_05V_CH03`     |           `2`          |
+|      `INPUT_05V_CH04`     |           `3`          |
+|      `INPUT_05V_CH05`     |           `4`          |
+|      `INPUT_05V_CH06`     |           `5`          |
+|      `INPUT_05V_CH07`     |           `6`          |
+|      `INPUT_05V_CH08`     |           `7`          |
+
+Every pin can be used through the built-in functions of the Arduino programming language. 
+
+Edge Control ADC can be configured to 8, 10 or 12 bits defining the argument of the following function respectively (default is 10 bits):
+
+```arduino
+analogReadResolution(12);  // ADC resolution set to 12 bits (0-4095)
+```
+***The Edge Control ADC reference voltage is fixed to 5.0v, this means that it will map the ADC range from 0 to 5.0 volts.***
+
+The example code shown below reads the analog input value from every Edge Control channel and displays it on the IDE Serial Monitor:
+
+This example code could also be found on  **File > Examples > Arduino_EdgeControl > Basic > 0-5V_Input**
+
+![ADC input example wiring](assets/analog-wiring.svg)
+
+```arduino
+/*
+  Testing strategy: connect each 5V ANALOG-IN input pin alternatively to +5V on the same connector.
+*/
+
+#include <Arduino_EdgeControl.h>
+
+constexpr unsigned int adcResolution { 12 };
+
+constexpr pin_size_t inputChannels [] {
+    INPUT_05V_CH01,
+    INPUT_05V_CH02,
+    INPUT_05V_CH03,
+    INPUT_05V_CH04,
+    INPUT_05V_CH05,
+    INPUT_05V_CH06,
+    INPUT_05V_CH07,
+    INPUT_05V_CH08
+};
+constexpr size_t inputChannelsLen { sizeof(inputChannels) / sizeof(inputChannels[0]) };
+int inputChannelIndex { 0 };
+
+struct Voltages {
+    float volt3V3;
+    float volt5V;
+};
+
+void setup()
+{
+    Serial.begin(9600);
+
+    auto startNow = millis() + 2500;
+    while (!Serial && millis() < startNow)
+        ;
+
+    delay(1000);
+    Serial.println("Hello, Challenge!");
+
+    Power.on(PWR_3V3);
+    Power.on(PWR_VBAT);
+
+    Wire.begin();
+    Expander.begin();
+
+    Serial.print("Waiting for IO Expander Initialization...");
+    while (!Expander) {
+        Serial.print(".");
+        delay(100);
+    }
+    Serial.println(" done.");
+
+    Input.begin();
+    Input.enable();
+
+    analogReadResolution(adcResolution);
+}
+
+void loop()
+{
+    Serial.print("0-5V Input Channel ");
+    switch (inputChannels[inputChannelIndex]) {
+        case INPUT_05V_CH01: Serial.print("01"); break;
+        case INPUT_05V_CH02: Serial.print("02"); break;
+        case INPUT_05V_CH03: Serial.print("03"); break;
+        case INPUT_05V_CH04: Serial.print("04"); break;
+        case INPUT_05V_CH05: Serial.print("05"); break;
+        case INPUT_05V_CH06: Serial.print("06"); break;
+        case INPUT_05V_CH07: Serial.print("07"); break;
+        case INPUT_05V_CH08: Serial.print("08"); break;
+        default: break;
+    }
+    Serial.print(": ");
+
+    auto [ voltsMuxer, voltsInput ] = getAverageAnalogRead(inputChannels[inputChannelIndex]);
+
+    Serial.print(voltsInput);
+    Serial.print(" (");
+    Serial.print(voltsMuxer);
+    Serial.println(")");
+    delay(1000);
+
+    inputChannelIndex = ++inputChannelIndex % inputChannelsLen;
+}
+
+Voltages getAverageAnalogRead(int pin)
+{
+    constexpr size_t loops { 100 };
+    constexpr float toV { 3.3f / float { (1 << adcResolution) - 1 } };
+    constexpr float rDiv { 17.4f / ( 10.0f + 17.4f) };
+
+    int tot { 0 };
+
+    for (auto i = 0u; i < loops; i++)
+        tot += Input.analogRead(pin);
+    const auto avg = static_cast<float>(tot) * toV / static_cast<float>(loops);
+
+    return { avg, avg / rDiv };
+}
+
+```
+
+
 ### IRQ Inputs
 ### 4-20mA Inputs
 ### Watermark Inputs
