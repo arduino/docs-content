@@ -1,5 +1,5 @@
 ---
-title: GIGA Display Shield Draw Images
+title: GIGA Display Shield Draw Images Guide
 description: 'Learn how to use basic draw functions to create and display images on the GIGA Display Shield.'
 author: Benjamin Dannegård
 hardware:
