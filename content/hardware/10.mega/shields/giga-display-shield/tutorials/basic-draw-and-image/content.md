@@ -2,6 +2,9 @@
 title: Using Draw and Image Functions with the GIGA Display Shield
 description: 'Learn how to use basic draw functions to create and display images on the GIGA Display Shield.'
 author: Benjamin Dannegård
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
+  - hardware/10.mega/shields/giga-display-shield
 tags: [Display, Draw]
 ---
 
@@ -11,14 +14,14 @@ This is a great tutorial for getting started with your shield and exploring what
 
 ## Hardware & Software Needed
 
-- [Arduino GIGA R1 WiFi](/hardware/giga-r1).
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi).
 - [Arduino GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [ArduinoGraphics library](https://www.arduino.cc/reference/en/libraries/arduinographics/)
 
 ## Downloading the Library and Core
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the core. Now you have to install the library needed for the graphical display features. To do this, go to **Tools > Manage libraries..**, search for **ArduinoGraphics**, and install it.
+Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the core and is needed for the examples to work. Now you have to install the library needed for the graphical display features. To do this, go to **Tools > Manage libraries..**, search for **ArduinoGraphics**, and install it.
 
 ## Using Draw Feature in a Sketch
 
@@ -45,7 +48,7 @@ void setup() {
   Display.clear();
 ```
 
-Next let's draw the circle that will be the base of the logo. First, set the color of the circle with `Display.fill(0x008184);`. Then draw the circle with the command `Display.circle()`. Inside the parentheses enter the x position, y position, and diameter of the circle. We can make the positioning easy by using the display's total width and height as a base for our position measurements.
+Next, let's draw the circle that will be the base of the logo. First, set the color of the circle with `Display.fill(0x008184);`. Then draw the circle with the command `Display.circle()`. Inside the parentheses enter the x position, y position, and diameter of the circle. We can make the positioning easy by using the display's total width and height as a base for our position measurements.
 
 ```arduino
   Display.fill(0x008184);
@@ -139,7 +142,7 @@ We will be using the example sketch "ArduinoLogo" as the basis for the sketch th
 
 Running the example sketch as is will display the Arduino logo on the screen, like in the image below:
 
-[Arduino Logo on the GIGA Display Shield]()
+[Arduino Logo on the GIGA Display Shield](assets/logo-img.svg)
 
 Now to use the image that we converted in the last step. Use the macro inside the example sketch. This makes use of the `incbin.h` translation library. The necessary files are located in the folder for the example sketch.
 
