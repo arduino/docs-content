@@ -35,6 +35,8 @@ Connect the camera to the connector on the front of the display shield as shown 
 
 ![Camera connected to the GIGA Display Shield](assets/camera-connected.svg)
 
+***Note the direction of the shield, physically the connector can be plugged in from both directions, but it will only work when facing the same direction as the display.***
+
 ## Full Sketch
 
 Open the example sketch by going to **File > Examples > Camera > GigaCameraDisplay** in the Arduino IDE.

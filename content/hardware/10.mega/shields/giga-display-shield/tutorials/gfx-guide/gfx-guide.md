@@ -13,12 +13,12 @@ To access it, we can use a layer library called [Arduino_GigaDisplay_GFX](https:
 
 In this guide we will cover:
 - Learn how to draw and print to the display,
-- how to draw basic shapes (circles, rectangles etc)
-- how to update values on the screen,
+- How to draw basic shapes (circles, rectangles etc)
+- How to update values on the screen,
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1).
+- [GIGA R1 WiFi](/hardware/giga-r1-wifi).
 - [GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
@@ -60,7 +60,7 @@ There are several methods available. In this section, we will list out a number 
 
 ### Coordinates
 
-The coordinates in the GFX library is easy to work with. Most methods have the coordinates as parameters (x,y). To set the cursor (position) on the display, you can utilize the following method: 
+The coordinates in the GFX library are easy to work with. Most methods have the coordinates as parameters (x,y). To set the cursor (position) on the display, you can utilize the following method: 
 
 - `setCursor(x, y)` - set the cursor on the display.
 
@@ -106,6 +106,8 @@ void setup() {
 void loop(){}
 ```
 
+![Text sketch running on the GIGA Display Shield](assets/text-on-display.svg)
+
 ### Pixels & Shapes
 
 To draw pixels and shapes, use the following methods.
@@ -138,6 +140,8 @@ void setup() {
 }
 void loop() {}
 ```
+
+![Shapes sketch running on the GIGA Display Shield](assets/shapes-on-display.svg)
 
 ## GFX & Touch Example
 

@@ -23,6 +23,8 @@ This is a great tutorial for getting started with your shield and exploring what
 
 Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the core and is needed for the examples to work. Now you have to install the library needed for the graphical display features. To do this, go to **Tools > Manage libraries..**, search for **ArduinoGraphics**, and install it.
 
+For more information about libraries and how to install them with the IDE, visit our [libraries tutorial](/software/ide-v2/tutorials/ide-v2-installing-a-library).
+
 ## Using Draw Feature in a Sketch
 
 First, we need to include the library that we will be using and define the display screen:
