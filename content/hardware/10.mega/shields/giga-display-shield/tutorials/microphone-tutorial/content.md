@@ -96,7 +96,7 @@ This sketch uses the [Arduino_Graphics library](https://www.arduino.cc/reference
 
 ### Volume Indication Sketch
 
-This sketch requires the [lvgl library](https://github.com/lvgl/lvgl), please make sure that is installed before you upload the sketch. The sketch will show a bar on the screen that is animated when noise is made, functionally making it display the volume of the microphones readings. For more information about using lvgl with the GIGA Display Shield, take a look at our documentation [here](tutorials/). You will find the full sketch in the example below:
+This sketch requires the [lvgl library](https://github.com/lvgl/lvgl), please make sure that is installed before you upload the sketch. The sketch will show a bar on the screen that is animated when noise is made, functionally making it display the volume of the microphones readings. For more information about using lvgl with the GIGA Display Shield, take a look at our documentation [here](tutorials/lvgl-guide). You will find the full sketch below:
 
 ```arduino
 #include <PDM.h>
