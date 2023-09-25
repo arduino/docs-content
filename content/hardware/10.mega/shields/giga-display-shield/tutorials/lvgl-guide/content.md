@@ -1,5 +1,5 @@
 ---
-title: Guide for Using LVGL With the GIGA Display Shield
+title: GIGA Display Shield LVGL Guide
 description: 'Learn how to use LVGL with the GIGA Display Shield.'
 author: Benjamin Dannegård
 tags: [Display, LVGL]
@@ -7,7 +7,9 @@ tags: [Display, LVGL]
 
 ## Introduction
 
-LVGL is a very powerful graphical framework that is compatible with the GIGA Display Shield. It will allow you to put components on the screen like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. This guide will go through the different components in detail so you can learn how to best implement it to your project.
+[LVGL](https://lvgl.io/) is a graphical framework for building powerful UIs, and is fully compatible with the GIGA Display Shield. It allows you to build UIs, using pre-made widgets like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. In this guide, we will go through some of the different components, so you can learn how to best implement it in your projects.
+
+***LVGL is a large framework, and the aim of this guide is to get you familiar with it. For much more information, visit the [LVGL documentation](https://docs.lvgl.io/master/)***
 
 ## Hardware & Software Needed
 
@@ -19,50 +21,61 @@ LVGL is a very powerful graphical framework that is compatible with the GIGA Dis
 
 ## Downloading the Library and Core
 
-The GIGA core includes a library that will help us handle the display, so make sure you have the latest version of the core.
+The GIGA R1 core includes the [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library that handles the display.
 
 In this guide, we will be using three different libraries:
-- **[Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video)**, this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed)
-- **Arduino_GigaDisplayTouch**
-- **LVGL** 
+- [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video), this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed) installed.
+- [Arduino_GigaDisplayTouch](https://www.arduino.cc/reference/en/libraries/arduino_gigadisplaytouch/)
+- [lvgl](https://github.com/lvgl/lvgl)
 
-Open the library manager and install the latest version of **Arduino_GigaDisplayTouch** and **lvgl**.
+To install them, open the library manager and install the latest version by searching for **"Arduino_GigaDisplayTouch"** and **"lvgl"**.
 
 In the sketch include the libraries like this:
 
 ```arduino
 #include "Arduino_H7_Video.h"
 #include "lvgl.h"
-
 #include "Arduino_GigaDisplayTouch.h"
 ```
 
 ## General Set Up
 
+In this section, we will go through the fundamental elements of an LVGL sketch:
+- How to define & configure the display,
+- how to create a grid layout,
+- how to add an object to the grid,
+- how to update the display.
+
+***At the end of this section, you will find a complete example which implements a grid layout. You can [skip directly to the example](#minimal-example), but if you have no prior experience with lvgl, we recommend you follow the information below.***
+
 ### Display Shield Configuration
 
-We then will also need to define the screen we are using, do this by adding this line of code after the library inclusions. This function will use the **Arduino_H7_Video** library:
+The first thing we need to do is to define the display we are using, by creating a object using the `Arduino_H7_Video` class, specifying the height, width and type of display.
 
 ```arduino
 Arduino_H7_Video          Display(800, 480, GigaDisplayShield);
 ```` 
 
-And if you want to use touch with your application call the following to use the **Arduino_GigaDisplayTouch** library:
+And if you want to use touch with your application, we need to create an object using the `Arduino_GigaDisplayTouch` class.
 
 ```arduino
 Arduino_GigaDisplayTouch  TouchDetector;
 ```
 
-Then we have to start these functions by putting these lines in the `setup()` function:
+In the `setup()`, we begin by initializing the display and the touch detector.
 
 ```arduino
-Display.begin();
-TouchDetector.begin();
+void setup(){
+  Display.begin();
+  TouchDetector.begin();
+}
 ```
+
+With these things set up, we can go on to configure the LVGL elements.
 
 ### LVGL Screen Configuration
 
-When creating elements, information about the screen and placement needs to be provided. Let's create a pointer variable that can be used whenever the screenspace needs to be used. The pointer variable will be named `screen` and to use the current screen for the pointer use `lv_scr_act()`.
+When creating elements, information about the screen and placement needs to be provided. Let's create a pointer variable that can be used whenever the screenspace needs to be used. The pointer variable will be named `screen` and to use the current screen for the pointer use `lv_scr_act()`. This code should also be added inside `setup()`.
 
 ```arduino
   lv_obj_t * screen = lv_obj_create(lv_scr_act());
@@ -101,11 +114,23 @@ Now that the columns and rows have been defined the overall screen needs to be t
   lv_obj_set_size(grid, Display.width(), Display.height());
 ```
 
-Then if we want to center the grid on the screen, simply use:
+Then, just to test it out, let's add an object to the grid. 
+- first declare the `obj` pointer add it to the `grid`,
+- then we set the grid cell via `lv_obj_set_grid_cell()` method.
 
 ```arduino
-  lv_obj_center(grid);
+lv_obj_t* obj;
+obj = lv_obj_create(grid);
+lv_obj_set_grid_cell(obj, LV_GRID_ALIGN_STRETCH, 0, 1,  //column
+                        LV_GRID_ALIGN_STRETCH, 0, 1);      //row
 ```
+
+
+The `lv_obj_set_grid_cell())` have a set of parameters related to how the object is positioned and aligned. In this case, we have created a 2x2 grid, where the `0` (column) and `0` (row) indicates where on the grid it should go.
+
+Take a look at this graphic to understand it better:
+
+![How grids work in LVGL.](assets/gridlvgl.png)
 
 ### Update Loop
 
@@ -113,6 +138,59 @@ Include this in the loop of your sketch to make sure the LVGL engine is running 
 
 ```arduino
 void loop() { 
+  lv_timer_handler();
+}
+```
+
+### Minimal Example
+
+The summary of all code snippets in this section can be found in the example below. It implements a 2x2 grid, as well as adds an object in each slot.
+
+```arduino
+#include "Arduino_H7_Video.h"
+#include "lvgl.h"
+#include "Arduino_GigaDisplayTouch.h"
+
+Arduino_H7_Video Display(800, 480, GigaDisplayShield);
+Arduino_GigaDisplayTouch TouchDetector;
+
+void setup() {
+  Display.begin();
+  TouchDetector.begin();
+
+  //Display & Grid Setup
+  lv_obj_t* screen = lv_obj_create(lv_scr_act());
+  lv_obj_set_size(screen, Display.width(), Display.height());
+
+  static lv_coord_t col_dsc[] = { 370, 370, LV_GRID_TEMPLATE_LAST };
+  static lv_coord_t row_dsc[] = { 215, 215, 215, 215, LV_GRID_TEMPLATE_LAST };
+
+  lv_obj_t* grid = lv_obj_create(lv_scr_act());
+  lv_obj_set_grid_dsc_array(grid, col_dsc, row_dsc);
+  lv_obj_set_size(grid, Display.width(), Display.height());
+
+  //top left
+  lv_obj_t* obj;
+  obj = lv_obj_create(grid);
+  lv_obj_set_grid_cell(obj, LV_GRID_ALIGN_STRETCH, 0, 1,  //column
+                       LV_GRID_ALIGN_STRETCH, 0, 1);      //row
+
+  //bottom left
+  obj = lv_obj_create(grid);
+  lv_obj_set_grid_cell(obj, LV_GRID_ALIGN_STRETCH, 0, 1,  //column
+                       LV_GRID_ALIGN_STRETCH, 1, 1);      //row
+  //top right
+  obj = lv_obj_create(grid);
+  lv_obj_set_grid_cell(obj, LV_GRID_ALIGN_STRETCH, 1, 1,  //column
+                       LV_GRID_ALIGN_STRETCH, 0, 1);      //row
+
+  //bottom right
+  obj = lv_obj_create(grid);
+  lv_obj_set_grid_cell(obj, LV_GRID_ALIGN_STRETCH, 1, 1,  //column
+                       LV_GRID_ALIGN_STRETCH, 1, 1);      //row
+}
+
+void loop() {
   lv_timer_handler();
 }
 ```
@@ -148,9 +226,9 @@ To make sure we see the image use the align function to make it centered. Then a
   lv_obj_set_size(img1, 200, 150);
 ```
 
-![An image rendered on the Display Shield with LVGL](assets/image.svg)
+![An image rendered on the Display Shield with LVGL](assets/image.png)
 
-### Full Example
+**Full Example:**
 
 ```arduino
 #include "Arduino_H7_Video.h"
@@ -221,9 +299,9 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
   lv_obj_add_state(checkbox, LV_STATE_CHECKED);
 ```
 
-![Checkboxes rendered on the Display Shield with LVGL](assets/checkboxes.svg)
+![Checkboxes rendered on the Display Shield with LVGL](assets/checkboxes.png)
 
-### Full Example
+**Full Example:**
 
 ```arduino
 #include "Arduino_H7_Video.h"
@@ -296,9 +374,9 @@ The size of the radio button is set with `lv_style_set_radius`. To make the radi
   lv_style_set_bg_img_src(&style_radio_chk, NULL);
 ```
 
-![Radio buttons rendered on the Display Shield with LVGL](assets/radio-buttons.svg)
+![Radio buttons rendered on the Display Shield with LVGL](assets/radiobuttons.png)
 
-### Full Example
+**Full Example:**
 
 ```arduino
 #include "Arduino_H7_Video.h"
@@ -391,9 +469,9 @@ If you want a label by your slider it can be created like you would create any o
   lv_obj_align_to(label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
 ```
 
-![Slider rendered on the Display Shield with LVGL](assets/slider.svg)
+![Slider rendered on the Display Shield with LVGL](assets/slider.png)
 
-### Full Example
+**Full Example:**
 
 ```arduino
 #include "Arduino_H7_Video.h"
@@ -517,7 +595,7 @@ static void set_bar_val(void * bar, int32_t val) {
 
 ![A bar rendered on the Display Shield with LVGL](assets/bar.gif)
 
-### Full Example
+**Full Example:**
 
 ```arduino
 #include "Arduino_H7_Video.h"
@@ -630,10 +708,10 @@ static void button_event_callback(lv_event_t * e) {
 }
 ```
 
-![A button rendered on the Display Shield with LVGL](assets/button.svg)
-![Button when it has been pressed](assets/button-clicked.svg)
+![A button rendered on the Display Shield with LVGL](assets/button.png)
+![Button when it has been pressed](assets/button-clicked.png)
 
-### Full Example
+**Full Example:**
 
 ```arduino
 #include "Arduino_H7_Video.h"
@@ -695,7 +773,7 @@ void loop() {
 
 This guide went through the building blocks of the different components that can be implemented with LVGL. To see these examples in a full running example sketch go to **File > Examples > Arduino_H7_Video > LVGLDemo**.
 
-![Example in the IDE](assets/example-in-ide.svg)
+![Example in the IDE](assets/example-in-ide.png)
 
 This example sketch will show the different components in a 2x2 grid.
 
