@@ -1,11 +1,11 @@
 ---
-title: Using Draw and Image Functions with the GIGA Display Shield
+title: GIGA Display Shield Draw Images
 description: 'Learn how to use basic draw functions to create and display images on the GIGA Display Shield.'
 author: Benjamin Dannegård
 hardware:
   - hardware/10.mega/boards/giga-r1-wifi
   - hardware/10.mega/shields/giga-display-shield
-tags: [Display, Draw]
+tags: [Display, Draw, Images]
 ---
 
 The most basic use of the GIGA Display Shield is to draw an image on the screen using code. This is made easy by using the library `ArduinoGraphics`. In this tutorial we will go through how to draw the Arduino logo on the GIGA Display Shield with the commands provided by this library.
