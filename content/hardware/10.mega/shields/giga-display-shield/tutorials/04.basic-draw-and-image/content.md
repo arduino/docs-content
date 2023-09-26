@@ -14,7 +14,7 @@ This is a great tutorial for getting started with your shield and exploring what
 
 ## Hardware & Software Needed
 
-- [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi).
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
 - [Arduino GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [ArduinoGraphics library](https://www.arduino.cc/reference/en/libraries/arduinographics/)
@@ -140,7 +140,7 @@ Using an online image converter you can pick any image you would like to be disp
 
 ### Displaying the Image on the Display
 
-We will be using the example sketch "ArduinoLogo" as the basis for the sketch that lets us display an image. The example sketch can be found under **File->Examples->Arduino_H7_Video->ArduinoLogo**.
+We will be using the example sketch "ArduinoLogo" as the basis for the sketch that lets us display an image. The example sketch can be found under **File > Examples > Arduino_H7_Video > ArduinoLogo**.
 
 Running the example sketch as is will display the Arduino logo on the screen, like in the image below:
 
@@ -202,4 +202,4 @@ void loop() { }
 
 ## Conclusion
 
-In this tutorial, we used basic drawing functions with the Giga Display Shield. Using the `ArduinoGraphics` library we managed to draw the Arduino logo with just a few simple commands. Using these basic functions it is possible to create most images that you can think of. Now you can let your imagination run wild and draw to your heart's content!
+In this tutorial, we used basic drawing functions with the GIGA Display Shield. Using the `ArduinoGraphics` library we managed to draw the Arduino logo with just a few simple commands. Using these basic functions it is possible to create most images that you can think of. Now you can let your imagination run wild and draw to your heart's content!

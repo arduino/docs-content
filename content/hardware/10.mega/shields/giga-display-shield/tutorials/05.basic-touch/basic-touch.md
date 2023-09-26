@@ -11,13 +11,13 @@ This library is used to return the number of contact points, and the `x,y` coord
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1-wifi).
-- [GIGA Display Shield](/hardware/giga-display-shield)
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
+- [Arduino GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
 ## Overview
 
-The **Arduino_GigaDisplayTouch** library can be used in combination with any of the available graphics libraries ([see available options](/tutorials/giga-display-shield/getting-started#overview)), but is independent from them and works standalalone.
+The **Arduino_GigaDisplayTouch** library can be used in combination with any of the available graphics libraries ([see available options](/tutorials/giga-display-shield/getting-started#overview)), but is independent from them and works standalone.
 
 The library has two methods of reading sensor data:
 - **Polling** - continuously read the sensor data through the `getTouchPoint()` method.
@@ -69,7 +69,7 @@ The IRQ example demonstrates how to set up an interrupt that triggers a function
 
 ## Delay Example
 
-An important factor to consider is that the `loop()` on the GIGA R1 is executed at a very fast rate, meaning that you will register several touches each time you touch the screen.
+An important factor to consider is that the `loop()` on the GIGA R1 WiFi is executed at a very fast rate, meaning that you will register several touches each time you touch the screen.
 
 This means that whenever you tap the screen, even quickly, you register somewhere between **5-20 touches**. So if you want a specific function to only execute once on a specific touch point, you will need to implement a delay in your code. 
 

@@ -12,14 +12,14 @@ To access it, we can use a layer library called [Arduino_GigaDisplay_GFX](https:
 ## Goals
 
 In this guide we will cover:
-- Learn how to draw and print to the display,
-- How to draw basic shapes (circles, rectangles etc)
-- How to update values on the screen,
+- Learn how to draw and print to the display.
+- How to draw basic shapes (circles, rectangles etc).
+- How to update values on the screen.
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](/hardware/giga-r1-wifi).
-- [GIGA Display Shield](/hardware/giga-display-shield)
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
+- [Arduino GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
 ## Installation
@@ -227,7 +227,7 @@ void changeSwitch() {
 }
 ```
 
-***Learn more about the Giga Display's touch interface in the [Touch Interface Guide](/tutorials/giga-display-shield/basic-touch).***
+***Learn more about the GIGA Display's touch interface in the [Touch Interface Guide](/tutorials/giga-display-shield/basic-touch).***
 
 ## Summary
 
