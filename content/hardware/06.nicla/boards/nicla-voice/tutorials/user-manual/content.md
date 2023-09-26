@@ -104,18 +104,18 @@ The Nicla voice can be powered by:
 
 ***A 3.7V Li-Po battery can be also connected through the board's pins: `1 (NTC)`, `2 (VBAT)`, and `6 (GND)`. Please refer to the board's [pinout](#pinout) to locate those pins on your Nicla Voice board.***
 
-### Onboard Battery Charger
+#### Onboard Battery Charger
 <br></br>
 
 The onboard battery charger of your board is, by default, **disabled**. To enable it, you can use the `enableCharging()` function defined in the Nicla Voice board core:
 
 ```arduino
 // Enable the onboard battery charger 
-// The function parameter defines the charging current in mA (5, 35, 40 or 300 mA)
+// The function parameter defines the charging current in mA (between 5 and 300 mA)
 nicla::enableCharging(100);
 ```
 
-The desired charging current (in mA) can be set to 5 mA, 35 mA, 40 mA, or 300 mA; the default value is 20 mA.
+The desired charging current can be set to a value between 5 and 300 mA; the default value is 20 mA.
 
 ***A safe default charging current value that works for most common LiPo batteries is 0.5C, which means charging at a rate equal to half the battery's capacity. For example, a 200 mAh battery could be safely charged at 100 mA (0.1 A).***
 
