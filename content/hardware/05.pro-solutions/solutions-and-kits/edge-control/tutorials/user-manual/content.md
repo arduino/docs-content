@@ -393,8 +393,130 @@ void loop()
 ```
 
 ### 4-20mA Inputs
+
+The Edge Control has **four 4-20mA input pins**, mapped as follows: 
+
+|          **Input Name**          |         **Arduino Pin Mapping**       |
+|:--------------------------------:|:-------------------------------------:|
+|      `4-20mA Sensor Input 1`     |           `INPUT_420mA_CH01`          |
+|      `4-20mA Sensor Input 2`     |           `INPUT_420mA_CH02`          |
+|      `4-20mA Sensor Input 3`     |           `INPUT_420mA_CH03`          |
+|      `4-20mA Sensor Input 4`     |           `INPUT_420mA_CH04`          |
+
+Every 4-20mA input can be read through the built-in functions of the Arduino programming language. They are sampled the same way as the 0-5V analog inputs but the input value is read via a 220 ohm resistor and a +19V reference.
+
+A current of 4 to 20 mA passing through the 220 ohm resistor would produce a drop of 0.88v to 4.4v respectively, being in the 5V range of the ADC input.
+
+In the application example a 4-20 mA water level sensor will be used. To convert the analog read voltage back to a current value, the following equation from a 4-20 mA sensor can be used:
+
+`y = 16x + 4`
+
+Where:
+* First we solve for x, having the formula: `x = (y - 4)/16` where x is in meters.
+* To be able to work in centimeters, you can multiply the expression by 100: `x = (y - 4)*(100/16)`.
+* Eventually, you can simplify the expression as: `x = (y - 4)*6.25`.
+
+This is a brief explanation of the mathematical expression used inside the sketch to convert the original sensor value voltage into centimeters:
+
+`float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25;`
+
+![4-20mA example wiring](assets/4-20mA-wiring.png)
+
+```arduino
+#include <Arduino_EdgeControl.h>
+
+constexpr unsigned int adcResolution { 12 };
+
+struct Voltages {
+    float volt3V3;
+    float voltRef;
+};
+
+void setup()
+{
+    Serial.begin(115200);
+
+    auto startNow = millis() + 2500;
+    while (!Serial && millis() < startNow)
+        ;
+
+    delay(1000);
+    Serial.println("Hello, Challenge!");
+
+    Power.on(PWR_3V3);
+    Power.on(PWR_VBAT);
+    Power.on(PWR_19V);
+
+    Wire.begin();
+    Expander.begin();
+
+    Serial.print("Waiting for IO Expander Initialization...");
+    while (!Expander) {
+        Serial.print(".");
+        delay(100);
+    }
+    Serial.println(" done.");
+
+    Input.begin();
+    Input.enable();
+
+    analogReadResolution(adcResolution);
+}
+
+void loop()
+{
+    Serial.print("4-20mA Input Channel 01: ");
+
+    auto [ voltsMuxer, voltsReference ] = getAverageAnalogRead(INPUT_420mA_CH01);
+
+    float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25;
+
+    if(w_level < 0){
+      w_level = 0;
+    }
+
+    Serial.print(w_level);
+    Serial.print(" cm (");
+    Serial.print(voltsReference);
+    Serial.println(" V)");
+    delay(1000);
+
+}
+
+/**
+  Average the water level sensor readings to improve stability
+  @param pin The input pin where the 4-20mA sensor is connected
+*/
+Voltages getAverageAnalogRead(int pin) {
+  constexpr size_t loops{ 100 };
+  constexpr float toV{ 3.3f / float{ (1 << adcResolution) - 1 } };
+  constexpr float rDiv{ 17.4f / (10.0f + 17.4f) };
+
+  int tot{ 0 };
+
+  for (auto i = 0u; i < loops; i++)
+    tot += Input.analogRead(pin);
+  const auto avg = static_cast<float>(tot) * toV / static_cast<float>(loops);
+
+  return { avg, avg / rDiv };
+}
+
+```
+
 ### Watermark Inputs
 
+The Edge Control has **16 Watermark sensor inputs**, mapped as follows: 
+
+|          **Input Name**          |         **Arduino Pin Mapping**       |
+|:--------------------------------:|:-------------------------------------:|
+|      `Watermark Sensor Input 1`     |           `WATERMARK_CH01`          |
+|      `Watermark Sensor Input 2`     |           `WATERMARK_CH02`          |
+|      `Watermark Sensor Input 3`     |           `WATERMARK_CH03`          |
+|      `...`     |           `...`          |
+|      `...`     |           `...`          |
+|      `Watermark Sensor Input 2`     |           `WATERMARK_CH014`          |
+|      `Watermark Sensor Input 3`     |           `WATERMARK_CH015`          |
+|      `Watermark Sensor Input 4`     |           `WATERMARK_CH016`          |
 
 ## Outputs
 ### Latching Outputs
