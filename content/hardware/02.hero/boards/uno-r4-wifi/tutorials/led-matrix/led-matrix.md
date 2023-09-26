@@ -392,7 +392,6 @@ To write more advanced sketches on your own, you may use the full API of the lib
 `public void` [`loadSequence`](#)`(const uint32_t frames[][4])`| Loads an animation sequence into the buffer but does not display it.
 `public void` [`play`](#)`(bool loop = false)`                 | Start playing the sequence of frames, with the option to loop indefinitely or play once.
 `public bool` [`sequenceDone`](#)`()`                          | checks if the sequence has finished playing.
-`public void` [`loadPixels`](#)`(uint8_t *arr, size_t size)`   | Loads the pixels into the buffer but does not display them.
 
 ## Members
 
@@ -447,11 +446,3 @@ Check for if the sequence is finished playing or if the frame should be advanced
 **Returns**
 false if the sequence is not finished, true if it is.
 
-**public void loadPixels(uint8_t arr, size_t size)**
-
-Loads the pixels into the frame but does not load them.
-
-**Parameters**
-* `arr` Pointer to an array that holds the frame
-
-* `size` the amount of pixels in your frame. 
