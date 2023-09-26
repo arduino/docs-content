@@ -65,11 +65,7 @@ Now try twisting the potentiometer, and listen to how the sound changes.
 
 The sketch above generates what is known as a sine wave. It is called a sine wave because if you were to plot the voltage against time, you'd notice that the line looks just like a sine function.
 
-![Sine Wave](./assets/sine.png)
-
 There are other types of analog waves that will produce a distinctly different type of sound compared to a sine wave. The library we're using in this sketch also allows you to create sawtooth and square waves. These types of wave also gets their names from how they look when the voltages are plotted against time.
-
-![Square and Sawtooth Waves](./assets/sawandsquare.png)
 
 Try changing the wave type and listen how it changes the feel of the sound. 
 
