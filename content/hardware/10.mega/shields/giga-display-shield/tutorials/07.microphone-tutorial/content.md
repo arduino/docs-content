@@ -92,7 +92,94 @@ void onPDMdata() {
 This sketch uses the [Arduino_Graphics library](https://www.arduino.cc/reference/en/libraries/arduinographics/) to change the color of the background when a loud noise is detected, such as a clap.
 
 ```arduino
+#include "Arduino_H7_Video.h"
+#include "ArduinoGraphics.h"
+#include <PDM.h>
 
+Arduino_H7_Video Display(800, 480, GigaDisplayShield);
+
+// default number of output channels
+static const char channels = 1;
+
+// default PCM output frequency
+static const int frequency = 16000;
+
+// Buffer to read samples into, each sample is 16-bits
+short sampleBuffer[512];
+
+// Number of audio samples read
+volatile int samplesRead;
+
+void setup() {
+  Display.begin();
+  Display.beginDraw();
+  Display.background(255, 255, 255);
+  Display.clear();
+
+  PDM.onReceive(onPDMdata);
+
+  if (!PDM.begin(channels, frequency)) {
+    Serial.println("Failed to start PDM!");
+    while (1);
+  }
+  Display.endDraw();
+}
+
+int count = 1;
+
+void loop(){
+  int micValue;
+
+  if (samplesRead) {
+    // Print samples to the serial monitor or plotter
+    for (int i = 0; i < samplesRead; i++) {
+      micValue = sampleBuffer[i];
+      if(micValue > 10000){
+        clap_switch();
+      }
+    }
+    // Clear the read count
+    samplesRead = 0;
+  }
+}
+
+void clap_switch(){
+  Display.beginDraw();
+  switch(count){
+    case 1:
+    Display.clear();
+    Display.background(0, 0, 204);
+    break;
+
+    case 2:
+    Display.clear();
+    Display.background(255, 128, 0);
+    break;
+
+    case 3:
+    Display.clear();
+    Display.background(255, 255, 0);
+    break;
+    }
+    if(count == 3)
+    {
+      count = 0;
+    }
+    count++;
+    Display.endDraw();
+    delay(1000);
+}
+
+void onPDMdata() {
+  // Query the number of available bytes
+  int bytesAvailable = PDM.available();
+
+  // Read into the sample buffer
+  PDM.read(sampleBuffer, bytesAvailable);
+
+  // 16-bit, 2 bytes per sample
+  samplesRead = bytesAvailable / 2;
+}
 ```
 
 ### Volume Indication Sketch
@@ -193,7 +280,7 @@ void onPDMdata() {
 ```
 
 
-[GIF of sketch running]()
+[GIF of sketch running](assets/P1066383.gif)
 
 ## Conclusion
 
