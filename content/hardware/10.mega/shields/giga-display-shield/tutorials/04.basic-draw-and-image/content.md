@@ -140,7 +140,7 @@ Using an online image converter you can pick any image you would like to be disp
 
 ### Displaying the Image on the Display
 
-We will be using the example sketch "ArduinoLogo" as the basis for the sketch that let us display an image. The example sketch can be found under **File > Examples > Arduino_H7_Video > ArduinoLogo**.
+We will be using the example sketch "ArduinoLogo" as the basis for the sketch that lets us display an image. The example sketch can be found under **File > Examples > Arduino_H7_Video > ArduinoLogo**.
 
 Running the example sketch as is will display the Arduino logo on the screen, like in the image below:
 
