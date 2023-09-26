@@ -112,7 +112,7 @@ The connector is located just above the display, which makes it possible to see 
 
 This shield has a built-in IMU module, the **BMI270**. This sensor can be used for a number of purposes, for example to automatically orientate an object on the screen, see the following tutorial: 
 
-- [Giga Display Shield Automatic Orientation](/tutorials/giga-display-shield/image-orientation)
+- [GIGA Display Shield Automatic Orientation](/tutorials/giga-display-shield/image-orientation)
 
 To access **BMI270**, use the [BMI270-250](https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/) library. Please note that the sensor is not connected to the main I2C bus, so you will need to initialize the sensor on another bus. To do so, simply add the line below to the top of your sketch:
 

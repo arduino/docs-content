@@ -202,4 +202,4 @@ void loop() { }
 
 ## Conclusion
 
-In this tutorial, we used basic drawing functions with the Giga Display Shield. Using the `ArduinoGraphics` library we managed to draw the Arduino logo with just a few simple commands. Using these basic functions it is possible to create most images that you can think of. Now you can let your imagination run wild and draw to your heart's content!
+In this tutorial, we used basic drawing functions with the GIGA Display Shield. Using the `ArduinoGraphics` library we managed to draw the Arduino logo with just a few simple commands. Using these basic functions it is possible to create most images that you can think of. Now you can let your imagination run wild and draw to your heart's content!

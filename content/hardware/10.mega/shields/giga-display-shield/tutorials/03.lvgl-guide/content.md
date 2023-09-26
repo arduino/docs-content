@@ -46,7 +46,7 @@ In this section, we will go through the fundamental elements of an LVGL sketch:
 - how to add an object to the grid,
 - how to update the display.
 
-***At the end of this section, you will find a complete example which implements a grid layout. You can [skip directly to the example](#minimal-example), but if you have no prior experience with lvgl, we recommend you follow the information below.***
+***At the end of this section, you will find a complete example which implements a grid layout. You can [skip directly to the example](#minimal-example), but if you have no prior experience with LVGL, we recommend you follow the information below.***
 
 ### Display Shield Configuration
 
@@ -226,7 +226,7 @@ To make sure we see the image use the align function to make it centered. Then a
   lv_obj_set_size(img1, 200, 150);
 ```
 
-![An image rendered on the Display Shield with LVGL](assets/image.png)
+![An image rendered on the GIGA Display Shield with LVGL](assets/image.png)
 
 **Full Example:**
 
@@ -299,7 +299,7 @@ The startup state of the checkbox can be set with `lv_obj_add_state()`. Where th
   lv_obj_add_state(checkbox, LV_STATE_CHECKED);
 ```
 
-![Checkboxes rendered on the Display Shield with LVGL](assets/checkboxes.png)
+![Checkboxes rendered on the GIGA Display Shield with LVGL](assets/checkboxes.png)
 
 **Full Example:**
 
@@ -374,7 +374,7 @@ The size of the radio button is set with `lv_style_set_radius`. To make the radi
   lv_style_set_bg_img_src(&style_radio_chk, NULL);
 ```
 
-![Radio buttons rendered on the Display Shield with LVGL](assets/radiobuttons.png)
+![Radio buttons rendered on the GIGA Display Shield with LVGL](assets/radiobuttons.png)
 
 **Full Example:**
 
@@ -469,7 +469,7 @@ If you want a label by your slider it can be created like you would create any o
   lv_obj_align_to(label, slider, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
 ```
 
-![Slider rendered on the Display Shield with LVGL](assets/slider.png)
+![Slider rendered on the GIGA Display Shield with LVGL](assets/slider.png)
 
 **Full Example:**
 
@@ -593,7 +593,7 @@ static void set_bar_val(void * bar, int32_t val) {
 }
 ```
 
-![A bar rendered on the Display Shield with LVGL](assets/bar.gif)
+![A bar rendered on the GIGA Display Shield with LVGL](assets/bar.gif)
 
 **Full Example:**
 
@@ -708,7 +708,8 @@ static void button_event_callback(lv_event_t * e) {
 }
 ```
 
-![A button rendered on the Display Shield with LVGL](assets/button.png)
+![A button rendered on the GIGA Display Shield with LVGL](assets/button.png)
+
 ![Button when it has been pressed](assets/button-clicked.png)
 
 **Full Example:**
