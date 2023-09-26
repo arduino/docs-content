@@ -11,13 +11,13 @@ This library is used to return the number of contact points, and the `x,y` coord
 
 ## Hardware & Software Needed
 
-- [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi).
+- [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
 - [Arduino GIGA Display Shield](/hardware/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
 ## Overview
 
-The **Arduino_GigaDisplayTouch** library can be used in combination with any of the available graphics libraries ([see available options](/tutorials/giga-display-shield/getting-started#overview)), but is independent from them and works standalalone.
+The **Arduino_GigaDisplayTouch** library can be used in combination with any of the available graphics libraries ([see available options](/tutorials/giga-display-shield/getting-started#overview)), but is independent from them and works standalone.
 
 The library has two methods of reading sensor data:
 - **Polling** - continuously read the sensor data through the `getTouchPoint()` method.

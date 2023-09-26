@@ -14,8 +14,8 @@ In this guide you will learn how to set your board up with the GIGA R1 WiFi boar
 
 ## Hardware & Software Needed
 
-- [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi).
-- [GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
+- [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
+- [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
 ## Overview

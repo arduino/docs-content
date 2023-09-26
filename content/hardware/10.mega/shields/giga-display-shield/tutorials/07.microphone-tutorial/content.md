@@ -54,7 +54,7 @@ A callback function needs to be set, which is called when new PDM data is ready 
 
 `onPDMdata` is the callback function that we will have to create at the end of the sketch.
 
-Now when we want to print or use the readings lets do it with a `for` loop since they are inside a buffer, which we need to step through. But lets first check so that there are readings to be printed with a simple `if` statement. These lines will step through the buffer until all the readings inside are printed and then start over:
+Now when we want to print or use the readings let's do it with a `for` loop since they are inside a buffer, which we need to step through. But let's first check so that there are readings to be printed with a simple `if` statement. These lines will step through the buffer until all the readings inside are printed and then start over:
 
 ```arduino
 if (samplesRead) {

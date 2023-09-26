@@ -9,7 +9,7 @@ tags: [Display, LVGL]
 
 [LVGL](https://lvgl.io/) is a graphical framework for building powerful UIs, and is fully compatible with the GIGA Display Shield. It allows you to build UIs, using pre-made widgets like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. In this guide, we will go through some of the different components, so you can learn how to best implement it in your projects.
 
-***LVGL is a large framework, and the aim of this guide is to get you familiar with it. For much more information, visit the [LVGL documentation](https://docs.lvgl.io/master/)***
+***LVGL is a large framework, and the aim of this guide is to get you familiar with it. For much more information, visit the [LVGL documentation](https://docs.lvgl.io/master/).***
 
 ## Hardware & Software Needed
 
@@ -114,7 +114,8 @@ Now that the columns and rows have been defined the overall screen needs to be t
   lv_obj_set_size(grid, Display.width(), Display.height());
 ```
 
-Then, just to test it out, let's add an object to the grid. 
+Then, just to test it out, let's add an object to the grid:
+ 
 - first declare the `obj` pointer add it to the `grid`,
 - then we set the grid cell via `lv_obj_set_grid_cell()` method.
 
