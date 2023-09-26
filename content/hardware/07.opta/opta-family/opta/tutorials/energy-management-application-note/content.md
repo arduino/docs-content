@@ -37,7 +37,7 @@ This application note shows an example of an energy management system, leveragin
 
 A graphical representation of the intended application is shown below:
 
-![Graphical representation of the energy management application](assets/application_representation.svg)
+![Graphical representation of the energy management application](assets/application_representation.png)
 
 ## Hardware and Software Requirements
 
@@ -63,7 +63,7 @@ A graphical representation of the intended application is shown below:
 
 The electrical connections of the intended application design are shown in the diagram below:
 
-![Electrical connections of the application](assets/electrical_connections.svg)
+![Electrical connections of the application](assets/electrical_connections.png)
 
 The Opta™ will receive instant consumption information from the energy meter's thresholds via Modbus RTU through the RS-485 interface. The power delivered by the solar panels will go through a series of processes to get to the energy meter. The domestic appliances will be controlled using the built-in relay outputs of Opta™. Other types of power sources can be used instead of solar panels.
 
