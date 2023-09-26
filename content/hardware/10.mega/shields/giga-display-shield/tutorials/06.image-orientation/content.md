@@ -162,6 +162,8 @@ void loop() {
 }
 ```
 
+![Orientation sketch running on the GIGA Display Shield](assets/image-orientation.gif)
+
 ### Using Another Image 
 
 Any image could be used in the sketch. This tutorial and the example uses an image of the Arduino logo. Alternatively, any raw RGB565 image can be used. If you have an image you want to use, you can use this [online image converter](https://lvgl.io/tools/imageconverter), or any other software that lets you convert an image to a raw RGB565 image. This website will output in the Binary RGB565 format. For further instructions on how to display your own image, have a look at our [Text and Image tutorial](text-and-image).
