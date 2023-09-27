@@ -280,6 +280,8 @@ void onPDMdata() {
 }
 ```
 
+After uploading a sketch, snap your fingers or clap your hands to produce a noise that meets the threshold. You should see the background color of the screen change.
+
 ### Volume Indication Sketch (LVGL)
 
 This sketch requires the [lvgl library](https://github.com/lvgl/lvgl), please make sure that is installed before you upload the sketch. The sketch will show a bar on the screen that is animated when noise is made, functionally making it display the volume of the microphones readings. You will find the full sketch just below.
