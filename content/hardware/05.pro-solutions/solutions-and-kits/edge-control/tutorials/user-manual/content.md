@@ -512,11 +512,244 @@ The Edge Control has **16 Watermark sensor inputs**, mapped as follows:
 |      `Watermark Sensor Input 1`     |           `WATERMARK_CH01`          |
 |      `Watermark Sensor Input 2`     |           `WATERMARK_CH02`          |
 |      `Watermark Sensor Input 3`     |           `WATERMARK_CH03`          |
-|      `...`     |           `...`          |
-|      `...`     |           `...`          |
-|      `Watermark Sensor Input 2`     |           `WATERMARK_CH014`          |
-|      `Watermark Sensor Input 3`     |           `WATERMARK_CH015`          |
-|      `Watermark Sensor Input 4`     |           `WATERMARK_CH016`          |
+|      `Watermark Sensor Input 4`     |           `WATERMARK_CH04`          |
+|      `Watermark Sensor Input 5`     |           `WATERMARK_CH05`          |
+|      `Watermark Sensor Input 6`     |           `WATERMARK_CH06`          |
+|      `Watermark Sensor Input 7`     |           `WATERMARK_CH07`          |
+|      `Watermark Sensor Input 8`     |           `WATERMARK_CH08`          |
+|      `Watermark Sensor Input 9`     |           `WATERMARK_CH09`          |
+|      `Watermark Sensor Input 10`     |           `WATERMARK_CH010`          |
+|      `Watermark Sensor Input 11`     |           `WATERMARK_CH011`          |
+|      `Watermark Sensor Input 12`     |           `WATERMARK_CH012`          |
+|      `Watermark Sensor Input 13`     |           `WATERMARK_CH013`          |
+|      `Watermark Sensor Input 14`     |           `WATERMARK_CH014`          |
+|      `Watermark Sensor Input 15`     |           `WATERMARK_CH015`          |
+|      `Watermark Sensor Input 16`     |           `WATERMARK_CH016`          |
+
+Watermark sensors are capable of measuring the physical force holding the water in the soil. Those measurements are correlated with the effort plants have to make to extract water from the soil, a really interesting data for agricultural applications.
+
+The measurement is done in Centibars, and we can use the following readings as a general guideline:
+
+- 0-10 Centibars: Saturated soil
+- 10-30 Centibars: Soil is adequately wet (except coarse sands, which are drying)
+- 30-60 Centibars: Usual range for irrigation (most soils)
+- 60-100 Centibars: Usual range for irrigation in heavy clay
+- 100-200 Centibars: Soil is becoming dangerously dry - Proceed with caution!
+
+![Watermark sensor wiring](assets/watermark-wiring.png)
+
+Watermark sensors are resistive, so the Edge Control actually measures a resistance value that needs to be converted to a pressure unit, in this case, `centibars` or `kPa`. For this, the function below is used:
+
+```arduino
+/**
+  This function convert the Watermark readings into centibars
+  @param res is the resistance measured of the watermark sensor
+  @return CB, the centibars
+*/
+int CalcCB(int res) {
+  int CB = 0;
+  if (res > 550.00) {
+
+    if (res > 8000.00) {
+      CB = -2.246 - 5.239 * (res / 1000.00) * (1 + .018 * (TempC - 24.00)) - .06756 * (res / 1000.00) * (res / 1000.00) * ((1.00 + 0.018 * (TempC - 24.00)) * (1.00 + 0.018 * (TempC - 24.00)));
+    } else if (res > 1000.00) {
+      CB = (-3.213 * (res / 1000.00) - 4.093) / (1 - 0.009733 * (res / 1000.00) - 0.01205 * (TempC));
+    } else {
+      CB = ((res / 1000.00) * 23.156 - 12.736) * (1.00 + 0.018 * (TempC - 24.00));
+    }
+  } else {
+    if (res > 300.00) {
+      CB = 0.00;
+    }
+    if (res < 300.00 && res >= short_resistance) {
+      CB = short_CB;  //240 is a fault code for sensor terminal short
+    }
+  }
+
+  if (res >= open_resistance) {
+    CB = open_CB;  //255 is a fault code for open circuit or sensor not present
+  }
+
+  return abs(CB);
+}
+```
+
+The example code shown below reads the resistance value from the 1st Watermark sensor channel and displays it on the IDE Serial Monitor in terms of `ohms` and `centibars or kPa`:
+
+More example codes could also be found on  **File > Examples > Arduino_EdgeControl > Basic**
+
+```arduino
+#include <Arduino.h>
+#include <mbed.h>
+
+#include <Arduino_EdgeControl.h>  //http://librarymanager/All#Arduino_EdgeControl
+#include <RunningMedian.h>  //http://librarymanager/All#RunningMedian
+
+constexpr unsigned int adcResolution { 12 };
+
+mbed::LowPowerTimeout TimerM;
+
+uint8_t watermarkChannel { 0 }; // channel 0 is the 1st channel
+
+constexpr float tauRatio { 0.63f };
+constexpr float tauRatioSamples { tauRatio * float { (1 << adcResolution) - 1 } };
+constexpr unsigned long sensorDischargeDelay { 2 };
+
+constexpr unsigned int measuresCount { 20 };
+RunningMedian measures { measuresCount };
+
+constexpr unsigned int calibsCount { 10 };
+RunningMedian calibs { calibsCount };
+
+// Watermark sensors thresholds
+const long open_resistance = 35000, short_resistance = 200, short_CB = 240, open_CB = 255, TempC = 25;
+
+
+void setup()
+{
+    Serial.begin(9600);
+
+    auto startNow = millis() + 2500;
+    while (!Serial && millis() < startNow)
+        ;
+    delay(2000);
+
+    Power.on(PWR_3V3);
+    Power.on(PWR_VBAT);
+
+    Wire.begin();
+    Expander.begin();
+
+    Serial.print("Waiting for IO Expander Initialization...");
+    while (!Expander) {
+        Serial.print(".");
+        delay(100);
+    }
+    Serial.println(" done.");
+
+    Watermark.begin();
+
+    analogReadResolution(adcResolution);
+}
+
+void loop()
+{
+
+    // Init commands and reset devices
+    Watermark.calibrationMode(OUTPUT);
+    Watermark.calibrationWrite(LOW);
+    Watermark.commonMode(OUTPUT);
+    Watermark.commonWrite(LOW);
+
+    Watermark.fastDischarge(sensorDischargeDelay);
+
+    // Calibration cycle:
+    // disable Watermark demuxer
+    Watermark.disable();
+
+    Watermark.commonMode(INPUT);
+    Watermark.calibrationMode(OUTPUT);
+    for (auto i = 0u; i < measuresCount; i++) {
+        Watermark.calibrationWrite(HIGH);
+
+        auto start = micros();
+        while (Watermark.analogRead(watermarkChannel) < tauRatioSamples)
+            ;
+        auto stop = micros();
+
+        Watermark.calibrationWrite(LOW);
+
+        Watermark.fastDischarge(sensorDischargeDelay);
+
+        calibs.add(stop - start);
+    }
+
+    calibs.clear();
+
+    Watermark.fastDischarge(sensorDischargeDelay);
+
+    // Measures cycle:
+    // enable Watermark demuxer
+    Watermark.enable();
+
+    Watermark.commonMode(OUTPUT);
+    Watermark.calibrationMode(INPUT);
+    for (auto i = 0u; i < measuresCount; i++) {
+        Watermark.commonWrite(HIGH);
+
+        auto start = micros();
+        while (Watermark.analogRead(watermarkChannel) < tauRatioSamples)
+            ;
+        auto stop = micros();
+
+        Watermark.commonWrite(LOW);
+
+        Watermark.fastDischarge(sensorDischargeDelay);
+
+        measures.add(stop - start);
+    }
+
+    Serial.print("MEASURES");
+    Serial.print(" - Median: ");
+    Serial.print(measures.getMedian());
+    Serial.print("Ω - Average: ");
+    Serial.print(measures.getAverage());
+    Serial.print("Ω - Lowest: ");
+    Serial.print(measures.getLowest());
+    Serial.print("Ω - Highest: ");
+    Serial.print(measures.getHighest());
+    Serial.println("Ω");
+
+    Serial.print(CalcCB(measures.getAverage()));
+    Serial.println(" CENTIBARS/kPa");
+
+    measures.clear();
+
+    Serial.println();
+
+    delay(1000);
+}
+
+
+/**
+  This function convert the Watermark readings into centibars
+  @param res is the resistance measured of the watermark sensor
+  @return CB, the centibars
+*/
+int CalcCB(int res) {
+  int CB = 0;
+  if (res > 550.00) {
+
+    if (res > 8000.00) {
+      CB = -2.246 - 5.239 * (res / 1000.00) * (1 + .018 * (TempC - 24.00)) - .06756 * (res / 1000.00) * (res / 1000.00) * ((1.00 + 0.018 * (TempC - 24.00)) * (1.00 + 0.018 * (TempC - 24.00)));
+    } else if (res > 1000.00) {
+      CB = (-3.213 * (res / 1000.00) - 4.093) / (1 - 0.009733 * (res / 1000.00) - 0.01205 * (TempC));
+    } else {
+      CB = ((res / 1000.00) * 23.156 - 12.736) * (1.00 + 0.018 * (TempC - 24.00));
+    }
+  } else {
+    if (res > 300.00) {
+      CB = 0.00;
+    }
+    if (res < 300.00 && res >= short_resistance) {
+      CB = short_CB;  //240 is a fault code for sensor terminal short
+    }
+  }
+
+  if (res >= open_resistance) {
+    CB = open_CB;  //255 is a fault code for open circuit or sensor not present
+  }
+
+  return abs(CB);
+}
+
+```
+You should see the sensor readings as below, in the Arduino IDE serial monitor.
+
+```
+MEASURES - Median: 1891.00Ω - Average: 1884.95Ω - Lowest: 1815.00Ω - Highest: 1930.00Ω
+14 CENTIBARS/kPa
+```
 
 ## Outputs
 ### Latching Outputs
