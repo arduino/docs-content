@@ -333,6 +333,12 @@ The pinout of the main FPGA connections is shown in Figure 2.
 
 Check the official Arduino documentation to see the full pinout document and the schematics of the product.
 
+### Block Diagram
+
+An overview of the MKR Vidor 4000 high-level architecture is showed in the next figure:
+
+**![High-level architecture of the MKR Vidor 4000](assets/MKR_Vidor_4000_Block_Diagram.svg)**
+
 ### Power Supply
 
 <div style="text-align:justify;">
