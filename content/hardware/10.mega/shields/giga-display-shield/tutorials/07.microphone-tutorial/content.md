@@ -1,12 +1,20 @@
 ---
 title: GIGA Display Shield Microphone Guide
-description: "Learn how to use the GIGA Display Shield's microphone with LVGL."
+description: "Learn how to use the GIGA Display Shield's Microphone"
 author: Benjamin Dannegård
-tags: [Display, microphone, LVGL]
+tags: [Display, Microphone, Volume, Serial Plotter]
 ---
 
 
-The GIGA Display Shield comes equipped with on-board microphone that when combined with the visual element of the GIGA Display Screen can be used in a number of ways. For example, using the LVGL framework the display can be used to show an animated volume indicator. Using the [Arduino_Graphics]() or [Arduino_GigaDisplay_GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX) libraries we can detect when a loud noise, like a clap is made and change a visual element on the screen. This tutorial will take a closer look at the [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm) to see how this can be used. And then re-create the two sketches mentioned.
+The GIGA Display Shield has an embedded MEMS microphone (**MP34DT06JTR**) that when combined with the visual element of the GIGA Display Screen can be used in a number of ways. 
+
+- Stream microphone data (plot it / print it),
+- Display volume as a bar,
+- Detect a clap or other noises
+
+Using the [Arduino_Graphics](https://github.com/arduino-libraries/ArduinoGraphics),[Arduino_GigaDisplay_GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX) and [lvgl](https://github.com/lvgl/lvgl) we can also create animations and screen changes based on microphone data.
+
+In this guide we will take a closer look at the [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm) to see how this can be used, and some examples that 
 
 ## Hardware & Software Needed
 
@@ -16,19 +24,22 @@ The GIGA Display Shield comes equipped with on-board microphone that when combin
 
 ## Downloading the Library and Core
 
-Make sure the latest GIGA core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) and [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm) are included in the core.
+Make sure the latest GIGA core is installed in the Arduino IDE. You can install it directly in the IDE by navigating to the board manager and searching for **Arduino Mbed OS Giga Boards** and install it.
 
-## Microphone Readings With The Shield
+The [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm) is included in the core, as well as the video driver library, [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video). Some examples in this guide uses other libraries that are listed in each example.
 
-### Testing The Microphone
+## PDM Library
 
-To test the microphone we can use the **PDMSerialPlotter** example sketch. This sketch can be found in **File > Examples > PDM** in the Arduino IDE. This sketch will print readings in the serial monitor. Upload the sketch and check so that readings are appearing in the serial monitor.
+Pulse Density Modulation (PDM) is a technique used to convert analog signals into a digital 1-bit stream. 
 
-![Example sketch printing values in the serial monitor](assets/pdm-test-sketch.png)
+The [PDM library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/PDM) is library built-in to the GIGA core and allows you to read and process PDM signals. In this case, it reads the signal from the 
 
-### Using the Microphone Readings
+- Source code is available [here](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/PDM)
+- Library documentation is available [here](https://docs.arduino.cc/learn/built-in-libraries/pdm)
 
-Now let's take a look at the PDM sketch and how we can use the microphone readings.
+## Microphone PDM Example
+
+The GIGA R1 core includes a sample sketch called **PDM**, and in this section it is explained in more detail.
 
 First we need to define the number of output channels, output frequency, a variable for counting when reading from the buffer and creating the buffer which the readings will be put into. This is done with the following lines:
 
@@ -87,7 +98,94 @@ void onPDMdata() {
 }
 ```
 
-### Clap Detection Sketch
+The full example is available in the [PDM Example](#pdm-example) section just below.
+
+## Microphone Examples
+
+In this section you will find a series of examples that uses the microphone. 
+
+### PDM Example
+
+This sketch can be found in **File > Examples > PDM** in the Arduino IDE. It reads the microphone data, stores it in a buffer and prints it to the Serial Monitor / Serial Plotter tool in the IDE.
+
+```arduino
+#include <PDM.h>
+
+// default number of output channels
+static const char channels = 1;
+
+// default PCM output frequency
+static const int frequency = 16000;
+
+// Buffer to read samples into, each sample is 16-bits
+short sampleBuffer[512];
+
+// Number of audio samples read
+volatile int samplesRead;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+
+  // Configure the data receive callback
+  PDM.onReceive(onPDMdata);
+
+  // Optionally set the gain
+  // Defaults to 20 on the BLE Sense and 24 on the Portenta Vision Shield
+  // PDM.setGain(30);
+
+  // Initialize PDM with:
+  // - one channel (mono mode)
+  // - a 16 kHz sample rate for the Arduino Nano 33 BLE Sense
+  // - a 32 kHz or 64 kHz sample rate for the Arduino Portenta Vision Shield
+  if (!PDM.begin(channels, frequency)) {
+    Serial.println("Failed to start PDM!");
+    while (1);
+  }
+}
+
+void loop() {
+  // Wait for samples to be read
+  if (samplesRead) {
+
+    // Print samples to the serial monitor or plotter
+    for (int i = 0; i < samplesRead; i++) {
+      if(channels == 2) {
+        Serial.print("L:");
+        Serial.print(sampleBuffer[i]);
+        Serial.print(" R:");
+        i++;
+      }
+      Serial.println(sampleBuffer[i]);
+    }
+
+    // Clear the read count
+    samplesRead = 0;
+  }
+}
+
+/**
+ * Callback function to process the data from the PDM microphone.
+ * NOTE: This callback is executed as part of an ISR.
+ * Therefore using `Serial` to print messages inside this function isn't supported.
+ * */
+void onPDMdata() {
+  // Query the number of available bytes
+  int bytesAvailable = PDM.available();
+
+  // Read into the sample buffer
+  PDM.read(sampleBuffer, bytesAvailable);
+
+  // 16-bit, 2 bytes per sample
+  samplesRead = bytesAvailable / 2;
+}
+```
+
+Open the Serial Monitor / Serial Plotter to see the data in real time.
+
+![Example sketch printing values in the serial monitor](assets/pdm-test-sketch.png)
+
+### Clap Detection Sketch (ArduinoGraphics)
 
 This sketch uses the [Arduino_Graphics library](https://www.arduino.cc/reference/en/libraries/arduinographics/) to change the color of the background when a loud noise is detected, such as a clap.
 
@@ -182,9 +280,11 @@ void onPDMdata() {
 }
 ```
 
-### Volume Indication Sketch
+### Volume Indication Sketch (LVGL)
 
-This sketch requires the [lvgl library](https://github.com/lvgl/lvgl), please make sure that is installed before you upload the sketch. The sketch will show a bar on the screen that is animated when noise is made, functionally making it display the volume of the microphones readings. For more information about using LVGL with the GIGA Display Shield, take a look at our documentation [here](tutorials/lvgl-guide). You will find the full sketch below:
+This sketch requires the [lvgl library](https://github.com/lvgl/lvgl), please make sure that is installed before you upload the sketch. The sketch will show a bar on the screen that is animated when noise is made, functionally making it display the volume of the microphones readings. You will find the full sketch just below.
+
+***For more information about using LVGL with the GIGA Display Shield, take a look at our documentation [here](tutorials/lvgl-guide).***
 
 ```arduino
 #include <PDM.h>
@@ -282,9 +382,7 @@ void onPDMdata() {
 
 [GIF of sketch running](assets/P1066383.gif)
 
-## Conclusion
-
-Now you know how to get readings from the GIGA Display Shield's on-board microphone and how to create simple visual elements that react to those readings.
-
 ## Next Step
 Now that you know how to use the on-board microphone, feel free to explore the shield's other features, like the IMU with our [Orientation tutorial](/tutorials/image-orientation). Or if you rather dive deeper into LVGL, take a look at our [LVGL guide](tutorials/lvgl-guide).
+
+For the complete documentation for this shield, check out the [GIGA Display Shield](/hardware/giga-display-shield) documentation page.
