@@ -588,11 +588,11 @@ By default the ESP32 acts as a serial bridge between a computer and the RA4M1 MC
 
 If you wish you can change this and get direct access to the serial bus on the RA4M1 MCU either with software or hardware. See the instructions below:
 
-1. Software - By pulling D40 to HIGH you will close the circuit that controls which MCU is connected to USB. While D40 is HIGH, the RA4M1 is connected to the USB Serial port, and while D40 is LOW the ESP32 is connected, like the default configuration.
+1. Software - By pulling D21 to HIGH you will close the circuit that controls which MCU is connected to USB. While D21 is HIGH, the RA4M1 is connected to the USB Serial port, and while D21 is LOW the ESP32 is connected, like the default configuration.
   You can do this by including the following code in `void setup()`
   ```arduino
-  pinMode(40, OUTPUT);
-  digitalWrite(40, HIGH);
+  pinMode(21, OUTPUT);
+  digitalWrite(21, HIGH);
   ```
 2. On the back of the UNO R4 WiFi you will find solder pads labelled "RA4M1 USB". If you create a short circuit between these pads, by for example creating a bridge across them with solder, the RA4M1 will be connected to the USB Serial port, instead of the ESP32.
 
