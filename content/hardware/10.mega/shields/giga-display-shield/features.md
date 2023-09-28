@@ -15,23 +15,31 @@ A back-light screen with the resolution of a 4.0” TFT-LCD which contains 480x8
 <Feature title="LVGL" image="configurability">
 LVGL is a framework for creating sophisticated UIs, supporting animations, touch and with a large set of widgets to choose from.
 <FeatureLink title="LVGL Guide" url="/tutorials/giga-display-shield/lvgl-guide"/>
-<FeatureLink title="LVGL Docs (external)" url="https://docs.lvgl.io/master/"/>
+</Feature>
+
+<Feature title="GFX" image="configurability">
+Draw on the display with the easy-to-use and well documented GFX library. 
+<FeatureLink title="GFX Guide" url="/tutorials/giga-display-shield/gfx-guide"/>
 </Feature>
 
 <Feature title="MP34DT06JTR Digital Microphone" image="microphone">
 The microphone on the shield is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and an IC interface.
-<FeatureLink title="Microphone LVGL Guide" url="/tutorials/giga-display-shield/microphone-tutorial"/>
+<FeatureLink title="Microphone Guide" url="/tutorials/giga-display-shield/microphone-tutorial"/>
 </Feature>
 
 <Feature title="Bosch BMI270 6 Axis IMU" image="imu">
 The shield has an IMU that can provide precise acceleration, angular rate measurement and intelligent on-chip motion-triggered interrupt features.
 <FeatureLink title="IMU LVGL Guide" url="/tutorials/giga-display-shield/image-orientation"/>
-<FeatureLink title="Library Docs" url="https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/"/>
 </Feature>
 
 <Feature title="Camera Support" image="camera">
 This shield has a camera connector with support for a range of Arducam® cameras. Display the camera feed directly on the display!
 <FeatureLink title="Camera Guide" url="/tutorials/giga-display-shield/camera-tutorial"/>
+</Feature>
+
+<Feature title="RGB" image="led">
+This shield has a built-in RGB LED that is controlled via an I2C interface.
+<FeatureLink title="RGB Docs" url="/tutorials/giga-display-shield/getting-started#rgb"/>
 </Feature>
 
 </FeatureList>
