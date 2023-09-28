@@ -753,11 +753,129 @@ MEASURES - Median: 1891.00Ω - Average: 1884.95Ω - Lowest: 1815.00Ω - Highest:
 
 ## Outputs
 ### Latching Outputs
-### Latching Commands
-### Relay Contacts
+
+The latching outputs are suitable for latching devices like motorized valves and latching solenoid valves. They consists of dual channels (P and N) through which an impulse or strobe can be sent in either of the 2 channels (to open a close valve for example). The duration of the strobes can be configured to adjust to the external device requirement.
+
+![Latching solenoid valve control strobe](assets/solenoid-valve.png)
+![Motorized ball valve control strobe](assets/motorized-valve.png)
+
+The board provides a total of 16 latching ports divided in 2 types:
+
+- **8 Latching Outputs** with mosfet drivers, mapped as follows: 
+
+  |        **Output Name**        |       **Arduino Pin Mapping**       |
+  |:----------------------------:|:-----------------------------------:|
+  |      `Latching Output 1`     |           `LATCHING_OUT_1`          |
+  |      `Latching Output 2`     |           `LATCHING_OUT_2`          |
+  |      `Latching Output 3`     |           `LATCHING_OUT_3`          |
+  |      `Latching Output 4`     |           `LATCHING_OUT_4`          |
+  |      `Latching Output 5`     |           `LATCHING_OUT_5`          |
+  |      `Latching Output 6`     |           `LATCHING_OUT_6`          |
+  |      `Latching Output 7`     |           `LATCHING_OUT_7`          |
+  |      `Latching Output 8`     |           `LATCHING_OUT_8`          |
+
+These outputs can handle up to 3.3 A, so they can manage loads directly without problem. Motorized valves or solenoid latching valves are perfect examples of devices to control with these outputs.
+
+With the following command you can control the output state:
+
+```arduino
+Latching.channelDirection(LATCHING_OUT_1, POSITIVE); //this define the output and channel (P or N) that will be controlled
+Latching.strobe(200);  //this define the time the output is activated.
+```
+
+![3-wire motorized ball valve connection](assets/motorized-connection.png)
+
+If you want to know more about using this outputs, follow our guide: [Connecting and Controlling a Motorized Ball Valve](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve).
+
+- **8 Latching Commands** without drivers, mapped as follows: 
+
+  |        **Output Name**        |       **Arduino Pin Mapping**       |
+  |:----------------------------:|:-----------------------------------:|
+  |      `Latching Command 1`     |           `LATCHING_CMD_1`          |
+  |      `Latching Command 2`     |           `LATCHING_CMD_2`          |
+  |      `Latching Command 3`     |           `LATCHING_CMD_3`          |
+  |      `Latching Command 4`     |           `LATCHING_CMD_4`          |
+  |      `Latching Command 5`     |           `LATCHING_CMD_5`          |
+  |      `Latching Command 6`     |           `LATCHING_CMD_6`          |
+  |      `Latching Command 7`     |           `LATCHING_CMD_7`          |
+  |      `Latching Command 8`     |           `LATCHING_CMD_8`          |
+
+These outputs must be connected to external devices through third-party protection/power circuits with high impedance inputs (max +/- 25 mA). They are suitable for custom applications where just the activation signal is needed. For example for using external relay modules or direct connections with other control devices like PLC inputs.
+
+With the following command you can control the output state:
+
+```arduino
+Latching.channelDirection(LATCHING_CMD_1, NEGATIVE); //this define the output and channel (P or N) that will be controlled
+Latching.strobe(200);  //this define the time the output is activated.
+```
+![LED pilots wired to latching command outputs](assets/latching-cmd.png)
+
+The example code shown below activates the first channel `Latching Outputs` and `Latching Commands` for a defined time (strobe) in a secuence:
+
+This example code could also be found on  **File > Examples > Arduino_EdgeControl > Basic > Latching**
+
+```arduino
+#include <Arduino_EdgeControl.h>
+
+void setup()
+{
+    Serial.begin(9600);
+
+    auto startNow = millis() + 2500;
+    while (!Serial && millis() < startNow)
+        ;
+
+    delay(1000);
+    Serial.println("Hello, Challenge!");
+
+    Latching.begin();
+}
+
+void loop()
+{
+    Latching.channelDirection(LATCHING_CMD_1, POSITIVE);
+    Latching.strobe(2000);  // 2 seconds with a 12v output on latching cmd output P
+
+    Latching.channelDirection(LATCHING_CMD_1, NEGATIVE);
+    Latching.strobe(2000);  // 2 seconds with a 12v output on latching cmd output N
+
+    Latching.channelDirection(LATCHING_OUT_1, POSITIVE);
+    Latching.strobe(4000);  // 4 seconds with a 12v output on latching output P (opening the motorized valve) 
+
+    Latching.channelDirection(LATCHING_OUT_1, NEGATIVE);
+    Latching.strobe(4000);  // 4 seconds with a 12v output on latching output N (closing the motorized valve)
+
+    delay(1000);
+}
+```
+
+### Relay Outputs
+
+The Edge Control has **four solid state relay outputs**, mapped as follows: 
+
+|          **Output Name**          |         **Arduino Pin Mapping**       |
+|:--------------------------------:|:-------------------------------------:|
+|      `Solid State Relay 1`     |           `RELAY_CH01`          |
+|      `Solid State Relay 2`     |           `RELAY_CH02`          |
+|      `Solid State Relay 3`     |           `RELAY_CH03`          |
+|      `Solid State Relay 4`     |           `RELAY_CH04`          |
+
+This relay outputs are suitable for AC loads with a current draw below 2.5A and a 24V AC power supply.
+
+You can control the relay outputs individually using this function:
+
+```arduino
+Relay.on(RELAY_CH01);  // this command closes the channel 1 relay contacts
+```
+```arduino
+Relay.off(RELAY_CH01);  // this command opens the channel 1 relay contacts
+```
+![AC load wiring through channel 1 relay contact](assets/relay-outputs.png)
 
 ### Power Outputs
 
 ## Edge Control Enclosure Kit
+
+## RTC
 
 ## Communication
