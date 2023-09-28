@@ -14,7 +14,7 @@ The GIGA Display Shield has an embedded MEMS microphone (**MP34DT06JTR**) that w
 
 Using the [Arduino_Graphics](https://github.com/arduino-libraries/ArduinoGraphics),[Arduino_GigaDisplay_GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX) and [lvgl](https://github.com/lvgl/lvgl) we can also create animations and screen changes based on microphone data.
 
-In this guide we will take a closer look at the [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm) to see how this can be used, and some examples that 
+In this guide we will take a closer look at the [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm), and provide some examples that can be used with this shield.
 
 ## Hardware & Software Needed
 
