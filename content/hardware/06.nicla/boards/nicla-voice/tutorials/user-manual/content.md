@@ -20,7 +20,7 @@ software:
 
 ## Overview
 
-This user manual will provide you with a comprehensive overview of the Arduino Nicla Voice board, covering its main hardware and software features. This user manual will also teach you how to set up, configure, and use these features. 
+This user manual will provide you with a comprehensive overview of the Arduino Nicla Voice board, covering its main hardware and software features. This user manual will also show you how to set up, configure, and use these features. 
 
 ## Hardware and Software Requirements
 
