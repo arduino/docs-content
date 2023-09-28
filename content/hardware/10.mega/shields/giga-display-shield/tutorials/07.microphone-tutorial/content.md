@@ -385,6 +385,6 @@ void onPDMdata() {
 [GIF of sketch running](assets/P1066383.gif)
 
 ## Next Step
-Now that you know how to use the on-board microphone, feel free to explore the shield's other features, like the IMU with our [Orientation tutorial](/tutorials/image-orientation). Or if you rather dive deeper into LVGL, take a look at our [LVGL guide](tutorials/lvgl-guide).
+Now that you know how to use the on-board microphone, feel free to explore the shield's other features, like the IMU with our [Orientation tutorial](/tutorials/giga-display-shield/image-orientation). Or if you rather dive deeper into LVGL, take a look at our [LVGL guide](tutorials/giga-display-shield/lvgl-guide).
 
 For the complete documentation for this shield, check out the [GIGA Display Shield](/hardware/giga-display-shield) documentation page.
