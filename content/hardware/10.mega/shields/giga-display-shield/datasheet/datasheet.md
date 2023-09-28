@@ -67,13 +67,12 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 
 ## Recommended Operating Conditions
 
-| Symbol          | Description                      | Min  | Typ | Max | Unit |
-|-----------------|----------------------------------|------|-----|-----|------|
-| V<sub>IN</sub>  | Input voltage from VIN header       | 6    | 7.0 | 32  | V    |
-| V<sub>USB</sub> | Input voltage from USB connector | 4.8  | 5.0 | 5.5 | V    |
-| V<sub>DD</sub>  | Input high-level voltage         | 2.31 |     | 3.3 | V    |
-| V<sub>IL</sub>  | Input low-level voltage          | 0    |     | 1   | V    |
-| T<sub>OP</sub>  | Operating Temperature            | 0    | 25  | 65  | °C   |
+| Symbol         | Description                   | Min  | Typ | Max | Unit |
+| -------------- | ----------------------------- | ---- | --- | --- | ---- |
+| V<sub>IN</sub> | Input voltage from VIN header | 6    | 7.0 | 32  | V    |
+| V<sub>DD</sub> | Input high-level voltage      | 2.31 |     | 3.3 | V    |
+| V<sub>IL</sub> | Input low-level voltage       | 0    |     | 1   | V    |
+| T<sub>OP</sub> | Operating Temperature         | 0    | 25  | 65  | °C   |
 
 
 <div style="page-break-after: always;"> </div>
@@ -90,21 +89,21 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 
 ![Top View of Arduino GIGA Display Shield](assets/GIGA_Display_Shield_Top.png)
 
-| **Ref.** | **Description**                | **Ref.** | **Description** |
-|----------|--------------------------------|----------|-----------------|
-| U1       | MP34DT06JTR MEMS Microphone IC |          | TFT Display     |
-| DL1       | SMLP34RGB2W3 LED RGB DIFFUSED PICOLED SMD|         |      |
+| **Ref.** | **Description**                           | **Ref.** | **Description** |
+| -------- | ----------------------------------------- | -------- | --------------- |
+| U1       | MP34DT06JTR MEMS Microphone IC            |          | TFT Display     |
+| DL1      | SMLP34RGB2W3 LED RGB DIFFUSED PICOLED SMD |          |                 |
 
 ### Back View
 
 ![Back View of Arduino GIGA Display Shield](assets/GIGA_Display_Shield_Back.png)
 
-| **Ref.** | **Description**                        | **Ref.** | **Description**                        |
-|----------|----------------------------------------|----------|----------------------------------------|
-| U2       | IS31FL3197-QFLS2-TR                    | U3       | LV52204MTTBG LED Driver IC             |
-| U7       | BMI270 6-axis IMU                      | J3       | 21TW-247 Camera Connector 2.54 mm Header |        
-| J4       | F32Q-1A7H1-11020 Display Connector     | J5       | F32Q-1A7H1-11008 Touch Connector       |
-| J6       | 2.54 mm Header GIGA Connector           | J7       | 2.54mm Header GIGA Connector           |
+| **Ref.** | **Description**                    | **Ref.** | **Description**                          |
+| -------- | ---------------------------------- | -------- | ---------------------------------------- |
+| U2       | IS31FL3197-QFLS2-TR                | U3       | LV52204MTTBG LED Driver IC               |
+| U7       | BMI270 6-axis IMU                  | J3       | 21TW-247 Camera Connector 2.54 mm Header |
+| J4       | F32Q-1A7H1-11020 Display Connector | J5       | F32Q-1A7H1-11008 Touch Connector         |
+| J6       | 2.54 mm Header GIGA Connector      | J7       | 2.54mm Header GIGA Connector             |
 
 ## TFT Display
 
@@ -119,7 +118,7 @@ A common anode RGB (DL1) is driven by a dedicated IS31FL3197-QFLS2-TR RGB LED Dr
 
 ## Digital Microphone
 
-The MP34DT06JTR is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and an I2C interface. The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors. The microphone is in a single channel configuration, with audio signals transmitter over PDM.
+The MP34DT06JTR is an ultra-compact, low-power, omnidirectional, digital MEMS microphone built with a capacitive sensing element and an PDM interface. The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors. The microphone is in a single channel configuration, with audio signals transmitter over PDM.
 
 ## Power Tree
 
@@ -168,7 +167,7 @@ We declare under our sole responsibility that the products above are in conformi
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | **Substance**                          | **Maximum Limit (ppm)** |
-|----------------------------------------|-------------------------|
+| -------------------------------------- | ----------------------- |
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -234,15 +233,15 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| Company name    | Arduino SRL                                 |
-|-----------------|---------------------------------------------|
+| Company name    | Arduino SRL                                  |
+| --------------- | -------------------------------------------- |
 | Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
 
 
 ## Reference Documentation
 
 | Ref                       | Link                                                                                            |
-|---------------------------|-------------------------------------------------------------------------------------------------|
+| ------------------------- | ----------------------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
 | Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                              |
 | Cloud IDE Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
@@ -253,5 +252,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Change Log
 
 | **Date**   | **Changes** |
-|------------|-------------|
+| ---------- | ----------- |
 | 24/07/2023 | Release     |

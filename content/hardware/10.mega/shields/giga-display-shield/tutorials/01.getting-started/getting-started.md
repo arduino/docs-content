@@ -26,19 +26,19 @@ To use the GIGA Display Shield, there are currently three supported alternatives
 
 The [Arduino_GigaDisplay_GFX](https://github.com/arduino/Arduino_GigaDisplay_GFX) library is a layer library for the [Adafruit_GFX](https://github.com/adafruit/Adafruit-GFX-Library) graphic core library. This library makes it easy to draw geometrical shapes, printing values, drawing pixels and more. 
 
-To get started with the GFX library, visit the [GIGA Display Shield GFX Guide](/tutorials/giga-display-shield/gfx-guide).
+***To get started with the GFX library, visit the [GIGA Display Shield GFX Guide](/tutorials/giga-display-shield/gfx-guide).***
 
 ### Option 2: LVGL
 
 The LVGL framework supports building more advanced UIs with dropdown menus, interactive buttons, scroll functionality using a grid system.
 
-To get started, visit the [GIGA Display LVGL Guide](/tutorials/giga-display-shield/lvgl-guide)
+***To get started, visit the [GIGA Display LVGL Guide](/tutorials/giga-display-shield/lvgl-guide).***
 
 ### Option 3: ArduinoGraphics
 
 [ArduinoGraphics](https://www.arduino.cc/reference/en/libraries/arduinographics/) is a simple library for more primitive drawings with a similar API to the GFX library.
 
-To get started, visit the [GIGA Display Shield Draw Images Guide](/tutorials/giga-display-shield/basic-draw-and-image).
+***To get started, visit the [GIGA Display Shield Draw Images Guide](/tutorials/giga-display-shield/basic-draw-and-image).***
 
 ## Core & Libraries
 
@@ -127,13 +127,165 @@ IMU.begin() //for other boards
 imu.begin() //for GIGA Display Shield
 ```
 
+### Gyroscope
+
+The below example can be used to access the gyroscope data:
+
+```arduino
+#include "Arduino_BMI270_BMM150.h"
+BoschSensorClass imu(Wire1);
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println("Started");
+
+  if (!imu.begin()) {
+    Serial.println("Failed to initialize imu!");
+    while (1);
+  }
+  Serial.print("Gyroscope sample rate = ");
+  Serial.print(imu.gyroscopeSampleRate());
+  Serial.println(" Hz");
+  Serial.println();
+  Serial.println("Gyroscope in degrees/second");
+  Serial.println("X\tY\tZ");
+}
+
+void loop() {
+  float x, y, z;
+
+  if (imu.gyroscopeAvailable()) {
+    imu.readGyroscope(x, y, z);
+
+    Serial.print(x);
+    Serial.print('\t');
+    Serial.print(y);
+    Serial.print('\t');
+    Serial.println(z);
+  }
+}
+```
+
+### Accelerometer
+
+The below example can be used to access the accelerometer data:
+
+```arduino
+#include "Arduino_BMI270_BMM150.h"
+BoschSensorClass imu(Wire1);
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println("Started");
+
+  if (!imu.begin()) {
+    Serial.println("Failed to initialize imu!");
+    while (1);
+  }
+
+  Serial.print("Accelerometer sample rate = ");
+  Serial.print(imu.accelerationSampleRate());
+  Serial.println(" Hz");
+  Serial.println();
+  Serial.println("Acceleration in G's");
+  Serial.println("X\tY\tZ");
+}
+
+void loop() {
+  float x, y, z;
+
+  if (imu.accelerationAvailable()) {
+    imu.readAcceleration(x, y, z);
+
+    Serial.print(x);
+    Serial.print('\t');
+    Serial.print(y);
+    Serial.print('\t');
+    Serial.println(z);
+  }
+}
+```
+
 ## Microphone
 
 This shield has an embedded omnidirectional microphone, **MP34DT06JTR**, which can be used together with the [PDM](https://docs.arduino.cc/learn/built-in-libraries/pdm) library. This library is shipped with the GIGA core, so there's no need to manually install it.
 
 Below is a minimal sketch that will print out the samples in the serial plotter (See [Using the Serial Plotter Tool](/software/ide-v2/tutorials/ide-v2-serial-plotter) for more information). 
 
-<CodeBlock url="https://github.com/arduino/ArduinoCore-mbed/blob/main/libraries/PDM/examples/PDMSerialPlotter/PDMSerialPlotter.ino" className="arduino"/>
+```arduino
+#include <PDM.h>
+
+// default number of output channels
+static const char channels = 1;
+
+// default PCM output frequency
+static const int frequency = 16000;
+
+// Buffer to read samples into, each sample is 16-bits
+short sampleBuffer[512];
+
+// Number of audio samples read
+volatile int samplesRead;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+
+  // Configure the data receive callback
+  PDM.onReceive(onPDMdata);
+
+  // Optionally set the gain
+  // Defaults to 20 on the BLE Sense and 24 on the Portenta Vision Shield
+  // PDM.setGain(30);
+
+  // Initialize PDM with:
+  // - one channel (mono mode)
+  // - a 16 kHz sample rate for the Arduino Nano 33 BLE Sense
+  // - a 32 kHz or 64 kHz sample rate for the Arduino Portenta Vision Shield
+  if (!PDM.begin(channels, frequency)) {
+    Serial.println("Failed to start PDM!");
+    while (1);
+  }
+}
+
+void loop() {
+  // Wait for samples to be read
+  if (samplesRead) {
+
+    // Print samples to the serial monitor or plotter
+    for (int i = 0; i < samplesRead; i++) {
+      if(channels == 2) {
+        Serial.print("L:");
+        Serial.print(sampleBuffer[i]);
+        Serial.print(" R:");
+        i++;
+      }
+      Serial.println(sampleBuffer[i]);
+    }
+
+    // Clear the read count
+    samplesRead = 0;
+  }
+}
+
+/**
+ * Callback function to process the data from the PDM microphone.
+ * NOTE: This callback is executed as part of an ISR.
+ * Therefore using `Serial` to print messages inside this function isn't supported.
+ * */
+void onPDMdata() {
+  // Query the number of available bytes
+  int bytesAvailable = PDM.available();
+
+  // Read into the sample buffer
+  PDM.read(sampleBuffer, bytesAvailable);
+
+  // 16-bit, 2 bytes per sample
+  samplesRead = bytesAvailable / 2;
+}
+```
 
 To get started with the microphone, visit the [GIGA Display Shield Microphone Guide](/tutorials/giga-display-shield/microphone-tutorial).
 
