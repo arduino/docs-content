@@ -11,8 +11,8 @@ The GIGA Display Shield comes with an Arducam® camera connector. In this tutori
 
 ## Hardware & Software Needed
 
-- [Arduino GIGA R1 WiFi](/hardware/giga-r1)
-- [Arduino GIGA Display Shield]()
+- [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
+- [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - HM01B0, HM0360, GC2145 or OV7675 camera
 

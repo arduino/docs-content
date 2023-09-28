@@ -18,8 +18,8 @@ In this guide we will cover:
 
 ## Hardware & Software Needed
 
-- [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
-- [Arduino GIGA Display Shield](/hardware/giga-display-shield)
+- [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
+- [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
 ## Installation

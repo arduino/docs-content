@@ -13,11 +13,9 @@ tags: [Display, LVGL]
 
 ## Hardware & Software Needed
 
-- [Arduino GIGA R1 WiFi](/hardware/giga-r1)
-- [Arduino GIGA Display Shield](/hardware/giga-display-shield)
+- [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
+- [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [LVGL library](https://reference.arduino.cc/reference/en/libraries/lvgl/)
-- [Arduino_GigaDisplayTouch](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch) library
 
 ## Downloading the Library and Core
 
