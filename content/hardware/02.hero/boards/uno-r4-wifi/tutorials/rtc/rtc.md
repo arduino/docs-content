@@ -182,36 +182,50 @@ To use this, you will need to initialize the periodic callback, using the `setPe
 - `RTC.setPeriodicCallback(periodic_cbk, Period::ONCE_EVERY_2_SEC)`
 
 You will also need to create a function that will be called:
-- `void periodic_cbk() { code to be executed }`
+- `void periodicCallback() { code to be executed }`
+
+***Note the IRQ has a very fast execution time. Placing a lot of code is not a good practice, so in the example below we are only switching  a single flag, `irqFlag`.***
 
 The example below blinks a light every 2 seconds:
 
 ```arduino
 #include "RTC.h"
 
-const int LED_ON_INTERRUPT  = 22;
+volatile bool irqFlag = false;
+volatile bool ledState = false;
 
-void setup(){
+const int led = LED_BUILTIN;
+
+void setup() {
+  pinMode(led, OUTPUT);
+
+  Serial.begin(9600);
+
+  // Initialize the RTC
   RTC.begin();
-  if (!RTC.setPeriodicCallback(periodic_cbk, Period::ONCE_EVERY_2_SEC)) {
+
+  // RTC.setTime() must be called for RTC.setPeriodicCallback to work, but it doesn't matter
+  // what date and time it's set to
+  RTCTime mytime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
+  RTC.setTime(mytime);
+
+  if (!RTC.setPeriodicCallback(periodicCallback, Period::ONCE_EVERY_2_SEC)) {
     Serial.println("ERROR: periodic callback not set");
   }
 }
 
-void loop() {
+void loop(){
+  if(irqFlag){
+    Serial.println("Timed CallBack");
+    ledState = !ledState;
+    digitalWrite(LED_BUILTIN, ledState);
+    irqFlag = false;
+  }
 }
 
-void periodic_cbk() {
-  static bool clb_st = false;
-  if(clb_st) {
-    digitalWrite(LED_ON_INTERRUPT,HIGH);
-  }
-  else {
-    digitalWrite(LED_ON_INTERRUPT,LOW);
-  }
-  clb_st = !clb_st;
- 
-  Serial.println("PERIODIC INTERRUPT");
+void periodicCallback()
+{
+  irqFlag = true;
 }
 ```
 
