@@ -111,7 +111,7 @@ The onboard battery charger of your board is, by default, **disabled**. To enabl
 
 ```arduino
 // Enable the onboard battery charger 
-// The function parameter defines the charging current in mA (between 5 and 300 mA)
+// The function parameter defines the charging current in mA (between 5 mA and 300 mA)
 nicla::enableCharging(100);
 ```
 
