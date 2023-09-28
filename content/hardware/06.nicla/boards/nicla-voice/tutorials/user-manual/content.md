@@ -20,7 +20,7 @@ software:
 
 ## Overview
 
-This user manual will provide you with a comprehensive overview of the Arduino Nicla Voice board, covering its main hardware and software features. This user manual will also teach you how to set up, configure, and use these features. 
+This user manual will provide you with a comprehensive overview of the Arduino Nicla Voice board, covering its main hardware and software features. This user manual will also show you how to set up, configure, and use these features. 
 
 ## Hardware and Software Requirements
 
@@ -111,11 +111,11 @@ The onboard battery charger of your board is, by default, **disabled**. To enabl
 
 ```arduino
 // Enable the onboard battery charger 
-// The function parameter defines the charging current in mA (between 5 and 300 mA)
+// The function parameter defines the charging current in mA (between 5 mA and 300 mA)
 nicla::enableCharging(100);
 ```
 
-The desired charging current can be set to a value between 5 and 300 mA; the default value is 20 mA.
+The desired charging current can be set to a value between 5 mA and 300 mA; the default value is 20 mA.
 
 ***A safe default charging current value that works for most common LiPo batteries is 0.5C, which means charging at a rate equal to half the battery's capacity. For example, a 200 mAh battery could be safely charged at 100 mA (0.1 A).***
 
