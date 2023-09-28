@@ -2,7 +2,7 @@
 
 The GIGA Display Shield has a 3.97” 480x800 RGB touch screen, a digital microphone, a 6-axis IMU and an RGB LED. The shield can easily be mounted on the GIGA R1 WiFi board.
 
-Utilizing the GIGA R1 WiFi's fast 480 MHz microcontroller, you can build powerful UIs, use interactive 3D animations, display camera feed and much more. The shield is compatible with a wide range of graphics libraries, including [LVGL](https://github.com/lvgl/lvgl), [GFX](https://github.com/bcmi-labs/Arduino_GigaDisplay_GFX/) and [ArduinoGraphics](https://github.com/arduino-libraries/ArduinoGraphics/).
+Utilizing the GIGA R1 WiFi's fast 480 MHz microcontroller, you can build powerful UIs, use interactive 3D animations, display camera feed and much more. The shield is compatible with a wide range of graphics libraries, including [LVGL](https://github.com/lvgl/lvgl), [GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX/) and [ArduinoGraphics](https://github.com/arduino-libraries/ArduinoGraphics/).
 
 </FeatureDescription>
 
