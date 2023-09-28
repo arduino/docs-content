@@ -810,7 +810,7 @@ Latching.strobe(200);  //this define the time the output is activated.
 ```
 ![LED pilots wired to latching command outputs](assets/latching-cmd.png)
 
-The example code shown below activates the first channel `Latching Outputs` and `Latching Commands` for a defined time (strobe) in a secuence:
+The example code shown below activates the first channel `Latching Outputs` and `Latching Commands` for a defined time (strobe) in a sequence:
 
 This example code could also be found on  **File > Examples > Arduino_EdgeControl > Basic > Latching**
 
