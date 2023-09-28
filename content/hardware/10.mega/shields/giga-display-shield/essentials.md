@@ -11,6 +11,11 @@
 
 <EssentialsColumn title="Suggested Libraries">
 
+<EssentialElement link="https://github.com/arduino-libraries/Arduino_GigaDisplay" title="Arduino_GigaDisplay" type="library">
+    This library contains several tested examples that will work with the GIGA Display Shield.
+</EssentialElement>
+
+
 <EssentialElement link="https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX/" title="Arduino_GigaDisplay_GFX" type="library">
     A library based on the popular Adafruit_GFX graphics core library, for drawing on the GIGA Display Shield.
 </EssentialElement>
@@ -18,11 +23,6 @@
 <EssentialElement link="https://github.com/arduino-libraries/Arduino_GigaDisplayTouch/" title="Arduino_GigaDisplayTouch" type="library">
     The library manages the touch controller of the GIGA Display Shield.
 </EssentialElement>
-
-<EssentialElement link="https://reference.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/" title="Arduino_BMI270_BMM150.h" type="library">
-    A Library for using the IMU sensor on the GIGA Display Shield.
-</EssentialElement>
-
 
 
 </EssentialsColumn>
