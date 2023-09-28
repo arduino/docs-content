@@ -115,7 +115,7 @@ The onboard battery charger of your board is, by default, **disabled**. To enabl
 nicla::enableCharging(100);
 ```
 
-The desired charging current can be set to a value between 5 and 300 mA; the default value is 20 mA.
+The desired charging current can be set to a value between 5 mA and 300 mA; the default value is 20 mA.
 
 ***A safe default charging current value that works for most common LiPo batteries is 0.5C, which means charging at a rate equal to half the battery's capacity. For example, a 200 mAh battery could be safely charged at 100 mA (0.1 A).***
 
