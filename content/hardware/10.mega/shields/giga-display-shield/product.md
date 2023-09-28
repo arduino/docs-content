@@ -1,6 +1,6 @@
 ---
 title: GIGA Display Shield
-url_shop: https://store.arduino.cc/
+url_shop: store.arduino.cc/giga-display-shield
 url_guide: /tutorials/giga-display-shield/getting-started
 ---
 
