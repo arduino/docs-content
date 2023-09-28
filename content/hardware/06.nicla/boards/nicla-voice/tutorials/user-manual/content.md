@@ -708,7 +708,7 @@ Next, in the `setup()` function:
 - The serial communication is initialized at a baud rate of 115200.
 - The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the IMU. 
 - Error and event handlers are initialized.
-- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the Machine Learning model (`ei_model.synpkg`). 
 - The BMI270 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the accelerometer and gyroscope operational. 
 
 Finally, in the `loop()` function:
@@ -929,7 +929,7 @@ Next, in the `setup()` function:
 - The serial communication is initialized at a baud rate of 115200.
 - The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the magnetometer. 
 - Error and event handlers are initialized.
-- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the Machine Learning model (`ei_model.synpkg`). 
 - The BMM150 sensor is initialized; this includes setting it into normal operation with an output data rate (ODR) of 10 Hz. 
 
 Finally, in the `loop()` function:
@@ -948,7 +948,7 @@ Now open the IDE's Serial Plotter by navigating to **Tools > Serial Plotter**. A
 
 #### IMU and Machine Learning
 
-The example code below demonstrates how to use the Nicla Voice board to perform Machine Learning (ML) inference on IMU data. The code sets up event indicators using the onboard RGB LED and sends IMU data to the NDP processor for inference. The example can be found in the board's built-in examples by navigating to **File > Examples > NDP > IMUDemo**.
+The example code below demonstrates how to use the Nicla Voice board to perform Machine Learning inference on IMU data. The code sets up event indicators using the onboard RGB LED and sends IMU data to the NDP processor for inference. The example can be found in the board's built-in examples by navigating to **File > Examples > NDP > IMUDemo**.
 
 
 ```arduino
@@ -1038,13 +1038,13 @@ void loop() {
 }
 ```
 
-In the example code above, a ML model is loaded into the Nicla Voice board, and predefined IMU data is sent to the Machine Learning model for inferencing. Depending on the result, the board will light its built-in RGB LED with different colors:
+In the example code above, a Machine Learning model is loaded into the Nicla Voice board, and predefined IMU data is sent to the Machine Learning model for inferencing. Depending on the result, the board will light its built-in RGB LED with different colors:
 
 - If the model matches the input data with a known motion pattern, the built-in RGB LED is turned blue, and the event label is printed to the IDE's Serial Monitor.
 - If an error occurs, the built-in RGB LED will blink red continuously. 
 - While an event is recognized, the built-in RGB LED is turned on green.
 
-To learn more about your Nicla Voice board ML capabilities, check out the following tutorial and learn how to create a simple motion detection application: 
+To learn more about your Nicla Voice board Machine Learning capabilities, check out the following tutorial and learn how to create a simple motion detection application: 
 
 - [Motion Detection with Nicla Voice and Machine Learning Tools](https://docs.arduino.cc/tutorials/nicla-voice/motion-detection-ml)
 
