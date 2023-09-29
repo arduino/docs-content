@@ -436,6 +436,20 @@ if(Serial.available() > 0) {
 }
 ```
 
+### SerialUSB
+
+The UNO R4 Minima has an extended set of Serial methods:
+
+- `Serial.baud()` - Returns the baud rate **(int)** currently used.
+- `Serial.stopbits()` - Returns the number of stop bits **(int)** used in the communication.
+- `Serial.paritytype()` - Returns the type of parity **(int)** used in the communication.
+- `Serial.numbits()` - Returns the number of data bits **(int)** used in the communication.
+- `Serial.dtr()` - Returns the status of the Data Terminal Ready (DTR) signal **(bool)** and also sets the- ignore_dtr flag to true if the DTR signal is actively used.
+- `Serial.rts()` - Returns the status of the Request to Send (RTS) signal **(bool)**.
+
+Supported links:
+- [SerialUSB.h](https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/usb/SerialUSB.h) (Github).
+
 ## USB HID
 
 This board can act as an HID (keyboard/mouse) and send keystrokes or coordinates to your computer via native USB.
