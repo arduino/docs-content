@@ -40,7 +40,3 @@ function whenever the `CONNECT` event occurs.
 The example below demonstrates how to use events & callbacks in the IoT Cloud. 
 
 <CodeBlock url="https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/examples/ArduinoIoTCloud-Callbacks/ArduinoIoTCloud-Callbacks.ino" className="arduino"/>
-
-## Summary
-
-This document covers the use of events & callbacks using the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library.
