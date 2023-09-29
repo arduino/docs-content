@@ -98,7 +98,7 @@ The Edge Control can be powered by:
 - Using a **12V lead-acid battery** connected to `BATT+` pin and `GND`. **It can be powered for up to 34 months on a 12V/5Ah battery**.
 - Using a whole **off grid** power system including an **18V Solar Panel** and a **12V lead-acid battery**.
 
-![Edge Control powered by external power supply](assets/ext-power-v2.png)
+![Edge Control powered by external power supply](assets/ext-power.png)
 ![Edge Control solar and battery powered](assets/green-power-v2.png)
 
 ### Hello World Example
@@ -420,7 +420,7 @@ This is a brief explanation of the mathematical expression used inside the sketc
 
 `float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25;`
 
-![4-20mA example wiring](assets/4-20mA-wiring.png)
+![4-20mA example wiring](assets/4-20mA-wiring-v2.png)
 
 ```arduino
 #include <Arduino_EdgeControl.h>
@@ -751,6 +751,8 @@ MEASURES - Median: 1891.00Ω - Average: 1884.95Ω - Lowest: 1815.00Ω - Highest:
 14 CENTIBARS/kPa
 ```
 
+***You can buy the Watermarkd sensor directly from our [store](https://store-usa.arduino.cc/products/soil-humidity-sensor-watermark-2-m-75-cm-pack-).***
+
 ## Outputs
 ### Latching Outputs
 
@@ -872,9 +874,139 @@ Relay.off(RELAY_CH01);  // this command opens the channel 1 relay contacts
 ```
 ![AC load wiring through channel 1 relay contact](assets/relay-outputs.png)
 
-### Power Outputs
+The example code shown below closes and opens the first channel `Relay Contact` repetitively, turning on and off the connected load:
+
+```cpp
+#include "Arduino_EdgeControl.h"
+
+// #define SSR_POLL
+
+constexpr unsigned long onInterval = { 5000 };
+constexpr unsigned long offInterval = { 5000 };
+constexpr unsigned long pollInterval = { 1000 };
+unsigned long offTime;
+unsigned long onTime;
+unsigned long pollTime;
+bool on = false;
+
+int relayChannel { RELAY_CH01 };
+
+void setup()
+{
+    Serial.begin(9600);
+    while (!Serial)
+        ;
+
+    delay(2000);
+
+    Serial.println("Hello, SolidStateRelay!");
+    
+    Power.on(PWR_3V3);
+    Power.on(PWR_VBAT);
+
+    Wire.begin();
+    Serial.print("Waiting for IO Expander Initialization...");
+    while (!Expander) {
+        Serial.print(".");
+        delay(100);
+    }
+    Serial.println(" done.");
+    Expander.pinMode(EXP_LED1, OUTPUT);
+
+    for (auto i = 0; i < 3; i++) {
+        Expander.digitalWrite(EXP_LED1, LOW);
+        delay(50);
+        Expander.digitalWrite(EXP_LED1, HIGH);
+        delay(100);
+    }
+
+    Relay.begin();
+}
+
+void loop()
+{
+    if (millis() > onTime && !on) {
+        Serial.println("RELAY ON");
+
+        Relay.on(RELAY_CH01);
+
+        Expander.digitalWrite(EXP_LED1, LOW);
+
+        on = true;
+        offTime = onInterval + millis();
+    }
+
+    if (millis() > offTime && on) {
+        Serial.println("RELAY OFF");
+
+        Relay.off(RELAY_CH01);
+
+        Expander.digitalWrite(EXP_LED1, HIGH);
+
+        on = false;
+        onTime = millis() + offInterval;
+    }
+
+#if defined(SSR_POLL)
+    if (millis() > pollTime && on) {
+        Serial.println("POLLING");
+
+        Relay.poll(relayChannel);
+
+        pollTime = millis() + pollInterval;
+    }
+#endif
+}
+```
 
 ## Edge Control Enclosure Kit
+
+![Edge Control Enclosure Kit](assets/EnclosureKit-low.png)
+
+Designed for industrial and smart agriculture applications, the Arduino Edge Control Enclosure Kit is the perfect companion for Arduino Edge Control. It provides the module with a sturdy case that protects it from the elements, dust, and accidental blows. It is IP40-certified and compatible with DIN rails, making it safe and easy to fit in any standard rack or cabinet.
+
+On top of this, the Arduino Edge Control Enclosure Kit features a 2-row/16-character LCD display with white backlight and a programmable push button, so it can be customized by users to instantly visualize sensor data, such as weather conditions and soil parameters. Different data can be displayed at every push of the button, on the spot and in real time, without requiring connectivity. 
+
+### LCD Control
+
+The functions to control the LCD are mostly the same as the ones we are used to in the Arduino ecosystem. 
+
+We need to include the `Arduino_EdgeContro.h` library and then, initialize the LCD with the `LCD.begin(16, 2)` function and start printing data on it.
+
+With `LCD.backlight()` and `LCD.noBacklight()` we can turn on or off the LCD backlight respectively. 
+
+To define the cursor position, `LCD.setCursor(x, y)` is used, and to clear the display, `LCD.clear()`.
+
+To display text, we use the `LCD.print(text)` function.
+
+The example code below prints "Edge Control" in the first row and starts a seconds counter in the second one:
+
+```cpp
+#include <Arduino_EdgeControl.h>
+
+void setup() {
+
+  // set up the LCD's number of columns and rows:
+  LCD.begin(16, 2);
+  LCD.backlight();
+  // Print a message to the LCD.
+  LCD.home();  // go home
+  LCD.print("Edge Control");
+
+}
+
+void loop() {
+
+  LCD.setCursor(0, 1);
+  LCD.print(millis() / 1000);
+  delay(1000);
+}
+```
+![LCD demo running the code from above](assets/LCD-demo.png)
+
+### Push Button
+
+
 
 ## RTC
 
