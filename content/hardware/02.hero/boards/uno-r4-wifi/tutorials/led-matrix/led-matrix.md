@@ -395,54 +395,94 @@ To write more advanced sketches on your own, you may use the full API of the lib
 
 ## Members
 
-**public  ArduinoLEDMatrix()**
+### `ArduinoLEDMatrix()`
 
-Construct a new `LEDMatrix` object.
+Construct a new LED matrix object. This will be used to access the methods in the library.
 
-**public void autoscroll(int32_t interval_ms)**
+```
+ArduinoLEDMatrix LEDMatrix;
+```
+
+
+### `autoscroll()`
 
 Enable autoscrolling through the frames in a sequence. 
 
-**Parameters**
-* `interval_ms` Sets the time in milliseconds that should be spent on a frame before switching to the next frame in the sequence.
 
-**public void begin()**
+**Parameters**
+
+- `interval_ms` Sets the time in milliseconds that should be spent on a frame before switching to the next frame in the sequence.
+
+
+### `begin()`
 
 Starts the LED matrix.
 
-**public void next()**
+```arduino
+LEDMatrix.begin()
+```
+
+### `next()`
 
 Manually moves to the next frame in the sequence.
 
-**public void loadFrame(const uint32_t buffer[3])**
+```
+LEDMatrix.next()
+```
 
-loads a single frame that is not part of a sequence.
+### `loadFrame()`
+
+Loads a single frame that is not part of a sequence.
+
+```arduino
+LEDMatrix.loadFrame(buffer[i])
+```
  
 **Parameters**
-* `buffer[3]` an array of three 32bit integers, where each bit represents an LED.  
 
-**public void renderFrame(uint8_t frameNumber)** 
+- `buffer[3]` an array of three 32bit integers, where each bit represents an LED.  
 
-Render a specific frame from a sequence
+### `renderFrame()`
 
-**public void loadSequence(const uint32_t frames[][4])**
+Render a specific frame from a sequence.
+
+```
+LEDMatrix.renderFrame(frameNumber)
+```
+
+**Parameters**
+
+- `int` - frame to load.
+
+### `loadSequence()`
 
  Loads an animation sequence into the buffer but does not display it.
 
-**Parameters**
-* `frameNumber` Specifies which frame of the sequence should be rendered. 
+```arduino
+LEDMatrix.frames[][4]
+```
 
-**public void play(bool loop)** 
+**Parameters**
+
+- `frameNumber` Specifies which frame of the sequence should be rendered. 
+
+### `play()`
 
 Starts playing the loaded sequence. 
 
-**Parameters**
-* `loop` true to enable looping the sequence, false to play once.
+```
+LEDMatrix.play(state) //true or false
+```
 
-**public bool sequenceDone()**
+**Parameters**
+
+- `loop` true to enable looping the sequence, false to play once.
+
+### `sequenceDone()`
 
 Check for if the sequence is finished playing or if the frame should be advanced another step.
 
 **Returns**
-false if the sequence is not finished, true if it is.
+
+- `false` if the sequence is not finished, `true` if it is.
 
