@@ -1006,8 +1006,64 @@ void loop() {
 
 ### Push Button
 
+The Enclosure Kit includes a push button so you can interact with the device in an easy way. 
 
+To read the button state we can use the built-in functions of the Arduino programming language. We first need to define it as an input using the `POWER_ON` macro.
+
+```cpp
+pinMode(POWER_ON, INPUT); // the push button is addressed to the MCU input as "POWER_ON"
+```
+
+The state of the button can be read as usual with the `digitalRead(POWER_ON)` function.
+
+***When the button is pressed, the input state gets low.***
+
+In the example code below, we will attach the input to an interrupt and increase a counter with every tap shown in the LCD.
+
+```cpp
+#include <Arduino_EdgeControl.h>
+
+// Keep track of toggle-style press with an ISR
+volatile bool buttonPressed{ false };
+bool ledStatus{ false };
+
+void setup() {
+
+  pinMode(POWER_ON, INPUT);
+  // ISR for button press detection
+  attachInterrupt(
+    digitalPinToInterrupt(POWER_ON), [] {
+      buttonPressed = true;
+    },
+    FALLING);
+
+  // set up the LCD's number of columns and rows:
+  LCD.begin(16, 2);
+  LCD.backlight();
+  // Print a message to the LCD.
+  LCD.home();  // go home
+  LCD.print("Push Button");
+}
+
+void loop() {
+  static int counter = 0;
+  if (buttonPressed == true) {
+    buttonPressed = false;
+    ledStatus = !ledStatus;
+    LCD.setCursor(0, 1);
+    LCD.print(counter++);
+  }
+}
+```
+![LCD and Push Button demo running the code from above](assets/LCD-PB.png)
 
 ## RTC
 
+The built-in Real Time Clock of the Edge Control is ideal for timing irrigation processes and data logging. 
+
+***To maintain the RTC on time the included CR2032 coin cell must be used.***
+
+`getRTDateTime(); // 2023-09-30 16:33:19 `
+`getRTCTime(); // 16:33:19`
+`getRTCDate(); // 2023-09-30`
 ## Communication
