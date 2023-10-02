@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-Thanks to its form factor, it can be attached to a Din Rail mount system, providing a quick access to all the I/O ‘s.
+Thanks to its form factor, it can be attached to a Din Rail mount system, providing a quick access to all the I/O‘s.
 
 </FeatureDescription>
 
@@ -14,6 +14,7 @@ Thanks to its form factor, it can be attached to a Din Rail mount system, provid
 </Feature>
 
 <Feature title="Enclosure IP Standard" image="world-map">
+
   The cover provides IP40 which protects the Mounted (Not included) Edge Control protection against solid objects over 1mm.
 
   Note: Does not protect against Moisture.
@@ -21,7 +22,7 @@ Thanks to its form factor, it can be attached to a Din Rail mount system, provid
 
 <Feature title="Breakout LCD Display + Push Button" image="hw-pin">
 
-  The Kit includes a breakout board with a LCD display (NDS1602A) and a Push-button so you can display data and characters in the 2x16 LCD display and also interact with the device with the pus-button.
+  The Kit includes a breakout board with a LCD display (NDS1602A) and a Push-button so you can display data and characters in the 2x16 LCD display and also interact with the device with the push-button.
 
   Note: Included coverage for the LCD display, with a fixed assembly on the device cover. (See pictures)
 
