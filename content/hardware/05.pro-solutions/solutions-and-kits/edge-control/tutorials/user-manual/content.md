@@ -1098,3 +1098,290 @@ To test the example code, press the Edge Control Enclosure Kit button to set the
 ![RealTimeClock example output](assets/rtc-output.png)
 
 ## Communication
+The Edge Control communication peripherals are not accessible to the user as a normal development board because it isn't. 
+
+For example the `SPI` communication is reserved for the micro SD card and external memory ICs
+
+### I2C
+
+The pins used in the Edge Control for the I2C communication protocol are the ones on the MKR slots. Refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+
+The Edge Control supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. Internal components like the LCD driver, the Real Time Clock and the I/O expanders use this protocol.
+
+The NINA-B306 has two I2C ports, the I2C_1 is the one shared with the internal components and the MKR1 header, and the I2C_2 is exclusively connected to the MKR2 header.
+
+To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
+
+```cpp
+#include <Wire.h>
+```
+In the setup() function, initialize the I2C library:
+
+```cpp
+// Initialize the I2C communication
+Wire.begin();
+```
+
+To transmit data to an I2C-compatible device, you can use the following commands:
+
+```cpp
+// Replace with the target device's I2C address
+byte deviceAddress = 0x05; 
+
+// Replace with the appropriate instruction byte
+byte instruction = 0x00; 
+
+// Replace with the value to send
+byte value = 0xFF; 
+
+// Begin transmission to the target device
+Wire.beginTransmission(deviceAddress); 
+
+// Send the instruction byte
+Wire.write(instruction); 
+
+// Send the value
+Wire.write(value); 
+
+// End transmission
+Wire.endTransmission();
+```
+To read data from an I2C-compatible device, you can use the `requestFrom()` function to request data from the device and the `read()` function to read the received bytes:
+
+```cpp
+// The target device's I2C address
+byte deviceAddress = 0x05; 
+
+// The number of bytes to read
+int numBytes = 2; 
+
+// Request data from the target device
+Wire.requestFrom(deviceAddress, numBytes);
+
+// Read while there is data available
+while (Wire.available()) {
+  byte data = Wire.read(); 
+}
+```
+
+In the example code below, we are going to communicate the Edge Control with a MKR WiFi 1010. With a potentiometer connected to the Edge Control, the onboard LED of the MKR board will be controlled, so we will be sending the brightness value through I2C to it.
+
+![Demo wiring - MKR WiFi 1010 on slot 1 of the Edge Control](assets/i2c-wiring.png)
+
+#### Edge Control Code
+
+```cpp
+#include <Arduino_EdgeControl.h>
+
+// The MKR1 board I2C address
+#define EDGE_I2C_ADDR 0x05
+
+constexpr unsigned int adcResolution{ 12 };
+
+typedef struct
+{
+
+  int LED = 0;  //shared variable
+
+} SensorValues_t;
+
+SensorValues_t vals;
+
+void setup() {
+  EdgeControl.begin();
+  Wire.begin();
+  delay(500);
+  Serial.begin(115200);
+  Serial.println("Init begin");
+
+  // Enable power lines
+  Power.on(PWR_3V3);
+  Power.on(PWR_VBAT);
+  Power.on(PWR_MKR1);
+  delay(5000);
+
+  // Init Edge Control IO Expander
+  Serial.print("IO Expander initializazion ");
+  if (!Expander.begin()) {
+    Serial.println("failed.");
+    Serial.println("Please, be sure to enable gated 3V3 and 5V power rails");
+    Serial.println("via Power.enable3V3() and Power.enable5V().");
+  } else Serial.println("succeeded.");
+
+  Input.begin();
+  Input.enable();
+
+  analogReadResolution(adcResolution);
+}
+
+void loop() {
+
+  vals.LED = Input.analogRead(INPUT_05V_CH01);  // read the analog input
+  Serial.println(vals.LED);
+  sendValues(&vals);  // send the brightness value to the MKR
+  delay(100);
+
+}
+
+
+/**
+  Function that sends the local sensors values through I2C to the MKR
+  @param values The I2C communicated sensors values
+*/
+void sendValues(SensorValues_t *values) {
+  writeBytes((uint8_t *)values, sizeof(SensorValues_t));
+}
+
+/**
+  Function that transport the sensors data through I2C to the MKR
+  @param buf store the structured sensors values
+  @param len store the buffer lenght
+*/
+void writeBytes(uint8_t *buf, uint8_t len) {
+
+  Wire.beginTransmission(EDGE_I2C_ADDR);
+
+  for (uint8_t i = 0; i < len; i++) {
+    Wire.write(buf[i]);
+  }
+
+  Wire.endTransmission();
+}
+```
+
+#### MKR WiFi Code
+
+```cpp
+#include <Wire.h>
+#include <WiFiNINA.h>
+#include <utility/wifi_drv.h>
+
+// The MKR1 board I2C address
+#define SELF_I2C_ADDR 0x05
+
+#define GREEN 26
+
+// I2C communication flow control variables
+int ctrlRec = 0;
+int ctrlReq = 0;
+
+typedef struct
+{
+
+  int LED = 0;  //zone 1 valve status
+
+} SensorValues_t;
+
+SensorValues_t vals;
+
+void setup() {
+  Serial.begin(115200);
+  // put your setup code here, to run once:
+  // Init I2C coomunication
+  Wire.begin(SELF_I2C_ADDR);
+  Wire.onReceive(receiveEvent);  // I2C receive callback
+
+  WiFiDrv::pinMode(GREEN, OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
+
+/**
+  Function that handles when the Edge Control sends data to the MKR.
+  @param bytes The I2C communicated sensors raw values
+*/
+void receiveEvent(int bytes) {
+  uint8_t buf[200];
+  uint8_t *ptr = &buf[0];
+
+  SensorValues_t *vals;
+
+  Serial.println("Receive event");
+  ctrlRec = 1;
+  while (Wire.available() > 0) {
+    *ptr = Wire.read();
+    ptr++;
+  }
+
+  vals = (SensorValues_t *)buf;
+
+  if (ctrlRec - ctrlReq) {
+    LEDControl(vals);
+  }
+
+  ctrlRec = 0;
+  ctrlReq = 0;
+}
+
+void LEDControl(SensorValues_t *vals) {
+
+  int brightness = map(vals->LED, 0, 3891, 0, 255);
+  Serial.println(brightness);
+  WiFiDrv::analogWrite(GREEN, brightness);
+}
+
+```
+![I2C LED brightness control demo](assets/I2C_2.gif)
+
+### UART
+
+The pins used in the Edge Control for the UART communication protocol are the ones on the MKR slots. Refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+
+To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
+
+```arduino
+// Start UART communication at 115200 baud
+Serial1.begin(115200); 
+```
+
+To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown above stores the incoming characters in a String variable and process the data when a line-ending character is received:
+
+```arduino
+// Variable for storing incoming data
+String incoming = ""; 
+void loop() {
+  // Check for available data and read individual characters
+  while (Serial1.available()) {
+    // Allow data buffering and read a single character
+    delay(2); 
+    char c = Serial1.read();
+    
+    // Check if the character is a newline (line-ending)
+    if (c == '\n') {
+      // Process the received data
+      processData(incoming);
+      // Clear the incoming data string for the next message
+      incoming = ""; 
+    } else {
+      // Add the character to the incoming data string
+      incoming += c; 
+    }
+  }
+}
+```
+
+To transmit data to another device via UART, you can use the `write()` function:
+
+```arduino
+// Transmit the string "Hello world!
+Serial1.write("Hello world!");
+```
+
+You can also use the `print` and `println()` to send a string without a newline character or followed by a newline character:
+
+```arduino
+// Transmit the string "Hello world!" 
+Serial1.print("Hello world!");
+// Transmit the string "Hello world!" followed by a newline character
+Serial1.println("Hello world!");
+```
+
+To learn more about how to communicate the Edge Control through UART with other devices, we will use the example code below that can be found on **File > Examples > Arduino_EdgeControl > RPC > BlinkOverSerial**
+
+
+
+### Bluetooth® Low Energy
