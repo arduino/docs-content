@@ -198,7 +198,7 @@ void loop() {
 
 ### Image
 
-To display an image on the screen we first need to define what that image that should be. Take the desired image, convert it into the correct format and place the image in the same folder as the sketch. Now use `LV_IMG_DECLARE(filename);`. For example the image we use will be named `img_arduinologo`.
+To display an image on the screen we first need to define what that image that should be. Take the desired image, [convert it into the correct format](https://docs.lvgl.io/master/overview/img.html#online-converter) and place the image in the same folder as the sketch. Now use `LV_IMG_DECLARE(filename);`. For example the image we use will be named `img_arduinologo`.
 
 ```arduino
   LV_IMG_DECLARE(img_arduinologo);
