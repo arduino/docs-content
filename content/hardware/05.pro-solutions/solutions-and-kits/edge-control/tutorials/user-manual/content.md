@@ -1063,7 +1063,38 @@ The built-in Real Time Clock of the Edge Control is ideal for timing irrigation 
 
 ***To maintain the RTC on time the included CR2032 coin cell must be used.***
 
-`getRTDateTime(); // 2023-09-30 16:33:19 `
-`getRTCTime(); // 16:33:19`
-`getRTCDate(); // 2023-09-30`
+An example code to test the RTC functionality can be found on **File > Examples > Arduino_EdgeControl > Basic > RealTimeClock**
+
+In the example code, there is a .h file called Helpers that includes very useful and easy-to-use functions for parsing the time on different formats. 
+
+Initially, you must set the current time as a reference for the RTC. This is made just once and can be done using the function setEpoch([Current Unix Time](https://www.unixtimestamp.com/)):
+
+
+```cpp
+RealTimeClock.setEpoch(Unix Time); // You can use the timestamp generated on https://www.unixtimestamp.com/. Be aware that the time found on the webpage is UTC.
+```
+
+The `time(NULL)` function returns the Unix time (seconds since Jan 1st 1970), this is perfect for cloud and servers data logging. 
+
+```cpp
+getRTDateTime(); // 2023-09-30 16:33:19 
+getRTCTime(); // 16:33:19
+getRTCDate(); // 2023-09-30
+```
+
+Also, you can use these more specific functions to retrieve the time in a custom way:
+
+```cpp
+RealTimeClock.getYears(); //return the current year
+RealTimeClock.getMonths();  //return the current month
+RealTimeClock.getDays();  //return the current day
+RealTimeClock.getHours(); //return the current hours
+RealTimeClock.getMinutes(); //return the current minutes
+RealTimeClock.getSeconds(); //return the current seconds
+```
+
+To test the example code, press the Edge Control Enclosure Kit button to set the time once with the code build date. (The button should be pressed while the code is being upload or while a hard reset).
+
+![RealTimeClock example output](assets/rtc-output.png)
+
 ## Communication
