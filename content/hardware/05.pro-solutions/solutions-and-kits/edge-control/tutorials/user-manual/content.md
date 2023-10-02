@@ -1382,6 +1382,8 @@ Serial1.println("Hello world!");
 
 To learn more about how to communicate the Edge Control through UART with other devices, we will use the example code below that can be found on **File > Examples > Arduino_EdgeControl > RPC > BlinkOverSerial**
 
+This example shows how to export Arduino functions as remote procedure calls (RPC), the Edge Control is capable ofcontrolling a MKR board built-in LED by Serial communication.
+
 
 
 ### Bluetooth® Low Energy
