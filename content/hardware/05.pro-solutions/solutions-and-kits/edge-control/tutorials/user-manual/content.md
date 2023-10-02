@@ -1235,7 +1235,7 @@ void sendValues(SensorValues_t *values) {
 /**
   Function that transport the sensors data through I2C to the MKR
   @param buf store the structured sensors values
-  @param len store the buffer lenght
+  @param len store the buffer length
 */
 void writeBytes(uint8_t *buf, uint8_t len) {
 
