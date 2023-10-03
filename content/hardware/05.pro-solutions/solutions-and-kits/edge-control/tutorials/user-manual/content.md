@@ -959,6 +959,14 @@ void loop()
 }
 ```
 
+### Power Rails
+
+The Edge Control let you manage the power state of several internal components, so energy efficient applications could be achieved using this board. 
+
+The different commands and controllable power rails will be specified in the list below:
+
+
+
 ## Edge Control Enclosure Kit
 
 ![Edge Control Enclosure Kit](assets/EnclosureKit-low.png)
@@ -1164,7 +1172,9 @@ while (Wire.available()) {
 }
 ```
 
-In the example code below, we are going to communicate the Edge Control with a MKR WiFi 1010. With a potentiometer connected to the Edge Control, the onboard LED of the MKR board will be controlled, so we will be sending the brightness value through I2C to it.
+In the example code below, we are going to communicate the Edge Control with a MKR WiFi 1010. With a potentiometer connected to the Edge Control, the onboard LED of the MKR board will be controlled, so we will be sending the brightness value through I2C to it.  
+
+***Use the same connection from [this section](#analog-inputs) for the potentiometer wiring.***
 
 ![Demo wiring - MKR WiFi 1010 on slot 1 of the Edge Control](assets/i2c-wiring.png)
 
@@ -1382,8 +1392,61 @@ Serial1.println("Hello world!");
 
 To learn more about how to communicate the Edge Control through UART with other devices, we will use the example code below that can be found on **File > Examples > Arduino_EdgeControl > RPC > BlinkOverSerial**
 
-This example shows how to export Arduino functions as remote procedure calls (RPC), the Edge Control is capable ofcontrolling a MKR board built-in LED by Serial communication.
 
+This example shows how to export Arduino functions as remote procedure calls (RPC), the Edge Control is capable of controlling a MKR board built-in LED by Serial communication.
 
+![Connections for the UART example](assets/uart-wiring.png)
+
+#### Edge Control Code
+
+```cpp
+#include <Arduino_EdgeControl.h>
+
+bool led { false };
+
+void setup()
+{
+    EdgeControl.begin();
+    Power.on(PWR_3V3);
+    Power.on(PWR_VBAT);
+    Power.on(PWR_MKR2);
+
+    // Wait for MKR to power on
+    delay(5000);
+
+    SerialMKR2.begin(9600); // must be the same on both devices
+    while (!SerialMKR2) {
+        delay(500);
+    }
+}
+
+void loop()
+{
+    SerialMKR2.write(led);
+    led = !led;
+    delay(1000);
+}
+```
+
+#### MKR Code
+
+```cpp
+    void setup() {
+      Serial1.begin(9600);  // must be the same on both devices
+      pinMode(LED_BUILTIN, OUTPUT);
+      digitalWrite(LED_BUILTIN, LOW);
+
+      delay(1000);
+    }
+
+    void loop() {
+      if (Serial1.available()) {
+        auto c = Serial1.read();
+        digitalWrite(LED_BUILTIN, c);
+      }
+    }
+```
+
+![UART communication demo](assets/UART.gif)
 
 ### Bluetooth® Low Energy
