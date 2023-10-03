@@ -7,7 +7,7 @@ tags: [Display, 3D, TinyGL]
 
 ## Introduction
 
-Using a 3D engine to construct and render objects can be a hardware heavy process. Now with the GIGA WiFi, GIGA Display Shield and the TinyGL library this can be an easy process! The powerful GIGA board can run the 3D engine while rendering it on the Display Shield, utilizing the touch interface of the display to move and interact with the rendered objects. This tutorial will show you how to make use of these features!
+Using a 3D engine to construct and render objects can be a hardware heavy process. Now with the GIGA R1 WiFi, GIGA Display Shield and the TinyGL library this can be an easy process! The powerful GIGA R1 WiFi board can run the 3D engine while rendering it on the display shield, utilizing the touch interface of the display to move and interact with the rendered objects. This tutorial will show you how to make use of these features!
 
 ## Hardware & Software Needed
 
@@ -17,7 +17,7 @@ Using a 3D engine to construct and render objects can be a hardware heavy proces
 
 ## Downloading the Library and Core
 
-The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the core. Now open the library tab on the left, search for **TinyGL**, **LVGL** and **Arduino_GigaDisplaytouch**, these libraries needs to be installed for the TinyGL example to work.
+The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the core. Now open the library tab on the left, search for **TinyGL**, **LVGL** and **Arduino_GigaDisplaytouch**. Install these libraries as they are needed for the TinyGL example to work.
 
 ## TinyGL
 
@@ -51,7 +51,7 @@ Inside the `Gears.ino` file is where we will call this and other functions from 
 
 ### Gears.ino
 
-The screen and view elements are handled by the lvgl framework. For more information on how this works and can be used, please head over to our [lvgl guide](/tutorials/giga-display-shield/lvgl-guide).
+The screen and view elements are handled by the LVGL framework. For more information on how this works and can be used, please head over to our [LVGL guide](/tutorials/giga-display-shield/lvgl-guide).
 
 Now for the 3D-engine specific functions. If you take a look at the `setup()` function, this function is called inside:
 
@@ -75,7 +75,7 @@ In the sketch we will also need to define what will happen when the touch interf
 handleTouch(uint8_t contacts, GDTpoint_t *points)
 ```
 
-For more information about how to use the touch functions on the Display Shield, please head over to our [touch tutorial](/tutorials/giga-display-shield/basic-touch).
+For more information about how to use the touch functions on the display shield, please head over to our [touch tutorial](/tutorials/giga-display-shield/basic-touch).
 
 ## Running the Sketch
 
