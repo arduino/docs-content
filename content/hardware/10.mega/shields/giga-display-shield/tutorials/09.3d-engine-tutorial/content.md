@@ -7,7 +7,9 @@ tags: [Display, 3D, TinyGL]
 
 ## Introduction
 
-Using a 3D engine to construct and render objects can be a hardware heavy process. Now with the GIGA R1 WiFi, GIGA Display Shield and the TinyGL library this can be an easy process! The powerful GIGA R1 WiFi board can run the 3D engine while rendering it on the display shield, utilizing the touch interface of the display to move and interact with the rendered objects. This tutorial will show you how to make use of these features!
+Using a 3D engine to construct and render objects can be a hardware heavy process. Now with the GIGA R1 WiFi, GIGA Display Shield and the [TinyGL](https://github.com/arduino-libraries/TinyGL) library this can be an easy process! The powerful GIGA R1 WiFi board can run the 3D engine while rendering it on the display shield, utilizing the touch interface of the display to move and interact with the rendered objects. 
+
+In this tutorial, we will show you how to make use of these features!
 
 ## Hardware & Software Needed
 
