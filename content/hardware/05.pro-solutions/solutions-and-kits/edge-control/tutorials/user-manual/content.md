@@ -867,8 +867,7 @@ You can control the relay outputs individually using this function:
 
 ```arduino
 Relay.on(RELAY_CH01);  // this command closes the channel 1 relay contacts
-```
-```arduino
+
 Relay.off(RELAY_CH01);  // this command opens the channel 1 relay contacts
 ```
 ![AC load wiring through channel 1 relay contact](assets/relay-outputs.png)
