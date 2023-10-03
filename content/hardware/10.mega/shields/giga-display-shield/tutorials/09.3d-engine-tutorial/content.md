@@ -11,6 +11,8 @@ Using a 3D engine to construct and render objects can be a hardware heavy proces
 
 In this tutorial, we will show you how to make use of these features!
 
+***Please note that the development status of the [TinyGL](https://github.com/arduino-libraries/TinyGL) library is in an experimental phase.***
+
 ## Hardware & Software Needed
 
 - [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
