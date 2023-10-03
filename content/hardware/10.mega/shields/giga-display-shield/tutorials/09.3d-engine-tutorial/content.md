@@ -31,7 +31,7 @@ The TinyGL library will enable us to run an engine that can render 3D objects on
 
 - The source code for this library is available [here](https://github.com/arduino-libraries/TinyGL)
 
-### A TinyGL Example
+## Rotating Gears Example
 
 Open the example by going to **Files > Examples > TinyGL > Gears** in the Arduino IDE, this will open both the required files in the IDE. You should see a `Gears.ino` and a `gears.c` file as tabs in the IDE. Let's first have a look at the `gears.c` file!
 
