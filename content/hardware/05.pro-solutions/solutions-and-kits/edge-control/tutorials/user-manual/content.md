@@ -747,12 +747,10 @@ int CalcCB(int res) {
 ```
 You should see the sensor readings as below, in the Arduino IDE serial monitor.
 
-```
-MEASURES - Median: 1891.00Ω - Average: 1884.95Ω - Lowest: 1815.00Ω - Highest: 1930.00Ω
-14 CENTIBARS/kPa
-```
+`MEASURES - Median: 1891.00Ω - Average: 1884.95Ω - Lowest: 1815.00Ω - Highest: 1930.00Ω
+14 CENTIBARS/kPa`
 
-***You can buy the Watermarkd sensor directly from our [store](https://store-usa.arduino.cc/products/soil-humidity-sensor-watermark-2-m-75-cm-pack-).***
+***You can buy the Watermark sensor directly from our [store](https://store-usa.arduino.cc/products/soil-humidity-sensor-watermark-2-m-75-cm-pack-)***
 
 ## Outputs
 ### Latching Outputs
