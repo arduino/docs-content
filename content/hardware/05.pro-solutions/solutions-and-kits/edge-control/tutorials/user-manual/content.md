@@ -1543,7 +1543,27 @@ void loop() {
 
 ```
 
-You will be able to read all the sampled data from the micro SD card inserting it to your PC on a `.txt` file called `DATALOG`.
+You will be able to read all the sampled data from the micro SD card on a `.txt` file called `DATALOG`. You can use a USB adaptar or a micro SD card slot on your PC to read the file.
 
-![Data logging wiring and output](assets/data-logging.png).
+![Data logging wiring and output](assets/data-logging.png)
 
+## Support
+
+If you encounter any issues or have questions while working with the Edge Control, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Edge Control. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+
+### Forum
+
+Join our community forum to connect with other Edge Control users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Edge Control.
+
+- [Edge Control category in the Arduino Forum](https://forum.arduino.cc/c/hardware/portenta/edge-impulse/178)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Edge Control.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/) 
