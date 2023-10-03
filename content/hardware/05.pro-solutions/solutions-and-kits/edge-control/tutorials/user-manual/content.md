@@ -104,7 +104,7 @@ The Edge Control can be powered by:
 
 ### Hello World Example
 
-Let's program the Edge Control with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the Arduino IDE and that the Edge control core and the board itself are working as expected. 
+Let's program the Edge Control with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the Arduino IDE, the Edge control core and the board itself are working as expected. 
 
 There are two ways to program this example in the board:
 
