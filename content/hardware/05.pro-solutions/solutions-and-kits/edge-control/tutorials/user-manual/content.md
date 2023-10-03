@@ -151,7 +151,7 @@ void loop() {
 }
 ```
 
-For the Edge Control, the `EXP_LED1` macro represents the **Green LED** of the of the board.
+For the Edge Control, the `EXP_LED1` macro represents the **Green LED** of the board.
 
 The custom power management of the Edge Control lets you turn on just the board peripherals and power rails you need, as the LED is connected to the IO Expander is needed to enable the 3.3v and battery source, also the expander using these functions:
 
