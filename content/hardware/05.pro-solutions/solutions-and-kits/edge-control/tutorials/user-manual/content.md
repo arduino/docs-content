@@ -1114,9 +1114,7 @@ To test the example code, press the Edge Control Enclosure Kit button to set the
 ![RealTimeClock example output](assets/rtc-output.png)
 
 ## Communication
-The Edge Control communication peripherals are not accessible to the user as a normal development board because it isn't. 
-
-For example the `SPI` communication is reserved for the micro SD card and external memory ICs
+The Edge Control communication peripherals are not accessible to the user as a normal development board because it isn't. For example, the `SPI` communication is reserved for the micro SD card and external memory ICs.
 
 ### I2C
 
@@ -1180,7 +1178,7 @@ while (Wire.available()) {
 }
 ```
 
-In the example code below, we are going to communicate the Edge Control with a MKR WiFi 1010. With a potentiometer connected to the Edge Control, the onboard LED of the MKR board will be controlled, so we will be sending the brightness value through I2C to it.  
+In the example code below, we are going to communicate the `Edge Control` with a `MKR WiFi 1010`. With a potentiometer connected to the Edge Control, the onboard `LED` of the `MKR board` will be controlled, so we will be sending the brightness value through I2C to it.  
 
 ***Use the same connection from [this section](#analog-inputs) for the potentiometer wiring.***
 
@@ -1343,7 +1341,7 @@ void LEDControl(SensorValues_t *vals) {
 }
 
 ```
-![I2C LED brightness control demo](assets/I2C_2.gif)
+![I2C LED brightness control demo](assets/I2C_4.gif)
 
 ### UART
 
