@@ -21,7 +21,9 @@ In this tutorial, we will show you how to make use of these features!
 
 ## Downloading the Library and Core
 
-The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the core. Now open the library tab on the left, search for **TinyGL**, **LVGL** and **Arduino_GigaDisplaytouch**. Install these libraries as they are needed for the TinyGL example to work.
+The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the core. 
+
+To install the required libraries for this tutorail, search for **TinyGL**, **LVGL** and **Arduino_GigaDisplayTouch**. Install these libraries as they are needed for the TinyGL example to work.
 
 ## TinyGL
 
