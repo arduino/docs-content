@@ -963,9 +963,19 @@ void loop()
 
 The Edge Control let you manage the power state of several internal components, so energy efficient applications could be achieved using this board. 
 
+To power on or off a power rail the `Power.on(<rail>)` and `Power.off(<rail>)` function is used.
+
 The different commands and controllable power rails will be specified in the list below:
 
+```cpp
+Power.on(PWR_VBAT); // turns on the 12V power rails for the "Latching Outputs" 
+Power.on(PWR_3V3); // turns on the 3.3V power rail for the micro SD Card (default ON)
+Power.on(PWR_19V);  // turns on the 19V power rail for the 4-20mA sensors reference
+Power.on(PWR_MKR1); // turns on the MKR board connected to slot 1
+Power.on(PWR_MKR2); // turns on the MKR board connected to slot 2
+```
 
+**Every power rail from above can be turned off using the `Power.off(<rail>)` function.**
 
 ## Edge Control Enclosure Kit
 
