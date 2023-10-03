@@ -969,7 +969,7 @@ The different commands and controllable power rails will be specified in the lis
 
 ```cpp
 Power.on(PWR_VBAT); // turns on the 12V power rails for the "Latching Outputs" 
-Power.on(PWR_3V3); // turns on the 3.3V power rail for the micro SD Card (default ON)
+Power.on(PWR_3V3); // turns on the 3.3V power rail for the micro SD Card 
 Power.on(PWR_19V);  // turns on the 19V power rail for the 4-20mA sensors reference
 Power.on(PWR_MKR1); // turns on the MKR board connected to slot 1
 Power.on(PWR_MKR2); // turns on the MKR board connected to slot 2
@@ -1459,4 +1459,91 @@ void loop()
 
 ![UART communication demo](assets/UART.gif)
 
-### Bluetooth® Low Energy
+## Micro SD Card
+
+A Micro SD Card can be integrated to the Edge Control for sensor data logging, storing projects configurations or any application concerned to data storage.
+
+The very known [SD library](https://www.arduino.cc/reference/en/libraries/sd/) is compatible with the Edge Control, we can test the included examples just by adding some lines of code needed by the Edge Control.
+
+The example code used below is an adaptation of the "Datalogger" example included in the `SD` library. It logs the value sampled from an analog input of the Edge Control.
+
+The same wiring of the [analog input section](#analog-inputs) can be used, with the addition of an micro SD card attached.
+
+```cpp
+#include <Arduino_EdgeControl.h>
+#include <SPI.h>
+#include <SD.h>
+
+constexpr unsigned int adcResolution{ 12 };
+
+const int chipSelect = PIN_SD_CS;
+
+void setup() {
+  // Open serial communications and wait for port to open:
+  Serial.begin(115200);
+  while (!Serial) {
+    ;  // wait for serial port to connect. Needed for native USB port only
+  }
+
+  EdgeControl.begin();
+  // Power on the 3V3 rail for SD Card
+  Power.on(PWR_3V3);
+  Power.on(PWR_VBAT);
+
+  Wire.begin();
+  Expander.begin();
+
+  Serial.print("Waiting for IO Expander Initialization...");
+  while (!Expander) {
+    Serial.print(".");
+    delay(100);
+  }
+  Serial.println(" done.");
+
+  Input.begin();
+  Input.enable();
+
+  analogReadResolution(adcResolution);
+
+  Serial.print("Initializing SD card...");
+
+  // see if the card is present and can be initialized:
+  if (!SD.begin(chipSelect)) {
+    Serial.println("Card failed, or not present");
+    // don't do anything more:
+    while (1)
+      ;
+  }
+  Serial.println("card initialized.");
+}
+
+void loop() {
+  // make a string for assembling the data to log:
+  String dataString = "";
+
+  int sensor = Input.analogRead(INPUT_05V_CH01);  // read the Edge Control 0-5v Channel 1
+  dataString += String(sensor);
+
+  // open the file. note that only one file can be open at a time,
+  // so you have to close this one before opening another.
+  File dataFile = SD.open("datalog.txt", FILE_WRITE);
+
+  // if the file is available, write to it:
+  if (dataFile) {
+    dataFile.println(dataString);
+    dataFile.close();
+    // print to the serial port too:
+    Serial.println(dataString);
+  }
+  // if the file isn't open, pop up an error:
+  else {
+    Serial.println("error opening datalog.txt");
+  }
+}
+
+```
+
+You will be able to read all the sampled data from the micro SD card inserting it to your PC on a `.txt` file called `DATALOG`.
+
+![Data logging wiring and output](assets/data-logging.png).
+
