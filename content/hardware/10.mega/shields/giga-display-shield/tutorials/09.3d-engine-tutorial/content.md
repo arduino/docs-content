@@ -25,7 +25,7 @@ The Arduino Mbed OS Giga Boards core contains most of the libraries you need to 
 
 To install the required libraries for this tutorail, search for **TinyGL**, **LVGL** and **Arduino_GigaDisplayTouch**. Install these libraries as they are needed for the TinyGL example to work.
 
-## TinyGL
+## TinyGL Library
 
 The TinyGL library will enable us to run an engine that can render 3D objects on the GIGA Display Shield. TinyGL is based on OpenGL, meaning the objects that we want to be rendered are defined in a `.c` file. Let's take a closer look at these files!
 
