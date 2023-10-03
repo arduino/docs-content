@@ -318,7 +318,7 @@ The Edge Control has **six interrupt request input pins**, mapped as follows:
 |      `Interrupt Request Input 5`     |           `IRQ_CH5`          |
 |      `Interrupt Request Input 6`     |           `IRQ_CH6`          |
 
-The IRQ inputs of the Edge Control can be used through the built-in functions of the Arduino programming language. The configuration of an interrupt pin is done in the `setup()` function with the built-in function `attachInterrupt()` as shown below:
+The IRQ inputs of the Edge Control can be used through the built-in functions of the Arduino programming language. The configuration of an interrupt pin is done in the `setup()` function with the function `attachInterrupt()` as shown below:
 
 ```arduino
 attachInterrupt(digitalPinToInterrupt(pin), ISR, mode);
