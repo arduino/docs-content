@@ -45,7 +45,7 @@ After having prepared the Portenta Breakout by soldering on pin headers, we can 
 ### 3. The Circuit
 In order to build this example circuit, we need our Portenta Breakout with the Portenta H7 on top and headers soldered on (at least within the ANALOG/PWM and GPIO section on the bottom right corner of the carrier). Then we need a simple LED, an adequate resistor for it (we are using a 220Ω resistor) as well as a potentiometer. To connect all these components we use jumper wires and a breadboard by following this schematics:
 
-![Connecting the LEDS and the Portenta](assets/breakout_gs_circuit_diagram.svg) 
+![Connecting the LEDs and the Portenta](assets/breakout_gs_circuit_diagram.svg) 
 
 For the LED we can use any of the Portenta Breakout's 10 PWM Pins, in this case **PWM 9**. For the potentiometer, on the other hand, we can use one of the analog pins (A0 to A7) in order to read the potentiometer current value, in this example we use **A7**. The potentiometer also needs a 3.3V power source, which we take from the GPIO section on the Portenta Breakout, considering it being located most conveniently and close by. Eventually, potentiometer and LED have to be connected to GND to finalize the circuit. 
 
