@@ -130,7 +130,7 @@ To program your Arduino Nano RP2040 board with MicroPython, follow the instructi
 All you need to do is to:
 
 1. Download the `.uf2` firmware file from the [MicroPython page](/micropython).
-2. Connet the `REC` pin to ground to expose the boards file system to your computer, this is easier if you put the board in a breadboard.
+2. Connect the `REC` pin to ground to expose the boards file system to your computer, this is easier if you put the board in a breadboard.
 3. Drag and drop the firmware file onto the boards flash storage which shows up as an external storage device on your computer, and you're done!
 
 Go to the Arduino Lab MicroPython IDE and press connect in the top left, choose the port, and you are now ready to program your Nano RP2040 Connect.

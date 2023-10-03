@@ -42,7 +42,7 @@ Open the [OpenMV download](https://openmv.io/pages/download) page in your browse
 
 Connect the Nano 33 BLE sense to your computer via the USB cable if you haven't done so yet. Make sure you have installed the latest bootloader and softdevice as indicated in the previous step.
 
-After updating the bootloader put the Nano 33 BLE sense in bootloader mode if necessary. The board automatically goes into booloader mode after the update is finished. However, if you restarted the board in the mean time, double click the reset button to bring it into bootloader mode.
+After updating the bootloader put the Nano 33 BLE sense in bootloader mode if necessary. The board automatically goes into bootloader mode after the update is finished. However, if you restarted the board in the mean time, double click the reset button to bring it into bootloader mode.
 
 ![The OpenMV IDE after starting it](assets/nano_openmv_open_ide.png)
 
