@@ -94,7 +94,7 @@ The complete STEP files are available and downloadable from the link below:
 The Edge Control can be powered by:
 
 - Using a Micro USB cable (not included). 
-- Using an external **12V power supply** connected to `BATT+` pin and `GND`.(please, refer to the [board pinout section](#pinout) of the user manual).
+- Using an external **12V power supply** connected to `BATT+` pin and `GND`. (Please, refer to the [board pinout section](#pinout) of the user manual).
 - Using a **12V lead-acid battery** connected to `BATT+` pin and `GND`. **It can be powered for up to 34 months on a 12V/5Ah battery**.
 - Using a whole **off grid** power system including an **18V Solar Panel** and a **12V lead-acid battery**.
 
