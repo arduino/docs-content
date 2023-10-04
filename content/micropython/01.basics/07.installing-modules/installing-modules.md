@@ -16,7 +16,8 @@ In this article, we will cover these two methods, as well as how to remove them 
 
 ## Hardware & Software Needed
 
-- A [MicroPython compatible board](/micropython/basics/board-installation#supported-boards),
+- [A MicroPython compatible board](/micropython/basics/board-installation#supported-boards),
+
 - [Arduino Lab for MicroPython editor](https://labs.arduino.cc/en/labs/micropython),
 - [mpremote](https://pypi.org/project/mpremote/) (optional).
 
@@ -27,6 +28,9 @@ In this article, we will cover these two methods, as well as how to remove them 
 [mip](https://docs.micropython.org/en/latest/reference/packages.html#installing-packages-with-mip) is a module that allows you to install external packages/libraries/modules remotely. This module is built in to your MicroPython firmware.
 
 To use the `mip` module, you will however need to connect to Internet via a Wi-Fi network first. To do so, open the **Arduino Lab for MicroPython editor**, and run the following code:
+
+***Note: Replace "YOUR_NETWORK_NAME" and "" YOUR_NETWORK_PASSWORD" with the SSID and password for your Wi-Fi® network.***
+
 
 ```python
 import network
@@ -54,7 +58,8 @@ mip.install(github:org/repo)
 Or you can specify the url to the file you want to install:
 
 ```
-mip.install(https://raw.githubusercontent.com/tinypico/tinypico-micropython/master/lis3dh%20library/lis3dh.py)
+mip.install("https://raw.githubusercontent.com/tinypico/tinypico-micropython/master/lis3dh%20library/lis3dh.py")
+
 ```
 
 Files are added to a folder named `lib` on your board.
