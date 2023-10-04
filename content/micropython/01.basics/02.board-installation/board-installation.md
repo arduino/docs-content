@@ -20,6 +20,8 @@ The following boards support MicroPython:
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 - [Portenta H7](https://store.arduino.cc/collections/portenta-family/products/portenta-h7)
+- [Portenta C33](https://store.arduino.cc/collections/portenta-family/products/portenta-c33)
+
 
 ## Arduino MicroPython Installer
 
