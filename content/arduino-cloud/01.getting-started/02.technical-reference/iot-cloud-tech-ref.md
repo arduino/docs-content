@@ -27,6 +27,7 @@ The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 - [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
 - [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
