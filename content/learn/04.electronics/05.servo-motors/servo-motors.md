@@ -36,7 +36,7 @@ For the **Knob** example, wire the potentiometer so that its two outer pins are 
 
 For the **Sweep** example, connect the servo motor as shown in the circuit below.
 
-![The Sweep Circuit.](./assets/servo_circuit.png)
+![The Sweep Circuit.](./assets/servo_circuit_sweep.png)
 
 ## Examples
 
