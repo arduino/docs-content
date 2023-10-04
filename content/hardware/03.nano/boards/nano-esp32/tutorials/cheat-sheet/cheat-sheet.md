@@ -251,7 +251,7 @@ Pulse width modulation (PWM) is supported on **all digital pins (D0-D13)** as we
 analogWrite(pin,value);
 ```
 
-***Due to timer restrictions, only 4 PWM signals can be generated simultaneously.***
+***Due to timer restrictions, only 5 PWM signals can be generated simultaneously.***
 
 ## I2C
 

@@ -90,6 +90,21 @@ You can monitor several variables simultaneously, with options to enable only ce
 
 ***To learn more about the Serial Plotter, visit the [Serial Plotter tutorial](/software/ide-v2/tutorials/ide-v2-serial-plotter).***
 
+
+### Example Sketches
+
+An important part of the Arduino Documentation are the example sketches that come bundled with libraries. They will show examples of the functions used in practice, illustrating the intended use and features of a library.
+
+Libraries that come bundled as a part of a boards package may also include libraries, and those libraries often include example sketches.
+
+To open the example sketches bundled in either the libraries you have installed manually or that come bundled in core packages, navigate to **File > Examples** and find the library you're searching for in the list that appears.
+
+![Example sketches](./assets/examplesketches.png)
+
+In the image above, you can see what the examples list looks like when a UNO R4 WiFi board is connected to your computer.
+
+From here, you can for example navigate to **File > Examples > LED_Matrix > MatrixIntro** and upload the sketch to your board to show the Tetris animation that came pre-loaded on your UNO R4 WiFi when you first took it out of its box.
+
 ### Debugging
 
 ![Debugger tool.](assets/playpause.gif)
