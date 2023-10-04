@@ -73,7 +73,7 @@ The Nicla Voice has a built-in speech recognition example: **the Alexa demo**. Y
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 model_name.synpkg
     ```
 
-    Ensure all executed commands return a `filename sent succesful` message in the console as shown in the image below. 
+    Ensure all executed commands return a `filename sent successful` message in the console as shown in the image below. 
 
     ![Uploader feedback messages](assets/getting-started-1.png)
 

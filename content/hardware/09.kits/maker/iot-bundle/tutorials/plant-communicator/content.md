@@ -99,7 +99,7 @@ That value will be used to set a threshold so that the Arduino will know when yo
 ```
 #include "thingProperties.h"  
 int moisturePin = A2;  
-/* Set this threeshold accordingly to the resistance you used */  
+/* Set this threshold accordingly to the resistance you used */  
 /* The easiest way to calibrate this value is to test the sensor in both dry and wet earth */  
 int threshold = 800;  
 void setup() {  

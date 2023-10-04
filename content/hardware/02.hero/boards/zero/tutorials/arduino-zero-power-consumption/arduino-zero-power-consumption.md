@@ -15,7 +15,7 @@ The device has two different software selectable sleep modes: idle & standby.
 
 The device also supports SleepWalking that allows the peripheral to wake up from sleep based on predefined threshold or when a result is ready.
 
-The SAMD21 series has a dedicated module called Power Manager (PM) that controls the reset, clock generation and sleep modes of the microcontroller. In the architecture there are many clock domains that can run at different speeds, enabling the user to save power by running peripherals at a relatively low clock frequency, while maintaning high CPU performance. Furthermore, the clock of each peripheral can be disabled (mask operation), enabling the user to minimize power consumption due to unused peripherals. In particular when the device enters a sleep mode, program execution is stopped and some modules and clock domains are automatically switched off by the PM according to the sleep mode. The application code decides which sleep mode to enter and when.
+The SAMD21 series has a dedicated module called Power Manager (PM) that controls the reset, clock generation and sleep modes of the microcontroller. In the architecture there are many clock domains that can run at different speeds, enabling the user to save power by running peripherals at a relatively low clock frequency, while maintaining high CPU performance. Furthermore, the clock of each peripheral can be disabled (mask operation), enabling the user to minimize power consumption due to unused peripherals. In particular when the device enters a sleep mode, program execution is stopped and some modules and clock domains are automatically switched off by the PM according to the sleep mode. The application code decides which sleep mode to enter and when.
 
 ## Voltage Regulator
 
@@ -27,7 +27,7 @@ Here is a comparison of an Arduino UNO and an Arduino ZERO running the same code
 
 ![A voltage regulator.](assets/Arduino_zero_comp.jpg)
 
-As it can be easily seen, in the same conditions the Arduino Zero requires less than half power compared to the Arduino Uno with performances that are far, far away from the Uno's! This result is obtained thanks to the better power management detalied above.
+As it can be easily seen, in the same conditions the Arduino Zero requires less than half power compared to the Arduino Uno with performances that are far, far away from the Uno's! This result is obtained thanks to the better power management detailed above.
 
 ## Circuit
 
