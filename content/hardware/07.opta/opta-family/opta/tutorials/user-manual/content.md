@@ -1278,6 +1278,10 @@ void changeLights() {
 
 **Note**: The example code above employs a "debouncing" technique to ensure that the user button press is recognized as a singular event despite any rapid electrical fluctuations that can occur when physically pressing the button. Upon detecting a press through an interrupt, the sketch waits for a brief interval (150 milliseconds, set by the `debounceDelay` variable) before processing the press. This delay ensures that any additional "noise" or fluctuations don't trigger multiple registrations of the same press, ensuring precise LED sequencing operation.
 
+To learn more into-depth about interrupts in Opta™ devices, check out the following tutorial:
+
+- [Getting Started with Interrupts on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-interrupts)
+
 ## Real-Time Clock (RTC)
 
 Opta™ device's (all variants) microcontroller (the STM32H747XI) features a low-power Real-Time Clock (RTC) with sub-second accuracy and hardware calendar accessible through specific RTC management methods from Mbed™️.
@@ -1403,7 +1407,9 @@ Once the RTC has been synchronized in the setup, the sketch enters an infinite l
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-18_2.png)
 
-You can download the example code [here](assets/opta_rtc_example.zip). To learn more about date and time manipulation operations, check out the [`time` function documentation from Mbed™️](https://os.mbed.com/docs/mbed-os/v5.15/apis/time.html).
+You can download the example code [here](assets/opta_rtc_example.zip). To learn more about date and time manipulation operations, check out the [`time` function documentation from Mbed™️](https://os.mbed.com/docs/mbed-os/v5.15/apis/time.html). Also, check out this real-world case described in the following application note where Opta's RTC:
+
+- [Home Automation with Opta™️](https://docs.arduino.cc/tutorials/opta/home-automation-application-note)
 
 ## Arduino IoT Cloud
 
@@ -1577,7 +1583,10 @@ To upload the code to the Opta™ from the online editor, click the green **Veri
 
 Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's STATUS LED 1 (`LED_D0`) should light on or off when the position of the switch changes.
 
-To learn more about Opta™ and the Arduino IoT Cloud, check out our [Opta™ Relay Management](https://create.arduino.cc/iot/templates/relay-management) template. This is an excellent template to continue learning about the Arduino IoT Cloud and Opta™.
+To learn more about Opta™ and the Arduino IoT Cloud, check out the following resources that can help you learning about the Arduino IoT Cloud and Opta™:
+
+- [Opta™ Relay Management template](https://create.arduino.cc/iot/templates/relay-management)
+- [Using PLC IDE With Arduino® IoT Cloud](https://docs.arduino.cc/tutorials/opta/plc-ide-cloud-support)
 
 ## Support
 
