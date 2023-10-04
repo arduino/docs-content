@@ -53,7 +53,6 @@ To use the Arduino IoT Cloud, a **cloud compatible board** is required. You can 
 
 The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 
-- [MKR 1000 WiFi](/hardware/mkr-1000-wifi)
 - [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
 - [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
