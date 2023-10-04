@@ -1536,7 +1536,6 @@ void loop() {
     Serial.println("error opening datalog.txt");
   }
 }
-
 ```
 
 You will be able to read all the sampled data from the micro SD card on a `.txt` file called `DATALOG`. You can use a USB adaptar or a micro SD card slot on your PC to read the file.
