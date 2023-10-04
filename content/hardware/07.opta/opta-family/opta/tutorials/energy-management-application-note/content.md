@@ -44,9 +44,9 @@ A graphical representation of the intended application is shown below:
 ### Hardware Requirements
 
 - Opta™ PLC with RS-485 support (x1)
-- Solar panel with respective system (Controller, battery, and inverter) or similar power system
 - USB-C® cable (x1)
 - 7M.24 Energy meter (x1)
+- Solar panel with respective system (Controller, battery, and inverter) or similar power system
 - Domestic appliance or devices of interest
 - RS-485 connection wire as recommended by the standard specification (x3):
 - STP/UTP 24-18AWG (Unterminated) 100-130Ω rated
@@ -90,7 +90,6 @@ The following headers are required to enable the RS-485 interface, Modbus RTU pr
 ```arduino
 #include "stm32h7xx_ll_gpio.h"
 #include "thingProperties.h"
-
 #include <ArduinoModbus.h>
 #include <ArduinoRS485.h>
 #include <Scheduler.h>
@@ -247,20 +246,19 @@ The energy meter has several registry addresses specifying a wide range of elect
 void modbus_com_actual(){
   // Actual Measurements
   // Voltage (V)
-  V_actual = readInputRegisterValues(F7M24, 0x6B, 2);
+  V_actual = getT5(F7M24, 30107);
 
   // Current (A)
-  A_actual = readInputRegisterValues(F7M24, 0x7E, 2);
+  A_actual = getT5(F7M24, 30126);
 
   // Active Power Total - Pt (W)
-  W_actual = readInputRegisterValues(F7M24, 0x8C, 2);
+  W_actual = getT6(F7M24, 30140);
   
-  // Reactive Power Total - Qt (var)
-  Var_actual = readInputRegisterValues(F7M24, 0x94, 2);
+  // Reactive Power Total - Qt (var) (IEEE 754)
+  Var_actual = getT_Float(F7M24, 32544);
 
   // Apparent Power Total - St (VA)
-  Va_actual = readInputRegisterValues(F7M24, 0x9C, 2);
-  delay(100);
+  Va_actual = getT5(F7M24, 30156);
 }
 
 ...
@@ -271,11 +269,13 @@ void modbus_com_actual(){
 void modbus_com_energy(){
   // Energy
   // Energy (Wh) - n1
-  Wh_packet = readInputRegisterValues(F7M24, 0xAC0, 2);
+  Wh_packet = getT_Float(F7M24, 32752);
 
-  // Energy (varh) - n2
-  Varh_packet = readInputRegisterValues(F7M24, 0x2F2, 2);
-  delay(100);
+  // Energy (varh) - n4
+  Varh_packet = getT_Float(F7M24, 32758);
+
+  // Total Absolute Active Energy (Wh)
+  Wh_Abs_packet = getT_Float(F7M24, 32760);
 }
 ```
 
@@ -300,147 +300,82 @@ void RTU_Setup(){
 }
 ```
 
-The following functions allow to access the target's data by specifying the device and register address.
+The following functions allow to access the target's data by specifying the device and register address. They are specified according to the data types of the variables.
 
 ```arduino
 /**
-  Writes Coil values given argument inputs. 
+  Obtains T5 data type variable
 
   @param dev_address Device address.
-  @param reg_address Register address.
-  @param coil_write Data to write.
-  @param byte_count Number of bytes.
+  @param base_reg Register address.
 */
-void writeCoilValues(int dev_address, uint8_t reg_address, uint8_t coil_write, int byte_count){
-  ModbusRTUClient.beginTransmission(dev_address, COILS, reg_address, byte_count);
-  ModbusRTUClient.write(coil_write);
+float getT5(int dev_address, int base_reg) {
+  ModbusRTUClient.requestFrom(dev_address, INPUT_REGISTERS, base_reg - 30000, 2);
+
+  while(!ModbusRTUClient.available()) {}
+
+  uint32_t rawreg = ModbusRTUClient.read() << 16 | ModbusRTUClient.read();
+  int8_t reg_exp = ((uint8_t*)&rawreg)[3];
+  uint32_t reg_base = rawreg & 0x00FFFFFF;
+  float reg = reg_base * pow(10, reg_exp);
   
-  if (!ModbusRTUClient.endTransmission()) {
-    Serial.print("failed! ");
-    Serial.println(ModbusRTUClient.lastError());
-  } else {
-    Serial.println("success");
-  }
+  return reg;
 }
 
 /**
-  Reads Coil values given argument inputs. 
+  Obtains T6 data type variable
 
   @param dev_address Device address.
-  @param reg_address Register address.
-  @param byte_count Number of bytes.
-  @param packet Holding register value reading.
+  @param base_reg Register address.
 */
-void readCoilValues(int dev_address, uint8_t reg_address, int byte_count, int32_t packet){
-  Serial.print("Reading Coil values ... ");
+float getT6(int dev_address, int base_reg) {
+  ModbusRTUClient.requestFrom(dev_address, INPUT_REGISTERS, base_reg - 30000, 2);
+  
+  while(!ModbusRTUClient.available()) {}
+  
+  uint32_t rawreg = ModbusRTUClient.read() << 16 | ModbusRTUClient.read();
 
-  // read 10 Coil values from (slave) id 42, address 0x00
-  if (!ModbusRTUClient.requestFrom(dev_address, COILS, reg_address, byte_count)) {
-    Serial.print("failed! ");
-    Serial.println(ModbusRTUClient.lastError());
-  } else {
-    Serial.println("success");
-
-    while (ModbusRTUClient.available()) {
-        Serial.print(ModbusRTUClient.read());
-        packet = ModbusRTUClient.read();
-        Serial.print(' ');
-    }
-    
-    Serial.println();
+  int8_t reg_exp = ((uint8_t*)&rawreg)[3];
+  int32_t reg_base = (int32_t)rawreg & 0x007FFFFF;
+  if(rawreg & 0x800000) {
+    reg_base = -reg_base;
   }
+  float reg = reg_base * pow(10, reg_exp);
+
+  return reg;
 }
 
 /**
-  Reads Discrete Input Register values given argument inputs. 
+  Obtains T2 data type variable
 
   @param dev_address Device address.
-  @param reg_address Register address.
-  @param byte_count Number of bytes.
-  @param packet Holding register value reading.
+  @param base_reg Register address.
 */
-void readDiscreteInputValues(int dev_address, uint8_t reg_address, int byte_count, int32_t packet){
-  if (!ModbusRTUClient.requestFrom(dev_address, DISCRETE_INPUTS, reg_address, byte_count)) {
-    Serial.print("failed! ");
-    Serial.println(ModbusRTUClient.lastError());
-  } else {
-    Serial.println("success");
+float getT2(int dev_address, int base_reg) {
+  ModbusRTUClient.requestFrom(dev_address, INPUT_REGISTERS, base_reg - 30000, 1);
+  while(!ModbusRTUClient.available()) {}
 
-    while (ModbusRTUClient.available()) {
-        Serial.print(ModbusRTUClient.read());
-        packet = ModbusRTUClient.read();
-        Serial.print(' ');
-    }
-    Serial.println();
-  }
+  int16_t rawreg = ModbusRTUClient.read();
+  
+  return (float)rawreg;
 }
 
 /**
-  Writes Holding Register values given argument inputs. 
+  Obtains T_Float data type variable
 
   @param dev_address Device address.
-  @param reg_address Register address.
-  @param holding_write Data to write.
-  @param byte_count Number of bytes.
+  @param base_reg Register address.
 */
-void writeHoldingRegisterValues(int dev_address, uint8_t reg_address, uint8_t holding_write, int byte_count){
-  ModbusRTUClient.beginTransmission(dev_address, HOLDING_REGISTERS, reg_address, byte_count);
-  ModbusRTUClient.write(holding_write);
-
-  if (!ModbusRTUClient.endTransmission()) {
-    Serial.print("failed! ");
-    Serial.println(ModbusRTUClient.lastError());
-  } else {
-    Serial.println("success");
-  }
-}
-
-/**
-  Reads Holding Register values given argument inputs. 
-
-  @param dev_address Device address.
-  @param reg_address Register address.
-  @param byte_count Number of bytes.
-  @param packet Holding register value reading.
-*/
-void readHoldingRegisterValues(int dev_address, uint8_t reg_address, int byte_count, int32_t packet){
-  if (!ModbusRTUClient.requestFrom(dev_address, HOLDING_REGISTERS, reg_address, byte_count)) {
-    Serial.print("failed! ");
-    Serial.println(ModbusRTUClient.lastError());
-  } else {
-    Serial.println("success");
-
-    while (ModbusRTUClient.available()) {
-        Serial.print(ModbusRTUClient.read());
-        packet = ModbusRTUClient.read();
-        Serial.print(' ');
-    }
-    Serial.println();
-  }
-}
-
-/**
-  Reads Input Register values given argument inputs. 
-
-  @param dev_address Device address.
-  @param reg_address Register address.
-  @param byte_count Number of bytes.
-*/
-uint8_t readInputRegisterValues(int dev_address, uint8_t reg_address, int byte_count){
-  uint8_t packet;
-  if (!ModbusRTUClient.requestFrom(dev_address, INPUT_REGISTERS, reg_address, byte_count)) {
-    Serial.print("failed! ");
-    Serial.println(ModbusRTUClient.lastError());
-    return 0;
-  } else {
-    Serial.println("success");
-
-    while (ModbusRTUClient.available()) {
-        packet = ModbusRTUClient.read();
-        Serial.println(packet);
-    }
-    return packet;
-  }
+float getT_Float(int dev_address, int base_reg) {
+  ModbusRTUClient.requestFrom(dev_address, INPUT_REGISTERS, base_reg - 30000, 2);
+  
+  while(!ModbusRTUClient.available()) {}
+  
+  uint32_t rawreg = ModbusRTUClient.read() << 16 | ModbusRTUClient.read();
+  float reg;
+  memcpy(&reg, &rawreg, sizeof(float));
+  
+  return reg;
 }
 ```
 
