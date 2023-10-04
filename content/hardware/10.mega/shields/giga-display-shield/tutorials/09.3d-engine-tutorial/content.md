@@ -11,6 +11,10 @@ Using a 3D engine to construct and render objects can be a hardware heavy proces
 
 In this tutorial, we will show you how to make use of these features!
 
+<video width="100%" loop autoplay>
+<source src="assets/3d-engine-example.mp4" type="video/mp4" />
+</video>
+
 ***Please note that the development status of the [TinyGL](https://github.com/arduino-libraries/TinyGL) library is in an experimental phase.***
 
 ## Hardware & Software Needed
@@ -91,4 +95,6 @@ Since the sketch requires the `gears.c` file to compile correctly we recommend o
 
 After uploading the sketch you should see the same result as shown in the gif below:
 
-![Gears sketch running on the GIGA Display Shield](assets/tinygl-example.gif)
+<video width="100%" loop autoplay>
+<source src="assets/3d-engine-example.mp4" type="video/mp4" />
+</video>
