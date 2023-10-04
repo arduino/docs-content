@@ -15,7 +15,7 @@ Thanks to its form factor, the device can be conveniently affixed to a Din Rail 
 
 <Feature title="Enclosure IP Standard" image="world-map">
 
-  The cover, with an IP40 rating, is designed to shield the externally mounted Edge Control from the intrusion of solid objects exceeding 1mm in size.
+  The cover, with an IP40 rating, is designed to shield the mounted Edge Control from the intrusion of solid objects exceeding 1mm in size.
 
   Note: This rating does not provide protection against moisture.
 
