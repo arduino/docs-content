@@ -122,6 +122,19 @@ $ mpremote connect id:335B34603532 mip install github:arduino/arduino-iot-cloud-
 
 This will install the library and all required dependencies on the board.
 
+### Error: Certificate Verify Fail (MacOS)
+
+On some computers, you may receive error:
+
+```
+[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed:
+unable to get local issuer certificate (_ssl.c:1002)
+```
+
+This means there is a problem with the Python version installed, and that it is unable to locate the the SSL certificate. To work around this, navigate to your Python installation (typically **Applications > Python 3.X**), and run the `Install Certificates.command` script.
+
+![Install Certificate.](assets/install-cert.png)
+
 ## Delete Files
 
 To delete a file from your board, open the **Arduino Lab for MicroPython** editor, connect to your board, and click the **"File"** button. This will open your local files as well as your board's files.
