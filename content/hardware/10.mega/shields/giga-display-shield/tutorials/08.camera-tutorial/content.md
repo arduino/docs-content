@@ -58,7 +58,7 @@ Depending on what camera you are using it should be changed accordingly:
 
 The sketch will then capture frames into the framebuffer and print a live camera feed to the display.
 
-***NOTE: Please disconnect your camera from the GIGA Display Shield before uploading the example.***
+***Note: make sure to connect/disconnect the camera when the board is powered off.***
 
 ```arduino
 #include "arducam_dvp.h"
