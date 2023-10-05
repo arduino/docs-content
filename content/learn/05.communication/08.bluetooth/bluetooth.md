@@ -876,6 +876,10 @@ void loop() {
 }
 ```
 
+Now you can start interacting with your board by following the steps as shown in the image below:
+
+![LightBlue steps](./assets/bluetooth_app.png)
+
 ## Summary
 
 In this article we explored the use of Arduino and the ArduinoBLE library for Bluetooth Low Energy communication, how to set up your board as either peripheral or central device and reading / sending data via Bluetooth LE. 
