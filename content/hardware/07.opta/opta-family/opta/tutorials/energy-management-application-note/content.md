@@ -25,17 +25,17 @@ hardware:
 
 The Opta™ can be an irreplaceable support for home energy management. Getting information on instantaneous electrical consumption and interacting with the customer’s consumption plan, daily usage statistics, and seasonal forecasts can help in planning and managing electrical devices to optimize energetical efficiency. Always be connected and informed by integrating the Arduino IoT cloud, and add self-adjustment capability by monitoring and logging electrical statistics along with the option to operate the connected devices on-demand based on pre-set triggers.
 
-The industry is transitioning towards Industry 4.0, going by the name of the Industrial Internet of Things (IIoT). Industrial energy management and operation of connected devices on-demand within a power grid, will bring vast cost benefits and production performance uplift. To guarantee protection from unauthorized access and service interruptions, Opta™ integrates a secure element that offers the data integrity, encryption, and certificate storage capabilities needed to provide an IoT node for the deployment of a private and safe Industrial Internet of Things network.
+As the industry shifts towards Industry 4.0, also known as the Industrial Internet of Things (IIoT), the focus is on improved energy management and the ability to operate devices on-demand within power grids. This transition promises significant cost savings and enhanced production performance. Opta™ prioritizes security, featuring elements that ensure data integrity, encryption, and secure certificate storage. This makes it a suitable IoT node for creating a private and secure IIoT network.
 
 ## Goals
 
 This application note shows an example of an energy management system, leveraging Opta™ and Arduino IoT Cloud capabilities to perform the following operations:
 
-- The Opta™ will receive remote actuation commands triggered on demand via Arduino Cloud
-- The Opta™ will operate devices, based on the user's consumption profile and on the available power provided by solar panels
-- The domestic appliances actuation will be automated considering both the operational contexts above: upon user's demand and triggered by power availability and consumption efficiency
+- Allow Opta™ to receive and process remote actuation commands from the Arduino Cloud
+- Enable Opta™ to control devices based on the user's energy consumption patterns and the energy available from solar panels or any other power sources
+- Automate the operation of home appliances by considering user demands, power availability, and energy efficiency
 
-A graphical representation of the intended application is shown below:
+Below is a visual representation of the intended application:
 
 ![Graphical representation of the energy management application](assets/application_representation.png)
 
@@ -61,31 +61,31 @@ A graphical representation of the intended application is shown below:
 
 ## Hardware Setup Overview
 
-The electrical connections of the intended application design are shown in the diagram below:
+Below is a diagram that illustrates the electrical connections for intended application:
 
 ![Electrical connections of the application](assets/electrical_connections.png)
 
-The Opta™ will receive instant consumption information from the energy meter's thresholds via Modbus RTU through the RS-485 interface. The power delivered by the solar panels will go through a series of processes to get to the energy meter. The domestic appliances will be controlled using the built-in relay outputs of Opta™. Other types of power sources can be used instead of solar panels.
+The Opta™ system will access real-time consumption details from the energy meter, using the Modbus RTU over the RS-485 interface. Power from the solar panels undergoes multiple processes before it reaches the energy meter. Household appliances can be managed using the Opta™ system's built-in relay functions. It is also worth noting that other power sources can replace the solar panels.
 
 ## Opta™ Energy Management Model Description
 
-The Opta™ will manage the available power, based on the data reported by the energy meter connected to the power source: the solar panel. It will request and receive data from the energy meter and will estimate the instant consumption given the energy meter thresholds and actual power delivered from the solar panel.
+The main role of Opta™ is to efficiently handle power, using data from the energy meter linked to the solar panel as its basis. It fetches and processes data from the energy meter, estimating real-time consumption based on the meter's thresholds and the current power output of the solar panel.
 
-The energy meter model used in this application note is 7M.24 from Finder, the datasheet can be found [here](https://cdn.findernet.com/app/uploads/2021/09/20090052/Modbus-7M24-7M38_v2_30062021.pdf), and communicates using Modbus RTU over the RS-485 interface. The Opta™ relays will be used to actuate the domestic appliances of interest. To compile data and manage the power distribution, Opta™ will perform the following actions:
+For this application, we are using the __7M.24 energy meter__ model from Finder. You can access its datasheet [here](https://cdn.findernet.com/app/uploads/2021/09/20090052/Modbus-7M24-7M38_v2_30062021.pdf). This model communicates via the Modbus RTU on the RS-485 interface. The relay functions of Opta™ will operate the relevant household appliances. To gather data and oversee power allocation, Opta™ carries out the following steps:
 
-- Request voltage and current data measured from the energy meter.
-- Obtain three sets of Power data from the energy meter displayed as: *Active Power Total - Pt (W)*, *Reactive Power Total - Qt (var)*, and *Apparent Power Total - St (VA)*.
-- Categorize the data acquired regarding Voltage, Current, Active Power Total - Pt (W), Reactive Power Total - Qt (var), and Apparent Power Total - St (VA) in multiple variables to report the attributes of each value by *Actual*, *Average*, *Maximum*, and *Minimum*.
-- Retrieve the Energy Counter value in *Wh* and *varh*.
-- Make an adequate power distribution to control the desired domestic appliances, based on the user's energy profile.
+- Procure voltage and current readings from the energy meter.
+- Gather three types of power readings from the energy meter: _Active Power Total - Pt (W)_, _Reactive Power Total - Qt (var)_, and _Apparent Power Total - St (VA)_.
+- Organize the collected data on Voltage, Current, and Power (Active, Reactive, and Apparent) into various categories to represent the _Actual_, _Average_, _Maximum_, and _Minimum_ values of each.
+- Access the Energy Counter figures in _Wh_ and _varh_ units.
+- Distribute power optimally to regulate selected household appliances, based to the user's energy profile.
 
-While all these processes are handled by Opta™ locally, the device will also be connected to the Arduino Cloud via Wi-Fi®. Through the Arduino Cloud, it will be possible to visualize the energy consumption and actuate remotely on-demand the connected devices.
+While all these processes are handled by Opta™ locally, it is also connected to the Arduino Cloud through Wi-Fi®. This connection allows users to view their energy usage and remotely control connected devices via the Arduino Cloud.
 
 ### Opta™ Energy Management Example Code
 
-The code exemplifies how Opta™ can achieve the functionalities described previously. Note that some of the functions in the code are generated by Arduino Cloud during the dashboard configuration.
+The provided code showcases the capabilities of Opta™ as described earlier. It is essential to mention that Arduino Cloud generates some of the code functions during dashboard setup.
 
-The following headers are required to enable the RS-485 interface, Modbus RTU protocol, Arduino Cloud connection, and the scheduler. The scheduler supervises the data exchange over the RS-485 interface using the Modbus RTU protocol. In addition to this, it contains the parameters needed for a stable communication as per Modbus RTU specifications.
+The code requires the inclusion of specific headers. These headers enable the RS-485 interface, the Modbus RTU protocol, the Arduino Cloud linkage, and the scheduler. The scheduler oversees data exchange through the RS-485 interface using the Modbus RTU protocol. Moreover, it includes the parameters essential for stable communication, adhering to Modbus RTU standards.
 
 ```arduino
 #include "stm32h7xx_ll_gpio.h"
@@ -109,13 +109,11 @@ constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 
 ***[Getting Started with Modbus RTU on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu) tutorial will be able to give a deeper understanding of implementings Modbus RTU with Opta™.***
 
-The `relay_Trigger()` method uses a simple comparison between a `desired target` value and a `required target` value and generates, as an output, the trigger for a relay activation.
+The method `relay_Trigger()` performs a straightforward comparison between a `desired target` and a `required target`. Based on this comparison, it outputs a signal to activate a relay.
 
-The `desired target` value is a user defined value that states the activation threshold desired for the relay activation.
+The user specifies the `desired target` value, indicating the preferred threshold for the relay's activation. In contrast, the `required target` represents the minimal power necessary for stable relay operation. This value is determined from metrics obtained from the energy meter, one of which is `W_actual`, denoting the real-time total active power at the time of inquiry.
 
-The `required target` value is a variable stating the minimum power required to operate a relay in stable manner and is calculated based on readings gathered from the energy meter, such as `W_actual` that represents the instant total active power measured at the moment of request.
-
-The `user_profile.uV_code` defines the operating margin in percentage. For example, defining 10% as `1.1` inside the `consumption_profile()` method, provides a safety overhead headroom. The arguments in this method are defined as default configurations and can be later modified from the Arduino Cloud dashboard.
+The `user_profile.uV_code` defines the operational buffer in terms of percentage. For instance, setting the margin at 10% as `1.1` within the `consumption_profile()` method offers a safety overhead headroom. This method's parameters come preset but can be adjusted later via the Arduino Cloud dashboard.
 
 The `relayTarget` defines the output port prompted under certain activation conditions.
 
@@ -128,19 +126,13 @@ The `relayTarget` defines the output port prompted under certain activation cond
   @param relayTarget Relay to activate or deactivate.
   @return Returns 0 or 1, representing HIGH state for 1 and LOW state for 0.
 */
-uint8_t relay_Trigger(int desired_target, int req_target, pin_size_t relayTarget){
-  if ((desired_target >= req_target) && (desired_target < (req_target*user_profile.uV_code))){
-    digitalWrite(relayTarget, HIGH);
-    Serial.println(F("Energy Manager: Stable operation margin - Turning ON: "));
-    Serial.print(relayTarget);
-    Serial.println(F(""));
-  } else {
-    digitalWrite(relayTarget, LOW);
-    Serial.println(F("Energy Manager: Unstable / possible overload - Turning OFF: "));
-    Serial.print(relayTarget);
-    Serial.println(F(""));
-    return 0;
-  }
+uint8_t relay_Trigger(int desired_target, int req_target, pin_size_t relayTarget) {
+  bool isStable = (desired_target >= req_target) && (desired_target < (req_target * user_profile.uV_code));
+  digitalWrite(relayTarget, isStable ? HIGH : LOW);
+  Serial.print(F("Energy Manager: "));
+  Serial.print(isStable ? F("Stable operation margin") : F("Unstable / possible overload"));
+  Serial.println(F(" - Turning " + String(isStable ? "ON: " : "OFF: ") + relayTarget));
+  return isStable ? 1 : 0;
 }
 
 /**
@@ -163,76 +155,65 @@ void consumption_profile(uint32_t init_OperMargin, uint32_t init_Watt, uint32_t 
 }
 ```
 
-The following function uses the information obtained by the energy meter and the inputs from the user provided through the Arduino Cloud, to control the connected electronic devices. It has two main conditions based on energy and power, to determine the system's capacity to activate the devices connected to it, which will produce an action only within an energy consumption margin below a 10% safety operation margin.
+The function described below uses data from the energy meter and user inputs via the Arduino Cloud to regulate connected electronic devices. Its decisions are mainly based on two conditions related to energy and power. This ensures that devices operate when energy consumption is within a range that's 10% below the maximum safe operation level.
 
-However, the system will warn the user if the average power required is above the defined profile limit. Specific data have been considered for this application note based on the devices used to realize the proof of concept for this example.
+If the average power demand surpasses the predefined user profile threshold, the system will send an alert to the user. This application note takes into account specific data from the devices used, serving as a proof of concept for this scenario.
 
-The `Device #1` is configured for low-power devices seeking for nominal current feed or actual available power to turn on safely. It can be also actuated remotely by the user.
+The `Device #1` is configured for low-power devices that need a consistent current or the existing power to switch on securely. Users also have the option to control it remotely.
 
-The `Device #2` is configured for devices requiring more power. It will trigger the actuation if the average or the actual available power is enough to satisfy the defined power condition.
+The `Device #2` caters to devices with higher power demands. It will begin its operations if the current or average power available meets the specified power requirement.
 
 ```arduino
+/**
+  Handler functions for energy_distro_ctrl() funtion
+*/
+void handleDevice(int threshold, float value, int pin, bool &deviceFlag) {
+  deviceFlag = relay_Trigger(threshold, value, pin);
+  if (!deviceFlag) {
+      if (relay_Trigger(threshold, W_actual, pin)) {
+          Serial.println(deviceFlag == Device_1_f ? F("Energy Manager: Secondary condition pass, may be unstable") : F("Energy Manager: Secondary Power condition pass"));
+      } else {
+          Serial.println(F("Energy Manager: Insufficient resource"));
+          digitalWrite(D0, LOW);
+      }
+  } else {
+      Serial.println(F("Energy Manager: Conditions green"));
+  }
+}
+
 /**
   Monitors and uses the user defined profile and retrieved information from Energy meter to manage connected devices of interest.
 
   @param Wh_packet Retrieved energy information from Energy meter in unit of [Wh].
   @param Device_#_f Device flag controlled by relay_Trigger() function. # specifies device number or designation.
   @param directOverride1 Direct override flag for Device #1 controlled via Cloud.
-  @param W_avg Average power information retrieved from Energy meter.
+  @param W_avg Average power information retrieved from Energy meter. 
 */
-void energy_distro_ctrl(){
-  if (Wh_packet != 0){
-    uWhOpta = Wh_packet;
+void energy_distro_ctrl() {
+  if (Wh_packet != 0) {
+      uWhOpta = Wh_packet;
   } else {
-    Serial.println(F("Energy Manager: Energy information recollection stand-by"));
+      Serial.println(F("Energy Manager: Energy information recollection stand-by"));
+      return;
   }
 
-  // Energy consumption conditionar with 10% safety margin
-  if ((Wh_packet*user_profile.uV_code) <= user_profile.uWh_code){
-    // Device #1 specific behaviors
-    Device_1_f = relay_Trigger(1, A_actual, D0);
-    if (!Device_1_f){
-      if (relay_Trigger(3, W_actual, D0)){
-        Serial.println(F("Energy Manager: Secondary condition pass, may be unstable"));          
-      } else {
-        Serial.println(F("Energy Manager: Insufficient resource"));
-        digitalWrite(D0, LOW); 
-      }
-    } else{
-      Serial.println(F("Energy Manager: Conditions green"));
-    }
-
-    // Device #2 specific behaviors
-    Device_2_f = relay_Trigger(12, W_avg, D1);
-    if (!Device_2_f){
-      if (relay_Trigger(12, W_actual, D1)){
-        Serial.println(F("Energy Manager: Secondary Power condition pass"));    
-      } else {
-        Serial.println(F("Energy Manager: Insufficient resource"));
-        digitalWrite(D0, LOW); 
-      }
-    } else{
-      Serial.println(F("Energy Manager: Conditions green"));
-    }
-
+  if ((Wh_packet * user_profile.uV_code) <= user_profile.uWh_code) {
+      handleDevice(1, A_actual, D0, Device_1_f);
+      handleDevice(12, W_avg, D1, Device_2_f);
   } else {
-    digitalWrite(D0, LOW); 
-    digitalWrite(D1, LOW); 
-    Serial.println(F("Energy Manager: Energy consumption is high! - Warning"));
-  }
-  
-  // Direct override request for Device #1
-  if (directOverride1 == true){
-    // Override Device #1
-    Serial.println(F("Energy Manager: Direct Override Request Received"));
-    digitalWrite(D0, HIGH); 
+      digitalWrite(D0, LOW);
+      digitalWrite(D1, LOW);
+      Serial.println(F("Energy Manager: Energy consumption is high! - Warning"));
   }
 
-  // Conditioner to notify users without cutting power to electronic devices
-  if ((W_avg*user_profile.uV_code) > user_profile.uW_code){
-    Serial.println(F("Energy Manager: Average Power is above profile limit! - Warning"));
-    Serial.print(W_avg*user_profile.uV_code);
-    Serial.println(F(""));
+  if (directOverride1) {
+      Serial.println(F("Energy Manager: Direct Override Request Received"));
+      digitalWrite(D0, HIGH);
+  }
+
+  if ((W_avg * user_profile.uV_code) > user_profile.uW_code) {
+      Serial.println(F("Energy Manager: Average Power is above profile limit! - Warning"));
+      Serial.println(W_avg * user_profile.uV_code);
   }
 }
 ```
@@ -260,9 +241,9 @@ void modbus_com_actual(){
   // Apparent Power Total - St (VA)
   Va_actual = getT5(F7M24, 30156);
 }
+```
 
-...
-
+```
 /**
   Requests and retrieves energy information from Energy meter over Modbus RTU protocol.
 */
@@ -411,13 +392,11 @@ The Opta™ will initialize the RS-485 interface and Modbus RTU protocol, the Ar
 
 ```arduino
 void setup() {
-  // Initial Parameter 
+    // Initial Parameter 
   directOverride1 = false;
   uWhOpta = 0;
 
   Serial.begin(9600);
-  while (!Serial);
-      
   delay(1000);
 
   // Analog/Digital IO Port Configuration
