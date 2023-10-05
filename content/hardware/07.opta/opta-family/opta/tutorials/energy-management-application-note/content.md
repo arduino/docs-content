@@ -167,8 +167,8 @@ The `Device #2` caters to devices with higher power demands. It will begin its o
 /**
   Handler functions for energy_distro_ctrl() funtion
 */
-void handleDevice(int threshold, float value, int pin, bool &deviceFlag) {
-  deviceFlag = relay_Trigger(threshold, value, pin);
+bool handleDevice(int threshold, float value, int pin, bool deviceFlag) {
+  bool deviceFlag = relay_Trigger(threshold, value, pin);
   if (!deviceFlag) {
       if (relay_Trigger(threshold, W_actual, pin)) {
           Serial.println(deviceFlag == Device_1_f ? F("Energy Manager: Secondary condition pass, may be unstable") : F("Energy Manager: Secondary Power condition pass"));
@@ -179,6 +179,7 @@ void handleDevice(int threshold, float value, int pin, bool &deviceFlag) {
   } else {
       Serial.println(F("Energy Manager: Conditions green"));
   }
+  return deviceFlag;
 }
 
 /**
@@ -198,8 +199,8 @@ void energy_distro_ctrl() {
   }
 
   if ((Wh_packet * user_profile.uV_code) <= user_profile.uWh_code) {
-      handleDevice(1, A_actual, D0, Device_1_f);
-      handleDevice(12, W_avg, D1, Device_2_f);
+      Device_1_f = handleDevice(1, A_actual, D0);
+      Device_2_f = handleDevice(12, W_avg, D1);
   } else {
       digitalWrite(D0, LOW);
       digitalWrite(D1, LOW);
