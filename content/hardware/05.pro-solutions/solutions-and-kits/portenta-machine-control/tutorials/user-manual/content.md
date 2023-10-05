@@ -100,7 +100,7 @@ Check out the following resources that will show you how to start with the Ardui
 
 ### Pinout
 
-![Portenta Machine Control pinout](assets/user-manual_6.png)
+![Portenta Machine Control pinout](assets/user-manual-6.png)
 
 The complete pinout is available and downloadable as PDF from the link below:
 
