@@ -93,7 +93,7 @@ Copy the command from the serial output (no modification required).
 
 Optionally, you can add the `-p` flag to your command for a more readable format.
 
-### 3. Reading the addr2line output
+### 3. Reading the `addr2line` Output
 
 By default, the command outputs the following for each function call:
 
