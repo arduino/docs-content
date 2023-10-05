@@ -19,8 +19,6 @@ software:
   - iot-cloud
 ---
 
-## Portenta Machine Control User Manual
-
 This user manual will provide a comprehensive overview of the Portenta Machine Control, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure, and use all the main features of the Portenta Machine Control.
 
 ## Hardware and Software Requirements
