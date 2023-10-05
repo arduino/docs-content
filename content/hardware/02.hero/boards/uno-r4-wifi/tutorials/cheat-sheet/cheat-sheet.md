@@ -32,11 +32,13 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 ## Power Supply
 
-To power the UNO R4 WiFi you may either use a USB-C® cable, or the VIN pin.
+The board can be powered via the VIN pin, supporting a range between 6-24 V.The VIN pin is also connected to the DC-jack (barrel plug connector).
 
-If you’re using the USB-C® connector you must power it with 5 V.
+When powered via the VIN pin, you are using the onboard regulator to bring down the voltage to 5V, which means that the 5 V pin can provide up two 1.2 A. Keep in mind that this voltage regulator is also powering the RA4M1, and the current consumed by the chip can vary from 1 mA to nearly 40 mA.
 
-The board can be powered via the VIN pin, supporting a range between 6-24 V. The VIN pin is also connected to the DC-jack (barrel plug connector).
+If you’re using the USB-C® connector you must power it with 5 V. 
+
+When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board. 
 
 ## Core
 
