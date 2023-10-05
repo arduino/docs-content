@@ -165,7 +165,7 @@ The `Device #2` caters to devices with higher power demands. It will begin its o
 
 ```arduino
 /**
-  Handler functions for energy_distro_ctrl() funtion
+  Handler functions for energy_distro_ctrl() function
 */
 bool handleDevice(int threshold, float value, int pin, bool deviceFlag) {
   bool deviceFlag = relay_Trigger(threshold, value, pin);
