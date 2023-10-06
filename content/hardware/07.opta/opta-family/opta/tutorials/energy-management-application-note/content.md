@@ -85,7 +85,7 @@ While all these processes are handled by Opta™ locally, it is also connected t
 
 The provided code showcases the capabilities of Opta™ as described earlier. It is essential to mention that Arduino Cloud generates some of the code functions during dashboard setup.
 
-The code requires the inclusion of specific headers. These headers enable the RS-485 interface, the Modbus RTU protocol, the Arduino Cloud linkage, and the scheduler. The scheduler oversees data exchange through the RS-485 interface using the Modbus RTU protocol. Moreover, it includes the parameters essential for stable communication, adhering to Modbus RTU standards.
+The code requires the inclusion of specific headers. These headers enable the RS-485 interface, the Modbus RTU protocol, the Arduino Cloud connection, and the scheduler. The scheduler oversees data exchange through the RS-485 interface using the Modbus RTU protocol. Moreover, it includes the parameters essential for stable communication, adhering to Modbus RTU standards.
 
 ```arduino
 #include "stm32h7xx_ll_gpio.h"
@@ -145,15 +145,27 @@ constexpr auto preDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 ```
 
-It is important to recognize the user parameters that must defined in order to have a proper system behavior.
+It is vital to configure the user parameters correctly to ensure appropriate system operation. Such parameters are:
 
-***[Getting Started with Modbus RTU on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu) tutorial will be able to give a deeper understanding of implementings Modbus RTU with Opta™.***
+- `operation_safety_margin`: This is the safety margin multiplier factor. It is expressed in decimal format. For instance, to have a 20% safety buffer, the input should resemble `1.2`.
 
-The method `relay_Trigger()` performs a straightforward comparison between a `desired target` and a `required target`. Based on this comparison, it outputs a signal to activate a relay.
+- `estimated_max_power`: It is the anticipated maximum power (measured in Watts) under which the network will operate. It serves to set a benchmark average power based on user input, which is then compared to the energy meter reading. This helps verify if the network is running in line with the desired electrical attributes set by the user.
 
-The user specifies the `desired target` value, indicating the preferred threshold limit for the relay's activation for stable relay operation. In contrast, the `required target` represents the actual reading of power or electrical parameter of interest. It will be used as two-flag condition, using the safe margin percentile to ensure the electrical headroom is available without stressing the system. The value is determined from metrics obtained from the energy meter, one of which is `W_actual`, denoting the real-time total active power at the time of inquiry.
+- `estimated_max_energy`: Similar to `estimated_max_power`, this parameter marks the forecasted maximum active energy limit (in Wh) for the network. Its role is to ensure that the network remains stable in delivering consistent power to the connected devices.
 
-The `user_profile.uV_code` defines the operational buffer in terms of percentage. For instance, setting the margin at 10% as `1.1` within the `consumption_profile()` method offers a safety overhead headroom. This method's parameters come preset but can be adjusted later via the Arduino Cloud dashboard.
+- `Device_X_Limiter`: This sets the maximum limit for a chosen parameter for devices 1 & 2. Its definition should align with that of the `Device_X_CompRef`.
+
+- `Device_X_CompRef`: It is the reference value obtained from energy meter used to determine whether the device, considering priority parameter type, can be activated for accurate system operation.
+
+***For a deeper understanding of implementing Modbus RTU with Opta™, consider the tutorial [Getting Started with Modbus RTU on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu).***
+
+The method `relay_Trigger()` performs a straightforward comparison between a `desired target` and a `required target`. Based on this comparison, it outputs a signal to activate a relay. It will also help the user know if the system is at stable capacity or having possible electrical disturbances that may cause unstable operation.
+
+The user specifies the `desired target` value, which indicates the optimal threshold limit for the relay's activation to maintain stable operation. On the other hand, the `required target` signifies the current power or other relevant electrical parameter reading introduced as an argument from the user.
+
+It works as a two-flag condition, using the safety margin percentile to ensure electrical headroom is available without putting undue strain on the system. An example metric obtained from the energy meter for this purpose is `W_actual`, which represents the real-time total active power at the time of inquiry.
+
+The `user_profile.uV_code` defines the operational buffer in terms of percentage. This is the safety margin multiplier factor derived from the user's profile. For instance, setting the margin at 10% as `1.1` within the `consumption_profile()` method offers a safety overhead headroom. This method's parameters come preset but can be adjusted later via the Arduino Cloud dashboard.
 
 The `relayTarget` defines the output port prompted under certain activation conditions.
 
@@ -264,7 +276,22 @@ void energy_distro_ctrl() {
 }
 ```
 
-The energy meter contains multiple register addresses that provide a broad spectrum of electrical data. In this application, we will focus on 7 key elements: _Voltage `V`_, _Current `A`_, _Total Active Power `W`_, _Total Reactive Power `var`_, _Total Apparent Power `VA`_, and _Energy measured in both `Wh` and `varh` units_. The information will be categorized as `actual`, `average`, `maximum`, and `minimum`.
+The energy meter contains multiple register addresses that provide a broad spectrum of electrical data. In this application, we will focus on the following key elements: 
+
+- _Voltage (`V`)_
+- _Current (`A`)_
+- _Total Active Power (`W`)_
+- _Total Reactive Power (`var`)_
+- _Total Apparent Power (`VA`)_
+- _Energy measured in both `Wh` and `varh`_
+- _Total Absolute Active Energy (`Wh`)_
+
+The information will be categorized, if applicable, as:
+
+- `actual`: Represents the captured real-time data.
+- `average`: Represents the mean data value over the operation duration.
+- `maximum`: Represents the peak data value observed during active operation.
+- `minimum`: Represents the lowest data value detected throughout active operation.
 
 ```arduino
 /**
@@ -327,7 +354,9 @@ void RTU_Setup(){
 }
 ```
 
-The provided functions are designed for data retrieval from a target device via the Modbus RTU protocol. Each function is designed to fetch specific data types from the device using distinct register addresses. By indicating the device and the register address, these functions simplify the process of accessing data from devices that communicate through Modbus RTU. We will employ these functions to extract data from the 7M.24 energy meter.
+The provided functions are designed for data retrieval from a target device via the Modbus RTU protocol. Each function is designed to fetch specific data types from the device using distinct register addresses.
+
+By indicating the device and the register address, these functions simplify the process of accessing data from devices that communicate through Modbus RTU. We will employ these functions to extract data from the 7M.24 energy meter.
 
 ```arduino
 /**
@@ -406,6 +435,15 @@ float getT_Float(int dev_address, int base_reg) {
 }
 ```
 
+These functions aim to fetch and handle data types `T5`, `T6`, `T2`, and `T_float`.
+
+- `T5`: 32-bit Unsigned Measurement
+- `T6`: 32-bit Signed Measurement
+- `T2`: 16-bit Signed Value
+- `T_float`: 32-bit IEEE754 Floating-Point Single Precision Value
+
+***For incorporating or using 7M.24 energy meter parameters with different data types, refer to the Modbus Data Types section on page 19 of the [7M.24 Modbus protocol sheet](https://cdn.findernet.com/app/uploads/2021/09/20090052/Modbus-7M24-7M38_v2_30062021.pdf).***
+
 The `iot_cloud_setup()` function serves as the connection bridge between the Arduino Cloud and Opta™. By grouping the processes into one task, the code is streamlined and easier to maintain.
 
 ```arduino
@@ -431,7 +469,9 @@ void iot_cloud_setup(){
 }
 ```
 
-The Opta™ will initialize the RS-485 interface and Modbus RTU protocol, the Arduino Cloud connection, and the scheduler to handle Modbus RTU protocol based communication with the 7M.24 energy meter. Analog and Digital I/Os are configured here as well. The `consumption_profile()` characterizes the operating headroom margin, power, and energy limit. These parameters will be used as the default local configuration and available for access via the Arduino Cloud dashboard.
+The Opta™ will initialize the RS-485 interface and Modbus RTU protocol, the Arduino Cloud connection, and the scheduler to handle Modbus RTU protocol based communication with the 7M.24 energy meter. Analog and Digital I/Os are configured here as well.
+
+The `consumption_profile()` chracterizes the headroom margin for operation, power, and energy limit. The parameters, set through `operation_safety_margin`, `estimated_max_power`, and `estimated_max_energy`, serve as the standard local configuration and can be accessed on the Arduino Cloud dashboard.
 
 ```arduino
 void setup() {
@@ -467,6 +507,8 @@ void setup() {
 ```
 
 The Opta™ will have the main `loop()` to prioritize tasks to communicate with Arduino Cloud and local processes. It will have the job of managing profile data and energy distribution control logic with Arduino Cloud instance updates. While the `modbus_line()` will focus on handling Modbus RTU protocol-based communication over the RS-485 interface.
+
+The `modbus_com_monitor()` serves to display all the essential electrical information obtained via 7M.24 energy meter,
 
 ```arduino
 void loop() {
@@ -542,7 +584,7 @@ Once set up, you will have the opportunity to design an interface resembling the
 
 ## Complete Opta™ Energy Management Sketch
 
-Access the complete sketch used in the design of energy management for Opta™ in conjunction with the Arduino Cloud [here](assets/energy_management.zip).
+Access the complete sketch used in the design of energy management for Opta™ in conjunction with the Arduino Cloud [here](assets/energy_management.zip). The compressed file can be imported directly to Arduino Cloud Web Editor for your convenience.
 
 ## Conclusion
 
