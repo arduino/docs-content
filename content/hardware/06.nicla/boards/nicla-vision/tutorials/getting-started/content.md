@@ -239,7 +239,7 @@ First make sure that you have the latest core installed. To install the core nav
 
 ![Nicla Vision board support package download](assets/bsp-install.png)
 
-When this core is installed and you have your board connected to your computer, select the port that the board is connected to and the board core.
+When the core is installed and you have your board connected to your computer, select the port that the board is connected to and the board core.
 
 ![Board and port selection](assets/port-selection.png)
 
