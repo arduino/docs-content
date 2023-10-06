@@ -61,7 +61,7 @@ Below is a visual representation of the intended application:
 
 ## Hardware Setup Overview
 
-Below is a diagram that illustrates the electrical connections for intended application:
+The electrical connections of the intended application design are shown in the diagram below:
 
 ![Electrical connections of the application](assets/electrical_connections.png)
 
