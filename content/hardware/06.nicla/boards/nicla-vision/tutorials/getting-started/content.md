@@ -73,7 +73,7 @@ While using the Nicla Vision with OpenMV, the RGB LED of the board can be used t
 
 If you overwrote the [main.py](http://main.py/) script on your Nicla Vision then it will run whatever code you loaded on it instead.
 
-If the LED is blinking blue but OpenMV IDE can't connect to your Nicla Vision please make sure you are connecting your Nicla Vision to your PC with a USB cable that supplies both data and power.
+***If the LED is blinking blue but OpenMV IDE can't connect to your Nicla Vision please make sure you are connecting your Nicla Vision to your PC with a USB cable that supplies both data and power.***
 
 ⚪ **Blinking White:** Your Nicla Vision firmware is panicking because of a hardware failure. Please check that your Nicla Vision's camera module is installed securely.
 
