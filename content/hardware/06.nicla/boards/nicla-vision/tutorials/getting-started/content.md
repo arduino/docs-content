@@ -53,7 +53,7 @@ In this tutorial you will first download the OpenMV IDE and set up the developme
 
   ![Serial Monitor instructions and current bootloader info](assets/firmware-update.png)
 
-- If your Nicla Vision hasn't the latest bootloader, type `"Y"` in the input text box of the Serial Monitor, tap on Enter and wait for the update.
+- If your Nicla Vision does not have the latest bootloader, type `"Y"` in the input text box of the Serial Monitor, tap on Enter and wait for the update.
 
 ***If you get the "error exit status 74" verify you close any serial monitor window and that you have selected the board serial port correctly.***
 
