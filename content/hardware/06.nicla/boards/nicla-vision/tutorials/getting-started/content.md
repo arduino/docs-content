@@ -184,7 +184,7 @@ Now, the built-in LED on your Nicla Vision board should be blinking red, green a
 
 You can easily access the camera on the Nicla Vision through OpenMV IDE. Below is a short script that will set up the camera and take a photo. The board will blink its LED to indicate when it will take the picture. 
 
-Tha taken photo will be saved in the Nicla Vision drive directory and will be accessible after taping the reset button.
+The taken photo will be saved in the Nicla Vision drive directory and will be accessible after taping the reset button.
 
 ```python
 import pyb # Import module for board related functions
