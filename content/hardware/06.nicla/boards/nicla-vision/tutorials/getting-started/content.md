@@ -65,6 +65,8 @@ Open the [OpenMV download](https://openmv.io/pages/download) page in your browse
 
 ### 2. Nicla Vision LED Codes
 
+While using the Nicla Vision with OpenMV, the RGB LED of the board can be used to inform the user about it's current status, some of the most important ones are the following:
+
 🟢 **Blinking Green:** Your Nicla Vision onboard bootloader is running. The onboard bootloader runs for a few seconds when your OpenMV Cam is powered via USB to allow OpenMV IDE to reprogram your OpenMV Cam.
 
 🔵 **Blinking Blue:** Your Nicla Vision is running the default [main.py](http://main.py/) script onboard. 
