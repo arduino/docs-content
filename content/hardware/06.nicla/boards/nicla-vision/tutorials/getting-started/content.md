@@ -37,7 +37,7 @@ The OpenMV IDE is meant to provide an Arduino like experience for simple machine
 
 Using the OpenMV IDE you can run [MicroPython](http://docs.MicroPython.org/en/latest/) scripts on Nicla Vision. MicroPython provides a lot of classes and modules that make it easy to quickly explore the features of the Nicla Vision. 
 
-In this tutorial you will first download the OpenMV IDE and set up the development environment. [Here](https://openmv.io/) you can read more about the OpenMV IDE. OpenMV comes with its own firmware that is built on MicroPython. You will then learn to write a simple script that will blink the on-board RGB LED using some basic MicroPython commands.
+In this tutorial you will first download the OpenMV IDE and set up the development environment. You can read more about the OpenMV IDE on the [official site of the project.](https://openmv.io/). OpenMV comes with its own firmware that is built on MicroPython and must be loaded inside your board before starting to create your own programs. Once your board is updated and configured, you will then learn to write a simple script that will blink the on-board RGB LED using some basic MicroPython commands and after that how to create a program that uses computer vision.
 
 ***Before proceeding with the tutorial, please update the board's bootloader following the instructions below.***
 
