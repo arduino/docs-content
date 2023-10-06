@@ -57,7 +57,13 @@ In this tutorial you will first download the OpenMV IDE and set up the developme
 
 ***If you get the "error exit status 74" verify you close any serial monitor window and that you have selected the board serial port correctly.***
 
-### Nicla Vision LED Codes
+### 1. Downloading the OpenMV IDE
+
+Before you can start programming OpenMV scripts for the Nicla Vision, you need to download and install the OpenMV IDE.
+
+Open the [OpenMV download](https://openmv.io/pages/download) page in your browser, download the version that you need for your operating system and follow the instructions of the installer.
+
+### 2. Nicla Vision LED Codes
 
 🟢 **Blinking Green:** Your Nicla Vision onboard bootloader is running. The onboard bootloader runs for a few seconds when your OpenMV Cam is powered via USB to allow OpenMV IDE to reprogram your OpenMV Cam.
 
@@ -71,13 +77,7 @@ If the LED is blinking blue but OpenMV IDE can't connect to your Nicla Vision pl
 
 ***If you tap the Nicla Vision reset button once, the board resets. If you tap it twice the board enters in DFU mode and its green LED start blinking and fading.***
 
-### 1. Downloading the OpenMV IDE
-
-Before you can start programming OpenMV scripts for the Nicla Vision, you need to download and install the OpenMV IDE.
-
-Open the [OpenMV download](https://openmv.io/pages/download) page in your browser, download the version that you need for your operating system and follow the instructions of the installer.
-
-### 2. Connecting to the OpenMV IDE
+### 3. Connecting to the OpenMV IDE
 
 Open the OpenMV IDE and connect the Nicla Vision to your computer via the USB cable if you have not done so yet.
 
@@ -101,7 +101,7 @@ The board will start flashing its blue LED when it is ready to be connected. Aft
 
 ![When the Nicla Vision is successfully connected a green play button appears](assets/ready-connected.png)
 
-### 3. Preparing the Script
+### 4. Preparing the Script
 
 Create a new script by clicking the "New File" button in the toolbar on the left side. Import the required module `pyb`:
 
@@ -121,7 +121,7 @@ blueLED = pyb.LED(3) # built-in blue LED
 
 At this point, you can easily distinguish between which color you control in the script.
 
-### 4. Creating the Main Loop in the Script
+### 5. Creating the Main Loop in the Script
 
 Putting our code inside a while loop will make the code run continuously. In the loop you can turn on an LED with `on`, then you can use the `delay` function to create a delay. This function will start executing with the next instruction in the script. The duration of the delay can be controlled by changing the value inside the parentheses. The number defines how many milliseconds the board will wait. After the specified time has passed, you can turn off the LED with the `off` function. You can repeat that for each color.
 
@@ -144,7 +144,7 @@ while True:
   pyb.delay(1000)
 ```
 
-### 5. Uploading the Script
+### 6. Uploading the Script
 
 Here you can see the complete blink script:
 
