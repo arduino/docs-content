@@ -22,18 +22,18 @@ The OpenMV IDE is meant to provide an Arduino like experience for simple machine
 
 ## Goals
 
-- The basic features of the OpenMV IDE
-- How to create a simple MicroPython script
-- How to use the OpenMV IDE to run MicroPython on Nicla Vision
+- Learn how to use the basic features of the OpenMV IDE
+- Learn how to create a simple MicroPython script with the OpenMV IDE
+- Learn how to use the OpenMV IDE and MicroPython to create computer vision applications with your Nicla Vision
 
 
 ### Required Hardware and Software
 
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - Micro USB cable (either USB-A to Micro USB or USB-C® to Micro USB)
-- OpenMV IDE 2.6.4+
+- OpenMV IDE v4.0.10 or higher
 
-## Instructions
+## Introduction
 
 Using the OpenMV IDE you can run [MicroPython](http://docs.MicroPython.org/en/latest/) scripts on Nicla Vision. MicroPython provides a lot of classes and modules that make it easy to quickly explore the features of the Nicla Vision. 
 
