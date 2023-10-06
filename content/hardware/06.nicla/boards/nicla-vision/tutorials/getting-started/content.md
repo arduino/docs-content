@@ -95,7 +95,9 @@ Select `Install the latest release firmware`. This will install the latest OpenM
 
 ![Install the latest version of the OpenMV firmware](assets/first-connect.png)
 
-Nicla Vision's green LED will start flashing while the OpenMV firmware is being uploaded to the board. A loading bar will start showing you the flashing progress. Wait until the green LED stops flashing and fading. You will see a message saying `DFU firmware update complete!` when the process is done.
+Nicla Vision's green LED will start flashing while the OpenMV firmware is being uploaded to the board. A loading bar will start showing you the flashing progress.
+
+Wait until the green LED stops flashing and fading. You will see a message saying `DFU firmware update complete!` when the process is done.
 
 ![Installing firmware on Nicla Vision board in OpenMV](assets/flashing.png)
 
