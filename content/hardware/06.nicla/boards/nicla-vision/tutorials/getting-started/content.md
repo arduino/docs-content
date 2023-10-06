@@ -61,7 +61,7 @@ In this tutorial you will first download the OpenMV IDE and set up the developme
 
 Before you can start programming OpenMV scripts for the Nicla Vision, you need to download and install the OpenMV IDE.
 
-Open the [OpenMV download](https://openmv.io/pages/download) page in your browser, download the version that you need for your operating system and follow the instructions of the installer.
+Open the [OpenMV download](https://openmv.io/pages/download) page in your browser, download the latest version available for your operating system, and follow the instructions of the installer.
 
 ### 2. Nicla Vision LED Codes
 
