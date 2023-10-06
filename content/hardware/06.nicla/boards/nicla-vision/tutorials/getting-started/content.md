@@ -77,7 +77,7 @@ If you overwrote the [main.py](http://main.py/) script on your Nicla Vision then
 
 ⚪ **Blinking White:** Your Nicla Vision firmware is panicking because of a hardware failure. Please check that your Nicla Vision's camera module is installed securely.
 
-***If you tap the Nicla Vision reset button once, the board resets. If you tap it twice the board enters in DFU mode and its green LED start blinking and fading.***
+***If you tap the Nicla Vision reset button once, the board resets. If you tap it twice the board enters in Device Firmware Upgrade (DFU) mode and its green LED start blinking and fading.***
 
 ### 3. Connecting to the OpenMV IDE
 
