@@ -180,6 +180,8 @@ Connect your board to the OpenMV IDE and upload the above script by pressing the
 
 Now, the built-in LED on your Nicla Vision board should be blinking red, green and then blue repeatedly.
 
+![RGB LED Color Blinking](assets/colors.gif)
+
 ## Using the Nicla Vision Camera
 
 You can easily access the camera on the Nicla Vision through OpenMV IDE. Below is a short script that will set up the camera and take a photo. The board will blink its LED to indicate when it will take the picture. 
