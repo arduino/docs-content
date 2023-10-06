@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with Nicla Vision'
-description: 'This tutorial teaches you how to set up the board, how to use the OpenMV IDE and how to run a MicroPython sketch.'
+description: 'This tutorial teaches you how to start to use the computer vision capabilities of the Nicla Vision using the OpenMV IDE and Micropython.'
 difficulty: beginner
 tags:
   - Getting Started
@@ -226,6 +226,8 @@ Running this script in OpenMV will show the image that the camera is currently c
 The image will be saved as `"example.jpg"` in the boards directory. It is also possible to save the image in a `".bmp"` format. If you reset the camera by pressing the reset button, the image file will appear in the boards directory.
 
 ![Where to find the taken picture](assets/finding-photo.png)
+
+***If you want to try the built-in OpenMV IDE examples using MacOS, you may face format issues, use this [converter](https://handbrake.fr/) if needed ***
 
 ## Using the Nicla Vision with Arduino IDE
 
