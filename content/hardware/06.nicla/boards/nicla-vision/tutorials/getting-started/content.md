@@ -7,7 +7,7 @@ tags:
   - OpenMV
   - Setup
   - MicroPython
-author: 'Benjamin Dannegård'
+author: 'Benjamin Dannegård & Christopher Méndez'
 libraries:
   - name: MicroPython
     url: http://docs.MicroPython.org/en/latest/
