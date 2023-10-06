@@ -57,7 +57,7 @@ In this tutorial you will first download the OpenMV IDE and set up the developme
 
 ***If you get the `error exit status 74` verify you close any serial monitor window and that you have selected the board serial port correctly.***
 
-### Nicla Vision LED codes
+### Nicla Vision LED Codes
 
 🟢 **Blinking Green:** Your OpenMV Cam's onboard bootloader is running. The onboard bootloader runs for a few seconds when your OpenMV Cam is powered via USB to allow OpenMV IDE to reprogram your OpenMV Cam.
 
