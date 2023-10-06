@@ -235,9 +235,19 @@ The image will be saved as `"example.jpg"` in the boards directory. It is also p
 
 As mentioned before, the Nicla Vision comes with OpenMV firmware pre-installed. This makes it easier to use the board with OpenMV out of the box. However, it is possible to use the Nicla Vision with the Arduino IDE.
 
-First make sure that you have the latest core installed. To install the core navigate to **Tools > Board > Boards Manager...**, in the Boards Manager window search for **Mbed OS Nicla Boards** and install it. When this core is installed and you have your board connected to your computer, select the port that the board is connected to and the board core. You should now be able to upload an Arduino sketch to the board.
+First make sure that you have the latest core installed. To install the core navigate to **Tools > Board > Boards Manager...**, in the Boards Manager window search for **Mbed OS Nicla Boards** and install it.
+
+![Nicla Vision board support package download](assets/bsp-install.png)
+
+When this core is installed and you have your board connected to your computer, select the port that the board is connected to and the board core.
+
+![Board and port selection](assets/port-selection.png)
+
+Navigate to **File > Examples > 01.Basics > Blink** to open the Blink example. You should now be able to upload an Arduino sketch to the board by clicking on the "Upload" button.
 
 ![Uploading the Blink example from the Arduino IDE](assets/arduino-IDE.png)
+
+The board should start blinking the on-board green LED.
 
 ![Nicla Vision Blinking LED](assets/blink.gif)
 
