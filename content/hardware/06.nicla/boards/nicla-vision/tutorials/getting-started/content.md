@@ -18,7 +18,7 @@ software:
 ## Overview
 The OpenMV IDE is meant to provide an Arduino like experience for simple machine vision tasks using a camera sensor. In this tutorial, you will learn about some of the basic features of the OpenMV IDE and how to create a simple MicroPython script. The Nicla Vision has OpenMV firmware on the board by default, making it easy to connect to the OpenMV IDE.
 
-***If you are willing to use the Nicla Vision with the `Arduino IDE` instead, navitage to this [section](#using-the-nicla-vision-with-arduino-ide) for more details.***
+***If you are willing to use the Nicla Vision with the "Arduino IDE" instead, navitage to this [section](#using-the-nicla-vision-with-arduino-ide) for more details.***
 
 ## Goals
 
@@ -55,19 +55,19 @@ In this tutorial you will first download the OpenMV IDE and set up the developme
 
 - If your Nicla Vision hasn't the latest bootloader, type `"Y"` in the input text box of the Serial Monitor, tap on Enter and wait for the update.
 
-***If you get the `error exit status 74` verify you close any serial monitor window and that you have selected the board serial port correctly.***
+***If you get the "error exit status 74" verify you close any serial monitor window and that you have selected the board serial port correctly.***
 
 ### Nicla Vision LED Codes
 
-🟢 **Blinking Green:** Your OpenMV Cam's onboard bootloader is running. The onboard bootloader runs for a few seconds when your OpenMV Cam is powered via USB to allow OpenMV IDE to reprogram your OpenMV Cam.
+🟢 **Blinking Green:** Your Nicla Vision onboard bootloader is running. The onboard bootloader runs for a few seconds when your OpenMV Cam is powered via USB to allow OpenMV IDE to reprogram your OpenMV Cam.
 
-🔵 **Blinking Blue:** Your OpenMV Cam is running the default [main.py](http://main.py/) script onboard. 
+🔵 **Blinking Blue:** Your Nicla Vision is running the default [main.py](http://main.py/) script onboard. 
 
-If you have an SD card installed or overwrote the [main.py](http://main.py/) script on your OpenMV Cam then it will run whatever code you loaded on it instead.
+If you overwrote the [main.py](http://main.py/) script on your Nicla Vision then it will run whatever code you loaded on it instead.
 
-If the LED is blinking blue but OpenMV IDE can't connect to your OpenMV Cam please make sure you are connecting your OpenMV Cam to your PC with a USB cable that supplies both data and power.
+If the LED is blinking blue but OpenMV IDE can't connect to your Nicla Vision please make sure you are connecting your Nicla Vision to your PC with a USB cable that supplies both data and power.
 
-⚪ **Blinking White:** Your OpenMV Cam's firmware is panicking because of a hardware failure. Please check that your OpenMV Cam's camera module is installed securely.
+⚪ **Blinking White:** Your Nicla Vision firmware is panicking because of a hardware failure. Please check that your Nicla Vision's camera module is installed securely.
 
 ***If you tap the Nicla Vision reset button once, the board resets. If you tap it twice the board enters in DFU mode and its green LED start blinking and fading.***
 
