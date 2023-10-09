@@ -235,7 +235,7 @@ The image will be saved as `"example.jpg"` in the boards directory. It is also p
 
 ![Where to find the taken picture](assets/finding-photo.png)
 
-***If you want to try the built-in OpenMV IDE examples using, macOS, you may face format issues, use this [converter](https://handbrake.fr/) if needed. ***
+***If you want to try the built-in OpenMV IDE examples using, macOS, you may face format issues, use this [converter](https://handbrake.fr/) if needed.***
 
 ## Using the Nicla Vision with Arduino IDE
 
