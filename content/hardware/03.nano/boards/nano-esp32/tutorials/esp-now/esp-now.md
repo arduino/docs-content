@@ -59,10 +59,10 @@ As a result of the limited data quantities and its lightweight design ESP-NOW in
 ESP-NOW has a limited signal range, typically around 220 meters under ideal conditions. The actual range can vary depending on factors like environmental interference, antenna design, and obstacles in the communication path.
 
 ### Interference 
-Like other wireless communication technologies operating in the 2.4GHz band, ESP-NOW can be susceptible to interference from other devices and Wi-Fi networks. It's essential to choose communication channels carefully to minimize interference and ensure reliable communication.
+Like other wireless communication technologies operating in the 2.4 GHz band, ESP-NOW can be susceptible to interference from other devices and Wi-Fi networks. It's essential to choose communication channels carefully to minimize interference and ensure reliable communication.
 
 ### No Network Infrastructure
-ESP-NOW is designed for point-to-point and point-to-multipoint communication but doesn't provide the infrastructure for building complex network topologies. If your application requires a network with multiple interconnected devices or internet connectivity, you may need to complement ESP-NOW with additional networking solutions.
+ESP-NOW is designed for point-to-point and point-to-multipoint communication but doesn't provide the infrastructure for building complex network topologies. If your application requires a network with multiple interconnected devices or Internet connectivity, you may need to complement ESP-NOW with additional networking solutions.
 
 ### Limited Data Payload 
 ESP-NOW is optimized for transmitting smaller amounts of data, with a maximum payload of around 250 bytes. If your application requires high-bandwidth data transfer or large file exchanges, other services such as the [Arduino IoT Cloud](https://cloud.arduino.cc/) might be more suitable.
@@ -80,13 +80,13 @@ ESP-NOW is primarily designed for use with ESP8266 and ESP32 microcontrollers. W
 
 Arduino provides their own service for handling wireless communication called Arduino IoT Cloud. You can read more about it [here](https://docs.arduino.cc/arduino-cloud/).
 
-While the Arduino IoT Cloud offers similar features to the ESP-NOW protocols they are vastly different and should be used for specific usecases. Check the comparison table below for more information.
+While the Arduino IoT Cloud offers similar features to the ESP-NOW protocols they are vastly different and should be used for specific use cases. Check the comparison table below for more information.
 
 |                     | Arduino IoT Cloud                                                           | ESP-NOW                                                                        |
 |---------------------|-----------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| Range               | Depends on internet connectivity, suitable for global reach.                | Approx 220m.                                                                   |
+| Range               | Depends on Internet connectivity, suitable for global reach.                | Approx. 220 m.                                                                   |
 | Security            | Secure communication with encryption and authentication.                    | Basic security, may need additional measures.                                  |
-| Delay               | Network-related delays due to internet communication.                       | Low latency for local communication.                                           |
+| Delay               | Network-related delays due to Internet communication.                       | Low latency for local communication.                                           |
 | Data Size           | Unlimited data (min. Entry plan)                                            | max 250 bytes.                                                                 |
 | Device Compatibility| Compatible with various Arduino boards and IoT devices.                     | Primarily used with ESP8266 and ESP32 microcontrollers.                        |
 | Protocol            | Uses MQTT for communication.                                                | Uses a custom ESP-NOW protocol.                                                |
