@@ -131,7 +131,7 @@ On some computers, you may receive error:
 unable to get local issuer certificate (_ssl.c:1002)
 ```
 
-This means there is a problem with the Python version installed, and that it is unable to locate the the SSL certificate. To work around this, navigate to your Python installation (typically **Applications > Python 3.X**), and run the `Install Certificates.command` script.
+This indicates a problem with the Python version installed, and that it is unable to locate the SSL certificate. To work around this, navigate to your Python installation (typically **Applications > Python 3.X**), and run the `Install Certificates.command` script.
 
 ![Install Certificate.](assets/install-cert.png)
 
