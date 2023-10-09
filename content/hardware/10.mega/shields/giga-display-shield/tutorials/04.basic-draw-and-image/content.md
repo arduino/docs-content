@@ -143,7 +143,7 @@ We will be using the example sketch "ArduinoLogo" as the basis for the sketch th
 
 Running the example sketch as is will display the Arduino logo on the screen, like in the image below:
 
-[Arduino Logo on the GIGA Display Shield](assets/logo-img.svg)
+![Arduino Logo on the GIGA Display Shield](assets/logo-img.svg)
 
 Now to use the image that we converted in the last step. Use the macro inside the example sketch. This makes use of the `incbin.h` translation library. The necessary files are located in the folder for the example sketch.
 
@@ -162,6 +162,10 @@ By default the image we import will be called `test`. The line `Image img_arduin
 
 
 ### Full Sketch
+
+To run this sketch you will need to have the image file that is used in the code in the correct location. In the example from the library, the image is in the same folder as the sketch, as shown in the image below. Please make sure the image you want to use matches the location indicated in the code.
+
+![Folder structure for the sketch](assets/file-structure.svg)
 
 ```arduino
 /*

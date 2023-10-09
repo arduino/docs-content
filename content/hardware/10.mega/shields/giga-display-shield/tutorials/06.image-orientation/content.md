@@ -110,6 +110,10 @@ void loop(){
 
 ### Full Sketch
 
+Please note that the image that you want to use with the sketch needs to be in the same folder as the sketch for it to work. It should look like the image below:
+
+![Folder structure](assets/folder-struct.svg)
+
 Now to put it all together where the image will change depending on how we rotate the board and shield:
 
 ```arduino
