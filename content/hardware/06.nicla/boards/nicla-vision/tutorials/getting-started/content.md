@@ -41,6 +41,10 @@ In this tutorial, first, you will learn how to download the OpenMV IDE and set u
 
 ***Before proceeding with the tutorial, please update the board's bootloader following the instructions below.***
 
+### 1. Bootloader Firmware Update
+
+To update the bootloader firmware of your product, please do the following steps:
+
 - Download the latest version of the board support package by searching for `Arduino Mbed OS Nicla Boards` in the Arduino IDE's `Boards Manager`.
 
   ![Nicla Vision board support package download](assets/bsp-install.png)
@@ -57,13 +61,13 @@ In this tutorial, first, you will learn how to download the OpenMV IDE and set u
 
 ***If you get the "error exit status 74", verify you close each serial monitor window and you selected the board serial port correctly before trying again.***
 
-### 1. Downloading the OpenMV IDE
+### 2. Downloading the OpenMV IDE
 
 Before you can start programming OpenMV scripts for the Nicla Vision, you need to download and install the OpenMV IDE.
 
 Open the [OpenMV download](https://openmv.io/pages/download) page in your browser, download the latest version available for your operating system, and follow the instructions of the installer.
 
-### 2. Nicla Vision LED Codes
+### 3. Nicla Vision LED Codes
 
 While using the Nicla Vision with OpenMV, the RGB LED of the board can be used to inform the user about its current status. Some of the most important ones are the following:
 
@@ -79,7 +83,7 @@ If you overwrite the [main.py](http://main.py/) script on your Nicla Vision, the
 
 ***If you tap the Nicla Vision reset button once, the board resets. If you tap it twice, the board enters in Device Firmware Upgrade (DFU) mode and its green LED starts blinking and fading.***
 
-### 3. Connecting to the OpenMV IDE
+### 4. Connecting to the OpenMV IDE
 
 Open the OpenMV IDE and connect the Nicla Vision to your computer via the USB cable if you have not done so yet.
 
@@ -105,7 +109,7 @@ The board will start flashing its blue LED when it is ready to be connected. Aft
 
 ![When the Nicla Vision is successfully connected a green play button appears](assets/ready-connected.png)
 
-### 4. Preparing the Script
+### 5. Preparing the Script
 
 Create a new script by clicking the "New File" button in the toolbar on the left side. Import the required module `pyb`:
 
@@ -125,7 +129,7 @@ blueLED = pyb.LED(3) # built-in blue LED
 
 At this point, you can easily distinguish between which color you control in the script.
 
-### 5. Creating the Main Loop in the Script
+### 6. Creating the Main Loop in the Script
 
 Adding the code inside a while loop will make the code run continuously. In the loop, you can turn on the LED with `on`, then you can use the `delay` function to create a delay. This function will start executing with the next instruction in the script. The duration of the delay can be controlled by changing the value inside the parentheses. The number defines how many milliseconds the board will wait. After the specified time has passed, you can turn off the LED with the `off` function. You can repeat that for each color.
 
@@ -148,7 +152,7 @@ while True:
   pyb.delay(1000)
 ```
 
-### 6. Uploading the Script
+### 7. Uploading the Script
 
 Here you can see the complete blink script:
 
@@ -253,7 +257,7 @@ The board should start blinking the on-board green LED.
 
 ![Nicla Vision Blinking LED](assets/blink.gif)
 
-If you wish to use the board with OpenMV after it has been used with the Arduino IDE, you have to put the board into bootloader mode and install OpenMV firmware. You can do this by double pressing the reset button, located next to the LED. When the board is in bootloader mode and connected to your computer, follow the steps above in the **[2. Connecting to the OpenMV IDE](#2-connecting-to-the-openmv-ide)** section to connect the board to the OpenMV IDE again.
+If you wish to use the board with OpenMV after it has been used with the Arduino IDE, you have to put the board into bootloader mode and install OpenMV firmware. You can do this by double pressing the reset button, located next to the LED. When the board is in bootloader mode and connected to your computer, follow the steps above in the **[Connecting to the OpenMV IDE](#4-connecting-to-the-openmv-ide)** section to connect the board to the OpenMV IDE again.
 
 ## Conclusion
 In this tutorial you learned how to use the OpenMV IDE with your Nicla Vision board. You also learned how to control the Nicla Vision's RGB LED with MicroPython functions and to upload the script to your board using the OpenMV IDE.
