@@ -91,16 +91,16 @@ Arduino® Mega 2560 is a successor board of Arduino Mega,  it is dedicated to ap
 
 ![Arduino MEGA Top View](./assets/ArduinoMEGATopView.png)
 
-| **Ref.** | **Description**                    | **Ref.** | **Description**                      |
-| -------- | ---------------------------------- | -------- | ------------------------------------ |
-|   USB    |  USB B Connector                   |  F1      |  Chip Capacitor                      |
-|   IC1    |  5V Linear Regulator               |  X1      |  Power Jack Connector                |
-|   JP5    |  Plated Holes                      |  IC4     |  ATmega16U2 chip                     |
-|   PC1    |  Electrolytic Alumninum Capacitor  |  PC2     |  Electrolytic Alumninum Capacitor    |
-|   D1     |  General Purpose Rectifier         |  D3      |  General Purpose Diode               |
-|   L2     |  Fixed Inductor                    |  IC3     |  ATmega2560 chip                     |
-|   ICSP   |  Connector Header                  |  ON      |  Green LED                           |
-|   RN1    |  Resistor Array                    |  XIO     |  Connector                           |
+| **Ref.** | **Description**                  | **Ref.** | **Description**                  |
+| -------- | -------------------------------- | -------- | -------------------------------- |
+| USB      | USB B Connector                  | F1       | Chip Capacitor                   |
+| IC1      | 5V Linear Regulator              | X1       | Power Jack Connector             |
+| JP5      | Plated Holes                     | IC4      | ATmega16U2 chip                  |
+| PC1      | Electrolytic Alumninum Capacitor | PC2      | Electrolytic Alumninum Capacitor |
+| D1       | General Purpose Rectifier        | D3       | General Purpose Diode            |
+| L2       | Fixed Inductor                   | IC3      | ATmega2560 chip                  |
+| ICSP     | Connector Header                 | ON       | Green LED                        |
+| RN1      | Resistor Array                   | XIO      | Connector                        |
 
 
 ### Processor
@@ -128,125 +128,125 @@ Now that you have gone through the basics of what you can do with the board you 
 ![Arduino Mega Pinout](./assets/ArduinoMEGAPinOut.png)
 
 ### Analog
-| Pin  | Function   | Type      | Description                                     |
-| ---- | ---------- | --------- | ----------------------------------------------- |
-|  1   | NC         | NC        | Not Connected                                   |
-|  2   | IOREF      | IOREF     | Reference for digital logic V - connected to 5V |
-|  3   | Reset      | Reset     | Reset                                           |
-|  4   | +3V3       | Power     | +3V3 Power Rail                                 |
-|  5   | +5V        | Power     | +5V Power Rail                                  |
-|  6   | GND        | Power     | Ground                                          |
-|  7   | GND        | Power     | Ground                                          |
-|  8   | VIN        | Power     | Voltage Input                                   |
-|  9   | A0         | Analog    | Analog input 0 /GPIO                            |
-|  10  | A1         | Analog    | Analog input 1 /GPIO                            |
-|  11  | A2         | Analog    | Analog input 2 /GPIO                            |
-|  12  | A3         | Analog    | Analog input 3 /GPIO                            |
-|  13  | A4         | Analog    | Analog input 4 /GPIO                            |
-|  14  | A5         | Analog    | Analog input 5 /GPIO                            |
-|  15  | A6         | Analog    | Analog input 6 /GPIO                            |
-|  16  | A7         | Analog    | Analog input 7 /GPIO                            |
-|  17  | A8         | Analog    | Analog input 8 /GPIO                            |
-|  18  | A9         | Analog    | Analog input 9 /GPIO                            |
-|  19  | A10        | Analog    | Analog input 10 /GPIO                           |
-|  20  | A11        | Analog    | Analog input 11 /GPIO                           |
-|  21  | A12        | Analog    | Analog input 12 /GPIO                           |
-|  22  | A13        | Analog    | Analog input 13 /GPIO                           |
-|  23  | A14        | Analog    | Analog input 14 /GPIO                           |
-|  24  | A15        | Analog    | Analog input 15 /GPIO                           |
+| Pin | Function | Type   | Description                                     |
+| --- | -------- | ------ | ----------------------------------------------- |
+| 1   | NC       | NC     | Not Connected                                   |
+| 2   | IOREF    | IOREF  | Reference for digital logic V - connected to 5V |
+| 3   | Reset    | Reset  | Reset                                           |
+| 4   | +3V3     | Power  | +3V3 Power Rail                                 |
+| 5   | +5V      | Power  | +5V Power Rail                                  |
+| 6   | GND      | Power  | Ground                                          |
+| 7   | GND      | Power  | Ground                                          |
+| 8   | VIN      | Power  | Voltage Input                                   |
+| 9   | A0       | Analog | Analog input 0 /GPIO                            |
+| 10  | A1       | Analog | Analog input 1 /GPIO                            |
+| 11  | A2       | Analog | Analog input 2 /GPIO                            |
+| 12  | A3       | Analog | Analog input 3 /GPIO                            |
+| 13  | A4       | Analog | Analog input 4 /GPIO                            |
+| 14  | A5       | Analog | Analog input 5 /GPIO                            |
+| 15  | A6       | Analog | Analog input 6 /GPIO                            |
+| 16  | A7       | Analog | Analog input 7 /GPIO                            |
+| 17  | A8       | Analog | Analog input 8 /GPIO                            |
+| 18  | A9       | Analog | Analog input 9 /GPIO                            |
+| 19  | A10      | Analog | Analog input 10 /GPIO                           |
+| 20  | A11      | Analog | Analog input 11 /GPIO                           |
+| 21  | A12      | Analog | Analog input 12 /GPIO                           |
+| 22  | A13      | Analog | Analog input 13 /GPIO                           |
+| 23  | A14      | Analog | Analog input 14 /GPIO                           |
+| 24  | A15      | Analog | Analog input 15 /GPIO                           |
 ### Digital
-| Pin  | Function  | Type                   | Description                    |
-| ---- | --------- | ---------------------- | ------------------------------ |
-|  1   | D21/SCL   | Digital Input/I2C      | Digital input 21/I2C Dataline  |
-|  2   | D20/SDA   | Digital Input/I2C      | Digital input 20/I2C Dataline  |
-|  3   | AREF      | Digital                | Analog Reference Voltage       |
-|  4   | GND       | Power                  | Ground                         |
-|  5   | D13       | Digital/GPIO           | Digital input 13/GPIO          |
-|  6   | D12       | Digital/GPIO           | Digital input 12/GPIO          |
-|  7   | D11       | Digital/GPIO           | Digital input 11/GPIO          |
-|  8   | D10       | Digital/GPIO           | Digital input 10/GPIO          |
-|  9   | D9        | Digital/GPIO           | Digital input 9/GPIO           |
-|  10  | D8        | Digital/GPIO           | Digital input 8/GPIO           |
-|  11  | D7        | Digital/GPIO           | Digital input 7/GPIO           |
-|  12  | D6        | Digital/GPIO           | Digital input 6/GPIO           |
-|  13  | D5        | Digital/GPIO           | Digital input 5/GPIO           |
-|  14  | D4        | Digital/GPIO           | Digital input 4/GPIO           |
-|  15  | D3        | Digital/GPIO           | Digital input 3/GPIO           |
-|  16  | D2        | Digital/GPIO           | Digital input 2/GPIO           |
-|  17  | D1/TX0    | Digital/GPIO           | Digital input 1 /GPIO          |
-|  18  | D0/Tx1    | Digital/GPIO           | Digital input 0 /GPIO          |
-|  19  | D14       | Digital/GPIO           | Digital input 14 /GPIO         |
-|  20  | D15       | Digital/GPIO           | Digital input 15 /GPIO         |
-|  21  | D16       | Digital/GPIO           | Digital input 16 /GPIO         |
-|  22  | D17       | Digital/GPIO           | Digital input 17 /GPIO         |
-|  23  | D18       | Digital/GPIO           | Digital input 18 /GPIO         |
-|  24  | D19       | Digital/GPIO           | Digital input 19 /GPIO         |
-|  25  | D20       | Digital/GPIO           | Digital input 20 /GPIO         |
-|  26  | D21       | Digital/GPIO           | Digital input 21 /GPIO         |
+| Pin | Function | Type              | Description                   |
+| --- | -------- | ----------------- | ----------------------------- |
+| 1   | D21/SCL  | Digital Input/I2C | Digital input 21/I2C Dataline |
+| 2   | D20/SDA  | Digital Input/I2C | Digital input 20/I2C Dataline |
+| 3   | AREF     | Digital           | Analog Reference Voltage      |
+| 4   | GND      | Power             | Ground                        |
+| 5   | D13      | Digital/GPIO      | Digital input 13/GPIO         |
+| 6   | D12      | Digital/GPIO      | Digital input 12/GPIO         |
+| 7   | D11      | Digital/GPIO      | Digital input 11/GPIO         |
+| 8   | D10      | Digital/GPIO      | Digital input 10/GPIO         |
+| 9   | D9       | Digital/GPIO      | Digital input 9/GPIO          |
+| 10  | D8       | Digital/GPIO      | Digital input 8/GPIO          |
+| 11  | D7       | Digital/GPIO      | Digital input 7/GPIO          |
+| 12  | D6       | Digital/GPIO      | Digital input 6/GPIO          |
+| 13  | D5       | Digital/GPIO      | Digital input 5/GPIO          |
+| 14  | D4       | Digital/GPIO      | Digital input 4/GPIO          |
+| 15  | D3       | Digital/GPIO      | Digital input 3/GPIO          |
+| 16  | D2       | Digital/GPIO      | Digital input 2/GPIO          |
+| 17  | D1/TX0   | Digital/GPIO      | Digital input 1 /GPIO         |
+| 18  | D0/Tx1   | Digital/GPIO      | Digital input 0 /GPIO         |
+| 19  | D14      | Digital/GPIO      | Digital input 14 /GPIO        |
+| 20  | D15      | Digital/GPIO      | Digital input 15 /GPIO        |
+| 21  | D16      | Digital/GPIO      | Digital input 16 /GPIO        |
+| 22  | D17      | Digital/GPIO      | Digital input 17 /GPIO        |
+| 23  | D18      | Digital/GPIO      | Digital input 18 /GPIO        |
+| 24  | D19      | Digital/GPIO      | Digital input 19 /GPIO        |
+| 25  | D20      | Digital/GPIO      | Digital input 20 /GPIO        |
+| 26  | D21      | Digital/GPIO      | Digital input 21 /GPIO        |
 
 ![Arduino Mega Pinout](./assets/ArduinoMEGAPinOut2.png)
 
 ### ATMEGA16U2 JP5
-| Pin | Function | Type         | Description        |
-| --- | -------- | -------------| ------------------ |
-|  1  | PB4      | Internal     | Serial Wire Debug  |
-|  2  | PB6      | Internal     | Serial Wire Debug  |
-|  3  | PB5      | Internal     | Serial Wire Debug  |
-|  4  | PB7      | Internal     | Serial Wire Debug  |
+| Pin | Function | Type     | Description       |
+| --- | -------- | -------- | ----------------- |
+| 1   | PB4      | Internal | Serial Wire Debug |
+| 2   | PB6      | Internal | Serial Wire Debug |
+| 3   | PB5      | Internal | Serial Wire Debug |
+| 4   | PB7      | Internal | Serial Wire Debug |
 
 ### ATMEGA16U2 ICSP1
-| Pin  | Function | Type         | Description                   |
-| ---- | -------- | ------------ | ----------------------------- |
-|  1   | CIPO     | Internal     | Controller In Peripheral Out  |
-|  2   | +5V      | Internal     | Power Supply of 5V            |
-|  3   | SCK      | Internal     | Serial Clock                  |
-|  4   | COPI     | Internal     | Controller Out Peripheral In  |
-|  5   | RESET    | Internal     | Reset                         |
-|  6   | GND      | Internal     | Ground                        |
+| Pin | Function | Type     | Description                  |
+| --- | -------- | -------- | ---------------------------- |
+| 1   | CIPO     | Internal | Controller In Peripheral Out |
+| 2   | +5V      | Internal | Power Supply of 5V           |
+| 3   | SCK      | Internal | Serial Clock                 |
+| 4   | COPI     | Internal | Controller Out Peripheral In |
+| 5   | RESET    | Internal | Reset                        |
+| 6   | GND      | Internal | Ground                       |
 
 ### Digital Pins D22 - D53 LHS
-| Pin  | Function    | Type    | Description           |
-| ---- | ----------- | ------- | --------------------- |
-|  1   | +5V         | Power   | Power Supply of 5V    |
-|  2   | D22         | Digital | Digital input 22/GPIO |
-|  3   | D24         | Digital | Digital input 24/GPIO |
-|  4   | D26         | Digital | Digital input 26/GPIO |
-|  5   | D28         | Digital | Digital input 28/GPIO |
-|  6   | D30         | Digital | Digital input 30/GPIO |
-|  7   | D32         | Digital | Digital input 32/GPIO |
-|  8   | D34         | Digital | Digital input 34/GPIO |
-|  9   | D36         | Digital | Digital input 36/GPIO |
-|  10  | D38         | Digital | Digital input 38/GPIO |
-|  11  | D40         | Digital | Digital input 40/GPIO |
-|  12  | D42         | Digital | Digital input 42/GPIO |
-|  13  | D44         | Digital | Digital input 44/GPIO |
-|  14  | D46         | Digital | Digital input 46/GPIO |
-|  15  | D48         | Digital | Digital input 48/GPIO |
-|  16  | D50         | Digital | Digital input 50/GPIO |
-|  17  | D52         | Digital | Digital input 52/GPIO |
-|  18  | GND         | Power   | Ground                |
+| Pin | Function | Type    | Description           |
+| --- | -------- | ------- | --------------------- |
+| 1   | +5V      | Power   | Power Supply of 5V    |
+| 2   | D22      | Digital | Digital input 22/GPIO |
+| 3   | D24      | Digital | Digital input 24/GPIO |
+| 4   | D26      | Digital | Digital input 26/GPIO |
+| 5   | D28      | Digital | Digital input 28/GPIO |
+| 6   | D30      | Digital | Digital input 30/GPIO |
+| 7   | D32      | Digital | Digital input 32/GPIO |
+| 8   | D34      | Digital | Digital input 34/GPIO |
+| 9   | D36      | Digital | Digital input 36/GPIO |
+| 10  | D38      | Digital | Digital input 38/GPIO |
+| 11  | D40      | Digital | Digital input 40/GPIO |
+| 12  | D42      | Digital | Digital input 42/GPIO |
+| 13  | D44      | Digital | Digital input 44/GPIO |
+| 14  | D46      | Digital | Digital input 46/GPIO |
+| 15  | D48      | Digital | Digital input 48/GPIO |
+| 16  | D50      | Digital | Digital input 50/GPIO |
+| 17  | D52      | Digital | Digital input 52/GPIO |
+| 18  | GND      | Power   | Ground                |
 
 ### Digital Pins D22 - D53 RHS
-| Pin  | Function    | Type    | Description           |
-| ---- | ----------- | ------  | --------------------- |
-|  1   | +5V         | Power   | Power Supply of 5V    |
-|  2   | D23         | Digital | Digital input 23/GPIO |
-|  3   | D25         | Digital | Digital input 25/GPIO |
-|  4   | D27         | Digital | Digital input 27/GPIO |
-|  5   | D29         | Digital | Digital input 29/GPIO |
-|  6   | D31         | Digital | Digital input 31/GPIO |
-|  7   | D33         | Digital | Digital input 33/GPIO |
-|  8   | D35         | Digital | Digital input 35/GPIO |
-|  9   | D37         | Digital | Digital input 37/GPIO |
-|  10  | D39         | Digital | Digital input 39/GPIO |
-|  11  | D41         | Digital | Digital input 41/GPIO |
-|  12  | D43         | Digital | Digital input 43/GPIO |
-|  13  | D45         | Digital | Digital input 45/GPIO |
-|  14  | D47         | Digital | Digital input 47/GPIO |
-|  15  | D49         | Digital | Digital input 49/GPIO |
-|  16  | D51         | Digital | Digital input 51/GPIO |
-|  17  | D53         | Digital | Digital input 53/GPIO |
-|  18  | GND         | Power   | Ground                |
+| Pin | Function | Type    | Description           |
+| --- | -------- | ------- | --------------------- |
+| 1   | +5V      | Power   | Power Supply of 5V    |
+| 2   | D23      | Digital | Digital input 23/GPIO |
+| 3   | D25      | Digital | Digital input 25/GPIO |
+| 4   | D27      | Digital | Digital input 27/GPIO |
+| 5   | D29      | Digital | Digital input 29/GPIO |
+| 6   | D31      | Digital | Digital input 31/GPIO |
+| 7   | D33      | Digital | Digital input 33/GPIO |
+| 8   | D35      | Digital | Digital input 35/GPIO |
+| 9   | D37      | Digital | Digital input 37/GPIO |
+| 10  | D39      | Digital | Digital input 39/GPIO |
+| 11  | D41      | Digital | Digital input 41/GPIO |
+| 12  | D43      | Digital | Digital input 43/GPIO |
+| 13  | D45      | Digital | Digital input 45/GPIO |
+| 14  | D47      | Digital | Digital input 47/GPIO |
+| 15  | D49      | Digital | Digital input 49/GPIO |
+| 16  | D51      | Digital | Digital input 51/GPIO |
+| 17  | D53      | Digital | Digital input 53/GPIO |
+| 18  | GND      | Power   | Ground                |
 
 ## Mechanical Information
 
@@ -330,9 +330,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| Company name    | Arduino S.r.l.                                                |
-| --------------- | ------------------------------------------------------------- |
-| Company Address | Arduino SRL, Via Andrea Appiani 25, 20900 Monza MB, Italy     |
+| Company name    | Arduino S.r.l.                                            |
+| --------------- | --------------------------------------------------------- |
+| Company Address | Arduino SRL, Via Andrea Appiani 25, 20900 Monza MB, Italy |
 
 ## Reference Documentation
 
@@ -348,6 +348,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 29/09/2020 | 1            | First Release |
+| **Date**   | **Revision** | **Changes**                              |
+| ---------- | ------------ | ---------------------------------------- |
+| 09/10/2023 | 2            | Updated recommended operating conditions |
+| 29/09/2020 | 1            | First Release                            |
+
+
