@@ -1,4 +1,4 @@
 ---
 title: Starter Kit Classroom Pack
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

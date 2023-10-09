@@ -5,7 +5,7 @@ Microcontroller: ATMega4809
 USB connector: Micro USB
 Pins:
   Built-in LED Pin: 13
-  Digital I/O Pins: 14
+  Digital I/O Pins: 22
   Analog input pins: 8
   PWM pins: 5
 Communication:
@@ -14,7 +14,7 @@ Communication:
   SPI: D11 (COPI), D12 (CIPO), D13 (SCK). Use any GPIO for Chip Select (CS).
 Power:
   I/O Voltage: 5V
-  Input voltage (nominal): 7-18V
+  Input voltage (nominal): 7-21V
   DC Current per I/O Pin: 15 mA
 Clock speed:
   Processor: ATMega4809 16 MHz

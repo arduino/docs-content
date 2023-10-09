@@ -30,7 +30,7 @@ You can also visit the documentation platform for the [GIGA R1](/hardware/giga-r
 
 ## Datasheet
 
-The full datasheets are available as a downloadable PDF from the link below:
+The full datasheet is available as a downloadable PDF from the link below:
 
 - [Download the GIGA R1 datasheet](/resources/datasheets/ABX00063-datasheet.pdf)
 
@@ -100,7 +100,7 @@ digitalRead(PC_13);
 
 ## STM32H747XI Microcontroller
 
-The GIGA R1 features the powerful dual core **STM32H747XI** microcontroller found on the Arduino PRO familys Portenta H7 board, but in a form factor accessible to any maker who has tinkered with an Arduino board before. 
+The GIGA R1 features the powerful dual core **STM32H747XI** microcontroller found on the Arduino PRO family's Portenta H7 board, but in a form factor accessible to any maker who has tinkered with an Arduino board before. 
 
 The **STM32H747XI** is a powerful dual core chip, capable of being programmed with a high-level language such as MicroPython on one core, while simultaneously running Arduino compiled code on the other, and having the two programs communicate with each other seamlessly.
 
@@ -252,7 +252,7 @@ To take advantage of this, you can use the `AdvancedAnalogRedux` library from Ar
 AdvancedADC adc1(A7);
 ```
 
-Now, initialise the library and run a check to make sure everything went as expected with the following code within `void setup()`:
+Now, initialize the library and run a check to make sure everything went as expected with the following code within `void setup()`:
 ```arduino
 
   Serial.begin(9600);
@@ -639,19 +639,19 @@ void loop() {
 
 The **GIGA R1** features two separate SPI (Serial Peripheral Interface) buses, one is configured on the 6 pin header (ICSP) labelled SPI, and the other is broken out into pin connections on the board.
 
-The first bus (connector), `SPI` uses the following pins:
+The first bus (connector), `SPI1` uses the following pins:
 
 - (CIPO) - D89
 - (COPI) - D90
 - (SCK) - D91
-- (CS) - D10
+- (CS) - unassigned, use any free GPIO for this.
 
-The second bus (header), `SPI1`, uses the following pins: 
+The second bus (header), `SPI5`, uses the following pins: 
 
 - (CIPO) - D12
 - (COPI) - D11
 - (SCK) - D13
-- (CS) - unassigned, use any free GPIO for this.
+- (CS) - D10
 
 For using both SPI buses simultaneously, check out the following example:
 
@@ -728,7 +728,7 @@ Wire.endTransmission(); //stop transmit
 
 If you pay close attention you may notice that there are three sets of I2C pins. The two first sets (SDA, SCL, SDA1, SCL1) have internal pullup resistors connected to them which are required to make them function as I2C pins. 
 
-If you want to use the third set (SDA2, SCL2) as I2C pins you will need to use external pullup resistors.
+If you want to use the third set (SDA2, SCL2) as I2C pins you will need to use external pull-up resistors.
 
 ## Serial/UART Pins
 
@@ -940,7 +940,7 @@ The **GIGA R1** features more pins than any other Arduino board for makers, a fu
 
 The reference voltage of all digital pins is 3.3V.
 
-The logic for `LED_BUILTIN` is reversed if compared to the behaviour of, for example, the **Arduino UNO** board. What this means is that if you write HIGH to `LED_BUILTIN`, the LED will turn off, and on respectively if you write LOW.
+The logic for `LED_BUILTIN` is reversed if compared to the behavior of, for example, the **Arduino UNO** board. What this means is that if you write HIGH to `LED_BUILTIN`, the LED will turn off, and on respectively if you write LOW.
 
 ### DAC Pins
 
@@ -969,7 +969,7 @@ You can install a flip-switch to the board to let you turn your device on and of
 
 ## Interrupts 
 
-If you're creating a project that relies heavily on accurate sensordata, and therefore need to ensure that you read the record any change in value, it can be difficult to write a program that does anything else well. This is because the microcontroller is busy trying to read the values constantly. To get around this you can use interrupts that can let you can be useful for reading input from for example a rotary encoder or a push button without putting any code in your loop function. 
+If you're creating a project that relies heavily on accurate sensor data, and therefore need to ensure that you read the record any change in value, it can be difficult to write a program that does anything else well. This is because the microcontroller is busy trying to read the values constantly. To get around this you can use interrupts that can let you can be useful for reading input from for example a rotary encoder or a push button without putting any code in your loop function. 
 
 This feature might be extra valuable to the maker with an **GIGA R1**, as their circuit gets more and more complex.
 

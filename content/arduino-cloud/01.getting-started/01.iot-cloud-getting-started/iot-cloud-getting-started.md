@@ -45,7 +45,7 @@ Below is a list of Arduino IoT Cloud features.
 
 To use the Arduino IoT Cloud, a **cloud compatible board** is required. You can choose between using an official Arduino board, or a board based on the ESP32 / ESP8266 microcontroller. The Arduino IoT Cloud currently supports connection via Wi-Fi, LoRaWAN® (via The Things Network) and mobile networks.
 
-***All cloud-compatible Arduino boards come with a hardware secure element (such as the [ECC508](/resources/datasheets/ATECC508A-datasheet.pdf) cryptochip), where you can store your security keys.***
+***All cloud-compatible Arduino boards come with a hardware secure element (such as the [ECC508](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/20005928A.pdf) cryptochip), where you can store your security keys.***
 
 ### Wi-Fi
 
@@ -63,6 +63,7 @@ The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - [Opta](https://docs.arduino.cc/hardware/opta).
+- [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
 
 Connection via Wi-Fi is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the cloud via your home/work/school router.
 

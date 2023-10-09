@@ -27,7 +27,7 @@ Maker, Security, Environmental, Robotics and Control Systems
   - Master/Slave SPI Serial Interface
 - **Power**
   - Mini-B USB connection
-  - 6-20V unregulated external power supply (pin 30)
+  - 7-15V unregulated external power supply (pin 30)
   - 5V regulated external power supply (pin 27)
 - **Sleep Modes**
   - Idle

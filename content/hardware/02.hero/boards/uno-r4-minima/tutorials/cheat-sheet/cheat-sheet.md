@@ -119,7 +119,7 @@ The UNO R4 Minima has six analog input pins (A0-A5) that can be read by using th
 ***A4 and A5 pins are both connected to the same I2C bus.***
 
 ```arduino
-value = analogRead(pin, value);
+value = analogRead(pin);
 ```
 
 The reference voltage of these pins is 5 V.
@@ -187,6 +187,39 @@ The UNO R4 Minima features a total of digital 14 pins. Though some of them serve
 In addition, analog pins A0-A5 can also be used as digital pins. Note that **A4/A5** are reserved for the I2C bus.
 
 The reference voltage of all digital pins is 5 V.
+
+## LED
+
+The UNO R4 Minima has a total of four LEDs, three of which are programmable:
+- **ON** - power LED, cannot be programmed.
+- `LED_BUILTIN` - classic "built-in LED", attached to pin 13.
+- `RX_LED` - LED labelled "RX" on the board.
+- `TX_LED` - LED labelled "TX" on the board.
+
+To control these, define them as outputs and write desired state. The below example blinks each LED every second.
+
+```arduino
+void setup(){
+  //define pins as output
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(RX_LED, OUTPUT);
+  pinMode(TX_LED, OUTPUT);
+}
+
+void loop(){
+  //turn on all LEDs
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LED_RX, HIGH);
+  digitalWrite(LED_TX, HIGH);
+  delay(1000);
+
+  //turn off all LEDs
+  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LED_RX, LOW);
+  digitalWrite(LED_TX, LOW);
+  delay(1000);
+}
+```
 
 ## DAC
 
@@ -389,6 +422,18 @@ And to write something, we can use the following command:
 
 ```arduino
 Serial1.write("Hello world!");
+```
+
+### Serial Event
+
+The [serialEvent()](https://www.arduino.cc/reference/en/language/functions/communication/serial/serialevent/) method is supported on older revisions of the UNO board, but **not** on the UNO R4 boards (or any other newer Arduino boards).
+
+However, as this method is only used to detect serial data and execute a function, you can also use `Serial.available()` to detect when new data is available:
+
+```arduino
+if(Serial.available() > 0) {
+  //code goes here
+}
 ```
 
 ## USB HID

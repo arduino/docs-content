@@ -9,14 +9,16 @@ tags:
   - UART
   - Wi-Fi®
   - Bluetooth® LE
-author: 'Karl Söderby'
+author: 'Karl Söderby & Jacob Hylén'
+hardware:
+  - hardware/03.nano/boards/nano-esp32
 ---
 
 The **Arduino Nano ESP32** is the first Arduino to feature an ESP32 SoC as its main microcontroller, based on the [ESP32-S3](https://www.espressif.com/en/products/socs/esp32-s3). This SoC is found inside the **u-blox® NORA-W106** module and provides both Bluetooth® & Wi-Fi® connectivity, as well as embedding an antenna.
 
 ![Nano ESP32 overview](assets/nano-esp32-overview.png)
 
-In this document, you will find information regarding features your board, and links to resources. 
+In this document, you will find information regarding features of the board, and links to resources. 
 
 ***Note that this board is compatible with many ESP32 examples out of the box, but that the pinout may vary. You can find the complete API at [ESP32-S3 API reference](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/index.html).*** 
 
@@ -34,6 +36,8 @@ The Nano ESP32 has
 - 384 kB ROM
 - 512 kB SRAM
 - 16 MB of Flash (external, provided via GD25B128EWIGR)
+- 8 MB of PSRAM 
+
 
 ## Datasheet
 
@@ -41,7 +45,7 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 - [Download the Nano ESP32 datasheet](/resources/datasheets/ABX00083-datasheet.pdf)
 
-## Nano ESP32 Core
+## Arduino ESP32 Core
 
 This board is based on the [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32), that is derived from the original ESP32 core. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
 
@@ -49,12 +53,59 @@ This board is based on the [Arduino ESP32 Core](https://github.com/arduino/ardui
 
 To install the core, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the core, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
 
-## Bootloader Mode
-The Nano ESP32 has a feature that we call bootloader-mode, what this means is that you are able to put the board in a sort of recovery mode by double pressing the reset button while the board is powered on.
+## ESP32 Pin Map
+
+The Nano ESP32's default pins are designed to match the **Nano form factor**. This pin mapping is done in the official Arduino ESP32 core (see just above). See below the pin map to understand how the physical pins correlate to the ESP32: 
+
+| Nano  | ESP32  |
+| ----- | ------ |
+| D0    | GPIO44 |
+| D1    | GPIO43 |
+| D2    | GPIO5  |
+| D3    | GPIO6  |
+| D4    | GPIO7  |
+| D5    | GPIO8  |
+| D6    | GPIO9  |
+| D7    | GPIO10 |
+| D8    | GPIO17 |
+| D9    | GPIO18 |
+| D10   | GPIO21 |
+| D11   | GPIO38 |
+| D12   | GPIO47 |
+| D13   | GPIO48 |
+| A0    | GPIO1  |
+| A1    | GPIO2  |
+| A2    | GPIO3  |
+| A3    | GPIO4  |
+| A4    | GPIO11 |
+| A5    | GPIO12 |
+| A6    | GPIO13 |
+| A7    | GPIO14 |
+| BOOT0 | GPIO46 |
+| BOOT1 | GPIO0  |
+
+See the pinout below for a better visual translation:
+
+![Nano / ESP32 pinout](assets/esp-pinout.png)
+
+
+## Arduino Bootloader Mode
+The Nano ESP32 has a feature that we call Arduino Bootloader-mode, what this means is that you are able to put the board in a sort of recovery mode by double pressing the reset button while the board is powered on.
 
 This mode is useful if you've uploaded a sketch that produces some unwanted behaviour. Maybe the sketch causes it to become undetectable by your computer, or maybe its an HID sketch that took over your keyboard and mouse and you need to regain control of your computer. It lets you turn the board on without actually running any sketch.
 
-To enter bootloader-mode, press the reset button, and then press it again once you see the RGB LED flashing. You'll know that you've successfully entered bootloader-mode if you see the RGD LED pulsing slowly.
+To enter bootloader-mode, press the reset button, and then press it again once you see the RGB LED flashing. You'll know that you've successfully entered bootloader-mode if you see the green LED pulsing slowly. 
+
+***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. Read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012)***
+
+### ROM Boot Mode
+
+In addition to the normal bootloader-mode, the Arduino Nano ESP32 lets you enter ROM boot mode. This is rarely needed, but there are some cases where it might be useful, for example you may want to follow this process to:
+
+- Update the Arduino bootloader already on the board. This can resolve issues with Nano ESP32 being misidentified as other ESP32 boards.
+- Restore the ability to upload regular Arduino sketches to a Nano ESP32 that has been flashed with a third party firmware.
+
+If you need to reflash the bootloader, you can follow the steps of this [Help Center article](https://support.arduino.cc/hc/en-us/articles/9810414060188-Reset-the-Arduino-bootloader-on-the-Nano-ESP32)
 
 ## MicroPython
 
@@ -63,6 +114,10 @@ The Nano ESP32 has support for MicroPython, a micro-implementation of Python® t
 To get started with MicroPython, please visit [MicroPython 101](/micropython-course), a course dedicated towards learning MicroPython on the Nano ESP32.
 
 In this course, you will fundamental knowledge to get started, as well as a large selection of examples for popular third-party components.
+
+### Reset Your Board
+
+If you have installed MicroPython but wish to go back to classic Arduino / C++ programming, it is easy to do so. Simply **double tap** the **RESET** button on the board (there's only one button). The board will enter boot mode (you should see a pulsing green light), and will be visible in the Arduino IDE. 
 
 ## Arduino IoT Cloud
 
@@ -198,23 +253,11 @@ analogWrite(pin,value);
 
 ***Due to timer restrictions, only 4 PWM signals can be generated simultaneously.***
 
-### Boot Pins
-
-To enter bootloader mode (chip boot mode), you can use either the BOOT0 (B0) or BOOT1 (B1) pins, which are connected to the ESP32-S3's `GPIO0` and `GPIO46`. 
-
-![Boot pins.](assets/nano-esp32-boot.png)
-
-Shorting these to GND + pressing the reset button will enter a bootloader mode. Note that while shorting these pins, a corresponding LED will light up.
-
-***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. Read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012)***
-
-You can read more about different this in the [Strapping Pins section](https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf#page=23) in the ESP32-S3's datasheet.
-
 ## I2C
 
 ![I2C Pins](assets/nano-esp32-i2c.png)
 
-The default pins used for I2C on the Nano ESP32 are the following:
+The default pins used for the **main I2C bus** on the Nano ESP32 are the following:
 
 | Pin | Function | Description          |
 | --- | -------- | -------------------- |
@@ -241,6 +284,19 @@ Wire.write(byte(0x00)); //send instruction byte
 Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
+
+### Second I2C Bus
+
+The Nano ESP32 has a second I2C bus, accessed via `Wire1`. To use it, you will need to set two free pins for SDA & SCL.
+
+For example:
+
+```arduino
+//initializes second I2C bus on pins D4,D5
+Wire1.begin(D4, D5); //sda, scl
+```
+
+***`Wire` and `Wire1` can be used simultaneously, a great feature when working with devices that may share the same addresses.***
 
 ## SPI
 
@@ -281,7 +337,48 @@ void loop() {
 }
 ```
 
-## UART
+### Second SPI Port (HSPI)
+
+The Nano ESP32 has a second SPI port (HSPI). To use it, we need to create an object using `SPIClass`, and initialize communication on a specific set of pins.
+
+***The HSPI port's default pins are: `GPIO14` (SCK), `GPIO12` (CIPO), `GPIO13` (COPI), `GPIO15` (CS). As some of these pins are not accessible on the Nano ESP32, you will need to configure them manually. See the definitions at the top of the code example below.***
+
+```arduino
+//define SPI2 pins manually
+//you can also choose any other free pins
+#define SPI2_SCK D2
+#define SPI2_CIPO D3
+#define SPI2_COPI D4
+#define SPI2_CS D5
+
+//create SPI2 object
+SPIClass SPI2(HSPI);
+
+void setup() {
+//initialize SPI communication
+  SPI2.begin(SPI2_SCK, SPI2_CIPO, SPI2_COPI, SPI2_CS);
+}
+```
+
+## USB Serial & UART
+
+The Nano ESP32 board features 2 separate hardware serial ports.
+
+One port is exposed via USB-C®, and
+One is exposed via RX/TX pins.
+
+### Native USB
+
+Sending serial data to your computer is done using the standard `Serial` object.
+
+```arduino
+Serial.begin(9600);
+Serial.print("hello world");
+```
+
+To send and receive data through UART, we will first need to set the baud rate inside `void setup()`.
+
+### UART
 
 The pins used for UART on the Nano ESP32 are the following:
 
@@ -292,18 +389,18 @@ The pins used for UART on the Nano ESP32 are the following:
 
 ![Nano ESP32 UART Pins](./assets/nano-esp32-uart.png)
 
-To send and receive data through UART, we will first need to set the baud rate inside `void setup()`. Note that when using the UART (RX/TX pins), we use the `Serial1` object.
+To send and receive data through UART, we will first need to set the baud rate inside `void setup()`. Note that when using the UART (RX/TX pins), we use the `Serial0` object.
 
 ```arduino
-Serial1.begin(9600);
+Serial0.begin(9600);
 ```
 
 To read incoming data, we can use a while loop() to read each individual character and add it to a string.
 
 ```arduino
-  while(Serial1.available()){
+  while(Serial0.available()){
     delay(2);
-    char c = Serial1.read();
+    char c = Serial0.read();
     incoming += c;
   }
 ```
@@ -311,7 +408,7 @@ To read incoming data, we can use a while loop() to read each individual charact
 And to write something, we can use the following command:
 
 ```arduino
-Serial1.write("Hello world!");
+Serial0.write("Hello world!");
 ```
 
 ## IO Mux & GPIO Matrix
@@ -344,7 +441,7 @@ There are several examples provided bundled with the core that showcase how to m
 
 ## RGB
 
-The ESP32 features an RGB that can be controlled with the `LED_RED`, `LED_GREEN` and `LED_BLUE` pins. These are not connected to any physical pins. 
+The ESP32 features an RGB LED that can be controlled with the `LED_RED`, `LED_GREEN` and `LED_BLUE` pin names. These pins are not accessible on the headers of the board, and can only be used for the RGB LED. 
 
 ***Some boards from the first limited production batch were assembled with a different RGB LED which has the green and blue pins inverted. Read our full Help Center article [here](https://support.arduino.cc/hc/en-us/articles/9589073738012)***
 
@@ -355,20 +452,57 @@ digitalWrite(LED_RED, STATE); //red
 digitalWrite(LED_GREEN, STATE); //green
 digitalWrite(LED_BLUE, STATE); //blue
 ```
+These pins are so called active-low, what this means in practice is that to turn on one of the LEDs, you need to write it to `LOW`, like this:
 
-
+```arduino
+digitalWrite(LED_RED, LOW);
+```
 
 ## USB HID
 
-Nano ESP32 can be used to emulate an HID device by using e.g. `Mouse.move(x,y)` or `Keyboard.press('w')`. The API documentation can be found in Arduino's language reference:
+Nano ESP32 can be used to emulate an HID device by using e.g. `Mouse.move(x,y)` or `Keyboard.press('w')`.
 
-- [Keyboard API](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/)
-- [Mouse API](https://www.arduino.cc/reference/en/language/functions/usb/mouse/)
+These are minimal examples for keyboard and mouse use:
+
+### Keyboard Example 
+```arduino
+#include "USB.h"
+#include "USBHIDKeyboard.h"
+USBHIDKeyboard Keyboard;
+
+void setup() {
+  // put your setup code here, to run once:
+  Keyboard.begin();
+  USB.begin();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Keyboard.print("Hello World");
+  delay(500);
+}
+```
+
+### Mouse Example 
+
+```arduino
+#include "USB.h"
+#include "USBHIDMouse.h"
+USBHIDMouse Mouse;
+
+void setup() {
+  // put your setup code here, to run once:
+  Mouse.begin();
+  USB.begin();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Mouse.move(5, 0, 0); 
+  delay(50);
+}
+```
 
 Several ready to use examples are also available in the core at **Examples > USB**.
 
-## Test Pads
-
-There are several test pads on the bottom side of the Nano ESP32. See the image below:
-
-![Test pads on Nano ESP32](assets/nano-esp32-testpads.png)
+Remember that if the board stops being recognised in the IDE, you can put it in [Arduino Bootloader Mode](#arduino-bootloader-mode) to recover it.

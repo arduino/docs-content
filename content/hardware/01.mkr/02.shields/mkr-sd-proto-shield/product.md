@@ -2,7 +2,7 @@
 title: MKR SD Proto Shield
 url_shop: https://store.arduino.cc/mkr-sd-proto-shield
 url_guide: /tutorials/mkr-sd-proto-shield/mkr-sd-proto-shield-data-logger
-certifications: [CE]
+certifications: [CE, UKCA]
 ---
 
 The MKR SD Proto Shield simply features a Micro SD card holder: the rest is up to you. You can mount smaller displays, or pack it with sensors and actuators of your own choice. It can be simply mounted on top of any MKR family board.

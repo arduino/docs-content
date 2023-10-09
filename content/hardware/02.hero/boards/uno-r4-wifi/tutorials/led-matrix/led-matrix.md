@@ -1,6 +1,6 @@
 ---
-title: "Using the Arduino UNO R4 WiFi LED Matrix"
-description: "Get off the ground with the Arduino UNO R4 WiFi's built in LED matrix. Learn the different techniques for controlling it, create animations, graphics or even games."
+title: 'Using the Arduino UNO R4 WiFi LED Matrix'
+description: 'Get off the ground with the Arduino UNO R4 WiFi built-in LED matrix. Learn the different techniques for controlling it, create animations, graphics or even games.'
 tags:
   - Guide
   - LED Matrix
@@ -276,14 +276,97 @@ matrix.renderBitmap(frame, 8, 12);
 delay(1000);
 }
 ```
- 
+
+## Scrolling Text Example
+
+The LED Matrix now supports printing characters via the [ArduinoGraphics](https://github.com/arduino-libraries/ArduinoGraphics) library. With it, you are able to:
+- Set a start location for the text via `matrix.beginText(x,y, 0xFFFFFF)`. The "0xFFFFFF" represents the default color (red). As the **ArduinoGraphics** library supports other hardware with multiple colors, we need to specify it.
+- Print the text via `matrix.printText("This message is printed")`
+- End the print and (optionally) specify scroll direction with `matrix.endText(direction)`
+- `SCROLL_LEFT`, `SCROLL_RIGHT` are supported. Leave blank if no scroll is desired.
+
+The example below simply prints out **"Hello World!"** on the matrix.
+
+```arduino
+// To use ArduinoGraphics APIs, please include BEFORE Arduino_LED_Matrix
+#include "ArduinoGraphics.h"
+#include "Arduino_LED_Matrix.h"
+
+ArduinoLEDMatrix matrix;
+
+void setup() {
+  Serial.begin(115200);
+  matrix.begin();
+
+  matrix.beginDraw();
+  matrix.stroke(0xFFFFFFFF);
+  // add some static text
+  // will only show "UNO" (not enough space on the display)
+  const char text[] = "UNO r4";
+  matrix.textFont(Font_4x6);
+  matrix.beginText(0, 1, 0xFFFFFF);
+  matrix.println(text);
+  matrix.endText();
+
+  matrix.endDraw();
+
+  delay(2000);
+}
+
+void loop() {
+
+  // Make it scroll!
+  matrix.beginDraw();
+
+  matrix.stroke(0xFFFFFFFF);
+  matrix.textScrollSpeed(50);
+
+  // add the text
+  const char text[] = "    Hello World!    ";
+  matrix.textFont(Font_5x7);
+  matrix.beginText(0, 1, 0xFFFFFF);
+  matrix.println(text);
+  matrix.endText(SCROLL_LEFT);
+
+  matrix.endDraw();
+}
+```
+
 ## Animation Generation
 We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. This tool is part of [Arduino labs](https://labs.arduino.cc), and is therefore considered experimental software. 
 
-[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool.
+To use the tool you need to upload the following sketch, allowing the board to read serial inputs send by the browser. 
+
+You can also find the sketch in **File > Examples > LED_Matrix > LivePreview**
+
+```arduino
+#include "Arduino_LED_Matrix.h"
+
+ArduinoLEDMatrix matrix;
+
+void setup() {
+  Serial.begin(115200);
+  matrix.begin();
+}
+
+uint32_t frame[] = {
+  0, 0, 0, 0xFFFF
+};
+
+void loop() {
+  if(Serial.available() >= 12){
+    frame[0] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[1] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[2] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    matrix.loadFrame(frame);
+  }
+}
+```
+
+[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool. 
 
 
-![LED Matrix Editor](./assets/led-matrix-editor.png)
+![LED Matrix Editor](assets/led-matrix-tool.png)
 
 Once you've made your animations, you can export them from the tool in the format that lets you use them like [previously discussed](#how-to-write-a-frame).
 

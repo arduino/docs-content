@@ -1,4 +1,4 @@
 ---
 title: MKR2UNO Adapter
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

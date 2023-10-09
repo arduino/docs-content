@@ -351,7 +351,7 @@ The use of a USB 3.0 compatible port will ensure that the current requirements f
 | U3       | LM66100DCKR Ideal Diode                               | U5           | FEMDRW016G 16GB eMMC Flash IC                        |
 | U8       | KSZ9031RNXIA Gigabit Ethernet Transceiver IC          | U10          | FXMA2102L8X Dual Supply, 2-Bit Voltage Translator IC |
 | U11      | SE050C2HQ1/Z01SDZ IoT Secure Element                  | U12, U13,U14 | PCMF2USB3B/CZ Bidirectional EMI Protection IC        |
-| U15      | NX18P3001UKZ Bidirectional power switch IC            | U20          | STM32H747AII6 Dual ARM® Cortex® M7/M4 IC             |
+| U15      | NX18P3001UKZ Bidirectional power switch IC            | U20          | STM32H747AII6 Dual Arm® Cortex® M7/M4 IC             |
 | Y2       | SIT1532AI-J4-DCC-32.768E 32.768KHz MEMS Oscillator IC | J1, J2       | High density connectors                              |
 | Q1       | 2N7002T-7-F N-Channel 60V 115mA MOSFET                |
 
@@ -359,15 +359,15 @@ The use of a USB 3.0 compatible port will ensure that the current requirements f
 
 ## Processor
 
-The Arduino Portenta X8 makes use of two ARM®-based physical processing units.
+The Arduino Portenta X8 makes use of two Arm®-based physical processing units.
 
 ### NXP® i.MX 8M Mini Quad Core Microprocessor
 
-The MIMX8MM6CVTKZAA iMX8M (U2) features a quad-core ARM® Cortex® A53 running at up to 1.8 GHz for high-performance applications alongside an ARM® Cortex® M4 running at up to 400 MHz. The ARM® Cortex® A53 is capable of running a fully-fledged Linux or Android operating system through a Board Support Packages (BSP) in a multithreaded fashion. This can be expanded via the use of specialized software containers via OTA updates. The ARM® Cortex® M4 has lower power consumption allowing for effective sleep management as well as optimal performance in real-time applications and is reserved for future use. Both processors can share all peripherals and resources available on the i.MX 8M Mini, including PCIe, on-chip memory, GPIO, GPU and Audio.
+The MIMX8MM6CVTKZAA iMX8M (U2) features a quad-core Arm® Cortex® A53 running at up to 1.8 GHz for high-performance applications alongside an Arm® Cortex® M4 running at up to 400 MHz. The Arm® Cortex® A53 is capable of running a fully-fledged Linux or Android operating system through a Board Support Packages (BSP) in a multithreaded fashion. This can be expanded via the use of specialized software containers via OTA updates. The Arm® Cortex® M4 has lower power consumption allowing for effective sleep management as well as optimal performance in real-time applications and is reserved for future use. Both processors can share all peripherals and resources available on the i.MX 8M Mini, including PCIe, on-chip memory, GPIO, GPU and Audio.
 
 ### STM32 Dual Core Microprocessor
 
-The X8 includes an embedded H7 in the form of a STM32H747AII6 IC (U20) with a dual-core ARM® Cortex® M7 and ARM® Cortex® M4. This IC is used as an I/O expander for the NXP® i.MX 8M Mini (U2). Peripherals are automatically controlled via the M7 core. Additionally, the M4 core is available for real-time control of motors and other time-critical machinery at a barebones level. The M7 core acts as a mediator between the peripherals and the i.MX 8M Mini. It achieves this by running a custom firmware [https://github.com/arduino/portentax8-stm32h7-fw](https://github.com/arduino/portentax8-stm32h7-fw) normally invisible to the User, which maps all its peripherals as Linux devices. Advanced users can customize the M7 firmware to fit their needs but this could break the seamless Linux integration. Users are instead encouraged to write custom Arduino programs (sketches) running on the M4, which can access all the peripherals supported by the M7. The STM32H7 is not exposed to networking and should be programmed via the i.MX 8M Mini (U2).
+The X8 includes an embedded H7 in the form of a STM32H747AII6 IC (U20) with a dual-core Arm® Cortex® M7 and Arm® Cortex® M4. This IC is used as an I/O expander for the NXP® i.MX 8M Mini (U2). Peripherals are automatically controlled via the M7 core. Additionally, the M4 core is available for real-time control of motors and other time-critical machinery at a barebones level. The M7 core acts as a mediator between the peripherals and the i.MX 8M Mini. It achieves this by running a custom firmware [https://github.com/arduino/portentax8-stm32h7-fw](https://github.com/arduino/portentax8-stm32h7-fw) normally invisible to the User, which maps all its peripherals as Linux devices. Advanced users can customize the M7 firmware to fit their needs but this could break the seamless Linux integration. Users are instead encouraged to write custom Arduino programs (sketches) running on the M4, which can access all the peripherals supported by the M7. The STM32H7 is not exposed to networking and should be programmed via the i.MX 8M Mini (U2).
 
 ## Wi-Fi®/Bluetooth® Connectivity
 

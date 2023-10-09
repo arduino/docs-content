@@ -1,4 +1,4 @@
 ---
 title: MKR Motor Carrier Lite
-certifications: [CE]
+certifications: [CE, UKCA]
 ---
