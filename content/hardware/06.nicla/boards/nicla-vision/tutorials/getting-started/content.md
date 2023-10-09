@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with Nicla Vision'
-description: 'This tutorial teaches you how to start to use the computer vision capabilities of the Nicla Vision using the OpenMV IDE and Micropython.'
+description: 'This tutorial teaches you how to get started with the computer vision capabilities of the Nicla Vision, leveraging the OpenMV IDE and MicroPython.'
 difficulty: beginner
 tags:
   - Getting Started
@@ -16,7 +16,7 @@ software:
 ---
 
 ## Overview
-The OpenMV IDE is meant to provide an Arduino like experience for simple machine vision tasks using a camera sensor. In this tutorial, you will learn about some of the basic features of the OpenMV IDE and how to create a simple MicroPython script. The Nicla Vision has OpenMV firmware on the board by default, making it easy to connect to the OpenMV IDE.
+The OpenMV IDE is meant to provide an Arduino-like experience for simple machine vision tasks using a camera sensor. In this tutorial, you will learn about some of the basic features of the OpenMV IDE and how to create a simple MicroPython script. The Nicla Vision has OpenMV firmware on the board by default, simplifying the connection with the OpenMV IDE.
 
 ***If you are willing to use the Nicla Vision with the "Arduino IDE" instead, navitage to this [section](#using-the-nicla-vision-with-arduino-ide) for more details.***
 
@@ -35,9 +35,9 @@ The OpenMV IDE is meant to provide an Arduino like experience for simple machine
 
 ## Introduction
 
-Using the OpenMV IDE you can run [MicroPython](http://docs.MicroPython.org/en/latest/) scripts on Nicla Vision. MicroPython provides a lot of classes and modules that make it easy to quickly explore the features of the Nicla Vision. 
+By using the OpenMV IDE, you can run [MicroPython](http://docs.MicroPython.org/en/latest/) scripts on your Nicla Vision. MicroPython provides a lot of classes and modules that facilitate the testing of Nicla Vision's features. 
 
-In this tutorial you will first download the OpenMV IDE and set up the development environment. You can read more about the OpenMV IDE on the [official site of the project.](https://openmv.io/). OpenMV comes with its own firmware that is built on MicroPython and must be loaded inside your board before starting to create your own programs. Once your board is updated and configured, you will then learn to write a simple script that will blink the on-board RGB LED using some basic MicroPython commands and after that how to create a program that uses computer vision.
+In this tutorial, first, you will learn how to download the OpenMV IDE and set up the development environment. You can read more about the OpenMV IDE on the [official website of the project.](https://openmv.io/). OpenMV comes with its own firmware that is built in MicroPython and must be loaded inside your board before starting to create your own programs. Once your board is updated and configured, you will then learn how to write a simple script that will blink the onboard RGB LED using some basic MicroPython commands and how to create a program that uses computer vision.
 
 ***Before proceeding with the tutorial, please update the board's bootloader following the instructions below.***
 
@@ -55,7 +55,7 @@ In this tutorial you will first download the OpenMV IDE and set up the developme
 
 - If your Nicla Vision does not have the latest bootloader, type `"Y"` in the input text box of the Serial Monitor, tap on Enter and wait for the update.
 
-***If you get the "error exit status 74" verify you close any serial monitor window and that you have selected the board serial port correctly before trying again.***
+***If you get the "error exit status 74", verify you close each serial monitor window and you selected the board serial port correctly before trying again.***
 
 ### 1. Downloading the OpenMV IDE
 
@@ -65,19 +65,19 @@ Open the [OpenMV download](https://openmv.io/pages/download) page in your browse
 
 ### 2. Nicla Vision LED Codes
 
-While using the Nicla Vision with OpenMV, the RGB LED of the board can be used to inform the user about it's current status, some of the most important ones are the following:
+While using the Nicla Vision with OpenMV, the RGB LED of the board can be used to inform the user about its current status. Some of the most important ones are the following:
 
-🟢 **Blinking Green:** Your Nicla Vision onboard bootloader is running. The onboard bootloader runs for a few seconds when your OpenMV Cam is powered via USB to allow OpenMV IDE to reprogram your OpenMV Cam.
+🟢 **Blinking Green:** Your Nicla Vision onboard bootloader is running. The onboard bootloader runs for a few seconds when your Nicla Vision is powered via USB to allow OpenMV IDE to reprogram your Nicla Vision.
 
 🔵 **Blinking Blue:** Your Nicla Vision is running the default [main.py](http://main.py/) script onboard. 
 
-If you overwrote the [main.py](http://main.py/) script on your Nicla Vision then it will run whatever code you loaded on it instead.
+If you overwrite the [main.py](http://main.py/) script on your Nicla Vision, then it will run whatever code you loaded on it instead.
 
-***If the LED is blinking blue but OpenMV IDE can't connect to your Nicla Vision please make sure you are connecting your Nicla Vision to your PC with a USB cable that supplies both data and power.***
+***If the LED is blinking blue but OpenMV IDE cannot connect to your Nicla Vision, please make sure you are connecting your Nicla Vision to your PC with a USB cable that supplies both data and power.***
 
 ⚪ **Blinking White:** Your Nicla Vision firmware is panicking because of a hardware failure. Please check that your Nicla Vision's camera module is installed securely.
 
-***If you tap the Nicla Vision reset button once, the board resets. If you tap it twice the board enters in Device Firmware Upgrade (DFU) mode and its green LED start blinking and fading.***
+***If you tap the Nicla Vision reset button once, the board resets. If you tap it twice, the board enters in Device Firmware Upgrade (DFU) mode and its green LED starts blinking and fading.***
 
 ### 3. Connecting to the OpenMV IDE
 
@@ -127,7 +127,7 @@ At this point, you can easily distinguish between which color you control in the
 
 ### 5. Creating the Main Loop in the Script
 
-Putting our code inside a while loop will make the code run continuously. In the loop you can turn on an LED with `on`, then you can use the `delay` function to create a delay. This function will start executing with the next instruction in the script. The duration of the delay can be controlled by changing the value inside the parentheses. The number defines how many milliseconds the board will wait. After the specified time has passed, you can turn off the LED with the `off` function. You can repeat that for each color.
+Adding the code inside a while loop will make the code run continuously. In the loop, you can turn on the LED with `on`, then you can use the `delay` function to create a delay. This function will start executing with the next instruction in the script. The duration of the delay can be controlled by changing the value inside the parentheses. The number defines how many milliseconds the board will wait. After the specified time has passed, you can turn off the LED with the `off` function. You can repeat that for each color.
 
 ```python
 while True:
@@ -231,7 +231,7 @@ The image will be saved as `"example.jpg"` in the boards directory. It is also p
 
 ![Where to find the taken picture](assets/finding-photo.png)
 
-***If you want to try the built-in OpenMV IDE examples using MacOS, you may face format issues, use this [converter](https://handbrake.fr/) if needed ***
+***If you want to try the built-in OpenMV IDE examples using, macOS, you may face format issues, use this [converter](https://handbrake.fr/) if needed. ***
 
 ## Using the Nicla Vision with Arduino IDE
 
