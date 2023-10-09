@@ -2,6 +2,12 @@
 title: Guide to Arduino GIGA USB Features
 description: 'Learn how you can turn your USB device into a mouse or keyboard, how to read & write to a USB mass storage, and connecting a keyboard via the USB-A connector.'
 author: Karl Söderby
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
+software:
+  - ide-v1
+  - ide-v2
+  - web-editor
 tags: [USB, USB HID, USBHost, Mass Storage, Keyboard, Mouse]
 ---
 

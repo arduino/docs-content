@@ -15,7 +15,7 @@ tags:
   - Audio Jack
 author: 'Jacob Hylén'
 hardware:
-  - hardware/08.mega/boards/giga-r1-wifi
+  - hardware/10.mega/boards/giga-r1-wifi
 software:
   - ide-v1
   - ide-v2
