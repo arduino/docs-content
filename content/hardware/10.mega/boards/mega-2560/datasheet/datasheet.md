@@ -71,20 +71,14 @@ Arduino® Mega 2560 is a successor board of Arduino Mega,  it is dedicated to ap
 
 ## Ratings
 
+
 ### Recommended Operating Conditions
-| Symbol | Description                                       | Min        | Max     |
-| ------ | ------------------------------------------------- | ---------- | ------- | 
-|   TOP  |  Operating temperature:                           |  -40 °C    | 85 °C   |
 
-
-
-### Power Consumption
-
-| Symbol      | Description                  | Min | Typ | Max | Unit |
-| ----------- | ---------------------------- | --- | --- | --- | ---- |
-|   PWRIN     | Input supply from power jack |     | TBC |     |  mW  |
-|   USB VCC   | Input supply from USB        |     | TBC |     |  mW  |
-|   VIN       | Input from VIN pad           |     | TBC |     |  mW  |
+| Symbol          | Description                          | Min | Typ | Max | Unit |
+| --------------- | ------------------------------------ | --- | --- | --- | ---- |
+| V<sub>IN</sub>  | Input voltage from VIN pad / DC Jack | 7   | 7.0 | 12  | V    |
+| V<sub>USB</sub> | Input voltage from USB connector     | 4.8 | 5.0 | 5.5 | V    |
+| T<sub>OP</sub>  | Operating Temperature                | -40 | 25  | 85  | °C   |
 
 
 ## Functional Overview
