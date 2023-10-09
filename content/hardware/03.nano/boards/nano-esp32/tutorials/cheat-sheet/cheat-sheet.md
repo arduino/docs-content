@@ -411,6 +411,47 @@ And to write something, we can use the following command:
 Serial0.write("Hello world!");
 ```
 
+## I2S
+
+The Inter-IC Sound (I2S or IIS) protocol is used for connecting digital audio devices with a variety of configurations (Philips mode, PDM, ADC/DAC). 
+
+The default pin configuration for I2S is:
+
+| Pin | Definition       |
+| --- | ---------------- |
+| D7  | `PIN_I2S_SCK`    |
+| D8  | `PIN_I2S_FS`     |
+| D9  | `PIN_I2S_SD`     |
+| D9  | `PIN_I2S_SD_OUT` |
+| D10 | `PIN_I2S_SD_IN`  |
+
+The default pins can be changed by using the `setAllPins()` method:
+
+```arduino
+I2S.setAllPins(sck, fs, sd, sd_out, sd_in)
+```
+
+To inialitize the library, use the `begin()` method: 
+
+```arduino
+I2S.begin(mode, sampleRate, bitPerSample)
+``` 
+
+To read data, use the `read()` method, which will return the last sample.
+
+```arduino
+I2S.read()
+```
+
+Examples for different modes & different audio devices are available in the core under **Examples > I2S**.
+
+
+Further reading:
+- [I2S API docs (Espressif)](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/i2s.html)
+- [I2S Reference (Espressif)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/i2s.html)
+
+
+
 ## IO Mux & GPIO Matrix
 
 The ESP32-S3 SoC features an IO mux (input/output multiplexer) and a GPIO matrix. The IO mux acts as a data selector and allows for different peripherals to be connected to a physical pin. 
