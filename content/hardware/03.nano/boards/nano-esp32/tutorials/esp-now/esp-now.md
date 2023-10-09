@@ -26,7 +26,7 @@ You need two boards or more to communicate via ESP-NOW. Minimum one sender and o
 ## How It Works
 
 ### Communication Protocol 
-ESP-NOW operates as a peer-to-peer (P2P) protocol, meaning it allows direct communication between two ESP8266 or ESP32 devices without the need for a central server or access point, e.g. a Wi-Fi® router. Each ESP device has a unique [MAC address](https://en.wikipedia.org/wiki/MAC_address) which is used to identify the receiving board.1
+ESP-NOW operates as a peer-to-peer (P2P) protocol, meaning it allows direct communication between two ESP8266 or ESP32 devices without the need for a central server or access point, e.g. a Wi-Fi® router. Each ESP device has a unique [MAC address](https://en.wikipedia.org/wiki/MAC_address) which is used to identify the receiving board.
 
 ESP-NOW can be set up in different ways:
 
@@ -38,7 +38,7 @@ ESP-NOW can be set up in different ways:
 
 ### Protocol Stack
 
-ESP-NOW operates primarily at the data-link layer of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). In contrast to traditional networking protocols that involve multiple layers, ESP-NOW condenses the communication stack, streamlining the process. By reducing the protocol stack to a single layer, ESP-NOW eliminates the need for complex packet headers and unpackers on each layer. This simplicity results in quicker response times, reducing delays caused by packet loss in congested networks.
+ESP-NOW operates primarily at the data-link layer of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). In contrast to traditional networking protocols that involve multiple layers, ESP-NOW condenses the communication stack, streamlining the process. By reducing the protocol stack to a single layer, ESP-NOW eliminates the need for complex [packet headers](https://www.cloudflare.com/en-gb/learning/network-layer/what-is-a-packet/) and unpackers on each layer. This simplicity results in quicker response times, reducing delays caused by packet loss in congested networks.
 
 ![TCP/IP and ESP-NOW Protocol Stack](./assets/protocol-stack.png)
 
