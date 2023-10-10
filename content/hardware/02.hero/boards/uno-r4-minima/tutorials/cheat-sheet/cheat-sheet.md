@@ -509,14 +509,14 @@ CanMsg const msg = CAN.read(); //read
 In case you need to flash the bootloader on the UNO R4 Minima, you can follow the steps below:
 
 **Step 1**
-Install the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core.
+Install the [UNO R4 Board Package](https://github.com/arduino/ArduinoCore-renesas) as described in the [Getting Started Guide](/tutorials/uno-r4-minima/minima-getting-started).
 
 **Step 2**
 Navigate to: "C:\Users\YourWindowsUserName\AppData\Local\Arduino15\packages\arduino\hardware\
 renesas\0.5.0\bootloaders\SANTIAGO"
 
 **Step 3**
-Identify the **dfu.exe**
+Identify the `dfu_minima.hex`
 
 **Step 4**
 Install the Renesas flash programmer ([download page](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui))
@@ -524,10 +524,12 @@ Install the Renesas flash programmer ([download page](https://www.renesas.com/us
 ***The Renesas flash programmer is currently only available on Windows.***
 
 **Step 5**
-To flash the bootloader:
-  - Select dfu.exe.
+Flash the bootloader using the Renesas programmer:
+  - Select `dfu_minima.hex`.
   - Connect your board.
   - Short the BOOT and GND pin found on the UNO R4 Minima.
   - Go to the Connect Settings tab.
   - Select the COM port in the Tool > select the port shown in the IDE.
   - Press start.
+
+***For more details check the `README.md` or the [GitHub page](https://github.com/arduino/ArduinoCore-renesas/tree/main/bootloaders/UNO_R4).***
