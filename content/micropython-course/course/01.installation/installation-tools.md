@@ -3,7 +3,7 @@ author: 'Jacob Hylen'
 hero_image: "./hero-banner.png"
 micropython_type: "101"
 featured: micropython-101
-title: '3. MicroPython Installation Guide'
+title: '2. MicroPython Installation Guide'
 description: 'Learn how to install a code editor needed to program your board with MicroPython.'
 ---
 
@@ -106,4 +106,4 @@ You can try **disconnecting** any other serial device such as other arduino boar
 
 Congratulations! You’ve completed the installation chapter of MicroPython 101.
 
-Having trouble? Continue to the troubleshooting section. Otherwise, move on to the [Next chapter](/micropython-course/course/python-cc).
+Having trouble? Continue to the troubleshooting section. Otherwise, move on to the [Next chapter](/micropython-course/course/digital).
