@@ -108,6 +108,8 @@ void loop(){
 }
 ```
 
+![Illustration of GIGA Display Shield accelerometer axis](assets/imu-axis.svg)
+
 ### Full Sketch
 
 Please note that the image that you want to use with the sketch needs to be in the same folder as the sketch for it to work. It should look like the image below:
