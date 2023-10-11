@@ -60,38 +60,39 @@ Max Carrier can be powered via external supply (6-36V) or battery via the onboar
 
 ### Carrier Architecture Overview
 
-![Portenta Max Carrier board overview](assets/architecture-v2.png)
+![Portenta Max Carrier board overview](assets/architecture-v3.png)
 
-The Portenta Hat Carrier consists of the following characteristics:
+Here is an overview of the board's architecture's main components shown in the image above:
 
 - **Compatible core**: The board is compatible with Portenta X8 (ABX00049), Portenta H7 (ABX00042/ABX00045/ABX00046), and Portenta C33 (ABX00074). The Portenta H7 and C33 are limited in camera support and the Ethernet speed to 100 Mbit.
   
-- **Power management**: The board can be powered up from different sources. The onboard screw terminal block allows 7 ~ 32V CC power supply to power the Portenta board and the carrier, and 5V power supply.
-  
-  The USB-C interface of the Portenta X8, H7, and C33 can supply the needed power to the board. Alternatively, the 5V pin from the 40-pin male header can be used to power the board. The carrier can deliver maximum current of 1.5 A.
+- **Power management**: The Portenta Max Carrier can either be powered through the power jack (6 ~ 36V DC) or a 18650 Li-ion/LiPo battery (3.7V) that can be used as backup power source if the external power supply fails.
 
-- **USB connectivity**: A USB-A female connector is used for data logging and the connection of external peripherals like keyboards, mice, hubs, and similar devices.
-  
-- **Communication**: The carrier supports Ethernet interface (X1) via RJ45 connector 1000 Base-T connected to High-Density pins (J1). If paired with Portenta H7 or C33, the maximum speed is limited to 100 Mbit Ethernet.
+The battery is charged while the minimum input voltage to the power jack is met.
 
-  The SPI (X1), I<sup>2</sup>C (x2), I<sup>2</sup>S (x1), and UART (x2) are accessible via a 40-pin male header connector. The I2C1 is already dedicated to the EEPROM memory but is accessible through a 40-pin male header connector on SCL2 and SDA2.
+- **USB connectivity**: The Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 that manages the 2 USB devices from the USB type A connector plus the LoRa® and PCIe modules. J15 is protected by a NCP383LMUAJAATXG (U7) power switch and current limiter.
+
+  A USB-A female connector is used for data logging and the connection of external peripherals like keyboards, mice, hubs, and similar devices.
   
-  The UARTs do not have flow control, and UART1 can be accessed via a 40-pin connector while UART2 can be accessed via a 16-pin connector. The **CAN** (x1) bus is available with an onboard transceiver. The **MIPI** camera is also available but only when the Portenta X8 is attached. Examples of compatible devices include the OmniVision OV5647 and the Sony IMX219 sensors.
-  
+- **Ethernet connectivity**: The Gigabit Ethernet physical interface (J17) is directly connected to the high density connector to the Portenta board. The connector includes an activity LED indication (orange) and speed indication (green). __Note:__ Gigabit Ethernet functionality is only supported on the Portenta X8.
+
+- **Serial Transceiver**: The Portenta Max Carrier includes a multi-protocol transceiver supporting RS-232, RS-485, and RS-422 serial standards (configurable) based on the SP335 IC. It is connected to a 6P6C Connector (RJ11, RJ12, RJ14, RJ25).
+
+- **CAN Transceiver**: The Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1049T/3J IC. It is connected to a 4P4C connector (RJ9, RJ10, RJ22).
+
+- **Mini PCIe**: The Portenta Max Carrier includes one female mini PCI Express card slot. The connector is right angled and the board includes 2 removable standoffs for external module support. The Max Carrier supports two different Mini PCIe sizes. Pins 8, 10, 12 and 14 are reserved for UIM (in this case SIM).
+__Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8. Full PCIe functionality not provided at this time.
+
+- **Cell Modem**: The SARA-R412M-02B is a multi-region modem capable of connecting to 2G/Cat-M1/NB-IoT networks worldwide. A dedicated SMA connector allows for an external antenna. The chip operates over the 1V8 power line. A microSIM slot is available, the corresponding SIM card slot for the cell modem is on the top side of the board, directly adjacent to the module.
+
+- **Audio**: The Portenta Max Carrier enables connections to analog audio channels. This is done through the low power CS42L52 stereo CODEC providing ADC/DAC between analog signals and the I2S protocol. An internal Class D amplifier eliminates the need for external audio amplification circuitry. 
+
+- **LoRa® Module**: The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the onboard Murata CMWX1ZZABZ-078 LoRa® transceiver module. This module operates on 3V3. A dedicated SMA connector allows for an external antenna. 
+
 - **Storage**: The board has a MicroSD card slot for data logging operation and bootloading operation from external memory.
-  
-- **Ethernet connectivity**: The carrier has Gigabit Ethernet connector (x1) on RJ45 with P/N TBC. If the carrier is paired with Portenta H7 or C33, the maximum speed is limited to 100 Mbit ethernet.
-  
-- **40-pin male header connector**: The connector allows for SPI (x1), I<sup>2</sup>S (x1), SAI (x1), 5V power pin (x2), 3V3 power pin (x2), I<sup>2</sup>C (x2), UART (x2), PWM pins (x7), GND (x8), and GPIO (X26). The I<sup>2</sup>C count includes the one that is dedicated to EEPROM. UARTs doest not have flow control. The GPIO pins are shared with different functionalities.
-  
-- **16-pin analog male header connector**: The connector allows analog I/O (x8), PWM (x2), LiCell (x1), GPIO (x1), 3V3 (x1), GND (x1), serial TX (x1), and serial RX (x1).
-  
-- **Screw terminal block**: The terminal block allows power supply line feed for the carrier and bus ports. It consists of VIN 7 ~ 32VDC (x1), VIN 5V (x1), CANH (x1), CANL (x1), and GND (x2).
-  
-- **Debug interface**: The carrier features onboard JTAG pins designated for the debug connector compatible to male headers.
-  
-- **PWM fan connector**: The board has onboard PWM fan connector (x1) compatible with 5V fan with PWM input for speed regulation.
-  
+
+- **Debug interface**: Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via microUSB. The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller. In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines. The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD
+   
 - **DIP switch**: The carrier has a DIP switch with two position and allows different profiles depending on the paired Portenta board. The DIP switch has ETH CENTER TAP and BTSEL switches.
   
   when paired with **Portenta X8**, the ETH CENTER TAP will control 1 Gbit Ethernet capacity, while the BTSEL will make the system boot from SD Card memory if turned on or from MMC memory if selected in off position.
