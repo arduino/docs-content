@@ -34,7 +34,7 @@ This user manual will provide a comprehensive overview of the Portenta Machine C
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino PLC IDE 1.0.3+](https://www.arduino.cc/en/software) (for IEC 61131-3 PLC programming languages)
 - [Arduino PLC IDE 1.0.3+ Tools](https://www.arduino.cc/en/software#arduino-plc-ide) 
-- [Arduino_MachineControl library](https://github.com/leonardocavagnis/Arduino_MachineControl/tree/lib_refactoring) enables efficient management of the Portenta Machine Control features.
+- [Arduino_MachineControl library](https://github.com/leonardocavagnis/Arduino_MachineControl/tree/lib_refactoring)
 
 ***To learn more about the PLC IDE, check out our tutorials [here](https://docs.arduino.cc/software/plc-ide).***
 
@@ -44,7 +44,7 @@ The Portenta Machine Control is designed for efficiency and adaptability in indu
 
 ![Portenta Machine Control board](assets/user-manual-1.png)
 
-This controller offers many connectivity options, from USB and Ethernet to Wi-Fi®/Bluetooth® Low Energy, as well as industry-specific protocols. It can also connect with various external sensors, actuators, and different Human Machine Interfaces (HMI), such as displays and touch panels, showcasing its adaptability. It's designed for harsh industrial operations with features like DIN bar compatible housing, compact size, and an integrated real-time clock. For real-time control or predictive maintenance tasks, the Portenta Machine Control is a solid choice for businesses aiming to enhance their production and equipment management processes.
+This controller offers many connectivity options, from USB and Ethernet to Wi-Fi®/Bluetooth® Low Energy, as well as industry-specific protocols. It can also connect with various external sensors, actuators, and different Human Machine Interfaces (HMI), such as displays and touch panels, showcasing its adaptability. It's designed for harsh industrial operations with features like DIN bar compatible housing, compact size, and an integrated Real Time Clock (RTC). For real-time control or predictive maintenance tasks, the Portenta Machine Control is a solid choice for businesses aiming to enhance their production and equipment management processes.
 
 ### Portenta Machine Control Main Components
 
@@ -57,13 +57,13 @@ Here's an overview of the controller's main components shown in the image above:
 - **Microcontroller**: At the heart of the Portenta Machine Control is the STM32H747XI, a powerful, robust, and high-performance dual-core microcontroller from STMicroelectronics®. This microcontroller is built around an Arm® Cortex®-M7 and an Arm® Cortex®-M4 32-bit RISC cores. The Arm® Cortex®-M7 core operates at up to 480 MHz, while the Arm® Cortex®-M4 core operates at up to 240 MHz.
 - **Memory and storage**: The Portenta Machine Control houses 2 MB of Flash Memory, 1 MB of RAM, and additional onboard memory of 8 MB SDRAM and 16 MB Flash QSPI.
 - **Security**: The controller features an onboard ready-to-use secure element from NXP®, the SE0502. This secure element, specifically designed for Internet of Things (IoT) devices, provides advanced security features, perfect for Industrial IoT (IIoT) environments where security is critical.
-- **Power management**: The controller's power system was designed to be resilient. It operates at an input voltage of +24 VDC, with reverse polarity protection, ensuring the controller remains safeguarded from power irregularities.
-- **Digital and analog ports**: Equipped with a versatile set of input and output channels, the Portenta Machine Control supports eight digital input channels, eight digital output channels, three software-configurable analog input channels, and four analog output channels. It is also equipped with 12 digital programmable input/output ports. 
+- **Power architecture**: The controller's power system was designed to be resilient. It operates at an input voltage of +24 VDC, with reverse polarity protection, ensuring the controller remains safeguarded from power irregularities.
+- **Digital and analog ports**: Equipped with a versatile set of input and output ports, the Portenta Machine Control supports eight digital input ports, eight digital output ports, three software-configurable analog input ports, and four analog output ports. It is also equipped with 12 digital programmable input/output ports. 
 - **Temperature sensing**: With three software-configurable temperature channels, the Portenta Machine Control can measure a variety of temperature ranges using thermocouples (Type K or Type J) or PT100 sensors.
 - **Communication interfaces**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers a high-speed CAN interface, software-configurable RS-232, RS-422, and RS-485 interfaces, and an I<sup>2</sup>C interface accessible via a Grove connector.
 - **Ethernet and USB**: The Portenta Machine Control features onboard Ethernet connectivity and full-speed USB-A and half-speed micro-USB Type B connectors for wired communication.
 - **Wireless connectivity**: The Portenta Machine Control supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® Low Energy (4.2 supported by firmware and 5.1 supported by hardware).
-- **Additional features**: The Portenta Machine Control features an onboard Real Time Clock (RTC) with at least 48 hours of memory retention and two encoder channels. Moreover, Electrostatic Discharge (ESD) protection on all inputs and output ports ensures the longevity and durability of the controller.
+- **Additional features**: The Portenta Machine Control features an onboard RTC with at least 48 hours of memory retention and two encoder channels. Moreover, Electrostatic Discharge (ESD) protection on all inputs and output ports ensures the longevity and durability of the controller.
 - **Form factor**: The Portenta Machine Control can be standalone on a DIN rail, a grid, or a panel, providing quick and easy access to all input/output ports and peripherals.
 
 ### Portenta Machine Control Core and Libraries
@@ -117,3 +117,137 @@ The complete datasheet is available and downloadable as PDF from the link below:
 The complete STEP files are available and downloadable from the link below:
 
 - [Portenta Machine Control STEP files](https://docs.arduino.cc/static/142bd938b340c767b9343451485aa5d2/AKX00032-step.zip)
+
+## First Use
+
+### Powering the Portenta Machine Control
+
+Portenta Machine Control can be powered in different ways:
+
+- Using an **external +24 VDC/0.5 A power supply** connected to Portenta's Machine Control power supply terminals. Please refer to the [pinout section](#pinout) of the user manual.
+- Using a **micro-USB cable** (not included) for programming purposes only.
+
+![Different ways to power a Portenta Machine Control](assets/user-manual-7.png)
+
+### Hello World Example
+
+Let's program the Portenta Machine Control with a modified version of the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the controller's connection to the Arduino IDE and that its core functionalities and the `Arduino_MachineControl` library are working as expected.
+
+Copy and paste the code below into a new sketch in the Arduino IDE.
+
+```arduino
+// Include the Arduino_MachineControl library
+#include <Arduino_MachineControl.h>
+
+void setup() {
+    // Initialize the digital outputs terminals of the Arduino_MachineControl library
+    MachineControl_DigitalOutputs.begin();
+}
+
+void loop() {
+    // Turn on the digital output at channel 0
+    MachineControl_DigitalOutputs.write(0, HIGH);
+    delay(1000);
+    // Turn off the digital output at channel 0
+    MachineControl_DigitalOutputs.write(0, LOW);
+    delay(1000);
+}
+```
+The sketch begins by including the `Arduino_MachineControl` library. The `setup()` function initializes the digital output terminals from this library. The `loop()` function, which continually runs after the `setup()` function is called, toggles a digital output at channel `0`.
+
+To upload the code to your Portenta Machine Control, click the **Verify** button to compile the sketch and check for errors; once verification is successful, click the **Upload** button to program the controller with the sketch.
+
+![Uploading a sketch to a Portenta Machine Control in the Arduino IDE](assets/user-manual-8.png)
+
+Upon successful upload, observe the red LED on top of your controller's digital output labeled `00`. It should turn on for one second, then off for one second, repeatedly.
+
+## Digital Outputs
+
+The Portenta Machine Control has up to eight digital output channels, as shown in the image below.
+
+![Portenta Machine Control digital output channels](assets/user-manual-9.png)
+
+Some of the key features of the digital output channels of the Portenta Machine Control are the following:
+
+- Digital outputs function as **high-side switches**, handling up to 0.5 A.
+- All digital output terminals have **overcurrent protection**. If the current exceeds 0.7 A (with a tolerance of ±20%), the channel opens to prevent damage.
+
+There are two modes of overcurrent protection in the digital outputs:
+
+1. **Latch mode**: When overcurrent is detected, the digital output channel remains open and can only be closed manually via software. 
+2. **Auto retry**: Upon detecting overcurrent, the channel opens. After a short duration (several tens of milliseconds), it attempts to close automatically. If the overcurrent condition persists in the channel, it will keep toggling.
+
+***The digital output channels are connected to an external +24 VDC power supply through high-side switches, independent of the controller's +24 VDC power supply. Ensure each channel does not exceed a maximum current of 500 mA to avoid potential damage or malfunctions in the digital output channels.***
+
+The sketch below showcases a "scanning" effect using the digital output channels of the Portenta Machine Control. It sequentially activates each channel in sequence from the first to the last and then in the opposite direction. As each channel is activated, feedback is provided in the Arduino IDE's Serial Monitor, indicating the active channel at each step.
+
+```arduino
+/*
+  Portenta Machine Control's Digital Outputs 
+  Name: portenta_machine_control_digital_outputs_example.ino
+  Purpose: This sketch demonstrates a "scanning" effect using 
+  the digital output channels of the Portenta Machine Control.
+
+  @author Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+
+#include <Arduino_MachineControl.h>
+
+// Initialize the digital outputs and serial communication.
+void setup() {
+  Serial.begin(9600);
+
+  // Set overcurrent behavior of all channels to latch mode (true)
+  MachineControl_DigitalOutputs.begin(true);
+
+  // At startup, set all channels to open state (OFF)
+  MachineControl_DigitalOutputs.writeAll(0);
+}
+
+void loop() {
+  // Create the "scanning" effect moving forward
+  for (int i = 0; i < 8; i++) {
+    toggleChannel(i);
+
+    // Turn off the previous channel to maintain the "scanning" effect
+    if (i < 7) {
+      MachineControl_DigitalOutputs.write(i - 1, LOW);
+    }
+  }
+
+  // Create the "scanning" effect moving backward
+  for (int i = 6; i >= 0; i--) {
+    toggleChannel(i);
+
+    // Turn off the next channel to maintain the "scanning" effect
+    if (i < 7) {  
+      MachineControl_DigitalOutputs.write(i + 1, LOW);
+    }
+  }
+}
+
+/**
+  Toggles a specific digital output channel, creating part of the "scanning" effect.
+  
+  @param channel (int)
+*/
+void toggleChannel(int channel) {
+  // Activate the digital output channel
+  MachineControl_DigitalOutputs.write(channel, HIGH); 
+  Serial.println("- CH" + String(channel) + ": ON");
+  // Delay to keep the channel activated, making the effect visible
+  delay(200);
+
+  // Deactivate the digital output channel
+  MachineControl_DigitalOutputs.write(channel, LOW);
+  // Delay to make the transition between channels smoother
+  delay(200);
+}
+```
+Notice that the sketch shown above utilizes the following functions from the `Arduino_MachineControl` library:
+
+- `MachineControl_DigitalOutputs.begin(true)`: This function initializes the digital outputs channels with overcurrent behavior set to **latch mode**, meaning that upon overcurrent detection, channels remain open until manually toggled in software.
+- `MachineControl_DigitalOutputs.writeAll(0)`: This function initially sets all digital output channels to an open state (off).
+- `MachineControl_DigitalOutputs.write(channel, HIGH/LOW)`: This function controls individual channel states, turning them either on (`HIGH`) or off (`LOW`). In the example sketch, this function creates the "scanning" effect by activating one channel at a time.
