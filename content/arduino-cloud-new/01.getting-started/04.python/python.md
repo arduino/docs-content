@@ -4,6 +4,7 @@ description: 'Learn how to use the Python library to connect to the Arduino IoT 
 tags: 
   - IoT
   - Python
+  - Arduino Cloud
 author: 'Karl Söderby'
 libraries: 
   - name: Arduino IoT Cloud Python
@@ -64,7 +65,7 @@ You should now have **two variables**, `test_switch` and `test_value`. It is imp
 
 ## Python Setup
 
-Before we begin, make sure you have a version of [Python](https://www.python.org/downloads/) installed. You can check this by opening a terminal and running:
+Before continuing, make sure you have a version of [Python](https://www.python.org/downloads/) installed. You can check this by opening a terminal and running:
 
 ```
 python --version
