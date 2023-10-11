@@ -33,7 +33,25 @@ Unlike its predecessor, Bluetooth Classic, which is optimized for continuous and
 
 The aim of this article is to highlight the basic concepts of Bluetooth Low Energy and explain how to use the ArduinoBLE library to create Bluetooth LE projects with compatible Arduino boards.
 
+## Overview
+
+The following section provides an overview of the article. If you want to skip to one particular section simply click the respective link.
+
+- [History](#history) - Where does Bluetooth have its name from?
+- [Frequency](#frequency-bands-and-range) - What frequency does Bluetooth LE operate on?
+- [Range](#range) - How far does Bluetooth LE's signal reach?
+- [Central / Peripheral Devices](#central--peripheral-devices) - How do you set up your device?
+- [Advertising / Connection Mode](#advertising--connection-mode) - What different modes are there?
+- [Services and Characteristics](#services-and-characteristics) - How do you advertise information?
+- [Bluetooth Classic](#bluetooth-classic) - How does Bluetooth LE compare to Bluetooth Classic?
+- [ArduinoBLE Library](#arduinoble-library) - Get quick overview of the ArduinoBLE library
+- [Examples](#examples) - Try different examples using the ArduinoBLE library
+
+
+
 ***To follow along this article you need a compatible board and the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/)***
+
+## History
 
 ### Harald Blåtand
 
@@ -49,7 +67,7 @@ The following parts explore the core concepts and technical specifications of Bl
 
 Bluetooth Low Energy operates in the 2.4 GHz ISM (Industrial, Scientific, and Medical) band, which is commonly used for various wireless technologies. This frequency band is divided into multiple channels that Bluetooth LE devices use for communication.
 
-### Typical Bluetooth Low Energy Range
+### Range
 
 The range of a Bluetooth LE connection can vary depending on several factors, but in typical scenarios, it can extend up to approximately 50 meters (or roughly 164 feet) in a line-of-sight environment. This range can be affected by several factors:
 
@@ -139,96 +157,116 @@ Using Bluetooth LE profiles, developers can leverage standardized profiles for c
 
 As you explore Bluetooth LE further, you'll discover a wide range of profiles designed to support various use cases. These profiles play a crucial role in ensuring that Bluetooth LE devices can seamlessly communicate and provide valuable data to central devices.
 
-## Bluetooth Classic
+### Bluetooth Classic
 
 Bluetooth Low Energy is distinctively different from Bluetooth Classic. Bluetooth Classic operates in a manner similar to a serial port or UART (Universal Asynchronous Receiver-Transmitter), which is commonly used for point-to-point communication.
 
 Some key differences are:
 
-### Power Consumption
+**Power Consumption**
 
--	**Bluetooth Classic**: is designed for continuous, relatively high-data-rate communication. As a result, it consumes more power, making it less suitable for battery-operated devices with limited power sources.
+-	Bluetooth Classic: is designed for continuous, relatively high-data-rate communication. As a result, it consumes more power, making it less suitable for battery-operated devices with limited power sources.
 
--	**Bluetooth Low Energy**: is optimized for energy efficiency. It is specifically designed for applications where power consumption is a critical consideration, such as fitness trackers, IoT sensors, and wearable devices. BLE devices can operate for extended periods on small batteries or even energy harvesting solutions.
+-	Bluetooth Low Energy: is optimized for energy efficiency. It is specifically designed for applications where power consumption is a critical consideration, such as fitness trackers, IoT sensors, and wearable devices. BLE devices can operate for extended periods on small batteries or even energy harvesting solutions.
 
-### Data Transfer Rates
+**Data Transfer Rates**
 
--	**Bluetooth Classic**: offers higher data transfer rates suitable for tasks like streaming audio or transferring files between devices.
+-	Bluetooth Classic: offers higher data transfer rates suitable for tasks like streaming audio or transferring files between devices.
 
--	**Bluetooth Low Energy**: sacrifices data transfer speed in favor of energy efficiency. It's ideal for applications that require intermittent or small bursts of data, such as sending sensor readings or control commands.
+-	Bluetooth Low Energy: sacrifices data transfer speed in favor of energy efficiency. It's ideal for applications that require intermittent or small bursts of data, such as sending sensor readings or control commands.
 
-### Connection Types
+**Connection Types**
 
--	**Bluetooth Classic**: establishes a continuous and relatively power-hungry connection, making it suitable for applications requiring real-time, continuous communication.
+-	Bluetooth Classic: establishes a continuous and relatively power-hungry connection, making it suitable for applications requiring real-time, continuous communication.
 
--	**Bluetooth Low Energy**: supports two primary modes - advertising and connection. In advertising mode, a BLE peripheral periodically broadcasts its presence but doesn't maintain a continuous connection, conserving power. When needed, a central device can establish a connection for data exchange.
+-	Bluetooth Low Energy: supports two primary modes - advertising and connection. In advertising mode, a BLE peripheral periodically broadcasts its presence but doesn't maintain a continuous connection, conserving power. When needed, a central device can establish a connection for data exchange.
 
 
 ## ArduinoBLE Library
 
-To enable Bluetooth LE on your Arduino board you must first download and install the ArduinoBLE library. See our [instructions](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library) on how to install a library. Arduino boards can act as central and peripheral devices. You need to adapt the code according to the steps shown below:
+The [ArduinoBLE Library](https://www.arduino.cc/reference/en/libraries/arduinoble/) is the main library enabling Bluetooth Low Energy on compatible Arduino boards. You must first download and install the ArduinoBLE library. See our [instructions](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library) on how to install a library. 
 
-**Initialize ArduinoBLE**
+In the following section you will find an overview and explanation of the librarie's most important methods and how to use them:
 
-To use the ArduinoBLE library you must include it at the top of your code like so:
+- `BLE.begin()` - Initialize the library
+
+### Central Device
+
+- `BLE.scan()` - Scan for peripherals
+
+- `BLE.available()` - Check for available peripherals
+
+- `BLE.scanForUuid("UUID")` - Start scanning for peripherals with specific UUID
+
+- `bleDevice.address()` - Check the peripheral's address
+
+- `bleDevice.localName()` - Check the peripheral's name
+
+- `bleDevice.advertisedServiceUuid()` - Check the peripheral's advertised service
+
+- `bleDevice.connect()` - Connect to a Bluetooth Low Energy device.
+
+- `BLE.connected()` - Check if connection was successful
+
+- `bleDevice.discoverAttributes()` - Discover a peripheral's attributes
+
+- `BLE.stopScan()` - Stop scanning
+
+- `BLE.disconnect()` - Disconnect from a peripheral
+
+### Peripheral
+
+- `BLE.setLocalName(name)` - Give your device a name
+
+- `BLEService newService(service)` - Create a service object
+
+> Read more about standard services in the [Assigned Numbers document](https://www.bluetooth.com/specifications/assigned-numbers/).
+
+- `BLEUnsignedCharCharacteristic customCharacteristic("UUID_here", Properties_here);` - Create characteristic object
+
+- `BLE.setAdvertisedService(bleService)` - Set the advertised service
+
+- `bleService.addCharacteristic(bleCharacteristic)` - Add characteristics to the service
+
+- `bleCharacteristic.writeValue()` - Write the value of the characteristic
+
+- `BLE.advertise()` - Start advertising
+
+***These are just a few of the most important methods. You can find more information about all methods and their details in the [ArduinoBLE reference](https://www.arduino.cc/reference/en/libraries/arduinoble/).***
+
+## Examples
+
+Below you can find examples showing how to send data between two Arduino boards and how to connect to your Arduino board, reading and writing values using your smartphone.
+
+### Send data between two Arduino boards
+
+**Central**
+
+  This example scans for Bluetooth Low Energy peripherals with a specific UUID (in this case another Arduino board), connects to it, and lets you control the built-in LED with a button connected to pin 4.
+
 ```arduino
 #include <ArduinoBLE.h>
-```
 
-### Arduino as Central Device
+// variables for button
+const int buttonPin = 4;
+int oldButtonState = LOW;
 
-The following steps show how to set up your Arduino board as central device.
-
-#### Initialize the BLE Library
-
-To set up your board as central device you begin by initializing the BLE library using `BLE.begin()` inside `setup()`. Make sure to check if the initialization was successful.
-
-```arduino
 void setup() {
-  if (!BLE.begin()) {
-    Serial.println("Failed to initialize BLE!");
-    while (1);
-  }
+  Serial.begin(9600);
+  while (!Serial);
+
+  // configure the button pin as input
+  pinMode(buttonPin, INPUT);
+
+  // initialize the Bluetooth® Low Energy hardware
+  BLE.begin();
+
+  Serial.println("Bluetooth® Low Energy Central - LED control");
+
+  // start scanning for peripherals
+  BLE.scanForUuid("19b10000-e8f2-537e-4f6c-d104768a1214");
 }
-```
 
-#### Start Scanning
-
-Start scanning for peripheral Devices by calling `BLE.scan()` inside `setup()`:
-
-```arduino
-BLE.scan();
-```
-
-#### Print Peripheral Devices
-
-If a peripheral is found print its `address`, `name`, and `advertised service`.
-
-```arduino
-void loop() {
-  // check if a peripheral has been discovered
-  BLEDevice peripheral = BLE.available();
-
-  if (peripheral) {
-    // discovered a peripheral, print out address, local name, and advertised service
-    Serial.print("Found ");
-    Serial.print(peripheral.address());
-    Serial.print(" '");
-    Serial.print(peripheral.localName());
-    Serial.print("' ");
-    Serial.print(peripheral.advertisedServiceUuid());
-    Serial.println();
-  }
-}
-```
-
-#### Connect to Peripheral
-
-If you know which peripheral to connect to, specify the name and connect to that device by executing `explorerPeripheral()` if the condition for the correct name is met:
-
-Connect to a specific peripheral by specifying the peripheral's name and execute `explorerPeripheral()` if the condition for the correct name is met:
-
-```arduino
 void loop() {
   // check if a peripheral has been discovered
   BLEDevice peripheral = BLE.available();
@@ -243,30 +281,21 @@ void loop() {
     Serial.print(peripheral.advertisedServiceUuid());
     Serial.println();
 
-    // check for peripheral's name
-    if (peripheral.localName() == "<PERIPHERAL_NAME>") {
-      // stop scanning
-      BLE.stopScan();
-
-      explorerPeripheral(peripheral);
-
-      // peripheral disconnected, we are done
-      while (1) {
-        // do nothing
-      }
+    if (peripheral.localName() != "LED") {
+      return;
     }
+
+    // stop scanning
+    BLE.stopScan();
+
+    controlLed(peripheral);
+
+    // peripheral disconnected, start scanning again
+    BLE.scanForUuid("19b10000-e8f2-537e-4f6c-d104768a1214");
   }
 }
-```
 
-***The peripheral.connect() function calls several inner functions. They are explained below:***
-
-**explorerPeripheral()**
-
-The `explorerPeripheral()`function responsible for exploring the attributes of a Bluetooth Low Energy peripheral device after it has been successfully connected. It gathers information about the device's services, characteristics, descriptors, and other details that are advertised by the peripheral.
-
-```arduino
-void explorerPeripheral(BLEDevice peripheral) {
+void controlLed(BLEDevice peripheral) {
   // connect to the peripheral
   Serial.println("Connecting ...");
 
@@ -287,94 +316,67 @@ void explorerPeripheral(BLEDevice peripheral) {
     return;
   }
 
-  // read and print device name of peripheral
-  Serial.println();
-  Serial.print("Device name: ");
-  Serial.println(peripheral.deviceName());
-  Serial.print("Appearance: 0x");
-  Serial.println(peripheral.appearance(), HEX);
-  Serial.println();
+  // retrieve the LED characteristic
+  BLECharacteristic ledCharacteristic = peripheral.characteristic("19b10001-e8f2-537e-4f6c-d104768a1214");
 
-  // loop the services of the peripheral and explore each
-  for (int i = 0; i < peripheral.serviceCount(); i++) {
-    BLEService service = peripheral.service(i);
-
-    exploreService(service);
+  if (!ledCharacteristic) {
+    Serial.println("Peripheral does not have LED characteristic!");
+    peripheral.disconnect();
+    return;
+  } else if (!ledCharacteristic.canWrite()) {
+    Serial.println("Peripheral does not have a writable LED characteristic!");
+    peripheral.disconnect();
+    return;
   }
 
-  Serial.println();
+  while (peripheral.connected()) {
+    // while the peripheral is connected
 
-  // we are done exploring, disconnect
-  Serial.println("Disconnecting ...");
-  peripheral.disconnect();
-  Serial.println("Disconnected");
-}
-```
+    // read the button pin
+    int buttonState = digitalRead(buttonPin);
 
-**exploreCharacteristic()**
+    if (oldButtonState != buttonState) {
+      // button changed
+      oldButtonState = buttonState;
 
-The `exploreCharacteristic()` function is responsible for examining the characteristics of the Bluetooth LE service and printing their information. It iterates through the characteristics of a service and, for each characteristic, prints its UUID, properties, and value (if readable).
+      if (buttonState) {
+        Serial.println("button pressed");
 
-```arduino
-void exploreService(BLEService service) {
-  // print the UUID of the service
-  Serial.print("Service ");
-  Serial.println(service.uuid());
+        // button is pressed, write 0x01 to turn the LED on
+        ledCharacteristic.writeValue((byte)0x01);
+      } else {
+        Serial.println("button released");
 
-  // loop the characteristics of the service and explore each
-  for (int i = 0; i < service.characteristicCount(); i++) {
-    BLECharacteristic characteristic = service.characteristic(i);
-
-    exploreCharacteristic(characteristic);
-  }
-}
-```
-
-**exploreDescriptor()**
-
-```arduino
-void exploreDescriptor(BLEDescriptor descriptor) {
-  // print the UUID of the descriptor
-  Serial.print("\t\tDescriptor ");
-  Serial.print(descriptor.uuid());
-
-  // read the descriptor value
-  descriptor.read();
-
-  // print out the value of the descriptor
-  Serial.print(", value 0x");
-  printData(descriptor.value(), descriptor.valueLength());
-
-  Serial.println();
-}
-```
-
-**printData()**
-
-The `printData()` function is a utility function used to print out binary data in hexadecimal format. It takes as input an array of bytes (data) and the length of the data (length) and prints each byte in hexadecimal format.
-
-```arduino
-void printData(const unsigned char data[], int length) {
-  for (int i = 0; i < length; i++) {
-    unsigned char b = data[i];
-
-    if (b < 16) {
-      Serial.print("0");
+        // button is released, write 0x00 to turn the LED off
+        ledCharacteristic.writeValue((byte)0x00);
+      }
     }
-
-    Serial.print(b, HEX);
   }
+
+  Serial.println("Peripheral disconnected");
 }
 ```
 
-#### Complete Code
+**Peripheral**
+
+This example is the corresponding sketch to the one above, setting up your Arduino board as peripheral with the correct UUID, advertising a built-in LED characteristic.
 
 ```arduino
 #include <ArduinoBLE.h>
 
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth® Low Energy LED Service
+
+// Bluetooth® Low Energy LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+BLEByteCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
+
+const int ledPin = LED_BUILTIN; // pin to use for the LED
+
 void setup() {
   Serial.begin(9600);
   while (!Serial);
+
+  // set LED pin to output mode
+  pinMode(ledPin, OUTPUT);
 
   // begin initialization
   if (!BLE.begin()) {
@@ -383,346 +385,70 @@ void setup() {
     while (1);
   }
 
-  Serial.println("Bluetooth® Low Energy Central - Peripheral Explorer");
+  // set advertised local name and service UUID:
+  BLE.setLocalName("LED");
+  BLE.setAdvertisedService(ledService);
 
-  // start scanning for peripherals
-  BLE.scan();
+  // add the characteristic to the service
+  ledService.addCharacteristic(switchCharacteristic);
+
+  // add service
+  BLE.addService(ledService);
+
+  // set the initial value for the characeristic:
+  switchCharacteristic.writeValue(0);
+
+  // start advertising
+  BLE.advertise();
+
+  Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // check if a peripheral has been discovered
-  BLEDevice peripheral = BLE.available();
+  // listen for Bluetooth® Low Energy peripherals to connect:
+  BLEDevice central = BLE.central();
 
-  if (peripheral) {
-    // discovered a peripheral, print out address, local name, and advertised service
-    Serial.print("Found ");
-    Serial.print(peripheral.address());
-    Serial.print(" '");
-    Serial.print(peripheral.localName());
-    Serial.print("' ");
-    Serial.print(peripheral.advertisedServiceUuid());
-    Serial.println();
-
-    // check for peripheral's name
-    if (peripheral.localName() == "<PERIPHERAL_NAME>") {
-      // stop scanning
-      BLE.stopScan();
-
-      explorerPeripheral(peripheral);
-
-      // peripheral disconnected, we are done
-      while (1) {
-        // do nothing
-      }
-    }
-  }
-}
-
-void explorerPeripheral(BLEDevice peripheral) {
-  // connect to the peripheral
-  Serial.println("Connecting ...");
-
-  if (peripheral.connect()) {
-    Serial.println("Connected");
-  } else {
-    Serial.println("Failed to connect!");
-    return;
-  }
-
-  // discover peripheral attributes
-  Serial.println("Discovering attributes ...");
-  if (peripheral.discoverAttributes()) {
-    Serial.println("Attributes discovered");
-  } else {
-    Serial.println("Attribute discovery failed!");
-    peripheral.disconnect();
-    return;
-  }
-
-  // read and print device name of peripheral
-  Serial.println();
-  Serial.print("Device name: ");
-  Serial.println(peripheral.deviceName());
-  Serial.print("Appearance: 0x");
-  Serial.println(peripheral.appearance(), HEX);
-  Serial.println();
-
-  // loop the services of the peripheral and explore each
-  for (int i = 0; i < peripheral.serviceCount(); i++) {
-    BLEService service = peripheral.service(i);
-
-    exploreService(service);
-  }
-
-  Serial.println();
-
-  // we are done exploring, disconnect
-  Serial.println("Disconnecting ...");
-  peripheral.disconnect();
-  Serial.println("Disconnected");
-}
-
-void exploreService(BLEService service) {
-  // print the UUID of the service
-  Serial.print("Service ");
-  Serial.println(service.uuid());
-
-  // loop the characteristics of the service and explore each
-  for (int i = 0; i < service.characteristicCount(); i++) {
-    BLECharacteristic characteristic = service.characteristic(i);
-
-    exploreCharacteristic(characteristic);
-  }
-}
-
-void exploreCharacteristic(BLECharacteristic characteristic) {
-  // print the UUID and properties of the characteristic
-  Serial.print("\tCharacteristic ");
-  Serial.print(characteristic.uuid());
-  Serial.print(", properties 0x");
-  Serial.print(characteristic.properties(), HEX);
-
-  // check if the characteristic is readable
-  if (characteristic.canRead()) {
-    // read the characteristic value
-    characteristic.read();
-
-    if (characteristic.valueLength() > 0) {
-      // print out the value of the characteristic
-      Serial.print(", value 0x");
-      printData(characteristic.value(), characteristic.valueLength());
-    }
-  }
-  Serial.println();
-
-  // loop the descriptors of the characteristic and explore each
-  for (int i = 0; i < characteristic.descriptorCount(); i++) {
-    BLEDescriptor descriptor = characteristic.descriptor(i);
-
-    exploreDescriptor(descriptor);
-  }
-}
-
-void exploreDescriptor(BLEDescriptor descriptor) {
-  // print the UUID of the descriptor
-  Serial.print("\t\tDescriptor ");
-  Serial.print(descriptor.uuid());
-
-  // read the descriptor value
-  descriptor.read();
-
-  // print out the value of the descriptor
-  Serial.print(", value 0x");
-  printData(descriptor.value(), descriptor.valueLength());
-
-  Serial.println();
-}
-
-void printData(const unsigned char data[], int length) {
-  for (int i = 0; i < length; i++) {
-    unsigned char b = data[i];
-
-    if (b < 16) {
-      Serial.print("0");
-    }
-
-    Serial.print(b, HEX);
-  }
-}
-```
-
-### Arduino as Peripheral
-
-The following steps show how to set up your Arduino board as peripheral.
-
-#### Initialize the BLE Library
-
-To set up your board as central device you begin by initializing the BLE library using `BLE.begin()` inside `setup()`. Make sure to check if the initialization was successful.
-
-```arduino
-void setup() {
-  Serial.begin(9600);
-  if (!BLE.begin()) {
-    Serial.println("Failed to initialize BLE!");
-    while (1);
-  }
-}
-```
-
-#### Name your Board
-
-To recognize your device give it a unique name by adding this line to your `setup()`:
-
-```arduino
-  BLE.setLocalName("Arduino Board");
-```
-
-#### Create Services
-
-To create a new service (using the UUID for "Device Information service") add this line **above** `setup()`:
-
-```arduino
-BLEService newService("180A");
-```
-
-Read more about standard services in the [Assigned Numbers document](https://www.bluetooth.com/specifications/assigned-numbers/).
-
-#### Create Characteristics
-
-Depending on your needs you can create different `BLECharacteristic`.
-
-For creating an **analog value** characteristics write:
-
-```arduino
-BLEUnsignedCharCharacteristic analogReading("2A58", BLERead | BLENotify);
-```
-
-For creating a **digital value** characteristics write:
-
-```arduino
-BLEByteCharacteristic digitalReading("2A57", BLERead | BLEWrite);
-```
-
-You can see the full list of available characteristics [here](https://reference.arduino.cc/reference/en/libraries/arduinoble/blecharacteristic/).
-
-#### Set the Advertised Service
-
-To ensure that central devices can correctly identify and discover your peripheral's service, you should set the advertised service by calling `BLE.setAdvertisedService()` inside `setup()`:
-
-```arduino
-BLE.setAdvertisedService(newService);
-```
-
-#### Add Characteristics to the Service
-
-Next, you need to add the characteristics created in the previous step to the service also created previously calling `newService.addCharacteristic()` inside `setup()`:
-
-```arduino
-newService.addCharacteristic(digitalReading);
-newService.addCharacteristic(analogReading);
-```
-
-#### Set Initial Values for Characteristics
-
-You can set initial values for your characteristics, which will be sent to central devices when they connect to your peripheral. Add these lines inside `setup()`:
-
-```arduino
-digitalReading.writeValue(0);
-analogReading.writeValue(0);
-```
-
-#### Start Advertising
-
-Once you've configured your peripheral device with services and characteristics, it's time to start advertising these services to allow central devices to discover your Arduino. In your code, you've initiated advertising using `BLE.advertise()` inside `setup()`:
-
-```arduino
-BLE.advertise();
-Serial.println(" Bluetooth® device active, waiting for connections...");
-```
-
-#### Set Board as Central
-
-Inside `loop()` start looking for connections by setting the board as `central`:
-
-```arduino
-BLEDevice central = BLE.central();
-```
-
-#### Establish Connection
-
-Next, add a conditional `if statement` and check if the board is connected. If so print the connection details and turn on the `BUILTIN LED` to signal a connection. Continue to check analog values `while (central.connected()` every 200ms.
-
-```arduino
+  // if a central is connected to peripheral:
   if (central) {
     Serial.print("Connected to central: ");
-
-    // print the central's address
-    Serial.println(central.address()); 
-    
-    // turn on the LED to indicate the connection
-    digitalWrite(LED_BUILTIN, HIGH); 
-  }
-```
-
-#### Read Analog Signals
-
-Inside the conditional statement perform an `analogRead()` as usual and write the value to the analog characteristic by using `analogReading.writeValue(analogValue)`. If the board disconnects the `BUILTIN LED` is turned off. 
-
-```arduino
-  if (central) {
-    Serial.print("Connected to central: ");
-    
-    // print the central's address
+    // print the central's MAC address:
     Serial.println(central.address());
-    
-    // turn on the LED to indicate the connection
-    digitalWrite(LED_BUILTIN, HIGH); 
 
-    // while the central is connected:
+    // while the central is still connected to peripheral:
     while (central.connected()) {
-      long currentMillis = millis();
-      
-      //Check values every 200ms
-      if (currentMillis - previousMillis >= 200) { 
-        previousMillis = currentMillis;
-
-        //Read analog value and write it to the characteristic
-        int analogValue = analogRead(A1);
-        analogReading.writeValue(analogValue);
+      // if the remote device wrote to the characteristic,
+      // use the value to control the LED:
+      if (switchCharacteristic.written()) {
+        if (switchCharacteristic.value()) {   // any value other than 0
+          Serial.println("LED on");
+          digitalWrite(ledPin, HIGH);         // will turn the LED on
+        } else {                              // a 0 value
+          Serial.println(F("LED off"));
+          digitalWrite(ledPin, LOW);          // will turn the LED off
         }
       }
-    
-    //Turn off LED when disconnecting
-    digitalWrite(LED_BUILTIN, LOW);
-    Serial.print("Disconnected from central: ");
+    }
+
+    // when the central disconnects, print it out:
+    Serial.print(F("Disconnected from central: "));
     Serial.println(central.address());
   }
+}
 ```
 
-#### Read Digital Signals
+### Control you Arduino with a Smartphone
 
-The steps for reading a digital and analog signals are almost identical, but instead perform a `digitalRead()` and write the digital characteristic by using `digitalReading.writeValue(digitalValue)`.
+This example lets you control the built-in LED on your Arduino board with your smartphone. We recommend using the LightBlue app available for [Android](https://play.google.com/store/apps/details?id=com.punchthrough.lightblueexplorer&hl=en&pli=1) and [iOS ](https://apps.apple.com/us/app/lightblue/id557428110) for connecting to your board. Once installed upload the code and follow the steps as shown in the image below.
 
-```arduino
-  if (central) {
-    Serial.print("Connected to central: ");
-    
-    // print the central's address
-    Serial.println(central.address());
-    
-    // turn on the LED to indicate the connection
-    digitalWrite(LED_BUILTIN, HIGH); 
-
-    // while the central is connected:
-    while (central.connected()) {
-      long currentMillis = millis();
-      
-      //Check values every 200ms
-      if (currentMillis - previousMillis >= 200) { 
-        previousMillis = currentMillis;
-
-        //Read digital value and write it to the characteristic
-        int digitalValue = digitalRead(2);
-        digitalReading.writeValue(digitalValue);
-        }
-      }
-    
-    //Turn off LED when disconnecting
-    digitalWrite(LED_BUILTIN, LOW); // 
-    Serial.print("Disconnected from central: ");
-    Serial.println(central.address());
-  }
-```
-
-#### Complete Code
-
+**Step 1 - Upload Code**
 ```arduino
 #include <ArduinoBLE.h>
 BLEService newService("180A"); // creating the service
 
-BLEUnsignedCharCharacteristic analogReading("2A58", BLERead | BLENotify); // creating the analog characteristic
-BLEByteCharacteristic digitalReading("2A57", BLERead | BLEWrite); // creating the digital characteristic
+BLEUnsignedCharCharacteristic randomReading("2A58", BLERead | BLENotify); // creating the Analog Value characteristic
+BLEByteCharacteristic switchChar("2A57", BLERead | BLEWrite); // creating the LED characteristic
 
+const int ledPin = 2;
 long previousMillis = 0;
 
 
@@ -731,7 +457,8 @@ void setup() {
   while (!Serial);       //starts the program if we open the serial monitor.
 
   pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
-  
+  pinMode(ledPin, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
+
   //initialize ArduinoBLE library
   if (!BLE.begin()) {
     Serial.println("starting Bluetooth® Low Energy failed!");
@@ -741,94 +468,13 @@ void setup() {
   BLE.setLocalName("MKR WiFi 1010"); //Setting a name that will appear when scanning for Bluetooth® devices
   BLE.setAdvertisedService(newService);
 
-  newService.addCharacteristic(digitalReading); //add characteristics to a service
-  newService.addCharacteristic(analogReading);
+  newService.addCharacteristic(switchChar); //add characteristics to a service
+  newService.addCharacteristic(randomReading);
 
   BLE.addService(newService);  // adding the service
 
-  digitalReading.writeValue(0); //set initial value for characteristics
-  analogReading.writeValue(0);
-
-  BLE.advertise(); //start advertising the service
-  Serial.println(" Bluetooth® device active, waiting for connections...");
-}
-
-void loop() {
-  
-  BLEDevice central = BLE.central(); // wait for a Bluetooth® Low Energy central
-
-  if (central) {  // if a central is connected to the peripheral
-    Serial.print("Connected to central: ");
-    
-    Serial.println(central.address()); // print the central's address
-    
-    digitalWrite(LED_BUILTIN, HIGH); // turn on the LED to indicate the connection
-
-    // check the battery level every 200ms
-    // while the central is connected:
-    while (central.connected()) {
-      long currentMillis = millis();
-      
-      if (currentMillis - previousMillis >= 200) { //Check values every 200ms
-        previousMillis = currentMillis;
-
-        int analogValue = analogRead(A1);
-        analogReading.writeValue(analogValue);
-
-        int digitalValue = digitalRead(2);
-        digitalReading.writeValue(digitalValue);
-
-      }
-    }
-    
-    digitalWrite(LED_BUILTIN, LOW); // when the central disconnects, turn off the LED
-    Serial.print("Disconnected from central: ");
-    Serial.println(central.address());
-  }
-}
-```
-
-## Example
-
-By now you should have a good understanding of how Bluetooth LE works and how you can use it together with your Arduino board. Below you will find an example showing how to use your smartphone to read analog values and send digital data to your Arduino board.
-
-### Send / Read data using your smartphone
-
-To access the Arduino board we are using an app called LightBlue, which is available for [Android](https://play.google.com/store/apps/details?id=com.punchthrough.lightblueexplorer&hl=en&pli=1) and [iOS](https://apps.apple.com/us/app/lightblue/id557428110).
-
-Upload the following code:
-
-```arduino
-#include <ArduinoBLE.h>
-BLEService newService("180A"); // creating the service
-
-BLEUnsignedCharCharacteristic analogReading("2A58", BLERead | BLENotify); // creating the analog characteristic
-BLEByteCharacteristic digitalReading("2A57", BLERead | BLEWrite); // creating the digital characteristic
-
-long previousMillis = 0;
-
-void setup() {
-  Serial.begin(9600);    // initialize serial communication
-  while (!Serial);       //starts the program if we open the serial monitor.
-
-  pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
-
-  //initialize ArduinoBLE library
-  if (!BLE.begin()) {
-    Serial.println("starting Bluetooth® Low Energy failed!");
-    while (1);
-  }
-
-  BLE.setLocalName("Arduino Board"); //Setting a name that will appear when scanning for Bluetooth® devices
-  BLE.setAdvertisedService(newService);
-
-  newService.addCharacteristic(digitalReading); //add characteristics to a service
-  newService.addCharacteristic(analogReading);
-
-  BLE.addService(newService);  // adding the service
-
-  digitalReading.writeValue(0); //set initial value for characteristics
-  analogReading.writeValue(0);
+  switchChar.writeValue(0); //set initial value for characteristics
+  randomReading.writeValue(0);
 
   BLE.advertise(); //start advertising the service
   Serial.println(" Bluetooth® device active, waiting for connections...");
@@ -853,16 +499,16 @@ void loop() {
       if (currentMillis - previousMillis >= 200) { // if 200ms have passed, we check the battery level
         previousMillis = currentMillis;
 
-        int analogValue = analogRead(A1);
-        analogReading.writeValue(analogValue);
+        int randomValue = analogRead(A1);
+        randomReading.writeValue(randomValue);
 
-        if (digitalReading.written()) {
-          if (digitalReading.value()) {   // any value other than 0
+        if (switchChar.written()) {
+          if (switchChar.value()) {   // any value other than 0
             Serial.println("LED on");
-            digitalWrite(LED_BUILTIN, HIGH);         // will turn the LED on
+            digitalWrite(ledPin, HIGH);         // will turn the LED on
           } else {                              // a 0 value
             Serial.println(F("LED off"));
-            digitalWrite(LED_BUILTIN, LOW);          // will turn the LED off
+            digitalWrite(ledPin, LOW);          // will turn the LED off
           }
         }
 
@@ -876,12 +522,9 @@ void loop() {
 }
 ```
 
-Now you can start interacting with your board by following the steps as shown in the image below:
-
-![LightBlue steps](./assets/bluetooth_app.png)
+**Step 2 - Run LightBlue App**
+![Control your board using LightBlue](./assets/bluetooth_app.png)
 
 ## Summary
 
-In this article we explored the use of Arduino and the ArduinoBLE library for Bluetooth Low Energy communication, how to set up your board as either peripheral or central device and reading / sending data via Bluetooth LE. 
-
-We highlighted the differences between Bluetooth Low Energy and Bluetooth Classic and finally provided an additional example showcasing how to use your smartphone for connecting to your Arduino board.
+In this article we explored the basics of Bluetooth Low Energy and how to set it up on your Arduino board using the ArduinoBLE library. We highlighted the differences between Bluetooth LE and Bluetooth Classic and finally we provided examples showcasing how you can send data between two Arduino boards or how to use your smartphone to connect to your Arduino board.
