@@ -1,8 +1,6 @@
 ---
-title: 'Node-RED with Arduino IoT Cloud'
-compatible-products: [mkr-1000-wifi, mkr-wifi-1010, nano-33-iot, nano-rp2040-connect]
-difficulty: advanced
-description: 'Learn how to use Node-RED together with the Arduino IoT Cloud to create advanced automation systems.'
+title: 'Node-RED'
+description: 'Learn how to use Node-RED together with the Arduino Cloud.'
 tags:
   - Node-RED
   - IoT Cloud

@@ -1,11 +1,8 @@
 ---
-title: 'Alexa & Arduino IoT Cloud Integration'
-compatible-products: [mkr-wifi-1010, mkr-rgb-shield]
-difficulty: intermediate
-description: 'Learn how to build a smart lamp by integrating the Arduino IoT Cloud and Alexa.'
+title: 'Alexa'
+description: 'Learn how to connect the Arduino Cloud with the Amazon Alexa service.'
 tags:
-- Alexa
-- Smart lamp
+- Amazon Alexa
 author: 'Karl Söderby'
 featuredImage: 'cloud'
 ---
@@ -14,11 +11,11 @@ featuredImage: 'cloud'
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/OMvZjwFYimo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-In this tutorial you will learn how to integrate the [Arduino IoT Cloud](https://create.arduino.cc/iot/) with the [Amazon Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H). At the end of this tutorial, we will be able to change the color of an  RGB matrix, using only voice commands in the Alexa app. 
+In this tutorial you will learn how to integrate the [Arduino IoT Cloud](https://create.arduino.cc/iot/) with the [Amazon Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H). At the end of this tutorial, we will be able to change the color of an  RGB matrix connected to your Arduino, using only voice commands in the Alexa app. 
 
-This tutorial focuses on using the [MKR RGB Shield](https://store.arduino.cc/products/arduino-mkr-rgb-shield) but can easily be modified to use other matrices. 
+![The Alexa and Arduino IoT Cloud integration.](assets/alexa-mkr-rgb-shield-img-08.png)
 
-***While this tutorial focuses on creating a smart lamp, it also shows the steps needed to integrate the two services, so you can essentially follow this tutorial to create other cool projects!***
+This tutorial focuses on using the [MKR RGB Shield](https://store.arduino.cc/products/arduino-mkr-rgb-shield) but can easily be modified to use any other RGB pixels / matrices.
 
 ***You can also find all variables that can be synchronized between Arduino Cloud and Alexa in the [IoT Cloud Variables guide](/arduino-cloud/getting-started/cloud-variables#alexa-variables).***
 
@@ -35,8 +32,10 @@ The goals of this project are:
 
 - [Arduino IoT Cloud](https://create.arduino.cc/iot/)
 - [Amazon Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H)
-- [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010).
-- [MKR RGB Shield](https://store.arduino.cc/arduino-mkr-rgb-shield)
+- \*[Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010).
+- \*[MKR RGB Shield](https://store.arduino.cc/arduino-mkr-rgb-shield) or other RGB matrices.
+
+***\*You can use any supported Wi-Fi® board in this tutorial, but the example provided is made specifically for the MKR WiFi 1010 + MKR RGB Shield.***
 
 ## Circuit
 
@@ -44,81 +43,21 @@ Simply mount the MKR RGB Shield on top of the MKR WiFi 1010.
 
 ![Mounting the shield.](assets/alexa-mkr-rgb-shield-img-01.png)
 
-## Step 1: Setting up the Arduino IoT Cloud
+## Cloud Setup
 
-Let's start by navigating to the <a href="https://create.arduino.cc/iot/" target="_blank">Arduino IoT Cloud</a>.
+To set up the cloud, you will need to:
+1. Log in to the [Arduino Cloud]().
+2. Go to **"Things"** and create a new Thing.
+3. Select and attach the device you want to use (or configure a new one).
+4. Create a variable called `LoungeArea` and select it to be of a **colored light** type. This is the variable that will be used to store incoming data from the Alexa service. 
 
->**Note:** You will need a Arduino account to use the Arduino IoT Cloud. If you do not have one, you will be directed to the account registration.
+***If you are new to the Arduino Cloud, visit the [Arduino / C++ Setup Guide]() which has detailed instructions on how to set up devices, configuring Things and more.***
 
-### Configure a New Device
+### Example Sketch
 
-Once we are in the Arduino IoT Cloud, we will need to click on the **"Devices"** tab. This will open a new page which will ask you to add a new device. Click on the **"Add device"** button.
+With all configurations done, we can move onto creating the program. By clicking on the **"Sketch"** tab, we can start editing the code that we will upload to our device.
 
-![Adding a new device.](assets/new_device.png)
-
-You will now have an option of either configuring a new Arduino device, or a third party device. Select the **"Set up an Arduino device** option.
-
-![Selecting the type of device.](assets/device_setup_1.png)
-
-At this point, you will need to connect your cloud compatible board to your computer. You will also need to have installed the Arduino Create Agent. If if it is not installed, the set up wizard will ask you to install it. Your device should now show up, and you will need to click on the **"Configure"**
-button. 
-
-
-![Device found.](assets/device_setup_2.png)
-
-You will now be asked to name your device. In this case, a name was randomly generated, which is **Phil**. Click on **"Next"** to proceed.
-
-![Naming the device.](assets/device_setup_3.png)
-
-After clicking on next, the board will start to configure. This process may take a few minutes.
-
-![The configuration process.](assets/device_setup_4.png)
-
-Once it is done, we will be directed to the devices page, where we can see our device. Congratulations, you have just made your first device IoT ready!
-
-![Configuration complete!](assets/device_overview.png)
-
-### Creating a Thing and Linking Your Device
-
-After our device is configured, we can move on to the next step: creating our very first Thing. Click on the **"Things"** tab. You should now see a button that says **"Create thing"**, which we will need to click.
-
-![Creating a thing.](assets/new_thing.png)
-
-We will now see an interface with multiple options. This is your Thing configuration overview. Here we can select what network we are connecting to, what device we are using and create variables that we want to sync.
-
-![Overview of a Thing.](assets/thing_overview.png)
-
-Let's start by linking our freshly configured device, by clicking on the **"Select Device"** button to the right. This will open up a window, where we can **"Associate"** the board with this Thing.
-
-![Associating the device.](assets/associate_device.png)
-
-### Creating the RGB variable
-
-After our device is configured, we need to create the variable that will store the R, G, B data that will be retrieved from Alexa. Click on the **"Add Variable"** button in the Thing overview.
-
-![The "Add Variable" button.](assets/alexa-mkr-rgb-shield-img-02.png)
-
-Name the variable **LoungeArea**, and for variable type, select the **Colored Light**. When done, click on **"Add Variable"**.
-
-![Adding a variable.](assets/alexa-mkr-rgb-shield-img-03.png)
-
-### Adding Your Network Details
-
-Now that we have created a variable, we can configure the **network details**. This is done by clicking on the **"Configure"** button in the **"Network"** section.
-
-![Entering the network details.](assets/alexa-mkr-rgb-shield-img-04.png)
-
->**Note:** You can't enter any network details until you have added a variable.
-
-### Creating the Program
-
-With all configurations done, we can move onto creating the program. By clicking on the **"Sketch"** tab, we can start editing the code right away.
-
-![Click on the "Sketch" tab to edit the sketch.](assets/alexa-mkr-rgb-shield-img-05.png)
-
-First of all, we need to include two libraries called `ArduinoGraphics` and `Arduino_MKRRGB`. These will help us control the MKR RGB Shield.
-
-We will only be adding a couple of lines inside the `setup()`, and then the functionality of the program will all be stored inside the `onLoungeAreaChange()` function. The `loop()` will remain empty.
+First we need to include two libraries called `ArduinoGraphics` and `Arduino_MKRRGB`. These will help us control the MKR RGB Shield. If you are using any other matrix or RGB pixel, you will need to adjust this example.
 
 When we later on will be connecting the cloud to Alexa, the data will be received directly from the Alexa app. Whenever the data updates, the `onLoungeAreaChange()` will execute, where it will fetch the data from Alexa (the RGB values) and display them on the RGB matrix. You can find the full code in the snippet below.
 
@@ -128,36 +67,23 @@ When we later on will be connecting the cloud to Alexa, the data will be receive
 #include "thingProperties.h"
 
 void setup() {
-  // Initialize serial and wait for port to open:
   Serial.begin(9600);
-  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
   delay(1500);
 
   MATRIX.begin();
   MATRIX.brightness(10);
 
-  while(!Serial);
-
-  // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
-  /*
-     The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
-     the higher number the more granular information you’ll get.
-     The default is 0 (only errors).
-     Maximum is 4
- */
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
 }
 
 void loop() {
   ArduinoCloud.update();
-  // Your code here
+  // No code required in the loop for this setup
 }
 
 
@@ -165,49 +91,34 @@ void onLoungeAreaChange() {
   uint8_t r, g, b;
   loungeArea.getValue().getRGB(r, g, b);
   if (loungeArea.getSwitch()) {
-  Serial.println("R:"+String(r)+" G:"+String(g)+ " B:"+String(b)); //prints the current R, G, B values
-  MATRIX.beginDraw(); //starts a new "drawing" on the RGB shield's pixels
-  MATRIX.clear(); //clears the RGB shield's pixels
-  MATRIX.noStroke();
-  MATRIX.fill(r, g, b); //the r, g, b values are fed into the shield's pixels
-  MATRIX.rect(0, 0, MATRIX.width(), MATRIX.height()); //creates a rectangle (this covers the entire matrix)
-  MATRIX.endDraw(); // ends the draw, and displays the new "drawing"
+    Serial.println("R:" + String(r) + " G:" + String(g) + " B:" + String(b));  //prints the current R, G, B values
+    MATRIX.beginDraw();                                                        //starts a new "drawing" on the RGB shield's pixels
+    MATRIX.clear();                                                            //clears the RGB shield's pixels
+    MATRIX.noStroke();
+    MATRIX.fill(r, g, b);                                //the r, g, b values are fed into the shield's pixels
+    MATRIX.rect(0, 0, MATRIX.width(), MATRIX.height());  //creates a rectangle (this covers the entire matrix)
+    MATRIX.endDraw();                                    // ends the draw, and displays the new "drawing"
 
-  }
-  else{
-  Serial.println("Lamp Off");
-  //the following code simply turns everything off
-  MATRIX.beginDraw();
-  MATRIX.clear();
-  MATRIX.noStroke();
-  MATRIX.fill(0, 0, 0);
-  MATRIX.rect(0, 0, MATRIX.width(), MATRIX.height());
-  MATRIX.endDraw();
-
+  } else {
+    Serial.println("Lamp Off");
+    //the following code simply turns everything off
+    MATRIX.beginDraw();
+    MATRIX.clear();
+    MATRIX.noStroke();
+    MATRIX.fill(0, 0, 0);
+    MATRIX.rect(0, 0, MATRIX.width(), MATRIX.height());
+    MATRIX.endDraw();
   }
 }
 ```
 
-### Uploading the Program
-
-Upload the code in the snippet above to your MKR WiFi 1010 board. When it has successfully uploaded, go to the **"Serial Monitor"** tab to initialize the program. If the connection is successful, we should see the following:
-
-![Information regarding connection to network & cloud.](assets/alexa-mkr-rgb-shield-img-05.1.png)
+Upload the code in the snippet above to your board. You can check the Serial Monitor to make sure you have successfully connected to the Arduino Cloud.
 
 We can now move on to the next step: **setting up Alexa.**
 
-### Over the Air Uploads
+## Alexa Setup
 
-Did you know that the Arduino IoT Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
-
-***Over the Air uploads require an Entry plan to the Arduino IoT Cloud***
-
-To use this feature, make sure the board has power. If your board is already connected to the IoT Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino IoT Cloud interface, and you should see it being discovered just as if it was connected via USB.
-
-
-## Step 2: Setting up Alexa
-
-We will now need the Amazon Alexa app which can be downloaded from the [Apple App Store](https://apps.apple.com/us/app/amazon-alexa/id944011620) or the [Google Play Store](https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en). Once installed, login with your existing account or create a new one.
+For this step, we will need the Amazon Alexa app which can be downloaded from the [Apple App Store](https://apps.apple.com/us/app/amazon-alexa/id944011620) or the [Google Play Store](https://play.google.com/store/apps/details?id=com.amazon.dee.app&hl=en). Once installed, login with your existing account or create a new one.
 
 ### Installing the Arduino Alexa Skill
 
@@ -239,27 +150,23 @@ Click **"Set Up Device"**. If you like you can also add it to a group (this way 
 
 Congratulations! You should now be able to control the lights through your Alexa app.
 
-## Step 3: Controlling the Lights
+## Controlling the Lights
 
-To control the lights on our setup, we will need to head over to the **"Devices"** tab in the Alexa app. Once in the Devices tab, click on the **"Lights"** button. We will now see the available lights. If you have other lights already connected, they will appear here as well. In our case, we only have one, which is **LoungeArea**, which is the same name as the variable we created earlier in the Arduino IoT Cloud. If we click on **LoungeArea** we will access the color / brightness control.
+To control the lights on our setup, we will need to head over to the **"Devices"** tab in the Alexa app. Once in the Devices tab, click on the **"Lights"** button. We will now see the available lights. If you have other lights already connected, they will appear here as well. In our case, we only have one, which is `LoungeArea`, which is the same name as the variable we created earlier in the Arduino IoT Cloud. If we click on `LoungeArea` we will access the color / brightness control.
 
 ![Controlling the lights through the Alexa app.](assets/alexa-mkr-rgb-shield-img-07.png)
 
 Any changes of color / brightness you make will be sent to our MKR WiFi 1010, which will change the pixels on the MKR RGB Shield accordingly.
 
+
 ### Troubleshooting
 
 One great way of knowing if data is coming through from the Alexa app is by checking the Serial Monitor. The sketch that we uploaded to the board includes a command that prints out the value of **r, g** and **b** whenever they receive new data. If the board is successfully connecting to the cloud, it is most likely a problem on setting up the Alexa device.
 
-## Conclusion
+## Over-the-Air (OTA)
 
-In this tutorial, we went through a few simple steps to integrate a MKR WiFi 1010 + MKR RGB Shield, the Arduino IoT Cloud and the Amazon Alexa app.
+Did you know that the Arduino IoT Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
 
-![The Alexa and Arduino IoT Cloud integration.](assets/alexa-mkr-rgb-shield-img-08.png)
+***Over the Air uploads require an Entry plan to the Arduino IoT Cloud***
 
-As a result, we now have a smart light that can be controlled directly through the Alexa app, and if you have a physical Alexa device, you can start playing around with different voice commands, such as changing the color and brightness of your lamp!
-
-## More Tutorials
-
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).
-
+To use this feature, make sure the board has power. If your board is already connected to the IoT Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino IoT Cloud interface, and you should see it being discovered just as if it was connected via USB.
