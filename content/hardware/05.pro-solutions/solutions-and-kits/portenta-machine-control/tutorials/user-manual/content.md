@@ -328,3 +328,52 @@ Notice that the sketch shown above utilizes the following functions from the `Ar
 The expected result of the generated sine wave measured with an oscilloscope in the analog output channel `0` is shown in the image below.
 
 ![Generated sine wave using analog output channel 0 o the Portenta Machine Control](assets/user-manual-11.png)
+
+## Digital Inputs
+
+The Portenta Machine Control has up to eight digital input channels, as shown in the image below. Each channel incorporates a voltage divider comprising a 680 kΩ and a 100 kΩ resistor, which scales an input from 0 to 24 VDC down to 0 to 3 VDC.
+
+![Portenta Machine Control digital input channels](assets/user-manual-12.png)
+
+Below is an example sketch showcasing how to read data from all the digital input channels periodically.
+
+```arduino
+/*
+  Portenta Machine Control's Digital Input Example 
+  Name: portenta_machine_control_digital_input_example.ino
+  Purpose: This sketch demonstrates how to periodically read from 
+  all the digital input channels on the Portenta Machine Control.
+  
+  @author Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+#include <Arduino_MachineControl.h>
+
+void setup() {
+  // Initialize serial communication at 9600 bps
+  Serial.begin(9600);
+
+  // Initialize the digital input channels
+  // If initialization fails, notify via Serial Monitor
+  if (!MachineControl_DigitalInputs.begin()) {
+    Serial.println("- Failed to initialize the digital input GPIO expander!");
+  }
+}
+
+void loop() {
+  // Read the status of all digital input channels
+  uint32_t inputs = MachineControl_DigitalInputs.readAll();
+
+  // Display the status of each channel on the IDE's Serial Monitor
+  for (int i = 0; i < 8; i++) {
+    Serial.print("- CH0" + String(i) + ": " + String((inputs & (1 << i)) >> i) + "\t");
+  }
+
+  // Print a new line for better readability
+  Serial.println();
+  delay(500);
+}
+```
+
+Note that the example sketch employs the `MachineControl_DigitalInputs.readAll()` function from the `Arduino_MachineControl` library, which facilitates the reading of the status of all the digital input channels in a single operation. The sketch then prints the status of each channel on the Serial Monitor.
