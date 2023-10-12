@@ -151,14 +151,26 @@ The full __schematics__ are available and downloadable as PDF from the link belo
 
 ### STEP Files
 
-The full _STEP_ files are available and downloadable from the link below:
+The full __STEP__ files are available and downloadable from the link below:
 
 * [Portenta Max Carrier STEP files](assets/ABX00043-step.zip)
 
-### Mechanical Information
-## First Use Of Your Portenta Hat Carrier
+## First Use Of Your Portenta Max Carrier
 ### Stack The Carrier
+
+The Portenta Max Carrier design allows to stack the Portenta board with ease. The following figure shows how the Portenta boards pairs via the High-Density connectors.
+
+![Portenta board stack](assets/x8-mount.png)
+
+With the Portenta mounted to the carrier, you can proceed to power the carrier and begin prototyping.
+
 ### Power The Board
+
+The Portenta Max Carrier can be powered using the following methods:
+
+- Using an external **7 to 32 V power supply** connected to the `VIN` pin found within screw terminal of the board (please, refer to the [board pinout section](#pinout) of the user manual).
+- Using an external **5 V power supply** connected to the `5V` pin found within 40-pin male header connectors pins of the board (please, refer to the [board pinout section](#pinout) of the user manual).
+
 ### Carrier Characteristics Highlight
 ### Using Portenta X8 with Linux
 ### Using Portenta X8 with Arduino
