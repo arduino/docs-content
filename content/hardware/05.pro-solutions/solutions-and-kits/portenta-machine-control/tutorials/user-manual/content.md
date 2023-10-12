@@ -169,15 +169,17 @@ The Portenta Machine Control has up to eight digital output channels, as shown i
 
 Some of the key features of the digital output channels of the Portenta Machine Control are the following:
 
-- Digital outputs function as **high-side switches** (TPS4H160AQPWPRQ1), handling up to 0.5 A.
-- All digital output terminals have **overcurrent protection**. If the current exceeds 0.7 A (with a tolerance of ±20%), the channel opens to prevent damage.
+- Digital outputs are **high-side switches** (TPS4H160AQPWPRQ1), handling up to 500 mA.
+- All digital output terminals have **overcurrent protection**. If the current exceeds 700 mA (with a tolerance of ±20%), the channel opens to prevent damage.
+
+***The digital output channels are connected to an external +24 VDC power supply (24V IN pin) through high-side switches, independent of the controller's +24 VDC power supply. 24V IN pin is not galvanically isolated, meaning the input power supply voltage must share the same GND as the controller.***
 
 There are two modes of overcurrent protection in the digital outputs:
 
 1. **Latch mode**: When overcurrent is detected, the digital output channel remains open and can only be closed manually via software. 
 2. **Auto retry**: Upon detecting overcurrent, the channel opens. After a short duration (several tens of milliseconds), it attempts to close automatically. If the overcurrent condition persists in the channel, it will keep toggling.
 
-***The digital output channels are connected to an external +24 VDC power supply through high-side switches, independent of the controller's +24 VDC power supply. Ensure each channel does not exceed a maximum current of 500 mA to avoid potential damage or malfunctions in the digital output channels.***
+***Ensure each channel does not exceed a maximum current of 500 mA to avoid potential damage or malfunctions in the digital output channels.***
 
 The sketch below showcases a "scanning" effect using the digital output channels of the Portenta Machine Control. It sequentially activates each channel in sequence from the first to the last and then in the opposite direction. As each channel is activated, feedback is provided in the Arduino IDE's Serial Monitor, indicating the active channel at each step.
 
