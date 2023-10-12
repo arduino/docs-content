@@ -168,23 +168,158 @@ With the Portenta mounted to the carrier, you can proceed to power the carrier a
 
 The Portenta Max Carrier can be powered using the following methods:
 
-- Using an external **7 to 32 V power supply** connected to the `VIN` pin found within screw terminal of the board (please, refer to the [board pinout section](#pinout) of the user manual).
-- Using an external **5 V power supply** connected to the `5V` pin found within 40-pin male header connectors pins of the board (please, refer to the [board pinout section](#pinout) of the user manual).
+- Using an external **6 to 36V power supply** connected to the `Power Jack` of the board.
+- Using a **3.7V 18650 Li-ion battery** inserted in the on-board battery socket.
+- Using a USB-C® cable connected to the Portenta core board of your choice. (This option does not power the Modem and Mini PCIe connector).
+
+![Portenta Max Carrier power options](assets/power-options.png)
 
 ### Carrier Characteristics Highlight
+
+The Portenta Max Carrier provides its platform to the Portenta X8, H7, and C33 with different capabilities. The following table summarizes the carrier's features depending on the combination of the paired Portenta.
+
+| Function                 | Portenta H7 Support | Portenta X8 Support | Notes                                                                   |
+| ------------------------ | ------------------- | ------------------- | ----------------------------------------------------------------------- |
+| USB Host                 | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps                        |
+| Ethernet                 | Fast Ethernet       | 1 Gbps              | Fast Ethernet - 100 Mbps                                                |
+| CAN                      | Yes                 | Yes                 |                                                                         |
+| Mini PCIe (USB)          | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps                        |
+| Mini PCIe (PCIe)         | No                  | PCIe 2.0            | Portenta H7 only supports USB based PCIe cards                          |
+| Battery Charger          | Yes                 | Yes                 |                                                                         |
+| LoRa®                    | Yes                 | Yes                 |                                                                         |
+| NBIoT/CatM1/2G           | No                  | Yes                 | Communication with the modem is via USB, no firmware support for the H7 |
+| Camera                   | No                  | MIPI up to 4 lanes  | No MIPI camera support on H7                                            |
+| Audio                    | Limited             | Yes                 | No firmware support for the H7                                          |
+| RS232/422/485            | Yes                 | Yes                 |                                                                         |
+| on board JTAG  debugging | Yes                 | No                  |                                                                         |
+| on board console to USB  | Yes                 | Yes                 |                                                                         |
+| on board bus sniffing    | Limited             | Limited             | Only hardware support                                                   |
+
+This provides a general idea how the Portenta Hat Carrier will perform depending on the paired Portenta board. Each feature is explained in the following section after quick guide covering how to properly interface the Portenta boards.
+
 ### Using Portenta X8 with Linux
+
 ### Using Portenta X8 with Arduino
 ### Using Portenta H7 with Arduino
 ### Using Portenta C33 with Arduino
+
 ### Hello World Using Linux
 ### Hello World Using Arduino
 ## High-Density Connectors
 ## Network Connectivity
 ### Ethernet
-### Wi-Fi® & Bluetooth®
+
+#### Using a Portenta X8 (Linux)
+
+#### Using a Portenta H7 (Arduino)
+```arduino
+/**
+  Web Client (Ethernet version)
+  Name: opta_ethernet_web_client.ino
+  Purpose: This sketch connects an Opta device to ip-api.com via Ethernet
+  and fetches IP details for the device.
+
+  @author Arduino PRO Content Team
+  @version 2.0 15/08/23
+*/
+
+// Include the necessary libraries.
+#include <Ethernet.h>
+#include <Arduino_JSON.h>
+
+// Server address for ip-api.com.
+const char* server = "ip-api.com";
+
+// API endpoint path to get IP details in JSON format.
+String path = "/json/";
+
+// Static IP configuration for the Opta device.
+IPAddress ip(10, 0, 0, 177);
+
+// Ethernet client instance for the communication.
+EthernetClient client;
+
+// JSON variable to store and process the fetched data.
+JSONVar doc;
+
+// Variable to ensure we fetch data only once.
+bool dataFetched = false;
+
+void setup() {
+  // Begin serial communication at a baud rate of 115200.
+  Serial.begin(115200);
+
+  // Wait for the serial port to connect,
+  // This is necessary for boards that have native USB.
+  while (!Serial);
+
+  // Attempt to start Ethernet connection via DHCP,
+  // If DHCP failed, print a diagnostic message.
+  if (Ethernet.begin() == 0) {
+    Serial.println("- Failed to configure Ethernet using DHCP!");
+
+    // Try to configure Ethernet with the predefined static IP address.
+    Ethernet.begin(ip);
+  }
+  delay(2000);
+}
+
+void loop() {
+  // Ensure we haven't fetched data already,
+  // ensure the Ethernet link is active,
+  // establish a connection to the server,
+  // compose and send the HTTP GET request.
+  if (!dataFetched) {
+    if (Ethernet.linkStatus() == LinkON) {
+      if (client.connect(server, 80)) {
+        client.print("GET ");
+        client.print(path);
+        client.println(" HTTP/1.1");
+        client.print("Host: ");
+        client.println(server);
+        client.println("Connection: close");
+        client.println();
+
+        // Wait and skip the HTTP headers to get to the JSON data.
+        char endOfHeaders[] = "\r\n\r\n";
+        client.find(endOfHeaders);
+
+        // Read and parse the JSON response.
+        String payload = client.readString();
+        doc = JSON.parse(payload);
+
+        // Check if the parsing was successful.
+        if (JSON.typeof(doc) == "undefined") {
+          Serial.println("- Parsing failed!");
+          return;
+        }
+
+        // Extract and print the IP details.
+        Serial.println("*** IP Details:");
+        Serial.print("- IP Address: ");
+        Serial.println((const char*)doc["query"]);
+        Serial.print("- City: ");
+        Serial.println((const char*)doc["city"]);
+        Serial.print("- Region: ");
+        Serial.println((const char*)doc["regionName"]);
+        Serial.print("- Country: ");
+        Serial.println((const char*)doc["country"]);
+        Serial.println("");
+
+        // Mark data as fetched.
+        dataFetched = true;
+      }
+      // Close the client connection once done.
+      client.stop();
+    } else {
+      Serial.println("- Ethernet link disconnected!");
+    }
+  }
+}
+```
 ### LTE CAT.M1 NB-IoT
 ### LoRa®
-## mini PCIe
+## Mini PCIe
 ## MIPI Camera
 ## Audio Interface
 ## DIP Switch Configuration
