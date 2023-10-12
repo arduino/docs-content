@@ -169,7 +169,7 @@ The Portenta Machine Control has up to eight digital output channels, as shown i
 
 Some of the key features of the digital output channels of the Portenta Machine Control are the following:
 
-- Digital outputs function as **high-side switches**, handling up to 0.5 A.
+- Digital outputs function as **high-side switches** (TPS4H160AQPWPRQ1), handling up to 0.5 A.
 - All digital output terminals have **overcurrent protection**. If the current exceeds 0.7 A (with a tolerance of ±20%), the channel opens to prevent damage.
 
 There are two modes of overcurrent protection in the digital outputs:
@@ -262,7 +262,7 @@ Some of the key features of the analog output channels of the Portenta Machine C
 - Analog outputs can be configured with specific PWM periods, affecting the frequency and resolution of the voltage output.
 - Each channel supports voltage outputs ranging from 0 VDC to 10.5 VDC and can source up to 20 mA.
 
-Each analog output channel is designed with a double low-pass filter and a high-current operational amplifier set up in a non-inverting topology with a gain factor of 3.3. This design allows for an effective filtering and amplification of the signal provided.
+Each analog output channel is designed with a double low-pass filter and a high-current operational amplifier (OPA2990IDSGR) set up in a non-inverting topology with a gain factor of 3.3. This design allows for an effective filtering and amplification of the signal provided.
 
 ***The output signal of the analog output channels of the Portenta Machine Control is a DC voltage whose amplitude is a function of the defined PWM duty cycle.***
 
@@ -325,4 +325,4 @@ Notice that the sketch shown above utilizes the following functions from the `Ar
 
 The expected result of the generated sine wave measured with an oscilloscope in the analog output channel `0` is shown in the image below.
 
-![Generated sine wave usin analog output channel 0 o the Portenta Machine Control](assets/user-manual-11.png)
+![Generated sine wave using analog output channel 0 o the Portenta Machine Control](assets/user-manual-11.png)
