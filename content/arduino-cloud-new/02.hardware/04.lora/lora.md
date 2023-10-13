@@ -1,9 +1,5 @@
 ---
-title: 'Configuring LoRaWAN® devices in the Arduino Cloud'
-compatible-products:
-    - mkr-wan-1300
-    - mkr-wan-1310
-difficulty: intermediate
+title: 'LoRaWAN®'
 description: 'Connect your LoRaWAN® devices to the Arduino Cloud platform via The Things Network.'
 tags:
     - LoRa®
@@ -12,13 +8,27 @@ tags:
     - 'IoT Cloud'
 author: 'Karl Söderby'
 hero_position: 2
----  
-  
-  
-![Arduino Cloud and The Things Network.](assets/cloud-lora-img-01.png )
-  
-##  Introduction
-  
+---
+
+Some Arduino boards supports connection to the Arduino Cloud via LoRaWAN® ([The Things Stack](https://www.thethingsindustries.com/stack/)).
+
+In this document you will find:
+
+- List of supported devices.
+- Configure a LoRaWAN® device in the Arduino Cloud.
+- Register an account on The Things Console.
+- Create a simple testing program for the end device.
+- View data from the device in the Arduino Cloud.
+- Send data to the device from the Arduino Cloud.
+
+## Supported Boards
+
+The following boards connect to the Arduino IoT Cloud via [The Things Stack](https://www.thethingsindustries.com/stack/), a LoRaWAN® Network Server connected to thousands of public LoRa® gateways.
+
+- [MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300-lora-connectivity-1414)
+- [MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310)
+
+## The Things Stack
   
 If you are interested in building cheap, long range & low power devices, you will be excited to hear that Arduino Cloud is interfaced with [The Things Stack](https://www.thethingsindustries.com/stack/ ) network (TTS). When configuring a LoRaWAN® device (MKR WAN 1300/1310), you will also automatically register your device on the The Things Stack platform.
   
@@ -29,8 +39,7 @@ In this tutorial we will walk you through the steps needed to successfully provi
 ***Please note that when working with LoRaWAN® devices, data rates are very limited. Messages sent from devices should be limited to once every several minutes. Methods for implementing this are described further down in this article. To read more about limitations using the LoRaWAN® network, please visit [The Things Network Limitations article](https://www.thethingsnetwork.org/docs/lorawan/limitations/ ).***
   
 ###  Terminology Run-Trough
-  
-  
+
 - **LoRa®** - short for **Lo**ng **Ra**nge, and is a modulation technique used to send and receive data over low-power, wide-area networks (LPWAN). 
 - **LoRaWAN®** - can be defined as the networking protocol. The architecture of the network consists of different gateways that relay messages from low-power devices over long ranges, to central network servers.
 - **MKR WAN 1300/1310** - development boards that has a LoRa® module capable of sending and receiving packets of data.
@@ -44,45 +53,25 @@ In this tutorial we will walk you through the steps needed to successfully provi
 - **App KEY** - a key used for encryption and decryption of a payload.
 - **LoRa® gateway** - a network router able to send and receive LoRa RF packets and forward them on Internet.
 - **Frequency Band (e.g. 868 MHz, 915 MHz)** - LoRa oxperates only on specific, license-free frequencies which differs from region to region. For example, the band used in Europe is 868 MHz, while North America uses the 915 MHz band.
-  
+
 ###  Related Resources
-  
   
 If you want to learn more about Arduino and LoRa®, you can check out the resources below:
   
-- [MKR WAN 1300 documentation page.](../../../../hardware/mkr-wan-1300 )
-- [MKR WAN 1310 documentation page](../../../../hardware/mkr-wan-1310 )
-- [LPWAN (Low-Power Wide-Area Networks) 101](../../../../learn/communication/low-power-wide-area-networks-101 )
-  
-##  Goals
-  
-  
-The goals of this project are:
-- Configure a LoRaWAN® device in the Arduino Cloud.
-- Register an account on The Things Console.
-- Create a simple testing program for the end device.
-- View data from the device in the Arduino Cloud.
-- Send data to the device from the Arduino Cloud.
-  
-  
-##  Hardware & Software needed
-  
-  
-- [Arduino IoT Cloud](https://create.arduino.cc/iot/ )
-- [Arduino MKR WAN 1300](https://store.arduino.cc/mkr-wan-1300 ) or [Arduino MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310 )
-- [Antenna](https://store.arduino.cc/antenna )
+- [MKR WAN 1300 documentation page.](/hardware/mkr-wan-1300)
+- [MKR WAN 1310 documentation page](/hardware/mkr-wan-1310)
+- [LPWAN (Low-Power Wide-Area Networks) 101](/learn/communication/low-power-wide-area-networks-101)
   
 ##  Circuit
-  
   
 Follow the wiring diagram below to connect the antenna to the MKR WAN 1300/1310 board.
   
 ![Connect the antenna to the MKR WAN 1300/1310 board.](assets/cloud-lora-img-02.png )
   
   
-##  Step 1: Configuring Your Device
-  
-  
+## Cloud Setup
+
+### Configuring Device
   
 **1.** Navigate to the [Arduino Cloud IoT platform](https://create.arduino.cc/iot/things ).
   
@@ -131,7 +120,7 @@ Some things to try:
 - Re-install the Create Agent.
   
   
-##  Step 2: Registering The Things Stack Network Account
+## The Things Stack Network
   
   
 In this step, we will complete the registration so we can access the **The Things Console (TTC)**. Here we can see the status of our device, if any data is coming in or out and much more.
@@ -177,7 +166,7 @@ After some time, the automatic email sent out by TTI will expire. If the link is
   
 ![Restart the activation.](assets/cloud-lora-img-14.5.png )
   
-##  Step 3: Completing Arduino Cloud Setup
+## Final Cloud Setup
   
   
 In this step, we will complete the Arduino Cloud setup that we started earlier by configuring a device. We will create a simple **test variable**, that we will use to send data from the MKR WAN 1300/1310 device. This will just be a counter that updates **3 minutes**, to see if the data can be successfully sent from **end device** to the **Arduino Cloud** via the **The Things Network**.
@@ -268,8 +257,7 @@ If you have an Arduino PRO Gateway, you will need to register it, using the [man
 You can visit the [Activate an Arduino Pro Gateway with IoT Cloud](https://support.arduino.cc/hc/en-us/articles/4407770369042-Activate-an-Arduino-Pro-Gateway-with-IoT-Cloud ) article for more details.
   
 ###  Migrate Existing Gateway
-  
-  
+
 If you had a gateway setup prior to the A2A to TTS migration, you will need to complete the following steps to use the Pro Gateway.
   
 To perform the Arduino Pro gateway migration:
@@ -298,8 +286,7 @@ To perform the Arduino Pro gateway migration:
 ![Deploy a new container.](assets/cloud-lora-gateway-img-02.png )
   
 ###  Provision New Gateway
-  
-  
+
 To perform the Arduino Pro gateway provisioning:
   
 **1.** Claim the GW in the “Manager For Linux” page
@@ -318,19 +305,11 @@ To perform the Arduino Pro gateway provisioning:
 ![Deploy a new container.](assets/cloud-lora-gateway-img-02.png )
   
 ###  Register a Gateway on TTS
-  
-  
+
 As **Arduino Cloud IoT** is now interfacing with the **The Things Stack** network, you can set up your own gateway through their services (this can be done through the same console that is used to check device status). You can visit [The Things Industries](https://www.thethingsindustries.com/stack/ ) to see what commercial gateways are supported.  
   
 See below links for more resources on adding gateways to the Things Stack network.
   
 - [Adding Gateways | The Things Industries](https://www.thethingsindustries.com/docs/gateways/adding-gateways/ )
 - [Recommended Gateways | YouTube](https://www.youtube.com/watch?v=h_6dIte_IxI&ab_channel=TheThingsNetwork )
-  
-##  Conclusion
-  
-  
-In this guide we have gone through the steps necessary to connect a MKR WAN 1300/1310 board to the **Arduino Cloud** via **The Things Network**. We have briefly gone through **the console of The Things Stack**, the backend portal that provides information on the status of our devices.
-  
-The integration between the two services is a great milestone for makers or professionals working with LoRaWAN® devices and IoT development. As the Arduino Cloud and The Things Console handle the backend applications, you can focus on creating great projects with minimal effort. You can also monitor and control them through dashboards in the Arduino Cloud.
   
