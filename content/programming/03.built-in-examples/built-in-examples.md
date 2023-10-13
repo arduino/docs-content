@@ -1,5 +1,5 @@
 ---
-title: Built-in examples
+title: Built-in-examples
 url: /built-in-examples/
 icon: IconBuild
 links:
