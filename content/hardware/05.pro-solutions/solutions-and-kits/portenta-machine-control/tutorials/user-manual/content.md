@@ -466,3 +466,25 @@ float readVoltage(int channel) {
 ```
 
 Note that the example sketch uses the `MachineControl_AnalogIn.read(channel)` function to acquire the raw voltage values from each channel. These raw values are then converted to the actual voltage values using the provided `RES_DIVIDER` and `REFERENCE` constants.
+
+## Support
+
+If you encounter any issues or have questions while working with the Portenta Machine Control, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our Help Center, which offers a comprehensive collection of articles and guides for the Portenta Machine Control. The Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Portenta Machine Control help center page](https://support.arduino.cc/hc/en-us/sections/360004767859-Portenta-Family)
+
+### Forum
+
+Join our community forum to connect with other Portenta Machine Control users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Portenta Machine Control.
+
+- [Portenta Machine Control category in the Arduino Forum](https://forum.arduino.cc/c/hardware/portenta/portenta-machine-control/173)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Portenta Machine Control.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/)  
