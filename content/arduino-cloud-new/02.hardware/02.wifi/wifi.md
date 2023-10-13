@@ -1,5 +1,5 @@
 ---
-title: Wi-Fi® Boards
+title: Wi-Fi® / ESP32
 description: Setup and configure Wi-Fi® devices in the Arduino Cloud.
 tags: [Arduino Cloud, Wi-Fi, ESP32]
 author: Karl Söderby
