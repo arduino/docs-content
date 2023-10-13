@@ -377,3 +377,92 @@ void loop() {
 ```
 
 Note that the example sketch employs the `MachineControl_DigitalInputs.readAll()` function from the `Arduino_MachineControl` library, which facilitates the reading of the status of all the digital input channels in a single operation. The sketch then prints the status of each channel on the Serial Monitor.
+
+## Analog Inputs
+
+The Portenta Machine Control has up to three independent analog input channels, as shown in the image below. Each channel can have a range resolution varying from 12 to 16 bits, producing decimal values ranging from 0 to 65,535, which is configurable through software.
+
+![Portenta Machine Control analog input channels](assets/user-manual-13.png)
+
+The configuration of Portenta's Machine Control analog input channels is determined by an analog switch (TS12A44514PWR), which allows switching between three different operational modes:
+
+- **0-10V**: The analog input channel uses a resistor divider consisting of a 100 kΩ and a 39 kΩ resistor for this mode. This scales down an input voltage in the 0 VDC to 10 VDC range to a range of 0 VDC to 2.8 VDC. The resulting input impedance in this configuration is approximately 28 kΩ.
+- **4-20 mA**: The analog input channel connects to a 120 Ω resistor for this mode. This configuration allows a 4 mA to 20 mA input current to be converted to a voltage in the 0.48 VDC to 2.4 VDC range.
+- **NTC**: For this mode, the input is connected to a 3 VDC voltage reference (REF3330AIRSER). A 100 kΩ resistor is then placed in series, forming a part of the resistor divider powered by the voltage reference.
+
+***Each analog input channel has an output voltage pin supplying +24 VDC for powering sensors. This pin has integrated protection through a 500 mA PTC resettable fuse.***
+
+To use a specific operational mode with Portenta's Machine Control analog input channels, the `MachineControl_AnalogIn.begin(SensorType)` function from the `Arduino_MachineControl` library must be called before reading values from the analog input channels. Use the following constants in the `MachineControl_AnalogIn.begin(SensorType)` function to define an specific operational mode:
+
+- `SensorType::V_0_10`: 0-10V mode
+- `SensorType::MA_4_20`: 4-20mA mode
+- `SensorType::NTC`: NTC mode
+
+Below is an example sketch showcasing how to read voltages from the analog input channels set to the 0-10V mode.
+
+```arduino
+/*
+  Portenta Machine Control's Analog Input 
+  Name: portenta_machine_control_analog_input_simple_example.ino
+  Purpose: This sketch demonstrates reading voltage values 
+  from the analog input channels set in the 0-10V mode 
+  of the Portenta Machine Control.
+
+  @author Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+#include <Arduino_MachineControl.h>
+
+// Define the resistor divider ratio for 0-10V input mode
+const float RES_DIVIDER = 0.28057;
+
+// Define the ADC reference voltage
+const float REFERENCE   = 3.0;
+
+void setup() {
+  // Initialize serial communication at 9600 baud
+  Serial.begin(9600);
+
+  // Initialize the analog input channels of the Portenta Machine Control in 0-10V mode
+  MachineControl_AnalogIn.begin(SensorType::V_0_10);
+}
+
+void loop() {
+  // Loop through each analog input channel
+  // Read its current voltage
+  // Print the current voltage value in the IDE's Serial Monitor
+  for (int i = 0; i < 3; i++) {
+    float voltage = readVoltage(i);
+    Serial.print("- Voltage CH");
+    Serial.print(i);
+    Serial.print(": ");
+    Serial.print(voltage, 3);
+    Serial.println(" VDC");
+  }
+  
+  // Add a delay for readability and a separator for the next set of readings
+  Serial.println();
+  delay(250);
+}
+
+/**
+  Reads the raw ADC value from the specified channel, then
+  calculates the actual voltage using the predefined resistor 
+  divider ratio and the reference voltage.
+ 
+  @param channel (int).
+  @return The calculated voltage value in volts.
+*/
+float readVoltage(int channel) {
+  // Read the raw ADC value from the specified channel
+  float raw_voltage = MachineControl_AnalogIn.read(channel);
+  
+  // Convert the raw ADC value to the actual voltage 
+  // Use the resistor divider ratio and reference voltage 
+  // Return the calculated voltage
+  return (raw_voltage * REFERENCE) / 65535 / RES_DIVIDER;
+}
+```
+
+Note that the example sketch uses the `MachineControl_AnalogIn.read(channel)` function to acquire the raw voltage values from each channel. These raw values are then converted to the actual voltage values using the provided `RES_DIVIDER` and `REFERENCE` constants.
