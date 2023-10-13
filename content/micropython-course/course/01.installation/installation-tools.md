@@ -101,6 +101,13 @@ If you cannot connect to your board in the code editor, make sure you're selecti
 
 You can try **disconnecting** any other serial device such as other arduino boards from your computer, to make sure that only one device appears in the list.
 
+## Reset to Arduino / C++
+
+After you've installed MicroPython on your board, you will not be able to program your board in the Arduino IDE unless you reset it to its factory setting.
+
+To do this, **tap the reset button twice**, but not too fast (about 1 second between the taps). If your board is fading its green LED, you've reset the bootloader and your board will now appear in the Arduino IDE.
+
+***Note that you will need to upload a sketch to your board after resetting the bootloader. If you do not, MicroPython will still run on your board.***
 
 ## Summary
 
