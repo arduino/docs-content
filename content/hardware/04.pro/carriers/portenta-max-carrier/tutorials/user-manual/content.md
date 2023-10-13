@@ -206,8 +206,23 @@ This provides a general idea how the Portenta Hat Carrier will perform depending
 ### Hello World Using Linux
 ### Hello World Using Arduino
 ## High-Density Connectors
+
 ## Network Connectivity
 ### Ethernet
+The Portenta Max Carrier is equipped with an Ethernet interface, specifically an RJ45 connector supporting 1000 Base-T.
+
+![Portenta Max Carrier Ethernet Port](assets/ethernet.png)
+
+Ethernet performance differs based on the associated Portenta board:
+
+- With the Portenta X8: The system supports 1 Gbit Ethernet.
+- When combined with the Portenta H7 or C33: The performance is limited at 100 Mbit Ethernet.
+
+To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Hat Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
+
+Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed. First, ensure the Portenta X8 is mounted on the Hat Carrier, and then connect them using a LAN cable. To measure the bandwidth, use the `iperf3` tool, which is available [here](https://github.com/userdocs/iperf3-static).
+
+
 
 #### Using a Portenta X8 (Linux)
 
