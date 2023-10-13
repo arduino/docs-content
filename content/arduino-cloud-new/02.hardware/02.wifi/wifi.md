@@ -40,7 +40,7 @@ The following official boards connect to the Arduino IoT Cloud via a Secret Key 
 
 A large number of third party boards are also supported, which you will see during the configuration.
 
-## Setup
+## Configure a Wi-Fi® Board
 
 To configure a Wi-Fi® board, follow the steps below:
 
