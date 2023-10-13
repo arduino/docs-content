@@ -1,7 +1,7 @@
 ---
 title: IoT Cloud API
 url: /cloud-api/
-icon: Iconbell
+icon: IconBell
 links:
   [
     { title: "Dashboard V2 Create", url: /link },
