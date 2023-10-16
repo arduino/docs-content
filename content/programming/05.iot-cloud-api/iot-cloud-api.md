@@ -4,11 +4,11 @@ url: /cloud-api/
 icon: IconBell
 links:
   [
-    { title: "Dashboard V2 Create", url: /link },
-    { title: "Dashboard V2 Delete", url: /link },
-    { title: "Installing Alexa Integration", url: /link },
-    { title: "Configuring LoraWAN", url: /link },
-    { title: "Webhooks Arduino Cloud", url: /link },
-    { title: "Node RED  With Arduino", url: /link },
+    { title: "Dashboard V2 Create", url: /link1 },
+    { title: "Dashboard V2 Delete", url: /link2 },
+    { title: "Installing Alexa Integration", url: /link3 },
+    { title: "Configuring LoraWAN", url: /link4 },
+    { title: "Webhooks Arduino Cloud", url: /link5 },
+    { title: "Node RED  With Arduino", url: /link6 },
   ]
 ---
