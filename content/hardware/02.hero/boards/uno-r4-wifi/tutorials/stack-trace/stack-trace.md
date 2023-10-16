@@ -119,7 +119,7 @@ In this example, an out-of-bounds access of the `numbers` array occurs after a f
 
 ## Additional Instructions
 
-### Copy `addr2line` Command (Board Package)
+### Copy the `addr2line` Command (Board Package)
 
 ***These instructions replace the instructions in [1. Copy `addr2line` Command](#1-copy-addr2line-command)***
 
