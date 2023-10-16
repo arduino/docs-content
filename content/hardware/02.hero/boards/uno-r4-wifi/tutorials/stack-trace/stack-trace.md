@@ -50,7 +50,7 @@ To install `addr2line` (optional), use the OS specific instructions below:
 * **macOS:** `addr2line` can be installed with [Homebrew](https://brew.sh/) by running `brew install binutils` in Terminal.
 * **Linux:** `addr2line` may already be installed on your system. Otherwise, run `apt-get install binutils` in Terminal (Ubuntu, Debian), or see [command-not-found.com/addr2line](https://command-not-found.com/addr2line) for other distributions.
 
-### 1. Copy `addr2line` Command 
+### 1. Copy the `addr2line` Command 
 
 **Windows (WSL):**
 
