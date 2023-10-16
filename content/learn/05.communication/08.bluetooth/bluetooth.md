@@ -238,9 +238,11 @@ In the following section you will find an overview and explanation of the librar
 
 Below you can find examples showing how to send data between two Arduino boards and how to connect to your Arduino board, reading and writing values using your smartphone.
 
-### Send data between two Arduino boards
+### Remote LED Control
 
-**Central**
+This example can be used with two Bluetooth® supported Arduino boards, one with a button, and the other with an LED. When the button is pressed, it will advertise a corresponding value (high/low), which will be received by the board with an LED.
+
+#### Central
 
   This example scans for Bluetooth Low Energy peripherals with a specific UUID (in this case another Arduino board), connects to it, and lets you control the built-in LED with a button connected to pin 4.
 
@@ -357,7 +359,7 @@ void controlLed(BLEDevice peripheral) {
 }
 ```
 
-**Peripheral**
+#### Peripheral
 
 This example is the corresponding sketch to the one above, setting up your Arduino board as peripheral with the correct UUID, advertising a built-in LED characteristic.
 
@@ -436,7 +438,7 @@ void loop() {
 }
 ```
 
-### Control you Arduino with a Smartphone
+### Control an Arduino with a Smartphone App
 
 This example lets you control the built-in LED on your Arduino board with your smartphone. We recommend using the LightBlue app available for [Android](https://play.google.com/store/apps/details?id=com.punchthrough.lightblueexplorer&hl=en&pli=1) and [iOS ](https://apps.apple.com/us/app/lightblue/id557428110) for connecting to your board. Once installed upload the code and follow the steps as shown in the image below.
 
@@ -465,7 +467,7 @@ void setup() {
     while (1);
   }
 
-  BLE.setLocalName("MKR WiFi 1010"); //Setting a name that will appear when scanning for Bluetooth® devices
+  BLE.setLocalName("<My Board Name>"); //Setting a name that will appear when scanning for Bluetooth® devices
   BLE.setAdvertisedService(newService);
 
   newService.addCharacteristic(switchChar); //add characteristics to a service
