@@ -172,9 +172,9 @@ Some of the key features of the digital output channels of the Portenta Machine 
 - Digital outputs are **high-side switches** (TPS4H160AQPWPRQ1), handling up to 500 mA.
 - All digital output terminals have **overcurrent protection**. If the current exceeds 700 mA (with a tolerance of ±20%), the channel opens to prevent damage.
 
-***The digital output channels are connected to an external +24 VDC power supply (24V IN pin) through high-side switches, independent of the controller's +24 VDC power supply. 24V IN pin is not galvanically isolated, meaning the input power supply voltage must share the same GND as the controller.***
+***The digital output channels must be connected to an external +24 VDC power supply through pin `24V IN`; this power supply can be shared with the controller's +24 VDC power supply. Moreover, pin `24V IN` is not galvanically isolated, meaning the input power supply voltage must share the same `GND` as the controller.***
 
-There are two modes of overcurrent protection in the digital outputs:
+There are two modes of overcurrent protection in the digital output channels:
 
 1. **Latch mode**: When overcurrent is detected, the digital output channel remains open and can only be closed manually via software. 
 2. **Auto retry**: Upon detecting overcurrent, the channel opens. After a short duration (several tens of milliseconds), it attempts to close automatically. If the overcurrent condition persists in the channel, it will keep toggling.
@@ -466,6 +466,93 @@ float readVoltage(int channel) {
 ```
 
 Note that the example sketch uses the `MachineControl_AnalogIn.read(channel)` function to acquire the raw voltage values from each channel. These raw values are then converted to the actual voltage values using the provided `RES_DIVIDER` and `REFERENCE` constants.
+
+## Programmable Digital I/O
+
+The Portenta Machine Control has up to 12 programmable digital input/output channels, as shown in the image below. 
+
+![Portenta Machine Control programmable digital input/output channels](assets/user-manual-14.png)
+
+The programmable digital input/output channels are powered via three quad-channel high-side switches (TPS4H160AQPWPRQ1). Each channel comes with a nominal current value of 0.6 A. However, due to internal circuit tolerances of the high-side switches, this value can spike up to 0.9 A.
+
+***The programmable digital input/output channels must be connected to an external +24 VDC power supply through pin `24V IN`; this power supply can be shared with the controller's +24 VDC power supply. Moreover, pin `24V IN` is not galvanically isolated, meaning the input power supply voltage must share the same `GND` as the controller.***
+
+There are two modes of overcurrent protection in the programmable digital input/output channels:
+
+1. **Latch mode**: The channel is deactivated once the current limit is hit. The respective channel enable pin must be toggled to reactivate the channel.
+2. **Retry mode**: The channel is momentarily shut down upon reaching the current limit but reconnects briefly.
+
+The programmable digital input/output channels integrate an internal mechanism to protect against kickback from inductive loads. Additionally, there is an external safeguard via a 60 VDC, 2 A Schottky diode (PMEG6020ER). Each of the 12 digital input channels uses a resistor divider setup consisting of a 680 kΩ and 100 kΩ resistor; this configuration scales down a 0 to 24 VDC input to a 0 to 3 VDC range. While the high-side switches function separately from the digital input channels, it's possible to read the status of the high-side switches via the digital input channels.
+
+***Ensure each channel does not exceed a maximum current of 500 mA to avoid potential damage or malfunctions in the programmable digital input/output channels.***
+
+The sketch below showcases using the programmable digital input/output channels of the Portenta Machine Control. This example shows how to periodically transmit values on the programmable channels and periodically read them from them.
+
+```arduino
+/*
+  Portenta Machine Control's Programabble Digital I/O
+  Name: portenta_machine_control_programmable_digital_io.ino
+  Purpose: This sketch demonstrates the usage of the programmable 
+  digital input/output channels  of the Portenta Machine Control.
+  
+  @author Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+#include <Arduino_MachineControl.h>
+
+void setup() {
+  // Initialize serial communication at 9600 baud
+  Serial.begin(9600);
+  
+  // Initialize the programmable digital input/output channels
+  if (!MachineControl_DigitalProgrammables.begin()) {
+    Serial.println("- Failed to initialize the programmable digital I/Os");s
+    return;
+  }
+  Serial.println("- Programmable digital I/Os initialized successfully!");
+}
+
+void loop() {
+  // Activating (set to ON) the channel corresponding to channel 3
+  MachineControl_DigitalProgrammables.set(IO_WRITE_CH_PIN_03, SWITCH_ON);
+  delay(1000);
+
+  // Reading the status of channel 3 and outputting to the IDE's Serial Monitor
+  int status = MachineControl_DigitalProgrammables.read(IO_READ_CH_PIN_03);
+  Serial.println("- Channel 03 status: " + String(status));
+  delay(1000);
+
+  // Activate all output channels
+  MachineControl_DigitalProgrammables.writeAll(SWITCH_ON_ALL);
+  delay(1000);
+
+  // Reading the status of all input channels and print each to the IDE's Serial Monitor
+  uint32_t inputs = MachineControl_DigitalProgrammables.readAll();
+  for (int i = 0; i < 12; i++) {
+    Serial.println("- CH" + String(i, 02) + ": " + String((inputs & (1 << i)) >> i));
+  }
+  Serial.println();
+
+  // Toggling the states of all channels and then reading their statuses
+  MachineControl_DigitalProgrammables.toggle();
+  delay(1000);
+  inputs = MachineControl_DigitalProgrammables.readAll();
+  for (int i = 0; i < 12; i++) {
+    Serial.println("- CH" + String(i, 02) + ": " + String((inputs & (1 << i)) >> i));
+  }
+  Serial.println();
+}
+```
+
+The example sketch uses the `MachineControl_DigitalProgrammables.begin()`, `MachineControl_DigitalProgrammables.set(pin, state)`, `MachineControl_DigitalProgrammables.read(pin)`, `MachineControl_DigitalProgrammables.writeAll(state)`, and `MachineControl_DigitalProgrammables.readAll()` functions from the `Arduino_MachineControl` library. These functions are used to write to specific channels or all channels, read the status of a specific channel or all channels, and toggle the states of all channels. Here's an explanation of the functions:
+
+- `MachineControl_DigitalProgrammables.begin()`: Utilized to initialize the programmable digital input/output channels, it returns a `FALSE` if the initialization fails.
+- `MachineControl_DigitalProgrammables.set(pin, state)`: Used to define a particular channel's state (ON/OFF).
+- `MachineControl_DigitalProgrammables.read(pin)`: Used to discern the state of a specific channel.
+- `MachineControl_DigitalProgrammables.writeAll(state)`: Used to configure the state (ON/OFF) for all available pins or channels simultaneously.
+- `MachineControl_DigitalProgrammables.readAll()`: Used to read the states of all available channels collectively.
+- `MachineControl_DigitalProgrammables.toggle()`: Used to invert the states of all the channels.
 
 ## Support
 
