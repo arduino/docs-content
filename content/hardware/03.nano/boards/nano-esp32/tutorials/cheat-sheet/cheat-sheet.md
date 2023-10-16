@@ -454,7 +454,7 @@ Further reading:
 
 The ESP32-S3 is based on the dual-core XTensa LX7, which can run code separately on two cores. This is enabled through FreeRTOS, by setting up tasks that run on each core (similarly to how `void loop()` is implemented). The cores available are `0` and `1`.
 
-The example below is a modified version of the [BasicMultiThreading](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading) example found in the Arduino ESP32 core, and demonstrates how to use two common operations simulatenously:
+The example below is a modified version of the [BasicMultiThreading](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading) example found in the Arduino ESP32 core, and demonstrates how to use two common operations simultaneously:
 - Blink an LED using one task on a specific core (0),
 - Read an analog pin using a second task on a specific core (1).
 
@@ -566,7 +566,7 @@ When running this example, open the Serial Monitor tool and you will see what ha
 ![Dual core example.](assets/nano-esp32-dualcore.png)
 
 - The task is created in the `xTaskCreatePinnedToCore()`,
-- inside `xTaskCreatePinnedToCore()` we specifiy a number of parameters, most importantly what **core** and what **function** to run,
+- inside `xTaskCreatePinnedToCore()` we specify a number of parameters, most importantly what **core** and what **function** to run,
 - code inside task functions are placed inside the `for (;;){}` statement, that will loop infinitely.
 
 ***More information about dual-core on the ESP32 along with a detailed explanation of the example is available at [Basic Multi Threading Example](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading).***
