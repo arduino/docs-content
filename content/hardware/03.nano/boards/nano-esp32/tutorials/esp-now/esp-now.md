@@ -1,6 +1,6 @@
 ---
-title: ESP-NOW
-description: ESP-NOW is a short distance wireless communication protocol develop by Espressive.
+title: Device to Device Communication with ESP-NOW
+description: Learn how to use the ESP-NOW protocol to send data between ESP based boards.
 author: Hannes Siebeneicher
 hardware:
   - hardware/03.nano/boards/nano-esp32
