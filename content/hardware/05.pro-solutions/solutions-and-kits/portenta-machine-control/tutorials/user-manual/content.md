@@ -490,10 +490,11 @@ The sketch below showcases using the programmable digital input/output channels 
 
 ```arduino
 /*
-  Portenta Machine Control's Programabble Digital I/O
-  Name: portenta_machine_control_programmable_digital_io.ino
-  Purpose: This sketch demonstrates the usage of the programmable 
-  digital input/output channels  of the Portenta Machine Control.
+  Portenta Machine Control's Programmable Digital I/Os
+  Name: portenta_machine_control_programmable_digital_io_example.ino
+  Purpose: Demonstrates the usage of the programmable digital input/output channels
+  on the Portenta Machine Control. It includes initializing the channels, 
+  setting digital outputs, reading digital inputs, and toggling the outputs.
   
   @author Arduino PRO Content Team
   @version 1.0 01/10/23
@@ -502,46 +503,62 @@ The sketch below showcases using the programmable digital input/output channels 
 #include <Arduino_MachineControl.h>
 
 void setup() {
-  // Initialize serial communication at 9600 baud
+  // Initialize serial communication for debugging and displaying data
   Serial.begin(9600);
   
-  // Initialize the programmable digital input/output channels
+  // Initialize I2C communication
+  Wire.begin();
+  
+  // Attempt to initialize the programmable digital input/output channels
   if (!MachineControl_DigitalProgrammables.begin()) {
-    Serial.println("- Failed to initialize the programmable digital I/Os");s
+    Serial.println("- Failed to initialize the programmable digital I/Os");
     return;
   }
   Serial.println("- Programmable digital I/Os initialized successfully!");
 }
 
 void loop() {
-  // Activating (set to ON) the channel corresponding to channel 3
-  MachineControl_DigitalProgrammables.set(IO_WRITE_CH_PIN_03, SWITCH_ON);
+  // Turn ON the digital output channel 3 using the defined macro
+  MachineControl_DigitalProgrammables.set(IO_WRITE_CH_PIN_03, SWITCH_ON); 
   delay(1000);
 
-  // Reading the status of channel 3 and outputting to the IDE's Serial Monitor
+  // Read the status of digital input channel 3 using the defined macro
   int status = MachineControl_DigitalProgrammables.read(IO_READ_CH_PIN_03);
   Serial.println("- Channel 03 status: " + String(status));
   delay(1000);
 
-  // Activate all output channels
+  // Turn ON all digital output channels
   MachineControl_DigitalProgrammables.writeAll(SWITCH_ON_ALL);
   delay(1000);
 
-  // Reading the status of all input channels and print each to the IDE's Serial Monitor
+  // Read and display the status of all digital input channels
   uint32_t inputs = MachineControl_DigitalProgrammables.readAll();
   for (int i = 0; i < 12; i++) {
-    Serial.println("- CH" + String(i, 02) + ": " + String((inputs & (1 << i)) >> i));
+    Serial.println("- CH" + formatChannel(i) + ": " + String((inputs & (1 << i)) >> i));
   }
   Serial.println();
 
-  // Toggling the states of all channels and then reading their statuses
+  // Toggle the states of all digital output channels
   MachineControl_DigitalProgrammables.toggle();
   delay(1000);
   inputs = MachineControl_DigitalProgrammables.readAll();
   for (int i = 0; i < 12; i++) {
-    Serial.println("- CH" + String(i, 02) + ": " + String((inputs & (1 << i)) >> i));
+    Serial.println("- CH" + formatChannel(i) + ": " + String((inputs & (1 << i)) >> i));
   }
   Serial.println();
+}
+
+/**
+  Formats the channel number with leading zeros to achieve a consistent 2-digit format
+
+  @param channel
+  @return A string with the channel number in 2-digit format.
+*/
+String formatChannel(int channel) {
+  if(channel < 10) {
+    return "0" + String(channel);
+  }
+  return String(channel);
 }
 ```
 
@@ -553,6 +570,126 @@ The example sketch uses the `MachineControl_DigitalProgrammables.begin()`, `Mach
 - `MachineControl_DigitalProgrammables.writeAll(state)`: Used to configure the state (ON/OFF) for all available pins or channels simultaneously.
 - `MachineControl_DigitalProgrammables.readAll()`: Used to read the states of all available channels collectively.
 - `MachineControl_DigitalProgrammables.toggle()`: Used to invert the states of all the channels.
+
+## Communication
+
+This user manual section covers the different communication interfaces and protocols supported by the Portenta Machine Control, including the Ethernet, RS-485, and Wi-Fi®.
+
+### Ethernet
+
+The Portenta Machine Control feature an onboard low-power 10BASE-T/100BASE-TX Ethernet physical layer (PHY) transceiver. The transceiver complies with the IEEE 802.3 and 802.3u standards and supports communication with an Ethernet MAC through a standard RMII interface. The Ethernet transceiver is accessible through the onboard RJ45 connector. 
+
+The `Arduino Mbed OS Portenta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box: the [`Ethernet` library](https://www.arduino.cc/reference/en/libraries/ethernet/). Let's use an example code demonstrating some of the transceiver's capabilities.
+
+The sketch below enables a Portenta Machine Control to connect to the Internet via an Ethernet connection. Once connected, it performs a `GET` request to the `ip-api.com` service to fetch details about the device's IP address. It then parses the received JSON object using the `Arduino_JSON` library to extract key IP details: IP address, city, region, and country. This data is then printed to the Arduino IDE's Serial Monitor.
+
+```arduino
+/**
+  Web Client (Ethernet version)
+  Name: portenta_machine_control_ethernet_web_client.ino
+  Purpose: This sketch connects a Portenta Machine Control
+  to ip-api.com via Ethernet and fetches IP details for 
+  the controller.
+
+  @author Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+// Include the necessary libraries.
+#include <Ethernet.h>
+#include <Arduino_JSON.h>
+
+// Server address for ip-api.com.
+const char* server = "ip-api.com";
+
+// API endpoint path to get IP details in JSON format.
+String path = "/json/";
+
+// Static IP configuration for the Opta device.
+IPAddress ip(10, 130, 22, 84);
+
+// Ethernet client instance for the communication.
+EthernetClient client;
+
+// JSON variable to store and process the fetched data.
+JSONVar doc;
+
+// Variable to ensure we fetch data only once.
+bool dataFetched = false;
+
+void setup() {
+  // Begin serial communication at a baud rate of 115200.
+  Serial.begin(115200);
+
+  // Wait for the serial port to connect,
+  // This is necessary for boards that have native USB.
+  while (!Serial);
+
+  // Attempt to start Ethernet connection via DHCP,
+  // If DHCP failed, print a diagnostic message.
+  if (Ethernet.begin() == 0) {
+    Serial.println("- Failed to configure Ethernet using DHCP!");
+
+    // Try to configure Ethernet with the predefined static IP address.
+    Ethernet.begin(ip);
+  }
+  delay(2000);
+}
+
+void loop() {
+  // Ensure we haven't fetched data already,
+  // ensure the Ethernet link is active,
+  // establish a connection to the server,
+  // compose and send the HTTP GET request.
+  if (!dataFetched) {
+    if (Ethernet.linkStatus() == LinkON) {
+      if (client.connect(server, 80)) {
+        client.print("GET ");
+        client.print(path);
+        client.println(" HTTP/1.1");
+        client.print("Host: ");
+        client.println(server);
+        client.println("Connection: close");
+        client.println();
+
+        // Wait and skip the HTTP headers to get to the JSON data.
+        char endOfHeaders[] = "\r\n\r\n";
+        client.find(endOfHeaders);
+
+        // Read and parse the JSON response.
+        String payload = client.readString();
+        doc = JSON.parse(payload);
+
+        // Check if the parsing was successful.
+        if (JSON.typeof(doc) == "undefined") {
+          Serial.println("- Parsing failed!");
+          return;
+        }
+
+        // Extract and print the IP details.
+        Serial.println("*** IP Details:");
+        Serial.print("- IP Address: ");
+        Serial.println((const char*)doc["query"]);
+        Serial.print("- City: ");
+        Serial.println((const char*)doc["city"]);
+        Serial.print("- Region: ");
+        Serial.println((const char*)doc["regionName"]);
+        Serial.print("- Country: ");
+        Serial.println((const char*)doc["country"]);
+        Serial.println("");
+
+        // Mark data as fetched.
+        dataFetched = true;
+      }
+      // Close the client connection once done.
+      client.stop();
+    } else {
+      Serial.println("- Ethernet link disconnected!");
+    }
+  }
+}
+```
+
 
 ## Support
 
