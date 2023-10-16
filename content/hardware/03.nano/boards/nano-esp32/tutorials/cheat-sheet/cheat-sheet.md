@@ -450,7 +450,126 @@ Further reading:
 - [I2S API docs (Espressif)](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/i2s.html)
 - [I2S Reference (Espressif)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/i2s.html)
 
+## Dual Core
 
+The ESP32-S3 is based on the dual-core XTensa LX7, which can run code separately on two cores. This is enabled through FreeRTOS, by setting up tasks that run on each core (similarly to how `void loop()` is implemented). The cores available are `0` and `1`.
+
+The example below is a modified version of the [BasicMultiThreading](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading) example found in the Arduino ESP32 core, and demonstrates how to use two common operations simultaneously:
+- Blink an LED using one task on a specific core (0),
+- Read an analog pin using a second task on a specific core (1).
+
+```arduino
+/* Basic Multi Threading Arduino Example
+   
+   Modified 16th October 2023 by Karl Söderby
+
+   Set up two tasks that run on each core of a Nano ESP32 (ESP32-S3 XTensa LX7 MCU),
+   one that blinks an LED, one that reads an analog signal.
+
+   These tasks will execute infinitely.
+
+   This example code is in the Public Domain (or CC0 licensed, at your option.)
+   Unless required by applicable law or agreed to in writing, this
+   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+   CONDITIONS OF ANY KIND, either express or implied.
+*/
+
+// Define the cores
+#define CORE_0 0
+#define CORE_1 1
+
+#define ANALOG_INPUT_PIN A0 //Specify analog pin
+#define LED_BUILTIN 13  // Specify the on which is your LED
+
+
+int counter = 0;
+// Define two tasks for Blink & AnalogRead.
+void TaskBlink(void *pvParameters);
+void TaskAnalogRead(void *pvParameters);
+TaskHandle_t analog_read_task_handle;  // You can (don't have to) use this to be able to manipulate a task from somewhere else.
+
+void setup() {
+  Serial.begin(115200);
+  uint32_t blink_delay = 1000;  // Delay between changing state on LED pin
+
+  //create task for blinking an LED
+  xTaskCreatePinnedToCore(
+    TaskBlink, "Task Blink"  // A name just for humans
+    ,
+    2048  // The stack size can be checked by calling `uxHighWaterMark = uxTaskGetStackHighWaterMark(NULL);`
+    ,
+    (void *)&blink_delay  // Task parameter which can modify the task behavior. This must be passed as pointer to void.
+    ,
+    2  // Priority
+    ,
+    NULL  // Task handle is not used here - simply pass NULL
+    ,
+    CORE_0  // Core on which the task will run
+  );
+
+  //create a task for reading analog signals
+  xTaskCreatePinnedToCore(
+    TaskAnalogRead, "Analog Read", 2048  // Stack size
+    ,
+    NULL  // When no parameter is used, simply pass NULL
+    ,
+    1  // Priority
+    ,
+    &analog_read_task_handle  // With task handle we will be able to manipulate with this task.
+    ,
+    CORE_1  // Core on which the task will run
+  );
+}
+
+void loop() {
+  //loop is empty, the tasks are instead looped infinitely
+}
+
+void TaskBlink(void *pvParameters) {  // This is a task.
+  uint32_t blink_delay = *((uint32_t *)pvParameters);
+
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  for (;;) {  // A Task shall never return or exit.
+    counter++;
+    digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
+
+    delay(1000);
+    digitalWrite(LED_BUILTIN, LOW);  // turn the LED off by making the voltage LOW
+
+    delay(1000);
+    Serial.print("Core ");
+    Serial.print(CORE_0);
+    Serial.print(": Blink task complete. Times run: ");
+    Serial.println(counter);
+  }
+}
+
+void TaskAnalogRead(void *pvParameters) {  // This is a task.
+  (void)pvParameters;
+
+  for (;;) {
+    // read the input on analog pin:
+    int sensorValue = analogRead(ANALOG_INPUT_PIN);
+    // print out the value you read:
+    Serial.print("Core ");
+    Serial.print(CORE_1);
+    Serial.print(": Analog reading task, value is: ");
+    Serial.println(sensorValue);
+    delay(500);  // 100ms delay
+  }
+}
+```
+
+When running this example, open the Serial Monitor tool and you will see what happens on each core. 
+
+![Dual core example.](assets/nano-esp32-dualcore.png)
+
+- The task is created in the `xTaskCreatePinnedToCore()`,
+- inside `xTaskCreatePinnedToCore()` we specify a number of parameters, most importantly what **core** and what **function** to run,
+- code inside task functions are placed inside the `for (;;){}` statement, that will loop infinitely.
+
+***More information about dual-core on the ESP32 along with a detailed explanation of the example is available at [Basic Multi Threading Example](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading).***
 
 ## IO Mux & GPIO Matrix
 
