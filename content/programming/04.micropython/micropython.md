@@ -5,11 +5,11 @@ icon: IconMicroPhyton
 link: /micropython/
 links:
   [
-    { title: "Board Installation", url: /link },
-    { title: "Project Examples", url: /link },
-    { title: "MicroPython Basics", url: /link },
-    { title: "Code Editors", url: /link },
-    { title: "Controlling relay from cloud", url: /link },
-    { title: "Getting Started with Opta", url: /link },
+    { title: "Board Installation", url: /link1 },
+    { title: "Project Examples", url: /link2 },
+    { title: "MicroPython Basics", url: /link3 },
+    { title: "Code Editors", url: /link4 },
+    { title: "Controlling relay from cloud", url: /link5 },
+    { title: "Getting Started with Opta", url: /link6 },
   ]
 ---
