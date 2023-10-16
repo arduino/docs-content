@@ -14,7 +14,7 @@ In this tutorial, we will show to enable this feature.
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - [Arduino UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
 
-## Get Runtime Error
+## View the Runtime Error
 
 To get the runtime error information in the Serial Monitor, follow the steps below:
 
