@@ -34,7 +34,9 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 The board can be powered via the VIN pin, supporting a range between 6-24 V.The VIN pin is also connected to the DC-jack (barrel plug connector).
 
-When powered via the VIN pin, you are using the onboard regulator to bring down the voltage to 5V, which means that the 5 V pin can provide up to 1.2 A. Keep in mind that this voltage regulator is also powering the RA4M1, and the current consumed by the chip can vary from 1 mA to nearly 40 mA.
+When powered via the VIN pin, you are using the onboard regulator to bring down the voltage to 5V, which means that the 5 V pin can provide up to 1.2 A. Keep in mind that this voltage regulator also powers the rest of the circuit board, including the MCU, LEDs among other components.
+
+***External devices with a high current draw (e.g. servo motors) should never be powered via the 5 V pin. It is mainly intended for devices drawing lower current such as sensor modules.***
 
 If you’re using the USB-C® connector you must power it with 5 V. 
 
