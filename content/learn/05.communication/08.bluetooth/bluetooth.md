@@ -240,11 +240,17 @@ Below you can find examples showing how to send data between two Arduino boards 
 
 ### Remote LED Control
 
-This example can be used with two Bluetooth® supported Arduino boards, one with a button, and the other with an LED. When the button is pressed, it will advertise a corresponding value (high/low), which will be received by the board with an LED.
+This example can be used with two Bluetooth LE supported Arduino boards, one with a button, and the other with an LED. When the button is pressed, it will advertise a corresponding value (high/low), which will be received by the board with an LED.
 
 #### Central
 
   This example scans for Bluetooth Low Energy peripherals with a specific UUID (in this case another Arduino board), connects to it, and lets you control the built-in LED with a button connected to pin 4.
+
+  Connect the button as shown on in the circuit below:
+
+  ![central](./assets/central.png)
+
+  Then upload the code found below:
 
 ```arduino
 #include <ArduinoBLE.h>
@@ -361,7 +367,9 @@ void controlLed(BLEDevice peripheral) {
 
 #### Peripheral
 
-This example is the corresponding sketch to the one above, setting up your Arduino board as peripheral with the correct UUID, advertising a built-in LED characteristic.
+This example is the corresponding sketch to the one above, setting up your Arduino board as peripheral with the correct UUID, advertising a built-in LED characteristic. Since we are only using the built-in LED you don't need to wire any components.
+
+  ![peripheral](./assets/peripheral.png)
 
 ```arduino
 #include <ArduinoBLE.h>
