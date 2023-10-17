@@ -75,7 +75,7 @@ To see the full API for the Wire library, visit its [documentation page](https:/
 - `onRequest()` - Register a function to be called hwen a controller requests data
 - `setWireTimeout()` - Sets the timeout for transmissions in controller mode
 - `clearWireTimeoutFlag()` - Clears the timeout flag
-- `getWireTimeoutFlag()` - Checks whether a timeout has occured since the last time the flag was cleared.
+- `getWireTimeoutFlag()` - Checks whether a timeout has occurred since the last time the flag was cleared.
 
 ## Examples
 The remainder of this article is a collection of links to tutorials, schematics and code snippets that can get you off the ground with I2C.
