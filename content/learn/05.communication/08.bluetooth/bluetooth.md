@@ -83,9 +83,9 @@ The range of a Bluetooth LE connection can vary depending on several factors, bu
 
 Bluetooth Low Energy devices operate using different roles and modes that define how devices interact with each other.
 
-**Central Device**: A central device in Bluetooth  LE is typically a more capable device with features like a higher CPU power, more memory, or a larger battery. Central devices take on the role of initiating connections to peripheral devices. For example, your smartphone is often a central device when connecting to Bluetooth LE peripherals like fitness trackersy, smart sensors or an Arduino board.
+**Central Device**: A central device in Bluetooth  LE is typically a more capable device with features like a higher CPU power, more memory, or a larger battery. Central devices take on the role of initiating connections to peripheral devices. For example, your smartphone is often a central device when connecting to Bluetooth LE peripherals like fitness trackers, smart sensors or an Arduino board.
 
-**Peripheral Device**: Peripheral devices are generally resource-constrained compared to central devices (e.g. an Arduino board compared with your smartphone). Peripheral devices advertise their presence and data to central devices. Compared to Bluetooth classic, Bluetooth LE devices don't maintain a continues connection to the central device to save power.
+**Peripheral Device**: Peripheral devices are generally resource-constrained compared to central devices (e.g. an Arduino board compared with your smartphone). Peripheral devices advertise their presence and data to central devices. Compared to Bluetooth classic, Bluetooth LE devices don't maintain a continuous connection to the central device to save power.
 
 ![Bluetooth LE Roles](./assets/ble_roles.png)
 
@@ -159,7 +159,7 @@ As you explore Bluetooth LE further, you'll discover a wide range of profiles de
 
 ### Bluetooth Classic
 
-Bluetooth Low Energy is distinctively different from Bluetooth Classic. Bluetooth Classic operates in a manner similar to a serial port or UART (Universal Asynchronous Receiver-Transmitter), which is commonly used for point-to-point communication.
+Bluetooth Low Energy is distinctly different from Bluetooth Classic. Bluetooth Classic operates in a manner similar to a serial port or UART (Universal Asynchronous Receiver-Transmitter), which is commonly used for point-to-point communication.
 
 Some key differences are:
 
