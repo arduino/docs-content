@@ -604,6 +604,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                       **Changes**                      |
 |:----------:|:------------:|:------------------------------------------------------:|
+| 17/10/2023 |       4      | I2C ports availability table added                     |
 | 20/06/2023 |       3      | Power tree added, related products information updated |
 | 09/06/2023 |       2      |       Board's power consumption information added      |
 | 14/03/2023 |       1      |                      First release                     |
