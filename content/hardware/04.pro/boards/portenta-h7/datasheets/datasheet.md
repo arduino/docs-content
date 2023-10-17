@@ -617,6 +617,18 @@ Laboratory equipment, Computer vision
 | SWDIOSWCK SWO     | High Density Connector | ADC                                    | High Density Connector |
 | SDC               | High Density Connector | RESET                                  | Other Pin              |
 
+#### I2C Communication Availability
+
+The Portenta H7 series has three hardware I2C ports, two of them are shared between some board internal components and one is free. In order to facilitate custom carriers development for the Portenta family, we detail the I2C interfaces availability in the table below: 
+
+| HD Connector      | **Interface Name**     | **Pins on HD**                         |    **Free/Shared**     | **Peripherals (Address)**                                                       |
+|-------------------|------------------------|----------------------------------------|------------------------|--------------------------------------------------------------------------------|
+| J1                | I2C1                   | 43-45                                  |          Shared        | Secure Element (0x48)<br /> PMIC (0x08)<br /> ANALOGX (0x54, 0x58, 0x70, 0x72, 0x7A, 0x7E, 0x48) |
+| J1                | I2C0                   | 44-46                                  |          Free          |                        |
+| J2                | I2C2                   | 45-47                                  |          Shared        | Camera (D1P-D1N)       |
+
+***The use of the I2C0 port is recommended as it is free to use without restrictions.***
+
 ### Wake Up Signals/External Relay Commands
 
 ![MKR format Headers pinout](assets/portentaH7_mkr_pinouts.png)
