@@ -10,7 +10,7 @@ echo
 
 # Make sure its on the home directory
 echo Changing directory to home
-cd ~
+cd /dockerVolume
 
 # Git config
 echo Git config to example credentials
