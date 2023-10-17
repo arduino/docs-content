@@ -218,28 +218,74 @@ Ethernet performance differs based on the associated Portenta board:
 - With the Portenta X8: The system supports 1 Gbit Ethernet.
 - When combined with the Portenta H7 or C33: The performance is limited at 100 Mbit Ethernet.
 
-To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Hat Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
-
-Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed. First, ensure the Portenta X8 is mounted on the Hat Carrier, and then connect them using a LAN cable. To measure the bandwidth, use the `iperf3` tool, which is available [here](https://github.com/userdocs/iperf3-static).
-
-
+To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Max Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 
 #### Using a Portenta X8 (Linux)
 
+Using the Portenta X8 in combination with the Max Carrier allows you to evaluate the Ethernet speed. First, ensure the Portenta X8 is mounted on the Hat Carrier, and then connect them using a __LAN cable__.
+
+To measure the bandwidth, use the `iperf3` tool, which is available [here](https://github.com/userdocs/iperf3-static).
+
+Enter to your Portenta X8 using `adb shell` and access to root (admin) typing `sudo su -`, the password is `fio` by default.
+
+First need an internet connection to download the tool. You can stablish one using the following commands:
+
+```bash
+nmcli connection show  # To find the ethernet device name ("eth0" in this case)
+
+nmcli conn add con-name <NtwrkName> type ethernet ifname <DevName> ipv4.method auto # Create a DHCP network
+
+nmcli conn up <NtwrkName> # Initiate the connection
+```
+
+To test if we are successfully connected, let's make a `ping` using:
+
+```bash
+ping -c 4 arduino.cc  # ping 4 times to Arduino's webpage
+```
+If you have a working internet connection, the ping should shows the latency as follows:
+
+![Successful Internet Test Using Ping](assets/ping.png)
+
+To install the `iperf3` tool, we can use the following commands:
+
+```bash
+mkdir -p ~/bin && source ~/.profile
+wget -qO ~/bin/iperf3 https://github.com/userdocs/iperf3-static/releases/latest/download/iperf3-arm64v8
+chmod 700 ~/bin/iperf3
+```
+
+To verify the installation, type `~/bin/iperf3 -v` and the tool version should be printed on the terminal.
+
+![iperf3 version check](assets/iperf3-test.png)
+
+As the speed test must be done between two devices to measure the link speed, we need two install `iperf3` on a second device, in this case on my PC. You can download it from [here](https://iperf.fr/iperf-download.php) for your prefered OS.
+
+Once installed on both devices, we should set one as a `server` and the other one as a `client` with the following commands respectively:
+
+```bash
+~/bin/iperf3 -s # run this on the Portenta X8 (Server)
+```
+```bash
+iperf3.exe -c <Server IP Address> # run this on your PC (Windows) and use the Portenta X8 IP address.
+```
+![1Gbit speed test beetween PC and Portenta X8](assets/speed-test.png)
+
+***The speed results could be affected by your Ethernet cables quality or your PC Ethernet card.***
+
 #### Using a Portenta H7 (Arduino)
+
+To test the Ethernet connection using a Portenta H7 we are going to use an example sketch that will retrieve your City information from the internet and show it through the Serial Monitor.
+
 ```arduino
 /**
-  Web Client (Ethernet version)
-  Name: opta_ethernet_web_client.ino
-  Purpose: This sketch connects an Opta device to ip-api.com via Ethernet
+  Purpose: This sketch connects a device to ip-api.com via Ethernet
   and fetches IP details for the device.
-
-  @author Arduino PRO Content Team
-  @version 2.0 15/08/23
-*/
+**/
 
 // Include the necessary libraries.
-#include <Ethernet.h>
+#include <PortentaEthernet.h> // for Portenta H7 
+//#include <EthernetC33.h>  // for Portenta C33
 #include <Arduino_JSON.h>
 
 // Server address for ip-api.com.
@@ -247,9 +293,6 @@ const char* server = "ip-api.com";
 
 // API endpoint path to get IP details in JSON format.
 String path = "/json/";
-
-// Static IP configuration for the Opta device.
-IPAddress ip(10, 0, 0, 177);
 
 // Ethernet client instance for the communication.
 EthernetClient client;
@@ -273,9 +316,8 @@ void setup() {
   if (Ethernet.begin() == 0) {
     Serial.println("- Failed to configure Ethernet using DHCP!");
 
-    // Try to configure Ethernet with the predefined static IP address.
-    Ethernet.begin(ip);
   }
+  printIPAddress();
   delay(2000);
 }
 
@@ -331,7 +373,22 @@ void loop() {
     }
   }
 }
+
+void printIPAddress()
+{
+  Serial.print("Connected to: ");
+  for (byte thisByte = 0; thisByte < 4; thisByte++) {
+    // print the value of each byte of the IP address:
+    Serial.print(Ethernet.localIP()[thisByte], DEC);
+    Serial.print(".");
+  }
+
+  Serial.println();
+}
 ```
+
+![Portenta H7/C33 Ethernet Test](assets/ethernet-h7.png)
+
 ### LTE CAT.M1 NB-IoT
 ### LoRa®
 ## Mini PCIe
