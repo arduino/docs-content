@@ -1,5 +1,5 @@
 ---
-title: 'Getting started with the Web Editor'
+title: 'Web Editor'
 description: 'A step-by-step guide to set up your online development environment.'
 author: 'Karl Söderby'
 ---
@@ -84,8 +84,4 @@ Once it is uploaded, there should be a message in the bottom of the editor sayin
 Success. Saved on your online Sketchbook and done uploading Blink.
 ```
 
-If we look at the board we uploaded the code to, we should see the onboard LED blink with an interval of 1 second. This means that you have successfully used the Web Editor to upload a code to your board!
-
-#### More tutorials
-
-You can find more tutorials in the [Arduino Cloud documentation page](/arduino-cloud).
+If we look at the board we uploaded the code to, we should see the onboard LED blink with an interval of 1 second. This means that you have successfully used the Web Editor to upload a code to your board.
