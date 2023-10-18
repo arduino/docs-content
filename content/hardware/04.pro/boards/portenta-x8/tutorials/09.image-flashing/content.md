@@ -25,7 +25,7 @@ In this tutorial, you will learn how to manually flash your Portenta X8 with the
 ### Required Hardware and Software
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C® to USB-A® cable
+- USB-C® to USB-A cable
 - Portenta Family Carrier (Optional):
 - [Portenta Breakout Board](https://store.arduino.cc/products/arduino-portenta-breakout)
 - [Arduino Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
@@ -76,7 +76,7 @@ On the Portenta Breakout, the DIP switches are identified by the label `BT_SEL` 
 
 ![Breakout DIP switches](assets/breakout-dip-switches.png)
 
-You will need to connect one USB-C® end to the Portenta X8 and the other end (USB-A®) to your computer, with a compatible hub in case of need. If the connection is established correctly, you will be able to see a newly connected device called `SE Blank M845S`.
+You will need to connect one USB-C® end to the Portenta X8 and the other end (USB-A) to your computer, with a compatible hub in case of need. If the connection is established correctly, you will be able to see a newly connected device called `SE Blank M845S`.
 
 #### Flashing Mode without Carrier
 
