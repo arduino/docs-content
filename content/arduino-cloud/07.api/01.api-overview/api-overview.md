@@ -1,5 +1,5 @@
 ---
-title: Arduino IoT Cloud APIs
+title: API Overview
 description: Arduino IoT Cloud has two different set of APIs. Read below to learn more
 author: Karl Söderby, Fabrizio Mirabito
 tags: [IoT Cloud, Device API, Application API, JavaScript]

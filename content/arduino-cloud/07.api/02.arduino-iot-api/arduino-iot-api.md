@@ -1,6 +1,5 @@
 ---
-title: 'Arduino Cloud REST API & SDK'
-difficulty: advanced
+title: 'REST API & SDK'
 description: 'Learn how to authenticate with the Arduino IoT Cloud REST API to make requests using HTTP Client, JavaScript and Python®.'
 tags:
   - IoT Cloud REST API

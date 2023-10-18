@@ -62,7 +62,9 @@ You can also configure a wide range of third party ESP32/ESP8266 boards.
 
 ### Manual Devices
 
-Manual devices are designed for interfacing with JavaScript, Python & MicroPython, and can for example run on an Raspberri Pi, but also on any . Creating a manual device generates a **secret key** that can together with the device ID be used to securely connect to the Arduino Cloud.
+Manual devices are designed for interfacing with JavaScript, Python & MicroPython, and can for example run on an Raspberry Pi, but also on any . Creating a manual device generates a **secret key** that can together with the device ID be used to securely connect to the Arduino Cloud.
+
+***Note that manual devices do not have a sketch associated.***
 
 Check the guides below for getting started with each of the programming languages:
 

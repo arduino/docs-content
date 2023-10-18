@@ -8,11 +8,11 @@ difficulty: beginner
 
 ## Overview
 
-An essential component of the [Arduino Cloud](https://create.arduino.cc/iot/) is a **cloud variable**.
+Variables are essential component of the [Arduino Cloud](https://create.arduino.cc/iot/), and are created and configured inside a **Thing.**
 
-A cloud variable is synced between your Arduino board and the Arduino IoT Cloud. If a variable is updated on your board (like reading a sensor), the Arduino Cloud will also receive this value. Similarly, if you update a variable from the cloud, it also updates on your board. 
+A cloud variable is synced between your Arduino board and the Arduino IoT Cloud. If a variable is updated on your board (like reading a sensor), the Arduino Cloud will also receive this value. Similarly, if a board receives an update from the cloud, the variable also updates on your board. 
 
-As long as your board maintains connection to the Arduino IoT Cloud, variables can be updated. 
+As long as your board maintains connection to the Arduino IoT Cloud, variables will be updated. 
 
 **In this article, we will cover:**
 - How to sync variables between your board and the Arduino IoT Cloud.
@@ -60,7 +60,7 @@ We do not need to define the variable anywhere, as it has already been configure
 
 ***Note that if you change a variable, you will need to upload the code to your board for the effects to come in change.***
 
-### Generated Functions
+### Callback Functions
 
 When creating a variable with a **Read & Write** permission, a function is generated at the bottom of your sketch.
 
@@ -79,7 +79,7 @@ void onButtonSwitch(){
 }
 ```
 
-## How is Data Synchronized?
+## Data Synchronization
 
 Data between a board and the cloud synchronizes whenever the `ArduinoCloud.update()` function is executed. This is automatically included in your sketch, inside the `void loop()`. 
 
