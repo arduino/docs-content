@@ -186,7 +186,7 @@ Some key differences are:
 
 The [ArduinoBLE Library](https://www.arduino.cc/reference/en/libraries/arduinoble/) is the main library enabling Bluetooth Low Energy on compatible Arduino boards. You must first download and install the ArduinoBLE library. See our [instructions](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library) on how to install a library. 
 
-In the following section you will find an overview and explanation of the librarie's most important methods and how to use them:
+In the following section you will find an overview and explanation of the library's most important methods and how to use them:
 
 - `BLE.begin()` - Initialize the library
 
