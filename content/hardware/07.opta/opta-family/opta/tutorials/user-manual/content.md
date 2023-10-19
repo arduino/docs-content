@@ -106,7 +106,7 @@ In the PLC IDE, you can mix PLC programming with standard Arduino sketches withi
 Check out the following resources that will show you how to start with the Arduino PLC IDE and use use IEC 61131-3 programming languages with Opta™:
 
 - [Arduino PLC IDE download page](https://www.arduino.cc/pro/software-plc-ide)
-- [Arduino PLC IDE and Opta™ tutorials](https://docs.arduino.cc/hardware/opta)
+- [Arduino PLC IDE and Opta™ tutorials](https://docs.arduino.cc/software/plc-ide)
 
 ### Pinout
 
