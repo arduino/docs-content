@@ -51,6 +51,12 @@ Variables of the same type can also be synchronised across all devices. This is 
 
 ***All variables are listed out in the [Variables]() section. See [Variable Synchronization]() for linking together your devices' variables.***
 
+### Network
+
+In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials for e.g. LoRaWAN® & cellular. The network details are securely stored.
+
+The credentials entered are automatically included in your sketch (see automatic sketch generation just below). 
+
 ## Automatic Sketch Generation
 
 Things based on Arduino / C++ (the default way) benefits from **automatic sketch generation**. Whenever any configuration is done in your Thing, the changes are reflected in your sketch files.
@@ -63,6 +69,7 @@ For example:
 
 This is implemented so that the connection and synchronisation between the board and cloud is handled automatically, meaning you do not need to do any networking code when using the Arduino / C++ language.
 
+***Please note that if you are using an offline environment, [Arduino IDE](), changes will only be made in the cloud environment and will manually need to be adjusted. If you plan on using the offline IDE, you make use of the [sketch synchronisation]() feature that allows you to push/pull your cloud sketches from the offline IDE.***
 
 ## Metadata
 
@@ -70,7 +77,7 @@ In the metadata tab you will find your **Thing ID**, **Timezone** configuration,
 
 ### Thing ID
 
-Your Thing ID can be obtained from your Metadata tab, and looks like this:
+Your Thing ID can be obtained from your metadata tab, and looks like this:
 
 ```
 cd628fe4-31d1-42a8-bf33-a627997ce602
@@ -79,6 +86,10 @@ cd628fe4-31d1-42a8-bf33-a627997ce602
 This ID is used when connecting with the [REST API]() or with the [Arduino CLI](). Using either of these clients provides information about your Thing, such as device associated and cloud variables.
 
 ### Timezone
+
+You can choose your timezone through a dropdown menu in the metadata tab, which includes many cities from the Americas, Europe, Asia, Africa, Oceania, Atlantic, Pacific and even Antarctica.
+
+This is particularly important when using the [scheduler]() feature to trigger events at specific times.
 
 ### Tags
 
