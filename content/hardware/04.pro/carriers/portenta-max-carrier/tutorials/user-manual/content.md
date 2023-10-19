@@ -259,7 +259,7 @@ To verify the installation, type `~/bin/iperf3 -v` and the tool version should b
 
 ![iperf3 version check](assets/iperf3-test.png)
 
-As the speed test must be done between two devices to measure the link speed, we need two install `iperf3` on a second device, in this case on my PC. You can download it from [here](https://iperf.fr/iperf-download.php) for your prefered OS.
+As the speed test must be done between two devices to measure the link speed, we need two install `iperf3` on a second device, in this case on my PC. You can download it from [here](https://iperf.fr/iperf-download.php) for your preferred OS.
 
 Once installed on both devices, we should set one as a `server` and the other one as a `client` with the following commands respectively:
 
@@ -269,7 +269,7 @@ Once installed on both devices, we should set one as a `server` and the other on
 ```bash
 iperf3.exe -c <Server IP Address> # run this on your PC (Windows) and use the Portenta X8 IP address.
 ```
-![1Gbit speed test beetween PC and Portenta X8](assets/speed-test.png)
+![1Gbit speed test between PC and Portenta X8](assets/speed-test.png)
 
 ***The speed results could be affected by your Ethernet cables quality or your PC Ethernet card.***
 
