@@ -195,7 +195,7 @@ The Portenta Max Carrier provides its platform to the Portenta X8, H7, and C33 w
 | on board console to USB  | Yes                 | Yes                 |                                                                         |
 | on board bus sniffing    | Limited             | Limited             | Only hardware support                                                   |
 
-This provides a general idea how the Portenta Hat Carrier will perform depending on the paired Portenta board. Each feature is explained in the following section after quick guide covering how to properly interface the Portenta boards.
+This provides a general idea how the Portenta Max Carrier will perform depending on the paired Portenta board. Each feature is explained in the following section after quick guide covering how to properly interface the Portenta boards.
 
 ### Using Portenta X8 with Linux
 
@@ -203,9 +203,36 @@ This provides a general idea how the Portenta Hat Carrier will perform depending
 ### Using Portenta H7 with Arduino
 ### Using Portenta C33 with Arduino
 
+## Hello World Carrier
 ### Hello World Using Linux
 ### Hello World Using Arduino
 ## High-Density Connectors
+
+## Configuration and Control
+
+Configuration and control features allows customize the device's behavior to their specific needs. Whether it's setting up network connectivity or adjusting switch configurations, this sub-section will guide you through the carrier connectivity and profile setup processes.
+
+### DIP Switch Configuration
+
+The Portenta Max Carrier incorporates a DIP switch, giving users ability to manage the behavior of the board. The configuration parameters of this switch differ based on which Portenta board it is paired with.
+
+![Portenta Max Carrier DIP switch](assets/portentaHATcarrier_DIPswitch.png)
+
+For configurations when the Portenta Max Carrier is combined with the Portenta X8, the DIP switch governs these settings:
+
+| **DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
+|:--------------------------:|:-------------------------:|:----------------------:|
+| `ETH CENTER TAP`           | `1 Gbit Disabled`         | `1 Gbit Enabled`       |
+| `BTSEL`                    | `Boot from SD card Memory`| `Boot from MMC Memory` |
+
+When the Portenta MAx Carrier is combined with either the Portenta H7 or C33, the DIP switch adjustments are as follows:
+
+| **DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
+|:--------------------------:|:-------------------------:|:----------------------:|
+| `ETH CENTER TAP`           | `100 Mbit Enabled`        | `100 Mbit Disabled`    |
+| `BTSEL`                    | `Not used`                | `Not used`             |
+
+This flexibility ensures that the Portenta Max Carrier remains adaptable to the unique needs of each paired Portenta board.
 
 ## Network Connectivity
 ### Ethernet
@@ -222,7 +249,7 @@ To configure the Ethernet settings, depending on the paired Portenta board, one 
 
 #### Using a Portenta X8 (Linux)
 
-Using the Portenta X8 in combination with the Max Carrier allows you to evaluate the Ethernet speed. First, ensure the Portenta X8 is mounted on the Hat Carrier, and then connect them using a __LAN cable__.
+Using the Portenta X8 in combination with the Max Carrier allows you to evaluate the Ethernet speed. First, ensure the Portenta X8 is mounted on the Max Carrier, and then connect them using a __LAN cable__.
 
 To measure the bandwidth, use the `iperf3` tool, which is available [here](https://github.com/userdocs/iperf3-static).
 
