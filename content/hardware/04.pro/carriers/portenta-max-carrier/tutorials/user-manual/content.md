@@ -205,6 +205,10 @@ This provides a general idea how the Portenta Max Carrier will perform depending
 
 ## Hello World Carrier
 ### Hello World Using Linux
+A 'Hello World' example will be used to verify the Portenta Max Carrier is correctly operating with the paired Portenta X8. It will use an example to trigger user programmable LED connected to GPIO3.
+
+The user programmable LED can be controlled using commands within the Portenta X8's shell. The following commands will help you set and control the GPIO3, which connects to the user programmable LED.
+
 ### Hello World Using Arduino
 ## High-Density Connectors
 
@@ -425,11 +429,20 @@ void printIPAddress()
 ![Portenta H7/C33 Ethernet Test](assets/ethernet-h7.png)
 
 ### LTE CAT.M1 NB-IoT
+
 ### LoRa®
+
+One feature that boosts Portenta's Max Carrier possibilities is its onboard LoRa® module, the CMWX1ZZABZ-078 from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
+
+A dedicated SMA connector (J9) allows for an external antenna.
+
+![Portenta Max Carrier with LoRa® Antenna](assets/lora-set-white.png)
+
+To learn how leverage LoRa® capabilities with this carrier, follow this detailed tutorial on [How to Connect the Portenta Max Carrier with The Things Network using a Portenta H7](https://docs.arduino.cc/tutorials/portenta-max-carrier/connecting-to-ttn)
+
 ## Mini PCIe
 ## MIPI Camera
 ## Audio Interface
-## DIP Switch Configuration
 ## USB Interface
 ## MicroSD Storage
 ## CAN Bus (Onboard Transceiver)
