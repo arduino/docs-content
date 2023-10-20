@@ -1,9 +1,8 @@
 ---
 title: 'Bluetooth® Low Energy'
-description: 'Bluetooth LE is a wireless communication technology designed for short-range communication between electronic devices.'
+description: 'Bluetooth® Low Energy is a wireless communication technology designed for short-range communication between electronic devices.'
 author: Hannes Siebeneicher
-tags: [bluetooth]
-difficulty: 'intermediate'
+tags: [Bluetooth® Low Energy]
 hardware:
   - hardware/01.mkr/01.boards/mkr-wifi-1010
   - hardware/02.hero/boards/uno-r4-wifi
@@ -27,53 +26,67 @@ software:
 
 ## Introduction
 
-Bluetooth Low Energy®, often referred to as Bluetooth LE, is a wireless communication technology designed for short-range data exchange between electronic devices. It emerged as a response to the need for energy-efficient wireless communication in various applications, especially those where power consumption is a critical concern.
+Bluetooth® Low Energy®, often referred to as Bluetooth® LE, is a wireless communication technology designed for short-range data exchange between electronic devices. It emerged as a response to the need for energy-efficient wireless communication in various applications, especially those where power consumption is a critical concern.
 
-Unlike its predecessor, Bluetooth Classic, which is optimized for continuous and relatively high-data-rate communication, Bluetooth LE focuses on minimizing energy consumption while maintaining connectivity. This makes Bluetooth LE particularly suitable for applications that require long battery life, such as fitness trackers, healthcare devices, smart sensors, and Internet of Things (IoT) devices.
+Unlike its predecessor, Bluetooth® Classic, which is optimized for continuous and relatively high-data-rate communication, Bluetooth® LE focuses on minimizing energy consumption while maintaining connectivity. This makes Bluetooth® LE particularly suitable for applications that require long battery life, such as fitness trackers, healthcare devices, smart sensors, and Internet of Things (IoT) devices.
 
-The aim of this article is to highlight the basic concepts of Bluetooth Low Energy and explain how to use the ArduinoBLE library to create Bluetooth LE projects with compatible Arduino boards.
+The aim of this article is to highlight the basic concepts of Bluetooth® Low Energy and explain how to use the ArduinoBLE library to create Bluetooth® LE projects with compatible Arduino boards.
+
+## Bluetooth® Supported Boards
+
+Below is a list of all supported Bluetooth® boards:
+
+- [MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010)
+- [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
+- [Nano 33 BLE](https://store.arduino.cc/products/arduino-nano-33-ble)
+- [Nano 33 BLE Sense](https://store.arduino.cc/products/arduino-nano-33-ble-sense)
+- [Nano 33 BLE Sense Rev2](https://store.arduino.cc/products/nano-33-ble-sense-rev2)
+- [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot)
+- [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
+- [Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
+- [Portenta H7](https://store.arduino.cc/products/portenta-h7)
+- [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
+- [Nicla Voice](https://store.arduino.cc/products/nicla-voice)
+- [Opta WiFi](https://store.arduino.cc/collections/opta-family/products/opta-wifi)
+- [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 
 ## Overview
 
 The following section provides an overview of the article. If you want to skip to one particular section simply click the respective link.
 
-- [History](#history) - Where does Bluetooth have its name from?
-- [Frequency](#frequency-bands-and-range) - What frequency does Bluetooth LE operate on?
-- [Range](#range) - How far does Bluetooth LE's signal reach?
+- [Frequency](#frequency-bands-and-range) - What frequency does Bluetooth® LE operate on?
+- [Range](#range) - How far does Bluetooth® LE's signal reach?
 - [Central / Peripheral Devices](#central--peripheral-devices) - How do you set up your device?
 - [Advertising / Connection Mode](#advertising--connection-mode) - What different modes are there?
 - [Services and Characteristics](#services-and-characteristics) - How do you advertise information?
-- [Bluetooth Classic](#bluetooth-classic) - How does Bluetooth LE compare to Bluetooth Classic?
+- [Bluetooth® Classic](#bluetooth-classic) - How does Bluetooth® LE compare to Bluetooth® Classic?
 - [ArduinoBLE Library](#arduinoble-library) - Get quick overview of the ArduinoBLE library
 - [Examples](#examples) - Try different examples using the ArduinoBLE library
 
-
-
 ***To follow along this article you need a compatible board and the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/)***
 
-## History
+### Harald Blåtand (Bluetooth)
 
-### Harald Blåtand
+Harald Blåtand was a 10th-century Danish king who ruled from approximately 958 to 986 AD and he originally inspired the name Bluetooth®. He is best known for his role in uniting various Danish tribes and for his conversion to Christianity, which had a significant impact on the history of Denmark. His nickname “Blåtand” (translated: Bluetooth®) is believed to have been inspired by his dead or discolored tooth, which may have appeared blue or black.
 
-Harald Blåtand was a 10th-century Danish king who ruled from approximately 958 to 986 AD and he originally inspired the name Bluetooth. He is best known for his role in uniting various Danish tribes and for his conversion to Christianity, which had a significant impact on the history of Denmark. His nickname “Blåtand” (translated: Bluetooth) is believed to have been inspired by his dead or discolored tooth, which may have appeared blue or black.
-
-Similar to how Harald Blåtand united Denmark the Bluetooth protocol was meant to unite various devices and communication protocols.
+Similar to how Harald Blåtand united Denmark the Bluetooth® protocol was meant to unite various devices and communication protocols.
 
 ## Technical Specifications
 
-The following parts explore the core concepts and technical specifications of Bluetooth LE.
+The following parts explore the core concepts and technical specifications of Bluetooth® Low Energy.
 
 ### Frequency Bands and Range
 
-Bluetooth Low Energy operates in the 2.4 GHz ISM (Industrial, Scientific, and Medical) band, which is commonly used for various wireless technologies. This frequency band is divided into multiple channels that Bluetooth LE devices use for communication.
+Bluetooth® Low Energy operates in the 2.4 GHz ISM (Industrial, Scientific, and Medical) band, which is commonly used for various wireless technologies. This frequency band is divided into multiple channels that Bluetooth® devices use for communication.
 
 ### Range
 
-The range of a Bluetooth LE connection can vary depending on several factors, but in typical scenarios, it can extend up to approximately 50 meters (or roughly 164 feet) in a line-of-sight environment. This range can be affected by several factors:
+The range of a Bluetooth® Low Energy connection can vary depending on several factors, but in typical scenarios, it can extend up to approximately 50 meters (or roughly 164 feet) in a line-of-sight environment. This range can be affected by several factors:
 
-**Obstacles**: Physical obstacles such as walls, furniture, and other objects can significantly reduce the range of a Bluetooth LE connection. Thick walls and materials like concrete can be particularly challenging for Bluetooth LE signals to penetrate.
+**Obstacles**: Physical obstacles such as walls, furniture, and other objects can significantly reduce the range of a Bluetooth® LE connection. Thick walls and materials like concrete can be particularly challenging for Bluetooth® LE signals to penetrate.
 
-**Interference**: As mentioned earlier, the 2.4 GHz band is shared by various wireless devices. Interference from other devices operating in the same frequency range can impact the range and reliability of Bluetooth LE connections.
+**Interference**: As mentioned earlier, the 2.4 GHz band is shared by various wireless devices. Interference from other devices operating in the same frequency range can impact the range and reliability of Bluetooth® LE connections.
 
 **Antenna Design**: The design and quality of the antennas in both the central and peripheral devices can influence the range. Devices with well-designed antennas tend to have better coverage.
 
@@ -81,29 +94,29 @@ The range of a Bluetooth LE connection can vary depending on several factors, bu
 
 ### Central / Peripheral Devices
 
-Bluetooth Low Energy devices operate using different roles and modes that define how devices interact with each other.
+Bluetooth® Low Energy devices operate using different roles and modes that define how devices interact with each other.
 
-**Central Device**: A central device in Bluetooth  LE is typically a more capable device with features like a higher CPU power, more memory, or a larger battery. Central devices take on the role of initiating connections to peripheral devices. For example, your smartphone is often a central device when connecting to Bluetooth LE peripherals like fitness trackers, smart sensors or an Arduino board.
+**Central Device**: A central device in Bluetooth® LE is typically a more capable device with features like a higher CPU power, more memory, or a larger battery. Central devices take on the role of initiating connections to peripheral devices. For example, your smartphone is often a central device when connecting to Bluetooth® LE peripherals like fitness trackers, smart sensors or an Arduino board.
 
-**Peripheral Device**: Peripheral devices are generally resource-constrained compared to central devices (e.g. an Arduino board compared with your smartphone). Peripheral devices advertise their presence and data to central devices. Compared to Bluetooth classic, Bluetooth LE devices don't maintain a continuous connection to the central device to save power.
+**Peripheral Device**: Peripheral devices are generally resource-constrained compared to central devices (e.g. an Arduino board compared with your smartphone). Peripheral devices advertise their presence and data to central devices. Compared to Bluetooth® classic, Bluetooth® LE devices don't maintain a continuous connection to the central device to save power.
 
-![Bluetooth LE Roles](./assets/ble_roles.png)
+![Bluetooth® LE Roles](./assets/ble_roles.png)
 
 ### Advertising / Connection Mode
 
-**Advertising Mode**: Advertising mode is primarily used to make a Bluetooth LE peripheral device discoverable by other devices, particularly central devices. During advertising mode, the peripheral device periodically broadcasts advertising packets. These packets contain information about the peripheral's identity, services, and characteristics. Central devices continuously scan for these advertising packets to discover nearby peripherals. In advertising mode, the peripheral device is not actively connected to any central device. It remains in a low-power state while broadcasting advertising packets. It is "waiting" for a central device to establish a connection.
+**Advertising Mode**: Advertising mode is primarily used to make a Bluetooth® LE peripheral device discoverable by other devices, particularly central devices. During advertising mode, the peripheral device periodically broadcasts advertising packets. These packets contain information about the peripheral's identity, services, and characteristics. Central devices continuously scan for these advertising packets to discover nearby peripherals. In advertising mode, the peripheral device is not actively connected to any central device. It remains in a low-power state while broadcasting advertising packets. It is "waiting" for a central device to establish a connection.
 
-**Connection Mode**: Connection mode is activated once a central device successfully establishes a connection with a peripheral device. During this mode, devices can exchange data bi-directionally. Central devices can read data from and write data to the peripheral device. The connection mode is crucial for ongoing communication between BLE devices.
+**Connection Mode**: Connection mode is activated once a central device successfully establishes a connection with a peripheral device. During this mode, devices can exchange data bi-directionally. Central devices can read data from and write data to the peripheral device. The connection mode is crucial for ongoing communication between Bluetooth® LE devices.
 
-![Bluetooth LE Modes](./assets/ble_mode.gif)
+![Bluetooth® LE Modes](./assets/ble_mode.gif)
 
 ### Services and Characteristics
 
-In Bluetooth LE, services and characteristics are fundamental concepts that organize and describe the data exchanged between devices. Let's explore these concepts in detail:
+In Bluetooth® LE, services and characteristics are fundamental concepts that organize and describe the data exchanged between devices. Let's explore these concepts in detail:
 
 **Services** 
 
-In Bluetooth LE, a service can be thought of as a logical grouping of related data measurements or functionalities provided by a peripheral device. These data measurements can represent various aspects of the device's capabilities or the information it collects.
+In Bluetooth® LE, a service can be thought of as a logical grouping of related data measurements or functionalities provided by a peripheral device. These data measurements can represent various aspects of the device's capabilities or the information it collects.
 
 For example, consider a weather monitoring sensor. It might have a service called "Weather Data" that encompasses measurements like temperature, humidity, and wind speed. Another service, "Energy Information," could include data related to battery level and energy consumption.
 
@@ -117,74 +130,73 @@ Similarly, the "Energy Information" service may consist of characteristics like 
 
 **Unique Universal Identifier(UUIDs)**:
 
-To distinguish services and characteristics, Bluetooth LE relies on a unique identifier called a UUID (Unique Universal Identifier).
+To distinguish services and characteristics, Bluetooth® LE relies on a unique identifier called a UUID (Unique Universal Identifier).
 
 A UUID is a 128-bit value that serves as a universally unique name for a service or characteristic. It acts like a label or identifier that central devices use to identify and communicate with specific services and characteristics.
 
-UUIDs play a crucial role in Bluetooth LE communication because they ensure that central devices can accurately locate and interact with the desired data points on peripheral devices. They eliminate ambiguity and allow for precise data retrieval and control.
+UUIDs play a crucial role in Bluetooth® LE communication because they ensure that central devices can accurately locate and interact with the desired data points on peripheral devices. They eliminate ambiguity and allow for precise data retrieval and control.
 
-In practical terms, understanding services and characteristics is essential when designing or interacting with Bluetooth LE devices. Services provide a high-level organization of data, while characteristics represent the individual data points within those services. UUIDs act as the keys that enable central devices to access and utilize the data provided by peripheral devices.
+In practical terms, understanding services and characteristics is essential when designing or interacting with Bluetooth® LE devices. Services provide a high-level organization of data, while characteristics represent the individual data points within those services. UUIDs act as the keys that enable central devices to access and utilize the data provided by peripheral devices.
 
-As you explore Bluetooth LE further, you'll encounter various predefined services and characteristics used in common applications. These standardized profiles simplify the development process, making it easier to create Bluetooth LE-based projects and applications.
+As you explore Bluetooth® LE further, you'll encounter various predefined services and characteristics used in common applications. These standardized profiles simplify the development process, making it easier to create Bluetooth® LE-based projects and applications.
 
 **Profiles**
 
-Bluetooth LE profiles are predefined sets of services and characteristics that standardize how Bluetooth LE devices interact with each other. These profiles define the behavior and capabilities of Bluetooth LE devices, making it easier for different devices to communicate seamlessly. Let's delve into Bluetooth LE profiles:
+Bluetooth® LE profiles are predefined sets of services and characteristics that standardize how Bluetooth® LE devices interact with each other. These profiles define the behavior and capabilities of Bluetooth® LE devices, making it easier for different devices to communicate seamlessly. Let's delve into Bluetooth® LE profiles:
 
-**Defining Bluetooth LE Profiles**
+**Defining Bluetooth® LE Profiles**
 
-Bluetooth LE profiles serve as blueprints that specify how data should be organized and exchanged between devices in a standardized manner. They define the roles, services, and characteristics that devices can use to communicate effectively.
+Bluetooth® LE profiles serve as blueprints that specify how data should be organized and exchanged between devices in a standardized manner. They define the roles, services, and characteristics that devices can use to communicate effectively.
 
 Each profile is tailored to a specific use case or application, ensuring that devices of different manufacturers can work together seamlessly when using the same profile.
 
 **Common Standard Profiles**
 
-Bluetooth LE includes a range of standard profiles that simplify the development of Bluetooth LE applications. Some of the most well-known standard profiles include:
+Bluetooth® LE includes a range of standard profiles that simplify the development of Bluetooth® LE applications. Some of the most well-known standard profiles include:
 
 - Battery Service: The Battery Service provides information about the battery level of a device. It typically includes a Battery Level characteristic that central devices can read to monitor the battery status of a peripheral device, such as a wireless headset or smartwatch.
 
 - Heart Rate Service: The Heart Rate Service is commonly used in fitness and health monitoring applications. It includes characteristics that provide real-time heart rate data, allowing central devices like smartphones or fitness trackers to monitor a user's heart rate during exercise.
 
-- Generic Access Profile (GAP): While not a service in itself, GAP defines the roles and procedures for device discovery and connection establishment in Bluetooth LE. It plays a vital role in enabling devices to find and connect to each other seamlessly.
+- Generic Access Profile (GAP): While not a service in itself, GAP defines the roles and procedures for device discovery and connection establishment in Bluetooth® LE. It plays a vital role in enabling devices to find and connect to each other seamlessly.
 
-***You can read more about Bluetooth profiles [here](https://en.wikipedia.org/wiki/List_of_Bluetooth_profiles).***
+***You can read more about Bluetooth® profiles [here](https://en.wikipedia.org/wiki/List_of_Bluetooth_profiles).***
 
 **Creating Custom Profiles**
 
 In addition to standard profiles, developers have the flexibility to create custom profiles tailored to their specific application needs. These custom profiles define unique services and characteristics that match the requirements of a particular project.
 
-Using Bluetooth LE profiles, developers can leverage standardized profiles for common applications or create custom profiles for specialized projects. This standardized approach simplifies the development process, enhances interoperability, and allows for the creation of diverse Bluetooth LE-based applications, from health monitoring to home automation.
+Using Bluetooth® LE profiles, developers can leverage standardized profiles for common applications or create custom profiles for specialized projects. This standardized approach simplifies the development process, enhances interoperability, and allows for the creation of diverse Bluetooth® LE-based applications, from health monitoring to home automation.
 
-As you explore Bluetooth LE further, you'll discover a wide range of profiles designed to support various use cases. These profiles play a crucial role in ensuring that Bluetooth LE devices can seamlessly communicate and provide valuable data to central devices.
+As you explore Bluetooth® LE further, you'll discover a wide range of profiles designed to support various use cases. These profiles play a crucial role in ensuring that Bluetooth® LE devices can seamlessly communicate and provide valuable data to central devices.
 
-### Bluetooth Classic
+### Bluetooth® Classic
 
-Bluetooth Low Energy is distinctly different from Bluetooth Classic. Bluetooth Classic operates in a manner similar to a serial port or UART (Universal Asynchronous Receiver-Transmitter), which is commonly used for point-to-point communication.
+Bluetooth® Low Energy is distinctly different from Bluetooth® Classic. Bluetooth® Classic operates in a manner similar to a serial port or UART (Universal Asynchronous Receiver-Transmitter), which is commonly used for point-to-point communication.
 
 Some key differences are:
 
 **Power Consumption**
 
--	Bluetooth Classic: is designed for continuous, relatively high-data-rate communication. As a result, it consumes more power, making it less suitable for battery-operated devices with limited power sources.
+-	Bluetooth® Classic: is designed for continuous, relatively high-data-rate communication. As a result, it consumes more power, making it less suitable for battery-operated devices with limited power sources.
 
--	Bluetooth Low Energy: is optimized for energy efficiency. It is specifically designed for applications where power consumption is a critical consideration, such as fitness trackers, IoT sensors, and wearable devices. BLE devices can operate for extended periods on small batteries or even energy harvesting solutions.
+-	Bluetooth® Low Energy: is optimized for energy efficiency. It is specifically designed for applications where power consumption is a critical consideration, such as fitness trackers, IoT sensors, and wearable devices. BLE devices can operate for extended periods on small batteries or even energy harvesting solutions.
 
 **Data Transfer Rates**
 
--	Bluetooth Classic: offers higher data transfer rates suitable for tasks like streaming audio or transferring files between devices.
+-	Bluetooth® Classic: offers higher data transfer rates suitable for tasks like streaming audio or transferring files between devices.
 
--	Bluetooth Low Energy: sacrifices data transfer speed in favor of energy efficiency. It's ideal for applications that require intermittent or small bursts of data, such as sending sensor readings or control commands.
+-	Bluetooth® Low Energy: sacrifices data transfer speed in favor of energy efficiency. It's ideal for applications that require intermittent or small bursts of data, such as sending sensor readings or control commands.
 
 **Connection Types**
 
--	Bluetooth Classic: establishes a continuous and relatively power-hungry connection, making it suitable for applications requiring real-time, continuous communication.
+-	Bluetooth® Classic: establishes a continuous and relatively power-hungry connection, making it suitable for applications requiring real-time, continuous communication.
 
--	Bluetooth Low Energy: supports two primary modes - advertising and connection. In advertising mode, a BLE peripheral periodically broadcasts its presence but doesn't maintain a continuous connection, conserving power. When needed, a central device can establish a connection for data exchange.
-
+-	Bluetooth® Low Energy: supports two primary modes - advertising and connection. In advertising mode, a BLE peripheral periodically broadcasts its presence but doesn't maintain a continuous connection, conserving power. When needed, a central device can establish a connection for data exchange.
 
 ## ArduinoBLE Library
 
-The [ArduinoBLE Library](https://www.arduino.cc/reference/en/libraries/arduinoble/) is the main library enabling Bluetooth Low Energy on compatible Arduino boards. You must first download and install the ArduinoBLE library. See our [instructions](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library) on how to install a library. 
+The [ArduinoBLE Library](https://www.arduino.cc/reference/en/libraries/arduinoble/) is the main library enabling Bluetooth® Low Energy on compatible Arduino boards. You must first download and install the ArduinoBLE library. See our [instructions](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library) on how to install a library. 
 
 In the following section you will find an overview and explanation of the library's most important methods and how to use them:
 
@@ -204,7 +216,7 @@ In the following section you will find an overview and explanation of the librar
 
 - `bleDevice.advertisedServiceUuid()` - Check the peripheral's advertised service
 
-- `bleDevice.connect()` - Connect to a Bluetooth Low Energy device.
+- `bleDevice.connect()` - Connect to a Bluetooth® Low Energy device.
 
 - `BLE.connected()` - Check if connection was successful
 
@@ -240,17 +252,17 @@ Below you can find examples showing how to send data between two Arduino boards 
 
 ### Remote LED Control
 
-This example can be used with two Bluetooth LE supported Arduino boards, one with a button, and the other with an LED. When the button is pressed, it will advertise a corresponding value (high/low), which will be received by the board with an LED.
+This example can be used with two Bluetooth® LE supported Arduino boards, one with a button, and the other with an LED. When the button is pressed, it will advertise a corresponding value (high/low), which will be received by the board with an LED.
 
 #### Central
 
-  This example scans for Bluetooth Low Energy peripherals with a specific UUID (in this case another Arduino board), connects to it, and lets you control the built-in LED with a button connected to pin 4.
+This example scans for Bluetooth® Low Energy peripherals with a specific UUID (in this case another Arduino board), connects to it, and lets you control the built-in LED with a button connected to pin 4.
 
-  Connect the button as shown on in the circuit below:
+- The circuit below uses an [Arduino UNO R4 WiFi](). You can use any of the Bluetooth® compatible boards from [this list]().
 
-  ![central](./assets/central.png)
+![central](./assets/central.png)
 
-  Then upload the code found below:
+Then upload the code found below:
 
 ```arduino
 #include <ArduinoBLE.h>
@@ -369,7 +381,7 @@ void controlLed(BLEDevice peripheral) {
 
 This example is the corresponding sketch to the one above, setting up your Arduino board as peripheral with the correct UUID, advertising a built-in LED characteristic. Since we are only using the built-in LED you don't need to wire any components.
 
-  ![peripheral](./assets/peripheral.png)
+- `LED_BUILTIN` works on all Arduino boards.
 
 ```arduino
 #include <ArduinoBLE.h>
@@ -537,4 +549,4 @@ void loop() {
 
 ## Summary
 
-In this article we explored the basics of Bluetooth Low Energy and how to set it up on your Arduino board using the ArduinoBLE library. We highlighted the differences between Bluetooth LE and Bluetooth Classic and finally we provided examples showcasing how you can send data between two Arduino boards or how to use your smartphone to connect to your Arduino board.
+In this article we explored the basics of Bluetooth® Low Energy and how to set it up on your Arduino board using the ArduinoBLE library. We highlighted the differences between Bluetooth® LE and Bluetooth® Classic and finally we provided examples showcasing how you can send data between two Arduino boards or how to use your smartphone to connect to your Arduino board.
