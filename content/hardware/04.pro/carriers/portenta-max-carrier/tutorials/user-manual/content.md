@@ -214,23 +214,31 @@ Configuration and control features allows customize the device's behavior to the
 
 ### DIP Switch Configuration
 
-The Portenta Max Carrier incorporates a DIP switch, giving users ability to manage the behavior of the board. The configuration parameters of this switch differ based on which Portenta board it is paired with.
+The Portenta Max Carrier incorporates two DIP switches, giving users ability to manage the behavior of the board. The configuration parameters of this switches differ based on which Portenta board it is paired with.
 
-![Portenta Max Carrier DIP switch](assets/portentaHATcarrier_DIPswitch.png)
+![Portenta Max Carrier DIP switches](assets/dip-switch.png)
 
 For configurations when the Portenta Max Carrier is combined with the Portenta X8, the DIP switch governs these settings:
 
-| **DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
-|:--------------------------:|:-------------------------:|:----------------------:|
-| `ETH CENTER TAP`           | `1 Gbit Disabled`         | `1 Gbit Enabled`       |
-| `BTSEL`                    | `Boot from SD card Memory`| `Boot from MMC Memory` |
+| **Ethernet DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
+|:-----------------------------------:|:-------------------------:|:----------------------:|
+| 1 - 2                               | Ethernet Disabled         | Ethernet Enabled       |
 
-When the Portenta MAx Carrier is combined with either the Portenta H7 or C33, the DIP switch adjustments are as follows:
+| **Boot DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
+|:-------------------------------:|:-------------------------:|:----------------------:|
+| BOOT SEL                        | Reserved for future applications | Reserved for future applications|
+| BOOT                            | Boot from SD card Memory  | Boot from MMC Memory   |
 
-| **DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
-|:--------------------------:|:-------------------------:|:----------------------:|
-| `ETH CENTER TAP`           | `100 Mbit Enabled`        | `100 Mbit Disabled`    |
-| `BTSEL`                    | `Not used`                | `Not used`             |
+When the Portenta Max Carrier is combined with either the Portenta H7 or C33, the DIP switch adjustments are as follows:
+
+| **Ethernet DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
+|:-----------------------------------:|:-------------------------:|:----------------------:|
+| 1 - 2                               | Ethernet Enabled          | Ethernet Disabled      |
+
+| **Boot DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
+|:-------------------------------:|:-------------------------:|:----------------------:|
+| BOOT SEL                        | Not used                  | Not used               |
+| BOOT                            | Enter Boot mode           | Normal Boot (Run)      |
 
 This flexibility ensures that the Portenta Max Carrier remains adaptable to the unique needs of each paired Portenta board.
 
