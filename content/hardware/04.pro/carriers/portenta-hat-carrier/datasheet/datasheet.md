@@ -25,6 +25,7 @@ The most recent datasheet version of this product is always available at:
 ## Application Examples
 
 <div style="text-align:justify;">
+
 The Portenta Hat Carrier is designed to complement the Portenta family. It provides direct access to the Portentas' peripheral interfaces, enabling connections to USB and MIPI cameras. Furthermore, it improves the prototyping potential through straightforward compatibility with a broad spectrum of Raspberry Pi® Hats.
 
 - **Motion Controller**: With the Portenta Hat Carrier, the Portenta X8 becomes an optimal motion controller for advanced industrial machinery, including industrial robots. Its integrated CAN interface (hardware level) and a Robot Operating System (ROS) container (software level) empower the Portenta X8 to manage robotic arm trajectories, while concurrently communicating with all associated electronics, such as motors and sensors.
@@ -34,6 +35,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 - **Smart Building Security**: Enhance your building's security with the combined strength of the Portenta X8 and the Portenta Hat Carrier. Receive real-time notifications in instances of security breaches, establish an intelligent video surveillance system to spot unauthorized activities, or amplify your access control by integrating a high-resolution camera with the Portenta Hat Carrier.
 
 - **Prototyping With Raspberry Pi® Hats**: Expand the capabilities of your Portenta lineup with the Portenta Hat Carrier. Ready for action, it is designed to be paired with an extensive range of Raspberry Pi® Hats, catering to diverse requirements, from embedded sensing to direct actuation.
+
 </div>
 
 ## Accessories (Not Included)
