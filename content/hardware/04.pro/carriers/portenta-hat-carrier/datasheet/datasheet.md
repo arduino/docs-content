@@ -8,7 +8,11 @@ author: Writec, Julián Caro Linares
 
 # Description
 
-<p style="text-align: justify;">The Portenta Hat Carrier is an innovative solution enabling multiple robotics, industrial, and building automation projects. Combined with the Portenta X8, H7, or C33 boards, it evolves into a powerful industrial platform, further complemented by its compatibility with Raspberry Pi® Hats. The carrier grants easy access to an array of peripherals, such as CAN, Ethernet, microSD, USB, camera, and analog input and output ports. Its design is further enhanced with dedicated pins for efficient debugging and PWM fan connector.</p>
+<p style="text-align: justify;">
+
+The Portenta Hat Carrier is an innovative solution enabling multiple robotics, industrial, and building automation projects. Combined with the Portenta X8, H7, or C33 boards, it evolves into a powerful industrial platform, further complemented by its compatibility with Raspberry Pi® Hats. The carrier grants easy access to an array of peripherals, such as CAN, Ethernet, microSD, USB, camera, and analog input and output ports. Its design is further enhanced with dedicated pins for efficient debugging and PWM fan connector.
+
+</p>
 
 # Target Areas:
 
@@ -57,7 +61,11 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 
 ## Solution Overview
 
-<p style="text-align: justify;">The Portenta Hat Carrier works alongside the Portenta family boards. The connection between the Portenta Hat Carrier and the Portenta family boards is fast and easy thanks to the High-Density connectors (J1 and J2) found in the Portenta Hat Carrier.</p>
+<p style="text-align: justify;">
+
+The Portenta Hat Carrier works alongside the Portenta family boards. The connection between the Portenta Hat Carrier and the Portenta family boards is fast and easy thanks to the High-Density connectors (J1 and J2) found in the Portenta Hat Carrier.
+
+</p>
 
 ![Figure 1. Portenta Hat Carrier and Portenta family boards connection](assets/portentaHatCarrier_mounting.png)
 
@@ -249,7 +257,11 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 
 ### Recommended Operating Conditions
 
-<p style="text-align: justify;">Table 4 provides a comprehensive guideline for the optimal use of the Portenta Hat Carrier, outlining typical operating conditions and design limits.</p>
+<p style="text-align: justify;">
+
+Table 4 provides a comprehensive guideline for the optimal use of the Portenta Hat Carrier, outlining typical operating conditions and design limits.
+
+</p>
 
 <div style="text-align:center;">
 
@@ -265,7 +277,11 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 <caption>Table 4: Recommended operating conditions of the Portenta Hat Carrier</caption>
 </div>
 
-<p style="text-align: justify;"><sup>1</sup>The power supply connected to the onboard screw terminal block powers the carrier, the connected Portenta family board, and compatible Raspberry Pi® Hats. The onboard screw terminal connector has an integrated reverse polarity protection.</p>
+<p style="text-align: justify;">
+
+<sup>1</sup>The power supply connected to the onboard screw terminal block powers the carrier, the connected Portenta family board, and compatible Raspberry Pi® Hats. The onboard screw terminal connector has an integrated reverse polarity protection.
+
+</p>
 
 <div style="page-break-after:always;"></div>
 
@@ -520,9 +536,11 @@ An overview of the Portenta Hat Carrier high-level architecture is illustrated i
 As shown in Figure 4, the Portenta Hat Carrier can be powered in multiple ways:
 
 <p style="text-align: justify;">
+
 - **Through the screw terminal block connector (J9)**: Accepting a voltage range between +7 to +32 VDC. An AP63200WU-7 buck converter (U7) then steps down the +7 to +32 VDC VDC input to +5 VDC for the carrier and any connected Portenta family board. It is also possible to power the system with a fixed +5 VDC using the "5V" pin present in this block connector.
 - **Via the connected Portenta family board's USB-C® connector**: It provides a stable +5 VDC to the carrier and the connected Portenta Family board.
 - **From a Raspberry like Hat using the 40-pin header connector**: It provides a stable +5 VDC to the carrier and the connected Portenta Family board.
+
 </p>
 
 ### Product Topology
@@ -597,17 +615,29 @@ An overview of the Portenta Hat Carrier topology is illustrated in Figure 5.
 
 #### High-Density Connectors (J1-J2)
 
-<p style="text-align: justify;">The High-Density connectors (J1-J2) provide connectivity with the Portenta family boards. For detailed information, refer to the Portenta Hat Carrier pinout and the respective documentation for the Portenta family boards. In Figure 6, the Portenta X8 board High-Density connectors pinout is shown as an example.</p>
+<p style="text-align: justify;">
+
+The High-Density connectors (J1-J2) provide connectivity with the Portenta family boards. For detailed information, refer to the Portenta Hat Carrier pinout and the respective documentation for the Portenta family boards. In Figure 6, the Portenta X8 board High-Density connectors pinout is shown as an example.
+
+</p>
 
 ![Figure 6. Portenta X8 High-Density connectors pinout](assets/phc_high-density-connector-x8.png)
 
 #### JTAG Connector (J3)
 
-<p style="text-align: justify;">Debugging capabilities are integrated directly into the Portenta Hat Carrier and are accessible via the 10-pin JTAG connector (J3) shown in Figure 7.</p>
+<p style="text-align: justify;">
+
+Debugging capabilities are integrated directly into the Portenta Hat Carrier and are accessible via the 10-pin JTAG connector (J3) shown in Figure 7.
+
+</p>
 
 #### USB-A (J4)
 
-<p style="text-align: justify;">The onboard USB-A connector (female), shown in Figure 7, is integrated in the Portenta Hat Carrier for multiple purposes, including:</p>
+<p style="text-align: justify;">
+
+The onboard USB-A connector (female), shown in Figure 7, is integrated in the Portenta Hat Carrier for multiple purposes, including:
+
+</p>
 
 - Connecting external peripherals such as mouse devices, keyboards, USB cameras, hubs, and hard drives.
 - Data logging using a USB memory stick.
@@ -616,7 +646,11 @@ An overview of the Portenta Hat Carrier topology is illustrated in Figure 5.
 
 #### 40-Pin Header Connector (J5)
 
-<p style="text-align: justify;">The Portenta Hat Carrier features a 40-pin header connector as shown in Figure 8, making it compatible with most of the Raspberry Pi® Hats available on the market.</p>
+<p style="text-align: justify;">
+
+The Portenta Hat Carrier features a 40-pin header connector as shown in Figure 8, making it compatible with most of the Raspberry Pi® Hats available on the market.
+
+</p>
 
 ![Figure 8. Raspberry Pi®-compatible 40-pin header connector](assets/portentaHatCarrier_raspiConnector.png)
 
@@ -635,7 +669,11 @@ The main interfaces and general-purpose pins available through this connector in
 
 #### 16-Pin Header Connector (J6)
 
-<p style="text-align: justify;">The Portenta Hat Carrier has a 16-pin connector as shown in Figure 9 to access multiple analog, PWM, serial ports, and power-related pins.</p>
+<p style="text-align: justify;">
+
+The Portenta Hat Carrier has a 16-pin connector as shown in Figure 9 to access multiple analog, PWM, serial ports, and power-related pins.
+
+</p>
 
 ![Figure 9. 16-pin header connector](assets/portentaHatCarrier_16pinConnector.png)
 
@@ -662,14 +700,22 @@ The onboard microSD card slot can be used for:
 
 #### RJ45 Connector For Ethernet (J8)
 
-<p style="text-align: justify;">The RJ45 connector, directly linked to the high-density connector on the Portenta board, facilitates an Ethernet cable connection to your network. It integrates magnetics for electrical isolation, and features LED indications for activity (orange) and speed (green).</p>
+<p style="text-align: justify;">
+
+The RJ45 connector, directly linked to the high-density connector on the Portenta board, facilitates an Ethernet cable connection to your network. It integrates magnetics for electrical isolation, and features LED indications for activity (orange) and speed (green).
+
+</p>
 
 ![Figure 11. RJ45 connector of the Portenta Hat Carrier](assets/portentaHatCarrier_rj45Connector.png)
 
-<p style="text-align: justify;"> Depending of the Portenta family board attached to the Portenta Hat Carrier, the DIP switch (SW2) must be in a specific position to ensure the correct functioning of the ethernet interface:
+<p style="text-align: justify;">
+
+Depending of the Portenta family board attached to the Portenta Hat Carrier, the DIP switch (SW2) must be in a specific position to ensure the correct functioning of the ethernet interface:
 
 - For the Portenta X8, be sure that the ETH CENTER TAP on the DIP switch (SW2) is on the default position OFF.
-- For the Portenta X7 or Portenta C33, set the ETH CENTER TAP on the DIP switch (SW2) to ON.</p>
+- For the Portenta X7 or Portenta C33, set the ETH CENTER TAP on the DIP switch (SW2) to ON.
+
+</p>
 
 #### Screw Terminal Block (J9)
 
@@ -679,7 +725,11 @@ The screw terminal block connector shown in Figure 12 contains the power supply 
 
 **Power Pins**
 
-<p style="text-align: justify;">The Portenta Hat Carrier and any connected board to it can be powered using the power terminals located on the screw terminal block (J9):</p>
+<p style="text-align: justify;">
+
+The Portenta Hat Carrier and any connected board to it can be powered using the power terminals located on the screw terminal block (J9):
+
+</p>
 
 <p style="text-align: justify;"> 
 
@@ -688,19 +738,28 @@ The screw terminal block connector shown in Figure 12 contains the power supply 
 
 </p>
 
-<p style="text-align: justify;">An AP63200WU-7 buck converter (U7) steps down the input voltage from +7-32 VDC to the +5 VDC used by the carrier and the connected board to it.</p>
+<p style="text-align: justify;">
+
+An AP63200WU-7 buck converter (U7) steps down the input voltage from +7-32 VDC to the +5 VDC used by the carrier and the connected board to it.
+
+</p>
 
 **CAN Bus Pins**
 
 <p style="text-align: justify;">
 
 - **CANH and CANL terminals**: The Portenta Hat Carrier has a high-speed CAN transceiver based on the TJA1049T/3J IC. These terminals enable reliable CAN bus communication. The device does not include terminal resistors so in case you are experimenting problems in your CAN bus communication please make sure to add terminal resistors to your bus.
+
 </p>
 
   
 #### Camera Connector (J10)
 
-<p style="text-align: justify;">The Portenta Hat Carrier, when combined with a Portenta X8, supports MIPI cameras. The latter can be plugged into the onboard camera connector shown in Figure 13 via a flexible flat cable.</p>
+<p style="text-align: justify;">
+
+The Portenta Hat Carrier, when combined with a Portenta X8, supports MIPI cameras. The latter can be plugged into the onboard camera connector shown in Figure 13 via a flexible flat cable.
+
+</p>
 
 ![Figure 13. Camera connector of the Portenta Hat Carrier](assets/portentaHatCarrier_cameraConnector.png)
 
@@ -717,7 +776,11 @@ The PWM header connector controls an optional fan's speed, perfect for heat diss
 
 #### DIP Switch Positions (SW2)
 
-<p style="text-align: justify;">The Portenta Hat Carrier has a DIP switch with two different functions depending on the Portenta family board connected to it:</p>
+<p style="text-align: justify;">
+
+The Portenta Hat Carrier has a DIP switch with two different functions depending on the Portenta family board connected to it:
+
+</p>
 
 **Portenta X8:**
 
@@ -739,41 +802,72 @@ The PWM header connector controls an optional fan's speed, perfect for heat diss
 
 #### Flashing Push Button (PB1)
 
-<p style="text-align: justify;">The flashing push button can serve as a general user-programmable button with a single press or can enable the board's flashing mode when pressing it longer. </p>
+<p style="text-align: justify;">
+
+The flashing push button can serve as a general user-programmable button with a single press or can enable the board's flashing mode when pressing it longer.
+
+</p>
 
 ![Figure 15. Flashing push button of the Portenta Hat Carrier](assets/portentaHatCarrier_pushButton.png)
 
-<p style="text-align: justify;">To perform flashing operations:
+<p style="text-align: justify;">
+
+To perform flashing operations:
 
 1. Do a long press on the PB1 push button and release it.
-2. To exit from the flashing mode and restart the system with the changes made, do a single press on the PB1 push button.</p>
+2. To exit from the flashing mode and restart the system with the changes made, do a single press on the PB1 push button.
+
+</p>
 
 ## Device Operation
 
 <p style="text-align: justify;">
-The carrier is designed to function in conjunction with the Portenta family boards (refer to the Solution Overview section for more details). For further information, consult the datasheets for Portenta X8, Portenta H7, or Portenta C33 boards.</p>
+
+The carrier is designed to function in conjunction with the Portenta family boards (refer to the Solution Overview section for more details). For further information, consult the datasheets for Portenta X8, Portenta H7, or Portenta C33 boards.
+
+</p>
 
 ### Getting Started - IDE
 
-<p style="text-align: justify;">If you want to program your Portenta Hat Carrier offline, you'll need to install the Arduino Desktop IDE [1]. To connect your Portenta family board with the Portenta Hat Carrier to your computer, a USB-C® cable is required.</p>
+<p style="text-align: justify;">
+
+If you want to program your Portenta Hat Carrier offline, you'll need to install the Arduino Desktop IDE [1]. To connect your Portenta family board with the Portenta Hat Carrier to your computer, a USB-C® cable is required.
+
+</p>
 
 ### Getting Started - Arduino Web Editor
 
-<p style="text-align: justify;">All Arduino devices work out-of-the-box with the Arduino Web Editor [2] after installing a straightforward plugin.
+<p style="text-align: justify;">
 
-Being hosted online ensures that the Arduino Web Editor remains up-to-date, boasting the latest features and comprehensive support for all boards and devices. To begin coding in the browser and uploading your sketches to your device, follow the instructions here [3].</p>
+All Arduino devices work out-of-the-box with the Arduino Web Editor [2] after installing a straightforward plugin.
+
+Being hosted online ensures that the Arduino Web Editor remains up-to-date, boasting the latest features and comprehensive support for all boards and devices. To begin coding in the browser and uploading your sketches to your device, follow the instructions here [3].
+
+</p>
 
 ### Getting Started - Arduino IoT Cloud
 
-<p style="text-align: justify;">The Arduino IoT Cloud supports all Arduino IoT-enabled products, enabling you to log, visualize, and analyze sensor data, initiate events, and automate either your home or business.</p>
+<p style="text-align: justify;">
+
+The Arduino IoT Cloud supports all Arduino IoT-enabled products, enabling you to log, visualize, and analyze sensor data, initiate events, and automate either your home or business.
+
+</p>
 
 ### Getting Started - Portenta Hat Carrier with Portenta X8 - Linux
 
-<p style="text-align: justify;">The Portenta Hat Carrier with a Portenta X8 is a powerful system that runs Linux in its main core and Arduino in its secondary core. In case you want to know more about how to use Linux with your Portenta X8 and your Portenta Hat Carrier, you can check the official documentation for the Portenta Hat Carrier [4] and the Portenta X8 [5].</p>
+<p style="text-align: justify;">
+
+The Portenta Hat Carrier with a Portenta X8 is a powerful system that runs Linux in its main core and Arduino in its secondary core. In case you want to know more about how to use Linux with your Portenta X8 and your Portenta Hat Carrier, you can check the official documentation for the Portenta Hat Carrier [4] and the Portenta X8 [5].
+
+</p>
 
 ### Online Resources
 
-<p style="text-align: justify;">Having acquainted yourself with the device's basic functionalities, delve into its limitless potentials. Engage with inspiring projects on Arduino Project Hub [6], explore the Arduino Library Reference [7], and visit the online store [8] to augment your Portenta Hat Carrier with supplemental extensions, sensors, and actuators.</p>
+<p style="text-align: justify;">
+
+Having acquainted yourself with the device's basic functionalities, delve into its limitless potentials. Engage with inspiring projects on Arduino Project Hub [6], explore the Arduino Library Reference [7], and visit the online store [8] to augment your Portenta Hat Carrier with supplemental extensions, sensors, and actuators.
+
+</p>
 
 ### Board Recovery
 
@@ -781,6 +875,7 @@ Being hosted online ensures that the Arduino Web Editor remains up-to-date, boas
 
 - **Portenta C33 or Portenta H7**: In case a sketch locks up the processor and the board is not reachable anymore via USB, bootloader mode can be accessed by double-tapping the reset button right after powering up.
 - **Portenta X8**: If your Linux system become unresponsive, press the reset button to reboot. If the system remains unresponsive post-reboot, re-flashing the board might be necessary. Consult the official Portenta Hat Carrier [4] and the Portenta X8 [5] documentation for further guidance.
+
 </p>
 
 ## Mechanical Information
@@ -805,11 +900,19 @@ Being hosted online ensures that the Arduino Web Editor remains up-to-date, boas
 
 ### Declaration of Conformity CE DoC (EU)
 
-<p style="text-align: justify;">We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).</p>
+<p style="text-align: justify;">
+
+We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+
+</p>
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
-<p style="text-align: justify;">Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.</p>
+<p style="text-align: justify;">
+
+Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
+
+</p>
 
 | Substance                              | **Maximum limit (ppm)** |
 |----------------------------------------|-------------------------|
@@ -826,11 +929,19 @@ Being hosted online ensures that the Arduino Web Editor remains up-to-date, boas
 
 Exemptions: No exemptions are claimed.
 
-<p style="text-align: justify;">Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.</p>
+<p style="text-align: justify;">
+
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+
+</p>
 
 ### Conflict Minerals Declaration
 
-<p style="text-align: justify;">As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regard to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.</p>
+<p style="text-align: justify;">
+
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regard to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+
+</p>
 
 ## FCC Caution
 
