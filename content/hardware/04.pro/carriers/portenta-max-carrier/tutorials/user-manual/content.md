@@ -222,7 +222,7 @@ The Portenta Max Carrier incorporates two DIP switches, giving users ability to 
 
 ![Portenta Max Carrier DIP switches](assets/dip-switch.png)
 
-For configurations when the Portenta Max Carrier is combined with the Portenta X8, the DIP switch governs these settings:
+For configurations when the Portenta Max Carrier is combined with the __Portenta X8__, the DIP switch governs these settings:
 
 | **Ethernet DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
 |:-----------------------------------:|:-------------------------:|:----------------------:|
@@ -233,7 +233,7 @@ For configurations when the Portenta Max Carrier is combined with the Portenta X
 | BOOT SEL                        | Reserved for future applications | Reserved for future applications|
 | BOOT                            | Boot from SD card Memory  | Boot from MMC Memory   |
 
-When the Portenta Max Carrier is combined with either the Portenta H7 or C33, the DIP switch adjustments are as follows:
+When the Portenta Max Carrier is combined with either the __Portenta H7 or C33__, the DIP switch adjustments are as follows:
 
 | **Ethernet DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
 |:-----------------------------------:|:-------------------------:|:----------------------:|
@@ -445,6 +445,15 @@ To learn how leverage LoRa® capabilities with this carrier, follow this detaile
 ## Audio Interface
 ## USB Interface
 ## MicroSD Storage
+
+The available microSD card slot offers the advantage of expanded storage. This is especially beneficial for processing large volumes of log data, whether from sensors or the onboard computer registry. For the Portenta X8, the microSD can also serve as an external boot source.
+
+### Using Portenta X8
+
+### Using Portenta H7
+For Portenta H7, you can use the following Arduino IDE script to test mounted SD card within Portenta Hat Carrier:
+
+
 ## CAN Bus (Onboard Transceiver)
 ### JTAG Pins
 ## Communication
