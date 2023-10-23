@@ -691,7 +691,8 @@ The screw terminal block connector shown in Figure 12 contains the power supply 
 **CAN Bus Pins**
 
 <p style="text-align: justify;">
-- *CANH and CANL terminals*: The Portenta Hat Carrier has a high-speed CAN transceiver based on the TJA1049T/3J IC. These terminals enable reliable CAN bus communication. The device does not include terminal resistors so in case you are experimenting problems in your CAN bus communication please make sure to add terminal resistors to your bus.
+
+- **CANH and CANL terminals**: The Portenta Hat Carrier has a high-speed CAN transceiver based on the TJA1049T/3J IC. These terminals enable reliable CAN bus communication. The device does not include terminal resistors so in case you are experimenting problems in your CAN bus communication please make sure to add terminal resistors to your bus.
 </p>
 
   
