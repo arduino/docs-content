@@ -47,7 +47,7 @@ Additionally, the following accessories are needed:
 
 ### Software Requirements
 
-If you want to use the Portenta Hat Carrier with a Portenta X8, you may need to have the following:
+If you want to use the Portenta Hat Carrier with a Portenta X8, check the following bullet points:
 
 - Make sure you have the latest Linux image. Refer to [this section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#portenta-x8-os-image-update) to confirm that your Portenta X8 is up-to-date.
 
