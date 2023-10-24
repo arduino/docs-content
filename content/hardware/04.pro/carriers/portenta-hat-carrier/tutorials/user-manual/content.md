@@ -1718,7 +1718,7 @@ iperf3 -c <Server IP>
 .\iperf3.exe -c <Server IP>
 ```
 
-Ii will set the computer as a Client and connect to the configured IP address. If a specific Port needs to be assigned, following command will allow you to make such configuration:
+This will set the computer as a Client and connect to the configured IP address. If a specific Port needs to be assigned, the following command will allow you to make such a configuration:
 
 ```bash
 .\iperf3.exe -c <Server IP> -p <Port Number>
