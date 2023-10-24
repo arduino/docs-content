@@ -1176,7 +1176,7 @@ cd /tmp/sdcard
 ls
 ```
 
-To write data to the microSD card, you can use the `echo` command. For example, to create a file named `hello.txt` with the content `"Hello Word Carrier!"`:
+To write data to the microSD card, you can use the `echo` command. For example, type the following code to create a file named `hello.txt` with the content `"Hello Word Carrier!"`:
 
 ```bash
 echo "Hello Word Carrier!" > hello.txt
