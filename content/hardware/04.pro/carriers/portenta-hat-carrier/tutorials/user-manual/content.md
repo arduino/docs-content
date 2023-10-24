@@ -174,7 +174,7 @@ The Portenta Hat Carrier design allows the user to easily stack the preferred Po
 
 ![Portenta Hat Carrier Stack Orientation](assets/board_mount.gif)
 
-With the Portenta mounted to the carrier, you can proceed to power the carrier and begin prototyping.
+With the Portenta mounted to the carrier, you can proceed to power the carrier and start prototyping.
 
 ### Power The Board
 
