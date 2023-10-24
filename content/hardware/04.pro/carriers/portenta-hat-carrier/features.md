@@ -7,23 +7,21 @@
 
 <FeatureList>
 
-<Feature title="Raspberry Pi® Hats" image="mkr-form-factor">
+<Feature title="Raspberry Pi® Hats" image="mega-form-factor">
 
   Thanks to its 40-Pin Raspberry like connector the Portenta Hat Carrier is compatible with most of the Raspberry Pi® Hats available on the market.
 
-  <FeatureLink title="Read More" url="/hardware/portenta-x8" />
 </Feature>
 
-<Feature title="Linux Powered" image="core">
+<Feature title="Linux Powered" image="display">
 
   The Portenta X8, powered by Linux, is the perfect fit for this carrier, expanding its accessibility and interfacing options.
 
-  <FeatureLink title="Read More" url="/hardware/portenta-x8" />
 </Feature>
 
 <Feature title="Arduino Powered" image="mcu">
 
-  The Portenta Hat Carrier is also compatible with the Portenta H7 Portenta C33, and the auxiliar core of the Portenta X8, expanding the potential of these boards while using the Arduino code ecosystem.
+  The carrier is also compatible with the Portenta H7, Portenta C33, and the auxiliary core of the Portenta X8, bein fully compatible with the Arduino code ecosystem.
 
 </Feature>
 
@@ -34,7 +32,7 @@
 </Feature>
 
 
-<Feature title="CAN FD" image="communication">
+<Feature title="CAN Bus" image="communication">
 
   The Portenta Hat Carrier provides a high-speed CAN FD transceiver that allows CAN bus communication connections.
 
@@ -46,6 +44,11 @@
 
 </Feature>
 
+<Feature title="MicroSD Card Slot" image="file-icon">
+
+  The Portenta Hat Carrier microSD card slot can be used for data logging and media operations.
+
+</Feature>
 
 
 <Feature title="JTAG connector" image="hw-pin">
