@@ -776,7 +776,7 @@ The 16-pin header connector of the Portenta Hat Carrier integrates the analog ch
 |        7       |       A6       |           ANALOG_A6          |         J2-78        |
 |        8       |       A7       |           ANALOG_A7          |         J2-80        |
 
-The built-in features of the Arduino programming language ([`analogRead()` function](https://reference.arduino.cc/reference/en/language/functions/analog-io/analogread/)) can be used to access the eight analog input pins.
+The built-in features of the Arduino programming language ([`analogRead()` function](https://reference.arduino.cc/reference/en/language/functions/analog-io/analogread/)) can be used to access the eight analog input pins on the Arduino IDE.
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find the analog pins on the board.
 
