@@ -881,7 +881,9 @@ More information on how to use the CAN Bus protocol can be found within [CAN Bus
 
 ### MIPI Camera
 
-The Portenta H7 and H33 have no MIPI interface, so it can not use the camera which is only available for the Portenta X8 at the moment. As a quick note, the out-of-the-box shell does not support certain commands directly through the ADB shell.
+The Portenta X8 can interact with MIPI cameras through the dedicated camera connector. As a quick note, the out-of-the-box Alpine shell does not support certain commands directly through the ADB shell.
+
+On the other hand, the Portenta H7 and C33 have no MIPI interface, so they cannot use the camera connector.
 
 ![Portenta Hat Carrier MIPI Camera](assets/portentaHATcarrier_MIPI.png)
 
