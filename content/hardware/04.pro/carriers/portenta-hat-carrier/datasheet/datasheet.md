@@ -444,7 +444,6 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 </div>
 
 
-
 #### USB-A (J4)
 
 <div style="text-align:center;">
@@ -522,11 +521,13 @@ An overview of the Portenta Hat Carrier high-level architecture is illustrated i
 
 As shown in Figure 4, the Portenta Hat Carrier can be powered in multiple ways:
 
-- **Through the screw terminal block connector (J9)**: <p style="text-align: justify;">Accepting a voltage range between +7 to +32 VDC. An AP63200WU-7 buck converter (U7) then steps down the +7 to +32 VDC VDC input to +5 VDC for the carrier and any connected Portenta family board. It is also possible to power the system with a fixed +5 VDC using the "5V" pin present in this block connector.</p>
-- **Via the connected Portenta family board's USB-C® connector**: <p style="text-align: justify;">It provides a stable +5 VDC to the carrier and the connected Portenta Family board.</p>
-- **From a Raspberry like Hat using the 40-pin header connector**: <p style="text-align: justify;">It provides a stable +5 VDC to the carrier and the connected Portenta Family board.</p>
+<div style="text-align: justify;">
 
+- **Through the screw terminal block connector (J9)**: Accepting a voltage range between +7 to +32 VDC. An AP63200WU-7 buck converter (U7) then steps down the +7 to +32 VDC VDC input to +5 VDC for the carrier and any connected Portenta family board. It is also possible to power the system with a fixed +5 VDC using the "5V" pin present in this block connector.
+- **Via the connected Portenta family board's USB-C® connector**: It provides a stable +5 VDC to the carrier and the connected Portenta Family board.
+- **From a Raspberry like Hat using the 40-pin header connector**: It provides a stable +5 VDC to the carrier and the connected Portenta Family board.
 
+</div>
 
 ### Product Topology
 
@@ -669,12 +670,12 @@ The onboard microSD card slot can be used for:
 
 ![Figure 11. RJ45 connector of the Portenta Hat Carrier](assets/portentaHatCarrier_rj45Connector.png)
 
-<p style="text-align: justify;">Depending of the Portenta family board attached to the Portenta Hat Carrier, the DIP switch (SW2) must be in a specific position to ensure the correct functioning of the ethernet interface:</p>
+<div style="text-align: justify;">Depending of the Portenta family board attached to the Portenta Hat Carrier, the DIP switch (SW2) must be in a specific position to ensure the correct functioning of the ethernet interface:
 
 - For the Portenta X8, be sure that the ETH CENTER TAP on the DIP switch (SW2) is on the default position OFF.
 - For the Portenta X7 or Portenta C33, set the ETH CENTER TAP on the DIP switch (SW2) to ON.
 
-
+</div>
 
 #### Screw Terminal Block (J9)
 
@@ -684,15 +685,22 @@ The screw terminal block connector shown in Figure 12 contains the power supply 
 
 **Power Pins**
 
-<p style="text-align: justify;">The Portenta Hat Carrier and any connected board to it can be powered using the power terminals located on the screw terminal block (J9):</p>
+<div style="text-align: justify;">
 
-- **VIN 7-32VDC and GND terminals**: <p style="text-align: justify;">Supply the board using a voltage range of +7-32 VDC. This method is particularly convenient when powering the board with batteries.</p>
-- **5V and GND terminals**: <p style="text-align: justify;">Power the board with a fixed voltage of +5 VDC. Additionally, these pins can power external peripherals operating at +5 VDC. An AP63200WU-7 buck converter (U7) steps down the input voltage from +7-32 VDC to the +5 VDC used by the carrier and the connected board to it.</p>
+The Portenta Hat Carrier and any connected board to it can be powered using the power terminals located on the screw terminal block (J9):
+
+- **VIN 7-32VDC and GND terminals**: Supply the board using a voltage range of +7-32 VDC. This method is particularly convenient when powering the board with batteries.
+- **5V and GND terminals**: Power the board with a fixed voltage of +5 VDC. Additionally, these pins can power external peripherals operating at +5 VDC. An AP63200WU-7 buck converter (U7) steps down the input voltage from +7-32 VDC to the +5 VDC used by the carrier and the connected board to it.
+
+</div>
 
 **CAN Bus Pins**
 
-- **CANH and CANL terminals**: <p style="text-align: justify;">The Portenta Hat Carrier has a high-speed CAN transceiver based on the TJA1049T/3J IC. These terminals enable reliable CAN bus communication. The 120 ohms termination resistor is not included in the device so make sure to add them in your final deployment to meet the bus requirements and obtain the ideal results.</p>
+<div style="text-align: justify;">
 
+- **CANH and CANL terminals**: The Portenta Hat Carrier has a high-speed CAN transceiver based on the TJA1049T/3J IC. These terminals enable reliable CAN bus communication. The 120 ohms termination resistor is not included in the device so make sure to add them in your final deployment to meet the bus requirements and obtain the ideal results.
+
+</div>
   
 #### Camera Connector (J10)
 
@@ -772,10 +780,12 @@ All Arduino devices work out-of-the-box with the Arduino Web Editor [2] after in
 
 ### Board Recovery
 
+<div style="text-align: justify;">
 
+- **Portenta C33 or Portenta H7**: In case a sketch locks up the processor and the board is not reachable anymore via USB, bootloader mode can be accessed by double-tapping the reset button right after powering up.
+- **Portenta X8**: If your Linux system become unresponsive, press the reset button to reboot. If the system remains unresponsive post-reboot, re-flashing the board might be necessary. Consult the official Portenta Hat Carrier [4] and the Portenta X8 [5] documentation for further guidance.
 
-- **Portenta C33 or Portenta H7**: <p style="text-align: justify;">In case a sketch locks up the processor and the board is not reachable anymore via USB, bootloader mode can be accessed by double-tapping the reset button right after powering up.</p>
-- **Portenta X8**: <p style="text-align: justify;">If your Linux system become unresponsive, press the reset button to reboot. If the system remains unresponsive post-reboot, re-flashing the board might be necessary. Consult the official Portenta Hat Carrier [4] and the Portenta X8 [5] documentation for further guidance.</p>
+</div>
 
 ## Mechanical Information
 
