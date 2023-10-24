@@ -2090,7 +2090,7 @@ void loop() {
 #### Wi-Fi® & Bluetooth®
 <br></br>
 
-The Portenta Hat Carrier is designed to work flawlessly with wireless features. Among its numerous advantages is the capacity to use both Wi-Fi® and Bluetooth® technologies present in the Portenta models like X8, H7, or C33. When these wireless options are activated, they can be effectively combined with the intrinsic capabilities and features that the carrier offers. This combination makes it more versatile and powerful for many different uses.
+The Portenta Hat Carrier is designed to work flawlessly with wireless features. Among its numerous advantages is its capacity to use Wi-Fi® and Bluetooth® technologies present in the Portenta models like X8, H7, or C33. When these wireless options are activated, they can be effectively combined with the intrinsic capabilities and features that the carrier offers. This combination makes this solution more versatile and powerful for many different projects.
 
 This integration not only broadens the spectrum of use cases for the Portenta Hat Carrier but also ensures that developers can use robust wireless communications in their applications. The effectiveness of onboard capabilities with these wireless features makes the Portenta Hat Carrier an indispensable tool for developers looking for versatile and powerful connectivity solutions.
 
