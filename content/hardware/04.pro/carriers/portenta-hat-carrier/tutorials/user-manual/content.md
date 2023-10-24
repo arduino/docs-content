@@ -28,7 +28,7 @@ The user manual offers a detailed guide on the Arduino Portenta Hat Carrier, con
 
 ![Portenta Hat Carrier Overview](assets/board_showcase.gif)
 
-This manual will guide as a key to proficiently operate the Portenta Hat Carrier, making it suitable for project developments related to industrial automation, manufacturing automation, robotics, and prototyping.
+This manual will show the user how to proficiently operate the Portenta Hat Carrier, making it suitable for project developments related to industrial automation, manufacturing automation, robotics, and prototyping.
 
 ## Hardware and Software Requirements
 
