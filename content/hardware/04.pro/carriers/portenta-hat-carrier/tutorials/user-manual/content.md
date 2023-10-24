@@ -1758,7 +1758,7 @@ if __name__ == "__main__":
     start_server()
 ```
 
-The Server side script is set to listen for incoming connections on `127.0.0.1` (localhost) at port `65432`. These two properties can be modified later for your preference. When a Client connects, the server waits for incoming data and simply sends back whatever it receives, behaving as an echo server.
+The Server side script is set to wait for incoming connections on `127.0.0.1` (localhost) at port `65432`. These two properties can be modified later at your preference. When a Client connects, the server waits for incoming data and simply sends back whatever it receives, behaving as an echo server.
 
 Below script would be used for __Client side (TCP/IP)__ operations:
 
