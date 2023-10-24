@@ -714,7 +714,6 @@ Please check out the following documentation to learn more about each board and 
 
 As a reminder, the Ethernet connectivity speed is limited to 100 Mbit when used with the Portenta H7 or C33.
 
-We recommend reading about how the Portenta X8 operates within the Arduino environment [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#arduino-environment).
 
 You can also read the tutorial covering steps to upload sketches to the M4 Core on Arduino Portenta X8 [here](https://docs.arduino.cc/tutorials/portenta-x8/uploading-sketches-m4).
 
