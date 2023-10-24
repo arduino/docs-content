@@ -988,7 +988,7 @@ Export the PWM channel:
 echo 9 > /sys/class/pwm/pwmchip0/export 
 ```
 
-Set the PWM period, by defining the period, you determine the duration of one PWM "cycle". Here, we set it to 100 000, representing 100 000 nanoseconds or 100 microseconds:
+Set the PWM period. By defining the period, you determine the duration of one PWM "cycle". Here, we set it to 100,000, representing 100,000 nanoseconds or 100 microseconds:
 
 ```
 echo 100000 > /sys/class/pwm/pwmchip0/pwm9/period 
