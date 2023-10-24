@@ -11,6 +11,7 @@ tags:
   - User Manual
 author: 'Taddy Chung'
 hardware:
+hardware/04.pro/carriers/portenta-hat-carrier
   - hardware/04.pro/boards/portenta-x8
   - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/boards/portenta-h7-lite
