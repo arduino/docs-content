@@ -877,7 +877,7 @@ Since CAN FD is part of the screw terminal block, we have highlighted the CAN bu
 
 ***For stable CAN bus communication, it is recommended to install a 120 Ω termination resistor between CANH and CANL lines.***
 
-More information on how to use the CAN Bus protocol can be found within [CAN Bus section](#can-bus) under [Pins sections](#pins).
+More information on how to use the CAN Bus protocol can be found within [CAN Bus section](#can-bus) under [Pins chapter](#pins).
 
 ### MIPI Camera
 
