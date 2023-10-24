@@ -864,7 +864,7 @@ The TJA1049 module supports ISO 11898-2:2016, SAE J2284-1, and SAE J2284-5 stand
 
 ![Portenta Hat Carrier CAN Interface](assets/portentaHATcarrier_CAN_struct.png)
 
-Because it is found integrated within the screw terminal block, we have highlighted the CAN bus ports within the screw terminal block pinout for reference.
+Since CAN FD is part of the screw terminal block, we have highlighted the CAN bus ports within the screw terminal block pinout for reference.
 
 | **Pin number** | **Silkscreen** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         |    **Interface**   |
 |:--------------:|:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|:------------------:|
