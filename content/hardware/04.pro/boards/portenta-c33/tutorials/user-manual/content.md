@@ -619,11 +619,11 @@ To locate these pins on the board, please refer to the [board pinout section](#p
 
 **Important note for system integrators**: Use the Portenta C33's High-Density connectors to expand its signals to a custom-designed daughter board or carrier. Below is the I2C pins mapping on the board's High-Density connectors and shared resources:
 
-| High-Density Connector | Interface Name | Pins on the High-Density Connector | Status* | Shared Peripherals (Address) |
-|:----------------------:|:--------------:|:----------------------------------:|:------:|:----------------------------:|
-|           J1           |     `I2C1`     |                43-45               |  Free  |               -              |
-|           J2           |     `I2C0`     |                44-46               |  Free  |               -              |
-|           J2           |     `I2C2`     |                45-47               |  Free  |               -              |
+| High-Density<br>Connector | Interface<br>Name | Pins on the <br>High-Density Connector | Status | Shared Peripherals<br>(Address) |
+|:-------------------------:|:-----------------:|:--------------------------------------:|:------:|:-------------------------------:|
+|             J1            |       `I2C1`      |                  43-45                 |  Free  |                -                |
+|             J2            |       `I2C0`      |                  44-46                 |  Free  |                -                |
+|             J2            |       `I2C2`      |                  45-47                 |  Free  |                -                |
 
 **Status***: This column indicates the current status of the pins. "Free" means the pins are not in use by another resource or peripheral of the board and are available for usage, while "Shared" means the pins are used by one or several resources or peripherals of the board. 
 
