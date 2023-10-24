@@ -11,7 +11,7 @@ tags:
   - User Manual
 author: 'Taddy Chung'
 hardware:
-hardware/04.pro/carriers/portenta-hat-carrier
+  - hardware/04.pro/carriers/portenta-hat-carrier
   - hardware/04.pro/boards/portenta-x8
   - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/boards/portenta-h7-lite
@@ -52,6 +52,8 @@ If you want to use the Portenta Hat Carrier with a Portenta X8, check the follow
 
 - Make sure you have the latest Linux image. Refer to [this section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#portenta-x8-os-image-update) to confirm that your Portenta X8 is up-to-date.
 
+***To ensure stable operation of the Portenta Hat Carrier with Portenta X8, the minimum Linux image version required for Portenta X8 is __746__. Download the latest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
+
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor) in case you want to use the auxiliary microcontroller of the Portenta X8 to run Arduino code.
 
 In case you want to use the Portenta Hat Carrier with a Portenta H7/C33:
@@ -71,9 +73,11 @@ The carrier is adaptable, pairing seamlessly with Portenta X8 and converting it 
 ### Carrier Architecture Overview
 
 The __Portenta Hat Carrier__, designed for Portenta SOM boards like the Portenta X8, H7, and C33, offers a diverse power supply range:
+
 - 7-32V through its screw terminal
 - USB-C®
 - 5V pin on the 40-pin header
+
 This versatility extends to its connectivity: a USB-A for peripherals, 1000 Mbit Base-T Ethernet, SPI, I2C, I2S, and UART interfaces accessible via a 40-pin male header, and MIPI camera support exclusive for the Portenta X8.
 
 It integrates a microSD slot for storage and data logging, broad interface options through its 40-pin and 16-pin headers, JTAG pins for debugging, and a PWM fan connector for cooling. The Ethernet speed control is intuitive with a two-position DIP switch, allowing various profiles based on the paired Portenta board.
