@@ -761,7 +761,7 @@ dd if=/dev/urandom of=random.bin bs=4M count=128
 
 ### Analog Pins
 
-The 16-pin header connector of the Portenta Hat Carrier provides the analog channels. The analog pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, and `A7` are accessible through these connectors.
+The 16-pin header connector of the Portenta Hat Carrier integrates the analog channels. The analog pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, and `A7` are accessible through these connectors.
 
 ![Portenta Hat Carrier CAN Interface](assets/portentaHATcarrier_analogIOs.png)
 
