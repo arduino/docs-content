@@ -1,6 +1,14 @@
 Board:
   Name: Arduino® Portenta Hat Carrier
   SKU: ASX00049
+Compatible System-On-Module boards:
+  Portenta X8: Full compatibility
+  Portenta H7: 
+  Portenta C33:
+Compatibility with Raspberry Pi® Hats: Raspberry Pi like 40-Pin Header connector
+Camera:	
+  MINI Connector: 1
+  USB-A Connector: 1 (compatible with USB-Cameras)
 Communication Interfaces:
   Ethernet: 1
   SPI: 1
@@ -8,11 +16,11 @@ Communication Interfaces:
   I2C: 3
   CAN: 1 (without terminal resistors)
   UART: 3
-  USB: 1 USB-A 2.0/Hi-Speed 
-Power:
-  Board operating voltage: 3.3 V
-  Board input voltage (VIN): 5 V
+  USB: 1 USB-A 2.0/Hi-Speed
 Hardware debugging interface: JTAG/SWD
+Power:
+  Board operating voltage: 7-32 V
+  Board input voltage (VIN): 5 V
 Dimensions:
   Width: 85 mm
   Length: 49 mm
