@@ -863,11 +863,7 @@ The Portenta Hat Carrier with a Portenta X8 is a powerful system that runs Linux
 
 ### Online Resources
 
-<p style="text-align: justify;">
-
-Having acquainted yourself with the device's basic functionalities, delve into its limitless potentials. Engage with inspiring projects on Arduino Project Hub [6], explore the Arduino Library Reference [7], and visit the online store [8] to augment your Portenta Hat Carrier with supplemental extensions, sensors, and actuators.
-
-</p>
+<p style="text-align: justify;">Having acquainted yourself with the device's basic functionalities, delve into its limitless potentials. Engage with inspiring projects on Arduino Project Hub [6], explore the Arduino Library Reference [7], and visit the online store [8] to augment your Portenta Hat Carrier with supplemental extensions, sensors, and actuators.</p>
 
 ### Board Recovery
 
