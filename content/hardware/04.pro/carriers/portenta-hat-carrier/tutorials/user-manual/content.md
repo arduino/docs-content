@@ -2778,7 +2778,7 @@ The Portenta Hat Carrier supports I2C communication, which allows data transmiss
 |        3       |    I2C2 SDA    |           I2C2_SDA           |         J2-45        |   I2C 2 SDA   |
 |        5       |    I2C2 SCL    |           I2C2_SCL           |         J2-47        |   I2C 2 SCL   |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. The I<sup>2</sup>C pins are also available through the onboard ESLOV connector of the Portenta Hat Carrier.
+Please, refer to the [pinout section](#pinout) of the user manual to find them on the board. The I<sup>2</sup>C pins are also available through the onboard ESLOV connector of the Portenta Hat Carrier.
 
 ![Portenta Hat Carrier CAN Bus Interface Connection Example](assets/portentaHATcarrier_I2C_conn.png)
 
