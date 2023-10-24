@@ -1594,7 +1594,7 @@ Once the script has successfully compiled, the result should resemble the follow
 
 ## Configuration and Control
 
-Configuration and control features allows customize the device's behavior to their specific needs. Whether it's setting up network connectivity or adjusting switch configurations, this sub-section will guide you through the carrier connectivity and profile setup processes.
+Configuration and control features allow the user to customize the device's behavior for their specific needs. If you are interested in learning how to set up network connectivity or adjust switch configurations, follow the section below.
 
 ### DIP Switch Configuration
 
