@@ -2301,7 +2301,7 @@ if __name__ == "__main__":
         sys.exit(0)
 ```
 
-For implementation, this script draws functions from `relay_lib_seeed`, which previously explained. Together, these scripts make it easy to control the RPi Relay Board.
+For implementation, this script draws functions from `relay_lib_seeed`, which was previously explained. Together, these scripts simplify the control of the RPi Relay Board.
 
 ### Stepper Motor HAT
 
