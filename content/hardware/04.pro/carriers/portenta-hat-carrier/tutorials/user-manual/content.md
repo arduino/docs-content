@@ -742,7 +742,7 @@ The Portenta Hat Carrier features a USB interface suitable for data logging and 
 
 ![Portenta Hat Carrier USB-A Port](assets/portentaHATcarrier_USBA.png)
 
-If you are interested in USB-A port pinout, following table may serve to understand its connection distribution:
+If you are interested in USB-A port pinout, the following table may serve to understand its connection distribution:
 
 | **Pin number** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         | **Interface** |
 |:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|:-------------:|
