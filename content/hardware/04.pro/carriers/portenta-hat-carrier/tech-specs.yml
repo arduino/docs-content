@@ -10,11 +10,11 @@ Camera:
   MIPI Connector: 1
   USB-A Connector: 1x (compatible with USB-Cameras)
 Communication Interfaces:
-  Ethernet: 1
+  Ethernet: 1x 1Gbps (only with Portenta X8)
   SPI: 1 
   I2S: 1
   I2C: 3
-  CAN: 1x (without terminal resistors)
+  CAN: 1x (without terminal resistor)
   UART: 3
   USB: 1x USB-A 2.0/Hi-Speed
 Hardware debugging interface: JTAG/SWD
@@ -25,4 +25,4 @@ Power:
 Dimensions:
   Width: 85 mm
   Length: 49 mm
-  Weight: 36 gr
+  Weight: 36 g

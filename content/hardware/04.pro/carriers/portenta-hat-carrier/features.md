@@ -21,7 +21,7 @@
 
 <Feature title="Arduino Powered" image="mcu">
 
-  The carrier is also compatible with the Portenta H7, Portenta C33, and the auxiliary core of the Portenta X8, bein fully compatible with the Arduino code ecosystem.
+  The carrier is also compatible with the Portenta H7, Portenta C33, and the auxiliary core of the Portenta X8, being fully compatible with the Arduino code ecosystem.
 
 </Feature>
 
