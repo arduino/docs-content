@@ -640,7 +640,7 @@ The Portenta X8 has the capability to operate in Linux environment, and it is ba
 
 The Portenta X8 is also capable of operating within the Arduino environment and retains the same hardware setup as explained [here](#using-portenta-x8-with-linux).
 
-The Portenta H7 and C33 boards have hardware setups similar to the Portenta X8. To mount, please align the High-Density connectors along with USB-C® port orientation.
+The Portenta H7 and C33 boards have hardware setups similar to the Portenta X8. To mount them on the Hat Carrier, please align the High-Density connectors along with USB-C® port orientation.
 
 Below are diagrams showing how the Portenta H7 and C33 stack on the carrier:
 
