@@ -1831,7 +1831,7 @@ if __name__ == "__main__":
   server_thread.join()
 ```
 
-The script begins the server in a separate thread, adding a brief pause using `threading.Event().wait(1)` to confirm its successful start. It ensures the server is ready to accept connections before the client attempts to connect and send any data.
+The script makes the server start in a separate thread, adding a brief pause using `threading.Event().wait(1)` to confirm it successfully started. It ensures the server is ready to accept connections before the client attempts to connect and send any data.
 
 The client runs on the main thread. Using `server_thread.join()`, the main script waits for the server thread to finish its tasks before exiting.
 
