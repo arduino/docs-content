@@ -1,7 +1,7 @@
 ---
 title: 'Inter-Integrated Circuit (I2C) Protocol'
 description: 'Allows the communication between devices or sensors connected via Two Wire Interface Bus.'
-tags: [I2C, Wire, SDA, SCL]
+tags: [I2C, Wire, SDA, SCL, Qwiic, Groove]
 author: 'Nicholas Zambetti, Karl Söderby, Jacob Hylén'
 difficulty: 'intermediate'
 ---
