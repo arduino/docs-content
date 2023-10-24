@@ -1,15 +1,19 @@
 Board:
   Name: Arduino® Portenta Hat Carrier
   SKU: ASX00049
-USB port: USB A
-Ethernet: RJ45 GBit
-Memory slot: Micro SD card
-Debug: JTAG
-Camera: MIPI CSI
-Connectors: HD female
-Communication protocols:
-  CAN-BUS: Yes
+Communication Interfaces:
+  Ethernet: 1
+  SPI: 1
+  I2S: 1
+  I2C: 3
+  CAN: 1 (without terminal resistors)
+  UART: 3
+  USB: 1 USB-A 2.0/Hi-Speed 
+Power:
+  Board operating voltage: 3.3 V
+  Board input voltage (VIN): 5 V
+Hardware debugging interface: JTAG/SWD
 Dimensions:
-  Weight: TDB g
-  Width: 56 mm
-  Length: 85 mm
+  Width: 85 mm
+  Length: 49 mm
+  Weight: 36 gr
