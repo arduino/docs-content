@@ -251,7 +251,7 @@ To use the Portenta Hat Carrier with the Portenta X8, you will have to align the
 #### Hello World With Portenta X8 Shell
 <br></br>
 
-A series of _Hello World_ examples will be used to ensure the Portenta Hat Carrier is correctly operating with the paired Portenta X8. These examples, using Linux commands, Python® scripts, Docker, and the Arduino IDE, aim to trigger the user-programmable LED connected to GPIO3 using different methods and platforms.
+A series of _Hello World_ examples will be used to ensure the Portenta Hat Carrier is correctly operating with the paired Portenta X8. These examples, using Linux commands, Python® scripts, Docker, and the Arduino IDE, aim to trigger the user-programmable LED connected to GPIO3 leveraging different methods and platforms.
 
 We will begin with a _Hello World_ example using Linux commands. The user programmable LED can be controlled using commands within the Portenta X8's shell. The following commands will help you set and control the GPIO3, which connects to the user programmable LED.
 
