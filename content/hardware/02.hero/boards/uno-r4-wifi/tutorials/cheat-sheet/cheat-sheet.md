@@ -32,11 +32,15 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 ## Power Supply
 
-To power the UNO R4 WiFi you may either use a USB-C® cable, or the VIN pin.
+The board can be powered via the VIN pin, supporting a range between 6-24 V.The VIN pin is also connected to the DC-jack (barrel plug connector).
 
-If you’re using the USB-C® connector you must power it with 5 V.
+When powered via the VIN pin, you are using the onboard regulator to bring down the voltage to 5V, which means that the 5 V pin can provide up to 1.2 A. Keep in mind that this voltage regulator also powers the rest of the circuit board, including the MCU, LEDs among other components.
 
-The board can be powered via the VIN pin, supporting a range between 6-24 V. The VIN pin is also connected to the DC-jack (barrel plug connector).
+***External devices with a high current draw (e.g. servo motors) should never be powered via the 5 V pin. It is mainly intended for devices drawing lower current such as sensor modules.***
+
+If you’re using the USB-C® connector you must power it with 5 V. 
+
+When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board. 
 
 ## Core
 
@@ -126,7 +130,7 @@ The UNO R4 WiFi has six analog input pins (A0-A5) that can be read by using the 
 ***\*A4 and A5 pins are both connected to the same I2C bus.***
 
 ```arduino
-value = analogRead(pin, value);
+value = analogRead(pin);
 ```
 
 The reference voltage of these pins is 5 V.
@@ -481,7 +485,37 @@ And to write something, we can use the following command:
 Serial1.write("Hello world!");
 ```
 
+### Serial Event
+
+The [serialEvent()](https://www.arduino.cc/reference/en/language/functions/communication/serial/serialevent/) method is supported on older revisions of the UNO board, but **not** on the UNO R4 boards (or any other newer Arduino boards).
+
+However, as this method is only used to detect serial data and execute a function, you can also use `Serial.available()` to detect when new data is available:
+
+```arduino
+if(Serial.available() > 0) {
+  //code goes here
+}
+```
+
+### SerialUSB
+
+The UNO R4 WiFi has an extended set of Serial methods that can be enabled whenever you include the `<HID.h>` library in your sketch.
+
+- `Serial.baud()` - Returns the baud rate **(int)** currently used.
+- `Serial.stopbits()` - Returns the number of stop bits **(int)** used in the communication.
+- `Serial.paritytype()` - Returns the type of parity **(int)** used in the communication.
+- `Serial.numbits()` - Returns the number of data bits **(int)** used in the communication.
+- `Serial.dtr()` - Returns the status of the Data Terminal Ready (DTR) signal **(bool)** and also sets the- ignore_dtr flag to true if the DTR signal is actively used.
+- `Serial.rts()` - Returns the status of the Request to Send (RTS) signal **(bool)**.
+
+The `<HID.h>` library remaps the `Serial` object to `SerialUSB`, which enables these additional features. 
+
+Supported links:
+- [SerialUSB.h](https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/usb/SerialUSB.h) (Github).
+
 ## USB HID
+
+***Please note that due to how the USB port is implemented on the UNO R4 WiFi, when using HID the board may show up as a different USB port. If this happens, simply double-tap the reset button, and select your board again.***
 
 This board can act as an HID (keyboard/mouse) and send keystrokes or coordinates to your computer via native USB.
 
@@ -493,6 +527,13 @@ mouse.move(x,y);
 This support is enabled by the [keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) and [mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/) libraries that you can install from the library manager in the IDE.
 
 To learn more about the HID capabilities of the UNO R4 WiFi, check out the [HID Guide](/tutorials/uno-r4-wifi/usb-hid).
+
+### Serial Remap
+
+Whenever the `<HID.h>` library is included in a sketch, the serial object is switched from `Serial` to `SerialUSB` to support HID features. This enables more methods, which are listed [here](#serialusb).
+
+Supported links:
+- [HID.h](https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/HID/HID.h) (Github)
 
 ## CAN Module
 
@@ -551,11 +592,11 @@ By default the ESP32 acts as a serial bridge between a computer and the RA4M1 MC
 
 If you wish you can change this and get direct access to the serial bus on the RA4M1 MCU either with software or hardware. See the instructions below:
 
-1. Software - By pulling D40 to HIGH you will close the circuit that controls which MCU is connected to USB. While D40 is HIGH, the RA4M1 is connected to the USB Serial port, and while D40 is LOW the ESP32 is connected, like the default configuration.
+1. Software - By pulling D21 to HIGH you will close the circuit that controls which MCU is connected to USB. While D21 is HIGH, the RA4M1 is connected to the USB Serial port, and while D21 is LOW the ESP32 is connected, like the default configuration.
   You can do this by including the following code in `void setup()`
   ```arduino
-  pinMode(40, OUTPUT);
-  digitalWrite(40, HIGH);
+  pinMode(21, OUTPUT);
+  digitalWrite(21, HIGH);
   ```
 2. On the back of the UNO R4 WiFi you will find solder pads labelled "RA4M1 USB". If you create a short circuit between these pads, by for example creating a bridge across them with solder, the RA4M1 will be connected to the USB Serial port, instead of the ESP32.
 

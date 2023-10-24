@@ -1,4 +1,4 @@
 ---
-title: "101"
-certifications: [CE]
+title: 101
+certifications: [CE, UKCA]
 ---

@@ -21,15 +21,16 @@ To use the Arduino IoT Cloud, a **cloud compatible board** is required. You can 
 
 The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 
-- [MKR 1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi)
 - [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
 - [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
+- [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
 
 Connection via Wi-Fi is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the cloud via your home/work/school router.
 
@@ -117,6 +118,8 @@ This feature allows for uploading sketches wirelessly to Arduino boards, without
 - [Arduino NANO 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect-with-headers)
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7)
+- [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
+- [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
 - Cloud compatible ESP32 boards (see list below).
 
 #### Verified ESP32 Boards Supporting OTA 

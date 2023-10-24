@@ -15,7 +15,7 @@ tags:
   - Audio Jack
 author: 'Jacob Hylén'
 hardware:
-  - hardware/08.mega/boards/giga-r1-wifi
+  - hardware/10.mega/boards/giga-r1-wifi
 software:
   - ide-v1
   - ide-v2
@@ -639,19 +639,19 @@ void loop() {
 
 The **GIGA R1** features two separate SPI (Serial Peripheral Interface) buses, one is configured on the 6 pin header (ICSP) labelled SPI, and the other is broken out into pin connections on the board.
 
-The first bus (connector), `SPI` uses the following pins:
+The first bus (connector), `SPI1` uses the following pins:
 
 - (CIPO) - D89
 - (COPI) - D90
 - (SCK) - D91
-- (CS) - D10
+- (CS) - unassigned, use any free GPIO for this.
 
-The second bus (header), `SPI1`, uses the following pins: 
+The second bus (header), `SPI5`, uses the following pins: 
 
 - (CIPO) - D12
 - (COPI) - D11
 - (SCK) - D13
-- (CS) - unassigned, use any free GPIO for this.
+- (CS) - D10
 
 For using both SPI buses simultaneously, check out the following example:
 

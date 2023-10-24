@@ -6,7 +6,7 @@ title: 'Arduino 101 Curie Timer One PWM'
 
 ---
 
-With this tutorial you learn to use one of the timers available in the microcontroller to generate a PWM signal. The Pin selected for the signal is Pin 13 and this will blink the on-board LED. The period of the signal is 1 second (1000000 microseconds) and the duty cycle is set at 25%. The waveform generation, once started, just goes on. In the loop() you can put your code and that won't interefere with PWM signal unless you use timer functions.
+With this tutorial you learn to use one of the timers available in the microcontroller to generate a PWM signal. The Pin selected for the signal is Pin 13 and this will blink the on-board LED. The period of the signal is 1 second (1000000 microseconds) and the duty cycle is set at 25%. The waveform generation, once started, just goes on. In the loop() you can put your code and that won't interfere with PWM signal unless you use timer functions.
 
 ## Hardware Required
 

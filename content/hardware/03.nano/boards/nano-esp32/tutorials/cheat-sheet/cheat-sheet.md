@@ -45,13 +45,49 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 - [Download the Nano ESP32 datasheet](/resources/datasheets/ABX00083-datasheet.pdf)
 
-## Nano ESP32 Core
+## Arduino ESP32 Core
 
 This board is based on the [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32), that is derived from the original ESP32 core. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
 
 ![ESP32 examples in the IDE.](assets/esp32-examples.png)
 
 To install the core, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the core, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
+
+## ESP32 Pin Map
+
+The Nano ESP32's default pins are designed to match the **Nano form factor**. This pin mapping is done in the official Arduino ESP32 core (see just above). See below the pin map to understand how the physical pins correlate to the ESP32: 
+
+| Nano  | ESP32  |
+| ----- | ------ |
+| D0    | GPIO44 |
+| D1    | GPIO43 |
+| D2    | GPIO5  |
+| D3    | GPIO6  |
+| D4    | GPIO7  |
+| D5    | GPIO8  |
+| D6    | GPIO9  |
+| D7    | GPIO10 |
+| D8    | GPIO17 |
+| D9    | GPIO18 |
+| D10   | GPIO21 |
+| D11   | GPIO38 |
+| D12   | GPIO47 |
+| D13   | GPIO48 |
+| A0    | GPIO1  |
+| A1    | GPIO2  |
+| A2    | GPIO3  |
+| A3    | GPIO4  |
+| A4    | GPIO11 |
+| A5    | GPIO12 |
+| A6    | GPIO13 |
+| A7    | GPIO14 |
+| BOOT0 | GPIO46 |
+| BOOT1 | GPIO0  |
+
+See the pinout below for a better visual translation:
+
+![Nano / ESP32 pinout](assets/esp-pinout.png)
+
 
 ## Arduino Bootloader Mode
 The Nano ESP32 has a feature that we call Arduino Bootloader-mode, what this means is that you are able to put the board in a sort of recovery mode by double pressing the reset button while the board is powered on.
@@ -78,6 +114,10 @@ The Nano ESP32 has support for MicroPython, a micro-implementation of Python® t
 To get started with MicroPython, please visit [MicroPython 101](/micropython-course), a course dedicated towards learning MicroPython on the Nano ESP32.
 
 In this course, you will fundamental knowledge to get started, as well as a large selection of examples for popular third-party components.
+
+### Reset Your Board
+
+If you have installed MicroPython but wish to go back to classic Arduino / C++ programming, it is easy to do so. Simply **double tap** the **RESET** button on the board (there's only one button). The board will enter boot mode (you should see a pulsing green light), and will be visible in the Arduino IDE. 
 
 ## Arduino IoT Cloud
 
@@ -211,13 +251,13 @@ Pulse width modulation (PWM) is supported on **all digital pins (D0-D13)** as we
 analogWrite(pin,value);
 ```
 
-***Due to timer restrictions, only 4 PWM signals can be generated simultaneously.***
+***Due to timer restrictions, only 5 PWM signals can be generated simultaneously.***
 
 ## I2C
 
 ![I2C Pins](assets/nano-esp32-i2c.png)
 
-The default pins used for I2C on the Nano ESP32 are the following:
+The default pins used for the **main I2C bus** on the Nano ESP32 are the following:
 
 | Pin | Function | Description          |
 | --- | -------- | -------------------- |
@@ -244,6 +284,19 @@ Wire.write(byte(0x00)); //send instruction byte
 Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
+
+### Second I2C Bus
+
+The Nano ESP32 has a second I2C bus, accessed via `Wire1`. To use it, you will need to set two free pins for SDA & SCL.
+
+For example:
+
+```arduino
+//initializes second I2C bus on pins D4,D5
+Wire1.begin(D4, D5); //sda, scl
+```
+
+***`Wire` and `Wire1` can be used simultaneously, a great feature when working with devices that may share the same addresses.***
 
 ## SPI
 
@@ -281,6 +334,29 @@ void setup() {
 }
 
 void loop() {
+}
+```
+
+### Second SPI Port (HSPI)
+
+The Nano ESP32 has a second SPI port (HSPI). To use it, we need to create an object using `SPIClass`, and initialize communication on a specific set of pins.
+
+***The HSPI port's default pins are: `GPIO14` (SCK), `GPIO12` (CIPO), `GPIO13` (COPI), `GPIO15` (CS). As some of these pins are not accessible on the Nano ESP32, you will need to configure them manually. See the definitions at the top of the code example below.***
+
+```arduino
+//define SPI2 pins manually
+//you can also choose any other free pins
+#define SPI2_SCK D2
+#define SPI2_CIPO D3
+#define SPI2_COPI D4
+#define SPI2_CS D5
+
+//create SPI2 object
+SPIClass SPI2(HSPI);
+
+void setup() {
+//initialize SPI communication
+  SPI2.begin(SPI2_SCK, SPI2_CIPO, SPI2_COPI, SPI2_CS);
 }
 ```
 
@@ -334,6 +410,166 @@ And to write something, we can use the following command:
 ```arduino
 Serial0.write("Hello world!");
 ```
+
+## I2S
+
+The Inter-IC Sound (I2S or IIS) protocol is used for connecting digital audio devices with a variety of configurations (Philips mode, PDM, ADC/DAC). 
+
+The default pin configuration for I2S is:
+
+| Pin | Definition       |
+| --- | ---------------- |
+| D7  | `PIN_I2S_SCK`    |
+| D8  | `PIN_I2S_FS`     |
+| D9  | `PIN_I2S_SD`     |
+| D9  | `PIN_I2S_SD_OUT` |
+| D10 | `PIN_I2S_SD_IN`  |
+
+The default pins can be changed by using the `setAllPins()` method:
+
+```arduino
+I2S.setAllPins(sck, fs, sd, sd_out, sd_in)
+```
+
+To inialitize the library, use the `begin()` method: 
+
+```arduino
+I2S.begin(mode, sampleRate, bitPerSample)
+``` 
+
+To read data, use the `read()` method, which will return the last sample.
+
+```arduino
+I2S.read()
+```
+
+Examples for different modes & different audio devices are available in the core under **Examples > I2S**.
+
+
+Further reading:
+- [I2S API docs (Espressif)](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/i2s.html)
+- [I2S Reference (Espressif)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/i2s.html)
+
+## Dual Core
+
+The ESP32-S3 is based on the dual-core XTensa LX7, which can run code separately on two cores. This is enabled through FreeRTOS, by setting up tasks that run on each core (similarly to how `void loop()` is implemented). The cores available are `0` and `1`.
+
+The example below is a modified version of the [BasicMultiThreading](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading) example found in the Arduino ESP32 core, and demonstrates how to use two common operations simultaneously:
+- Blink an LED using one task on a specific core (0),
+- Read an analog pin using a second task on a specific core (1).
+
+```arduino
+/* Basic Multi Threading Arduino Example
+   
+   Modified 16th October 2023 by Karl Söderby
+
+   Set up two tasks that run on each core of a Nano ESP32 (ESP32-S3 XTensa LX7 MCU),
+   one that blinks an LED, one that reads an analog signal.
+
+   These tasks will execute infinitely.
+
+   This example code is in the Public Domain (or CC0 licensed, at your option.)
+   Unless required by applicable law or agreed to in writing, this
+   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+   CONDITIONS OF ANY KIND, either express or implied.
+*/
+
+// Define the cores
+#define CORE_0 0
+#define CORE_1 1
+
+#define ANALOG_INPUT_PIN A0 //Specify analog pin
+#define LED_BUILTIN 13  // Specify the on which is your LED
+
+
+int counter = 0;
+// Define two tasks for Blink & AnalogRead.
+void TaskBlink(void *pvParameters);
+void TaskAnalogRead(void *pvParameters);
+TaskHandle_t analog_read_task_handle;  // You can (don't have to) use this to be able to manipulate a task from somewhere else.
+
+void setup() {
+  Serial.begin(115200);
+  uint32_t blink_delay = 1000;  // Delay between changing state on LED pin
+
+  //create task for blinking an LED
+  xTaskCreatePinnedToCore(
+    TaskBlink, "Task Blink"  // A name just for humans
+    ,
+    2048  // The stack size can be checked by calling `uxHighWaterMark = uxTaskGetStackHighWaterMark(NULL);`
+    ,
+    (void *)&blink_delay  // Task parameter which can modify the task behavior. This must be passed as pointer to void.
+    ,
+    2  // Priority
+    ,
+    NULL  // Task handle is not used here - simply pass NULL
+    ,
+    CORE_0  // Core on which the task will run
+  );
+
+  //create a task for reading analog signals
+  xTaskCreatePinnedToCore(
+    TaskAnalogRead, "Analog Read", 2048  // Stack size
+    ,
+    NULL  // When no parameter is used, simply pass NULL
+    ,
+    1  // Priority
+    ,
+    &analog_read_task_handle  // With task handle we will be able to manipulate with this task.
+    ,
+    CORE_1  // Core on which the task will run
+  );
+}
+
+void loop() {
+  //loop is empty, the tasks are instead looped infinitely
+}
+
+void TaskBlink(void *pvParameters) {  // This is a task.
+  uint32_t blink_delay = *((uint32_t *)pvParameters);
+
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  for (;;) {  // A Task shall never return or exit.
+    counter++;
+    digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
+
+    delay(1000);
+    digitalWrite(LED_BUILTIN, LOW);  // turn the LED off by making the voltage LOW
+
+    delay(1000);
+    Serial.print("Core ");
+    Serial.print(CORE_0);
+    Serial.print(": Blink task complete. Times run: ");
+    Serial.println(counter);
+  }
+}
+
+void TaskAnalogRead(void *pvParameters) {  // This is a task.
+  (void)pvParameters;
+
+  for (;;) {
+    // read the input on analog pin:
+    int sensorValue = analogRead(ANALOG_INPUT_PIN);
+    // print out the value you read:
+    Serial.print("Core ");
+    Serial.print(CORE_1);
+    Serial.print(": Analog reading task, value is: ");
+    Serial.println(sensorValue);
+    delay(500);  // 100ms delay
+  }
+}
+```
+
+When running this example, open the Serial Monitor tool and you will see what happens on each core. 
+
+![Dual core example.](assets/nano-esp32-dualcore.png)
+
+- The task is created in the `xTaskCreatePinnedToCore()`,
+- inside `xTaskCreatePinnedToCore()` we specify a number of parameters, most importantly what **core** and what **function** to run,
+- code inside task functions are placed inside the `for (;;){}` statement, that will loop infinitely.
+
+***More information about dual-core on the ESP32 along with a detailed explanation of the example is available at [Basic Multi Threading Example](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading).***
 
 ## IO Mux & GPIO Matrix
 

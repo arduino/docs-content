@@ -1,10 +1,10 @@
 ---
 title: MKR GSM 1400
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-samd
+url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrgsm1400/146'
 status: end-of-life
-certifications: [CE]
+certifications: [CE, UKCA]
 productCode: '021'
 ---
 

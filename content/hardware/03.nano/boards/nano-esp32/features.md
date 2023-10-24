@@ -27,4 +27,12 @@ The Nano ESP32's core is based on the well maintained & documented <a href="http
 The first Nano board to feature a USB-C® connector!
 </Feature>
 
+<Feature title="Debugging" image="mcu">
+The Nano ESP32 supports out-of-the-box debugging with no additional hardware required!<FeatureLink variant="secondary" title="Documentation" url="/tutorials/nano-esp32/debugging"/>
+</Feature>
+
+<Feature title="ESP-NOW" image="communication">
+The Nano ESP32 supports the ESP-NOW protocol develop by Espressif!<FeatureLink variant="secondary" title="Documentation" url="/tutorials/nano-esp32/esp-now"/>
+</Feature>
+
 </FeatureList>

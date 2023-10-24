@@ -3,7 +3,7 @@ title: Portenta X8
 url_shop: https://store.arduino.cc/portenta-x8
 url_guide: /tutorials/portenta-x8/user-manual
 core: arduino:mbed_portenta
-certifications: [CE, UKCA, RCM]
+certifications: [CE, UKCA, RCM, FCC]
 productCode: '125'
 ---
 

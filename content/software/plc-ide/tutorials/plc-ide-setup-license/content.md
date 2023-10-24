@@ -49,7 +49,7 @@ To get the Arduino PLC IDE software, go to the [official software website of the
 * Arduino PLC IDE Tools
 * Arduino PLC IDE
 
-![Arduino IDE Download page](assets/IdeDownloadPage.png)
+![Arduino IDE Download page](assets/IdeDownloadPage.svg)
 
 The software requires **Windows 10** or a newer operating system version for the x64 architecture.
 
@@ -73,9 +73,9 @@ Once the installation has finished, all the required drivers, libraries, and Ard
 
 When you download the Arduino PLC IDE executable, the file naming scheme is as follows:
 
-`Setup_Arduino PLC IDE_X.X.X.X_20230329`
+`Setup_Arduino PLC IDE_X.X.X.X_{ReleaseDate}`
 
-If you have got the correct IDE software, it should follow the previous naming scheme with the `X.X.X` that represents the version of the IDE software and its latest version release date.
+If you have the correct IDE software, its name should include the version format `X.X.X.X`, with the associated release date in the `{ReleaseDate}` field. For instance, a release date might look like `20230329`.
 
 Run the Arduino PLC IDE installer after you have installed the Arduino PLC IDE Tools. If you have not installed the PLC IDE tools, please check [Arduino® PLC IDE Tools Setup section](#1-arduino-plc-ide-tools-setup) before proceeding as it needs to have the tools set before IDE software installation.
 
@@ -134,6 +134,7 @@ Click OK to save the settings and press the connect button on **On-line > Connec
 If the communication is successful the main panel will show the license section to be filled in and a status indicator.
 
 #### Online Activation
+<br></br>
 
 To use your product license, paste the key in the blank next to **Product Key** and press the **Activate** button.
 
@@ -146,6 +147,7 @@ After you click the **Activate** button, the IDE will bind the license to the ha
 Once the product has been activated, it is recommended to get the **Hardware-ID** of your device.
 
 #### Offline Activation
+<br></br>
 
 To activate the product **Offline**, deselect the "Online" slider and the scenario below will show up:
 

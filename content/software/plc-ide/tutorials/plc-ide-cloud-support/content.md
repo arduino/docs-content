@@ -205,6 +205,7 @@ The PLC IDE configuration will play an important role in establishing successful
 Thus, you will learn to configure the 'Shared variables' based on the peripherals and tasks you may assign to Opta™.
 
 #### Shared Variables Configuration
+<br></br>
 
 The successful communication between Opta™ configured with PLC IDE and Arduino IoT Cloud relies on the 'Shared variables'. The 'Shared variables' is defined by heading to `Resources > Opta > Shared variables`. It will then offer two additional tabs: 'Inputs' and 'Outputs'.
 
@@ -238,6 +239,7 @@ Depending on the project's development requirements, you can add all the variabl
 We will now configure Opta™ device's features to link all these shared variables.
 
 #### Analog Port Configuration
+<br></br>
 
 The analog port is configured using the following properties under: `Resources > Opta > Local IO Mapping > Programmable Inputs`.
 
@@ -254,6 +256,7 @@ The 'Programmable inputs mapping' table should look as the following image:
 You can also change the analog resolution if needed between 12, 14, or 16 bits.
 
 #### User Programmable LED Configuration
+<br></br>
 
 The user programmable LED of Opta™ is configurable under `Resources > Opta > Local IO Mapping > LED Outputs`. To use the user programmable LED, you will need to assign a variable that will represent the 'LB' row as it can be seen in the following image:
 
@@ -262,6 +265,7 @@ The user programmable LED of Opta™ is configurable under `Resources > Opta > L
 In this case, the `userLed` is assigned as the variable that will represent the user programmable LED of Opta™ that emits blue light. The `userLed` is a boolean type variable as well as the `in_cloudButton`. It will be matched inside the PLC program to pass the boolean state per the command sent from the Arduino IoT Cloud dashboard.
 
 #### Library Components
+<br></br>
 
 The Library section would be where you could find various pre-written codes or functions specific to PLC operations. It could include libraries for handling several industrial protocols, dealing with specific types of I/O, or even specialized functions for certain control systems. It makes the development process more efficient by providing ready-to-use codes, saving time and effort.
 
@@ -285,6 +289,7 @@ These libraries are indexed, thus they are certified guaranteeing optimized perf
 ***For more information about managing libraries inside PLC IDE, please have a look at ["Library Management"](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction#library-management) section from the [Programming Introduction with Arduino PLC IDE](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction).***
 
 #### Arduino Sketch
+<br></br>
 
 We can now build the Arduino sketch that will be used to establish communication with the Arduino IoT Cloud and manage data traffic. The base sketch will be needed and can be found as discussed in the ['Setting Up the Arduino IoT Cloud'](#setting-up-the-iot-cloud) section.
 
@@ -386,6 +391,7 @@ void onCloudButtonChange()  {
 The `NETWORK_SSID` and `NETWORK_PASS` requires to be manually defined. Please replace these parameters to establish a connection with the desired network. Also, the parameters must be defined in between the quotation marks, replacing `NETWORK_SSID` and `NETWORK_PASS` fields.
 
 #### PLC Program
+<br></br>
 
 The Arduino sketch is ready and now we need a PLC program that will control the onboard features of Opta™ and data readings.
 

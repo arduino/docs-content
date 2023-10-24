@@ -316,7 +316,7 @@ So in the `if` in which we do the measurements, we can add these rows:
 
 The [toCharArray()](https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/tochararray/) function is used to convert each String variable in a char array, in order to print them in the display with the `putString()`.
 
-For the custom message we have 3 rows available; the first will be used as descripion, and the last 2 for the message itself.
+For the custom message we have 3 rows available; the first will be used as description, and the last 2 for the message itself.
 
 Each row can display 16 characters, so we'll have to split the message in chunks of that dimension using the [substring()](https://www.arduino.cc/reference/en/language/variables/data-types/string/functions/substring/) function. 
 
@@ -336,7 +336,7 @@ For this we use a `for` loop, shifting of 16 chars in each iteration (2 at the m
  display_text = ""; 
 ```
 
-In this gallery the OLED display e few seconds after reset, in normal usage, and after reveiving a message from the dashboard:
+In this gallery the OLED display e few seconds after reset, in normal usage, and after receiving a message from the dashboard:
 
 ![The OLED display, a few seconds after e reset](assets/photo5965303395248092580_jsbmVkyv4g.jpg)
 

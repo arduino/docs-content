@@ -754,7 +754,7 @@ The Portenta C33 board features an onboard Wi-Fi® module, the ESP32-C3-MINI-1U 
 
 Some of the key capabilities of the ESP32-C3-MINI-1U module are the following:
 
-- **Wi-Fi® and Bluetooth® connectivity**: The module supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® 5.0 connectivity. `ArduinoBLE` library support is limited to luetooth® 4.0 at this time.
+- **Wi-Fi® and Bluetooth® connectivity**: The module supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® 5.0 connectivity. `ArduinoBLE` library support is limited to Bluetooth® 4.0 at this time.
 - **CPU and memory**: It contains a 32-bit RISC-V single-core processor with a clock speed of up to 160 MHz. The chip also has 400 KB of SRAM and 384 KB of ROM.
 - **Security features**: It supports various security features, including secure boot, flash encryption, and cryptographic hardware acceleration.
 - **Low-power operation**: It supports multiple power modes for different low-power applications, making it suitable for battery-powered devices.

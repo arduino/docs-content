@@ -56,7 +56,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
   </tr>
   <tr>
     <td>Internal Memory</td>
-    <td>2MB Flash and 512 kB SRAM</td>
+    <td>2 MB Flash and 512 kB SRAM</td>
   </tr>
   <tr>
     <td>External Memory</td>

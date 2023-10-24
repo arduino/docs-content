@@ -21,6 +21,7 @@ software:
 ---
 
 ## Introduction
+
 RTDs (Resistance Temperature Detectors) and Thermocouples are used for temperature measurement in various industrial fields. **RTDs** are sensors that change resistance in response to temperature variation. They are used regularly in industries that require precise temperature measurements, such as food processing and pharmaceuticals. 
 
 On the other hand, **Thermocouples** are transducers that provide a voltage proportional to the temperature difference between two junctions. They are widely used in industrial applications such as HVAC systems, diesel engines, and power plants.
@@ -30,7 +31,9 @@ Both RTDs and thermocouples have unique characteristics, which make them suitabl
 In this tutorial, we will use a two-wire **PT100** RTD to obtain temperature measurements. We will also briefly discuss how to connect a three-wire RTD and a thermocouple.
 
 ## Goals
+
 The goals of this tutorial are:
+
 - Learn about the differences between RTD and thermocouples
 - Learn how to connect an RTD or thermocouple to the Portenta Machine Control
 - Understand the operation of the Portenta Machine Control's Temperature Probe inputs
@@ -38,18 +41,22 @@ The goals of this tutorial are:
 - Read the temperature values using the Arduino PLC IDE
 
 ## Hardware and Software Requirements
+
 ### Hardware Requirements
+
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
 - Micro-USB cable (x1)
 - PT100 RTD (x1)
 
 ### Software Requirements
+
 - The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (Including Arduino PLC IDE Tools)
 - If you have not done so, set up and activate the Portenta Machine Control license following the steps of [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
 
 ## Temperature Sensors
 
 ### RTD 
+
 A **Resistance Temperature Detector**, or **RTD**, is a temperature sensor that works by measuring the variation in the electrical resistance of a metallic element as a function of the temperature changes. The most commonly used metal for RTDs is platinum: one common type of RTD sensor is the PT100, where PT stands for platinum and 100 refers to the nominal resistance of the sensor at 0°C.
 
 As the temperature increases, the resistance of the metal element in the RTD increases predictably and linearly. The resistance variation can be measured using an external circuit or measuring instrument and converted into a temperature reading, using a calibration curve or formula putting into relation the resistance value with the temperature.
@@ -69,6 +76,7 @@ Thermocouples are used in a wide range of applications where temperature measure
 Depending on the sensor you use, you will need to perform different connection settings. Find below three tables showing how to connect a two-wire RTD (PT100), a three-wire RTD (PT100) or a thermocouple. 
 
 ### Two Wires RTD Connection
+
 The 2-wire RTD configuration is the simplest of the RTD circuit designs, but is more prone to errors.
 
 |     Channel 0                        |      Channel 1                        |       Channel 2                       |
@@ -82,6 +90,7 @@ In this tutorial, we will use a two-wire RTD, so we will configure **channel 0**
 ![Two Wires Connection to Channel 0](./assets/two-wire-connection.png)
 
 ### Three Wires RTD Connection
+
 The 3-wire RTD configuration is the most commonly used RTD circuit design. In this configuration, two wires link the sensing element to the monitoring device on one side of the sensing element, and one links it on the other side.
 
 |     Channel 0                     |      Channel 1                    |       Channel 2                   |
@@ -97,7 +106,9 @@ The 3-wire RTD configuration is the most commonly used RTD circuit design. In th
 ### Thermocouples Connection
 
 Connect **only non-grounded thermocouples** (grounded thermocouples are not supported). Do not connect both a thermocouple and a PT100 to a single same channel.
+
 The thermocouples supported by the Portenta Machine Control are:
+
 - Thermocouple Type K, non-grounded
 - Thermocouple Type J, non-grounded
 
@@ -105,7 +116,6 @@ The thermocouples supported by the Portenta Machine Control are:
 |---------------------------------|---------------------------------|---------------------------------|
 | Connect the positive pin to TP0 | Connect the positive pin to TP1 | Connect the positive pin to TP2 |
 | Connect the negative pin to TN0 | Connect the negative pin to TN1 | Connect the negative pin to TN2 |
-
 
 ***Do not connect any pin to GND***
 
@@ -181,6 +191,7 @@ Now that we have created the variables, we have to make it work by defining the 
 TP00 := sysTempProbes[0];
 temp0:= systempProbes[0].temperature;
 ```
+
 Next, plug in your device, make sure it is connected to the Arduino PLC IDE and click the compile button to make sure there are no errors in the code.
 
 If you are not sure about how to connect your device, you can check it on [the setup tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license#5-connect-to-the-device).
@@ -198,6 +209,7 @@ To visualize the values once we have downloaded the code into the Portenta Machi
 ![Watch Variables](./assets/watch-variables.gif)
 
 ## Conclusion
+
 RTDs are best for high-accuracy temperature measurements within a narrow range of up to 600°C. Thermocouples are better for high-temperature applications up to 2300°C, fast response times, and harsh environments. RTDs are used in laboratories and industrial process control, while thermocouples are used in industrial applications like furnaces and aerospace.
 
 We have learned how to connect RTD and Thermocouple sensors to a Portenta Machine Control and how to monitor the temperature values through the Arduino PLC IDE.
@@ -205,6 +217,7 @@ We have learned how to connect RTD and Thermocouple sensors to a Portenta Machin
 We have also learned that there are many different types of RTDs and thermocouples and that we have to choose one according to our needs.
 
 ## Next Steps
+
 Now that we know how to use these temperature sensors, we can implement them in a real industrial or domestic environment, such as an ambient temperature monitoring project.
 
 - For more information on programming in the Arduino PLC IDE using IEC-61131-3 languages, please refer to the tutorial [Introduction to Programming with the Arduino PLC IDE](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-programming-introduction) tutorial.

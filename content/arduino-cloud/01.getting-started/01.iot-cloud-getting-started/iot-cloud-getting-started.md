@@ -53,7 +53,6 @@ To use the Arduino IoT Cloud, a **cloud compatible board** is required. You can 
 
 The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 
-- [MKR 1000 WiFi](/hardware/mkr-1000-wifi)
 - [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
 - [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
@@ -61,6 +60,7 @@ The following boards connect to the Arduino IoT Cloud via Wi-Fi.
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
+- [Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - [Opta](https://docs.arduino.cc/hardware/opta).
 - [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)

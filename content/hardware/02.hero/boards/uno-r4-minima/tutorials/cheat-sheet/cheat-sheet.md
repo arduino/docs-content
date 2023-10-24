@@ -33,9 +33,16 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 To power the UNO R4 Minima you may either use a USB-C® cable or the VIN pin.
 
-If you’re using the USB-C® connector you must power it with 5 V.
+The board can be powered via the VIN pin, supporting a range between 6-24 V. The VIN pin is also connected to the DC-jack (barrel plug connector).
 
-The board can be powered via the VIN pin, supporting a range between 6-24 V.
+When powered via the VIN pin, you are using the onboard regulator to bring down the voltage to 5V, which means that the 5 V pin can provide up to 1.2 A. Keep in mind that this voltage regulator also powers the rest of the circuit board, including the MCU, LEDs among other components.
+
+***External devices with a high current draw (e.g. servo motors) should never be powered via the 5 V pin. It is mainly intended for devices drawing lower current such as sensor modules.***
+
+If you’re using the USB-C® connector you must power it with 5 V. 
+
+When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board. 
+
 
 ## Core
 
@@ -119,7 +126,7 @@ The UNO R4 Minima has six analog input pins (A0-A5) that can be read by using th
 ***A4 and A5 pins are both connected to the same I2C bus.***
 
 ```arduino
-value = analogRead(pin, value);
+value = analogRead(pin);
 ```
 
 The reference voltage of these pins is 5 V.
@@ -187,6 +194,39 @@ The UNO R4 Minima features a total of digital 14 pins. Though some of them serve
 In addition, analog pins A0-A5 can also be used as digital pins. Note that **A4/A5** are reserved for the I2C bus.
 
 The reference voltage of all digital pins is 5 V.
+
+## LED
+
+The UNO R4 Minima has a total of four LEDs, three of which are programmable:
+- **ON** - power LED, cannot be programmed.
+- `LED_BUILTIN` - classic "built-in LED", attached to pin 13.
+- `RX_LED` - LED labelled "RX" on the board.
+- `TX_LED` - LED labelled "TX" on the board.
+
+To control these, define them as outputs and write desired state. The below example blinks each LED every second.
+
+```arduino
+void setup(){
+  //define pins as output
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(RX_LED, OUTPUT);
+  pinMode(TX_LED, OUTPUT);
+}
+
+void loop(){
+  //turn on all LEDs
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LED_RX, HIGH);
+  digitalWrite(LED_TX, HIGH);
+  delay(1000);
+
+  //turn off all LEDs
+  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LED_RX, LOW);
+  digitalWrite(LED_TX, LOW);
+  delay(1000);
+}
+```
 
 ## DAC
 
@@ -391,6 +431,32 @@ And to write something, we can use the following command:
 Serial1.write("Hello world!");
 ```
 
+### Serial Event
+
+The [serialEvent()](https://www.arduino.cc/reference/en/language/functions/communication/serial/serialevent/) method is supported on older revisions of the UNO board, but **not** on the UNO R4 boards (or any other newer Arduino boards).
+
+However, as this method is only used to detect serial data and execute a function, you can also use `Serial.available()` to detect when new data is available:
+
+```arduino
+if(Serial.available() > 0) {
+  //code goes here
+}
+```
+
+### SerialUSB
+
+The UNO R4 Minima has an extended set of Serial methods:
+
+- `Serial.baud()` - Returns the baud rate **(int)** currently used.
+- `Serial.stopbits()` - Returns the number of stop bits **(int)** used in the communication.
+- `Serial.paritytype()` - Returns the type of parity **(int)** used in the communication.
+- `Serial.numbits()` - Returns the number of data bits **(int)** used in the communication.
+- `Serial.dtr()` - Returns the status of the Data Terminal Ready (DTR) signal **(bool)** and also sets the- ignore_dtr flag to true if the DTR signal is actively used.
+- `Serial.rts()` - Returns the status of the Request to Send (RTS) signal **(bool)**.
+
+Supported links:
+- [SerialUSB.h](https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/usb/SerialUSB.h) (Github).
+
 ## USB HID
 
 This board can act as an HID (keyboard/mouse) and send keystrokes or coordinates to your computer via native USB.
@@ -450,14 +516,14 @@ CanMsg const msg = CAN.read(); //read
 In case you need to flash the bootloader on the UNO R4 Minima, you can follow the steps below:
 
 **Step 1**
-Install the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core.
+Install the [UNO R4 Board Package](https://github.com/arduino/ArduinoCore-renesas) as described in the [Getting Started Guide](/tutorials/uno-r4-minima/minima-getting-started).
 
 **Step 2**
 Navigate to: "C:\Users\YourWindowsUserName\AppData\Local\Arduino15\packages\arduino\hardware\
 renesas\0.5.0\bootloaders\SANTIAGO"
 
 **Step 3**
-Identify the **dfu.exe**
+Identify the `dfu_minima.hex`
 
 **Step 4**
 Install the Renesas flash programmer ([download page](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui))
@@ -465,10 +531,12 @@ Install the Renesas flash programmer ([download page](https://www.renesas.com/us
 ***The Renesas flash programmer is currently only available on Windows.***
 
 **Step 5**
-To flash the bootloader:
-  - Select dfu.exe.
+Flash the bootloader using the Renesas programmer:
+  - Select `dfu_minima.hex`.
   - Connect your board.
   - Short the BOOT and GND pin found on the UNO R4 Minima.
   - Go to the Connect Settings tab.
   - Select the COM port in the Tool > select the port shown in the IDE.
   - Press start.
+
+***For more details check the `README.md` or the [GitHub page](https://github.com/arduino/ArduinoCore-renesas/tree/main/bootloaders/UNO_R4).***

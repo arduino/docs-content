@@ -23,7 +23,7 @@ This example shows how to use the SPI (Serial Peripheral Interface) Communicatio
 
 ![The schematic for this tutorial.](assets/BaromettricPressureSensor_sch.png)
 
-The SCP1000 barometric pressure sensor can read both air presure and temperature and report them via the SPI connection. For details of the control registers, see the [SCP1000 data sheet](http://www.sparkfun.com/datasheets/Components/SCP1000-D01.pdf).
+The SCP1000 barometric pressure sensor can read both air pressure and temperature and report them via the SPI connection. For details of the control registers, see the [SCP1000 data sheet](http://www.sparkfun.com/datasheets/Components/SCP1000-D01.pdf).
 
 ## Code
 

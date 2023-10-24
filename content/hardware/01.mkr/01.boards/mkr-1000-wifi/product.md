@@ -1,10 +1,10 @@
 ---
 title: MKR 1000 WiFi
 url_shop: https://store.arduino.cc/arduino-mkr1000-wifi
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-samd
+url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkr1000/137'
-certifications: [CE]
+certifications: [CE, UKCA]
 status: end-of-life
 productCode: '017'
 ---
