@@ -1108,7 +1108,7 @@ Storage and boot-related options are provided to manage the device's data storag
 
 The Portenta Hat Carrier boasts a streamlined, user-centric design with its multifunctional flashing push button. This singular button serves a dual purpose:
 
-- __General User-Programmable Function :__ A single press of the button can be customized according to the application's needs. Whether you need it to start a specific event, switch between various states, or execute a particular action, this button is equipped for diverse implementations.
+- __General User-Programmable Function :__ A single press of the button can be customized according to the application's needs. Whether you need to start a specific event, switch between various states, or execute a particular action, this button is equipped for diverse implementations.
 
 - __Board Flashing Mode Activation:__ A long press and release of the same button will swiftly put the board into flashing mode.
 
