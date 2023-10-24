@@ -1784,7 +1784,7 @@ if __name__ == "__main__":
 
 The Client side script connects to the server specified by the `HOST` and `PORT`. These are properties that you change to your preferences. Once connected, it sends a message `"Hello, server!"` and waits for a response.
 
-If you would like to have a single script running both instances, the following script can offer the job using Python's built-in `threading` component.
+If you would like to have a single script running both instances, the following script can perform the task using Python's built-in `threading` component.
 
 ```
 import socket
