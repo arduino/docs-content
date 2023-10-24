@@ -645,7 +645,7 @@ The Portenta X8 is also capable of operating within the Arduino environment and 
 
 The Portenta H7 and C33 boards have hardware setups similar to the Portenta X8. To mount them on the Hat Carrier, please align the High-Density connectors along with USB-C® port orientation.
 
-Below are diagrams showing how the Portenta H7 and C33 stack on the carrier:
+The diagrams below show how the Portenta H7 and C33 stack on the carrier:
 
 - _Portenta H7_
 
