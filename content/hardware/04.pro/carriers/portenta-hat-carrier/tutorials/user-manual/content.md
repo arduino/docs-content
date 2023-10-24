@@ -59,7 +59,7 @@ In case you want to use the Portenta Hat Carrier with a Portenta H7/C33:
 
 ## Product Overview
 
-The __Portenta Hat Carrier__ offers a platform for developing a variety of robotics and building automation applications. It provides access to multiple peripherals, including CAN, Ethernet, microSD, USB, as well as a camera interface via MIPI and analog pins. The dedicated debug pins for JTAG and the PWM fan connector help simplify your Portenta applications.
+The __Portenta Hat Carrier__ offers a platform for developing a variety of robotics and building automation applications. It provides access to multiple peripherals, including CAN FD, Ethernet, microSD, and USB, as well as a camera interface via MIPI and 8x analog pins. On the other hand, the dedicated debug pins for JTAG and the PWM fan connector help simplify your Portenta applications.
 
 ![Portenta Hat Carrier Stacked Form](assets/board_mount.gif)
 
