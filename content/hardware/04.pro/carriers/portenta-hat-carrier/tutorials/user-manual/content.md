@@ -2134,7 +2134,7 @@ Once inside the container, you can find the scripts in the `/root/examples/porte
 
 ### RPi Relay Board
 
-The _RPi Relay Board_ is a dynamic board that consists of three channels: a high-level trigger and two for low-level triggers. With the capability to manage up to 250V AC or 30V DC with a current rating of 2A, it operates using the I2C interface, renowned for its high-quality relays.
+The _RPi Relay Board_ is a dynamic board that consists of three channels: a high-level trigger and two low-level triggers. With the capability to manage up to 250V AC or 30V DC with a current rating of 2A, it operates using the I2C interface, renowned for its high-quality relays.
 
 The continuing script offers an interface for interaction with the Seeed Studio Raspberry Pi Relay Board. Authored by John M. Wargo, it is a refined version of the sample code available on the [Seeed Studio Wiki](http://wiki.seeed.cc/Raspberry_Pi_Relay_Board_v1.0/). The script uses the _smbus_ library to interface with the relay board and has a default I2C address set to `0x20`.
 
