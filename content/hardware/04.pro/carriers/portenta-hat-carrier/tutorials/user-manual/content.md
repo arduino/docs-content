@@ -1661,7 +1661,7 @@ Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate
 
 To use the _iperf3_ tool, we will set the Portenta X8 and Hat Carrier as the Server and the controlling computer as the Client. The commands will measure the bandwidth between the Portenta Hat Carrier with Portenta X8 and the computer. For a deeper understanding of _iperf3_, refer to its [official documentation](https://iperf.fr/iperf-doc.php).
 
-Begin by setting up the Portenta Hat Carrier with Portenta X8 as the Server. For the necessary files to establish _iperf3_ on the device, follow the steps for _Linux and Cygwin_ under _General Build Instructions_ available [here](https://github.com/userdocs/iperf3-static).
+Begin by setting up the Portenta Hat Carrier with Portenta X8 as the Server. For the configuration of the necessary files to establish _iperf3_ on the device, follow the steps for _Linux and Cygwin_ under _General Build Instructions_ available [here](https://github.com/userdocs/iperf3-static).
 
 Once installed, _iperf3_ will be ready on your device. To ensure it operates without issues, run:
 
