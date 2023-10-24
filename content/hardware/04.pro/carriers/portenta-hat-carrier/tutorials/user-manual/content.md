@@ -304,7 +304,7 @@ cat /sys/class/gpio/gpio163/direction
 
 The GPIO is now set as an output, thus it can now be controlled by setting its state.
 
-To set the pin High, you need to set using the value `1`, or `0` to set the pin Low. The command will require the `value` at the end to ensure the pin's state is controlled.
+To set the pin High, you need to assign the value `1`, or `0` to set the pin Low. The command will require the `value` at the end to ensure the pin's state is controlled.
 
 ```
 echo 1 >/sys/class/gpio/gpio163/value
