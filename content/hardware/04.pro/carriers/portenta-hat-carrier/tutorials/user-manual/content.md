@@ -188,7 +188,7 @@ The Portenta Hat Carrier can be powered according to one of the following method
 
   For more details on this connection, kindly consult the [board pinout section](#pinout) of the user manual. Again, ensure that the power supply's maximum current respects all components' specifications.
 
-- Using a USB-C® cable (not included) connected to the Portenta core board of your choice powers not only the selected core board, like the Portenta X8, H7, or C33, but also the Portenta Hat Carrier, the SOM, and any connected hat, provided the maximum current is sufficient.
+- Using a USB-C® cable (not included) connected to the Portenta core board of your choice powers not only the selected core board, like the Portenta X8, H7, or C33, but also the Portenta Hat Carrier, the SOM, and any connected hat which does not require a dedicated external power supply.
 
 ***The Portenta Hat Carrier can deliver a __maximum__ of 1.5 A.***
 
