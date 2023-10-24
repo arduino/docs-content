@@ -129,7 +129,7 @@ The Portenta Hat Carrier have the following characteristics:
 | J7       | MicroSD slot for data logging and media purposes                                                            |
 | J8       | RJ45 connector for Ethernet                                                                                 |
 | J9       | Screw terminal for power supply and CAN FD support                                                          |
-| J10      | MIPI camera connector, exclusive to Portenta X8                                                             |
+| J10      | MIPI camera connector, exclusive for Portenta X8                                                             |
 | J11      | PWM male header connector to control fan speed                                                              |
 | SW2      | DIP switch with two sliders: _ETH CENTER TAP_ and _BTSEL_                                                   |
 | PB1      | User Button / Flashing Mode                                                                                 |
