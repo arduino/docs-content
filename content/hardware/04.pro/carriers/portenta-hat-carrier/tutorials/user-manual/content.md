@@ -2094,7 +2094,7 @@ The Portenta Hat Carrier is designed to work flawlessly with wireless features. 
 
 This integration not only broadens the spectrum of use cases for the Portenta Hat Carrier but also ensures that developers can use robust wireless communications in their applications. The effectiveness of onboard capabilities with these wireless features makes the Portenta Hat Carrier an indispensable tool for developers looking for versatile and powerful connectivity solutions.
 
-For a comprehensive understanding of these connectivity options, kindly refer the specific documentation for each Portenta model's connectivity.
+For a comprehensive understanding of these connectivity options, kindly refer to the specific documentation for each Portenta model.
 
 - Portenta X8 connectivity: [Wi-Fi® configuration](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#wi-fi-configuration) and [Bluetooth®](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#bluetooth)
 - Portenta H7 connectivity: [Wi-Fi® access point](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point) and [BLE connectivity](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity)
