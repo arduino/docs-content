@@ -1006,7 +1006,7 @@ We will then enable the PWM channel exported previously:
 echo 1 > /sys/class/pwm/pwmchip0/pwm9/enable 
 ```
 
-This is optional but we can use the following command if you want to monitor the temperature of the device or environment:
+You can use the following command if you want to monitor the temperature of the device or environment (optional step):
 
 ```
 cat /sys/devices/virtual/thermal/thermal_zone0/temp
