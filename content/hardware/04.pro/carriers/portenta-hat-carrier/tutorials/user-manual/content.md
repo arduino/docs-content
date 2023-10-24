@@ -1143,7 +1143,8 @@ The following table shows an in-depth connector designation:
 |       CD1      |       N/A      |               |            SDC_CD            |                                 J1-67                                |
 |       CD2      |       N/A      |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
 
-***To learn how to use the miniSD card slot for enhanced storage, please follow this [guide](https://docs.arduino.cc/learn/programming/sd-guide).***
+#### With Arduino IDE
+To learn how to use the microSD card slot for enhanced storage with the Arduino IDE, please follow this [guide](https://docs.arduino.cc/learn/programming/sd-guide).
 
 ***For projects requiring a smaller library footprint with FAT16/FAT32 format compatibility, please look into this [library](https://github.com/greiman/SdFat), created and maintained by Bill Greiman.***
 
