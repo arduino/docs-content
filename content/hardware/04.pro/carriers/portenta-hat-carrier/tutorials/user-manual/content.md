@@ -105,7 +105,7 @@ The Portenta Hat Carrier have the following characteristics:
   
 - **Screw terminal block**: The terminal block allows power supply line feed for the carrier and bus ports. It consists of VIN 7 ~ 32 VDC (x1), VIN 5 V (x1), CANH (x1), CANL (x1), and GND (x2).
   
-- **Debug interface**: The carrier features onboard JTAG pins designated for the debug connector compatible to male headers.
+- **Debug interface**: The carrier features an onboard 10x pin 1.27mm JTAG connector.
   
 - **PWM fan connector**: The board has onboard PWM fan connector (x1) compatible with 5 V fan with PWM input for speed regulation.
   
