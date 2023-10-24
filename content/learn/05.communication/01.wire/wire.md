@@ -6,7 +6,7 @@ author: 'Nicholas Zambetti, Karl Söderby, Jacob Hylén'
 difficulty: 'intermediate'
 ---
 ## Introduction
-A good way of adding complexity of features to your projects without adding complexity of wiring, is to make use of the Inter-integrated circuit (I2C) protocol. It allows you to connect several peripheral devices, such as sensors, displays, motor drivers, and so on, with only a few wires. Giving you lots of flexibility and speeding up your prototyping, without an abundancy of wires. Keep reading to learn about how it works, how it is implemented into different standards, as well as how to use the [Wire Library](#wire-library) to build your own I2C devices.
+A good way of adding complexity of features to your projects without adding complexity of wiring, is to make use of the Inter-integrated circuit (I2C) protocol. The I2C protocol is supported on all Arduino boards. It allows you to connect several peripheral devices, such as sensors, displays, motor drivers, and so on, with only a few wires. Giving you lots of flexibility and speeding up your prototyping, without an abundancy of wires. Keep reading to learn about how it works, how it is implemented into different standards, as well as how to use the [Wire Library](#wire-library) to build your own I2C devices.
 
 ## Overview
 This section provides an overview of the topics covered in the article.
@@ -43,19 +43,54 @@ But how does the controller and peripherals know where the address, messages, an
 
 However, you are nearly never going to *actually* need to consider any of this, in the Arduino ecosystem we have the [Wire library](https://www.arduino.cc/reference/en/language/functions/communication/wire/) that handles everything for you.
 
-## Qwiic & STEMMA QT
+## Arduino I2C Pins
+Below is a table that lists the different board form factors and what pins are for I2C.
+
+| Form factor| SDA    | SCL    | SDA1 | SCL1 | SDA2 | SCL2 |
+| :--------- | :----- | :----- | :--- | :--- | :--- | :--- |
+| UNO        | SDA/A4 | SCL/A5 |      |      |      |      |
+| Nano       | A4     | A5     |      |      |      |      |
+| MKR        | D11    | D12    |      |      |      |      |
+| GIGA       | D20    | D21    | D102 | D101 | D9   | D8   |
+| Mega & Due | D20    | D21    |      |      |      |      |
+
+## I2C Wiring
+Below you'll find a couple ways to wire I2C breakout modules. Which way is best depends on each module, and your needs.
+
+### Breakout Boards
+Some brekout board modules let you wire them directly, with bare wires on a breadboard. To connect a module like this to your Arduino board, connect it as follows:
+
+- VCC* - 5V/3V3 pin (depending on breakout module)
+- GND* - GND
+- SDA - SDA
+- SCL - SCL 
+
+*Pin name might vary depending on what module, VCC might be named "VIN", "+", etc. GND might be named "-".
+
+Here's an example of how you might connect a sensor to an UNO R4 WiFi:
+![Bare I2C Wiring on UNO R4 WiFi ](./assets/wiring.png)
+
+
+### Qwiic & STEMMA QT
 When delving into the market of breakout modules and sensors, you'll find that there are entire ecosystems, where standards are built around the I2C protocol. Examples of such standards are Qwiic, developed by Sparkfun, and STEMMA QT, developed by Adafruit. Both Qwiic and STEMMA QT use a 4-pin JST SH connector for I2C devices, making it easier for third parties to design hardware with vast compatibility. By having a standardized connector, you'll know that if you see the word Qwiic or STEMMA QT in association with an item, that it will work together with an Arduino board with a Qwiic or STEMMA QT connector, such as the UNO R4 WiFi.
 
 Both Qwiic and STEMMA QT bundle together wires for power, ground, as well as the SDA and SCL wires for I2C, making it a complete kit, one cable that bundles everything together.
 
-### What's the difference between the two?
+![I2C on a Qwiic/STEMMA QT connector with UNO R4 WiFi](./assets/Qwiic.png)
+
+**But what's the difference between the two?**
+
 Both Qwiic and STEMMA QT use I2C, and even when inspecting modules using the two standards up close, it may be difficult to tell what makes them unique from each other. But there is a difference! And it has some implications on how and for what you may use them.
 
 Qwiic has level shifting and voltage regulation on the controller (but not on the peripherals). What this means is that Qwiic is 3.3 V logic **only**. This makes it easier to use, as for the end user, there is one less thing that can go wrong when designing and assembling your circuit.
 
 STEMMA QT, on the other hand, doesn't have this. This lets you use both 3.3 V and 5 V logic for modules. This also means that there is one more thing you may need to consider when creating your circuit, but it also grants some more flexibility in power and logic requirements.
 
-The pin order for STEMMA QT is designed to match the pin order for Qwiic, enabling cross-compatibility between the two standards
+The pin order for STEMMA QT is designed to match the pin order for Qwiic, enabling cross-compatibility between the two standards.
+
+### Grove
+Grove is another connector standard, this one developed by seeed studio. You can find a plethora of modules with a Grove connector, however only some of them use I2C.
+There are no Arduino boards that have a built in Grove connector, however you can use products such as the [MKR connector carrier](https://store.arduino.cc/products/arduino-mkr-connector-carrier-grove-compatible), [Nano Grove Shield](https://store.arduino.cc/products/grove-shield-for-arduino-nano), or the Base Shield from the [Arduino Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit-base) to connect Grove sensors to your Arduino board. 
 
 ## Wire Library
 The Wire library is what Arduino uses to communicate with I2C devices. It is included in all board packages, so you don't need to install it manually in order to use it.
@@ -77,30 +112,23 @@ To see the full API for the Wire library, visit its [documentation page](https:/
 - `clearWireTimeoutFlag()` - Clears the timeout flag
 - `getWireTimeoutFlag()` - Checks whether a timeout has occurred since the last time the flag was cleared.
 
+### Derived libraries
+When you buy basically any breakout module that makes use of the I2C protocol, they will come with some library that helps you use the sensor. This library is more often than not built on top of the Wire library, and uses it under the hood, with added functionality in order to make, for example, reading temperature easier. 
+
+An example of this is if you want to use Afafruits MCP9808 sensor module, you download the Adafruit_MCP9808 Library from the IDEs library manager, which enables you to use functions such as `tempsensor.readTempC()` in order to request from the right address, and read the information with just a single line instead of writing the Wire code yourself. 
+
+To learn how to install libraries, check out our [guide to installing libraries](/software/ide-v2/tutorials/ide-v2-installing-a-library).
+
 ## Examples
 The remainder of this article is a collection of links to tutorials, schematics and code snippets that can get you off the ground with I2C.
 
-***Please note that the I2C bus is attached to different pins depending on the board you are using. For example, the pins used for [MKR WiFi 1010](/hardware/mkr-wifi-1010) are D11, D12, while the pins for [UNO](/hardware/uno-rev3) are D18, D19. See the image below to understand how to locate the correct pins on your board.***
 
-![I2C pins on the UNO.](assets/uno-i2c.png)
 
-![I2C pins on the MKR WiFi 1010](assets/wifi-1010-i2c.png)
-
-## Tutorials 
-Check out the following tutorials to get a more detailed step-by-step on how to use I2C on Arduino boards:
-
-- [Connecting Two Nano 33 BLE Boards Through I2C](/tutorials/nano-33-ble/i2c)
-- [Connecting Two Nano 33 BLE Sense Boards Through I2C](/tutorials/nano-33-ble-sense/I2C)
-- [Connecting Two Nano 33 IoT Through I2C](/tutorials/nano-33-iot/I2C)
-- [Connecting Two Nano Every Boards Through I2C](/tutorials/nano-every/I2C)
-
-***While the above tutorials were written specifically for the Nano Family boards, they can be adopted to any Arduino board.***
-
-## Controller Reader
+### Controller Reader
 
 In some situations, it can be helpful to set up two (or more!) Arduino boards to share information with each other. In this example, two boards are programmed to communicate with one another in a Controller Reader/Peripheral Sender configuration via the [I2C synchronous serial protocol](http://en.wikipedia.org/wiki/I2C). Several functions of Arduino's [Wire Library](https://www.arduino.cc/en/Reference/Wire) are used to accomplish this. Arduino 1, the Controller, is programmed to request, and then read, 6 bytes of data  sent from the uniquely addressed Peripheral Arduino. Once that message is received, it can then be viewed in the Arduino Software (IDE) serial monitor window.
 
-### Controller Reader Sketch
+**Controller Reader Sketch**
 
 ```arduino
 // Wire Controller Reader
@@ -134,7 +162,7 @@ void loop() {
 }
 ```
 
-### Peripheral Sender Sketch
+**Peripheral Sender Sketch**
 
 ```arduino
 // Wire Peripheral Sender
@@ -169,11 +197,11 @@ void requestEvent() {
 
 ```
 
-## Controller Writer
+### Controller Writer
 
 In some situations, it can be helpful to set up two (or more!) Arduino boards to share information with each other. In this example, two boards are programmed to communicate with one another in a Controller Writer/Peripheral Receiver configuration via the [I2C synchronous serial protocol](http://en.wikipedia.org/wiki/I2C). Several functions of Arduino's [Wire Library](https://www.arduino.cc/en/Reference/Wire) are used to accomplish this. Arduino 1, the Controller, is programmed to send 6 bytes of data every half second to a uniquely addressed Peripheral. Once that message is received, it can then be viewed in the Peripheral board's serial monitor window opened on the USB connected computer running the Arduino Software (IDE).
 
-### Controller Writer Sketch
+**Controller Writer Sketch**
 
 ```arduino
 // Wire Master Writer
@@ -209,7 +237,7 @@ void loop()
 }
 ```
 
-### Peripheral Receiver Sketch
+**Peripheral Receiver Sketch**
 
 ```arduino
 // Wire Peripheral Receiver
@@ -249,229 +277,5 @@ void receiveEvent(int howMany)
   }
   int x = Wire.read();    // receive byte as an integer
   Serial.println(x);         // print the integer
-}
-```
-
-## Example 1: Ultra-Sonic Range Finder
-
-This example shows how to read a [Devantech SRFxx](http://www.acroname.com/robotics/parts/R287-SRF02.html) , an ultra-sonic range finder which communicates via the [I2C synchronous serial protocol](http://en.wikipedia.org/wiki/I2C).
-
-### Hardware Required
-
-- Arduino Board
-- Devantech SRFxx Range Finder (models SRF02, SRF08, or SRF10).
-- 100 uf capacitor
-- Jumper Wires
-- Breadboard
-
-### Circuit
-
-Attach the SDA pin of your SRFxx to analog pin 4 of your board, and the SCL pin to analog pin 5. Power your SRFxx from 5V, with the addition of a 100uf capacitor in parallel with the range finder to smooth it's power supply.
-
-![Image developed using Fritzing.](assets/SRFxx_bb.png)
-
-### Schematic
-
-![](assets/SRF_sch.png)
-
-### Code
-
-***If using two SRFxxs on the same line, you must ensure that they do not share the same address. Instructions for re-addressing the range finders can be found at the bottom of the code below.***
-
-```arduino
-// I2C SRF10 or SRF08 Devantech Ultrasonic Ranger Finder
-// by Nicholas Zambetti <http://www.zambetti.com>
-// and James Tichenor <http://www.jamestichenor.net>
-
-// Demonstrates use of the Wire library reading data from the
-// Devantech Utrasonic Rangers SFR08 and SFR10
-
-// Created 29 April 2006
-
-// This example code is in the public domain.
-
-#include <Wire.h>
-
-void setup() {
-
-  Wire.begin();                // join i2c bus (address optional for master)
-
-  Serial.begin(9600);          // start serial communication at 9600bps
-}
-
-int reading = 0;
-
-void loop() {
-
-  // step 1: instruct sensor to read echoes
-
-  Wire.beginTransmission(112); // transmit to device #112 (0x70)
-
-  // the address specified in the datasheet is 224 (0xE0)
-
-  // but i2c addressing uses the high 7 bits so it's 112
-
-  Wire.write(byte(0x00));      // sets register pointer to the command register (0x00)
-
-  Wire.write(byte(0x50));      // command sensor to measure in "inches" (0x50)
-
-  // use 0x51 for centimeters
-
-  // use 0x52 for ping microseconds
-
-  Wire.endTransmission();      // stop transmitting
-
-  // step 2: wait for readings to happen
-
-  delay(70);                   // datasheet suggests at least 65 milliseconds
-
-  // step 3: instruct sensor to return a particular echo reading
-
-  Wire.beginTransmission(112); // transmit to device #112
-
-  Wire.write(byte(0x02));      // sets register pointer to echo #1 register (0x02)
-
-  Wire.endTransmission();      // stop transmitting
-
-  // step 4: request reading from sensor
-
-  Wire.requestFrom(112, 2);    // request 2 bytes from peripheral device #112
-
-  // step 5: receive reading from sensor
-
-  if (2 <= Wire.available()) { // if two bytes were received
-
-    reading = Wire.read();  // receive high byte (overwrites previous reading)
-
-    reading = reading << 8;    // shift high byte to be high 8 bits
-
-    reading |= Wire.read(); // receive low byte as lower 8 bits
-
-    Serial.println(reading);   // print the reading
-
-  }
-
-  delay(250);                  // wait a bit since people have to read the output :)
-}
-
-/*
-
-// The following code changes the address of a Devantech Ultrasonic Range Finder (SRF10 or SRF08)
-
-// usage: changeAddress(0x70, 0xE6);
-
-void changeAddress(byte oldAddress, byte newAddress)
-
-{
-
-  Wire.beginTransmission(oldAddress);
-
-  Wire.write(byte(0x00));
-
-  Wire.write(byte(0xA0));
-
-  Wire.endTransmission();
-
-  Wire.beginTransmission(oldAddress);
-
-  Wire.write(byte(0x00));
-
-  Wire.write(byte(0xAA));
-
-  Wire.endTransmission();
-
-  Wire.beginTransmission(oldAddress);
-
-  Wire.write(byte(0x00));
-
-  Wire.write(byte(0xA5));
-
-  Wire.endTransmission();
-
-  Wire.beginTransmission(oldAddress);
-
-  Wire.write(byte(0x00));
-
-  Wire.write(newAddress);
-
-  Wire.endTransmission();
-
-}
-
-*/
-```
-
-## Example 2: Digital Potentiometer
-
-### Hardware Required
-
-- Arduino Board
-- AD5171 Digital Potentiometer
-- LED
-- 680 ohm resistor
-- 2 4.7k ohm resistors
-- Hook-up wires
-- Breadboard
-
-### Circuit
-
-Connect pins 3, 6, and 7 of the AD5171 to GND, and pins 2 and 8 to +5V.
-
-Connect pin 4, the digital pot's clock pin (SCL), to analog pin 5 on the Arduino, and pin 5, the data line (SDA), to analog pin 4. On both the SCL and SDA lines, add 4.7K ohm pull up resistors, connecting both lines to +5 V.
-
-Finally, wire an LED to pin 1, the AD5171's "wiper", with a 680 ohm LED in series.
-
-![Image developed using Fritzing.](assets/AD5171_bb.png)
-
-When the AD5171's pin 6, ADO, is connected to ground, it's address is is 44. To add another digital pot to the same SDA bus, connect the second pot's ADO pin to +5V, changing it's address to 45.
-
-You can only use two of these digital potentiometers simultaneously.
-
-### Schematics
-
-![](assets/AD5171_sch.png)
-
-![](assets/AD5171_pinconfig.png)
-
-### Code
-
-```arduino
-// I2C Digital Potentiometer
-// by Nicholas Zambetti <http://www.zambetti.com>
-// and Shawn Bonkowski <http://people.interaction-ivrea.it/s.bonkowski/>
-
-// Demonstrates use of the Wire library
-// Controls AD5171 digital potentiometer via I2C/TWI
-
-// Created 31 March 2006
-
-// This example code is in the public domain.
-
-// This example code is in the public domain.
-
-
-#include <Wire.h>
-
-void setup()
-{
-  Wire.begin(); // join i2c bus (address optional for master)
-}
-
-byte val = 0;
-
-void loop()
-{
-  Wire.beginTransmission(44); // transmit to device #44 (0x2c)
-                              // device address is specified in datasheet
-  Wire.write(byte(0x00));            // sends instruction byte  
-  Wire.write(val);             // sends potentiometer value byte  
-  Wire.endTransmission();     // stop transmitting
-
-  val++;        // increment value
-  if(val == 64) // if reached 64th position (max)
-  {
-    val = 0;    // start over from lowest value
-  }
-  delay(500);
 }
 ```
