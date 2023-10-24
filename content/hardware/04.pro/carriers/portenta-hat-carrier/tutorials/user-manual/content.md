@@ -662,7 +662,7 @@ Below are diagrams showing how the Portenta H7 and C33 stack on the carrier:
 #### Hello World With Arduino
 <br></br>
 
-In this section, you will learn how to use the Portenta X8, Portenta H7, or Portenta C33 with the Portenta Hat Carrier. You will be interacting with the user-configurable LED connected to GPIO3, but this time within the Arduino environment.
+In this section, you will learn how to use the Portenta X8, Portenta H7, or Portenta C33 with the Portenta Hat Carrier. You will interact with the user-configurable LED connected to GPIO3, but this time within the Arduino environment.
 
 Once any compatible Portenta board is connected to the Portenta Hat Carrier, launch the Arduino IDE 2 and set up the subsequent sketch:
 
