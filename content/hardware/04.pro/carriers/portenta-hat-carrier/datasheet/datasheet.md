@@ -698,7 +698,7 @@ The Portenta Hat Carrier and any connected board to it can be powered using the 
 
 <div style="text-align: justify;">
 
-- **CANH and CANL terminals**: The Portenta Hat Carrier has a high-speed CAN transceiver based on the TJA1049T/3J IC. These terminals enable reliable CAN bus communication. The 120 ohms termination resistor is not included in the device so make sure to add them in your final deployment to meet the bus requirements and obtain the ideal results.
+- **CANH and CANL terminals**: The Portenta Hat Carrier has a high-speed CAN transceiver based on the TJA1049T/3J IC. These terminals enable reliable CAN bus communication. The 120 ohms termination resistor is not included in the device so make sure to add it in your final deployment to meet the bus requirements and obtain the ideal performance.
 
 </div>
   
