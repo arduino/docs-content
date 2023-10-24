@@ -967,7 +967,7 @@ Following these steps, you will be able to successfully capture and stream video
 
 ### PWM Fan Control
 
-The Portenta Hat Carrier is designed to ease range of device controls, including those of fans using the Pulse Width Modulation (PWM) pins. The principle of PWM involves varying the width of the pulses sent to the device, in this case, a fan, to control its speed or position.
+The Portenta Hat Carrier is designed to be a thermal dissipation reference carrier for Portenta X8, including dedicated Pulse Width Modulation (PWM) pins for external fan control. The principle of PWM involves varying the width of the pulses sent to the device, in this case, a fan, to control its speed or position.
 
 ![Portenta Hat Carrier Fan Mount](assets/board_fan_mount.gif)
 
