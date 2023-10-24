@@ -2116,7 +2116,7 @@ The standardized design of HATs ensures they are compatible and easy to use with
 
 These are the officially compatible list of HATs:
 
-- __Stepper Motor HAT__: is a HAT that drives stepper motors, enabling precise control of rotation direction, angle, speed, and steps, suitable for projects like CNC, 3D printers, and robotics. It uses DRV8825 dual H-bridge motor driver.
+- __Stepper Motor HAT__: it is a HAT that drives stepper motors, enabling precise control of rotation direction, angle, speed, and steps, suitable for projects like CNC, 3D printers, and robotics. It uses DRV8825 dual H-bridge motor driver.
 
 - __RPi Relay Board__: is a HAT that eases the control of high-voltage devices, featuring three channels, and photo coupling isolation. Helps provide safe device switching for various applications.
 
