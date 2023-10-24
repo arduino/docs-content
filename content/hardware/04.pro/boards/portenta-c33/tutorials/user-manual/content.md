@@ -55,7 +55,7 @@ Here is an overview of the board's main components shown in the images above:
 - **Security**: The board features an onboard ready-to-use secure element, the SE050C2 from NXP®, specifically designed for IoT devices and provides advanced security features.
 - **USB connectivity**: The board features a USB-C port for power and data, which is also accessible through the board's High-Density connectors.
 - **Power management**: The Portenta C33 is designed for low-power operation to meet the demands of always-connected IoT devices. It features a power management integrated circuit (PMIC), the PF1550 from NXP®,  designed specifically for low-power, portable, and battery-powered IoT applications.
-- **Analog and digital peripherals**: The board features analog peripherals such as two 8-channel 12-bit analog-to-digital converters (ADC) and two 12-bit digital-to-analog converters (DAC). It also features the following digital peripherals: GPIO (x7), I<sup>2</sup>C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), PDM (x1), and SAI (x1).
+- **Analog and digital peripherals**: The board features analog peripherals such as two 8-channel 12-bit analog-to-digital converters (ADC) and two 12-bit digital-to-analog converters (DAC). It also features the following digital peripherals: GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), PDM (x1), and SAI (x1).
 - **Debugging**: The board features a JTAG/SWD debug port accessible through its High-Density connectors.
 - **Surface mount**: The castellated pins of the board allows it to be positioned as a surface-mountable module.
 - **MKR-styled connectors**: The MKR-styled connectors of the board makes it compatible with all the MKR family boards. 2.54 mm pitch headers can be easily soldered to the board.
@@ -540,7 +540,7 @@ You should now see the built-in RGB LED blinking each of its LEDs repeatedly.
 
 ## Communication
 
-This section of the user manual covers the different communication protocols that are supported by the Portenta C33 board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I<sup>2</sup>C), Universal Asynchronous Receiver-Transmitter (UART), and Wi-Fi®; JTAG interface and communication via the onboard ESLOV connector is also explained in this section. 
+This section of the user manual covers the different communication protocols that are supported by the Portenta C33 board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C), Universal Asynchronous Receiver-Transmitter (UART), and Wi-Fi®; JTAG interface and communication via the onboard ESLOV connector is also explained in this section. 
 
 The Portenta C33 features dedicated pins for each communication protocol, accessible through the MKR-styled connectors and the High-Density connectors, making connecting and communicating with different components, peripherals, and sensors easy.
 
@@ -604,7 +604,7 @@ digitalWrite(SS, HIGH);
 
 ### I2C
 
-The Portenta C33 supports I<sup>2</sup>C communication, which allows data transmission between the board and other I<sup>2</sup>C-compatible devices. The pins used in the Portenta C33 for the I<sup>2</sup>C communication protocol are the following:
+The Portenta C33 supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Portenta C33 for the I2C communication protocol are the following:
 
 | **Arduino Pin Mapping** | **Microcontroller Pin** |
 |:-----------------------:|:-----------------------:|
@@ -615,22 +615,34 @@ The Portenta C33 supports I<sup>2</sup>C communication, which allows data transm
 |       `39`/`SDA2`       |          `P302`         |
 |       `40`/`SCL2`       |          `P301`         |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. The I<sup>2</sup>C pins are also available through the onboard ESLOV connector of the Portenta C33.
+To locate these pins on the board, please refer to the [board pinout section](#pinout) of the user manual. The `SDA0` and `SCL0` pins are also available through the onboard ESLOV connector of the Portenta C33.
 
-To use I<sup>2</sup>C communication, include the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) at the top of your sketch. The `Wire` library provides functions for I<sup>2</sup>C communication:
+**Important note for system integrators**: Use the Portenta C33's High-Density connectors to expand its signals to a custom-designed daughter board or carrier. Below is the I2C pins mapping on the board's High-Density connectors and shared resources:
+
+| High-Density Connector | Interface Name | Pins on the High-Density Connector | Status* | Shared Peripherals (Address) |
+|:----------------------:|:--------------:|:----------------------------------:|:------:|:----------------------------:|
+|           J1           |     `I2C1`     |                43-45               |  Free  |               -              |
+|           J2           |     `I2C0`     |                44-46               |  Free  |               -              |
+|           J2           |     `I2C2`     |                45-47               |  Free  |               -              |
+
+**Status***: This column indicates the current status of the pins. "Free" means the pins are not in use by another resource or peripheral of the board and are available for usage, while "Shared" means the pins are used by one or several resources or peripherals of the board. 
+
+***All I2C ports of the Portenta C33 can be used without restrictions as they are not shared with any other board peripheral.***
+
+To use I2C communication, include the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) at the top of your sketch. The `Wire` library provides functions for I2C communication:
 
 ```arduino
 #include <Wire.h>
 ```
 
-In the `setup()` function, initialize the I<sup>2</sup>C library:
+In the `setup()` function, initialize the I2C library:
 
 ```arduino
 // Initialize the I2C communication
 Wire.begin();
 ```
 
-To transmit data to an I<sup>2</sup>C-compatible device, you can use the following commands:
+To transmit data to an I2C-compatible device, you can use the following commands:
 
 
 ```arduino
@@ -656,7 +668,7 @@ Wire.write(value);
 Wire.endTransmission();
 ```
 
-To read data from an I<sup>2</sup>C-compatible device, you can use the `requestFrom()` function to request data from the device and the `read()` function to read the received bytes:
+To read data from an I2C-compatible device, you can use the `requestFrom()` function to request data from the device and the `read()` function to read the received bytes:
 
 ```arduino
 // The target device's I2C address
@@ -1192,7 +1204,7 @@ You can use a [Portenta Breakout](https://store.arduino.cc/products/arduino-port
 
 ### ESLOV Connector
 
-The Portenta C33 board features an onboard ESLOV connector to extend the I<sup>2</sup>C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Portenta C33 without soldering or wiring; Nicla family boards can also be connected to the Portenta C33 through this connector. 
+The Portenta C33 board features an onboard ESLOV connector to extend the I2C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Portenta C33 without soldering or wiring; Nicla family boards can also be connected to the Portenta C33 through this connector. 
 
 ![Portenta C33 built-in ESLOV connector](assets/user-manual-8.png)
 
