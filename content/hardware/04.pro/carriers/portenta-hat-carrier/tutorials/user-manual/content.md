@@ -238,6 +238,8 @@ The Portenta Hat Carrier provides different functionalities based on the connect
 | CAN FD         | Available         | Available          | Available          |
 | USB-A Support  | Available         | Available          | Available          |
 
+***The Portenta X8 is the specific Portenta family board that offers compatibility with Raspberry Pi® Hats on the 40-pin Header.***
+
 This provides a general idea of how the Portenta Hat Carrier will perform depending on the paired Portenta board. Each feature is explained in the following section after a quick guide covering how to properly interface the Portenta boards.
 
 ## Hello World Carrier
@@ -760,6 +762,9 @@ If you are interested in USB-A port pinout, the following table may serve to und
 
 Devices with a USB-A interface, such as storage drives, can be used for logging data. External devices include peripherals like keyboards, mouses, webcams, and hubs.
 
+#### Using Linux
+<br></br>
+
 As an example, following command on Portenta X8's shell can be used to test write command with a USB memory drive.
 
 ```
@@ -787,6 +792,9 @@ The built-in features of the Arduino programming language ([`analogRead()` funct
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find the analog pins on the board.
 
+#### Using Linux
+<br></br>
+
 Using the Portenta X8, you can obtain a voltage reading that falls within a _0 - 65535_ range. This reading corresponds to a voltage between 0 and 3.3 V. To fetch this reading, use the command:
 
 ```
@@ -811,6 +819,9 @@ if __name__ == "__main__":
   if value is not None:
     print(f"Value from ADC pin {adc_pin}: {value}")
 ```
+
+#### Using Arduino IDE
+<br></br>
 
 The following example snippet, compatible with Portenta H7, shows how to read the voltage value from a potentiometer on `A0`. It will then display the readings on the Arduino IDE Serial Monitor.
 
@@ -921,6 +932,9 @@ As mentioned before, the Portenta Hat Carrier supports the MIPI camera if paired
 
 ![Portenta Hat Carrier MIPI Camera Mount](assets/portentaHATCarrier_mipiCam_mount.gif)
 
+#### Using Linux
+<br></br>
+
 The following commands, using on Portenta X8 environment, allows you to capture a single frame and stream video at 30 FPS (Frames per Second) for 10 seconds from the Raspberry Pi Camera v1.3, which is based on the __OV5647 CMOS__ sensor.
 
 First, we need to set environment variables and specify the overlays for our camera and board setup:
@@ -969,6 +983,8 @@ This command allows the user to capture 300 frames at 30 FPS, which equals 10 se
 
 Following these steps, you will be able to successfully capture and stream video from the Raspberry Pi Camera v1.3 based on the OV5647 sensor.
 
+***For enhanced image quality, we recommend using a MIPI camera module with an integrated Image Signal Processor (ISP).***
+
 ### PWM Fan Control
 
 The Portenta Hat Carrier is designed to be a thermal dissipation reference carrier for Portenta X8, including dedicated Pulse Width Modulation (PWM) pins for external fan control. The principle of PWM involves varying the width of the pulses sent to the device, in this case, a fan, to control its speed or position.
@@ -983,6 +999,9 @@ The fan can be connected via PWM pins available on the Portenta Hat Carrier. The
 |        2       |       N/A      |               |                              |                                                                      |
 |        3       |       5V       |      +5V      |              VIN             |                   J1-21, J1-24, J1-32, J1-41, J1-48                  |
 |        4       |       GND      |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
+
+#### Using Linux
+<br></br>
 
 The fan's speed can be controlled using the following code sequence when you are using the Portenta X8 within the Linux environment.
 
@@ -1147,10 +1166,8 @@ The following table shows an in-depth connector designation:
 |       CD1      |       N/A      |               |            SDC_CD            |                                 J1-67                                |
 |       CD2      |       N/A      |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
 
-#### With Arduino IDE
-To learn how to use the microSD card slot for enhanced storage with the Arduino IDE, please follow this [guide](https://docs.arduino.cc/learn/programming/sd-guide).
-
-***For projects requiring a smaller library footprint with FAT16/FAT32 format compatibility, please look into this [library](https://github.com/greiman/SdFat), created and maintained by Bill Greiman.***
+#### Using Linux
+<br></br>
 
 To determine if Portenta X8 has recognized the microSD card, you can use one of the following commands:
 
@@ -1258,6 +1275,11 @@ if __name__ == "__main__":
 ```
 
 The script has also error handlers to inform if the microSD card is not detected or if there are any issues during the mount process.
+
+#### Using Arduino IDE
+<br></br>
+
+To learn how to use the microSD card slot for enhanced storage with the Arduino IDE, please follow this [guide](https://docs.arduino.cc/learn/programming/sd-guide).
 
 For Portenta H7, you can use the following Arduino IDE script to test mounted SD card within Portenta Hat Carrier:
 
@@ -1663,6 +1685,9 @@ Ethernet performance differs based on the associated Portenta board:
 
 To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Hat Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 
+##### Using Linux
+<br></br>
+
 Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed. First, make sure the Portenta X8 is mounted on the Hat Carrier, and then connect them using a RJ45 LAN cable. To measure the bandwidth, we will use the _iperf3_ tool, which is available [here](https://github.com/userdocs/iperf3-static).
 
 To use the _iperf3_ tool, we will set the Portenta X8 and Hat Carrier as the Server and the controlling computer as the Client. The commands will measure the bandwidth between the Portenta Hat Carrier with Portenta X8 and the computer. For a deeper understanding of _iperf3_, refer to its [official documentation](https://iperf.fr/iperf-doc.php).
@@ -1840,6 +1865,9 @@ if __name__ == "__main__":
 The script makes the server start in a separate thread, adding a brief pause using `threading.Event().wait(1)` to confirm it successfully started. It ensures the server is ready to accept connections before the client attempts to connect and send any data.
 
 The client runs on the main thread. Using `server_thread.join()`, the main script waits for the server thread to finish its tasks before exiting.
+
+##### Using Arduino IDE
+<br></br>
 
 Below is a 'WebClient' example that can be used to test Ethernet connectivity with Portenta H7.
 
@@ -2439,6 +2467,9 @@ It is characterized as follows:
 
 Understanding and managing the General-Purpose Input/Output (GPIO) pins on your device can be crucial for many applications. Following script is designed to display all the GPIOs available on the 40-pin connector of the Portenta Hat Carrier paired with Portenta X8.
 
+#### Using Linux
+<br></br>
+
 Next conditions will help you properly set the hardware to test GPIO controls:
 
 1. Begin by positioning the Portenta-X8 securely onto the Portenta Hat Carrier. Make sure the High-Density connectors are securely connected.
@@ -2489,6 +2520,9 @@ This script will help you verify following considerations:
 By employing this script, not only do you gain a deeper insight into the state of your GPIOs, but you also save valuable time and reduce the margin for error.
 
 Whether you are debugging, prototyping, or setting up a new project, this script is an invaluable tool for all Portenta Hat Carrier users.
+
+#### Using Arduino IDE
+<br></br>
 
 If Portenta Hat Carrier is paired with Portenta H7, consider using following example:
 
@@ -2555,36 +2589,8 @@ The Portenta Hat Carrier has 10 digital pins with PWM functionality, mapped as f
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. All these pins must be configured on the corresponding Portenta.
 
-The [`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)] included into the Arduino programming language can be used to access the 7 PWM pins.
-
-The example code shown below uses digital pin `0` PWM functionality to control the brightness of the board's built-in RGB LED (green LED) connected to it:
-
-```arduino
-// Define the LED pin, brightness, and fade amount variables
-int brightness = 0;
-int fadeAmount = 5;
-
-void setup() {
-  // Configure the LED pin as an output
-  pinMode(XXX, OUTPUT);
-}
-
-void loop() {
-  // Set the brightness of the LED
-  analogWrite(XXX, brightness);
-
-  // Update the brightness value
-  brightness += fadeAmount;
-
-  // Reverse the fade direction when reaching the limits
-  if (brightness <= 0 || brightness >= 255) {
-    fadeAmount = -fadeAmount;
-  }
-
-  // Wait for 30 milliseconds
-  delay(30);
-}
-```
+#### Using Linux
+<br></br>
 
 A Python® script version of the previous code could resemble as the following code:
 
@@ -2628,6 +2634,40 @@ if __name__ == "__main__":
       print("Exiting")
 ```
 
+#### Using Arduino IDE
+<br></br>
+
+The [`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)] included into the Arduino programming language can be used to access the 7 PWM pins.
+
+The example code shown below uses digital pin `0` PWM functionality to control the brightness of the board's built-in RGB LED (green LED) connected to it:
+
+```arduino
+// Define the LED pin, brightness, and fade amount variables
+int brightness = 0;
+int fadeAmount = 5;
+
+void setup() {
+  // Configure the LED pin as an output
+  pinMode(XXX, OUTPUT);
+}
+
+void loop() {
+  // Set the brightness of the LED
+  analogWrite(XXX, brightness);
+
+  // Update the brightness value
+  brightness += fadeAmount;
+
+  // Reverse the fade direction when reaching the limits
+  if (brightness <= 0 || brightness >= 255) {
+    fadeAmount = -fadeAmount;
+  }
+
+  // Wait for 30 milliseconds
+  delay(30);
+}
+```
+
 ### JTAG Pins
 
 For developers aiming to investigate and understand the intricate details of development, the Portenta Hat Carrier features a built-in JTAG interface. This tool is crucial for hardware debugging, offering real-time observation. Through the JTAG pins, users can smoothly debug and program, guaranteeing accurate and optimal device performance.
@@ -2666,9 +2706,34 @@ The Portenta Hat Carrier supports SPI communication via two dedicated ports name
 |       23       |    SPI1 SCK    |            SPI1_CK           |         J2-38        |    SPI 1 CK   |
 |       24       |     SPI1 CE    |            SPI1_CS           |         J2-36        |    SPI 1 CS   |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. 
+Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
-#### With Arduino IDE
+#### Using Arduino IDE
+<br></br>
+
+For Portenta X8, it is possible to use following commands:
+
+```arduino
+sudo modprobe spidev
+```
+
+Present sequence of commands is used to enable the SPI device interface on the Portenta X8. After adding the `spidev` module to the system's configuration, the system is rebooted to apply the changes.
+
+```arduino
+echo "spidev" | sudo tee > /etc/modules-load.d/spidev.conf
+sudo systemctl reboot
+```
+
+```arduino
+services:
+    my_spi_service:
+       devices:
+          - /dev/spi-1
+```
+Following section configures a service named `my_spi_service` to use the SPI device available at `/dev/spi-1`.
+
+#### Using Arduino IDE
+<br></br>
 
 Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. This can be used with Portenta H7 or C33. The SPI library provides functions for SPI communication:
 
@@ -2712,27 +2777,6 @@ SPI.transfer(value);
 // Pull the CS pin HIGH to unselect the device
 digitalWrite(SS, HIGH);
 ```
-
-For Portenta X8, it is possible to use following commands:
-
-```arduino
-sudo modprobe spidev
-```
-
-Present sequence of commands is used to enable the SPI device interface on the Portenta X8. After adding the `spidev` module to the system's configuration, the system is rebooted to apply the changes.
-
-```arduino
-echo "spidev" | sudo tee > /etc/modules-load.d/spidev.conf
-sudo systemctl reboot
-```
-
-```arduino
-services:
-    my_spi_service:
-       devices:
-          - /dev/spi-1
-```
-Following section configures a service named `my_spi_service` to use the SPI device available at `/dev/spi-1`.
 
 ### I2S
 
@@ -2791,6 +2835,9 @@ The Portenta Hat Carrier supports I2C communication, which allows data transmiss
 Please, refer to the [pinout section](#pinout) of the user manual to find them on the board. The I<sup>2</sup>C pins are also available through the onboard ESLOV connector of the Portenta Hat Carrier.
 
 ![Portenta Hat Carrier CAN Bus Interface Connection Example](assets/portentaHATcarrier_I2C_conn.png)
+
+#### Using Linux
+<br></br>
 
 For Portenta X8, it is possible to use following commands:
 
@@ -2893,6 +2940,9 @@ print("0x100: 0x{:02x}".format(msgs[1].data[0]))
 i2c.close()
 ```
 
+#### Using Arduino IDE
+<br></br>
+
 To use I2C communication, include the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) at the top of your sketch. This can be used with Portenta H7 or C33. The `Wire` library provides functions for I2C communication:
 
 ```arduino
@@ -2970,6 +3020,9 @@ Since the CAN bus pins are integrated within the High-Density connectors, they a
 
 ***For stable CAN bus communication, it is recommended to install a 120 Ω termination resistor between CANH and CANL lines.***
 
+#### Using Linux
+<br></br>
+
 For Portenta X8, the following instructions can help control CAN bus protocol. The CAN transceiver is enabled using following command:
 
 ```
@@ -3043,7 +3096,7 @@ if __name__ == "__main__":
     main()
 ```
 
-Continuing Python® script defines functions to receive and print incoming CAN messages. The receive_can_messages function continuously listens for CAN messages and calls print_received_message to display the details of the received message, such as whether it's an extended message or a remote transmission request (RTR) and its data. 
+Continuing Python® script defines functions to receive and print incoming CAN messages. The receive_can_messages function continuously listens for CAN messages and calls print_received_message to display the details of the received message, such as whether it is an extended message or a remote transmission request (RTR) and its data. 
 
 ```
 import can
@@ -3088,6 +3141,9 @@ if __name__ == "__main__":
 ```
 
 The `main()` function initializes the CAN bus with a 'virtual' channel for example demonstration and starts the message listening process.
+
+#### Using Arduino IDE
+<br></br>
 
 The code examples below, compatible with Portenta H7, illustrate how developers can use the Portenta Hat Carrier to send and receive data over CAN bus. The following example is a sender device with CAN protocol:
 
@@ -3313,6 +3369,9 @@ The Portenta Hat Carrier supports UART communication. The pins used in the Porte
 
 Please, refer to the board pinout section of the user manual to find them on the board. The UART pins can be used through the built-in ([Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/)) library functions.
 
+#### Using Linux
+<br></br>
+
 Within Portenta X8, the command `ls /dev/ttyUSB* /dev/ttyACM*` can be used to list available serial ports in Linux. Typically, USB serial devices appear as _/dev/ttyUSBx_ or _/dev/ttyACMx_.
 
 ```
@@ -3359,6 +3418,9 @@ while True:
 The script sets up a serial connection on port _/dev/ttymxc1_ at a baud rate of _9600_. It then continuously checks for incoming data. When a newline character (`\n`) is detected, indicating the end of a message, the script processes the accumulated data and then resets the data string to be ready for the next incoming message.
 
 The `time.sleep(0.002)` line adds a slight delay, ensuring data has enough time to buffer, similar to using `delay(2);` in Arduino.
+
+#### Using Arduino IDE
+<br></br>
 
 For Portenta H7 or C33, following examples can be used to test UART communication. For a proper UART communication, the baud rate (bits per second) must be set within the `setup()` function.
 
