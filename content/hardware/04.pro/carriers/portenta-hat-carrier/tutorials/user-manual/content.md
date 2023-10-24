@@ -2549,7 +2549,7 @@ The Portenta Hat Carrier has 10 digital pins with PWM functionality, mapped as f
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. All these pins must be configured on the corresponding Portenta.
 
-The [`analogWrite()` function'](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)] included into the Arduino programming language can be used to access the 7 PWM pins.
+The [`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)] included into the Arduino programming language can be used to access the 7 PWM pins.
 
 The example code shown below uses digital pin `0` PWM functionality to control the brightness of the board's built-in RGB LED (green LED) connected to it:
 
