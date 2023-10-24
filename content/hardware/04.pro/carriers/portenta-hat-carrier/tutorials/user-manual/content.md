@@ -182,7 +182,7 @@ The Portenta Hat Carrier can be powered according to one of the following method
 
 - Using an __external 7 to 32 V power supply connected to the VIN pin available on the screw terminal block of the board is the most recommended method__. It ensures that the Portenta Hat Carrier, the SOM, and any connected hat receive power.
 
-  For clarity on the connection points, please refer to the [board pinout section](#pinout) of the user manual. Ensure the supplied current meets the required maximum for all components, which can be checked using operating conditions table onward.
+  For clarity on the connection points, please refer to the [board pinout section](#pinout) of the user manual. Ensure the supplied current meets the specification for all components, as shown in the operating conditions table reported later on.
 
 - Using an external __5 V power supply__ to the _5V_ pin located within the 40-pin male header connectors pins or found within the screw terminal of the board, you can effectively power the Portenta Hat Carrier, the SOM, and any connected hat.
 
