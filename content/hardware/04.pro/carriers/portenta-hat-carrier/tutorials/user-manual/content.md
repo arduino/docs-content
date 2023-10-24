@@ -160,7 +160,7 @@ The full _STEP_ files are available and downloadable from the link below:
 
 In this section, you can find mechanical information about the Portenta Hat Carrier. The dimensions of the board are all specified here, within top and bottom views, including the placements of the components on board.
 
-If you desire to design and manufacture a custom mounting device, or create a custom casing for your carrier, the following image shows the dimensions for the mounting holes and general board layout. The given dimensions are all in __millimeters [mm]__.
+If you desire to design and manufacture a custom mounting device, or create a custom enclosure for your carrier, the following image shows the dimensions for the mounting holes and general board layout. The given dimensions are all in __millimeters [mm]__.
 
 You can also access the STEP files which are also available [here](assets/ASX00049-step.zip).
 
