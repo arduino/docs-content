@@ -125,7 +125,7 @@ The Portenta Hat Carrier have the following characteristics:
 | J3       | JTAG male connector for debugging                                                                           |
 | J4       | USB-A female connector for data logging and external devices                                                |
 | J5       | 40-pin male header compatible with Raspberry Pi® Hats                                                       |
-| J6       | 16-pin male header for analog and digital pins                                                              |
+| J6       | 16-pin male header for analog and RTC battery pins                                                              |
 | J7       | MicroSD slot for data logging and media purposes                                                            |
 | J8       | RJ45 connector for Ethernet                                                                                 |
 | J9       | Screw terminal for power supply and CAN FD support                                                          |
