@@ -255,6 +255,8 @@ To use the Portenta Hat Carrier with the Portenta X8, you will have to align the
 
 ![Portenta Hat Carrier with X8](assets/portentaHATcarrier_x8_stack.png)
 
+***For the stable functionality of the Portenta Hat Carrier when used with Portenta X8, it is crucial to have at least version __746__ of the Linux image on the Portenta X8. Access and download the latest version directly through this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
+
 #### Hello World With Portenta X8 Shell
 <br></br>
 
@@ -716,14 +718,13 @@ After successfully uploading the sketch, the user-configurable LED will start bl
 
 ![Portenta Hat Carrier Hello World Blink](assets/portentaHATcarrier_blink.gif)
 
-Please check out the following documentation to learn more about each board and maximize its potential when paired with the Portenta Hat Carrier: 
+Please check out the following documentation to learn more about each board and maximize its potential when paired with the Portenta Hat Carrier:
+
 - [Portenta C33 user manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual).
 - [Portenta H7 set-up guide](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta).
 - [Portenta X8 user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#arduino-environment). You can also read the tutorial providing a step-by-step guide on how to upload sketches to the M4 Core on Arduino Portenta X8 [here](https://docs.arduino.cc/tutorials/portenta-x8/uploading-sketches-m4).
 
 ***Please note that the Ethernet connectivity speed is limited to 100 Mbit when used with the Portenta H7 or C33.***
-
-
 
 ***For up-to-date performance of the Portenta X8 on the Portenta Hat Carrier, ensure you update to the latest Portenta X8 OS image. You can check [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#portenta-x8-os-image-update) for more detail.***
 
@@ -1169,27 +1170,39 @@ The following table shows an in-depth connector designation:
 #### Using Linux
 <br></br>
 
-To determine if Portenta X8 has recognized the microSD card, you can use one of the following commands:
+To begin using a microSD card with Portenta X8, please use the following command to pull a Docker container that assists in setting up the necessary elements for interacting with the microSD card:
+
+```bash
+docker run -it --cap-add SYS_ADMIN --device /dev/mmcblk1p1 debian:stable-slim bash
+```
+
+The command above will run the image immediately after the container image has been successfully pulled. You will find yourself inside the container once it is ready for use.
+
+You will need to identify the partition scheme where the microSD card is located. If a partition table does not exist for the microSD card, you will have to use the `fdisk` command to create its partitions.
+
+Inside the container, you can use the following commands.
+
+To determine if the Portenta X8 has recognized the microSD card, you can use one of the following commands:
 
 ```bash
 lsblk
 
 # or
-sudo fdisk -l
+fdisk -l
 ```
 
-The SD card usually appears as `/dev/mmcblk0` or `/dev/sdX`. Where X can be a, b, c, etc. depending on other connected storage devices.
+The microSD card usually appears as `/dev/mmcblk0` or `/dev/sdX`. Where X can be a, b, c, etc. depending on other connected storage devices.
 
-Before accessing the contents of the microSD card, it needs to be mounted. First, create a directory that will serve as the mount point:
+Before accessing the contents of the microSD card, it needs to be mounted. For covenient operation, create a directory that will serve as the mount point:
 
 ```bash
-sudo mkdir -p /tmp/sdcard
+mkdir -p /tmp/sdcard
 ```
 
 Use the following command to mount the microSD card to the previously created directory. Ensure you replace `XX` with the appropriate partition number (e.g., p1 for the first partition):
 
 ```bash
-sudo mount /dev/mmcblk0XX /tmp/sdcard
+mount /dev/mmcblk1p1 /tmp/sdcard
 ```
 
 Navigate to the mount point and list the contents of the SD card:
@@ -1199,10 +1212,10 @@ cd /tmp/sdcard
 ls
 ```
 
-To write data to the microSD card, you can use the `echo` command. For example, type the following code to create a file named `hello.txt` with the content `"Hello Word Carrier!"`:
+To write data to the microSD card, you can use the `echo` command. For example, type the following code to create a file named `hello.txt` with the content `"Hello World Carrier!"`:
 
 ```bash
-echo "Hello Word Carrier!" > hello.txt
+echo "Hello World Carrier!" > hello.txt
 ```
 
 To read the contents of the file you have just created:
@@ -1211,70 +1224,19 @@ To read the contents of the file you have just created:
 cat hello.txt
 ```
 
+This will print on your shell the contents that were saved to the `hello.txt` file.
+
 Once you are done with the operations related to microSD card, it is important to unmount it properly:
 
 ```bash
-sudo umount /tmp/sdcard
+umount /tmp/sdcard
 ```
 
 If you need to format the SD card to the _ext4_ filesystem, use the following command. Please be cautious, since this command will erase all the existing data on the microSD card.
 
 ```bash
-sudo mkfs.ext4 /dev/mmcblk0XX
+mkfs.ext4 /dev/mmcblk1p1
 ```
-
-The following Python® script automates some of the aforementioned steps. It will check for the microSD card, mounts it, and then displays its contents:
-
-```
-#!/usr/bin/env python3
-
-import subprocess
-
-def execute_command(command):
-  result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
-  return result.stdout, result.stderr
-
-def check_sd_card():
-  output, error = execute_command("lsblk")
-  if "mmcblk" in output:
-    return True
-  else:
-    print("SD card not detected!")
-    return False
-
-def mount_sd_card():
-  # Try to create a mount point
-  _, error = execute_command("mkdir -p /tmp/sdcard")
-  if error:
-    print(f"Error creating mount point: {error}")
-    return
-
-  # Try to mount the SD card
-  output, error = execute_command("mount /dev/mmcblk0XX /tmp/sdcard")
-  if error:
-    print(f"Error mounting SD card: {error}")
-    return
-
-  print("SD card mounted successfully!")
-
-def display_sd_content():
-  output, error = execute_command("ls /tmp/sdcard")
-  if error:
-      print(f"Error reading SD card content: {error}")
-      return
-  print("Content of SD card:")
-  print(output)
-
-def main():
-  if check_sd_card():
-    mount_sd_card()
-    display_sd_content()
-
-if __name__ == "__main__":
-  main()
-```
-
-The script has also error handlers to inform if the microSD card is not detected or if there are any issues during the mount process.
 
 #### Using Arduino IDE
 <br></br>
@@ -2134,7 +2096,7 @@ For a comprehensive understanding of these connectivity options, kindly refer to
 - Portenta H7 connectivity: [Wi-Fi® access point](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point) and [BLE connectivity](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity)
 - Portenta C33 User Manual: [Wi-Fi®](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#wi-fi) and [Bluetooth®](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#bluetooth)
 
-## Raspberry Pi HAT
+## Raspberry Pi® HAT
 
 The Portenta Hat Carrier is notable for its compatibility with __Hardware Attached on Top (HAT)__ add-on boards.
 
