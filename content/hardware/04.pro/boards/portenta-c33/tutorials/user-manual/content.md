@@ -19,7 +19,7 @@ software:
 
 ## Overview
 
-This user manual will provide a comprehensive overview of the Portenta C33 board, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure and use all the main features of the board.
+This user manual will provide a comprehensive overview of the Portenta C33 board, covering its major hardware and software elements. This user manual will also teach you how to set up, configure, and use these features.
 
 ## Hardware and Software Requirements
 
@@ -57,8 +57,8 @@ Here is an overview of the board's main components shown in the images above:
 - **Power management**: The Portenta C33 is designed for low-power operation to meet the demands of always-connected IoT devices. It features a power management integrated circuit (PMIC), the PF1550 from NXP®,  designed specifically for low-power, portable, and battery-powered IoT applications.
 - **Analog and digital peripherals**: The board features analog peripherals such as two 8-channel 12-bit analog-to-digital converters (ADC) and two 12-bit digital-to-analog converters (DAC). It also features the following digital peripherals: GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), PDM (x1), and SAI (x1).
 - **Debugging**: The board features a JTAG/SWD debug port accessible through its High-Density connectors.
-- **Surface mount**: The castellated pins of the board allows it to be positioned as a surface-mountable module.
-- **MKR-styled connectors**: The MKR-styled connectors of the board makes it compatible with all the MKR family boards. 2.54 mm pitch headers can be easily soldered to the board.
+- **Surface mount**: The castellated pins of the board allow it to be positioned as a surface-mountable module.
+- **MKR-styled connectors**: The MKR-styled connectors of the board make it compatible with all the MKR family boards. 2.54 mm pitch headers can be easily soldered to the board.
 
 ### Board Core and Libraries
 
@@ -99,11 +99,11 @@ The complete STEP files are available and downloadable from the link below:
 The Portenta C33 can be powered by the following:
 
 - Using a USB-C® cable (not included).
-- Using an external **4.1 to 6 V power supply** connected to the `VIN` pin located in the MKR-styled connectors pins of the board (please, refer to the [board pinout section](#pinout) of the user manual).
-- Using an external **5 V power supply** connected to the `5V` pin located in the MKR-styled connectors of the board (please, refer to the [board pinout section](#pinout) of the user manual).
+- Using an external **4.1 to 6 V power supply** connected to the `VIN` pin located in the MKR-styled connectors pins of the board (please refer to the [board pinout section](#pinout) of the user manual).
+- Using an external **5 V power supply** connected to the `5V` pin located in the MKR-styled connectors of the board (please refer to the [board pinout section](#pinout) of the user manual).
 - Using a **3.7 V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS-GAN-TF(LF)(SN), and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Portenta C33 is 800 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
 - Using an Arduino Pro carrier board, such as the [Portenta Max Carrier](https://store.arduino.cc/collections/pro-family/products/portenta-max-carrier) and the [Portenta Breakout](https://store.arduino.cc/collections/pro-family/products/arduino-portenta-breakout). 
-- Using your custom boards to power the board through the board's castellated pins, MKR-styled or High-Density connectors. Check out the [board pinout](#pinout) and its schematic to know more about it.
+- Using your custom boards to power the board through the board's castellated pins, MKR-styled, or High-Density connectors. Check out the [board pinout](#pinout) and its schematic to know more about it.
 
 ![Different ways to power the Portenta C33 board](assets/user-manual-4.png)
 
@@ -148,7 +148,7 @@ You should see now the green LED of the built-in RGB LED turn on for one second,
 
 ## Pins
 
-The Portenta C33 has been designed with two types of connectors, the MKR-styled connectors, intended for prototyping and debugging, and the High-Density connectors, intended to be used across Arduino Pro boards or custom boards. The Portenta C33 MKR-styled connectors pinout is shown in the image below:
+The Portenta C33 has been designed with two types of connectors: the MKR-styled connectors, intended for prototyping and debugging, and the High-Density connectors, intended to be used across Arduino Pro boards or custom boards. The Portenta C33 MKR-styled connectors pinout is shown in the image below:
 
 ![Portenta C33 MKR-styled connectors pinout](assets/ABX00074-pinout-MKR.png)
 
@@ -173,7 +173,7 @@ The Portenta C33 has eight analog input pins mapped as follows:
 
 The eight analog input pins can be used through the built-in functions of the Arduino programming language ([`analogRead()` function](https://reference.arduino.cc/reference/en/language/functions/analog-io/analogread/)).
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find the analog pins on the board:
+Please refer to the [board pinout section](#pinout) of the user manual to find the analog pins on the board:
 
 - MKR-style connectors: pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, and `A6` are accessible thought these connectors. 
 - High-Density connectors: pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, and `A7` are accessible thought these connectors.
@@ -344,7 +344,7 @@ The following 17 digital pins are **generic GPIO pins**; they are available thro
 |           `82`          |          GPIO         |          `P007`         |
 |           `83`          |          GPIO         |          `P008`         |
 
-And the last eight digital pins are **SD-card-capable**; they are available through the High-Density connectors of the board:
+The last eight digital pins are **SD-card-capable**; they are available through the High-Density connectors of the board:
 
 | **Arduino Pin Mapping** | **Pin Functionality** | **Microcontroller Pin** |
 |:-----------------------:|:---------------------:|:-----------------------:|
@@ -448,7 +448,7 @@ The Portenta C33 has 10 digital pins with PWM functionality, mapped as follows:
 
 The 10 PWM pins can be used through the built-in ([`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)) of the Arduino programming language. 
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+Please refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
 - MKR-styled connectors: pins `0`, `1`, `2`, `3`, `4`, `5`, and `6` are accessible through these connectors.
 - High-Density connectors: pins `0`, `1`, `2`, `3`, `4`, `5`, `7`, `8`, `9`, `23`, `24`, `25`, and `26` are accessible through these connectors.
@@ -481,7 +481,7 @@ void loop() {
   delay(30);
 }
 ```
-You should now see the built-in RGB LED's green LED fade in, then fade out repeatedly.
+You should now see the built-in RGB LED's green LED fade in and then fade out repeatedly.
 
 ![PWM example running in the Portenta C33](assets/user-manual-gif-2.gif)
 
@@ -503,7 +503,7 @@ The built-in RGB LED can be accessed through the following macro definitions:
 |     Blue LED     |          `LEDB`         |
 |     Green LED    | `LEDG` or `LED_BUILTIN` |
 
-***The built-in RGB LED on the Portenta C33 needs to be pulled to ground to make them light up. This means that a voltage level of `LOW` on each of their pins will turn the specific color of the LED on, and a voltage level of `HIGH` will turn them off. Furthermore, invoking the `pinMode(LED_BUILTIN, OUTPUT)` instruction pulls the built-in LED LOW, which means it turns it on.***
+***The built-in RGB LED on the Portenta C33 must be pulled to ground to make it light up. This means that a voltage level of `LOW` on each of their pins will turn the specific color of the LED on, and a voltage level of `HIGH` will turn them off. Furthermore, invoking the `pinMode(LED_BUILTIN, OUTPUT)` instruction pulls the built-in LED LOW, which means it turns it on.***
 
 The following example code blinks each of the LEDs at an interval of 500 ms:
 
@@ -559,7 +559,7 @@ The Portenta C33 supports SPI communication via two dedicated ports named `SPI0`
 |  `47` or `PIN_SPI1_SCK` |          `P102`         |
 |  `48` or `PIN_SPI1_CS`  |          `P103`         |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
+Please refer to the [board pinout section](#pinout) of the user manual to find them on the board. Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
 
 ```arduino
 #include <SPI.h>
@@ -604,7 +604,7 @@ digitalWrite(SS, HIGH);
 
 ### I2C
 
-The Portenta C33 supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Portenta C33 for the I2C communication protocol are the following:
+The Portenta C33 supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. There are three available I2C ports in the Portenta C33: `I2C0`, `I2C1`, and `I2C2`.  The pins used in those interfaces for the I2C communication protocol are the following:
 
 | **Arduino Pin Mapping** | **Microcontroller Pin** |
 |:-----------------------:|:-----------------------:|
@@ -619,11 +619,11 @@ To locate these pins on the board, please refer to the [board pinout section](#p
 
 **Important note for system integrators**: Use the Portenta C33's High-Density connectors to expand its signals to a custom-designed daughter board or carrier. Below is the I2C pins mapping on the board's High-Density connectors and shared resources:
 
-| High-Density<br>Connector | Interface<br>Name | Pins on the <br>High-Density Connector | Status | Shared Peripherals<br>(Address) |
-|:-------------------------:|:-----------------:|:--------------------------------------:|:------:|:-------------------------------:|
-|             J1            |       `I2C1`      |                  43-45                 |  Free  |                -                |
-|             J2            |       `I2C0`      |                  44-46                 |  Free  |                -                |
-|             J2            |       `I2C2`      |                  45-47                 |  Free  |                -                |
+| **HD Connector** | **Interface** | **Pins** | **Status** | **Shared Peripherals** |
+|:----------------:|:-------------:|:--------:|:----------:|:----------------------:|
+|        J1        |     `I2C1`    |   43-45  |    Free    |            -           |
+|        J2        |     `I2C0`    |   44-46  |    Free    |            -           |
+|        J2        |     `I2C2`    |   45-47  |    Free    |            -           |
 
 **Status***: This column indicates the current status of the pins. "Free" means the pins are not in use by another resource or peripheral of the board and are available for usage, while "Shared" means the pins are used by one or several resources or peripherals of the board. 
 
@@ -703,7 +703,7 @@ The Portenta C33 supports UART communication. The pins used in the Portenta C33 
 |           `92`          |          `P603`         |
 |           `93`          |          `P604`         |
 
-Please, refer to the board pinout section of the user manual to find them on the board. The built-in ([Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/)) library functions can use the UART pins.
+Please refer to the board pinout section of the user manual to find them on the board. The built-in ([Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/)) library functions can use the UART pins.
 
 
 To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
@@ -713,7 +713,7 @@ To begin with UART communication, you'll need to configure it first. In the `set
 Serial.begin(9600);
 ```
 
-To read incoming data, you can use a `while()` loop to continuously check for available data with the `Serial.available()` function and read individual characters with the `Serial.read()` function. The code shown above stores the incoming characters in a String variable and process the data when a line-ending character is received:
+To read incoming data, you can use a `while()` loop to continuously check for available data with the `Serial.available()` function and read individual characters with the `Serial.read()` function. The code shown above stores the incoming characters in a String variable and processes the data when a line-ending character is received:
 
 ```arduino
 // Variable for storing incoming data
@@ -1475,7 +1475,7 @@ First, provision your Portenta C33 board on your Arduino IoT Cloud space. To do 
 
 ![Arduino IoT Cloud Devices page](assets/user-manual-14.png)
 
-The **Setup Device** pop-up window will appear, navigate into **AUTOMATIC** and select the **Arduino board** option:
+The **Setup Device** pop-up window will appear. Navigate into **AUTOMATIC** and select the **Arduino board** option:
 
 ![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-15.png)
 
@@ -1506,7 +1506,7 @@ Add one variable with the following characteristics:
 
 ![Arduino IoT Cloud "Thing" variable setup](assets/user-manual-21.png)
 
-You should see the `led` variable in the **Cloud Variables** section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; this will create a new dashboard; give your dashboard a name.
+You should see the `led` variable in the **Cloud Variables** section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; create a new dashboard and give your dashboard a name.
 
 Add the following widgets to your dashboard:
 
