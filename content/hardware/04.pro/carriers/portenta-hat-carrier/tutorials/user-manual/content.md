@@ -1123,7 +1123,7 @@ Following these steps helps you use the 'Flash' button correctly and allow devel
 
 ### MicroSD Storage
 
-The available microSD card slot offers the advantage of expanded storage. This is especially beneficial for processing large volumes of log data, whether from sensors or the onboard computer registry. For the Portenta X8, the microSD can also serve as an external boot source.
+The available microSD card slot offers the advantage of expanded storage. This is especially beneficial for processing large volumes of log data, whether from sensors or the onboard computer registry. 
 
 ![Portenta Hat Carrier microSD Expansion Slot](assets/portentaHATcarrier_microsd.png)
 
