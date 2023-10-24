@@ -1622,7 +1622,7 @@ This flexibility ensures that the Portenta Hat Carrier remains adaptable to the 
 
 The Portenta Hat Carrier significantly augments the networking functionalities of the devices within the Portenta family through its integrated Ethernet port. Additionally, the Portenta devices destined for pairing with this carrier are inherently equipped with Wi-Fi® and Bluetooth® capabilities.
 
-Thus, when conceptualizing and executing project developments, one can proficiently exploit both the wired and wireless communication capabilities. The inherent wireless attributes of the Portenta devices, combined with the carrier's sophisticated on-board components and adaptable protocol choices, facilitate a comprehensive suite of communication solutions suitable for a multitude of applications.
+Thus, when conceptualizing and executing project developments, the user can proficiently exploit both the wired and wireless communication capabilities. The inherent wireless attributes of the Portenta devices, combined with the carrier's sophisticated onboard components and adaptable protocol choices, enable a comprehensive suite of communication solutions ideal for a wide range of applications.
 
 #### Ethernet
 <br></br>
