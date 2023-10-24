@@ -1155,7 +1155,7 @@ lsblk
 sudo fdisk -l
 ```
 
-The SD card usually appears as `/dev/mmcblk0` or `/dev/sdX`. Where X can be a, b, c, etc. depending on other storage devices connected.
+The SD card usually appears as `/dev/mmcblk0` or `/dev/sdX`. Where X can be a, b, c, etc. depending on other connected storage devices.
 
 Before accessing the contents of the microSD card, it needs to be mounted. First, create a directory that will serve as the mount point:
 
