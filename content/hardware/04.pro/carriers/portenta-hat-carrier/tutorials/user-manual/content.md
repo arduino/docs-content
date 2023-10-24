@@ -219,7 +219,7 @@ To ensure the safety and longevity of the board, it is essential to understand t
 
 ### Carrier Characteristics Highlight
 
-The Portenta Hat Carrier provides its platform to the Portenta X8, H7, and C33 with different capabilities. The following table summarizes the carrier's features depending on the combination of the paired Portenta.
+The Portenta Hat Carrier provides different functionalities based on the connected Portenta family board, as shown in the table below:
 
 |  **Features**  | **Portenta X8**   | **Portenta H7**    | **Portenta 33**    |
 |:---------------|:------------------|:-------------------|:-------------------|
