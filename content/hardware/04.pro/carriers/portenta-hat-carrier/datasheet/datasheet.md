@@ -8,11 +8,7 @@ author: Writec, Julián Caro Linares
 
 # Description
 
-<p style="text-align: justify;">
-
-The Portenta Hat Carrier is an innovative solution enabling multiple robotics, industrial, and building automation projects. Combined with the Portenta X8, H7, or C33 boards, it evolves into a powerful industrial platform, further complemented by its compatibility with Raspberry Pi® Hats. The carrier grants easy access to an array of peripherals, such as CAN, Ethernet, microSD, USB, camera, and analog input and output ports. Its design is further enhanced with dedicated pins for efficient debugging and PWM fan connector.
-
-</p>
+<p style="text-align: justify;">The Portenta Hat Carrier is an innovative solution enabling multiple robotics, industrial, and building automation projects. Combined with the Portenta X8, H7, or C33 boards, it evolves into a powerful industrial platform, further complemented by its compatibility with Raspberry Pi® Hats. The carrier grants easy access to an array of peripherals, such as CAN, Ethernet, microSD, USB, camera, and analog input and output ports. Its design is further enhanced with dedicated pins for efficient debugging and PWM fan connector.</p>
 
 # Target Areas:
 
@@ -28,6 +24,8 @@ The most recent datasheet version of this product is always available at:
 
 ## Application Examples
 
+
+
 <div style="text-align:justify;">
 
 The Portenta Hat Carrier is designed to complement the Portenta family. It provides direct access to the Portentas' peripheral interfaces, enabling connections to USB and MIPI cameras. Furthermore, it improves the prototyping potential through straightforward compatibility with a broad spectrum of Raspberry Pi® Hats.
@@ -41,6 +39,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 - **Prototyping With Raspberry Pi® Hats**: Expand the capabilities of your Portenta lineup with the Portenta Hat Carrier. Ready for action, it is designed to be paired with an extensive range of Raspberry Pi® Hats, catering to diverse requirements, from embedded sensing to direct actuation.
 
 </div>
+
 
 ## Accessories (Not Included)
 
@@ -61,11 +60,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 
 ## Solution Overview
 
-<p style="text-align: justify;">
-
-The Portenta Hat Carrier works alongside the Portenta family boards. The connection between the Portenta Hat Carrier and the Portenta family boards is fast and easy thanks to the High-Density connectors (J1 and J2) found in the Portenta Hat Carrier.
-
-</p>
+<p style="text-align: justify;">The Portenta Hat Carrier works alongside the Portenta family boards. The connection between the Portenta Hat Carrier and the Portenta family boards is fast and easy thanks to the High-Density connectors (J1 and J2) found in the Portenta Hat Carrier.</p>
 
 ![Figure 1. Portenta Hat Carrier and Portenta family boards connection](assets/portentaHatCarrier_mounting.png)
 
@@ -257,11 +252,7 @@ The Portenta Hat Carrier works alongside the Portenta family boards. The connect
 
 ### Recommended Operating Conditions
 
-<p style="text-align: justify;">
-
-Table 4 provides a comprehensive guideline for the optimal use of the Portenta Hat Carrier, outlining typical operating conditions and design limits.
-
-</p>
+<p style="text-align: justify;">Table 4 provides a comprehensive guideline for the optimal use of the Portenta Hat Carrier, outlining typical operating conditions and design limits.</p>
 
 <div style="text-align:center;">
 
@@ -277,11 +268,7 @@ Table 4 provides a comprehensive guideline for the optimal use of the Portenta H
 <caption>Table 4: Recommended operating conditions of the Portenta Hat Carrier</caption>
 </div>
 
-<p style="text-align: justify;">
-
-<sup>1</sup>The power supply connected to the onboard screw terminal block powers the carrier, the connected Portenta family board, and compatible Raspberry Pi® Hats. The onboard screw terminal connector has an integrated reverse polarity protection.
-
-</p>
+<p style="text-align: justify;"><sup>1</sup>The power supply connected to the onboard screw terminal block powers the carrier, the connected Portenta family board, and compatible Raspberry Pi® Hats. The onboard screw terminal connector has an integrated reverse polarity protection.</p>
 
 <div style="page-break-after:always;"></div>
 
@@ -535,13 +522,11 @@ An overview of the Portenta Hat Carrier high-level architecture is illustrated i
 
 As shown in Figure 4, the Portenta Hat Carrier can be powered in multiple ways:
 
-<p style="text-align: justify;">
+- **Through the screw terminal block connector (J9)**: <p style="text-align: justify;">Accepting a voltage range between +7 to +32 VDC. An AP63200WU-7 buck converter (U7) then steps down the +7 to +32 VDC VDC input to +5 VDC for the carrier and any connected Portenta family board. It is also possible to power the system with a fixed +5 VDC using the "5V" pin present in this block connector.</p>
+- **Via the connected Portenta family board's USB-C® connector**: <p style="text-align: justify;">It provides a stable +5 VDC to the carrier and the connected Portenta Family board.</p>
+- **From a Raspberry like Hat using the 40-pin header connector**: <p style="text-align: justify;">It provides a stable +5 VDC to the carrier and the connected Portenta Family board.</p>
 
-- **Through the screw terminal block connector (J9)**: Accepting a voltage range between +7 to +32 VDC. An AP63200WU-7 buck converter (U7) then steps down the +7 to +32 VDC VDC input to +5 VDC for the carrier and any connected Portenta family board. It is also possible to power the system with a fixed +5 VDC using the "5V" pin present in this block connector.
-- **Via the connected Portenta family board's USB-C® connector**: It provides a stable +5 VDC to the carrier and the connected Portenta Family board.
-- **From a Raspberry like Hat using the 40-pin header connector**: It provides a stable +5 VDC to the carrier and the connected Portenta Family board.
 
-</p>
 
 ### Product Topology
 
@@ -615,29 +600,17 @@ An overview of the Portenta Hat Carrier topology is illustrated in Figure 5.
 
 #### High-Density Connectors (J1-J2)
 
-<p style="text-align: justify;">
-
-The High-Density connectors (J1-J2) provide connectivity with the Portenta family boards. For detailed information, refer to the Portenta Hat Carrier pinout and the respective documentation for the Portenta family boards. In Figure 6, the Portenta X8 board High-Density connectors pinout is shown as an example.
-
-</p>
+<p style="text-align: justify;">The High-Density connectors (J1-J2) provide connectivity with the Portenta family boards. For detailed information, refer to the Portenta Hat Carrier pinout and the respective documentation for the Portenta family boards. In Figure 6, the Portenta X8 board High-Density connectors pinout is shown as an example.</p>
 
 ![Figure 6. Portenta X8 High-Density connectors pinout](assets/phc_high-density-connector-x8.png)
 
 #### JTAG Connector (J3)
 
-<p style="text-align: justify;">
-
-Debugging capabilities are integrated directly into the Portenta Hat Carrier and are accessible via the 10-pin JTAG connector (J3) shown in Figure 7.
-
-</p>
+<p style="text-align: justify;">Debugging capabilities are integrated directly into the Portenta Hat Carrier and are accessible via the 10-pin JTAG connector (J3) shown in Figure 7.</p>
 
 #### USB-A (J4)
 
-<p style="text-align: justify;">
-
-The onboard USB-A connector (female), shown in Figure 7, is integrated in the Portenta Hat Carrier for multiple purposes, including:
-
-</p>
+<p style="text-align: justify;">The onboard USB-A connector (female), shown in Figure 7, is integrated in the Portenta Hat Carrier for multiple purposes, including:</p>
 
 - Connecting external peripherals such as mouse devices, keyboards, USB cameras, hubs, and hard drives.
 - Data logging using a USB memory stick.
@@ -646,11 +619,7 @@ The onboard USB-A connector (female), shown in Figure 7, is integrated in the Po
 
 #### 40-Pin Header Connector (J5)
 
-<p style="text-align: justify;">
-
-The Portenta Hat Carrier features a 40-pin header connector as shown in Figure 8, making it compatible with most of the Raspberry Pi® Hats available on the market.
-
-</p>
+<p style="text-align: justify;">The Portenta Hat Carrier features a 40-pin header connector as shown in Figure 8, making it compatible with most of the Raspberry Pi® Hats available on the market.</p>
 
 ![Figure 8. Raspberry Pi®-compatible 40-pin header connector](assets/portentaHatCarrier_raspiConnector.png)
 
@@ -669,11 +638,7 @@ The main interfaces and general-purpose pins available through this connector in
 
 #### 16-Pin Header Connector (J6)
 
-<p style="text-align: justify;">
-
-The Portenta Hat Carrier has a 16-pin connector as shown in Figure 9 to access multiple analog, PWM, serial ports, and power-related pins.
-
-</p>
+<p style="text-align: justify;">The Portenta Hat Carrier has a 16-pin connector as shown in Figure 9 to access multiple analog, PWM, serial ports, and power-related pins.</p>
 
 ![Figure 9. 16-pin header connector](assets/portentaHatCarrier_16pinConnector.png)
 
@@ -700,22 +665,16 @@ The onboard microSD card slot can be used for:
 
 #### RJ45 Connector For Ethernet (J8)
 
-<p style="text-align: justify;">
-
-The RJ45 connector, directly linked to the high-density connector on the Portenta board, facilitates an Ethernet cable connection to your network. It integrates magnetics for electrical isolation, and features LED indications for activity (orange) and speed (green).
-
-</p>
+<p style="text-align: justify;">The RJ45 connector, directly linked to the high-density connector on the Portenta board, facilitates an Ethernet cable connection to your network. It integrates magnetics for electrical isolation, and features LED indications for activity (orange) and speed (green).</p>
 
 ![Figure 11. RJ45 connector of the Portenta Hat Carrier](assets/portentaHatCarrier_rj45Connector.png)
 
-<p style="text-align: justify;">
-
-Depending of the Portenta family board attached to the Portenta Hat Carrier, the DIP switch (SW2) must be in a specific position to ensure the correct functioning of the ethernet interface:
+<p style="text-align: justify;">Depending of the Portenta family board attached to the Portenta Hat Carrier, the DIP switch (SW2) must be in a specific position to ensure the correct functioning of the ethernet interface:</p>
 
 - For the Portenta X8, be sure that the ETH CENTER TAP on the DIP switch (SW2) is on the default position OFF.
 - For the Portenta X7 or Portenta C33, set the ETH CENTER TAP on the DIP switch (SW2) to ON.
 
-</p>
+
 
 #### Screw Terminal Block (J9)
 
@@ -725,28 +684,12 @@ The screw terminal block connector shown in Figure 12 contains the power supply 
 
 **Power Pins**
 
-<p style="text-align: justify;">
+<p style="text-align: justify;">The Portenta Hat Carrier and any connected board to it can be powered using the power terminals located on the screw terminal block (J9):</p>
 
-The Portenta Hat Carrier and any connected board to it can be powered using the power terminals located on the screw terminal block (J9):
-
-</p>
-
-<p style="text-align: justify;"> 
-
-- **VIN 7-32VDC and GND terminals**: Supply the board using a voltage range of +7-32 VDC. This method is particularly convenient when powering the board with batteries.
-- **5V and GND terminals**: Power the board with a fixed voltage of +5 VDC. Additionally, these pins can power external peripherals operating at +5 VDC.
-
-</p>
-
-<p style="text-align: justify;">
-
-An AP63200WU-7 buck converter (U7) steps down the input voltage from +7-32 VDC to the +5 VDC used by the carrier and the connected board to it.
-
-</p>
+- **VIN 7-32VDC and GND terminals**: <p style="text-align: justify;">Supply the board using a voltage range of +7-32 VDC. This method is particularly convenient when powering the board with batteries.</p>
+- **5V and GND terminals**: <p style="text-align: justify;">Power the board with a fixed voltage of +5 VDC. Additionally, these pins can power external peripherals operating at +5 VDC. An AP63200WU-7 buck converter (U7) steps down the input voltage from +7-32 VDC to the +5 VDC used by the carrier and the connected board to it.</p>
 
 **CAN Bus Pins**
-
-
 
 - **CANH and CANL terminals**: <p style="text-align: justify;">The Portenta Hat Carrier has a high-speed CAN transceiver based on the TJA1049T/3J IC. These terminals enable reliable CAN bus communication. The 120 ohms termination resistor is not included in the device so make sure to add them in your final deployment to meet the bus requirements and obtain the ideal results.</p>
 
