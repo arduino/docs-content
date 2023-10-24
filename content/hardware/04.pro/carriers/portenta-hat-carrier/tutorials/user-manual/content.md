@@ -1588,7 +1588,7 @@ void loop() {
 }
 ```
 
-Once the script has run successfully, the result should resemble similarly to the following image:
+Once the script has successfully compiled, the result should resemble the following image:
 
 ![Portenta Hat Carrier with Portenta C33 SD Card Test](assets/portentaHATcarrier_sdtest_c33.png)
 
