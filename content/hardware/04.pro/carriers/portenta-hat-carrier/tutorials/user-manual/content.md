@@ -751,7 +751,7 @@ If you are interested in USB-A port pinout, following table may serve to underst
 |        3       |               |           USB0_D_P           |                                 J1-26                                |     USB D+    |
 |        4       |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
 
-Devices with a USB-A interface, such as storage drives, can be used for logging data or flashing the device with the appropriate source files. External devices include Human Machine Interface (HMI) peripherals like keyboards, mice, and hubs.
+Devices with a USB-A interface, such as storage drives, can be used for logging data. External devices include peripherals like keyboards, mouses, webcams, and hubs.
 
 As an example, following command on Portenta X8's shell can be used to test write command with a USB memory drive.
 
