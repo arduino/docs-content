@@ -6,26 +6,49 @@
 
 
 <FeatureList>
-<Feature title="Portenta Powered" image="mkr-form-factor">
 
-  The Portenta X8 is the perfect fit for this carrier, expanding its accessibility and interfacing options. 
+<Feature title="Raspberry Pi® Hats" image="mkr-form-factor">
+
+  Thanks to its 40-Pin Raspberry like connector the Portenta Hat Carrier is compatible with most of the Raspberry Pi® Hats available on the market.
 
   <FeatureLink title="Read More" url="/hardware/portenta-x8" />
 </Feature>
 
-<Feature title="MIPI CSI Camera Connector" image="camera">
+<Feature title="Linux Powered" image="core">
 
-  The Portenta Hat Carrier allows rapid development of machine vision applications alongside the Portenta family.
+  The Portenta X8, powered by Linux, is the perfect fit for this carrier, expanding its accessibility and interfacing options.
+
+  <FeatureLink title="Read More" url="/hardware/portenta-x8" />
+</Feature>
+
+<Feature title="Arduino Powered" image="mcu">
+
+  The Portenta Hat Carrier is also compatible with the Portenta H7 Portenta C33, and the auxiliar core of the Portenta X8, expanding the potential of these boards while using the Arduino code ecosystem.
+
+</Feature>
+
+<Feature title="MIPI Camera Connector" image="camera">
+
+  The Portenta Hat Carrier allows rapid development of machine vision applications thanks to the Portenta X8 and the MIPI CSI camera connector.
+
+</Feature>
+
+
+<Feature title="CAN FD" image="communication">
+
+  The Portenta Hat Carrier provides a high-speed CAN FD transceiver that allows CAN bus communication connections.
 
 </Feature>
 
 <Feature title="Connectivity" image="connection">
 
-  Access a wide range of I/O with the 40-pin GPIO header, including Gigabit Ethernet, USB, Analog I/O, and a CANBus port.
+  Access a wide range of I/O with the Portenta Hat Carrier headers, including Ethernet, USB, Analog I/O, PWM, I2S, I2C, SPI and a CANBus port.
 
 </Feature>
 
-<Feature title="JTAG connector" image="connection">
+
+
+<Feature title="JTAG connector" image="hw-pin">
 
   The Portenta Hat Carrier allows for easy debugging through the JTAG connector.
 
