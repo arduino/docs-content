@@ -14,9 +14,13 @@ Communication Interfaces:
   SPI: 1 
   I2S: 1
   I2C: 3
-  CAN: 1x (without terminal resistor)
+  CAN: 1x CAN FD (without terminal resistor)
   UART: 3
   USB: 1x USB-A 2.0/Hi-Speed
+User Interface:
+  Button: 1x Flash/User-Programmable Push Button
+Storage: 
+  MicroSD: 1x MicroSD card slot 
 Hardware debugging interface: JTAG/SWD
 Power:
   Board operating voltage: 7-32 V
