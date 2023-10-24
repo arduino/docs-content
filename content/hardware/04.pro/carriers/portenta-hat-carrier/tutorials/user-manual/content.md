@@ -2661,7 +2661,11 @@ The Portenta Hat Carrier supports SPI communication via two dedicated ports name
 |       23       |    SPI1 SCK    |            SPI1_CK           |         J2-38        |    SPI 1 CK   |
 |       24       |     SPI1 CE    |            SPI1_CS           |         J2-36        |    SPI 1 CS   |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. This can be used with Portenta H7 or C33. The SPI library provides functions for SPI communication:
+Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. 
+
+#### With Arduino IDE
+
+Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. This can be used with Portenta H7 or C33. The SPI library provides functions for SPI communication:
 
 ```arduino
 #include <SPI.h>
