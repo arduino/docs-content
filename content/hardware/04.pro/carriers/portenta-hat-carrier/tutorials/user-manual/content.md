@@ -170,7 +170,7 @@ You can also access the STEP files which are also available [here](assets/ASX000
 
 ### Stack The Carrier
 
-The Portenta Hat Carrier design allows to stack the Portenta board with ease. The following figure shows how the Portenta Hat Carrier pairs the Portenta boards via High-Density connectors.
+The Portenta Hat Carrier design allows the user to easily stack the preferred Portenta board. The following figure shows how the Portenta Hat Carrier pairs with the Portenta boards via High-Density connectors.
 
 ![Portenta Hat Carrier Stack Orientation](assets/board_mount.gif)
 
