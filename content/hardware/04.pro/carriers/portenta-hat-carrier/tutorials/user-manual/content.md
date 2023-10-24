@@ -955,7 +955,7 @@ export GST_DEBUG=3
 gst-top-1.0 gst-launch-1.0 -v v4l2src device=/dev/video0 num-buffers=1 ! "video/x-bayer, format=bggr, width=640, height=480, bpp=8, framerate=30/1"  ! bayer2rgbneon reduce-bpp=t ! jpegenc ! filesink location=/tmp/test.jpg
 ```
 
-This command allows to capture one frame and saves it as `/tmp/test.jpg`. Continuing command is used to stream video at 30FPS for approximately 10 seconds using `GStreamer`:
+This command allows the user to capture one frame and save it as `/tmp/test.jpg`. The following command is used to stream video at 30FPS for approximately 10 seconds using `GStreamer`:
 
 ```
 gst-top-1.0 gst-launch-1.0 -v v4l2src device=/dev/video0 num-buffers=300 ! "video/x-bayer, format=bggr, width=640, height=480, bpp=8, framerate=30/1"  ! bayer2rgbneon reduce-bpp=t ! queue ! waylandsink
