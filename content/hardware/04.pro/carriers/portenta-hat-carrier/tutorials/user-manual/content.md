@@ -2120,7 +2120,7 @@ These are the officially compatible list of HATs:
 
 - __RPi Relay Board__: it is a HAT that eases the control of high-voltage devices, featuring three channels, and photo coupling isolation. It helps provide safe device switching for various applications.
 
-- __Audio HAT__: is a HAT designed for high-quality audio playback and recording, equipped with both line-in and line-out stereo jacks, suitable for projects that require enhanced sound capabilities while maintaining a compact footprint.
+- __Audio HAT__: it is a HAT designed for high-quality audio playback and recording, equipped with both line-in and line-out stereo jacks, suitable for projects that require enhanced sound capabilities while maintaining a compact footprint.
 
 - __Automation HAT Pimoroni PIM213__: is a HAT designed to monitor and control automation setups with its relay, analog channels, input channels, and power outputs, making it ideal for home automation and industrial applications.
 
