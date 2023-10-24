@@ -82,7 +82,6 @@ It integrates a microSD slot for storage and bootloading, broad interface option
 The Portenta Hat Carrier have the following characteristics:
 
 - **Compatible SOM boards**: The carrier is compatible with: Portenta X8 (ABX00049), Portenta H7 (ABX00042/ABX00045/ABX00046) and Portenta C33 (ABX00074).
-* Portenta H7 (ABX00042/ABX00045/ABX00046)
 * Portenta C33 (ABX00074)
 
 - **Power management**: The board can be powered up from different sources. The onboard screw terminal block allows 7 ~ 32 V power supply to power the Portenta board and the carrier, and 5 V power supply.
