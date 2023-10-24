@@ -907,7 +907,7 @@ The MIPI connector is distributed as follows:
 |       14       |               |           I2C1_SDA           |                                 J1-43                                |   I2C 1 SDA   |
 |       15       | +3V3_PORTENTA |              VCC             |                      J2-23, J2-34, J2-43, J2-69                      |               |
 
-The Portenta Hat Carrier supports MIPI camera if paired with the Portenta X8. The flex cable can be used to interface a compatible camera to use with the platform. Compatible camera devices are as follows:
+As mentioned before, the Portenta Hat Carrier supports the MIPI camera if paired with the Portenta X8. The flex cable can be used to interface a compatible camera with the platform. Compatible camera devices are as follows:
 
 - OmniVision OV5647 sensor (Raspberry Pi® Camera Module 1)
 - Sony IMX219 sensor (Raspberry Pi® Camera Module 2)
