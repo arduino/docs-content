@@ -926,7 +926,7 @@ fw_setenv carrier_custom 1
 fw_setenv overlays ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_rasptenta_base ov_carrier_rasptenta_ov5647_camera_mipi
 ```
 
-The U-Boot environment variables are modified with above commands and `fw_setenv` sets the changes which are already persistent. Following command sequences are used on U-boot shell.
+The U-Boot environment variables are modified with the above commands and `fw_setenv` sets the changes which are already persistent. The following command sequences can be used on the U-boot shell.
 
 ```
 setenv carrier_custom 1
