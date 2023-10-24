@@ -2257,7 +2257,7 @@ def relay_get_port_data(relay_num):
 
 Next script showcases the utility of the relay board functions. At the onset, it activates all the relays and then deactivates them, pausing for a second between these actions.
 
-Subsequently, it sequentially powers each relay on and off, with a one-second intermission in between in a loop. In the event of a keyboard interrupt, the script terminates and ensures all the relays are switched off.
+Subsequently, it sequentially powers each relay on and off, with a one-second intermission in between. In the event of a keyboard interrupt, the script terminates and ensures all the relays are switched off.
 
 ```
 #!/usr/bin/python
