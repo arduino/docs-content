@@ -13,7 +13,7 @@
 
 </Feature>
 
-<Feature title="Linux Powered" image="display">
+<Feature title="Linux Powered" image="core">
 
   The Portenta X8, powered by Linux, is the perfect fit for this carrier, expanding its accessibility and interfacing options.
 
