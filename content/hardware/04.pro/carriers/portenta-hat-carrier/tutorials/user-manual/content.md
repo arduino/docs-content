@@ -740,7 +740,7 @@ The Portenta X8, H7, and C33 enhance functionality through High-Density connecto
 
 ### USB Interface
 
-The Portenta Hat Carrier features a USB interface suitable for data logging and connecting external devices. This port also provides power for the processor during the flash process.
+The Portenta Hat Carrier features a USB interface suitable for data logging and connecting external devices.
 
 ![Portenta Hat Carrier USB-A Port](assets/portentaHATcarrier_USBA.png)
 
