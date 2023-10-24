@@ -69,7 +69,11 @@ The carrier is adaptable, pairing seamlessly with Portenta X8 and converting it 
 
 ### Carrier Architecture Overview
 
-The __Portenta Hat Carrier__, designed for Portenta SOM boards like the Portenta X8, H7, and C33, offers a diverse power range from 7-32 V through its screw terminal, with alternatives from its USB-C® interface or a 5V pin. This versatility extends to its connectivity: a USB-A for peripherals, 1000 Base-T Ethernet, SPI, I2C, I2S, and UART interfaces accessible via a 40-pin male header, and MIPI camera support exclusive to the Portenta X8.
+The __Portenta Hat Carrier__, designed for Portenta SOM boards like the Portenta X8, H7, and C33, offers a diverse power supply range:
+- 7-32V through its screw terminal
+- USB-C®
+- 5V pin on the 40-pin header
+This versatility extends to its connectivity: a USB-A for peripherals, 1000 Mbit Base-T Ethernet, SPI, I2C, I2S, and UART interfaces accessible via a 40-pin male header, and MIPI camera support exclusive for the Portenta X8.
 
 It integrates a microSD slot for storage and bootloading, broad interface options through its 40-pin and 16-pin headers, JTAG pins for debugging, and a PWM fan connector for cooling. Control is intuitive with a two-position DIP switch, allowing various profiles based on the paired Portenta board.
 
