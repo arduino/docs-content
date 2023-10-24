@@ -1784,7 +1784,7 @@ if __name__ == "__main__":
 
 The Client side script connects to the server specified by the `HOST` and `PORT`. These are properties that you change to your preferences. Once connected, it sends a message `"Hello, server!"` and waits for a response.
 
-If you would like to have a single script running both instances, the following script can offer the job using Python's built-in `threading` component.
+If you would like to have a single script running both instances, the following script can perform the task using Python's built-in `threading` component.
 
 ```
 import socket
@@ -2116,13 +2116,13 @@ The standardized design of HATs ensures they are compatible and easy to use with
 
 These are the officially compatible list of HATs:
 
-- __Stepper Motor HAT__: is a HAT that drives stepper motors, enabling precise control of rotation direction, angle, speed, and steps, suitable for projects like CNC, 3D printers, and robotics. It uses DRV8825 dual H-bridge motor driver.
+- __Stepper Motor HAT__: it is a HAT that drives stepper motors, enabling precise control of rotation direction, angle, speed, and steps, suitable for projects like CNC, 3D printers, and robotics. It uses DRV8825 dual H-bridge motor driver.
 
-- __RPi Relay Board__: is a HAT that eases the control of high-voltage devices, featuring three channels, and photo coupling isolation. Helps provide safe device switching for various applications.
+- __RPi Relay Board__: it is a HAT that eases the control of high-voltage devices, featuring three channels, and photo coupling isolation. It helps provide safe device switching for various applications.
 
-- __Audio HAT__: is a HAT designed for high-quality audio playback and recording, equipped with both line-in and line-out stereo jacks, suitable for projects that require enhanced sound capabilities while maintaining a compact footprint.
+- __Audio HAT__: it is a HAT designed for high-quality audio playback and recording, equipped with both line-in and line-out stereo jacks, suitable for projects that require enhanced sound capabilities while maintaining a compact footprint.
 
-- __Automation HAT Pimoroni PIM213__: is a HAT designed to monitor and control automation setups with its relay, analog channels, input channels, and power outputs, making it ideal for home automation and industrial applications.
+- __Automation HAT Pimoroni PIM213__: it is a HAT designed to monitor and control automation setups with its relay, analog channels, input channels, and power outputs, making it ideal for home automation and industrial applications.
 
 The example scripts are located within the Docker container. To access these scripts and test them with the Hat mounted, execute the following command:
 
@@ -2134,7 +2134,7 @@ Once inside the container, you can find the scripts in the `/root/examples/porte
 
 ### RPi Relay Board
 
-The _RPi Relay Board_ is a dynamic board that consists of three channels: a high-level trigger and two for low-level triggers. With the capability to manage up to 250V AC or 30V DC with a current rating of 2A, it operates using the I2C interface, renowned for its high-quality relays.
+The _RPi Relay Board_ is a dynamic board that consists of three channels: a high-level trigger and two low-level triggers. With the capability to manage up to 250V AC or 30V DC with a current rating of 2A, it operates using the I2C interface, renowned for its high-quality relays.
 
 The continuing script offers an interface for interaction with the Seeed Studio Raspberry Pi Relay Board. Authored by John M. Wargo, it is a refined version of the sample code available on the [Seeed Studio Wiki](http://wiki.seeed.cc/Raspberry_Pi_Relay_Board_v1.0/). The script uses the _smbus_ library to interface with the relay board and has a default I2C address set to `0x20`.
 
@@ -2257,7 +2257,7 @@ def relay_get_port_data(relay_num):
 
 Next script showcases the utility of the relay board functions. At the onset, it activates all the relays and then deactivates them, pausing for a second between these actions.
 
-Subsequently, it sequentially powers each relay on and off, with a one-second intermission in between in a loop. In the event of a keyboard interrupt, the script terminates and ensures all the relays are switched off.
+Subsequently, it sequentially powers each relay on and off, with a one-second intermission in between. In the event of a keyboard interrupt, the script terminates and ensures all the relays are switched off.
 
 ```
 #!/usr/bin/python
@@ -2301,11 +2301,11 @@ if __name__ == "__main__":
         sys.exit(0)
 ```
 
-For implementation, this script draws functions from `relay_lib_seeed`, which previously explained. Together, these scripts make it easy to control the RPi Relay Board.
+For implementation, this script draws functions from `relay_lib_seeed`, which was previously explained. Together, these scripts simplify the control of the RPi Relay Board.
 
 ### Stepper Motor HAT
 
-Using the capabilities of the Portenta X8 alongside specific modules can up its performance. One such module is the __drv8825 HAT__, designed specifically for driving stepper motors, especially when paired with the Portenta Hat Carrier.
+Using the capabilities of the Portenta X8 alongside specific modules can increase its performance. One such module is the __drv8825 HAT__, designed specifically for driving stepper motors, especially when paired with the Portenta Hat Carrier.
 
 To use the drv8825 HAT with Portenta Hat Carrier and Portenta X8, please follow these steps:
 
@@ -2549,7 +2549,7 @@ The Portenta Hat Carrier has 10 digital pins with PWM functionality, mapped as f
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. All these pins must be configured on the corresponding Portenta.
 
-The [`analogWrite()` function'](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)] included into the Arduino programming language can be used to access the 7 PWM pins.
+The [`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)] included into the Arduino programming language can be used to access the 7 PWM pins.
 
 The example code shown below uses digital pin `0` PWM functionality to control the brightness of the board's built-in RGB LED (green LED) connected to it:
 
@@ -2778,7 +2778,7 @@ The Portenta Hat Carrier supports I2C communication, which allows data transmiss
 |        3       |    I2C2 SDA    |           I2C2_SDA           |         J2-45        |   I2C 2 SDA   |
 |        5       |    I2C2 SCL    |           I2C2_SCL           |         J2-47        |   I2C 2 SCL   |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. The I<sup>2</sup>C pins are also available through the onboard ESLOV connector of the Portenta Hat Carrier.
+Please, refer to the [pinout section](#pinout) of the user manual to find them on the board. The I<sup>2</sup>C pins are also available through the onboard ESLOV connector of the Portenta Hat Carrier.
 
 ![Portenta Hat Carrier CAN Bus Interface Connection Example](assets/portentaHATcarrier_I2C_conn.png)
 
@@ -2949,7 +2949,7 @@ The Portenta Hat Carrier is equipped with CAN bus communication capabilities, po
 
 ![Portenta Hat Carrier CAN Bus Port](assets/portentaHATcarrier_CAN.png)
 
-While the CAN bus pins are integrated within the High-Density connectors, they are conveniently accessible directly on the carrier through the screw terminal. This provides flexibility in connection, making it easier for developers to design and troubleshoot their systems.
+Since the CAN bus pins are integrated within the High-Density connectors, they are conveniently accessible on the carrier through the screw terminal. This provides flexibility in connection, allowing developers to design and troubleshoot their systems easierly.
 
 | **Pin number** | **Silkscreen** |                         **High-Density Pin**                         |    **Interface**   |
 |:--------------:|:--------------:|:--------------------------------------------------------------------:|:------------------:|
