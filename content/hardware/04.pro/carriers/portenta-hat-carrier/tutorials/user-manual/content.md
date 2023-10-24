@@ -2949,7 +2949,7 @@ The Portenta Hat Carrier is equipped with CAN bus communication capabilities, po
 
 ![Portenta Hat Carrier CAN Bus Port](assets/portentaHATcarrier_CAN.png)
 
-While the CAN bus pins are integrated within the High-Density connectors, they are conveniently accessible directly on the carrier through the screw terminal. This provides flexibility in connection, making it easier for developers to design and troubleshoot their systems.
+Since the CAN bus pins are integrated within the High-Density connectors, they are conveniently accessible on the carrier through the screw terminal. This provides flexibility in connection, allowing developers to design and troubleshoot their systems easierly.
 
 | **Pin number** | **Silkscreen** |                         **High-Density Pin**                         |    **Interface**   |
 |:--------------:|:--------------:|:--------------------------------------------------------------------:|:------------------:|
