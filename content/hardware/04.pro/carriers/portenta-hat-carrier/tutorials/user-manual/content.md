@@ -725,7 +725,7 @@ Please check out the following documentation to learn more about each board and 
 
 The carrier offers a diverse range of features and interfaces to cater to a variety of user requirements and applications. This section provides an overview of the main hardware interfaces, storage options, and configuration mechanisms integrated into the carrier.
 
-Each sub-section further delves into the specifics of every feature, ensuring users have comprehensive information for optimal utilization.
+Each sub-section further delves into the specifications of each feature, ensuring users will get comprehensive information for optimal utilization.
 
 ## Hardware Interfaces
 
