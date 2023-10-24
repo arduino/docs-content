@@ -1194,7 +1194,7 @@ Once you are done with the operations related to microSD card, it is important t
 sudo umount /tmp/sdcard
 ```
 
-If you need to format the SD card to the _ext4_ filesystem, use the following command. Please take precaution, as this will erase all the existing data on the microSD card.
+If you need to format the SD card to the _ext4_ filesystem, use the following command. Please be cautious, since this command will erase all the existing data on the microSD card.
 
 ```bash
 sudo mkfs.ext4 /dev/mmcblk0XX
