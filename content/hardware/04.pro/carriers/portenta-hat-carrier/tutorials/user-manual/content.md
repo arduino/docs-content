@@ -2122,7 +2122,7 @@ These are the officially compatible list of HATs:
 
 - __Audio HAT__: it is a HAT designed for high-quality audio playback and recording, equipped with both line-in and line-out stereo jacks, suitable for projects that require enhanced sound capabilities while maintaining a compact footprint.
 
-- __Automation HAT Pimoroni PIM213__: is a HAT designed to monitor and control automation setups with its relay, analog channels, input channels, and power outputs, making it ideal for home automation and industrial applications.
+- __Automation HAT Pimoroni PIM213__: it is a HAT designed to monitor and control automation setups with its relay, analog channels, input channels, and power outputs, making it ideal for home automation and industrial applications.
 
 The example scripts are located within the Docker container. To access these scripts and test them with the Hat mounted, execute the following command:
 
