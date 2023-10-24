@@ -2305,7 +2305,7 @@ For implementation, this script draws functions from `relay_lib_seeed`, which wa
 
 ### Stepper Motor HAT
 
-Using the capabilities of the Portenta X8 alongside specific modules can up its performance. One such module is the __drv8825 HAT__, designed specifically for driving stepper motors, especially when paired with the Portenta Hat Carrier.
+Using the capabilities of the Portenta X8 alongside specific modules can increase its performance. One such module is the __drv8825 HAT__, designed specifically for driving stepper motors, especially when paired with the Portenta Hat Carrier.
 
 To use the drv8825 HAT with Portenta Hat Carrier and Portenta X8, please follow these steps:
 
