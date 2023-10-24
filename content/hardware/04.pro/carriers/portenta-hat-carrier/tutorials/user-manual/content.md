@@ -233,7 +233,7 @@ The Portenta Hat Carrier provides different functionalities based on the connect
 | CAN FD         | Available         | Available          | Available          |
 | USB-A Support  | Available         | Available          | Available          |
 
-This provides a general idea how the Portenta Hat Carrier will perform depending on the paired Portenta board. Each feature is explained in the following section after quick guide covering how to properly interface the Portenta boards.
+This provides a general idea of how the Portenta Hat Carrier will perform depending on the paired Portenta board. Each feature is explained in the following section after a quick guide covering how to properly interface the Portenta boards.
 
 ## Hello World Carrier
 
