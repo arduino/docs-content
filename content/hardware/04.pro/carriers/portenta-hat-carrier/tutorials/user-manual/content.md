@@ -961,7 +961,7 @@ This command allows the user to capture one frame and save it as `/tmp/test.jpg`
 gst-top-1.0 gst-launch-1.0 -v v4l2src device=/dev/video0 num-buffers=300 ! "video/x-bayer, format=bggr, width=640, height=480, bpp=8, framerate=30/1"  ! bayer2rgbneon reduce-bpp=t ! queue ! waylandsink
 ```
 
-This command allows to captures 300 frames at 30 FPS, which equals 10 seconds, and displays them using the `waylandsink`.
+This command allows the user to capture 300 frames at 30 FPS, which equals 10 seconds of video, and displays them using the `waylandsink`.
 
 Following these steps, you will be able to successfully capture and stream video from the Raspberry Pi Camera v1.3 based on the OV5647 sensor.
 
