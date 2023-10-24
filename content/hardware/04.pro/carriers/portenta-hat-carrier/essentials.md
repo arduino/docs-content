@@ -1,5 +1,5 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement title="Portenta Hat Carrier User Manual" type="getting-started" link="/tutorials/portenta-hat-carrier/user-manual">">
+    <EssentialElement title="Portenta Hat Carrier User Manual" type="getting-started" link="/tutorials/portenta-hat-carrier/user-manual">
         A full guide to the basics of the Portenta Hat Carrier
     </EssentialElement>
     <EssentialElement title="Portenta X8 User Manual" type="getting-started" link="/tutorials/portenta-x8/user-manual">
@@ -16,11 +16,11 @@
     </EssentialElement>
 </EssentialsColumn>
 
-<EssentialsColumn title="Portenta H7 & Portenta C33">
+<EssentialsColumn title="Portenta H7 & C33">
     <EssentialElement title="Portenta H7 Documentation" type="getting-started" link="/hardware/portenta-h7">
         Official documentation of the Portenta H7
     </EssentialElement>
     <EssentialElement title="Portenta C33 Documentation" type="getting-started" link="/hardware/portenta-c33">
         Official documentation of the Portenta C33
     </EssentialElement>
-</EssentialsColumn>
+</EssentialsColumn> 
