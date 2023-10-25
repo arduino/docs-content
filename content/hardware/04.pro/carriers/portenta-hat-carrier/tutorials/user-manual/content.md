@@ -768,8 +768,324 @@ Devices with a USB-A interface, such as storage drives, can be used for logging 
 
 As an example, following command on Portenta X8's shell can be used to test write command with a USB memory drive.
 
+```bash
+dd if=/dev/urandom of=random.bin bs=1M count=128
 ```
-dd if=/dev/urandom of=random.bin bs=4M count=128
+
+This command will create a `random.bin` file filled with 128 Megabytes of random data. It reads data from the system's pseudo-random number generator `/dev/urandom` and writes it to the file in chunks of 1 Megabyte.
+
+To read the random.bin file with random data, you can use the following command:
+
+```bash
+dd if=random.bin bs=1M count=128 | hexdump -C
+```
+
+This will read the previously generated `random.bin` file and displays its content in a hexadecimal format on the console. Data is read in chunks of 1 Megabyte up to 128 Megabytes and then processed for display using `hexdump`.
+
+#### Using Arduino IDE
+<br></br>
+
+The following example demonstrates how to use the USB interface of the Portenta Hat Carrier with the Portenta C33 to mount a Mass Storage Device (MSD).
+
+Through this code, users will be able to effectively connect to, read from, and write to a USB storage device, making it easier to interact with external storage via USB interface.
+
+```arduino
+#include <vector>
+#include <string>
+#include "UsbHostMsd.h"
+#include "FATFileSystem.h"
+
+#define TEST_FS_NAME "usb"
+#define TEST_FOLDER_NAME "TEST_FOLDER"
+#define TEST_FILE "test.txt"
+#define DELETE_FILE_DIMENSION 150
+
+
+USBHostMSD block_device; 
+FATFileSystem fs(TEST_FS_NAME);
+
+std::string root_folder       = std::string("/") + std::string(TEST_FS_NAME);
+std::string folder_test_name  = root_folder + std::string("/") + std::string(TEST_FOLDER_NAME);
+std::string file_test_name    = folder_test_name + std::string("/") + std::string(TEST_FILE); 
+
+/* this callback will be called when a Mass Storage Device is plugged in */
+void device_attached_callback(void) {
+  Serial.println();
+  Serial.println("++++ Mass Storage Device detected ++++");
+  Serial.println();
+}
+
+void setup() {
+  /*
+   *  SERIAL INITIALIZATION
+   */
+  Serial.begin(9600);
+  while(!Serial) {
+     
+  }
+  
+  Serial.println();
+  Serial.println("*** USB HOST Mass Storage Device example ***");
+  Serial.println();
+  
+  /* attache the callback so that when the device is inserted the device_attached_callback
+     will be automatically called */
+  block_device.attach_detected_callback(device_attached_callback);
+  /* list to store all directory in the root */
+  std::vector<std::string> dir_list;
+
+  /* 
+   *  Check for device to be connected
+   */
+  
+  int count = 0;
+  while (!block_device.connect()) {
+        if(count == 0) {
+          Serial.println("Waiting for Mass Storage Device");
+        }
+        else {
+          Serial.print(".");
+          if(count % 30 == 0) {
+            Serial.println();
+          }
+        }
+        count++;
+        delay(1000);
+  }
+
+  Serial.println("Mass Storage Device connected.");
+  
+  /* 
+   *  MOUNTIN SDCARD AS FATFS filesystem
+   */
+   
+  Serial.println("Mounting Mass Storage Device...");
+  int err =  fs.mount(&block_device);
+  if (err) {
+    // Reformat if we can't mount the filesystem
+    // this should only happen on the first boot
+    Serial.println("No filesystem found, formatting... ");
+    err = fs.reformat(&block_device);
+  }
+  
+  if (err) {
+     Serial.println("Error formatting USB Mass Storage Device");
+     while(1);
+  }
+
+  /* 
+   *  READING root folder
+   */
+  
+  DIR *dir;
+  struct dirent *ent;
+  int dirIndex = 0;
+
+  Serial.println("*** List USB Mass Storage Device content: ");
+  if ((dir = opendir(root_folder.c_str())) != NULL) {
+    while ((ent = readdir (dir)) != NULL) {
+      if(ent->d_type == DT_REG) {
+        Serial.print("- [File]: ");
+      }
+      else if(ent->d_type == DT_DIR) {
+        Serial.print("- [Fold]: ");
+        if(ent->d_name[0] != '.') { /* avoid hidden folders (.Trash might contain a lot of files) */
+          dir_list.push_back(ent->d_name);
+        }
+      }
+      Serial.println(ent->d_name);
+      dirIndex++;
+    }
+    closedir (dir);
+  } 
+  else {
+    // Could not open directory
+    Serial.println("Error opening USB Mass Storage Device\n");
+    while(1);
+  }
+
+  if(dirIndex == 0) {
+    Serial.println("Empty SDCARD");
+  }
+
+  bool found_test_folder = false;
+
+  /* 
+   *  LISTING CONTENT of the first level folders (the one immediately present in root folder)
+   */
+
+  if(dir_list.size()) {
+    Serial.println();
+    Serial.println("Listing content of folders in root: ");
+  }
+  for(unsigned int i = 0; i < dir_list.size(); i++) {
+    if(dir_list[i] == TEST_FOLDER_NAME) {
+      found_test_folder = true;
+    }
+    Serial.print("- ");
+    Serial.print(dir_list[i].c_str());
+    Serial.println(":");
+    
+    std::string d = root_folder + std::string("/") + dir_list[i];
+    if ((dir = opendir(d.c_str())) != NULL) {
+      while ((ent = readdir (dir)) != NULL) {
+        if(ent->d_type == DT_REG) {
+          Serial.print("   - [File]: ");
+        }
+        else if(ent->d_type == DT_DIR) {
+          Serial.print("   - [Fold]: ");
+        }
+        Serial.println(ent->d_name);
+      }
+      closedir (dir);
+    }
+    else {
+      Serial.print("ERROR OPENING SUB-FOLDER ");
+      Serial.println(d.c_str());
+    }
+  }
+
+  /* 
+   *  CREATING TEST FOLDER (if does not exist already)
+   */
+
+  err = 0;
+  if(!found_test_folder) {
+    Serial.println("TEST FOLDER NOT FOUND... creating folder test"); 
+    err = mkdir(folder_test_name.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
+    if(err != 0) {
+      Serial.print("FAILED folder creation with error ");
+      Serial.println(err);
+    }
+  }
+
+  /* 
+   *  READING TEST FILE CONTENT
+   */
+  
+  if(err == 0) {
+    int file_dimension = 0; 
+    FILE* fp = fopen(file_test_name.c_str(), "r");
+    if(fp != NULL) {
+      Serial.print("Opened file: ");
+      Serial.print(file_test_name.c_str());
+      Serial.println(" for reading");
+      
+      fseek(fp, 0L, SEEK_END);
+      int numbytes = ftell(fp);
+      fseek(fp, 0L, SEEK_SET);  
+
+      Serial.print("Bytes in the file: ");
+      Serial.println(numbytes);
+      file_dimension = numbytes;
+
+      if(numbytes > 0) {
+        Serial.println();
+        Serial.println("-------------------- START FILE CONTENT --------------------");
+      }
+      
+      for(int i = 0; i < numbytes; i++) {
+        char ch;
+        fread(&ch, sizeof(char), 1, fp);
+        Serial.print(ch);
+      }
+
+      if(numbytes > 0) {
+        Serial.println("--------------------- END FILE CONTENT ---------------------");
+        Serial.println();
+      }
+      else {
+        Serial.println("File is EMPTY!");
+        Serial.println();
+      }
+    
+      fclose(fp);
+    }
+    else {
+      Serial.print("FAILED open file ");
+      Serial.println(file_test_name.c_str());
+    }
+
+    /*
+     * DELETE FILE IF THE File dimension is greater than 150 bytes
+     */
+
+    if(file_dimension > DELETE_FILE_DIMENSION) {
+      Serial.println("Test file reached the delete dimension... deleting it!");
+      if(remove(file_test_name.c_str()) == 0) {
+        Serial.println("TEST FILE HAS BEEN DELETED!");
+      }
+    }
+    
+    /*
+     * APPENDING SOMETHING TO FILE 
+     */
+     
+    fp = fopen(file_test_name.c_str(), "a");
+    if(fp != NULL) {
+      Serial.print("Opened file: ");
+      Serial.print(file_test_name.c_str());
+      Serial.println(" for writing (append)");
+      char text[] = "This line has been appended to file!\n";
+      fwrite(text, sizeof(char), strlen(text), fp);
+      fclose(fp); 
+    }
+    else {
+      Serial.print("FAILED open file for appending ");
+      Serial.println(file_test_name.c_str());
+    }
+    
+    /*
+     * READING AGAIN FILE CONTENT
+     */
+    
+    fp = fopen(file_test_name.c_str(), "r");
+    if(fp != NULL) {
+      Serial.print("Opened file: ");
+      Serial.print(file_test_name.c_str());
+      Serial.println(" for reading");
+      
+      fseek(fp, 0L, SEEK_END);
+      int numbytes = ftell(fp);
+      fseek(fp, 0L, SEEK_SET);  
+
+      Serial.print("Bytes in the file: ");
+      Serial.println(numbytes);
+
+      if(numbytes > 0) {
+        Serial.println();
+        Serial.println("-------------------- START FILE CONTENT --------------------");
+      }
+      
+      for(int i = 0; i < numbytes; i++) {
+        char ch;
+        fread(&ch, sizeof(char), 1, fp);
+        Serial.print(ch);
+      }
+
+      if(numbytes > 0) {
+        Serial.println("--------------------- END FILE CONTENT ---------------------");
+        Serial.println();
+      }
+      else {
+        Serial.println("File is EMPTY!");
+        Serial.println();
+      }
+    
+      fclose(fp);
+      
+    }
+    else {
+      Serial.print("FAILED open file for appending ");
+      Serial.println(file_test_name.c_str());
+    }
+  }  
+  
+}
+
+void loop() {
+  // Empty
+}
 ```
 
 ### Analog Pins
@@ -1148,7 +1464,7 @@ Following these steps helps you use the 'Flash' button correctly and allow devel
 
 ### MicroSD Storage
 
-The available microSD card slot offers the advantage of expanded storage. This is especially beneficial for processing large volumes of log data, whether from sensors or the onboard computer registry. 
+The available microSD card slot offers the advantage of expanded storage. This is especially beneficial for processing large volumes of log data, whether from sensors or the onboard computer registry.
 
 ![Portenta Hat Carrier microSD Expansion Slot](assets/portentaHATcarrier_microsd.png)
 
@@ -1193,7 +1509,7 @@ fdisk -l
 
 The microSD card usually appears as `/dev/mmcblk0` or `/dev/sdX`. Where X can be a, b, c, etc. depending on other connected storage devices.
 
-Before accessing the contents of the microSD card, it needs to be mounted. For covenient operation, create a directory that will serve as the mount point:
+Before accessing the contents of the microSD card, it needs to be mounted. For convenient operation, create a directory that will serve as the mount point:
 
 ```bash
 mkdir -p /tmp/sdcard
@@ -1647,7 +1963,7 @@ Ethernet performance differs based on the associated Portenta board:
 
 To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Hat Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 
-##### Using Linux
+#### Ethernet Interface With Linux
 <br></br>
 
 Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed. First, make sure the Portenta X8 is mounted on the Hat Carrier, and then connect them using a RJ45 LAN cable. To measure the bandwidth, we will use the _iperf3_ tool, which is available [here](https://github.com/userdocs/iperf3-static).
@@ -1777,7 +2093,7 @@ if __name__ == "__main__":
 
 The Client side script connects to the server specified by the `HOST` and `PORT`. These are properties that you change to your preferences. Once connected, it sends a message `"Hello, server!"` and waits for a response.
 
-If you would like to have a single script running both instances, the following script can perform the task using Python's built-in `threading` component.
+If you would like to have a single script running both instances, the following script can perform the task using Python®'s built-in `threading` component.
 
 ```
 import socket
@@ -1828,7 +2144,7 @@ The script makes the server start in a separate thread, adding a brief pause usi
 
 The client runs on the main thread. Using `server_thread.join()`, the main script waits for the server thread to finish its tasks before exiting.
 
-##### Using Arduino IDE
+#### Ethernet Interface With Arduino IDE
 <br></br>
 
 Below is a 'WebClient' example that can be used to test Ethernet connectivity with Portenta H7.
@@ -1892,7 +2208,7 @@ void setup()
         Serial.println("Failed to configure Ethernet using DHCP");
         // Check for Ethernet hardware present
         if (Ethernet.hardwareStatus() == EthernetNoHardware) {
-            Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
+            Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware");
             while (true) {
                 delay(1); // do nothing, no point running without Ethernet hardware
             }
@@ -2126,7 +2442,49 @@ The example scripts are located within the Docker container. To access these scr
 docker exec -it x8-devel sh
 ```
 
-Once inside the container, you can find the scripts in the `/root/examples/portenta-hat-carrier` directory. Alternatively, you can also run the scripts by manually dockerizing them yourself.
+Upon gaining access to the container, all relevant Portenta Hat Carrier scripts are conveniently located in the `root/examples/portenta-hat-carrier` directory. Alternatively, you also have the option to manually dockerize the scripts to run them within ADB shell of the Portenta X8.
+
+To use the example script, a series of commands can be used. These will help you define and export necessary modules before executing the desired example. To start, the Python® shell can be launched within the container using:
+
+```bash
+python3
+```
+
+To use modules like _smbus2_, the following sequence of commands will help you import such module:
+
+```bash
+import smbus2
+```
+
+To use a specific class or function from the module:
+
+```bash
+from smbus2 import SMBus
+```
+
+Setting variables is straightforward. Depending on your requirement, assign values in either HEX or DEC:
+
+```bash
+# Value can be in HEX or DEC
+variable_name = Value 
+```
+
+To run an example script within the Python® shell, consider using following command:
+
+```bash
+with open('example_script.py', 'r') as file:
+...     exec(file.read())
+```
+
+If you prefere traditional methods of execution, following command can be used:
+
+```bash
+python3 example_script.py
+```
+
+This last command for example is also applicable within ADB shell of the Portenta X8.
+
+The following sections will help you become familiar with the examples found within the `root/examples/portenta-hat-carrier` directory. This directory contains both the _RPi Relay Board_ and the _Stepper Motor HAT_. These examples are used within the __Linux__ environment.
 
 ### RPi Relay Board
 
@@ -2486,46 +2844,54 @@ Whether you are debugging, prototyping, or setting up a new project, this script
 #### Using Arduino IDE
 <br></br>
 
-If Portenta Hat Carrier is paired with Portenta H7, consider using following example:
+If Portenta Hat Carrier is paired with Portenta H7 or Portenta C33, consider using following example:
 
 ```arduino
-const int actPin = 2;     // the number of the activation pin (GPIO)
-
-int actState = 0;         // variable for reading the activation status
+const int actPin = 2;          // the number of the activation pin (GPIO)
+const int ledPin = <PD_5/30>;  // User programmable LED GPIO3 corresponding to paired Portenta board
+int actState = 0;              // variable for reading the activation status
 
 void setup() {
-  pinMode(LED_BUILTIN, OUTPUT);    // initialize the LED
-  pinMode(actPin, INPUT);          // initialize the activation pin as an input
+  pinMode(ledPin, OUTPUT);     // initialize the User programmable LED of Portenta Hat Carrier
+  pinMode(actPin, INPUT);      // initialize the activation pin as an input
 }
 
 void loop() {
   actState = digitalRead(actPin);  // read the state of the activation value
 
   if (actState == HIGH) {          // if the GPIO pin has feedback
-    digitalWrite(LED_BUILTIN, HIGH); 
+    digitalWrite(ledPin, HIGH); 
   } else {
-    digitalWrite(LED_BUILTIN, LOW);     
+    digitalWrite(ledPin, LOW);     
   }
 }
 ```
 
-Or the following as well:
+This example uses a designated GPIO pin to set the user-programmable LED on the Portenta Hat Carrier to either a HIGH or LOW state.
+
+Alternatively, the following example controls the user-programmable LED on the Portenta Hat Carrier based on potentiometer input:
 
 ```
-const int potPin = A0;  // the number of the potentiometer pin (16-Pin header)
-const int ledPin = XX;   // the number of the LED pin, must support PWM
+const int potPin = A0;         // the number of the potentiometer pin (16-Pin header)
+const int ledPin = <PD_5/30>;  // User programmable LED GPIO3 corresponding to paired Portenta board
 
-int potValue = 0;       // value read from the potentiometer
-int ledBrightness = 0;  // PWM value for the LED brightness (0 to 255)
-
+int potValue = 0;              // value read from the potentiometer
+int ledThreshold = 0;          // PWM value for the LED brightness (0 to 255)
+ 
 void setup() {
-  pinMode(ledPin, OUTPUT);  // initialize the LED pin as an output
+  pinMode(ledPin, OUTPUT);      // initialize the User programmable LED of Portenta Hat Carrier
+                                // choose either PD_5 for H7, or 30 for C33
 }
 
 void loop() {
   potValue = analogRead(potPin);                   // read the pot value (0 to 1023)
-  ledBrightness = map(potValue, 0, 1023, 0, 255);  // scale it for PWM (0 to 255)
-  analogWrite(ledPin, ledBrightness);              // set the LED brightness
+  ledThreshold = map(potValue, 0, 1023, 0, 255);   // scale it for user programmable LED GPIO3 activation threshold
+  
+  if (ledThreshold >= 128){
+    digitalWrite(ledPin, HIGH);          // set the GPIO3 LED High if potentiometer is mapped above 128 value
+  } else {
+    digitalWrite(ledPin, LOW);           // set the GPIO3 LED Low if potentiometer is mapped below 128 value
+  }
   delay(10);
 }
 ```
@@ -3107,123 +3473,9 @@ The `main()` function initializes the CAN bus with a 'virtual' channel for examp
 #### Using Arduino IDE
 <br></br>
 
-The code examples below, compatible with Portenta H7, illustrate how developers can use the Portenta Hat Carrier to send and receive data over CAN bus. The following example is a sender device with CAN protocol:
+For users working with the Portenta H7 or Portenta C33, following simple examples can be used to test the CAN bus protocol's capabilities.
 
-```arduino
-#include <CAN.h>
-
-void setup() {
-  Serial.begin(9600);
-  while (!Serial);
-
-  Serial.println("CAN Sender");
-
-  // start the CAN bus at 500 kbps
-  if (!CAN.begin(500E3)) {
-    Serial.println("Starting CAN failed!");
-    while (1);
-  }
-}
-
-void loop() {
-  // send packet: id is 11 bits, packet can contain up to 8 bytes of data
-  Serial.print("Sending packet ... ");
-
-  CAN.beginPacket(0x12);
-  CAN.write('h');
-  CAN.write('e');
-  CAN.write('l');
-  CAN.write('l');
-  CAN.write('o');
-  CAN.endPacket();
-
-  Serial.println("done");
-
-  delay(1000);
-
-  // send extended packet: id is 29 bits, packet can contain up to 8 bytes of data
-  Serial.print("Sending extended packet ... ");
-
-  CAN.beginExtendedPacket(0xabcdef);
-  CAN.write('w');
-  CAN.write('o');
-  CAN.write('r');
-  CAN.write('l');
-  CAN.write('d');
-  CAN.endPacket();
-
-  Serial.println("done");
-
-  delay(1000);
-}
-```
-
-The provided sender device example first initializes the CAN bus at a speed of _500 kbps_. It then sends a standard packet with the message "`hello`". After a short pause, it sends an extended packet with the message "`world`".
-
-The receiver device example also initializes the CAN bus at 500 kbps but takes a different approach by registering a callback function as follows:
-
-```
-#include <CAN.h>
-
-void setup() {
-  Serial.begin(9600);
-  while (!Serial);
-
-  Serial.println("CAN Receiver Callback");
-
-  // start the CAN bus at 500 kbps
-  if (!CAN.begin(500E3)) {
-    Serial.println("Starting CAN failed!");
-    while (1);
-  }
-
-  // register the receive callback
-  CAN.onReceive(onReceive);
-}
-
-void loop() {
-  // do nothing
-}
-
-void onReceive(int packetSize) {
-  // received a packet
-  Serial.print("Received ");
-
-  if (CAN.packetExtended()) {
-    Serial.print("extended ");
-  }
-
-  if (CAN.packetRtr()) {
-    // Remote transmission request, packet contains no data
-    Serial.print("RTR ");
-  }
-
-  Serial.print("packet with id 0x");
-  Serial.print(CAN.packetId(), HEX);
-
-  if (CAN.packetRtr()) {
-    Serial.print(" and requested length ");
-    Serial.println(CAN.packetDlc());
-  } else {
-    Serial.print(" and length ");
-    Serial.println(packetSize);
-
-    // only print packet data for non-RTR packets
-    while (CAN.available()) {
-      Serial.print((char)CAN.read());
-    }
-    Serial.println();
-  }
-
-  Serial.println();
-}
-```
-
-The callback function is designed to handle and display details about any received packets. These details include whether the packet is standard or extended, the packet's ID, and its content.
-
-For users working with the Portenta C33, following simple examples to test the CAN bus protocol's capabilities.
-
-The _CAN Read_ example for Portenta C33 starts CAN communication at a rate of _250 kbps_ and continuously listens for incoming messages, displaying such information upon receipt.
+The _CAN Read_ example for Portenta H7/C33 starts CAN communication at a rate of _250 kbps_ and continuously listens for incoming messages, displaying such information upon receipt.
 
 ```
 #include <Arduino_CAN.h>
