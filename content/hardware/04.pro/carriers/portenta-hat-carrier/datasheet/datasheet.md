@@ -14,7 +14,7 @@ author: Writec, Julián Caro Linares
 
 Industrial automation, building automation, robotics, prototyping
 
-***Latest information*:**
+***Latest information:***
 
 The most recent datasheet version of this product is always available at: 
 
@@ -23,8 +23,6 @@ The most recent datasheet version of this product is always available at:
 # CONTENTS
 
 ## Application Examples
-
-
 
 <div style="text-align:justify;">
 
@@ -71,6 +69,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 ### General Specifications Overview
 
 <div style="text-align:center;">
+
 <table>
 <thead>
   <tr>
@@ -126,11 +125,13 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 </table>
 
 <caption>Table 1: General specification overview of the Portenta Hat Carrier</caption>
+
 </div>
 
 ### Communication Interfaces
 
 <div style="text-align:center;">
+
 <table>
     <thead>
         <tr>
@@ -175,13 +176,15 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 </table>
 
 <caption>Table 2: Communication interfaces of the Portenta Hat Carrier</caption>
+
 </div>
 
- ***Note**: I2C1 is shared also with the onboard EEPROM memory and the MIPI connector.
+ **Note**: I2C1 is shared also with the onboard EEPROM memory and the MIPI connector.
 
 ### Other Features
 
 <div style="text-align:center;">
+
 <table>
 <thead>
     <tr>
@@ -244,6 +247,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 </table>
 
 <caption>Table 3: Other important features of the Portenta Hat Carrier</caption>
+
 </div>
 
 <div style="page-break-after:always;"></div>
@@ -266,6 +270,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 |                  Operating ambient temperature                  |     T<sub>OP</sub>     |   -40   |    -    |   85    |    °C    |
 
 <caption>Table 4: Recommended operating conditions of the Portenta Hat Carrier</caption>
+
 </div>
 
 <p style="text-align: justify;"><sup>1</sup>The power supply connected to the onboard screw terminal block powers the carrier, the connected Portenta family board, and compatible Raspberry Pi® Hats. The onboard screw terminal connector has an integrated reverse polarity protection.</p>
@@ -332,6 +337,7 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 |     40     |  I2S SDO   |               |         I2S_SDO          |                                J1-62                                 |  I2S SDO   |
 
 <caption>Table 5: Raspberry Pi® 40-Pins Connector (J5) pinout</caption>
+
 </div>
 
 
@@ -359,6 +365,7 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 |     16     |    RX2     |               |        SERIAL2_RX        |                                J2-28                                 |    UART 2 RX     |
 
 <caption>Table 6: 16-Pin Header (J6) pinout</caption>
+
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -378,6 +385,7 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 |     6      |    CANL     |              |                          |                          J1-51 (Through U1)                          | CAN BUS - CANL |
 
 <caption>Table 7: Power Block CAN Bus (J9) pinout</caption>
+
 </div>
 
 
@@ -393,6 +401,7 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 |     4      |    GND     |    GND    |           GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |           |
 
 <caption>Table 8: FAN PWM Header (J11) pinout</caption>
+
 </div>
 
 <div style="page-break-after:always;"></div>
@@ -415,6 +424,7 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 |     10     |    N/A     |               |         JTAG_RST         |                                J1-73                                 | JTAG RST  |
 
 <caption>Table 9: JTAG Header (J3) pinout</caption>
+
 </div>
 
 
@@ -441,8 +451,8 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 |     15     |    N/A     | +3V3_PORTENTA |           VCC            |                      J2-23, J2-34, J2-43, J2-69                      |           |
 
 <caption>Table 10: JTAG Header (J3) pinout</caption>
-</div>
 
+</div>
 
 #### USB-A (J4)
 
@@ -456,6 +466,7 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 |     4      |    N/A     |    GND    |           GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |           |
 
 <caption>Table 11: USB-A (J4) pinout</caption>
+
 </div>
 
 
@@ -481,6 +492,7 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 |     14     |      N/A       |           |         ETH_LED1         |                                J1-17                                 |           |
 
 <caption>Table 12: Ethernet (J8) pinout</caption>
+
 </div>
 
 
@@ -502,6 +514,7 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 |    CD2     |    N/A     |    GND     |           GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |           |
 
 <caption>Table 13: MicroSD Card Slot (J7) pinout</caption>
+
 </div>
 
 
@@ -536,6 +549,7 @@ An overview of the Portenta Hat Carrier topology is illustrated in Figure 5.
 ![Figure 5. Portenta Hat Carrier topology](assets/portentaHatCarrier_topology.png)
 
 <div style="text-align:center;">
+
 <table>
     <thead>
         <tr>
@@ -597,6 +611,7 @@ An overview of the Portenta Hat Carrier topology is illustrated in Figure 5.
 </table>
 
 <caption>Table 14: Product Topology Description</caption>
+
 </div>
 
 #### High-Density Connectors (J1-J2)
@@ -670,7 +685,9 @@ The onboard microSD card slot can be used for:
 
 ![Figure 11. RJ45 connector of the Portenta Hat Carrier](assets/portentaHatCarrier_rj45Connector.png)
 
-<div style="text-align: justify;">Depending of the Portenta family board attached to the Portenta Hat Carrier, the DIP switch (SW2) must be in a specific position to ensure the correct functioning of the ethernet interface:
+<div style="text-align: justify;">
+
+Depending of the Portenta family board attached to the Portenta Hat Carrier, the DIP switch (SW2) must be in a specific position to ensure the correct functioning of the ethernet interface:
 
 - For the Portenta X8, be sure that the ETH CENTER TAP on the DIP switch (SW2) is on the default position OFF.
 - For the Portenta X7 or Portenta C33, set the ETH CENTER TAP on the DIP switch (SW2) to ON.
