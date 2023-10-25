@@ -12,7 +12,8 @@ A good way of adding complexity of features to your projects without adding comp
 This section provides an overview of the topics covered in the article.
 
 - [What Is I2C?](#what-is-i2c)
-- [Qwiic & STEMMA QT](#qwiic--stemma-qt)
+- [Arduino I2C Pins](#arduino-i2c-pins)
+- [I2C Wiring](#i2c-wiring)
 - [Wire Library](#wire-library)
 - [Examples](#examples)
 
@@ -113,9 +114,9 @@ To see the full API for the Wire library, visit its [documentation page](https:/
 - `getWireTimeoutFlag()` - Checks whether a timeout has occurred since the last time the flag was cleared.
 
 ### Derived libraries
-When you buy basically any breakout module that makes use of the I2C protocol, they will come with some library that helps you use the sensor. This library is more often than not built on top of the Wire library, and uses it under the hood, with added functionality in order to make, for example, reading temperature easier. 
+When you buy basically any breakout module that makes use of the I2C protocol, they will come with some library that helps you use the sensor. This library is more often than not built on top of the Wire library, and uses it under the hood. Adding functionality in order to make, for example, reading temperature easier. 
 
-An example of this is if you want to use Afafruits MCP9808 sensor module, you download the Adafruit_MCP9808 Library from the IDEs library manager, which enables you to use functions such as `tempsensor.readTempC()` in order to request from the right address, and read the information with just a single line instead of writing the Wire code yourself. 
+An example of this is if you want to use Adafruits MCP9808 sensor module, you download the Adafruit_MCP9808 Library from the IDEs library manager, which enables you to use functions such as `tempsensor.readTempC()` in order to read the sensors temperature data by requesting from the right address, and read the information returned with just a single line instead of writing the Wire code yourself. 
 
 To learn how to install libraries, check out our [guide to installing libraries](/software/ide-v2/tutorials/ide-v2-installing-a-library).
 
