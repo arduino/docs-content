@@ -3002,7 +3002,7 @@ The Portenta Hat Carrier supports SPI communication via two dedicated ports name
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
-#### Using Arduino IDE
+#### Using Linux
 <br></br>
 
 For Portenta X8, it is possible to use following commands:
