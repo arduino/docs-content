@@ -394,7 +394,6 @@ The MKR-styled connectors pinout is shown in Figure 1.
 
 The High-Density connectors pinout is shown in Figure 2.
 
-<a name="pinout"></a>
 ![Figure 2. Portenta C33 pinout (High-Density connectors)](assets/Portenta_C33_Pinout_HDC.png)
 
 <div style="page-break-after: always;"></div>
@@ -426,7 +425,7 @@ Figure 4 shows the power options available on the Portenta C33 and illustrates t
 
 ### I2C Ports 
 
-<p style="text-align: justify;"> System integrators can use the Portenta C33's High-Density connectors to expand signals of the board to a custom-designed daughter board or carrier. Table 9 summarizes the I2C pins mapping on the board's High-Density connectors and shared peripherals/resources. Please refer to <a href="#pinout">Figure 2</a> for the board's High-Density connectors pinout.</p>
+<p style="text-align: justify;"> System integrators can use the Portenta C33's High-Density connectors to expand signals of the board to a custom-designed daughter board or carrier. Table 9 summarizes the I2C pins mapping on the board's High-Density connectors and shared peripherals/resources. Please refer to Figure 2 for the board's High-Density connectors pinout.</p>
 
 <div style="text-align:center;">
 <table>
