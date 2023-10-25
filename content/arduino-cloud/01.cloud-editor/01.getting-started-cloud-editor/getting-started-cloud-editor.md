@@ -1,48 +1,49 @@
 ---
-title: 'Web Editor'
+title: 'Cloud Editor'
 description: 'A step-by-step guide to set up your online development environment.'
 author: 'Karl Söderby'
 ---
 
-## Getting started with the Web Editor
 
-The Web Editor is a great choice for working with your Arduino board. It stores all of your sketches online, requires no installation of cores and includes most of the popular libraries.
+The Cloud Editor is a great choice for working with your Arduino board. It stores all of your sketches online, requires no installation of cores and includes most of the popular libraries.
 
 Getting started with the Web Editor is quick & easy, and in this tutorial, we will walk you through the necessary steps so you can use it with your Arduino board.
 
->**Note:** This tutorial works with **all** official Arduino boards.
+This tutorial works with **all** official Arduino boards.
 
-### Goals
+***Note: The cloud editor is previously known as the "Create Editor", or "Web Editor".***
+
+## Goals
 
 In this tutorial, we will achieve the following:
 
-- Creating an account (required to use the Web Editor).
+- Creating an account (required to use the Cloud Editor).
 - Download and install the [Create Plugin](https://create.arduino.cc/getting-started/plugin/welcome).
 - Make sure our board is recognized by the computer.
 - Upload a simple blink example.
 
-### Hardware & software needed
+## Hardware & Software Needed
 
 - [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Create Agent](https://create.arduino.cc/getting-started/plugin/welcome)
 - Arduino board
 - USB cable (different depending on the board you are using).
 
-### Setting up the Web Editor
+## Setting up the Cloud Editor
 
 We will now go through the necessary steps to get your Arduino board working with the Web Editor.
 
-#### Creating an account
+### Create an Account
 
 The first step is to create an account. This is done by navigating to login.arduino.cc/login. Here, you can either manually create an account, or login using for example Google.
 
 ![Log in to your Arduino account.](assets/WebEditorInstall_1.png)
 
-### Installing the plugin
+### Install a Plugin
 
 Once you have created and activated your account, we need to install the **Create Plugin.** This is done by navigating to the [Create Agent Installation page](https://create.arduino.cc/getting-started/plugin/welcome). Here, you simply need to click on **"Start"** to begin the installation.
 
-![Installing .](assets/WebEditorInstall_2.png)
+![Installing.](assets/WebEditorInstall_2.png)
 
 Follow the instructions at this page to complete the installation. You will need to download the Create Agent in this process, and install it locally on your machine.
 
@@ -60,7 +61,7 @@ Congratulations, you now have the necessary tools to start using the Web Editor.
 > 
 > **Linux:** `/home/<user>/ArduinoCreateAgent`
 
-### Uploading a simple example
+## Upload a Program
 
 Now, let's take a look at how the Web Editor works, by uploading a simple example to the board. First, we need to navigate to the Web Editor, by either [clicking this link](https://create.arduino.cc/editor) or clicking the menu at the top right corner, following the image below:
 

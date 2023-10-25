@@ -22,9 +22,9 @@ As long as your board maintains connection to the Arduino IoT Cloud, variables w
 
 ## Create and Configure Variables
 
-Creating and configuring variables are done inside a **Thing**, starting with the **"Add Variable"** button.
+Creating and configuring variables are done inside a **Thing**, starting with the **"Add Variable"** button. This will open a new window where you can do a number of configurations.
 
-![Click on "Add Variable"](assets/add-vars.png)
+![Click on "Add Variable"](assets/add-variables.png)
 
 ### Variable Configuration
 
@@ -44,21 +44,19 @@ Inside a variable configuration, we have several options:
   - **On Change:** variable synchronizes whenever value changes (threshold is `0` by default).
   - **Periodically:** variable synchronizes every `x` seconds. 
 
+
+
 ### Automatic Sketch Generation
 
-Whenever you add, change or remove a variable, a file called `thingProperties.h` is updated automatically. This is a configuration file that should always be included in your main sketch (it is generated automatically).
+Any variables you add will be automatically added to your [thingProperties]() file, which contains any configurations made inside your Thing.
 
-Since it is defined in `thingProperties.h`, you do not need to declare it in your `.ino` file. 
-
-Let's say we create an integer variable called `sensor_value`. To use this in a sketch, we simply use:
+Adding for example an integer variable called `test_value`, can now be used in your sketch without a need for defining the variable.
 
 ```arduino
-sensor_value = analogRead(A0);
+test_value = 1;
 ```
 
-We do not need to define the variable anywhere, as it has already been configured in `thingProperties.h`.
-
-***Note that if you change a variable, you will need to upload the code to your board for the effects to come in change.***
+***Read more about in the [Automatic Sketch Generation]() section.***
 
 ### Callback Functions
 
@@ -79,7 +77,7 @@ void onButtonSwitch(){
 }
 ```
 
-## Data Synchronization
+## Cloud Updates
 
 Data between a board and the cloud synchronizes whenever the `ArduinoCloud.update()` function is executed. This is automatically included in your sketch, inside the `void loop()`. 
 
@@ -109,17 +107,30 @@ void loop(){
 
 ***Note that a variable's sync between a board and the cloud is limited to two message per second (500ms)***
 
-### Sync Variables Between Things
+## Variable Synchronisation
 
-It is possible to sync one or many variables with each other, between Things. This is the easiest method available to connect two Arduino board devices, wirelessly.
+It is possible to sync (link) one or many variables across different Things, a feature that enables bi-directional communication between devices, without writing a single line of code!
 
-This is done in the configuration of a variable, in the **Sync With Other Things** option.
+To enable variable synchronisation, create a new variable, and click on the "Sync with other Things" option.
 
-***To learn how to use this feature, read the [Device to Device](https://docscontent-karlsoderbyvariablesarticle.gtsb.io/arduino-cloud/features/device-to-device) tutorial.***
+![](assets/variable-sync.png)
 
-## List of Variables
+Then select the variables you want to synchronize. They need to be of the same type (you can't link an integer to a boolean for example).
 
-Cloud variables are divided into three categories: **basic, specialized** and **complex** types. 
+![](assets/variable-sync-2.png)
+
+Whenever one variable updates, any variables added to the synchronisation will also update. In the graphic below we demonstrate how two Things could be set up:
+- `switch_1` is synced with `light_1`. This is a typical remote light switch.
+- `temperature` variables are **not linked**.
+- `fan_control` is synced with `fan_speed`. This could be a potentiometer that remotely controls the speed of a fan.
+
+![Variable synchronisation.](assets/example.png)
+
+***For more details on this feature, check out the [Device to Device](https://docs.arduino.cc/arduino-cloud/features/device-to-device) tutorial.***
+
+## Cloud Variable List
+
+Cloud variables are divided into three categories: **basic, specialized** and **complex** types. Below you will find all available variables that you can create.
 
 ### Basic Types
 

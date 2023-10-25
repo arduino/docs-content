@@ -31,6 +31,8 @@ After you login, you will discover all of your dashboards (if you have any), in 
 
 ![Dashboards in the Arduino IoT Remote app.](assets/remote-app-overview.png)
 
+## App Overview
+
 ## Access Phone Sensor Data
 
 To access phone sensor data, go to the **"Settings"** menu, located at the top left corner. Inside the settings, click on the **"Phone as Device"**. 

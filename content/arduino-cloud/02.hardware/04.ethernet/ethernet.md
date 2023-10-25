@@ -25,15 +25,13 @@ To configure Ethernet board, follow the steps below:
 
 **1.** Connect your board to your computer.
 
-![Connect board to computer.]()
-
 **2.** Go to [Arduino Cloud](), and navigate to the **"Devices"** section. Click on the **"Add Device"** button and then select the **"Arduino Board"**. After a while, your board will be visible, and you can click on the **"Configure"** button.
 
-![Board show up.]()
+![Board show up.](assets/eth.png)
 
 **3.** If you selected an Ethernet compatible board, you will receive an option to choose from **Wi-Fi® / Ethernet**. Choose Ethernet.
 
-![Choose the Ethernet option.](assets/ethernet.png)
+![Choose the Ethernet option.](assets/ethernet-option.png)
 
 **4.** Allow some time for the configuration, as a sketch is being uploaded to your board as well as a configuration of your crypto chip is ongoing. 
 

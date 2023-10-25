@@ -55,6 +55,8 @@ Variables of the same type can also be synchronised across all devices. This is 
 
 In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials for e.g. LoRaWAN® & cellular. The network details are securely stored.
 
+![Network configuration.]()
+
 The credentials entered are automatically included in your sketch (see automatic sketch generation just below). 
 
 ## Automatic Sketch Generation

@@ -1,26 +1,50 @@
 ---
-title: 'IoT Cloud Dashboards & Widgets'
+title: 'Dashboards & Widgets'
 description: 'Learn about dashboards and the different widgets that can be used to monitor & control your board.'
 tags: [IoT Cloud, Widgets, Dashboards]
 author: 'Karl Söderby'
 difficulty: beginner
 ---
 
-## Overview
+Dashboards in the [Arduino Cloud](https://cloud.arduino.cc/home/) are used to easily monitor & control your Arduino boards from a web interface. Dashboards are not linked to one specific Thing or device, you can control all of them through one single dashboard.
 
-Dashboards in the [Arduino Cloud](https://cloud.arduino.cc/home/) are used to easily monitor & control your Arduino board from a web interface. In this article, we will take a look at what a dashboard is, what widgets are, and learn how they interface with an Arduino board.
+Dashboards are composed of [widgets](), which are directly linked to a variable. Whenever that variable updates, so does the widget.
 
-### What is a Dashboard?
+## Dashboards
 
-![Widgets in a dashboard.](assets/cloud-widgets.png)
+![Widgets in a dashboard.](assets/dashboard.png)
 
 A dashboard consist of one or several **widgets** that are linked with your cloud variables. You can for example, set up a switch to turn on/off a light, a gauge that displays temperature, or a chart that shows data over time. 
 
 Dashboards are not tied to one Thing, or one device, and it can be used to control and monitor several devices simultaneously. For example, you can have 10 devices monitoring temperature in different parts of the world, and the data displayed in one single dashboard. 
 
-***Deleting dashboards / widgets does not impact the functionality of your Thing & device. This means that you can safely edit your dashboards & widgets while your device is streaming data.*** 
+***Deleting dashboards / widgets does not impact the functionality of your Thing & device. This means that you can safely edit your dashboards & widgets while your device is streaming data. It does however remove the historical data of that Widget.*** 
 
-### What is a Widget?
+### IoT Remote App
+
+The [IoT Remote App]() is a mobile version of your dashboards, that can be downloaded through:
+- [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US)
+- [Apple App store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)
+
+***For more information, visit the [IoT Remote App docs]().***
+
+### Edit / View Modes
+
+Dashboards have two modes, **edit** and **view**. When configuring the dashboard, you will be using the edit mode.
+
+While in edit mode, you can create widgets, link them to variables, and move widgets around and lock them in place. Widgets can be be scaled and customized to your liking. A switch widget can for example be adjusted from a 1x1 to 5x5 size. 
+
+![Scaling widgets.](assets/)
+
+In both modes, you can also click  the **Mobile Layout** icon, to see how the widgets will be viewed on your [IoT Remote App]()
+
+### Sharing Dashboards
+
+It is possible to share your live dashboards with other people. To do so, please refer to the guide in the link below:
+
+- [Sharing Dashboards in the Arduino IoT Cloud](/cloud/iot-cloud/tutorials/sharing-dashboards)
+
+## Widgets
 
 Widgets are the building blocks of your dashboard, and can be used to either visualize data or to interact with your board. Widgets are linked to a single cloud variable, and as that variable updates, the widget will as well.
 
@@ -32,18 +56,16 @@ There are many different widgets available that fits different types of uses, su
 
 Full list of widgets and how to use them are available in the [List of Widgets](#list-of-widgets) .
 
-### Downloading Historical Data
+### Link Widgets & Variables
+
+
+
+### Download Historical Data
 
 Data that is streamed to a widget is also available for download. The data retention rate depends on your Arduino Cloud plan. For example, an **entry plan** has a data retention of 15 days. You can download it as an `.csv` file that can easily be used with Excel, Google Sheets etc. 
 
 ***Learn more about downloading data in the [Historical Data on the Arduino IoT Cloud](/arduino-cloud/features/iot-cloud-historical-data) tutorial.***
 
-
-### Sharing Dashboards
-
-It is possible to share your live dashboards with external people. To do so, please refer to the guide in the link below:
-
-- [Sharing Dashboards in the Arduino IoT Cloud](/cloud/iot-cloud/tutorials/sharing-dashboards)
 
 ## List of Widgets
 

@@ -24,7 +24,7 @@ Configuring a device in the Arduino Cloud is done through a wizard. There are th
 
 These options are visible when you create a new device:
 
-![Device options.]()
+![Device options.](assets/device-type.png)
 
 Depending on what type of device you choose, the installation wizard will differ, as different connection methods to the Arduino Cloud are used.
 
