@@ -519,7 +519,7 @@ This abstraction makes it easier to manipulate the GPIO without having to rewrit
 
 The decision to containerize the Python® script using Docker ensures that it runs in a consistent environment and is isolated from other processes. Docker provides a mechanism to create containerized applications that can be executed reliably across various platforms.
 
-```python
+```bash
 # dockerfile
 
 # Use an official Python runtime as the base image
