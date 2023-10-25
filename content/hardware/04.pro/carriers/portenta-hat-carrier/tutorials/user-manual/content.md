@@ -556,7 +556,7 @@ pyserial==3.4
 
 Within the dockerfile, a working directory, `/app`, is defined inside the container. The Python® script is copied into this directory and granted execution permissions, ensuring that it can run without issues. The concluding action sets the default command for the Docker container to initiate the Python® script when the container starts.
 
-```python
+```bash
 # docker-compose.yaml
 
 version: '3.6'
