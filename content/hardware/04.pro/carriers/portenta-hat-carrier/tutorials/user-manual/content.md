@@ -772,15 +772,17 @@ As an example, following command on Portenta X8's shell can be used to test writ
 dd if=/dev/urandom of=random.bin bs=1M count=128
 ```
 
-This command will create a `random.bin` file filled with 128 Megabytes of random data. It reads data from the system's pseudo-random number generator `/dev/urandom` and writes it to the file in chunks of 1 Megabyte.
+This command will create a _random.bin_ file filled with 128 Megabytes of random data. It reads data from the system's pseudo-random number generator `/dev/urandom` and writes it to the file in chunks of 1 Megabyte.
 
-To read the random.bin file with random data, you can use the following command:
+To read the _random.bin_ file with random data, you can use the following command:
 
 ```bash
 dd if=random.bin bs=1M count=128 | hexdump -C
 ```
 
-This will read the previously generated `random.bin` file and displays its content in a hexadecimal format on the console. Data is read in chunks of 1 Megabyte up to 128 Megabytes and then processed for display using `hexdump`.
+This will read the previously generated _random.bin_ file and displays its content in a hexadecimal format on the console. Data is read in chunks of 1 Megabyte up to 128 Megabytes and then processed for display using `hexdump`.
+
+***Reading the entire _random.bin_ file with the `hexdump` command will produce a large output on the console. Use with caution.***
 
 #### Using Arduino IDE
 <br></br>
@@ -828,7 +830,7 @@ void setup() {
   Serial.println("*** USB HOST Mass Storage Device example ***");
   Serial.println();
   
-  /* attache the callback so that when the device is inserted the device_attached_callback
+  /* attached the callback so that when the device is inserted the device_attached_callback
      will be automatically called */
   block_device.attach_detected_callback(device_attached_callback);
   /* list to store all directory in the root */
@@ -1615,20 +1617,6 @@ void loop() {
 For Portenta C33, consider the following script for testing mounted SD card.
 
 ```arduino
-/*
-  Portenta H33 - TestSDCARD with Fat FS
-
-  The sketch shows how to mount an SDCARD and list its content.
-
-  The circuit:
-   - Portenta H33 + Portenta Breakout 
-
-  created January 31th, 2023
-  by Daniele Aimo
-
-  This example code is in the public domain.
-*/
-
 #include <vector>
 #include <string>
 #include "SDCardBlockDevice.h"
@@ -2150,22 +2138,6 @@ The client runs on the main thread. Using `server_thread.join()`, the main scrip
 Below is a 'WebClient' example that can be used to test Ethernet connectivity with Portenta H7.
 
 ```arduino
-/*
-  Web client
-
- This sketch connects to a website (http://www.google.com)
- using an Arduino Wiznet Ethernet shield.
-
- Circuit:
- * Ethernet shield attached to pins 10, 11, 12, 13
-
- created 18 Dec 2009
- by David A. Mellis
- modified 9 Apr 2012
- by Tom Igoe, based on work by Adrian McEwen
-
- */
-
 #include <PortentaEthernet.h>
 #include <Ethernet.h>
 #include <SPI.h>
@@ -2288,21 +2260,6 @@ void loop()
 Following `Web Client` example can be considered for Portenta C33:
 
 ```
-/*
-  Web client
-
- This sketch connects to a website (http://www.google.com)
-
- created 18 Dec 2009
- by David A. Mellis
- modified 9 Apr 2012
- by Tom Igoe, based on work by Adrian McEwen
- modified 23 Jun 2017
- by Wi6Labs
- modified 1 Jun 2018
- by sstaub
- */
-
 #include <EthernetC33.h>
 
 // if you don't want to use DNS (and reduce your sketch size)
@@ -2476,7 +2433,7 @@ with open('example_script.py', 'r') as file:
 ...     exec(file.read())
 ```
 
-If you prefere traditional methods of execution, following command can be used:
+If you prefer traditional methods of execution, following command can be used:
 
 ```bash
 python3 example_script.py
@@ -2685,14 +2642,6 @@ Once the hardware setup is ready, use the script below to perform a test run of 
 
 import os
 
-enable_pin = 12
-step_pin = 23
-dir_pin = 24
-mode_pins = (14, 15, 18)
-
-step_type = '1/32'
-fullstep_delay = .005
-
 if os.environ['CARRIER_NAME'] != "rasptenta":
     print("This script requires Portenta HAT carrier")
     exit(1)
@@ -2705,6 +2654,17 @@ motor.enable(True)        # enables stepper driver
 motor.run(6400, True)     # run motor 6400 steps clowckwise
 motor.run(6400, False)    # run motor 6400 steps counterclockwise
 motor.enable(False)       # disable stepper driver
+```
+
+The parameters for the stepper motor must be defined. Consider the following parameters as an example:
+
+```
+enable_pin = 12
+step_pin = 23
+dir_pin = 24
+mode_pins = (14, 15, 18)
+step_type = '1/32'
+fullstep_delay = .005
 ```
 
 For a comprehensive understanding, and perhaps to delve into advanced configurations, [Waveshare's Stepper Motor HAT (B) Wiki](https://www.waveshare.com/wiki/Stepper_Motor_HAT_(B)) is an excellent resource. It provides extensive insights and details about the drv8825 HAT.
@@ -2840,6 +2800,12 @@ This script will help you verify following considerations:
 By employing this script, not only do you gain a deeper insight into the state of your GPIOs, but you also save valuable time and reduce the margin for error.
 
 Whether you are debugging, prototyping, or setting up a new project, this script is an invaluable tool for all Portenta Hat Carrier users.
+
+You can also retrieve information about the available GPIOs on the Portenta X8's shell using the following command:
+
+```bash
+cat /sys/kernel/debug/gpio
+```
 
 #### Using Arduino IDE
 <br></br>
@@ -3371,6 +3337,68 @@ The necessary modules for CAN (Controller Area Network) support on the Portenta 
 echo "can-dev" | sudo tee > /etc/modules-load.d/can-dev.conf
 sudo systemctl reboot
 ```
+
+Within the Portenta X8's shell, Docker containers offer a streamlined environment for specific tasks, such as command-based CAN bus operations. The _cansend_ command is one such utility that facilitates sending CAN frames. The command to issue such task is as followss:
+
+```bash
+cansend
+```
+
+And as an example, if you need to send a specific CAN frame, the _cansend_ command can be used in the following format:
+
+```bash
+cansend can0 123#DEADBEEF
+```
+
+To use the `cansend` command, it is crucial to set up the appropriate environment. First, clone the following container repository
+
+```bash
+git clone https://github.com/pika-spark/pika-spark-containers
+```
+
+Navigate to the _can-utils-sh_ directory:
+
+```bash
+cd pika-spark-containers/can-utils-sh
+```
+
+Build the Docker container:
+
+```bash
+./docker-build.sh
+```
+
+Run the Docker container with the desired CAN interface and bitrate:
+
+```bash
+sudo ./docker-run.sh can0 | can1 [bitrate]
+```
+
+Moreover, if your goal is to monitor and dump all received CAN frames, a slightly different procedure is to be followed. Having the container repository ready with its components, navigate to the _candump_ directory:
+
+```bash
+cd pika-spark-containers/candump
+```
+
+Build the Docker container:
+
+```bash
+./docker-build.sh
+```
+
+Run the Docker container with the desired CAN interface and bitrate:
+
+```bash
+sudo ./docker-run.sh can0 | can1 [bitrate]
+```
+
+As an example, the command can be structured as follows:
+
+```bash
+sudo ./docker-run.sh can0 250000
+```
+
+For more information regarding this container utility, please check about [_can-utils-sh_](https://github.com/pika-spark/pika-spark-containers/tree/main/can-utils-sh) and [_candump_](https://github.com/pika-spark/pika-spark-containers/tree/main/can-utils-sh).
 
 The list provided offers a quick reference for various `bustype` parameters supported by _python-can_ library.
 
