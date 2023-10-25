@@ -35,7 +35,7 @@ This manual will show the user how to proficiently operate the Portenta Hat Carr
 
 ### Hardware Requirements
 
-To use the [Portenta Hat Carrier](https://store.arduino.cc/portenta-hat-carrier), it is necessary to attach one of the boards from the Portenta Family:
+To use the [Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat-carrier), it is necessary to attach one of the boards from the Portenta Family:
 
 * [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
 * [Arduino Portenta C33](https://store.arduino.cc/products/portenta-c33)
