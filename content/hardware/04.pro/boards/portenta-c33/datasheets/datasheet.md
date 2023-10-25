@@ -466,11 +466,7 @@ Figure 4 shows the power options available on the Portenta C33 and illustrates t
 <caption>Table 9: I2C pins mapping of the Portenta C33</caption>
 </div>
 
-<p style="text-align: justify;"><sup>1</sup>Status column indicates the current status of the pins. "Free" means the pins are not in use by another resource or peripheral of the board and are available for usage, while "Shared" means the pins are used by one or several resources or peripherals of the board.
-
-<div style="border: 1px solid #ff6666; background-color: #ffe6e6; padding: 10px; margin: 10px;">
-    <strong>ADVERTENCIA:</strong> All I2C ports of the Portenta C33 can be used without restrictions as they are not shared with any other board peripheral.
-</div>
+<p style="text-align: justify;"><sup>1</sup>Status column indicates the current status of the pins. "Free" means the pins are not in use by another resource or peripheral of the board and are available for usage, while "Shared" means the pins are used by one or several resources or peripherals of the board.</p>
 
 ## Device Operation
 
