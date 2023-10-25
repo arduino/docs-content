@@ -2933,7 +2933,7 @@ if __name__ == "__main__":
 #### Using Arduino IDE
 <br></br>
 
-The [`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)] included into the Arduino programming language can be used to access the 7 PWM pins.
+The [`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)] included into the Arduino programming language can be used to access the PWM pins.
 
 The example code shown below grabs a pin compatible with PWM functionality to control the brightness of an LED connected to it:
 
