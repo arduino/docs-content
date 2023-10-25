@@ -343,7 +343,7 @@ Previously, we manually toggled the LED linked to _GPIO3_ on the Portenta X8 via
 
 The script below is compatible with the ADB shell on the Portenta X8:
 
-```
+```python
 #!/usr/bin/env python3
 import time
 
@@ -519,7 +519,7 @@ This abstraction makes it easier to manipulate the GPIO without having to rewrit
 
 The decision to containerize the Python® script using Docker ensures that it runs in a consistent environment and is isolated from other processes. Docker provides a mechanism to create containerized applications that can be executed reliably across various platforms.
 
-```
+```bash
 # dockerfile
 
 # Use an official Python runtime as the base image
@@ -556,7 +556,7 @@ pyserial==3.4
 
 Within the dockerfile, a working directory, `/app`, is defined inside the container. The Python® script is copied into this directory and granted execution permissions, ensuring that it can run without issues. The concluding action sets the default command for the Docker container to initiate the Python® script when the container starts.
 
-```
+```bash
 # docker-compose.yaml
 
 version: '3.6'
@@ -1122,7 +1122,7 @@ cat /sys/bus/iio/devices/iio\:device0/in_voltage<adc_pin>_raw
 
 If you are working in Python®, the command can be implemented as shown in the script below:
 
-```
+```python
 def read_adc_value(adc_pin):
   try:
     with open(f'/sys/bus/iio/devices/iio:device0/in_voltage{adc_pin}_raw', 'r') as file:
@@ -1169,7 +1169,7 @@ void loop() {
 
 Following example can be considered for Portenta C33:
 
-```
+```arduino
 #include "analogWave.h" // Include the library for analog waveform generation
 
 analogWave wave(DAC);   // Create an instance of the analogWave class, using the DAC pin
@@ -1356,7 +1356,7 @@ cat /sys/devices/virtual/thermal/thermal_zone0/temp
 
 It can be translated into a Python® script to automate the command sequence:
 
-```
+```python
 def setup_pwm(pwm_chip, pwm_channel, period, duty_cycle):
   base_path = f"/sys/class/pwm/pwmchip{pwm_chip}"
 
@@ -1416,7 +1416,7 @@ echo | sudo tee /sys/class/pwm/pwmchip0/pwm9/enable
 
 Consider the following Python® script if you would like to automate the command sequence:
 
-```
+```python
 import subprocess
 
 def setup_pwm(pwm_chip, pwm_channel, period, duty_cycle):
@@ -2029,7 +2029,7 @@ If you desire to use Portenta X8 paired to Portenta Hat Carrier, please consider
 
 Below script would be used for __Server side (TCP/IP)__ operations:
 
-```
+```python
 #!/usr/bin/env python3
 
 import socket
@@ -2059,7 +2059,7 @@ The Server side script is set to wait for incoming connections on `127.0.0.1` (l
 
 The script below will be used for __Client side (TCP/IP)__ operations:
 
-```
+```python
 #!/usr/bin/env python3
 
 import socket
@@ -2083,7 +2083,7 @@ The Client side script connects to the server specified by the `HOST` and `PORT`
 
 If you would like to have a single script running both instances, the following script can perform the task using Python®'s built-in `threading` component.
 
-```
+```python
 import socket
 import threading
 
@@ -2259,7 +2259,7 @@ void loop()
 
 Following `Web Client` example can be considered for Portenta C33:
 
-```
+```arduino
 #include <EthernetC33.h>
 
 // if you don't want to use DNS (and reduce your sketch size)
@@ -2461,7 +2461,7 @@ Next conditions will help you properly set the hardware to test GPIO controls:
 
 When all conditions are set and in place, use the following script to read all available GPIOs on 40-Pin header:
 
-```
+```python
 #!/usr/bin/env python3
 
 # created 12 October 2023
@@ -2538,7 +2538,7 @@ This example uses a designated GPIO pin to set the user-programmable LED on the 
 
 Alternatively, the following example controls the user-programmable LED on the Portenta Hat Carrier based on potentiometer input:
 
-```
+```arduino
 const int potPin = A0;         // the number of the potentiometer pin (16-Pin header)
 const int ledPin = <PD_5/30>;  // User programmable LED GPIO3 corresponding to paired Portenta board
 
@@ -2591,7 +2591,7 @@ The following Python® script is designed to control the brightness of a device,
 
 The script sets up the PWM channel, defines its period, and then, within a loop, modulates the brightness by adjusting the duty cycle. Consider the script below as an example:
 
-```
+```python
 #!/usr/bin/env python3
 
 import time
@@ -2634,7 +2634,7 @@ if __name__ == "__main__":
 #### Using Arduino IDE
 <br></br>
 
-The [`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)] included into the Arduino programming language can be used to access the PWM pins.
+The [`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite) included into the Arduino programming language can be used to access the PWM pins.
 
 The example code shown below grabs a pin compatible with PWM functionality to control the brightness of an LED connected to it:
 
@@ -2759,7 +2759,7 @@ The continuing script offers an interface for interaction with the Seeed Studio 
 
 It can interact with up to four relay ports on the board. Among its various features, it can turn a specific relay on or off, toggle all relays simultaneously, toggle a particular relay's state, and retrieve the status of any relay. Furthermore, it has built-in error handling to ensure that a valid integer relay number is specified.
 
-```
+```python
 from __future__ import print_function
 
 import smbus
@@ -2878,7 +2878,7 @@ Next script showcases the utility of the relay board functions. At the onset, it
 
 Subsequently, it sequentially powers each relay on and off, with a one-second intermission in between. In the event of a keyboard interrupt, the script terminates and ensures all the relays are switched off.
 
-```
+```python
 #!/usr/bin/python
 
 from __future__ import print_function
@@ -2942,7 +2942,7 @@ To use the drv8825 HAT with Portenta Hat Carrier and Portenta X8, please follow 
 
 Once the hardware setup is ready, use the script below to perform a test run of the connected stepper motor:
 
-```
+```python
 #!/usr/bin/env python3
 
 # created 12 October 2023
@@ -3001,18 +3001,18 @@ Please, refer to the [board pinout section](#pinout) of the user manual to find 
 
 For Portenta X8, it is possible to use following commands:
 
-```arduino
+```
 sudo modprobe spidev
 ```
 
 Present sequence of commands is used to enable the SPI device interface on the Portenta X8. After adding the `spidev` module to the system's configuration, the system is rebooted to apply the changes.
 
-```arduino
+```
 echo "spidev" | sudo tee > /etc/modules-load.d/spidev.conf
 sudo systemctl reboot
 ```
 
-```arduino
+```
 services:
     my_spi_service:
        devices:
@@ -3129,20 +3129,20 @@ Please, refer to the [pinout section](#pinout) of the user manual to find them o
 
 For Portenta X8, it is possible to use following commands:
 
-```arduino
+```
 sudo modprobe i2c-dev
 ```
 
 Present sequence of commands is used to enable the I2C device interface on the Portenta X8. After adding the `i2c-dev` module to the system's configuration, the system is rebooted to apply the changes.
 
-```arduino
+```
 echo "i2c-dev" | sudo tee > /etc/modules-load.d/i2c-dev.conf
 sudo systemctl reboot
 ```
 
 Following section configures a service named `my_i2c_service` to use the I2C device available at `/dev/i2c-3`.
 
-```arduino
+```
 services:
     my_i2c_service:
        devices:
@@ -3165,7 +3165,7 @@ Below are some brief examples to help you in using I2C with the Portenta X8 and 
 
 Here, the SMBus (System Management Bus) communication, with SMBus-compatible [libraries](https://github.com/kplindegaard/smbus2), is established with the device on `/dev/i2c-3`. A byte of data is read from the device at address 80 and offset 0, then printed.
 
-```arduino
+```python
 from smbus2 import SMBus
 
 # Connect to /dev/i2c-3
@@ -3176,7 +3176,7 @@ print(b)
 
 The following code initializes the I2C bus using the _smbus2 library_ and reads multiple bytes from the device. The `read_i2c_block_data` function reads a block of bytes from the I2C device at a given address.
 
-```
+```python
 from smbus2 import SMBus
 
 # Initialize the I2C bus
@@ -3196,7 +3196,7 @@ for byte in data:
 
 Next code shows how to write data to an I2C device using the _smbus2 library_. A byte of data (`value`) is written to a specific address (`device_address`) with a given instruction.
 
-```
+```python
 from smbus2 import SMBus
 
 # Initialize the I2C bus
@@ -3214,7 +3214,7 @@ In the following code, the [python-periphery](https://python-periphery.readthedo
 
 A byte is read from the EEPROM at address `0x50` and offset `0x100`, then printed.
 
-```arduino
+```python
 from periphery import I2C
 
 # Open i2c-0 controller
@@ -3321,13 +3321,13 @@ This command sequence activates the CAN transceiver. It does so by exporting _GP
 
 For Portenta X8, it is possible to use following commands:
 
-```arduino
+```
 sudo modprobe can-dev
 ```
 
 The necessary modules for CAN (Controller Area Network) support on the Portenta X8 are loaded. The `can-dev` module is added to the system configuration, after which the system is rebooted to apply the changes.
 
-```arduino
+```
 echo "can-dev" | sudo tee > /etc/modules-load.d/can-dev.conf
 sudo systemctl reboot
 ```
@@ -3412,7 +3412,7 @@ Each bustype corresponds to different CAN interfaces or devices, ranging from th
 
 In the following Python® script, `send_standard_can_message` and `send_extended_can_message` functions are defined to send standard and extended CAN messages respectively. The `main()` function creates a CAN bus instance with a 'virtual' bus type for demonstration purposes and sends standard and extended CAN messages in a loop.
 
-```
+```python
 import can
 import time
 
@@ -3448,7 +3448,7 @@ if __name__ == "__main__":
 
 Continuing Python® script defines functions to receive and print incoming CAN messages. The receive_can_messages function continuously listens for CAN messages and calls print_received_message to display the details of the received message, such as whether it is an extended message or a remote transmission request (RTR) and its data. 
 
-```
+```python
 import can
 
 def receive_can_messages(bus):
@@ -3493,13 +3493,12 @@ if __name__ == "__main__":
 The `main()` function initializes the CAN bus with a 'virtual' channel for example demonstration and starts the message listening process.
 
 #### Using Arduino IDE
-<br></br>
 
 For users working with the Portenta H7 or Portenta C33, following simple examples can be used to test the CAN bus protocol's capabilities.
 
 The _CAN Read_ example for Portenta H7/C33 starts CAN communication at a rate of _250 kbps_ and continuously listens for incoming messages, displaying such information upon receipt.
 
-```
+```arduino
 #include <Arduino_CAN.h>
 
 /**************************************************************************************
@@ -3530,7 +3529,7 @@ void loop()
 
 The _CAN Write_ example, also set at _250 kbps_, builds and sends a specific message format. This message includes a fixed preamble followed by an incrementing counter value that updates with each loop iteration.
 
-```
+```arduino
 /**************************************************************************************
  * INCLUDE
  **************************************************************************************/
@@ -3619,7 +3618,7 @@ The output _/dev/ttymxc1_ is an example of a potential serial device you might f
 
 Following Python® script uses the _pyserial_ library to communicate with devices over UART. It defines the `processData` function which prints the received data. You can modify this function based on your application's needs.
 
-```
+```python
 import serial
 import time
 
