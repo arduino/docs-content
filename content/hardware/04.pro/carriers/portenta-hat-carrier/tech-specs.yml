@@ -10,7 +10,7 @@ Camera:
   MIPI Connector: 1
   USB-A Connector: 1x (compatible with USB-Cameras)
 Communication Interfaces:
-  Ethernet: 1x 1Gbps (only with Portenta X8)
+  Ethernet: 1
   SPI: 1 
   I2S: 1
   I2C: 3
@@ -19,7 +19,7 @@ Communication Interfaces:
   USB: 1x USB-A 2.0/Hi-Speed
 User Interface:
   Button: 1x Flash/User-Programmable Push Button
-Storage: 
+Storage:
   MicroSD: 1x MicroSD card slot 
 Hardware debugging interface: JTAG/SWD
 Power:

@@ -1,7 +1,6 @@
 <FeatureDescription>
 
- The carrier grants easy access to an array of peripherals, from Raspberry Pi® Hats thanks to its Raspberry Pi® like 40-Pin header connector, to CAN, Ethernet, microSD, USB, camera, and analog input and output ports. Its design is further enhanced with dedicated pins for efficient debugging and PWM fan connector. 
- 
+ The carrier grants easy access to an array of peripherals, from Raspberry Pi® Hats thanks to its Raspberry Pi® like 40-Pin header connector, to CAN, Ethernet, microSD, USB, camera, and analog input and output ports. Its design is further enhanced with dedicated pins for efficient debugging and PWM fan connector.
 </FeatureDescription>
 
 
@@ -58,3 +57,5 @@
 </Feature>
 
 </FeatureList>
+
+

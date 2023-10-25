@@ -52,7 +52,7 @@ If you want to use the Portenta Hat Carrier with a Portenta X8, check the follow
 
 - Make sure you have the latest Linux image. Refer to [this section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#portenta-x8-os-image-update) to confirm that your Portenta X8 is up-to-date.
 
-***To ensure stable operation of the Portenta Hat Carrier with Portenta X8, the minimum Linux image version required for Portenta X8 is __746__. Download the latest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
+***To ensure stable operation of the Portenta Hat Carrier with Portenta X8, the minimum Linux image version required for Portenta X8 is __746__. To flash the latest image on your board, you can use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) or [flash it manually](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) downloading the latest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor) in case you want to use the auxiliary microcontroller of the Portenta X8 to run Arduino code.
 
@@ -2369,305 +2369,6 @@ For a comprehensive understanding of these connectivity options, kindly refer to
 - Portenta H7 connectivity: [Wi-Fi® access point](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point) and [BLE connectivity](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity)
 - Portenta C33 User Manual: [Wi-Fi®](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#wi-fi) and [Bluetooth®](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#bluetooth)
 
-## Raspberry Pi® HAT
-
-The Portenta Hat Carrier is notable for its compatibility with __Hardware Attached on Top (HAT)__ add-on boards.
-
-A __Hardware Attached on Top (HAT)__ is known as a standardized add-on module designed to be interfaced with compatible host systems. The HAT concept can be understood as a modular approach to hardware extension.
-
-Following certain design rules to specific mechanical and electronic design criteria, a HAT usually has a built-in memory chip (EEPROM). This allows the host system to automatically recognize and potentially configure itself corresponding to the attached module.
-
-The main objective of a HAT is to augment the functionalities of the host device, allowing for capabilities ranging from sensor integration and display enhancements to advanced audio processing and communication features.
-
-The standardized design of HATs ensures they are compatible and easy to use with various devices. This makes them suitable for both seasoned professionals and enthusiasts.
-
-![Portenta Hat Carrier with Audio Hat](assets/portentaHATcarrier_rasphat_audio.gif)
-
-These are the officially compatible list of HATs:
-
-- __Stepper Motor HAT__: it is a HAT that drives stepper motors, enabling precise control of rotation direction, angle, speed, and steps, suitable for projects like CNC, 3D printers, and robotics. It uses DRV8825 dual H-bridge motor driver.
-
-- __RPi Relay Board__: it is a HAT that eases the control of high-voltage devices, featuring three channels, and photo coupling isolation. It helps provide safe device switching for various applications.
-
-- __Audio HAT__: it is a HAT designed for high-quality audio playback and recording, equipped with both line-in and line-out stereo jacks, suitable for projects that require enhanced sound capabilities while maintaining a compact footprint.
-
-- __Automation HAT Pimoroni PIM213__: it is a HAT designed to monitor and control automation setups with its relay, analog channels, input channels, and power outputs, making it ideal for home automation and industrial applications.
-
-The example scripts are located within the Docker container. To access these scripts and test them with the Hat mounted, execute the following command:
-
-```bash
-docker exec -it x8-devel sh
-```
-
-Upon gaining access to the container, all relevant Portenta Hat Carrier scripts are conveniently located in the `root/examples/portenta-hat-carrier` directory. Alternatively, you also have the option to manually dockerize the scripts to run them within ADB shell of the Portenta X8.
-
-To use the example script, a series of commands can be used. These will help you define and export necessary modules before executing the desired example. To start, the Python® shell can be launched within the container using:
-
-```bash
-python3
-```
-
-To use modules like _smbus2_, the following sequence of commands will help you import such module:
-
-```bash
-import smbus2
-```
-
-To use a specific class or function from the module:
-
-```bash
-from smbus2 import SMBus
-```
-
-Setting variables is straightforward. Depending on your requirement, assign values in either HEX or DEC:
-
-```bash
-# Value can be in HEX or DEC
-variable_name = Value 
-```
-
-To run an example script within the Python® shell, consider using following command:
-
-```bash
-with open('example_script.py', 'r') as file:
-...     exec(file.read())
-```
-
-If you prefer traditional methods of execution, following command can be used:
-
-```bash
-python3 example_script.py
-```
-
-This last command for example is also applicable within ADB shell of the Portenta X8.
-
-The following sections will help you become familiar with the examples found within the `root/examples/portenta-hat-carrier` directory. This directory contains both the _RPi Relay Board_ and the _Stepper Motor HAT_. These examples are used within the __Linux__ environment.
-
-### RPi Relay Board
-
-The _RPi Relay Board_ is a dynamic board that consists of three channels: a high-level trigger and two low-level triggers. With the capability to manage up to 250V AC or 30V DC with a current rating of 2A, it operates using the I2C interface, renowned for its high-quality relays.
-
-The continuing script offers an interface for interaction with the Seeed Studio Raspberry Pi Relay Board. Authored by John M. Wargo, it is a refined version of the sample code available on the [Seeed Studio Wiki](http://wiki.seeed.cc/Raspberry_Pi_Relay_Board_v1.0/). The script uses the _smbus_ library to interface with the relay board and has a default I2C address set to `0x20`.
-
-It can interact with up to four relay ports on the board. Among its various features, it can turn a specific relay on or off, toggle all relays simultaneously, toggle a particular relay's state, and retrieve the status of any relay. Furthermore, it has built-in error handling to ensure that a valid integer relay number is specified.
-
-```
-from __future__ import print_function
-
-import smbus
-
-# The number of relay ports on the relay board.
-# This value should never change!
-NUM_RELAY_PORTS = 4
-
-# Change the following value if your Relay board uses a different I2C address. 
-DEVICE_ADDRESS = 0x20  # 7 bit address (will be left shifted to add the read write bit)
-
-# Don't change the values, there's no need for that.
-DEVICE_REG_MODE1 = 0x06
-DEVICE_REG_DATA = 0xff
-
-bus = smbus.SMBus(3)  # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
-
-
-def relay_on(relay_num):
-    global DEVICE_ADDRESS
-    global DEVICE_REG_DATA
-    global DEVICE_REG_MODE1
-
-    if isinstance(relay_num, int):
-        # do we have a valid relay number?
-        if 0 < relay_num <= NUM_RELAY_PORTS:
-            print('Turning relay', relay_num, 'ON')
-            DEVICE_REG_DATA &= ~(0x1 << (relay_num - 1))
-            bus.write_byte_data(DEVICE_ADDRESS, DEVICE_REG_MODE1, DEVICE_REG_DATA)
-        else:
-            print('Invalid relay #:', relay_num)
-    else:
-        print('Relay number must be an Integer value')
-
-
-def relay_off(relay_num):
-    global DEVICE_ADDRESS
-    global DEVICE_REG_DATA
-    global DEVICE_REG_MODE1
-
-    if isinstance(relay_num, int):
-        # do we have a valid relay number?
-        if 0 < relay_num <= NUM_RELAY_PORTS:
-            print('Turning relay', relay_num, 'OFF')
-            DEVICE_REG_DATA |= (0x1 << (relay_num - 1))
-            bus.write_byte_data(DEVICE_ADDRESS, DEVICE_REG_MODE1, DEVICE_REG_DATA)
-        else:
-            print('Invalid relay #:', relay_num)
-    else:
-        print('Relay number must be an Integer value')
-
-
-def relay_all_on():
-    global DEVICE_ADDRESS
-    global DEVICE_REG_DATA
-    global DEVICE_REG_MODE1
-
-    print('Turning all relays ON')
-    DEVICE_REG_DATA &= ~(0xf << 0)
-    bus.write_byte_data(DEVICE_ADDRESS, DEVICE_REG_MODE1, DEVICE_REG_DATA)
-
-
-def relay_all_off():
-    global DEVICE_ADDRESS
-    global DEVICE_REG_DATA
-    global DEVICE_REG_MODE1
-
-    print('Turning all relays OFF')
-    DEVICE_REG_DATA |= (0xf << 0)
-    bus.write_byte_data(DEVICE_ADDRESS, DEVICE_REG_MODE1, DEVICE_REG_DATA)
-
-
-def relay_toggle_port(relay_num):
-    print('Toggling relay:', relay_num)
-    if relay_get_port_status(relay_num):
-        # it's on, so turn it off
-        relay_off(relay_num)
-    else:
-        # it's off, so turn it on
-        relay_on(relay_num)
-
-
-def relay_get_port_status(relay_num):
-    # determines whether the specified port is ON/OFF
-    global DEVICE_REG_DATA
-    print('Checking status of relay', relay_num)
-    res = relay_get_port_data(relay_num)
-    if res > 0:
-        mask = 1 << (relay_num - 1)
-        # return the specified bit status
-        # return (DEVICE_REG_DATA & mask) != 0
-        return (DEVICE_REG_DATA & mask) == 0
-    else:
-        # otherwise (invalid port), always return False
-        print("Specified relay port is invalid")
-        return False
-
-
-def relay_get_port_data(relay_num):
-    # gets the current byte value stored in the relay board
-    global DEVICE_REG_DATA
-    print('Reading relay status value for relay', relay_num)
-    # do we have a valid port?
-    if 0 < relay_num <= NUM_RELAY_PORTS:
-        # read the memory location
-        DEVICE_REG_DATA = bus.read_byte_data(DEVICE_ADDRESS, DEVICE_REG_MODE1)
-        # return the specified bit status
-        return DEVICE_REG_DATA
-    else:
-        # otherwise (invalid port), always return 0
-        print("Specified relay port is invalid")
-        return 0
-```
-
-Next script showcases the utility of the relay board functions. At the onset, it activates all the relays and then deactivates them, pausing for a second between these actions.
-
-Subsequently, it sequentially powers each relay on and off, with a one-second intermission in between. In the event of a keyboard interrupt, the script terminates and ensures all the relays are switched off.
-
-```
-#!/usr/bin/python
-
-from __future__ import print_function
-
-import sys
-import time
-
-from relay_lib_seeed import *
-
-
-def process_loop():
-    # turn all of the relays on
-    relay_all_on()
-    # wait a second
-    time.sleep(1)
-    # turn all of the relays off
-    relay_all_off()
-    # wait a second
-    time.sleep(1)
-
-    # now cycle each relay every second in an infinite loop
-    while True:
-        for i in range(1, 5):
-            relay_on(i)
-            time.sleep(1)
-            relay_off(i)
-
-
-# Now see what we're supposed to do next
-if __name__ == "__main__":
-    try:
-        process_loop()
-    except KeyboardInterrupt:
-        # tell the user what we're doing...
-        print("\nExiting application")
-        # turn off all of the relays
-        relay_all_off()
-        # exit the application
-        sys.exit(0)
-```
-
-For implementation, this script draws functions from `relay_lib_seeed`, which was previously explained. Together, these scripts simplify the control of the RPi Relay Board.
-
-### Stepper Motor HAT
-
-Using the capabilities of the Portenta X8 alongside specific modules can increase its performance. One such module is the __drv8825 HAT__, designed specifically for driving stepper motors, especially when paired with the Portenta Hat Carrier.
-
-To use the drv8825 HAT with Portenta Hat Carrier and Portenta X8, please follow these steps:
-
-1. Place the Portenta X8 onto the Portenta Hat Carrier.
-
-2. Align and position the drv8825 HAT on the Portenta Hat Carrier. Make sure to align its 40-Pin header.
-
-3. Proceed by wiring the motor poles. This can be done using either the __A1-A2__, __B1-B2__ configurations or the alternative __A3-B3__, __A4-B4__ setups. Proper wiring is crucial for achieving the desired rotational motion in the motor.
-
-4. To ensure the system is powered on, connect an external power source using the __VIN-GND__ terminals. This powers both the Portenta X8 and the drv8825 HAT, securing stable electrical performance.
-
-5. One distinguishing feature of the drv8825 HAT is the provision for micro-stepping. This feature enhances the precision in motor operations.
-
-   Adjust the micro-stepping settings using the DIP switches present on the drv8825 HAT to achieve the desired level of granularity in motor steps.
-
-Once the hardware setup is ready, use the script below to perform a test run of the connected stepper motor:
-
-```
-#!/usr/bin/env python3
-
-# created 12 October 2023
-# by Riccardo Mereu & Massimo Pennazio
-
-import os
-
-if os.environ['CARRIER_NAME'] != "rasptenta":
-    print("This script requires Portenta HAT carrier")
-    exit(1)
-
-from rpi_python_drv8825.stepper import StepperMotor
-
-motor = StepperMotor(enable_pin, step_pin, dir_pin, mode_pins, step_type, fullstep_delay)
-
-motor.enable(True)        # enables stepper driver
-motor.run(6400, True)     # run motor 6400 steps clowckwise
-motor.run(6400, False)    # run motor 6400 steps counterclockwise
-motor.enable(False)       # disable stepper driver
-```
-
-The parameters for the stepper motor must be defined. Consider the following parameters as an example:
-
-```
-enable_pin = 12
-step_pin = 23
-dir_pin = 24
-mode_pins = (14, 15, 18)
-step_type = '1/32'
-fullstep_delay = .005
-```
-
-For a comprehensive understanding, and perhaps to delve into advanced configurations, [Waveshare's Stepper Motor HAT (B) Wiki](https://www.waveshare.com/wiki/Stepper_Motor_HAT_(B)) is an excellent resource. It provides extensive insights and details about the drv8825 HAT.
 
 ## Pins
 
@@ -2979,6 +2680,302 @@ The pins used for the JTAG debug port on the Portenta Hat Carrier are the follow
 |        8       |               |           JTAG_TDI           |                                 J1-78                                |    JTAG TDI   |
 |        9       |               |           JTAG_TRST          |                                 J1-80                                |   JTAG TRST   |
 |       10       |               |           JTAG_RST           |                                 J1-73                                |    JTAG RST   |
+
+## Raspberry Pi® HAT
+
+The Portenta Hat Carrier is notable for its compatibility with __Hardware Attached on Top (HAT)__ add-on boards.
+
+A __Hardware Attached on Top (HAT)__ is known as a standardized add-on module designed to be interfaced with compatible host systems. The HAT concept can be understood as a modular approach to hardware extension.
+
+Following certain design rules to specific mechanical and electronic design criteria, a HAT usually has a built-in memory chip (EEPROM). This allows the host system to automatically recognize and potentially configure itself corresponding to the attached module.
+
+The main objective of a HAT is to augment the functionalities of the host device, allowing for capabilities ranging from sensor integration and display enhancements to advanced audio processing and communication features.
+
+The standardized design of HATs ensures they are compatible and easy to use with various devices. This makes them suitable for both seasoned professionals and enthusiasts.
+
+![Portenta Hat Carrier with Audio Hat](assets/portentaHATcarrier_rasphat_audio.gif)
+
+These are the officially compatible list of HATs:
+
+- __Stepper Motor HAT__: it is a HAT that drives stepper motors, enabling precise control of rotation direction, angle, speed, and steps, suitable for projects like CNC, 3D printers, and robotics. It uses DRV8825 dual H-bridge motor driver.
+
+- __RPi Relay Board__: it is a HAT that eases the control of high-voltage devices, featuring three channels, and photo coupling isolation. It helps provide safe device switching for various applications.
+
+The example scripts are located within the Docker container. To access these scripts and test them with the Hat mounted, execute the following command:
+
+```bash
+docker exec -it x8-devel sh
+```
+
+Upon gaining access to the container, all relevant Portenta Hat Carrier scripts are conveniently located in the `root/examples/portenta-hat-carrier` directory. Alternatively, you also have the option to manually dockerize the scripts to run them within ADB shell of the Portenta X8.
+
+To use the example script, a series of commands can be used. These will help you define and export necessary modules before executing the desired example. To start, the Python® shell can be launched within the container using:
+
+```bash
+python3
+```
+
+To use modules like _smbus2_, the following sequence of commands will help you import such module:
+
+```bash
+import smbus2
+```
+
+To use a specific class or function from the module:
+
+```bash
+from smbus2 import SMBus
+```
+
+Setting variables is straightforward. Depending on your requirement, assign values in either HEX or DEC:
+
+```bash
+# Value can be in HEX or DEC
+variable_name = Value 
+```
+
+To run an example script within the Python® shell, consider using following command:
+
+```bash
+with open('example_script.py', 'r') as file:
+...     exec(file.read())
+```
+
+If you prefer traditional methods of execution, following command can be used:
+
+```bash
+python3 example_script.py
+```
+
+This last command for example is also applicable within ADB shell of the Portenta X8.
+
+The following sections will help you become familiar with the examples found within the `root/examples/portenta-hat-carrier` directory. This directory contains both the _RPi Relay Board_ and the _Stepper Motor HAT_. These examples are used within the __Linux__ environment.
+
+### RPi Relay Board
+
+The _RPi Relay Board_ is a dynamic board that consists of three channels: a high-level trigger and two low-level triggers. With the capability to manage up to 250V AC or 30V DC with a current rating of 2A, it operates using the I2C interface, renowned for its high-quality relays.
+
+The continuing script offers an interface for interaction with the Seeed Studio Raspberry Pi Relay Board. Authored by John M. Wargo, it is a refined version of the sample code available on the [Seeed Studio Wiki](http://wiki.seeed.cc/Raspberry_Pi_Relay_Board_v1.0/). The script uses the _smbus_ library to interface with the relay board and has a default I2C address set to `0x20`.
+
+It can interact with up to four relay ports on the board. Among its various features, it can turn a specific relay on or off, toggle all relays simultaneously, toggle a particular relay's state, and retrieve the status of any relay. Furthermore, it has built-in error handling to ensure that a valid integer relay number is specified.
+
+```
+from __future__ import print_function
+
+import smbus
+
+# The number of relay ports on the relay board.
+# This value should never change!
+NUM_RELAY_PORTS = 4
+
+# Change the following value if your Relay board uses a different I2C address. 
+DEVICE_ADDRESS = 0x20  # 7 bit address (will be left shifted to add the read write bit)
+
+# Don't change the values, there's no need for that.
+DEVICE_REG_MODE1 = 0x06
+DEVICE_REG_DATA = 0xff
+
+bus = smbus.SMBus(3)  # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
+
+
+def relay_on(relay_num):
+    global DEVICE_ADDRESS
+    global DEVICE_REG_DATA
+    global DEVICE_REG_MODE1
+
+    if isinstance(relay_num, int):
+        # do we have a valid relay number?
+        if 0 < relay_num <= NUM_RELAY_PORTS:
+            print('Turning relay', relay_num, 'ON')
+            DEVICE_REG_DATA &= ~(0x1 << (relay_num - 1))
+            bus.write_byte_data(DEVICE_ADDRESS, DEVICE_REG_MODE1, DEVICE_REG_DATA)
+        else:
+            print('Invalid relay #:', relay_num)
+    else:
+        print('Relay number must be an Integer value')
+
+
+def relay_off(relay_num):
+    global DEVICE_ADDRESS
+    global DEVICE_REG_DATA
+    global DEVICE_REG_MODE1
+
+    if isinstance(relay_num, int):
+        # do we have a valid relay number?
+        if 0 < relay_num <= NUM_RELAY_PORTS:
+            print('Turning relay', relay_num, 'OFF')
+            DEVICE_REG_DATA |= (0x1 << (relay_num - 1))
+            bus.write_byte_data(DEVICE_ADDRESS, DEVICE_REG_MODE1, DEVICE_REG_DATA)
+        else:
+            print('Invalid relay #:', relay_num)
+    else:
+        print('Relay number must be an Integer value')
+
+
+def relay_all_on():
+    global DEVICE_ADDRESS
+    global DEVICE_REG_DATA
+    global DEVICE_REG_MODE1
+
+    print('Turning all relays ON')
+    DEVICE_REG_DATA &= ~(0xf << 0)
+    bus.write_byte_data(DEVICE_ADDRESS, DEVICE_REG_MODE1, DEVICE_REG_DATA)
+
+
+def relay_all_off():
+    global DEVICE_ADDRESS
+    global DEVICE_REG_DATA
+    global DEVICE_REG_MODE1
+
+    print('Turning all relays OFF')
+    DEVICE_REG_DATA |= (0xf << 0)
+    bus.write_byte_data(DEVICE_ADDRESS, DEVICE_REG_MODE1, DEVICE_REG_DATA)
+
+
+def relay_toggle_port(relay_num):
+    print('Toggling relay:', relay_num)
+    if relay_get_port_status(relay_num):
+        # it's on, so turn it off
+        relay_off(relay_num)
+    else:
+        # it's off, so turn it on
+        relay_on(relay_num)
+
+
+def relay_get_port_status(relay_num):
+    # determines whether the specified port is ON/OFF
+    global DEVICE_REG_DATA
+    print('Checking status of relay', relay_num)
+    res = relay_get_port_data(relay_num)
+    if res > 0:
+        mask = 1 << (relay_num - 1)
+        # return the specified bit status
+        # return (DEVICE_REG_DATA & mask) != 0
+        return (DEVICE_REG_DATA & mask) == 0
+    else:
+        # otherwise (invalid port), always return False
+        print("Specified relay port is invalid")
+        return False
+
+
+def relay_get_port_data(relay_num):
+    # gets the current byte value stored in the relay board
+    global DEVICE_REG_DATA
+    print('Reading relay status value for relay', relay_num)
+    # do we have a valid port?
+    if 0 < relay_num <= NUM_RELAY_PORTS:
+        # read the memory location
+        DEVICE_REG_DATA = bus.read_byte_data(DEVICE_ADDRESS, DEVICE_REG_MODE1)
+        # return the specified bit status
+        return DEVICE_REG_DATA
+    else:
+        # otherwise (invalid port), always return 0
+        print("Specified relay port is invalid")
+        return 0
+```
+
+Next script showcases the utility of the relay board functions. At the onset, it activates all the relays and then deactivates them, pausing for a second between these actions.
+
+Subsequently, it sequentially powers each relay on and off, with a one-second intermission in between. In the event of a keyboard interrupt, the script terminates and ensures all the relays are switched off.
+
+```
+#!/usr/bin/python
+
+from __future__ import print_function
+
+import sys
+import time
+
+from relay_lib_seeed import *
+
+
+def process_loop():
+    # turn all of the relays on
+    relay_all_on()
+    # wait a second
+    time.sleep(1)
+    # turn all of the relays off
+    relay_all_off()
+    # wait a second
+    time.sleep(1)
+
+    # now cycle each relay every second in an infinite loop
+    while True:
+        for i in range(1, 5):
+            relay_on(i)
+            time.sleep(1)
+            relay_off(i)
+
+
+# Now see what we're supposed to do next
+if __name__ == "__main__":
+    try:
+        process_loop()
+    except KeyboardInterrupt:
+        # tell the user what we're doing...
+        print("\nExiting application")
+        # turn off all of the relays
+        relay_all_off()
+        # exit the application
+        sys.exit(0)
+```
+
+For implementation, this script draws functions from `relay_lib_seeed`, which was previously explained. Together, these scripts simplify the control of the RPi Relay Board.
+
+### Stepper Motor HAT
+
+Using the capabilities of the Portenta X8 alongside specific modules can increase its performance. One such module is the __drv8825 HAT__, designed specifically for driving stepper motors, especially when paired with the Portenta Hat Carrier.
+
+To use the drv8825 HAT with Portenta Hat Carrier and Portenta X8, please follow these steps:
+
+1. Place the Portenta X8 onto the Portenta Hat Carrier.
+
+2. Align and position the drv8825 HAT on the Portenta Hat Carrier. Make sure to align its 40-Pin header.
+
+3. Proceed by wiring the motor poles. This can be done using either the __A1-A2__, __B1-B2__ configurations or the alternative __A3-B3__, __A4-B4__ setups. Proper wiring is crucial for achieving the desired rotational motion in the motor.
+
+4. To ensure the system is powered on, connect an external power source using the __VIN-GND__ terminals. This powers both the Portenta X8 and the drv8825 HAT, securing stable electrical performance.
+
+5. One distinguishing feature of the drv8825 HAT is the provision for micro-stepping. This feature enhances the precision in motor operations.
+
+   Adjust the micro-stepping settings using the DIP switches present on the drv8825 HAT to achieve the desired level of granularity in motor steps.
+
+Once the hardware setup is ready, use the script below to perform a test run of the connected stepper motor:
+
+```
+#!/usr/bin/env python3
+
+# created 12 October 2023
+# by Riccardo Mereu & Massimo Pennazio
+
+import os
+
+if os.environ['CARRIER_NAME'] != "rasptenta":
+    print("This script requires Portenta HAT carrier")
+    exit(1)
+
+from rpi_python_drv8825.stepper import StepperMotor
+
+motor = StepperMotor(enable_pin, step_pin, dir_pin, mode_pins, step_type, fullstep_delay)
+
+motor.enable(True)        # enables stepper driver
+motor.run(6400, True)     # run motor 6400 steps clowckwise
+motor.run(6400, False)    # run motor 6400 steps counterclockwise
+motor.enable(False)       # disable stepper driver
+```
+
+The parameters for the stepper motor must be defined. Consider the following parameters as an example:
+
+```
+enable_pin = 12
+step_pin = 23
+dir_pin = 24
+mode_pins = (14, 15, 18)
+step_type = '1/32'
+fullstep_delay = .005
+```
+
+For a comprehensive understanding, and perhaps to delve into advanced configurations, [Waveshare's Stepper Motor HAT (B) Wiki](https://www.waveshare.com/wiki/Stepper_Motor_HAT_(B)) is an excellent resource. It provides extensive insights and details about the drv8825 HAT.
 
 ## Communication
 
