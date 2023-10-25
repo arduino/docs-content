@@ -426,7 +426,7 @@ Figure 4 shows the power options available on the Portenta C33 and illustrates t
 
 ### I2C Ports 
 
-<p style="text-align: justify;"> The Portenta C33's High-Density connectors can be used by system integrators to expand its signals to a custom-designed daughter board or carrier. Table 9 summarizes the I2C pins mapping on the board's High-Density connectors and shared peripherals/resources. Please, refer to <a href="#pinout">Figure 2</a> for the board's High-Density connectors pinout.</p>
+<p style="text-align: justify;"> System integrators can use the Portenta C33's High-Density connectors to expand signals of the board to a custom-designed daughter board or carrier. Table 9 summarizes the I2C pins mapping on the board's High-Density connectors and shared peripherals/resources. Please refer to <a href="#pinout">Figure 2</a> for the board's High-Density connectors pinout.</p>
 
 <div style="text-align:center;">
 <table>
