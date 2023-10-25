@@ -417,228 +417,7 @@ The file is uploaded to `/home/fio` directory. Navigate to the directory using A
 python3 hello_world_python.py
 ```
 
-Portenta Hat Carrier's user programmable LED will start blinking whenever the script is running. If you wish to upload to a containerized environment, as a Docker container, the following command can be used to do so:
-
-```bash
-docker cp hello_world_python.py mycontainer:/app/
-```
-
-Then the script can be used by accessing the container with the following command:
-
-```bash
-docker exec -it mycontainer sh
-```
-
-#### Hello World Using Linux and Docker
-<br></br>
-
-We can use the Python® script and create a Docker image as well for containerized applications.
-
-For you convenience, the example files can be downloaded [here](assets/hello_world_led.zip) and used as a template for containerizing further examples.
-
-The example script to use will be the following sketch:
-
-```python
-#!/usr/bin/env python3
-
-import serial
-import logging
-
-class GPIOController:
-    def __init__(self, gpio_number):
-        self.gpio_number = gpio_number
-        self.gpio_path = f"/sys/class/gpio/gpio{gpio_number}/"
-
-    def export(self):
-        with open("/sys/class/gpio/export", "w") as f:
-            f.write(str(self.gpio_number))
-
-    def unexport(self):
-        with open("/sys/class/gpio/unexport", "w") as f:
-            f.write(str(self.gpio_number))
-
-    def set_direction(self, direction):
-        with open(f"{self.gpio_path}direction", "w") as f:
-            f.write(direction)
-
-    def read_direction(self):
-        with open(f"{self.gpio_path}direction", "r") as f:
-            return f.read().strip()
-
-    def set_value(self, value):
-        with open(f"{self.gpio_path}value", "w") as f:
-            f.write(str(value))
-
-    def read_value(self):
-        with open(f"{self.gpio_path}value", "r") as f:
-            return int(f.read().strip())
-
-def main():
-
-    logging.info("============================================")
-    logging.info("Hello World PHC!")
-    logging.info("============================================")
-
-    ser = serial.Serial()
-    ser.baudrate = 19200
-    ser.port = '/dev/ttymxc3'
-    ser.bytesize = 8
-    ser.parity = 'N'
-    ser.stopbits = 2
-    ser.timeout = 1
-    logging.debug("Configured serial port with:\n\r%s" % str(ser))
-    logging.debug("Opening serial port")
-
-    gpio = GPIOController(163)
-
-    # Export GPIO
-    gpio.export()
-
-    # Set as output
-    gpio.set_direction("out")
-    if gpio.read_direction() == "out":
-        print("GPIO set as output.")
-
-    # Turn on (set to 1) and then off (set to 0)
-    while True:
-        gpio.set_value(1)
-        time.sleep(1)
-        gpio.set_value(0)
-        time.sleep(1)
-
-    # Unexport
-    # gpio.unexport()
-
-if __name__ == "__main__":
-    main()
-```
-
-The provided Python® script begins with the import of required modules. The `serial` library, in particular, will help us to communicate over serial ports. This script then defines a `GPIOController` class that packages the functionalities we executed manually in the shell commands.
-
-This abstraction makes it easier to manipulate the GPIO without having to rewrite shell commands for every operation. Functions like `export`, `unexport`, `set_direction`, and `set_value` are used to mirror the actions we took in our manual steps.
-
-The decision to containerize the Python® script using Docker ensures that it runs in a consistent environment and is isolated from other processes. Docker provides a mechanism to create containerized applications that can be executed reliably across various platforms.
-
-```bash
-# dockerfile
-
-# Use an official Python runtime as the base image
-FROM python:3.9-slim
-
-COPY requirements.txt ./
-
-RUN set -ex \
-    && pip3 --disable-pip-version-check --no-cache-dir install \
-        -r requirements.txt \
-    && rm ./requirements.txt
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the local code to the container
-COPY ./src/hello_world_led.py ./
-
-RUN chmod 755 -R .
-
-# Run the Python script
-CMD ["python", "./hello_world_led.py"]
-```
-
-The _dockerfile_ begins by selecting an official Python® runtime as the base image, which ensures Python® is set up and ready to run scripts. Following this, the _`requirements.txt`_ file, which lists the Python® libraries our script depends upon, is copied into the Docker image. The pip command is then used to install these dependencies.
-
-The script depends on external libraries for functionality, specifically the `pyserial` library for this instance, which aids in serial communication. This library is defined in the _`requirements.txt`_ file.
-
-You must manually create this text file and add the following line to it. In further applications, this file will contain any Python® library that is needed to support your script.
-
-```
-pyserial==3.4
-```
-
-Within the dockerfile, a working directory, `/app`, is defined inside the container. The Python® script is copied into this directory and granted execution permissions, ensuring that it can run without issues. The concluding action sets the default command for the Docker container to initiate the Python® script when the container starts.
-
-```bash
-# docker-compose.yaml
-
-version: '3.6'
-
-services:
-  hello_world_led:
-    image: hello_world_led:latest
-    container_name: 'hello_world_led'
-    restart: unless-stopped
-    environment:
-      - PYTHONUNBUFFERED=1
-    volumes:
-      - '/var/run/secrets:/app/config/'
-      - '/run/arduino_hw_info.env:/run/arduino_hw_info.env:ro'
-    extra_hosts:
-      - 'm4-proxy:host-gateway'
-    devices:
-      - '/dev/ttymxc3'
-    tty: true
-    user: "0"
-```
-
-This file tree diagram illustrates how the directory should be structured, containing both the Python® script and the associated Docker components:
-
-```
-└── hello_world_led
-    ├── src
-    │   ├── hello_world_led.py
-    ├── Docker-build.conf
-    ├── docker-compose.yaml
-    ├── dockerfile
-    └── requirements.txt
-```
-
-For the Portenta X8, you will need to upload the Python® script along with the Docker elements. You can set up a directory (with a name of your choosing), in this case `hello_world_led`, within the container resources for dockerization to ease this transfer:
-
-```
-adb push <local directory path> /home/fio
-```
-
-Once the files are transferred, access the shell of the Portenta X8 with elevated privileges:
-
-```
-adb shell
-sudo su -
-```
-
-To execute the script, first build the Docker image. Navigate to the directory containing the previously mentioned files and run:
-
-```bash
-sudo docker build . -t hello_world_led
-```
-
-The commands provided outline the process of starting the container with the necessary permissions, ensuring access to the required components on the Portenta X8.
-
-The following commands run the container and ensure that the script inside can interact with the GPIOs, even within the container's environment.
-
-Following command uses the _docker-compose.yml_ configuration file to start the services defined within. It is a tool for defining and running multi-container Docker applications.
-
-```bash
-docker compose up
-```
-
-Then we have the next command allowing us to run the `hello_world_led` container with elevated privileges, giving it almost the same level of access to the host as processes running outside containers.
-
-```bash
-docker run --privileged hello_world_led
-```
-
-This is useful for certain operations like direct hardware access, which is likely necessary for GPIO interactions.
-
-Subsequently, the following command mounts the host's `/sys` directory into the `hello_world_led` container, which is often used for interacting with device drivers and kernel features.
-
-```bash
-docker run -v /sys:/sys hello_world_led
-```
-
-This allows the container to have direct access to the host's GPIOs and other system attributes. Given its access capabilities, the container can be run; however, always ensure the configuration is set correctly.
-
-The Python® scripts found later in the user manual can be used to containerize and leverage benefits of using Docker.
-
-***To delve deeper into the use of Docker and custom containers on the Portenta X8, refer to this [tutorial](https://docs.arduino.cc/tutorials/portenta-x8/custom-container).***
+Portenta Hat Carrier's user programmable LED will start blinking whenever the script is running.
 
 Please check out the [Portenta X8 user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual) to learn how the board operates, and maximize its potential when paired with the Portenta Hat Carrier. The Portenta Hat Carrier supports the Portenta X8 via High-Density connectors.
 
@@ -766,23 +545,65 @@ Devices with a USB-A interface, such as storage drives, can be used for logging 
 #### Using Linux
 <br></br>
 
-As an example, following command on Portenta X8's shell can be used to test write command with a USB memory drive.
+As an example, following command on Portenta X8's shell can be used to test write command with a USB memory drive. To write a file, following sequence of commands can help you accomplish such task.
 
 ```bash
-dd if=/dev/urandom of=random.bin bs=1M count=128
+dmesg -w
 ```
 
-This command will create a _random.bin_ file filled with 128 Megabytes of random data. It reads data from the system's pseudo-random number generator `/dev/urandom` and writes it to the file in chunks of 1 Megabyte.
+The `dmesg -w` command displays kernel messages, helping you monitor system events in real-time. It is particularly useful to see if it has recognized the USB drive when plugged in.
+
+```bash
+lsblk
+```
+
+The `lsblk` command lists all available block devices, such as hard drives and USB drives. It helps in identifying the device name, like `/dev/sda1` which is the partition designation, of the plugged-in USB drive.
+
+```bash
+mkdir -p /mnt/USBmount
+```
+
+The `mkdir -p` command creates the directory `/mnt/USBmount`. If the directory already exists, this command won't produce an error. This directory will be used as a mount point for the USB drive.
+
+```bash
+mount -t vfat /dev/sda1 /mnt/USBmount
+```
+
+This mount command mounts the USB drive, assumed to have a FAT filesystem (`vfat`), located at `/dev/sda1` to the directory `/mnt/USBmount`. Once mounted, the content of the USB drive can be accessed from the `/mnt/USBmount` directory.
+
+```bash
+dd if=/dev/urandom of=/mnt/USBmount/random.bin bs=1K count=16
+```
+
+This command will create a _random.bin_ file filled with 16 Kilobytes of random data. It reads data from the system's pseudo-random number generator `/dev/urandom` and writes it to the file in chunks of 1 Kilobyte.
 
 To read the _random.bin_ file with random data, you can use the following command:
 
 ```bash
-dd if=random.bin bs=1M count=128 | hexdump -C
+dd if=/mnt/USBmount/random.bin bs=1K count=16 | hexdump -C
 ```
 
-This will read the previously generated _random.bin_ file and displays its content in a hexadecimal format on the console. Data is read in chunks of 1 Megabyte up to 128 Megabytes and then processed for display using `hexdump`.
+This will read the previously generated _random.bin_ file and displays its content in a hexadecimal format on the console. Data is read in chunks of 1 Kilobyte up to 16 Kilobytes and then processed for display using `hexdump`.
 
 ***Reading the entire _random.bin_ file with the `hexdump` command will produce a large output on the console. Use with caution.***
+
+n the Portenta X8's shell, if you aim to create a text file containing the message `Hello, World!` on a USB memory drive, you can employ the command:
+
+```bash
+dd if=<(echo -n "Hello, World!") of=/mnt/USBmount/helloworld.txt
+```
+
+This command uses the `dd` utility, combined with process substitution. Specifically, it seizes the output of the `echo` command, responsible for generating the `Hello, World!` message, and channels it as an input stream to `dd`.
+
+Subsequently, the message gets inscribed into a file named _helloworld.txt_ situated in the `/mnt/USBmount` directory.
+
+After creating the file, if you wish to retrieve its contents and display them on the shell, you can use:
+
+```bash
+dd if=/mnt/USBmount/helloworld.txt bs=1K count=1
+```
+
+This command directs `dd` to peruse the contents of _helloworld.txt_. With a specified block size of 1 Kilobyte, the reading is confined to a single block—adequate given the brevity of the `Hello, World!` message. Upon executing this command, the content of the text file will be displayed on your shell.
 
 #### Using Arduino IDE
 <br></br>
@@ -2762,7 +2583,7 @@ It can interact with up to four relay ports on the board. Among its various feat
 ```python
 from __future__ import print_function
 
-import smbus
+import smbus2 import SMBus
 
 # The number of relay ports on the relay board.
 # This value should never change!
