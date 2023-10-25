@@ -2886,7 +2886,9 @@ Please, refer to the [board pinout section](#pinout) of the user manual to find 
 #### Using Linux
 <br></br>
 
-A Python® script version of the previous code could resemble as the following code:
+The following Python® script is designed to control the brightness of a device, such as an LED, by varying the duty cycle of a PWM signal in a Linux environment on Portenta X8.
+
+The script sets up the PWM channel, defines its period, and then, within a loop, modulates the brightness by adjusting the duty cycle. Consider the script below as an example:
 
 ```
 #!/usr/bin/env python3
@@ -2933,32 +2935,27 @@ if __name__ == "__main__":
 
 The [`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)] included into the Arduino programming language can be used to access the 7 PWM pins.
 
-The example code shown below uses digital pin `0` PWM functionality to control the brightness of the board's built-in RGB LED (green LED) connected to it:
+The example code shown below grabs a pin compatible with PWM functionality to control the brightness of an LED connected to it:
 
 ```arduino
-// Define the LED pin, brightness, and fade amount variables
-int brightness = 0;
-int fadeAmount = 5;
+const int ledPin = <PWM_X>;  // Use a pin that supports PWM
 
 void setup() {
-  // Configure the LED pin as an output
-  pinMode(XXX, OUTPUT);
+  pinMode(ledPin, OUTPUT);  // Configure the pin as OUTPUT
 }
 
 void loop() {
-  // Set the brightness of the LED
-  analogWrite(XXX, brightness);
-
-  // Update the brightness value
-  brightness += fadeAmount;
-
-  // Reverse the fade direction when reaching the limits
-  if (brightness <= 0 || brightness >= 255) {
-    fadeAmount = -fadeAmount;
+  // Increase brightness
+  for (int brightness = 0; brightness <= 255; brightness++) {
+    analogWrite(ledPin, brightness);
+    delay(10);
   }
 
-  // Wait for 30 milliseconds
-  delay(30);
+  // Decrease brightness
+  for (int brightness = 255; brightness >= 0; brightness--) {
+    analogWrite(ledPin, brightness);
+    delay(10);
+  }
 }
 ```
 
