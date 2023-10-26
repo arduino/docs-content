@@ -617,7 +617,8 @@ The Portenta C33 supports I2C communication, which allows data transmission betw
 
 To locate these pins on the board, please refer to the [board pinout section](#pinout) of the user manual. The `SDA0` and `SCL0` pins are also available through the onboard ESLOV connector of the Portenta C33.
 
-***Note on I2C resources: System integrators can use the Portenta C33's High-Density connectors to expand the signals of the board to a custom-designed daughter board or carrier. Below is the I2C pins mapping on the board's High-Density connectors and shared resources:***
+***System integrators can use the Portenta C33's High-Density connectors to expand the signals of the board to a custom-designed daughter board or carrier. Below is the I2C pins mapping on the board's High-Density connectors and shared resources:***
+
 
 | **HD Connector** | **Interface** | **Pins** | **Status** | **Shared Peripherals** |
 |:----------------:|:-------------:|:--------:|:----------:|:----------------------:|
