@@ -189,17 +189,21 @@ The Portenta Hat Carrier can be powered according to one of the following method
 
   For clarity on the connection points, please refer to the [board pinout section](#pinout) of the user manual. Ensure the supplied current meets the specification for all components, as shown in the operating conditions table reported later on.
 
-- Using an external __5 V power supply__ to the _5V_ pin located on the 40-pin male header connectors pins or available on the screw terminal of the board, you can effectively power the Portenta Hat Carrier, the SOM, and any connected hat.
+- Using an external __5 V power supply__ to:
+    * The _5V_ pin located on the 40-pin male header connectors pins
+    * The _5V_ pin located on the screw terminal of the board 
+  
+  You can effectively power the Portenta Hat Carrier, the SOM, and any connected hat.
 
   For more details on this connection, kindly consult the [board pinout section](#pinout) of the user manual. Again, ensure that the power supply's maximum current respects all components' specifications.
 
-- Using a USB-C® cable (not included) connected to the Portenta core board of your choice powers not only the selected core board, like the Portenta X8, H7, or C33, but also the Portenta Hat Carrier, the SOM, and any connected hat which does not require a dedicated external power supply.
+- Using a USB-C® cable (not included) connected to the Portenta core board of your choice powers not only the selected core board, like the Portenta X8, H7, or C33, but also the Portenta Hat Carrier, and any connected hat that does not require a dedicated external power supply.
 
 ***The Portenta Hat Carrier can deliver a __maximum__ of 1.5 A.***
 
 ![Portenta Hat Carrier Power Connection Overview](assets/portentaHATcarrier_powerSource.png)
 
-The image below magnifies the location of the terminal block for 7 - 32 V and 5 V power source of the Portenta Hat Carrier:
+The image below magnifies the location of the terminal block for the 7 - 32 V and 5 V power source of the Portenta Hat Carrier:
 
 ![Portenta Hat Carrier Power Source within Terminal Block](assets/portentaHATcarrier_powerSource_block.png)
 
@@ -211,14 +215,14 @@ Subsequently, you can check how the Portenta Hat Carrier distributes power resou
 
 To ensure the safety and longevity of the board, it is essential to understand the carrier's operating conditions. The table below provides the recommended operating conditions for the carrier:
 
-|                      **Parameter**                     | **Symbol**  | **Min** | **Typ** | **Max** | **Unit** |
-|:------------------------------------------------------:|-------------|---------|---------|---------|----------|
-| VIN from onboard screw terminal* of the Carrier        | VINTERMINAL | 7.0     | -       | 32.0    | V        |
-| +5 VDC from the carrier's onboard screw terminal       | V5TERMINAL  | -       | 5.0     | -       | V        |
-| USB-C® input from the connected Portenta family board  | V5USBC      | -       | 5.0     | -       | V        |
-| Current supplied by the carrier                        | ICARRIER    | -       | -       | 1.5     | A        |
-| +5 VDC from the 40-pin header connector on the carrier | V5HEADER    | -       | 5.0     | -       | V        |
-| Ambient operating temperature                          | TOP         | -40     | -       | 85      | °C       |
+|                     **Parameter**                      | **Min** | **Typ** | **Max** | **Unit** |
+| :----------------------------------------------------: | :-----: | :-----: | :-----: | :------: |
+|    VIN from onboard screw terminal* of the Carrier     |   7.0   |    -    |  32.0   |    V     |
+| USB-C® input from the connected Portenta family board  |    -    |   5.0   |    -    |    V     |
+| +5 VDC from the 40-pin header connector on the carrier |    -    |   5.0   |    -    |    V     |
+|    +5 VDC from the carrier's onboard screw terminal    |    -    |   5.0   |    -    |    V     |
+|            Current supplied by the carrier             |    -    |    -    |   1.5   |    A     |
+|             Ambient operating temperature              |   -40   |    -    |   85    |    °C    |
 
 ***The onboard screw terminal powers both the carrier and any connected Portenta board. Additionally, this terminal connector includes reverse polarity protection for enhanced safety.***
 
@@ -226,17 +230,17 @@ To ensure the safety and longevity of the board, it is essential to understand t
 
 The Portenta Hat Carrier provides different functionalities based on the connected Portenta family board, as shown in the table below:
 
-|  **Features**  | **Portenta X8**   | **Portenta H7**    | **Portenta 33**    |
-|:---------------|:------------------|:-------------------|:-------------------|
-| 40-Pin Header  | Compatible        | Compatible         | Compatible         |
-| 16-Pin Header  | Compatible        | Compatible         | Compatible         |
-| MIPI Camera    | Compatible        | Incompatible       | Incompatible       |
-| Ethernet       | 1 Gbit (DIP: OFF) | 100 Mbit (DIP: ON) | 100 Mbit (DIP: ON) |
-| PWM Fan        | Available         | Available          | Available          |
-| JTAG Debug     | Available         | Available          | Available          |
-| Storage Exp.   | MicroSD slot      | MicroSD slot       | MicroSD slot       |
-| CAN FD         | Available         | Available          | Available          |
-| USB-A Support  | Available         | Available          | Available          |
+| **Features**  |  **Portenta X8**  |  **Portenta H7**   |  **Portenta 33**   |
+| :-----------: | :---------------: | :----------------: | :----------------: |
+| 40-Pin Header |    Compatible     |     Compatible     |     Compatible     |
+| 16-Pin Header |    Compatible     |     Compatible     |     Compatible     |
+|  MIPI Camera  |    Compatible     |    Incompatible    |    Incompatible    |
+|   Ethernet    | 1 Gbit (DIP: OFF) | 100 Mbit (DIP: ON) | 100 Mbit (DIP: ON) |
+|    PWM Fan    |     Available     |     Available      |     Available      |
+|  JTAG Debug   |     Available     |     Available      |     Available      |
+| Storage Exp.  |   MicroSD slot    |    MicroSD slot    |    MicroSD slot    |
+|    CAN FD     |     Available     |     Available      |     Available      |
+| USB-A Support |     Available     |     Available      |     Available      |
 
 ***The Portenta X8 is the specific Portenta family board that offers compatibility with Raspberry Pi® Hats on the 40-pin Header.***
 
@@ -260,7 +264,7 @@ To use the Portenta Hat Carrier with the Portenta X8, you will have to align the
 #### Hello World With Portenta X8 Shell
 <br></br>
 
-A series of _Hello World_ examples will be used to ensure the Portenta Hat Carrier is correctly operating with the paired Portenta X8. These examples, using Linux commands, Python® scripts, Docker, and the Arduino IDE, aim to trigger the user-programmable LED connected to GPIO3 leveraging different methods and platforms.
+A series of _Hello World_ examples will be used to ensure the Portenta Hat Carrier is correctly operating with the paired Portenta X8. These examples, using Linux commands, Python® scripts, and the Arduino IDE, aim to trigger the user-programmable LED connected to GPIO3 leveraging different methods and platforms.
 
 We will begin with a _Hello World_ example using Linux commands. The user programmable LED can be controlled using commands within the Portenta X8's shell. Learn how to connect with Portenta X8 shell [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#first-use-of-your-portenta-x8). 
 
@@ -273,7 +277,11 @@ adb shell
 sudo su -
 ```
 
-When you execute the _sudo su -_ command, you will be prompted for a password. The default password is `fio`. This command grants you access as the root user, loading the root user's environment settings such as `$HOME` and `$PATH`.
+When you execute the _sudo su -_ command, you will be prompted for a password: 
+
+***The default password is `fio`*** 
+
+This command grants you access as the root user, loading the root user's environment settings such as `$HOME` and `$PATH`.
 
 The aforementioned commands allow you to access the Portenta X8's shell with elevated privileges. This allows you to modify system configurations that require administrative permissions.
 
@@ -301,7 +309,7 @@ The GPIO can now be configured verifying that GPIO3 elements were successfully e
 echo <I/O> >/sys/class/gpio/gpio163/direction
 ```
 
-For this example, we will replace the `I/O` field with `out` value within the following command.
+For this example, we will replace the `<I/O>` field with `out` value within the following command:
 
 ```
 echo out >/sys/class/gpio/gpio163/direction
@@ -315,10 +323,17 @@ cat /sys/class/gpio/gpio163/direction
 
 The GPIO is now set as an output, thus it can now be controlled by setting its state.
 
-To set the pin High, you need to assign the value `1`, or `0` to set the pin Low. The command will require the `value` at the end to ensure the pin's state is controlled.
+To set the pin High, you need to assign the value `1`, or `0` to set the pin `HIGH` or `LOW`. The command will require the `value` at the end to ensure the pin's state is controlled.
 
+
+To set the pin to `HIGH`: 
 ```
 echo 1 >/sys/class/gpio/gpio163/value
+echo 0 >/sys/class/gpio/gpio163/value
+```
+
+To set the pin to `LOW`:
+```
 echo 0 >/sys/class/gpio/gpio163/value
 ```
 
@@ -336,7 +351,7 @@ ls /sys/class/gpio
 
 This step helps you to prevent unintentional modifications to the element configuration.
 
-#### Hello World Using Linux and Python® Script
+#### Hello World Using Linux and Python® Scripts
 <br></br>
 
 Previously, we manually toggled the LED linked to _GPIO3_ on the Portenta X8 via the command-line. However, to automate this process and potentially extend our control logic, we can employ a Python® script for this purpose.
@@ -390,28 +405,39 @@ def main():
     gpio.set_direction("out")
     if gpio.read_direction() == "out":
         print("GPIO set as output.")
+        print("User LED Blinking 20 times")
+
 
     # Turn on (set to 1) and then off (set to 0)
-    while True:
+    for i in range(1,20,1):
         gpio.set_value(1)
         time.sleep(1)
         gpio.set_value(0)
         time.sleep(1)
-
-    # Unexport (if you want to unexport at some point, you can uncomment this)
-    # gpio.unexport()
+        
+    
+    print("GPIO Unexport")
+    gpio.unexport()
+    print("End of the program")
+    exit()
 
 if __name__ == "__main__":
     main()
 ```
 
-The script can be named as `hello_world_python.py` for example. It can then be pushed to Portenta X8 using the following command on computer terminal:
+The script can be named as `hello_world_python.py` for example. It can then be pushed to Portenta X8 using the following command on a computer terminal:
 
 ```bash
 adb push hello_world_python.py /home/fio
 ```
 
-The file is uploaded to `/home/fio` directory. Navigate to the directory using ADB shell and use the following command to run the script:
+The file is uploaded to `/home/fio` directory. Navigate to the directory using ADB shell:
+
+```bash
+cd python3 hello_world_python.py
+```
+
+Now use the following command to run the script:
 
 ```bash
 python3 hello_world_python.py
