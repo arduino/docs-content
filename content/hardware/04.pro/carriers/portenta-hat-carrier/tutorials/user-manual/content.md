@@ -557,7 +557,7 @@ The Portenta Hat Carrier features a USB interface suitable for data logging and 
 
 ![Portenta Hat Carrier USB-A Port](assets/portentaHATcarrier_USBA.png)
 
-If you are interested in USB-A port pinout, the following table may serve to understand its connection distribution:
+If you are interested in the USB-A port pinout, the following table may serve to understand its connection distribution:
 
 | **Pin number** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         | **Interface** |
 |:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|:-------------:|
@@ -571,49 +571,42 @@ Devices with a USB-A interface, such as storage drives, can be used for logging 
 #### Using Linux
 <br></br>
 
-As an example, following command on Portenta X8's shell can be used to test write command with a USB memory drive. To write a file, following sequence of commands can help you accomplish such task.
+As an example, the following command on Portenta X8's shell can be used to test a write command with a USB memory drive. To write a file, the following sequence of commands can help you to accomplish such task.
 
 ```bash
-dmesg -w
+sudo su -
 ```
-
-The `dmesg -w` command displays kernel messages, helping you monitor system events in real-time. It is particularly useful to see if it has recognized the USB drive when plugged in.
+First of all let's enter in root mode to have the right permissions to mount and unmount related peripherals like our USB memory drive.
 
 ```bash
 lsblk
 ```
 
-The `lsblk` command lists all available block devices, such as hard drives and USB drives. It helps in identifying the device name, like `/dev/sda1` which is the partition designation, of the plugged-in USB drive.
+The `lsblk` command lists all available block devices, such as hard drives and USB drives. It helps in identifying the device name, like `/dev/sda1` which is will be probably the partition designation of the USB drive you just plugged in. A common trick to identify and check the USB drive connected is to execute the `lsblk` command twice; once with the USB disconnected and the next one to the USB connected, to compare both results and spot easily the new connected USB drive. Additionally, the command `lsusb` can be used to gather more information about the connected USB drive.
 
 ```bash
 mkdir -p /mnt/USBmount
 ```
 
-The `mkdir -p` command creates the directory `/mnt/USBmount`. If the directory already exists, this command won't produce an error. This directory will be used as a mount point for the USB drive.
+The `mkdir -p` command creates the directory `/mnt/USBmount`. This directory will be used as a mount point for the USB drive.
 
 ```bash
 mount -t vfat /dev/sda1 /mnt/USBmount
 ```
 
-This mount command mounts the USB drive, assumed to have a FAT filesystem (`vfat`), located at `/dev/sda1` to the directory `/mnt/USBmount`. Once mounted, the content of the USB drive can be accessed from the `/mnt/USBmount` directory.
+This mount command mounts the USB drive, assumed to have a FAT filesystem (`vfat`), located at `/dev/sda1` to the directory `/mnt/USBmount`. Once mounted, the content of the USB drive can be accessed from the `/mnt/USBmount` directory with `cd`: 
 
 ```bash
-dd if=/dev/urandom of=/mnt/USBmount/random.bin bs=1K count=16
+cd /mnt/USBmount
 ```
 
-This command will create a _random.bin_ file filled with 16 Kilobytes of random data. It reads data from the system's pseudo-random number generator `/dev/urandom` and writes it to the file in chunks of 1 Kilobyte.
-
-To read the _random.bin_ file with random data, you can use the following command:
+Now if you do and `ls` you can see the actual content of the connected USB Drive.
 
 ```bash
-dd if=/mnt/USBmount/random.bin bs=1K count=16 | hexdump -C
+ls
 ```
 
-This will read the previously generated _random.bin_ file and displays its content in a hexadecimal format on the console. Data is read in chunks of 1 Kilobyte up to 16 Kilobytes and then processed for display using `hexdump`.
-
-***Reading the entire _random.bin_ file with the `hexdump` command will produce a large output on the console. Use with caution.***
-
-In the Portenta X8's shell, if you aim to create a text file containing the message `Hello, World!` on a USB memory drive, you can employ the command:
+Let's create a simple text file containing the message `Hello, World!` in the already connected USB memory drive using the following command:
 
 ```bash
 dd if=<(echo -n "Hello, World!") of=/mnt/USBmount/helloworld.txt
@@ -626,10 +619,12 @@ Subsequently, the message gets inscribed into a file named _helloworld.txt_ situ
 After creating the file, if you wish to retrieve its contents and display them on the shell, you can use:
 
 ```bash
-dd if=/mnt/USBmount/helloworld.txt bs=1K count=1
+cat helloworld.txt
 ```
 
-This command directs `dd` to peruse the contents of _helloworld.txt_. With a specified block size of 1 Kilobyte, the reading is confined to a single block—adequate given the brevity of the `Hello, World!` message. Upon executing this command, the content of the text file will be displayed on your shell.
+This command `cat` prompts in the terminal the content of a file, in this case the words `Hello, World!`.
+
+Now that you know how to locate, mount, write and read information from an external USB stick or hard drive you can expand the possibilities of your solution with the additional storage connected to the Portenta Hat Carrier.
 
 #### Using Arduino IDE
 <br></br>
@@ -939,9 +934,9 @@ void loop() {
 
 ### Analog Pins
 
-The 16-pin header connector of the Portenta Hat Carrier integrates the analog channels. The analog pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, and `A7` are accessible through these connectors.
+The 16-pin header connector of the Portenta Hat Carrier integrates the analog channels. The analog `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, and `A7` are accessible through these pins.
 
-![Portenta Hat Carrier CAN Interface](assets/portentaHATcarrier_analogIOs.png)
+![Portenta Hat Carrier Analog Pins](assets/portentaHATcarrier_analogIOs.png)
 
 | **Pin number** | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** |
 |:--------------:|:--------------:|:----------------------------:|:--------------------:|
@@ -966,6 +961,11 @@ Using the Portenta X8, you can obtain a voltage reading that falls within a _0 -
 ```
 cat /sys/bus/iio/devices/iio\:device0/in_voltage<adc_pin>_raw
 ```
+Where `<adc_pin>` is the number of the analog pin to read. For example, in the case of `A0`:
+
+```
+cat /sys/bus/iio/devices/iio\:device0/in_voltage0_raw
+```
 
 If you are working in Python®, the command can be implemented as shown in the script below:
 
@@ -984,6 +984,10 @@ if __name__ == "__main__":
   
   if value is not None:
     print(f"Value from ADC pin {adc_pin}: {value}")
+
+    # Mapping between 0-3.3 V
+    new_value = (float) (value/65535)*3.3
+    print(f"Value mapped between 0-3.3 V: {new_value}")
 ```
 
 #### Using Arduino IDE
@@ -3160,11 +3164,11 @@ The CAN bus, short for Controller Area Network bus, is a resilient communication
 
 This approach ensures system continuity even if one device fails and is especially effective in electrically noisy settings like in vehicles, where various devices need reliable communication.
 
-The Portenta Hat Carrier is equipped with CAN bus communication capabilities, powered by the TJA1049 module - a high-speed CAN FD transceiver. With this, developers can leverage the robustness and efficiency of CAN communication in their projects.
+The Portenta Hat Carrier is equipped with CAN bus communication capabilities, powered by the TJA1049 module, a high-speed CAN FD transceiver. With this, developers can leverage the robustness and efficiency of CAN communication in their projects.
 
 ![Portenta Hat Carrier CAN Bus Port](assets/portentaHATcarrier_CAN.png)
 
-Since the CAN bus pins are integrated within the High-Density connectors, they are conveniently accessible on the carrier through the screw terminal. This provides flexibility in connection, allowing developers to design and troubleshoot their systems easierly.
+Since the CAN bus pins are integrated within the High-Density connectors, they are conveniently accessible on the carrier through the screw terminal. This provides flexibility in connection, allowing developers to design and troubleshoot their systems easily.
 
 | **Pin number** | **Silkscreen** |                         **High-Density Pin**                         |    **Interface**   |
 |:--------------:|:--------------:|:--------------------------------------------------------------------:|:------------------:|
@@ -3178,15 +3182,15 @@ Since the CAN bus pins are integrated within the High-Density connectors, they a
 #### Using Linux
 <br></br>
 
-For Portenta X8, the following instructions can help control CAN bus protocol. The CAN transceiver is enabled using following command:
+For Portenta X8, the following instructions can help control CAN bus protocol. The CAN transceiver is enabled using the following command:
 
 ```
 echo 164 > /sys/class/gpio/export && echo out > /sys/class/gpio/gpio164/direction && echo 0 > /sys/class/gpio/gpio164/value
 ```
 
-This command sequence activates the CAN transceiver. It does so by exporting _GPIO 164_, setting its direction to "`out`", and then writing a value of "`0`" to it. Writing 0 as a value to GPIO 164 means, it will set GPIO to LOW state.
+This command sequence activates the CAN transceiver. It does so by exporting _GPIO 164_, setting its direction to "`out`", and then writing a value of "`0`" to it. Writing 0 as a value to GPIO 164 means that it will set the GPIO to a LOW state.
 
-For Portenta X8, it is possible to use following commands:
+For Portenta X8, it is possible to use the following commands:
 
 ```
 sudo modprobe can-dev
@@ -3199,7 +3203,7 @@ echo "can-dev" | sudo tee > /etc/modules-load.d/can-dev.conf
 sudo systemctl reboot
 ```
 
-Within the Portenta X8's shell, Docker containers offer a streamlined environment for specific tasks, such as command-based CAN bus operations. The _cansend_ command is one such utility that facilitates sending CAN frames. The command to issue such task is as followss:
+Within the Portenta X8's shell, Docker containers offer a streamlined environment for specific tasks, such as command-based CAN bus operations. The _cansend_ command is one such utility that facilitates sending CAN frames. The command to issue such task is as follows:
 
 ```bash
 cansend
