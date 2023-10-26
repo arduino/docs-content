@@ -417,17 +417,7 @@ The file is uploaded to `/home/fio` directory. Navigate to the directory using A
 python3 hello_world_python.py
 ```
 
-Portenta Hat Carrier's user programmable LED will start blinking whenever the script is running. If you wish to upload to a containerized environment, as a Docker container, the following command can be used to do so:
-
-```bash
-docker cp hello_world_python.py mycontainer:/app/
-```
-
-Then the script can be used by accessing the container with the following command:
-
-```bash
-docker exec -it mycontainer sh
-```
+Portenta Hat Carrier's user programmable LED will start blinking whenever the script is running.
 
 #### Hello World Using Linux and Docker
 <br></br>
@@ -766,23 +756,65 @@ Devices with a USB-A interface, such as storage drives, can be used for logging 
 #### Using Linux
 <br></br>
 
-As an example, following command on Portenta X8's shell can be used to test write command with a USB memory drive.
+As an example, following command on Portenta X8's shell can be used to test write command with a USB memory drive. To write a file, following sequence of commands can help you accomplish such task.
 
 ```bash
-dd if=/dev/urandom of=random.bin bs=1M count=128
+dmesg -w
 ```
 
-This command will create a _random.bin_ file filled with 128 Megabytes of random data. It reads data from the system's pseudo-random number generator `/dev/urandom` and writes it to the file in chunks of 1 Megabyte.
+The `dmesg -w` command displays kernel messages, helping you monitor system events in real-time. It is particularly useful to see if it has recognized the USB drive when plugged in.
+
+```bash
+lsblk
+```
+
+The `lsblk` command lists all available block devices, such as hard drives and USB drives. It helps in identifying the device name, like `/dev/sda1` which is the partition designation, of the plugged-in USB drive.
+
+```bash
+mkdir -p /mnt/USBmount
+```
+
+The `mkdir -p` command creates the directory `/mnt/USBmount`. If the directory already exists, this command won't produce an error. This directory will be used as a mount point for the USB drive.
+
+```bash
+mount -t vfat /dev/sda1 /mnt/USBmount
+```
+
+This mount command mounts the USB drive, assumed to have a FAT filesystem (`vfat`), located at `/dev/sda1` to the directory `/mnt/USBmount`. Once mounted, the content of the USB drive can be accessed from the `/mnt/USBmount` directory.
+
+```bash
+dd if=/dev/urandom of=/mnt/USBmount/random.bin bs=1K count=16
+```
+
+This command will create a _random.bin_ file filled with 16 Kilobytes of random data. It reads data from the system's pseudo-random number generator `/dev/urandom` and writes it to the file in chunks of 1 Kilobyte.
 
 To read the _random.bin_ file with random data, you can use the following command:
 
 ```bash
-dd if=random.bin bs=1M count=128 | hexdump -C
+dd if=/mnt/USBmount/random.bin bs=1K count=16 | hexdump -C
 ```
 
-This will read the previously generated _random.bin_ file and displays its content in a hexadecimal format on the console. Data is read in chunks of 1 Megabyte up to 128 Megabytes and then processed for display using `hexdump`.
+This will read the previously generated _random.bin_ file and displays its content in a hexadecimal format on the console. Data is read in chunks of 1 Kilobyte up to 16 Kilobytes and then processed for display using `hexdump`.
 
 ***Reading the entire _random.bin_ file with the `hexdump` command will produce a large output on the console. Use with caution.***
+
+In the Portenta X8's shell, if you aim to create a text file containing the message `Hello, World!` on a USB memory drive, you can employ the command:
+
+```bash
+dd if=<(echo -n "Hello, World!") of=/mnt/USBmount/helloworld.txt
+```
+
+This command uses the `dd` utility, combined with process substitution. Specifically, it seizes the output of the `echo` command, responsible for generating the `Hello, World!` message, and channels it as an input stream to `dd`.
+
+Subsequently, the message gets inscribed into a file named _helloworld.txt_ situated in the `/mnt/USBmount` directory.
+
+After creating the file, if you wish to retrieve its contents and display them on the shell, you can use:
+
+```bash
+dd if=/mnt/USBmount/helloworld.txt bs=1K count=1
+```
+
+This command directs `dd` to peruse the contents of _helloworld.txt_. With a specified block size of 1 Kilobyte, the reading is confined to a single block—adequate given the brevity of the `Hello, World!` message. Upon executing this command, the content of the text file will be displayed on your shell.
 
 #### Using Arduino IDE
 <br></br>
@@ -2762,7 +2794,7 @@ It can interact with up to four relay ports on the board. Among its various feat
 ```python
 from __future__ import print_function
 
-import smbus
+import smbus2 import SMBus
 
 # The number of relay ports on the relay board.
 # This value should never change!
