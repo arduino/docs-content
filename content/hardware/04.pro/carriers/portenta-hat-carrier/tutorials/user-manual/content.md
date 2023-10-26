@@ -1990,7 +1990,19 @@ Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate
 
 To use the _iperf3_ tool, we will set the Portenta X8 and Hat Carrier as the Server and the controlling computer as the Client. The commands will measure the bandwidth between the Portenta Hat Carrier with Portenta X8 and the computer. For a deeper understanding of _iperf3_, refer to its [official documentation](https://iperf.fr/iperf-doc.php).
 
-Begin by setting up the Portenta Hat Carrier with Portenta X8 as the Server. For the configuration of the necessary files to establish _iperf3_ on the device, follow the steps for _Linux and Cygwin_ under _General Build Instructions_ available [here](https://github.com/userdocs/iperf3-static).
+Begin by setting up the Portenta Hat Carrier with Portenta X8 as the Server. For the configuration of the necessary files to establish _iperf3_ on the device, follow the steps for _Linux and Cygwin_ under _General Build Instructions_ available [here](https://github.com/userdocs/iperf3-static). In this case, we need _aarch64 / arm64_ version, thus we need to execute following commands:
+
+```bash
+mkdir -p ~/bin && source ~/.profile
+```
+
+```bash
+wget -qO ~/bin/iperf3 https://github.com/userdocs/iperf3-static/releases/latest/download/iperf3-arm64v8
+```
+
+```bash
+chmod 700 ~/bin/iperf3
+```
 
 Once installed, _iperf3_ will be ready on your device. To ensure it operates without issues, run:
 
@@ -2004,16 +2016,24 @@ By following the provided instructions, the tool should be located in the Linux 
 # ~bin/
 ```
 
+Check the tool's version using the following command:
+
+```bash
+./iperf3 -v
+```
+
+It should display the version information for the _iperf3_ tool.
+
 Activate the Portenta Hat Carrier with Portenta X8 as a Server using the command:
 
 ```bash
-iperf3 -s
+./iperf3 -s
 ```
 
 This will set the Server to wait for connections via its IP address. It listens on port `5201` by default. To use an alternative port, append `-p` and your chosen port number:
 
 ```bash
-iperf3 -s -p <Port Number>
+./iperf3 -s -p <Port Number>
 ```
 
 To identify the IP address of the Portenta X8, you can use either of the following commands and search for `eth0` which provides the network information related to Ethernet connection:
