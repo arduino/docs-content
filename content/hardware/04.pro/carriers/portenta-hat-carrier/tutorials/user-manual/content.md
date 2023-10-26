@@ -190,8 +190,9 @@ The Portenta Hat Carrier can be powered according to one of the following method
   For clarity on the connection points, please refer to the [board pinout section](#pinout) of the user manual. Ensure the supplied current meets the specification for all components, as shown in the operating conditions table reported later on.
 
 - Using an external __5 V power supply__ to:
-    * The _5V_ pin located on the 40-pin male header connector pins
-    * The _5V_ pin located on the screw terminal of the board 
+
+* The _5V_ pin located on the 40-pin male header connector pins
+* The _5V_ pin located on the screw terminal of the board
   
   You can effectively power the Portenta Hat Carrier, the SOM, and any connected hat.
 
@@ -3233,7 +3234,7 @@ cansend can0 1F334455#1122334455667788
 
 This command sends a message with an extended CAN ID and an 8-byte payload.
 
-To use the `cansend` command, it is crucial to set up the appropriate environment. First, clone the following container repository
+To use the _cansend_ command, it is crucial to set up the appropriate environment. First, clone the following container repository
 
 ```bash
 git clone https://github.com/pika-spark/pika-spark-containers
