@@ -3209,11 +3209,29 @@ Within the Portenta X8's shell, Docker containers offer a streamlined environmen
 cansend
 ```
 
-And as an example, if you need to send a specific CAN frame, the _cansend_ command can be used in the following format:
+And as an example, if you need to send a specific CAN frame, the _cansend_ command can be used to achieve this task. The command follows the format:
+
+```bash
+cansend <CAN Interface [can0 | can1]> <CAN ID>#<Data_Payload>
+```
+
+- `<CAN Interface [can0 | can1]>`: defines the CAN interface that the Portenta X8 will use with the Portenta Hat Carrier.
+- `<CAN ID>`: is the identifier of the message and is used for message prioritization. The identifier can be in 11-bit or 29-bit format.
+- `<Data_Payload>`: is the data payload of the CAN message and ranges from 0 to 8 bytes in standard CAN frames.
+
+For instance, the following command example would send a CAN message on the `can0` interface with an ID of `123`, using an 11-bit identifier, and a data payload of `DEADBEEF`:
 
 ```bash
 cansend can0 123#DEADBEEF
 ```
+
+While the following command example with a 29-bit identifier would send a CAN message with an extended ID of `1F334455` and a data payload of `1122334455667788`.
+
+```bash
+cansend can0 1F334455#1122334455667788
+```
+
+This command sends a message with an extended CAN ID and an 8-byte payload.
 
 To use the `cansend` command, it is crucial to set up the appropriate environment. First, clone the following container repository
 
