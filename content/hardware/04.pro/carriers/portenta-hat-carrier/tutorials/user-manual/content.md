@@ -798,7 +798,7 @@ This will read the previously generated _random.bin_ file and displays its conte
 
 ***Reading the entire _random.bin_ file with the `hexdump` command will produce a large output on the console. Use with caution.***
 
-n the Portenta X8's shell, if you aim to create a text file containing the message `Hello, World!` on a USB memory drive, you can employ the command:
+In the Portenta X8's shell, if you aim to create a text file containing the message `Hello, World!` on a USB memory drive, you can employ the command:
 
 ```bash
 dd if=<(echo -n "Hello, World!") of=/mnt/USBmount/helloworld.txt
