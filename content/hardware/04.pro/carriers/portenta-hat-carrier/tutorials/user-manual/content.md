@@ -2807,7 +2807,7 @@ DEVICE_ADDRESS = 0x20  # 7 bit address (will be left shifted to add the read wri
 DEVICE_REG_MODE1 = 0x06
 DEVICE_REG_DATA = 0xff
 
-bus = smbus.SMBus(3)  # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
+bus = SMBus(3)  # 0 = /dev/i2c-0 (port I2C0), 1 = /dev/i2c-1 (port I2C1)
 
 
 def relay_on(relay_num):
