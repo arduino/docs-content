@@ -99,7 +99,7 @@ git config --global user.name "Your Name"
 Change to the home directory, and initialize the repository using **repo**:
 
 ```
-cd ~
+cd /dockerVolume
 repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b release
 ```
 
