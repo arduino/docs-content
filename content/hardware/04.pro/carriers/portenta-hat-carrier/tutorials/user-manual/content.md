@@ -1443,7 +1443,7 @@ echo 50000 | sudo tee /sys/class/pwm/pwmchip0/pwm9/duty_cycle #50% duty
 And activate the PWM channel:
 
 ```
-echo | sudo tee /sys/class/pwm/pwmchip0/pwm9/enable
+echo 1 | sudo tee /sys/class/pwm/pwmchip0/pwm9/enable
 ```
 
 Consider the following Python® script if you would like to automate the command sequence:
