@@ -19,7 +19,7 @@ software:
 
 ## Overview
 
-This user manual will provide a comprehensive overview of the Portenta C33 board, covering its major hardware and software elements. This user manual will also teach you how to set up, configure, and use these features.
+This user manual will provide a comprehensive overview of the Portenta C33 board, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure and use all the main features of the board.
 
 ## Hardware and Software Requirements
 
