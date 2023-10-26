@@ -19,17 +19,18 @@ In the Thing interface you can:
 
 The Thing interface is designed for ease-of-use, and only has a few sections, which we will now go through.
 
-![Thing Interface]()
+![Thing Interface](assets/thing-interface.png)
 
-### Device
+- **1. Cloud Variables** - create variables that synchronize between a device and the Arduino Cloud.
+- **2. Devices** - configure a device that will be associated with your Thing.
+- **3. Network** - network credentials, e.g. Wi-Fi® network/password.
+- **4. Setup** - the main configuration space tab.
+- **5. Sketch** - access the sketch associated with your Thing.
+- **6. Metadata** - metadata such as tags, timezone and Thing ID.
 
-In the device section you can select either a previously configured device, or configure a new one. Associating a device means your device and Thing are now linked indefinitely, until you decide to detach them.
+Below you will find more details on each of the sections.
 
-The status of your device is also displayed in this section (online/offline).
-
-***For more details on how to configure a device, check out the [Devices]() section. The available types and links to individual guides are found there.***
-
-### Variables
+## Variables
 
 The variables section is where you create **"Cloud Variables"**, a variable that exist in the Arduino Cloud as well as on your board/setup, and are synchronised continuously. You can configure a variable to be:
 - **Read/Write** - you can interact with the variable from a dashboard,
@@ -51,27 +52,46 @@ Variables of the same type can also be synchronised across all devices. This is 
 
 ***All variables are listed out in the [Variables]() section. See [Variable Synchronization]() for linking together your devices' variables.***
 
-### Network
+## Device
+
+In the device section you can select either a previously configured device, or configure a new one. Associating a device means your device and Thing are now linked indefinitely, until you decide to detach them.
+
+You can connect one of the following devices:
+- [Arduino Wi-Fi® devices]() - official Arduino devices with a Wi-Fi® enabled module.
+- [Arduino LoRaWAN® devices]() - official Arduino devices with a LoRaWAN® module.
+- [Third party ESP32/ESP8266 devices]() - third party devices with an ESP32/ESP8266 SoC.
+- [Manual devices]() - a virtual device using MicroPython, Python or JavaScript. These devices do not have a sketch associated.
+
+The status of your device is also displayed in this section (online/offline).
+
+***For more details on how to configure a device, check out the [Devices]() section. The available types and links to individual guides are found there.***
+
+## Network
 
 In the network section, you configure the credentials for your network, such as your Wi-Fi® network, secret key (for ESP32 boards) and other credentials for e.g. LoRaWAN® & cellular. The network details are securely stored.
 
-![Network configuration.]()
+![Network configuration.](assets/network-creds.png)
 
 The credentials entered are automatically included in your sketch (see automatic sketch generation just below). 
 
-## Automatic Sketch Generation
+## Sketch
 
-Things based on Arduino / C++ (the default way) benefits from **automatic sketch generation**. Whenever any configuration is done in your Thing, the changes are reflected in your sketch files.
+The sketch tab contains a built-in editor where you can edit, compile and upload sketches to your devices.
 
-For example:
-- Associating a Wi-Fi board will automatically update the connection method,
-- creating a variable will add it to your `thingProperties.h` file,
-- creating a variable with **read/write** permission will also add a callback function at the bottom of your sketch. This will trigger anytime the value changes.
-- changing your network credentials will update the `arduino_secrets.h` file.
+![Built-in editor.](assets/built-in-editor.png)
 
-This is implemented so that the connection and synchronisation between the board and cloud is handled automatically, meaning you do not need to do any networking code when using the Arduino / C++ language.
+- **1. Verify / Upload** - compile and upload code to your devices.
+- **2. Connected devices** - connected devices will appear here.
+- **3. Open full editor** - opens the full Cloud Editor.
+- **4. Serial Monitor** - view serial data from your device.
+- **5. Auto Indentation** - auto indents your code.
+- **6. Notifications** - whenever you change something in your Thing, a notification will appear here with the changes made.
+  
+This editor is a mirror of the [Cloud Editor](), which you can access via the **"Open Full Editor"** button.
 
-***Please note that if you are using an offline environment, [Arduino IDE](), changes will only be made in the cloud environment and will manually need to be adjusted. If you plan on using the offline IDE, you make use of the [sketch synchronisation]() feature that allows you to push/pull your cloud sketches from the offline IDE.***
+The editor includes all cores for official Arduino boards, and over 6000+ libraries. Many boards also supports **Over-the-air (OTA)** uploads, which is enabled after your first upload via USB.
+
+***For more information on the editor, check out the [Getting Started with Cloud Editor]() tutorial.***
 
 ## Metadata
 
@@ -97,3 +117,17 @@ This is particularly important when using the [scheduler]() feature to trigger e
 
 Tags are used to organize and filter your Things. In a setup with many devices across different locations, this can be particularly useful. When creating a tag, you have two fields:
 - **Key** - 
+
+## Automatic Sketch Generation
+
+Things based on Arduino / C++ (the default way) benefits from **automatic sketch generation**. Whenever any configuration is done in your Thing, the changes are reflected in your sketch files.
+
+For example:
+- Associating a Wi-Fi board will automatically update the connection method,
+- creating a variable will add it to your `thingProperties.h` file,
+- creating a variable with **read/write** permission will also add a callback function at the bottom of your sketch. This will trigger anytime the value changes.
+- changing your network credentials will update the `arduino_secrets.h` file.
+
+This is implemented so that the connection and synchronisation between the board and cloud is handled automatically, meaning you do not need to do any networking code when using the Arduino / C++ language.
+
+***Please note that if you are using an offline environment, [Arduino IDE](), changes will only be made in the cloud environment and will manually need to be adjusted. If you plan on using the offline IDE, you make use of the [sketch synchronisation]() feature that allows you to push/pull your cloud sketches from the offline IDE.***

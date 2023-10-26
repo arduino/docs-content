@@ -8,7 +8,7 @@ difficulty: beginner
 
 Dashboards in the [Arduino Cloud](https://cloud.arduino.cc/home/) are used to easily monitor & control your Arduino boards from a web interface. Dashboards are not linked to one specific Thing or device, you can control all of them through one single dashboard.
 
-Dashboards are composed of [widgets](), which are directly linked to a variable. Whenever that variable updates, so does the widget.
+Dashboards are composed of [widgets](#widgets), which are directly linked to a variable. Whenever that variable updates, so does the widget.
 
 ## Dashboards
 
@@ -20,7 +20,7 @@ Dashboards are not tied to one Thing, or one device, and it can be used to contr
 
 ***Deleting dashboards / widgets does not impact the functionality of your Thing & device. This means that you can safely edit your dashboards & widgets while your device is streaming data. It does however remove the historical data of that Widget.*** 
 
-### IoT Remote App
+## IoT Remote App
 
 The [IoT Remote App]() is a mobile version of your dashboards, that can be downloaded through:
 - [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US)
@@ -28,21 +28,30 @@ The [IoT Remote App]() is a mobile version of your dashboards, that can be downl
 
 ***For more information, visit the [IoT Remote App docs]().***
 
-### Edit / View Modes
+## Edit / View Modes
 
 Dashboards have two modes, **edit** and **view**. When configuring the dashboard, you will be using the edit mode.
 
-While in edit mode, you can create widgets, link them to variables, and move widgets around and lock them in place. Widgets can be be scaled and customized to your liking. A switch widget can for example be adjusted from a 1x1 to 5x5 size. 
+In both modes, you can also click  the **Mobile Layout** icon, to see how the widgets will be viewed on your [IoT Remote App]().
 
-![Scaling widgets.](assets/)
+![Edit / View modes and mobile layout.](assets/edit-view-mobile.png)
 
-In both modes, you can also click  the **Mobile Layout** icon, to see how the widgets will be viewed on your [IoT Remote App]()
+While in **edit mode**, you can create widgets, link them to variables, and move widgets around and lock them in place. Widgets can be be scaled and customized to your liking. A switch widget can for example be adjusted from a 1x1 to 5x5 size. 
 
-### Sharing Dashboards
+![Scaling widgets.](assets/scaling.png)
 
-It is possible to share your live dashboards with other people. To do so, please refer to the guide in the link below:
 
-- [Sharing Dashboards in the Arduino IoT Cloud](/cloud/iot-cloud/tutorials/sharing-dashboards)
+In the **viewing** mode you can only monitor/interact with your widgets.  
+
+## Sharing Dashboards
+
+You can share your live dashboards with other people, allowing them to monitor and interact with your devices. Note that you need a [maker plan]() to use this feature.  
+
+![Share your dashboards.](assets/share-dashboard.png)
+
+***Read more at [Sharing Dashboards in the Arduino Cloud]().***
+
+
 
 ## Widgets
 
