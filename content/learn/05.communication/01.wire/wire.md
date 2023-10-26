@@ -121,9 +121,7 @@ An example of this is if you want to use Adafruits MCP9808 sensor module, you do
 To learn how to install libraries, check out our [guide to installing libraries](/software/ide-v2/tutorials/ide-v2-installing-a-library).
 
 ## Examples
-The remainder of this article is a collection of links to tutorials, schematics and code snippets that can get you off the ground with I2C.
-
-
+The remainder of this article is a collection of examples that can get you off the ground with I2C.
 
 ### Controller Reader
 
@@ -280,3 +278,57 @@ void receiveEvent(int howMany)
   Serial.println(x);         // print the integer
 }
 ```
+
+### Accelerometer
+
+This code lets you read accelerometer data from a [Grove 6-Axis Accelerometer module](https://store.arduino.cc/collections/sensors/products/grove-6-axis-accelerometer-gyroscope) using the [seeed arduino LSM6DS3 library](https://www.arduino.cc/reference/en/libraries/seeed-arduino-lsm6ds3/).
+
+```arduino
+#include "LSM6DS3.h"
+#include "Wire.h"
+
+//Create instance of Accelerometer class
+LSM6DS3 accelerometer(I2C_MODE, 0x6A); 
+
+void setup() {
+    // put your setup code here, to run once:
+    Serial.begin(9600);
+    while (!Serial);
+
+    if (accelerometer.begin() != 0) {
+        Serial.println("LSM6DS3 not found, check your wiring.");
+    } else {
+        Serial.println("LSM6DS3 found!");
+    }
+}
+
+void loop() {
+    //Gyroscope
+    Serial.print("\nGyroscope:\n");
+    Serial.print(" X1 = ");
+    Serial.println(accelerometer.readFloatGyroX(), 4);
+    Serial.print(" Y1 = ");
+    Serial.println(accelerometer.readFloatGyroY(), 4);
+    Serial.print(" Z1 = ");
+    Serial.println(accelerometer.readFloatGyroZ(), 4);
+    
+    //Accelerometer
+    Serial.print("\nAccelerometer:\n");
+    Serial.print(" X1 = ");
+    Serial.println(accelerometer.readFloatAccelX(), 4);
+    Serial.print(" Y1 = ");
+    Serial.println(accelerometer.readFloatAccelY(), 4);
+    Serial.print(" Z1 = ");
+    Serial.println(accelerometer.readFloatAccelZ(), 4);
+
+    delay(1000);
+}
+```
+
+### I2C OLED
+
+[This code example](https://github.com/adafruit/Adafruit_SSD1306/blob/master/examples/ssd1306_128x32_i2c/ssd1306_128x32_i2c.ino) lets you write on an [Adafruit Monochrome I2C OLED display](https://www.adafruit.com/product/4440) using the popular ssd1306 driver 
+
+### I2C BME280
+[This code example](https://github.com/sparkfun/SparkFun_BME280_Arduino_Library/) lets you read temperature, humidity, pressure and altitude from [Sparkfuns BME280 breakout module](https://www.sparkfun.com/products/13676)
+
