@@ -3659,7 +3659,7 @@ def processData(data):
     print("Received:", data)  # For now, just print the data. Modify as needed.
 
 # Set up the serial port
-ser = serial.Serial('/dev/ttymxc1', 9600)  # Use the appropriate port and baud rate for your device
+ser = serial.Serial('/dev/ttymxc3', 9600)  # Use the appropriate port and baud rate for your device
 
 incoming = ""
 
