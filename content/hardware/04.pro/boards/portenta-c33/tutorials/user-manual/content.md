@@ -617,7 +617,7 @@ The Portenta C33 supports I2C communication, which allows data transmission betw
 
 To locate these pins on the board, please refer to the [board pinout section](#pinout) of the user manual. The `SDA0` and `SCL0` pins are also available through the onboard ESLOV connector of the Portenta C33.
 
-**Note on I2C resources**: System integrators can use the Portenta C33's High-Density connectors to expand the signals of the board to a custom-designed daughter board or carrier. Below is the I2C pins mapping on the board's High-Density connectors and shared resources:
+***Note on I2C resources: System integrators can use the Portenta C33's High-Density connectors to expand the signals of the board to a custom-designed daughter board or carrier. Below is the I2C pins mapping on the board's High-Density connectors and shared resources:***
 
 | **HD Connector** | **Interface** | **Pins** | **Status** | **Shared Peripherals** |
 |:----------------:|:-------------:|:--------:|:----------:|:----------------------:|
@@ -625,7 +625,7 @@ To locate these pins on the board, please refer to the [board pinout section](#p
 |        J2        |     `I2C0`    |   44-46  |    Free    |            -           |
 |        J2        |     `I2C2`    |   45-47  |    Free    |            -           |
 
-***Status column indicates the current status of the pins. "Free" means the pins are not in use by another resource or peripheral of the board and are available for usage, while "Shared" means the pins are used by one or several resources or peripherals of the board.***
+The status column indicates the current status of the pins. "Free" means the pins are not in use by another resource or peripheral of the board and are available for usage, while "Shared" means the pins are used by one or several resources or peripherals of the board.
 
 To use I2C communication, include the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) at the top of your sketch. The `Wire` library provides functions for I2C communication:
 
