@@ -2794,7 +2794,7 @@ It can interact with up to four relay ports on the board. Among its various feat
 ```python
 from __future__ import print_function
 
-import smbus2 import SMBus
+from smbus2 import SMBus
 
 # The number of relay ports on the relay board.
 # This value should never change!
