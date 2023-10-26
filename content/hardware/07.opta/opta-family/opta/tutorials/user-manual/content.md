@@ -366,7 +366,8 @@ User-programmable LEDs are mapped as described in the following table:
 |         `STATUS 3`         |  `LED_D2`/`LED_RELAY3`  |
 |         `STATUS 4`         |  `LED_D3`/`LED_RELAY4`  |
 | `USER` (WiFi variant only) |    `LED_USER`/`LEDB`    |
-|           `RESET`          |      `LED_BUILTIN`      |
+|    `RESET` (Green color)   |  `LED_BUILTIN`/`LEDG`   |
+|    `RESET` (Red color)     |         `LEDR`          |
 
 The sketch below shows how to create a Knight Rider-style "scanning" effect using Opta™s user LEDs. It works by sequentially lighting up each user's LED, creating a visual effect of scanning back and forth. This effect is achieved by defining an array of the user LED identifiers and using loops to cycle through these identifiers, turning each user LED on and off in sequence.
 
