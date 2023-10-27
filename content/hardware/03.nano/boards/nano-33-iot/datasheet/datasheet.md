@@ -92,11 +92,11 @@ As all Nano form factor boards, Nano 33 IoT and Nano 33 IoT with headers does no
 |        | Conservative thermal limits for the whole board: | -40 °C ( 40 °F) | 85°C ( 185 °F) |
 
 ### Power Consumption
-| Symbol  | Description                              | Min  | Typ  | Max  | Unit |
-| ------- | ---------------------------------------- | ---- | ---- | ---- | ---- |
-| VINMax  | Maximum input voltage from VIN pad       | -0.3 | -    | 21   | V    |
-| VUSBMax | Maximum input voltage from USB connector | -0.3 | -    | 21   | V    |
-| PMax    | Maximum Power Consumption                | -    | -    | TBC  | mW   |
+| Symbol  | Description                              | Min  | Typ | Max | Unit |
+| ------- | ---------------------------------------- | ---- | --- | --- | ---- |
+| VINMax  | Maximum input voltage from VIN pad       | -0.3 | -   | 21  | V    |
+| VUSBMax | Maximum input voltage from USB connector | -0.3 | -   | 21  | V    |
+| PMax    | Maximum Power Consumption                | -    | -   | TBC | mW   |
 
 ## Functional Overview
 ### Board Topology 
@@ -132,7 +132,7 @@ Communication with NINA W102 happens through a serial port and a SPI bus through
 | 21             | GPIO19             | UART RTS     |                  |                        |
 | 24             | PA15               | 29           | GPIO18           | SPI CLK                |
 | 20             | GPIO22             | UART CTS     |                  |                        |
-| 22             | PA13               | 1            | GPIO21           | SPI MISO               |
+| 22             | PA13               | 1            | GPIO23           | SPI MISO               |
 | 21             | PA12               | 36           | GPIO12           | SPI MOSI               |
 | 31             | PA22               | 23           | GPIO3            | Processor TX 🡺 Nina RX |
 | 32             | PA23               | 22           | GPIO1            | Processor RX 🡸 Nina TX |
@@ -194,13 +194,13 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### USB
 
-| Pin  | **Function** | **Type**     | **Description**                                              |
-| ---- | ------------ | ------------ | ------------------------------------------------------------ |
-| 1    | VUSB         | Power        | Power Supply Input. If board is powered via VUSB from header this is an Output **(1)** |
-| 2    | D-           | Differential | USB differential data -                                      |
-| 3    | D+           | Differential | USB differential data +                                      |
-| 4    | ID           | Analog       | Selects Host/Device functionality                            |
-| 5    | GND          | Power        | Power Ground                                                 |
+| Pin | **Function** | **Type**     | **Description**                                                                        |
+| --- | ------------ | ------------ | -------------------------------------------------------------------------------------- |
+| 1   | VUSB         | Power        | Power Supply Input. If board is powered via VUSB from header this is an Output **(1)** |
+| 2   | D-           | Differential | USB differential data -                                                                |
+| 3   | D+           | Differential | USB differential data +                                                                |
+| 4   | ID           | Analog       | Selects Host/Device functionality                                                      |
+| 5   | GND          | Power        | Power Ground                                                                           |
 
 1. The board can support USB host mode only if powered via the V<sub>USB</sub> pin and if the jumper close to the VUSB pin is shorted.
 
@@ -208,38 +208,38 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 ### Headers
 The board exposes two 15 pin connectors which can either be assembled with pin headers or soldered through castellated vias.
 
-| Pin  | **Function** | **Type**     | **Description**                                              |
-| ---- | ------------ | ------------ | ------------------------------------------------------------ |
-| 1    | D13          | Digital      | GPIO                                                         |
-| 2    | +3V3         | Power Out    | Internally generated power output to external devices        |
-| 3    | AREF         | Analog       | Analog Reference; can be used as GPIO                        |
-| 4    | A0/DAC0      | Analog       | ADC in/DAC out; can be used as GPIO                          |
-| 5    | A1           | Analog       | ADC in; can be used as GPIO                                  |
-| 6    | A2           | Analog       | ADC in; can be used as GPIO                                  |
-| 7    | A3           | Analog       | ADC in; can be used as GPIO                                  |
-| 8    | A4/SDA       | Analog       | ADC in; I2C SDA; Can be used as GPIO **(1)**                 |
-| 9    | A5/SCL       | Analog       | ADC in; I2C SCL; Can be used as GPIO **(1)**                 |
-| 10   | A6           | Analog       | ADC in; can be used as GPIO                                  |
-| 11   | A7           | Analog       | ADC in; can be used as GPIO                                  |
-| 12   | VUSB         | Power In/Out | Normally NC; can be connected to VUSB pin of the USB connector by shorting a jumper |
-| 13   | RST          | Digital In   | Active low reset input (duplicate of pin 18)                 |
-| 14   | GND          | Power        | Power Ground                                                 |
-| 15   | VIN          | Power In     | Vin Power input                                              |
-| 16   | TX           | Digital      | USART TX; can be used as GPIO                                |
-| 17   | RX           | Digital      | USART RX; can be used as GPIO                                |
-| 18   | RST          | Digital      | Active low reset input (duplicate of pin 13)                 |
-| 19   | GND          | Power        | Power Ground                                                 |
-| 20   | D2           | Digital      | GPIO                                                         |
-| 21   | D3/PWM       | Digital      | GPIO; can be used as PWM                                     |
-| 22   | D4           | Digital      | GPIO                                                         |
-| 23   | D5/PWM       | Digital      | GPIO; can be used as PWM                                     |
-| 24   | D6/PWM       | Digital      | GPIO, can be used as PWM                                     |
-| 25   | D7           | Digital      | GPIO                                                         |
-| 26   | D8           | Digital      | GPIO                                                         |
-| 27   | D9/PWM       | Digital      | GPIO; can be used as PWM                                     |
-| 28   | D10/PWM      | Digital      | GPIO; can be used as PWM                                     |
-| 29   | D11/MOSI     | Digital      | SPI MOSI; can be used as GPIO                                |
-| 30   | D12/MISO     | Digital      | SPI MISO; can be used as GPIO                                |
+| Pin | **Function** | **Type**     | **Description**                                                                     |
+| --- | ------------ | ------------ | ----------------------------------------------------------------------------------- |
+| 1   | D13          | Digital      | GPIO                                                                                |
+| 2   | +3V3         | Power Out    | Internally generated power output to external devices                               |
+| 3   | AREF         | Analog       | Analog Reference; can be used as GPIO                                               |
+| 4   | A0/DAC0      | Analog       | ADC in/DAC out; can be used as GPIO                                                 |
+| 5   | A1           | Analog       | ADC in; can be used as GPIO                                                         |
+| 6   | A2           | Analog       | ADC in; can be used as GPIO                                                         |
+| 7   | A3           | Analog       | ADC in; can be used as GPIO                                                         |
+| 8   | A4/SDA       | Analog       | ADC in; I2C SDA; Can be used as GPIO **(1)**                                        |
+| 9   | A5/SCL       | Analog       | ADC in; I2C SCL; Can be used as GPIO **(1)**                                        |
+| 10  | A6           | Analog       | ADC in; can be used as GPIO                                                         |
+| 11  | A7           | Analog       | ADC in; can be used as GPIO                                                         |
+| 12  | VUSB         | Power In/Out | Normally NC; can be connected to VUSB pin of the USB connector by shorting a jumper |
+| 13  | RST          | Digital In   | Active low reset input (duplicate of pin 18)                                        |
+| 14  | GND          | Power        | Power Ground                                                                        |
+| 15  | VIN          | Power In     | Vin Power input                                                                     |
+| 16  | TX           | Digital      | USART TX; can be used as GPIO                                                       |
+| 17  | RX           | Digital      | USART RX; can be used as GPIO                                                       |
+| 18  | RST          | Digital      | Active low reset input (duplicate of pin 13)                                        |
+| 19  | GND          | Power        | Power Ground                                                                        |
+| 20  | D2           | Digital      | GPIO                                                                                |
+| 21  | D3/PWM       | Digital      | GPIO; can be used as PWM                                                            |
+| 22  | D4           | Digital      | GPIO                                                                                |
+| 23  | D5/PWM       | Digital      | GPIO; can be used as PWM                                                            |
+| 24  | D6/PWM       | Digital      | GPIO, can be used as PWM                                                            |
+| 25  | D7           | Digital      | GPIO                                                                                |
+| 26  | D8           | Digital      | GPIO                                                                                |
+| 27  | D9/PWM       | Digital      | GPIO; can be used as PWM                                                            |
+| 28  | D10/PWM      | Digital      | GPIO; can be used as PWM                                                            |
+| 29  | D11/MOSI     | Digital      | SPI MOSI; can be used as GPIO                                                       |
+| 30  | D12/MISO     | Digital      | SPI MISO; can be used as GPIO                                                       |
 
 
 
@@ -247,14 +247,14 @@ The board exposes two 15 pin connectors which can either be assembled with pin h
 ### Debug
 On the bottom side of the board, under the communication module, debug signals are arranged as 3x2 test pads with 100 mil pitch. Pin 1 is depicted in Figure 3 – Connector Positions
 
-| Pin  | **Function** | **Type**   | **Description**                                              |
-| ---- | ------------ | ---------- | ------------------------------------------------------------ |
-| 1    | +3V3         | Power Out  | Internally generated power output to be used as voltage reference |
-| 2    | SWD          | Digital    | SAMD11 Single Wire Debug Data                                |
-| 3    | SWCLK        | Digital In | SAMD11 Single Wire Debug Clock                               |
-| 4    | UPDI         | Digital    | ATMega4809 update interface                                  |
-| 5    | GND          | Power      | Power Ground                                                 |
-| 6    | RST          | Digital In | Active low reset input                                       |
+| Pin | **Function** | **Type**   | **Description**                                                   |
+| --- | ------------ | ---------- | ----------------------------------------------------------------- |
+| 1   | +3V3         | Power Out  | Internally generated power output to be used as voltage reference |
+| 2   | SWD          | Digital    | SAMD11 Single Wire Debug Data                                     |
+| 3   | SWCLK        | Digital In | SAMD11 Single Wire Debug Clock                                    |
+| 4   | UPDI         | Digital    | ATMega4809 update interface                                       |
+| 5   | GND          | Power      | Power Ground                                                      |
+| 6   | RST          | Digital In | Active low reset input                                            |
 
 
 ## Mechanical Information
@@ -345,41 +345,42 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands           | Maximum output power (EIRP) |
-| :------------------------ | :-------------------------- |
-| 2402-2480MHz(EDR)         | 6.24 dBm                    |
-| 2402-2480MHz(BLE)         | 6.30 dBm                    |
-| 2412-2472MHz(2.4G WiFi)   | 13.61 dBm                   |
+| Frequency bands         | Maximum output power (EIRP) |
+| :---------------------- | :-------------------------- |
+| 2402-2480MHz(EDR)       | 6.24 dBm                    |
+| 2402-2480MHz(BLE)       | 6.30 dBm                    |
+| 2412-2472MHz(2.4G WiFi) | 13.61 dBm                   |
  
 
 ## Company Information
 
-| Company name    | Arduino S.r.l                                    |
-| --------------- | ----------------------------------------------   |
-| Company Address | Via Andrea Appiani,2520900 MONZA                 |
+| Company name    | Arduino S.r.l                    |
+| --------------- | -------------------------------- |
+| Company Address | Via Andrea Appiani,2520900 MONZA |
 
 ## Reference Documentation
 
-| Reference                 | **Link**                                                     |
-| ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                      |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Forum                     | http://forum.arduino.cc/                                     |
-| SAMD21G18                 | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf |
-| NINA W102                 | https://content.u-blox.com/sites/default/files/NINA-W10_DataSheet_UBX-17065507.pdf |
+| Reference                 | **Link**                                                                                                                                                             |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                                                                                                                                   |
+| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                                                                                     |
+| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a                                                                  |
+| Forum                     | http://forum.arduino.cc/                                                                                                                                             |
+| SAMD21G18                 | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf                            |
+| NINA W102                 | https://content.u-blox.com/sites/default/files/NINA-W10_DataSheet_UBX-17065507.pdf                                                                                   |
 | ECC608                    | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
-| MPM3610                   | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
-| NINA Firmware             | https://github.com/arduino/nina-fw                           |
-| ECC608 Library            | https://github.com/arduino-libraries/ArduinoECCX08           |
-| LSM6DSL Library           | https://github.com/stm32duino/LSM6DSL                        |
-| ProjectHub                | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| Library Reference         | https://www.arduino.cc/reference/en/                         |
-| Arduino Store             | https://store.arduino.cc/                                    |
+| MPM3610                   | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf                                                                                                 |
+| NINA Firmware             | https://github.com/arduino/nina-fw                                                                                                                                   |
+| ECC608 Library            | https://github.com/arduino-libraries/ArduinoECCX08                                                                                                                   |
+| LSM6DSL Library           | https://github.com/stm32duino/LSM6DSL                                                                                                                                |
+| ProjectHub                | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                                                                                             |
+| Library Reference         | https://www.arduino.cc/reference/en/                                                                                                                                 |
+| Arduino Store             | https://store.arduino.cc/                                                                                                                                            |
 
 ## Revision History
 
 | Date       | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
+| 27/10/2023 | 3            | Correction NINA SPI pins              |
 | 03/08/2022 | 2            | Reference documentation links updates |
 | 15/04/2021 | 1            | General datasheet updates             |
