@@ -3554,33 +3554,73 @@ For Portenta H7 or C33, the following examples can be used to test UART communic
 Serial.begin(9600);
 ```
 
-With the `Serial.available()` function and the `Serial.read()` function, you can read incoming data by using a `while()` loop to repeatedly check for available data and read individual characters. When a line-ending character is received, the code above processes the input and stores the incoming characters in a String variable.:
+With the `Serial1.available()` function and the `Serial1.read()` function, you can read incoming data by using a `while()` loop to repeatedly check for available data and read individual characters. When a line-ending character is received, the code below processes the input and stores the incoming characters in a String variable.:
+
+Using the `Serial1.available()` method alongside the `Serial1.read()` method allows you to read incoming data. The technique involves using a `while()` loop to consistently check for available data and then read individual characters.
+
+Upon receiving a line-ending character, the code processes the accumulated characters and stores them in a _String_ variable. The relevant section of the code is presented below:
 
 ```arduino
-// Variable for storing incoming data
-String incoming = "";
-
 void loop() {
-  // Check for available data and read individual characters
-  while (Serial.available()) {
-    // Allow data buffering and read a single character
+  while (Serial1.available()) {
     delay(2);
-    char c = Serial.read();
-
-    // Check if the character is a newline (line-ending)
+    char c = Serial1.read();
     if (c == '\n') {
-      // Process the received data
       processData(incoming);
-
-      // Clear the incoming data string for the next message
       incoming = "";
     } else {
-      // Add the character to the incoming data string
       incoming += c;
     }
   }
 }
+
+void processData(String data) {
+  Serial.println("Received: " + data);  // Print on Serial Monitor
+}
 ```
+
+Consequently, the following provides a complete example illustrating the reception of incoming data via UART:
+
+```arduino
+String incoming = "";
+
+void setup() {
+  Serial1.begin(9600);  // For communication with Arduino using RX1 and TX1
+  Serial.begin(9600);   // For debugging over USB
+}
+
+void loop() {
+  while (Serial1.available()) {
+    delay(2);
+    char c = Serial1.read();
+    if (c == '\n') {
+      processData(incoming);
+      incoming = "";
+    } else {
+      incoming += c;
+    }
+  }
+}
+
+void processData(String data) {
+  Serial.println("Received: " + data);  // Print on Serial Monitor
+}
+```
+
+For transmitting data over UART, which can complement the receiving board as depicted above, refer to the ensuing example:
+
+```arduino
+void setup() {
+  Serial1.begin(9600);
+}
+
+void loop() {
+  Serial1.println("Hello from Portenta!");
+  delay(1000);
+}
+```
+
+Using these codes, you should observe the message `"Hello from Portenta!"` being transmitted to the receiving Portenta board when coupled with a Portenta Hat Carrier.
 
 The `Serial.write()` method allows you to send data over UART (Universal Asynchronous Receiver-Transmitter). This method is used when you want to transmit raw bytes or send a byte array.
 
