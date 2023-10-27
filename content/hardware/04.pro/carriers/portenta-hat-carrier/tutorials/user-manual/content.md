@@ -52,7 +52,7 @@ If you want to use the Portenta Hat Carrier with a Portenta X8, check the follow
 
 - Make sure you have the latest Linux image. Refer to [this section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#portenta-x8-os-image-update) to confirm that your Portenta X8 is up-to-date.
 
-***To ensure stable operation of the Portenta Hat Carrier with Portenta X8, the minimum Linux image version required for Portenta X8 is __746__. To flash the latest image on your board, you can use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) or [flash it manually](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) downloading the latest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
+***To ensure a stable operation of the Portenta Hat Carrier with Portenta X8, the minimum Linux image version required for Portenta X8 is __746__. To flash the latest image on your board, you can use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) or [flash it manually](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) downloading the latest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor) in case you want to use the auxiliary microcontroller of the Portenta X8 to run Arduino code.
 
@@ -84,13 +84,13 @@ It integrates a microSD slot for storage and data logging, broad interface optio
 
 ![Portenta Hat Carrier board overview](assets/portentaHATcarrier_board_overview.png)
 
-The Portenta Hat Carrier have the following characteristics:
+The Portenta Hat Carrier has the following characteristics:
 
 - **Compatible SOM boards**: The carrier is compatible with: Portenta X8 (ABX00049), Portenta H7 (ABX00042/ABX00045/ABX00046) and Portenta C33 (ABX00074).
 
-- **Power management**: The board can be powered up from different sources. The onboard screw terminal block allows 7 ~ 32 V power supply to power the Portenta board and the carrier, and 5 V power supply.
+- **Power management**: The board can be powered up from different sources. The onboard screw terminal block allows a 7-32 V power supply to power the Portenta board and the carrier, and a 5 V power supply.
   
-  The USB-C® interface of the Portenta X8, H7, and C33 can supply the needed power to the board. Alternatively, the 5V pin from the 40-pin male header can be used to power the board. The carrier can deliver maximum current of 1.5 A.
+  The USB-C® interface of the Portenta X8, H7, and C33 can supply the needed power to the board. Alternatively, the 5V pin from the 40-pin male header can be used to power the board. The carrier can deliver a maximum current of 1.5 A.
 
 - **USB connectivity**: A USB-A female connector is used for data logging and the connection of external peripherals like keyboards, mice, hubs, and similar devices.
   
@@ -104,7 +104,7 @@ The Portenta Hat Carrier have the following characteristics:
   
 - **Ethernet connectivity**: The carrier offers a Gigabit Ethernet interface through an RJ45 connector 1000 Base-T. If the carrier is paired with Portenta H7 or C33, the maximum speed is limited to 100 Mbit Ethernet.
   
-- **40-pin male header connector**: The connector allows for SPI (x1), I2S (x1), SAI (x1), 5V power pin (x2), 3V3 power pin (x2), I2C (x2), UART (x2), PWM pins (x7), GND (x8), and GPIO (X26). The I2C count includes the one that is dedicated to EEPROM. UARTs does not have flow control. The GPIO pins are shared with different functionalities.
+- **40-pin male header connector**: The connector allows for SPI (x1), I2S (x1), SAI (x1), 5V power pin (x2), 3V3 power pin (x2), I2C (x2), UART (x2), PWM pins (x7), GND (x8), and GPIO (X26). The I2C count includes the one that is dedicated to EEPROM. UARTs do not have flow control. The GPIO pins are shared with different functionalities.
   
 - **16-pin analog male header connector**: The connector allows analog pins (x8), PWM (x2), LICELL (x1), GPIO (x1), 3V3 (x1), GND (x1), serial TX (x1), and serial RX (x1).
   
@@ -112,7 +112,7 @@ The Portenta Hat Carrier have the following characteristics:
   
 - **Debug interface**: The carrier features an onboard 10x pin 1.27mm JTAG connector.
   
-- **PWM fan connector**: The board has onboard PWM fan connector (x1) compatible with 5 V fan with PWM input for speed regulation.
+- **PWM fan connector**: The board has an onboard PWM fan connector (x1) compatible with a 5 V fan with a PWM signal for speed regulation.
   
 - **DIP switch**: The carrier features a DIP switch with two positions, allowing for different profiles depending on the paired Portenta board. This DIP switch includes both the ETH CENTER TAP and BTSEL switches.
 
@@ -163,9 +163,9 @@ The full _STEP_ files are available and downloadable from the link below:
 
 ### Mechanical Information
 
-In this section, you can find mechanical information about the Portenta Hat Carrier. The dimensions of the board are all specified here, within top and bottom views, including the placements of the components on board.
+In this section, you can find mechanical information about the Portenta Hat Carrier. The dimensions of the board are all specified here, within top and bottom views, including the placements of the components onboard.
 
-If you desire to design and manufacture a custom mounting device, or create a custom enclosure for your carrier, the following image shows the dimensions for the mounting holes and general board layout. The given dimensions are all in __millimeters [mm]__.
+If you desire to design and manufacture a custom mounting device or create a custom enclosure for your carrier, the following image shows the dimensions for the mounting holes and general board layout. The given dimensions are all in __millimeters [mm]__.
 
 You can also access the STEP files which are also available [here](assets/ASX00049-step.zip).
 
@@ -189,17 +189,22 @@ The Portenta Hat Carrier can be powered according to one of the following method
 
   For clarity on the connection points, please refer to the [board pinout section](#pinout) of the user manual. Ensure the supplied current meets the specification for all components, as shown in the operating conditions table reported later on.
 
-- Using an external __5 V power supply__ to the _5V_ pin located on the 40-pin male header connectors pins or available on the screw terminal of the board, you can effectively power the Portenta Hat Carrier, the SOM, and any connected hat.
+- Using an external __5 V power supply__ to:
+
+* The _5V_ pin located on the 40-pin male header connector pins
+* The _5V_ pin located on the screw terminal of the board
+  
+  You can effectively power the Portenta Hat Carrier, the SOM, and any connected hat.
 
   For more details on this connection, kindly consult the [board pinout section](#pinout) of the user manual. Again, ensure that the power supply's maximum current respects all components' specifications.
 
-- Using a USB-C® cable (not included) connected to the Portenta core board of your choice powers not only the selected core board, like the Portenta X8, H7, or C33, but also the Portenta Hat Carrier, the SOM, and any connected hat which does not require a dedicated external power supply.
+- Using a USB-C® cable (not included) connected to the Portenta core board of your choice powers not only the selected core board, like the Portenta X8, H7, or C33, but also the Portenta Hat Carrier, and any connected hat that does not require a dedicated external power supply.
 
 ***The Portenta Hat Carrier can deliver a __maximum__ of 1.5 A.***
 
 ![Portenta Hat Carrier Power Connection Overview](assets/portentaHATcarrier_powerSource.png)
 
-The image below magnifies the location of the terminal block for 7 - 32 V and 5 V power source of the Portenta Hat Carrier:
+The image below magnifies the location of the terminal block for the 7 - 32 V and 5 V power source of the Portenta Hat Carrier:
 
 ![Portenta Hat Carrier Power Source within Terminal Block](assets/portentaHATcarrier_powerSource_block.png)
 
@@ -211,14 +216,14 @@ Subsequently, you can check how the Portenta Hat Carrier distributes power resou
 
 To ensure the safety and longevity of the board, it is essential to understand the carrier's operating conditions. The table below provides the recommended operating conditions for the carrier:
 
-|                      **Parameter**                     | **Symbol**  | **Min** | **Typ** | **Max** | **Unit** |
-|:------------------------------------------------------:|-------------|---------|---------|---------|----------|
-| VIN from onboard screw terminal* of the Carrier        | VINTERMINAL | 7.0     | -       | 32.0    | V        |
-| +5 VDC from the carrier's onboard screw terminal       | V5TERMINAL  | -       | 5.0     | -       | V        |
-| USB-C® input from the connected Portenta family board  | V5USBC      | -       | 5.0     | -       | V        |
-| Current supplied by the carrier                        | ICARRIER    | -       | -       | 1.5     | A        |
-| +5 VDC from the 40-pin header connector on the carrier | V5HEADER    | -       | 5.0     | -       | V        |
-| Ambient operating temperature                          | TOP         | -40     | -       | 85      | °C       |
+|                     **Parameter**                      | **Min** | **Typ** | **Max** | **Unit** |
+| :----------------------------------------------------: | :-----: | :-----: | :-----: | :------: |
+|    VIN from onboard screw terminal* of the Carrier     |   7.0   |    -    |  32.0   |    V     |
+| USB-C® input from the connected Portenta family board  |    -    |   5.0   |    -    |    V     |
+| +5 VDC from the 40-pin header connector on the carrier |    -    |   5.0   |    -    |    V     |
+|    +5 VDC from the carrier's onboard screw terminal    |    -    |   5.0   |    -    |    V     |
+|            Current supplied by the carrier             |    -    |    -    |   1.5   |    A     |
+|             Ambient operating temperature              |   -40   |    -    |   85    |    °C    |
 
 ***The onboard screw terminal powers both the carrier and any connected Portenta board. Additionally, this terminal connector includes reverse polarity protection for enhanced safety.***
 
@@ -226,17 +231,17 @@ To ensure the safety and longevity of the board, it is essential to understand t
 
 The Portenta Hat Carrier provides different functionalities based on the connected Portenta family board, as shown in the table below:
 
-|  **Features**  | **Portenta X8**   | **Portenta H7**    | **Portenta 33**    |
-|:---------------|:------------------|:-------------------|:-------------------|
-| 40-Pin Header  | Compatible        | Compatible         | Compatible         |
-| 16-Pin Header  | Compatible        | Compatible         | Compatible         |
-| MIPI Camera    | Compatible        | Incompatible       | Incompatible       |
-| Ethernet       | 1 Gbit (DIP: OFF) | 100 Mbit (DIP: ON) | 100 Mbit (DIP: ON) |
-| PWM Fan        | Available         | Available          | Available          |
-| JTAG Debug     | Available         | Available          | Available          |
-| Storage Exp.   | MicroSD slot      | MicroSD slot       | MicroSD slot       |
-| CAN FD         | Available         | Available          | Available          |
-| USB-A Support  | Available         | Available          | Available          |
+| **Features**  |  **Portenta X8**  |  **Portenta H7**   |  **Portenta 33**   |
+| :-----------: | :---------------: | :----------------: | :----------------: |
+| 40-Pin Header |    Compatible     |     Compatible     |     Compatible     |
+| 16-Pin Header |    Compatible     |     Compatible     |     Compatible     |
+|  MIPI Camera  |    Compatible     |    Incompatible    |    Incompatible    |
+|   Ethernet    | 1 Gbit (DIP: OFF) | 100 Mbit (DIP: ON) | 100 Mbit (DIP: ON) |
+|    PWM Fan    |     Available     |     Available      |     Available      |
+|  JTAG Debug   |     Available     |     Available      |     Available      |
+| Storage Exp.  |   MicroSD slot    |    MicroSD slot    |    MicroSD slot    |
+|    CAN FD     |     Available     |     Available      |     Available      |
+| USB-A Support |     Available     |     Available      |     Available      |
 
 ***The Portenta X8 is the specific Portenta family board that offers compatibility with Raspberry Pi® Hats on the 40-pin Header.***
 
@@ -249,7 +254,7 @@ This provides a general idea of how the Portenta Hat Carrier will perform depend
 #### Using Portenta X8 with Linux
 <br></br>
 
-To use the Portenta Hat Carrier with the Portenta X8, you will have to align the High-Density connectors along with USB-C® port. The following diagram shows how the board stacks on the carrier.
+To use the Portenta Hat Carrier with the Portenta X8, you will have to align the High-Density connectors along with the USB-C® port. The following diagram shows how the board stacks on the carrier.
 
 ![Portenta Hat Carrier with X8](assets/portentaHATcarrier_x8.png)
 
@@ -260,11 +265,11 @@ To use the Portenta Hat Carrier with the Portenta X8, you will have to align the
 #### Hello World With Portenta X8 Shell
 <br></br>
 
-A series of _Hello World_ examples will be used to ensure the Portenta Hat Carrier is correctly operating with the paired Portenta X8. These examples, using Linux commands, Python® scripts, Docker, and the Arduino IDE, aim to trigger the user-programmable LED connected to GPIO3 leveraging different methods and platforms.
+A series of _Hello World_ examples will be used to ensure the Portenta Hat Carrier is correctly operating with the paired Portenta X8. These examples, using Linux commands, Python® scripts, and the Arduino IDE, aim to trigger the user-programmable LED connected to GPIO3 leveraging different methods and platforms.
 
-We will begin with a _Hello World_ example using Linux commands. The user programmable LED can be controlled using commands within the Portenta X8's shell. Learn how to connect with Portenta X8 shell [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#first-use-of-your-portenta-x8). 
+We will begin with a _Hello World_ example using Linux commands. The user-programmable LED can be controlled using commands within the Portenta X8's shell. Learn how to connect with the Portenta X8 shell [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#first-use-of-your-portenta-x8). 
 
-The following commands will help you set and control the GPIO3, which connects to the user programmable LED.
+The following commands will help you set and control the GPIO3, which connects to the user-programmable LED.
 
 Let us begin with the commands to access the Portenta X8's shell:
 
@@ -273,7 +278,11 @@ adb shell
 sudo su -
 ```
 
-When you execute the _sudo su -_ command, you will be prompted for a password. The default password is `fio`. This command grants you access as the root user, loading the root user's environment settings such as `$HOME` and `$PATH`.
+When you execute the _sudo su -_ command, you will be prompted for a password: 
+
+***The default password is `fio`*** 
+
+This command grants you access as the root user, loading the root user's environment settings such as `$HOME` and `$PATH`.
 
 The aforementioned commands allow you to access the Portenta X8's shell with elevated privileges. This allows you to modify system configurations that require administrative permissions.
 
@@ -295,13 +304,13 @@ It lists all the GPIOs previously initialized by the system. Meanwhile, the foll
 ls /sys/class/gpio/gpio163
 ```
 
-The GPIO can now be configured verifying that GPIO3 elements were successfully exported. The following command with `I/O` field will set the I/O state of the pin. The pin can be set either as Input using `in` or Output using `out` value.
+The GPIO can now be configured verifying that GPIO3 elements were successfully exported. The following command with the `I/O` field will set the I/O state of the pin. The pin can be set either as Input using `in` or Output using `out` value.
 
 ```
 echo <I/O> >/sys/class/gpio/gpio163/direction
 ```
 
-For this example, we will replace the `I/O` field with `out` value within the following command.
+For this example, we will replace the `<I/O>` field with `out` value within the following command:
 
 ```
 echo out >/sys/class/gpio/gpio163/direction
@@ -315,10 +324,17 @@ cat /sys/class/gpio/gpio163/direction
 
 The GPIO is now set as an output, thus it can now be controlled by setting its state.
 
-To set the pin High, you need to assign the value `1`, or `0` to set the pin Low. The command will require the `value` at the end to ensure the pin's state is controlled.
+To set the pin High, you need to assign the value `1`, or `0` to set the pin `HIGH` or `LOW`. The command will require the `value` at the end to ensure the pin's state is controlled.
 
+
+To set the pin to `HIGH`: 
 ```
 echo 1 >/sys/class/gpio/gpio163/value
+echo 0 >/sys/class/gpio/gpio163/value
+```
+
+To set the pin to `LOW`:
+```
 echo 0 >/sys/class/gpio/gpio163/value
 ```
 
@@ -336,10 +352,10 @@ ls /sys/class/gpio
 
 This step helps you to prevent unintentional modifications to the element configuration.
 
-#### Hello World Using Linux and Python® Script
+#### Hello World Using Linux and Python® Scripts
 <br></br>
 
-Previously, we manually toggled the LED linked to _GPIO3_ on the Portenta X8 via the command-line. However, to automate this process and potentially extend our control logic, we can employ a Python® script for this purpose.
+Previously, we manually toggled the LED linked to _GPIO3_ on the Portenta X8 via the command line. However, to automate this process and potentially extend our control logic, we can employ a Python® script for this purpose.
 
 The script below is compatible with the ADB shell on the Portenta X8:
 
@@ -390,38 +406,49 @@ def main():
     gpio.set_direction("out")
     if gpio.read_direction() == "out":
         print("GPIO set as output.")
+        print("User LED Blinking 20 times")
+
 
     # Turn on (set to 1) and then off (set to 0)
-    while True:
+    for i in range(1,20,1):
         gpio.set_value(1)
         time.sleep(1)
         gpio.set_value(0)
         time.sleep(1)
-
-    # Unexport (if you want to unexport at some point, you can uncomment this)
-    # gpio.unexport()
+        
+    
+    print("GPIO Unexport")
+    gpio.unexport()
+    print("End of the program")
+    exit()
 
 if __name__ == "__main__":
     main()
 ```
 
-The script can be named as `hello_world_python.py` for example. It can then be pushed to Portenta X8 using the following command on computer terminal:
+The script can be named `hello_world_python.py` for example. It can then be pushed to Portenta X8 using the following command on a computer terminal:
 
 ```bash
 adb push hello_world_python.py /home/fio
 ```
 
-The file is uploaded to `/home/fio` directory. Navigate to the directory using ADB shell and use the following command to run the script:
+The file is uploaded to the `/home/fio` directory. Navigate to the directory using ADB shell:
+
+```bash
+cd python3 hello_world_python.py
+```
+
+Now use the following command to run the script:
 
 ```bash
 python3 hello_world_python.py
 ```
 
-Portenta Hat Carrier's user programmable LED will start blinking whenever the script is running.
+Portenta Hat Carrier's user-programmable LED will start blinking whenever the script is running.
 
 Please check out the [Portenta X8 user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual) to learn how the board operates, and maximize its potential when paired with the Portenta Hat Carrier. The Portenta Hat Carrier supports the Portenta X8 via High-Density connectors.
 
-The Portenta X8 has the capability to operate in Linux environment, and it is based on Yocto Linux distribution. It is recommendable to read how the Portenta X8 works in terms of Linux environment [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#linux-environment).
+The Portenta X8 has the capability to operate in a Linux environment and it is based on Yocto Linux distribution. It is recommendable to read how the Portenta X8 works in terms of Linux environment [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#linux-environment).
 
 ### Hello World Using Arduino
 
@@ -505,7 +532,7 @@ Please check out the following documentation to learn more about each board and 
 
 ***Please note that the Ethernet connectivity speed is limited to 100 Mbit when used with the Portenta H7 or C33.***
 
-***For up-to-date performance of the Portenta X8 on the Portenta Hat Carrier, ensure you update to the latest Portenta X8 OS image. You can check [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#portenta-x8-os-image-update) for more detail.***
+***For up-to-date performance of the Portenta X8 on the Portenta Hat Carrier, ensure you update to the latest Portenta X8 OS image. You can check [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#portenta-x8-os-image-update) for more details.***
 
 ## Carrier Features and Interfaces
 
@@ -515,7 +542,7 @@ Each sub-section further delves into the specifications of each feature, ensurin
 
 ## Hardware Interfaces
 
-This sub-section introduces the essential hardware connection points and interfaces present on Portenta Hat Carrier. Ranging from connectors and camera interfaces to fan control, you will be able to explore the physical interaction points of the carrier.
+This sub-section introduces the essential hardware connection points and interfaces present on the Portenta Hat Carrier. Ranging from connectors and camera interfaces to fan control, you will be able to explore the physical interaction points of the carrier.
 
 ### High-Density Connectors
 
@@ -531,7 +558,7 @@ The Portenta Hat Carrier features a USB interface suitable for data logging and 
 
 ![Portenta Hat Carrier USB-A Port](assets/portentaHATcarrier_USBA.png)
 
-If you are interested in USB-A port pinout, the following table may serve to understand its connection distribution:
+If you are interested in the USB-A port pinout, the following table may serve to understand its connection distribution:
 
 | **Pin number** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         | **Interface** |
 |:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|:-------------:|
@@ -545,49 +572,42 @@ Devices with a USB-A interface, such as storage drives, can be used for logging 
 #### Using Linux
 <br></br>
 
-As an example, following command on Portenta X8's shell can be used to test write command with a USB memory drive. To write a file, following sequence of commands can help you accomplish such task.
+As an example, the following command on Portenta X8's shell can be used to test a write command with a USB memory drive. To write a file, the following sequence of commands can help you to accomplish such task.
 
 ```bash
-dmesg -w
+sudo su -
 ```
-
-The `dmesg -w` command displays kernel messages, helping you monitor system events in real-time. It is particularly useful to see if it has recognized the USB drive when plugged in.
+First of all, let's enter root mode to have the right permissions to mount and unmount related peripherals like our USB memory drive.
 
 ```bash
 lsblk
 ```
 
-The `lsblk` command lists all available block devices, such as hard drives and USB drives. It helps in identifying the device name, like `/dev/sda1` which is the partition designation, of the plugged-in USB drive.
+The `lsblk` command lists all available block devices, such as hard drives and USB drives. It helps in identifying the device name, like `/dev/sda1` which will be probably the partition designation of the USB drive you just plugged in. A common trick to identify and check the USB drive connected is to execute the `lsblk` command twice; once with the USB disconnected and the next one to the USB connected, to compare both results and spot easily the newly connected USB drive. Additionally, the command `lsusb` can be used to gather more information about the connected USB drive.
 
 ```bash
 mkdir -p /mnt/USBmount
 ```
 
-The `mkdir -p` command creates the directory `/mnt/USBmount`. If the directory already exists, this command won't produce an error. This directory will be used as a mount point for the USB drive.
+The `mkdir -p` command creates the directory `/mnt/USBmount`. This directory will be used as a mount point for the USB drive.
 
 ```bash
 mount -t vfat /dev/sda1 /mnt/USBmount
 ```
 
-This mount command mounts the USB drive, assumed to have a FAT filesystem (`vfat`), located at `/dev/sda1` to the directory `/mnt/USBmount`. Once mounted, the content of the USB drive can be accessed from the `/mnt/USBmount` directory.
+This mount command mounts the USB drive, assumed to have a FAT filesystem (`vfat`), located at `/dev/sda1` to the directory `/mnt/USBmount`. Once mounted, the content of the USB drive can be accessed from the `/mnt/USBmount` directory with `cd`: 
 
 ```bash
-dd if=/dev/urandom of=/mnt/USBmount/random.bin bs=1K count=16
+cd /mnt/USBmount
 ```
 
-This command will create a _random.bin_ file filled with 16 Kilobytes of random data. It reads data from the system's pseudo-random number generator `/dev/urandom` and writes it to the file in chunks of 1 Kilobyte.
-
-To read the _random.bin_ file with random data, you can use the following command:
+Now if you do an `ls` you can see the actual content of the connected USB Drive.
 
 ```bash
-dd if=/mnt/USBmount/random.bin bs=1K count=16 | hexdump -C
+ls
 ```
 
-This will read the previously generated _random.bin_ file and displays its content in a hexadecimal format on the console. Data is read in chunks of 1 Kilobyte up to 16 Kilobytes and then processed for display using `hexdump`.
-
-***Reading the entire _random.bin_ file with the `hexdump` command will produce a large output on the console. Use with caution.***
-
-In the Portenta X8's shell, if you aim to create a text file containing the message `Hello, World!` on a USB memory drive, you can employ the command:
+Let's create a simple text file containing the message `Hello, World!` in the already connected USB memory drive using the following command:
 
 ```bash
 dd if=<(echo -n "Hello, World!") of=/mnt/USBmount/helloworld.txt
@@ -600,17 +620,19 @@ Subsequently, the message gets inscribed into a file named _helloworld.txt_ situ
 After creating the file, if you wish to retrieve its contents and display them on the shell, you can use:
 
 ```bash
-dd if=/mnt/USBmount/helloworld.txt bs=1K count=1
+cat helloworld.txt
 ```
 
-This command directs `dd` to peruse the contents of _helloworld.txt_. With a specified block size of 1 Kilobyte, the reading is confined to a single block—adequate given the brevity of the `Hello, World!` message. Upon executing this command, the content of the text file will be displayed on your shell.
+This command `cat` prompts in the terminal the content of a file, in this case the words `Hello, World!`.
+
+Now that you know how to locate, mount, write and read information from an external USB stick or hard drive you can expand the possibilities of your solution with the additional storage connected to the Portenta Hat Carrier.
 
 #### Using Arduino IDE
 <br></br>
 
 The following example demonstrates how to use the USB interface of the Portenta Hat Carrier with the Portenta C33 to mount a Mass Storage Device (MSD).
 
-Through this code, users will be able to effectively connect to, read from, and write to a USB storage device, making it easier to interact with external storage via USB interface.
+Through this code, users will be able to effectively connect to, read from, and write to a USB storage device, making it easier to interact with external storage via the USB interface.
 
 ```arduino
 #include <vector>
@@ -913,9 +935,9 @@ void loop() {
 
 ### Analog Pins
 
-The 16-pin header connector of the Portenta Hat Carrier integrates the analog channels. The analog pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, and `A7` are accessible through these connectors.
+The 16-pin header connector of the Portenta Hat Carrier integrates the analog channels. The analog `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, and `A7` are accessible through these pins.
 
-![Portenta Hat Carrier CAN Interface](assets/portentaHATcarrier_analogIOs.png)
+![Portenta Hat Carrier Analog Pins](assets/portentaHATcarrier_analogIOs.png)
 
 | **Pin number** | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** |
 |:--------------:|:--------------:|:----------------------------:|:--------------------:|
@@ -940,6 +962,11 @@ Using the Portenta X8, you can obtain a voltage reading that falls within a _0 -
 ```
 cat /sys/bus/iio/devices/iio\:device0/in_voltage<adc_pin>_raw
 ```
+Where `<adc_pin>` is the number of the analog pin to read. For example, in the case of `A0`:
+
+```
+cat /sys/bus/iio/devices/iio\:device0/in_voltage0_raw
+```
 
 If you are working in Python®, the command can be implemented as shown in the script below:
 
@@ -958,6 +985,10 @@ if __name__ == "__main__":
   
   if value is not None:
     print(f"Value from ADC pin {adc_pin}: {value}")
+
+    # Mapping between 0-3.3 V
+    new_value = (float) (value/65535)*3.3
+    print(f"Value mapped between 0-3.3 V: {new_value}")
 ```
 
 #### Using Arduino IDE
@@ -988,7 +1019,7 @@ void loop() {
 }
 ```
 
-Following example can be considered for Portenta C33:
+The following example can be considered for Portenta C33:
 
 ```arduino
 #include "analogWave.h" // Include the library for analog waveform generation
@@ -1075,7 +1106,7 @@ As mentioned before, the Portenta Hat Carrier supports the MIPI camera if paired
 #### Using Linux
 <br></br>
 
-The following commands, using on Portenta X8 environment, allows you to capture a single frame and stream video at 30 FPS (Frames per Second) for 10 seconds from the Raspberry Pi Camera v1.3, which is based on the __OV5647 CMOS__ sensor.
+The following commands, using the Portenta X8 environment, allow you to capture a single frame and stream video at 30 FPS (Frames per Second) for 10 seconds from the Raspberry Pi Camera v1.3, which is based on the __OV5647 CMOS__ sensor.
 
 First, we need to set environment variables and specify the overlays for our camera and board setup:
 
@@ -1131,7 +1162,7 @@ The Portenta Hat Carrier is designed to be a thermal dissipation reference carri
 
 ![Portenta Hat Carrier Fan Mount](assets/board_fan_mount.gif)
 
-The fan can be connected via PWM pins available on the Portenta Hat Carrier. The connector has following structure:
+The fan can be connected via PWM pins available on the Portenta Hat Carrier. The connector has the following structure:
 
 | **Pin number** | **Silkscreen** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         |
 |:--------------:|:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|
@@ -1211,7 +1242,7 @@ if __name__ == "__main__":
   print(f"Thermal Temperature (thermal_zone0): {temperature}")
 ```
 
-If you are logged in with normal privileges, the speed of the fan can be controlled using following instruction sequence. Export the PWM channel using the command below:
+If you are logged in with normal privileges, the speed of the fan can be controlled using the following instruction sequence. Export the PWM channel using the command below:
 
 ```
 echo 9 | sudo tee /sys/class/pwm/pwmchip0/export
@@ -1271,19 +1302,19 @@ Storage and boot-related options are provided to manage the device's data storag
 
 The Portenta Hat Carrier boasts a streamlined, user-centric design with its multifunctional flashing push button. This singular button serves a dual purpose:
 
-- __General User-Programmable Function :__ A single press of the button can be customized according to the application's needs. Whether you need to start a specific event, switch between various states, or execute a particular action, this button is equipped for diverse implementations.
+- __General User-Programmable Function:__ A single press of the button can be customized according to the application's needs. Whether you need to start a specific event, switch between various states, or execute a particular action, this button is equipped for diverse implementations.
 
 - __Board Flashing Mode Activation:__ A long press and release of the same button will swiftly put the board into flashing mode.
 
 ![Portenta Hat Carrier Onboard Buttons](assets/portentaHATcarrier_pushButton.png)
 
-For those keen on employing the 'Flash' button's functionality, it is good to understand and follow a correct sequence. This ensures not only the desired outcome but also the integrity of the system:
+For those keen on employing the 'Flash' button's functionality, it is good to understand and follow the correct sequence. This ensures not only the desired outcome but also the integrity of the system:
 
 1. Begin flashing operations by doing a long press on the PB1 push button and then releasing it.
 
-2. Once your adjustments or updates are done and you want to exit the flashing mode, simply give a single press on the PB1 push button. This action will also restart the system, applying the changes made, and ensuring a smooth operational flow.
+2. Once your adjustments or updates are done and you want to exit the flashing mode, simply give a single press on the PB1 push button. This action will also restart the system, apply the changes made, and ensure a smooth operational flow.
 
-Following these steps helps you use the 'Flash' button correctly and allow developers to navigate intricate functionalities with relative ease.
+Following these steps helps you use the 'Flash' button correctly and allows developers to navigate intricate functionalities with relative ease.
 
 ### MicroSD Storage
 
@@ -1365,7 +1396,7 @@ cat hello.txt
 
 This will print on your shell the contents that were saved to the `hello.txt` file.
 
-Once you are done with the operations related to microSD card, it is important to unmount it properly:
+Once you are done with the operations related to the microSD card, it is important to unmount it properly:
 
 ```bash
 umount /tmp/sdcard
@@ -1382,7 +1413,7 @@ mkfs.ext4 /dev/mmcblk1p1
 
 To learn how to use the microSD card slot for enhanced storage with the Arduino IDE, please follow this [guide](https://docs.arduino.cc/learn/programming/sd-guide).
 
-For Portenta H7, you can use the following Arduino IDE script to test mounted SD card within Portenta Hat Carrier:
+For Portenta H7, you can use the following Arduino IDE script to test the mounted SD card within the Portenta Hat Carrier:
 
 ```arduino
 #include "SDMMCBlockDevice.h"
@@ -1435,7 +1466,7 @@ void loop() {
 }
 ```
 
-For Portenta C33, consider the following script for testing mounted SD card.
+For Portenta C33, consider the following script for testing a mounted SD card.
 
 ```arduino
 #include <vector>
@@ -1713,7 +1744,7 @@ Configuration and control features allow the user to customize the device's beha
 
 ### DIP Switch Configuration
 
-The Portenta Hat Carrier incorporates a DIP switch, giving users ability to manage the behavior of the board. The configuration parameters of this switch differ based on which Portenta board it is paired with.
+The Portenta Hat Carrier incorporates a DIP switch, giving users the ability to manage the behavior of the board. The configuration parameters of this switch differ based on which Portenta board it is paired with.
 
 ![Portenta Hat Carrier DIP switch](assets/portentaHATcarrier_DIPswitch.png)
 
@@ -1768,7 +1799,7 @@ The following table shows an in-depth connector designation:
 Ethernet performance differs based on the associated Portenta board:
 
 - With the Portenta X8: The system supports 1 Gbit Ethernet.
-- When combined with the Portenta H7 or C33: The performance is limited at 100 Mbit Ethernet.
+- When combined with the Portenta H7 or C33: The performance is limited to 100 Mbit Ethernet.
 
 To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Hat Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 
@@ -1779,7 +1810,7 @@ Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate
 
 To use the _iperf3_ tool, we will set the Portenta X8 and Hat Carrier as the Server and the controlling computer as the Client. The commands will measure the bandwidth between the Portenta Hat Carrier with Portenta X8 and the computer. For a deeper understanding of _iperf3_, refer to its [official documentation](https://iperf.fr/iperf-doc.php).
 
-Begin by setting up the Portenta Hat Carrier with Portenta X8 as the Server. For the configuration of the necessary files to establish _iperf3_ on the device, follow the steps for _Linux and Cygwin_ under _General Build Instructions_ available [here](https://github.com/userdocs/iperf3-static). In this case, we need _aarch64 / arm64_ version, thus we need to execute following commands:
+Begin by setting up the Portenta Hat Carrier with Portenta X8 as the Server. For the configuration of the necessary files to establish _iperf3_ on the device, follow the steps for _Linux and Cygwin_ under _General Build Instructions_ available [here](https://github.com/userdocs/iperf3-static). In this case, we need _aarch64 / arm64_ version, thus we need to execute the following commands:
 
 ```bash
 mkdir -p ~/bin && source ~/.profile
@@ -1825,7 +1856,7 @@ This will set the Server to wait for connections via its IP address. It listens 
 ./iperf3 -s -p <Port Number>
 ```
 
-To identify the IP address of the Portenta X8, you can use either of the following commands and search for `eth0` which provides the network information related to Ethernet connection:
+To identify the IP address of the Portenta X8, you can use either of the following commands and search for `eth0` which provides the network information related to the Ethernet connection:
 
 ```bash
 ifconfig
@@ -1866,9 +1897,9 @@ Upon starting the test, you will see the amount of data transferred and the corr
 
 Going forward, we can use the following examples to test out Ethernet connectivity.
 
-If you desire to use Portenta X8 paired to Portenta Hat Carrier, please consider following Python® scripts. These scripts use _`socket`_ library used to create socket and establish a computer network.
+If you desire to use Portenta X8 paired with Portenta Hat Carrier, please consider following Python® scripts. These scripts use the _`socket`_ library used to create the socket and establish a computer network.
 
-Below script would be used for __Server side (TCP/IP)__ operations:
+The below script would be used for __Server side (TCP/IP)__ operations:
 
 ```python
 #!/usr/bin/env python3
@@ -1896,7 +1927,7 @@ if __name__ == "__main__":
     start_server()
 ```
 
-The Server side script is set to wait for incoming connections on `127.0.0.1` (localhost) at port `65432`. These two properties can be modified later at your preference. When a Client connects, the server waits for incoming data and simply sends back whatever it receives, behaving as an echo server.
+The Server-side script is set to wait for incoming connections on `127.0.0.1` (localhost) at port `65432`. These two properties can be modified later at your preference. When a Client connects, the server waits for incoming data and simply sends back whatever it receives, behaving as an echo server.
 
 The script below will be used for __Client side (TCP/IP)__ operations:
 
@@ -1920,7 +1951,7 @@ if __name__ == "__main__":
     start_client()
 ```
 
-The Client side script connects to the server specified by the `HOST` and `PORT`. These are properties that you change to your preferences. Once connected, it sends a message `"Hello, server!"` and waits for a response.
+The Client-side script connects to the server specified by the `HOST` and `PORT`. These are properties that you change to your preferences. Once connected, it sends a message `"Hello, server!"` and waits for a response.
 
 If you would like to have a single script running both instances, the following script can perform the task using Python®'s built-in `threading` component.
 
@@ -2098,7 +2129,7 @@ void loop()
 }
 ```
 
-Following `Web Client` example can be considered for Portenta C33:
+The following `Web Client` example can be considered for Portenta C33:
 
 ```arduino
 #include <EthernetC33.h>
@@ -2217,7 +2248,7 @@ The Portenta Hat Carrier is a versatile platform, and a significant feature of t
 
 ![Portenta Hat Carrier Back Side](assets/portentaHATcarrier_pins.png)
 
-In this section, we will examine the __40 pin__ and __16 pin headers__ of the Portenta Hat Carrier. These headers are integral to the carrier's interfacing capabilities, providing diverse connectivity options for various applications.
+In this section we will examine the __40 pin__ and __16 pin headers__ of the Portenta Hat Carrier. These headers are integral to the carrier's interfacing capabilities, providing diverse connectivity options for various applications.
 
 ### 40-Pin Header
 
@@ -2254,7 +2285,7 @@ This layout is designed to ensure that developers have a clear understanding of 
 
 ### 16-Pin Header
 
-The Portenta Hat Carrier features a 16 pin header dedicated for analog input, but also offers a variety of other functionalities. The table below provides a detailed mapping:
+The Portenta Hat Carrier features a 16 pin header dedicated to analog input but also offers a variety of other functionalities. The table below provides a detailed mapping:
 
 |        **Pin Description**        | **Pins** | **Pins** |        **Pin Description**        |
 |:---------------------------------:|:--------:|---------:|:---------------------------------:|
@@ -2273,13 +2304,13 @@ A visual representation of the header can be seen in the image below.
 
 It is characterized as follows:
 
-- __Analog Pins__: It integrates eight dedicated pins for analog channel. It ranges from *A0 ~ A7*, and each of these pins serves a unique analog channel, facilitating a range of analog signal measurements.
+- __Analog Pins__: It integrates eight dedicated pins for analog channels. It ranges from *A0 ~ A7*, and each of these pins serves a unique analog channel, facilitating a range of analog signal measurements.
 
 - __PWM Pins__: Integrates dedicated PWM pins within the header. Pin 9 is labeled *PWM7 (PWM_7)*, and Pin 10 is identified as *PWM8 (PWM_8)*.
 
   Additionally, Pin 12, although a General-Purpose Input/Output (GPIO0), also supports PWM and is labeled as PWM4.
 
-- __Serial Pins__: It integrates UART 2 functionalities. Pin 14 is the transmit function, identified as *SERIAL2_TX* or *TX2*, while Pin 16 is dedicated for the receive function, labeled as *SERIAL2_RX* or *RX2*.
+- __Serial Pins__: It integrates UART 2 functionalities. Pin 14 is the transmit function, identified as *SERIAL2_TX* or *TX2*, while Pin 16 is dedicated to the receive function, labeled as *SERIAL2_RX* or *RX2*.
 
 - __Power and Grounding__: Pin 11, labeled as LICELL, serves as the *Real Time Clock (RTC)* power source.
   
@@ -2287,7 +2318,7 @@ It is characterized as follows:
 
 ### GPIO Pins
 
-Understanding and managing the General-Purpose Input/Output (GPIO) pins on your device can be crucial for many applications. Following script is designed to display all the GPIOs available on the 40-pin connector of the Portenta Hat Carrier paired with Portenta X8.
+Understanding and managing the General-Purpose Input/Output (GPIO) pins on your device can be crucial for many applications. The following script is designed to display all the GPIOs available on the 40-pin connector of the Portenta Hat Carrier paired with Portenta X8.
 
 #### Using Linux
 <br></br>
@@ -2331,7 +2362,7 @@ for pin in all_pins_in_header:
 GPIO.cleanup()
 ```
 
-This script will help you verify following considerations:
+This script will help you verify the following considerations:
 
 - Avoid manually checking each pin by having a consolidated overview of all GPIOs' statuses.
 
@@ -2352,7 +2383,7 @@ cat /sys/kernel/debug/gpio
 #### Using Arduino IDE
 <br></br>
 
-If Portenta Hat Carrier is paired with Portenta H7 or Portenta C33, consider using following example:
+If Portenta Hat Carrier is paired with Portenta H7 or Portenta C33, consider using the following example:
 
 ```arduino
 const int actPin = 2;          // the number of the activation pin (GPIO)
@@ -2475,7 +2506,7 @@ if __name__ == "__main__":
 #### Using Arduino IDE
 <br></br>
 
-The [`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite) included into the Arduino programming language can be used to access the PWM pins.
+The [`analogWrite()` [function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite) included in the Arduino programming language can be used to access the PWM pins.
 
 The example code shown below grabs a pin compatible with PWM functionality to control the brightness of an LED connected to it:
 
@@ -2536,9 +2567,9 @@ The standardized design of HATs ensures they are compatible and easy to use with
 
 ![Portenta Hat Carrier with Audio Hat](assets/portentaHATcarrier_rasphat_audio.gif)
 
-These are the officially compatible list of HATs:
+These is the officially compatible list of HATs:
 
-- __Stepper Motor HAT__: it is a HAT that drives stepper motors, enabling precise control of rotation direction, angle, speed, and steps, suitable for projects like CNC, 3D printers, and robotics. It uses DRV8825 dual H-bridge motor driver.
+- __Stepper Motor HAT__: it is a HAT that drives stepper motors, enabling precise control of rotation direction, angle, speed, and steps, suitable for projects like CNC, 3D printers, and robotics. It uses a DRV8825 dual H-bridge motor driver.
 
 - __RPi Relay Board__: it is a HAT that eases the control of high-voltage devices, featuring three channels, and photo coupling isolation. It helps provide safe device switching for various applications.
 
@@ -2556,7 +2587,7 @@ To use the example script, a series of commands can be used. These will help you
 python3
 ```
 
-To use modules like _smbus2_, the following sequence of commands will help you import such module:
+To use modules like _smbus2_, the following sequence of commands will help you import such modules:
 
 ```bash
 import smbus2
@@ -2575,14 +2606,14 @@ Setting variables is straightforward. Depending on your requirement, assign valu
 variable_name = Value 
 ```
 
-To run an example script within the Python® shell, consider using following command:
+To run an example script within the Python® shell, consider using the following command:
 
 ```bash
 with open('example_script.py', 'r') as file:
 ...     exec(file.read())
 ```
 
-If you prefer traditional methods of execution, following command can be used:
+If you prefer traditional methods of execution, the following command can be used:
 
 ```bash
 python3 example_script.py
@@ -2777,7 +2808,7 @@ To use the drv8825 HAT with Portenta Hat Carrier and Portenta X8, please follow 
 
 4. To ensure the system is powered on, connect an external power source using the __VIN-GND__ terminals. This powers both the Portenta X8 and the drv8825 HAT, securing stable electrical performance.
 
-5. One distinguishing feature of the drv8825 HAT is the provision for micro-stepping. This feature enhances the precision in motor operations.
+5. One distinguishing feature of the drv8825 HAT is the provision for micro-stepping. This feature enhances the precision of motor operations.
 
    Adjust the micro-stepping settings using the DIP switches present on the drv8825 HAT to achieve the desired level of granularity in motor steps.
 
@@ -2840,7 +2871,7 @@ Please, refer to the [board pinout section](#pinout) of the user manual to find 
 #### Using Linux
 <br></br>
 
-For Portenta X8, it is possible to use following commands:
+For Portenta X8, it is possible to use the following commands:
 
 ```
 sudo modprobe spidev
@@ -2870,7 +2901,7 @@ Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/f
 #include <SPI.h>
 ```
 
-The `setup()` function compiles initial SPI processes, by setting the chip select (`CS`) with needed configuration.
+The `setup()` function compiles initial SPI processes, by setting the chip select (`CS) with the proper configuration.
 
 ```arduino
 void setup() {
@@ -2885,7 +2916,7 @@ void setup() {
 }
 ```
 
-Following commands can be used to establish transmission and exchange information with an SPI compatible device.
+Following commands can be used to establish transmission and exchange information with an SPI-compatible device.
 
 ```arduino
 // Replace with the target device's address
@@ -2942,7 +2973,7 @@ SAI protocol can operate both synchronously and asynchronously, adjusting to var
 
 In essence, SAI offers greater flexibility than I2S, catering to a broader range of audio system configurations.
 
-The pins used in the Portenta Hat Carrier for the SAI protocol are the following, implementing in a simple and effective manner:
+The pins used in the Portenta Hat Carrier for the SAI protocol are the following:
 
 | **Pin number** | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** | **Interface** |
 |:--------------:|:--------------:|:----------------------------:|:--------------------:|:-------------:|
@@ -2968,7 +2999,7 @@ Please, refer to the [pinout section](#pinout) of the user manual to find them o
 #### Using Linux
 <br></br>
 
-For Portenta X8, it is possible to use following commands:
+For Portenta X8, it is possible to use the following commands:
 
 ```
 sudo modprobe i2c-dev
@@ -3035,7 +3066,7 @@ for byte in data:
 
 ```
 
-Next code shows how to write data to an I2C device using the _smbus2 library_. A byte of data (`value`) is written to a specific address (`device_address`) with a given instruction.
+The next code shows how to write data to an I2C device using the _smbus2 library_. A byte of data (`value`) is written to a specific address (`device_address`) with a given instruction.
 
 ```python
 from smbus2 import SMBus
@@ -3051,7 +3082,7 @@ value = 0xFF
 bus.write_byte_data(device_address, instruction, value)
 ```
 
-In the following code, the [python-periphery](https://python-periphery.readthedocs.io/en/latest/index.html) library is used to interact with the I2C device. This is useful if broad spectrum of protocols are required within same script. The `I2C.transfer()` method performs both write and read operations on the I2C bus.
+In the following code, the [python-periphery](https://python-periphery.readthedocs.io/en/latest/index.html) library is used to interact with the I2C device. This is useful if a broad spectrum of protocols are required within the same script. The `I2C.transfer()` method performs both write and read operations on the I2C bus.
 
 A byte is read from the EEPROM at address `0x50` and offset `0x100`, then printed.
 
@@ -3085,7 +3116,7 @@ In the `setup()` function, initialize the I2C library:
 Wire.begin();
 ```
 
-Following commands are available to transmit or write with I2C-compatible device.
+Following commands are available to transmit or write with an I2C-compatible device.
 
 ```arduino
 // Replace with the target device's I2C address
@@ -3110,7 +3141,7 @@ Wire.write(value);
 Wire.endTransmission();
 ```
 
-Following commands are available to request or read with I2C-compatible device.
+Following commands are available to request or read with an I2C-compatible device.
 
 ```arduino
 // The target device's I2C address
@@ -3134,11 +3165,11 @@ The CAN bus, short for Controller Area Network bus, is a resilient communication
 
 This approach ensures system continuity even if one device fails and is especially effective in electrically noisy settings like in vehicles, where various devices need reliable communication.
 
-The Portenta Hat Carrier is equipped with CAN bus communication capabilities, powered by the TJA1049 module - a high-speed CAN FD transceiver. With this, developers can leverage the robustness and efficiency of CAN communication in their projects.
+The Portenta Hat Carrier is equipped with CAN bus communication capabilities, powered by the TJA1049 module, and a high-speed CAN FD transceiver. With this, developers can leverage the robustness and efficiency of CAN communication in their projects.
 
 ![Portenta Hat Carrier CAN Bus Port](assets/portentaHATcarrier_CAN.png)
 
-Since the CAN bus pins are integrated within the High-Density connectors, they are conveniently accessible on the carrier through the screw terminal. This provides flexibility in connection, allowing developers to design and troubleshoot their systems easierly.
+Since the CAN bus pins are integrated within the High-Density connectors, they are conveniently accessible on the carrier through the screw terminal. This provides flexibility in connection, allowing developers to design and troubleshoot their systems easily.
 
 | **Pin number** | **Silkscreen** |                         **High-Density Pin**                         |    **Interface**   |
 |:--------------:|:--------------:|:--------------------------------------------------------------------:|:------------------:|
@@ -3152,15 +3183,15 @@ Since the CAN bus pins are integrated within the High-Density connectors, they a
 #### Using Linux
 <br></br>
 
-For Portenta X8, the following instructions can help control CAN bus protocol. The CAN transceiver is enabled using following command:
+For Portenta X8, the following instructions can help control CAN bus protocol. The CAN transceiver is enabled using the following command:
 
 ```
 echo 164 > /sys/class/gpio/export && echo out > /sys/class/gpio/gpio164/direction && echo 0 > /sys/class/gpio/gpio164/value
 ```
 
-This command sequence activates the CAN transceiver. It does so by exporting _GPIO 164_, setting its direction to "`out`", and then writing a value of "`0`" to it. Writing 0 as a value to GPIO 164 means, it will set GPIO to LOW state.
+This command sequence activates the CAN transceiver. It does so by exporting _GPIO 164_, setting its direction to "`out`", and then writing a value of "`0`" to it. Writing 0 as a value to GPIO 164 means that it will set the GPIO to a LOW state.
 
-For Portenta X8, it is possible to use following commands:
+For Portenta X8, it is possible to use the following commands:
 
 ```
 sudo modprobe can-dev
@@ -3173,19 +3204,37 @@ echo "can-dev" | sudo tee > /etc/modules-load.d/can-dev.conf
 sudo systemctl reboot
 ```
 
-Within the Portenta X8's shell, Docker containers offer a streamlined environment for specific tasks, such as command-based CAN bus operations. The _cansend_ command is one such utility that facilitates sending CAN frames. The command to issue such task is as followss:
+Within the Portenta X8's shell, Docker containers offer a streamlined environment for specific tasks, such as command-based CAN bus operations. The _cansend_ command is one such utility that facilitates sending CAN frames. The command to issue such task is as follows:
 
 ```bash
 cansend
 ```
 
-And as an example, if you need to send a specific CAN frame, the _cansend_ command can be used in the following format:
+And as an example, if you need to send a specific CAN frame, the _cansend_ command can be used to achieve this task. The command follows the format:
+
+```bash
+cansend <CAN Interface [can0 | can1]> <CAN ID>#<Data_Payload>
+```
+
+- `<CAN Interface [can0 | can1]>`: defines the CAN interface that the Portenta X8 will use with the Portenta Hat Carrier.
+- `<CAN ID>`: is the identifier of the message and is used for message prioritization. The identifier can be in 11-bit or 29-bit format.
+- `<Data_Payload>`: is the data payload of the CAN message and ranges from 0 to 8 bytes in standard CAN frames.
+
+For instance, the following command example would send a CAN message on the `can0` interface with an ID of `123`, using an 11-bit identifier, and a data payload of `DEADBEEF`:
 
 ```bash
 cansend can0 123#DEADBEEF
 ```
 
-To use the `cansend` command, it is crucial to set up the appropriate environment. First, clone the following container repository
+While the following command example with a 29-bit identifier would send a CAN message with an extended ID of `1F334455` and a data payload of `1122334455667788`.
+
+```bash
+cansend can0 1F334455#1122334455667788
+```
+
+This command sends a message with an extended CAN ID and an 8-byte payload.
+
+To use the _cansend_ command, it is crucial to set up the appropriate environment. First, clone the following container repository
 
 ```bash
 git clone https://github.com/pika-spark/pika-spark-containers
@@ -3233,7 +3282,7 @@ As an example, the command can be structured as follows:
 sudo ./docker-run.sh can0 250000
 ```
 
-For more information regarding this container utility, please check about [_can-utils-sh_](https://github.com/pika-spark/pika-spark-containers/tree/main/can-utils-sh) and [_candump_](https://github.com/pika-spark/pika-spark-containers/tree/main/can-utils-sh).
+For more information regarding this container utility, please check _can-utils-sh_ and [_candump_](https://github.com/pika-spark/pika-spark-containers/tree/main/can-utils-sh).
 
 The list provided offers a quick reference for various `bustype` parameters supported by _python-can_ library.
 
@@ -3335,7 +3384,7 @@ The `main()` function initializes the CAN bus with a 'virtual' channel for examp
 
 #### Using Arduino IDE
 
-For users working with the Portenta H7 or Portenta C33, following simple examples can be used to test the CAN bus protocol's capabilities.
+For users working with the Portenta H7 or Portenta C33, the following simple examples can be used to test the CAN bus protocol's capabilities.
 
 The _CAN Read_ example for Portenta H7/C33 starts CAN communication at a rate of _250 kbps_ and continuously listens for incoming messages, displaying such information upon receipt.
 
@@ -3498,40 +3547,80 @@ The `time.sleep(0.002)` line adds a slight delay, ensuring data has enough time 
 #### Using Arduino IDE
 <br></br>
 
-For Portenta H7 or C33, following examples can be used to test UART communication. For a proper UART communication, the baud rate (bits per second) must be set within the `setup()` function.
+For Portenta H7 or C33, the following examples can be used to test UART communication. For a proper UART communication, the baud rate (bits per second) must be set within the `setup()` function.
 
 ```arduino
 // Start UART communication at 9600 baud
 Serial.begin(9600);
 ```
 
-With the `Serial.available()` function and the `Serial.read()` function, you can read incoming data by using a `while()` loop to repeatedly check for available data and read individual characters. When a line-ending character is received, the code above processes the input and stores the incoming characters in a String variable.:
+With the `Serial1.available()` function and the `Serial1.read()` function, you can read incoming data by using a `while()` loop to repeatedly check for available data and read individual characters. When a line-ending character is received, the code below processes the input and stores the incoming characters in a String variable.:
+
+Using the `Serial1.available()` method alongside the `Serial1.read()` method allows you to read incoming data. The technique involves using a `while()` loop to consistently check for available data and then read individual characters.
+
+Upon receiving a line-ending character, the code processes the accumulated characters and stores them in a _String_ variable. The relevant section of the code is presented below:
 
 ```arduino
-// Variable for storing incoming data
-String incoming = "";
-
 void loop() {
-  // Check for available data and read individual characters
-  while (Serial.available()) {
-    // Allow data buffering and read a single character
+  while (Serial1.available()) {
     delay(2);
-    char c = Serial.read();
-
-    // Check if the character is a newline (line-ending)
+    char c = Serial1.read();
     if (c == '\n') {
-      // Process the received data
       processData(incoming);
-
-      // Clear the incoming data string for the next message
       incoming = "";
     } else {
-      // Add the character to the incoming data string
       incoming += c;
     }
   }
 }
+
+void processData(String data) {
+  Serial.println("Received: " + data);  // Print on Serial Monitor
+}
 ```
+
+Consequently, the following provides a complete example illustrating the reception of incoming data via UART:
+
+```arduino
+String incoming = "";
+
+void setup() {
+  Serial1.begin(9600);  // For communication with Arduino using RX1 and TX1
+  Serial.begin(9600);   // For debugging over USB
+}
+
+void loop() {
+  while (Serial1.available()) {
+    delay(2);
+    char c = Serial1.read();
+    if (c == '\n') {
+      processData(incoming);
+      incoming = "";
+    } else {
+      incoming += c;
+    }
+  }
+}
+
+void processData(String data) {
+  Serial.println("Received: " + data);  // Print on Serial Monitor
+}
+```
+
+For transmitting data over UART, which can complement the receiving board as depicted above, refer to the ensuing example:
+
+```arduino
+void setup() {
+  Serial1.begin(9600);
+}
+
+void loop() {
+  Serial1.println("Hello from Portenta!");
+  delay(1000);
+}
+```
+
+Using these codes, you should observe the message `"Hello from Portenta!"` being transmitted to the receiving Portenta board when coupled with a Portenta Hat Carrier.
 
 The `Serial.write()` method allows you to send data over UART (Universal Asynchronous Receiver-Transmitter). This method is used when you want to transmit raw bytes or send a byte array.
 
@@ -3542,7 +3631,7 @@ Serial.write("Hello world!");
 
 Code snippet above sends the string "`Hello world!`" to another device through UART using the `Serial.write()` function.
 
-Following methods are used to send strings over UART.
+The following methods are used to send strings over UART.
 
 ```arduino
 // Transmit the string "Hello world!"
