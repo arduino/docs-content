@@ -1,5 +1,5 @@
 ---
-title: 'Running an Edge Impulse Model With the GIGA R1 WiFi'
+title: 'Running an Edge Impulse® Model With the GIGA R1 WiFi'
 description: "This tutorial will show you how to create a machine learning model and run it on the GIGA R1 WiFi"
 difficulty: intermediate 
 tags:
@@ -17,22 +17,22 @@ hardware:
 
 ## Overview
 
-The Arduino GIGA R1 WiFi is a versatile board. Combining it with a Inertial Measurement Unit (IMU) we can create a functioning motion detection application with machine learning.
+The Arduino GIGA R1 WiFi comes with a powerful Dual Core STM32H747XI MCU. This will allow us to run a machine learning model on the board. Combining it with a Inertial Measurement Unit (IMU) we can create a functioning motion detection application with machine learning.
 
 The simple motion detection application will be created on the Edge Impulse® platform, a leading platform in developing intelligent devices and a powerful facilitator for ML applications.
 
-By the end of this tutorial, you will have a fully functional motion detection application running on your board!
-
 ## Goals
 
-- Learn how to use Edge Impulse with the GIGA
+- Learn how to use the Edge Impulse® platform
+- Learn how to use Edge Impulse with your Arduino board
+- Understand how to use a machine learning model on the GIGA R1 WiFi
 
 ## Hardware and Software Requirements
 
-- [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi) (x1)
-- [Micro-USB](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) cable (x1)
+- [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
+- [Micro-USB](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) cable
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
-- [Edge Impulse account](https://studio.edgeimpulse.com)
+- [Edge Impulse® account](https://studio.edgeimpulse.com)
 
 ## Instructions
 
@@ -40,9 +40,9 @@ By the end of this tutorial, you will have a fully functional motion detection a
 
 ### Machine Learning Data
 
-The GIGA R1 WiFi does not have an on-board IMU, meaning we will have to get data using different boards or from other sources online.
+The GIGA R1 WiFi does not have an on-board IMU, meaning we will have to get data using different boards or from other sources online. You could also clone this project [here](), this will give you the data and correct settings.
 
-When you have your data, import it into the Edge Impulse project. Go to the **data aquasition** tab and you will see the following window:
+When you have your data, import it into the Edge Impulse® project. Go to the **data aquasition** tab and you will see the following window:
 
 ![Data capture page](assets/1.jpg)
 
