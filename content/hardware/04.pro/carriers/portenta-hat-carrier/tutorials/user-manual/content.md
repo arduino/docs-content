@@ -106,7 +106,7 @@ The Portenta Hat Carrier has the following characteristics:
   
 - **40-pin male header connector**: The connector allows for SPI (x1), I2S (x1), SAI (x1), 5V power pin (x2), 3V3 power pin (x2), I2C (x2), UART (x2), PWM pins (x7), GND (x8), and GPIO (X26). The I2C count includes the one that is dedicated to EEPROM. UARTs do not have flow control. The GPIO pins are shared with different functionalities.
   
-- **16-pin analog male header connector**: The connector allows analog pins (x8), PWM (x2), LICELL (x1), GPIO (x1), 3V3 (x1), GND (x1), serial TX (x1), and serial RX (x1).
+- **16-pin male header connector**: The connector allows analog pins (x8), PWM (x2), LICELL (x1), GPIO (x1), 3V3 (x1), GND (x1), serial TX (x1), and serial RX (x1).
   
 - **Screw terminal block**: The terminal block allows power supply line feed for the carrier and bus ports. It consists of VIN 7 ~ 32 VDC (x1), VIN 5 V (x1), CANH (x1), CANL (x1), and GND (x2).
   
@@ -124,20 +124,20 @@ The Portenta Hat Carrier has the following characteristics:
 
 ![Portenta Hat Carrier Topology](assets/portentaHATcarrier_board_topology.png)
 
-| **Item** |                                             **Onboard modules**                                             |
-|:--------:|:------------------------------------------------------------------------------------------------------------|
-| J1, J2   | High-Density connectors for Portenta boards                                                                 |
-| J3       | JTAG male connector for debugging                                                                           |
-| J4       | USB-A female connector for data logging and external devices                                                |
-| J5       | 40-pin male header compatible with Raspberry Pi® Hats                                                       |
-| J6       | 16-pin male header for analog and RTC battery pins                                                              |
-| J7       | MicroSD slot for data logging and media purposes                                                            |
-| J8       | RJ45 connector for Ethernet                                                                                 |
-| J9       | Screw terminal for power supply and CAN FD support                                                          |
-| J10      | MIPI camera connector, exclusive for Portenta X8                                                             |
-| J11      | PWM male header connector to control fan speed                                                              |
-| SW2      | DIP switch with two sliders: _ETH CENTER TAP_ and _BTSEL_                                                   |
-| PB1      | User Button / Flashing Mode                                                                                 |
+| **Item** | **Onboard modules**                                             |
+| :------: | :-------------------------------------------------------------- |
+|  J1, J2  | High-Density connectors for Portenta boards                     |
+|    J3    | JTAG male connector for debugging                               |
+|    J4    | USB-A female connector for data logging and external devices    |
+|    J5    | 40-pin male header compatible with Raspberry Pi® Hats           |
+|    J6    | 16-pin male header for analog, GPIOs, UART and RTC battery pins |
+|    J7    | MicroSD slot for data logging and media purposes                |
+|    J8    | RJ45 connector for Ethernet                                     |
+|    J9    | Screw terminal for power supply and CAN FD support              |
+|   J10    | MIPI camera connector, exclusive for Portenta X8                |
+|   J11    | PWM male header connector to control fan speed                  |
+|   SW2    | DIP switch with two sliders: _ETH CENTER TAP_ and _BTSEL_       |
+|   PB1    | User Button / Flashing Mode                                     |
 
 ### Pinout
 
@@ -2285,7 +2285,7 @@ This layout is designed to ensure that developers have a clear understanding of 
 
 ### 16-Pin Header
 
-The Portenta Hat Carrier features a 16 pin header dedicated to analog input but also offers a variety of other functionalities. The table below provides a detailed mapping:
+The Portenta Hat Carrier features a 16-pin male header connector dedicated to analog input but also offers a variety of other functionalities. The table below provides a detailed mapping:
 
 |        **Pin Description**        | **Pins** | **Pins** |        **Pin Description**        |
 |:---------------------------------:|:--------:|---------:|:---------------------------------:|
