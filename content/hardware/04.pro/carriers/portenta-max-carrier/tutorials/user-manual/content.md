@@ -436,7 +436,7 @@ One feature that boosts Portenta's Max Carrier possibilities is its onboard LoRa
 
 A dedicated SMA connector (J9) allows for an external antenna.
 
-![Portenta Max Carrier with LoRa® Antenna](assets/lora-set-white.png)
+![Portenta Max Carrier with LoRa® Antenna](assets/LoRaAntenna.png)
 
 To learn how leverage LoRa® capabilities with this carrier, follow this detailed tutorial on [How to Connect the Portenta Max Carrier with The Things Network using a Portenta H7](https://docs.arduino.cc/tutorials/portenta-max-carrier/connecting-to-ttn)
 
