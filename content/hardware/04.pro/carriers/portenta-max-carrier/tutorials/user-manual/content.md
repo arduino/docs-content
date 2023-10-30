@@ -898,6 +898,171 @@ The Portenta Max Carrier is equipped with CAN bus communication capabilities, po
 #### Using Linux
 #### Using Arduino IDE
 
+For users working with the Portenta H7 or Portenta C33, the following simple examples can be used to test the CAN bus protocol's capabilities.
+
+The CAN interface on the Portenta Max Carrier must be enabled before using it. To do it, turning an specific pin to `LOW` is neccessary:
+
+__For the Portenta H7__:
+```arduino
+  pinMode(PG_7, OUTPUT);
+  digitalWrite(PG_7, LOW);  // enable the CAN interface
+```
+
+__For the Portenta C33__:
+```arduino
+  pinMode(PIN_CAN1_STBY, OUTPUT);
+  digitalWrite(PIN_CAN1_STBY, LOW); // enable the CAN interface
+```
+
+The _CAN Read_ example for Portenta H7/C33 starts CAN communication at a rate of _500 kbps_ and continuously listens for incoming messages, displaying such information upon receipt.
+
+```arduino
+#include <Arduino_CAN.h>
+
+void setup()
+{
+  Serial.begin(115200);
+
+  // Enabling the CAN bus interface
+#ifdef ARDUINO_PORTENTA_C33
+  pinMode(PIN_CAN1_STBY, OUTPUT);
+  digitalWrite(PIN_CAN1_STBY, LOW);
+#elif ARDUINO_PORTENTA_H7_M7
+  pinMode(PG_7, OUTPUT);
+  digitalWrite(PG_7, LOW);
+#endif
+
+  while (!Serial) { }   // open the serial monitor to start receiving
+
+  if (!CAN.begin(CanBitRate::BR_500k))
+  {
+    Serial.println("CAN.begin(...) failed.");
+    for (;;) {}
+  }
+  Serial.println("CAN.begin(...) Successful.");
+}
+
+void loop()
+{
+  if (CAN.available())
+  {
+    CanMsg const msg = CAN.read();
+    Serial.println(msg);
+  }
+}
+```
+
+The _CAN Write_ example, also set at _500 kbps_, builds and sends a specific message format. This message includes a fixed preamble followed by an incrementing counter value that updates with each loop iteration.
+
+```arduino
+#include <Arduino_CAN.h>
+
+static uint32_t const CAN_ID = 0x20;
+
+void setup()
+{
+  Serial.begin(115200);
+
+  // Enabling the CAN bus interface
+#ifdef ARDUINO_PORTENTA_C33
+  pinMode(PIN_CAN1_STBY, OUTPUT);
+  digitalWrite(PIN_CAN1_STBY, LOW);
+#elif ARDUINO_PORTENTA_H7_M7
+  pinMode(PG_7, OUTPUT);
+  digitalWrite(PG_7, LOW);
+#endif
+
+  while (!Serial) { }   // open the serial monitor to start sending
+
+  if (!CAN.begin(CanBitRate::BR_500k))
+  {
+    Serial.println("CAN.begin(...) failed.");
+    for (;;) {}
+  }
+  Serial.println("CAN.begin(...) Successful.");
+}
+
+static uint32_t msg_cnt = 0;
+
+void loop()
+{
+  /* Assemble a CAN message with the format of
+   * 0xCA 0xFE 0x00 0x00 [4 byte message counter]
+   */
+  uint8_t const msg_data[] = {0xCA,0xFE,0,0,0,0,0,0};
+  memcpy((void *)(msg_data + 3), &msg_cnt, sizeof(msg_cnt));
+  CanMsg const msg(CanStandardId(CAN_ID), sizeof(msg_data), msg_data);
+
+  /* Transmit the CAN message, capture and display an
+   * error core in case of failure.
+   */
+  if (int const rc = CAN.write(msg); rc < 0)
+  {
+    Serial.print  ("CAN.write(...) failed with error code ");
+    Serial.println(rc);
+    for (;;) { }
+  }
+
+  /* Increase the message counter. */
+  msg_cnt++;
+
+  /* Only send one message per second. */
+  delay(1000);
+}
+```
+
+As a pratical example, we are going to communicate the __Max Carrier__ using a Portenta C33 with a __Portenta Machine Control__ using CAN.
+
+![Both devices CAN bus wiring diagram]()
+
+- __For the Portenta C33:__ Use the writing example from above.
+- __For the Portenta Machine Control:__ Install the `Arduino_MachineControl.h` library from the Library Manager and use the following example sketch:
+
+```arduino
+#include <Arduino_MachineControl.h>
+#include <CAN.h>
+
+using namespace machinecontrol;
+
+#define DATARATE_500KB 500000
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial) {
+    ;  // wait for serial port to connect.
+  }
+
+  Serial.println("Start CAN initialization");
+  comm_protocols.enableCAN();
+  comm_protocols.can.frequency(DATARATE_500KB);
+  Serial.println("Initialization done");
+}
+
+
+void loop() {
+  mbed::CANMessage msg;
+  if (comm_protocols.can.read(msg)) {
+
+    // Print the sender ID
+    Serial.print("ID: ");
+    Serial.println(msg.id, HEX);
+
+    // Print the Payload Bytes
+    Serial.print("Message received: ");
+    for (int i = 0; i < 4; i++) {
+      Serial.print("0x");
+      Serial.print(msg.data[i], HEX);
+      Serial.print('\t');
+    }
+    Serial.println();
+  }
+
+  delay(100);
+}
+
+```
+![CAN bus communication between both devices](assets/CAN-bus.png)
+
 ### Serial RS-232 / RS-422 / RS-485
 ### UART
 
