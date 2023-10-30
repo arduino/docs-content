@@ -863,7 +863,27 @@ With this code the Portenta C33 will scan all the files and directories names on
 ![Example outcome on a Portenta C33](assets/c33-sdcard.png)
 
 ## CAN Bus (Onboard Transceiver)
-### JTAG Pins
+
+## JTAG Pins
+For developers aiming to investigate and understand the intricate details of development, the Portenta Hat Carrier features a built-in JTAG interface. This tool is crucial for hardware debugging, offering real-time observation. Through the JTAG pins, users can smoothly debug and program, guaranteeing accurate and optimal device performance.
+
+![Portenta Max Carrier onboard JTAG pin](assets/jtag-conn.png)
+
+The pins used for the JTAG debug port on the Portenta Hat Carrier are the following:
+
+| **Pin number** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         | **Interface** |
+|:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|:-------------:|
+|        1       | +3V3_PORTENTA |              VCC             |                      J2-23, J2-34, J2-43, J2-69                      |               |
+|        2       |               |           JTAG_SWD           |                                 J1-75                                |    JTAG SWD   |
+|        3       |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
+|        4       |               |           JTAG_SCK           |                                 J1-77                                |    JTAG SCK   |
+|        5       |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
+|        6       |               |           JTAG_SWO           |                                 J1-79                                |    JTAG SWO   |
+|        7       |               |              NC              |                                  NC                                  |               |
+|        8       |               |           JTAG_TDI           |                                 J1-78                                |    JTAG TDI   |
+|        9       |               |           JTAG_TRST          |                                 J1-80                                |   JTAG TRST   |
+|       10       |               |           JTAG_RST           |                                 J1-73                                |    JTAG RST   |
+
 ## Communication
 ### SPI
 ### I2C
