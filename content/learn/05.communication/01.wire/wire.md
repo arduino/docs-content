@@ -125,6 +125,8 @@ The remainder of this article is a collection of examples that can get you off t
 
 ### Controller Reader
 
+![Arduino Boards connected via I2C](./assets/I2Cb2b.png)
+
 In some situations, it can be helpful to set up two (or more!) Arduino boards to share information with each other. In this example, two boards are programmed to communicate with one another in a Controller Reader/Peripheral Sender configuration via the [I2C synchronous serial protocol](http://en.wikipedia.org/wiki/I2C). Several functions of Arduino's [Wire Library](https://www.arduino.cc/en/Reference/Wire) are used to accomplish this. Arduino 1, the Controller, is programmed to request, and then read, 6 bytes of data  sent from the uniquely addressed Peripheral Arduino. Once that message is received, it can then be viewed in the Arduino Software (IDE) serial monitor window.
 
 **Controller Reader Sketch**
