@@ -198,6 +198,8 @@ void requestEvent() {
 
 ### Controller Writer
 
+![Arduino Boards connected via I2C](./assets/I2Cb2b.png)
+
 In some situations, it can be helpful to set up two (or more!) Arduino boards to share information with each other. In this example, two boards are programmed to communicate with one another in a Controller Writer/Peripheral Receiver configuration via the [I2C synchronous serial protocol](http://en.wikipedia.org/wiki/I2C). Several functions of Arduino's [Wire Library](https://www.arduino.cc/en/Reference/Wire) are used to accomplish this. Arduino 1, the Controller, is programmed to send 6 bytes of data every half second to a uniquely addressed Peripheral. Once that message is received, it can then be viewed in the Peripheral board's serial monitor window opened on the USB connected computer running the Arduino Software (IDE).
 
 **Controller Writer Sketch**
@@ -280,6 +282,7 @@ void receiveEvent(int howMany)
 ```
 
 ### Accelerometer
+![Grove IMU over I2C](./assets/GroveIMU.png)
 
 This code lets you read accelerometer data from a [Grove 6-Axis Accelerometer module](https://store.arduino.cc/collections/sensors/products/grove-6-axis-accelerometer-gyroscope) using the [seeed arduino LSM6DS3 library](https://www.arduino.cc/reference/en/libraries/seeed-arduino-lsm6ds3/).
 
@@ -325,10 +328,90 @@ void loop() {
 }
 ```
 
+### I2C BMP280
+
+![Qwiic BMP280 module](./assets/Qwiic-bmp280.png)
+
+This code example lets you read the temperature over I2C from a BMP280 breakout module from Adafruit:
+```arduino
+#include <Wire.h>
+#include <Adafruit_BMP280.h>
+
+//Create an instance of the BMP280 sensor
+Adafruit_BMP280 bmp; 
+
+void setup() {
+  Serial.begin(9600); 
+  
+  // Start the sensor, and verify that it was found
+  if (!bmp.begin()) {
+    Serial.println("Sensor not found");
+    while (1){} 
+  }
+
+}
+
+void loop() {
+  // Read the values
+  float temperature = bmp.readTemperature();
+
+  // Print to the Serial Monitor
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  Serial.println(" C");
+
+  Serial.println();
+  delay(2000);
+}
+
+``` 
+
+
 ### I2C OLED
+![Grove OLED over I2C](./assets/GroveOLED.png)
+This code example draws a (very crude) version of the Arduino logo on a 128x64 I2C Grove OLED:
 
-[This code example](https://github.com/adafruit/Adafruit_SSD1306/blob/master/examples/ssd1306_128x32_i2c/ssd1306_128x32_i2c.ino) lets you write on an [Adafruit Monochrome I2C OLED display](https://www.adafruit.com/product/4440) using the popular ssd1306 driver 
+```arduino
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
-### I2C BME280
-[This code example](https://github.com/sparkfun/SparkFun_BME280_Arduino_Library/) lets you read temperature, humidity, pressure and altitude from [Sparkfuns BME280 breakout module](https://www.sparkfun.com/products/13676)
+Adafruit_SSD1306 display(128, 64, &Wire, -1);
 
+void setup() {
+  Serial.begin(9600);
+
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("SSD1306 not found"));
+    while(1){}
+  }
+
+  display.display();
+  delay(2000);
+  display.clearDisplay();
+
+  drawArduino();
+}
+
+void loop() {
+}
+
+void drawArduino(){
+  display.clearDisplay();
+
+  //Draw circles
+  display.drawCircle(39, 32, 25, SSD1306_WHITE);
+  display.drawCircle(89, 32, 25, SSD1306_WHITE);
+
+  //Draw minus
+  display.drawLine(34, 32, 44, 32, SSD1306_WHITE);
+
+  // Draw plus
+  display.drawLine(84, 32, 94, 32, SSD1306_WHITE);
+  display.drawLine(89, 27, 89, 37, SSD1306_WHITE);
+  
+
+  //Render drawing
+  display.display();
+}
+```
