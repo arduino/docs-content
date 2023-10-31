@@ -36,7 +36,7 @@ Digital-to-analog converter (DAC):
   Channels: 2 (only one accessible through pin A6)
   Resolution: 12 bits 
 Communication Interfaces:
-  I2C: 3
+  I2C: 3 ports (I2C0, I2C1, and I2C2; is adviced to use I2C0 as it is free to use without restrictions)
   UART: 4
   CAN: 2
   I2S: 1
