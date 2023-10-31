@@ -34,183 +34,87 @@ The goals of this project are:
 
 ![Mount the board on top of the shield.](assets/cloud-relay-control-circuit.png)
 
-## Step 1: Setting up the Arduino IoT Cloud
+## Overview
 
-To do so, we will first need to configure our MKR 1010 device in the Arduino IoT Cloud. Let's start by navigating to the <a href="https://create.arduino.cc/iot/" target="_blank">Arduino IoT Cloud</a>. 
+In this guide we will:
+- Configure a manual device in the Arduino Cloud,
+- install the Arduino IoT Cloud Python library,
+- write a Python script that connects to the Arduino Cloud. 
 
->**Note:** You will need a Arduino account to use the Arduino IoT Cloud. If you do not have one, you will be directed to the account registration.
+## Requirements
 
-### Configure a new device
+To follow this guide, make sure to have:
 
-Once we are in the Arduino IoT Cloud, we will need to click on the **"Devices"** tab. This will open a new page which will ask you to add a new device. Click on the **"Add device"** button.
+- An [Arduino account](https://login.arduino.cc/login),
+- a version of [Python](https://www.python.org/downloads/) installed,
+- [pip](https://packaging.python.org/en/latest/tutorials/installing-packages/) package manager installed,
+- [Arduino IoT Python Client](https://pypi.org/project/arduino-iot-client/) installed.
+- A code editor (we recommend [VSCode](https://code.visualstudio.com/) with the Python extension installed).
 
-![Adding a new device.](assets/new_device.png)
+***The experience with Python and the `pip` package mangager varies depending on your computer and operating system. Python needs to be in your PATH to use the Arduino IoT Cloud Python client.***
 
-You will now have an option of either configuring a new Arduino device, or a third party device. Select the **"Set up an Arduino device** option.
+## Cloud Setup
 
-![Selecting the type of device.](assets/device_setup_1.png)
-
-At this point, you will need to connect your cloud compatible board to your computer. You will also need to have installed the Arduino Create Agent. If if it is not installed, the set up wizard will ask you to install it. Your device should now show up, and you will need to click on the **"Configure"**
-button. 
-
-![Device found.](assets/device_setup_2.png)
-
-You will now be asked to name your device. In this case, a name was randomly generated, which is **Phil**. Click on **"Next"** to proceed.
-
-![Naming the device.](assets/device_setup_3.png)
-
-After clicking on next, the board will start to configure. This process may take a few minutes. 
-
-![The configuration process.](assets/device_setup_4.png)
-
-Once it is done, we will be directed to the devices page, where we can see our device. Congratulations, you have just made your first device IoT ready!
-
-![Configuration complete!](assets/device_overview.png)
-
-### Creating a Thing and linking your device
-
-After our device is configured, we can move on to the next step: creating our very first Thing. Click on the **"Things"** tab. You should now see a button that says **"Create thing"**, which we will need to click.
-
-![Creating a thing.](assets/new_thing.png)
-
-We will now see an interface with multiple options. This is your Thing configuration overview. Here we can select what network we are connecting to, what device we are using and create variables that we want to sync.
-
-![Overview of a Thing.](assets/thing_overview.png)
-
-Let's start by linking our freshly configured device, by clicking on the **"Select Device"** button to the right. This will open up a window, where we can **"Associate"** the board with this Thing.
-
-![Associating the device.](assets/associate_device.png)
-
-### Creating variables
-
-Now, we can continue to create **variables** for our Thing. These variables will be synced with the cloud, as long as the board is connected to Internet and the cloud.
-
-For this application, we will create two **boolean** variables: one for each relay on the MKR Relay Shield.
-
-To create a new variable, click on the **"Add Variable"** button.
-
-![The "Add Variable" button.](assets/cloud-relay-control-img01.png)
-
-Let's name it **relay_1**, and select the **boolean** data type. Then click on **"Add Variable"**.
-
-![Adding the first variable.](assets/cloud-relay-control-img02.png)
-
-Let's add another variable, but let's name this one **relay_2**, which is also a boolean variable.
-
-![Adding the second variable.](assets/cloud-relay-control-img03.png)
-
-Great, now we have two **boolean variables** named **relay_1** and **relay_2**. 
-
-### Adding your network details
-
-Now that we have created the variables, we can configure the **network details**. This is done by clicking on the **"Configure"** button in the **"Network"** section.
-
-![Entering network details.](assets/cloud-relay-control-img04.png)
-
->**Note:** You can't enter any network details until you have added a variable.
+To set up the Arduino Cloud, follow the steps below. In there, we will
+- create and configure a device,
+- create a Thing,
+- create cloud variables.
 
 
-### Over the Air Uploads
+### Device Configuration
 
-Did you know that the Arduino IoT Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
+To configure a device, navigate to the [app.arduino.cc/devices](app.arduino.cc/devices) and click on the **"create a new device"** button. Connect your board to your computer, and make sure you have the [Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) installed. Your board will appear, and the installation takes a couple of minutes.
 
-***Over the Air uploads require an Entry plan to the Arduino IoT Cloud***
+***Learn more about Devices in the [Devices documentation]().***
 
+### Thing Configuration
 
-To use this feature, make sure the board has power. If your board is already connected to the IoT Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino IoT Cloud interface, and you should see it being discovered just as if it was connected via USB.
+1. Create a new Thing, by clicking on the **"Create Thing"** button.
+2. Click on the **"Select Device"** in the **"Associated Devices"** section of your Thing. Your previously configured device will appear from the list.
+3. In the network section, enter your network credentials.
 
+***Learn more about Things in the [Things documentation]().***
 
-### Creating the program
+### Create Variables
 
-Once we are finished with all the configurations, we can move on to creating the sketch that we are going to upload to our MKR WiFi 1010. To do so, we first need to go to the **"Sketch"** tab.
+Next step is to create some cloud variables, which we will later sync with our Arduino MKR WiFi 1010 board.
 
-![Open the "Sketch" tab to edit the sketch.](assets/cloud-relay-control-img05.png)
+While in Thing configuration, click on **"Add Variable"** which will open a new window. Add the following variables with the specified configurations:
 
-The sketch we are going to create is very simple. As most of the code is already generated through the configurations we made, we only need to make a few additions: configuring the relay pins as output, and creating two conditionals. 
+| Variable Name | Data Type | Permission   |
+| ------------- | --------- | ------------ |
+| `relay_1`     | Boolean   | Read & Write |
+| `relay_2`     | Boolean   | Read & Write |
 
-You can find the full sketch below, which we need to upload to our board. 
+Your Thing interface should now look something like this:
+
+![]()
+
+***Need help understanding cloud variables? Check out the [Variables]() section.***
+
+### Create Sketch
+
+After your device & Thing is configured, you can program your board. Navigate to the **"Sketch"** tab inside your Thing, where you can compile & upload your programs. You will find the sketch for this application in the code snippet below:
 
 ```arduino
-#include "thingProperties.h"
 
-void setup() {
-  // Initialize serial and wait for port to open:
-  Serial.begin(9600);
-  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
-  delay(1500); 
-  
-  pinMode(1, OUTPUT);
-  pinMode(2, OUTPUT);
-  
-  // Defined in thingProperties.h
-  initProperties();
-
-  // Connect to Arduino IoT Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
-  
-  /*
-     The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
-     the higher number the more granular information you’ll get.
-     The default is 0 (only errors).
-     Maximum is 4
- */
-  setDebugMessageLevel(2);
-  ArduinoCloud.printDebugInfo();
-}
-
-void loop() {
-  ArduinoCloud.update();
-  // Your code here 
-  
-}
-
-void onRelay1Change() {
-  // Do something
-  if(relay_1){
-    digitalWrite(1, LOW);
-  }
-  else{
-    digitalWrite(1, HIGH);
-  }
-}
-
-void onRelay2Change() {
-  // Do something
-    if(relay_2){
-    digitalWrite(2, LOW);
-  }
-  else{
-    digitalWrite(2, HIGH);
-  }
-}
 ```
 
-## Step 2: Creating a dashboard
+Upload this sketch to your board, and your board will start attempting to connect to the Arduino Cloud and sync its data.
 
-After our code has been successfully uploaded to our board, we we will need to create a dashboard to control our relays!
+You can verify that your device is connecting properly, by checking the Serial Monitor just after connection. Error codes are printed here.
 
-Head over to the **"Dashboards"** tab, and click on **"Build Dashboard"**.
+### Create a Dashboard
 
-![Click on "Build a dashboard".](assets/cloud-relay-control-img06.png)
+Once you have your device running a sketch and syncing with the Arduino Cloud, you can create a **dashboard**, a visualization tool for monitoring & interacting with your board.
 
-We can now see an empty dashboard. Let's click on the **"Add"** button, and select a **Switch** widget.
+Navigate to [app.arduino.cc/dashboard](app.arduino.cc/dashboard) and create a dashboard. Add two switches (or any other preferred widgets), and link them to each `relay_x` variable that we created earlier. These switches will be directly linked with your Arduino MKR WiFi 1010's variables, and will turn ON/OFF the relays on your board.
 
-![Adding a switch widget.](assets/cloud-relay-control-img07.png)
+You can also access your dashboard via the [Arduino IoT Remote app]().
 
-Now, we need to link it with our **relay_1** variable, inside our Thing.
+![Interact with your board]()
 
-![Linking a variable to the widget.](assets/cloud-relay-control-img08.png)
-
-We also need to rename the widget so we know which one is which. We choose **"RELAY_1"**.
-
-![Naming the widget.](assets/cloud-relay-control-img09.png)
-
-Now, repeat the same process, but instead link it to the **relay_2** variable. At the end, we should have two widgets, each linked to a relay.
-
-![The complete dashboard.](assets/cloud-relay-control-img10.png)
-
-Now you can simply test it out by turning ON or OFF the switches. You should hear the relays on your **MKR Relay Shield** making clicking noises. That means it is working! 
+***For more information on dashboards, available widgets and how to link them to your sketch, visit the [Dashboard & Widgets]() section.***
 
 ## Step 3: Connecting a component with higher voltage
 
