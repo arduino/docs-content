@@ -76,7 +76,7 @@ Now, we will need to add two variables, with the following settings:
 
 | Variable Name | Data Type | Permission   |
 | ------------- | --------- | ------------ |
-| switch_1      | integer   | read & write |
+| switch_1      | boolean   | read & write |
 | switch_2      | boolean   | read & write |
 
 We also need to enter our network details, and select our device (which should be **Device_1**).
