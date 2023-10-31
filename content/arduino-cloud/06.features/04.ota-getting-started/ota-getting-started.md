@@ -93,7 +93,7 @@ Check the highlighted lines in the following code to see what required changes a
 
 **6.** Once the sketch has uploaded to your board, let’s check that everything is working as it should. To do so, go back to the IoT Cloud and once in there, go to the **smart_led** dashboard we created before. Now, when you turn the **light** widget in the dashboard ON or OFF, the LED in your board should also turn ON or OFF.
 
-![Final dashboard.](assets/final_dshboard.png)
+![Final dashboard.](assets/final_dashboard.png)
 
 
 Now that we have checked that everything is working as it should, let’s go back to the **Things > smart_led >**  **Sketch** tab in the IoT Cloud, and see what has happened there.
