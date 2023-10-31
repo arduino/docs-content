@@ -197,7 +197,13 @@ You may use them as analog output pins with the function:
 analogWrite(pin, value);
 ```
 
-**Please Note:** the following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are not officially supported PWM pins. 
+By default, the resolution is 8 bit (0-255), You can use `analogWriteResolution()` to change this, supporting up to 12 bit (0-4096) resolution.
+
+```arduino
+analogWriteResolution(resolution);
+```
+
+Please note that the following pins are PWM capable but may interfere with other functionalities of the UNO R4 WiFi board. When writing library functions, please do not use this as they are not officially supported PWM pins. 
 
 | Pin       | RA4M1 | Timer   |
 | --------- | ----- | ------- |

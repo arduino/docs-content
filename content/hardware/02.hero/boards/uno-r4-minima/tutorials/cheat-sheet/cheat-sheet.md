@@ -169,6 +169,12 @@ You may use them as analog output pins with the function:
 analogWrite(pin, value);
 ```
 
+By default, the resolution is 8 bit (0-255), You can use `analogWriteResolution()` to change this, supporting up to 12 bit (0-4096) resolution.
+
+```arduino
+analogWriteResolution(resolution);
+```
+
 ### Digital Pins
 
 The UNO R4 Minima features a total of digital 14 pins. Though some of them serve another purpose and shouldn't be used for GPIO if you have other pins available.
