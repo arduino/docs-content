@@ -899,7 +899,7 @@ The Portenta Max Carrier is equipped with CAN bus communication capabilities, po
 
 For users working with the Portenta H7 or Portenta C33, the following simple examples can be used to test the CAN bus protocol's capabilities.
 
-The CAN interface on the Portenta Max Carrier must be enabled before using it. To do it, turning an specific pin to `LOW` is neccessary:
+The CAN interface on the Portenta Max Carrier must be enabled before using it. To do it, turning an specific pin to `LOW` is necessary:
 
 __For the Portenta H7__:
 ```arduino
@@ -1010,7 +1010,7 @@ void loop()
 }
 ```
 
-As a pratical example, we are going to communicate the __Max Carrier__ using a Portenta C33 with a __Portenta Machine Control__ using CAN.
+As a practical example, we are going to communicate the __Max Carrier__ using a Portenta C33 with a __Portenta Machine Control__ using CAN.
 
 ![Both devices CAN bus wiring diagram](assets/CAN-bus-wiring.png)
 
