@@ -126,9 +126,9 @@ The polarity of the stop bit(s) can vary, with some systems using a high stop bi
 
 ## Examples
 
-For the examples below connect your Arduino boards the following way:
+This section contains some basic UART examples, where you send data between two Arduino boards. To set it up, connect the TX with RX pins on both boards, following the circuit below: 
 
-![Circuit](./assets/circuit.png)
+![Connecting two Arduino boards via UART.](./assets/circuit.png)
 
 ### Transmit / Receive Messages
 
@@ -286,7 +286,6 @@ void loop() {
 }
 ``` 
 
-### How the Code Works
 
 **Receiver**
 
