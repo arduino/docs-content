@@ -36,7 +36,7 @@ Digital-to-analog converter (DAC):
   Resolution: 12 bits 
 Secure element: NXP® SE050C2
 Communication:
-  I2C: 3
+  I2C: 3 (I2C0, I2C1, I2C2; any I2C port can be used as it is free to use without restrictions.)
   UART: 4
   CAN FD: 2
   I2S: 1
