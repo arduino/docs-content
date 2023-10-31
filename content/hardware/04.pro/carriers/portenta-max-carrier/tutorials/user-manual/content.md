@@ -30,7 +30,7 @@ software:
 
 This user manual offers a detailed guide on the Portenta Max Carrier, consolidating all its features for easy reference. It will show how to set up, adjust, and assess its main functionalities. This manual will guide as a key to proficiently operate the Portenta Max Carrier, making it suitable for project developments related to industrial automation, manufacturing automation, robotics, and prototyping.
 
-![Portenta Max Carrier Overview](assets/overview.png)
+![Portenta Max Carrier Overview](assets/overview-colors.jpg)
 
 ## Hardware and Software Requirements
 
@@ -60,7 +60,7 @@ Max Carrier can be powered via external supply (6-36V) or battery via the onboar
 
 ### Carrier Architecture Overview
 
-![Portenta Max Carrier board overview](assets/architecture-v3.png)
+![Portenta Max Carrier board overview](assets/architecture-v4.png)
 
 Here is an overview of the board's architecture's main components shown in the image above:
 
@@ -89,15 +89,14 @@ __Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 
 - **LoRa® Module**: The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the onboard Murata CMWX1ZZABZ-078 LoRa® transceiver module. This module operates on 3V3. A dedicated SMA connector allows for an external antenna. 
 
+- **MIPI Camera**:
+
 - **Storage**: The board has a MicroSD card slot for data logging operation and bootloading operation from external memory.
 
 - **Debug interface**: Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via microUSB. The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller. In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines. The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD
    
-- **DIP switch**: The carrier has a DIP switch with two position and allows different profiles depending on the paired Portenta board. The DIP switch has ETH CENTER TAP and BTSEL switches.
+- **DIP switch**: The carrier has a DIP switch with two position and allows different profiles depending on the paired Portenta board. See the [DIP Switches section](#dip-switch-configuration) for more details.
   
-  when paired with **Portenta X8**, the ETH CENTER TAP will control 1 Gbit Ethernet capacity, while the BTSEL will make the system boot from SD Card memory if turned on or from MMC memory if selected in off position.
-  
-  The **Portenta H7/C33** will have the 100 Mbit Ethenet capacity controlled by ETH CENTER TAP, but BTSEL does not modify any settings.
 
 ### Carrier Topology
 
@@ -172,7 +171,7 @@ The Portenta Max Carrier can be powered using the following methods:
 - Using a **3.7V 18650 Li-ion battery** inserted in the on-board battery socket.
 - Using a USB-C® cable connected to the Portenta core board of your choice. (This option does not power the Modem and Mini PCIe connector).
 
-![Portenta Max Carrier power options](assets/power-options.png)
+![Portenta Max Carrier power options](assets/power-options-v2.png)
 
 ### Carrier Characteristics Highlight
 
@@ -220,7 +219,7 @@ Configuration and control features allows customize the device's behavior to the
 
 The Portenta Max Carrier incorporates two DIP switches, giving users ability to manage the behavior of the board. The configuration parameters of this switches differ based on which Portenta board it is paired with.
 
-![Portenta Max Carrier DIP switches](assets/dip-switch.png)
+![Portenta Max Carrier DIP switches](assets/dip-switch-v2.png)
 
 For configurations when the Portenta Max Carrier is combined with the __Portenta X8__, the DIP switch governs these settings:
 
@@ -1013,7 +1012,7 @@ void loop()
 
 As a pratical example, we are going to communicate the __Max Carrier__ using a Portenta C33 with a __Portenta Machine Control__ using CAN.
 
-![Both devices CAN bus wiring diagram]()
+![Both devices CAN bus wiring diagram](assets/CAN-bus-wiring.png)
 
 - __For the Portenta C33:__ Use the writing example from above.
 - __For the Portenta Machine Control:__ Install the `Arduino_MachineControl.h` library from the Library Manager and use the following example sketch:
