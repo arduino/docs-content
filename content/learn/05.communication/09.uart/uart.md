@@ -166,7 +166,6 @@ void loop() {
 }
 ```
 
-### How the Code Works
 
 We start by declaring two `String` variables for our incoming and outgoing messages.
 
