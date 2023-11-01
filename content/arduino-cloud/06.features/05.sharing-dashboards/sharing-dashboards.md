@@ -27,23 +27,23 @@ The **sharing dashboards** feature is really easy to use, but let's take a look 
 
 **1.** First, let's select a dashboard of your choice. In this case, we will choose the **"Smart Garden"** dashboard.
 
-![1Choose the dashboard you want to share.](assets/cloud-sharing-dashboards-img01.png)
+![Choose the dashboard you want to share.](assets/cloud-sharing-dashboards-img01.png)
 
 **2.** In our example, we have a set of widgets displaying environmental data. If we want to share our dashboard, we can simply click on the share icon at the top right corner, see the image below:
 
-![1Click on the share button.](assets/cloud-sharing-dashboards-img02.png)
+![Click on the share button.](assets/cloud-sharing-dashboards-img02.png)
 
 **3.** When we click on the icon, a pop up will appear. Here, we can search for the user that we want to share the dashboard with. We can search by either user name, or email. When have selected someone to invite, we can click on the **"Share"** button. This allow them access to our dashboards, and a link to the dashboard is sent to the users email address.
 
-![1Enter the email/user name and click on share.](assets/cloud-sharing-dashboards-img03.png)
+![Enter the email/user name and click on share.](assets/cloud-sharing-dashboards-img03.png)
 
 **4.** When we have sent an invite, they will appear in a list of people who have access.
 
-![1List of people that has access.](assets/cloud-sharing-dashboards-img04.png)
+![List of people that has access.](assets/cloud-sharing-dashboards-img04.png)
 
 **5.** In the email sent out, simply click on the **"Open Dashboard"** button, and you will be directed to the dashboard!
 
-![1Receiving the email.](assets/cloud-sharing-dashboards-img05.png)
+![Receiving the email.](assets/cloud-sharing-dashboards-img05.png)
 
 And that's how you can share dashboards with your friends, colleagues and family, with just a few clicks!
 
@@ -51,7 +51,7 @@ And that's how you can share dashboards with your friends, colleagues and family
 
 If you no longer want people to have access to your dashboards, simply click the cross next to the person's user name. This will remove their access to the dashboard.
 
-![1Removing the access.](assets/cloud-sharing-dashboards-img06.png)
+![Removing the access.](assets/cloud-sharing-dashboards-img06.png)
 
 ## Conclusion
 
