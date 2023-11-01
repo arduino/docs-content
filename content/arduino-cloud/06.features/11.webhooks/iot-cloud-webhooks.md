@@ -27,17 +27,7 @@ Webhooks allow you to send and receive automated messages to and from other serv
 
 You will also need a cloud compatible board:
 
-- [MKR 1000 WiFi](https://store.arduino.cc/arduino-mkr1000-wifi)
-- [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
-- [MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300-lora-connectivity-1414)
-- [MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310)
-- [MKR GSM 1400](https://store.arduino.cc/arduino-mkr-gsm-1400)\*
-- [MKR NB 1500](https://store.arduino.cc/arduino-mkr-nb-1500-1413)\*
-- [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
-- [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
-- [Portenta H7](https://store.arduino.cc/portenta-h7)
-
-***Please note: The MKR GSM 1400 and MKR NB 1500 require a SIM card to connect to the cloud, as they communicate over mobile networks.***
+***Read more about compatible board [here](/arduino-cloud/guides/overview#compatible-boards)***
 
 ## Webhook Setup
 
@@ -79,19 +69,23 @@ The final step is finding the webhook link that you will need to set to your Thi
 
 Linking a webhook to a Thing is a quite simple process, follow the steps below to set a webhook to your Thing:
 
-![Setting a webhook](assets/setting-a-webhook.gif)
-
 **1.** [Sign in to your Arduino account](https://create.arduino.cc/iot), and open the [Arduino IoT Cloud](https://create.arduino.cc/iot).
 
 **2.** Navigate to [**Things** -> **Create Thing**](https://create.arduino.cc/iot/things).
 
 **3.** Create your Variables. In our case, we will create a **"message"** Variable and set its type to **"Character String"**.
 
+![Create Variabele](./assets/webhooks-01.png)
+
 **4.** Add your **Device**, and configure your **Network** from the right side menu.
 
 **5.** Click on "**Set Webhook**", one the bottom left corner.
 
+![Set Webhook](./assets/webhooks-02.png)
+
 **6.** Enter the webhook link provided from the platform you are using.
+
+![Enter Webhook](./assets/webhooks-03.png)
 
 **7.** Finally, navigate to the **Sketch** tab, and upload the automatically generated code to your board.
 
@@ -115,7 +109,7 @@ The fifth value contains an array of objects, each representing a Variable in yo
         "persist": true/false,
         "updated_at": "DATE",
         "created_by": "USERID"
-      },
+      },1
       {
         "id": "VARIABLE_02_ID",
         "name": "NAME_OF_VARIABLE_02",
@@ -131,17 +125,19 @@ The fifth value contains an array of objects, each representing a Variable in yo
 
 To test the webhook, we need to create a *Messenger widget*. We can do that by:
 
-![Setting a webhook](assets/webhook-dashboard.gif)
-
 **1.** Navigating to [*Dashboards*](https://create.arduino.cc/iot/dashboards) -> *Edit* -> *Add* -> stay on the *Widgets tab* -> select "Messenger".
 
+![Add Messenger Widget](./assets/webhooks-04.png)
+
 **2.** Press on *Link Variable*, select the Thing we created, then the **"message"** Variable.
+
+![Link Widge](./assets/webhooks-05.png)
 
 In the "messenger widget", we are modifying the value of the "message" Variable. Whenever we send a message, the "message" Variable is updated and using the webhook we set, the updates are sent to the spreadsheet file created by IFTTT.
 
 To try it out, all you need to do is to navigate to your **Dashboards** on the Arduino IoT Cloud and send messages using the **Messenger Widget**. The messages, along with the exact date and time will be found in the Google Sheets file created by IFTTT, on our Google account. To access this file, you need to navigate to your [Google Sheets](https://docs.google.com/spreadsheets) -> find and open the file names **"IFTTT_Maker_Webhooks_Events"**.
 
-![Setting a webhook](assets/webhook-dashboard-sheets.gif)
+![Setting a webhook](assets/ezgif.com-crop.gif)
 
 ## Available Platforms
 
