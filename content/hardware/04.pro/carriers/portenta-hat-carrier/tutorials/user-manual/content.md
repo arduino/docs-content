@@ -522,6 +522,7 @@ void loop() {
 
 After successfully uploading the sketch, the user-configurable LED will start blinking. The following clip illustrates the expected LED blink pattern.
 
+![Portenta Hat Carrier Hello World Blink](assets/portentaHATcarrier_blink.gif)
 
 Please check out the following documentation to learn more about each board and maximize its potential when paired with the Portenta Hat Carrier:
 
