@@ -522,7 +522,6 @@ void loop() {
 
 After successfully uploading the sketch, the user-configurable LED will start blinking. The following clip illustrates the expected LED blink pattern.
 
-![Portenta Hat Carrier Hello World Blink](assets/portentaHATcarrier_blink.gif)
 
 Please check out the following documentation to learn more about each board and maximize its potential when paired with the Portenta Hat Carrier:
 
@@ -2660,13 +2659,13 @@ Hardware configuration is divided into the following layers:
 
 EEPROMs, which store identification IDs, are typically defined on _Layer 1_ and accessible on _I2C1_. Some HATs may also have EEPROMs according to the Raspberry Pi® standard (*ID_SD*, *ID_SC*), accessible on _I2C0_.
 
-Some overlays, such as:
+There are some overlays which add specific functionalities. For example:
 
 - `ov_som_lbee5kl1dx`: Adds Wi-Fi®
-- `ov_som_x8h7`: Adds the Portenta H7
+- `ov_som_x8h7`: Adds the H7 external microcontroller
 - `ov_carrier_rasptenta_base`: Base support for Portenta Hat Carrier
 
-Add functionalities like Wi-Fi® and external microcontroller support. If no known carrier is detected, the first two overlays are applied by default if the Portenta X8 is mounted as the main board.
+When no known carrier is detected and the Portenta X8 is mounted as the main board, the first two overlays mentioned above are applied by default.
 
 #### Distinction Between System And Hardware Configuration
 <br></br>
