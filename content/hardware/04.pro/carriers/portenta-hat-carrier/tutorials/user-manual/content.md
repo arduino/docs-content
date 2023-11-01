@@ -278,7 +278,7 @@ adb shell
 sudo su -
 ```
 
-When you execute the _sudo su -_ command, you will be prompted for a password: 
+When you execute the _sudo su -_ command, you will be prompted for a password:
 
 ***The default password is `fio`*** 
 
@@ -2241,7 +2241,6 @@ For a comprehensive understanding of these connectivity options, kindly refer to
 - Portenta H7 connectivity: [Wi-Fi® access point](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point) and [BLE connectivity](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity)
 - Portenta C33 User Manual: [Wi-Fi®](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#wi-fi) and [Bluetooth®](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#bluetooth)
 
-
 ## Pins
 
 The Portenta Hat Carrier is a versatile platform, and a significant feature of this carrier is its extensive pin availability. These pins provide a range of functionalities, including power, I/Os, communication, and more.
@@ -2327,11 +2326,30 @@ Next conditions will help you properly set the hardware to test GPIO controls:
 
 1. Begin by positioning the Portenta-X8 securely onto the Portenta Hat Carrier. Make sure the High-Density connectors are securely connected.
 
-2. Each GPIO on the Portenta Hat Carrier is versatile and robust, designed to safely accept input voltages ranging between 0.0 V and 3.3 V. This wide range ensures compatibility with a variety of sensors and external devices.
+2. Each GPIO on the Portenta Hat Carrier is versatile and robust, designed to safely accept input voltages ranging between 0.0 V and 3.3 V. This input range ensures compatibility with an array of sensors and external devices.
 
 3. To prevent floating states and offer a consistent and predictable behavior, internal pull-ups are automatically enabled on all input pins. This default configuration means that, unless actively driven low, the pins will naturally read as high (or 3.3 V).
 
-When all conditions are set and in place, use the following script to read all available GPIOs on 40-Pin header:
+When all conditions are set and in place, access the ADB shell on the Portenta X8 as follows:
+
+```bash
+adb shell
+sudo su -
+```
+
+Enter the password `fio` when prompted. Next, access the `x8-devel` Docker container with the command:
+
+```bash
+docker exec -it x8-devel sh
+```
+
+Navigate to the directory containing the GPIO example, named `gpios.py`:
+
+```bash
+cd root/examples/portenta-hat-carrier
+```
+
+Run the `gpios.py` script to read the status of all available GPIOs on the 40-pin header:
 
 ```python
 #!/usr/bin/env python3
@@ -2552,6 +2570,84 @@ The pins used for the JTAG debug port on the Portenta Hat Carrier are the follow
 |        8       |               |           JTAG_TDI           |                                 J1-78                                |    JTAG TDI   |
 |        9       |               |           JTAG_TRST          |                                 J1-80                                |   JTAG TRST   |
 |       10       |               |           JTAG_RST           |                                 J1-73                                |    JTAG RST   |
+
+## Understanding Device Tree Blobs (DTB) Overlays
+
+In the world of embedded systems, _U-boot_ and the _Linux kernel_ use a concept called __Device Tree Blobs (DTB)__ to describe a board's hardware configuration. This allows for a unified main source tree to be used across different board configurations, ensuring consistency.
+
+The boards, acting as carriers, allow various peripherals to be connected, such as temperature sensors or accelerometers. These carriers serve as expansion connectors. Users might want to connect various peripherals and be able to add or remove them easily.
+
+The concept of modularity is applied to the _DTB_, resulting in __DTB overlays__. The hardware configuration is split into multiple small files, each representing a different peripheral or function.
+
+During the early boot stage, these overlays are merged together into a single DTB and loaded into RAM. This approach enables to select and change configurations with ease. However, it is important to note that changing the hardware configuration requires a system reboot to maintain system stability.
+
+The Device Tree Blob (DTB) overlays can be modified and maintained through a couple of methods. In builds that do not prioritize security, the file located at the following location can be edited.
+
+```
+/boot/devicetree/overlays.txt
+```
+
+After making the desired changes, it is necessary to save and reboot the system to apply desired changes.
+
+On the other hand, the builds that prioritizes security, the *fw_setenv tool* accessible in user space must be used to apply according changes to the U-boot settings as follows:
+
+```
+fw_setenv overlays=name_ov1 name_ov2
+```
+
+While the current implementation does not allow passing parameters directly to the overlays, this functionality will be introduced in the future through enhancements to U-boot.
+
+U-boot can be configured to automatically load specific DTB overlays based on the carrier board it detects, in this case Portenta Hat Carrier, either by probing specific hardware or by reading an identification ID from an EEPROM.
+
+The configuration was done by logging into the board and executing commands on the shell. For instance, for a Portenta-X8 placed on a Portenta HAT Carrier, the expected output is as follows:
+
+```bash
+fw_printenv overlays 
+overlays=ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_rasptenta_base
+
+fw_printenv carrier_name
+carrier_name=rasptenta
+
+fw_printenv is_on_carrier
+is_on_carrier=yes
+```
+
+This information is written by U-boot during boot in a step referred to as _auto carrier detection_. The variables can be modified from user space, but after a reboot, it reverts to its default state unless the `carrier_custom` variable is set to `1`.
+
+```bash
+fw_setenv carrier_custom 1
+```
+
+This serves as an escape mechanism to enable user-based configurations.
+
+```bash
+fw_setenv carrier_custom 1
+fw_setenv carrier_name rasptenta
+fw_setenv is_on_carrier yes
+fw_setenv overlays "ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_rasptenta_base ov_carrier_rasptenta_pwm_fan ov_carrier_rasptenta_ov5647_camera_mipi ov_rasptenta_iqaudio_codec" 
+```
+
+The commands above enables functionalities such as a speed-controlled fan connector, an OV5647 based RPi v1.3 camera, and an IQ Audio Codec Zero audio HAT.
+
+Hardware configuration is divided into following layers:
+
+- __Layer 0__: System on Module (SoM), prefixed with `ov_som_`.
+- __Layer 1__: Carrier boards, prefixed with `ov_carrier_`.
+- __Layer 2__: HATs and Cameras, which is usually a concatenation of the carrier name and the hat name or functionality.
+
+EEPROMs, which store identification IDs, are typically defined on _Layer 1_ and accessible on _I2C1_. Some HATs may also have EEPROMs according to the Raspberry Pi® standard (*ID_SD*, *ID_SC*), accessible on _I2C0_.
+
+Some overlays, such as:
+
+- `ov_som_lbee5kl1dx`: Adds Wi-Fi®
+- `ov_som_x8h7`: Adds the Portenta H7 external microcontroller
+- `ov_carrier_rasptenta_base`: Base support for Portenta Hat Carrier
+
+add functionalities like Wi-Fi® and external microcontroller support. If no known carrier is detected, the first two overlays are applied by default if the Portenta X8 is mounted as the main board.
+
+The distinction between system and hardware configuration is crucial. System configuration includes settings such as user creation and Wi-Fi® passwords, whereas hardware configuration is explicitly defined through the device tree.
+
+In production environments, the addition of custom compiled device tree overlays is restricted to maintain system integrity and security.
 
 ## Raspberry Pi® HAT
 
