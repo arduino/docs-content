@@ -37,21 +37,13 @@ The goals of this project are:
 ## Overview
 
 In this guide we will:
-- Configure a manual device in the Arduino Cloud,
-- install the Arduino IoT Cloud Python library,
-- write a Python script that connects to the Arduino Cloud. 
+- 
 
 ## Requirements
 
 To follow this guide, make sure to have:
 
 - An [Arduino account](https://login.arduino.cc/login),
-- a version of [Python](https://www.python.org/downloads/) installed,
-- [pip](https://packaging.python.org/en/latest/tutorials/installing-packages/) package manager installed,
-- [Arduino IoT Python Client](https://pypi.org/project/arduino-iot-client/) installed.
-- A code editor (we recommend [VSCode](https://code.visualstudio.com/) with the Python extension installed).
-
-***The experience with Python and the `pip` package mangager varies depending on your computer and operating system. Python needs to be in your PATH to use the Arduino IoT Cloud Python client.***
 
 ## Cloud Setup
 
@@ -59,7 +51,6 @@ To set up the Arduino Cloud, follow the steps below. In there, we will
 - create and configure a device,
 - create a Thing,
 - create cloud variables.
-
 
 ### Device Configuration
 
@@ -88,7 +79,7 @@ While in Thing configuration, click on **"Add Variable"** which will open a new 
 
 Your Thing interface should now look something like this:
 
-![]()
+![Thing Interface](assets/thing.png)
 
 ***Need help understanding cloud variables? Check out the [Variables]() section.***
 
@@ -112,21 +103,21 @@ Navigate to [app.arduino.cc/dashboard](app.arduino.cc/dashboard) and create a da
 
 You can also access your dashboard via the [Arduino IoT Remote app]().
 
-![Interact with your board]()
+![Interact with your board](assets/dashboard.png)
 
 ***For more information on dashboards, available widgets and how to link them to your sketch, visit the [Dashboard & Widgets]() section.***
 
-## Step 3: Connecting a component with higher voltage
+## High Power Pins
 
->**Note:** Working with higher voltage components should be done with extreme caution. Do not alter the circuit while it is connected to a higher power source, and do not connect any high voltage components directly to the Arduino. 
+***Note: Working with higher voltage components should be done with extreme caution. Do not alter the circuit while it is connected to a higher power source, and do not connect any high voltage components directly to the Arduino.*** 
 
-Up until now, we have simply activated the relays, but we still haven't connected anything to them. While we are not going to go in-depth on how to connect high power components, we can take a look at how we could connect something that operates on maximum 24V.
+We've now set up the cloud to control the relays, but there's nothing connected to the relays. The relays on the MKR Relay Shield are designed to typically handle anything from 5-24V, where you will need to connect an external power supply and a higher power component that can be controlled through the relays.
 
-Let's begin with the high power pins on the MKR Relay Shield. There are **six in total** for both relays, where there are three different type of connections: NO, COM and NC. 
+There are six **high power pins** for both relays on the shield, with three different type of connections: NO, COM and NC. 
 
 ![MKR Relay Shield's high power pins.](assets/MKRRELAY_T1_IMG06.png)
 
-In this scenario, we are going to use the **NC** configuration, which means that writing a **LOW** signal to the relay will connect the NC pin to COM, which provides power to the component connected. The circuit for this could look like this:
+We are going to use the **NC** configuration, which means writing a **LOW** signal to the relay will connect the NC pin to COM, which provides power to the component connected. The circuit for this could look like this:
 
 ![A circuit involving a 24V component.](assets/cloud-relay-control-img11.png)
 
@@ -145,11 +136,3 @@ digitalWrite(relay_1, HIGH)
 ```
 
 >**Note:** Use extreme caution when creating higher power circuits. Make sure that both the power supply and the component does not exceed 24V. For example, connecting it straight to a wall socket without a power converter would supply 220-240V, which is **10 times as high.**
-
-## Conclusion
-
-In this tutorial, we have gone through the necessary steps to connect a MKR WiFi 1010 + a MKR Relay Shield to the Arduino IoT Cloud. The relays can now be used to trigger higher voltage components, such as smaller heaters, fans or light bulbs. 
-
-### More tutorials
-
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).
