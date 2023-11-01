@@ -1,25 +1,70 @@
 ---
-title: "Universal Asynchronous Receiver-Transmitter (UART)"
-description: "A serial communication protocol used to send data using two wires. "
-author: "Hannes Siebeneicher"
+title: 'Universal Asynchronous Receiver-Transmitter (UART)'
+description: 'A serial communication protocol for sending serial data over USB or via TX/RX pins.'
+author: 'Hannes Siebeneicher'
+tags: [UART, Serial Communication]
 ---
 
-## Introduction
-
-This article dives into the basics of Universal Asynchronous Receiver-Transmitter (UART), a serial communication protocol that can be used to send data between two Arduino boards using only two wires.
+In this article, you will learn the basics of Universal Asynchronous Receiver-Transmitter (UART), a serial communication protocol that can be used to send data between an Arduino board and other devices. This is the protocol used when you send data from an Arduino to your computer, using the classic `Serial.print()` method.
 
 UART is one of the most used device-to-device (serial) communication protocols. It’s the protocol used by Arduino boards to communicate with the computer. It allows an asynchronous serial communication in which the data format and transmission speed are configurable. It's among the earliest serial protocols and even though it has in many places been replaced by [SPI](/learn/communication/spi) and [I2C](/learn/communication/wire) it's still widely used for lower-speed and lower-throughput applications because it is very simple, low-cost and easy to implement.
 
-When sending UART messages between two Arduino boards we use `Serial1`. That is because `Serial` is used to communicate between the Arduino and the computer to, e.g. display messages inside the serial monitor.
+Communication via UART is enabled by the [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) class, which has a number of methods available, including reading & writing data. 
 
 ***If you want to jump straight to the examples click [here](#examples) or go to the end of this article.***
 
 ## Overview
 
-- [How UART Works](#how-uart-works)
-- [Timing and Synchronization](#timing-and-synchronization)
-- [UART Messages](#uart-messages)
-- [Examples](#examples)
+- [Overview](#overview)
+- [Serial Class](#serial-class)
+- [Arduino UART Pins](#arduino-uart-pins)
+- [Technical Specifications](#technical-specifications)
+  - [How UART Works](#how-uart-works)
+  - [Timing and Synchronization](#timing-and-synchronization)
+  - [UART Messages](#uart-messages)
+- [Serial USB Examples](#serial-usb-examples)
+  - [Basic Print Example](#basic-print-example)
+  - [Read](#read)
+- [RX/TX Pin Examples](#rxtx-pin-examples)
+  - [Transmit / Receive Messages](#transmit--receive-messages)
+  - [Control Built-in LED](#control-built-in-led)
+
+## Serial Class
+
+With the [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) class, you can send / receive data to and from your computer over USB, or to a device connected via the Arduino's RX/TX pins. 
+
+- When sending data over USB, we use `Serial`. This data can be viewed in the Serial Monitor in the Arduino IDE.
+- When sending data over RX/TX pins, we use `Serial1`.
+- The [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi), [Mega 2560](https://store.arduino.cc/products/arduino-mega-2560-rev3) and [Due](https://store.arduino.cc/products/arduino-due) boards also have `Serial2` and `Serial3`
+
+The [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) class have several methods with some of the essentials being:
+- `begin()` - begins serial communication, with a specified baud rate (many examples use either `9600` or `115200`). 
+- `print()` - prints the content to the Serial Monitor.
+- `println()` - prints the content to the Serial Monitor, and adds a new line.
+- `available()` - checks if serial data is available (if you send a command from the Serial Monitor). 
+- `read()` - reads data from the serial port.
+- `write()` - writes data to the serial port. 
+
+For example, to initialize serial communication on both serial ports, we would write it as:
+
+```
+Serial.begin(9600); //init communication over USB
+Serial1.begin(9600); //communication over RX/TX pins
+```
+
+***The [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) class is supported on all Arduino boards.***
+
+## Arduino UART Pins
+
+The default TX/RX pins on an Arduino board are the D0(RX) and D1(TX) pins. Some boards have additional serial ports, see table below:
+
+| Form Factor | RX  | TX  | RX1 | TX1 | RX2 | TX2 | RX3 | TX3 |
+| ----------- | --- | --- | --- | --- | --- | --- | --- | --- |
+| MKR         | D0  | D1  |     |     |     |     |     |     |
+| UNO         | D0  | D1  |     |     |     |     |     |     |
+| Nano        | D0  | D1  |     |     |     |     |     |     |
+| Mega        | D0  | D1  | D19 | D18 | D17 | D16 | D15 | D14 |
+
 
 ## Technical Specifications
 
@@ -37,7 +82,7 @@ As seen in the image above when using parallel communication an 8-bit message wo
 
 The key components of UART include the transmitter, receiver, and baud rate. The transmitter collects data from a source, formats it into serial bits, and sends it via a TX (Transmit) pin. The receiver receives it via a RX (Receive) pin, processes incoming serial data and converts it into parallel data for the host system. The baud rate determines the speed of data transmission.
 
-### Timing and synchronization
+### Timing and Synchronization
 
 Timing and synchronization are crucial aspects of UART communication. Unlike synchronous serial communication protocols such as SPI and I2C, UART operates operates asynchronously, meaning it doesn't rely on a shared clock signal to coordinate data transmission. Instead, it uses predefined baud rates to determine the timing of data bits.
 
@@ -124,11 +169,59 @@ The polarity of the stop bit(s) can vary, with some systems using a high stop bi
 
 ![Stop Bits](./assets/stopBits.png)
 
-## Examples
+## Serial USB Examples
+
+To send data between an Arduino and a computer, you will need to the board to a computer with a **USB cable**. 
+
+### Basic Print Example
+
+This example will send the string `Hello World!` from an Arduino to a computer, using the `Serial.println()` function. Data will be sent every one second.
+
+```arduino
+void setup(){
+  Serial.begin(9600); //initialize serial communication at a 9600 baud rate
+}
+
+void loop(){
+  Serial.println("Hello world!");
+  delay(1000);
+}
+```
+
+`Serial.print()` / `Serial.println()` is used in almost all Arduino sketches, as you can understand what goes on in the board, and design programs to provide you information on specific events.
+
+### Read
+
+To send data from a computer to an Arduino (from the Serial Monitor), we can make use of the `Serial.available()` and `Serial.read()` functions. First, we check if there's any data available, and if so, we read it and print it out.
+
+This example will essentially print out whatever you enter in the Serial Monitor (because we send the data to the board, but we also print it back).
+
+```arduino
+int incomingByte = 0; // for incoming serial data
+
+void setup() {
+  Serial.begin(9600); //initialize serial communication at a 9600 baud rate
+}
+
+void loop() {
+  // send data only when you receive data:
+  if (Serial.available() > 0) {
+    // read the incoming byte:
+    incomingByte = Serial.read();
+
+    // say what you got:
+    Serial.print("I received: ");
+    Serial.println(incomingByte, DEC);
+  }
+}
+```
+
+## RX/TX Pin Examples
 
 This section contains some basic UART examples, where you send data between two Arduino boards. To set it up, connect the TX with RX pins on both boards, following the circuit below: 
 
 ![Connecting two Arduino boards via UART.](./assets/circuit.png)
+
 
 ### Transmit / Receive Messages
 
