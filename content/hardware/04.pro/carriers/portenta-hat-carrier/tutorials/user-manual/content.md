@@ -2582,13 +2582,17 @@ The pins used for the JTAG debug port on the Portenta Hat Carrier are the follow
 
 ## Understanding Device Tree Blobs (DTB) Overlays
 
+### Device Tree Blobs (DTB) And DTB Overlays
+
 In the world of embedded systems, _U-boot_ and the _Linux kernel_ use a concept called __Device Tree Blobs (DTB)__ to describe a board's hardware configuration. This approach allows for a unified main source tree to be used across different board configurations, ensuring consistency.
 
 The boards, acting as carriers, allow various peripherals to be connected, such as temperature sensors or accelerometers. These carriers serve as expansion connectors. You might want to connect various peripherals and be able to add or remove them easily.
 
-The concept of modularity is applied to the _DTB_, resulting in __DTB overlays__. The hardware configuration is split into multiple small files, each representing a different peripheral or function.
+The concept of modularity is applied to the _DTB_, resulting in __DTB overlays__. The hardware configuration is split into multiple small files, each representing a different peripheral or function in the form of a DTB overlay.
 
 During the early boot stage, these overlays are merged together into a single DTB and loaded into RAM. This approach enables users to select and change configurations with ease. However, it is important to note that changing the hardware configuration requires a system reboot to maintain system stability.
+
+### Handling DTB Overlays
 
 You can modify and maintain the Device Tree Blob (DTB) overlays through a couple of methods. In builds that do not prioritize security, you can edit the file located at the following location:
 
@@ -2596,7 +2600,7 @@ You can modify and maintain the Device Tree Blob (DTB) overlays through a couple
 /boot/devicetree/overlays.txt
 ```
 
-After making the desired changes, it is necessary to save and reboot the system to apply desired changes.
+After making the desired changes, it is necessary to save the changes and reboot the system to apply them.
 
 On the other hand, in builds that prioritize security, the *fw_setenv tool* accessible in user space must be used to apply the corresponding changes to the U-boot settings as follows:
 
@@ -2606,9 +2610,17 @@ fw_setenv overlays=name_ov1 name_ov2
 
 Currently, parameters are passed indirectly to the overlays; however, upcoming enhancements to U-boot will introduce direct parameter passing functionality.
 
-U-boot can be configured to automatically load specific DTB overlays based on the carrier board it detects, in this case Portenta Hat Carrier, either by probing specific hardware or by reading an identification ID from an EEPROM.
+### Custom DTB Overlays
 
-The configuration was done by logging into the board and executing commands on the shell. For instance, for a Portenta-X8 placed on a Portenta HAT Carrier, the expected output is as follows:
+In cases where the required DTB overlay is not readily available and a specific configuration that is not part of the pre-compiled set is needed, it is possible to create customized DTB overlays.
+
+DTB overlays originate from readable source files known as _DTS files_. Users with the respective experience can modify these DTS files and cross-compile them to create tailored overlays suited to their needs.
+
+### Automated Load And Carrier Detection
+
+U-boot can be configured to automatically load specific DTB overlays based on the carrier board it detects, in this case the Portenta Hat Carrier, either by probing specific hardware or by reading an identification ID from an EEPROM.
+
+For instance, for a Portenta-X8 placed on a Portenta HAT Carrier, upon logging into the board and executing subsequent commands on the shell, the expected output is as follows:
 
 ```bash
 fw_printenv overlays 
@@ -2638,6 +2650,8 @@ fw_setenv overlays "ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_rasptenta_base ov_c
 
 The commands above enable functionalities such as a speed-controlled fan connector, an OV5647 based RPi v1.3 camera, and an IQ Audio Codec Zero audio HAT.
 
+### Hardware Configuration Layers
+
 Hardware configuration is divided into the following layers:
 
 - __Layer 0__: System on Module (SoM), prefixed with `ov_som_`.
@@ -2653,6 +2667,9 @@ Some overlays, such as:
 - `ov_carrier_rasptenta_base`: Base support for Portenta Hat Carrier
 
 add functionalities like Wi-Fi® and external microcontroller support. If no known carrier is detected, the first two overlays are applied by default if the Portenta X8 is mounted as the main board.
+
+#### Distinction Between System And Hardware Configuration
+<br></br>
 
 The distinction between system and hardware configuration is crucial. System configuration includes settings such as user creation and Wi-Fi® passwords, whereas hardware configuration is explicitly defined through the device tree.
 
