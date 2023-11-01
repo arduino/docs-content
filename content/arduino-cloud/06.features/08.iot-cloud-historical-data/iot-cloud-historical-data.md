@@ -45,21 +45,21 @@ Combined with 15 days or three months of historical data, you can build a detail
 
 First, to download historical data navigate into one of your dashboards on the [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards).
 
-![1Arduino cloud dashboard.](assets/cloud-historical-data-dashboard.png)
+![Arduino cloud dashboard.](assets/cloud-historical-data-dashboard.png)
 
 While inside a dashboard, press the **Download** icon up in the right corner. This will open a new window that allows you to select historical data to download.
 
-![1Window with historical data inside dashboard.](assets/cloud-historical-data.png)
+![Window with historical data inside dashboard.](assets/cloud-historical-data.png)
 
 From here you can select all the variables you want to download by checking the boxes. If your dashboard is using multiple Things, you can swap between them from the dropdown at the top.
 
 When you have selected the data, click on the **"Select Data Source"** button.
 
-![1Selecting variables for historical data.](assets/cloud-historical-data-selecting-variable.png)
+![Selecting variables for historical data.](assets/cloud-historical-data-selecting-variable.png)
 
 In the next window, click on the **"Get Data"** button. The download link will now be sent directly to your email address linked to your account.
 
-![1Email confirmation.](assets/cloud-historical-data-confirmation.png)
+![Email confirmation.](assets/cloud-historical-data-confirmation.png)
 
 ## Conclusion
 
