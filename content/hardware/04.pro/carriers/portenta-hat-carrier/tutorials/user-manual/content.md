@@ -2666,7 +2666,7 @@ Some overlays, such as:
 - `ov_som_x8h7`: Adds the Portenta H7
 - `ov_carrier_rasptenta_base`: Base support for Portenta Hat Carrier
 
-add functionalities like Wi-Fi® and external microcontroller support. If no known carrier is detected, the first two overlays are applied by default if the Portenta X8 is mounted as the main board.
+Add functionalities like Wi-Fi® and external microcontroller support. If no known carrier is detected, the first two overlays are applied by default if the Portenta X8 is mounted as the main board.
 
 #### Distinction Between System And Hardware Configuration
 <br></br>
