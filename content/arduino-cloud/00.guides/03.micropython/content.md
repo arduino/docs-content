@@ -12,14 +12,16 @@ libraries:
 
 ## Introduction 
 
-This tutorial guides you on how to use the MicroPython library to connect your Arduino device to the Arduino IoT Cloud.
+This tutorial guides you on how to use the MicroPython library to connect your Arduino device to the Arduino IoT Cloud. 
+
+It requires your board to have a version of MicroPython installed, which is covered in [this article](/micropython/basics/board-installation).
 
 ## Goals
 
 The goals of this tutorial are:
 
 - Connect your Arduino device to your Wi-Fi® network.
-- Connect your Arduino device to the Arduino IoT Cloud.
+- Connect your Arduino device to the Arduino Cloud via MicroPython.
 - Control an LED using the Arduino IoT Cloud.
 
 ## Hardware & Software Needed
@@ -31,34 +33,50 @@ The goals of this tutorial are:
 
 ***To install MicroPython, read the [MicroPython Installation Guide](https://docs.arduino.cc/micropython/basics/board-installation) written for all Arduino boards.***
 
+## Cloud Setup
 
+Before we start, make sure you have MicroPython installed on your board. If you haven't you can follow [this tutorial](https://docs.arduino.cc/micropython/basics/board-installation).
 
-## Setting Up Your Device and IoT Cloud
+Then, we need to configure a Thing in the [Arduino Cloud](app.arduino.cc/things) consisting of two boolean variables called `led` and `ledSwitch`. Follow the instructions below to do so.
 
-Before we start, make sure you have MicroPython installed on your board. If you haven't you can follow [this tutorial](https://docs.arduino.cc/micropython/basics/board-installation). Then configure a Thing in the [Arduino IoT Cloud](https://create.arduino.cc/iot/) consisting of two boolean variables called `led` and `ledSwitch`. To set up a Thing and a corresponding dashboard, please follow these two tutorials:
+### Thing & Device Configuration
 
-- [IoT Cloud Variables](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables)
-- [IoT Cloud Dashboards & Widgets](https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets)
+1. Create a new Thing, by clicking on the **"Create Thing"** button.
+2. Click on the **"Select Device"** in the **"Associated Devices"** section of your Thing.
+3. Click on **"Set Up New Device"**, and select the bottom category (**"Manual Device"**). Click continue in the next window, and choose a name for your device.
+4. Finally, you will see a new **Device ID** and a **Secret Key** generate. You can download them as a PDF. Make sure to save it as you cannot access your Secret Key again.
 
-The resulting Thing and dashboard should look similar to the following:
+![Device Key.](assets/device-key.png)
 
-![Thing with two boolean variables.](./assets/thing.png)
+- Learn more about Things in the [Things documentation]()
+- Learn more about Devices in the [Devices documentation]()
 
-![Dashboard with an LED and a Switch widget.](./assets/dashboard.png)
+### Create Variables
 
-Also, your device needs to be registered. Follow the flow "Any Device" ("Manual") when clicking **Add** in the "Devices" tab.
+Next step is to create some cloud variables, which we will later interact with via a MicroPython script.
 
-![Dialog prompting to select setup flow](./assets/setup-device-prompt.png)
+1. While in Thing configuration, click on **"Add Variable"** which will open a new window.
+2. Name your variable `led` and select it to be of an `boolean` type.
+3. Click on **"Add Variable"** at the bottom of the window.
+4. Create another variable, name it `ledSwitch` and select it to be `int` type.
 
-Give your board the desired name.
+You should now have **two variables**:
+- `test_switch` 
+- `test_value`
 
-![Give your device a name of your choice.](./assets/set-device-name.png)
+It is important that they are named exactly like this, as we will be using them in the example script of this guide.
 
-Eventually write down the Device ID / Secret Key pair that you will need to connect your device to Arduino IoT Cloud.
+Your Thing should look something like this when you are finished:
 
-![The connection credentials to be written down.](./assets/get-key.png)
+![Finished Thing interface.](assets/thing.png)
 
-You will obtain a pair of device id and device key after registration. Store these details, along with your Wi-Fi® credentials, in a `secrets.py` file. Here is an example of how `secrets.py` should look like:
+***Learn more about how variables work in the [Variables documentation]()***
+
+## MicroPython Setup
+
+### Create Secret.py File
+
+During the [device configuration](#thing--device-configuration), you obtained a  **device ID** and **secret key**. These details can be stored, along with your Wi-Fi® credentials, in a `secrets.py` file. Here is an example of how `secrets.py` should look like:
 
 ```python
 WIFI_SSID = "myNetwork"   # Network SSID
@@ -67,15 +85,13 @@ DEVICE_ID = b"ef77wer88-0432-4574-85e1-54e3d5cac861"
 CLOUD_PASSWORD = b"TQHFHEKKKLSYMPB1OZLF"
 ```
 
-This file should be copied over to the flash drive that mounts when MicroPython boots.  To do so you can use the file manager tool in Arduino Lab for MicroPython or drag & drop the file manually. Please note that the latter option is not recommended as the file system can potentially get corrupted when copying files manually.
+In a MicroPython editor, you can create this file, and save it on your board running MicroPython.
 
-After configuring your device, **assign** it to the thing that you created previously. This gives access permission to the registered board.
+This file should be copied over to the flash drive that mounts when MicroPython boots.  To do so you can use the file manager tool in Arduino Lab for MicroPython. Please note that the latter option is not recommended as the file system can potentially get corrupted when copying files manually.
 
+### Install Cloud Library
 
-
-## Installing The Library
-
-To install the Arduino IoT Cloud (Micro)Python library on your board, you can use thy Python based tool `mpremote`. This requires Python to be installed. On macOS and Linux Python usually comes pre-installed. If it's not installed on your system you may download it from [here](https://www.python.org/downloads/). Then, to install `mpremote` you can use pip:
+To install the Arduino IoT Cloud (Micro)Python library on your board, you can use the Python based tool `mpremote`. This requires Python to be installed. On macOS and Linux Python usually comes pre-installed. If it's not installed on your system you may download it from [here](https://www.python.org/downloads/). Then, to install `mpremote` you can use pip:
 
 ```bash
 $ pip install mpremote
@@ -172,13 +188,9 @@ if __name__ == "__main__":
 - `on_switch_changed` - Is the callback that gets executed when the `ledSwitch` variable is changed by toggling the switch on the cloud dashboard. This function in turn toggles the on-board LED and updates the cloud variable `led` that reflects the state of the on-board LED to be displayed in the cloud dashboard.
 - `client.start()` - Enters a loop that runs as long as the board is connected to the cloud and synchronises data as it runs.
 
-
-
 ## Testing It Out
 
 Open Arduino Lab for MicroPython and connect to your board. Pasting the above code and run the script. Then open your Arduino IoT Cloud dashboard. You should see the registered "ledSwitch" and "led" widgets. Toggle the "ledSwitch", and the LED on your Arduino board should light up accordingly. The state of the "led" variable should also change, mirroring the state of the physical LED.
-
-
 
 ## Troubleshoot
 
@@ -189,8 +201,6 @@ If the code is not working, there are some common issues we can troubleshoot:
 - Ensure the device ID and Cloud password in the `secrets.py` file match with what is registered on the IoT Cloud.
 - Make sure your IoT Cloud Thing is correctly set up and your device is assigned to it.
 
-
-
 ## Conclusion
 
-This tutorial has guided you through the process of connecting your Arduino device to the Arduino IoT Cloud using MicroPython. You learned how to install the necessary library, set up your device, and control an LED via the IoT Cloud. This opens up possibilities for more complex applications, as you can control and monitor your Arduino device remotely.
+This tutorial has guided you through the process of connecting your Arduino device to the Arduino Cloud using MicroPython. You learned how to install the necessary library, set up your device, and control an LED via the Arduino Cloud. This opens up possibilities for more complex applications, as you can control and monitor your Arduino device remotely.
