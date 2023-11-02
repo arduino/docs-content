@@ -1,16 +1,15 @@
 ---
-title: 'Controlling relays from the Arduino IoT Cloud'
-compatible-products: [mkr-wifi-1010, mkr-proto-relay-shield]
-difficulty: beginner
+title: 'Remote Relay Control'
 description: 'Learn how to control the relays onboard the MKR Relay Shield through the Arduino IoT Cloud dashboard.'
-tags:
-  - Relays
+tags: [Relays, 24V]
 author: 'Karl Söderby'
 ---
 
 ## Introduction
 
-In this tutorial, we will go through how to control a MKR WiFi 1010 + a MKR Relay shield from the [Arduino IoT Cloud](https://create.arduino.cc/iot/things). We will create a simple configuration that allows us activate each of the relays on the shield through a dashboard in the cloud.
+This tutorial demonstrates how to use a MKR WiFi 1010 and a MKR Relay shield with the [Arduino Cloud](app.arduino.cc). We will create a simple configuration that allows us activate the relays on the shield through a dashboard.
+
+***You can easily change the board and shield for another setup, as long as the board is supported by the Arduino Cloud.***
 
 ## Goals
 
@@ -34,23 +33,14 @@ The goals of this project are:
 
 ![Mount the board on top of the shield.](assets/cloud-relay-control-circuit.png)
 
-## Overview
-
-In this guide we will:
-- 
-
-## Requirements
-
-To follow this guide, make sure to have:
-
-- An [Arduino account](https://login.arduino.cc/login),
-
 ## Cloud Setup
 
 To set up the Arduino Cloud, follow the steps below. In there, we will
 - create and configure a device,
 - create a Thing,
-- create cloud variables.
+- create cloud variables,
+- upload a program to the MKR WiFi 1010 board,
+- create a dashboard.
 
 ### Device Configuration
 
@@ -88,7 +78,59 @@ Your Thing interface should now look something like this:
 After your device & Thing is configured, you can program your board. Navigate to the **"Sketch"** tab inside your Thing, where you can compile & upload your programs. You will find the sketch for this application in the code snippet below:
 
 ```arduino
+#include "thingProperties.h"
 
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
+  delay(1500); 
+  
+  pinMode(1, OUTPUT);
+  pinMode(2, OUTPUT);
+  
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  
+  /*
+     The following function allows you to obtain more information
+     related to the state of network and IoT Cloud connection and errors
+     the higher number the more granular information you’ll get.
+     The default is 0 (only errors).
+     Maximum is 4
+ */
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+}
+
+void loop() {
+  ArduinoCloud.update();
+  // Your code here 
+  
+}
+
+void onRelay1Change() {
+  // Do something
+  if(relay_1){
+    digitalWrite(1, LOW);
+  }
+  else{
+    digitalWrite(1, HIGH);
+  }
+}
+
+void onRelay2Change() {
+  // Do something
+    if(relay_2){
+    digitalWrite(2, LOW);
+  }
+  else{
+    digitalWrite(2, HIGH);
+  }
+}
 ```
 
 Upload this sketch to your board, and your board will start attempting to connect to the Arduino Cloud and sync its data.
@@ -135,4 +177,15 @@ To de-activate the relays:
 digitalWrite(relay_1, HIGH)
 ```
 
->**Note:** Use extreme caution when creating higher power circuits. Make sure that both the power supply and the component does not exceed 24V. For example, connecting it straight to a wall socket without a power converter would supply 220-240V, which is **10 times as high.**
+>**Note:** Use extreme caution when creating higher power circuits. Make sure that both the power supply and the component does not exceed 24V, as the relays are not designed to handle higher voltages.
+
+## Use Cases
+
+Relays can be used for practically any project that needs to switch on and off circuits. Typically, relays can be used to control:
+- LED strips
+- Fans
+- Pumps
+- Low power heating elements
+- Low power fridges
+
+12/24V systems are also frequent in cars, boats & remote setups where a system might be powered by a 12/24V battery.
