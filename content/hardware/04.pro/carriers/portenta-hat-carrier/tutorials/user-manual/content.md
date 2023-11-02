@@ -89,31 +89,31 @@ The Portenta Hat Carrier has the following characteristics:
 - **Compatible SOM boards**: The carrier is compatible with: Portenta X8 (ABX00049), Portenta H7 (ABX00042/ABX00045/ABX00046) and Portenta C33 (ABX00074).
 
 - **Power management**: The board can be powered up from different sources. The onboard screw terminal block allows a 7-32 V power supply to power the Portenta board and the carrier, and a 5 V power supply.
-  
+
   The USB-C® interface of the Portenta X8, H7, and C33 can supply the needed power to the board. Alternatively, the 5V pin from the 40-pin male header can be used to power the board. The carrier can deliver a maximum current of 1.5 A.
 
 - **USB connectivity**: A USB-A female connector is used for data logging and the connection of external peripherals like keyboards, mice, hubs, and similar devices.
-  
+
 - **Communication**: The carrier supports Ethernet interface (X1) via RJ45 connector 1000 Base-T connected to High-Density pins (J1). If paired with Portenta H7 or C33, the maximum speed is limited to 100 Mbit Ethernet.
 
   The SPI (X1), I2C (x2), I2S (x1), and UART (x2) are accessible via a 40-pin male header connector. The I2C1 is already dedicated to the EEPROM memory but is accessible through a 40-pin male header connector on SCL2 and SDA2.
-  
+
   The UARTs do not have flow control, and UART1 and UART3 can be accessed via a 40-pin connector while UART2 can be accessed via a 16-pin connector. The **CAN** (x1) bus is available with an onboard transceiver. The **MIPI** camera is also available but only when the Portenta X8 is attached. Examples of compatible devices include the OmniVision OV5647 and the Sony IMX219 sensors.
-  
+
 - **Storage**: The board has a microSD card slot for data logging operation and bootloading operation from external memory.
-  
+
 - **Ethernet connectivity**: The carrier offers a Gigabit Ethernet interface through an RJ45 connector 1000 Base-T. If the carrier is paired with Portenta H7 or C33, the maximum speed is limited to 100 Mbit Ethernet.
-  
+
 - **40-pin male header connector**: The connector allows for SPI (x1), I2S (x1), SAI (x1), 5V power pin (x2), 3V3 power pin (x2), I2C (x2), UART (x2), PWM pins (x7), GND (x8), and GPIO (X26). The I2C count includes the one that is dedicated to EEPROM. UARTs do not have flow control. The GPIO pins are shared with different functionalities.
-  
+
 - **16-pin male header connector**: The connector allows analog pins (x8), PWM (x2), LICELL (x1), GPIO (x1), 3V3 (x1), GND (x1), serial TX (x1), and serial RX (x1).
-  
+
 - **Screw terminal block**: The terminal block allows power supply line feed for the carrier and bus ports. It consists of VIN 7 ~ 32 VDC (x1), VIN 5 V (x1), CANH (x1), CANL (x1), and GND (x2).
-  
+
 - **Debug interface**: The carrier features an onboard 10x pin 1.27mm JTAG connector.
-  
+
 - **PWM fan connector**: The board has an onboard PWM fan connector (x1) compatible with a 5 V fan with a PWM signal for speed regulation.
-  
+
 - **DIP switch**: The carrier features a DIP switch with two positions, allowing for different profiles depending on the paired Portenta board. This DIP switch includes both the ETH CENTER TAP and BTSEL switches.
 
   The ETH CENTER TAP controls the Ethernet interface. The OFF position enables Ethernet for the Portenta X8. Conversely, the ON position enables Ethernet for the Portenta H7/C33.
@@ -193,7 +193,7 @@ The Portenta Hat Carrier can be powered according to one of the following method
 
 * The _5V_ pin located on the 40-pin male header connector pins
 * The _5V_ pin located on the screw terminal of the board
-  
+
   You can effectively power the Portenta Hat Carrier, the SOM, and any connected hat.
 
   For more details on this connection, kindly consult the [board pinout section](#pinout) of the user manual. Again, ensure that the power supply's maximum current respects all components' specifications.
@@ -267,7 +267,7 @@ To use the Portenta Hat Carrier with the Portenta X8, you will have to align the
 
 A series of _Hello World_ examples will be used to ensure the Portenta Hat Carrier is correctly operating with the paired Portenta X8. These examples, using Linux commands, Python® scripts, and the Arduino IDE, aim to trigger the user-programmable LED connected to GPIO3 leveraging different methods and platforms.
 
-We will begin with a _Hello World_ example using Linux commands. The user-programmable LED can be controlled using commands within the Portenta X8's shell. Learn how to connect with the Portenta X8 shell [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#first-use-of-your-portenta-x8). 
+We will begin with a _Hello World_ example using Linux commands. The user-programmable LED can be controlled using commands within the Portenta X8's shell. Learn how to connect with the Portenta X8 shell [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#first-use-of-your-portenta-x8).
 
 The following commands will help you set and control the GPIO3, which connects to the user-programmable LED.
 
@@ -280,7 +280,7 @@ sudo su -
 
 When you execute the _sudo su -_ command, you will be prompted for a password:
 
-***The default password is `fio`*** 
+***The default password is `fio`***
 
 This command grants you access as the root user, loading the root user's environment settings such as `$HOME` and `$PATH`.
 
@@ -327,7 +327,7 @@ The GPIO is now set as an output, thus it can now be controlled by setting its s
 To set the pin High, you need to assign the value `1`, or `0` to set the pin `HIGH` or `LOW`. The command will require the `value` at the end to ensure the pin's state is controlled.
 
 
-To set the pin to `HIGH`: 
+To set the pin to `HIGH`:
 ```
 echo 1 >/sys/class/gpio/gpio163/value
 echo 0 >/sys/class/gpio/gpio163/value
@@ -415,8 +415,8 @@ def main():
         time.sleep(1)
         gpio.set_value(0)
         time.sleep(1)
-        
-    
+
+
     print("GPIO Unexport")
     gpio.unexport()
     print("End of the program")
@@ -522,7 +522,7 @@ void loop() {
 
 After successfully uploading the sketch, the user-configurable LED will start blinking. The following clip illustrates the expected LED blink pattern.
 
-![Portenta Hat Carrier Hello World Blink](assets/portentaHATcarrier_blink.gif)
+![Portenta Hat Carrier Hello World Blink](assets/portentaHATcarrier_blinks.gif)
 
 Please check out the following documentation to learn more about each board and maximize its potential when paired with the Portenta Hat Carrier:
 
@@ -595,7 +595,7 @@ The `mkdir -p` command creates the directory `/mnt/USBmount`. This directory wil
 mount -t vfat /dev/sda1 /mnt/USBmount
 ```
 
-This mount command mounts the USB drive, assumed to have a FAT filesystem (`vfat`), located at `/dev/sda1` to the directory `/mnt/USBmount`. Once mounted, the content of the USB drive can be accessed from the `/mnt/USBmount` directory with `cd`: 
+This mount command mounts the USB drive, assumed to have a FAT filesystem (`vfat`), located at `/dev/sda1` to the directory `/mnt/USBmount`. Once mounted, the content of the USB drive can be accessed from the `/mnt/USBmount` directory with `cd`:
 
 ```bash
 cd /mnt/USBmount
@@ -646,12 +646,12 @@ Through this code, users will be able to effectively connect to, read from, and 
 #define DELETE_FILE_DIMENSION 150
 
 
-USBHostMSD block_device; 
+USBHostMSD block_device;
 FATFileSystem fs(TEST_FS_NAME);
 
 std::string root_folder       = std::string("/") + std::string(TEST_FS_NAME);
 std::string folder_test_name  = root_folder + std::string("/") + std::string(TEST_FOLDER_NAME);
-std::string file_test_name    = folder_test_name + std::string("/") + std::string(TEST_FILE); 
+std::string file_test_name    = folder_test_name + std::string("/") + std::string(TEST_FILE);
 
 /* this callback will be called when a Mass Storage Device is plugged in */
 void device_attached_callback(void) {
@@ -666,23 +666,23 @@ void setup() {
    */
   Serial.begin(9600);
   while(!Serial) {
-     
+
   }
-  
+
   Serial.println();
   Serial.println("*** USB HOST Mass Storage Device example ***");
   Serial.println();
-  
+
   /* attached the callback so that when the device is inserted the device_attached_callback
      will be automatically called */
   block_device.attach_detected_callback(device_attached_callback);
   /* list to store all directory in the root */
   std::vector<std::string> dir_list;
 
-  /* 
+  /*
    *  Check for device to be connected
    */
-  
+
   int count = 0;
   while (!block_device.connect()) {
         if(count == 0) {
@@ -699,11 +699,11 @@ void setup() {
   }
 
   Serial.println("Mass Storage Device connected.");
-  
-  /* 
+
+  /*
    *  MOUNTIN SDCARD AS FATFS filesystem
    */
-   
+
   Serial.println("Mounting Mass Storage Device...");
   int err =  fs.mount(&block_device);
   if (err) {
@@ -712,16 +712,16 @@ void setup() {
     Serial.println("No filesystem found, formatting... ");
     err = fs.reformat(&block_device);
   }
-  
+
   if (err) {
      Serial.println("Error formatting USB Mass Storage Device");
      while(1);
   }
 
-  /* 
+  /*
    *  READING root folder
    */
-  
+
   DIR *dir;
   struct dirent *ent;
   int dirIndex = 0;
@@ -742,7 +742,7 @@ void setup() {
       dirIndex++;
     }
     closedir (dir);
-  } 
+  }
   else {
     // Could not open directory
     Serial.println("Error opening USB Mass Storage Device\n");
@@ -755,7 +755,7 @@ void setup() {
 
   bool found_test_folder = false;
 
-  /* 
+  /*
    *  LISTING CONTENT of the first level folders (the one immediately present in root folder)
    */
 
@@ -770,7 +770,7 @@ void setup() {
     Serial.print("- ");
     Serial.print(dir_list[i].c_str());
     Serial.println(":");
-    
+
     std::string d = root_folder + std::string("/") + dir_list[i];
     if ((dir = opendir(d.c_str())) != NULL) {
       while ((ent = readdir (dir)) != NULL) {
@@ -790,13 +790,13 @@ void setup() {
     }
   }
 
-  /* 
+  /*
    *  CREATING TEST FOLDER (if does not exist already)
    */
 
   err = 0;
   if(!found_test_folder) {
-    Serial.println("TEST FOLDER NOT FOUND... creating folder test"); 
+    Serial.println("TEST FOLDER NOT FOUND... creating folder test");
     err = mkdir(folder_test_name.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
     if(err != 0) {
       Serial.print("FAILED folder creation with error ");
@@ -804,21 +804,21 @@ void setup() {
     }
   }
 
-  /* 
+  /*
    *  READING TEST FILE CONTENT
    */
-  
+
   if(err == 0) {
-    int file_dimension = 0; 
+    int file_dimension = 0;
     FILE* fp = fopen(file_test_name.c_str(), "r");
     if(fp != NULL) {
       Serial.print("Opened file: ");
       Serial.print(file_test_name.c_str());
       Serial.println(" for reading");
-      
+
       fseek(fp, 0L, SEEK_END);
       int numbytes = ftell(fp);
-      fseek(fp, 0L, SEEK_SET);  
+      fseek(fp, 0L, SEEK_SET);
 
       Serial.print("Bytes in the file: ");
       Serial.println(numbytes);
@@ -828,7 +828,7 @@ void setup() {
         Serial.println();
         Serial.println("-------------------- START FILE CONTENT --------------------");
       }
-      
+
       for(int i = 0; i < numbytes; i++) {
         char ch;
         fread(&ch, sizeof(char), 1, fp);
@@ -843,7 +843,7 @@ void setup() {
         Serial.println("File is EMPTY!");
         Serial.println();
       }
-    
+
       fclose(fp);
     }
     else {
@@ -861,11 +861,11 @@ void setup() {
         Serial.println("TEST FILE HAS BEEN DELETED!");
       }
     }
-    
+
     /*
-     * APPENDING SOMETHING TO FILE 
+     * APPENDING SOMETHING TO FILE
      */
-     
+
     fp = fopen(file_test_name.c_str(), "a");
     if(fp != NULL) {
       Serial.print("Opened file: ");
@@ -873,26 +873,26 @@ void setup() {
       Serial.println(" for writing (append)");
       char text[] = "This line has been appended to file!\n";
       fwrite(text, sizeof(char), strlen(text), fp);
-      fclose(fp); 
+      fclose(fp);
     }
     else {
       Serial.print("FAILED open file for appending ");
       Serial.println(file_test_name.c_str());
     }
-    
+
     /*
      * READING AGAIN FILE CONTENT
      */
-    
+
     fp = fopen(file_test_name.c_str(), "r");
     if(fp != NULL) {
       Serial.print("Opened file: ");
       Serial.print(file_test_name.c_str());
       Serial.println(" for reading");
-      
+
       fseek(fp, 0L, SEEK_END);
       int numbytes = ftell(fp);
-      fseek(fp, 0L, SEEK_SET);  
+      fseek(fp, 0L, SEEK_SET);
 
       Serial.print("Bytes in the file: ");
       Serial.println(numbytes);
@@ -901,7 +901,7 @@ void setup() {
         Serial.println();
         Serial.println("-------------------- START FILE CONTENT --------------------");
       }
-      
+
       for(int i = 0; i < numbytes; i++) {
         char ch;
         fread(&ch, sizeof(char), 1, fp);
@@ -916,16 +916,16 @@ void setup() {
         Serial.println("File is EMPTY!");
         Serial.println();
       }
-    
+
       fclose(fp);
-      
+
     }
     else {
       Serial.print("FAILED open file for appending ");
       Serial.println(file_test_name.c_str());
     }
-  }  
-  
+  }
+
 }
 
 void loop() {
@@ -982,7 +982,7 @@ def read_adc_value(adc_pin):
 if __name__ == "__main__":
   adc_pin = input("Enter ADC pin number: ")
   value = read_adc_value(adc_pin)
-  
+
   if value is not None:
     print(f"Value from ADC pin {adc_pin}: {value}")
 
@@ -1179,13 +1179,13 @@ The fan's speed can be controlled using the following code sequence when you are
 Export the PWM channel:
 
 ```
-echo 9 > /sys/class/pwm/pwmchip0/export 
+echo 9 > /sys/class/pwm/pwmchip0/export
 ```
 
 Set the PWM period. By defining the period, you determine the duration of one PWM "cycle". Here, we set it to 100,000, representing 100,000 nanoseconds or 100 microseconds:
 
 ```
-echo 100000 > /sys/class/pwm/pwmchip0/pwm9/period 
+echo 100000 > /sys/class/pwm/pwmchip0/pwm9/period
 ```
 
 The following command sets the "ON" duration within the given period. A 50% duty cycle, for instance, means the signal is on for half the period and off for the other half:
@@ -1197,7 +1197,7 @@ echo 50000 > /sys/class/pwm/pwmchip0/pwm9/duty_cycle #50% duty
 We will then enable the PWM channel exported previously:
 
 ```
-echo 1 > /sys/class/pwm/pwmchip0/pwm9/enable 
+echo 1 > /sys/class/pwm/pwmchip0/pwm9/enable
 ```
 
 You can use the following command if you want to monitor the temperature of the device or environment (optional step):
@@ -1251,7 +1251,7 @@ echo 9 | sudo tee /sys/class/pwm/pwmchip0/export
 Set the PWM period:
 
 ```
-echo 100000 | sudo tee /sys/class/pwm/pwmchip0/pwm9/period 
+echo 100000 | sudo tee /sys/class/pwm/pwmchip0/pwm9/period
 ```
 
 Determine the duty cycle at 50%:
@@ -1438,7 +1438,7 @@ void setup() {
      Serial.println("Error formatting SDCARD ");
      while(1);
   }
-  
+
   DIR *dir;
   struct dirent *ent;
   int dirIndex = 0;
@@ -1485,7 +1485,7 @@ FATFileSystem fs(TEST_FS_NAME);
 
 std::string root_folder       = std::string("/") + std::string(TEST_FS_NAME);
 std::string folder_test_name  = root_folder + std::string("/") + std::string(TEST_FOLDER_NAME);
-std::string file_test_name    = folder_test_name + std::string("/") + std::string(TEST_FILE); 
+std::string file_test_name    = folder_test_name + std::string("/") + std::string(TEST_FILE);
 
 void setup() {
   /*
@@ -1493,7 +1493,7 @@ void setup() {
    */
   Serial.begin(9600);
   while(!Serial) {
-     
+
   }
 
   /* list to store all directory in the root */
@@ -1503,7 +1503,7 @@ void setup() {
   Serial.println("##### TEST SD CARD with FAT FS");
   Serial.println();
 
-  /* 
+  /*
    *  MOUNTING SDCARD AS FATFS filesystem
    */
   Serial.println("Mounting SDCARD...");
@@ -1519,10 +1519,10 @@ void setup() {
      while(1);
   }
 
-  /* 
+  /*
    *  READING root folder
    */
-  
+
   DIR *dir;
   struct dirent *ent;
   int dirIndex = 0;
@@ -1530,11 +1530,11 @@ void setup() {
   Serial.println("*** List SD CARD content: ");
   if ((dir = opendir(root_folder.c_str())) != NULL) {
     while ((ent = readdir (dir)) != NULL) {
-      
+
       if(ent->d_type == DT_REG) {
         Serial.print("- [File]: ");
       }
-      
+
       else if(ent->d_type == DT_DIR) {
         Serial.print("- [Fold]: ");
         dir_list.push_back(ent->d_name);
@@ -1543,7 +1543,7 @@ void setup() {
       dirIndex++;
     }
     closedir (dir);
-  } 
+  }
   else {
     // Could not open directory
     Serial.println("Error opening SDCARD\n");
@@ -1556,7 +1556,7 @@ void setup() {
 
   bool found_test_folder = false;
 
-  /* 
+  /*
    *  LISTING CONTENT of the first level folders (the one immediately present in root folder)
    */
 
@@ -1571,7 +1571,7 @@ void setup() {
     Serial.print("- ");
     Serial.print(dir_list[i].c_str());
     Serial.println(":");
-    
+
     std::string d = root_folder + std::string("/") + dir_list[i];
     if ((dir = opendir(d.c_str())) != NULL) {
       while ((ent = readdir (dir)) != NULL) {
@@ -1591,13 +1591,13 @@ void setup() {
     }
   }
 
-  /* 
+  /*
    *  CREATING TEST FOLDER (if does not exist already)
    */
 
   err = 0;
   if(!found_test_folder) {
-    Serial.println("TEST FOLDER NOT FOUND... creating folder test"); 
+    Serial.println("TEST FOLDER NOT FOUND... creating folder test");
     err = mkdir(folder_test_name.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
     if(err != 0) {
       Serial.print("FAILED folder creation with error ");
@@ -1605,21 +1605,21 @@ void setup() {
     }
   }
 
-  /* 
+  /*
    *  READING TEST FILE CONTENT
    */
-  
+
   if(err == 0) {
-    int file_dimension = 0; 
+    int file_dimension = 0;
     FILE* fp = fopen(file_test_name.c_str(), "r");
     if(fp != NULL) {
       Serial.print("Opened file: ");
       Serial.print(file_test_name.c_str());
       Serial.println(" for reading");
-      
+
       fseek(fp, 0L, SEEK_END);
       int numbytes = ftell(fp);
-      fseek(fp, 0L, SEEK_SET);  
+      fseek(fp, 0L, SEEK_SET);
 
       Serial.print("Bytes in the file: ");
       Serial.println(numbytes);
@@ -1629,7 +1629,7 @@ void setup() {
         Serial.println();
         Serial.println("-------------------- START FILE CONTENT --------------------");
       }
-      
+
       for(int i = 0; i < numbytes; i++) {
         char ch;
         fread(&ch, sizeof(char), 1, fp);
@@ -1644,7 +1644,7 @@ void setup() {
         Serial.println("File is EMPTY!");
         Serial.println();
       }
-    
+
       fclose(fp);
     }
     else {
@@ -1662,11 +1662,11 @@ void setup() {
         Serial.println("TEST FILE HAS BEEN DELETED!");
       }
     }
-    
+
     /*
-     * APPENDING SOMETHING TO FILE 
+     * APPENDING SOMETHING TO FILE
      */
-     
+
     fp = fopen(file_test_name.c_str(), "a");
     if(fp != NULL) {
       Serial.print("Opened file: ");
@@ -1674,26 +1674,26 @@ void setup() {
       Serial.println(" for writing (append)");
       char text[] = "This line has been appended to file!\n";
       fwrite(text, sizeof(char), strlen(text), fp);
-      fclose(fp); 
+      fclose(fp);
     }
     else {
       Serial.print("FAILED open file for appending ");
       Serial.println(file_test_name.c_str());
     }
-    
+
     /*
      * READING AGAIN FILE CONTENT
      */
-    
+
     fp = fopen(file_test_name.c_str(), "r");
     if(fp != NULL) {
       Serial.print("Opened file: ");
       Serial.print(file_test_name.c_str());
       Serial.println(" for reading");
-      
+
       fseek(fp, 0L, SEEK_END);
       int numbytes = ftell(fp);
-      fseek(fp, 0L, SEEK_SET);  
+      fseek(fp, 0L, SEEK_SET);
 
       Serial.print("Bytes in the file: ");
       Serial.println(numbytes);
@@ -1702,7 +1702,7 @@ void setup() {
         Serial.println();
         Serial.println("-------------------- START FILE CONTENT --------------------");
       }
-      
+
       for(int i = 0; i < numbytes; i++) {
         char ch;
         fread(&ch, sizeof(char), 1, fp);
@@ -1717,16 +1717,16 @@ void setup() {
         Serial.println("File is EMPTY!");
         Serial.println();
       }
-    
+
       fclose(fp);
-      
+
     }
     else {
       Serial.print("FAILED open file for appending ");
       Serial.println(file_test_name.c_str());
     }
-  }  
-  
+  }
+
 }
 
 void loop() {
@@ -2159,13 +2159,13 @@ EthernetClient client;
 void setup() {
   // Open serial communications and wait for port to open:
   Serial.begin(115200);
-  
+
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
 
-  bool use_dns = true; 
-  
+  bool use_dns = true;
+
   // start the Ethernet connection:
   if (Ethernet.begin() == 0) {
     Serial.println("Failed to configure Ethernet using DHCP");
@@ -2186,7 +2186,7 @@ void setup() {
 
   if(use_dns) {
     connect_result = client.connect(server, 80);
-  } 
+  }
   else {
     connect_result = client.connect(IPAddress(74,125,232,128), 80);
   }
@@ -2215,14 +2215,14 @@ void read_request() {
     Serial.print(c);
     /* wrap data to 80 columns*/
     received_data_num++;
-    if(received_data_num % 80 == 0) { 
+    if(received_data_num % 80 == 0) {
       Serial.println();
     }
-  }  
+  }
 }
 
 void loop() {
- 
+
   read_request();
 
   // if the server's disconnected, stop the client:
@@ -2321,7 +2321,7 @@ It is characterized as follows:
 - __Serial Pins__: It integrates UART 2 functionalities. Pin 14 is the transmit function, identified as *SERIAL2_TX* or *TX2*, while Pin 16 is dedicated to the receive function, labeled as *SERIAL2_RX* or *RX2*.
 
 - __Power and Grounding__: Pin 11, labeled as LICELL, serves as the *Real Time Clock (RTC)* power source.
-  
+
   For providing a voltage source, Pin 13 offers a 3.3 V output, specifically for the Portenta module, and is marked as *VCC (+3V3_PORTENTA)*. The Ground for this header is accessible via Pin 15, designated simply as *GND*.
 
 ### GPIO Pins
@@ -2426,9 +2426,9 @@ void loop() {
   actState = digitalRead(actPin);  // read the state of the activation value
 
   if (actState == HIGH) {          // if the GPIO pin has feedback
-    digitalWrite(ledPin, HIGH); 
+    digitalWrite(ledPin, HIGH);
   } else {
-    digitalWrite(ledPin, LOW);     
+    digitalWrite(ledPin, LOW);
   }
 }
 ```
@@ -2443,7 +2443,7 @@ const int ledPin = <PD_5/30>;  // User programmable LED GPIO3 corresponding to p
 
 int potValue = 0;              // value read from the potentiometer
 int ledThreshold = 0;          // PWM value for the LED brightness (0 to 255)
- 
+
 void setup() {
   pinMode(ledPin, OUTPUT);      // initialize the User programmable LED of Portenta Hat Carrier
                                 // choose either PD_5 for H7, or 30 for C33
@@ -2452,7 +2452,7 @@ void setup() {
 void loop() {
   potValue = analogRead(potPin);                   // read the pot value (0 to 1023)
   ledThreshold = map(potValue, 0, 1023, 0, 255);   // scale it for user programmable LED GPIO3 activation threshold
-  
+
   if (ledThreshold >= 128){
     digitalWrite(ledPin, HIGH);          // set the GPIO3 LED High if potentiometer is mapped above 128 value
   } else {
@@ -2623,7 +2623,7 @@ U-boot can be configured to automatically load specific DTB overlays based on th
 For instance, for a Portenta-X8 placed on a Portenta HAT Carrier, upon logging into the board and executing subsequent commands on the shell, the expected output is as follows:
 
 ```bash
-fw_printenv overlays 
+fw_printenv overlays
 overlays=ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_rasptenta_base
 
 fw_printenv carrier_name
@@ -2645,7 +2645,7 @@ This serves as an escape mechanism to enable user-based configurations.
 fw_setenv carrier_custom 1
 fw_setenv carrier_name rasptenta
 fw_setenv is_on_carrier yes
-fw_setenv overlays "ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_rasptenta_base ov_carrier_rasptenta_pwm_fan ov_carrier_rasptenta_ov5647_camera_mipi ov_rasptenta_iqaudio_codec" 
+fw_setenv overlays "ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_rasptenta_base ov_carrier_rasptenta_pwm_fan ov_carrier_rasptenta_ov5647_camera_mipi ov_rasptenta_iqaudio_codec"
 ```
 
 The commands above enable functionalities such as a speed-controlled fan connector, an OV5647 based RPi v1.3 camera, and an IQ Audio Codec Zero audio HAT.
@@ -2725,7 +2725,7 @@ Setting variables is straightforward. Depending on your requirement, assign valu
 
 ```bash
 # Value can be in HEX or DEC
-variable_name = Value 
+variable_name = Value
 ```
 
 To run an example script within the Python® shell, consider using the following command:
@@ -2762,7 +2762,7 @@ from smbus2 import SMBus
 # This value should never change!
 NUM_RELAY_PORTS = 4
 
-# Change the following value if your Relay board uses a different I2C address. 
+# Change the following value if your Relay board uses a different I2C address.
 DEVICE_ADDRESS = 0x20  # 7 bit address (will be left shifted to add the read write bit)
 
 # Don't change the values, there's no need for that.
@@ -3437,10 +3437,10 @@ def send_extended_can_message(channel, message_id, data):
   channel.send(msg)
 
 def main():
-  # Assuming you're using a virtual channel for the CAN bus for testing. 
+  # Assuming you're using a virtual channel for the CAN bus for testing.
   # If you're using real hardware like the SocketCAN interface, change 'virtual' to 'socketcan'.
   bus = can.interface.Bus(channel='virtual', bustype='virtual')
-  
+
   while True:
     print("Sending packet ... ", end="")
     send_standard_can_message(bus, 0x12, [ord('h'), ord('e'), ord('l'), ord('l'), ord('o')])
@@ -3458,7 +3458,7 @@ if __name__ == "__main__":
     main()
 ```
 
-Continuing Python® script defines functions to receive and print incoming CAN messages. The receive_can_messages function continuously listens for CAN messages and calls print_received_message to display the details of the received message, such as whether it is an extended message or a remote transmission request (RTR) and its data. 
+Continuing Python® script defines functions to receive and print incoming CAN messages. The receive_can_messages function continuously listens for CAN messages and calls print_received_message to display the details of the received message, such as whether it is an extended message or a remote transmission request (RTR) and its data.
 
 ```python
 import can
@@ -3492,7 +3492,7 @@ def print_received_message(message):
     print()
 
 def main():
-    # Assuming you're using a virtual channel for testing. 
+    # Assuming you're using a virtual channel for testing.
     # If you're using real hardware like the SocketCAN interface, change 'virtual' to 'socketcan'.
     bus = can.interface.Bus(channel='virtual', bustype='virtual')
     print("CAN Receiver Callback")
@@ -3647,18 +3647,18 @@ while True:
   # Check for available data and read individual characters
   while ser.in_waiting:
     c = ser.read().decode('utf-8')  # Read a single character and decode from bytes to string
-    
+
     # Check if the character is a newline (line-ending)
     if c == '\n':
       # Process the received data
       processData(incoming)
-      
+
       # Clear the incoming data string for the next message
       incoming = ""
     else:
       # Add the character to the incoming data string
       incoming += c
-    
+
     time.sleep(0.002)  # Delay for data buffering, equivalent to Arduino's delay(2);
 ```
 
