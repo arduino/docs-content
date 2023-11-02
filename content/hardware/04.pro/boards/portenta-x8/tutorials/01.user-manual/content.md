@@ -381,13 +381,19 @@ Unzipped folder
 
 The Portenta X8 can be set into programming mode by using a carrier platform, such as Max Carrier or Breakout, which provides DIP switches for convenient access; or using a few more lines of command with barebone Portenta X8 via ADB.
 
-If you are to use a carrier, please check the carrier's configuration to be paired with Portenta X8. For **Portenta Max Carrier**, `BOOT SEL` and `BOOT` must be set to ON position with DIP switches as shown in the figure:
+If you plan to use a carrier, please check the carrier's configuration to be paired with Portenta X8.
+
+For the **Portenta Max Carrier**, set the `BOOT SEL` and `BOOT` DIP switches to ON position as depicted in the figure:
 
 ![Portenta Max Carrier DIP switches](assets/max-carrier-dip-switches.png)
 
-For **Portenta Breakout**, `BT_SEL` and `BOOT`DIP switches must be set to ON position as well as shown in the figure:
+Upon executing the `uuu` tool and ensuring the DIP switches are correctly configured, the Portenta Max Carrier will automatically start the flashing operation for the Portenta X8.
+
+For the **Portenta Breakout**, the `BT_SEL` and `BOOT` DIP switches should be set to the ON position, as illustrated in the figure:
 
 ![Portenta Breakout DIP switches](assets/breakout-dip-switches.png)
+
+After running the `uuu` tool, perform a long press on the `ON` button of the Portenta Breakout to begin the flashing process. This action enables the tool to identify and connect with the device, continuing with the flashing operation.
 
 #### Set Flashing Mode without Carrier
 
