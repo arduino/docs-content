@@ -148,32 +148,343 @@ The Nicla Vision can be powered by:
 
 ### Hello World Example
 
-Let's program the Nicla Sense ME with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the Arduino IDE and that the Nicla Sense ME core and the board itself are working as expected. 
+Let's program the Nicla Vision with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the IDE's and that the Nicla Vision core and the board itself are working as expected. 
+
+#### Using OpenMV
+Copy and paste the code below into a new sketch in the OpenMV IDE.
+```python
+import time
+from machine import LED
+
+redLED = LED("LED_RED")
+greenLED = LED("LED_GREEN")
+blueLED = LED("LED_BLUE")
+
+while True:
+    redLED.on()
+    time.sleep_ms(1000)
+    redLED.off()
+    time.sleep_ms(1000)
+    greenLED.on()
+    time.sleep_ms(1000)
+    greenLED.off()
+    time.sleep_ms(1000)
+    blueLED.on()
+    time.sleep_ms(1000)
+    blueLED.off()
+    time.sleep_ms(1000)
+```
+To run the code on the Nicla Vision, click the **Connect** button and the **Start**.
+
+![Running the Python Script on OpenMV](assets/click-start.png)
+
+#### Using Arduino
 
 Copy and paste the code below into a new sketch in the Arduino IDE.
 
 ```arduino
-#include "Nicla_System.h"
 void setup() {
-  // Initialize LED_BUILTIN as an output (this will turn on the LED)
-  pinMode(LED_BUILTIN, OUTPUT);
+
+  pinMode(LEDR, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+  pinMode(LEDB, OUTPUT);
+
 }
+
 void loop() {
-  // Turn the built-in LED off
-  digitalWrite(LED_BUILTIN, HIGH);
+
+  digitalWrite(LEDR, LOW);  // Nicla Vision LED's turn on with logic '0'
+  delay(1000);                     
+  digitalWrite(LEDR, HIGH);   
+  delay(1000);   
+  digitalWrite(LEDG, LOW);  
+  delay(1000);                     
+  digitalWrite(LEDG, HIGH);   
   delay(1000);
-  // Turn the built-in LED on
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LEDB, LOW);  
+  delay(1000);                     
+  digitalWrite(LEDB, HIGH);   
+  delay(1000);
+
+}
+```
+
+To upload the code to the Nicla Vision, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
+
+![Uploading a sketch to the Nicla Vision in the Arduino IDE](assets/verify-upload.png)
+
+#### Results
+You should see now the LED turning red, green and blue, repeatedly.
+
+![Hello World example running in the Nicla Vision](assets/colors.gif)
+
+## Pins
+### Analog Pins
+
+The Nicla Vision has **three analog input pins**, mapped as follows:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|      ADC1/PC_4         |           A0            |
+|      ADC2/PF_13        |           A1            |
+|      ADC3/PF_3`        |           A2            |
+
+All of them can be used through the built-in functions of the Arduino programming language. 
+
+***The Nicla vision ADC reference voltage is fixed to 3.3v, this means that it will map the ADC range from 0 to 3.3 volts.***
+
+We are going to use the Nicla Vision analog inputs on both environments, OpenMV and Arduino. For the example codes shown below, we will be reading the analog input `A0` and displaying the read voltage on the Serial Monitor:
+
+![ADC input example wiring](assets/adc-input.svg)
+
+#### Using OpenMV
+
+Using Micropython on the OpenMV IDE the Nicla boards ADC resolution is fixed to 12 bits (it's maximum).
+
+This example code can also be found on **File > Examples > Board Control > adc_read_ext_channel.py**:
+
+```python
+import time
+from pyb import ADC
+
+adc = ADC("A0")   # PC4 microcontroller port
+
+while True:
+    # The ADC has 12-bits of resolution for 4096 values.
+    print(adc.read())
+    print("ADC = %fv" % ((adc.read() * 3.3) / 4095))
+    time.sleep_ms(100)
+```
+
+#### Using Arduino
+
+Nicla boards ADC can be configured to 8, 10 or 12 bits defining the argument of the following function respectively (default is 10 bits):
+
+```arduino
+analogReadResolution(12);  // ADC resolution set to 12 bits (0-4095)
+```
+Example code:
+
+```arduino
+int potPin = A0;   // select the input pin for the potentiometer
+
+void setup() {
+  Serial.begin(115200);
+  analogReadResolution(12);
+}
+
+void loop() {
+  // read the value from the sensor:
+  Serial.print("ADC = ");
+  Serial.print((analogRead(potPin) * 3.3) / 4095);;
+  Serial.println(" v");
+  delay(100);
+}
+
+```
+### Digital Pins
+
+The Nicla Vision has **ten digital pins**, mapped as follows:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping**  |
+|:-----------------------:|:------------------------:|
+|         PG_12         |           D0           |
+|         PA_9          |           D1           |
+|         PA_10         |           D2           |
+|         PG_1          |           D3           |
+|         PE_12         |           SCK          |
+|         PE_13         |           MISO         |
+|         PE_14         |           MOSI         |
+|         PE_11         |           SS           |
+|         PB_8          |           I2C_SCL      |
+|         PB_9          |           I2C_SDA      |
+
+
+Notice that I2C and SPI pins can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+
+The digital pins of the Nicla Vision can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
+
+As an application example after learning the __Digital Pins__ basics, we are going to control an LED using a push button. See the wiring below:
+
+![Digital I/O example wiring](assets/Digital-IO.svg)
+
+#### With OpenMV
+
+The configuration of a digital pin is done in the upper section of the code as shown below:
+
+```python
+# Pin configured as an input
+pin1 = Pin("D1", Pin.IN, Pin.PULL_NONE)          
+# Pin configured as an input, internal pull-up resistor enabled
+pin1 = Pin("D1", Pin.IN, Pin.PULL_UP) 
+# Pin configured as an output
+pin0 = Pin("D0", Pin.OUT_PP, Pin.PULL_NONE)     
+```
+
+The state of a digital pin, configured as an input, can be read as shown below:
+
+```python
+# Reads pin1 state, stores value in "state" variable
+state = pin1.value()
+```
+
+The state of a digital pin, configured as an output, can be changed as shown below:
+
+```python
+# Set pin0 on
+pin0.value(True)    
+# Set pin0 off
+pin0.value(False)    
+```
+The example code shown below uses digital pin `D0` to control an LED and reads the state of a button connected to digital pin `D1`:
+
+```python
+import time
+from machine import Pin
+
+# Define button and LED pin
+button = Pin("D1", Pin.IN, Pin.PULL_UP)
+led = Pin("D0", Pin.OUT_PP, Pin.PULL_NONE)
+
+while True:
+    if button.value() == 0:   # if the button is pressed
+        led.value(1)
+        print("- Button is pressed. LED is on.")
+    else:                     # if the button is not pressed
+        led.value(0)
+        print("- Button is not pressed. LED is off.")
+    time.sleep_ms(1000)       # wait for a second
+
+```
+#### With Arduino IDE
+The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
+
+```arduino
+// Pin configured as an input
+pinMode(D1, INPUT);             
+// Pin configured as an input, internal pull-up resistor enabled
+pinMode(D1, INPUT_PULLUP);  
+// Pin configured as an output
+pinMode(D0, OUTPUT);   
+```
+
+The state of a digital pin, configured as an input, can be read using the built-in function `digitalRead()` as shown below:
+
+```arduino
+// Reads pin state, stores value in state variable
+state = digitalRead(D1);
+```
+
+The state of a digital pin, configured as an output, can be changed using the built-in function `digitalWrite()` as shown below:
+
+```arduino
+// Set pin on
+digitalWrite(D0, HIGH);    
+// Set pin off
+digitalWrite(D0, LOW);    
+```
+The example code shown below uses digital pin `D0` to control an LED and reads the state of a button connected to digital pin `D1`:
+
+```arduino
+// Define button and LED pin
+int buttonPin = D1;
+int ledPin = D0;
+
+// Variable to store the button state
+int buttonState = 0;
+
+void setup() {
+  // Configure button and LED pins
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+  // Initialize Serial communication
+  Serial.begin(115200);
+}
+
+void loop() {
+  // Read the state of the button
+  buttonState = digitalRead(buttonPin);
+  // If the button is pressed, turn on the LED and print its state to the Serial Monitor
+  if (buttonState == LOW) {
+    digitalWrite(ledPin, HIGH);
+    Serial.println("- Button is pressed. LED is on.");
+  } else {
+    // If the button is not pressed, turn off the LED and print to the Serial Monitor
+    digitalWrite(ledPin, LOW);
+    Serial.println("- Button is not pressed. LED is off.");
+  }
+  // Wait for 1000 milliseconds
   delay(1000);
 }
 ```
 
-For the Nicla Sense ME, the `LED_BUILTIN` macro represents **all the LEDs** of the built-in RGB LED of the board, shining in **white**.
+### PWM Pins
 
-To upload the code to the Nicla Sense ME, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
+Most digital and analog pins of the Nicla Vision can be used as PWM (Pulse Width Modulation) pins, including I2C and SPI interfaces. 
 
-![Uploading a sketch to the Nicla Sense ME in the Arduino IDE](assets/BOARD.png)
+#### With OpenMV
 
-You should see now all the LEDs of the built-in RGB LED turn on for one second, then off for one second, repeatedly.
+PWM outputs can be controlled with Micropython on a very flexible manner by using built-in functions as shown below:
 
-![Hello World example running in the Nicla Sense ME](assets/White-blink.gif)
+First, we need to identify the `Timer` and `Channel` used by the `PWM` output to be used. For this, search for the desired pin on the [STM32H747 datasheet](https://www.st.com/resource/en/datasheet/stm32h747ai.pdf) from page 89.
+
+Here is a table with the details of the exposed pins on the Nicla Vision:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping**  | **Timer**  |**Channel** |
+|:-----------------------:|:------------------------:|:----------:|:----------:|
+|         PA_9            |           D1             |   TIMER1   |    CH2     |
+|         PA_10           |           D2             |   TIMER1   |    CH3     |
+|         PB_8            |           I2C_SCL        |   TIMER4   |    CH3     |
+|         PB_9            |           I2C_SDA        |   TIMER4   |    CH4     |
+|         PE_11           |           SS             |   TIMER1   |    CH2     |
+|         PE_12           |           SCK            |   TIMER1   |    CH3     |
+|         PE_13           |           MISO           |   TIMER1   |    CH3     |
+|         PE_14           |           MOSI           |   TIMER1   |    CH4     |
+
+```python
+import time
+from pyb import Pin, Timer
+
+# D1 is connected to TIMER1_CH2
+
+OUT = Pin("D1")
+
+timer1 = Timer(1, freq=1000)
+channel1 = timer1.channel(2, Timer.PWM, pin=OUT, pulse_width_percent=0)
+
+channel1.pulse_width_percent(50)
+
+
+while True:
+    time.sleep_ms(1000)
+
+```
+
+#### With Arduino IDE
+
+This functionality can be used with the built-in function `analogWrite()` as shown below:
+
+```arduino
+analogWrite(pin, value);  
+```
+By default, the output resolution is 8 bits, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
+
+```arduino
+analogWriteResolution(bits);  
+```
+
+Using `analogWrite` has some limitations, for example, the PWM signal frequency is fixed at 763 Hz, and this could not be ideal for every application.
+
+```arduino
+// 12 bits PWM 50% duty cylce example code
+
+void setup() {
+  analogWriteResolution(12);    // 12 bits (0-4095)
+}
+
+void loop() {
+  analogWrite(D1, 2048);    // PWM output on D1
+}
+```
+
+![PWM output signal](assets/pwm-arduino.png)
