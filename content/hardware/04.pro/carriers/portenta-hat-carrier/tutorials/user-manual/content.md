@@ -2349,7 +2349,7 @@ When all conditions are set and in place, use the following script to read all a
 import os
 
 if os.environ['CARRIER_NAME'] != "rasptenta":
-    print("This script requires Portenta HAT carrier")
+    print("This script requires a Portenta HAT carrier")
     exit(1)
 
 import Portenta.GPIO as GPIO
