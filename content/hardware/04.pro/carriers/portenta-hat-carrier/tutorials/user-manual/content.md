@@ -278,7 +278,7 @@ adb shell
 sudo su -
 ```
 
-When you execute the _sudo su -_ command, you will be prompted for a password: 
+When you execute the _sudo su -_ command, you will be prompted for a password:
 
 ***The default password is `fio`*** 
 
@@ -1806,7 +1806,16 @@ To configure the Ethernet settings, depending on the paired Portenta board, one 
 #### Ethernet Interface With Linux
 <br></br>
 
-Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed. First, make sure the Portenta X8 is mounted on the Hat Carrier, and then connect them using a RJ45 LAN cable. To measure the bandwidth, we will use the _iperf3_ tool, which is available [here](https://github.com/userdocs/iperf3-static).
+Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed. First, ensure that the Portenta X8 is mounted on the Hat Carrier, and then connect them using an RJ45 LAN cable.
+
+Subsequently, open a terminal to access the shell of the Portenta X8 with admin (root) privileges.
+
+```bash
+adb shell
+sudo su -
+```
+
+When prompted, enter the password `fio`. To measure the bandwidth, we will use the _iperf3_ tool, which is available [here](https://github.com/userdocs/iperf3-static).
 
 To use the _iperf3_ tool, we will set the Portenta X8 and Hat Carrier as the Server and the controlling computer as the Client. The commands will measure the bandwidth between the Portenta Hat Carrier with Portenta X8 and the computer. For a deeper understanding of _iperf3_, refer to its [official documentation](https://iperf.fr/iperf-doc.php).
 
@@ -2241,7 +2250,6 @@ For a comprehensive understanding of these connectivity options, kindly refer to
 - Portenta H7 connectivity: [Wi-Fi® access point](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point) and [BLE connectivity](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity)
 - Portenta C33 User Manual: [Wi-Fi®](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#wi-fi) and [Bluetooth®](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#bluetooth)
 
-
 ## Pins
 
 The Portenta Hat Carrier is a versatile platform, and a significant feature of this carrier is its extensive pin availability. These pins provide a range of functionalities, including power, I/Os, communication, and more.
@@ -2327,11 +2335,30 @@ Next conditions will help you properly set the hardware to test GPIO controls:
 
 1. Begin by positioning the Portenta-X8 securely onto the Portenta Hat Carrier. Make sure the High-Density connectors are securely connected.
 
-2. Each GPIO on the Portenta Hat Carrier is versatile and robust, designed to safely accept input voltages ranging between 0.0 V and 3.3 V. This wide range ensures compatibility with a variety of sensors and external devices.
+2. Each GPIO on the Portenta Hat Carrier is versatile and robust, designed to safely accept input voltages ranging between 0.0 V and 3.3 V. This input range ensures compatibility with an array of sensors and external devices.
 
 3. To prevent floating states and offer a consistent and predictable behavior, internal pull-ups are automatically enabled on all input pins. This default configuration means that, unless actively driven low, the pins will naturally read as high (or 3.3 V).
 
-When all conditions are set and in place, use the following script to read all available GPIOs on 40-Pin header:
+When all conditions are set and in place, access the Portenta X8's shell with admin (root) access as follows:
+
+```bash
+adb shell
+sudo su -
+```
+
+Enter the password `fio` when prompted. Next, access the `x8-devel` Docker container with the command:
+
+```bash
+docker exec -it x8-devel sh
+```
+
+Navigate to the directory containing the GPIO example, named `gpios.py`:
+
+```bash
+cd root/examples/portenta-hat-carrier
+```
+
+Run the `gpios.py` script to read the status of all available GPIOs on the 40-pin header:
 
 ```python
 #!/usr/bin/env python3
@@ -2552,6 +2579,101 @@ The pins used for the JTAG debug port on the Portenta Hat Carrier are the follow
 |        8       |               |           JTAG_TDI           |                                 J1-78                                |    JTAG TDI   |
 |        9       |               |           JTAG_TRST          |                                 J1-80                                |   JTAG TRST   |
 |       10       |               |           JTAG_RST           |                                 J1-73                                |    JTAG RST   |
+
+## Understanding Device Tree Blobs (DTB) Overlays
+
+### Device Tree Blobs (DTB) And DTB Overlays
+
+In the world of embedded systems, _U-boot_ and the _Linux kernel_ use a concept called __Device Tree Blobs (DTB)__ to describe a board's hardware configuration. This approach allows for a unified main source tree to be used across different board configurations, ensuring consistency.
+
+The boards, acting as carriers, allow various peripherals to be connected, such as temperature sensors or accelerometers. These carriers serve as expansion connectors. You might want to connect various peripherals and be able to add or remove them easily.
+
+The concept of modularity is applied to the _DTB_, resulting in __DTB overlays__. The hardware configuration is split into multiple small files, each representing a different peripheral or function in the form of a DTB overlay.
+
+During the early boot stage, these overlays are merged together into a single DTB and loaded into RAM. This approach enables users to select and change configurations with ease. However, it is important to note that changing the hardware configuration requires a system reboot to maintain system stability.
+
+### Handling DTB Overlays
+
+You can modify and maintain the Device Tree Blob (DTB) overlays through a couple of methods. In builds that do not prioritize security, you can edit the file located at the following location:
+
+```
+/boot/devicetree/overlays.txt
+```
+
+After making the desired changes, it is necessary to save the changes and reboot the system to apply them.
+
+On the other hand, in builds that prioritize security, the *fw_setenv tool* accessible in user space must be used to apply the corresponding changes to the U-boot settings as follows:
+
+```
+fw_setenv overlays=name_ov1 name_ov2
+```
+
+Currently, parameters are passed indirectly to the overlays; however, upcoming enhancements to U-boot will introduce direct parameter passing functionality.
+
+### Custom DTB Overlays
+
+In cases where the required DTB overlay is not readily available and a specific configuration that is not part of the pre-compiled set is needed, it is possible to create customized DTB overlays.
+
+DTB overlays originate from readable source files known as _DTS files_. Users with the respective experience can modify these DTS files and cross-compile them to create tailored overlays suited to their needs.
+
+### Automated Load And Carrier Detection
+
+U-boot can be configured to automatically load specific DTB overlays based on the carrier board it detects, in this case the Portenta Hat Carrier, either by probing specific hardware or by reading an identification ID from an EEPROM.
+
+For instance, for a Portenta-X8 placed on a Portenta HAT Carrier, upon logging into the board and executing subsequent commands on the shell, the expected output is as follows:
+
+```bash
+fw_printenv overlays 
+overlays=ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_rasptenta_base
+
+fw_printenv carrier_name
+carrier_name=rasptenta
+
+fw_printenv is_on_carrier
+is_on_carrier=yes
+```
+
+This information is written by U-boot during boot in a step referred to as _auto carrier detection_. You can modify the variables from user space, but after a reboot, they revert to their default state unless the `carrier_custom` variable is set to `1`.
+
+```bash
+fw_setenv carrier_custom 1
+```
+
+This serves as an escape mechanism to enable user-based configurations.
+
+```bash
+fw_setenv carrier_custom 1
+fw_setenv carrier_name rasptenta
+fw_setenv is_on_carrier yes
+fw_setenv overlays "ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_rasptenta_base ov_carrier_rasptenta_pwm_fan ov_carrier_rasptenta_ov5647_camera_mipi ov_rasptenta_iqaudio_codec" 
+```
+
+The commands above enable functionalities such as a speed-controlled fan connector, an OV5647 based RPi v1.3 camera, and an IQ Audio Codec Zero audio HAT.
+
+### Hardware Configuration Layers
+
+Hardware configuration is divided into the following layers:
+
+- __Layer 0__: System on Module (SoM), prefixed with `ov_som_`.
+- __Layer 1__: Carrier boards, prefixed with `ov_carrier_`.
+- __Layer 2__: HATs and Cameras, which is usually a concatenation of the carrier name and the hat name or functionality.
+
+EEPROMs, which store identification IDs, are typically defined on _Layer 1_ and accessible on _I2C1_. Some HATs may also have EEPROMs according to the Raspberry Pi® standard (*ID_SD*, *ID_SC*), accessible on _I2C0_.
+
+There are some overlays which add specific functionalities. For example:
+
+- `ov_som_lbee5kl1dx`: Adds Wi-Fi®
+- `ov_som_x8h7`: Adds the H7 external microcontroller
+- `ov_carrier_rasptenta_base`: Base support for Portenta Hat Carrier
+
+When no known carrier is detected and the Portenta X8 is mounted as the main board, the first two overlays mentioned above are applied by default.
+
+#### Distinction Between System And Hardware Configuration
+<br></br>
+
+The distinction between system and hardware configuration is crucial. System configuration includes settings such as user creation and Wi-Fi® passwords, whereas hardware configuration is explicitly defined through the device tree.
+
+In production environments, the addition of custom compiled device tree overlays is restricted to maintain system integrity and security.
 
 ## Raspberry Pi® HAT
 
@@ -2871,7 +2993,7 @@ Please, refer to the [board pinout section](#pinout) of the user manual to find 
 #### Using Linux
 <br></br>
 
-For Portenta X8, it is possible to use the following commands:
+With admin (root) access, you can use the following commands within the shell for the Portenta X8:
 
 ```
 sudo modprobe spidev
@@ -2888,7 +3010,7 @@ sudo systemctl reboot
 services:
     my_spi_service:
        devices:
-          - /dev/spi-1
+          - '/dev/spidev0.0'
 ```
 Following section configures a service named `my_spi_service` to use the SPI device available at `/dev/spi-1`.
 
@@ -2999,7 +3121,7 @@ Please, refer to the [pinout section](#pinout) of the user manual to find them o
 #### Using Linux
 <br></br>
 
-For Portenta X8, it is possible to use the following commands:
+For the Portenta X8, it is possible to use the following commands within the shell when you have admin (root) access:
 
 ```
 sudo modprobe i2c-dev
@@ -3018,7 +3140,7 @@ Following section configures a service named `my_i2c_service` to use the I2C dev
 services:
     my_i2c_service:
        devices:
-          - /dev/i2c-3
+          - `/dev/i2c-3`
 ```
 
 Within the Portenta X8 shell, you can use specific commands to quickly test I2C communication with compatible devices. The command below lists all the connected I2C devices:
@@ -3183,7 +3305,7 @@ Since the CAN bus pins are integrated within the High-Density connectors, they a
 #### Using Linux
 <br></br>
 
-For Portenta X8, the following instructions can help control CAN bus protocol. The CAN transceiver is enabled using the following command:
+For the Portenta X8, when you have admin (root) access, you can execute the following commands within the shell to control the CAN bus protocol. The CAN transceiver can be enabled using the following command
 
 ```
 echo 164 > /sys/class/gpio/export && echo out > /sys/class/gpio/gpio164/direction && echo 0 > /sys/class/gpio/gpio164/value
@@ -3497,14 +3619,14 @@ Please, refer to the board pinout section of the user manual to find them on the
 #### Using Linux
 <br></br>
 
-Within Portenta X8, the command `ls /dev/ttyUSB* /dev/ttyACM*` can be used to list available serial ports in Linux. Typically, USB serial devices appear as _/dev/ttyUSBx_ or _/dev/ttyACMx_.
+For the Portenta X8, when you have admin (root) access, you can execute the command `ls /dev/ttyUSB* /dev/ttyACM* /dev/ttymxc*` within the shell to list available serial ports in Linux. Typically, USB serial devices could appear as _/dev/ttyUSBx_, _/dev/ttyACMx_, or _/dev/ttymxcx_.
 
 ```
-ls /dev/ttyUSB* /dev/ttyACM*
-/dev/ttymxc1   // Something similar
+ls /dev/ttyUSB* /dev/ttyACM* /dev/ttymxc*
+/dev/ttymxc2   // Something similar
 ```
 
-The output _/dev/ttymxc1_ is an example of a potential serial device you might find on Portenta X8.
+The output _/dev/ttymxc2_ is an example of a potential serial device you might find on Portenta X8.
 
 Following Python® script uses the _pyserial_ library to communicate with devices over UART. It defines the `processData` function which prints the received data. You can modify this function based on your application's needs.
 
@@ -3517,7 +3639,7 @@ def processData(data):
     print("Received:", data)  # For now, just print the data. Modify as needed.
 
 # Set up the serial port
-ser = serial.Serial('/dev/ttymxc3', 9600)  # Use the appropriate port and baud rate for your device
+ser = serial.Serial('/dev/ttymxc2', 9600)  # Use the appropriate port and baud rate for your device
 
 incoming = ""
 
@@ -3540,7 +3662,7 @@ while True:
     time.sleep(0.002)  # Delay for data buffering, equivalent to Arduino's delay(2);
 ```
 
-The script sets up a serial connection on port _/dev/ttymxc1_ at a baud rate of _9600_. It then continuously checks for incoming data. When a newline character (`\n`) is detected, indicating the end of a message, the script processes the accumulated data and then resets the data string to be ready for the next incoming message.
+The script sets up a serial connection on port _/dev/ttymxc2_ at a baud rate of _9600_. It then continuously checks for incoming data. When a newline character (`\n`) is detected, indicating the end of a message, the script processes the accumulated data and then resets the data string to be ready for the next incoming message.
 
 The `time.sleep(0.002)` line adds a slight delay, ensuring data has enough time to buffer, similar to using `delay(2);` in Arduino.
 
