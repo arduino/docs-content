@@ -22,17 +22,17 @@ Dashboards are not tied to one Thing, or one device, and it can be used to contr
 
 ## IoT Remote App
 
-The [IoT Remote App]() is a mobile version of your dashboards, that can be downloaded through:
+The **IoT Remote App** is a mobile version of your dashboards, that can be downloaded through:
 - [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US)
 - [Apple App store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)
 
-***For more information, visit the [IoT Remote App docs]().***
+***For more information, visit the [IoT Remote App docs](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/iot-remote-app/iot-remote-app).***
 
 ## Edit / View Modes
 
 Dashboards have two modes, **edit** and **view**. When configuring the dashboard, you will be using the edit mode.
 
-In both modes, you can also click  the **Mobile Layout** icon, to see how the widgets will be viewed on your [IoT Remote App]().
+In both modes, you can also click  the **Mobile Layout** icon, to see how the widgets will be viewed on your IoT Remote App.
 
 ![Edit / View modes and mobile layout.](assets/edit-view-mobile.png)
 
@@ -45,13 +45,11 @@ In the **viewing** mode you can only monitor/interact with your widgets.
 
 ## Sharing Dashboards
 
-You can share your live dashboards with other people, allowing them to monitor and interact with your devices. Note that you need a [maker plan]() to use this feature.  
+You can share your live dashboards with other people, allowing them to monitor and interact with your devices. Note that you need a [maker plan](https://cloud.arduino.cc/plans) to use this feature.  
 
 ![Share your dashboards.](assets/share-dashboard.png)
 
-***Read more at [Sharing Dashboards in the Arduino Cloud]().***
-
-
+***Read more at [Sharing Dashboards in the Arduino Cloud](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/features/sharing-dashboards).***
 
 ## Widgets
 

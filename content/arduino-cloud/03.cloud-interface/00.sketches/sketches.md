@@ -9,7 +9,7 @@ A sketch is a file where we write programs to run on our Arduino boards. Sketche
 
 The Arduino Cloud has two categories of sketches:
 - **Regular sketch** - a single `.ino` file where you write a program. These sketches can be used for **any** Arduino board. 
-- **IoT Sketch** - a set of files that are automatically generated when creating a [Thing](). This includes a `.ino` file, and two header (`.h`) files that contains your Thing configuration + credentials. Only available for boards with IoT support.
+- **IoT Sketch** - a set of files that are automatically generated when creating a [Thing](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/things). This includes a `.ino` file, and two header (`.h`) files that contains your Thing configuration + credentials. Only available for boards with IoT support.
 
 In this document we will take a look at how to use sketches in the Arduino Cloud environment.
 
@@ -19,13 +19,13 @@ You can access all your sketches at [app.arduino.cc/sketches](app.arduino.cc/ske
 
 ![Sketches in the Arduino Cloud.](assets/sketch.png)
 
-Clicking on each sketch will direct you to the [Cloud Editor](), which is an online version of the Arduino IDE. Here you can write a program, compile it and upload it to your board. 
+Clicking on each sketch will direct you to the [Cloud Editor](https://create.arduino.cc/editor/), which is an online version of the Arduino IDE. Here you can write a program, compile it and upload it to your board. 
 
-***To get started with the Cloud Editor, check out the [Getting Started guide]().***
+***To get started with the Cloud Editor, check out the [Cloud Editor Guide](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-editor/getting-started-cloud-editor).***
 
 ## Regular Sketches
 
-A regular sketch in the Arduino Cloud are exactly like sketches used in the [Arduino IDE](), with no difference whatsoever. You can take a sketch from the online IDE and compile it in the offline IDE. 
+A regular sketch in the Arduino Cloud are exactly like sketches used in the [Arduino IDE](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/software/ide-v2), with no difference whatsoever. You can take a sketch from the online IDE and compile it in the offline IDE. 
 
 A regular sketch only has two minimum requirements: the inclusion of the `void loop()` and `void setup()` functions, which are required for any Arduino sketch.
 
@@ -39,7 +39,7 @@ void loop(){
 }
 ```
 
-If you are new to the Arduino environment, you can check out the [Language Reference](), which contains all the functions that you can use for **all** Arduino boards. 
+If you are new to the Arduino environment, you can check out the [Language Reference](https://www.arduino.cc/reference/en/), which contains all the functions that you can use for **all** Arduino boards. 
 
 For specific features of a board, make sure to check out the [hardware documentation](/).
 
@@ -47,7 +47,7 @@ For specific features of a board, make sure to check out the [hardware documenta
 
 IoT sketches are more complex, and are generated automatically when you create a Thing and variables.
 
-***Read more about this in [Things - Automatic Sketch Generation]()***
+***Read more about this in the [Automatic Sketch Generation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/sketches) documentation.***
 
 ### Sketch File
 
@@ -104,14 +104,14 @@ The "Secret" File contains your secret credentials, such as Wi-Fi® network SSID
 
 This file will be visible as a "Secret" tab in the Cloud Editor, and is named `arduino_secrets.h`, which is not visible in the cloud platform.
 
-Note that if you are using the offline IDE / Arduino CLI instead, you will manually need to create this file. More information in the [offline section]() just below.
+Note that if you are using the offline IDE / Arduino CLI instead, you will manually need to create this file. More information in the **Offline Sketches section** just below.
 
 ## Offline Sketches
 
 The Arduino Cloud provides an all-inclusive service for programming, uploading and monitoring your boards. While it is necessary to use the Arduino Cloud for configurations, you do not need to use the Cloud Editor for programming.
 
 It is possible to work in an offline environment (such as Arduino IDE), which for many might be more desirable. To set this up, there are a few requirements and setbacks:
-- You need to manually install the [ArduinoIoTCloud]() and [Arduino_ConnectionHandler]() libraries,
+- You need to manually install the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) and [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) libraries,
 - you need to either download your sketch files and move them to your local sketch folder (e.g. `~/Documents/Arduino`), **or**
 - use the [Remote Sketchbook Feature](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync) feature. 
 

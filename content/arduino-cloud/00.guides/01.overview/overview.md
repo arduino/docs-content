@@ -1,18 +1,17 @@
 ---
 title: "Getting Started"
 description: 'The Arduino Cloud is an online platform that makes it easy for you to code, deploy and monitor IoT projects.'
-tags:
-  - Arduino Cloud, IoT Cloud
+tags: [Arduino Cloud, Getting Started]
 author: 'Karl Söderby'
 ---
 
-The [Arduino Cloud](app.arduino.cc) is a platform for developing Arduino projects and connecting them to the world. It supports secure connections with boards via [Wi-Fi®](), [LoRa®](), [Ethernet]() and [Cellular (GSM/NB-IoT)]().
+The [Arduino Cloud](app.arduino.cc) is a platform for developing Arduino projects and connecting them to the world. It supports secure connections with boards via [Wi-Fi®](/arduino-cloud/hardware/wifi), [LoRa®](/arduino-cloud/hardware/lora), [Ethernet](/arduino-cloud/hardware/ethernet) and [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular).
 
 The Arduino Cloud platform includes:
 - an **Integrated Development Environment (IDE)** for programming your boards,
-- a **cloud backend service** for synchronizing data from Arduino boards, but also from [Python]() & [JavaScript]() clients,
-- a **graphical tool (dashboard)** for controlling and monitoring your board (as well as an [mobile app]()).
-- [REST API]() and [command line tools]() for larger scale automations. 
+- a **cloud backend service** for synchronizing data from Arduino boards, but also from [Python](/arduino-cloud/guides/python) & [JavaScript](/arduino-cloud/guides/javascript) clients,
+- a **graphical tool (dashboard)** for controlling and monitoring your board (as well as an [mobile app](/arduino-cloud/iot-remote-app/getting-started)).
+- [REST API](/arduino-cloud/api/arduino-iot-api) and [command line tools](/arduino-cloud/arduino-cloud-cli/getting-started) for larger scale automations. 
 
 Very simply explained, with the Arduino Cloud you can:
 1. Create a program for an Arduino based on a brilliant idea you just hatched.
@@ -31,7 +30,7 @@ And if you want to read the value of a sensor connected to your device, it would
 
 Networking code and data synchronizing is **automatically done**, so just focus on the project, and let the Arduino Cloud handle the rest.
 
-***This document will help you get familiar with the [Arduino Cloud]() service, and once you've got a good hang of it, you can explore the [rest of the documentation]().***
+***This document will help you get familiar with the [Arduino Cloud](app.arduino.cc) service, and once you've got a good hang of it, you can explore the [rest of the documentation](/arduino-cloud/).***
 
 ## Compatible Boards
 
@@ -42,10 +41,12 @@ Compatibility with the Arduino Cloud is divided into two categories:
 - **IoT Cloud Support** - board with a radio module (e.g. Wi-Fi®) are supported. ESP32 based boards are also supported. 
 
 For more information and list of supported boards, see the links below:
-- [Wi-Fi®]()
-- [LoRaWAN®]()
-- [Ethernet]()
-- [Cellular]()
+- [Wi-Fi®](/arduino-cloud/hardware/wifi)
+- [LoRa®](/arduino-cloud/hardware/lora)
+- [Ethernet](/arduino-cloud/hardware/ethernet)
+- [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular).
+
+***You can also create something called [manual devices](/arduino-cloud/hardware/devices#manual-devices), which allows you to create a virtual instance directly on your computer using JavaScript, Python or MicroPython.***
 
 ## Overview
 
@@ -53,14 +54,14 @@ For more information and list of supported boards, see the links below:
 
 Anything in the Arduino Cloud can be accessed via the left action bar. In the list below, some with links to a documentation pages.
 
-- **[Sketches]()** - your sketches (programs) are stored here, divided into either a "normal" or "cloud" sketch. 
-- **[Devices]()** - here you can configure your Arduino boards, ESP32 devices, manual devices (Python, JavaScript and more).
-- **[Things]()** - a Thing is a project configuration, where you select device, create variables to synchronize, and enter credentials.
-- **[Dashboards]()** - dashboards are used to monitor & control your board through widgets. There's also a [mobile version]() available.
-- **[Triggers]()** - triggers can be used to send emails and push notifications based on a value change of a variable.
+- **[Sketches](/arduino-cloud/cloud-interface/sketches)** - your sketches (programs) are stored here, divided into either a "normal" or "cloud" sketch. 
+- **[Devices](/arduino-cloud/hardware/devices)** - here you can configure your Arduino boards, ESP32 devices, manual devices (Python, JavaScript and more).
+- **[Things](/arduino-cloud/cloud-interface/things)** - a Thing is a project configuration, where you select device, create variables to synchronize, and enter credentials.
+- **[Dashboards](/arduino-cloud/cloud-interface/dashboard-widgets)** - dashboards are used to monitor & control your board through widgets. There's also a [mobile version](/arduino-cloud/iot-remote-app/getting-started) available to view your dashboards from a smartphone.
+- **[Triggers](/arduino-cloud/cloud-interface/triggers)** - triggers can be used to send emails and push notifications based on a value change of a variable.
 - **Resources** - helpful links and resources. You might have found this article here.
 - **Courses** - tailored content for specific products and kits connected to the Arduino Cloud.
-- **[Templates]()** - templates are ready-made project that will automatically configure your device, Thing, 
+- **Templates** - templates are ready-made project that will automatically configure your device, Thing, 
 - **Integrations** - third party services that are integrated with the Arduino Cloud.
 
 ## Get Started with Arduino Cloud
@@ -70,7 +71,6 @@ Setting up a project in the Arduino Cloud is easy, and can be done through a few
 ### 1. Create an Account
 
 To use the Arduino Cloud, you will need an Arduino account, which you can register [here](https://login.arduino.cc/login).
-
 
 By default, you will have a **free plan**, which can be upgraded to a number of affordable plans starting at 1.99$ a month.
 
@@ -84,7 +84,7 @@ First you will need to connect your board to your computer, and configure your d
 
 The configurations varies between boards, but everything is covered in the installation wizard.
 
-***Learn more in the documentation for [Arduino Cloud Devices]().***
+***Learn more in the documentation for [Arduino Cloud Devices](/arduino-cloud/hardware/devices).***
 
 ### 3. Create a Thing
 
@@ -96,7 +96,7 @@ Variables we create will be used in the sketch, and will keep synchronizing as l
 
 When working with your IoT projects, consider this the "main space" for configurations, as you can access your sketche from here as well. 
 
-***Learn more in the documentation for [Arduino Cloud Things]().***
+***Learn more in the documentation for [Arduino Cloud Things](/arduino-cloud/cloud-interface/things).***
 
 ### 4. Write a Sketch
 
@@ -104,9 +104,9 @@ Once you have done the above configurations, you can move on to **create a progr
 
 ![A sketch in the Arduino Cloud.](assets/editor.png)
 
-When your program is ready, upload it to your board. If your board supports [Over-the-air (OTA)]() uploads, you can from now on upload without your board being connected to your computer!
+When your program is ready, upload it to your board. If your board supports [Over-the-air (OTA)](/arduino-cloud/features/ota-getting-started) uploads, you can from now on upload without your board being connected to your computer!
 
-***Learn more in the documentation for [Arduino Cloud sketches]().***
+***Learn more in the documentation for [Arduino Cloud sketches](/arduino-cloud/cloud-interface/sketches).***
 
 ### 5. Create a Dashboard
 
@@ -116,31 +116,31 @@ A dashboard allows you to interact with your device from a web interface or mobi
 
 Choose from switches, sliders, RGB picker, message box,  gauges and much more to create dashboards. Dashboards are not linked to a specific Thing/device, meaning you can control many different boards from the same dashboard.
 
-Some widgets can be linked to multiple variables, for example the [Advanced Chart]() widget can graph up to 4 variables from different boards simultaneously! 
+Some widgets can be linked to multiple variables, for example the [Advanced Chart](/arduino-cloud/cloud-interface/dashboard-widgets#advanced-chart) widget can graph up to 4 variables from different boards simultaneously! 
 
-***Learn more in the documentation for [Arduino Cloud dashboards]().***
+***Learn more in the documentation for [Arduino Cloud dashboards](/arduino-cloud/cloud-interface/dashboard-widgets).***
 
 ### 6. Track Your Project
 
 Once you done all configurations, created a program & dashboard, you can sit back and monitor & interact with your project from the web interface or the mobile app.
 
-![Arduino Cloud Dashboard & IoT Remote App]()
+![Arduino Cloud Dashboard & IoT Remote App](assets/dashboard-app.png)
 
 ## Guides
 
 We recommend checking out the following guides to get started with various coding frameworks:
-- [Arduino / C++ setup (default setup)]() - the default installation using the built-in code editor and an Arduino / ESP32 board.
-- [Python setup]() - set up of a manual device to run on a PC / Linux system such as Raspberry Pi.
-- [MicroPython setup]() - setup of MicroPython on a select number of supported boards.
-- [JavaScript / node.js setup]() - setup of JavaScript using node.js, perfect for integrating your front-end projects with the Arduino Cloud.
+- [Arduino / C++ setup (default setup)](arduino-cloud/guides/arduino-c) - the default installation using the built-in code editor and an Arduino / ESP32 board.
+- [Python setup](/arduino-cloud/guides/python) - set up of a manual device to run on a PC / Linux system such as Raspberry Pi.
+- [MicroPython setup](/arduino-cloud/guides/micropython) - setup of MicroPython on a select number of supported boards.
+- [JavaScript / node.js setup](/arduino-cloud/guides/javascript) - setup of JavaScript using node.js, perfect for integrating your front-end projects with the Arduino Cloud.
 
 ## Features
 
 Make sure to explore the various features of the Arduino Cloud through the links below:
-- [**Data Monitoring**](/cloud/iot-cloud/tutorials/cloud-environmental-data) - learn how to easily monitor your Arduino's sensor values through a dashboard.
-- [**Variable Synchronisation**](https://docs.arduino.cc/cloud/iot-cloud/tutorials/device-to-device) - variable synchronisation allows you to sync variables across devices, enabling communication between devices with minimal coding.
-- [**Scheduler**](https://docs.arduino.cc/cloud/iot-cloud/tutorials/cloud-scheduler) - schedule jobs to go on/off for a specific amount of time (seconds, minutes, hours).
-- [**Over-The-Air (OTA) Uploads**](/cloud/iot-cloud/tutorials/ota-getting-started) - upload code to devices not connected to your computer.
-- [**Webhooks**](https://docs.arduino.cc/cloud/iot-cloud/tutorials/webhooks) - integrate your project with another service, such as IFTTT.
-- [**Amazon Alexa Support**](/cloud/iot-cloud/tutorials/alexa-mkr-rgb-shield) - make your project voice controlled with the Amazon Alexa integration. 
-- [**Dashboard Sharing**](https://docs.arduino.cc/cloud/iot-cloud/tutorials/sharing-dashboards) - share your data with other people around the world. 
+- [**Data Monitoring**](/arduino-cloud/application-notes/cloud-environmental-data) - learn how to easily monitor environmental sensor values through a dashboard.
+- [**Variable Synchronisation**](/arduino-cloud/features/thing-to-thing) - variable synchronisation allows you to sync variables across devices, enabling communication between devices with minimal coding.
+- [**Scheduler**](/arduino-cloud/features/cloud-scheduler) - schedule jobs to go on/off for a specific amount of time (seconds, minutes, hours).
+- [**Over-The-Air (OTA) Uploads**](/arduino-cloud/features/ota-getting-started) - upload code to devices not connected to your computer.
+- [**Webhooks**](/arduino-cloud/features/webhooks) - integrate your project with another service, such as IFTTT.
+- [**Amazon Alexa Support**](/arduino-cloud/guides/alexa) - make your project voice controlled with the Amazon Alexa integration. 
+- [**Dashboard Sharing**](/arduino-cloud/features/sharing-dashboards) - share your data with other people around the world. 

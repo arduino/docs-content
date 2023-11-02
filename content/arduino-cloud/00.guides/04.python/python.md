@@ -11,7 +11,7 @@ libraries:
     url: https://github.com/arduino/arduino-iot-cloud-py
 ---
 
-The [Arduino IoT Cloud Python Client]() is a library that allows you to interact with the Arduino Cloud via MQTT. It supports basic authentication using the **device ID** as well as **secret key** that is obtained from the Arduino Cloud when configuring a manual device.
+The [Arduino IoT Cloud Python Client](https://pypi.org/project/arduino-iot-cloud/) is a library that allows you to interact with the Arduino Cloud via MQTT. It supports basic authentication using the **device ID** as well as **secret key** that is obtained from the Arduino Cloud when configuring a manual device.
 
 ***It is recommended to have some experience with the Python environment before reading this guide. However, installation and setup is covered in the [Python Setup](#python-setup) section.***
 
@@ -36,7 +36,7 @@ To follow this guide, make sure to have:
 
 ## Cloud Setup
 
-To begin with, we need to create a manual device, and create a new [Thing](). Navigate to the [Arduino Cloud]() and to the **"Things"** tab.
+To begin with, we need to create a manual device, and create a new [Thing](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/things). Navigate to the [Arduino Cloud](app.arduino.cc) and to the **"Things"** tab.
 
 ### Thing & Device Configuration
 
@@ -45,8 +45,8 @@ To begin with, we need to create a manual device, and create a new [Thing](). Na
 3. Click on **"Set Up New Device"**, and select the bottom category (**"Manual Device"**). Click continue in the next window, and choose a name for your device.
 4. Finally, you will see a new **Device ID** and a **Secret Key** generate. You can download them as a PDF. Make sure to save it as you cannot access your Secret Key again.
 
-- Learn more about Things in the [Things documentation]()
-- Learn more about Devices in the [Devices documentation]()
+- Learn more about Things in the [Things documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/things)
+- Learn more about Devices in the [Devices documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/devices)
 
 ### Create Variables
 
@@ -59,7 +59,7 @@ Next step is to create some cloud variables, which we will later interact with v
 
 You should now have **two variables**, `test_switch` and `test_value`. It is important that they are named exactly like this, as we will be using them in the example script of this guide.
 
-- Learn more about how variables work in the [Variables documentation]()
+- Learn more about how variables work in the [Variables documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/variables)
 
 ***Variables that we create here can also be synchronized with variables running on any other device in the platform. This makes it possible to link an Arduino boards with a Python or JavaScript project without writing any connection code!*** 
 
@@ -157,7 +157,7 @@ When flicking the switch, you should see the following command being printed in 
 Switch Pressed! Status is <state>
 ```
 
-For creating dashboards and linking variables, check out the [Dashboard & Widgets documentation]().
+For creating dashboards and linking variables, check out the [Dashboard & Widgets documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/dashboard-widgets).
 
 ### Troubleshooting
 

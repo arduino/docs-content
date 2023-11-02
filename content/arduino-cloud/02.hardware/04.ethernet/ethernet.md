@@ -25,7 +25,7 @@ To configure Ethernet board, follow the steps below:
 
 **1.** Connect your board to your computer.
 
-**2.** Go to [Arduino Cloud](), and navigate to the **"Devices"** section. Click on the **"Add Device"** button and then select the **"Arduino Board"**. After a while, your board will be visible, and you can click on the **"Configure"** button.
+**2.** Go to [Arduino Cloud](app.arduino.cc), and navigate to the **"Devices"** section. Click on the **"Add Device"** button and then select the **"Arduino Board"**. After a while, your board will be visible, and you can click on the **"Configure"** button.
 
 ![Board show up.](assets/eth.png)
 
@@ -37,4 +37,4 @@ To configure Ethernet board, follow the steps below:
 
 Your board is now configured and ready to be used in the Arduino IoT Cloud. 
 
-To get started, check out the official [Getting Started (Arduino / C++)]() guide. This will guide you to successfully send data between your board and Arduino Cloud.
+To get started, check out the official [Getting Started (Arduino / C++)](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/guides/arduino-c) guide. This will guide you to successfully send data between your board and Arduino Cloud.

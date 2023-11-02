@@ -48,7 +48,7 @@ Inside a variable configuration, we have several options:
 
 ### Automatic Sketch Generation
 
-Any variables you add will be automatically added to your [thingProperties]() file, which contains any configurations made inside your Thing.
+Any variables you add will be automatically added to your [thingProperties](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/sketches#configuration-header-file) file, which contains any configurations made inside your Thing.
 
 Adding for example an integer variable called `test_value`, can now be used in your sketch without a need for defining the variable.
 
@@ -56,7 +56,7 @@ Adding for example an integer variable called `test_value`, can now be used in y
 test_value = 1;
 ```
 
-***Read more about in the [Automatic Sketch Generation]() section.***
+***Read more about in the [IoT Sketches](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/sketches#iot-sketches) section.***
 
 ### Callback Functions
 

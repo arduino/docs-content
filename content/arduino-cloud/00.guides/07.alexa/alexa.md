@@ -46,12 +46,12 @@ Simply mount the MKR RGB Shield on top of the MKR WiFi 1010.
 ## Cloud Setup
 
 To set up the cloud, you will need to:
-1. Log in to the [Arduino Cloud]().
+1. Log in to the [Arduino Cloud](https://login.arduino.cc/login).
 2. Go to **"Things"** and create a new Thing.
 3. Select and attach the device you want to use (or configure a new one).
 4. Create a variable called `LoungeArea` and select it to be of a **colored light** type. This is the variable that will be used to store incoming data from the Alexa service. 
 
-***If you are new to the Arduino Cloud, visit the [Arduino / C++ Setup Guide]() which has detailed instructions on how to set up devices, configuring Things and more.***
+***If you are new to the Arduino Cloud, visit the [Arduino / C++ Setup Guide](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/guides/arduino-c) which has detailed instructions on how to set up devices, configuring Things and more.***
 
 ### Example Sketch
 
