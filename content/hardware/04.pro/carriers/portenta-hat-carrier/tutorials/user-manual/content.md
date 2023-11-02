@@ -522,6 +522,8 @@ void loop() {
 
 After successfully uploading the sketch, the user-configurable LED will start blinking. The following clip illustrates the expected LED blink pattern.
 
+![Portenta Hat Carrier Hello World Blink](assets/portentaHATcarrier_helloWorld.gif)
+
 Please check out the following documentation to learn more about each board and maximize its potential when paired with the Portenta Hat Carrier:
 
 - [Portenta C33 user manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual).
