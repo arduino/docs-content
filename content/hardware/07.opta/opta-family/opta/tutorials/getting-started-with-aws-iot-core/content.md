@@ -52,6 +52,14 @@ This tutorial also requires the latest version of the `ArduinoECCX08`, `ArduinoB
 
 ![Installing libraries in the Arduino IDE](assets/aws-iot_002.png)
 
+### Setting Up Your AWS Account
+
+If you do not have an existing AWS account and user, refer to the online AWS documentation at set up your AWS account. To get started, follow the steps outlined in the sections below:
+
+- [Sign up for an AWS account](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#aws-registration) 
+- [Create an administrative user](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#create-an-admin) 
+- [Open the AWS IoT console](https://docs.aws.amazon.com/iot/latest/developerguide/setting-up.html#iot-console-signin)
+
 ### Generating a Certificate Signing Request 
 
 As mentioned, AWS IoT Core requires devices that connect to it using the MQTT protocol to use X.509 certificates for authentication. We'll use an example sketch from the `ArduinoECCX08` library to generate a Certificate Signing Request (CSR) from an Opta™ WiFi device and then upload this CSR in the AWS console to create an X.509 certificate.
@@ -60,11 +68,15 @@ Open the `ECCX08CSR` example sketch by navigating to **File > Examples > Arduino
 
 ![Verify and Upload buttons of the Arduino IDE](assets/aws-iot_003.png)
 
-When finished, open the IDE's Serial Monitor. Ensure the line ending configuration is set to **Both NL & CR** as shown in the image below.
+When finished, open the IDE's Serial Monitor. Ensure the line ending configuration is set to **Both NL & CR** as shown in the image below. 
 
 ![Verify and Upload buttons of the Arduino IDE](assets/aws-iot_004.png)
 
-Copy the generated CSR from the IDE's Serial Monitor. Copy the generated CSR text, including `-----BEGIN CERTIFICATE REQUEST-----` and `-----END CERTIFICATE REQUEST-----` and save it to a new `.txt` file or `.csr` file using your favorite text editor. You will upload this file to the AWS console next. 
+Provide the information requested by the example sketch to generate a new CSR for your Opta™ device. Copy the generated CSR from the IDE's Serial Monitor, including `-----BEGIN CERTIFICATE REQUEST-----` and `-----END CERTIFICATE REQUEST-----` and save it to a new `.txt` file or `.csr` file using your favorite text editor. You will upload this file to the AWS console next. 
+
+![Generating a CSR with the Arduino ecosystem tools](assets/aws-iot_005.png)
 
 Now that we have a CSR to identify your Opta™ device, we need to login into the AWS IoT Core console and create a certificate.
+
+### 
 
