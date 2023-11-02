@@ -1,6 +1,6 @@
 ---
-title: 'Portenta Hat Carrier User Manual'
-description: 'Learn about the hardware and software features of the Arduino® Portenta Hat Carrier.'
+title: "Portenta Hat Carrier User Manual"
+description: "Learn about the hardware and software features of the Arduino® Portenta Hat Carrier."
 difficulty: advanced
 tags:
   - Embedded Linux
@@ -9,7 +9,7 @@ tags:
   - Pins
   - Connections
   - User Manual
-author: 'Taddy Chung'
+author: "Taddy Chung"
 hardware:
   - hardware/04.pro/carriers/portenta-hat-carrier
   - hardware/04.pro/boards/portenta-x8
@@ -37,14 +37,14 @@ This manual will show the user how to proficiently operate the Portenta Hat Carr
 
 To use the [Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat-carrier), it is necessary to attach one of the boards from the Portenta Family:
 
-* [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
-* [Arduino Portenta C33](https://store.arduino.cc/products/portenta-c33)
-* [Arduino Portenta H7](https://store.arduino.cc/products/portenta-h7)
+- [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
+- [Arduino Portenta C33](https://store.arduino.cc/products/portenta-c33)
+- [Arduino Portenta H7](https://store.arduino.cc/products/portenta-h7)
 
 Additionally, the following accessories are needed:
 
-* USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
-* Wi-Fi® Access Point or Ethernet with Internet access (x1)
+- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
+- Wi-Fi® Access Point or Ethernet with Internet access (x1)
 
 ### Software Requirements
 
@@ -52,7 +52,7 @@ If you want to use the Portenta Hat Carrier with a Portenta X8, check the follow
 
 - Make sure you have the latest Linux image. Refer to [this section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#portenta-x8-os-image-update) to confirm that your Portenta X8 is up-to-date.
 
-***To ensure a stable operation of the Portenta Hat Carrier with Portenta X8, the minimum Linux image version required for Portenta X8 is __746__. To flash the latest image on your board, you can use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) or [flash it manually](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) downloading the latest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
+**\_To ensure a stable operation of the Portenta Hat Carrier with Portenta X8, the minimum Linux image version required for Portenta X8 is **746**. To flash the latest image on your board, you can use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) or [flash it manually](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) downloading the latest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).\_**
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor) in case you want to use the auxiliary microcontroller of the Portenta X8 to run Arduino code.
 
@@ -62,7 +62,7 @@ In case you want to use the Portenta Hat Carrier with a Portenta H7/C33:
 
 ## Product Overview
 
-The __Portenta Hat Carrier__ offers a platform for developing a variety of robotics and building automation applications. It provides access to multiple peripherals, including CAN FD, Ethernet, microSD, and USB, as well as a camera interface via MIPI and 8x analog pins. On the other hand, the dedicated debug pins for JTAG and the PWM fan connector help simplify your Portenta applications.
+The **Portenta Hat Carrier** offers a platform for developing a variety of robotics and building automation applications. It provides access to multiple peripherals, including CAN FD, Ethernet, microSD, and USB, as well as a camera interface via MIPI and 8x analog pins. On the other hand, the dedicated debug pins for JTAG and the PWM fan connector help simplify your Portenta applications.
 
 ![Portenta Hat Carrier Stacked Form](assets/board_mount.gif)
 
@@ -72,7 +72,7 @@ The carrier is adaptable, pairing seamlessly with Portenta X8 and converting it 
 
 ### Carrier Architecture Overview
 
-The __Portenta Hat Carrier__, designed for Portenta SOM boards like the Portenta X8, H7, and C33, offers a diverse power supply range:
+The **Portenta Hat Carrier**, designed for Portenta SOM boards like the Portenta X8, H7, and C33, offers a diverse power supply range:
 
 - 7-32V through its screw terminal
 - USB-C®
@@ -147,25 +147,25 @@ The Portenta Hat Carrier has the following characteristics:
 
 The full datasheet is available and downloadable as PDF from the link below:
 
-* [Portenta Hat Carrier Datasheet](https://docs.arduino.cc/resources/datasheets/ASX00049-datasheet.pdf)
+- [Portenta Hat Carrier Datasheet](https://docs.arduino.cc/resources/datasheets/ASX00049-datasheet.pdf)
 
 ### Schematics
 
 The full schematics are available and downloadable as PDF from the link below:
 
-* [Portenta Hat Carrier Schematics](assets/ASX00049-schematics.pdf)
+- [Portenta Hat Carrier Schematics](assets/ASX00049-schematics.pdf)
 
 ### STEP Files
 
 The full _STEP_ files are available and downloadable from the link below:
 
-* [Portenta Hat Carrier STEP files](assets/ASX00049-step.zip)
+- [Portenta Hat Carrier STEP files](assets/ASX00049-step.zip)
 
 ### Mechanical Information
 
 In this section, you can find mechanical information about the Portenta Hat Carrier. The dimensions of the board are all specified here, within top and bottom views, including the placements of the components onboard.
 
-If you desire to design and manufacture a custom mounting device or create a custom enclosure for your carrier, the following image shows the dimensions for the mounting holes and general board layout. The given dimensions are all in __millimeters [mm]__.
+If you desire to design and manufacture a custom mounting device or create a custom enclosure for your carrier, the following image shows the dimensions for the mounting holes and general board layout. The given dimensions are all in **millimeters [mm]**.
 
 You can also access the STEP files which are also available [here](assets/ASX00049-step.zip).
 
@@ -185,11 +185,11 @@ With the Portenta mounted to the carrier, you can proceed to power the carrier a
 
 The Portenta Hat Carrier can be powered according to one of the following methods:
 
-- Using an __external 7 to 32 V power supply connected to the VIN pin available on the screw terminal block of the board is the most recommended method__. It ensures that the Portenta Hat Carrier, the SOM, and any connected hat receive power.
+- Using an **external 7 to 32 V power supply connected to the VIN pin available on the screw terminal block of the board is the most recommended method**. It ensures that the Portenta Hat Carrier, the SOM, and any connected hat receive power.
 
   For clarity on the connection points, please refer to the [board pinout section](#pinout) of the user manual. Ensure the supplied current meets the specification for all components, as shown in the operating conditions table reported later on.
 
-- Using an external __5 V power supply__ to:
+- Using an external **5 V power supply** to:
 
 * The _5V_ pin located on the 40-pin male header connector pins
 * The _5V_ pin located on the screw terminal of the board
@@ -200,7 +200,7 @@ The Portenta Hat Carrier can be powered according to one of the following method
 
 - Using a USB-C® cable (not included) connected to the Portenta core board of your choice powers not only the selected core board, like the Portenta X8, H7, or C33, but also the Portenta Hat Carrier, and any connected hat that does not require a dedicated external power supply.
 
-***The Portenta Hat Carrier can deliver a __maximum__ of 1.5 A.***
+**\_The Portenta Hat Carrier can deliver a **maximum** of 1.5 A.\_**
 
 ![Portenta Hat Carrier Power Connection Overview](assets/portentaHATcarrier_powerSource.png)
 
@@ -210,7 +210,7 @@ The image below magnifies the location of the terminal block for the 7 - 32 V an
 
 Subsequently, you can check how the Portenta Hat Carrier distributes power resources with the power tree diagram.
 
-![Portenta Hat Carrier Power Tree Diagram](assets/portentaHatCarrier_powerTree.svg)
+![Portenta Hat Carrier Power Tree Diagram](assets/portentaHatCarrier_pinout.svg')
 
 ### Recommended Operating Conditions
 
@@ -218,14 +218,14 @@ To ensure the safety and longevity of the board, it is essential to understand t
 
 |                     **Parameter**                      | **Min** | **Typ** | **Max** | **Unit** |
 | :----------------------------------------------------: | :-----: | :-----: | :-----: | :------: |
-|    VIN from onboard screw terminal* of the Carrier     |   7.0   |    -    |  32.0   |    V     |
+|    VIN from onboard screw terminal\* of the Carrier    |   7.0   |    -    |  32.0   |    V     |
 | USB-C® input from the connected Portenta family board  |    -    |   5.0   |    -    |    V     |
 | +5 VDC from the 40-pin header connector on the carrier |    -    |   5.0   |    -    |    V     |
 |    +5 VDC from the carrier's onboard screw terminal    |    -    |   5.0   |    -    |    V     |
 |            Current supplied by the carrier             |    -    |    -    |   1.5   |    A     |
 |             Ambient operating temperature              |   -40   |    -    |   85    |    °C    |
 
-***The onboard screw terminal powers both the carrier and any connected Portenta board. Additionally, this terminal connector includes reverse polarity protection for enhanced safety.***
+**_The onboard screw terminal powers both the carrier and any connected Portenta board. Additionally, this terminal connector includes reverse polarity protection for enhanced safety._**
 
 ### Carrier Characteristics Highlight
 
@@ -243,7 +243,7 @@ The Portenta Hat Carrier provides different functionalities based on the connect
 |    CAN FD     |     Available     |     Available      |     Available      |
 | USB-A Support |     Available     |     Available      |     Available      |
 
-***The Portenta X8 is the specific Portenta family board that offers compatibility with Raspberry Pi® Hats on the 40-pin Header.***
+**_The Portenta X8 is the specific Portenta family board that offers compatibility with Raspberry Pi® Hats on the 40-pin Header._**
 
 This provides a general idea of how the Portenta Hat Carrier will perform depending on the paired Portenta board. Each feature is explained in the following section after a quick guide covering how to properly interface the Portenta boards.
 
@@ -252,6 +252,7 @@ This provides a general idea of how the Portenta Hat Carrier will perform depend
 ### Hello World Using Linux
 
 #### Using Portenta X8 with Linux
+
 <br></br>
 
 To use the Portenta Hat Carrier with the Portenta X8, you will have to align the High-Density connectors along with the USB-C® port. The following diagram shows how the board stacks on the carrier.
@@ -260,9 +261,10 @@ To use the Portenta Hat Carrier with the Portenta X8, you will have to align the
 
 ![Portenta Hat Carrier with X8](assets/portentaHATcarrier_x8_stack.png)
 
-***For the stable functionality of the Portenta Hat Carrier when used with Portenta X8, it is crucial to have at least version __746__ of the Linux image on the Portenta X8. Access and download the latest version directly through this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
+**\_For the stable functionality of the Portenta Hat Carrier when used with Portenta X8, it is crucial to have at least version **746** of the Linux image on the Portenta X8. Access and download the latest version directly through this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).\_**
 
 #### Hello World With Portenta X8 Shell
+
 <br></br>
 
 A series of _Hello World_ examples will be used to ensure the Portenta Hat Carrier is correctly operating with the paired Portenta X8. These examples, using Linux commands, Python® scripts, and the Arduino IDE, aim to trigger the user-programmable LED connected to GPIO3 leveraging different methods and platforms.
@@ -280,7 +282,7 @@ sudo su -
 
 When you execute the _sudo su -_ command, you will be prompted for a password:
 
-***The default password is `fio`***
+**_The default password is `fio`_**
 
 This command grants you access as the root user, loading the root user's environment settings such as `$HOME` and `$PATH`.
 
@@ -326,14 +328,15 @@ The GPIO is now set as an output, thus it can now be controlled by setting its s
 
 To set the pin High, you need to assign the value `1`, or `0` to set the pin `HIGH` or `LOW`. The command will require the `value` at the end to ensure the pin's state is controlled.
 
-
 To set the pin to `HIGH`:
+
 ```
 echo 1 >/sys/class/gpio/gpio163/value
 echo 0 >/sys/class/gpio/gpio163/value
 ```
 
 To set the pin to `LOW`:
+
 ```
 echo 0 >/sys/class/gpio/gpio163/value
 ```
@@ -353,6 +356,7 @@ ls /sys/class/gpio
 This step helps you to prevent unintentional modifications to the element configuration.
 
 #### Hello World Using Linux and Python® Scripts
+
 <br></br>
 
 Previously, we manually toggled the LED linked to _GPIO3_ on the Portenta X8 via the command line. However, to automate this process and potentially extend our control logic, we can employ a Python® script for this purpose.
@@ -453,6 +457,7 @@ The Portenta X8 has the capability to operate in a Linux environment and it is b
 ### Hello World Using Arduino
 
 #### Using Portenta X8 / H7 / C33 with Arduino
+
 <br></br>
 
 The Portenta X8 is also capable of operating within the Arduino environment and retains the same hardware setup as explained [here](#using-portenta-x8-with-linux).
@@ -474,6 +479,7 @@ The diagrams below show how the Portenta H7 and C33 stack on the carrier:
 ![Portenta Hat Carrier with C33](assets/portentaHATcarrier_c33_stack.png)
 
 #### Hello World With Arduino
+
 <br></br>
 
 In this section, you will learn how to use the Portenta X8, Portenta H7, or Portenta C33 with the Portenta Hat Carrier. You will interact with the user-configurable LED connected to GPIO3, but this time within the Arduino environment.
@@ -498,9 +504,9 @@ void loop() {
 
 Make sure to replace `<DIGITAL_PIN>` with the appropriate value for your chosen Portenta board:
 
-- __Portenta X8__: PF_4
-- __Portenta H7__: PD_5
-- __Portenta C33__: 30
+- **Portenta X8**: PF_4
+- **Portenta H7**: PD_5
+- **Portenta C33**: 30
 
 For example, when using the Portenta X8, your script should look like this:
 
@@ -522,7 +528,7 @@ void loop() {
 
 After successfully uploading the sketch, the user-configurable LED will start blinking. The following clip illustrates the expected LED blink pattern.
 
-![Portenta Hat Carrier Hello World Blink](assets/portentaHATcarrier_blinks.gif)
+![Portenta Hat Carrier Hello World Blink](assets/portentaHATcarrier_blinkc.gif)
 
 Please check out the following documentation to learn more about each board and maximize its potential when paired with the Portenta Hat Carrier:
 
@@ -530,9 +536,9 @@ Please check out the following documentation to learn more about each board and 
 - [Portenta H7 set-up guide](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta).
 - [Portenta X8 user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#arduino-environment). You can also read the tutorial providing a step-by-step guide on how to upload sketches to the M4 Core on Arduino Portenta X8 [here](https://docs.arduino.cc/tutorials/portenta-x8/uploading-sketches-m4).
 
-***Please note that the Ethernet connectivity speed is limited to 100 Mbit when used with the Portenta H7 or C33.***
+**_Please note that the Ethernet connectivity speed is limited to 100 Mbit when used with the Portenta H7 or C33._**
 
-***For up-to-date performance of the Portenta X8 on the Portenta Hat Carrier, ensure you update to the latest Portenta X8 OS image. You can check [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#portenta-x8-os-image-update) for more details.***
+**_For up-to-date performance of the Portenta X8 on the Portenta Hat Carrier, ensure you update to the latest Portenta X8 OS image. You can check [here](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#portenta-x8-os-image-update) for more details._**
 
 ## Carrier Features and Interfaces
 
@@ -561,15 +567,16 @@ The Portenta Hat Carrier features a USB interface suitable for data logging and 
 If you are interested in the USB-A port pinout, the following table may serve to understand its connection distribution:
 
 | **Pin number** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         | **Interface** |
-|:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|:-------------:|
-|        1       |      +5V      |        VIN / USB0_VBUS       |                   J1-21, J1-24, J1-32, J1-41, J1-48                  |               |
-|        2       |               |           USB0_D_N           |                                 J1-28                                |     USB D-    |
-|        3       |               |           USB0_D_P           |                                 J1-26                                |     USB D+    |
-|        4       |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
+| :------------: | :-----------: | :--------------------------: | :------------------------------------------------------------------: | :-----------: |
+|       1        |      +5V      |       VIN / USB0_VBUS        |                  J1-21, J1-24, J1-32, J1-41, J1-48                   |               |
+|       2        |               |           USB0_D_N           |                                J1-28                                 |    USB D-     |
+|       3        |               |           USB0_D_P           |                                J1-26                                 |    USB D+     |
+|       4        |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
 
 Devices with a USB-A interface, such as storage drives, can be used for logging data. External devices include peripherals like keyboards, mouses, webcams, and hubs.
 
 #### Using Linux
+
 <br></br>
 
 As an example, the following command on Portenta X8's shell can be used to test a write command with a USB memory drive. To write a file, the following sequence of commands can help you to accomplish such task.
@@ -577,6 +584,7 @@ As an example, the following command on Portenta X8's shell can be used to test 
 ```bash
 sudo su -
 ```
+
 First of all, let's enter root mode to have the right permissions to mount and unmount related peripherals like our USB memory drive.
 
 ```bash
@@ -628,6 +636,7 @@ This command `cat` prompts in the terminal the content of a file, in this case t
 Now that you know how to locate, mount, write and read information from an external USB stick or hard drive you can expand the possibilities of your solution with the additional storage connected to the Portenta Hat Carrier.
 
 #### Using Arduino IDE
+
 <br></br>
 
 The following example demonstrates how to use the USB interface of the Portenta Hat Carrier with the Portenta C33 to mount a Mass Storage Device (MSD).
@@ -940,21 +949,22 @@ The 16-pin header connector of the Portenta Hat Carrier integrates the analog ch
 ![Portenta Hat Carrier Analog Pins](assets/portentaHATcarrier_analogIOs.png)
 
 | **Pin number** | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** |
-|:--------------:|:--------------:|:----------------------------:|:--------------------:|
-|        1       |       A0       |           ANALOG_A0          |         J2-73        |
-|        2       |       A1       |           ANALOG_A1          |         J2-75        |
-|        3       |       A2       |           ANALOG_A2          |         J2-77        |
-|        4       |       A3       |           ANALOG_A3          |         J2-79        |
-|        5       |       A4       |           ANALOG_A4          |         J2-74        |
-|        6       |       A5       |           ANALOG_A5          |         J2-76        |
-|        7       |       A6       |           ANALOG_A6          |         J2-78        |
-|        8       |       A7       |           ANALOG_A7          |         J2-80        |
+| :------------: | :------------: | :--------------------------: | :------------------: |
+|       1        |       A0       |          ANALOG_A0           |        J2-73         |
+|       2        |       A1       |          ANALOG_A1           |        J2-75         |
+|       3        |       A2       |          ANALOG_A2           |        J2-77         |
+|       4        |       A3       |          ANALOG_A3           |        J2-79         |
+|       5        |       A4       |          ANALOG_A4           |        J2-74         |
+|       6        |       A5       |          ANALOG_A5           |        J2-76         |
+|       7        |       A6       |          ANALOG_A6           |        J2-78         |
+|       8        |       A7       |          ANALOG_A7           |        J2-80         |
 
 The built-in features of the Arduino programming language ([`analogRead()` function](https://reference.arduino.cc/reference/en/language/functions/analog-io/analogread/)) can be used to access the eight analog input pins on the Arduino IDE.
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find the analog pins on the board.
 
 #### Using Linux
+
 <br></br>
 
 Using the Portenta X8, you can obtain a voltage reading that falls within a _0 - 65535_ range. This reading corresponds to a voltage between 0 and 3.3 V. To fetch this reading, use the command:
@@ -962,6 +972,7 @@ Using the Portenta X8, you can obtain a voltage reading that falls within a _0 -
 ```
 cat /sys/bus/iio/devices/iio\:device0/in_voltage<adc_pin>_raw
 ```
+
 Where `<adc_pin>` is the number of the analog pin to read. For example, in the case of `A0`:
 
 ```
@@ -992,6 +1003,7 @@ if __name__ == "__main__":
 ```
 
 #### Using Arduino IDE
+
 <br></br>
 
 The following example snippet, compatible with Portenta H7, shows how to read the voltage value from a potentiometer on `A0`. It will then display the readings on the Arduino IDE Serial Monitor.
@@ -1055,16 +1067,16 @@ The TJA1049 module supports ISO 11898-2:2016, SAE J2284-1, and SAE J2284-5 stand
 
 Since CAN FD is part of the screw terminal block, we have highlighted the CAN bus ports within the screw terminal block pinout for reference.
 
-| **Pin number** | **Silkscreen** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         |    **Interface**   |
-|:--------------:|:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|:------------------:|
-|        1       |   VIN 7-32VDC  |  INPUT_7V-32V |                              |                                                                      |                    |
-|        2       |       GND      |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                    |
-|        3       |       GND      |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                    |
-|        4       |       5V       |      +5V      |              VIN             |                   J1-21, J1-24, J1-32, J1-41, J1-48                  |                    |
-|      **5**     |    **CANH**    |               |                              |                        **J1-49 (Through U1)**                        | **CAN BUS - CANH** |
-|      **6**     |    **CANL**    |               |                              |                        **J1-51 (Through U1)**                        | **CAN BUS - CANL** |
+| **Pin number** | **Silkscreen** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         |   **Interface**    |
+| :------------: | :------------: | :-----------: | :--------------------------: | :------------------------------------------------------------------: | :----------------: |
+|       1        |  VIN 7-32VDC   | INPUT_7V-32V  |                              |                                                                      |                    |
+|       2        |      GND       |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                    |
+|       3        |      GND       |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                    |
+|       4        |       5V       |      +5V      |             VIN              |                  J1-21, J1-24, J1-32, J1-41, J1-48                   |                    |
+|     **5**      |    **CANH**    |               |                              |                        **J1-49 (Through U1)**                        | **CAN BUS - CANH** |
+|     **6**      |    **CANL**    |               |                              |                        **J1-51 (Through U1)**                        | **CAN BUS - CANL** |
 
-***For stable CAN bus communication, it is recommended to install a 120 Ω termination resistor between CANH and CANL lines.***
+**_For stable CAN bus communication, it is recommended to install a 120 Ω termination resistor between CANH and CANL lines._**
 
 More information on how to use the CAN Bus protocol can be found within [CAN Bus section](#can-bus) under [Pins chapter](#pins).
 
@@ -1079,22 +1091,22 @@ On the other hand, the Portenta H7 and C33 have no MIPI interface, so they canno
 The MIPI connector is distributed as follows:
 
 | **Pin number** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         | **Interface** |
-|:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|:-------------:|
-|        1       |      GND      |              GND             |                   J1-22, J1-31, J1-42, J1-47, J1-54                  |               |
-|        2       |               |          CAM_D0_D0_N         |               J2-16, J2-24, J2-33, J2-44, J2-57, J2-70               |               |
-|        3       |               |          CAM_D1_D0_P         |                                 J2-14                                |               |
-|        4       |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
-|        5       |               |          CAM_D2_D1_N         |                                 J2-12                                |               |
-|        6       |               |          CAM_D3_D1_P         |                                 J2-10                                |               |
-|        7       |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
-|        8       |               |          CAM_CK_CK_N         |                                 J2-20                                |               |
-|        9       |               |          CAM_VS_CK_P         |                                 J2-18                                |               |
-|       10       |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
-|       11       |               |            GPIO_5            |                                 J2-56                                |               |
+| :------------: | :-----------: | :--------------------------: | :------------------------------------------------------------------: | :-----------: |
+|       1        |      GND      |             GND              |                  J1-22, J1-31, J1-42, J1-47, J1-54                   |               |
+|       2        |               |         CAM_D0_D0_N          |               J2-16, J2-24, J2-33, J2-44, J2-57, J2-70               |               |
+|       3        |               |         CAM_D1_D0_P          |                                J2-14                                 |               |
+|       4        |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
+|       5        |               |         CAM_D2_D1_N          |                                J2-12                                 |               |
+|       6        |               |         CAM_D3_D1_P          |                                J2-10                                 |               |
+|       7        |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
+|       8        |               |         CAM_CK_CK_N          |                                J2-20                                 |               |
+|       9        |               |         CAM_VS_CK_P          |                                J2-18                                 |               |
+|       10       |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
+|       11       |               |            GPIO_5            |                                J2-56                                 |               |
 |       12       |               |              NC              |                                  NC                                  |               |
-|       13       |               |           I2C1_SCL           |                                 J1-45                                |   I2C 1 SCL   |
-|       14       |               |           I2C1_SDA           |                                 J1-43                                |   I2C 1 SDA   |
-|       15       | +3V3_PORTENTA |              VCC             |                      J2-23, J2-34, J2-43, J2-69                      |               |
+|       13       |               |           I2C1_SCL           |                                J1-45                                 |   I2C 1 SCL   |
+|       14       |               |           I2C1_SDA           |                                J1-43                                 |   I2C 1 SDA   |
+|       15       | +3V3_PORTENTA |             VCC              |                      J2-23, J2-34, J2-43, J2-69                      |               |
 
 As mentioned before, the Portenta Hat Carrier supports the MIPI camera if paired with the Portenta X8. The flex cable can be used to interface a compatible camera with the platform. Compatible camera devices are as follows:
 
@@ -1104,9 +1116,10 @@ As mentioned before, the Portenta Hat Carrier supports the MIPI camera if paired
 ![Portenta Hat Carrier MIPI Camera Mount](assets/portentaHATCarrier_mipiCam_mount.gif)
 
 #### Using Linux
+
 <br></br>
 
-The following commands, using the Portenta X8 environment, allow you to capture a single frame and stream video at 30 FPS (Frames per Second) for 10 seconds from the Raspberry Pi Camera v1.3, which is based on the __OV5647 CMOS__ sensor.
+The following commands, using the Portenta X8 environment, allow you to capture a single frame and stream video at 30 FPS (Frames per Second) for 10 seconds from the Raspberry Pi Camera v1.3, which is based on the **OV5647 CMOS** sensor.
 
 First, we need to set environment variables and specify the overlays for our camera and board setup:
 
@@ -1154,7 +1167,7 @@ This command allows the user to capture 300 frames at 30 FPS, which equals 10 se
 
 Following these steps, you will be able to successfully capture and stream video from the Raspberry Pi Camera v1.3 based on the OV5647 sensor.
 
-***For enhanced image quality, we recommend using a MIPI camera module with an integrated Image Signal Processor (ISP).***
+**_For enhanced image quality, we recommend using a MIPI camera module with an integrated Image Signal Processor (ISP)._**
 
 ### PWM Fan Control
 
@@ -1165,13 +1178,14 @@ The Portenta Hat Carrier is designed to be a thermal dissipation reference carri
 The fan can be connected via PWM pins available on the Portenta Hat Carrier. The connector has the following structure:
 
 | **Pin number** | **Silkscreen** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         |
-|:--------------:|:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|
-|        1       |      PWM9      |               |             PWM_9            |                                 J2-68                                |
-|        2       |       N/A      |               |                              |                                                                      |
-|        3       |       5V       |      +5V      |              VIN             |                   J1-21, J1-24, J1-32, J1-41, J1-48                  |
-|        4       |       GND      |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
+| :------------: | :------------: | :-----------: | :--------------------------: | :------------------------------------------------------------------: |
+|       1        |      PWM9      |               |            PWM_9             |                                J2-68                                 |
+|       2        |      N/A       |               |                              |                                                                      |
+|       3        |       5V       |      +5V      |             VIN              |                  J1-21, J1-24, J1-32, J1-41, J1-48                   |
+|       4        |      GND       |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
 
 #### Using Linux
+
 <br></br>
 
 The fan's speed can be controlled using the following code sequence when you are using the Portenta X8 within the Linux environment.
@@ -1302,9 +1316,9 @@ Storage and boot-related options are provided to manage the device's data storag
 
 The Portenta Hat Carrier boasts a streamlined, user-centric design with its multifunctional flashing push button. This singular button serves a dual purpose:
 
-- __General User-Programmable Function:__ A single press of the button can be customized according to the application's needs. Whether you need to start a specific event, switch between various states, or execute a particular action, this button is equipped for diverse implementations.
+- **General User-Programmable Function:** A single press of the button can be customized according to the application's needs. Whether you need to start a specific event, switch between various states, or execute a particular action, this button is equipped for diverse implementations.
 
-- __Board Flashing Mode Activation:__ A long press and release of the same button will swiftly put the board into flashing mode.
+- **Board Flashing Mode Activation:** A long press and release of the same button will swiftly put the board into flashing mode.
 
 ![Portenta Hat Carrier Onboard Buttons](assets/portentaHATcarrier_pushButton.png)
 
@@ -1325,19 +1339,20 @@ The available microSD card slot offers the advantage of expanded storage. This i
 The following table shows an in-depth connector designation:
 
 | **Pin number** | **Silkscreen** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         |
-|:--------------:|:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|
-|        1       |       N/A      |               |            SDC_D2            |                                 J1-63                                |
-|        2       |       N/A      |               |            SDC_D3            |                                 J1-65                                |
-|        3       |       N/A      |               |            SDC_CMD           |                                 J1-57                                |
-|        4       |       N/A      |   VDD_SDCARD  |              VSD             |                                 J1-72                                |
-|        5       |       N/A      |               |            SDC_CLK           |                                 J1-55                                |
-|        6       |       N/A      |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
-|        7       |       N/A      |               |            SDC_D0            |                                 J1-59                                |
-|        8       |       N/A      |               |            SDC_D1            |                                 J1-61                                |
-|       CD1      |       N/A      |               |            SDC_CD            |                                 J1-67                                |
-|       CD2      |       N/A      |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
+| :------------: | :------------: | :-----------: | :--------------------------: | :------------------------------------------------------------------: |
+|       1        |      N/A       |               |            SDC_D2            |                                J1-63                                 |
+|       2        |      N/A       |               |            SDC_D3            |                                J1-65                                 |
+|       3        |      N/A       |               |           SDC_CMD            |                                J1-57                                 |
+|       4        |      N/A       |  VDD_SDCARD   |             VSD              |                                J1-72                                 |
+|       5        |      N/A       |               |           SDC_CLK            |                                J1-55                                 |
+|       6        |      N/A       |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
+|       7        |      N/A       |               |            SDC_D0            |                                J1-59                                 |
+|       8        |      N/A       |               |            SDC_D1            |                                J1-61                                 |
+|      CD1       |      N/A       |               |            SDC_CD            |                                J1-67                                 |
+|      CD2       |      N/A       |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
 
 #### Using Linux
+
 <br></br>
 
 To begin using a microSD card with Portenta X8, please use the following command to pull a Docker container that assists in setting up the necessary elements for interacting with the microSD card:
@@ -1409,6 +1424,7 @@ mkfs.ext4 /dev/mmcblk1p1
 ```
 
 #### Using Arduino IDE
+
 <br></br>
 
 To learn how to use the microSD card slot for enhanced storage with the Arduino IDE, please follow this [guide](https://docs.arduino.cc/learn/programming/sd-guide).
@@ -1750,17 +1766,17 @@ The Portenta Hat Carrier incorporates a DIP switch, giving users the ability to 
 
 For configurations when the Portenta Hat Carrier is combined with the Portenta X8, the DIP switch governs these settings:
 
-| **DIP Switch Designation** |          **Position: ON**         |          **Position: OFF**         |
-|:--------------------------:|:---------------------------------:|:----------------------------------:|
-| ETH CENTER TAP             |   Ethernet Disabled               |   Ethernet Enabled                 |
-| BTSEL                      |   Reserved for future applications|   Reserved for future applications |
+| **DIP Switch Designation** |         **Position: ON**         |        **Position: OFF**         |
+| :------------------------: | :------------------------------: | :------------------------------: |
+|       ETH CENTER TAP       |        Ethernet Disabled         |         Ethernet Enabled         |
+|           BTSEL            | Reserved for future applications | Reserved for future applications |
 
 When the Portenta Hat Carrier is combined with either the Portenta H7 or C33, the DIP switch adjustments are as follows:
 
-| **DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
-|:--------------------------:|:-------------------------:|:----------------------:|
-| ETH CENTER TAP             |   Ethernet Enabled        |   Ethernet Disabled    |
-| BTSEL                      |   Not used                |   Not used             |
+| **DIP Switch Designation** | **Position: ON** | **Position: OFF** |
+| :------------------------: | :--------------: | :---------------: |
+|       ETH CENTER TAP       | Ethernet Enabled | Ethernet Disabled |
+|           BTSEL            |     Not used     |     Not used      |
 
 This flexibility ensures that the Portenta Hat Carrier remains adaptable to the unique needs of each paired Portenta board.
 
@@ -1771,6 +1787,7 @@ The Portenta Hat Carrier significantly augments the networking functionalities o
 Thus, when conceptualizing and executing project developments, the user can proficiently exploit both the wired and wireless communication capabilities. The inherent wireless attributes of the Portenta devices, combined with the carrier's sophisticated onboard components and adaptable protocol choices, enable a comprehensive suite of communication solutions ideal for a wide range of applications.
 
 #### Ethernet
+
 <br></br>
 
 The Portenta Hat Carrier is equipped with an Ethernet interface, specifically an RJ45 connector supporting 1000 Base-T.
@@ -1780,21 +1797,21 @@ The Portenta Hat Carrier is equipped with an Ethernet interface, specifically an
 The following table shows an in-depth connector designation:
 
 | **Pin number** | **Silkscreen** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         |
-|:--------------:|:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|
-|        1       |       N/A      |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
-|        2       | ETH CENTER TAP |               |                              |                                                                      |
-|        3       |       N/A      |               |            ETH_D_P           |                                 J1-13                                |
-|        4       |       N/A      |               |            ETH_D_N           |                                 J1-15                                |
-|        5       |       N/A      |               |            ETH_C_P           |                                 J1-9                                 |
-|        6       |       N/A      |               |            ETH_C_N           |                                 J1-11                                |
-|        7       |       N/A      |               |            ETH_B_P           |                                 J1-5                                 |
-|        8       |       N/A      |               |            ETH_B_N           |                                 J1-7                                 |
-|        9       |       N/A      |               |            ETH_A_P           |                                 J1-1                                 |
-|       10       |       N/A      |               |            ETH_A_N           |                                 J1-3                                 |
-|       11       |       N/A      |               |           ETH_LED2           |                                 J1-19                                |
-|       12       |       N/A      |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
-|       13       |       N/A      |               |              N/A             |                                                                      |
-|       14       |       N/A      |               |           ETH_LED1           |                                 J1-17                                |
+| :------------: | :------------: | :-----------: | :--------------------------: | :------------------------------------------------------------------: |
+|       1        |      N/A       |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
+|       2        | ETH CENTER TAP |               |                              |                                                                      |
+|       3        |      N/A       |               |           ETH_D_P            |                                J1-13                                 |
+|       4        |      N/A       |               |           ETH_D_N            |                                J1-15                                 |
+|       5        |      N/A       |               |           ETH_C_P            |                                 J1-9                                 |
+|       6        |      N/A       |               |           ETH_C_N            |                                J1-11                                 |
+|       7        |      N/A       |               |           ETH_B_P            |                                 J1-5                                 |
+|       8        |      N/A       |               |           ETH_B_N            |                                 J1-7                                 |
+|       9        |      N/A       |               |           ETH_A_P            |                                 J1-1                                 |
+|       10       |      N/A       |               |           ETH_A_N            |                                 J1-3                                 |
+|       11       |      N/A       |               |           ETH_LED2           |                                J1-19                                 |
+|       12       |      N/A       |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |
+|       13       |      N/A       |               |             N/A              |                                                                      |
+|       14       |      N/A       |               |           ETH_LED1           |                                J1-17                                 |
 
 Ethernet performance differs based on the associated Portenta board:
 
@@ -1804,6 +1821,7 @@ Ethernet performance differs based on the associated Portenta board:
 To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Hat Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 
 #### Ethernet Interface With Linux
+
 <br></br>
 
 Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed. First, ensure that the Portenta X8 is mounted on the Hat Carrier, and then connect them using an RJ45 LAN cable.
@@ -1908,7 +1926,7 @@ Going forward, we can use the following examples to test out Ethernet connectivi
 
 If you desire to use Portenta X8 paired with Portenta Hat Carrier, please consider following Python® scripts. These scripts use the _`socket`_ library used to create the socket and establish a computer network.
 
-The below script would be used for __Server side (TCP/IP)__ operations:
+The below script would be used for **Server side (TCP/IP)** operations:
 
 ```python
 #!/usr/bin/env python3
@@ -1938,7 +1956,7 @@ if __name__ == "__main__":
 
 The Server-side script is set to wait for incoming connections on `127.0.0.1` (localhost) at port `65432`. These two properties can be modified later at your preference. When a Client connects, the server waits for incoming data and simply sends back whatever it receives, behaving as an echo server.
 
-The script below will be used for __Client side (TCP/IP)__ operations:
+The script below will be used for **Client side (TCP/IP)** operations:
 
 ```python
 #!/usr/bin/env python3
@@ -2014,6 +2032,7 @@ The script makes the server start in a separate thread, adding a brief pause usi
 The client runs on the main thread. Using `server_thread.join()`, the main script waits for the server thread to finish its tasks before exiting.
 
 #### Ethernet Interface With Arduino IDE
+
 <br></br>
 
 Below is a 'WebClient' example that can be used to test Ethernet connectivity with Portenta H7.
@@ -2238,6 +2257,7 @@ void loop() {
 ```
 
 #### Wi-Fi® & Bluetooth®
+
 <br></br>
 
 The Portenta Hat Carrier is designed to work flawlessly with wireless features. Among its numerous advantages is its capacity to use Wi-Fi® and Bluetooth® technologies present in the Portenta models like X8, H7, or C33. When these wireless options are activated, they can be effectively combined with the intrinsic capabilities and features that the carrier offers. This combination makes this solution more versatile and powerful for many different projects.
@@ -2256,7 +2276,7 @@ The Portenta Hat Carrier is a versatile platform, and a significant feature of t
 
 ![Portenta Hat Carrier Back Side](assets/portentaHATcarrier_pins.png)
 
-In this section we will examine the __40 pin__ and __16 pin headers__ of the Portenta Hat Carrier. These headers are integral to the carrier's interfacing capabilities, providing diverse connectivity options for various applications.
+In this section we will examine the **40 pin** and **16 pin headers** of the Portenta Hat Carrier. These headers are integral to the carrier's interfacing capabilities, providing diverse connectivity options for various applications.
 
 ### 40-Pin Header
 
@@ -2266,28 +2286,28 @@ The Portenta Hat Carrier provides a 40 pin header that serves as an important in
 
 To make it easier for developers, here is a comprehensive breakdown of the 40-pin header:
 
-|             **Pin Description**           | **Pin**  | **Pin**  |          **Pin Description**      |
-|:-----------------------------------------:|:--------:|:--------:|:---------------------------------:|
-|            VCC (+3V3_PORTENTA)            |     1    |     2    |              VIN (+5V)            |
-|           I2C2_SDA (I2C 2 SDA)            |     3    |     4    |              VIN (+5V)            |
-|           I2C2_SCL (I2C 2 SCL)            |     5    |     6    |                GND                |
-|                PWM0 (PWM_0)               |     7    |     8    |   SERIAL3_TX (TX3 - UART 3 TX)    |
-|                    GND                    |     9    |    10    |   SERIAL3_RX (RX3 - UART 3 RX)    |
-|                   GPIO2                   |    11    |    12    |               I2S_CK              |
-|                   GPIO6                   |    13    |    14    |                GND                |
-|                   SAI_D0                  |    15    |    16    |               SAI_CK              |
-|            VCC (+3V3_PORTENTA)            |    17    |    18    |               SAI_FS              |
-|           SPI1_MOSI (SPI1 COPI)           |    19    |    20    |                GND                |
-|           SPI1_MISO (SPI1 CIPO)           |    21    |    22    |            PWM1 (PWM_1)           |
-|             SPI1_CK (SPI1 SCK)            |    23    |    24    |         SPI1_CS (SPI1 CE)         |
-|                    GND                    |    25    |    26    |            PWM2 (PWM_2)           |
-|           I2C0_SDA (I2C 0 SDA)            |    27    |    28    |        I2C0_SCL (I2C 0 SCL)       |
-|        SERIAL1_RX (RX1- UART 1 RX)        |    29    |    30    |                GND                |
-|                PWM3 (PWM_3)               |    31    |    32    |   SERIAL1_TX (TX1- UART 1 TX)     |
-|                PWM4 (PWM_4)               |    33    |    34    |                GND                |
-|              I2S_WS (I2S WS)              |    35    |    36    |            PWM5 (PWM_5)           |
-|                PWM6 (PWM_6)               |    37    |    38    |         I2S_SDI (I2S SDI)         |
-|                    GND                    |    39    |    40    |         I2S_SDO (I2S SDO)         |
+|     **Pin Description**     | **Pin** | **Pin** |     **Pin Description**      |
+| :-------------------------: | :-----: | :-----: | :--------------------------: |
+|     VCC (+3V3_PORTENTA)     |    1    |    2    |          VIN (+5V)           |
+|    I2C2_SDA (I2C 2 SDA)     |    3    |    4    |          VIN (+5V)           |
+|    I2C2_SCL (I2C 2 SCL)     |    5    |    6    |             GND              |
+|        PWM0 (PWM_0)         |    7    |    8    | SERIAL3_TX (TX3 - UART 3 TX) |
+|             GND             |    9    |   10    | SERIAL3_RX (RX3 - UART 3 RX) |
+|            GPIO2            |   11    |   12    |            I2S_CK            |
+|            GPIO6            |   13    |   14    |             GND              |
+|           SAI_D0            |   15    |   16    |            SAI_CK            |
+|     VCC (+3V3_PORTENTA)     |   17    |   18    |            SAI_FS            |
+|    SPI1_MOSI (SPI1 COPI)    |   19    |   20    |             GND              |
+|    SPI1_MISO (SPI1 CIPO)    |   21    |   22    |         PWM1 (PWM_1)         |
+|     SPI1_CK (SPI1 SCK)      |   23    |   24    |      SPI1_CS (SPI1 CE)       |
+|             GND             |   25    |   26    |         PWM2 (PWM_2)         |
+|    I2C0_SDA (I2C 0 SDA)     |   27    |   28    |     I2C0_SCL (I2C 0 SCL)     |
+| SERIAL1_RX (RX1- UART 1 RX) |   29    |   30    |             GND              |
+|        PWM3 (PWM_3)         |   31    |   32    | SERIAL1_TX (TX1- UART 1 TX)  |
+|        PWM4 (PWM_4)         |   33    |   34    |             GND              |
+|       I2S_WS (I2S WS)       |   35    |   36    |         PWM5 (PWM_5)         |
+|        PWM6 (PWM_6)         |   37    |   38    |      I2S_SDI (I2S SDI)       |
+|             GND             |   39    |   40    |      I2S_SDO (I2S SDO)       |
 
 This layout is designed to ensure that developers have a clear understanding of each pin and its function.
 
@@ -2295,16 +2315,16 @@ This layout is designed to ensure that developers have a clear understanding of 
 
 The Portenta Hat Carrier features a 16-pin male header connector dedicated to analog input but also offers a variety of other functionalities. The table below provides a detailed mapping:
 
-|        **Pin Description**        | **Pins** | **Pins** |        **Pin Description**        |
-|:---------------------------------:|:--------:|---------:|:---------------------------------:|
-| ANALOG_A0 (A0)                    | 1        | 2        | ANALOG_A1 (A1)                    |
-| ANALOG_A2 (A2)                    | 3        | 4        | ANALOG_A3 (A3)                    |
-| ANALOG_A4 (A4)                    | 5        | 6        | ANALOG_A5 (A5)                    |
-| ANALOG_A6 (A6)                    | 7        | 8        | ANALOG_A7 (A7)                    |
-| PWM7 (PWM_7)                      | 9        | 10       | PWM8 (PWM_8)                      |
-| LICELL (RTC Power Source)         | 11       | 12       | GPIO0 (PWM4)                      |
-| VCC (+3V3_PORTENTA)               | 13       | 14       | SERIAL2_TX (TX2 - UART 2 TX)      |
-| GND                               | 15       | 16       | SERIAL2_RX (RX2 - UART 2 RX)      |
+|    **Pin Description**    | **Pins** | **Pins** |     **Pin Description**      |
+| :-----------------------: | :------: | -------: | :--------------------------: |
+|      ANALOG_A0 (A0)       |    1     |        2 |        ANALOG_A1 (A1)        |
+|      ANALOG_A2 (A2)       |    3     |        4 |        ANALOG_A3 (A3)        |
+|      ANALOG_A4 (A4)       |    5     |        6 |        ANALOG_A5 (A5)        |
+|      ANALOG_A6 (A6)       |    7     |        8 |        ANALOG_A7 (A7)        |
+|       PWM7 (PWM_7)        |    9     |       10 |         PWM8 (PWM_8)         |
+| LICELL (RTC Power Source) |    11    |       12 |         GPIO0 (PWM4)         |
+|    VCC (+3V3_PORTENTA)    |    13    |       14 | SERIAL2_TX (TX2 - UART 2 TX) |
+|            GND            |    15    |       16 | SERIAL2_RX (RX2 - UART 2 RX) |
 
 A visual representation of the header can be seen in the image below.
 
@@ -2312,23 +2332,24 @@ A visual representation of the header can be seen in the image below.
 
 It is characterized as follows:
 
-- __Analog Pins__: It integrates eight dedicated pins for analog channels. It ranges from *A0 ~ A7*, and each of these pins serves a unique analog channel, facilitating a range of analog signal measurements.
+- **Analog Pins**: It integrates eight dedicated pins for analog channels. It ranges from _A0 ~ A7_, and each of these pins serves a unique analog channel, facilitating a range of analog signal measurements.
 
-- __PWM Pins__: Integrates dedicated PWM pins within the header. Pin 9 is labeled *PWM7 (PWM_7)*, and Pin 10 is identified as *PWM8 (PWM_8)*.
+- **PWM Pins**: Integrates dedicated PWM pins within the header. Pin 9 is labeled _PWM7 (PWM_7)_, and Pin 10 is identified as _PWM8 (PWM_8)_.
 
   Additionally, Pin 12, although a General-Purpose Input/Output (GPIO0), also supports PWM and is labeled as PWM4.
 
-- __Serial Pins__: It integrates UART 2 functionalities. Pin 14 is the transmit function, identified as *SERIAL2_TX* or *TX2*, while Pin 16 is dedicated to the receive function, labeled as *SERIAL2_RX* or *RX2*.
+- **Serial Pins**: It integrates UART 2 functionalities. Pin 14 is the transmit function, identified as _SERIAL2_TX_ or _TX2_, while Pin 16 is dedicated to the receive function, labeled as _SERIAL2_RX_ or _RX2_.
 
-- __Power and Grounding__: Pin 11, labeled as LICELL, serves as the *Real Time Clock (RTC)* power source.
+- **Power and Grounding**: Pin 11, labeled as LICELL, serves as the _Real Time Clock (RTC)_ power source.
 
-  For providing a voltage source, Pin 13 offers a 3.3 V output, specifically for the Portenta module, and is marked as *VCC (+3V3_PORTENTA)*. The Ground for this header is accessible via Pin 15, designated simply as *GND*.
+  For providing a voltage source, Pin 13 offers a 3.3 V output, specifically for the Portenta module, and is marked as _VCC (+3V3_PORTENTA)_. The Ground for this header is accessible via Pin 15, designated simply as _GND_.
 
 ### GPIO Pins
 
 Understanding and managing the General-Purpose Input/Output (GPIO) pins on your device can be crucial for many applications. The following script is designed to display all the GPIOs available on the 40-pin connector of the Portenta Hat Carrier paired with Portenta X8.
 
 #### Using Linux
+
 <br></br>
 
 Next conditions will help you properly set the hardware to test GPIO controls:
@@ -2408,6 +2429,7 @@ cat /sys/kernel/debug/gpio
 ```
 
 #### Using Arduino IDE
+
 <br></br>
 
 If Portenta Hat Carrier is paired with Portenta H7 or Portenta C33, consider using the following example:
@@ -2466,24 +2488,25 @@ void loop() {
 
 The Portenta Hat Carrier has 10 digital pins with PWM functionality, mapped as follows:
 
-|  **Pin number** | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** |
-|:---------------:|:--------------:|:----------------------------:|:--------------------:|
+| **Pin number**  | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** |
+| :-------------: | :------------: | :--------------------------: | :------------------: |
 | _40-Pin Header_ |                |                              |                      |
-|        7        |      PWM0      |             PWM_0            |         J2-59        |
-|        22       |      PWM1      |             PWM_1            |         J2-61        |
-|        26       |      PWM2      |             PWM_2            |         J2-63        |
-|        31       |      PWM3      |             PWM_3            |         J2-65        |
-|        33       |      PWM4      |             PWM_4            |         J2-67        |
-|        36       |      PWM5      |             PWM_5            |         J2-60        |
-|        37       |      PWM6      |             PWM_6            |         J2-62        |
+|        7        |      PWM0      |            PWM_0             |        J2-59         |
+|       22        |      PWM1      |            PWM_1             |        J2-61         |
+|       26        |      PWM2      |            PWM_2             |        J2-63         |
+|       31        |      PWM3      |            PWM_3             |        J2-65         |
+|       33        |      PWM4      |            PWM_4             |        J2-67         |
+|       36        |      PWM5      |            PWM_5             |        J2-60         |
+|       37        |      PWM6      |            PWM_6             |        J2-62         |
 | _16-Pin Header_ |                |                              |                      |
-|        9        |      PWM7      |             PWM_7            |         J2-64        |
-|        10       |      PWM8      |             PWM_8            |         J2-66        |
-|        12       |      PWM4      |            GPIO_0            |         J2-46        |
+|        9        |      PWM7      |            PWM_7             |        J2-64         |
+|       10        |      PWM8      |            PWM_8             |        J2-66         |
+|       12        |      PWM4      |            GPIO_0            |        J2-46         |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. All these pins must be configured on the corresponding Portenta.
 
 #### Using Linux
+
 <br></br>
 
 The following Python® script is designed to control the brightness of a device, such as an LED, by varying the duty cycle of a PWM signal in a Linux environment on Portenta X8.
@@ -2531,6 +2554,7 @@ if __name__ == "__main__":
 ```
 
 #### Using Arduino IDE
+
 <br></br>
 
 The [`analogWrite()` [function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite) included in the Arduino programming language can be used to access the PWM pins.
@@ -2568,27 +2592,27 @@ For developers aiming to investigate and understand the intricate details of dev
 The pins used for the JTAG debug port on the Portenta Hat Carrier are the following:
 
 | **Pin number** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         | **Interface** |
-|:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|:-------------:|
-|        1       | +3V3_PORTENTA |              VCC             |                      J2-23, J2-34, J2-43, J2-69                      |               |
-|        2       |               |           JTAG_SWD           |                                 J1-75                                |    JTAG SWD   |
-|        3       |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
-|        4       |               |           JTAG_SCK           |                                 J1-77                                |    JTAG SCK   |
-|        5       |      GND      |              GND             | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
-|        6       |               |           JTAG_SWO           |                                 J1-79                                |    JTAG SWO   |
-|        7       |               |              NC              |                                  NC                                  |               |
-|        8       |               |           JTAG_TDI           |                                 J1-78                                |    JTAG TDI   |
-|        9       |               |           JTAG_TRST          |                                 J1-80                                |   JTAG TRST   |
-|       10       |               |           JTAG_RST           |                                 J1-73                                |    JTAG RST   |
+| :------------: | :-----------: | :--------------------------: | :------------------------------------------------------------------: | :-----------: |
+|       1        | +3V3_PORTENTA |             VCC              |                      J2-23, J2-34, J2-43, J2-69                      |               |
+|       2        |               |           JTAG_SWD           |                                J1-75                                 |   JTAG SWD    |
+|       3        |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
+|       4        |               |           JTAG_SCK           |                                J1-77                                 |   JTAG SCK    |
+|       5        |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
+|       6        |               |           JTAG_SWO           |                                J1-79                                 |   JTAG SWO    |
+|       7        |               |              NC              |                                  NC                                  |               |
+|       8        |               |           JTAG_TDI           |                                J1-78                                 |   JTAG TDI    |
+|       9        |               |          JTAG_TRST           |                                J1-80                                 |   JTAG TRST   |
+|       10       |               |           JTAG_RST           |                                J1-73                                 |   JTAG RST    |
 
 ## Understanding Device Tree Blobs (DTB) Overlays
 
 ### Device Tree Blobs (DTB) And DTB Overlays
 
-In the world of embedded systems, _U-boot_ and the _Linux kernel_ use a concept called __Device Tree Blobs (DTB)__ to describe a board's hardware configuration. This approach allows for a unified main source tree to be used across different board configurations, ensuring consistency.
+In the world of embedded systems, _U-boot_ and the _Linux kernel_ use a concept called **Device Tree Blobs (DTB)** to describe a board's hardware configuration. This approach allows for a unified main source tree to be used across different board configurations, ensuring consistency.
 
 The boards, acting as carriers, allow various peripherals to be connected, such as temperature sensors or accelerometers. These carriers serve as expansion connectors. You might want to connect various peripherals and be able to add or remove them easily.
 
-The concept of modularity is applied to the _DTB_, resulting in __DTB overlays__. The hardware configuration is split into multiple small files, each representing a different peripheral or function in the form of a DTB overlay.
+The concept of modularity is applied to the _DTB_, resulting in **DTB overlays**. The hardware configuration is split into multiple small files, each representing a different peripheral or function in the form of a DTB overlay.
 
 During the early boot stage, these overlays are merged together into a single DTB and loaded into RAM. This approach enables users to select and change configurations with ease. However, it is important to note that changing the hardware configuration requires a system reboot to maintain system stability.
 
@@ -2602,7 +2626,7 @@ You can modify and maintain the Device Tree Blob (DTB) overlays through a couple
 
 After making the desired changes, it is necessary to save the changes and reboot the system to apply them.
 
-On the other hand, in builds that prioritize security, the *fw_setenv tool* accessible in user space must be used to apply the corresponding changes to the U-boot settings as follows:
+On the other hand, in builds that prioritize security, the _fw_setenv tool_ accessible in user space must be used to apply the corresponding changes to the U-boot settings as follows:
 
 ```
 fw_setenv overlays=name_ov1 name_ov2
@@ -2654,11 +2678,11 @@ The commands above enable functionalities such as a speed-controlled fan connect
 
 Hardware configuration is divided into the following layers:
 
-- __Layer 0__: System on Module (SoM), prefixed with `ov_som_`.
-- __Layer 1__: Carrier boards, prefixed with `ov_carrier_`.
-- __Layer 2__: HATs and Cameras, which is usually a concatenation of the carrier name and the hat name or functionality.
+- **Layer 0**: System on Module (SoM), prefixed with `ov_som_`.
+- **Layer 1**: Carrier boards, prefixed with `ov_carrier_`.
+- **Layer 2**: HATs and Cameras, which is usually a concatenation of the carrier name and the hat name or functionality.
 
-EEPROMs, which store identification IDs, are typically defined on _Layer 1_ and accessible on _I2C1_. Some HATs may also have EEPROMs according to the Raspberry Pi® standard (*ID_SD*, *ID_SC*), accessible on _I2C0_.
+EEPROMs, which store identification IDs, are typically defined on _Layer 1_ and accessible on _I2C1_. Some HATs may also have EEPROMs according to the Raspberry Pi® standard (_ID_SD_, _ID_SC_), accessible on _I2C0_.
 
 There are some overlays which add specific functionalities. For example:
 
@@ -2669,6 +2693,7 @@ There are some overlays which add specific functionalities. For example:
 When no known carrier is detected and the Portenta X8 is mounted as the main board, the first two overlays mentioned above are applied by default.
 
 #### Distinction Between System And Hardware Configuration
+
 <br></br>
 
 The distinction between system and hardware configuration is crucial. System configuration includes settings such as user creation and Wi-Fi® passwords, whereas hardware configuration is explicitly defined through the device tree.
@@ -2677,9 +2702,9 @@ In production environments, the addition of custom compiled device tree overlays
 
 ## Raspberry Pi® HAT
 
-The Portenta Hat Carrier is notable for its compatibility with __Hardware Attached on Top (HAT)__ add-on boards.
+The Portenta Hat Carrier is notable for its compatibility with **Hardware Attached on Top (HAT)** add-on boards.
 
-A __Hardware Attached on Top (HAT)__ is known as a standardized add-on module designed to be interfaced with compatible host systems. The HAT concept can be understood as a modular approach to hardware extension.
+A **Hardware Attached on Top (HAT)** is known as a standardized add-on module designed to be interfaced with compatible host systems. The HAT concept can be understood as a modular approach to hardware extension.
 
 Following certain design rules to specific mechanical and electronic design criteria, a HAT usually has a built-in memory chip (EEPROM). This allows the host system to automatically recognize and potentially configure itself corresponding to the attached module.
 
@@ -2691,9 +2716,9 @@ The standardized design of HATs ensures they are compatible and easy to use with
 
 These is the officially compatible list of HATs:
 
-- __Stepper Motor HAT__: it is a HAT that drives stepper motors, enabling precise control of rotation direction, angle, speed, and steps, suitable for projects like CNC, 3D printers, and robotics. It uses a DRV8825 dual H-bridge motor driver.
+- **Stepper Motor HAT**: it is a HAT that drives stepper motors, enabling precise control of rotation direction, angle, speed, and steps, suitable for projects like CNC, 3D printers, and robotics. It uses a DRV8825 dual H-bridge motor driver.
 
-- __RPi Relay Board__: it is a HAT that eases the control of high-voltage devices, featuring three channels, and photo coupling isolation. It helps provide safe device switching for various applications.
+- **RPi Relay Board**: it is a HAT that eases the control of high-voltage devices, featuring three channels, and photo coupling isolation. It helps provide safe device switching for various applications.
 
 The example scripts are located within the Docker container. To access these scripts and test them with the Hat mounted, execute the following command:
 
@@ -2743,7 +2768,7 @@ python3 example_script.py
 
 This last command for example is also applicable within ADB shell of the Portenta X8.
 
-The following sections will help you become familiar with the examples found within the `root/examples/portenta-hat-carrier` directory. This directory contains both the _RPi Relay Board_ and the _Stepper Motor HAT_. These examples are used within the __Linux__ environment.
+The following sections will help you become familiar with the examples found within the `root/examples/portenta-hat-carrier` directory. This directory contains both the _RPi Relay Board_ and the _Stepper Motor HAT_. These examples are used within the **Linux** environment.
 
 ### RPi Relay Board
 
@@ -2918,7 +2943,7 @@ For implementation, this script draws functions from `relay_lib_seeed`, which wa
 
 ### Stepper Motor HAT
 
-Using the capabilities of the Portenta X8 alongside specific modules can increase its performance. One such module is the __drv8825 HAT__, designed specifically for driving stepper motors, especially when paired with the Portenta Hat Carrier.
+Using the capabilities of the Portenta X8 alongside specific modules can increase its performance. One such module is the **drv8825 HAT**, designed specifically for driving stepper motors, especially when paired with the Portenta Hat Carrier.
 
 To use the drv8825 HAT with Portenta Hat Carrier and Portenta X8, please follow these steps:
 
@@ -2926,9 +2951,9 @@ To use the drv8825 HAT with Portenta Hat Carrier and Portenta X8, please follow 
 
 2. Align and position the drv8825 HAT on the Portenta Hat Carrier. Make sure to align its 40-Pin header.
 
-3. Proceed by wiring the motor poles. This can be done using either the __A1-A2__, __B1-B2__ configurations or the alternative __A3-B3__, __A4-B4__ setups. Proper wiring is crucial for achieving the desired rotational motion in the motor.
+3. Proceed by wiring the motor poles. This can be done using either the **A1-A2**, **B1-B2** configurations or the alternative **A3-B3**, **A4-B4** setups. Proper wiring is crucial for achieving the desired rotational motion in the motor.
 
-4. To ensure the system is powered on, connect an external power source using the __VIN-GND__ terminals. This powers both the Portenta X8 and the drv8825 HAT, securing stable electrical performance.
+4. To ensure the system is powered on, connect an external power source using the **VIN-GND** terminals. This powers both the Portenta X8 and the drv8825 HAT, securing stable electrical performance.
 
 5. One distinguishing feature of the drv8825 HAT is the provision for micro-stepping. This feature enhances the precision of motor operations.
 
@@ -2969,7 +2994,7 @@ step_type = '1/32'
 fullstep_delay = .005
 ```
 
-For a comprehensive understanding, and perhaps to delve into advanced configurations, [Waveshare's Stepper Motor HAT (B) Wiki](https://www.waveshare.com/wiki/Stepper_Motor_HAT_(B)) is an excellent resource. It provides extensive insights and details about the drv8825 HAT.
+For a comprehensive understanding, and perhaps to delve into advanced configurations, [Waveshare's Stepper Motor HAT (B) Wiki](<https://www.waveshare.com/wiki/Stepper_Motor_HAT_(B)>) is an excellent resource. It provides extensive insights and details about the drv8825 HAT.
 
 ## Communication
 
@@ -2982,15 +3007,16 @@ Dedicated pins are provided as well on the Portenta Hat Carrier for each communi
 The Portenta Hat Carrier supports SPI communication via two dedicated ports named `SPI0` and `SPI1`. Both ports are available via High-Density connectors, while `SPI1` is also available over [40-pin connector](#40-pin-header). This allows data transmission between the board and other SPI-compatible devices. The pins used in the Portenta Hat Carrier for the SPI communication protocol are the following:
 
 | **Pin number** | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** | **Interface** |
-|:--------------:|:--------------:|:----------------------------:|:--------------------:|:-------------:|
-|       19       |    SPI1 COPI   |           SPI1_MOSI          |         J2-42        |   SPI 1 MOSI  |
-|       21       |    SPI1 CIPO   |           SPI1_MISO          |         J2-40        |   SPI 1 MISO  |
-|       23       |    SPI1 SCK    |            SPI1_CK           |         J2-38        |    SPI 1 CK   |
-|       24       |     SPI1 CE    |            SPI1_CS           |         J2-36        |    SPI 1 CS   |
+| :------------: | :------------: | :--------------------------: | :------------------: | :-----------: |
+|       19       |   SPI1 COPI    |          SPI1_MOSI           |        J2-42         |  SPI 1 MOSI   |
+|       21       |   SPI1 CIPO    |          SPI1_MISO           |        J2-40         |  SPI 1 MISO   |
+|       23       |    SPI1 SCK    |           SPI1_CK            |        J2-38         |   SPI 1 CK    |
+|       24       |    SPI1 CE     |           SPI1_CS            |        J2-36         |   SPI 1 CS    |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
 #### Using Linux
+
 <br></br>
 
 With admin (root) access, you can use the following commands within the shell for the Portenta X8:
@@ -3012,9 +3038,11 @@ services:
        devices:
           - '/dev/spidev0.0'
 ```
+
 Following section configures a service named `my_spi_service` to use the SPI device available at `/dev/spi-1`.
 
 #### Using Arduino IDE
+
 <br></br>
 
 Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. This can be used with Portenta H7 or C33. The SPI library provides functions for SPI communication:
@@ -3066,9 +3094,9 @@ I2S, short for Inter-IC Sound, connects digital audio devices using an electrica
 
 It operates using three main lines:
 
-- __SCK (Serial Clock) or BCLK__: the clock signal.
-- __WS (Word Select) or FS (Frame Select)__: Differentiates data for the Right or Left Channel.
-- __SD (Serial Data)__: transmits the audio data.
+- **SCK (Serial Clock) or BCLK**: the clock signal.
+- **WS (Word Select) or FS (Frame Select)**: Differentiates data for the Right or Left Channel.
+- **SD (Serial Data)**: transmits the audio data.
 
 The Controller generates the SCK and WS signals, and its frequency is derived from SampleRate x Bits Per Channel x Number of Channels.
 
@@ -3077,19 +3105,19 @@ In an I2S setup, while one device acts as the Controller, others are in Peripher
 The pins used in the Portenta Hat Carrier for the I2S communication protocol are the following:
 
 | **Pin number** | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** | **Interface** |
-|:--------------:|:--------------:|:----------------------------:|:--------------------:|:-------------:|
-|       12       |     I2S CK     |            I2S_CK            |         J1-56        |     I2S CK    |
-|       35       |     I2S WS     |            I2S_WS            |         J1-58        |     I2S WS    |
-|       38       |     I2S SDI    |            I2S_SDI           |         J1-60        |    I2S SDI    |
-|       40       |     I2S SDO    |            I2S_SDO           |         J1-62        |    I2S SDO    |
+| :------------: | :------------: | :--------------------------: | :------------------: | :-----------: |
+|       12       |     I2S CK     |            I2S_CK            |        J1-56         |    I2S CK     |
+|       35       |     I2S WS     |            I2S_WS            |        J1-58         |    I2S WS     |
+|       38       |    I2S SDI     |           I2S_SDI            |        J1-60         |    I2S SDI    |
+|       40       |    I2S SDO     |           I2S_SDO            |        J1-62         |    I2S SDO    |
 
 ### SAI - Serial Audio Interface
 
-__Serial Audio Interface (SAI)__ is a versatile protocol for transmitting audio data between digital components. Unlike the fixed I2S standard, SAI supports multiple audio data formats and configurations. The carrier works with the following data lines:
+**Serial Audio Interface (SAI)** is a versatile protocol for transmitting audio data between digital components. Unlike the fixed I2S standard, SAI supports multiple audio data formats and configurations. The carrier works with the following data lines:
 
-- __D0__: This serves as the primary data line, transmitting or receiving audio data.
-- __CK (BCLK)__: The Bit Clock, governing the rate of individual audio data bit transmission or reception.
-- __FS__: Frame Sync, marking the boundary of audio frames, often differentiating channels in stereo audio.
+- **D0**: This serves as the primary data line, transmitting or receiving audio data.
+- **CK (BCLK)**: The Bit Clock, governing the rate of individual audio data bit transmission or reception.
+- **FS**: Frame Sync, marking the boundary of audio frames, often differentiating channels in stereo audio.
 
 SAI protocol can operate both synchronously and asynchronously, adjusting to various audio system needs. Due to its adaptability, SAI suits complex audio tasks, systems with multi-channel requirements, and specific audio formats.
 
@@ -3098,27 +3126,28 @@ In essence, SAI offers greater flexibility than I2S, catering to a broader range
 The pins used in the Portenta Hat Carrier for the SAI protocol are the following:
 
 | **Pin number** | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** | **Interface** |
-|:--------------:|:--------------:|:----------------------------:|:--------------------:|:-------------:|
-|       15       |     SAI D0     |            SAI_D0            |         J2-53        |     SAI D0    |
-|       16       |     SAI CK     |            SAI_CK            |         J2-49        |     SAI CK    |
-|       18       |     SAI FS     |            SAI_FS            |         J2-51        |     SAI FS    |
+| :------------: | :------------: | :--------------------------: | :------------------: | :-----------: |
+|       15       |     SAI D0     |            SAI_D0            |        J2-53         |    SAI D0     |
+|       16       |     SAI CK     |            SAI_CK            |        J2-49         |    SAI CK     |
+|       18       |     SAI FS     |            SAI_FS            |        J2-51         |    SAI FS     |
 
 ### I2C
 
 The Portenta Hat Carrier supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Portenta Hat Carrier for the I2C communication protocol are the following:
 
 | **Pin number** | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** | **Interface** |
-|:--------------:|:--------------:|:----------------------------:|:--------------------:|:-------------:|
-|       27       |    I2C0 SDA    |           I2C0_SDA           |         J1-44        |   I2C 0 SDA   |
-|       28       |    I2C0 SCL    |           I2C0_SCL           |         J1-46        |   I2C 0 SCL   |
-|        3       |    I2C2 SDA    |           I2C2_SDA           |         J2-45        |   I2C 2 SDA   |
-|        5       |    I2C2 SCL    |           I2C2_SCL           |         J2-47        |   I2C 2 SCL   |
+| :------------: | :------------: | :--------------------------: | :------------------: | :-----------: |
+|       27       |    I2C0 SDA    |           I2C0_SDA           |        J1-44         |   I2C 0 SDA   |
+|       28       |    I2C0 SCL    |           I2C0_SCL           |        J1-46         |   I2C 0 SCL   |
+|       3        |    I2C2 SDA    |           I2C2_SDA           |        J2-45         |   I2C 2 SDA   |
+|       5        |    I2C2 SCL    |           I2C2_SCL           |        J2-47         |   I2C 2 SCL   |
 
 Please, refer to the [pinout section](#pinout) of the user manual to find them on the board. The I<sup>2</sup>C pins are also available through the onboard ESLOV connector of the Portenta Hat Carrier.
 
 ![Portenta Hat Carrier CAN Bus Interface Connection Example](assets/portentaHATcarrier_I2C_conn.png)
 
 #### Using Linux
+
 <br></br>
 
 For the Portenta X8, it is possible to use the following commands within the shell when you have admin (root) access:
@@ -3223,6 +3252,7 @@ i2c.close()
 ```
 
 #### Using Arduino IDE
+
 <br></br>
 
 To use I2C communication, include the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) at the top of your sketch. This can be used with Portenta H7 or C33. The `Wire` library provides functions for I2C communication:
@@ -3293,16 +3323,17 @@ The Portenta Hat Carrier is equipped with CAN bus communication capabilities, po
 
 Since the CAN bus pins are integrated within the High-Density connectors, they are conveniently accessible on the carrier through the screw terminal. This provides flexibility in connection, allowing developers to design and troubleshoot their systems easily.
 
-| **Pin number** | **Silkscreen** |                         **High-Density Pin**                         |    **Interface**   |
-|:--------------:|:--------------:|:--------------------------------------------------------------------:|:------------------:|
-|        5       |      CANH      |                          J1-49 (Through U1)                          | CAN BUS - CANH     |
-|        6       |      CANL      |                          J1-51 (Through U1)                          | CAN BUS - CANL     |
+| **Pin number** | **Silkscreen** | **High-Density Pin** | **Interface**  |
+| :------------: | :------------: | :------------------: | :------------: |
+|       5        |      CANH      |  J1-49 (Through U1)  | CAN BUS - CANH |
+|       6        |      CANL      |  J1-51 (Through U1)  | CAN BUS - CANL |
 
 ![Portenta Hat Carrier CAN Bus Interface Connection Example](assets/portentaHATcarrier_CAN_conn.png)
 
-***For stable CAN bus communication, it is recommended to install a 120 Ω termination resistor between CANH and CANL lines.***
+**_For stable CAN bus communication, it is recommended to install a 120 Ω termination resistor between CANH and CANL lines._**
 
 #### Using Linux
+
 <br></br>
 
 For the Portenta X8, when you have admin (root) access, you can execute the following commands within the shell to control the CAN bus protocol. The CAN transceiver can be enabled using the following command
@@ -3408,17 +3439,17 @@ For more information regarding this container utility, please check _can-utils-s
 
 The list provided offers a quick reference for various `bustype` parameters supported by _python-can_ library.
 
-- __socketcan__: For the SocketCAN interface, which is native to Linux.
-- __virtual__: Creates a virtual CAN bus, useful for testing purposes when you do not have actual CAN hardware.
-- __pcan__: For Peak-System PCAN-USB adapters.
-- __canalystii__: For the Canalyst II interface.
-- __kvaser__: For Kvaser CAN interfaces.
-- __systec__: For SYS TEC electronic interfaces.
-- __vector__: For Vector hardware using the XL Driver Library.
-- __usb2can__: For the 8devices USB2CAN.
-- __ixxat__: For IXXAT hardware using the VCI driver.
-- __nican__: For National Instruments CAN hardware.
-- __iscan__: For the Intrepid Control Systems (ICS) neoVI.
+- **socketcan**: For the SocketCAN interface, which is native to Linux.
+- **virtual**: Creates a virtual CAN bus, useful for testing purposes when you do not have actual CAN hardware.
+- **pcan**: For Peak-System PCAN-USB adapters.
+- **canalystii**: For the Canalyst II interface.
+- **kvaser**: For Kvaser CAN interfaces.
+- **systec**: For SYS TEC electronic interfaces.
+- **vector**: For Vector hardware using the XL Driver Library.
+- **usb2can**: For the 8devices USB2CAN.
+- **ixxat**: For IXXAT hardware using the VCI driver.
+- **nican**: For National Instruments CAN hardware.
+- **iscan**: For the Intrepid Control Systems (ICS) neoVI.
 
 Each bustype corresponds to different CAN interfaces or devices, ranging from the native Linux _SocketCAN_ interface to specific hardware devices like _Kvaser_, _Vector_, and more.
 
@@ -3603,20 +3634,21 @@ void loop()
 
 The Portenta Hat Carrier supports UART communication. The pins used in the Portenta Hat Carrier for the UART communication protocol are the following:
 
-|  **Pin number** | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** | **Interface** |
-|:---------------:|:--------------:|:----------------------------:|:--------------------:|:-------------:|
+| **Pin number**  | **Silkscreen** | **Portenta HD Standard Pin** | **High-Density Pin** | **Interface** |
+| :-------------: | :------------: | :--------------------------: | :------------------: | :-----------: |
 | _40-Pin Header_ |                |                              |                      |               |
-|        8        |       TX3      |          SERIAL3_TX          |         J2-25        |   UART 3 TX   |
-|        10       |       RX3      |          SERIAL3_RX          |         J2-27        |   UART 3 RX   |
-|        29       |       RX1      |          SERIAL1_RX          |         J1-35        |   UART 1 RX   |
-|        32       |       TX1      |          SERIAL1_TX          |         J1-33        |   UART 1 TX   |
+|        8        |      TX3       |          SERIAL3_TX          |        J2-25         |   UART 3 TX   |
+|       10        |      RX3       |          SERIAL3_RX          |        J2-27         |   UART 3 RX   |
+|       29        |      RX1       |          SERIAL1_RX          |        J1-35         |   UART 1 RX   |
+|       32        |      TX1       |          SERIAL1_TX          |        J1-33         |   UART 1 TX   |
 | _16-Pin Header_ |                |                              |                      |               |
-|        14       |       TX2      |          SERIAL2_TX          |         J2-26        |   UART 2 TX   |
-|        16       |       RX2      |          SERIAL2_RX          |         J2-28        |   UART 2 RX   |
+|       14        |      TX2       |          SERIAL2_TX          |        J2-26         |   UART 2 TX   |
+|       16        |      RX2       |          SERIAL2_RX          |        J2-28         |   UART 2 RX   |
 
 Please, refer to the board pinout section of the user manual to find them on the board. The UART pins can be used through the built-in ([Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/)) library functions.
 
 #### Using Linux
+
 <br></br>
 
 For the Portenta X8, when you have admin (root) access, you can execute the command `ls /dev/ttyUSB* /dev/ttyACM* /dev/ttymxc*` within the shell to list available serial ports in Linux. Typically, USB serial devices could appear as _/dev/ttyUSBx_, _/dev/ttyACMx_, or _/dev/ttymxcx_.
@@ -3667,6 +3699,7 @@ The script sets up a serial connection on port _/dev/ttymxc2_ at a baud rate of 
 The `time.sleep(0.002)` line adds a slight delay, ensuring data has enough time to buffer, similar to using `delay(2);` in Arduino.
 
 #### Using Arduino IDE
+
 <br></br>
 
 For Portenta H7 or C33, the following examples can be used to test UART communication. For a proper UART communication, the baud rate (bits per second) must be set within the `setup()` function.
