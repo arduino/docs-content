@@ -509,21 +509,21 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |  Company address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
-|        **Ref**                                      | **Link**                                                                                    |
-|:---------------------------------------------------:|---------------------------------------------------------------------------------------------|
-| Arduino IDE (Desktop)                               | https://www.arduino.cc/en/Main/Software                                                     |
-| Getting Started With FPGAs Using the MKR Vidor 4000 | https://www.arduino.cc/en/Main/Software                                                     |
-| Arduino IDE (Cloud)                                 | https://create.arduino.cc/editor                                                            |
-| Arduino Cloud - Getting started                     | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started             |
-| MKR Vidor Documentation                             | https://docs.arduino.cc/hardware/mkr-vidor-4000                                             |
-| Arduino Project Hub                                         | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                    |
+|                       **Ref**                       | **Link**                                                                        |
+| :-------------------------------------------------: | ------------------------------------------------------------------------------- |
+|                Arduino IDE (Desktop)                | https://www.arduino.cc/en/Main/Software                                         |
+| Getting Started With FPGAs Using the MKR Vidor 4000 | https://www.arduino.cc/en/Main/Software                                         |
+|                 Arduino IDE (Cloud)                 | https://create.arduino.cc/editor                                                |
+|           Arduino Cloud - Getting started           | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
+|               MKR Vidor Documentation               | https://docs.arduino.cc/hardware/mkr-vidor-4000                                 |
+|                 Arduino Project Hub                 | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending        |
+|                  Library Reference                  | https://www.arduino.cc/reference/en/                                            |
+|                    Online Store                     | https://store.arduino.cc/                                                       |
 
-| Library Reference                                   | https://www.arduino.cc/reference/en/                                                        |
-| Online Store                                        | https://store.arduino.cc/                                                                   |
-         
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |                       **Changes**                      |
-|:----------:|:------------:|:------------------------------------------------------:|
-| 07/09/2023 |       1      |                      First release                     |
+|  **Date**  | **Revision** |     **Changes**      |
+| :--------: | :----------: | :------------------: |
+| 02/11/2023 |      2       | Block Diagram Update |
+| 07/09/2023 |      1       |    First release     |
