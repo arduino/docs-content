@@ -9,7 +9,7 @@ tags: [ESP32, SPIFFS, IDE]
 
 The SPIFFS (Serial Peripheral Interface Flash File System) is a file system designed to be used with NOR flash memory devices and microcontrollers that support the Serial Peripheral Interface (SPI) protocol such as the ESP32 found on the [Nano ESP32](https://store.arduino.cc/products/nano-esp32?queryID=undefined).
 
-***Before proceeding with the SPIFFS file system setup on Nano ESP, please be aware that the mounting instructions mentioned in a comment on the code from the packaged built-in example are tailored for specific older IDE versions such as IDE 1.8. These instructions might not be relevant to IDE 2.0, as it does not support the utilization of custom tools, unnecessary in this case.***
+***Before proceeding with the SPIFFS file system setup on Nano ESP, please be aware that the mounting instructions mentioned in a comment on the code from the packaged built-in example are tailored for specific older IDE versions such as IDE 1.8. These instructions might not be relevant to IDE 2.0, as it does not support the utilization of custom tools, which are unnecessary in this case.***
 
 ## Set Up SPIFFS File System
 
@@ -31,7 +31,7 @@ Prepare your following these steps:
 
 - **Plug it in** and the RGB LED will turn on with a green or blue color.
 
-- While the **GND** and **B1** pins are shorted, press the white **RST** button on the top of the board to reset the board to **firmware download mode**.
+- While the **GND** and **B1** pins are shorted, press the white **RST** button on the top of the board to reset the board.
 
 - **Remove** the jumper cable. The RGB LED should stay on, in a purple or yellow color.
 
@@ -55,13 +55,13 @@ Select the **Esptool as Programmer** by going to:
 
 We have now successfully changed the partition scheme and the final step is to upload a sketch using programmer and reset the board.
 
-Upload the sketch **Using Programmer** by going to:
+Upload the sketch via **Using Programmer** by going to:
 
 - Sketch > Upload Using Programmer
 
 ![Upload Using Programmer](./assets/uploadProgrammer.png)
 
-After the successfull upload press the white **RST** button on the top of the board. You should see two ports in the drop-down menu, one showing a USB symbol and another one showing a cube.
+After the successful upload press the white **RST** button on the top of the board. You should see two ports in the drop-down menu, one showing a USB symbol and another one showing a cube.
 
 Select the port next to the USB symbol. 
 
