@@ -239,7 +239,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
         <td style="text-align: left;">
             <ul>
                 <li>ETH CENTER TAP: Enable/Disable Ethernet (OFF position to enable for Portenta X8, ON position to enable for Portenta H7/C33)</li>
-                <li>BTSEL: Reserved for future applications (ON position sets Portenta X8 in programming mode)</li>
+                <li>BTSEL: ON position sets Portenta X8 in programming mode (Reserved for future applications)</li>
             </ul>
         </td>
     </tr>
