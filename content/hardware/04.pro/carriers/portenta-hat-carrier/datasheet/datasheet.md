@@ -916,6 +916,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**               |
 | ---------- | ------------ | ------------------------- |
+| 02/11/2023 | 2            | Flashing Mode Description |
 | 25/10/2023 | 1            | First Release             |
-| 02/11/2023 | 1            | Flashing Mode Description |
 
