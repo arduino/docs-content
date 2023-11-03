@@ -113,7 +113,6 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
         <li>SPI (x1)</li>
         <li>I2S (x1)</li>
         <li>I2C (x3)</li>
-        <li>CAN FD (x1)</li>
         <li>UART (without flow control) (x3)</li>
       </ul>
     </td>
