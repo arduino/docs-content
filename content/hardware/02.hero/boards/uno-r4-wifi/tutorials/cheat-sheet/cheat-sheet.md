@@ -23,6 +23,8 @@ This document serves as a technical overview for the UNO R4 WiFi, where you will
 
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish (although this is an advanced option and requires some hacking).
 
+***The on board ESP32 module is by default running firmware that handles connectivity for the UNO R4 WiFi. You may need to update this firmware to enable new features, or resolve bugs and other issues. There are a few methods of updating this firmware, and you can find them all detailed in our [Help Center article](https://support.arduino.cc/hc/en-us/articles/9670986058780-Update-the-connectivity-module-firmware-on-UNO-R4-WiFi).***
+
 You can also visit the documentation platform for the [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi).
 
 ## Datasheet 
@@ -624,7 +626,7 @@ Thanks to the ESP32 module, the UNO R4 WiFi has Bluetooth® LE and Bluetooth® 5
 
 The ESP32 module and the Renesas RA4M1-chip are part of a sophisticated USB-Serial system that is highly flexible and adaptive to allow for HID features while still keeping the ability to program both the main MCU, and the ESP32, if you so wish. By default, the ESP32's is used mainly as a radio module using Wi-Fi® and Bluetooth®.
 
-Overwriting the ESP32's firmware disrupts the communication between the two MCUs, but enables them to act independently. 
+Overwriting the ESP32's firmware disrupts the communication between the two MCUs, but enables them to act independently. If you wish to restore the board to its initial state, you can follow the steps for espflash in our [Help Center article](https://support.arduino.cc/hc/en-us/articles/9670986058780-Update-the-connectivity-module-firmware-on-UNO-R4-WiFi#espflash). 
 
 ***Note: To reprogram the ESP32 module, you need to short the ESP_Download pin to GND while resetting the board. This will put the ESP32 module in a bootloader state where you can establish a connection to it and reprogram the module.***
 
