@@ -320,6 +320,7 @@ pin1 = Pin("D1", Pin.IN, Pin.PULL_UP)
 # Pin configured as an output
 pin0 = Pin("D0", Pin.OUT_PP, Pin.PULL_NONE)     
 ```
+The pin function can be set as: `Pin.IN`, `Pin.OUT_PP`, `Pin.OUT_OD`, `Pin.AF_PP`, or `Pin.AF_OD`. An explanation of the pin modes can be found [here](https://docs.openmv.io/library/pyb.Pin.html#methods). The third parameter, represents the pull mode. It can be set to: `Pin.PULL_NONE`, `Pin.PULL_UP` or `Pin.PULL_DOWN`.
 
 The state of a digital pin, configured as an input, can be read as shown below:
 
@@ -441,6 +442,39 @@ Here is a table with the details of the exposed pins on the Nicla Vision:
 |         PE_13           |           MISO           |   TIMER1   |    CH3     |
 |         PE_14           |           MOSI           |   TIMER1   |    CH4     |
 
+
+To use PWM, you import the `time`, `Pin`, `Timer` modules.
+
+```python
+import time
+from pyb import Pin, Timer
+```
+
+First you need to choose the pin you want to use PWM with.
+
+```python
+OUT = Pin("D1", Pin.OUT_PP, Pin.PULL_NONE)
+```
+
+Create a timer for the PWM, where you set the `timer number` (following the table from above) and the frequency.
+
+```python
+timer1 = Timer(1, freq=1000)
+```
+
+Then you need to start a `PWM channel` (following the table from above) with the timer object. 
+
+```python
+channel1 = timer1.channel(2, Timer.PWM, pin=OUT, pulse_width_percentage=0)
+```
+
+Get or set the pulse width value on a channel. To get, pass no arguments. To set, give a value as an argument.
+
+```python
+channel1.pulse_width_percentage(Width) # Width (0-100)
+```
+As a complete example here is an example code to generate a __50% duty cycle__ PWM signal at __1 Mhz__.
+
 ```python
 import time
 from pyb import Pin, Timer
@@ -449,7 +483,7 @@ from pyb import Pin, Timer
 
 OUT = Pin("D1")
 
-timer1 = Timer(1, freq=1000)
+timer1 = Timer(1, freq=1000000)
 channel1 = timer1.channel(2, Timer.PWM, pin=OUT, pulse_width_percent=0)
 
 channel1.pulse_width_percent(50)
@@ -459,6 +493,8 @@ while True:
     time.sleep_ms(1000)
 
 ```
+
+![PWM output signal](assets/pwm-openmv.png)
 
 #### With Arduino IDE
 
@@ -476,7 +512,7 @@ analogWriteResolution(bits);
 Using `analogWrite` has some limitations, for example, the PWM signal frequency is fixed at 763 Hz, and this could not be ideal for every application.
 
 ```arduino
-// 12 bits PWM 50% duty cylce example code
+// 12 bits PWM 50% duty cycle example code
 
 void setup() {
   analogWriteResolution(12);    // 12 bits (0-4095)
@@ -488,3 +524,172 @@ void loop() {
 ```
 
 ![PWM output signal](assets/pwm-arduino.png)
+
+## Onboard Sensors
+
+The Nicla Vision comes with various onboard sensors that allow you to capture and process motion data via a 6-axis IMU, distance with a Time of Flight (ToF) sensor, record sound with a PDM microphone, and capture images and videos with a camera. 
+
+The onboard sensors can be used for developing various applications, such as voice commanded projects, activity recognition, vibration detection and image classification. The onboard sensors are suitable for Machine Learning applications using our [Arduino Cloud ML Tools](https://cloud.arduino.cc/machine-learning-tools/).
+
+### IMU
+
+The Nicla Vision features an advanced IMU, which allows the board to sense motion. The IMU on the board is the LSM6DSOXTR from ST®. It consists of a 3-axis accelerometer and a 3-axis gyroscope. They can provide information about the board's motion, orientation, and rotation in a 3D space.
+
+![Nicla Vision onboard IMU](assets/imu.png)
+
+#### With OpenMV
+
+In this Micropython environment, you can choose between a basic usage of the IMU by sampling raw motion data using the example code below.
+
+```python
+import time
+from lsm6dsox import LSM6DSOX
+from machine import Pin
+from machine import SPI
+
+lsm = LSM6DSOX(SPI(5), cs=Pin("PF6", Pin.OUT_PP, Pin.PULL_UP))
+
+while True:
+    print("Accelerometer: x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}".format(*lsm.accel()))
+    print("Gyroscope:     x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}".format(*lsm.gyro()))
+    print("")
+    time.sleep_ms(100)
+```
+
+![Accelerometer and gyroscope data output](assets/openmv-imu.gif)
+
+Also, you can develop Machine Learning applications using the Nicla Vision IMU. As a practical example, we are going to test a `Vibration monitoring` model that will be able to identify three states: `no vibration`, `low vibration` and `high vibration`.
+
+First, download the pre-trained model file from the [example repository](https://github.com/STMicroelectronics/STMems_Machine_Learning_Core/tree/master/application_examples/lsm6dsox/Vibration%20monitoring) and copy it to the Nicla Vision storage drive.
+
+![UCF Machine Learning model in the drive](assets/ucf-model.png)
+
+Reset the board and run the following code on the OpenMV IDE.
+
+```python
+from machine import Pin
+from machine import SPI
+from lsm6dsox import LSM6DSOX
+
+INT_MODE = True  # Run in interrupt mode.
+INT_FLAG = False  # Set True on interrupt.
+
+
+def imu_int_handler(pin):
+    global INT_FLAG
+    INT_FLAG = True
+
+
+if INT_MODE is True:
+    int_pin = Pin("PA1", mode=Pin.IN, pull=Pin.PULL_UP)
+    int_pin.irq(handler=imu_int_handler, trigger=Pin.IRQ_RISING)
+
+# Vibration detection example
+UCF_FILE = "lsm6dsox_vibration_monitoring.ucf"
+UCF_LABELS = {0: "no vibration", 1: "low vibration", 2: "high vibration"}
+# NOTE: Selected data rate and scale must match the MLC data rate and scale.
+lsm = LSM6DSOX(
+    SPI(5),
+    cs=Pin("PF6", Pin.OUT_PP, Pin.PULL_UP),
+    gyro_odr=26,
+    accel_odr=26,
+    gyro_scale=2000,
+    accel_scale=4,
+    ucf=UCF_FILE,
+)
+
+print("MLC configured...")
+
+while True:
+    if INT_MODE:
+        if INT_FLAG:
+            INT_FLAG = False
+            print(UCF_LABELS[lsm.mlc_output()[0]])
+    else:
+        buf = lsm.mlc_output()
+        if buf is not None:
+            print(UCF_LABELS[buf[0]])
+
+```
+
+In the OpenMV IDE Serial Monitor, the inference results will be printed after a vibration event.
+
+![Model inference results](assets/ml-inference.png)
+
+
+***You can download and test many other pre-trained models found in this [repository](https://github.com/STMicroelectronics/STMems_Machine_Learning_Core/tree/master/application_examples/lsm6dsox).***
+
+#### With Arduino IDE
+
+First, to use this sensor with the Arduino IDE, you need to install the `Arduino_LSM6DSOX` library, which can be found in the Arduino IDE library manager. To do so in the IDE, select it from the left side menu, search for `LSM6DSOX` and install the one from Arduino.
+
+![IMU library installation](assets/library-install.png)
+
+The example code below shows how to get acceleration and angular velocity data from the onboard IMU and stream it to the Serial Monitor and Serial Plotter.
+
+```arduino
+#include <Arduino_LSM6DSOX.h>
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial)
+    ;
+
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+
+    while (1)
+      ;
+  }
+
+  Serial.print("Accelerometer sample rate = ");
+  Serial.print(IMU.accelerationSampleRate());
+  Serial.println(" Hz");
+  Serial.println();
+  Serial.println("Acceleration in g's");
+  Serial.println("X\tY\tZ");
+
+  Serial.print("Gyroscope sample rate = ");
+  Serial.print(IMU.gyroscopeSampleRate());
+  Serial.println(" Hz");
+  Serial.println();
+  Serial.println("Gyroscope in degrees/second");
+  Serial.println("X\tY\tZ");
+
+  delay(3000);  // Wait 3 seconds
+}
+
+void loop() {
+  float a_x, a_y, a_z;
+
+  if (IMU.accelerationAvailable()) {
+    IMU.readAcceleration(a_x, a_y, a_z);
+
+    Serial.print("acc_X:");
+    Serial.print(a_x);
+    Serial.print(",");
+    Serial.print("acc_Y:");
+    Serial.print(a_y);
+    Serial.print(",");
+    Serial.print("acc_Z:");
+    Serial.println(a_z);
+  }
+  float g_x, g_y, g_z;
+
+  if (IMU.gyroscopeAvailable()) {
+    IMU.readGyroscope(g_x, g_y, g_z);
+
+    Serial.print("gyro_X:");
+    Serial.print(g_x);
+    Serial.print(",");
+    Serial.print("gyro_Y:");
+    Serial.print(g_y);
+    Serial.print(",");
+    Serial.print("gyro_Z:");
+    Serial.println(g_z);
+  }
+}
+```
+![Accelerometer and gyroscope output in the serial plotter](assets/imu-output.png)
+
+### Microphone
