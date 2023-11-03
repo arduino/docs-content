@@ -164,6 +164,10 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
             </td>
         </tr>
         <tr>
+            <td style="vertical-align: top; text-align: right;">CAN FD (x1)</td>
+            <td style="text-align: left;">CAN1: Screw terminal block (J9)</td>
+        </tr>
+        <tr>
             <td style="vertical-align: top; text-align: right;">UART (without flow control) (x3)</td>
             <td style="text-align: left;">
                 <ul>
