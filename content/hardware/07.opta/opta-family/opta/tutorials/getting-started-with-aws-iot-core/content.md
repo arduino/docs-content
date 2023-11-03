@@ -78,5 +78,40 @@ Provide the information requested by the example sketch to generate a new CSR fo
 
 Now that we have a CSR to identify your Opta™ device, we need to login into the AWS IoT Core console and create a certificate.
 
-### 
+### Creating Resources in AWS IoT Core
 
+Login to your AWS account; in the Console Home search bar, search for the "IoT Core" service and select it.
+
+![AWS Console Home](assets/aws-iot_006.png)
+
+In the  IoT Core services area, navigate to the menu on the left side and choose **Manage > All devices > Things**, then select the **Create things** button.
+
+![Things page](assets/aws-iot_007.png)
+
+Once you click the **Create things** button, you will be transferred to a page where you can create a single or many things. Select the **Create single thing** option and then the **Next** button.
+
+![Create things page](assets/aws-iot_008.png)
+
+After selecting the Next button, you will be transferred to a page where you can name your Thing, **name your Thing as same as the common name that you defined in the generated CSR**, and then select the **Next** button. 
+
+![Things properties page](assets/aws-iot_009.png)
+
+After selecting the Next button, you will be transferred to a page where you can upload the generated CSR. Choose the CSR file, then select the **Next** button. 
+
+![Device certificate page](assets/aws-iot_010.png)
+
+After selecting the Next Button, you will be transferred to a page where you can choose the **policies** you want to attach to your Thing, and then select the **Create thing** button. 
+
+![Device certificate page](assets/aws-iot_011.png)
+
+In the image shown below, you can see an example policy created for testing purposes only. **Please do not use this policy in production since it is a wide-open policy and is not the best practice and standards**.
+
+![Example policy](assets/aws-iot_012.png)
+
+Finally, select the Thing you just created and navigate to the **Certificates** tab; select the **Certificate ID** as shown in the image below.
+
+![Thing details](assets/aws-iot_013.png)
+
+Once in the Certificate area, select the **Actions** dropdown menu and choose **Activate**. After the certificate is activated, the next step is to download the certificate. Save the downloaded certificate in a place where you can find the certificate for future action.
+
+![Certificates area](assets/aws-iot_014.png)
