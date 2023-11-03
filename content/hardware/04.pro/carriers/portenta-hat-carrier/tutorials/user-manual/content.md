@@ -1296,7 +1296,7 @@ By understanding the fundamentals of PWM and leveraging the capabilities of the 
 
 ## Storage and Boot Options
 
-Storage and boot-related options are provided to manage the device's data storage and control its operational sequences. Dive into this sub-section to understand the onboard storage options and boot initialization mechanisms.
+Storage and boot-related options are provided to manage the device's data storage and control its operational sequences. Dive into this sub-section to understand the onboard storage options and boot initialization mechanisms with user-programmable actuators.
 
 ### User-Programmable Push Button
 
