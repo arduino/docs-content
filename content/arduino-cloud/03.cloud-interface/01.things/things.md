@@ -44,27 +44,27 @@ For example, if you want to send temperature values to the cloud from a sensor, 
 temperature = sensor.readTemperature();
 ```
 
-***\*This does not apply to Things that are associated with a manual device (JavaScript, Python) as they have no sketch associated. Read more at [Manual Devices](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/devices#manual-devices).***
+***\*This does not apply to Things that are associated with a manual device (JavaScript, Python) as they have no sketch associated. Read more at [Manual Devices](/arduino-cloud/hardware/devices#manual-devices).***
 
 There are a large number of variables available, including basic types such as `int`, `boolean` & `String`, but also complex types that hold multiple values, such as the `ColoredLight` variable. 
 
 Variables of the same type can also be synchronised across all devices. This is done when creating a new variable, where you check the variables you want to sync with. 
 
-***All variables are listed out in the [Variables](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/variables) section. See [Variable Synchronization](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/variables#variable-synchronisation) for linking together your devices' variables.***
+***All variables are listed out in the [Variables](/arduino-cloud/cloud-interface/variables) section. See [Variable Synchronization](/arduino-cloud/cloud-interface/variables#variable-synchronisation) for linking together your devices' variables.***
 
 ## Device
 
 In the device section you can select either a previously configured device, or configure a new one. Associating a device means your device and Thing are now linked indefinitely, until you decide to detach them.
 
 You can connect one of the following devices:
-- [Arduino Wi-Fi® devices](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/wifi) - official Arduino devices with a Wi-Fi® enabled module.
-- [Arduino LoRaWAN® devices](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/lora) - official Arduino devices with a LoRaWAN® module.
-- [Third party ESP32/ESP8266 devices](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/wifi) - third party devices with an ESP32/ESP8266 SoC.
-- [Manual devices](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/devices#manual-devices) - a virtual device using MicroPython, Python or JavaScript. These devices do not have a sketch associated.
+- [Arduino Wi-Fi® devices](/arduino-cloud/hardware/wifi) - official Arduino devices with a Wi-Fi® enabled module.
+- [Arduino LoRaWAN® devices](/arduino-cloud/hardware/lora) - official Arduino devices with a LoRaWAN® module.
+- [Third party ESP32/ESP8266 devices](/arduino-cloud/hardware/wifi) - third party devices with an ESP32/ESP8266 SoC.
+- [Manual devices](/arduino-cloud/hardware/devices#manual-devices) - a virtual device using MicroPython, Python or JavaScript. These devices do not have a sketch associated.
 
 The status of your device is also displayed in this section (online/offline).
 
-***For more details on how to configure a device, check out the [Devices](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/devices) section. The available types and links to individual guides are found there.***
+***For more details on how to configure a device, check out the [Devices](/arduino-cloud/hardware/devices) section. The available types and links to individual guides are found there.***
 
 ## Network
 
@@ -91,7 +91,7 @@ This editor is a mirror of the [Cloud Editor](https://create.arduino.cc/editor/)
 
 The editor includes all cores for official Arduino boards, and over 6000+ libraries. Many boards also supports **Over-the-air (OTA)** uploads, which is enabled after your first upload via USB.
 
-***For more information on the editor, check out the [Getting Started with Cloud Editor](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-editor/getting-started-cloud-editor) tutorial.***
+***For more information on the editor, check out the [Getting Started with Cloud Editor](/arduino-cloud/cloud-editor/getting-started-cloud-editor) tutorial.***
 
 ## Metadata
 
@@ -105,13 +105,13 @@ Your Thing ID can be obtained from your metadata tab, and looks like this:
 cd628fe4-31d1-42a8-bf33-a627997ce602
 ```
 
-This ID is used when connecting with the [REST API](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/api/arduino-iot-api) or with the [Arduino CLI](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/arduino-cloud-cli/getting-started). Using either of these clients provides information about your Thing, such as device associated and cloud variables.
+This ID is used when connecting with the [REST API](/arduino-cloud/api/arduino-iot-api) or with the [Arduino CLI](/arduino-cloud/arduino-cloud-cli/getting-started). Using either of these clients provides information about your Thing, such as device associated and cloud variables.
 
 ### Timezone
 
 You can choose your timezone through a dropdown menu in the metadata tab, which includes many cities from the Americas, Europe, Asia, Africa, Oceania, Atlantic, Pacific and even Antarctica.
 
-This is particularly important when using the [scheduler](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/features/cloud-scheduler) feature to trigger events at specific times.
+This is particularly important when using the [scheduler](/arduino-cloud/features/cloud-scheduler) feature to trigger events at specific times.
 
 ### Tags
 
@@ -131,4 +131,4 @@ For example:
 
 This is implemented so that the connection and synchronisation between the board and cloud is handled automatically, meaning you do not need to do any networking code when using the Arduino / C++ language.
 
-***Please note that if you are using an offline environment, [Arduino IDE](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/software/ide-v2), changes will only be made in the cloud environment and will manually need to be adjusted. If you plan on using the offline IDE, you make use of the [sketch synchronisation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync) feature that allows you to push/pull your cloud sketches from the offline IDE.***
+***Please note that if you are using an offline environment, [Arduino IDE](/software/ide-v2), changes will only be made in the cloud environment and will manually need to be adjusted. If you plan on using the offline IDE, you make use of the [sketch synchronisation](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync) feature that allows you to push/pull your cloud sketches from the offline IDE.***

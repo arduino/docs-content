@@ -26,7 +26,7 @@ The **IoT Remote App** is a mobile version of your dashboards, that can be downl
 - [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US)
 - [Apple App store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)
 
-***For more information, visit the [IoT Remote App docs](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/iot-remote-app/iot-remote-app).***
+***For more information, visit the [IoT Remote App docs](/arduino-cloud/iot-remote-app/iot-remote-app).***
 
 ## Edit / View Modes
 
@@ -49,7 +49,7 @@ You can share your live dashboards with other people, allowing them to monitor a
 
 ![Share your dashboards.](assets/share-dashboard.png)
 
-***Read more at [Sharing Dashboards in the Arduino Cloud](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/features/sharing-dashboards).***
+***Read more at [Sharing Dashboards in the Arduino Cloud](/arduino-cloud/features/sharing-dashboards).***
 
 ## Widgets
 

@@ -38,7 +38,7 @@ Most Wi-Fi® supported Arduino boards have a crypto chip that enables secure com
 
 Wi-Fi devices requires you to enter valid credentials for the Wi-Fi network you attempt to connect to. This is done in the Thing configuration. 
 
-***Read more and see list of all compatible Wi-Fi® boards in the [Arduino Cloud Wi-Fi documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/wifi).***
+***Read more and see list of all compatible Wi-Fi® boards in the [Arduino Cloud Wi-Fi documentation](/arduino-cloud/hardware/wifi).***
 
 ### Official LoRaWAN® Boards
 
@@ -46,7 +46,7 @@ LoRaWAN® boards also have crypto chip on board, but connects to the Arduino Clo
 - **LoRa®** - long range technology used for transmission of data using minimal amount of power for long distances.
 - **LoRaWAN®** - a network of gateways connected to the Internet that can receive and send data to LoRa® devices.
 
-***Read more and see list of all compatible LoRa® boards in the [Arduino Cloud LoRaWAN® documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/lora).***
+***Read more and see list of all compatible LoRa® boards in the [Arduino Cloud LoRaWAN® documentation](/arduino-cloud/hardware/lora).***
 
 ### ESP32 / ESP8266 (Wi-Fi®)
 
@@ -58,7 +58,7 @@ There are currently two official ESP32 based Arduino boards:
 
 You can also configure a wide range of third party ESP32/ESP8266 boards.
 
-***Read more and see list of all compatible ESP32/ESP8266 boards in the [Arduino Cloud ESP32/ESP8266 documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/wifi#esp32--esp8266).***
+***Read more and see list of all compatible ESP32/ESP8266 boards in the [Arduino Cloud ESP32/ESP8266 documentation](/arduino-cloud/hardware/wifi#esp32--esp8266).***
 
 ### Manual Devices
 

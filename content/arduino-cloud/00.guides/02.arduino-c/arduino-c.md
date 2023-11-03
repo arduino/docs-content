@@ -7,17 +7,17 @@ author: 'Karl Söderby'
 
 The default option for programming your board to connect to the Arduino Cloud is by using the **Arduino / C++ language**. The configuration and connection between your board and the Arduino Cloud is supported by the [ArduinoIoTCloud library](https://github.com/arduino-libraries/ArduinoIoTCloud) & [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) libraries.
 
-Whenever you create a [Thing](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/things) in the Arduino Cloud, you automatically start generating a set of files that will handle the configurations, credentials & connection:
+Whenever you create a [Thing](/arduino-cloud/cloud-interface/things) in the Arduino Cloud, you automatically start generating a set of files that will handle the configurations, credentials & connection:
 - `<sketchname>.ino` - your main sketch file,
 - `thingProperties.h` - your main configuration file,
 - `arduino_secrets.h` - your credentials file (for API key, Wi-Fi network etc.)
 
-***If you want to find out more about what the Arduino Cloud service can do, go to the [overview](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/guides/overview) section.*** 
+***If you want to find out more about what the Arduino Cloud service can do, go to the [overview](/arduino-cloud/guides/overview) section.*** 
 
 ## Requirements
 
 - [Registered account at Arduino](https://login.arduino.cc/login),
-- [Cloud compatible board](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/devices#type-of-devices)
+- [Cloud compatible board](/arduino-cloud/hardware/devices#type-of-devices)
 
 ## Setup
 
@@ -27,7 +27,7 @@ In this section, we will go through the steps necessary to connect your Arduino 
 
 First navigate to [Arduino Cloud](app.arduino.cc), and click on the **Devices** tab. Here you can see all your devices, and configure a new one. Depending on what type of board you have, the configuration will vary. 
 
-***For more details, see the [documentation for devices](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/devices).***
+***For more details, see the [documentation for devices](/arduino-cloud/hardware/devices).***
 
 ### Configure Thing
 
@@ -35,7 +35,7 @@ Next, navigate to the **Things** tab. Here you will see a list of your Things, a
 
 ![Arduino Cloud Thing Interface](assets/thing-config.png)
 
-A "Thing" is a virtual twin of your hardware, and it is here that we create variables that we want to synchronize between the cloud and board. Any changes we make here will be reflected in an [automatically generated sketch](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/sketches#iot-sketches).
+A "Thing" is a virtual twin of your hardware, and it is here that we create variables that we want to synchronize between the cloud and board. Any changes we make here will be reflected in an [automatically generated sketch](/arduino-cloud/cloud-interface/sketches#iot-sketches).
 
 1. First, let's attach the device we want to use, by clicking the **"Select Device"** button in the **"Associated Devices"** section to the right. 
 2. let's create a new variable, call it `test`, and select it to be a `boolean` type and with a **read/write** permission.
@@ -43,7 +43,7 @@ A "Thing" is a virtual twin of your hardware, and it is here that we create vari
 
 All the above configurations have now been generated into a set of files that can be accessed in the **Sketch** tab.
 
-***For more details, see the [documentation for Things](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/things).***
+***For more details, see the [documentation for Things](/arduino-cloud/cloud-interface/things).***
 
 ### Complete Sketch
 
@@ -108,4 +108,4 @@ To control the state of the `test` variable, we can setup a **dashboard** and a 
 2. Click on the edit button at the top left, then on the **"Add"** button. Select the Thing you want to associate it with, and then click on **"Create Widgets"**.
 3. A switch widget will have generated, which is now linked to your board. Flicking it should control the state of the LED (on/off).
 
-***You can find more details in the [dashboards documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/dashboard-widgets).***
+***You can find more details in the [dashboards documentation](/arduino-cloud/cloud-interface/dashboard-widgets).***

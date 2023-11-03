@@ -32,7 +32,7 @@ To configure a NB-IoT / GSM board, follow the steps below:
 
 Your board is now configured and ready to be used in the Arduino IoT Cloud. 
 
-To get started, check out the official [Getting Started (Arduino / C++)](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/guides/arduino-c) guide. This will guide you to successfully send data between your board and Arduino Cloud.
+To get started, check out the official [Getting Started (Arduino / C++)](/arduino-cloud/guides/arduino-c) guide. This will guide you to successfully send data between your board and Arduino Cloud.
 
 ## Network Configuration
 

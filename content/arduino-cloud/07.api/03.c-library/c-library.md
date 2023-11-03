@@ -7,7 +7,7 @@ tags: [C++, Arduino]
 
 The default Arduino / C++ library for the Arduino Cloud is the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library. This library depends on the [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) library which provides connection via various wireless protocols (Wi-Fi®, LoRaWAN®, NB-IoT, GSM, Ethernet). 
 
-The library is integrated into the Arduino Cloud platform, where [Automatic Sketch Generation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/sketches#iot-sketches) converts your Thing configurations into a set files that relies on aforementioned libraries.
+The library is integrated into the Arduino Cloud platform, where [Automatic Sketch Generation](/arduino-cloud/cloud-interface/sketches#iot-sketches) converts your Thing configurations into a set files that relies on aforementioned libraries.
 
 The **ArduinoIoTCloud** library supports either connection via **TCP/IP** or **LoRaWAN®**. Depending on the device you compile for, the library automatically chooses the right configuration.
 

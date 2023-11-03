@@ -9,7 +9,7 @@ A sketch is a file where we write programs to run on our Arduino boards. Sketche
 
 The Arduino Cloud has two categories of sketches:
 - **Regular sketch** - a single `.ino` file where you write a program. These sketches can be used for **any** Arduino board. 
-- **IoT Sketch** - a set of files that are automatically generated when creating a [Thing](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/things). This includes a `.ino` file, and two header (`.h`) files that contains your Thing configuration + credentials. Only available for boards with IoT support.
+- **IoT Sketch** - a set of files that are automatically generated when creating a [Thing](/arduino-cloud/cloud-interface/things). This includes a `.ino` file, and two header (`.h`) files that contains your Thing configuration + credentials. Only available for boards with IoT support.
 
 In this document we will take a look at how to use sketches in the Arduino Cloud environment.
 
@@ -21,11 +21,11 @@ You can access all your sketches at [app.arduino.cc/sketches](app.arduino.cc/ske
 
 Clicking on each sketch will direct you to the [Cloud Editor](https://create.arduino.cc/editor/), which is an online version of the Arduino IDE. Here you can write a program, compile it and upload it to your board. 
 
-***To get started with the Cloud Editor, check out the [Cloud Editor Guide](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-editor/getting-started-cloud-editor).***
+***To get started with the Cloud Editor, check out the [Cloud Editor Guide](/arduino-cloud/cloud-editor/getting-started-cloud-editor).***
 
 ## Regular Sketches
 
-A regular sketch in the Arduino Cloud are exactly like sketches used in the [Arduino IDE](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/software/ide-v2), with no difference whatsoever. You can take a sketch from the online IDE and compile it in the offline IDE. 
+A regular sketch in the Arduino Cloud are exactly like sketches used in the [Arduino IDE](/software/ide-v2), with no difference whatsoever. You can take a sketch from the online IDE and compile it in the offline IDE. 
 
 A regular sketch only has two minimum requirements: the inclusion of the `void loop()` and `void setup()` functions, which are required for any Arduino sketch.
 
@@ -47,7 +47,7 @@ For specific features of a board, make sure to check out the [hardware documenta
 
 IoT sketches are more complex, and are generated automatically when you create a Thing and variables.
 
-***Read more about this in the [Automatic Sketch Generation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/sketches) documentation.***
+***Read more about this in the [Automatic Sketch Generation](/arduino-cloud/cloud-interface/sketches) documentation.***
 
 ### Sketch File
 

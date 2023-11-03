@@ -48,8 +48,8 @@ Then, we need to configure a Thing in the [Arduino Cloud](app.arduino.cc/things)
 
 ![Device Key.](assets/device-key.png)
 
-- Learn more about Things in the [Things documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/things)
-- Learn more about Devices in the [Devices documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/devices)
+- Learn more about Things in the [Things documentation](/arduino-cloud/cloud-interface/things)
+- Learn more about Devices in the [Devices documentation](/arduino-cloud/hardware/devices)
 
 ### Create Variables
 
@@ -70,7 +70,7 @@ Your Thing should look something like this when you are finished:
 
 ![Finished Thing interface.](assets/thing.png)
 
-***Learn more about how variables work in the [Variables documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/variables)***
+***Learn more about how variables work in the [Variables documentation](/arduino-cloud/cloud-interface/variables)***
 
 ## MicroPython Setup
 

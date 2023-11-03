@@ -51,7 +51,7 @@ To set up the cloud, you will need to:
 3. Select and attach the device you want to use (or configure a new one).
 4. Create a variable called `LoungeArea` and select it to be of a **colored light** type. This is the variable that will be used to store incoming data from the Alexa service. 
 
-***If you are new to the Arduino Cloud, visit the [Arduino / C++ Setup Guide](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/guides/arduino-c) which has detailed instructions on how to set up devices, configuring Things and more.***
+***If you are new to the Arduino Cloud, visit the [Arduino / C++ Setup Guide](/arduino-cloud/guides/arduino-c) which has detailed instructions on how to set up devices, configuring Things and more.***
 
 ### Example Sketch
 
