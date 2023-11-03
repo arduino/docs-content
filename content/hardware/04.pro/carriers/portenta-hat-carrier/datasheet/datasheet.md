@@ -749,7 +749,7 @@ The PWM header connector controls an optional fan's speed, perfect for heat diss
 | :------------: | :----------: | :------------------------------: |
 | ETH CENTER TAP |      ON      |      Ethernet **disabled**       |
 |                |     OFF      |       Ethernet **enabled**       |
-|     BTSEL      |      ON      |      Flashing Mode (ON)       |
+|     BTSEL      |      ON      |        Flashing Mode (ON)        |
 |                |     OFF      | Reserved for future applications |
 
 Upon positioning the _BTSEL_ switch to the _ON_ state, the Portenta X8 is configured to enter _Flashing Mode_.

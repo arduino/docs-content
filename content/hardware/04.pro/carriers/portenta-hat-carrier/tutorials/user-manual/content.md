@@ -1743,9 +1743,9 @@ For configurations when the Portenta Hat Carrier is combined with the Portenta X
 | **DIP Switch Designation** |          **Position: ON**         |          **Position: OFF**         |
 |:--------------------------:|:---------------------------------:|:----------------------------------:|
 | ETH CENTER TAP             |   Ethernet Disabled               |   Ethernet Enabled                 |
-| BTSEL                      |   Flashing Mode (ON)           |   -   |
+| BTSEL                      |   Flashing Mode (ON)              |   -                                |
 
-Setting the _BTSEL_ switch to the `ON` position will place the board in _Programming Mode_, allowing to update the OS Image of the Portenta X8.
+Setting the _BTSEL_ switch to the `ON` position will place the board in _Flashing Mode_, allowing to update the OS Image of the Portenta X8.
 
 When the Portenta Hat Carrier is combined with either the Portenta H7 or C33, the DIP switch adjustments are as follows:
 
