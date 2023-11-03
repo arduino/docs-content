@@ -7,9 +7,9 @@ tags: [JavaScript, Arduino Cloud]
 
 This library provides interaction with the Arduino IoT Cloud MQTT broker and can be used both from the browser and Node.js.
 
-Connection via this library is achieved by registering a [manual device](), i.e. a virtual device that is not associated with an Arduino hardware board. This virtual device can connect through a simple username/password (Device ID, Secret Key) which is generated in the Arduino Cloud when configuring a device.
+Connection via this library is achieved by registering a [manual device](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/devices#manual-devices), i.e. a virtual device that is not associated with an Arduino hardware board. This virtual device can connect through a simple username/password (Device ID, Secret Key) which is generated in the Arduino Cloud when configuring a device.
 
-This library requires a version of [Node.js]() to be installed on your machine.
+This library requires a version of [Node.js](https://nodejs.org/en/download/current) to be installed on your machine.
 
 ## GitHub
 
@@ -18,7 +18,7 @@ To view the source code and report issues, follow the links below to the GitHub 
 
 ## Requirements
 
-- [Node.js]()
+- [Node.js](https://nodejs.org/en/download/current)
 
 ## Installation
 
@@ -34,7 +34,7 @@ $ npm install arduino-iot-js
 $ yarn add arduino-iot-js
 ```
 
-***Check out the [JavaScript Setup guide]() for more information and a detailed step by step tutorial.***  
+***Check out the [JavaScript Setup guide](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/guides/javascript) for more information and a detailed step by step tutorial.***  
 
 ## Connection Methods
 
@@ -45,7 +45,7 @@ There are three available methods for connection:
 
 ### Device Credentials
 
-Device credentials is the easiest method. These credentials are generated when [configuring a manual device]() in the Arduino Cloud, and works like a username/password. The example below uses device credentials:
+[Device credentials](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/devices#secret-key--device-id) is the easiest method. These credentials are generated when configuring a manual device in the Arduino Cloud, and works like a username/password. The example below uses device credentials:
 
 ```js
 //JavaScript code
@@ -71,7 +71,7 @@ const { ArduinoIoTCloud } = require('arduino-iot-js');
 
 ### API Key
 
-You can also connect using an API key generated from the [Arduino Cloud API Key Section](), a method that is almost identical to Device Credentials, but where you also need to specify your Thing ID. This is available in the metadata section of your Thing.
+You can also connect using an API key generated from the [Arduino Cloud API Key Section](app.arduino.cc/api-keys), a method that is almost identical to Device Credentials, but where you also need to specify your Thing ID. This is available in the metadata section of your Thing.
 
 ```js
 import { ArduinoIoTCloud } from 'arduino-iot-js';

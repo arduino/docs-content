@@ -38,7 +38,7 @@ Networking code and data synchronizing is **automatically done**, so just focus 
 
 Compatibility with the Arduino Cloud is divided into two categories: 
 - **Cloud Editor Support** - you can program **any** official Arduino board in the cloud editor. The editor also supports a large amount of third party boards.
-- **IoT Cloud Support** - board with a radio module (e.g. Wi-Fi®) are supported. ESP32 based boards are also supported. 
+- **IoT Support** - board with a radio module (e.g. Wi-Fi®) are supported. ESP32 based boards are also supported. 
 
 For more information and list of supported boards, see the links below:
 - [Wi-Fi®](/arduino-cloud/hardware/wifi)

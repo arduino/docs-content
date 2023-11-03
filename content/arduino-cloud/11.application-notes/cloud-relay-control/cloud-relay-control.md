@@ -46,7 +46,7 @@ To set up the Arduino Cloud, follow the steps below. In there, we will
 
 To configure a device, navigate to the [app.arduino.cc/devices](app.arduino.cc/devices) and click on the **"create a new device"** button. Connect your board to your computer, and make sure you have the [Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) installed. Your board will appear, and the installation takes a couple of minutes.
 
-***Learn more about Devices in the [Devices documentation]().***
+***Learn more about Devices in the [Devices documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/hardware/devices).***
 
 ### Thing Configuration
 
@@ -54,7 +54,7 @@ To configure a device, navigate to the [app.arduino.cc/devices](app.arduino.cc/d
 2. Click on the **"Select Device"** in the **"Associated Devices"** section of your Thing. Your previously configured device will appear from the list.
 3. In the network section, enter your network credentials.
 
-***Learn more about Things in the [Things documentation]().***
+***Learn more about Things in the [Things documentation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/things).***
 
 ### Create Variables
 
@@ -71,7 +71,7 @@ Your Thing interface should now look something like this:
 
 ![Thing Interface](assets/thing.png)
 
-***Need help understanding cloud variables? Check out the [Variables]() section.***
+***Need help understanding cloud variables? Check out the [Variables](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/variables) section.***
 
 ### Create Sketch
 
@@ -143,11 +143,11 @@ Once you have your device running a sketch and syncing with the Arduino Cloud, y
 
 Navigate to [app.arduino.cc/dashboard](app.arduino.cc/dashboard) and create a dashboard. Add two switches (or any other preferred widgets), and link them to each `relay_x` variable that we created earlier. These switches will be directly linked with your Arduino MKR WiFi 1010's variables, and will turn ON/OFF the relays on your board.
 
-You can also access your dashboard via the [Arduino IoT Remote app]().
+You can also access your dashboard via the [Arduino IoT Remote app](/arduino-cloud/iot-remote-app/getting-started).
 
 ![Interact with your board](assets/dashboard.png)
 
-***For more information on dashboards, available widgets and how to link them to your sketch, visit the [Dashboard & Widgets]() section.***
+***For more information on dashboards, available widgets and how to link them to your sketch, visit the [Dashboard & Widgets](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/dashboard-widgets) section.***
 
 ## High Power Pins
 

@@ -50,7 +50,7 @@ LoRaWAN® boards also have crypto chip on board, but connects to the Arduino Clo
 
 ### ESP32 / ESP8266 (Wi-Fi®)
 
-ESP32/ESP8266 based boards typically don't have an onboard crypto chip, and is configured via a **Secret Key** generated during the configuration.
+ESP32/ESP8266 based boards typically don't have an onboard crypto chip. Instead when configuring a device, a **[secret key](#secret-key--device-id)** is generated, that can together with the **device ID** be used to securely connect to the Arduino Cloud.
 
 There are currently two official ESP32 based Arduino boards:
 - [Arduino UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
@@ -62,7 +62,7 @@ You can also configure a wide range of third party ESP32/ESP8266 boards.
 
 ### Manual Devices
 
-Manual devices are designed for interfacing with JavaScript, Python & MicroPython, and can for example run on an Raspberry Pi, but also on any . Creating a manual device generates a **secret key** that can together with the device ID be used to securely connect to the Arduino Cloud.
+Manual devices are designed for interfacing with JavaScript, Python & MicroPython, and can for example run on an Raspberry Pi, but also on any . Creating a manual device generates a **[secret key](#secret-key--device-id)** that can together with the **device ID** be used to securely connect to the Arduino Cloud.
 
 ***Note that manual devices do not have a sketch associated.***
 
@@ -72,6 +72,13 @@ Check the guides below for getting started with each of the programming language
 - [Connect to Arduino Cloud (Python)](/arduino-cloud/guides/python)
 - [Connect to Arduino Cloud (MicroPython)](/arduino-cloud/guides/micropython)
 
+## Secret Key & Device ID
+
+When configuring ESP32/ESP8266 and Manual Devices, you generate a **Device ID** and a **Secret Key**. This is the final step of the configuration of your device.
+
+![Your Device ID / Secret Key.](assets/device-key.png)
+
+Make sure to download or store this information somewhere, as you cannot retrieve the Secret Key after this step.
 
 ## Device Information
 

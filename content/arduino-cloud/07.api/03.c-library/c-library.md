@@ -1,13 +1,13 @@
 ---
 title: Arduino / C++ Library
-description: 
+description: The ArduinoIoTCloud library allows you to connect to the Arduino Cloud using Arduino/C++. 
 author: Karl Söderby
 tags: [C++, Arduino]
 ---
 
-The default Arduino / C++ library for the Arduino Cloud is the [ArduinoIoTCloud]() library. This library depends on the [Arduino_ConnectionHandler]() library which provides connection via various wireless protocols (Wi-Fi®, LoRaWAN®, NB-IoT, GSM, Ethernet). 
+The default Arduino / C++ library for the Arduino Cloud is the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library. This library depends on the [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) library which provides connection via various wireless protocols (Wi-Fi®, LoRaWAN®, NB-IoT, GSM, Ethernet). 
 
-The library is integrated into the Arduino Cloud platform, where [Automatic Sketch Generation]() converts your Thing configurations into a set files that relies on aforementioned libraries.
+The library is integrated into the Arduino Cloud platform, where [Automatic Sketch Generation](https://docscontentprivate-karlsoderbycloudv2.gatsbyjs.io/arduino-cloud/cloud-interface/sketches#iot-sketches) converts your Thing configurations into a set files that relies on aforementioned libraries.
 
 The **ArduinoIoTCloud** library supports either connection via **TCP/IP** or **LoRaWAN®**. Depending on the device you compile for, the library automatically chooses the right configuration.
 
@@ -28,13 +28,13 @@ When connecting via [TCP/IP](https://en.wikipedia.org/wiki/Internet_protocol_sui
 
 ### LoRaWAN®
 
-When connecting via LoRaWAN®, data is sent via [The Things Network](), which is integrated with the Arduino Cloud. This support is enabled in the following files:
+When connecting via LoRaWAN®, data is sent via [The Things Network](https://www.thethingsnetwork.org/), which is integrated with the Arduino Cloud. This support is enabled in the following files:
 - [ArduinoIoTCloudLPWAN.cpp](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/ArduinoIoTCloudLPWAN.cpp)
 - [ArduinoIoTCloudLPWAN.h](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/src/ArduinoIoTCloudLPWAN.h)
 
 ## Library API Docs
 
-The documentation lives in the [ArduinoIoTCloud]() library documentation page. Here you will find all public methods that are available. 
+The documentation lives in the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud) library documentation page. Here you will find all public methods that are available. 
 
 Most of its functions are already pre-configured in your sketch files, so for most use cases you will not need to explore the API. Functions for connecting to, and syncing data with the Arduino Cloud is handled automatically, and will be generated into your sketch files in the web environment. 
 

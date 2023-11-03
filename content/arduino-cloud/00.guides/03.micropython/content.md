@@ -12,7 +12,7 @@ libraries:
 
 ## Introduction 
 
-This tutorial guides you on how to use the MicroPython library to connect your Arduino device to the Arduino IoT Cloud. 
+This tutorial guides you on how to use the MicroPython library to connect your Arduino device to the Arduino Cloud. 
 
 It requires your board to have a version of MicroPython installed, which is covered in [this article](/micropython/basics/board-installation).
 
