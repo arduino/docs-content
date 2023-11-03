@@ -244,7 +244,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
         <td style="text-align: left;">
             <ul>
                 <li>ETH CENTER TAP: Enable/Disable Ethernet (OFF position to enable for Portenta X8, ON position to enable for Portenta H7/C33)</li>
-                <li>BTSEL: Reserved for future applications (ON position sets Portenta X8 in programming mode)</li>
+                <li>BTSEL: Portenta X8 Flashing mode (ON position)</li>
             </ul>
         </td>
     </tr>
@@ -597,7 +597,7 @@ An overview of the Portenta Hat Carrier topology is illustrated in Figure 5.
                 DIP switch (2 positions):
                 <ul>
                     <li>Ethernet mode</li>
-                    <li>Reserved for future applications (ON position sets Portenta X8 in programming mode)</li>
+                    <li>Portenta X8 Flashing mode (ON position)</li>
                 </ul>
             </td>
         </tr>
@@ -750,7 +750,7 @@ The PWM header connector controls an optional fan's speed, perfect for heat diss
 | :------------: | :----------: | :------------------------------: |
 | ETH CENTER TAP |      ON      |      Ethernet **disabled**       |
 |                |     OFF      |       Ethernet **enabled**       |
-|     BTSEL      |      ON      |      Programming Mode (ON)       |
+|     BTSEL      |      ON      |      Flashing Mode (ON)       |
 |                |     OFF      | Reserved for future applications |
 
 Upon positioning the _BTSEL_ switch to the _ON_ state, the Portenta X8 is configured to enter _Flashing Mode_.
