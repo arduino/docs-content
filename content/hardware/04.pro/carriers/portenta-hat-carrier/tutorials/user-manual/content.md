@@ -118,7 +118,7 @@ The Portenta Hat Carrier has the following characteristics:
 
   The ETH CENTER TAP controls the Ethernet interface. The OFF position enables Ethernet for the Portenta X8. Conversely, the ON position enables Ethernet for the Portenta H7/C33.
 
-  The BTSEL switch is reserved for future applications.
+  The BTSEL switch can be used to set the Portenta X8 into Flashing Mode when the switch is set to the ON position.
 
 ### Carrier Topology
 
@@ -137,7 +137,7 @@ The Portenta Hat Carrier has the following characteristics:
 |   J10    | MIPI camera connector, exclusive for Portenta X8                |
 |   J11    | PWM male header connector to control fan speed                  |
 |   SW2    | DIP switch with two sliders: _ETH CENTER TAP_ and _BTSEL_       |
-|   PB1    | User Button / Flashing Mode                                     |
+|   PB1    | User Button                                                     |
 
 ### Pinout
 
@@ -280,7 +280,7 @@ sudo su -
 
 When you execute the _sudo su -_ command, you will be prompted for a password:
 
-***The default password is `fio`*** 
+***The default password is `fio`***
 
 This command grants you access as the root user, loading the root user's environment settings such as `$HOME` and `$PATH`.
 
@@ -522,7 +522,7 @@ void loop() {
 
 After successfully uploading the sketch, the user-configurable LED will start blinking. The following clip illustrates the expected LED blink pattern.
 
-![Portenta Hat Carrier Hello World Blink](assets/portentaHATcarrier_blink.gif)
+![Portenta Hat Carrier Hello World Blink](assets/portentaHATcarrier_helloWorld.gif)
 
 Please check out the following documentation to learn more about each board and maximize its potential when paired with the Portenta Hat Carrier:
 
@@ -1296,25 +1296,15 @@ By understanding the fundamentals of PWM and leveraging the capabilities of the 
 
 ## Storage and Boot Options
 
-Storage and boot-related options are provided to manage the device's data storage and control its operational sequences. Dive into this sub-section to understand the onboard storage options and boot initialization mechanisms.
+Storage and boot-related options are provided to manage the device's data storage and control its operational sequences. Dive into this sub-section to understand the onboard storage options and boot initialization mechanisms with user-programmable actuators.
 
-### Flash / User-Programmable Push Button
+### User-Programmable Push Button
 
-The Portenta Hat Carrier boasts a streamlined, user-centric design with its multifunctional flashing push button. This singular button serves a dual purpose:
+The Portenta Hat Carrier boasts a streamlined, user-centric design with its multifunctional push button. The button is designed for general user-programmable functions.
 
-- __General User-Programmable Function:__ A single press of the button can be customized according to the application's needs. Whether you need to start a specific event, switch between various states, or execute a particular action, this button is equipped for diverse implementations.
-
-- __Board Flashing Mode Activation:__ A long press and release of the same button will swiftly put the board into flashing mode.
+A single button press can be customized according to the application's needs. Whether you need to start a specific event, switch between various states, or execute a particular action, this button is equipped for diverse implementations.
 
 ![Portenta Hat Carrier Onboard Buttons](assets/portentaHATcarrier_pushButton.png)
-
-For those keen on employing the 'Flash' button's functionality, it is good to understand and follow the correct sequence. This ensures not only the desired outcome but also the integrity of the system:
-
-1. Begin flashing operations by doing a long press on the PB1 push button and then releasing it.
-
-2. Once your adjustments or updates are done and you want to exit the flashing mode, simply give a single press on the PB1 push button. This action will also restart the system, apply the changes made, and ensure a smooth operational flow.
-
-Following these steps helps you use the 'Flash' button correctly and allows developers to navigate intricate functionalities with relative ease.
 
 ### MicroSD Storage
 
@@ -1753,7 +1743,9 @@ For configurations when the Portenta Hat Carrier is combined with the Portenta X
 | **DIP Switch Designation** |          **Position: ON**         |          **Position: OFF**         |
 |:--------------------------:|:---------------------------------:|:----------------------------------:|
 | ETH CENTER TAP             |   Ethernet Disabled               |   Ethernet Enabled                 |
-| BTSEL                      |   Reserved for future applications|   Reserved for future applications |
+| BTSEL                      |   Flashing Mode (ON)              |   -                                |
+
+Setting the _BTSEL_ switch to the `ON` position will place the board in _Flashing Mode_, allowing to update the OS Image of the Portenta X8.
 
 When the Portenta Hat Carrier is combined with either the Portenta H7 or C33, the DIP switch adjustments are as follows:
 

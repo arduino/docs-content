@@ -163,6 +163,10 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
             </td>
         </tr>
         <tr>
+            <td style="vertical-align: top; text-align: right;">CAN FD (x1)</td>
+            <td style="text-align: left;">CAN1: Screw terminal block (J9)</td>
+        </tr>
+        <tr>
             <td style="vertical-align: top; text-align: right;">UART (without flow control) (x3)</td>
             <td style="text-align: left;">
                 <ul>
@@ -221,7 +225,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
         <td style="text-align: right;">Push button</td>
         <td style="text-align: left;">
             <ul>
-                <li>Push button (x1) used to flash the bootloader by making a long press during boot. This button can also be used as a user-programmable button connected to GPIO1</li>
+                <li>Push button (x1) used as a user-programmable button connected to GPIO1</li>
             </ul>
         </td>
     </tr>
@@ -239,7 +243,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
         <td style="text-align: left;">
             <ul>
                 <li>ETH CENTER TAP: Enable/Disable Ethernet (OFF position to enable for Portenta X8, ON position to enable for Portenta H7/C33)</li>
-                <li>BTSEL: Reserved for future applications</li>
+                <li>BTSEL: Portenta X8 Flashing mode (ON position)</li>
             </ul>
         </td>
     </tr>
@@ -592,7 +596,7 @@ An overview of the Portenta Hat Carrier topology is illustrated in Figure 5.
                 DIP switch (2 positions):
                 <ul>
                     <li>Ethernet mode</li>
-                    <li>Reserved for future applications</li>
+                    <li>Portenta X8 Flashing mode (ON position)</li>
                 </ul>
             </td>
         </tr>
@@ -602,8 +606,7 @@ An overview of the Portenta Hat Carrier topology is illustrated in Figure 5.
             <td style="text-align: right;">PB1</td>
             <td>
                 <ul>
-                    <li>Simple press: Programmable button</li>
-                    <li>Long press: Flashing mode</li>
+                    <li>User programmable button</li>
                 </ul>
             </td>
         </tr>
@@ -746,8 +749,10 @@ The PWM header connector controls an optional fan's speed, perfect for heat diss
 | :------------: | :----------: | :------------------------------: |
 | ETH CENTER TAP |      ON      |      Ethernet **disabled**       |
 |                |     OFF      |       Ethernet **enabled**       |
-|     BTSEL      |      ON      | Reserved for future applications |
+|     BTSEL      |      ON      |        Flashing Mode (ON)        |
 |                |     OFF      | Reserved for future applications |
+
+Upon positioning the _BTSEL_ switch to the _ON_ state, the Portenta X8 is configured to enter _Flashing Mode_.
 
 **Portenta H7 and Portenta C33:**
 
@@ -758,16 +763,11 @@ The PWM header connector controls an optional fan's speed, perfect for heat diss
 |     BTSEL      |      ON      |       Not used        |
 |                |     OFF      |       Not used        |
 
-#### Flashing Push Button (PB1)
+#### User-Programmable Push Button (PB1)
 
-<p style="text-align: justify;">The flashing push button can serve as a general user-programmable button with a single press or can enable the board's flashing mode when pressing it longer.</p>
+<p style="text-align: justify;">You can program the multifunctional push button on the Portenta Hat Carrier for diverse implementations with a single press or initiate specific events, switch between states, and execute actions as required by the application.</p>
 
-![Figure 15. Flashing push button of the Portenta Hat Carrier](assets/portentaHatCarrier_pushButton.png)
-
-To perform flashing operations:
-
-1. Do a long press on the PB1 push button and release it.
-2. To exit from the flashing mode and restart the system with the changes made, do a single press on the PB1 push button.
+![Figure 15. User-programmable push button of the Portenta Hat Carrier](assets/portentaHatCarrier_pushButton.png)
 
 ## Device Operation
 
@@ -918,7 +918,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 25/10/2023 | 1            | First Release |
+| Date       | **Revision** | **Changes**               |
+| ---------- | ------------ | ------------------------- |
+| 02/11/2023 | 2            | Flashing Mode Description |
+| 25/10/2023 | 1            | First Release             |
 
