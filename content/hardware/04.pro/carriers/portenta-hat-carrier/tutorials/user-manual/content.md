@@ -118,7 +118,7 @@ The Portenta Hat Carrier has the following characteristics:
 
   The ETH CENTER TAP controls the Ethernet interface. The OFF position enables Ethernet for the Portenta X8. Conversely, the ON position enables Ethernet for the Portenta H7/C33.
 
-  The BTSEL switch is reserved for future applications.
+  The BTSEL switch can be used to set the Portenta X8 into Flashing Mode when the switch is set to the ON position.
 
 ### Carrier Topology
 
@@ -280,7 +280,7 @@ sudo su -
 
 When you execute the _sudo su -_ command, you will be prompted for a password:
 
-***The default password is `fio`*** 
+***The default password is `fio`***
 
 This command grants you access as the root user, loading the root user's environment settings such as `$HOME` and `$PATH`.
 
