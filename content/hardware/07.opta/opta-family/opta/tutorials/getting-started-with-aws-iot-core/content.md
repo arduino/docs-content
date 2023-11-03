@@ -108,10 +108,53 @@ In the image shown below, you can see an example policy created for testing purp
 
 ![Example policy](assets/aws-iot_012.png)
 
-Finally, select the Thing you just created and navigate to the **Certificates** tab; select the **Certificate ID** as shown in the image below.
+### Provisioning Your Device
+
+Select the Thing you just created and navigate to the **Certificates** tab; select the **Certificate ID** as shown in the image below.
 
 ![Thing details](assets/aws-iot_013.png)
 
 Once in the Certificate area, select the **Actions** dropdown menu and choose **Activate**. After the certificate is activated, the next step is to download the certificate. Save the downloaded certificate in a place where you can find the certificate for future action.
 
 ![Certificates area](assets/aws-iot_014.png)
+
+### Connecting Your Device To AWS IoT Core
+
+The first step to connect your Opta™ device is getting the **device data endpoint** from your AWS account. In your AWS account, navigate to the menu on the left side and choose **Settings**; copy the provided endpoint.
+
+The next step depends on the variant of your Opta™ device you have. 
+
+- **For Opta™ Lite (SKU: AFX00003)**: Open the AWS IoT Wi-Fi sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWSIoT > AWS_IoT_Opta > **AWS_IoT_Opta_ethernet.ino**
+
+- **For Opta™ Lite (SKU: AFX0001)**: Open the AWS IoT Wi-Fi sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWSIoT > AWS_IoT_Opta > **AWS_IoT_Opta_ethernet.ino**
+
+- **For Opta™ WiFi (SKU: AFX00002)**: If you connect using Ethernet, open the AWS IoT Wi-Fi® sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWSIoT > AWS_IoT_Opta >AWS_IoT_Opta_ethernet > **AWS_IoT_Opta_ethernet.ino**. If you connect using Wi-Fi®, open the AWS IoT Wi-Fi sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWSIoT > AWS_IoT_Opta->AWS_IoT_Opta_wifi > **AWS_IoT_Opta_wifi.ino**
+
+In the `arduino_secrets.h` tab update the Wi-Fi® Setting with the SSID and password of your Wi-Fi® network. Update the `secret_broker` with the device data endpoint captured before, and update the `secret_port` with the proper port used to connect to AWS IoT. Finally, open the certificate file you downloaded with a text editor and copy/paste the value in the sketch in the `secret_certificate` area. In the image below, the `arduino_secrets.h` tab for the `AWS_IoT_Opta_wifi.ino` sketch is shown.
+
+![Example sketch](assets/aws-iot_015.png)
+
+Within the `setup()`, the lines `sslClient.setEccSlot(0, certificate)` and the `mqttClient.setId(“clientID”)` are important. The `setECCSlot` function sets the slot you used before for the CSR; the `setId` function sets the name you gave to your Thing in the AWS IoT Core. 
+
+![Example sketch](assets/aws-iot_016.png)
+
+Once the example sketch is set with proper values, the next step is to upload the sketch and test it.
+
+### Uploading the Example Sketch
+
+After modifying the example sketch, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch. Open the IDE's Serial Monitor to monitor the connection Wi-Fi connection of your device and its connection to  AWS.
+
+The example sketch automatically connects to an Ethernet or a Wi-Fi® network and the AWS IoT Core broker. Then, it subscribes to the `arduino/incoming` topic and sends messages to the `arduino/outgoing` topic every five seconds.
+
+### Testing the Example Sketch
+
+As soon as your Opta™ device is connected to the AWS IoT broker, it publishes automatically a simple message to the `arduino/outgoing` topic every five seconds. On the AWS IoT Core console, open the **MQTT test client** and add a subscription for the `arduino/outgoing` topic; choose the JSON formatting as display option. See messages arriving from your Opta™ device every 5 seconds.
+
+On the AWS IoT Core console, open the MQTT test client and select the "Publish a Topic" tab. Add "arduino/incoming"  as Topic name and click the "Publish" button to send data to Opta. Data in the "Message payload" text area shows on the Serial Monitor of the Arduino IDE.
+
+## Troubleshooting 
+
+For more information, refer to the AWS online documentation on [Troubleshooting AWS IoT](https://docs.aws.amazon.com/iot/latest/developerguide/iot_troubleshooting.html).
+
+
+
