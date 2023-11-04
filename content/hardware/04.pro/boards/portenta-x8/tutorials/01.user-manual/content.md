@@ -379,7 +379,7 @@ Unzipped folder
 
 #### Set Flashing Mode with Carrier
 
-The Portenta X8 can be set into programming mode by using a carrier platform, such as Max Carrier or Breakout, which provides DIP switches for convenient access; or using a few more lines of command with barebone Portenta X8 via ADB.
+The Portenta X8 can be set into programming mode by using a carrier platform, such as Max Carrier, Breakout, or Hat Carrier, which provides DIP switches for convenient access; or using a few more lines of command with barebone Portenta X8 via ADB.
 
 If you plan to use a carrier, please check the carrier's configuration to be paired with Portenta X8.
 
@@ -394,6 +394,12 @@ For the **Portenta Breakout**, the `BT_SEL` and `BOOT` DIP switches should be se
 ![Portenta Breakout DIP switches](assets/breakout-dip-switches.png)
 
 After running the `uuu` tool, perform a long press on the `ON` button of the Portenta Breakout to begin the flashing process. This action enables the tool to identify and connect with the device, continuing with the flashing operation.
+
+For the **Portenta Hat Carrier**, the `BTSEL` DIP switch must be set to the ON position, as depicted in the figure below:
+
+![Portenta Hat Carrier DIP switches](assets/hatCarrier-dip-switches.png)
+
+Like with the Portenta Max Carrier, once the `uuu` tool is run and starts searching for the device, the flashing process will commence.
 
 #### Set Flashing Mode without Carrier
 
@@ -1061,6 +1067,7 @@ In order to learn how to properly call GPIOs or other peripherals both in the Ar
 * [Portenta X8 pinout](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
 * [Portenta Breakout pinout](https://docs.arduino.cc/static/8d54d1a01d6174ed60fc9698e881ad4c/ASX00031-full-pinout.pdf)
 * [Portenta Max Carrier pinout](https://docs.arduino.cc/static/d0bd73b17e97af0fe376b7d518b18660/ABX00043-full-pinout.pdf)
+* [Portenta Hat Carrier pinout](https://docs.arduino.cc/resources/pinouts/ASX00049-full-pinout.pdf)
 
 ## Communication
 
