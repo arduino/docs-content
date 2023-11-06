@@ -1,6 +1,6 @@
 ---
 title: 'Python'
-description: 'Learn how to use the Python library to connect to the Arduino IoT Cloud.'
+description: 'Learn how to use the Python library to connect to the Arduino Cloud.'
 tags: 
   - IoT
   - Python
@@ -45,6 +45,8 @@ To begin with, we need to create a manual device, and create a new [Thing](/ardu
 3. Click on **"Set Up New Device"**, and select the bottom category (**"Manual Device"**). Click continue in the next window, and choose a name for your device.
 4. Finally, you will see a new **Device ID** and a **Secret Key** generate. You can download them as a PDF. Make sure to save it as you cannot access your Secret Key again.
 
+![Device ID & Secret key.](assets/device-key.png)
+
 - Learn more about Things in the [Things documentation](/arduino-cloud/cloud-interface/things)
 - Learn more about Devices in the [Devices documentation](/arduino-cloud/hardware/devices)
 
@@ -58,6 +60,8 @@ Next step is to create some cloud variables, which we will later interact with v
 4. Create another variable, name it `test_value` and select it to be `int` type.
 
 You should now have **two variables**, `test_switch` and `test_value`. It is important that they are named exactly like this, as we will be using them in the example script of this guide.
+
+![Complete Thing.](assets/thing.png)
 
 - Learn more about how variables work in the [Variables documentation](/arduino-cloud/cloud-interface/variables)
 
@@ -74,7 +78,7 @@ python3 --version
 
 ### Install Packages
 
-To install the [arduino-iot-cloud] client, run the following command:
+To install the Arduino IoT Cloud Python client, run the following command:
 
 ```
 pip install arduino-iot-cloud

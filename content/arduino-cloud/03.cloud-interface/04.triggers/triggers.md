@@ -11,7 +11,7 @@ Triggers can be set up for any of your existing projects, and are found in the [
 
 ## Hardware & Software Needed
 
-- [Arduino IoT Cloud](https://create.arduino.cc/iot/) (Maker plan).
+- [Arduino Cloud](app.arduino.cc) (Maker plan).
 - Cloud-compatible boards, [see full list](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#compatible-hardware).
 
 ***In this tutorial, we use the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?queryID=undefined). This is not a requirement, you can use any IoT Cloud-compatible board for this tutorial.***
@@ -27,7 +27,7 @@ Currently the only variables supported by the trigger feature are:
 
 ## Setup & Configuration
 
-***If you are unfamiliar with how to set up a Thing and variables, head on over to the [Getting Started with the Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) article.***
+***If you are unfamiliar with how to set up a Thing and variables, head on over to the [Getting Started with the Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) article.***
 
 **1.** Head over to the Things tab and create a new Thing, create a variable, and set up your device including a working network connection.
 
@@ -82,7 +82,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection, false, "mqtts-sa.iot.oniudra.cc");
   
   /*
@@ -124,4 +124,4 @@ Here are some suggestions for potential projects that utilize **Triggers** in a 
 
 
 ## Summary
-Triggers are a simple but extremely powerful feature allowing you to stay on track with all your Arduino IoT Cloud projects. Instead of constantly checking your dashboards to see the newest update just create a trigger notifying you as soon as changes occur. In this tutorial, we used just **one trigger** in combination with a simple demo sketch but you can create **as many Triggers as you need** to automate your projects.
+Triggers are a simple but extremely powerful feature allowing you to stay on track with all your Arduino Cloud projects. Instead of constantly checking your dashboards to see the newest update just create a trigger notifying you as soon as changes occur. In this tutorial, we used just **one trigger** in combination with a simple demo sketch but you can create **as many Triggers as you need** to automate your projects.

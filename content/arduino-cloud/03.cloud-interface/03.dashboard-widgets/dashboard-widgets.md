@@ -71,7 +71,7 @@ Full list of widgets and how to use them are available in the [List of Widgets](
 
 Data that is streamed to a widget is also available for download. The data retention rate depends on your Arduino Cloud plan. For example, an **entry plan** has a data retention of 15 days. You can download it as an `.csv` file that can easily be used with Excel, Google Sheets etc. 
 
-***Learn more about downloading data in the [Historical Data on the Arduino IoT Cloud](/arduino-cloud/features/iot-cloud-historical-data) tutorial.***
+***Learn more about downloading data in the [Historical Data on the Arduino Cloud](/arduino-cloud/features/iot-cloud-historical-data) tutorial.***
 
 
 ## List of Widgets

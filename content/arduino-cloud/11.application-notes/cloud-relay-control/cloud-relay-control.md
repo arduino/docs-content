@@ -22,7 +22,7 @@ The goals of this project are:
 
 ## Hardware & Software needed
 
-- [Arduino IoT Cloud](https://create.arduino.cc/iot/)
+- [Arduino IoT Cloud](app.arduino.cc)
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010)
 - [Arduino MKR Relay Shield](https://store.arduino.cc/arduino-mkr-relay-proto-shield)
 - Arduino IoT Cloud Remote app (optional). 

@@ -23,7 +23,7 @@ In this document you will find:
 
 ## Supported Boards
 
-The following boards connect to the Arduino IoT Cloud via [The Things Stack](https://www.thethingsindustries.com/stack/), a LoRaWAN® Network Server connected to thousands of public LoRa® gateways.
+The following boards connect to the Arduino Cloud via [The Things Stack](https://www.thethingsindustries.com/stack/), a LoRaWAN® Network Server connected to thousands of public LoRa® gateways.
 
 - [MKR WAN 1300](https://store.arduino.cc/arduino-mkr-wan-1300-lora-connectivity-1414)
 - [MKR WAN 1310](https://store.arduino.cc/mkr-wan-1310)
@@ -73,7 +73,7 @@ Follow the wiring diagram below to connect the antenna to the MKR WAN 1300/1310 
 
 ### Configuring Device
   
-**1.** Navigate to the [Arduino Cloud IoT platform](https://create.arduino.cc/iot/things ).
+**1.** Navigate to the [Arduino Cloud IoT platform](app.arduino.cc).
   
 **2.** Sign in or follow the registration process. 
   
@@ -198,7 +198,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
   
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection, false);
   
   /*
@@ -252,7 +252,7 @@ This code will simply increase the `test` variable every 3 minutes, which will s
 ##  Arduino PRO Gateway
   
   
-If you have an Arduino PRO Gateway, you will need to register it, using the [manager for Linux devices](https://create.arduino.cc/devices/ ).
+If you have an Arduino PRO Gateway, you will need to register it, using the [manager for Linux devices](app.arduino.cc/devices).
   
 You can visit the [Activate an Arduino Pro Gateway with IoT Cloud](https://support.arduino.cc/hc/en-us/articles/4407770369042-Activate-an-Arduino-Pro-Gateway-with-IoT-Cloud ) article for more details.
   

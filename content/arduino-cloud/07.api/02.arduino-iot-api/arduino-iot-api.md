@@ -1,6 +1,6 @@
 ---
 title: 'REST API & SDK'
-description: 'Learn how to authenticate with the Arduino IoT Cloud REST API to make requests using HTTP Client, JavaScript and Python®.'
+description: 'Learn how to authenticate with the Arduino Cloud REST API to make requests using HTTP Client, JavaScript and Python®.'
 tags:
   - IoT Cloud REST API
   - JavaScript
@@ -10,14 +10,14 @@ tags:
 author: 'Karl Söderby'
 ---
 
-The [Arduino IoT Cloud REST API](https://www.arduino.cc/reference/en/iot/api/) can be accessed through a set of endpoints to manage **Devices, Things, Properties** and more. It can be accessed via any HTTP client, and is supported by JavaScript, Python® and Golang clients.
+The [Arduino Cloud REST API](https://www.arduino.cc/reference/en/iot/api/) can be accessed through a set of endpoints to manage **Devices, Things, Properties** and more. It can be accessed via any HTTP client, and is supported by JavaScript, Python® and Golang clients.
 
-In this article you will find some useful examples to get started with the Arduino IoT Cloud API, and an understanding of what the API offers.
+In this article you will find some useful examples to get started with the Arduino Cloud API, and an understanding of what the API offers.
 
 To see the full API, follow the link below:
-- [Arduino IoT Cloud API](https://www.arduino.cc/reference/en/iot/api/)
+- [Arduino Cloud API](https://www.arduino.cc/reference/en/iot/api/)
 
-***To authenticate with the Arduino IoT Cloud API, you will need to set up an [Arduino Account](https://cloud.arduino.cc/home/). How to generate API credentials will be explained in this article.***
+***To authenticate with the Arduino Cloud API, you will need to set up an [Arduino Account](https://cloud.arduino.cc/home/). How to generate API credentials will be explained in this article.***
 
 ## Requirements
 
@@ -55,7 +55,7 @@ To authenticate, you will need to generate a `clientId` and `clientSecret`. This
 
 ## Obtaining IDs
 
-All main components of the Arduino IoT Cloud have an `id` associated. You can access your **device, Thing & variable** `id` from the web interface.
+All main components of the Arduino Cloud have an `id` associated. You can access your **device, Thing & variable** `id` from the web interface.
 
 For example, your Thing ID is stored in the **"Metadata"** tab of your Thing.
 
@@ -200,7 +200,7 @@ As this is a `json` object, we can access it by changing the following line from
 console.log(data[0].last_value); 
 ```
 
-This is one of many examples of how to interact with the API. Now that you are setup, you can go on to explore the rest of the [Arduino IoT Cloud API](https://www.arduino.cc/reference/en/iot/api/).
+This is one of many examples of how to interact with the API. Now that you are setup, you can go on to explore the rest of the [Arduino Cloud API](https://www.arduino.cc/reference/en/iot/api/).
 
 ## Python®
 
@@ -394,5 +394,5 @@ See the full example on [GitHub](https://github.com/arduino/iot-client-go/tree/m
 
 ## Summary
 
-This document covers the overall usage of the [Arduino IoT Cloud API](https://www.arduino.cc/reference/en/iot/api/), and how to use it with different clients (JavaScript, Python®, Golang).
+This document covers the overall usage of the [Arduino Cloud API](https://www.arduino.cc/reference/en/iot/api/), and how to use it with different clients (JavaScript, Python®, Golang).
 

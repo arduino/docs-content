@@ -130,13 +130,13 @@ The Arduino Web Editor allows customers to create sketches they can subsequently
 The Arduino Web Editor also provides a secret tab that can be used to securely store sensitive information needed by the device (e.g. Wi-Fi® credentials, API credentials). Secrets in this tab are encrypted with the AES-256 algorithm to safely store them in the Cloud.
 In order to communicate with the Arduino Web Editor, web browsers should be able to communicate over the internet to port 80, 443 and 8080 towards Arduino’s subdomains \*.arduino.cc.
 
-### Arduino IoT Cloud
+### Arduino Cloud
 
-The Arduino IoT Cloud collects MQTT events through a data pipeline which is accessible only by the owner of the data and access authorization is enforced via our backend API.
+The Arduino Cloud collects MQTT events through a data pipeline which is accessible only by the owner of the data and access authorization is enforced via our backend API.
 
 ### Arduino Cloud CLI
 
-The Arduino Cloud CLI provides a way for interacting with the Arduino IoT Cloud via the command line. The communication is carried out via an HTTPS connection and authentication is performed via API key credentials stored on the local machine.
+The Arduino Cloud CLI provides a way for interacting with the Arduino Cloud via the command line. The communication is carried out via an HTTPS connection and authentication is performed via API key credentials stored on the local machine.
 
 ### Arduino Create Agent
 
@@ -155,7 +155,7 @@ Devices onboarding and communication with the Arduino Cloud is ensured to protec
 > **Note**: this communication process is available only on devices equipped with a secure element chip.
 
 **Device setup phase**: 
-* The setup phase is initiated by the web browser with a secure connection to the Arduino IoT Cloud over HTTPS requesting to create a new device.
+* The setup phase is initiated by the web browser with a secure connection to the Arduino Cloud over HTTPS requesting to create a new device.
 * The IoT Cloud provides a special sketch that is run on the device to generate:
    * a private and public keys;
    * a Certificate Signing Request (CSR).

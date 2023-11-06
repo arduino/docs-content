@@ -19,7 +19,7 @@ Connection via Wi-Fi® is an easy alternative, and your credentials can safely b
 
 ### Crypto Chip Boards
 
-The following boards connect to the Arduino IoT Cloud via Wi-Fi®, using the onboard encryption:
+The following boards connect to the Arduino Cloud via Wi-Fi®, using the onboard encryption:
 
 - [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010)
 - [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect)
@@ -33,7 +33,7 @@ The following boards connect to the Arduino IoT Cloud via Wi-Fi®, using the onb
 
 ### ESP32 / ESP8266
 
-The following official boards connect to the Arduino IoT Cloud via a Secret Key / API key:
+The following official boards connect to the Arduino Cloud via a Secret Key / API key:
 
 - [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
 - [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
@@ -54,7 +54,7 @@ To configure a Wi-Fi® board, follow the steps below:
 
 ***Please note: ESP32 & ESP8266 based boards does not have a crypto chip, and the configuration will be instant. Instead, you will receive a `Device ID` and `Secret Key`, that you can either download as a PDF or manually save. This will be needed. later on, so make sure to save the information.***
 
-Your board is now configured and ready to be used in the Arduino IoT Cloud. 
+Your board is now configured and ready to be used in the Arduino Cloud. 
 
 To get started, check out the official [Getting Started (Arduino / C++)](/arduino-cloud/guides/arduino-c) guide. This will guide you to successfully send data between your board and Arduino Cloud.
 

@@ -1,11 +1,11 @@
 ---
 title: APIs Overview
-description: Arduino IoT Cloud has two different set of APIs - Application and Device API.
+description: Arduino Cloud has two different set of APIs - Application and Device API.
 author: Karl Söderby, Fabrizio Mirabito
 tags: [IoT Cloud, Device API, Application API, JavaScript]
 ---
 
-The [Arduino IoT Cloud](https://create.arduino.cc/iot/) has different sets of APIs that provide different functionalities. This article serves as an introduction to how to work and what you can achieve with them.
+The [Arduino Cloud](app.arduino.cc) has different sets of APIs that provide different functionalities. This article serves as an introduction to how to work and what you can achieve with them.
 
 ## Application API
 
@@ -23,7 +23,7 @@ With this API, you can:
 
 ### Resources
 
-You can find the full list of available resources and actions in the [Arduino IoT Cloud Application API Technical Reference](https://www.arduino.cc/reference/en/iot/api/).
+You can find the full list of available resources and actions in the [Arduino Cloud Application API Technical Reference](https://www.arduino.cc/reference/en/iot/api/).
 
 ***For learning how to successfully authenticate and interface with this API, visit the [Arduino Cloud REST API & SDK](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) article. Examples using JavaScript, Python and Golang are available here.***
 
@@ -42,10 +42,10 @@ With this API, you can:
 
 As a wrapper for the Device API, we have the following libraries:
 	
-- An official Arduino IoT Cloud Library for your Arduino sketches: `ArduinoIoTCloud.h` 
+- An official Arduino Cloud Library for your Arduino sketches: `ArduinoIoTCloud.h` 
 - An NPM Javascript package: `arduino-iot-js` 
 
-### Arduino IoT Cloud Sketch library
+### ArduinoIoTCloud Library
 
 The Arduino (C++) library allows your Arduino devices to connect and exchange data with the IoT Cloud. If you use the Arduino Cloud online environment, you do not need to install this library.
 
@@ -58,7 +58,7 @@ You can find more details at:
 
 ### Arduino IoT JS
 
-The `arduino-iot-js` NPM module is designed for communicating with the Arduino IoT Cloud broker using the MQTT over Websocket protocol. It is primarily used to send and receive variable values.
+The `arduino-iot-js` NPM module is designed for communicating with the Arduino Cloud broker using the MQTT over Websocket protocol. It is primarily used to send and receive variable values.
 
 Example:
 
@@ -67,7 +67,7 @@ const { ArduinoIoTCloud } = require('@arduino/arduino-iot-js');
 
 ArduinoIoTCloud.connect(options)
   .then(() => {
-    console.log("Connected to Arduino IoT Cloud");
+    console.log("Connected to Arduino Cloud");
     return ArduinoIoTCloud.onPropertyValue(thingId, variableName, showUpdates = value => console.log(value));
   })
   .then(() => console.log("Callback registered"))
@@ -81,7 +81,7 @@ Full examples and documentation can be found at:
 
 ### MicroPython
 
-The [Arduino IoT Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) can be installed on a board running MicroPython, and is designed to be easy to use. With just a few lines of code you can connect to the cloud, using credentials obtained during the manual device configuration.
+The [Arduino Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) can be installed on a board running MicroPython, and is designed to be easy to use. With just a few lines of code you can connect to the cloud, using credentials obtained during the manual device configuration.
 
 Below is a minimal example:
 
@@ -97,17 +97,17 @@ client["variable"] = 255
 client.start()
 ```
 
-For more information, visit the [Connecting to Arduino IoT Cloud using MicroPython](/arduino-cloud/getting-started/iot-cloud-micropython) guide.
+For more information, visit the [Connecting to Arduino Cloud using MicroPython](/arduino-cloud/getting-started/iot-cloud-micropython) guide.
 
 ### Python
 
-The [Arduino IoT Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) can also be used with regular python, and is very similar to how you connect using MicroPython, with a few adjustments.
+The [Arduino Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) can also be used with regular python, and is very similar to how you connect using MicroPython, with a few adjustments.
 
 To find out more about how to connect using Python, you can refer to the Python section of the [Manual Device Configuration](/arduino-cloud/getting-started/manual-device#python) guide.
 
 ## Backward Compatibility Policy
 
-Public Arduino IoT Cloud APIs are exposing versioned endpoints and are committed to preserving compatibility with the following policies in place:
+Public Arduino Cloud APIs are exposing versioned endpoints and are committed to preserving compatibility with the following policies in place:
 - When making a breaking change to the API signature or behavior, we will expose a new version of the endpoint.
 - If we are making a change that is backward compatible with the existing version, we won't change the endpoint version.
 - When introducing a new version of the API, we will preserve the previous version as deprecated for a reasonable amount of time to allow client migrations.

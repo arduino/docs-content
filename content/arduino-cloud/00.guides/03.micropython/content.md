@@ -61,8 +61,8 @@ Next step is to create some cloud variables, which we will later interact with v
 4. Create another variable, name it `ledSwitch` and select it to be `int` type.
 
 You should now have **two variables**:
-- `test_switch` 
-- `test_value`
+- `led` - boolean 
+- `ledSwitch` - boolean
 
 It is important that they are named exactly like this, as we will be using them in the example script of this guide.
 
@@ -72,7 +72,22 @@ Your Thing should look something like this when you are finished:
 
 ***Learn more about how variables work in the [Variables documentation](/arduino-cloud/cloud-interface/variables)***
 
+### Create Dashboard
+
+When finished with creating your Thing, we also need to create a dashboard, a tool to monitor & interact with the cloud variables.
+
+1. Go to the [dashboards](app.arduino.cc/dashboards) section, and **create a new dashboard.**
+2. In the dashboard, first create a **LED** widget, and link it to the `led` variable we created earlier.
+3. Create a **Switch** widget, and link it to `ledSwitch`. 
+4. You should now have two widgets, looking something like the image below:
+
+![Dashboard with LED & Switch widgets.](assets/dashboard.png)
+
+We are now finished with the Arduino Cloud configuration, and we can proceed with the MicroPython setup.
+
 ## MicroPython Setup
+
+In this section, we will install the [Arduino IoT Cloud Python](https://pypi.org/project/arduino-iot-cloud/) library on the Arduino board, and run a script that synchronizes the board with the Arduino Cloud.
 
 ### Create Secret.py File
 
@@ -190,7 +205,7 @@ if __name__ == "__main__":
 
 ## Testing It Out
 
-Open Arduino Lab for MicroPython and connect to your board. Pasting the above code and run the script. Then open your Arduino IoT Cloud dashboard. You should see the registered "ledSwitch" and "led" widgets. Toggle the "ledSwitch", and the LED on your Arduino board should light up accordingly. The state of the "led" variable should also change, mirroring the state of the physical LED.
+Open Arduino Lab for MicroPython and connect to your board. Pasting the above code and run the script. Then open your Arduino Cloud dashboard. You should see the registered "ledSwitch" and "led" widgets. Toggle the "ledSwitch", and the LED on your Arduino board should light up accordingly. The state of the "led" variable should also change, mirroring the state of the physical LED.
 
 ## Troubleshoot
 

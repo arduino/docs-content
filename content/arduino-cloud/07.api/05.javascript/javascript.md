@@ -5,7 +5,7 @@ author: Karl Söderby
 tags: [JavaScript, Arduino Cloud]
 ---
 
-This library provides interaction with the Arduino IoT Cloud MQTT broker and can be used both from the browser and Node.js.
+This library provides interaction with the Arduino Cloud MQTT broker and can be used both from the browser and Node.js.
 
 Connection via this library is achieved by registering a [manual device](/arduino-cloud/hardware/devices#manual-devices), i.e. a virtual device that is not associated with an Arduino hardware board. This virtual device can connect through a simple username/password (Device ID, Secret Key) which is generated in the Arduino Cloud when configuring a device.
 

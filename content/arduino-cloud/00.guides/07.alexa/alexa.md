@@ -11,9 +11,9 @@ featuredImage: 'cloud'
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/OMvZjwFYimo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-In this tutorial you will learn how to integrate the [Arduino IoT Cloud](https://create.arduino.cc/iot/) with the [Amazon Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H). At the end of this tutorial, we will be able to change the color of an  RGB matrix connected to your Arduino, using only voice commands in the Alexa app. 
+In this tutorial you will learn how to integrate the [Arduino Cloud](app.arduino.cc) with the [Amazon Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H). At the end of this tutorial, we will be able to change the color of an  RGB matrix connected to your Arduino, using only voice commands in the Alexa app. 
 
-![The Alexa and Arduino IoT Cloud integration.](assets/alexa-mkr-rgb-shield-img-08.png)
+![The Alexa and Arduino Cloud integration.](assets/alexa-mkr-rgb-shield-img-08.png)
 
 This tutorial focuses on using the [MKR RGB Shield](https://store.arduino.cc/products/arduino-mkr-rgb-shield) but can easily be modified to use any other RGB pixels / matrices.
 
@@ -23,14 +23,14 @@ This tutorial focuses on using the [MKR RGB Shield](https://store.arduino.cc/pro
 
 The goals of this project are:
 
-- Set up the Arduino IoT Cloud.
+- Set up the Arduino Cloud.
 - Create a program that controls the RGB pixels.
 - Install the Arduino Skill on the Alexa app.
-- Sync the Arduino IoT Cloud with Alexa.
+- Sync the Arduino Cloud with Alexa.
 
 ## Hardware & Software Needed
 
-- [Arduino IoT Cloud](https://create.arduino.cc/iot/)
+- [Arduino Cloud](app.arduino.cc)
 - [Amazon Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H)
 - \*[Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010).
 - \*[MKR RGB Shield](https://store.arduino.cc/arduino-mkr-rgb-shield) or other RGB matrices.
@@ -135,7 +135,7 @@ Let's go through the steps necessary to install the Arduino Alexa Skill.
 
 5. Once we have selected it, we'll need to enable it.
 6. We now need to sync it with our Arduino Cloud, by logging into it.
-7. Our Alexa and Arduino IoT Cloud is now synced!
+7. Our Alexa and Arduino Cloud is now synced!
 8. We can now start discovering our devices!
 
 ![Looking for devices.](assets/alexa_phone_3.png)
@@ -152,7 +152,7 @@ Congratulations! You should now be able to control the lights through your Alexa
 
 ## Controlling the Lights
 
-To control the lights on our setup, we will need to head over to the **"Devices"** tab in the Alexa app. Once in the Devices tab, click on the **"Lights"** button. We will now see the available lights. If you have other lights already connected, they will appear here as well. In our case, we only have one, which is `LoungeArea`, which is the same name as the variable we created earlier in the Arduino IoT Cloud. If we click on `LoungeArea` we will access the color / brightness control.
+To control the lights on our setup, we will need to head over to the **"Devices"** tab in the Alexa app. Once in the Devices tab, click on the **"Lights"** button. We will now see the available lights. If you have other lights already connected, they will appear here as well. In our case, we only have one, which is `LoungeArea`, which is the same name as the variable we created earlier in the Arduino Cloud. If we click on `LoungeArea` we will access the color / brightness control.
 
 ![Controlling the lights through the Alexa app.](assets/alexa-mkr-rgb-shield-img-07.png)
 
@@ -165,8 +165,8 @@ One great way of knowing if data is coming through from the Alexa app is by chec
 
 ## Over-the-Air (OTA)
 
-Did you know that the Arduino IoT Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
+Did you know that the Arduino Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
 
-***Over the Air uploads require an Entry plan to the Arduino IoT Cloud***
+***Over the Air uploads require an Entry plan to the Arduino Cloud***
 
-To use this feature, make sure the board has power. If your board is already connected to the IoT Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino IoT Cloud interface, and you should see it being discovered just as if it was connected via USB.
+To use this feature, make sure the board has power. If your board is already connected to the IoT Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino Cloud interface, and you should see it being discovered just as if it was connected via USB.

@@ -1,8 +1,8 @@
 ---
 title: 'Use Sensor Data From Your Phone'
-description: 'Stream sensor data from your phone live to the Arduino IoT Cloud'
+description: 'Stream sensor data from your phone live to the Arduino Cloud'
 tags:
-- Arduino IoT Cloud
+- Arduino Cloud
 - Remote app
 - Mobile sensors
 - Android
@@ -10,15 +10,15 @@ tags:
 author: 'Jacob Hylén'
 ---
 
-The Arduino IoT Cloud is a powerful platform that can help you with setting up your own IoT devices within minutes. 
+The Arduino Cloud is a powerful platform that can help you with setting up your own IoT devices within minutes. 
 
-It is now possible to synchronize your phone's sensor data with the cloud, using the Arduino Remote App for [iOS](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) and [Android](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US). Furthermore, this data can also be used to control your Arduino boards, such as mapping a value from a sensor on your phone to an actuator on your Arduino.
+It is now possible to synchronize your phone's sensor data with the cloud, using the Arduino IoT Remote App for [iOS](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) and [Android](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US). Furthermore, this data can also be used to control your Arduino boards, such as mapping a value from a sensor on your phone to an actuator on your Arduino.
 
 Your smartphone is absolutely **packed** with sophisticated sensors that constantly measure everything from GPS position, to magnetic fields, acceleration, and so on. But they're difficult for a maker to take advantage of without having extensive knowledge of mobile development. 
 
-That is changed by the Arduino IoT Remote app - as you are able to, with the latest version of the app for [Android](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) and [iOS](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431), set up a dashboard in the Arduino IoT Cloud that tracks and displays all your sensor data in a neat dashboard within a minute.
+That is changed by the Arduino IoT Remote app - as you are able to, with the latest version of the app for [Android](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) and [iOS](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431), set up a dashboard in the Arduino Cloud that tracks and displays all your sensor data in a neat dashboard within a minute.
 
-The goal with this project is to learn about how you can use your smartphone as a remote, sending sensor data to the Arduino IoT Cloud. You'll also learn how this sensor data can be used by other Things in your Arduino Cloud account, essentially letting you control your IoT devices depending on your variables such as GPS position, compass orientation, or any of the other in the long list of variables the IoT Remote app can stream live to the cloud. 
+The goal with this project is to learn about how you can use your smartphone as a remote, sending sensor data to the Arduino Cloud. You'll also learn how this sensor data can be used by other Things in your Arduino Cloud account, essentially letting you control your IoT devices depending on your variables such as GPS position, compass orientation, or any of the other in the long list of variables the IoT Remote app can stream live to the cloud. 
 
 You will learn this by making a small project where a servo motor reacts to where you point your phone, as shown below.
 
@@ -29,11 +29,11 @@ To Follow along with this article, you will need the following:
 
 - An Android or iOS Smartphone/tablet
 - An [Arduino Cloud](https://cloud.arduino.cc/home/) Account
-- An Arduino IoT Cloud-compatible board (optional).
+- An Arduino Cloud-compatible board (optional).
 - A Servo motor (optional). 
 
 ## Phone Setup
-To start this process, you will need to download the Arduino IoT Cloud Remote app from either the [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) or the[ Apple App store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) depending on your device, if you don't already have it installed. If you do have it installed already you may need to update it, so take a quick look to make sure that you have the latest version downloaded.
+To start this process, you will need to download the Arduino IoT Remote app from either the [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) or the[ Apple App store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) depending on your device, if you don't already have it installed. If you do have it installed already you may need to update it, so take a quick look to make sure that you have the latest version downloaded.
 
 Once you have the app installed, open it and log into your [Arduino Cloud](https://cloud.arduino.cc/home/) account. At this point you should be presented with a list of all your previous dashboards if you have any. 
 
@@ -41,7 +41,7 @@ Once you have the app installed, open it and log into your [Arduino Cloud](https
 
 Tap the hamburger-menu in the top left of your screen, if you're using version 1.1 of the app or later you should have two options, press "**Use data from your phone**". 
 
-At this point, if you expand the section, you can see all the sensors that can be tracked in the Arduino IoT Cloud listed. You'll need to consent to the sensor data being sent to the Arduino IoT Cloud by checking the box, then you're ready to start the automated process of building the dashboard. Tap "**SET YOUR PHONE**" and sit back, relax, while the app takes care of everything else for you.
+At this point, if you expand the section, you can see all the sensors that can be tracked in the Arduino Cloud listed. You'll need to consent to the sensor data being sent to the Arduino Cloud by checking the box, then you're ready to start the automated process of building the dashboard. Tap "**SET YOUR PHONE**" and sit back, relax, while the app takes care of everything else for you.
 
 Once done, check out all the sensor data in the dashboard. How neat is that?
 
@@ -50,13 +50,13 @@ Once done, check out all the sensor data in the dashboard. How neat is that?
 Try manipulating your phone in different ways to see how the data reacts, move it around, bring magnets close, make sounds, try anything you can think of!
 
 ## Use the Data
-Now that you've got your sensor data in the Arduino IoT Cloud, the next step is to use it for a project. As an example, let's sync the compass orientation of your phone to a variable controlling the angle of a servo motor.
+Now that you've got your sensor data in the Arduino Cloud, the next step is to use it for a project. As an example, let's sync the compass orientation of your phone to a variable controlling the angle of a servo motor.
 
 The mobile "**Thing**" can't be programmed, but you can sync the variables from it with variables in other "**Things**"
 
-So go to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things) on your computer, and create a new **Thing**. 
+So go to the [Arduino Cloud](app.arduino.cc/things) on your computer, and create a new **Thing**. 
 
-Grab your **Arduino IoT Cloud** compatible Arduino board and connect it to your computer, and configure it with your thing. I am using an **Arduino Nano 33 IoT**, and I am going with the suggested name for my device, which happens to be "**Robby**"
+Grab your **Arduino Cloud** compatible Arduino board and connect it to your computer, and configure it with your thing. I am using an **Arduino Nano 33 IoT**, and I am going with the suggested name for my device, which happens to be "**Robby**"
 
 You will also need to enter your network credentials at this stage.
 
@@ -102,7 +102,7 @@ Add the following code in the loop function:
 The full code can be found here:
 ```
 /* 
-  Arduino IoT Cloud Variables description
+  Arduino Cloud Variables description
 
   The following variables are automatically generated and updated when changes are made to the Thing
 
@@ -132,7 +132,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
@@ -168,6 +168,6 @@ void onCompassChange()  {
 Once the sketch is uploaded to your board, wait for it to connect to your network, then open the IoT Remote app on your phone and watch as the Servo reacts when you rotate your phone.
 
 ## Conclusion
-With this tutorial, you have learned how to connect your android or iOS smartphone to the Arduino IoT Cloud and send all sorts of sensor data from your device, and how to integrate this sensor data with your other Arduino IoT Cloud Things.
+With this tutorial, you have learned how to connect your android or iOS smartphone to the Arduino Cloud and send all sorts of sensor data from your device, and how to integrate this sensor data with your other Arduino Cloud Things.
 
 The small project done in this tutorial is just the tip of the iceberg, you could take what you learned here and apply it in other ways to create an endless amount of cool interactive IoT projects that take advantage of the sophisticated sensors you carry in your pocket every day. 

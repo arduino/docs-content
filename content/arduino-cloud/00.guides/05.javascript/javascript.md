@@ -37,6 +37,8 @@ To begin with, we need to create a manual device, and create a new [Thing](/ardu
 3. Click on **"Set Up New Device"**, and select the bottom category (**"Manual Device"**). Click continue in the next window, and choose a name for your device.
 4. Finally, you will see a new **Device ID** and a **Secret Key** generate. You can download them as a PDF. Make sure to save it as you cannot access your Secret Key again.
 
+![Device credentials.](assets/device-key.png)
+
 - Learn more about Things in the [Things documentation](/arduino-cloud/cloud-interface/things)
 - Learn more about Devices in the [Devices documentation](/arduino-cloud/hardware/devices)
 
@@ -49,6 +51,8 @@ Next step is to create a cloud variable, which we will later interact with in ou
 3. Click on **"Add Variable"** at the bottom of the window.
 
 You should now have a variable named `test_value`. It is important that it is named exactly like this, as we will be using it in the example script of this guide.
+
+![Complete Thing.](assets/thing.png)
 
 - Learn more about how variables work in the [Variables documentation](/arduino-cloud/cloud-interface/variables)
 

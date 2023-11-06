@@ -1,6 +1,6 @@
 ---
 title: 'IoT Cloud Variables'
-description: 'Learn how to configure and use variables in your Arduino IoT Cloud sketches.'
+description: 'Learn how to configure and use variables in your Arduino Cloud sketches.'
 tags: [IoT Cloud, Variables]
 author: 'Karl Söderby'
 difficulty: beginner
@@ -8,14 +8,14 @@ difficulty: beginner
 
 ## Overview
 
-Variables are essential component of the [Arduino Cloud](https://create.arduino.cc/iot/), and are created and configured inside a **Thing.**
+Variables are essential component of the [Arduino Cloud](app.arduino.cc), and are created and configured inside a **Thing.**
 
-A cloud variable is synced between your Arduino board and the Arduino IoT Cloud. If a variable is updated on your board (like reading a sensor), the Arduino Cloud will also receive this value. Similarly, if a board receives an update from the cloud, the variable also updates on your board. 
+A cloud variable is synced between your Arduino board and the Arduino Cloud. If a variable is updated on your board (like reading a sensor), the Arduino Cloud will also receive this value. Similarly, if a board receives an update from the cloud, the variable also updates on your board. 
 
-As long as your board maintains connection to the Arduino IoT Cloud, variables will be updated. 
+As long as your board maintains connection to the Arduino Cloud, variables will be updated. 
 
 **In this article, we will cover:**
-- How to sync variables between your board and the Arduino IoT Cloud.
+- How to sync variables between your board and the Arduino Cloud.
 - Types of variables and list of available ones.
 - How to structure a sketch for optimal variable synchronization.
 - How to synchronize variables between devices.
@@ -274,7 +274,7 @@ Here are some examples of how to use the variables in a sketch:
 
 ### Basic Types
 
-The below example shows how to use some of the basic types. Remember that cloud variables are configured in the Arduino IoT cloud, and generated into your Thing's `thingProperties.h` file.
+The below example shows how to use some of the basic types. Remember that cloud variables are configured in the Arduino Cloud, and generated into your Thing's `thingProperties.h` file.
 
 In this example, we are using the following cloud variables:
 
@@ -294,7 +294,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
@@ -335,7 +335,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
@@ -374,7 +374,7 @@ void onCLightChange() {
 
 ### Television
 
-CloudTelevision is an automation variable declared automatically in the `thingProperties.h` file as `CloudTelevision variableName;`. The example below shows how the CloudTelevision variable (declared with the variableName `tv`) can be used and modified in the sketch. The example simulates a remote controller by using an IR receiver to read the signals sent from the a remote controller and save them in arrays of unsigned integers. An IR transmitter is then used to send IR signals using the Arduino IoT Cloud. To view the full documentation of the project, [you can check this page](https://create.arduino.cc/projecthub/313276/full-control-of-your-tv-using-alexa-and-arduino-iot-cloud-9e7c4d). 
+CloudTelevision is an automation variable declared automatically in the `thingProperties.h` file as `CloudTelevision variableName;`. The example below shows how the CloudTelevision variable (declared with the variableName `tv`) can be used and modified in the sketch. The example simulates a remote controller by using an IR receiver to read the signals sent from the a remote controller and save them in arrays of unsigned integers. An IR transmitter is then used to send IR signals using the Arduino Cloud.
 
 Note that the `onTvChange()` function is automatically added and is triggered whenever the value of the tv variable is updated in the Cloud.
 
@@ -406,7 +406,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
@@ -519,7 +519,7 @@ void onTvChange() {
 
 ## Alexa Variables
 
-The integration between Alexa & Arduino IoT Cloud supports a limited amount of variables, see the list below:
+The integration between Alexa & Arduino Cloud supports a limited amount of variables, see the list below:
 
 - [Colored Light](#coloredlight) - `bool` and `float` (complex type).
 - [Dimmed Light](#dimmedlight) - `bool` and `float` (complex type).
@@ -537,8 +537,8 @@ Other variables used will not appear in the Amazon Alexa app.
 
 ## Summary
 
-In this article, we have covered how to use variables in the Arduino IoT Cloud, and what variables are available.
+In this article, we have covered how to use variables in the Arduino Cloud, and what variables are available.
 
 We have also shown some code examples and good practices to keep variable synchronization optimal, such as using the `millis()` function.
 
-The use of cloud variables is almost identical to how you use variables in a regular sketch, with the exception that they are synchronized with the Arduino IoT Cloud. 
+The use of cloud variables is almost identical to how you use variables in a regular sketch, with the exception that they are synchronized with the Arduino Cloud. 

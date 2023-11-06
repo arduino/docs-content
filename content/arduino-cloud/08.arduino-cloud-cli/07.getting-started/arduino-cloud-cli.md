@@ -3,7 +3,7 @@ title: 'Arduino Cloud CLI'
 difficulty: advanced
 description: 'Get started with the Arduino Cloud CLI, a tool for the automation and mass-deployment of devices.'
 tags:
-  - Arduino IoT Cloud
+  - Arduino Cloud
   - Arduino Cloud CLI
   - Automation
   - OTA
@@ -12,7 +12,7 @@ author: 'Karl Söderby, Paolo Calao'
 
 ## Introduction
 
-The [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli) is a tool developed to access features of the [Arduino IoT Cloud service](https://create.arduino.cc/iot/) from the terminal. 
+The [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli) is a tool developed to access features of the [Arduino Cloud service](app.arduino.cc) from the terminal. 
 
 It can be used as an automation tool to:
 - Clone existing Things & Dashboards (by extracting its template).
@@ -21,14 +21,14 @@ It can be used as an automation tool to:
 
 ### What is the Arduino Cloud CLI?
 
-This tool was primarily designed to reduce time spent duplicating projects in the Arduino IoT Cloud. Working with the CLI allows you to quickly make 10+ copies of a Thing, or update sketches on 50+ boards simultaneously. 
+This tool was primarily designed to reduce time spent duplicating projects in the Arduino Cloud. Working with the CLI allows you to quickly make 10+ copies of a Thing, or update sketches on 50+ boards simultaneously. 
 
 An example of a workflow using this tool can be:
 
-1. Create your application using the Arduino IoT Cloud web interface. Here you can configure your device, create variables, enter network credentials, edit your sketch and deploy your first project.
+1. Create your application using the Arduino Cloud web interface. Here you can configure your device, create variables, enter network credentials, edit your sketch and deploy your first project.
 2. With the **Arduino Cloud CLI**, extract templates of Things and dashboards you want to replicate.
 3. Provision a device with the `device create` command and setup a Thing and dashboard using the templates previously extracted.
-4. Download the sketch related to the Thing you extracted, and upload it to the device you created. This can also be done via the Arduino IoT Cloud. 
+4. Download the sketch related to the Thing you extracted, and upload it to the device you created. This can also be done via the Arduino Cloud. 
 5. Whenever an update is required for a fleet of devices, you can use the OTA mass-upload tool to update all of your devices at once, without being connected to your computer.
 
 ![Performing mass upload.](assets/mass-upload.png)
@@ -179,7 +179,7 @@ arduino-cloud-cli device delete --tags <key0>=<value0>,<key1>=<value1>
 
 ### List Devices
 
-Devices currently present on Arduino IoT Cloud can be retrieved with:
+Devices currently present on Arduino Cloud can be retrieved with:
 
 ```
 arduino-cloud-cli device list
@@ -211,7 +211,7 @@ arduino-cloud-cli device delete-tags --id <deviceID> --keys <key0>,<key1>
 
 - `arduino-cloud-cli things`
 
-**Things** in the Arduino IoT Cloud is the virtual twin of your hardware device. In a Thing, you create variables, attach device and add network credentials. 
+**Things** in the Arduino Cloud is the virtual twin of your hardware device. In a Thing, you create variables, attach device and add network credentials. 
 
 With `arduino-cloud-cli` you can:
 
@@ -435,13 +435,13 @@ You can also compile a file through any version of the Arduino IDE (not online).
 
 The Arduino Cloud CLI is a tool that can primarily be used to extract a template from a single Thing or dashboard, and deploy it to several devices. It is also a tool for managing your fleet of devices, such as providing mass OTA uploads (such as firmware updates). 
 
-It is intended to be used as a supplementary tool for the [Arduino IoT Cloud](https://cloud.arduino.cc/home/) web interface, but can well be used as a standalone tool to manage your devices, Things properties and dashboards. 
+It is intended to be used as a supplementary tool for the [Arduino Cloud](https://cloud.arduino.cc/home/) web interface, but can well be used as a standalone tool to manage your devices, Things properties and dashboards. 
 
 The Arduino Cloud CLI can also be well combined with the [Arduino CLI](https://arduino.github.io/arduino-cli), a separate tool that brings the functionality of the Arduino IDE to your choice of terminal.
 
 To recap, this tool can be used to:
-- Extract templates from your existing Things & dashboards previously created in the Arduino IoT Cloud.
-- Perform the same actions as the Arduino IoT Cloud but from a terminal (like creating/deleting devices, Things and linking them).
+- Extract templates from your existing Things & dashboards previously created in the Arduino Cloud.
+- Perform the same actions as the Arduino Cloud but from a terminal (like creating/deleting devices, Things and linking them).
 - List all available components from the cloud (like `thing list`).
 - Tag your devices & Things with the `--tags <key0>=<value0>` command.
 

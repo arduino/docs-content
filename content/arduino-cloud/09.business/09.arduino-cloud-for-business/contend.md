@@ -4,7 +4,7 @@ title: 'Getting started with Arduino Cloud for Business'
 description: 'Get a general overview of Arduino Cloud for Business and its features'
 difficulty: intermediate
 tags:
-  - IoT Cloud
+  - Arduino Cloud
   - Fleet Management
   - RBAC
 author: 'Marta Barbero'
@@ -15,15 +15,15 @@ software:
 
 ## Overview
 
-The [Arduino Cloud for Business](https://www.arduino.cc/pro/software-arduino-iot-cloud/) is an Arduino IoT Cloud plan dedicated to companies and industrial clients wanting enhanced features in terms of device management, Role-Based Access Control (RBAC), fleet management, and safe remote access.
+The [Arduino Cloud for Business](https://www.arduino.cc/pro/software-arduino-iot-cloud/) is an Arduino Cloud plan dedicated to companies and industrial clients wanting enhanced features in terms of device management, Role-Based Access Control (RBAC), fleet management, and safe remote access.
 
 In this article, you will get a general overview of the major features of the Arduino Cloud for Business.
 
-If you are not familiar with Arduino IoT Cloud, we strongly recommend you to take a look at the following documentation:
+If you are not familiar with Arduino Cloud, we strongly recommend you to take a look at the following documentation:
 
-* To find all tutorials & articles, visit the [Arduino IoT Cloud Documentation page](https://docs.arduino.cc/cloud/iot-cloud).
-* For a technical overview, list of features, and API guide, visit the [Arduino IoT Cloud Cheat Sheet](https://docs.arduino.cc/cloud/iot-cloud/tutorials/technical-reference).
-* For API & SDK Documentation, visit the developer reference at [Arduino IoT Cloud API](https://www.arduino.cc/reference/en/iot/api/).
+* To find all tutorials & articles, visit the [Arduino Cloud Documentation page](https://docs.arduino.cc/cloud/iot-cloud).
+* For a technical overview, list of features, and API guide, visit the [Arduino Cloud Cheat Sheet](https://docs.arduino.cc/cloud/iot-cloud/tutorials/technical-reference).
+* For API & SDK Documentation, visit the developer reference at [Arduino Cloud API](https://www.arduino.cc/reference/en/iot/api/).
 
 ## Goals
 
@@ -169,18 +169,18 @@ To check the full list of compatible Hardware, have a look at [this tutorial](ht
 
 Arduino Cloud allows you to securely provision your devices through two different tools:
 
-* **Arduino IoT Cloud.** Arduino IoT Cloud is an App integrated into your Arduino Cloud Space, guaranteeing straightforward provisioning of Arduino or other Cloud-compatible devices. It is provided with a dedicated User Interface which will guide you step-by-step during the onboarding process. This is a great choice in case you need to provision a few devices or you are not an advanced user.
-* **Arduino Cloud CLI.** As explained in [this section](#arduino-cloud-cli), Arduino has developed a command line tool enabling the access of all Arduino IoT Cloud features from a terminal window. Arduino Cloud CLI is the right choice when you need to provision multiple devices at the same time and you are an advanced user.
+* **Arduino Cloud.** Arduino Cloud is an App integrated into your Arduino Cloud Space, guaranteeing straightforward provisioning of Arduino or other Cloud-compatible devices. It is provided with a dedicated User Interface which will guide you step-by-step during the onboarding process. This is a great choice in case you need to provision a few devices or you are not an advanced user.
+* **Arduino Cloud CLI.** As explained in [this section](#arduino-cloud-cli), Arduino has developed a command line tool enabling the access of all Arduino Cloud features from a terminal window. Arduino Cloud CLI is the right choice when you need to provision multiple devices at the same time and you are an advanced user.
 
-#### Device Provisioning With Arduino IoT Cloud
+#### Device Provisioning With Arduino Cloud
 
 If your device is compatible with Arduino Cloud, you can start provisioning it into your Shared Space by connecting it to your computer through a USB cable.
 
-In addition, Arduino IoT Cloud requires your computer to have the [Arduino Create Agent installed](https://create.arduino.cc/getting-started/plugin/welcome).
+In addition, Arduino Cloud requires your computer to have the [Arduino Create Agent installed](https://create.arduino.cc/getting-started/plugin/welcome).
 
-When you are all set up correctly, you can click on **Arduino IoT Cloud** button in your Shared Space.
+When you are all set up correctly, you can click on **Arduino Cloud** button in your Shared Space.
 
-![Arduino IoT Cloud button](assets/iot-cloud-button.png "Arduino IoT Cloud button")
+![Arduino Cloud button](assets/iot-cloud-button.png "Arduino Cloud button")
 
 Go to the **Devices** tab, click on **Add** and decide which type of device you would like to onboard. In this case, a Portenta H7 board will be used.
 
@@ -204,9 +204,9 @@ If the onboarding proceeds as expected, the following page will appear confirmin
 
 You can now check its status under the Devices section. This section displays the name, status, and linked Things for each of the configured devices. Clicking on the device allows for renaming it, as well as accessing more information about the device, such as its ID number, type, FQBN, serial number, firmware version, linked Thing, latest activity, and the date when the device was added.
 
-The device status indicates whether it is connected to the Arduino IoT Cloud (online), or not connected (offline).
+The device status indicates whether it is connected to the Arduino Cloud (online), or not connected (offline).
 
-![List of devices in your Arduino IoT Cloud](assets/devices-list.png "List of devices in your Arduino IoT Cloud")
+![List of devices in your Arduino Cloud](assets/devices-list.png "List of devices in your Arduino Cloud")
 
 #### Device Provisioning With Arduino Cloud CLI
 
@@ -258,7 +258,7 @@ Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. 
 
 Now it is time for you to start managing your fleet of devices/Things. The Arduino Cloud for Business fleet management features allow you to filter your devices/Things by status, add tags to more efficiently identify your projects, search between boards, and list and order them.
 
-Get started with this awesome feature by going to **Things** or **Devices** tab in [Arduino IoT Cloud](https://create.arduino.cc/iot/devices) and start searching and filtering among your Things/devices.
+Get started with this awesome feature by going to **Things** or **Devices** tab in [Arduino Cloud](app.arduino.cc/devices) and start searching and filtering among your Things/devices.
 
 ![Search and filter among devices](assets/search-things.png "Search and filter among devices")
 
@@ -283,7 +283,7 @@ At this point, you can go back to the Things tab and start filtering your Things
 
 With Arduino Cloud for Business, you can create an unlimited number of dashboards. Push button, Switch, Scheduler, Map, Chart… These are just a few of the many widgets you can customize to visualize all your data or to remotely control your devices.
 
-To start creating your dashboard, go to the **Dashboards** tab in [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards) and select the Thing you want to create a dashboard for.
+To start creating your dashboard, go to the **Dashboards** tab in [Arduino Cloud](app.arduino.cc/dashboards) and select the Thing you want to create a dashboard for.
 
 ![Dashboard example](assets/dashboard-example.png "Dashboard example")
 
@@ -299,11 +299,11 @@ Whether it is your teammate, your customer, or your system integrator; you can f
 
 ### Data Export
 
-Arduino Cloud for Business allows any user to download historical data from Arduino IoT Cloud Things and Variables. The data are downloaded in **.csv** format to be ready for further evaluation or manipulation.
+Arduino Cloud for Business allows any user to download historical data from Arduino Cloud Things and Variables. The data are downloaded in **.csv** format to be ready for further evaluation or manipulation.
 
 The Arduino Cloud for Business plan includes 1-year of data retention by default; this means that your data will be available and downloadable from your Arduino Cloud account for 1 year.
 
-To start exporting your data locally, navigate into one of your dashboards on the [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards). While inside a dashboard, press the Download icon in the upper right corner. This will open a new window that will allow you to select which historical data you would like to download.
+To start exporting your data locally, navigate into one of your dashboards on the [Arduino Cloud](app.arduino.cc/dashboards). While inside a dashboard, press the Download icon in the upper right corner. This will open a new window that will allow you to select which historical data you would like to download.
 
 ![Download icon](assets/download-button.png "Download icon")
 
@@ -325,7 +325,7 @@ You are now ready to monitor and manipulate all your Cloud data.
 
 ## Arduino Cloud API
 
-Use Arduino IoT Cloud back-end to control Things and devices via Arduino rest APIs in [Javascript](https://www.npmjs.com/package/@arduino/arduino-iot-client), [Python](https://pypi.org/project/arduino-iot-client/), or [Go](https://github.com/arduino/iot-client-go). With Arduino rest APIs, you will be able to manage up to 10 requests per second, guaranteeing stable data sharing.
+Use Arduino Cloud back-end to control Things and devices via Arduino rest APIs in [Javascript](https://www.npmjs.com/package/@arduino/arduino-iot-client), [Python](https://pypi.org/project/arduino-iot-client/), or [Go](https://github.com/arduino/iot-client-go). With Arduino rest APIs, you will be able to manage up to 10 requests per second, guaranteeing stable data sharing.
 
 Leveraging the APIs, you can interact with any element of the Cloud: data, devices, dashboards, and web properties. At the same time, APIs allow you to add power to the script, create complex scenarios or send and receive data from your custom service, 3rd party solution, or mobile application.
 
@@ -335,7 +335,7 @@ To use the APIs, you need to create an API Key Token in the API Keys section of 
 
 ***If you want to start creating your own API Keys Token, take a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-iot-api) and [this documentation](https://www.arduino.cc/reference/en/iot/api/).***
 
-## IoT Cloud App
+## IoT Remote App
 
 Monitor your dashboards anywhere, anytime, and use your dashboards on the go with the free IoT Remote App.
 
@@ -384,7 +384,7 @@ Build and train professional-grade predictive models with just a few lines of co
 
 ## Additional Tutorials
 
-You can find more tutorials on the [Arduino IoT Cloud documentation page](https://docs.arduino.cc/arduino-cloud/).
+You can find more tutorials on the [Arduino Cloud documentation page](https://docs.arduino.cc/arduino-cloud/).
 
 ## Congratulations
 

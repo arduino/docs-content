@@ -1,27 +1,27 @@
 ---
 title: IoT Remote App
-description: Learn how to set up the IoT Cloud Remote app to control & monitor your dashboards and access your phone's sensor data.
+description: Learn how to set up the IoT Remote app to control & monitor your dashboards and access your phone's sensor data.
 author: Karl Söderby
 tags: [Arduino Cloud, Remote App, Phone Data]
 ---
 
-The **Arduino IoT Cloud Remote** phone application lets you control and monitor all of your dashboards in the [Arduino IoT Cloud](app.arduino.cc). With the app, you can also access your phone's internal sensors such as GPS data, light sensor, IMU and more (depending on what phone you have).
+The **Arduino IoT Remote** phone application lets you control and monitor all of your dashboards in the [Arduino Cloud](app.arduino.cc). With the app, you can also access your phone's internal sensors such as GPS data, light sensor, IMU and more (depending on what phone you have).
 
 The phone's sensor data is automatically stored in cloud variables, which you can also synchronize with other Things. This means your phone can become a part of your IoT system, acting as another node in your network.
 
-***The Arduino IoT Cloud Remote app now supports data collection in background mode. This can be enabled inside the app. Please note that your microphone is NEVER used in background mode, only when the app is being used directly. See more in the [Background Mode](#background-mode) section***
+***The Arduino IoT Remote app now supports data collection in background mode. This can be enabled inside the app. Please note that your microphone is NEVER used in background mode, only when the app is being used directly. See more in the [Background Mode](#background-mode) section***
 
 ## Hardware & Software Needed
 
 - Android / iOS smart phone.
 - Arduino account (sign up [here](https://login.arduino.cc/login)).
-- Arduino IoT Cloud Remote App:
+- Arduino IoT Remote App:
   - [App Store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431).
   - [Google Play](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot).
 
 ## Install App
 
-To use the Arduino IoT Cloud Remote app, visit Google Play / App Store and search for **"Arduino IoT Cloud Remote"**. Links are available just above.
+To use the Arduino IoT Remote app, visit Google Play / App Store and search for **"Arduino IoT Remote"**. Links are available just above.
 
 ***NOTE: The IoT Remote app requires iOS 12.4 or later for iOS the version. If you are using Android, version 8.0 or later is required. Make sure the iOS or Android version on your device is up to date before downloading the app.***
 
@@ -53,7 +53,7 @@ Upon completion, head over to the new dashboard, that should contain your name +
 
 ![Phone sensor data in the dashboard.](assets/remote-app-dashboard.png)
 
-***When setting up your phone as a device, a Thing with a similar name is created in the Arduino IoT Cloud. It can not be programmed as a regular device.***
+***When setting up your phone as a device, a Thing with a similar name is created in the Arduino Cloud. It can not be programmed as a regular device.***
 
 ### Background Mode
 
@@ -69,9 +69,9 @@ Here you can also choose the update frequency, (either on change, or every `x` s
 
 ## Phone & Board Sync
 
-The sensor data from your phone is tracked through **variables** in the Arduino IoT Cloud, and can therefore be synchronized with other variables.
+The sensor data from your phone is tracked through **variables** in the Arduino Cloud, and can therefore be synchronized with other variables.
 
-Head over to the [Arduino IoT Cloud - Things](https://create.arduino.cc/iot/things) and go to the Thing created for your phone (in this case, it is named `Karl_s S20_ Thing`), and select a variable you want to synchronize. In the following menu you can link it to other variables on other Things.
+Head over to the [Arduino Cloud - Things](app.arduino.cc/things) and go to the Thing created for your phone (in this case, it is named `Karl_s S20_ Thing`), and select a variable you want to synchronize. In the following menu you can link it to other variables on other Things.
  
 ![Synchronizing variables.](assets/remote-app-cloud-variables.png)
 

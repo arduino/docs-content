@@ -5,7 +5,7 @@ tags: [Ethernet, Arduino Cloud, IoT]
 author: Karl Söderby
 ---
 
-The Arduino IoT Cloud supports connection via Ethernet on a number of devices. 
+The Arduino Cloud supports connection via Ethernet on a number of devices. 
 
 ## Supported Boards
 
@@ -17,7 +17,7 @@ To connect with the **Portenta H7** board, you will need one of the following sh
 - [Portenta Vision Shield Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
 - [Portenta Machine Control](https://store.arduino.cc/portenta-machine-control)
 
-***Please note that older hardware such as the [Ethernet Shield Rev2](https://store.arduino.cc/products/arduino-ethernet-shield-2) and [MKR ETH Shield](https://store.arduino.cc/products/arduino-mkr-eth-shield) are currently not supported by the Arduino IoT Cloud.***
+***Please note that older hardware such as the [Ethernet Shield Rev2](https://store.arduino.cc/products/arduino-ethernet-shield-2) and [MKR ETH Shield](https://store.arduino.cc/products/arduino-mkr-eth-shield) are currently not supported by the Arduino Cloud.***
 
 ## Setup
 
@@ -35,6 +35,6 @@ To configure Ethernet board, follow the steps below:
 
 **4.** Allow some time for the configuration, as a sketch is being uploaded to your board as well as a configuration of your crypto chip is ongoing. 
 
-Your board is now configured and ready to be used in the Arduino IoT Cloud. 
+Your board is now configured and ready to be used in the Arduino Cloud. 
 
 To get started, check out the official [Getting Started (Arduino / C++)](/arduino-cloud/guides/arduino-c) guide. This will guide you to successfully send data between your board and Arduino Cloud.
