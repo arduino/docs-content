@@ -160,7 +160,7 @@ To power the Nano ESP32 you may either use a USB-C® cable, or the VIN pin. When
 
 The internal operating voltage of the ESP32-S3 SoC is 3.3 V, and you should not apply voltages higher than that to the GPIO pins.
 
-### 5V Pin / VUSB
+### 5V Pin / VBUS
 
 The Nano ESP32 is the first board to not feature a **5V** pin. It has instead been replaced with VBUS, which is a more accurate description of the pin's capabilities.
 
