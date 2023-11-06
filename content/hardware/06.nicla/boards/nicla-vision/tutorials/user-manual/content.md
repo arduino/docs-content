@@ -692,8 +692,229 @@ void loop() {
 ```
 ![Accelerometer and gyroscope output in the serial plotter](assets/imu-output.png)
 
+***To test a Machine Learning model on the Arduino IDE, navigate to **File > Examples > MLC > NiclaVision_MLC_Motion_Intesity** and it will identify three scenarios: `Stationary`, `Medium Intensity` and `High Intensity` movements.***
+
 ### Microphone
 
 The onboard high-performance microphone of the Nicla Vision is the MP34DT06JTR from ST®. It is specifically designed for applications that require high-quality audio recording and accurate voice detection, such as voice-controlled Internet of Things (IoT) devices, smart home systems, and mobile devices.
 
 ![Nicla Vision onboard high-performance microphone](assets/mic.png)
+
+#### Using OpenMV
+
+The OpenMV IDE includes some examples to get started using the Nicla Vision onboard microphone that can be found on **File > Examples > Audio**. We are going to use the one called `micro_speech.py` to test the machine-learning speech recognition capabilities of the board.
+
+First, download the pre-trained model file from the [example repository](https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite) and copy it to the Nicla Vision storage drive.
+
+![Tflite Machine Learning model in the drive](assets/tflite-model.png)
+
+Reset the board and run the following code on the OpenMV IDE.
+
+```python
+import audio
+import time
+import tf
+import micro_speech
+import pyb
+
+labels = ["Silence", "Unknown", "Yes", "No"]
+
+led_red = pyb.LED(1)
+led_green = pyb.LED(2)
+
+model = tf.load("/model.tflite")
+speech = micro_speech.MicroSpeech()
+audio.init(channels=1, frequency=16000, gain=24, highpass=0.9883)
+
+# Start audio streaming
+audio.start_streaming(speech.audio_callback)
+
+while True:
+    # Run micro-speech without a timeout and filter detections by label index.
+    idx = speech.listen(model, timeout=0, threshold=0.70, filter=[2, 3])
+    led = led_green if idx == 2 else led_red
+    print(labels[idx])
+    for i in range(0, 4):
+        led.on()
+        time.sleep_ms(25)
+        led.off()
+        time.sleep_ms(25)
+
+# Stop streaming
+audio.stop_streaming()
+```
+After running the code, the matches will be printed on the Serial Monitor if the board hears a `No` or a `Yes`, turning on the red and green LED respectively.
+
+![Speech recognition inference results](assets/voice-inference.png)
+
+#### Using Arduino IDE
+
+The Arduino IDE includes a simple example to visualize raw data from the PDM microphone. To test it navigate to **File > Examples > PDM > PDMSerialPlotter**. 
+
+```arduino
+#include <PDM.h>
+
+// default number of output channels
+static const char channels = 1;
+
+// default PCM output frequency
+static const int frequency = 16000;
+
+// Buffer to read samples into, each sample is 16-bits
+short sampleBuffer[512];
+
+// Number of audio samples read
+volatile int samplesRead;
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial);
+
+  // Configure the data receive callback
+  PDM.onReceive(onPDMdata);
+
+  // Optionally set the gain
+  // Defaults to 20 on the BLE Sense and 24 on the Portenta Vision Shield
+  // PDM.setGain(30);
+
+  // Initialize PDM with:
+  // - one channel (mono mode)
+  // - a 16 kHz sample rate for the Arduino Nano 33 BLE Sense
+  // - a 32 kHz or 64 kHz sample rate for the Arduino Portenta Vision Shield
+  if (!PDM.begin(channels, frequency)) {
+    Serial.println("Failed to start PDM!");
+    while (1);
+  }
+}
+
+void loop() {
+  // Wait for samples to be read
+  if (samplesRead) {
+
+    // Print samples to the serial monitor or plotter
+    for (int i = 0; i < samplesRead; i++) {
+      if(channels == 2) {
+        Serial.print("L:");
+        Serial.print(sampleBuffer[i]);
+        Serial.print(" R:");
+        i++;
+      }
+      Serial.println(sampleBuffer[i]);
+    }
+
+    // Clear the read count
+    samplesRead = 0;
+  }
+}
+
+/**
+ * Callback function to process the data from the PDM microphone.
+ * NOTE: This callback is executed as part of an ISR.
+ * Therefore using `Serial` to print messages inside this function isn't supported.
+ * */
+void onPDMdata() {
+  // Query the number of available bytes
+  int bytesAvailable = PDM.available();
+
+  // Read into the sample buffer
+  PDM.read(sampleBuffer, bytesAvailable);
+
+  // 16-bit, 2 bytes per sample
+  samplesRead = bytesAvailable / 2;
+}
+```
+
+Upload the example code to the Nicla Vision and open the Serial Plotter to see the sound wave output.
+
+![Audio sound waves in the serial plotter](assets/pdm-plotter.gif)
+
+### Time of Flight (Distance) Sensor
+
+The onboard ToF sensor of the Nicla Vision is the VL53L1CBV0FY from ST®. It adds accurate and low power ranging capabilities to the Arduino® Nicla Vision. The invisible near infrared VCSEL laser (including the analog driver) is encapsulated together with receiving optics in an all-in-one small module located below the camera.
+
+![Onboard Time-of-Flight ranging sensor](assets/tof.png)
+
+Here are listed the sensor's main features:
+- Up to 400 cm distance measurement
+- Up to 50 Hz ranging frequency
+- 27° field-of-view (FoV) 
+
+#### With OpenMV
+
+The OpenMV IDE includes an example to start using the ToF sensor. To test it navigate to **File > Examples > Sensors > vl53l1x_tof** and run it on the Nicla Vision. 
+
+```python
+from machine import I2C
+from vl53l1x import VL53L1X
+import time
+
+tof = VL53L1X(I2C(2))
+
+while True:
+    print(f"Distance: {tof.read()}mm")
+    time.sleep_ms(50)
+```
+
+![ToF Sensor test using OpenMV](assets/tof-demo-openmv.png)
+
+#### With Arduino IDE
+
+To use the ToF sensor with the Arduino IDE, install the `VL53L1X` library authored by Pololu by searching for it on the IDE library manager and clicking on install.
+
+Once installed, you will be able to compile and upload the example code below to your Nicla Vision.
+
+The distance measured by the sensor will be printed on the IDE serial monitor and the built-in LED will blink proportionally to that distance.
+
+```arduino 
+#include "VL53L1X.h"
+VL53L1X proximity;
+
+bool blinkState = false;
+int reading = 0;
+int timeStart = 0;
+int blinkTime = 2000;
+
+void setup() {
+  Serial.begin(115200);
+  Wire1.begin();
+  Wire1.setClock(400000); // use 400 kHz I2C
+  proximity.setBus(&Wire1);
+
+
+  pinMode(LEDB, OUTPUT);
+  digitalWrite(LEDB, blinkState);
+
+  if (!proximity.init()) {
+    Serial.println("Failed to detect and initialize sensor!");
+    while (1);
+  }
+
+  proximity.setDistanceMode(VL53L1X::Long);
+  proximity.setMeasurementTimingBudget(50000);
+  proximity.startContinuous(50);
+}
+
+void loop() {
+  reading = proximity.read();
+  Serial.print(reading);
+  Serial.println(" mm");
+
+  if (millis() - timeStart >= reading) {
+    digitalWrite(LEDB, blinkState);
+    timeStart = millis();
+
+    blinkState = !blinkState;
+  }
+}
+```
+![ToF Sensor test using Arduino](assets/tof-demo-arduino.png)
+
+## Camera
+
+The Nicla Vision main feature is its onboard 2MP camera, which is based on the GC2145 color rolling shutter image sensor. It is perfect for machine learning applications such as object detection, image classification, machine/computer vision, robotics, IoT and more.
+
+#### With OpenMV
+
+#### With Arduino IDE
+
+
