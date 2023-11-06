@@ -1,5 +1,5 @@
 ---
-title: 'Connecting ESP32 & ESP8266 to Arduino Cloud IoT'
+title: 'ESP32 Setup'
 description: 'Learn how to send data between an ESP32 / ESP8266 development board and the Arduino Cloud IoT.'
 tags:
   - ESP32
@@ -27,7 +27,7 @@ The goals of this project are:
 ## Hardware & Software needed
 
 - ESP32 / ESP8266 development board.
-- [Arduino Cloud IoT](https://create.arduino.cc/iot/).
+- [Arduino Cloud IoT](app.arduino.cc).
 
 We will also need the following components for the circuit:
 
@@ -46,7 +46,7 @@ Follow the circuit below to connect the LED to the ESP32 / ESP8266 board.
 
 ## Setting up the Arduino Cloud IoT
 
-To start, we will need to head over to the [Arduino Cloud IoT](https://create.arduino.cc/iot/). This is also accessible through the menu at the top right.
+To start, we will need to head over to the [Arduino Cloud IoT](app.arduino.cc). This is also accessible through the menu at the top right.
 
 ![Navigate to the cloud.](assets/cloud-esp32-img-02.png)
 
@@ -141,7 +141,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
@@ -219,4 +219,4 @@ In this tutorial, we went through the basics of setting up an ESP32 / ESP8266 mi
 
 ### More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).
+You can find more tutorials in the [Arduino Cloud documentation page](/arduino-cloud/).

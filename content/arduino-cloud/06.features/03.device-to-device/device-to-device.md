@@ -1,8 +1,6 @@
 ---
-title: 'Device to device with Arduino IoT Cloud'
-compatible-products: [mkr-1000-wifi, mkr-wifi-1010, nano-33-iot, nano-rp2040-connect]
-difficulty: intermediate
-description: 'Learn how to connect two boards through the Arduino IoT Cloud, by syncing their variables.'
+title: 'Device to Device'
+description: 'Learn how to connect two boards through the Arduino Cloud, by syncing their variables.'
 tags:
   - Device to device
 author: 'Karl Söderby'
@@ -10,7 +8,7 @@ author: 'Karl Söderby'
 
 ## Introduction
 
-In this tutorial, we will find out how to send data between two Arduino boards, using the Arduino IoT Cloud. Each board will have **one LED and one button each** that will be used to send data between the boards.
+In this tutorial, we will find out how to send data between two Arduino boards, using the Arduino Cloud. Each board will have **one LED and one button each** that will be used to send data between the boards.
 
 This will be made possible through something called **syncing variables**, which will be explained further in this tutorial.
 
@@ -18,13 +16,13 @@ This will be made possible through something called **syncing variables**, which
 
 The goals of this project are:
 
-- Set up the Arduino IoT Cloud.
+- Set up the Arduino Cloud.
 - Create synchronized variables.
 - Control an LED remotely with a push button.
 
 ## Hardware & Software needed
 
-- [Arduino IoT Cloud](https://create.arduino.cc/iot/).
+- [Arduino Cloud](app.arduino.cc).
 - 2x [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) or,
 - 2x [Arduino MKR WiFi 1000](https://store.arduino.cc/arduino-mkr1000-wifi) or, 
 - 2x [Arduino Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot) or,
@@ -49,15 +47,15 @@ Follow the circuit below to connect the buttons and LEDs to your Arduino board.
 
 ![Two identical circuits with 1x button and 1x LED each.](assets/device-to-device-img-01.png)
 
-## Setting up the Arduino IoT Cloud
+## Setting up the Arduino Cloud
 
-To start, we will need to head over to the [Arduino IoT Cloud](https://create.arduino.cc/iot/). This is also accessible through the menu at the top right.
+To start, we will need to head over to the [Arduino Cloud](app.arduino.cc). This is also accessible through the menu at the top right.
 
 ![1Navigate to the cloud.](assets/device-to-device-img-02.png)
 
 ### Step 1: Configuring two devices
 
-In this tutorial, we will need to set up **two devices in the Arduino IoT Cloud**. If you have never used this service before, you can check out [our getting started with the IoT cloud guide](https://www.arduino.cc/en/Tutorial/iot-cloud-getting-started).
+In this tutorial, we will need to set up **two devices in the Arduino Cloud**. If you have never used this service before, you can check out [our getting started with the IoT cloud guide](https://www.arduino.cc/en/Tutorial/iot-cloud-getting-started).
 
 Now that we are working with two devices, it is important to separate them from each other, since they will later be linked to two different Things. In this tutorial, we named the devices:
 
@@ -87,7 +85,7 @@ The final overview should look something like this:
 
 ### Step 3: Program the first Thing
 
-Now, we also need to complete the sketch for our first Thing. First, let's head over to the **"Sketch"** tab in the Arduino IoT Cloud. 
+Now, we also need to complete the sketch for our first Thing. First, let's head over to the **"Sketch"** tab in the Arduino Cloud. 
 
 ![2Click on the "Sketch" tab to edit the sketch.](assets/device-to-device-img-04.png)
 
@@ -114,7 +112,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
@@ -208,7 +206,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
@@ -284,13 +282,13 @@ The logic behind it is that one button is each linked to one of the booleans. If
 
 ## Conclusion
 
-In this tutorial, we created a connection between two Arduino boards, using the Arduino IoT Cloud. We set up two identical circuits, and uploaded two almost identical sketches to the boards. 
+In this tutorial, we created a connection between two Arduino boards, using the Arduino Cloud. We set up two identical circuits, and uploaded two almost identical sketches to the boards. 
 
 The connection between the boards is made through the **syncing of variables**, which allows two Things to communicate with each other. In this case, whenever a boolean is activated on one device, it is also activated on the other device. This **remote ON/OFF switch** is a great building block for creating other cool IoT projects. 
 
 ### More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).
+You can find more tutorials in the [Arduino Cloud documentation page](/arduino-cloud/).
 
 
 

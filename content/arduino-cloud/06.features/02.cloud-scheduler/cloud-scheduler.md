@@ -1,5 +1,5 @@
 ---
-title: 'Arduino IoT Cloud Scheduler Feature'
+title: 'Scheduler'
 description: 'Learn how to use the scheduler feature to trigger repeating jobs during specific times.'
 tags: [IoT Cloud, Scheduler, Time]
 author: 'Karl Söderby'
@@ -7,7 +7,7 @@ software:
   - iot-cloud
 ---
 
-It is now possible to schedule jobs with the [Arduino IoT Cloud](https://create.arduino.cc/iot/), using the new `CloudSchedule` variable type. You can pick a start & end date for when the variable should be triggered, and for how long it should be active. This variable can be controlled in real time using a graphical widget that you can place on an IoT Cloud dashboard.
+It is now possible to schedule jobs with the [Arduino Cloud](app.arduino.cc), using the new `CloudSchedule` variable type. You can pick a start & end date for when the variable should be triggered, and for how long it should be active. This variable can be controlled in real time using a graphical widget that you can place on an IoT Cloud dashboard.
 
 We can for example have:
 
@@ -151,9 +151,9 @@ time_variable = ArduinoCloud.getLocalTime();
 
 ### Create a Thing
 
-***If you are new to the Arduino IoT Cloud, you can either visit the [Getting Started with Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started) guide, or any of the tutorials in the [Arduino IoT Cloud documentation](https://docs.arduino.cc/cloud/iot-cloud). There you will find detailed step by step guides.***
+***If you are new to the Arduino Cloud, you can either visit the [Getting Started with Arduino Cloud](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started) guide, or any of the tutorials in the [Arduino Cloud documentation](https://docs.arduino.cc/cloud/iot-cloud). There you will find detailed step by step guides.***
 
-**1.** Navigate to [Arduino IoT Cloud](https://create.arduino.cc/iot/). You will need to log in with your Arduino account.
+**1.** Navigate to [Arduino Cloud](app.arduino.cc). You will need to log in with your Arduino account.
 
 **2.** Create a new Thing by clicking on the "Create Thing" button. You can name it something like "Scheduler Test".
 
@@ -186,7 +186,7 @@ In order for our job to go off at the right time, we need to set the **time zone
 
 ### Network Credentials
 
-To connect your device to the Arduino IoT Cloud, you need to enter your network credentials in the "network" section.
+To connect your device to the Arduino Cloud, you need to enter your network credentials in the "network" section.
 
 ***Note that this only applies to Wi-Fi enabled boards.***
 
@@ -308,4 +308,4 @@ If you have any issues with finishing this tutorial, you can check out some comm
 
 ## Conclusion
 
-The scheduler is yet another amazing Arduino IoT Cloud feature that allows you to control the future. In this tutorial, we used **just one scheduler**, but you might just as easily create 10 schedulers that can perform actions automatically. This makes it an ideal building block for IoT projects.
+The scheduler is yet another amazing Arduino Cloud feature that allows you to control the future. In this tutorial, we used **just one scheduler**, but you might just as easily create 10 schedulers that can perform actions automatically. This makes it an ideal building block for IoT projects.

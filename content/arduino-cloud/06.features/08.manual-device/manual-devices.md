@@ -1,21 +1,21 @@
 ---
-title: Configuring Manual Devices
-description: Connect to the Arduino IoT Cloud any kind of device that uses Python, MicroPython or JavaScript (Node.js)
+title: Manual Devices
+description: Connect to the Arduino Cloud any kind of device that uses Python, MicroPython or JavaScript (Node.js)
 author: Karl Söderby
-tags: [IoT Cloud, Device API, JavaScript, Node.js, Python, MicroPython]
+tags: [Arduino Cloud, Device API, JavaScript, Node.js, Python, MicroPython]
 ---
 
-Authentication & data synchronisation is automatically handled when you choose the automatic configuration option in the [Arduino IoT Cloud](https://create.arduino.cc/iot/).
+Authentication & data synchronisation is automatically handled when you choose the automatic configuration option in the [Arduino Cloud](app.arduino.cc).
 
 You can during the setup of your device instead choose the manual configuration option. This allows you to connect to the cloud using the **Device API** (MicroPython, Python or Node.js).
 
-This opens up possibilities for more kinds of devices, mainly Linux based, to connect to the Arduino IoT Cloud.
+This opens up possibilities for more kinds of devices, mainly Linux based, to connect to the Arduino Cloud.
 
-***Manual configuration is recommended for more advanced users, mainly those that are looking to integrate existing projects with the Arduino IoT Cloud.***
+***Manual configuration is recommended for more advanced users, mainly those that are looking to integrate existing projects with the Arduino Cloud.***
 
 ## Goals
 
-In this article you will learn how to configure a manual device, and how to connect to the Arduino IoT Cloud with:
+In this article you will learn how to configure a manual device, and how to connect to the Arduino Cloud with:
 - MicroPython
 - Python
 - JavaScript (Node.js)
@@ -31,7 +31,7 @@ Each method of interaction with the Device API requires various levels of comple
 
 ## Device API
 
-The **Device API** allows you to interact with the Arduino IoT Cloud MQTT broker, by sending/receiving updates from your IoT Cloud variables. 
+The **Device API** allows you to interact with the Arduino Cloud MQTT broker, by sending/receiving updates from your IoT Cloud variables. 
 
 This API is ideal for you who'd like to integrate existing Python or JavaScript projects with Arduino.
 
@@ -43,7 +43,7 @@ Note that the Device API is designed to interact with the MQTT broker. To manage
 
 ## Configure Manual Devices
 
-To configure a manual device, go to [devices in the IoT Cloud](https://create.arduino.cc/iot/devices), and click the **"Add"** button. This will open a new window, where you will be asked to either configure automatically, or manually. Choose the **"Manual"** option.
+To configure a manual device, go to [devices in the IoT Cloud](app.arduino.cc/devices), and click the **"Add"** button. This will open a new window, where you will be asked to either configure automatically, or manually. Choose the **"Manual"** option.
 
 ![Add a new device.](assets/configure-manual-device.png)
 
@@ -118,7 +118,7 @@ if __name__ == "__main__":
     # NOTE: Add networking code here or in boot.py
     wifi_connect()
     
-    # Create a client object to connect to the Arduino IoT cloud.
+    # Create a client object to connect to the Arduino Cloud.
     # For MicroPython, the key and cert files must be stored in DER format on the filesystem.
     # Alternatively, a username and password can be used to authenticate:
     client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY)
@@ -132,18 +132,18 @@ if __name__ == "__main__":
     # This cloud object is updated manually in the switch's on_write_change callback to update the LED state in the cloud.
     client.register("led", value=None)
 
-    # Start the Arduino IoT cloud client.
+    # Start the Arduino Cloud client.
     client.start()
 ```
 
-For a more details, you can visit a more complete guide at [Connecting to Arduino IoT Cloud using MicroPython](/arduino-cloud/getting-started/iot-cloud-micropython).
+For a more details, you can visit a more complete guide at [Connecting to Arduino Cloud using MicroPython](/arduino-cloud/getting-started/iot-cloud-micropython).
 
 ## Python
 
 The pre-requisities for connecting with Python is:
 - [Python](https://www.python.org/) installed on your machine (this is tested and confirmed to work with v3.11),
 - [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) installed,
-- a Thing + [manual device](#configure-manual-devices) created in the Arduino IoT Cloud.
+- a Thing + [manual device](#configure-manual-devices) created in the Arduino Cloud.
 
 Connection to the cloud via Python uses the same API as the MicroPython example listed in this article. To install the [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) module, we can use `pip`.
 
@@ -226,8 +226,8 @@ Once you run the script, you will start the client and you will be able to inter
 The pre-requisities for connecting with Node.js is:
 - [Node.js](https://nodejs.org/en) installed on your machine (this is tested and confirmed to work with v20.2.0),
 - [arduino-iot-js](https://github.com/arduino/arduino-iot-js) installed,
-- a Thing created in the Arduino IoT Cloud,
-- a manual device created in the Arduino IoT Cloud, associated to your Thing.
+- a Thing created in the Arduino Cloud,
+- a manual device created in the Arduino Cloud, associated to your Thing.
 
 Connection to the cloud via Node.js/Javascript requires you to first install the [arduino-iot-js](https://github.com/arduino/arduino-iot-js) package. You will also need to configure a manual device in the cloud, which will generate the **Device ID** and **Secret Key** needed to connect. 
 
@@ -241,7 +241,7 @@ After installation, you can use the example below to connect and send variable u
 
 This example connects to the cloud (MQTT broker), and sends a variable update with `sendProperty()`, and then listens for updates using the `onPropertyValue()` method.
 
-***Please note: `cloudVar` needs to contain the variable name you create in the Arduino IoT Cloud. In this case, we are calling it `test_variable`*** 
+***Please note: `cloudVar` needs to contain the variable name you create in the Arduino Cloud. In this case, we are calling it `test_variable`*** 
 
 ```js
 const { ArduinoIoTCloud } = require('arduino-iot-js');
@@ -277,7 +277,7 @@ test_variable: <value>
 
 ## Summary
 
-In this article, you have learned about the Arduino IoT Cloud's **Device API**, and how to connect to it using MicroPython, Python & JavaScript (Node.js). 
+In this article, you have learned about the Arduino Cloud's **Device API**, and how to connect to it using MicroPython, Python & JavaScript (Node.js). 
 
 This API makes it easier to integrate existing software projects written in Python & JavaScript.
 

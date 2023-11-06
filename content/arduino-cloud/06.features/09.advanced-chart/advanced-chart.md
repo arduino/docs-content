@@ -21,7 +21,7 @@ For example, you could set up a series of sensors around a city, and measure the
 
 ## Hardware & Software Needed
 
-- [Arduino IoT Cloud](https://create.arduino.cc/iot/).
+- [Arduino Cloud](app.arduino.cc).
 - Cloud compatible boards, [see full list](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#compatible-hardware).
 
 ***In this tutorial, we use the [MKR WiFi 1010](/hardware/mkr-wifi-1010) and [MKR ENV Shield](/hardware/mkr-env-shield) for recording environmental values. This is not a requirement, you can use any board for this tutorial.***
@@ -34,9 +34,9 @@ To use the advanced widget, you will need to set up a Thing and some variables t
 - `pressure`
 - `light`
 
-***If you are unfamiliar with how to set up a Thing and variables, head on over to the [Getting Started with the Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) article.***
+***If you are unfamiliar with how to set up a Thing and variables, head on over to the [Getting Started with the Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) article.***
 
-**1.** Head on over to the **"Dashboards"** in the Arduino IoT Cloud, and create a new dashboard (or use an existing dashboard).
+**1.** Head on over to the **"Dashboards"** in the Arduino Cloud, and create a new dashboard (or use an existing dashboard).
 
 **2.** Add a new **"Advanced Chart Widget"**, selecting it from the list of available widgets. 
 

@@ -1,14 +1,13 @@
 ---
-title: 'Historical Data on Arduino IoT Cloud'
-difficulty: beginner
-description: 'Learn how to download historical data from the Arduino IoT Cloud'
+title: 'Download Historical Data'
+description: 'Learn how to download historical data from the Arduino Cloud'
 tags: [IoT Cloud, Historical Data, CSV]
 author: 'Benjamin Dannegård'
 ---
 
 ## Introduction 
 
-It is possible to download historical data from your [Arduino IoT Cloud](https://create.arduino.cc/iot/) Things and Variables. It is downloaded in `.csv` format, and can be used for data comparison.
+It is possible to download historical data from your [Arduino Cloud](app.arduino.cc) Things and Variables. It is downloaded in `.csv` format, and can be used for data comparison.
 
 ## Goals
 
@@ -23,7 +22,7 @@ You do not need an active board to download the historical data, but for initial
 
 To see all compatible boards, check out the link below:
 
-- [Arduino IoT Cloud compatible boards](/cloud/iot-cloud/tutorials/iot-cloud-getting-started#compatible-hardware).
+- [Arduino Cloud compatible boards](/cloud/iot-cloud/tutorials/iot-cloud-getting-started#compatible-hardware).
 
 ### Different Historical Data
 
@@ -43,7 +42,7 @@ Combined with 15 days or three months of historical data, you can build a detail
 
 ### Downloading Historical Data
 
-First, to download historical data navigate into one of your dashboards on the [Arduino IoT Cloud](https://create.arduino.cc/iot/dashboards).
+First, to download historical data navigate into one of your dashboards on the [Arduino Cloud](app.arduino.cc/dashboards).
 
 ![Arduino cloud dashboard.](assets/cloud-historical-data-dashboard.png)
 
@@ -63,4 +62,4 @@ In the next window, click on the **"Get Data"** button. The download link will n
 
 ## Conclusion
 
-In this tutorial you learned what applications historical data could have, and how to extract historical data from your Arduino IoT Cloud dashboard.
+In this tutorial you learned what applications historical data could have, and how to extract historical data from your Arduino Cloud dashboard.

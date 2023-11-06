@@ -1,16 +1,14 @@
 ---
-title: 'Thing to Thing communication with Arduino IoT Cloud'
-compatible-products: [mkr-1000-wifi, mkr-wifi-1010, nano-33-iot, nano-rp2040-connect]
-difficulty: beginner
+title: 'Syncing Variables Across Things'
 description: 'Learn how two Things can communicate with each other through variable syncing.'
 tags:
-  - Device to device
+  - Variable Synchronization
 author: 'Karl Söderby'
 ---
 
 ## Introduction
 
-The Thing to Thing communication is a great feature that allows you to synchronize your Arduino devices. It enables you to pair **variables** of the same data type between things and with the Arduino IoT Cloud, creating a two-way communication between your devices has never been easier. 
+The Thing to Thing communication is a great feature that allows you to synchronize your Arduino devices. It enables you to pair **variables** of the same data type between things and with the Arduino Cloud, creating a two-way communication between your devices has never been easier. 
 
 ## Goals
 
@@ -22,7 +20,7 @@ The goals of this project are:
 
 ## Hardware & Software needed
 
-- [Arduino IoT Cloud](https://create.arduino.cc/iot/) (with a Maker subscription, read more [here](https://store.arduino.cc/digital/create)).
+- [Arduino Cloud](app.arduino.cc) (with a Maker subscription, read more [here](https://store.arduino.cc/digital/create)).
 - 2x [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) or,
 - 2x [Arduino MKR WiFi 1000](https://store.arduino.cc/arduino-mkr1000-wifi) or, 
 - 2x [Arduino Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot) or,
@@ -37,13 +35,13 @@ In this tutorial, we are using no external circuit. You will only need 2x IoT Cl
 
 ## Setting up the Things
 
-To start, we will need to head over to the [Arduino IoT Cloud](https://create.arduino.cc/iot/). This is also accessible through the menu at the top right.
+To start, we will need to head over to the [Arduino Cloud](app.arduino.cc). This is also accessible through the menu at the top right.
 
 ![Navigate to the cloud.](assets/thing-to-thing-img-00.png)
 
 ### Step 1: Configuring two devices
 
-To enable Thing to Thing communication, we will first need to configure the two devices. If you have never used the Arduino IoT Cloud before, you can check out [our getting started with the IoT cloud guide](https://www.arduino.cc/en/Tutorial/iot-cloud-getting-started).
+To enable Thing to Thing communication, we will first need to configure the two devices. If you have never used the Arduino Cloud before, you can check out [our getting started with the IoT cloud guide](https://www.arduino.cc/en/Tutorial/iot-cloud-getting-started).
 
 Now that we are working with two devices, it is important to separate them from each other, since they will later be linked to two different Things. In this tutorial, we named the devices:
 
@@ -163,4 +161,4 @@ We hope you enjoyed this tutorial and that it helped you to get started with you
 
 ### More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).
+You can find more tutorials in the [Arduino Cloud documentation page](/arduino-cloud/).
