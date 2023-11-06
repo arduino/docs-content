@@ -16,8 +16,15 @@ Whenever you create a [Thing](/arduino-cloud/cloud-interface/things) in the Ardu
 
 ## Requirements
 
-- [Registered account at Arduino](https://login.arduino.cc/login),
-- [Cloud compatible board](/arduino-cloud/hardware/devices#type-of-devices)
+For this guide, you will need to have a registered account at Arduino. Register through the link below:
+- [Create an Arduino account](https://login.arduino.cc/login)
+
+You will also need a supported board:
+- [Official Arduino Wi-Fi® boards](/arduino-cloud/hardware/wifi)
+- [ESP32 / ESP8266 boards](/arduino-cloud/hardware/wifi#configure-esp-boards)
+- [Official LoRaWAN® boards](/arduino-cloud/hardware/lora) 
+- [Official Ethernet setups](/arduino-cloud/hardware/ethernet)
+- [Official cellular boards (GSM/NB-IoT)](/arduino-cloud/hardware/cellular)
 
 ## Setup
 
@@ -25,7 +32,7 @@ In this section, we will go through the steps necessary to connect your Arduino 
 
 ### Configure Device
 
-First navigate to [Arduino Cloud](app.arduino.cc), and click on the **Devices** tab. Here you can see all your devices, and configure a new one. Depending on what type of board you have, the configuration will vary. 
+First navigate to [Arduino Cloud](app.arduino.cc), and click on the **Devices** tab. Here you can see all your devices, and configure a new one. Depending on what type of board you have, the configuration will vary.
 
 ***For more details, see the [documentation for devices](/arduino-cloud/hardware/devices).***
 
@@ -39,13 +46,17 @@ A "Thing" is a virtual twin of your hardware, and it is here that we create vari
 
 1. First, let's attach the device we want to use, by clicking the **"Select Device"** button in the **"Associated Devices"** section to the right. 
 2. let's create a new variable, call it `test`, and select it to be a `boolean` type and with a **read/write** permission.
-3. finally, configure your network in the **Network** section. Here you will enter your Wi-Fi® credentials, and if you are using an ESP32 based board, you need to enter the secret key here. 
+3. finally, configure your network in the **Network** section. Here you will enter your Wi-Fi® credentials, and if you are using an ESP32 based board, you need to enter the secret key here.
+
+![Enter network credentials.](assets/esp32-only.png)
+
+***Your secret key is obtained during the device configuration. Read more at [Configuring ESP boards](/arduino-cloud/hardware/wifi#configure-esp-boards).***
 
 All the above configurations have now been generated into a set of files that can be accessed in the **Sketch** tab.
 
 ***For more details, see the [documentation for Things](/arduino-cloud/cloud-interface/things).***
 
-### Complete Sketch
+### Create Sketch
 
 The automatically generated sketch is now available to be edited. This sketch includes all necessities to connect to the cloud, and has a callback function generated for each **read/write** variable.
 
@@ -91,10 +102,11 @@ void onTestChange()  {
 
 When our sketch is ready, we can **compile & upload** our sketch to our board. This process can take some time, depending on how large your sketch is.
 
-1. First, make sure your board is connected and visible in the board selection menu.
-2. Click the verify/upload button.
-3. Wait until the code has successfully been uploaded.
-4. Open the serial monitor tool to check for debug messages. If your board is failing to connect, it will print the errors here.
+1. First make sure that you have the [Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) installed. This allows Arduino Cloud to communicate with your board in the web interface.
+2. Check that your board is connected and visible in the board selection menu.
+3. Click the verify/upload button.
+4. Wait until the code has successfully been uploaded.
+5. Open the serial monitor tool to check for debug messages. If your board is failing to connect, it will print the errors here.
 
 ### Verify Connection
 

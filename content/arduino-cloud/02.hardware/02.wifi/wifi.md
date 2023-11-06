@@ -17,7 +17,9 @@ There are currently two ways of configuring a Wi-Fi® board:
 
 Connection via Wi-Fi® is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the cloud via your home/work/school network router.
 
-### Crypto Chip Boards
+## Configure Wi-Fi® Boards
+
+### List of Wi-Fi® Boards
 
 The following boards connect to the Arduino Cloud via Wi-Fi®, using the onboard encryption:
 
@@ -31,18 +33,9 @@ The following boards connect to the Arduino Cloud via Wi-Fi®, using the onboard
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
 - [Opta](https://docs.arduino.cc/hardware/opta).
 
-### ESP32 / ESP8266
+### Setup a Wi-Fi® Board
 
-The following official boards connect to the Arduino Cloud via a Secret Key / API key:
-
-- [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
-- [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
-
-A large number of third party boards are also supported, which you will see during the configuration.
-
-## Configure a Wi-Fi® Board
-
-To configure a Wi-Fi® board, follow the steps below:
+To configure a Wi-Fi® board in the Arduino Cloud, follow the steps below:
 
 **1.** Connect your board to your computer.
 
@@ -52,11 +45,59 @@ To configure a Wi-Fi® board, follow the steps below:
 
 **3.** Allow some time for the configuration, as a sketch is being uploaded to your board as well as a configuration of your crypto chip is ongoing. 
 
-***Please note: ESP32 & ESP8266 based boards does not have a crypto chip, and the configuration will be instant. Instead, you will receive a `Device ID` and `Secret Key`, that you can either download as a PDF or manually save. This will be needed. later on, so make sure to save the information.***
-
 Your board is now configured and ready to be used in the Arduino Cloud. 
 
-To get started, check out the official [Getting Started (Arduino / C++)](/arduino-cloud/guides/arduino-c) guide. This will guide you to successfully send data between your board and Arduino Cloud.
+After setting up a device, you can check out the official [Getting Started (Arduino / C++)](/arduino-cloud/guides/arduino-c) guide. This will guide you to successfully send data between your board and Arduino Cloud.
+
+## Configure ESP Boards
+
+ESP32 / ESP8266 based boards connect to the Arduino Cloud via a **secret key**, generated during device configuration.
+
+There is a large number of ESP32/ESP8266 supported boards, which you select from a drop down menu.
+
+![Range of ESP32 boards.](assets/esp32-supported-boards.png)
+
+***If you do not find your board in the list, you can select also select the ESP32 model (e.g. `ESP32S3 Dev Module`).***
+
+The following official boards have an ESP32 as main/co-processor and connect using a secret key as well.
+
+- [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
+- [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
+
+### Setup ESP32/ESP8266 Boards
+
+To configure an ESP32 board in the Arduino Cloud, follow the steps below:
+
+**1.** Connect your board to your computer.
+
+**2.** Go to [Arduino Cloud](app.arduino.cc), and navigate to the **"Devices"** section. Click on the **"Add Device"** button and then select the **"Third Party Board"**.
+
+![Select "Third Party Device"](assets/esp32.png)
+
+**3.** Select your board type, and give your board a name. When finished, you will generate a **secrey key** and **device ID**. You can download or manually store your credentials somewhere, but the secret key can **not be retrieved** after you close the window.
+
+![Secret / Device Key.](assets/device-key.png)
+
+Your ESP32/ESP8266 board is now configured and ready to be used in the Arduino Cloud. 
+
+After setting up a device, you can check out the official [Getting Started (Arduino / C++)](/arduino-cloud/guides/arduino-c) guide. This will guide you to successfully send data between your board and Arduino Cloud.
+
+### Verified ESP32 Boards Supporting OTA 
+
+Over-the-air (OTA) allows you to remotely upload sketches to your board without a physical connection over USB.
+
+The following ESP32 boards have been tested and verified to support OTA:
+
+- ESP32-S2-DevKitC
+- NODEMCU-32-S2
+- WEMOS LOLIN D32
+- ESP32-S3-DevKitC
+- WEMOS LOLIN D32
+- ESP32-CAM
+- NodeMCU-32S
+- Freenove ESP32 WROVER
+- ESP32-DevKitC32E
+- DOIT ESP32 DevKit v1
 
 ## Supported Frequencies
 

@@ -1,6 +1,6 @@
 ---
-title: "Getting Started"
-description: 'The Arduino Cloud is an online platform that makes it easy for you to code, deploy and monitor IoT projects.'
+title: 'Getting Started with Arduino Cloud'
+description: 'Get started with the Arduino Cloud, an online platform that makes it easy for you to code, deploy and monitor IoT projects.'
 tags: [Arduino Cloud, Getting Started]
 author: 'Karl Söderby'
 ---

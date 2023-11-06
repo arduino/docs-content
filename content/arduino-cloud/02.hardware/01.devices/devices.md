@@ -1,5 +1,5 @@
 ---
-title: Devices Overview
+title: Device Types
 description: Learn about devices in the Arduino Cloud and how to configure them.
 tags: [Arduino Cloud, Devices]
 author: Karl Söderby

@@ -1,7 +1,8 @@
 ---
 title: 'MicroPython'
-description: 'Learn how to use the MicroPython library to connect to the Arduino IoT Cloud and control an LED.'
+description: 'Learn how to connect to the Arduino Cloud using MicroPython.'
 tags: 
+  - Arduino Cloud
   - IoT
   - MicroPython
 author: 'Sebastian Romero'

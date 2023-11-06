@@ -91,7 +91,7 @@ This editor is a mirror of the [Cloud Editor](https://create.arduino.cc/editor/)
 
 The editor includes all cores for official Arduino boards, and over 6000+ libraries. Many boards also supports **Over-the-air (OTA)** uploads, which is enabled after your first upload via USB.
 
-***For more information on the editor, check out the [Getting Started with Cloud Editor](/arduino-cloud/cloud-editor/getting-started-cloud-editor) tutorial.***
+***For more information on the editor, check out the [Cloud Editor](/arduino-cloud/guides/cloud-editor) tutorial.***
 
 ## Metadata
 
