@@ -75,7 +75,7 @@ Linking a webhook to a Thing is a quite simple process, follow the steps below t
 
 **3.** Create your Variables. In our case, we will create a **"message"** Variable and set its type to **"Character String"**.
 
-![Create Variabele](./assets/webhooks-01.png)
+![Create Variable](./assets/webhooks-01.png)
 
 **4.** Add your **Device**, and configure your **Network** from the right side menu.
 
