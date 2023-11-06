@@ -14,6 +14,8 @@ author: 'Officine Innesto, José Bagur'
 
 If you really want to make your home smarter, you'll probably want start from your monthly bills (for example, energy, gas, etc...). As some say: **good for the planet, the wallet and the bottom line**. In this tutorial, we are going to learn how to connect a Modbus energy meter to the Arduino Cloud IoT using an Arduino® MKR WiFi 1010 board and an Arduino® MKR 485 Shield. 
 
+***This tutorial assumes you know the basics of the Arduino Cloud. If you are new check out our [Getting Started Guide](/arduino-cloud/guides/overview).***
+
 ## Goals
 
 The goals with this tutorial are: 
@@ -72,65 +74,7 @@ Now that we have finished setting up the hardware, it is time to connect our ene
 
 ## Setting Up the Arduino Cloud IoT
 
-First, we need to register and configure our MKR WiFi 1010 board in the Arduino Cloud IoT. Let's start by navigating to [Arduino Cloud IoT](https://create.arduino.cc/iot).
-
-***Note: You will need a Arduino account to use the Arduino Cloud IoT. If you do not have one, you will be redirected to the account registration site.***
-
-### Configure a New Device in the Arduino Cloud IoT
-
-Once we are in the Arduino Cloud IoT, we will need to select "**Devices**" tab. This will open a new page which will ask you to add a new device. Click on the "**ADD DEVICE**" button.
-
-![Adding a new device to our Arduino Clout IoT account](assets/modbus-energy-meter_img07.png)
-
-In the set up wizard, we will now have an option of either configuring a new Arduino® device, or a third party device. Let's select the "**Set up an Arduino device**" option.
-
-![Selecting the type of device to set up](assets/modbus-energy-meter_img08.png)
-
-At this point, we will need to connect our MKR WiFi 1010 board to our computer; we will also need to have installed the **Arduino Create Agent** in our computer. If the Arduino Create Agent is not installed, the set up wizard will ask us to install it. Our device should now show up as shown in the image below. Now its time to configure it, let's select the "**CONFIGURE**" button.
-
-![MKR WiFi 1010 board found!](assets/modbus-energy-meter_img09.png)
-
-Now we must name our device. In this case, we named our device as "**EnergyMeter001**"; names can be randomly generated also by the set up wizard. Let's continue by selecting the "**NEXT**" button.
-
-![Naming our MKR WiFi 1010 board](assets/modbus-energy-meter_img10.png)
-
-After selecting the "**NEXT**" button, the set up wizard will start to configure our board. This process may take a few minutes.
-
-![Configuration process of our MKR WiFi 1010 board and the Arduino Cloud IoT](assets/modbus-energy-meter_img11.png)
-
-Once it is done, select the "**DONE**" button, we will be redirected to the "Devices" page. In this page we are going to be able to see our device. Congratulations! The configuration of our board and the Arduino Cloud IoT is done, now we can create a "Thing" with it.
-
-![Configuration process of our MKR WiFi 1010 board and the Arduino Cloud IoT](assets/modbus-energy-meter_img12.png)
-
-### Create a New Thing in the Arduino Cloud IoT
-
-After our board is configured in the Arduino Cloud IoT, we can move on to the next step: creating a "Thing". Let's select the "**Things**" tab and then select the "**CREATE THING**" button.
-
-![Creation of a "Thing" in the Arduino Cloud IoT complete](assets/modbus-energy-meter_img13.png)  
-
-We will be redirected to a page with our "Thing" configuration overview. Here we can define our "Thing" name, select to what network we are connecting to, what device we are using with out "Thing" and create variables that we want to to connect from our board to our "Thing" in the Arduino Cloud IoT. 
-
-![Overview of a "Thing" in the Arduino Cloud IoT](assets/modbus-energy-meter_img14.png)  
-
-Let's start by giving a name to our "Thing" and linking our freshly configured device. We named our Thing as "**Energy Thing**", this can be done by clicking in "**Untitled**". To link out freshly configured device, we select the "**Select Device**" button located to the right. This will open up a window where we can associate a previously configured device with our "Thing" by selecting the "**ASSOCIATE**" button.
-
-![Associating a device to a "Thing" in the Arduino Cloud IoT](assets/modbus-energy-meter_img15.png)  
-
-### Creating Variables for a "Thing" in the Arduino Cloud IoT
-
-Now, let's create **variables** for the "Energy Thing". The variables we are going to create will be synced, automatically, with the Arduino Cloud IoT as long as the board is connected to Internet and the Arduino Cloud IoT. Let's create create a new variable by selecting the "**Add Variable**" button.
-
-!["ADD VARIABLE" button in the Arduino Cloud IoT](assets/modbus-energy-meter_img16.png)  
-
-This will open up a window where we can create new variables and define its characteristics. The first variable we are going to create will be named "**voltage**"; this variable will have the following characteristics:
-
-- **Variable type**: Floating Point Number.
-- **Variable permission**: read only.
-- **Variable update policy**: on change (threshold do not changes).
-
-![Adding a variable to the "Energy Thing"](assets/modbus-energy-meter_img17.png)  
-
-  Repeat this process for the variables and its characteristics shown in the table below:
+- Create a **Thing** with the following variables:
 
 |  **Variable** |          **Type**         | **Permission** |  **Update Policy**  |
 |:---------:|:---------------------:|:----------:|:---------------:|
@@ -140,22 +84,15 @@ This will open up a window where we can create new variables and define its char
 | frequency | Floating Point Number |  Read Only |    On change    |
 |   energy  | Floating Point Number |  Read Only |    On change    |
 
+![Thing Set up](./assets/configureThing.png)
 
-The created variables should appear now in the "Energy Thing" overview.
+- Set up your [MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010) and configure your network credentials.
 
-![Variables of the "Energy Thing"](assets/modbus-energy-meter_img18.png)  
-
-### Network Credentials for a "Thing" in the Arduino Cloud IoT
-
-Now that we have created the variables for the "Energy Thing", we can configure the network details. This can be done by selecting the "**Configure**" button in the "Network" section. This will open up a window where we can add the network SSID and its password. 
-
-![Network credentiales of the "Energy Thing"](assets/modbus-energy-meter_img19.png)
-
-### Creating an Sketch for a "Thing" in the Arduino Cloud IoT
+### Creating a Sketch for a "Thing" in the Arduino Cloud IoT
 
 Once we are finished with all the configurations of the "Energy Thing", we can move on to creating the sketch that we are going to upload to our MKR WiFi 1010 board. To do so, we first need to go to the "**Sketch**" tab. But before, let's talk about **Modbus**. 
 
-![Sketch tab in the Arduino Cloud IoT](assets/modbus-energy-meter_img20.png)
+![Sketch tab in the Arduino Cloud IoT](./assets/openSketch.png)
 
 Modbus is an open source communication protocol designed specifically for industrial sensors and machines. In simple terms, it is a method used for transmitting information over serial lines between electronic devices. Our MKR WiFi 1010 board can talk Modbus using the [Arduino Modbus library](https://www.arduino.cc/en/ArduinoModbus/ArduinoModbus). This library packs all the handlers and makes hooking up any Modbus device to some of the Arduino® boards (like the MKR family boards) really fast and easy. You can read more about Modbus [here](https://en.wikipedia.org/wiki/Modbus). 
 
@@ -417,21 +354,23 @@ To use this feature, make sure the board has power. If your board is already con
 
 ### Creating a Dashboard in the Arduino Cloud IoT
 
-After our code has been successfully uploaded to our board, we we will need to create a **dashboard** for **visualizing** the energy meter data. Head over to the "**Dashboards**" tab and click on "Build Dashboard".
 
-![Dashboards tab in the Arduino Cloud IoT](assets/modbus-energy-meter_img21.png)
 
-An empty dashboard will be displayed. After changing the new dashboard's name, for example "Energy Meter Dashboard", let's add widgets to it. Let's click on the "**ADD**" button and select a "**Value**" widget.
+After our code has been successfully uploaded to our board, we we will need to create a **dashboard** for **visualizing** the energy meter data.
 
-![Adding a value widget into a dashboard in the Arduino Cloud IoT](assets/modbus-energy-meter_img22.png)
+Create a dashboard with the following widgets:
 
-Now, we need to **link** the widget we just added to our dashboard to one of the energy meter variables we defined previously in the "Energy Thing" (voltage, current, power, frequency and energy). This can be done by selecting the "**Link Variable**" button and then selecting the variable you want to link with the widget; let's start with the variable **voltage**; remember also to give a name to the widget.
+|  **Widget** |          **Linked Variable**         |
+|:---------:|:---------------------:|
+| Value  |  voltage  |
+| Value  |  current  |
+| Value  |   power   |
+| Value  | frequency |
+| Value  |   energy  |
 
-![Linking a variable to a widget in the Arduino Cloud IoT](assets/modbus-energy-meter_img23.png)
+Your dashboard should look something like this:
 
-Follow the steps described above to link the rest of the variables of the "Energy Thing" to value widgets. We should see now all of the energy meter data being displayed on the dashboard, the data shown should update every `60000` ms when our MKR WiFi 1010 board is connected to the Arduino Cloud IoT.
-
-![Energy meter data shown in the Arduino Cloud IoT](assets/modbus-energy-meter_img24.png)
+![Dashboard](./assets/dashboardWidgets.png)
 
 That's it! You have now a Modbus energy meter connected to the Arduino Cloud IoT!
 

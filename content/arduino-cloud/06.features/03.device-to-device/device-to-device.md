@@ -53,7 +53,7 @@ Follow the circuit below to connect the buttons and LEDs to your Arduino board.
 
 To start, we will need to head over to the [Arduino IoT Cloud](https://create.arduino.cc/iot/). This is also accessible through the menu at the top right.
 
-![Navigate to the cloud.](assets/device-to-device-img-02.png)
+![1Navigate to the cloud.](assets/device-to-device-img-02.png)
 
 ### Step 1: Configuring two devices
 
@@ -70,26 +70,26 @@ It is a good idea to place a label on the physical board to remember which one i
 
 Let's start by creating a new Thing, for simplicity, let's name it **Remote Light One**. 
 
-![The Thing overview.](assets/device-to-device-img-02-1.png)
+![1The Thing overview.](assets/device-to-device-img-02-1.png)
 
 Now, we will need to add two variables, with the following settings:
 
 | Variable Name | Data Type | Permission   |
 | ------------- | --------- | ------------ |
-| switch_1      | integer   | read & write |
+| switch_1      | boolean   | read & write |
 | switch_2      | boolean   | read & write |
 
 We also need to enter our network details, and select our device (which should be **Device_1**).
 
 The final overview should look something like this:
 
-![The final view.](assets/device-to-device-img-03.png)
+![1The final view.](assets/device-to-device-img-03.png)
 
 ### Step 3: Program the first Thing
 
 Now, we also need to complete the sketch for our first Thing. First, let's head over to the **"Sketch"** tab in the Arduino IoT Cloud. 
 
-![Click on the "Sketch" tab to edit the sketch.](assets/device-to-device-img-04.png)
+![2Click on the "Sketch" tab to edit the sketch.](assets/device-to-device-img-04.png)
 
 The code that is needed can be found in the snippet below. Upload the sketch to the first board.
 
@@ -163,19 +163,15 @@ After we have successfully uploaded the code to our first board, we can go on to
 
 To create our second Thing, we need to click on the **"Things"** tab, and click on **"Create Thing"**. We can name this one **Remote Light Two**. 
 
-![Creating the second thing.](assets/device-to-device-img-05.png)
+![1Creating the second thing.](assets/device-to-device-img-05.png)
 
 Now, we need to create the variables we want to sync with the other Thing. First, click on the **"Add Variable"** button. We will name this one **switch_1** as well, and then click on the **"Sync with other things"** option.
 
-![Click on "Sync with other things".](assets/device-to-device-img-06.png)
+![1Click on "Sync with other things".](assets/device-to-device-img-06.png)
 
-We will now see the two variables we created inside **Remote Light One**. Let's select the **switch_1** variable and click on **"Synchronize variables"**.
+We will now see the two variables we created inside **Remote Light One**. Let's select the **switch_1** variable and click on **"Synchronize variables"** and finally click on **Add Variable**.
 
-![Selecting the variables we want to synchronize.](assets/device-to-device-img-07.png)
-
-Then, click on the **"Add Variable"** button.
-
-![Adding the variable.](assets/device-to-device-img-08.png)
+![1Selecting the variables we want to synchronize.](assets/device-to-device-img-07.png)
 
 Next, we can repeat the same process for the boolean variable, but instead of selecting the **switch_2** variable to sync with, select the **boolean_sync** variable. Now we should have two variables that are synced with our other Thing.
 

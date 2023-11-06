@@ -32,7 +32,7 @@ To follow this guide, make sure to have:
 - [Arduino IoT Python Client](https://pypi.org/project/arduino-iot-client/) installed.
 - A code editor (we recommend [VSCode](https://code.visualstudio.com/) with the Python extension installed).
 
-***The experience with Python and the `pip` package mangager varies depending on your computer and operating system. Python needs to be in your PATH to use the Arduino IoT Cloud Python client.***
+***The experience with Python and the **pip**** package **manager** varies depending** on your computer and operating system. Python needs to be in your PATH to use the Arduino IoT Cloud Python client.***
 
 ## Cloud Setup
 
