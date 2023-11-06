@@ -58,7 +58,7 @@ There are currently two official ESP32 based Arduino boards:
 
 You can also configure a wide range of third party ESP32/ESP8266 boards.
 
-***Read more and see list of all compatible ESP32/ESP8266 boards in the [Arduino Cloud ESP32/ESP8266 documentation](/arduino-cloud/hardware/wifi#esp32--esp8266).***
+***Read more and see list of all compatible ESP32/ESP8266 boards in the [Arduino Cloud ESP32/ESP8266 documentation](/arduino-cloud/hardware/wifi#configure-esp-boards).***
 
 ### Manual Devices
 
