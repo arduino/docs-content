@@ -4,9 +4,13 @@ url_shop: https://store.arduino.cc/arduino-mkr-wifi-1010
 url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 draft: true
 core: arduino:samd
-forumCategorySlug: '/hardware/mkr-boards/mkrwifi1010/147'
+forumCategorySlug: "/hardware/mkr-boards/mkrwifi1010/147"
 certifications: [FCC, UKCA, IC, REACH, RED, RoHS, WEEE, RCM, MIC, CE]
-productCode: '025'
+productCode: "025"
+primary_button_url: TODO
+primary_button_title: Get Started
+secondary_button_url: TODO
+secondary_button_title: Get Started
 ---
 
 <SubTitle>The easiest entry point to basic IoT and pico-network application design.</SubTitle>
