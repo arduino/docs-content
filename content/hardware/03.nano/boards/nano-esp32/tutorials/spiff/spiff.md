@@ -11,6 +11,12 @@ The SPIFFS (Serial Peripheral Interface Flash File System) is a file system desi
 
 ***Before proceeding with the SPIFFS file system setup on Nano ESP, please be aware that the mounting instructions mentioned in a comment on the code from the packaged built-in example are tailored for specific older IDE versions such as IDE 1.8. These instructions might not be relevant to IDE 2.0, as it does not support the utilization of custom tools, which are unnecessary in this case.***
 
+## Software & Hardware Needed
+
+- [Arduino Nano ESP32](https://store.arduino.cc/nano-esp32)
+- [Arduino IDE](https://www.arduino.cc/en/software)
+- [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32)
+
 ## Set Up SPIFFS File System
 
 Start by opening the **SPIFFS_Test example** by going to:
