@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Getting Started]
 author: 'Karl Söderby'
 ---
 
-The [Arduino Cloud](app.arduino.cc) is a platform for developing Arduino projects and connecting them to the world. It supports secure connections with boards via [Wi-Fi®](/arduino-cloud/hardware/wifi), [LoRa®](/arduino-cloud/hardware/lora), [Ethernet](/arduino-cloud/hardware/ethernet) and [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular).
+The [Arduino Cloud](app.arduino.cc) is a platform for developing Arduino projects and connecting them to the world. It supports secure connections with boards via [Wi-Fi®](/arduino-cloud/hardware/wifi), [LoRa®](/arduino-cloud/hardware/lora), [Ethernet](/arduino-cloud/hardware/ethernet) and [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular), and lets you create a system for sending any variable information you can think of from one board to another within minutes of unboxing them.
 
 The Arduino Cloud platform includes:
 - an **Integrated Development Environment (IDE)** for programming your boards,
@@ -16,7 +16,11 @@ The Arduino Cloud platform includes:
 Very simply explained, with the Arduino Cloud you can:
 1. Create a program for an Arduino based on a brilliant idea you just hatched.
 2. Upload the program to your board and synchronize any data you want to (most commonly through Wi-Fi®).
-3. Create a dashboard with a set of widgets to control and monitor your board. 
+3. Create a dashboard with a set of widgets to control and monitor your data.
+
+Developing a sketch made for the Arduino Cloud is almost just like developing any other sketch. You have your setup, and loop just like normal. But you are also able to select variables to be automatically synced to the Arduino Cloud. 
+
+And once a variable is synced to the Arduino Cloud you can access it from any of your other devices connected to the Arduino Cloud.  
 
 Once you have setup your project, this is how you could interact & monitor it. 
 
@@ -64,7 +68,7 @@ Anything in the Arduino Cloud can be accessed via the left action bar. In the li
 - **Templates** - templates are ready-made project that will automatically configure your device, Thing, 
 - **Integrations** - third party services that are integrated with the Arduino Cloud.
 
-## Get Started with Arduino Cloud
+## A Walkthrough to Getting Started with Arduino Cloud
 
 Setting up a project in the Arduino Cloud is easy, and can be done through a few simple steps summarized in this section.
 
@@ -78,7 +82,7 @@ By default, you will have a **free plan**, which can be upgraded to a number of 
 
 ### 2. Configure a Device
 
-First you will need to connect your board to your computer, and configure your device at [app.arduino.cc/devices](app.arduino.cc/devices).
+First you will need to connect your board to your computer, and configure your device in the [Devices](app.arduino.cc/devices) tab.
 
 ![Devices in the Arduino Cloud.](assets/device.png)
 
@@ -94,7 +98,7 @@ After configuring a device, we can create a Thing, which is the **virtual twin**
 
 Variables we create will be used in the sketch, and will keep synchronizing as long as the board is connected to the cloud. 
 
-When working with your IoT projects, consider this the "main space" for configurations, as you can access your sketche from here as well. 
+When working with your IoT projects, consider this the "main space" for configurations, as you can access your sketches from here as well. 
 
 ***Learn more in the documentation for [Arduino Cloud Things](/arduino-cloud/cloud-interface/things).***
 

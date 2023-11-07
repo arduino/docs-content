@@ -11,9 +11,10 @@ libraries:
     url: https://github.com/arduino/arduino-iot-cloud-py
 ---
 
+***It is recommended to have some experience with the Python environment before reading this guide. However, installation and setup is covered in the [Python Setup](#python-setup) section.***
+
 The [Arduino IoT Cloud Python Client](https://pypi.org/project/arduino-iot-cloud/) is a library that allows you to interact with the Arduino Cloud via MQTT. It supports basic authentication using the **device ID** as well as **secret key** that is obtained from the Arduino Cloud when configuring a manual device.
 
-***It is recommended to have some experience with the Python environment before reading this guide. However, installation and setup is covered in the [Python Setup](#python-setup) section.***
 
 ## Overview
 
@@ -32,7 +33,7 @@ To follow this guide, make sure to have:
 - [Arduino IoT Python Client](https://pypi.org/project/arduino-iot-client/) installed.
 - A code editor (we recommend [VSCode](https://code.visualstudio.com/) with the Python extension installed).
 
-***The experience with Python and the **pip**** package **manager** varies depending** on your computer and operating system. Python needs to be in your PATH to use the Arduino IoT Cloud Python client.***
+***The experience with Python and the pip package manager varies depending on your computer and operating system. Python needs to be in your PATH to use the Arduino IoT Cloud Python client.***
 
 ## Cloud Setup
 

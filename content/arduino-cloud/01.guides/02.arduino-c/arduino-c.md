@@ -1,11 +1,11 @@
 ---
 title: 'Arduino / C++'
-description: 'Get started with the Arduino Cloud using the Arduino / C++ programming language.'
+description: 'Get started with the Arduino Cloud using the C++ programming language.'
 tags: [Arduino Cloud, Setup]
 author: 'Karl Söderby'
 ---
 
-The default option for programming your board to connect to the Arduino Cloud is by using the **Arduino / C++ language**. The configuration and connection between your board and the Arduino Cloud is supported by the [ArduinoIoTCloud library](https://github.com/arduino-libraries/ArduinoIoTCloud) & [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) libraries.
+The default option for programming your board to connect to the Arduino Cloud is by using the **C++ language**. The configuration and connection between your board and the Arduino Cloud is supported by the [ArduinoIoTCloud library](https://github.com/arduino-libraries/ArduinoIoTCloud) & [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) libraries.
 
 Whenever you create a [Thing](/arduino-cloud/cloud-interface/things) in the Arduino Cloud, you automatically start generating a set of files that will handle the configurations, credentials & connection:
 - `<sketchname>.ino` - your main sketch file,
