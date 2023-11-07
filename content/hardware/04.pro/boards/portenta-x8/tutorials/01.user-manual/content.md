@@ -784,12 +784,18 @@ In order to connect to a Wi-Fi® Access Point via CLI, you can use the network m
 
 ### Accessing Over SSH Session
 
+Establishing communication with the Portenta X8 via an SSH session is possible. To do so, it will require a network connection, either over Wi-Fi® or Ethernet provided within carriers. Thus, once the previous processes are set up, it is possible to use an SSH session to communicate with the Portenta X8.
+
+For Windows users, it is necessary to install a service tool to ease the following procedures. While Bonjour, Apple's implementation of zero-configuration networking, comes built into macOS, it is not natively included in Windows and must be installed separately.
+
+***Before proceeding on __Windows__, please install [Bonjour Print Services for Windows](https://support.apple.com/kb/DL999?locale=en_US) before continuing the following steps.***
+
+For macOS and Linux users, _Bonjour_ is pre-installed on macOS, and _Avahi-Browse_ is typically available on Linux by default. Thus, additional installation steps may be unnecessary for these operating systems.
+
+In the subsequent sections, we will first guide you through the process on Windows, followed by details and instructions for Linux and macOS.
+
 #### Using the Terminal
 <br></br>
-
-It is possible to start communicating with the Portenta X8 using an SSH session. To do so, it will require a network connection, either over Wi-Fi® or Ethernet provided within carriers. Thus, once the previous processes are set up, it is possible to use an SSH session to communicate with the Portenta X8.
-
-***Before proceeding, please install [this service tool](https://support.apple.com/kb/DL999?locale=en_US) to use the following procedures.***
 
 ![SSH Services Availability Discovery](assets/ssh-x8-dns-sd-service.png "SSH Services Availability Discovery")
 
@@ -825,7 +831,7 @@ The following command sends echo requests to the device with the hostname `porte
 ping portenta-x8-<UUID>.local
 ```
 
-This command helps verify that the Portenta X8 is online and reachable over the network and for diagnosing connectivity issues.
+This command helps verify that the Portenta X8 is online and reachable over the network and for diagnosing connectivity issues. The UUID can be ascertained by referring to the findings from an earlier SSH services scan with network query or the ADB shell.
 
 ![Portenta X8 Communication over SSH Session](assets/ssh-x8-session.png "Portenta X8 Communication over SSH Session")
 
@@ -840,6 +846,8 @@ The example command above starts an SSH (Secure Shell) connection to the Portent
 ```bash
 ssh fio@portenta-x8-<UUID>.local
 ```
+
+When executing the command, substitute the `<UUID>` placeholder with the actual UUID of the Portenta X8 you are attempting to connect to. You can confirm this UUID by checking the results of a prior SSH services scan with a network query or ADB shell.
 
 If the device is configured correctly to accept SSH connections and the _fio_ account exists with SSH access, this command will prompt for the password associated with the _fio_ user.
 
