@@ -53,6 +53,8 @@ Upon completion, head over to the new dashboard, that should contain your name +
 
 ![Phone sensor data in the dashboard.](assets/remote-app-dashboard.png)
 
+For a more in depth guide on how to set this up, and how to use it to control your other devices, head over to the full [Phone Sensor Data Guide](/arduino-cloud/iot-remote-app/iot-remote-phone-sensors).
+
 ***When setting up your phone as a device, a Thing with a similar name is created in the Arduino Cloud. It can not be programmed as a regular device.***
 
 ### Background Mode
