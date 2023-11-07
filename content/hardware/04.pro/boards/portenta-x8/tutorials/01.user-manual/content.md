@@ -784,7 +784,7 @@ In order to connect to a Wi-Fi® Access Point via CLI, you can use the network m
 
 ### Accessing Over SSH Session
 
-#### Using Terminal
+#### Using the Terminal
 <br></br>
 
 It is possible to start communicating with the Portenta X8 using an SSH session. To do so, it will require a network connection, either over Wi-Fi® or Ethernet provided within carriers. Thus, once the previous processes are set up, it is possible to use an SSH session to communicate with the Portenta X8.
