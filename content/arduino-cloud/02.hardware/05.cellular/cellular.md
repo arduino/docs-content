@@ -3,6 +3,9 @@ title: NB-IoT / GSM
 description: Learn how to configure an NB-IoT / GSM devices in the Arduino Cloud.
 tags: [NB-IoT, GSM, Arduino Cloud, IoT]
 author: Karl Söderby
+hardware:
+  - hardware/01.mkr/01.boards/mkr-gsm-1400
+  - hardware/01.mkr/01.boards/mkr-nb-1500
 ---
 
 A number of Arduino boards are able to connect to the Arduino Cloud using a sim card, using either the GSM or NB-IoT technologies.
@@ -24,11 +27,11 @@ To configure a NB-IoT / GSM board, follow the steps below:
 
 **1.** Connect your board to your computer.
 
-**2.** Go to [Arduino Cloud](app.arduino.cc), and navigate to the **"Devices"** section. Click on the **"Add Device"** button and then select the **"Arduino Board"**. After a while, your board will be visible, and you can click on the **"Configure"** button.
+**2.** Go to [Arduino Cloud](https://app.arduino.cc), and navigate to the **"Devices"** section. Click on the **"Add Device"** button and then select the **"Arduino Board"**. After a while, your board will be visible, and you can click on the **"Configure"** button.
 
 ![Board show up.](assets/cellular.png)
 
-**3.** Allow some time for the configuration, as a sketch is being uploaded to your board as well as a configuration of your crypto chip is ongoing. 
+**3.** Allow some time for the configuration, as a sketch is being uploaded to your board and your crypto chip is configured.
 
 Your board is now configured and ready to be used in the Arduino Cloud. 
 
