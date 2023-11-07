@@ -445,7 +445,9 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Mounting Holes and Board Outline
 
-![](assets/x8Mechanical.svg)
+The Portenta X8 is a double-sided 66.04 mm x 25.40 mm board with a USB-C® port overhanging the top edge and two High-Density connectors on the bottom side of the board. The onboard wireless antenna connector is located on the bottom edge of the board. The board has four 2.25 mm drilled mounting holes to provide for mechanical fixing.
+
+![](assets/x8Dimensions.png)
 
 ## Certifications
 
@@ -561,6 +563,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                            |
 |------------|--------------|----------------------------------------|
+| 07/11/2023 | 4            | Add missing board dimensions           |
 | 26/01/2023 | 3            | Clarify open-source nature of M7 core  |
 | 12/09/2022 | 2            | Make cores clear, minor fixes          |
 | 24/03/2022 | 1            | Release                                |
