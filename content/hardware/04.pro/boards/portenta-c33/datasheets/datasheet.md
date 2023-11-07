@@ -447,7 +447,7 @@ Figure 4 shows the power options available on the Portenta C33 and illustrates t
     <td style="text-align: center; vertical-align: middle;">-</td>
   </tr>
   <tr>
-    <td style="text-align: center; vertical-align: middle;">J2</td>
+    <td style="text-align: center; vertical-align: middle;">J1</td>
     <td style="text-align: center; vertical-align: middle;">I2C0</td>
     <td style="text-align: center; vertical-align: middle;">44-46</td>
     <td style="text-align: center; vertical-align: middle;">Free</td>
