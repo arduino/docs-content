@@ -845,7 +845,23 @@ If the device is configured correctly to accept SSH connections and the _fio_ ac
 
 Upon successful authentication, it will open a secure shell session to the device, allowing for command-line interface access and the execution of commands remotely on the Portenta X8. The password and the rest of the configuration for using the Portenta X8 inside the shell remain the same.
 
-#### Using Softwares With GUI
+The process is similar for _GNU/Linux_ and _macOS_, with minor differences in the initial steps when browsing for SSH services on the local network.
+
+- __For GNU/Linux__:
+
+Use _Avahi-Browse_ to search for SSH services on the local network:
+
+```avahi-browse -d local _sftp-ssh._tcp --resolve -t```
+
+- __macOS__:
+
+On macOS, you can use the similar command:
+
+```dns-sd -B _sftp-ssh._tcp local```
+
+Alternatively, you can use a software called "_Discovery_", which is available [here](https://apps.apple.com/it/app/discovery-dns-sd-browser/id1381004916?l=en&mt=12).
+
+#### Using Software With GUI
 <br></br>
 
 The SSH session can be initialized using third-party software with a Graphical User Interface (GUI) for easy access. Begin with a software called "_Bonjour Browser_", which can be downloaded [here](https://hobbyistsoftware.com/bonjourbrowser).
