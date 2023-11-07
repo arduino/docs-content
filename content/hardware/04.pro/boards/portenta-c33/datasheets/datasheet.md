@@ -396,18 +396,6 @@ The High-Density connectors pinout is shown in Figure 2.
 
 ![Figure 2. Portenta C33 pinout (High-Density connectors)](assets/Portenta_C33_Pinout_HDC.png)
 
-#### I2C Communication Availability
-
-The Portenta C33 has three hardware I2C ports free to use without resctrictions. In order to facilitate custom carriers development for the Portenta family, we detail the I2C interfaces availability in the table below: 
-
-| HD Connector      | **Interface Name**     | **Pins on HD**                         |    **Free/Shared**     | **Peripherals (Address)**    |
-|-------------------|------------------------|----------------------------------------|------------------------|-----------------------------|
-| J1                | I2C1                   | 43-45                                  |          Free          |                             |
-| J1                | I2C0                   | 44-46                                  |          Free          |                             |
-| J2                | I2C2                   | 45-47                                  |          Free          |                             |
-
-***Any I2C port is recommended to use as they are free to use without restrictions.***
-
 <div style="page-break-after: always;"></div>
 
 ### Block Diagram
