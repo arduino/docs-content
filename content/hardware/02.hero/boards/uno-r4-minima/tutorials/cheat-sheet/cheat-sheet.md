@@ -33,9 +33,16 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 To power the UNO R4 Minima you may either use a USB-C® cable or the VIN pin.
 
-If you’re using the USB-C® connector you must power it with 5 V.
+The board can be powered via the VIN pin, supporting a range between 6-24 V. The VIN pin is also connected to the DC-jack (barrel plug connector).
 
-The board can be powered via the VIN pin, supporting a range between 6-24 V.
+When powered via the VIN pin, you are using the onboard regulator to bring down the voltage to 5V, which means that the 5 V pin can provide up to 1.2 A. Keep in mind that this voltage regulator also powers the rest of the circuit board, including the MCU, LEDs among other components.
+
+***External devices with a high current draw (e.g. servo motors) should never be powered via the 5 V pin. It is mainly intended for devices drawing lower current such as sensor modules.***
+
+If you’re using the USB-C® connector you must power it with 5 V. 
+
+When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board. 
+
 
 ## Core
 
@@ -160,6 +167,12 @@ You may use them as analog output pins with the function:
 
 ```arduino
 analogWrite(pin, value);
+```
+
+By default, the resolution is 8 bit (0-255), You can use `analogWriteResolution()` to change this, supporting up to 12 bit (0-4096) resolution.
+
+```arduino
+analogWriteResolution(resolution);
 ```
 
 ### Digital Pins

@@ -25,7 +25,7 @@ featuredImage: 'chip'
 
 In this tutorial, we will learn how to access the gyroscope and accelerometer onboard the Nano RP2040 Connect. For this, we will be using the [Arduino_LSMDS63](https://www.arduino.cc/en/Reference/ArduinoLSM6DS3) library. 
 
->**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano).
+>**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v2/tutorials/ide-v2-board-manager).
 
 ## Goals
 

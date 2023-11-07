@@ -105,7 +105,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 1: Portenta C33 Main Features</caption>**
+<caption>Table 1: Portenta C33 Main Features</caption>
 </div>
 
 ### Microcontroller
@@ -144,7 +144,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 2: Portenta C33 Microcontroller Features</caption>**
+<caption>Table 2: Portenta C33 Microcontroller Features</caption>
 
 </div>
 
@@ -169,7 +169,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 3: Portenta C33 Wireless Communication Features</caption>**
+<caption>Table 3: Portenta C33 Wireless Communication Features</caption>
 
 </div>
 
@@ -209,7 +209,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 4: Portenta C33 Ethernet Connectivity Features</caption>**
+<caption>Table 4: Portenta C33 Ethernet Connectivity Features</caption>
 
 </div>
 
@@ -246,7 +246,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 5: Portenta C33 Security Features</caption>**
+<caption>Table 5: Portenta C33 Security Features</caption>
 
 </div>
 
@@ -286,7 +286,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 6: Portenta C33 External Memory Features</caption>**
+<caption>Table 6: Portenta C33 External Memory Features</caption>
 
 </div>
 
@@ -328,7 +328,7 @@ Table 7 provides a comprehensive guideline for the optimal use of the Portenta C
 |     Supply Input Voltage     |  V<sub>IN</sub> |   4.1   |   5.0   |   6.0   |     V    |
 |     Operating Temperature    |  T<sub>OP</sub> |   -40   |    -    |    85   |    °C    |
 
-**<caption>Table 7: Recommended Operating Conditions</caption>**
+<caption>Table 7: Recommended Operating Conditions</caption>
 </div>
 
 ### Current Consumption
@@ -369,11 +369,11 @@ Table 8 summarizes the power consumption of the Portenta C33 on different test c
 </tbody>
 </table>
 
-**<caption>Table 8: Board Current Consumption</caption>**
+<caption>Table 8: Board Current Consumption</caption>
 
 </div>
 
-<sup>1</sup> All peripherals off, wake-up on RTC interrupt.\
+<sup>1</sup> All peripherals off, wake-up on RTC interrupt.
 <sup>2</sup> All peripherals on, continuous data download via Wi-Fi®.
 
 <div style="page-break-after: always;"></div>
@@ -388,13 +388,13 @@ The core of the Portenta C33 is the R7FA6M5BH2CBG microcontroller from Renesas. 
 
 The MKR-styled connectors pinout is shown in Figure 1.
 
-**![Figure 1. Portenta C33 pinout (MKR-styled connectors)](assets/Portenta_C33_Pinout_MKR.png)**
+![Figure 1. Portenta C33 pinout (MKR-styled connectors)](assets/Portenta_C33_Pinout_MKR.png)
 
 <div style="page-break-after: always;"></div>
 
 The High-Density connectors pinout is shown in Figure 2.
 
-**![Figure 2. Portenta C33 pinout (High-Density connectors)](assets/Portenta_C33_Pinout_HDC.png)**
+![Figure 2. Portenta C33 pinout (High-Density connectors)](assets/Portenta_C33_Pinout_HDC.png)
 
 #### I2C Communication Availability
 
@@ -414,8 +414,7 @@ The Portenta C33 has three hardware I2C ports free to use without resctrictions.
 
 An overview of the Portenta C33 high-level architecture is illustrated in Figure 3.
 
-**![Figure 3. High-level architecture of the Portenta C33](assets/Portenta_C33_Block_Diagram.svg)**
-
+![Figure 3. High-level architecture of the Portenta C33](assets/Portenta_C33_Block_Diagram.svg)
 
 <div style="page-break-after: always;"></div>
 
@@ -434,7 +433,52 @@ The recommended minimum battery capacity is 700 mAh. The battery is connected to
 Figure 4 shows the power options available on the Portenta C33 and illustrates the main system power architecture.
 </div>
 
-**![Figure 4. Power architecture of the Portenta C33](assets/Portenta_C33_Power_Tree.svg)**
+![Figure 4. Power architecture of the Portenta C33](assets/Portenta_C33_Power_Tree.svg)
+
+### I2C Ports 
+
+<p style="text-align: justify;"> System integrators can use the Portenta C33's High-Density connectors to expand signals of the board to a custom-designed daughter board or carrier. Table 9 summarizes the I2C pins mapping on the board's High-Density connectors and shared peripherals/resources. Please refer to Figure 2 for the board's High-Density connectors pinout.</p>
+
+<div style="text-align:center;">
+<table>
+<thead>
+  <tr>
+    <th style="text-align: center; vertical-align: middle;">HD Connector</th>
+    <th style="text-align: center; vertical-align: middle;">Interface</th>
+    <th style="text-align: center; vertical-align: middle;">Pins</th>
+    <th style="text-align: center; vertical-align: middle;">Status<sup>1</sup></th>
+    <th style="text-align: center; vertical-align: middle;">Shared Peripherals</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">J1</td>
+    <td style="text-align: center; vertical-align: middle;">I2C1</td>
+    <td style="text-align: center; vertical-align: middle;">43-45</td>
+    <td style="text-align: center; vertical-align: middle;">Free</td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">J2</td>
+    <td style="text-align: center; vertical-align: middle;">I2C0</td>
+    <td style="text-align: center; vertical-align: middle;">44-46</td>
+    <td style="text-align: center; vertical-align: middle;">Free</td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">J2</td>
+    <td style="text-align: center; vertical-align: middle;">I2C2</td>
+    <td style="text-align: center; vertical-align: middle;">45-47</td>
+    <td style="text-align: center; vertical-align: middle;">Free</td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+  </tr>
+</tbody>
+</table>
+
+<caption>Table 9: I2C pins mapping of the Portenta C33</caption>
+</div>
+
+<p style="text-align: justify;"><sup>1</sup>Status column indicates the current status of the pins. "Free" means the pins are not in use by another resource or peripheral of the board and are available for usage, while "Shared" means the pins are used by one or several resources or peripherals of the board.</p>
 
 ## Device Operation
 
@@ -474,7 +518,7 @@ castellated/through-hole pins around the two long edges and two High-Density con
 
 Portenta C33 board outline and mounting holes dimensions can be seen in Figure 5. 
 
-**![Figure 5. Portenta C33 board outline (left) and mounting holes dimensions (right)](assets/Portenta_C33_Mechanical_1.png)**
+![Figure 5. Portenta C33 board outline (left) and mounting holes dimensions (right)](assets/Portenta_C33_Mechanical_1.png)
 
 The Portenta C33 has four 1.12 mm drilled mounting holes to provide for mechanical fixing.
 
@@ -482,8 +526,7 @@ The Portenta C33 has four 1.12 mm drilled mounting holes to provide for mechanic
 
 Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figure 6.
 
-**![Figure 6. Portenta C33 connectors placement (top view left, bottom view right)](assets/Portenta_C33_Mechanical_2.png)**
-
+![Figure 6. Portenta C33 connectors placement (top view left, bottom view right)](assets/Portenta_C33_Mechanical_2.png)
 
 <p style="text-align: justify;">
 The Portenta C33 is designed to be usable as a surface-mount module as well as presenting a dual inline package (DIP) format with the MKR-styled connectors on a 2.54 mm pitch grid with 1 mm holes.
@@ -523,7 +566,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Hexavalent Chromium (Cr6+)             | 1000                    |
 | Poly Brominated Biphenyls (PBB)        | 1000                    |
 | Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
-| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
 | Benzyl butyl phthalate (BBP)           | 1000                    |
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
@@ -604,7 +647,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                       **Changes**                      |
 |:----------:|:------------:|:------------------------------------------------------:|
-| 17/10/2023 |       4      | I2C ports availability table added                     |
+| 30/10/2023 |       4      |           I2C ports information section added          |
 | 20/06/2023 |       3      | Power tree added, related products information updated |
 | 09/06/2023 |       2      |       Board's power consumption information added      |
 | 14/03/2023 |       1      |                      First release                     |

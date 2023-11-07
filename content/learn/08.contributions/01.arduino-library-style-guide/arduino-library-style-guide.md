@@ -25,7 +25,7 @@ This is a style guide to writing library APIs in an Arduino style. Some of these
 **Use the established core libraries and styles.**
 
 * Use `read()` to read inputs, and `write()` to write to outputs, e.g. `digitalRead()`, `analogWrite()`, etc.
-* Use the `Stream` and `Print` classes when dealing with byte streams. If it’s not appropriate, at least try to use its API as a model. For more on this, see below
+* Use the [`Stream`](https://www.arduino.cc/reference/en/language/functions/communication/stream/) and `Print` classes when dealing with byte streams. If it’s not appropriate, at least try to use its API as a model. For more on this, see below
 * For network applications, use the `Client` and `Server` classes as the basis.
 * Use `begin()` to initialize a library instance, usually with some settings. Use `end()` to stop it.
 * Use camel case function names, not underscore. For example, **analogRead**, not **analog_read**. Or **myNewFunction**, not **my_new_function**. We've adopted this from Processing.org for readability's sake.

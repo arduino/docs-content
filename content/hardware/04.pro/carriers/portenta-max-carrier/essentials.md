@@ -2,6 +2,9 @@
     <EssentialElement link="/tutorials/portenta-max-carrier/getting-started" title="Quickstart Guide" type="getting-started">
         A quick guide to installing your board with the Arduino IDE.
     </EssentialElement>
+    <EssentialElement link="https://www.printables.com/model/612174-arduino-max-carrier-enclosure" title="3D Enclosure Files" type="getting-started">
+        Download the 3D files to print your own Portenta Max Carrier enclosure. 
+    </EssentialElement>
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">

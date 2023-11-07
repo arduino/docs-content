@@ -53,7 +53,7 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 The Nano 33 BLE Sense can be programmed through the **Classic Arduino IDE 1.8.X**. To install your board, you can check out the guide below:
 
-- [Installing the Arduino Mbed OS Nano Boards core](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano)
+- [Installing the Arduino Mbed OS Nano Boards core](/software/ide-v2/tutorials/ide-v2-board-manager)
 
 ### Arduino IDE 2 
 
