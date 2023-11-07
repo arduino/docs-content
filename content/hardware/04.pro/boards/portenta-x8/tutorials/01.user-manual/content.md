@@ -861,13 +861,17 @@ The process is similar for _GNU/Linux_ and _macOS_, with minor differences in th
 
 Use _Avahi-Browse_ to search for SSH services on the local network:
 
-```avahi-browse -d local _sftp-ssh._tcp --resolve -t```
+```bash
+avahi-browse -d local _sftp-ssh._tcp --resolve -t
+```
 
 - __macOS__:
 
 On macOS, you can use the similar command:
 
-```dns-sd -B _sftp-ssh._tcp local```
+```bash
+dns-sd -B _sftp-ssh._tcp local
+```
 
 Alternatively, you can use a software called "_Discovery_", which is available [here](https://apps.apple.com/it/app/discovery-dns-sd-browser/id1381004916?l=en&mt=12).
 
