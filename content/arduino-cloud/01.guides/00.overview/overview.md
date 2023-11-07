@@ -20,7 +20,7 @@ Very simply explained, with the Arduino Cloud you can:
 
 Developing a sketch made for the Arduino Cloud is almost just like developing any other sketch. You have your setup, and loop just like normal. But you are also able to select variables to be automatically synced to the Arduino Cloud. 
 
-And once a variable is synced to the Arduino Cloud you can access it from any of your other devices connected to the Arduino Cloud.  
+Once a variable is synced to the Arduino Cloud you can access it from any of your other devices connected to the Arduino Cloud.  
 
 Once you have setup your project, this is how you could interact & monitor it. 
 
