@@ -399,6 +399,8 @@ For the **Portenta Hat Carrier**, the `BTSEL` DIP switch must be set to the ON p
 
 ![Portenta Hat Carrier DIP switches](assets/hatCarrier-dip-switches.png)
 
+The `ETH CENTER TAP` DIP switch position does not affect the flashing mode state for the Portenta Hat Carrier.
+
 Like with the Portenta Max Carrier, once the `uuu` tool is run and starts searching for the device, the flashing process will commence.
 
 #### Set Flashing Mode without Carrier
@@ -779,6 +781,62 @@ In order to connect to a Wi-Fi® Access Point via CLI, you can use the network m
 * `nmcli device wifi connect <SSID> password <PASSWORD>` to connect to a specific SSID
 * `nmcli de` to check the connection status
 * `nmcli connection show` to visualize the active network interfaces (and their types) on your Portenta X8
+
+### Accessing Over SSH Session
+
+It is possible to start communicating with the Portenta X8 using an SSH session. To do so, it will require a network connection, either over Wi-Fi® or Ethernet, provided within carriers. Thus, once the previous processes are set up, it is possible to use an SSH session to communicate with the Portenta X8.
+
+![SSH Services Availability Discovery](assets/ssh-x8-dns-sd-service.png "SSH Services Availability Discovery")
+
+The following command is used to browse for SSH services on the local network advertised over mDNS, a protocol for resolving hostnames to IP addresses within small networks that do not include a local name server.
+
+```bash
+dns-sd -B _sftp-ssh._tcp local
+```
+
+By executing this command, users can discover devices offering _SFTP services_ (file transfer over SSH) without prior knowledge of their IP addresses or hostnames.
+
+The command lists these services, indicating where an SSH connection can be established for secure file transfers or shell access, helping to ease the identification and utilization of networked devices that support this protocol.
+
+![Network Query for IPv4 and IPv6](assets/ssh-x8-dns-sd-v4v6.png "Network Query for IPv4 and IPv6")
+
+```bash
+dns-sd -G v4v6 portenta-x8-<UUID>.local
+```
+
+The command above queries the network for the _IPv4_ and _IPv6_ addresses associated with the hostname `portenta-x8-<UUID>.local`. The _UUID_ can be found within the instance name listed previously or if you have accessed the Portenta X8 via an ADB shell. An example command would look as follows:
+
+```bash
+dns-sd -G v4v6 portenta-x8-1822aa09dab6fad9.local
+```
+
+This command is handy for finding the IP addresses of devices such as the Portenta X8 that a DHCP server may assign dynamic IP addresses. It simplifies connecting to such devices over the network by providing their current IP addresses.
+
+![Device Ping Test](assets/ssh-x8-dns-sd-ping.png "Device Ping Test")
+
+The following command sends echo requests to the device with the hostname `portenta-x8-<UUID>.local` to check its network availability and measure round-trip time.
+
+```bash
+ping portenta-x8-<UUID>.local
+```
+
+This command helps verify that the Portenta X8 is online and reachable over the network and for diagnosing connectivity issues.
+
+![Portenta X8 Communication over SSH Session](assets/ssh-x8-session.png "Portenta X8 Communication over SSH Session")
+
+```bash
+ssh fio@portenta-x8-1822aa09dab6fad9.local
+```
+
+The example command above starts an SSH (Secure Shell) connection to the Portenta X8 with the hostname `portenta-x8-1822aa09dab6fad9.local` using the username fio. The command format should be as follows:
+
+```bash
+ssh fio@portenta-x8-<UUID>.local
+```
+
+If the device is configured correctly to accept SSH connections and the _fio_ account exists with SSH access, this command will prompt for the password associated with the _fio_ user.
+
+Upon successful authentication, it will open a secure shell session to the device, allowing for command-line interface access and the execution of commands remotely on the Portenta X8. The password and the rest of the configuration for using the Portenta X8 inside the shell remain the same.
 
 ### Inspect Real-Time Tasks And Logs Via CLI
 
