@@ -68,7 +68,7 @@ Anything in the Arduino Cloud can be accessed via the left action bar. In the li
 - **Templates** - templates are ready-made project that will automatically configure your device, Thing, 
 - **Integrations** - third party services that are integrated with the Arduino Cloud.
 
-## A Walkthrough to Getting Started with Arduino Cloud
+## A Walkthrough the Arduino Cloud
 
 Setting up a project in the Arduino Cloud is easy, and can be done through a few simple steps summarized in this section.
 
