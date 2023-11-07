@@ -437,7 +437,7 @@ Once the flashing operation finishes, you will be greeted with a similar message
 
 ![Successful uuu flashing operation](assets/uuu-flashing-success.png)
 
-This applies to both flashing scenarios. If you have the carrier attached and decide to continue using docked with the platform, you will have to reset the DIP switch positions for either `BOOT SEL` or `BT_SEL` and `BOOT` to OFF state. Reconnect the board and wait approximately 10 seconds until Blue LED starts blinking, confirming the boot was successful.
+This applies to both flashing scenarios. If you have the carrier attached and decide to continue using docked with the platform, you must reset the DIP switch positions for either `BOOT SEL`, `BTSEL`, or `BT_SEL` and `BOOT` to OFF state. Reconnect the board and wait approximately 10 seconds until the Blue LED blinks, confirming the boot was successful.
 
 In case the Portenta X8 was flashed barebone, you will just need to recycle the power and should be ready with the latest OS image.
 
@@ -789,7 +789,7 @@ In order to connect to a Wi-Fi® Access Point via CLI, you can use the network m
 
 It is possible to start communicating with the Portenta X8 using an SSH session. To do so, it will require a network connection, either over Wi-Fi® or Ethernet provided within carriers. Thus, once the previous processes are set up, it is possible to use an SSH session to communicate with the Portenta X8.
 
-Before proceeding, please install [this service tool](https://support.apple.com/kb/DL999?locale=en_US) to use the following commands:
+***Before proceeding, please install [this service tool](https://support.apple.com/kb/DL999?locale=en_US) to use the following procedures.***
 
 ![SSH Services Availability Discovery](assets/ssh-x8-dns-sd-service.png "SSH Services Availability Discovery")
 
@@ -843,7 +843,9 @@ ssh fio@portenta-x8-<UUID>.local
 
 If the device is configured correctly to accept SSH connections and the _fio_ account exists with SSH access, this command will prompt for the password associated with the _fio_ user.
 
-Upon successful authentication, it will open a secure shell session to the device, allowing for command-line interface access and the execution of commands remotely on the Portenta X8. The password and the rest of the configuration for using the Portenta X8 inside the shell remain the same.
+Upon successful authentication, it will open a secure shell session to the device, allowing for command-line interface access and the execution of commands remotely on the Portenta X8.
+
+The password and the rest of the configuration for using the Portenta X8 inside the shell remain the same.
 
 The process is similar for _GNU/Linux_ and _macOS_, with minor differences in the initial steps when browsing for SSH services on the local network.
 
@@ -870,7 +872,7 @@ The SSH session can be initialized using third-party software with a Graphical U
 
 This software simplifies browsing SSH services on the local network advertised over mDNS using a GUI. The image above, for example, shows all available services on the network, including those for the Portenta X8. By simply clicking on a service item, you can retrieve the IP address information.
 
-Once the information is verified, you can use that data with software such as _PuTTY_. _PuTTY_ is a free and open-source terminal emulator, serial console, and network file transfer application. It supports several network protocols, including _SSH (Secure Shell)_ and _SFTP (SSH File Transfer Protocol)_.
+Once the information is verified, you can use that data with software such as [_PuTTY_](https://www.putty.org/). _PuTTY_ is a free and open-source terminal emulator, serial console, and network file transfer application. It supports several network protocols, including _SSH (Secure Shell)_ and _SFTP (SSH File Transfer Protocol)_.
 
 ![Portenta X8 SSH Session with PuTTY - Setup](assets/ssh-x8-putty.png "Portenta X8 SSH Session with PuTTY - Setup")
 
