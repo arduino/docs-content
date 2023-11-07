@@ -37,36 +37,52 @@ On the header that is located by the barrel jack, you'll find the VRTC pin. And 
 
 ![Battery Pack Powering the UNO R4 WiFi RTC](./assets/Circuit.png)
 
-The following sketch will start the RTC but only set the time if it is not already running.
+The following sketch will start the RTC but only set the time if it this is the first time starting the board since adding the VRTC battery.
 
 ```arduino
 #include "RTC.h"
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
   RTC.begin();
-  RTCTime mytime(24, Month::MAY, 2023, 11, 8, 0, DayOfWeek::THURSDAY, SaveLight::SAVING_TIME_ACTIVE);
 
-  RTC.setTimeIfNotRunning(mytime);
-  
+  RTCTime mytime(6, Month::NOVEMBER, 2023, 18, 12, 00, DayOfWeek::MONDAY, SaveLight::SAVING_TIME_ACTIVE);
+
+  RTCTime savedTime;
+  RTC.getTime(savedTime);
+
+  if (!RTC.isRunning()) {
+    // this means the RTC is waking up "as new"
+    if (savedTime.getYear() == 2000) {
+      RTC.setTime(mytime);
+    } else {
+      RTC.setTime(savedTime);
+    }
+  }
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  
+
   RTCTime currenttime;
   RTC.getTime(currenttime);
+  Serial.print("Current time: ");
 
-  int hours = currenttime.getHour();
-  int minutes = currenttime.getMinutes();
+  /* DATE */
+  Serial.print(currenttime.getDayOfMonth());
+  Serial.print("/");
+  Serial.print(Month2int(currenttime.getMonth()));
+  Serial.print("/");
+  Serial.print(currenttime.getYear());
+  Serial.print(" - ");
 
+  /* HOURS:MINUTES:SECONDS */
+  Serial.print(currenttime.getHour());
+  Serial.print(":");
+  Serial.print(currenttime.getMinutes());
+  Serial.print(":");
+  Serial.println(currenttime.getSeconds());
 
-  Serial.print("Hours: ");
-  Serial.println(hours);
-  Serial.println("Minutes: ");
-  Serial.println(minutes);
-
+  delay(1000);
 }
 
 ```
