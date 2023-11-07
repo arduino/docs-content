@@ -5,13 +5,13 @@ tags: [Arduino Cloud, Wi-Fi, ESP32]
 author: Karl Söderby
 ---
 
-A number of official Arduino boards supports connection to the Arduino Cloud via Wi-Fi®. Some boards also have an onboard crypto chip that stores the credentials automatically when configuring the device.
+A number of official Arduino boards support a connection to the Arduino Cloud via Wi-Fi®. Some boards also have an onboard crypto chip that stores the credentials automatically when configuring the device.
 
 There are currently two ways of configuring a Wi-Fi® board:
-- By configuring an onboard crypto chip (available for a number of official Arduino boards only),
-- through a Secret Key / API key (ESP32/ESP8266 based boards\*)
+- By configuring an onboard crypto chip (available for a number of official Arduino boards only).
+- Through a Secret Key / API key (ESP32/ESP8266 based boards\*).
 
-***\*Note that the [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi) and [Nano ESP32](https://store.arduino.cc/products/nano-esp32) boards uses this method.***
+***\*Note that the [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi) and [Nano ESP32](https://store.arduino.cc/products/nano-esp32) boards use this method.***
 
 ## Supported Boards
 
@@ -31,7 +31,7 @@ The following boards connect to the Arduino Cloud via Wi-Fi®, using the onboard
 - [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
-- [Opta](https://docs.arduino.cc/hardware/opta).
+- [Opta](https://store.arduino.cc/products/opta-wifi)
 
 ### Setup a Wi-Fi® Board
 
@@ -39,13 +39,13 @@ To configure a Wi-Fi® board in the Arduino Cloud, follow the steps below:
 
 **1.** Connect your board to your computer.
 
-**2.** Go to [Arduino Cloud](app.arduino.cc), and navigate to the **"Devices"** section. Click on the **"Add Device"** button and then select the **"Arduino Board"**. After a while, your board will be visible, and you can click on the **"Configure"** button.
+**2.** Go to [Arduino Cloud](https://app.arduino.cc), and navigate to the **"Devices"** section. Click on the **"Add Device"** button and then select the **"Arduino Board"**. After a while, your board will be visible, and you can click on the **"Configure"** button.
 
 ![Board show up.](assets/wifi.png)
 
-**3.** Allow some time for the configuration, as a sketch is being uploaded to your board as well as a configuration of your crypto chip is ongoing. 
+**3.** Allow some time for the configuration, as a sketch is being uploaded to your board and your crypto chip is configured.
 
-Your board is now configured and ready to be used in the Arduino Cloud. 
+Once done, your board is configured and ready to be used in the Arduino Cloud.
 
 After setting up a device, you can check out the official [Getting Started (Arduino / C++)](/arduino-cloud/guides/arduino-c) guide. This will guide you to successfully send data between your board and Arduino Cloud.
 
@@ -53,11 +53,11 @@ After setting up a device, you can check out the official [Getting Started (Ardu
 
 ESP32 / ESP8266 based boards connect to the Arduino Cloud via a **secret key**, generated during device configuration.
 
-There is a large number of ESP32/ESP8266 supported boards, which you select from a drop down menu.
+There is a large number of ESP32/ESP8266 supported boards, which you select from a drop-down menu.
 
 ![Range of ESP32 boards.](assets/esp32-supported-boards.png)
 
-***If you do not find your board in the list, you can select also select the ESP32 model (e.g. `ESP32S3 Dev Module`).***
+***If you don't find your board in the list, just select the ESP32 model (e.g. `ESP32S3 Dev Module`).***
 
 The following official boards have an ESP32 as main/co-processor and connect using a secret key as well.
 
@@ -70,11 +70,13 @@ To configure an ESP32 board in the Arduino Cloud, follow the steps below:
 
 **1.** Connect your board to your computer.
 
-**2.** Go to [Arduino Cloud](app.arduino.cc), and navigate to the **"Devices"** section. Click on the **"Add Device"** button and then select the **"Third Party Board"**.
+**2.** Go to [Arduino Cloud](https://app.arduino.cc), and navigate to the **"Devices"** section. Click on the **"Add Device"** button and then select the **"Third Party Board"**.
 
 ![Select "Third Party Device"](assets/esp32.png)
 
-**3.** Select your board type, and give your board a name. When finished, you will generate a **secrey key** and **device ID**. You can download or manually store your credentials somewhere, but the secret key can **not be retrieved** after you close the window.
+**3.** Select your board type, and give your board a name. When finished, you will generate a **secret key** and **device ID**. You can download or manually store your credentials somewhere, but the secret key can **not be retrieved** after you close the window.
+
+***If you lose your Secret Key or forget to download and store your information you will need to remove and set up the device again.***
 
 ![Secret / Device Key.](assets/device-key.png)
 
@@ -101,4 +103,4 @@ The following ESP32 boards have been tested and verified to support OTA:
 
 ## Supported Frequencies
 
-All official Arduino boards currently only supports the 2.4GHz frequency band for transmitting data.
+All official Arduino boards currently only support the 2.4GHz frequency band for transmitting data.
