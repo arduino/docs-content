@@ -1779,10 +1779,11 @@ The Portenta Hat Carrier significantly augments the networking functionalities o
 Thus, when conceptualizing and executing project developments, the user can proficiently exploit both the wired and wireless communication capabilities. The inherent wireless attributes of the Portenta devices, combined with the carrier's sophisticated onboard components and adaptable protocol choices, enable a comprehensive suite of communication solutions ideal for a wide range of applications.
 
 #### Ethernet
-
 <br></br>
 
-The Portenta Hat Carrier is equipped with an Ethernet interface, specifically an RJ45 connector supporting 1000 Base-T.
+The Portenta HAT Carrier features a gigabit Ethernet port with an RJ45 connector model _TRJG16414AENL_, equipped with integrated magnetics. These magnetics are crucial for voltage isolation, noise suppression, signal quality maintenance, and rejecting common mode noise, ensuring adherence to waveform standards.
+
+The connector supports the 1000 Base-T standard and complies with IEEE 802.3ab, guaranteeing high-speed, reliable network connections for data-intensive industrial applications.
 
 ![Portenta Hat Carrier Ethernet Port](assets/portentaHATcarrier_ethernet.png)
 
