@@ -46,11 +46,14 @@ void setup() {
   Serial.begin(9600);
   RTC.begin();
 
+  // A fallback time object, for setting the time if there is no time to retrieve from the RTC.
   RTCTime mytime(6, Month::NOVEMBER, 2023, 18, 12, 00, DayOfWeek::MONDAY, SaveLight::SAVING_TIME_ACTIVE);
 
+  // Tries to retrieve time 
   RTCTime savedTime;
   RTC.getTime(savedTime);
 
+  
   if (!RTC.isRunning()) {
     // this means the RTC is waking up "as new"
     if (savedTime.getYear() == 2000) {
