@@ -784,17 +784,22 @@ In order to connect to a Wi-Fi® Access Point via CLI, you can use the network m
 
 ### Accessing Over SSH Session
 
-It is possible to start communicating with the Portenta X8 using an SSH session. To do so, it will require a network connection, either over Wi-Fi® or Ethernet, provided within carriers. Thus, once the previous processes are set up, it is possible to use an SSH session to communicate with the Portenta X8.
+#### Using Terminal
+<br></br>
+
+It is possible to start communicating with the Portenta X8 using an SSH session. To do so, it will require a network connection, either over Wi-Fi® or Ethernet provided within carriers. Thus, once the previous processes are set up, it is possible to use an SSH session to communicate with the Portenta X8.
+
+Before proceeding, please install [this service tool](https://support.apple.com/kb/DL999?locale=en_US) to use the following commands:
 
 ![SSH Services Availability Discovery](assets/ssh-x8-dns-sd-service.png "SSH Services Availability Discovery")
 
-The following command is used to browse for SSH services on the local network advertised over mDNS, a protocol for resolving hostnames to IP addresses within small networks that do not include a local name server.
+The command below is used to browse for SSH services on the local network that are advertised over a multicast Domain Name System (mDNS). This protocol resolves hostnames to IP addresses within small networks without a local name server.
 
 ```bash
 dns-sd -B _sftp-ssh._tcp local
 ```
 
-By executing this command, users can discover devices offering _SFTP services_ (file transfer over SSH) without prior knowledge of their IP addresses or hostnames.
+By executing this command, you can discover devices offering _SFTP services_ (file transfer over SSH) without prior knowledge of their IP addresses or hostnames.
 
 The command lists these services, indicating where an SSH connection can be established for secure file transfers or shell access, helping to ease the identification and utilization of networked devices that support this protocol.
 
@@ -824,6 +829,8 @@ This command helps verify that the Portenta X8 is online and reachable over the 
 
 ![Portenta X8 Communication over SSH Session](assets/ssh-x8-session.png "Portenta X8 Communication over SSH Session")
 
+After verifying that the Portenta X8 is accessible using a simple ping test, it is now possible to start an SSH session using the following command:
+
 ```bash
 ssh fio@portenta-x8-1822aa09dab6fad9.local
 ```
@@ -837,6 +844,33 @@ ssh fio@portenta-x8-<UUID>.local
 If the device is configured correctly to accept SSH connections and the _fio_ account exists with SSH access, this command will prompt for the password associated with the _fio_ user.
 
 Upon successful authentication, it will open a secure shell session to the device, allowing for command-line interface access and the execution of commands remotely on the Portenta X8. The password and the rest of the configuration for using the Portenta X8 inside the shell remain the same.
+
+#### Using Softwares With GUI
+<br></br>
+
+The SSH session can be initialized using third-party software with a Graphical User Interface (GUI) for easy access. Begin with a software called "_Bonjour Browser_", which can be downloaded [here](https://hobbyistsoftware.com/bonjourbrowser).
+
+![SSH Services Availability Discovery with GUI](assets/ssh-x8-bonjour.png "SSH Services Availability Discovery with GUI")
+
+This software simplifies browsing SSH services on the local network advertised over mDNS using a GUI. The image above, for example, shows all available services on the network, including those for the Portenta X8. By simply clicking on a service item, you can retrieve the IP address information.
+
+Once the information is verified, you can use that data with software such as _PuTTY_. _PuTTY_ is a free and open-source terminal emulator, serial console, and network file transfer application. It supports several network protocols, including _SSH (Secure Shell)_ and _SFTP (SSH File Transfer Protocol)_.
+
+![Portenta X8 SSH Session with PuTTY - Setup](assets/ssh-x8-putty.png "Portenta X8 SSH Session with PuTTY - Setup")
+
+In the PuTTY Configuration window, keeping the default values, you must specify the _Host Name (or IP address)_ field with `portenta-x8-<UUID>`. For instance, you would use:
+
+```
+portenta-x8-1822aa09dab6fad9
+```
+
+Click on `Open`, and it will prompt a security alert. It displays information about the connection, including fingerprint details. Depending on your connection profile preference, you can choose to `Accept` or `Connect Once`.
+
+![Portenta X8 SSH Session with PuTTY - Authentication](assets/ssh-x8-putty-auth.png "Portenta X8 SSH Session with PuTTY - Authentication")
+
+After verifying the security alert and proceeding, you have an SSH session that has begun communicating with the Portenta X8.
+
+![Portenta X8 SSH Session with PuTTY](assets/ssh-x8-putty-session.png "Portenta X8 SSH Session with PuTTY")
 
 ### Inspect Real-Time Tasks And Logs Via CLI
 
