@@ -617,6 +617,18 @@ Laboratory equipment, Computer vision
 | SWDIOSWCK SWO     | High Density Connector | ADC                                    | High Density Connector |
 | SDC               | High Density Connector | RESET                                  | Other Pin              |
 
+### I2C Ports 
+
+<p style="text-align: justify;"> System integrators can use the Portenta H7's High-Density connectors to expand signals of the board to a custom-designed daughter board or carrier. The following table summarizes the I2C pins mapping on the board's High-Density connectors and shared peripherals/resources. Please refer to the board's High-Density connectors pinout section.</p>
+
+| HD Connector      | **Interface Name**     | **Pins on HD**                         |    **Status<sup>1</sup>**     | **Shared Peripherals**                                                       |
+|-------------------|------------------------|----------------------------------------|------------------------|--------------------------------------------------------------------------------|
+| J1                | I2C1                   | 43-45                                  |          Shared        | Secure Element (0x48)<br /> PMIC (0x08)<br /> ANALOGX (0x54, 0x58, 0x70, 0x72, 0x7A, 0x7E, 0x48) |
+| J1                | I2C0                   | 44-46                                  |          Free          |                        |
+| J2                | I2C2                   | 45-47                                  |          Shared        | Camera (D1P-D1N)       |
+
+<p style="text-align: justify;"><sup>1</sup>Status column indicates the current status of the pins. "Free" means the pins are not in use by another resource or peripheral of the board and are available for usage, while "Shared" means the pins are used by one or several resources or peripherals of the board.</p>
+
 ### Wake Up Signals/External Relay Commands
 
 ![MKR format Headers pinout](assets/portentaH7_mkr_pinouts.png)
@@ -889,6 +901,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**                        |
 |------------|--------------|------------------------------------|
+| 17/10/2023 | 4            | I2C ports information section added|
 | 27/01/2023 | 3            | Add power consumption information  |
 | 18/08/2022 | 2            | Add Secure Element specs (SE050C2) |
 | 27/12/2021 | 1            | First Release                      |
