@@ -835,7 +835,7 @@ After verifying that the Portenta X8 is accessible using a simple ping test, it 
 ssh fio@portenta-x8-1822aa09dab6fad9.local
 ```
 
-The example command above starts an SSH (Secure Shell) connection to the Portenta X8 with the hostname `portenta-x8-1822aa09dab6fad9.local` using the username fio. The command format should be as follows:
+The example command above starts an SSH (Secure Shell) connection to the Portenta X8 with the hostname `portenta-x8-1822aa09dab6fad9.local` using the username `fio`. The command format should be as follows:
 
 ```bash
 ssh fio@portenta-x8-<UUID>.local
