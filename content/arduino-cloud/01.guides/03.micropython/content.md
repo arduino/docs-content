@@ -17,6 +17,8 @@ This tutorial guides you on how to use the MicroPython library to connect your A
 
 It requires your board to have a version of MicroPython installed, which is covered in [this article](/micropython/basics/board-installation).
 
+To find our full MicroPython documentation, head over to the [MicroPython Docs](/micropython) page.
+
 ## Goals
 
 The goals of this tutorial are:
@@ -127,6 +129,8 @@ $ mpremote connect id:335B34603532 mip install github:arduino/arduino-iot-cloud-
 
 This will install the library and all required dependencies on the board.
 Another option is to manually copy the files from the library's [repository](https://github.com/arduino/arduino-iot-cloud-py/tree/main/src/arduino_iot_cloud) to the board's file system. It's good practice to put those files into a folder called `lib` to have the files organized neatly.
+
+For more options on how to install libraries on your board, check out our [Installing Modules Guide](/micropython/basics/installing-modules). 
 
 ## Programming the Board
 
