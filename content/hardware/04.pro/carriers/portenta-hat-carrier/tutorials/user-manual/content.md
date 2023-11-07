@@ -1810,10 +1810,16 @@ Ethernet performance differs based on the associated Portenta board:
 - With the Portenta X8: The system supports 1 Gbit Ethernet.
 - When combined with the Portenta H7 or C33: The performance is limited to 100 Mbit Ethernet.
 
-To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Hat Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
+To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch on the Portenta Hat Carrier. The following table shows the specific DIP switch configuration needed to enable Ethernet on the carrier:
+
+| **Mounted Portenta Device** | **ETH CENTER TAP DIP SWITCH** |
+|:---------------------------:|:-----------------------------:|
+|         Portenta X8         |         Position: OFF         |
+|       Portenta H7/C33       |          Position: ON         |
+
+For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 
 #### Ethernet Interface With Linux
-
 <br></br>
 
 Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed. First, ensure that the Portenta X8 is mounted on the Hat Carrier, and then connect them using an RJ45 LAN cable.
