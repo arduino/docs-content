@@ -22,7 +22,7 @@ Maker, IoT, MicroPython
   * DMA Controller
 * **Power**
   * Operating voltage 3.3 V
-  * VUSB supplies 5 V via USB-C® connector
+  * VBUS supplies 5 V via USB-C® connector
   * VIN range is 6-21 V
 * **Connectivity**
   * Wi-Fi®
@@ -254,11 +254,11 @@ The efficiency of the converter depends on the input voltage via the VIN pin. Se
 
 This information is extracted from the MP2322GQH's datasheet.
 
-### VUSB
+### VBUS
 
-There is no 5V pin available on the Nano ESP32. 5 V can only be provided via the **VUSB**, which is supplied directly from the USB-C® power source.
+There is no 5V pin available on the Nano ESP32. 5 V can only be provided via the **VBUS**, which is supplied directly from the USB-C® power source.
 
-While powering the board via the VIN pin, the VUSB pin is not activated. This means you have no option of providing 5 V from the board unless powered via USB or externally.
+While powering the board via the VIN pin, the VBUS pin is not activated. This means you have no option of providing 5 V from the board unless powered via USB or externally.
 
 ### Using the 3.3 V Pin
 
@@ -289,7 +289,7 @@ The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and 
 | 9   | A5        | Analog | Analog input 5 / I²C Serial Clock (SCL) |
 | 10  | A6        | Analog | Analog input 6                          |
 | 11  | A7        | Analog | Analog input 7                          |
-| 12  | VUSB      | Power  | USB power (5V)                          |
+| 12  | VBUS      | Power  | USB power (5V)                          |
 | 13  | BOOT1     | Mode   | Board Reset 1                           |
 | 14  | GND       | Power  | Ground                                  |
 | 15  | VIN       | Power  | Voltage Input                           |
@@ -393,6 +393,21 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
 English:
 User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -421,9 +436,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| Company name    | Arduino SRL                                  |
-| --------------- | -------------------------------------------- |
-| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
+| Company name    | Arduino S.r.l.                                |
+| --------------- | --------------------------------------------- |
+| Company Address | Via Andrea Appiani, 25 Monza, MB, 20900 Italy |
 
 
 ## Reference Documentation
@@ -444,3 +459,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 08/06/2023 | Release                                                |
 | 09/01/2023 | Update power tree flowchart.                           |
 | 09/11/2023 | Update SPI section, update analog/digital pin section. |
+| 11/06/2023 | Correct company name, correct VBUS/VUSB                |
+
