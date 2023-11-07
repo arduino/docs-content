@@ -909,11 +909,18 @@ void loop() {
 ```
 ![ToF Sensor test using Arduino](assets/tof-demo-arduino.png)
 
-## Camera
+### Camera
 
 The Nicla Vision main feature is its onboard 2MP camera, which is based on the GC2145 color rolling shutter image sensor. It is perfect for machine learning applications such as object detection, image classification, machine/computer vision, robotics, IoT and more.
 
+![Onboard camera sensor](assets/camera.png)
+
+The Nicla Vision is primarily intended to be used with the OpenMV micropython ecosystem. So, it's recommended to use this IDE for machine vision applications.
+
 #### With OpenMV
+
+The OpenMV IDE is an environment designed to work specifically with machine/computer vision hardware, it is optimized for easy and fast development on image processing 
+
 
 #### With Arduino IDE
 
