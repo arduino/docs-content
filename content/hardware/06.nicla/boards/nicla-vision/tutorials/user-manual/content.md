@@ -919,7 +919,32 @@ The Nicla Vision is primarily intended to be used with the OpenMV micropython ec
 
 #### With OpenMV
 
-The OpenMV IDE is an environment designed to work specifically with machine/computer vision hardware, it is optimized for easy and fast development on image processing 
+The OpenMV IDE is an environment designed to work specifically with machine/computer vision hardware, it is optimized for easy and fast development of image processing applications with a micropython framework and streaming monitors, color data graphics and more.
+
+The Nicla Vision uses a 2MP camera sensor which means that its maximum resolution should be 1920x1080 pixels. However, the effective resolution is 1616(H) × 1232(V).
+
+Here we have the minimum code necessary to make the camera work for a detailed view:
+
+```python
+import sensor
+import time
+
+sensor.reset()  # Reset and initialize the sensor.
+sensor.set_pixformat(sensor.RGB565)  # Set pixel format to RGB565 (or GRAYSCALE)
+sensor.set_framesize(sensor.QVGA)  # Set frame size to QVGA (320x240)
+sensor.skip_frames(time=2000)  # Wait for settings take effect.
+clock = time.clock()  # Create a clock object to track the FPS.
+
+while True:
+    clock.tick()  # Update the FPS clock.
+    img = sensor.snapshot()  # Take a picture and return the image.
+    print(clock.fps())  # Note: OpenMV Cam runs about half as fast when connected
+    # to the IDE. The FPS should increase once disconnected.
+```
+
+The main functions to initialize the camera sensors are the following:
+
+
 
 
 #### With Arduino IDE
