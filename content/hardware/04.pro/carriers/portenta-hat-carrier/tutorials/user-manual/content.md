@@ -1820,14 +1820,14 @@ To configure the Ethernet settings, depending on the paired Portenta board, one 
 
 ***For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).***
 
-It is advisable to connect the Portenta X8 through the Portenta HAT Carrier to a device with DHCP server capabilities, such as a network router, to ease the automatic assignment of an IP address.
+It is advisable to connect the Portenta X8 through the Portenta HAT Carrier to a device with DHCP server capabilities, such as a network router, to ease the automatic assignment of an IP address. DHCP will allow the Portenta X8 to communicate with other devices on the network without manual IP configuration. Employing DHCP simplifies device management, supports dynamic reconfiguration, and provides an advantage for applications involving many devices.
 
-It will allow the Portenta X8 to communicate with other devices on the network without manual IP configuration. Employing DHCP simplifies device management, supports dynamic reconfiguration, and provides an advantage for applications involving many devices.
+In case you want to assign a manual IP to your device, or even create a direct network between your computer and your board, you can follow the multiple procedures available depending on your network devices and operating system.
 
 #### Ethernet Interface With Linux
 <br></br>
 
-Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed. First, ensure that the Portenta X8 is mounted on the Hat Carrier, and then connect them using an RJ45 LAN cable.
+Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed between your device and your computer in your network. First, ensure that the Portenta X8 is mounted on the Hat Carrier, and then connect them using an RJ45 LAN cable to your local network. Be sure that your computer and your devices are connected to the same network and are on the same IP range, been capable of seeing each other.
 
 Subsequently, open a terminal to access the shell of the Portenta X8 with admin (root) privileges.
 
