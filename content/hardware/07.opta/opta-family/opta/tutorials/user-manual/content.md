@@ -771,7 +771,7 @@ The Media Access Control (MAC) address is essential for computer networking and 
 
 ### RS-485
 
-Opta™ RS485 and WiFi variants have a built-in RS-485 interface, enabling the construction of robust and reliable data transmission systems. RS-485 interface is still the most widely used protocol for Point Of Sale (POS), industrial, and telecommunications applications. The wide common-mode range enables data transmission over longer cable lengths and in noisy environments such as the floor of a facPtory. Also, the high input impedance of the receivers allows more devices to be attached to the lines.
+Opta™ RS485 and WiFi variants have a built-in RS-485 interface, enabling the construction of robust and reliable data transmission systems. RS-485 interface is still the most widely used protocol for Point Of Sale (POS), industrial, and telecommunications applications. The wide common-mode range enables data transmission over longer cable lengths and in noisy environments such as the floor of a factory. Also, the high input impedance of the receivers allows more devices to be attached to the lines.
 
 ![RS-485 interface in Opta™ devices](assets/user-manual-15.png)
 
