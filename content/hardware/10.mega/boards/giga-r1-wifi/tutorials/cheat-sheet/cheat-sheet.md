@@ -277,11 +277,41 @@ Finally, read the ADC, and store it in a way that you can use it, do this within
 
 ***The options for audio input on your GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1-wifi/giga-audio).***
 
-## MIPI Display Interface
+## MIPI DSI®
+
+Display Serial Interface (DSI), is a specification from the Mobile Industry Processor Interface (MIPI).
 
 The **STM32H747XI** has an internal 2D graphics accelerator with support for resolutions up to 1024x768, it also has the ability to encode and decode JPEG codec. This is what allows the **GIGA R1** to boast a 2 lane MIPI display interface. 
 
-This means that the **GIGA R1** is capable of driving a touch-display large enough to build a substantial user interface. The [LVGL](https://lvgl.io) library is a powerful tool to quickly build an interactive interface.
+The [GIGA Display Shield]() is designed to be mounted on the GIGA R1 through the MIPI/DSI connector located on the board, with support for popular frameworks such as [LVGL](https://docs.arduino.cc/tutorials/giga-display-shield/lvgl-guide) and [GFX](https://docs.arduino.cc/tutorials/giga-display-shield/gfx-guide).
+
+The pinout for the display connector is shown in the image below:
+
+![MIPI/DSI connector.](assets/mipi-dsi.png)
+
+The following pins are directly connected to the STM32H747XI and cannot be used as GPIOs.
+- D1N
+- D1P
+- CKN
+- CKP
+- D0N
+- D0P
+
+The following pins can also be used as GPIOs:
+- D68
+- D69
+- D70
+- D71
+- D72
+- D73
+- D74
+- D75
+
+The connector also has a series of power connections, including:
+- 3.3 V
+- 5 V
+- GND
+- VIN
 
 ## USB Features
 
@@ -896,13 +926,13 @@ Pins A8, A9, A10 and A11 can not be used as GPIOs, but are limited to use as ana
 
 The **STM32H7** has an internal OPAMP and comparator that are exposed on the **GIGA R1** as follows:
 
-| Pin | OPAMP             | Comparator           |
-| --- | ------------------| -------------------- |
-| A0  | OPAMP1_VOUT       | COMP1_INM            |
-| A1  | OPAMP1_VINM &VINM0|                      |
-| A2  | OPAMP1_VINP       | COMP1_INP            |
-| A3  |                   | COMP1_INM            |
-| A6  |                   | COMP1_INM            |
+| Pin | OPAMP              | Comparator |
+| --- | ------------------ | ---------- |
+| A0  | OPAMP1_VOUT        | COMP1_INM  |
+| A1  | OPAMP1_VINM &VINM0 |            |
+| A2  | OPAMP1_VINP        | COMP1_INP  |
+| A3  |                    | COMP1_INM  |
+| A6  |                    | COMP1_INM  |
 
 ***For more advanced analog readings, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced ADC section](/tutorials/giga-r1-wifi/giga-audio#analog-to-digital-converters).***
 
