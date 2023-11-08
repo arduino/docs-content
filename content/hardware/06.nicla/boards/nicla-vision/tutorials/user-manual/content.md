@@ -320,7 +320,7 @@ pin1 = Pin("D1", Pin.IN, Pin.PULL_UP)
 # Pin configured as an output
 pin0 = Pin("D0", Pin.OUT_PP, Pin.PULL_NONE)     
 ```
-The pin function can be set as: `Pin.IN`, `Pin.OUT_PP`, `Pin.OUT_OD`, `Pin.AF_PP`, or `Pin.AF_OD`. An explanation of the pin modes can be found [here](https://docs.openmv.io/library/pyb.Pin.html#methods). The third parameter, represents the pull mode. It can be set to: `Pin.PULL_NONE`, `Pin.PULL_UP` or `Pin.PULL_DOWN`.
+The pin function can be set as: `Pin.IN`, `Pin.OUT_PP`, `Pin.OUT_OD`, `Pin.AF_PP`, or `Pin.AF_OD`. An explanation of the pin modes can be found [here](https://docs.openmv.io/library/pyb.Pin.html#methods). The third parameter represents the pull mode. It can be set to: `Pin.PULL_NONE`, `Pin.PULL_UP` or `Pin.PULL_DOWN`.
 
 The state of a digital pin, configured as an input, can be read as shown below:
 
@@ -923,7 +923,7 @@ The OpenMV IDE is an environment designed to work specifically with machine/comp
 
 The Nicla Vision uses a 2MP camera sensor which means that its maximum resolution should be 1920x1080 pixels. However, the effective resolution is 1616(H) × 1232(V).
 
-Here we have the minimum code necessary to make the camera work for a detailed view:
+Here we have the minimum code necessary to make the camera work streaming live video on the OpenMV IDE:
 
 ```python
 import sensor
@@ -941,11 +941,180 @@ while True:
     print(clock.fps())  # Note: OpenMV Cam runs about half as fast when connected
     # to the IDE. The FPS should increase once disconnected.
 ```
+![Camera streaming demo](assets/stream.gif)
 
-The main functions to initialize the camera sensors are the following:
+From the above example script, we can highlight the main functions:
+
+- `sensor.set_pixformat(<Sensor>)` lets you set the pixel format for the camera sensor. The Nicla Vision is compatible with these: `sensor.GRAYSCALE`, `sensor.RGB565`, `sensor.BAYER` and `sensor.YUV422`. To define the pixel format to any of the supported ones, just add it to the `set_pixformat` function argument.
+
+- `sensor.set_framesize(<Resolution>)` lets you define the image frame size in terms of pixels. [Here](https://docs.openmv.io/library/omv.sensor.html#sensor.set_framesize) you can find all the different options.
+
+- `sensor.snapshot()` lets you take a picture and return the image so you can save it, stream it or process it.
+
+The example code below lets you take a picture and save it on the Nicla Vision local storage as `example.jpg`.
+
+```python
+import sensor
+import time
+import machine
+
+sensor.reset()  # Reset and initialize the sensor.
+sensor.set_pixformat(sensor.RGB565)  # Set pixel format to RGB565 (or GRAYSCALE)
+sensor.set_framesize(sensor.QVGA)  # Set frame size to QVGA (320x240)
+sensor.skip_frames(time=2000)  # Wait for settings take effect.
+
+led = machine.LED("LED_BLUE")
+
+start = time.ticks_ms()
+while time.ticks_diff(time.ticks_ms(), start) < 3000:
+    sensor.snapshot()
+    led.toggle()
+
+led.off()
+
+img = sensor.snapshot()
+img.save("example.jpg")  # or "example.bmp" (or others)
+
+raise (Exception("Please reset the camera to see the new file."))
+```
+After the snapshot is taken, reset the board by pressing the reset button and the image will be on the board storage drive.
+
+![Snapshot saved in local storage](assets/snapshot.png)
+
+The example code below lets you records a video and save it on the Nicla Vision local storage as `example.mjpeg`.
+
+```python
+import sensor
+import time
+import mjpeg
+import machine
+
+sensor.reset()  # Reset and initialize the sensor.
+sensor.set_pixformat(sensor.RGB565)  # Set pixel format to RGB565 (or GRAYSCALE)
+sensor.set_framesize(sensor.QVGA)  # Set frame size to QVGA (320x240)
+sensor.skip_frames(time=2000)  # Wait for settings take effect.
+
+led = machine.LED("LED_RED")
+
+led.on()
+m = mjpeg.Mjpeg("example.mjpeg")
+
+clock = time.clock()  # Create a clock object to track the FPS.
+for i in range(200):
+    clock.tick()
+    m.add_frame(sensor.snapshot())
+    print(clock.fps())
+
+m.close(clock.fps())
+led.off()
+
+raise (Exception("Please reset the camera to see the new file."))
+```
+After the video is recorded, reset the board by pressing the reset button and the file will be on the board storage drive.
+
+![Video saved in local storage](assets/video.png)
+
+***We recommend using VLC to play the video because of the format.***
+
+The next example lets you live stream what the camera sees through HTTP so you can watch it on your favorite browser from any device connected to the same network as the Nicla Vision.
+
+Make sure to fill in the `SSID` and `KEY` variables with your WiFi credentials.
+
+```python
+import sensor
+import time
+import network
+import socket
+
+SSID = "*********"  # Network SSID
+KEY = "************"  # Network key
+HOST = ""  # Use first available interface
+PORT = 8080  # Arbitrary non-privileged port
+
+# Init sensor
+sensor.reset()
+sensor.set_framesize(sensor.QVGA)
+sensor.set_pixformat(sensor.RGB565)
+
+# Init wlan module and connect to network
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(SSID, KEY)
+
+while not wlan.isconnected():
+    print('Trying to connect to "{:s}"...'.format(SSID))
+    time.sleep_ms(1000)
+
+# We should have a valid IP now via DHCP
+print("WiFi Connected ", wlan.ifconfig())
+
+# Create server socket
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, True)
+
+# Bind and listen
+s.bind([HOST, PORT])
+s.listen(5)
+
+# Set server socket to blocking
+s.setblocking(True)
 
 
+def start_streaming(s):
+    print("Waiting for connections..")
+    client, addr = s.accept()
+    # set client socket timeout to 5s
+    client.settimeout(5.0)
+    print("Connected to " + addr[0] + ":" + str(addr[1]))
 
+    # Read request from client
+    data = client.recv(1024)
+    # Should parse client request here
+
+    # Send multipart header
+    client.sendall(
+        "HTTP/1.1 200 OK\r\n"
+        "Server: OpenMV\r\n"
+        "Content-Type: multipart/x-mixed-replace;boundary=openmv\r\n"
+        "Cache-Control: no-cache\r\n"
+        "Pragma: no-cache\r\n\r\n"
+    )
+
+    # FPS clock
+    clock = time.clock()
+
+    # Start streaming images
+    # NOTE: Disable IDE preview to increase streaming FPS.
+    while True:
+        clock.tick()  # Track elapsed milliseconds between snapshots().
+        frame = sensor.snapshot()
+        cframe = frame.compressed(quality=35)
+        header = (
+            "\r\n--openmv\r\n"
+            "Content-Type: image/jpeg\r\n"
+            "Content-Length:" + str(cframe.size()) + "\r\n\r\n"
+        )
+        client.sendall(header)
+        client.sendall(cframe)
+        print(clock.fps())
+
+
+while True:
+    try:
+        start_streaming(s)
+    except OSError as e:
+        print("socket error: ", e)
+        # sys.print_exception(e)
+
+```
+
+Once you run this script, on the OpenMV serial monitor will be printed the Nicla Vision IP address after the WiFi connection process. 
+
+To watch the live stream enter the device IP address followed by the `:8080` port as follows:
+
+`<Nicla Vision IP>:8080`
+
+![HTTP camera live stream](assets/streaming.gif)
 
 #### With Arduino IDE
 
