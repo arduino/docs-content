@@ -5,7 +5,7 @@ author: Hannes Siebeneicher
 tags: [IoT Cloud, Triggers, Cloud Notification]
 ---
 
-Triggers react to certain conditions inside your IoT Cloud Thing, such as a boolean being true, or a string being assigned a value. As soon as a set condition is met a notification gets triggered and send to you. This is super useful when you monitor data and you need to know about any change as soon as it happens. This could be anything from different values in environmental monitoring or something security related such as movement detection.
+Triggers react to certain conditions inside your IoT Cloud Thing, such as a boolean being true, or a string being assigned a value. As soon as a set condition is met a notification gets triggered and sent to you. This is useful when you monitor data and you need to know about any change as soon as it happens. This could be anything from different values in environmental monitoring or security-related information such as movement detection.
 
 Triggers can be set up for any of your existing projects, and are found in the [cloud home section](https://cloud.arduino.cc/home/).
 
@@ -14,24 +14,24 @@ Triggers can be set up for any of your existing projects, and are found in the [
 - [Arduino Cloud](app.arduino.cc) (Maker plan).
 - Cloud-compatible boards, [see full list](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#compatible-hardware).
 
-***In this tutorial, we use the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot?queryID=undefined). This is not a requirement, you can use any IoT Cloud-compatible board for this tutorial.***
+***In this tutorial, we use the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). This is not a requirement, you can use any IoT Cloud-compatible board for this tutorial.***
 
 ## Setup & Configuration
 
 ## Limitations
 
-Currently the only variables supported by the trigger feature are:
+Currently, the only variables supported by the trigger feature are:
 
 - Booleans
 - Strings
 
 ## Setup & Configuration
 
-***If you are unfamiliar with how to set up a Thing and variables, head on over to the [Getting Started with the Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) article.***
+***If you are unfamiliar with how to set up a Thing and variables, head on over to the [Getting Started with the Arduino Cloud](/arduino-cloud/guides/overview) article.***
 
 **1.** Head over to the Things tab and create a new Thing, create a variable, and set up your device including a working network connection.
 
-**2.** Upload your code to the board you want to use. For demonstration purposes, we'll use a [simple button](#example-code) sketch setting our button boolean equal to true each time a button connected to Pin D3 is pressed. You can of course set this up in whatever way you'd like.
+**2.** Upload your code to the board you want to use. For demonstration purposes, we'll use a [simple button](#example-code) sketch setting our button boolean to true each time a button connected to Pin D3 is pressed. You can of course set this up in whatever way you'd like.
 
 **3.** Go to [Arduino Cloud home](https://cloud.arduino.cc/home/) and click on **Triggers**.
  
@@ -62,7 +62,7 @@ You can even include **dynamic data** such as `{variable.timestamp}` or `{variab
 
 ![Activate Trigger](./assets/activateTrigger.png)
 
-**8.** Try it out! Press the button and within a couple of seconds, you should receive an email telling you that the trigger has been activated showing you the message that you create in the previous step.
+**8.** Try it out! Press the button and within a couple of seconds, you should receive an email telling you that the trigger has been activated showing you the message that you created in the previous step.
 
 ## Example Code
 
@@ -118,7 +118,7 @@ void loop() {
 
 Here are some suggestions for potential projects that utilize **Triggers** in a project:
 
-- A PIR detecting motion, sending a notification as soon as the sensor is triggered.
+- A motion-detecting PIR, sending a notification as soon as the sensor is triggered.
 - An automated plant monitoring setup sending a notification as soon as your plants need water.
 - An environmental data collection setup notifying you as soon as the values reach a certain threshold.
 
