@@ -269,7 +269,7 @@ void loop(){
 }
 ```
 
-### How it works?
+### How It Works?
 
 - First, the **necessary libraries** are included:
 
@@ -285,17 +285,24 @@ void loop(){
 ```
 
 - The code consists of several **functions** defined in the code showcasing **different features** such as:
-  - `void listDir()` = List Files
-  - `void readFile()` = Read Files
-  - `void writeFile()` = Write Files
-  - `void appendFile()` = Append a message to an existing file
-  - `void renameFile()` = Rename Files
-  - `void deleteFile()` =  Delete Files
-  - `void testFileIO()` = Testing a file's input and output by writing a large amount of data and then reading it.
+
+ `void listDir()` = List Files
+
+ `void readFile()` = Read Files
+
+ `void writeFile()` = Write Files
+
+ `void appendFile()` = Append a message to an existing file
+
+ `void renameFile()` = Rename Files
+
+ `void deleteFile()` =  Delete Files
+
+ `void testFileIO()` = Testing a file's input and output by writing a large amount of data and then reading it.
 
 - Before calling all the functions mentioned above **two things** are done inside `setup()`:
-  -  The serial communication is initialized with a baud rate of 115200.
-  -  The SPIFFS file system is mounted and if `FORMAT_SPIFFS_IF_FAILED` is `true` it's formatted.
+1. The serial communication is initialized with a baud rate of 115200.
+2. The SPIFFS file system is mounted and if `FORMAT_SPIFFS_IF_FAILED` is `true` it's formatted.
 
 ```arduino
 void setup(){
