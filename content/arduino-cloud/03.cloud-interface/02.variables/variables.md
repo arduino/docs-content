@@ -8,11 +8,11 @@ difficulty: beginner
 
 ## Overview
 
-Variables are essential component of the [Arduino Cloud](app.arduino.cc), and are created and configured inside a **Thing.**
+Variables are essential components of the [Arduino Cloud](https://app.arduino.cc) and are created and configured inside a **Thing**.
 
 A cloud variable is synced between your Arduino board and the Arduino Cloud. If a variable is updated on your board (like reading a sensor), the Arduino Cloud will also receive this value. Similarly, if a board receives an update from the cloud, the variable also updates on your board. 
 
-As long as your board maintains connection to the Arduino Cloud, variables will be updated. 
+As long as your board maintains a connection to the Arduino Cloud, the variables will be updated. 
 
 **In this article, we will cover:**
 - How to sync variables between your board and the Arduino Cloud.
@@ -22,7 +22,7 @@ As long as your board maintains connection to the Arduino Cloud, variables will 
 
 ## Create and Configure Variables
 
-Creating and configuring variables are done inside a **Thing**, starting with the **"Add Variable"** button. This will open a new window where you can do a number of configurations.
+Creating and configuring variables is done inside a **Thing**, starting with the **"Add Variable"** button. This will open a new window where you can do several configurations.
 
 ![Click on "Add Variable"](assets/add-variables.png)
 
@@ -30,7 +30,7 @@ Creating and configuring variables are done inside a **Thing**, starting with th
 
 Inside a variable configuration, we have several options:
 
-- **Name:** a friendly name for your variable. No spaces or special characters allowed.
+- **Name:** a friendly name for your variable. No spaces or special characters allowed (except underscores).
 - **(optional) Sync With Other Things:** sync a variable with a variable from another Thing. Whenever one variable updates, the other will follow.
 - **Type:** type of variable. Choose between three categories.
   - [**Basic:**](#basic-types) e.g. `float`, `int`, `String`.
@@ -50,13 +50,13 @@ Inside a variable configuration, we have several options:
 
 Any variables you add will be automatically added to your [thingProperties](/arduino-cloud/cloud-interface/sketches#configuration-header-file) file, which contains any configurations made inside your Thing.
 
-Adding for example an integer variable called `test_value`, can now be used in your sketch without a need for defining the variable.
+E.g. adding an integer variable called `test_value`, allows you to use it in your sketch without defining it.
 
 ```arduino
 test_value = 1;
 ```
 
-***Read more about in the [IoT Sketches](/arduino-cloud/cloud-interface/sketches#iot-sketches) section.***
+***Read more about it in the [IoT Sketches](/arduino-cloud/cloud-interface/sketches#iot-sketches) section.***
 
 ### Callback Functions
 
@@ -83,7 +83,7 @@ Data between a board and the cloud synchronizes whenever the `ArduinoCloud.updat
 
 It is a good practice to **not** use the `delay()` function in a cloud sketch. Please refer to the [millis()](https://www.arduino.cc/reference/en/language/functions/time/millis/) function that can be used to create non-blocking delays.
 
-Below is an example on how to use the `millis()` function:
+Below is an example of how to use the `millis()` function:
 
 ```arduino
 unsigned long previousMillis = 0;
@@ -102,16 +102,17 @@ void loop(){
     //code here will update every 1 second
     //without blocking the program and the cloud update
   }
+}
 
 ```
 
-***Note that a variable's sync between a board and the cloud is limited to two message per second (500ms)***
+***Note that a variable's sync between a board and the cloud is limited to two messages per second (500ms)***
 
 ## Variable Synchronisation
 
 It is possible to sync (link) one or many variables across different Things, a feature that enables bi-directional communication between devices, without writing a single line of code!
 
-To enable variable synchronisation, create a new variable, and click on the "Sync with other Things" option.
+To enable variable synchronization, create a new variable, and click on the "Sync with other Things" option.
 
 ![](assets/variable-sync.png)
 
@@ -148,7 +149,7 @@ All available basic variables are listed below:
 
 Specialized types are wrappers around basic types but declare the variable semantics more explicitly. This enables smarter integrations with third-party services (such as Alexa) and better visualization of widgets in dashboards.
 
-You can use them just like a normal variable of the wrapped type, since they support assignment and comparison operators.
+You can use them just like a normal variable of the wrapped type since they support assignment and comparison operators.
 
 | Type                 | Declaration                              | Wrapped data type |
 | -------------------- | ---------------------------------------- | ----------------- |
@@ -191,7 +192,7 @@ You can use them just like a normal variable of the wrapped type, since they sup
 
 ### Complex Types
 
-The following variable types hold multiple values internally and are used to represent more complex data. In order to access such values, methods are provided.
+The following variable types hold multiple values internally and are used to represent more complex data. To access such values, methods are provided.
 
 #### CloudSchedule
 
@@ -204,7 +205,7 @@ The following variable types hold multiple values internally and are used to rep
 | To (end date)\*        | `int`  | `x.getCloudValue().to`  |
 | Length of Timestamp    | `int`  | `x.getCloudValue().len` |
 
-\*If no end date is selected, value is defaulted to `0`.
+\*If no end date is selected, the value is defaulted to `0`.
 
 #### DimmedLight
 
@@ -240,7 +241,7 @@ To read the Color values, we can use the following method `Color colorValues = x
 | Brightness | `float` (0-100)   | `colorValues.bri` | `x = Color(hue,saturation,brightness)` |
 | Color      | `uint8_t` (0-255) | `x.getRGB(r,g,b)` | `x.set(r,g,b)`                         |
 
-To set the color, we can assign the CloudColor variable directly to float variables `x = {hue,saturation,brightness}`, or using the method ` x = Color(hue,saturation,brightness)`.
+To set the color, we can assign the CloudColor variable directly to float variables `x = {hue,saturation,brightness}`, or use the method ` x = Color(hue,saturation,brightness)`.
 
 #### CloudLocation
 
@@ -274,7 +275,7 @@ Here are some examples of how to use the variables in a sketch:
 
 ### Basic Types
 
-The below example shows how to use some of the basic types. Remember that cloud variables are configured in the Arduino Cloud, and generated into your Thing's `thingProperties.h` file.
+The example below shows how to use some of the basic types. Remember that cloud variables are configured in the Arduino Cloud, and generated into your Thing's `thingProperties.h` file.
 
 In this example, we are using the following cloud variables:
 
@@ -374,7 +375,7 @@ void onCLightChange() {
 
 ### Television
 
-CloudTelevision is an automation variable declared automatically in the `thingProperties.h` file as `CloudTelevision variableName;`. The example below shows how the CloudTelevision variable (declared with the variableName `tv`) can be used and modified in the sketch. The example simulates a remote controller by using an IR receiver to read the signals sent from the a remote controller and save them in arrays of unsigned integers. An IR transmitter is then used to send IR signals using the Arduino Cloud.
+CloudTelevision is an automation variable declared automatically in the `thingProperties.h` file as `CloudTelevision variableName;`. The example below shows how the CloudTelevision variable (declared with the variableName `tv`) can be used and modified in the sketch. The example simulates a remote controller by using an IR receiver to read the signals sent from the remote controller and save them in arrays of unsigned integers. An IR transmitter is then used to send IR signals using the Arduino Cloud.
 
 Note that the `onTvChange()` function is automatically added and is triggered whenever the value of the tv variable is updated in the Cloud.
 
@@ -533,7 +534,7 @@ The integration between Alexa & Arduino Cloud supports a limited amount of varia
 
 Other variables used will not appear in the Amazon Alexa app.
 
-***To synchronize your Arduino Cloud with the Amazon Alexa service, you can check out the [Arduino Cloud Alexa Tutorial](/arduino-cloud/tutorials/alexa-mkr-rgb-shield).***
+***To synchronize your Arduino Cloud with the Amazon Alexa service, you can check out the [Arduino Cloud Alexa Tutorial](/arduino-cloud/guides/alexa).***
 
 ## Summary
 

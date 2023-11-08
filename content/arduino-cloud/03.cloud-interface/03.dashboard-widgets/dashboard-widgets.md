@@ -8,15 +8,15 @@ difficulty: beginner
 
 Dashboards in the [Arduino Cloud](https://cloud.arduino.cc/home/) are used to easily monitor & control your Arduino boards from a web interface. Dashboards are not linked to one specific Thing or device, you can control all of them through one single dashboard.
 
-Dashboards are composed of [widgets](#widgets), which are directly linked to a variable. Whenever that variable updates, so does the widget.
+Dashboards are composed of [widgets](#widgets), which are directly linked to a variable. Whenever a variable is updated, so is the widget.
 
 ## Dashboards
 
 ![Widgets in a dashboard.](assets/dashboard.png)
 
-A dashboard consist of one or several **widgets** that are linked with your cloud variables. You can for example, set up a switch to turn on/off a light, a gauge that displays temperature, or a chart that shows data over time. 
+A dashboard consists of one or several **widgets** that are linked with your cloud variables. You can for example set up a switch to turn on/off a light, a gauge that displays temperature, or a chart that shows data over time. 
 
-Dashboards are not tied to one Thing, or one device, and it can be used to control and monitor several devices simultaneously. For example, you can have 10 devices monitoring temperature in different parts of the world, and the data displayed in one single dashboard. 
+Dashboards are not tied to one Thing, or one device, and they can be used to control and monitor several devices simultaneously. For example, you can have 10 devices monitoring temperature in different parts of the world, and the data is displayed in one single dashboard. 
 
 ***Deleting dashboards / widgets does not impact the functionality of your Thing & device. This means that you can safely edit your dashboards & widgets while your device is streaming data. It does however remove the historical data of that Widget.*** 
 
@@ -26,22 +26,22 @@ The **IoT Remote App** is a mobile version of your dashboards, that can be downl
 - [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US)
 - [Apple App store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)
 
-***For more information, visit the [IoT Remote App docs](/arduino-cloud/iot-remote-app/iot-remote-app).***
+***For more information, visit the [IoT Remote App docs](/arduino-cloud/iot-remote-app/getting-started).***
 
 ## Edit / View Modes
 
-Dashboards have two modes, **edit** and **view**. When configuring the dashboard, you will be using the edit mode.
+Dashboards have two modes, **edit** and **view**. For configuring the dashboard, you use the edit mode.
 
-In both modes, you can also click  the **Mobile Layout** icon, to see how the widgets will be viewed on your IoT Remote App.
+In both modes, you can also click the **Mobile Layout** icon, to see how the widgets will be viewed on your IoT Remote App.
 
 ![Edit / View modes and mobile layout.](assets/edit-view-mobile.png)
 
-While in **edit mode**, you can create widgets, link them to variables, and move widgets around and lock them in place. Widgets can be be scaled and customized to your liking. A switch widget can for example be adjusted from a 1x1 to 5x5 size. 
+While in **edit mode**, you can create widgets, link them to variables, move widgets around and lock them in place. Widgets can be scaled and customized to your liking. A switch widget can for example be adjusted from a 1x1 to 5x5 size. 
 
 ![Scaling widgets.](assets/scaling.png)
 
 
-In the **viewing** mode you can only monitor/interact with your widgets.  
+In **viewing** mode, you can only monitor/interact with your widgets.  
 
 ## Sharing Dashboards
 
@@ -53,15 +53,15 @@ You can share your live dashboards with other people, allowing them to monitor a
 
 ## Widgets
 
-Widgets are the building blocks of your dashboard, and can be used to either visualize data or to interact with your board. Widgets are linked to a single cloud variable, and as that variable updates, the widget will as well.
+Widgets are the building blocks of your dashboard and can be used to either visualize data or interact with your board. Widgets are linked to a single cloud variable, and as that variable updates, the widget will as well.
 
-There are many different widgets available that fits different types of uses, such as:
+There are many different widgets available that fit different types of uses, such as:
 - **Gauge** - displaying data in a "gauge" style.
 - **Switch** - for switching a boolean, i.e. turning something on/off.
 - **Map** - display the location of your Thing.
 - **Messenger** - to display or send strings to your board.
 
-Full list of widgets and how to use them are available in the [List of Widgets](#list-of-widgets) .
+A full list of widgets and how to use them is available in the [List of Widgets](#list-of-widgets) .
 
 ### Link Widgets & Variables
 
@@ -69,14 +69,14 @@ Full list of widgets and how to use them are available in the [List of Widgets](
 
 ### Download Historical Data
 
-Data that is streamed to a widget is also available for download. The data retention rate depends on your Arduino Cloud plan. For example, an **entry plan** has a data retention of 15 days. You can download it as an `.csv` file that can easily be used with Excel, Google Sheets etc. 
+Data which is streamed to a widget is also available for download. The data retention rate depends on your Arduino Cloud plan. For example, an **entry plan** has a data retention of 15 days. You can download it as an `.csv` file that can easily be used with Excel, Google Sheets etc. 
 
 ***Learn more about downloading data in the [Historical Data on the Arduino Cloud](/arduino-cloud/features/iot-cloud-historical-data) tutorial.***
 
 
 ## List of Widgets
 
-Below you will find a list of available widgets, and examples on how they are linked to a variable used in a sketch.
+Below you will find a list of available widgets and examples on how they are linked to a variable used in a sketch.
 
 ### Switch
 
@@ -233,7 +233,7 @@ An example of how it is used in a sketch:
 
 ![Colored Light Widget](assets/widget-color-light.png)
 
-The colored light widget is designed to set the color for a lamp, and can turn it ON and OFF as well.
+The colored light widget is designed to set the color of a lamp and turn it ON or OFF.
 
 Can be linked with a **Colored Light** variable.
 
@@ -248,7 +248,7 @@ rgbVariable.getValue().getRGB(r, g, b);
 
 ![Value Widget](assets/widget-value.png)
 
-The value widget is a simple one. It only reads, or writes values without any additional functionalities.
+The value widget is a simple one. It only reads or writes values without any additional functionalities.
 
 Can be linked with many different variables.
 
@@ -262,7 +262,7 @@ valueVariable = analogRead(A0);
 
 ![Status Widget](assets/widget-status.png)
 
-The status widget is great for checking the state of something: green is positive, red is negative!
+The status widget is great for checking the state of something: green is true, red is false!
 
 Can be linked to a **boolean** variable.
 
@@ -292,9 +292,9 @@ gaugeVariable = analogRead(A0);
 
 ![Percentage Widget](assets/widget-percentage-1.png)
 
-The percentage widget displays values as percentage, with the option of adding **icons** and **color thresholds**. 
+The percentage widget displays values as percentages, with the option of adding **icons** and **color thresholds**. 
 
-In the widget settings, you can choose from a range of icons, as well as a color that should be visible whenever a value is e.g. below a certain value. 
+In the widget settings, you can choose from a range of icons, as well as a color that should be visible whenever a value is e.g. below a certain value.
 
 ![Configuration of a Percentage Widget.](assets/widget-percentage-2.png)
 
@@ -326,7 +326,7 @@ ledVariable = false;
 
 ![Map Widget](assets/widget-map.png)
 
-The map widget is a tool for keeping track on the location of your projects. This is a great tool for any project involving GPS, or to get an overview of where your Thing, or multiple Things are operating.
+The map widget is a tool for keeping track of the location of your projects. This is a great tool for any project involving GPS, or to get an overview of where your Thing, or multiple Things are operating.
 
 Can be linked with the **Location** variable.
 
@@ -340,7 +340,7 @@ locationVariable = Location(51.5074, 0.1278);
 
 ![Chart Widget](assets/widget-chart.png)
 
-The chart widget is great for data analytics. It is used to track real time data, as well as tracking historical data. This widget can for example be used to track temperature changes, energy consumption and other sensor values. A chart widget can only be linked to one variable at a time.
+The chart widget is great for data analytics. It's used to track real-time data, and track historical data. This widget can for example be used to track temperature changes, energy consumption and other sensor values. A chart widget can only be linked to one variable at a time.
 
 An example of how it is used in a sketch:
 
@@ -394,7 +394,7 @@ if(scheduleVariable.isActive){}
 
 The sticky note widget can be used to write important notes or to categorize your widgets. 
 
-The sticky note can **not** be linked with a variable, and is designed to keep notes only while using a dashboard. It does support the use of markdown, so that you can create titles, links, code blocks etc.
+The sticky note can **not** be linked with a variable and is designed to keep notes only while using a dashboard. It does support the use of markdown so that you can create titles, links, code blocks etc.
 
 ### Value Selector
 
@@ -418,7 +418,7 @@ if(valueSelector == "string"){
 
 ![Value Dropdown](assets/widget-dropdown.png)
 
-The value dropdown widget works similarly to **value selector**, and is be used to switch between predetermined values through a dropdown menu. Supported variable types are `int` and `String`. 
+The value dropdown widget works similarly to the **value selector** and can be used to switch between predetermined values through a dropdown menu. Supported variable types are `int` and `String`. 
 
 Example:
 
