@@ -784,7 +784,7 @@ In order to connect to a Wi-Fi® Access Point via CLI, you can use the network m
 
 ### Accessing Over SSH Session
 
-Establishing communication with the Portenta X8 via an SSH session is possible. To do so, it will require a network connection, either over Wi-Fi® or Ethernet provided within carriers. For Ethernet connections, using a device with DHCP server capabilities, such as a network router, is recommended. After setting up the network connection and DHCP, the Portenta X8 will be ready for SSH communication.
+Establishing communication with the Portenta X8 via an SSH session is possible. To do so, a network connection is needed, either over Wi-Fi® or Ethernet. For Ethernet connections, using a device with DHCP server capabilities, such as a network router, is recommended. After setting up the network connection and DHCP, the Portenta X8 will be ready for SSH communication.
 
 For Windows users, it is necessary to install a service tool to ease the following procedures. While Bonjour, Apple's implementation of zero-configuration networking, comes built into macOS, it is not natively included in Windows and must be installed separately.
 
@@ -878,7 +878,7 @@ Alternatively, you can use a software called "_Discovery_", which is available [
 #### Using Software With GUI
 <br></br>
 
-The SSH session can be initialized using third-party software with a Graphical User Interface (GUI) for easy access. Begin with a software called "_Bonjour Browser_", which can be downloaded [here](https://hobbyistsoftware.com/bonjourbrowser).
+The SSH session can be initialized using third-party software with a Graphical User Interface (GUI) for easy access. An example is a software called "_Bonjour Browser_", which can be downloaded [here](https://hobbyistsoftware.com/bonjourbrowser).
 
 ![SSH Services Availability Discovery with GUI](assets/ssh-x8-bonjour.png "SSH Services Availability Discovery with GUI")
 
