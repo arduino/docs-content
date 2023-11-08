@@ -384,13 +384,13 @@ The following short clip shows a briefly expected behavior of the example projec
 
 ![Example Project Result](assets/pmc_plcide_rtu_example_result.gif)
 
-The server Portenta Machine Control will:
+The server Portenta Machine Control (on the right side) will:
 
 - Execute a binary counter with digital outputs working as visual indicators, all contained within an 8-bit boundary.
 - Increase the shared Modbus counter variable each time the 8-bit binary counter completes a cycle.
 - Adjust the binary counter's speed by modifying buffer variables according to the desired values.
 
-The client Portenta Machine Control will:
+The client Portenta Machine Control (on the left side) will:
 
 - Acquire server counter data through the Modbus protocol.
 - Interpret and activate the corresponding programmable digital I/Os.
