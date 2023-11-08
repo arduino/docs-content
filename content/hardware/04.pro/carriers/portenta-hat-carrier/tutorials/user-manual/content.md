@@ -1781,9 +1781,9 @@ Thus, when conceptualizing and executing project developments, the user can prof
 #### Ethernet
 <br></br>
 
-The Portenta HAT Carrier features a gigabit Ethernet port with an RJ45 connector model _TRJG16414AENL_, equipped with integrated magnetics. These magnetics are crucial for voltage isolation, noise suppression, signal quality maintenance, and rejecting common mode noise, ensuring adherence to waveform standards.
+The Portenta HAT Carrier features a gigabit Ethernet port with an RJ45 connector model _TRJG16414AENL_ with integrated magnetics. These magnetics are crucial for voltage isolation, noise suppression, signal quality maintenance, and rejecting common mode noise, ensuring adherence to waveform standards.
 
-The connector supports the _1000BASE-T_ standard and complies with _IEEE 802.3ab_, guaranteeing high-speed, reliable network connections for data-intensive industrial applications.
+The connector supports the _1000BASE-T_ standard, complying with _IEEE 802.3ab_, guaranteeing high-speed, reliable network connections for data-intensive industrial applications.
 
 ![Portenta Hat Carrier Ethernet Port](assets/portentaHATcarrier_ethernet.png)
 
