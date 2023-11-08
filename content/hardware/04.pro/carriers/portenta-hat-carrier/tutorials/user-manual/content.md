@@ -1783,7 +1783,7 @@ Thus, when conceptualizing and executing project developments, the user can prof
 
 The Portenta HAT Carrier features a gigabit Ethernet port with an RJ45 connector model _TRJG16414AENL_, equipped with integrated magnetics. These magnetics are crucial for voltage isolation, noise suppression, signal quality maintenance, and rejecting common mode noise, ensuring adherence to waveform standards.
 
-The connector supports the 1000 Base-T standard and complies with IEEE 802.3ab, guaranteeing high-speed, reliable network connections for data-intensive industrial applications.
+The connector supports the _1000BASE-T_ standard and complies with _IEEE 802.3ab_, guaranteeing high-speed, reliable network connections for data-intensive industrial applications.
 
 ![Portenta Hat Carrier Ethernet Port](assets/portentaHATcarrier_ethernet.png)
 
@@ -1806,7 +1806,7 @@ The following table shows an in-depth connector designation:
 |       13       |      N/A       |               |             N/A              |                                                                      |
 |       14       |      N/A       |               |           ETH_LED1           |                                J1-17                                 |
 
-Ethernet performance differs based on the associated Portenta board:
+Ethernet connection speeds differ based on the associated Portenta board:
 
 - With the Portenta X8: The system supports 1 Gbit Ethernet.
 - When combined with the Portenta H7 or C33: The performance is limited to 100 Mbit Ethernet.
@@ -1818,7 +1818,11 @@ To configure the Ethernet settings, depending on the paired Portenta board, one 
 |         Portenta X8         |         Position: OFF         |
 |       Portenta H7/C33       |          Position: ON         |
 
-For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
+***For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).***
+
+It is advisable to connect the Portenta X8 through the Portenta HAT Carrier to a device with DHCP server capabilities, such as a network router, to ease the automatic assignment of an IP address.
+
+It will allow the Portenta X8 to communicate with other devices on the network without manual IP configuration. Employing DHCP simplifies device management, supports dynamic reconfiguration, and provides an advantage for applications involving many devices.
 
 #### Ethernet Interface With Linux
 <br></br>
