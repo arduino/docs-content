@@ -131,6 +131,22 @@ The NORA-W106-10B module supports Bluetooth® LE v5.0 with an output power EIRP 
 
 The NORA-W106-10B module includes 8 MB of embedded PSRAM. (Octal SPI)
 
+### Antenna Gain
+
+The built-in antenna on the NORA-W106-10B module uses GFSK modulation technique, with the performance ratings listed below:
+
+Wi-Fi®:
+- Typical conducted output power: **17 dBm.**
+- Typical radiated output power: **20 dBm EIRP.**
+- Conducted sensitivity: **-97 dBm**.
+
+Bluetooth® Low Energy:
+- Typical conducted output power: **7 dBm.**
+- Typical radiated output power: **10 dBm EIRP.**
+- Conducted sensitivity: **-98 dBm**.
+
+This data is retrieved from the uBlox NORA-W10 data sheet (page 7, section 1.5) available [here](https://www.u-blox.com/en/product/nora-w10-series). 
+
 ## System
 
 ### Resets
@@ -460,4 +476,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 09/01/2023 | Update power tree flowchart.                           |
 | 09/11/2023 | Update SPI section, update analog/digital pin section. |
 | 11/06/2023 | Correct company name, correct VBUS/VUSB                |
+| 11/09/2023 | Block Diagram Update, Antenna Specifications           |
+
 
