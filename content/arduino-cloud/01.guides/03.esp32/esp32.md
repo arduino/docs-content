@@ -1,42 +1,42 @@
 ---
-title: 'Arduino / C++'
-description: 'Get started with the Arduino Cloud using the C++ programming language.'
-tags: [Arduino Cloud, Setup]
-author: 'Karl Söderby'
+title: ESP32 / ESP8266
+description: Learn how to set up ESP32/ESP8266 based boards in the Arduino Cloud.
+tags: [ESP32, ESP8266, Arduino Cloud]
+author: Karl Söderby
 ---
 
-The default option for programming your board to connect to the Arduino Cloud is by using the **C++ language**. The configuration and connection between your board and the Arduino Cloud is supported by the [ArduinoIoTCloud library](https://github.com/arduino-libraries/ArduinoIoTCloud) & [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) libraries.
+Arduino Cloud supports a wide range of ESP32 / ESP8266 based development boards. The ESP chips are great for any IoT project, and they can be programmed using the Arduino language (C++). 
 
-***When programming in C++, you can use the Arduino API (which is also known as the Arduino Language). To learn more about the Arduino API, check out the [language reference](https://www.arduino.cc/reference/en/).***
+Setting up ESP based boards in the Arduino Cloud is quick and simple. It is done by generating a **Device ID** and **Secret Key**, which together with your Wi-Fi® credentials is enough to connect to the Arduino Cloud. 
 
-Whenever you create a [Thing](/arduino-cloud/cloud-interface/things) in the Arduino Cloud, you automatically start generating a set of files that will handle the configurations, credentials & connection:
-- `<sketchname>.ino` - your main sketch file,
-- `thingProperties.h` - your main configuration file,
-- `arduino_secrets.h` - your credentials file (for API key, Wi-Fi network etc.)
+This guide will show you how to set up a generic ESP32/ESP8266 board to communicate with the Arduino Cloud.
 
-***If you want to find out more about what the Arduino Cloud service can do, go to the [overview](/arduino-cloud/guides/overview) section.*** 
+***The official guide for connecting to Arduino Cloud using the C++ environment is found [here](/arduino-cloud/guides/arduino-c). This article is specifically for connecting ESP32/ESP8266 development boards.*** 
 
 ## Requirements
 
 For this guide, you will need to have a registered account at Arduino. Register through the link below:
 - [Create an Arduino account](https://login.arduino.cc/login)
 
-You will also need a supported board:
-- [Official Arduino Wi-Fi® boards](/arduino-cloud/hardware/wifi)
-- [ESP32 / ESP8266 boards](/arduino-cloud/hardware/wifi#configure-esp-boards)
-- [Official LoRaWAN® boards](/arduino-cloud/hardware/lora) 
-- [Official Ethernet setups](/arduino-cloud/hardware/ethernet)
-- [Official cellular boards (GSM/NB-IoT)](/arduino-cloud/hardware/cellular)
+You will also need a **ESP32 or ESP8266** development board.
+
+***ESP32 and ESP8266 boards are third-party boards. Arduino Cloud supports the both variations but cannot guarantee that certain boards based on these SoCs work. A list of tested and officially supported development boards can be found at [here](/arduino-cloud/hardware/wifi#list-of-supported-boards).***
 
 ## Setup
 
-In this section, we will go through the steps necessary to connect your Arduino board to the Arduino Cloud. To follow these steps, please make sure you have a [registered Arduino account](https://login.arduino.cc/login), and that you have access to the [Arduino Cloud](app.arduino.cc).
+In this section, we will go through the steps necessary to connect your ESP32 board to the Arduino Cloud. To follow these steps, please make sure you have a [registered Arduino account](https://login.arduino.cc/login), and that you have access to the [Arduino Cloud](app.arduino.cc).
 
 ### Configure Device
 
-First navigate to [Arduino Cloud](app.arduino.cc), and click on the **Devices** tab. Here you can see all your devices, and configure a new one. Depending on what type of board you have, the configuration will vary.
+First navigate to [Arduino Cloud - Devices](app.arduino.cc/devices). Here you can see all your devices, and configure a new one. 
 
-***For more details, see the [documentation for devices](/arduino-cloud/hardware/devices).***
+1. Click on **"Add Device"**
+2. Select **"Third Party Device"**
+3. Choose your board from the list (if not there, choose e.g. `ESP32S3 Dev Board`).
+4. Name your board, e.g. `Device_ESP32_LivingRoom`.
+5. Save your **Device ID** and **Secret Key**. This will be used to connect to the Arduino Cloud.
+
+***More details on this step is available in the [Setup ESP32/ESP8266 devices.](#setup-esp32esp8266-boards)***
 
 ### Configure Thing
 
@@ -48,17 +48,13 @@ A "Thing" is a virtual twin of your hardware, and it is here that we create vari
 
 1. First, let's attach the device we want to use, by clicking the **"Select Device"** button in the **"Associated Devices"** section to the right. 
 2. let's create a new variable, call it `test`, and select it to be a `boolean` type and with a **read/write** permission.
-3. finally, configure your network in the **Network** section. Here you will enter your Wi-Fi® credentials, and if you are using an ESP32 based board, you need to enter the secret key here.
+3. finally, configure your network in the **Network** section. Here you will enter your Wi-Fi® credentials, and your **Secret Key**, obtained when configuring your device.
 
 ![Enter network credentials.](assets/esp32-only.png)
-
-***Your secret key is obtained during the device configuration. Read more at [Configuring ESP boards](/arduino-cloud/hardware/wifi#configure-esp-boards).***
 
 All the above configurations have now been generated into a set of files that can be accessed in the **Sketch** tab.
 
 ***For more details, see the [documentation for Things](/arduino-cloud/cloud-interface/things).***
-
-### Create Sketch
 
 The automatically generated sketch is now available to be edited. This sketch includes all necessities to connect to the cloud, and has a callback function generated for each **read/write** variable.
 

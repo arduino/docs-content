@@ -84,6 +84,12 @@ Your ESP32/ESP8266 board is now configured and ready to be used in the Arduino C
 
 After setting up a device, you can check out the official [Getting Started (Arduino / C++)](/arduino-cloud/guides/arduino-c) guide. This will guide you to successfully send data between your board and Arduino Cloud.
 
+### List of Supported Boards
+
+Arduino Cloud supports any of the boards listed below.
+
+***If your board is not listed here, it can still be supported. There are many boards that are based on the popular ESP32 SoC, but specific hardware configurations of the specific board may interfere with the connection to the Arduino Cloud.***
+
 ### Verified ESP32 Boards Supporting OTA 
 
 Over-the-air (OTA) allows you to remotely upload sketches to your board without a physical connection over USB.
