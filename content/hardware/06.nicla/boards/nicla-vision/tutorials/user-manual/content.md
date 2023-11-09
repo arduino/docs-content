@@ -1116,6 +1116,402 @@ To watch the live stream enter the device IP address followed by the `:8080` por
 
 ![HTTP camera live stream](assets/streaming.gif)
 
-#### With Arduino IDE
+To expand your knowledge using the Nicla Vision camera with micropython try our other built-in examples with the OpenMV IDE.
+
+![OpenMV examples for the Nicla Vision](assets/examples.png)
+
+## Communication
+
+This section of the user manual covers the different communication protocols that are supported by the Nicla Vision, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C), Universal Asynchronous Receiver-Transmitter (UART), and Bluetooth® Low Energy; communication via the onboard ESLOV connector is also explained in this section. The Nicla Vision features dedicated pins for each communication protocol, making connecting and communicating with different components, peripherals, and sensors easy.
+
+### SPI
+
+The Nicla Vision supports SPI communication, which allows data transmission between the board and other SPI-compatible devices. The pins used in the Nicla Vision for the SPI communication protocol are the following:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|         SCLK / PE_12       |      SCK or 9        |
+|         CIPO / PE_13       |      MISO or 10      |
+|         COPI / PE_14       |      MOSI or 8       |
+|         CS / PE_11         |      SS or 7         |
 
 
+Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+
+Include the `SPI` library at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
+
+```arduino
+#include <SPI.h>
+```
+
+In the `setup()` function, initialize the SPI library, define and configure the chip select (`CS`) pin:
+
+```arduino
+void setup() {
+  // Set the chip select pin as output
+  pinMode(SS, OUTPUT); 
+  // Pull the CS pin HIGH to unselect the device
+  digitalWrite(SS, HIGH); 
+  
+  // Initialize the SPI communication
+  SPI.begin();
+}
+```
+
+To transmit data to an SPI-compatible device, you can use the following commands:
+
+```arduino
+// Replace with the target device's address
+byte address = 0x35; 
+// Replace with the value to send
+byte value = 0xFA; 
+// Pull the CS pin LOW to select the device
+digitalWrite(SS, LOW); 
+// Send the address
+SPI.transfer(address); 
+// Send the value
+SPI.transfer(value); 
+// Pull the CS pin HIGH to unselect the device
+digitalWrite(SS, HIGH); 
+```
+
+The example code above should output this:
+
+![SPI logic data output](assets/spi.png)
+
+Here is the complete sketch for a simple SPI communication:
+
+```arduino
+#include <SPI.h>
+
+void setup(){
+  // Set the chip select pin as output
+  pinMode(SS, OUTPUT); 
+  // Pull the CS pin HIGH to unselect the device
+  digitalWrite(SS, HIGH); 
+  
+  // Initialize the SPI communication
+  SPI.begin();
+}
+
+void loop(){
+  // Replace with the target device's address
+  byte address = 0x35; 
+  // Replace with the value to send
+  byte value = 0xFA; 
+  // Pull the CS pin LOW to select the device
+  digitalWrite(SS, LOW); 
+  // Send the address
+  SPI.transfer(address); 
+  // Send the value
+  SPI.transfer(value); 
+  // Pull the CS pin HIGH to unselect the device
+  digitalWrite(SS, HIGH); 
+  delay(1000);
+}
+```
+
+### I2C
+
+The Nicla Vision supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Nicla Vision for the I2C communication protocol are the following:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|          PB_8           |       I2C_SCL or 12     |
+|          PB_9           |       I2C_SDA or 11     |
+
+Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Vision.
+
+To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
+
+```arduino
+#include <Wire.h>
+```
+
+In the `setup()` function, initialize the I2C library:
+
+```arduino
+ // Initialize the I2C communication
+Wire.begin();
+```
+
+To transmit data to an I2C-compatible device, you can use the following commands:
+
+```arduino
+// Replace with the target device's I2C address
+byte deviceAddress = 0x35; 
+// Replace with the appropriate instruction byte
+byte instruction = 0x00; 
+// Replace with the value to send
+byte value = 0xFA; 
+// Begin transmission to the target device
+Wire.beginTransmission(deviceAddress); 
+// Send the instruction byte
+Wire.write(instruction); 
+// Send the value
+Wire.write(value); 
+// End transmission
+Wire.endTransmission(); 
+```
+
+The output data should look like the image below, where we can see the device address data frame:
+
+![I2C output data](assets/i2c.png)
+
+Here is the complete sketch for a simple I2C communication:
+
+```arduino
+#include <Wire.h>
+
+void setup(){
+  // Initialize the I2C communication
+  Wire.begin();
+}
+
+void loop(){
+  // Replace with the target device's I2C address
+  byte deviceAddress = 0x35; 
+  // Replace with the appropriate instruction byte
+  byte instruction = 0x00; 
+  // Replace with the value to send
+  byte value = 0xFA; 
+  // Begin transmission to the target device
+  Wire.beginTransmission(deviceAddress); 
+  // Send the instruction byte
+  Wire.write(instruction); 
+  // Send the value
+  Wire.write(value); 
+  // End transmission
+  Wire.endTransmission(); 
+  delay(1000);
+}
+
+```
+
+To read data from an I2C-compatible device, you can use the `requestFrom()` function to request data from the device and the `read()` function to read the received bytes:
+
+```arduino
+// The target device's I2C address
+byte deviceAddress = 0x1; 
+// The number of bytes to read
+int numBytes = 2; 
+// Request data from the target device
+Wire.requestFrom(deviceAddress, numBytes);
+// Read while there is data available
+while (Wire.available()) {
+  byte data = Wire.read(); 
+}
+```
+### UART
+
+The pins used in the Nicla Vision for the UART (external) communication protocol are the following:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+|:-----------------------:|:-----------------------:|
+|         PA_10           |        SERIAL1_RX       |
+|         PA_9            |        SERIAL1_TX       |
+
+Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+
+To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
+
+```arduino
+// Start UART communication at 115200 baud
+Serial1.begin(115200);  // Serial1 for the external UART pins | Serial for the internal virtual/monitor UART
+```
+
+To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown above stores the incoming characters in a String variable and processes the data when a line-ending character is received:
+
+```arduino
+// Variable for storing incoming data
+String incoming = ""; 
+void loop() {
+  // Check for available data and read individual characters
+  while (Serial1.available()) {
+    // Allow data buffering and read a single character
+    delay(2); 
+    char c = Serial1.read();
+    
+    // Check if the character is a newline (line-ending)
+    if (c == '\n') {
+      // Process the received data
+      processData(incoming);
+      // Clear the incoming data string for the next message
+      incoming = ""; 
+    } else {
+      // Add the character to the incoming data string
+      incoming += c; 
+    }
+  }
+}
+```
+
+To transmit data to another device via UART, you can use the `write()` function:
+
+```arduino
+// Transmit the string "Hello world!
+Serial1.write("Hello world!");
+```
+
+You can also use the `print` and `println()` to send a string without a newline character or followed by a newline character:
+
+```arduino
+// Transmit the string "Hello world!" 
+Serial1.print("Hello world!");
+// Transmit the string "Hello world!" followed by a newline character
+Serial1.println("Hello world!");
+```
+
+![UART "Hello World!" data frame](assets/uart.png)
+
+***All the commands explained above apply to communicating with the PC through the USB serial port. Use "Serial" instead of "Serial1" for this case.***
+
+### Bluetooth® Low Energy
+
+To enable Bluetooth® Low Energy communication on the Nicla Vision, you can use the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/).
+
+For this BLE application example, we are going to monitor the Nicla Vision IMU __temperature sensor__. Here is an example of how to use the ArduinoBLE library to achieve it:
+
+```arduino
+
+#include <ArduinoBLE.h>
+#include <Arduino_LSM6DSOX.h>
+// Bluetooth® Low Energy Environmental Sensing service
+BLEService environmentService("181A");
+// Bluetooth® Low Energy Temperature Characteristic
+BLEIntCharacteristic temperatureVal("2A6E",                // standard 16-bit characteristic UUID
+                                    BLERead | BLENotify);  // remote clients will be able to get notifications if this characteristic changes
+int oldTemperature = 0;                                    // last temperature reading from analog input
+
+long previousMillis = 0;  // last time the temperature was checked, in ms
+void blePeripheralDisconnectHandler(BLEDevice central) {
+  digitalWrite(LEDR, LOW);  // turn on red LED
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, HIGH);
+  Serial.println("Device disconnected.");
+}
+void blePeripheralConnectHandler(BLEDevice central) {
+  digitalWrite(LEDB, LOW);  // turn on blue LED
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, HIGH);
+  Serial.println("Device connected.");
+}
+void setup() {
+  Serial.begin(9600);  // initialize serial communication
+  while (!Serial)
+    ;
+
+  pinMode(LEDR, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+  pinMode(LEDB, OUTPUT);
+  // turn off all the LEDs
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, HIGH);
+
+  if (!IMU.begin()) {
+    Serial.println("Failed to initialize IMU!");
+    while (1)
+      ;
+  }
+
+  // begin initialization
+  if (!BLE.begin()) {
+    Serial.println("starting BLE failed!");
+    while (1)
+      ;
+  }
+  /* Set a local name for the Bluetooth® Low Energy device
+     This name will appear in advertising packets
+     and can be used by remote devices to identify this Bluetooth® Low Energy device
+     The name can be changed but maybe be truncated based on space left in advertisement packet
+  */
+  BLE.setLocalName("Temperature Sensor");
+  BLE.setAdvertisedService(environmentService);                          // add the service UUID
+  environmentService.addCharacteristic(temperatureVal);                  // add the temperature characteristic
+  BLE.addService(environmentService);                                    // Add the environment sensing service
+  temperatureVal.writeValue(oldTemperature);                             // set initial value for this characteristic
+  BLE.setEventHandler(BLEDisconnected, blePeripheralDisconnectHandler);  // handler that fires when BLE is disconnected
+  BLE.setEventHandler(BLEConnected, blePeripheralConnectHandler);        // handler that fires when BLE is disconnected
+  /* Start advertising Bluetooth® Low Energy.  It will start continuously transmitting Bluetooth® Low Energy
+     advertising packets and will be visible to remote Bluetooth® Low Energy central devices
+     until it receives a new connection */
+  // start advertising
+  BLE.advertise();
+  Serial.println("Bluetooth® device active, waiting for connections...");
+}
+void loop() {
+  // wait for a Bluetooth® Low Energy central
+  BLEDevice central = BLE.central();
+  // if a central is connected to the peripheral:
+  if (central) {
+    Serial.print("Connected to central: ");
+    // print the central's BT address:
+    Serial.println(central.address());
+    // check the temperature every 200ms
+    // while the central is connected:
+    while (central.connected()) {
+      long currentMillis = millis();
+      // if 200ms have passed, check the temperature:
+      if (currentMillis - previousMillis >= 200) {
+        previousMillis = currentMillis;
+        updateTemperature();
+      }
+    }
+    Serial.print("Disconnected from central: ");
+    Serial.println(central.address());
+  }
+}
+void updateTemperature() {
+  /* Read the temperature*/
+  int temperature = 0;  // this command return the battery percentage
+  if (IMU.temperatureAvailable()) {
+    IMU.readTemperature(temperature);
+  }
+
+  if (temperature != oldTemperature) {  // if the battery level has changed
+    Serial.print("Temperature is: ");   // print it
+    Serial.print(temperature);
+    Serial.println(" °C");
+    temperatureVal.writeValue(temperature * 100);  // and update the battery level characteristic
+    oldTemperature = temperature;                  // save the level for next comparison
+  }
+  delay(1000);
+}
+```
+
+The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [BLE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting temperature value read by Nicla Vision IMU IC. 
+
+- The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristic for an environment sensing application.
+
+
+  |         **Description**        |       **ID**       |
+  |:------------------------------:|:------------------:|
+  | Environmental Sensing Service  |        181A        |
+  | Temperature Characteristic     |        2A6E        |
+
+- In the `setup()` function, the code initializes the Nicla Vision board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
+
+- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Vision, its built-in LED is turned on blue. The code then enters into a loop that constantly reads the IMU temperature sensor. It also prints it to the Serial Monitor and transmits it to the central device over the defined Bluetooth® Low Energy characteristic.
+
+Using the nRF Connect app (available for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=es_419&gl=US) and [iOS](https://apps.apple.com/us/app/nrf-connect-for-mobile/id1054362403?platform=iphone)) you can easily connect to your Nicla Vision and monitor the temperature in real time.
+
+![Nicla Vision temperature monitored from the nRF Connect app](assets/temperature-monitor.png)
+
+### ESLOV Connector 
+
+The Nicla Vision board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Nicla Vision without soldering or wiring.
+
+![Nicla Vision built-in ESLOV connector](assets/eslov-connection.png)
+
+ The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
+
+The pin layout of the ESLOV connector is the following:
+
+1. VCC_IN (5V input)
+2. INT
+3. SCL
+4. SDA
+5. GND
+
+The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
