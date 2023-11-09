@@ -1,6 +1,6 @@
 ---
 title: SquareLine Studio With the GIGA Display Shield
-description: "Learn how to use SquareLine Studio to create LVGL elements for the GIGA Display Shield"
+description: "Learn how to use SquareLine Studio to create LVGL GUIs for the GIGA Display Shield"
 author: Benjamin Dannegård
 tags: [Display, squareline, LVGL]
 ---
@@ -16,7 +16,7 @@ The GIGA Display Shield with the GIGA R1 WiFi board can run LVGL which allows fo
 
 ## Downloading the Library and Core
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the core. Now you have to install the library needed. Go to **Tools > Manage libraries..**, search for [**LVGL**](https://github.com/lvgl/lvgl) and [**Arduino_GigaDisplayTouch**](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch), install both of these libraries.
+Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the core. Now you have to install the library needed. Go to **Tools > Manage libraries..**, search for [**lvgl**](https://github.com/lvgl/lvgl) and [**Arduino_GigaDisplayTouch**](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch), install both of these libraries.
 
 ## Using SquareLine Studio
 
