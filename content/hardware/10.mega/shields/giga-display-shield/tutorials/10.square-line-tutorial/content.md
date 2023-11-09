@@ -98,9 +98,15 @@ Name the widgets accordingly:
 - **Decrease Button**: ui_ButtonDec
 - **Number Label**: ui_LabelNum
 
-Now export the project and put the library in the Arduino libraries folder, as shown in the previous section.
+Also pay attention to the size of the font set for the counter label. We set the size to 26, this then needs to be enabled in the lv_conf.h file. This file can be found in /mbed/libraries/Arduino_H7_Video/src.
 
-Download this [lv_conf.h]() file and put it in your */mbed/libraries/Arduino_H7_Video/src folder. After setting this up we can go ahead and link the buttons to the label in our sketch.
+![Font size option in SquareLine Studio](assets/text_font_size.svg)
+
+And to enable the font size find the **FONT USAGE** section. If you want to enable any other size simply change the `0` next to any of the font sizes into a `1`:
+
+![lv_conf.h font usage section](assets/lv_config.svg)
+
+Now export the project and put the library in the Arduino libraries folder, as shown in the previous section.
 
 First declare the libraries and set up the screen, this will be the same as the sketch above.
 
