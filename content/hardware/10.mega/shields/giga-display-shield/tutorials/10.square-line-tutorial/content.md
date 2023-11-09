@@ -5,7 +5,7 @@ author: Benjamin Dannegård
 tags: [Display, squareline, LVGL]
 ---
 
-The GIGA Display Shield with the GIGA R1 WiFi board can run LVGL which allows for the creation of GUIs. To make the design of the GUI easier we can use the software SquareLine Studio. This will allow us to drag and drop different elements and then export it for usage on the display shield.
+The GIGA Display Shield with the GIGA R1 WiFi board can run LVGL which allows for the creation of advanced GUIs. To make the design of the GUI easier we can use the software SquareLine Studio. This will allow us to drag and drop different elements and then export it for usage on the display shield.
 
 ## Hardware & Software Needed
 
@@ -53,7 +53,7 @@ In the folder that you exported the files to, go into the "libraries" folder and
 
 ![Folder structure of the exported files](assets/folder_structure.svg)
 
-Place this folder in your **Arduino->Libraries** folder.
+Place this folder in your **Libraries** folder found inside your **Arduino** folder. This is the same **Arduino** folder that contains your Arduino IDE sketches.
 
 Now to run the SquareLine Studio project, use this sketch:
 
@@ -79,6 +79,128 @@ void loop() {
 
   /* Feed LVGL engine */
   lv_timer_handler();
+}
+```
+
+## Using SquareLine Studio Widgets in Arduino IDE
+
+The project from SquareLine Studio is exported as a library, let's take a look at how we can reference a specific element in the GUI. To demonstrate this we will first create a simple GUI with a increase button, a decrease button and a label. The label will show the number that will decrease or increase depending on what button is pressed. Our GUI will look like this:
+
+![The GUI we will be using in this section](assets/button_label_gui.svg)
+
+Pay attention to the names of the button and the label, which can be seen on the right side and the upper left side here:
+
+![Name sections highlighted in SquareLine Studio](assets/names_highlight.svg)
+
+Name the widgets accordingly:
+
+- **Increase Button**: ui_ButtonInc
+- **Decrease Button**: ui_ButtonDec
+- **Number Label**: ui_LabelNum
+
+Now export the project and put the library in the Arduino libraries folder, as shown in the previous section.
+
+Download this [lv_conf.h]() file and put it in your */mbed/libraries/Arduino_H7_Video/src folder. After setting this up we can go ahead and link the buttons to the label in our sketch.
+
+First declare the libraries and set up the screen, this will be the same as the sketch above.
+
+```arduino
+#include "Arduino_H7_Video.h"
+#include "Arduino_GigaDisplayTouch.h"
+
+#include "lvgl.h"
+#include "ui.h"
+
+/* Insert resolution WxH according to your SquareLine studio project settings */
+Arduino_H7_Video          Display(800, 480, GigaDisplayShield); 
+Arduino_GigaDisplayTouch  Touch;
+```
+
+Then it is as simple as using the names of the widgets in a LVGL function. For example, when a function like `lv_label_set_text_fmt(NAME_OF_LABEL, "Label");` needs a reference to a label object, we can enter the name of the label that we created in SquareLine Studio. Same goes for the button widgets, like this in the `setup()` function:
+
+```arduino
+void setup() {
+    Display.begin();
+    Touch.begin();
+
+    /* Initialize the user interface designed with SquareLine Studio */
+    ui_init();
+
+    /* Add buttons event handlers */
+    lv_obj_add_event_cb(ui_ButtonInc, ButtonInc_evt_handler, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_ButtonDec, ButtonDec_evt_handler, LV_EVENT_ALL, NULL);
+
+    /* Set initial value of the label to zero */
+    label_val = 0;
+    lv_label_set_text_fmt(ui_LabelNum, "%d", label_val);
+}
+```
+
+The last important part of the sketch are the callback functions that will run when a button is pressed. In the segment above you can see how the callback functions are tied to the buttons. The function will check when the button is pressed and increase the count on the label:
+
+```arduino
+static void ButtonInc_evt_handler(lv_event_t * e) {
+    lv_event_code_t code = lv_event_get_code(e);
+
+    if(code == LV_EVENT_CLICKED) {
+        label_val++;
+        lv_label_set_text_fmt(ui_LabelNum, "%d", label_val);
+    }
+}
+```
+
+### Full Sketch
+
+```arduino
+#include "Arduino_H7_Video.h"
+#include "Arduino_GigaDisplayTouch.h"
+
+#include "lvgl.h"
+#include "ui.h"
+
+/* Initialize the GIGA Display Shield with a resolution of 800x480 pixels */
+Arduino_H7_Video Display(800, 480, GigaDisplayShield);
+Arduino_GigaDisplayTouch Touch;
+
+int label_val;
+
+static void ButtonInc_evt_handler(lv_event_t * e) {
+    lv_event_code_t code = lv_event_get_code(e);
+
+    if(code == LV_EVENT_CLICKED) {
+        label_val++;
+        lv_label_set_text_fmt(ui_LabelNum, "%d", label_val);
+    }
+}
+
+static void ButtonDec_evt_handler(lv_event_t * e) {
+    lv_event_code_t code = lv_event_get_code(e);
+
+    if(code == LV_EVENT_CLICKED) {
+        label_val--;
+        lv_label_set_text_fmt(ui_LabelNum, "%d", label_val);
+    }
+}
+
+void setup() {
+    Display.begin();
+    Touch.begin();
+
+    /* Initialize the user interface designed with SquareLine Studio */
+    ui_init();
+
+    /* Add buttons event handlers */
+    lv_obj_add_event_cb(ui_ButtonInc, ButtonInc_evt_handler, LV_EVENT_ALL, NULL);
+    lv_obj_add_event_cb(ui_ButtonDec, ButtonDec_evt_handler, LV_EVENT_ALL, NULL);
+
+    /* Set initial value of the label to zero */
+    label_val = 0;
+    lv_label_set_text_fmt(ui_LabelNum, "%d", label_val);
+}
+
+void loop() {
+    /* Feed LVGL engine */
+    lv_timer_handler();
 }
 ```
 
