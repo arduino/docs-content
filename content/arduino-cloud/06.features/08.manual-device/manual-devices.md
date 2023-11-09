@@ -31,7 +31,7 @@ Each method of interaction with the Device API requires various levels of comple
 
 ## Device API
 
-The **Device API** allows you to interact with the Arduino Cloud MQTT broker, by sending/receiving updates from your IoT Cloud variables. 
+The **Device API** allows you to interact with the Arduino Cloud MQTT broker, by sending/receiving updates from your Arduino Cloud variables. 
 
 This API is ideal for you who'd like to integrate existing Python or JavaScript projects with Arduino.
 
@@ -43,7 +43,7 @@ Note that the Device API is designed to interact with the MQTT broker. To manage
 
 ## Configure Manual Devices
 
-To configure a manual device, go to [devices in the IoT Cloud](app.arduino.cc/devices), and click the **"Add"** button. This will open a new window, where you will be asked to either configure automatically, or manually. Choose the **"Manual"** option.
+To configure a manual device, go to [devices in the Arduino Cloud](app.arduino.cc/devices), and click the **"Add"** button. This will open a new window, where you will be asked to either configure automatically, or manually. Choose the **"Manual"** option.
 
 ![Add a new device.](assets/configure-manual-device.png)
 
@@ -57,7 +57,7 @@ After you have created your device, you need to link it to a Thing before using 
 
 ## MicroPython
 
-The pre-requisities for connecting the the IoT Cloud via MicroPython are:
+The pre-requisities for connecting the the Arduino Cloud via MicroPython are:
 - A [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi) / [Portenta H7](https://store.arduino.cc/products/portenta-h7) board with MicroPython installed,
 - [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) code editor,
 - [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) installed,
@@ -65,7 +65,7 @@ The pre-requisities for connecting the the IoT Cloud via MicroPython are:
 
 To install MicroPython, you can check out the [Installation Guide](/micropython/basics/board-installation#giga-r1-wifi). The installation process is the same for both boards as they are based on the same MCU (STM32H7).
 
-To connect with MicroPython, you will need to have a manual device created in the IoT Cloud. When you create it, you will receive a **Device ID** and a **Secret Key**.
+To connect with MicroPython, you will need to have a manual device created in the Arduino Cloud. When you create it, you will receive a **Device ID** and a **Secret Key**.
 
 ### MicroPython Example
 

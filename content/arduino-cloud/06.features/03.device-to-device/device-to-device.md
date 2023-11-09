@@ -29,7 +29,7 @@ The goals of this project are:
 - 2x [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect-with-headers).
 - Micro USB cable.
 
-***Note: It is not required to have two devices of the same type. You can for example use a Nano RP2040 Connect and a MKR WiFi 1010. Any [IoT Cloud enabled Wi-Fi board](/cloud/iot-cloud/tutorials/iot-cloud-getting-started#compatible-hardware) will work with this tutorial.***
+***Note: It is not required to have two devices of the same type. You can for example use a Nano RP2040 Connect and a MKR WiFi 1010. Any [Arduino Cloud enabled Wi-Fi board](/arduino-cloud/hardware/devices#type-of-devices) will work with this tutorial.***
 
 We will also need the following components for the circuit:
 
@@ -117,7 +117,7 @@ void setup() {
   
   /*
      The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
+     related to the state of network and Arduino Cloud connection and errors
      the higher number the more granular information you’ll get.
      The default is 0 (only errors).
      Maximum is 4
@@ -211,7 +211,7 @@ void setup() {
   
   /*
      The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
+     related to the state of network and Arduino Cloud connection and errors
      the higher number the more granular information you’ll get.
      The default is 0 (only errors).
      Maximum is 4

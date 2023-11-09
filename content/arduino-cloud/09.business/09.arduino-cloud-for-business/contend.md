@@ -22,7 +22,6 @@ In this article, you will get a general overview of the major features of the Ar
 If you are not familiar with Arduino Cloud, we strongly recommend you to take a look at the following documentation:
 
 * To find all tutorials & articles, visit the [Arduino Cloud Documentation page](https://docs.arduino.cc/cloud/iot-cloud).
-* For a technical overview, list of features, and API guide, visit the [Arduino Cloud Cheat Sheet](https://docs.arduino.cc/cloud/iot-cloud/tutorials/technical-reference).
 * For API & SDK Documentation, visit the developer reference at [Arduino Cloud API](https://www.arduino.cc/reference/en/iot/api/).
 
 ## Goals
@@ -70,7 +69,7 @@ Once your plan has been successfully activated, you will be asked to define the 
 
 Your Arduino Cloud for Business plan comes with two spaces by default:
 
-* **My Cloud**. My Cloud is an automatically created private space once the Arduino Cloud for Business plan is purchased. You can use this space for personal projects you do not want to share with all your team. This space is free and includes two Things, unlimited dashboards, and 100MB of Sketch storage by default, but it can be further extended and customized within *My plans* settings. Have a look at the [Arduino IT Cloud Getting Started](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) if you would like to start using your private space.
+* **My Cloud**. My Cloud is an automatically created private space once the Arduino Cloud for Business plan is purchased. You can use this space for personal projects you do not want to share with all your team. This space is free and includes two Things, unlimited dashboards, and 100MB of Sketch storage by default, but it can be further extended and customized within *My plans* settings. Have a look at the [Arduino IT Cloud Getting Started](https://docs.arduino.cc/arduino-cloud/guides/overview) if you would like to start using your private space.
 * **Shared Space**. A *Shared Space* is a company space you can use with all your team. It can have any number of members, who can all access the resources within its space. The access level and specific permissions can be customized by the *Space Admin* (see [Invite members into your space section](#invite-members-into-your-space) to learn more).
 
 In the next sections, you will learn more about Shared Space features and functionalities.
@@ -163,7 +162,7 @@ The Arduino Cloud for Business allows for device management with Over-The-Air up
 
 The Arduino Cloud for Business is compatible with multiple Arduino boards or devices based on the ESP32 / ESP8266 microcontrollers. The Arduino Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRaWAN® (via The Things Network), and cellular connectivity.
 
-To check the full list of compatible Hardware, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
+To check the full list of compatible Hardware, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/guides/overview).
 
 ### Device Provisioning
 
@@ -224,7 +223,7 @@ To create a Thing, click on **Create Thing** next to the device of your interest
 
 ![Create a new Thing](assets/create-thing.png "Create a new Thing")
 
-***If you want to understand how to work with your Things, check the dedicated documentation available [here](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#3-creating-a-thing).***
+***If you want to understand how to work with your Things, check the dedicated documentation available [here](https://docs.arduino.cc/arduino-cloud/guides/overview#3-creating-a-thing).***
 
 ***Do you want to learn more about the different types of Variables and their features? Have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).***
 

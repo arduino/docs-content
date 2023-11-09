@@ -2,10 +2,10 @@
 title: Multiple Variable Chart Widget
 description: Learn how to use the advanced chart widget, which allows you to track several variables in real time or during a specific time period.
 author: Karl Söderby
-tags: [IoT Cloud, Charts, Data Plotting]
+tags: [Arduino Cloud, Charts, Data Plotting]
 ---
 
-The **advanced chart widget** is used to display data from several IoT Cloud variables in a single chart. You can track the data in both real time, select from a specific time period while selecting the variables you want to display.
+The **advanced chart widget** is used to display data from several Arduino Cloud variables in a single chart. You can track the data in both real time, select from a specific time period while selecting the variables you want to display.
 
 ![The advanced chart widget.](assets/advanced-chart.gif)
 
@@ -22,7 +22,7 @@ For example, you could set up a series of sensors around a city, and measure the
 ## Hardware & Software Needed
 
 - [Arduino Cloud](app.arduino.cc).
-- Cloud compatible boards, [see full list](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#compatible-hardware).
+- Cloud compatible boards, [see full list](https://docs.arduino.cc/arduino-cloud/guides/overview#compatible-hardware).
 
 ***In this tutorial, we use the [MKR WiFi 1010](/hardware/mkr-wifi-1010) and [MKR ENV Shield](/hardware/mkr-env-shield) for recording environmental values. This is not a requirement, you can use any board for this tutorial.***
 
@@ -34,7 +34,7 @@ To use the advanced widget, you will need to set up a Thing and some variables t
 - `pressure`
 - `light`
 
-***If you are unfamiliar with how to set up a Thing and variables, head on over to the [Getting Started with the Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) article.***
+***If you are unfamiliar with how to set up a Thing and variables, head on over to the [Getting Started with the Arduino Cloud](/arduino-cloud/guides/overview) article.***
 
 **1.** Head on over to the **"Dashboards"** in the Arduino Cloud, and create a new dashboard (or use an existing dashboard).
 

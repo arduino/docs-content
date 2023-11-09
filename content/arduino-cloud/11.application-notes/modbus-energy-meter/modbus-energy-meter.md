@@ -1,5 +1,5 @@
 ---
-title: 'Monitor Your Energy Bill with Modbus and the Arduino IoT Cloud'
+title: 'Monitor Your Energy Bill with Modbus and the Arduino Cloud'
 description: 'Connect a Modbus energy meter to an Arduino® MKR WiFi 1010 board and a MKR 485 Shield and monitor the power consumption of your home via an Arduino Cloud IoT dashboard.'
 tags: 
   - Modbus
@@ -343,12 +343,12 @@ double readEnergy() {
 ```
 ### Over the Air Uploads
 
-Did you know that the Arduino IoT Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
+Did you know that the Arduino Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
 
-***Over the Air uploads require an Entry plan to the Arduino IoT Cloud***
+***Over the Air uploads require an Entry plan to the Arduino Cloud***
 
 
-To use this feature, make sure the board has power. If your board is already connected to the IoT Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino IoT Cloud interface, and you should see it being discovered just as if it was connected via USB.
+To use this feature, make sure the board has power. If your board is already connected to the Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino Cloud interface, and you should see it being discovered just as if it was connected via USB.
 
 
 

@@ -7,7 +7,7 @@ tags:
 author: 'Jose Garcia'
 ---
 
-The new IoT Cloud brings a lot of new things, and one of them is the OTA (over-the-air) feature. This feature allows you to upload programs wirelessly to your Arduino boards. This way, as soon as you have a compatible board connected to a WiFi network and configured to work with OTA, you won’t need to physically connect the board to the computer in order to upload new sketches to it. Instead, everything will work over-the-air.
+The new Arduino Cloud brings a lot of new things, and one of them is the OTA (over-the-air) feature. This feature allows you to upload programs wirelessly to your Arduino boards. This way, as soon as you have a compatible board connected to a WiFi network and configured to work with OTA, you won’t need to physically connect the board to the computer in order to upload new sketches to it. Instead, everything will work over-the-air.
 
 
 ![Over-the-Air uploads.](assets/other_power_supplier.png)
@@ -47,29 +47,29 @@ The following ESP32 boards have been tested and verified to support OTA:
 
 ## How does it work
 
-In order to configure the feature, we will need to create a project in the IoT Cloud following the next steps.
+In order to configure the feature, we will need to create a project in the Arduino Cloud following the next steps.
 
-**1.** Go to the [IoT Cloud](app.arduino.cc/things) by opening the grid menu in any Arduino Site.
+**1.** Go to the [Arduino Cloud](app.arduino.cc) by opening the grid menu in any Arduino Site.
 
 ![Navigating to the cloud.](assets/iot_cloud_grid.png)
 
-> **Note:** You will need to have an Arduino account to be able to use both the Web editor and IoT Cloud features.
+> **Note:** You will need to have an Arduino account to be able to use both the Web editor and Arduino Cloud features.
 
 
-**2.** Once you are logged in the IoT Cloud, you need to create a new thing and name it “smart_led”.
+**2.** Once you are logged in the Arduino Cloud, you need to create a new thing and name it “smart_led”.
     Inside the thing let’s include a boolean variable called `light`, activate the interaction **Modify from dashboard API** and select the **on change** variable update. Once we have these characteristics set, click on **add variable**.
 
 
 ![Adding a variable.](assets/adding_variable.png)
 
-> **Note:** If you want to know more about how to get started with the Arduino Cloud, visit the [getting started tutorial](/arduino-cloud/getting-started/iot-cloud-getting-started).
+> **Note:** If you want to know more about how to get started with the Arduino Cloud, visit the [getting started tutorial](/arduino-cloud/guides/overview).
 
 
 **3.** Once you have added the variable, you’ll need to associate your device (Arduino MKR WiFi 1010 or Arduino Nano 33 IoT) to this new thing and add your network credentials.
 
 ![Selecting a device to associate.](assets/select_device.png)
 
-***Note: If it is the first time you configure the MKR WiFi 1010 or the Nano 33 IoT board to the IoT Cloud, you will need to have the latest version of the WiFi Nina firmware installed. The configuration process updates it automatically. However, if you get any error during the configuration process, you can manually update the FW version of the Nina module following [these instructions](https://support.arduino.cc/hc/en-us/articles/360013896579-Check-and-update-the-firmware-for-WiFiNINA-and-WiFi101).***
+***Note: If it is the first time you configure the MKR WiFi 1010 or the Nano 33 IoT board to the Arduino Cloud, you will need to have the latest version of the WiFi Nina firmware installed. The configuration process updates it automatically. However, if you get any error during the configuration process, you can manually update the FW version of the Nina module following [these instructions](https://support.arduino.cc/hc/en-us/articles/360013896579-Check-and-update-the-firmware-for-WiFiNINA-and-WiFi101).***
 
 
 **4.** Next step is to create a dashboard with a **Switch** widget, linked to the lights variable that you created before. Once it is set, click on the **use dashboard** button and go to **things > smart_led > Sketch**
@@ -90,12 +90,12 @@ Check the highlighted lines in the following code to see what required changes a
 
 
 
-**6.** Once the sketch has uploaded to your board, let’s check that everything is working as it should. To do so, go back to the IoT Cloud and once in there, go to the **smart_led** dashboard we created before. Now, when you turn the **light** widget in the dashboard ON or OFF, the LED in your board should also turn ON or OFF.
+**6.** Once the sketch has uploaded to your board, let’s check that everything is working as it should. To do so, go back to the Arduino Cloud and once in there, go to the **smart_led** dashboard we created before. Now, when you turn the **light** widget in the dashboard ON or OFF, the LED in your board should also turn ON or OFF.
 
 ![Final dashboard.](assets/final_dashboard.png)
 
 
-Now that we have checked that everything is working as it should, let’s go back to the **Things > smart_led >**  **Sketch** tab in the IoT Cloud, and see what has happened there.
+Now that we have checked that everything is working as it should, let’s go back to the **Things > smart_led >**  **Sketch** tab in the Arduino Cloud, and see what has happened there.
 
 Once in the sketch tab, let’s open the board's drop down menu. There, a new option to connect our board should be available. The name of the board configured for the cloud will appear, followed by the **Over-the-Air** option.
 
@@ -119,12 +119,12 @@ If you select this option, you should be able to upload sketches to your board w
 
 > **Note:** This option will take a bit longer than usual, since the process of compiling and uploading the program to the board over-the-air is a longer process.
 
-**4.** Now, if you switch the widget on the IoT Cloud dashboard ON and OFF, the LED will either blink every second or go off.
+**4.** Now, if you switch the widget on the Arduino Cloud dashboard ON and OFF, the LED will either blink every second or go off.
 
 
 ## But how does it work, inside?
 
-An IoT Cloud sketch is generated by the IoT Cloud application, it leverages the Arduino Cloud and [Arduino Connection Handler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) libraries to give your sketch IoT powers.
+An Arduino Cloud sketch is generated by the Arduino Cloud application, it leverages the Arduino Cloud and [Arduino Connection Handler](https://github.com/arduino-libraries/Arduino_ConnectionHandler) libraries to give your sketch IoT powers.
 
 
 When uploading a sketch over-the-air:

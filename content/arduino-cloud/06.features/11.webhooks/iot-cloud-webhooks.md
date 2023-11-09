@@ -3,7 +3,7 @@ title: 'Webhooks'
 description: 'Learn how to setup webhooks with the Arduino Cloud to work with third party platforms such as IFTTT.'
 tags:
   - Webhooks
-  - IoT Cloud
+  - Arduino Cloud
   - IFTTT
 author: 'Liam Aljundi'
 ---

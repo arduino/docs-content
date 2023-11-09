@@ -2,7 +2,7 @@
 title: APIs Overview
 description: Arduino Cloud has two different set of APIs - Application and Device API.
 author: Karl Söderby, Fabrizio Mirabito
-tags: [IoT Cloud, Device API, Application API, JavaScript]
+tags: [Arduino Cloud, Device API, Application API, JavaScript]
 ---
 
 The [Arduino Cloud](app.arduino.cc) has different sets of APIs that provide different functionalities. This article serves as an introduction to how to work and what you can achieve with them.
@@ -47,14 +47,14 @@ As a wrapper for the Device API, we have the following libraries:
 
 ### ArduinoIoTCloud Library
 
-The Arduino (C++) library allows your Arduino devices to connect and exchange data with the IoT Cloud. If you use the Arduino Cloud online environment, you do not need to install this library.
+The Arduino (C++) library allows your Arduino devices to connect and exchange data with the Arduino Cloud. If you use the Arduino Cloud online environment, you do not need to install this library.
 
 This library is also available in the library manager for [Arduino IDE](https://www.arduino.cc/en/software). With a paid subscription, you can push/pull changes to your online sketches in the offline editor.
 
 You can find more details at:
 
-- The [official repository](https://github.com/arduino-libraries/ArduinoIoTCloud)
-- The [cheat sheet](https://docs.arduino.cc/arduino-cloud/getting-started/technical-reference)
+- The [official repository](https://github.com/arduino-libraries/ArduinoIoTCloud).
+- The [Arduino C++ Library](/arduino-cloud/api/c-library) section.
 
 ### Arduino IoT JS
 

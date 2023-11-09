@@ -2,19 +2,19 @@
 title: Triggers
 description: Learn how to use triggers that allow you to send notifications based on set conditions.
 author: Hannes Siebeneicher
-tags: [IoT Cloud, Triggers, Cloud Notification]
+tags: [Arduino Cloud, Triggers, Cloud Notification]
 ---
 
-Triggers react to certain conditions inside your IoT Cloud Thing, such as a boolean being true, or a string being assigned a value. As soon as a set condition is met a notification gets triggered and sent to you. This is useful when you monitor data and you need to know about any change as soon as it happens. This could be anything from different values in environmental monitoring or security-related information such as movement detection.
+Triggers react to certain conditions inside your Arduino Cloud Thing, such as a boolean being true, or a string being assigned a value. As soon as a set condition is met a notification gets triggered and sent to you. This is useful when you monitor data and you need to know about any change as soon as it happens. This could be anything from different values in environmental monitoring or security-related information such as movement detection.
 
 Triggers can be set up for any of your existing projects, and are found in the [cloud home section](https://cloud.arduino.cc/home/).
 
 ## Hardware & Software Needed
 
 - [Arduino Cloud](app.arduino.cc) (Maker plan).
-- Cloud-compatible boards, [see full list](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#compatible-hardware).
+- Cloud-compatible boards, [see full list](https://docs.arduino.cc/arduino-cloud/guides/overview#compatible-hardware).
 
-***In this tutorial, we use the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). This is not a requirement, you can use any IoT Cloud-compatible board for this tutorial.***
+***In this tutorial, we use the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). This is not a requirement, you can use any Arduino Cloud-compatible board for this tutorial.***
 
 ## Setup & Configuration
 
@@ -87,7 +87,7 @@ void setup() {
   
   /*
      The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
+     related to the state of network and Arduino Cloud connection and errors
      the higher number the more granular information you’ll get.
      The default is 0 (only errors).
      Maximum is 4

@@ -200,7 +200,7 @@ Arduino IoT Cloud is an easy-to-use Internet of Things application platform. Ard
 
 In your IoT projects with Arduino you will need **three elements**:
 
-1. The [**Arduino IoT Cloud**](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
+1. The [**Arduino IoT Cloud**](https://docs.arduino.cc/arduino-cloud/guides/overview)
 2. The [**Arduino Create Agent**](https://create.arduino.cc/getting-started/plugin/welcome) the middle man between Arduino’s Web Editor, Arduino IoT Cloud and your computer. It allows you to use the browser to edit and deploy sketches to your Arduino board.
 3. **A device** of your choice.
 
@@ -240,7 +240,7 @@ To create a Thing, click on **Create Thing** next to the device of your interest
 
 ![Create a thing from device tab](assets/create-a-thing.png "Create Thing button")
 
-If you want to explore more on how Things work, check [here](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#3-creating-a-thing).
+If you want to explore more on how Things work, check [here](https://docs.arduino.cc/arduino-cloud/guides/overview#3-creating-a-thing).
 
 ***With a Free Plan you can only connect two Things with the IoT Cloud at a time. With a School Plan, each member you've included in your plan can connect up to five Things to a Device.***
 

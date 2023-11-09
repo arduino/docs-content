@@ -3,7 +3,7 @@ title: 'Node-RED'
 description: 'Learn how to use Node-RED together with the Arduino Cloud.'
 tags:
   - Node-RED
-  - IoT Cloud
+  - Arduino Cloud
   - Automation
   - IoT
 author: 'Liam Aljundi'
@@ -33,7 +33,7 @@ In this tutorial, we will look into the applications of using Node-RED together 
 
 For this tutorial, you will need a cloud compatible board. You will find all compatible boards in the link below:
 
-- [Arduino Cloud compatible hardware.](/cloud/iot-cloud/tutorials/iot-cloud-getting-started#compatible-hardware)
+- [Arduino Cloud compatible hardware.](/arduino-cloud/hardware/devices#type-of-devices)
 
 
 ## Node-RED Setup
@@ -121,7 +121,7 @@ In addition to the default nodes installed in node-RED, you can use the palette 
 
 ![Installing the Arduino Cloud Palette](assets/nodered-03.gif)
 
-Now, you should be able to use the Arduino Cloud nodes from the palette on the left side of the editor. There are five IoT Cloud nodes: property in, property out, historic, periodic, and inject. Each of the nodes has a description of its function, which appears when you hover over the node.
+Now, you should be able to use the Arduino Cloud nodes from the palette on the left side of the editor. There are five Arduino Cloud nodes: property in, property out, historic, periodic, and inject. Each of the nodes has a description of its function, which appears when you hover over the node.
 
 ## Setting Up a Thing
 
@@ -173,7 +173,7 @@ Follow the steps below to set up the Thing:
 
 ### Circuit
 
-The final step is connecting the **DHT11 humidity sensor** to our Arduino MKR Wi-Fi 1010 board, as shown in the image below. You can also freely use any other [IoT Cloud compatible board](/cloud/iot-cloud/tutorials/iot-cloud-getting-started#compatible-hardware) and a different sensor.
+The final step is connecting the **DHT11 humidity sensor** to our Arduino MKR Wi-Fi 1010 board, as shown in the image below. You can also freely use any other [Arduino Cloud compatible board](/arduino-cloud/hardware/devices#type-of-devices) and a different sensor.
 
 ![Connecting the DHT11 Sensor.](assets/rednode-09.png)
 

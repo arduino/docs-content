@@ -55,9 +55,9 @@ You can for example trigger a specific block of code whenever the board is in a 
 ### Events
 
 The `ArduinoIoTCloudEvent` enumeration class has three possible events:
-- `CONNECT` (0) - Board successfully connects to IoT Cloud.
-- `SYNC` (1) - Data is successfully synced between Board and IoT Cloud.
-- `DISCONNECT` (2) -  Board has lost connection to IoT Cloud.
+- `CONNECT` (0) - Board successfully connects to Arduino Cloud.
+- `SYNC` (1) - Data is successfully synced between Board and Arduino Cloud.
+- `DISCONNECT` (2) -  Board has lost connection to Arduino Cloud.
 
 The `CONNECT` and `DISCONNECT` events can occur even though no variable is created inside the Thing. However, `SYNC` requires a variable to be created, as this triggers whenever data is synchronized between the board and cloud.
 
@@ -80,6 +80,6 @@ function whenever the `CONNECT` event occurs.
 
 ### Full Example
 
-The example below demonstrates how to use events & callbacks in the IoT Cloud. 
+The example below demonstrates how to use events & callbacks in the Arduino Cloud. 
 
 <CodeBlock url="https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/examples/ArduinoIoTCloud-Callbacks/ArduinoIoTCloud-Callbacks.ino" className="arduino"/>

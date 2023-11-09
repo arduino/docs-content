@@ -1,7 +1,7 @@
 ---
-title: 'IoT Cloud Variables'
+title: 'Cloud Variables'
 description: 'Learn how to configure and use variables in your Arduino Cloud sketches.'
-tags: [IoT Cloud, Variables]
+tags: [Arduino Cloud, Variables]
 author: 'Karl Söderby'
 difficulty: beginner
 ---

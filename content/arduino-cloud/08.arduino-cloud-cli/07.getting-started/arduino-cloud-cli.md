@@ -37,13 +37,13 @@ Let's for example say that you have created a "smart plug" setup, that includes 
 
 With the Arduino Cloud CLI tool, you can not only automate the initial setup of these devices, but also be able to automate the maintenance sequence as well.   
 
-***If you are new to the Arduino Cloud as well, you can follow the [Getting Started guide](/arduino-cloud/getting-started/iot-cloud-getting-started).***
+***If you are new to the Arduino Cloud as well, you can follow the [Getting Started guide](/arduino-cloud/guides/overview).***
 
 ## Requirements
 
 - [Arduino account](https://cloud.arduino.cc/home/).
 - [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli) installed.
-- A [cloud compatible board](/arduino-cloud/getting-started/iot-cloud-getting-started#compatible-hardware)\*
+- A [cloud compatible board](/arduino-cloud/guides/overview#compatible-hardware)\*
 
 ***\*This is needed only for certain commands, like OTA uploads.***
 

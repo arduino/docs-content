@@ -2,7 +2,7 @@
 title: 'REST API & SDK'
 description: 'Learn how to authenticate with the Arduino Cloud REST API to make requests using HTTP Client, JavaScript and Python®.'
 tags:
-  - IoT Cloud REST API
+  - Arduino Cloud REST API
   - JavaScript
   - Python®
   - node.js

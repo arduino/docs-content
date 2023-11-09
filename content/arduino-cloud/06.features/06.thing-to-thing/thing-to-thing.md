@@ -29,7 +29,7 @@ The goals of this project are:
 
 ## Circuit
 
-In this tutorial, we are using no external circuit. You will only need 2x IoT Cloud compatible devices. You can for example use one Nano 33 IoT and one MKR WiFi 1010.
+In this tutorial, we are using no external circuit. You will only need 2x Arduino Cloud compatible devices. You can for example use one Nano 33 IoT and one MKR WiFi 1010.
 
 ![Choosing two IoT boards.](assets/thing-to-thing-circuit.png)
 

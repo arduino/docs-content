@@ -1,13 +1,13 @@
 ---
 title: 'Scheduler'
 description: 'Learn how to use the scheduler feature to trigger repeating jobs during specific times.'
-tags: [IoT Cloud, Scheduler, Time]
+tags: [Arduino Cloud, Scheduler, Time]
 author: 'Karl Söderby'
 software:
   - iot-cloud
 ---
 
-It is now possible to schedule jobs with the [Arduino Cloud](app.arduino.cc), using the new `CloudSchedule` variable type. You can pick a start & end date for when the variable should be triggered, and for how long it should be active. This variable can be controlled in real time using a graphical widget that you can place on an IoT Cloud dashboard.
+It is now possible to schedule jobs with the [Arduino Cloud](app.arduino.cc), using the new `CloudSchedule` variable type. You can pick a start & end date for when the variable should be triggered, and for how long it should be active. This variable can be controlled in real time using a graphical widget that you can place on an Arduino Cloud dashboard.
 
 We can for example have:
 
@@ -21,7 +21,7 @@ The goals of this project are:
 - Learn how the `CloudSchedule` variable works.
 - Learn how to access local time in your sketch.
 
-Make sure you have a [cloud-compatible board](/cloud/iot-cloud/tutorials/technical-reference#compatible-hardware).
+Make sure you have a [cloud-compatible board](/arduino-cloud/hardware/devices#type-of-devices).
 
 ## How Does it Work?
 
@@ -151,7 +151,7 @@ time_variable = ArduinoCloud.getLocalTime();
 
 ### Create a Thing
 
-***If you are new to the Arduino Cloud, you can either visit the [Getting Started with Arduino Cloud](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started) guide, or any of the tutorials in the [Arduino Cloud documentation](https://docs.arduino.cc/cloud/iot-cloud). There you will find detailed step by step guides.***
+***If you are new to the Arduino Cloud, you can either visit the [Getting Started with Arduino Cloud](/arduino-cloud/guides/overview) guide, or any of the tutorials in the [Arduino Cloud documentation](/arduino-cloud/). There you will find detailed step by step guides.***
 
 **1.** Navigate to [Arduino Cloud](app.arduino.cc). You will need to log in with your Arduino account.
 

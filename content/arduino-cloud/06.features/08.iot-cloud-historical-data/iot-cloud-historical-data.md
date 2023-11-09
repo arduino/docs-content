@@ -1,7 +1,7 @@
 ---
 title: 'Download Historical Data'
 description: 'Learn how to download historical data from the Arduino Cloud'
-tags: [IoT Cloud, Historical Data, CSV]
+tags: [Arduino Cloud, Historical Data, CSV]
 author: 'Benjamin Dannegård'
 ---
 
@@ -22,7 +22,7 @@ You do not need an active board to download the historical data, but for initial
 
 To see all compatible boards, check out the link below:
 
-- [Arduino Cloud compatible boards](/cloud/iot-cloud/tutorials/iot-cloud-getting-started#compatible-hardware).
+- [Arduino Cloud compatible boards](/arduino-cloud/hardware/devices#type-of-devices).
 
 ### Different Historical Data
 

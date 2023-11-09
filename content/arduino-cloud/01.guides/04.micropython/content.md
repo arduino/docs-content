@@ -25,7 +25,7 @@ The goals of this tutorial are:
 
 - Connect your Arduino device to your Wi-Fi® network.
 - Connect your Arduino device to the Arduino Cloud via MicroPython.
-- Control an LED using the Arduino IoT Cloud.
+- Control an LED using the Arduino Cloud.
 
 ## Hardware & Software Needed
 
@@ -109,7 +109,7 @@ This file should be copied over to the flash drive that mounts when MicroPython 
 
 ### Install Cloud Library
 
-To install the Arduino IoT Cloud (Micro)Python library on your board, you can use the Python based tool `mpremote`. This requires Python to be installed. On macOS and Linux Python usually comes pre-installed. If it's not installed on your system you may download it from [here](https://www.python.org/downloads/). Then, to install `mpremote` you can use pip:
+To install the Arduino Cloud (Micro)Python library on your board, you can use the Python based tool `mpremote`. This requires Python to be installed. On macOS and Linux Python usually comes pre-installed. If it's not installed on your system you may download it from [here](https://www.python.org/downloads/). Then, to install `mpremote` you can use pip:
 
 ```bash
 $ pip install mpremote
@@ -218,8 +218,8 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 - Make sure MicroPython >= 1.2 is installed on your board.
 - Check the Wi-Fi® credentials in the `secrets.py` file.
-- Ensure the device ID and Cloud password in the `secrets.py` file match with what is registered on the IoT Cloud.
-- Make sure your IoT Cloud Thing is correctly set up and your device is assigned to it.
+- Ensure the device ID and Cloud password in the `secrets.py` file match with what is registered on the Arduino Cloud.
+- Make sure your Arduino Cloud Thing is correctly set up and your device is assigned to it.
 
 ## Conclusion
 

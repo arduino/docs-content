@@ -1,6 +1,6 @@
 ---
 title: 'Remote Relay Control'
-description: 'Learn how to control the relays onboard the MKR Relay Shield through the Arduino IoT Cloud dashboard.'
+description: 'Learn how to control the relays onboard the MKR Relay Shield through the Arduino Cloud dashboard.'
 tags: [Relays, 24V]
 author: 'Karl Söderby'
 ---
@@ -15,17 +15,17 @@ This tutorial demonstrates how to use a MKR WiFi 1010 and a MKR Relay shield wit
 
 The goals of this project are:
 
-- Set up the Arduino IoT Cloud.
+- Set up the Arduino Cloud.
 - Create a program that controls the relays.
 - Create a dashboard to remotely control the relays.
-- Use the Arduino IoT Cloud Remote app to control relays.
+- Use the Arduino Cloud Remote app to control relays.
 
 ## Hardware & Software needed
 
-- [Arduino IoT Cloud](app.arduino.cc)
+- [Arduino Cloud](app.arduino.cc)
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010)
 - [Arduino MKR Relay Shield](https://store.arduino.cc/arduino-mkr-relay-proto-shield)
-- Arduino IoT Cloud Remote app (optional). 
+- Arduino Cloud Remote app (optional). 
   - [Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US)
   - [Apple Store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)
 
@@ -92,12 +92,12 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
      The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
+     related to the state of network and Cloud connection and errors
      the higher number the more granular information you’ll get.
      The default is 0 (only errors).
      Maximum is 4

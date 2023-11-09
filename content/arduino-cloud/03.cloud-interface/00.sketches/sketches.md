@@ -128,7 +128,7 @@ This section highlights some important aspects of writing code with regard to th
 
 ### Watchdog Timer (WDT)
 
-All IoT Cloud sketches use a **Watchdog Timer (WDT)** by default. The WDT can be used to automatically recover from hardware faults or unrecoverable software errors.
+All Arduino Cloud sketches use a **Watchdog Timer (WDT)** by default. The WDT can be used to automatically recover from hardware faults or unrecoverable software errors.
 
 A WDT is essentially a countdown timer, whereas it starts counting from a set value, and upon reaching zero, it resets the board. To prevent it from reaching zero, we continuously call it from the `loop()`, using the `ArduinoCloud.update()` function.
 
@@ -179,7 +179,7 @@ For a more complex and commented example, you can have a look at the [BlinkWitho
 
 ### I2C Usage
 
-Components connected via I²C (including the sensors onboard the [MKR IoT Carrier](https://store.arduino.cc/products/arduino-mkr-iot-carrier)) uses the same bus as the **ECCX08** crypto chip. As the crypto chip is an essential part of establishing a connection to the IoT Cloud (it contains the credentials), it is important that other I²C peripherals are initialized after the connection has been made.
+Components connected via I²C (including the sensors onboard the [MKR IoT Carrier](https://store.arduino.cc/products/arduino-mkr-iot-carrier)) uses the same bus as the **ECCX08** crypto chip. As the crypto chip is an essential part of establishing a connection to the Arduino Cloud (it contains the credentials), it is important that other I²C peripherals are initialized after the connection has been made.
 
 For example, if you are initializing a library such as [Arduino_MKRENV](https://www.arduino.cc/reference/en/libraries/arduino_mkrenv), your `setup()` should be implemented as:
 
@@ -205,13 +205,13 @@ void setup() {
 
 ### Avoid Blocking Serial Communication
 
-`while(!Serial) {}` loops endlessly until the Serial Monitor is opened. This is a useful practice in cases where you want to see all debug output from the start of the sketch execution. However, when building IoT systems using **`while(!Serial){}` can hinder our project from running autonomously**, stopping the board from connecting to the network and IoT Cloud before manually opening the Serial Monitor. Therefore, it is recommended to consider removing the `while(!Serial){}` loop if it's not necessary.
+`while(!Serial) {}` loops endlessly until the Serial Monitor is opened. This is a useful practice in cases where you want to see all debug output from the start of the sketch execution. However, when building IoT systems using **`while(!Serial){}` can hinder our project from running autonomously**, stopping the board from connecting to the network and Arduino Cloud before manually opening the Serial Monitor. Therefore, it is recommended to consider removing the `while(!Serial){}` loop if it's not necessary.
 
 A common trick is to add a **`delay(1500);` command after `Serial.begin(9600);`**. This will slightly slow down the initialization of your device but will give you some time to open the serial monitor when you're interested in seeing its output without losing the very first lines.
 
 ## Create Agent
 
-The [Arduino Create Agent](https://github.com/arduino/arduino-create-agent) is a single binary that will appear on the menu bar and work in the background. It allows you to use the Arduino IoT Cloud and the Arduino Web Editor to seamlessly upload code to any board directly from the browser.
+The [Arduino Create Agent](https://github.com/arduino/arduino-create-agent) is a single binary that will appear on the menu bar and work in the background. It allows you to use the Arduino Cloud and the Arduino Web Editor to seamlessly upload code to any board directly from the browser.
 
 Downloading and installing the Arduino Create Agent plugin can be done following [this quick and easy process](https://create.arduino.cc/getting-started/plugin/welcome).
 

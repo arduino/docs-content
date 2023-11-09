@@ -77,4 +77,4 @@ Head over to the [Arduino Cloud - Things](app.arduino.cc/things) and go to the T
  
 ![Synchronizing variables.](assets/remote-app-cloud-variables.png)
 
-Simply described, this allows you to use your phone as an input for a number of different applications. For example, the `Compass` variable can be used to control the angle of a servo motor on another device. You can read more about how to synchronize these variables in the [Use Sensor Data From Your Phone](/arduino-cloud/tutorials/iot-remote-phone-sensors) tutorial, that includes a practical example.
+Simply described, this allows you to use your phone as an input for a number of different applications. For example, the `Compass` variable can be used to control the angle of a servo motor on another device. You can read more about how to synchronize these variables in the [Use Sensor Data From Your Phone](/arduino-cloud/iot-remote-app/iot-remote-phone-sensors) tutorial, that includes a practical example.

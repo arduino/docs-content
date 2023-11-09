@@ -17,7 +17,7 @@ In this tutorial you will learn how to integrate the [Arduino Cloud](app.arduino
 
 This tutorial focuses on using the [MKR RGB Shield](https://store.arduino.cc/products/arduino-mkr-rgb-shield) but can easily be modified to use any other RGB pixels / matrices.
 
-***You can also find all variables that can be synchronized between Arduino Cloud and Alexa in the [IoT Cloud Variables guide](/arduino-cloud/getting-started/cloud-variables#alexa-variables).***
+***You can also find all variables that can be synchronized between Arduino Cloud and Alexa in the [Cloud Variables guide](/arduino-cloud/getting-started/cloud-variables#alexa-variables).***
 
 ## Goals
 
@@ -169,4 +169,4 @@ Did you know that the Arduino Cloud supports over the air uploads? When you've u
 
 ***Over the Air uploads require an Entry plan to the Arduino Cloud***
 
-To use this feature, make sure the board has power. If your board is already connected to the IoT Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino Cloud interface, and you should see it being discovered just as if it was connected via USB.
+To use this feature, make sure the board has power. If your board is already connected to the Arduino Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino Cloud interface, and you should see it being discovered just as if it was connected via USB.

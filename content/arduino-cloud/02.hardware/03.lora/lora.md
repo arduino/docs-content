@@ -5,7 +5,7 @@ tags:
     - LoRa®
     - LoRaWAN®
     - 'The Things Industries'
-    - 'IoT Cloud'
+    - 'Arduino Cloud'
 author: 'Karl Söderby'
 hero_position: 2
 hardware:
@@ -206,7 +206,7 @@ void setup() {
   
   /*
      The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
+     related to the state of network and Arduino Cloud connection and errors
      the higher number the more granular information you’ll get.
      The default is 0 (only errors).
      Maximum is 4
@@ -257,7 +257,7 @@ This code will simply increase the `test` variable every 3 minutes, which will s
   
 If you have an Arduino PRO Gateway, you will need to register it, using the [manager for Linux devices](https://app.arduino.cc/devices).
   
-You can visit the [Activate an Arduino Pro Gateway with IoT Cloud](https://support.arduino.cc/hc/en-us/articles/4407770369042-Activate-an-Arduino-Pro-Gateway-with-IoT-Cloud ) article for more details.
+You can visit the [Activate an Arduino Pro Gateway with Arduino Cloud](https://support.arduino.cc/hc/en-us/articles/4407770369042-Activate-an-Arduino-Pro-Gateway-with-IoT-Cloud ) article for more details.
   
 ###  Migrate Existing Gateway
 

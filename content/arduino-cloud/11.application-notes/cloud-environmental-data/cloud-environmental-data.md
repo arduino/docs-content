@@ -1,8 +1,8 @@
 ---
-title: 'Environmental data in the Arduino IoT Cloud'
+title: 'Environmental data in the Arduino Cloud'
 compatible-products: [mkr-wifi-1010, mkr-env-shield]
 difficulty: beginner
-description: 'Learn how to collect environmental data from the MKR ENV Shield and display it in the Arduino IoT Cloud.'
+description: 'Learn how to collect environmental data from the MKR ENV Shield and display it in the Arduino Cloud.'
 tags:
   - Environmental data
   - Sensors
@@ -12,7 +12,7 @@ featuredImage: 'cloud'
 
 ## Introduction
 
-In this tutorial, we will combine the functionality of the [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) and the [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield). The shield, mounted on top of the board, will record environmental data, such as temperature, humidity, pressure and illuminance. This data will be synced with the [Arduino IoT Cloud](app.arduino.cc), a service that allows us to remotely control and monitor our devices. 
+In this tutorial, we will combine the functionality of the [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) and the [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield). The shield, mounted on top of the board, will record environmental data, such as temperature, humidity, pressure and illuminance. This data will be synced with the [Arduino Cloud](app.arduino.cc), a service that allows us to remotely control and monitor our devices. 
 
 This means that whenever we read data on the board, it will also be visible in the cloud dashboard, where we can create different ways of visualizing the data.
 
@@ -22,13 +22,13 @@ This means that whenever we read data on the board, it will also be visible in t
 
 The goals of this project are:
 
-- Configure the Arduino IoT Cloud.
+- Configure the Arduino Cloud.
 - Create a program to read the sensors on the MKR ENV shield.
 - Read the data live in the Cloud dashboard.
 
 ## Hardware & Software needed
 
-- [Arduino IoT Cloud](app.arduino.cc).
+- [Arduino Cloud](app.arduino.cc).
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010).
 - [Arduino MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield).
 - [Arduino_MKRENV](https://www.arduino.cc/en/Reference/ArduinoMKRENV) library.
@@ -37,13 +37,13 @@ The goals of this project are:
 
 ![Mount the shield.](assets/IoT_ENV_IMG01.png)
 
-## Configuring the IoT Cloud
+## Configuring the Cloud
 
-The first step in this tutorial is to navigate to the [Arduino IoT Cloud](app.arduino.cc). If you are not logged in, or do not have an account, you will be re-directed to the login page. Here you can create a new account or log in to an existing one.
+The first step in this tutorial is to navigate to the [Arduino Cloud](app.arduino.cc). If you are not logged in, or do not have an account, you will be re-directed to the login page. Here you can create a new account or log in to an existing one.
 
 ### Configure a new device
 
-Once we are in the Arduino IoT Cloud, we will need to click on the **"Devices"** tab. This will open a new page which will ask you to add a new device. Click on the **"Add device"** button.
+Once we are in the Arduino Cloud, we will need to click on the **"Devices"** tab. This will open a new page which will ask you to add a new device. Click on the **"Add device"** button.
 
 ![Adding a new device.](assets/new_device.png)
 
@@ -117,7 +117,7 @@ Now as a final part of the configuration, we just need to add our network detail
 
 ## Creating the program
 
-Now, the final thing needed is the actual program that will run on the MKR 1010 board. We can edit the program directly in the Arduino IoT Cloud, by clicking on the **"Sketch"** tab. This will open up the built-in editor, where we can write the program directly.
+Now, the final thing needed is the actual program that will run on the MKR 1010 board. We can edit the program directly in the Arduino Cloud, by clicking on the **"Sketch"** tab. This will open up the built-in editor, where we can write the program directly.
 
 ![The sketch tab.](assets/IoT_ENV_IMG06.png)
 
@@ -142,12 +142,12 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
      The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
+     related to the state of network and Cloud connection and errors
      the higher number the more granular information you’ll get.
      The default is 0 (only errors).
      Maximum is 4
@@ -183,15 +183,15 @@ The most important thing is that the two following commands are printed:
 
 ```
 Connected to "Network"
-Connect to the Arduino IoT Cloud
+Connect to the Arduino Cloud
 ```
 ### Over the Air Uploads
 
-Did you know that the Arduino IoT Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
+Did you know that the Arduino Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
 
-***Over the Air uploads require an Entry plan to the Arduino IoT Cloud***
+***Over the Air uploads require an Entry plan to the Arduino Cloud***
 
-To use this feature, make sure the board has power. If your board is already connected to the IoT Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino IoT Cloud interface, and you should see it being discovered just as if it was connected via USB.
+To use this feature, make sure the board has power. If your board is already connected to the Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino Cloud interface, and you should see it being discovered just as if it was connected via USB.
 
 ## Building a dashboard
 
@@ -217,10 +217,10 @@ Congratulations! You can now view your real time data directly in the dashboard.
 
 ## Conclusion
 
-In this tutorial, we demonstrated simply how a MKR WiFi 1010, a MKR ENV Shield and the Arduino IoT Cloud is used to create a simple IoT application. This, without having to connect a single wire, or create a difficult program: the cloud takes care of all of that. 
+In this tutorial, we demonstrated simply how a MKR WiFi 1010, a MKR ENV Shield and the Arduino Cloud is used to create a simple IoT application. This, without having to connect a single wire, or create a difficult program: the cloud takes care of all of that. 
 
 You can now start thinking about how this application might work in real life. There are a lot of different things you can add to it, such as wind sensors (anemometers), rain sensors, CO2 sensors and much more. With some easy connections, you can build anything you want to, connect it to the cloud and view all the data live from anywhere in the world!
 
 ### More tutorials
 
-You can find more tutorials in the [Arduino IoT Cloud documentation page](/arduino-cloud/).
+You can find more tutorials in the [Arduino Cloud documentation page](/arduino-cloud/).

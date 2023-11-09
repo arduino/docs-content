@@ -1,7 +1,7 @@
 ---
 title: 'Dashboards & Widgets'
 description: 'Learn about dashboards and the different widgets that can be used to monitor & control your board.'
-tags: [IoT Cloud, Widgets, Dashboards]
+tags: [Arduino Cloud, Widgets, Dashboards]
 author: 'Karl Söderby'
 difficulty: beginner
 ---

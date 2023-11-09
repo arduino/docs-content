@@ -137,7 +137,7 @@ void setup() {
   
   /*
      The following function allows you to obtain more information
-     related to the state of network and IoT Cloud connection and errors
+     related to the state of network and Arduino Cloud connection and errors
      the higher number the more granular information you’ll get.
      The default is 0 (only errors).
      Maximum is 4
@@ -157,7 +157,7 @@ void loop() {
 
 /*
   Since Compass is READ_WRITE variable, onCompassChange() is
-  executed every time a new value is received from IoT Cloud.
+  executed every time a new value is received from Arduino Cloud.
 */
 void onCompassChange()  {
   // Add your code here to act upon Compass change
