@@ -183,9 +183,27 @@ The example sketch automatically connects to an Ethernet or a Wi-Fi® network an
 
 ### Testing the Example Sketch
 
-As soon as your Opta™ device is connected to the AWS IoT broker, it publishes automatically a simple message to the `arduino/outgoing` topic every five seconds. On the AWS IoT Core console, open the **MQTT test client** and add a subscription for the `arduino/outgoing` topic; choose the JSON formatting as display option. See messages arriving from your Opta™ device every 5 seconds.
+As soon as your Opta™ device is connected to the AWS IoT broker, it publishes automatically a simple message to the `arduino/outgoing` topic every five seconds. On the AWS IoT Core console, open the **MQTT test client** and add a subscription for the `arduino/outgoing` topic; choose the JSON formatting as display option. 
 
-On the AWS IoT Core console, open the MQTT test client and select the "Publish a Topic" tab. Add "arduino/incoming"  as Topic name and click the "Publish" button to send data to Opta. Data in the "Message payload" text area shows on the Serial Monitor of the Arduino IDE.
+![MQTT test client in AWS](assets/aws-iot_019.png)
+
+See messages arriving from your Opta™ device every five seconds.
+
+![MQTT test client in AWS](assets/aws-iot_020.png)
+
+On the AWS IoT Core console, open the MQTT test client and select the "Publish to a topic" tab. Add `arduino/incoming`  as Topic name and click the "Publish" button to send data to Opta™. Data in the "Message payload" text area shows on the Serial Monitor of the Arduino IDE.
+
+![Receiving data in your Opta™ device](assets/aws-iot_021.png)
+
+Please note the example sketch can parse only JSON messages in the form:
+
+```json
+{
+  "message": "Hello from AWS IoT console"
+}
+```
+
+The message can be modified as you like, remember to adapt the example sketch accordingly.
 
 ## Troubleshooting 
 
