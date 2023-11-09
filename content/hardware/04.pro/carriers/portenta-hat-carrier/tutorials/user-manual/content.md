@@ -2621,7 +2621,7 @@ During the early boot stage, these overlays are merged together into a single DT
 
 ### Handling DTB Overlays
 
-You can modify and maintain the Device Tree Blob (DTB) overlays through a couple of methods depending on the Linux system used. In the case of the Portenta X8 with the Portenta Hat Carrier, the following official methods are supported.
+To modify and maintain the Device Tree Blob (DTB) overlays of your Portenta X8 so it can support different hardware and devices, please read and execute the following steps.
 
 ### Custom DTB Overlays
 
