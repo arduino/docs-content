@@ -27,16 +27,25 @@ Compatible carriers with supported device:
 
 ## Firmware Versions
 
-### Latest Firmware Version: 746
+Following section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
 
-This section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
+### Latest Firmware Version: __746__
 
 The listing herein offers a glimpse into the firmware's continuous improvement and enhancement. Users can expect a concise overview of key new features, major bug fixes, and critical security patches integrated into the latest release to ensure the highest level of functionality and protection for their system.
 
-- **New Features:** Added support for the Portenta Hat Carrier and experimental support for Ditto.
-- **Enhancements:** Improved bridge implementation (X8H7)
-- **Bug Fixes:** Patched _u-boot env_ accessibility in devel images and CAN bus protocol
-- **Security Updates:** Security patches and updates included in the most recent release.
+* **New Features:**
+- Added support for the Portenta Hat Carrier
+- Added experimental support for Ditto
+
+* **Enhancements:**
+- Improved bridge implementation (X8H7)
+
+* **Bug Fixes:**
+- Patched _u-boot env_ accessibility in devel images
+- Patched CAN bus protocol
+
+* **Security Updates:**
+- Security patches and updates included in the most recent release.
 
 ***__You can access the latest version of the firmware [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__***
 
@@ -47,21 +56,21 @@ Below is a list of all available firmware versions with their release notes.
 <details>
   <summary><strong>OS Image 746: Release arduino-88.91</strong></summary>
 
-  ### New Features
+  #### New Features
   - Added the Portenta HAT Carrier support
   - Added experimental support for Ditto
 
-  ### Enhancements
+  #### Enhancements
   - Improved bridge implementation (X8H7)
 
-  ### Bug Fixes
+  #### Bug Fixes
   - _u-boot env_ accessible in devel images
   - Patches for CAN bus protocol
 
-  ### Security Updates
+  #### Security Updates
   - Security patches and updates to enhance protection.
 
-  ### Additional Notes
+  #### Additional Notes
   - Based on [LmP v88](https://foundries.io/products/releases/88/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
 
 </details>
@@ -70,20 +79,20 @@ Below is a list of all available firmware versions with their release notes.
 <details>
   <summary><strong>OS Image 719: Release arduino-88.7</strong></summary>
 
-  ### New Features
+  #### New Features
   - Added PWM fan support
   - Added Pika Spark support
   - Experimental support for RPi v3.0 (imx708) (V4L2, I2C)
   - Support bayer bggr 10-bit in bsp, courtesy of NXP (Weiping Liu) (V4L2, GSTREAMER)
 
-  ### Enhancements
+  #### Enhancements
   - Improved RPi v1.3 (ov5647_mipi) and reaching 30fps (V4L2, I2C)
   - Improved RPi v2.1 (imx219) (V4L2, I2C)
 
-  ### Bug Fixes
+  #### Bug Fixes
   - Patches CAN bus TX issues
 
-  ### Additional Notes
+  #### Additional Notes
   - Based on [LmP v88](https://foundries.io/products/releases/88/). This is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
 
 </details>
