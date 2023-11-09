@@ -44,8 +44,6 @@ Inside a variable configuration, we have several options:
   - **On Change:** variable synchronizes whenever value changes (threshold is `0` by default).
   - **Periodically:** variable synchronizes every `x` seconds. 
 
-
-
 ### Automatic Sketch Generation
 
 Any variables you add will be automatically added to your [thingProperties](/arduino-cloud/cloud-interface/sketches#configuration-header-file) file, which contains any configurations made inside your Thing.
@@ -128,6 +126,22 @@ Whenever one variable updates, any variables added to the synchronisation will a
 ![Variable synchronisation.](assets/example.png)
 
 ***For more details on this feature, check out the [Device to Device](https://docs.arduino.cc/arduino-cloud/features/device-to-device) tutorial.***
+
+## Variable Lifecycle
+
+Cloud variables are only synced with the Arduino Cloud during the **Synchronized** status.
+When we are in a different state, any change to the variable is local and will be overridden by the Arduino Cloud value as soon as it gets Synchronized.
+
+A variable can be in any of the following stages:
+
+- **Disconnected** - The variable has the local value. Any modification to the value will be overridden once Synchronized.
+- **Connecting** - The variable has the local value. Any modification to the value will be overridden once Synchronized.
+- **Connected** - The variable has the local value. Any modification to the value will be overridden once Synchronized.
+- **Synchronized** - The variable is synced with the Cloud. 
+  - If the value is changed locally, it is populated to the Cloud.
+  - If the value is changed in the Cloud via a dashboard or variable sync, the local value is updated (only for **Read Write** variables).
+
+***For callbacks & events depending on what status the variable is in, check out the [Events & Callbacks](/arduino-cloud/api/c-library#events--callbacks) section.***
 
 ## Cloud Variable List
 

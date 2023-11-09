@@ -38,6 +38,48 @@ The documentation lives in the [ArduinoIoTCloud](https://github.com/arduino-libr
 
 Most of its functions are already pre-configured in your sketch files, so for most use cases you will not need to explore the API. Functions for connecting to, and syncing data with the Arduino Cloud is handled automatically, and will be generated into your sketch files in the web environment. 
 
-## Arduino IDE
+## Arduino IDE (Offline)
 
 This library can be used with the offline version of the Arduino IDE (download through the [Arduino Downloads Page](https://www.arduino.cc/en/software/)). You can program your devices offline and monitor them via the cloud, but your Thing configuration is not synchronized if you do so.
+
+To use it offline, you will manually need to install the following libraries in the Arduino IDE:
+- [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud)
+- [Arduino_ConnectionHandler](https://github.com/arduino-libraries/Arduino_ConnectionHandler)
+
+## Events & Callbacks
+
+Arduino Cloud has support for events and callbacks. This can be used to trigger specific functionalities depending on what state your device is in. 
+
+You can for example trigger a specific block of code whenever the board is in a **connecting**, **synchronized** or **disconnected** state. In this document, we will explore how to set it up, using an example from the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/examples/ArduinoIoTCloud-Callbacks/ArduinoIoTCloud-Callbacks.ino) library.   
+
+### Events
+
+The `ArduinoIoTCloudEvent` enumeration class has three possible events:
+- `CONNECT` (0) - Board successfully connects to IoT Cloud.
+- `SYNC` (1) - Data is successfully synced between Board and IoT Cloud.
+- `DISCONNECT` (2) -  Board has lost connection to IoT Cloud.
+
+The `CONNECT` and `DISCONNECT` events can occur even though no variable is created inside the Thing. However, `SYNC` requires a variable to be created, as this triggers whenever data is synchronized between the board and cloud.
+
+These events can be subscribed to using the `addCallback()` function, which is documented in the next section.
+
+### Callbacks
+
+Callbacks can be added for each event, and essentially triggers a custom function whenever the event occurs.
+
+Callbacks are added via the `addCallback()` method from the `ArduinoIoTCloud` class, where the **event** and **custom function** are added as parameters. 
+
+```arduino
+ArduinoCloud.addCallback(ArduinoIoTCloudEvent::CONNECT, doThisOnConnect);
+```
+
+The above code will trigger the `doThisOnConnect()`
+function whenever the `CONNECT` event occurs.
+
+***Please note that callback functions should be added inside the `setup()` of your sketch.***
+
+### Full Example
+
+The example below demonstrates how to use events & callbacks in the IoT Cloud. 
+
+<CodeBlock url="https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/examples/ArduinoIoTCloud-Callbacks/ArduinoIoTCloud-Callbacks.ino" className="arduino"/>
