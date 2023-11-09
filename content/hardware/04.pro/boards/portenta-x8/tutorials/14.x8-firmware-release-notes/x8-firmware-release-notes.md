@@ -31,7 +31,7 @@ Following section highlights the critical updates and enhancements introduced in
 
 ### Latest Firmware Version: __746__
 
-The listing herein offers a glimpse into the firmware's continuous improvement and enhancement. Users can expect a concise overview of key new features, major bug fixes, and critical security patches integrated into the latest release to ensure the highest level of functionality and protection for their system.
+The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of key new features, major bug fixes, and critical security patches integrated into the latest release to ensure the highest level of functionality and protection within the Portenta X8 system.
 
 * **New Features:**
 - Added support for the Portenta Hat Carrier
