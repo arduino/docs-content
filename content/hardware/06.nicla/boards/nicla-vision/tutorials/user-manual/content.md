@@ -1289,8 +1289,8 @@ from pyb import I2C
 Create the I2C objects and initialize them attached to a specific bus, below are some of the available commands to do it.
 
 ```python
-i2c = I2C(2)                         # create on bus 2
-i2c = I2C(2, I2C.MASTER)             # create and init as a master
+i2c = I2C(1)                         # create on bus 1
+i2c = I2C(1, I2C.MASTER)             # create and init as a master
 i2c.init(I2C.MASTER, baudrate=20000) # init as a master
 i2c.init(I2C.SLAVE, addr=0x42)       # init as a slave with given address
 i2c.deinit()                         # turn off the peripheral
@@ -1420,6 +1420,54 @@ The pins used in the Nicla Vision for the UART (external) communication protocol
 |         PA_9            |        SERIAL1_TX       |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+
+
+#### With OpenMV
+
+To begin with UART communication, you'll need to import `UART` from the `machine` module.
+
+```python
+from machine import UART
+```
+Then, initialize the UART object defining the __bus number__ and __baudrate__.
+
+```python
+uart = UART(9, 115200)  # bus 9 uses PA9 and PA10 as (TX and RX) respectively
+```
+To read incoming data, you can use different functions as the following.
+
+```python
+uart.read(10)       # read 10 characters, returns a bytes object
+uart.read()         # read all available characters
+uart.readline()     # read a line
+uart.readinto(buf)  # read and store into the given buffer
+```
+
+To write data, use the following function.
+
+```python
+uart.write('abc')   # write the 3 characters
+```
+
+Here is the complete example that writes "Hello World!" on the external serial port of the Nicla Vision.
+
+```python
+import time
+from machine import UART
+
+# Init UART object.
+uart = UART(9, 115200)
+
+while True:
+    uart.write("Hello World!\r")
+    time.sleep_ms(1000)
+```
+
+This is the output of the example code from above.
+
+![UART "Hello World!" data frame](assets/uart.png)
+
+#### With Arduino IDE
 
 To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
 
