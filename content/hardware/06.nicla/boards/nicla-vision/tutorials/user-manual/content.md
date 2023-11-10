@@ -1140,7 +1140,7 @@ Please, refer to the [board pinout section](#pinout) of the user manual to find 
 
 #### With OpenMV
 
-Import the `SPI` submodule from the `pyb` module at the top of your sketch alonside with `time` and `Pin` to use the SPI communication protocol. The SPI driver provides functions for SPI communication:
+Import the `SPI` submodule from the `pyb` module at the top of your sketch alongside `time` and `Pin` to use the SPI communication protocol. The SPI driver provides functions for SPI communication:
 
 ```python
 import time
@@ -1278,6 +1278,58 @@ The Nicla Vision supports I2C communication, which allows data transmission betw
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Vision.
 
+
+#### With OpenMV
+
+To use I2C communication with OpenMV, import `I2C` from the `pyb` module as follows.
+
+```python
+from pyb import I2C
+```
+Create the I2C objects and initialize them attached to a specific bus, below are some of the available commands to do it.
+
+```python
+i2c = I2C(2)                         # create on bus 2
+i2c = I2C(2, I2C.MASTER)             # create and init as a master
+i2c.init(I2C.MASTER, baudrate=20000) # init as a master
+i2c.init(I2C.SLAVE, addr=0x42)       # init as a slave with given address
+i2c.deinit()                         # turn off the peripheral
+```
+
+The basic methods are `send` and `recv` implemented as follows:
+
+```python
+# For Masters / Controllers (must include addr in send)
+i2c.send('abc', 0x42)      # send 3 bytes to device on address 0x42
+
+# For Slaves / Peripherals
+i2c.send('abc')      # send 3 bytes
+i2c.send(0x42)       # send a single byte, given by the number
+
+data = i2c.recv(3)   # receive 3 bytes
+```
+
+This is a simple example of how to send data over I2C from a master to a slave.
+
+```python
+from pyb import I2C
+
+i2c = I2C(1, I2C.MASTER)
+
+buf = bytearray(2)
+
+buf[0] = 0x00
+buf[1] = 0xFA
+
+i2c.send(buf, 0x35)
+```
+The output data should look like the image below, where we can see the device address data frame:
+
+![I2C output data](assets/i2c.png)
+
+To learn more about the I2C class on microphyton, continue [here](https://docs.openmv.io/library/pyb.I2C.html). 
+
+#### With Arduino IDE
 To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
 
 ```arduino
