@@ -1138,6 +1138,62 @@ The Nicla Vision supports SPI communication, which allows data transmission betw
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
+#### With OpenMV
+
+Import the `SPI` submodule from the `pyb` module at the top of your sketch alonside with `time` and `Pin` to use the SPI communication protocol. The SPI driver provides functions for SPI communication:
+
+```python
+import time
+from pyb import Pin, SPI
+```
+Before your infinite loop, configure the chip select (`CS`) pin and initialize the SPI peripheral as a `Master`:
+
+```python
+spi = SPI(4, SPI.MASTER, baudrate=int(480000000 / 256), polarity=0, phase=0)
+```
+To send data over SPI, use:
+
+```python
+spi.send(<data>)  # add the data (integer or buffer) to be sent as the argument
+```
+To receive data over SPI, use:
+
+```python
+spi.recv(<bytes>) # add the number of bytes to be received as the argument
+```
+Here is a simple example of how to send data over SPI.
+
+```python
+import time
+from pyb import Pin, SPI
+
+cs = Pin("SS", Pin.OUT_OD) # CS pin = PE11
+
+spi = SPI(4, SPI.MASTER, baudrate=int(480000000 / 256), polarity=0, phase=0)
+
+while True:
+    # Replace with the target device's address
+    address = 0x35
+    # Replace with the value to send
+    value = 0xFA
+    # Pull the CS pin LOW to select the device
+    cs.low()
+    # Send the address
+    spi.send(address)
+    # Send the value
+    spi.send(value)
+    # Pull the CS pin HIGH to unselect the device
+    cs.high()
+    
+    time.sleep_ms(1000)
+```
+
+The example code above should output this:
+
+![SPI logic data output](assets/spi.png)
+
+#### With Arduino IDE
+
 Include the `SPI` library at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
 
 ```arduino
@@ -1368,9 +1424,128 @@ Serial1.println("Hello world!");
 
 ### Bluetooth® Low Energy
 
-To enable Bluetooth® Low Energy communication on the Nicla Vision, you can use the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/).
+To enable the Bluetooth® Low Energy communication on the Nicla Vision, you can use the `bluetooth` module in [OpenMV](#with-openmv-5) or the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/) in the [Arduino IDE](#with-arduino-ide-5).
 
-For this BLE application example, we are going to monitor the Nicla Vision IMU __temperature sensor__. Here is an example of how to use the ArduinoBLE library to achieve it:
+We are going to build a BLE temperature monitor that using the __nRF Connect__ app (available for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=es_419&gl=US) and [iOS](https://apps.apple.com/us/app/nrf-connect-for-mobile/id1054362403?platform=iphone)) will let us easily connect to our Nicla Vision and monitor the temperature in real time.
+
+#### With OpenMV
+
+For this BLE application example, we are going to emulate the temperature sensor.  Below you will find the complete sketch.
+
+```python
+import bluetooth
+import random
+import struct
+import time
+from ble_advertising import advertising_payload
+from machine import LED
+from micropython import const
+
+_IRQ_CENTRAL_CONNECT = const(1)
+_IRQ_CENTRAL_DISCONNECT = const(2)
+_IRQ_GATTS_INDICATE_DONE = const(20)
+
+_FLAG_READ = const(0x0002)
+_FLAG_NOTIFY = const(0x0010)
+_FLAG_INDICATE = const(0x0020)
+
+# org.bluetooth.service.environmental_sensing
+_ENV_SENSE_UUID = bluetooth.UUID(0x181A)
+# org.bluetooth.characteristic.temperature
+_TEMP_CHAR = (
+    bluetooth.UUID(0x2A6E),
+    _FLAG_READ | _FLAG_NOTIFY | _FLAG_INDICATE,
+)
+_ENV_SENSE_SERVICE = (
+    _ENV_SENSE_UUID,
+    (_TEMP_CHAR,),
+)
+
+# org.bluetooth.characteristic.gap.appearance.xml
+_ADV_APPEARANCE_GENERIC_THERMOMETER = const(768)
+
+
+class BLETemperature:
+    def __init__(self, ble, name="Py Temp Sensor"):
+        self._ble = ble
+        self._ble.active(True)
+        self._ble.irq(self._irq)
+        ((self._handle,),) = self._ble.gatts_register_services((_ENV_SENSE_SERVICE,))
+        self._connections = set()
+        self._payload = advertising_payload(
+            name=name,
+            services=[_ENV_SENSE_UUID],
+            appearance=_ADV_APPEARANCE_GENERIC_THERMOMETER,
+        )
+        self._advertise()
+        self.led = LED("LED_BLUE")
+
+    def _irq(self, event, data):
+        # Track connections so we can send notifications.
+        if event == _IRQ_CENTRAL_CONNECT:
+            conn_handle, _, _ = data
+            self._connections.add(conn_handle)
+            self.led.on()
+        elif event == _IRQ_CENTRAL_DISCONNECT:
+            conn_handle, _, _ = data
+            self._connections.remove(conn_handle)
+            # Start advertising again to allow a new connection.
+            self._advertise()
+            self.led.off()
+        elif event == _IRQ_GATTS_INDICATE_DONE:
+            conn_handle, value_handle, status = data
+
+    def set_temperature(self, temp_deg_c, notify=False, indicate=False):
+        # Data is sint16 in degrees Celsius with a resolution of 0.01 degrees Celsius.
+        # Write the local value, ready for a central to read.
+        self._ble.gatts_write(self._handle, struct.pack("<h", int(temp_deg_c * 100)))
+        if notify or indicate:
+            for conn_handle in self._connections:
+                if notify:
+                    # Notify connected centrals.
+                    self._ble.gatts_notify(conn_handle, self._handle)
+                if indicate:
+                    # Indicate connected centrals.
+                    self._ble.gatts_indicate(conn_handle, self._handle)
+
+    def _advertise(self, interval_us=500000):
+        self._ble.gap_advertise(interval_us, adv_data=self._payload)
+
+
+if __name__ == "__main__":
+    ble = bluetooth.BLE()
+    temp = BLETemperature(ble)
+
+    t = 25
+    i = 0
+
+    while True:
+        # Write every second, notify every 10 seconds.
+        i = (i + 1) % 10
+        temp.set_temperature(t, notify=i == 0, indicate=False)
+        # Random walk the temperature.
+        t += random.uniform(-0.5, 0.5)
+        time.sleep_ms(1000)
+```
+
+The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [BLE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting an emulated temperature value. 
+
+- The code begins by importing all the necessary modules and defining the Bluetooth® Low Energy service and characteristic for an environment-sensing application.
+
+  |         **Description**        |       **ID**       |
+  |:------------------------------:|:------------------:|
+  | Environmental Sensing Service  |        181A        |
+  | Temperature Characteristic     |        2A6E        |
+
+- Then sets up the Bluetooth® Low Energy service and characteristic; and begins advertising the defined Bluetooth® Low Energy service.
+
+- A Bluetooth® Low Energy connection is constantly verified; when a central device connects to the Nicla Vision, its built-in LED is turned on blue. The code then enters into a loop that constantly emulates a temperature reading.
+
+  It also prints it to the Serial Monitor and transmits it to the central device over the defined Bluetooth® Low Energy characteristic.
+
+#### With Arduino IDE
+
+For this BLE application example, we are going to monitor the Nicla Vision IMU __temperature sensor__. Below you will find the complete sketch.
 
 ```arduino
 
@@ -1494,15 +1669,13 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
 
 - A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Vision, its built-in LED is turned on blue. The code then enters into a loop that constantly reads the IMU temperature sensor. It also prints it to the Serial Monitor and transmits it to the central device over the defined Bluetooth® Low Energy characteristic.
 
-Using the nRF Connect app (available for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=es_419&gl=US) and [iOS](https://apps.apple.com/us/app/nrf-connect-for-mobile/id1054362403?platform=iphone)) you can easily connect to your Nicla Vision and monitor the temperature in real time.
-
 ![Nicla Vision temperature monitored from the nRF Connect app](assets/temperature-monitor.png)
 
 ### ESLOV Connector 
 
 The Nicla Vision board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Nicla Vision without soldering or wiring.
 
-![Nicla Vision built-in ESLOV connector](assets/eslov-connection.png)
+![Nicla Vision built-in ESLOV connector](assets/eslov.png)
 
  The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
 
@@ -1515,3 +1688,5 @@ The pin layout of the ESLOV connector is the following:
 5. GND
 
 The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
+
+## Arduino IoT Cloud
