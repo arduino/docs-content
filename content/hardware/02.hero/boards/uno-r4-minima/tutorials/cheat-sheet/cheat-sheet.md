@@ -362,6 +362,11 @@ I2C lets you connect multiple I2C-compatible devices in series using only two pi
 
 The UNO R4 Minima has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNOs are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
 
+There are a couple of advantages to not mounting the pullup resistors from the factory:
+
+ - As the pins used for I2C are directly connected to A4 and A5 respectively, they are also able to be used as digital input/output, and analog input pins. Mounting I2C pullup resistors to these pins would limit the functionality to only I2C, as they would be locically `HIGH` by default.
+ - By choosing to mount different resistances, you are able to select if you want to operate a 3.3 V or a 5 V I2C device with these pins. 
+
 The pins used for I2C on the UNO R4 Minima are the following:
 - SDA - D18 or A4
 - SCL - D19 or A5
@@ -386,6 +391,9 @@ Wire.write(byte(0x00)); //send instruction byte
 Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
+
+Learn more about the I2C protocol in our [I2C Protocol Guide](/learn/communication/wire)
+
 ## USB Serial & UART
 
 The UNO R4 Minima board features two separate hardware serial ports. 
