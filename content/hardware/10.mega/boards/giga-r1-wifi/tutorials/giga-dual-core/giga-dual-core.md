@@ -36,9 +36,39 @@ In this guide you will discover:
 
 ***\*For instructions on how to install the GIGA Core, follow the [Getting Started with GIGA R1 guide](/tutorials/giga-r1-wifi/giga-getting-started).***
 
+## What is Supported on M4?
+
+The M4 processor can access most of the peripherals that the M7 can access, with some exceptions.
+
+The M4 supports:
+- Wi-Fi®
+- I2C
+- SPI
+- UART
+- CAN
+- DAC
+- ADC
+- Bluetooth® Low Energy (via [ArduinoBLE Library](https://www.arduino.cc/reference/en/libraries/arduinoble/))
+
+The M4 does **not** support:
+- Serial communication\*
+- Arduino Cloud sketches.
+
+***\*Serial Communication from the M4 can be enabled by setting up an RPC that allows the M4 & M7 cores to communicate. Using `RPC.print()` (M4) and `RPC.read()` (M7) helps achieve this. See [RPC Serial Examle](#rpc-serial).***
+
 ## Programming M4/M7
 
-Programming the cores is done via the Arduino IDE, in a special interface that appears only when you **select the Arduino GIGA R1 board** from the board menu. 
+When programming the GIGA R1 WiFi's M7 and M4, we **create a sketch for each core**, and program them like we would program two individual Arduino boards. As only a single serial port is available, we need to specify which core we want to target. 
+
+Some essential things to consider when programming the cores are:
+- You need to [partition the memory](#partitioning-the-flash-memory), allocating flash memory to the M4 core.
+- You need to select the [target core](#target-core), which is either **Main Core** or **M4 Co-processor**.
+- The M4 has no serial communication enabled, here we need to use RPC (see [RPC Serial example](#rpc-serial)).
+
+When writing multiple sketches, there are some things to consider to make your development experience easier:
+- Name your sketches with either `_M4` or `_M7` suffix or prefix. This will make it easier if the code is intended to be shared with others.
+- Consider having a starting sequence (e.g. the blue LED blinking 3 times), whenever a core is initialized.
+- Always include `RPC.begin()` on your M7 core sketch.
 
 ### Partitioning The Flash Memory
 
@@ -84,73 +114,14 @@ void loop(){
 
 Once the M4 is booted from the M7, both cores will run in parallel, much like two Arduinos sharing the same board.
 
+
 ### Writing Over Existing Sketch
 
 Uploading new sketches works the same as a typical upload procedure. The new sketch will overwrite the current sketch running on the core you upload to.
 
-## Limitations
+## Identify Core Used
 
-The M7 and M4 cores are two separate cores, and when initialized, they will continue to execute their corresponding program.
-
-In this section you will find some known limitations of using the two parallel cores. 
-
-### Booting M4
-
-As mentioned in the previous section, the M4 requires to be booted from the M7, by using the `RPC.begin()` method. If this is not included, the M4 will not boot.
-
-### Serial Communication
-
-Serial communication is not available by default on the M4 core. A work around for this is by sending data using the `RPC` library, and printing it from the M7 core. To achieve this, see the following examples:
-
-**M4 Sketch**
-
-```arduino
-#include <RPC.h>
-
-void setup() {
-  RPC.begin();
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-  RPC.println("Hello World!");
-}
-```
-
-**M7 Sketch**
-
-```arduino
-#include <RPC.h>
-
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  RPC.begin();
-}
-
-void loop() {
-  String buffer = "";
-    while (RPC.available()) {
-      buffer += (char)RPC.read();
-    }
-
-    if (buffer.length() > 0) {
-      Serial.print(buffer);
-    }
-}
-```
-
-***Note that both of these sketches needs to be uploaded to their corresponding cores.***
-
-## Methods of Programming
-
-Programming the M4 and M7 cores is straightforward, but can be complicated to track. Having a strategy for how you want to build your dual core applications is key. 
-
-In this section we introduce the "single" and "multiple" sketch approach, and the pros and cons of each method.
-
-### Single Sketch Approach
-
-The single sketch approach means writing a single sketch that is **uploaded to both cores** each time a change is made. In the sketch, we can keep track of what each core does, simply by querying the core used with a simple function:
+To identify which core is being used, we can utilize the `HAL_GetCurrentCPUID()` method. Below is a function that returns which core is used.
 
 ```arduino
 String currentCPU() {
@@ -173,23 +144,6 @@ With this function, we check whether the M4 or M7 is running, and we can write c
     //run M7 code
   }
 ```
-
-The pros of using this approach is that you can write all code in a single file, therefore, revisioning code, as well as the provisioning is easier to manage.
-
-The cons of using this approach is that you will run out of program memory faster. You will also upload code to the cores that will never execute (the M7 code will not execute on M4 and vice versa).
-
-### Multiple Sketch Approach
-
-The multiple sketch approach means developing two separate sketches, one for each core. This does not require the use of the `HAL_GetCurrentCPUID()` to retrieve the core you are using, you can instead just write sketches as you would normally do.
-
-The pros of using this approach is that the code you write is optimized only for one core, and this saves a lot of program memory.
-
-The cons is to manage the versions becomes harder, and while flashing the board, you'd need to keep track on which version is uploaded to which core. It is easier to upload to the wrong core by accident using this approach, but you have more optimized code.
-
-When writing multiple sketches, there are some things to consider to make your development experience easier:
-- Name your sketches with either `_M4` or `_M7` suffix or prefix. This will make it easier if the code is intended to be shared with others.
-- Consider having a starting sequence (e.g. the blue LED blinking 3 times), whenever a core is initialized.
-- Always include `RPC.begin()` on your M7 core sketch.
 
 ## Remote Call Procedures (RPC)
 
