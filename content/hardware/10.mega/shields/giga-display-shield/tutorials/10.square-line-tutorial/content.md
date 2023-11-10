@@ -98,7 +98,7 @@ Name the widgets accordingly:
 - **Decrease Button**: ui_ButtonDec
 - **Number Label**: ui_LabelNum
 
-Also pay attention to the size of the font set for the counter label. We set the size to 26, this then needs to be enabled in the lv_conf.h file. This file can be found in /mbed/libraries/Arduino_H7_Video/src.
+Also pay attention to the size of the font set for the counter label. We set the size to 26, this then needs to be enabled in the lv_conf.h file. This file can be found in the **mbed_giga/libraries/Arduino_H7_Video/src** folder.
 
 ![Font size option in SquareLine Studio](assets/text_font_size.svg)
 
