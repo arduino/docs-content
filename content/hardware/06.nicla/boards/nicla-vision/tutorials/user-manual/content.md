@@ -1771,6 +1771,122 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
 
 ![Nicla Vision temperature monitored from the nRF Connect app](assets/temperature-monitor.png)
 
+### WiFi®
+
+The Nicla Vision onboard IEEE802.11 b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or dual-mode simultaneous AP/STA. It supports a maximum transfer rate of 65 Mbps.
+
+#### With OpenMV
+
+The example code below shows how to get the current time using NTP.
+
+```python
+import network
+import socket
+import struct
+import time
+
+SSID = ""  # Network SSID
+KEY = ""  # Network key
+
+TIMESTAMP = 2208988800
+
+if time.gmtime(0)[0] == 2000:
+    TIMESTAMP += 946684800
+
+# Init wlan module and connect to network
+print("Trying to connect... (This may take a while)...")
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(SSID, KEY)
+
+while not wlan.isconnected():
+    print('Trying to connect to "{:s}"...'.format(SSID))
+    time.sleep_ms(1000)
+
+# We should have a valid IP now via DHCP
+print("WiFi Connected ", wlan.ifconfig())
+
+# Create new socket
+client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# Get addr info via DNS
+addr = socket.getaddrinfo("pool.ntp.org", 123)[0][4]
+
+# Send query
+client.sendto("\x1b" + 47 * "\0", addr)
+data, address = client.recvfrom(1024)
+
+# Print time
+t = struct.unpack(">IIIIIIIIIIII", data)[10] - TIMESTAMP
+print("Year:%d Month:%d Day:%d Time: %d:%d:%d" % (time.localtime(t)[0:6]))
+
+```
+
+Make sure to enter your WiFi credentials on the `SSID` and `KEY` variables and run the script from the OpenMV IDE.
+
+The current time and date will be printed on the IDE serial monitor.
+
+![Requesting time with NTP server](assets/ntp.png)
+
+***If you want to learn more about using Nicla Vision's WiFi with OpenMV, explore the built-in examples on __File > Examples > WiFi__.***
+
+#### With Arduino IDE
+
+The example code below shows how to get the current time using NTP.
+
+```arduino
+#include <NTPClient.h>  //http://librarymanager/All#NTPClient
+#include <WiFi.h>  
+#include <WiFiUdp.h>
+
+const char *ssid = "";
+const char *password = "";
+
+WiFiUDP ntpUDP;
+
+NTPClient timeClient(ntpUDP);
+
+void setup() {
+  Serial.begin(115200);
+
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  timeClient.begin();
+}
+
+void loop() {
+  timeClient.update();
+
+  time_t nowEpoch = timeClient.getEpochTime();
+  struct tm *nowStruct = gmtime(&nowEpoch);
+  int year = nowStruct->tm_year + 1900;
+  int day = nowStruct->tm_mday;
+
+  Serial.print("Year: ");
+  Serial.print(year);
+  Serial.print(" Day: ");
+  Serial.print(day);
+  Serial.print(" Time: ");
+  Serial.println(timeClient.getFormattedTime());
+
+  delay(1000);
+}
+```
+Make sure to enter your WiFi credentials on the `*ssid` and `*password` variables and upload the code from the Arduino IDE.
+
+The current time and date will be printed on the IDE serial monitor.
+
+![Requesting time with NTP server](assets/ntp-arduino.png)
+
+***If your Nicla Vision reports an error when trying to connect to WiFi saying *Failed to mount the filesystem containing the WiFi firmware*, follow the next steps.***
+
+In the Arduino IDE navigate to **File > Examples > STM32H747_System > WiFiFirmwareUpdater**, upload this code to your Nicla Vision and wait for the update. The progress can be followed in the serial monitor.
+
 ### ESLOV Connector 
 
 The Nicla Vision board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Nicla Vision without soldering or wiring.
@@ -1790,3 +1906,4 @@ The pin layout of the ESLOV connector is the following:
 The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
 
 ## Arduino IoT Cloud
+
