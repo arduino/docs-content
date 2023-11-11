@@ -56,6 +56,10 @@ The M4 does **not** support:
 
 ***\*Serial Communication from the M4 can be enabled by setting up an RPC that allows the M4 & M7 cores to communicate. Using `RPC.print()` (M4) and `RPC.read()` (M7) helps achieve this. See [RPC Serial Examle](#rpc-serial).***
 
+### Boot / Disable M4
+
+The M4 core can be either be booted or disabled
+
 ## Programming M4/M7
 
 When programming the GIGA R1 WiFi's M7 and M4, we **create a sketch for each core**, and program them like we would program two individual Arduino boards. As only a single serial port is available, we need to specify which core we want to target. 
@@ -113,7 +117,6 @@ void loop(){
 ```
 
 Once the M4 is booted from the M7, both cores will run in parallel, much like two Arduinos sharing the same board.
-
 
 ### Writing Over Existing Sketch
 
