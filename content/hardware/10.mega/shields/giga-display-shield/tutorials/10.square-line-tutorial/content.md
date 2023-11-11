@@ -1,8 +1,8 @@
 ---
 title: SquareLine Studio With the GIGA Display Shield
-description: "Learn how to use SquareLine Studio to create LVGL GUIs for the GIGA Display Shield"
+description: Learn how to use SquareLine Studio to create LVGL GUIs for the GIGA Display Shield
 author: Benjamin Dannegård
-tags: [Display, squareline, LVGL]
+tags: [Display, SquareLine, LVGL]
 ---
 
 The GIGA Display Shield with the GIGA R1 WiFi board can run LVGL which allows for the creation of advanced GUIs. To make the design of the GUI easier we can use the software SquareLine Studio. This will allow us to drag and drop different elements and then export it for usage on the display shield.
@@ -29,7 +29,7 @@ First download SquareLine Studio from the link above. Now in SquareLine Studio g
 
 As show on this image:
 
-![Project settings in SquareLine Studio](assets/project_settings.svg)
+![Project settings in SquareLine Studio](assets/project_settings.png)
 
 Finally click on the "create" button.
 
@@ -37,13 +37,13 @@ Finally click on the "create" button.
 
 Now it is time to create the GUI that will be on the display shield. Feel free to customize your GUI however you want. On the left there are plenty of handy widgets that can be drag and dropped. On the right you can set more specific options for the widgets.
 
-![Project in SquareLine Studio](assets/squareline_studio_project.svg)
+![Project in SquareLine Studio](assets/squareline_studio_project.png)
 
 ### Exporting a Project From SquareLine Studio
 
 Now that the project is ready it is time to export it. First click on the "Export" tab at the top, then select "Create Template Project" and select the destination for your exported files. When that is done click on the "Export UI Files" and wait for the process to finish.
 
-![Export options in SquareLine Studio](assets/export_options.svg)
+![Export options in SquareLine Studio](assets/export_options.png)
 
 Now all the files should be in the folder that you specified.
 
@@ -51,7 +51,7 @@ Now all the files should be in the folder that you specified.
 
 In the folder that you exported the files to, go into the "libraries" folder and then copy the "ui" folder.
 
-![Folder structure of the exported files](assets/folder_structure.svg)
+![Folder structure of the exported files](assets/folder_structure.png)
 
 Place this folder in your **Libraries** folder found inside your **Arduino** folder. This is the same **Arduino** folder that contains your Arduino IDE sketches.
 
@@ -86,11 +86,11 @@ void loop() {
 
 The project from SquareLine Studio is exported as a library, let's take a look at how we can reference a specific element in the GUI. To demonstrate this we will first create a simple GUI with a increase button, a decrease button and a label. The label will show the number that will decrease or increase depending on what button is pressed. Our GUI will look like this:
 
-![The GUI we will be using in this section](assets/button_label_gui.svg)
+![The GUI we will be using in this section](assets/button_label_gui.png)
 
 Pay attention to the names of the button and the label, which can be seen on the right side and the upper left side here:
 
-![Name sections highlighted in SquareLine Studio](assets/names_highlight.svg)
+![Name sections highlighted in SquareLine Studio](assets/names_highlight.png)
 
 Name the widgets accordingly:
 
@@ -100,11 +100,11 @@ Name the widgets accordingly:
 
 Also pay attention to the size of the font set for the counter label. We set the size to 26, this then needs to be enabled in the lv_conf.h file. This file can be found in /mbed/libraries/Arduino_H7_Video/src.
 
-![Font size option in SquareLine Studio](assets/text_font_size.svg)
+![Font size option in SquareLine Studio](assets/text_font_size.png)
 
 And to enable the font size find the **FONT USAGE** section. If you want to enable any other size simply change the `0` next to any of the font sizes into a `1`:
 
-![lv_conf.h font usage section](assets/lv_config.svg)
+![lv_conf.h font usage section](assets/lv_config.png)
 
 Now export the project and put the library in the Arduino libraries folder, as shown in the previous section.
 
