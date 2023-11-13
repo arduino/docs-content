@@ -273,6 +273,30 @@ void loop() {
 }
 ```
 
+### Text
+
+Displaying text is usually done with labels. These are used in most of the other examples to put text on buttons and switches. Like any other element you first have to create the object with:
+
+```arduino
+lv_obj_t * label;
+```
+
+Then the labels text can be set with:
+```arduino
+lv_label_set_text(label, "Label!"); 
+```
+
+If you want to insert a variable that is not a string, use:
+
+```arduino
+//This will make the label show the number 13
+lv_label_set_text_fmt(label, "%d", 13)
+```
+
+To use bigger font sizes it has to be enabled in the `lv_conf.h` file. This file can be found in the **mbed_giga/libraries/Arduino_H7_Video/src** folder. Find the **FONT USAGE** section, here you can see all the font sizes. If you want to enable any size simply change the `0` next to any of the font sizes into a `1`. Like this:
+
+![lv_config font section](assets/lv_config.svg)
+
 ## Functional Elements
 
 ### Checkbox
