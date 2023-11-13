@@ -113,7 +113,7 @@ while True:
     time.sleep_ms(500)
 ```
 
-***If you are using an [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect), you can also do the following: `adc = ADC("A4")`. Check out the example [here](http://localhost:8000/micropython/basics/board-examples#analog-read)***
+***If you are using an [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect), you can also do the following: `adc = ADC("A4")`. For more information check out the example [here](http://localhost:8000/micropython/basics/board-examples#analog-read).***
 
 ## PWM (Pulse Width Modulation)
 
