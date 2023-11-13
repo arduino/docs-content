@@ -1,6 +1,6 @@
 ---
-title: Arduino UNO R4 WiFi Upload to ESP32
-description: Learn how to upload firmware to the ESP32-S3 on the UNO R4 WiFi
+title: Arduino UNO R4 WiFi Custom Firmware Upload to ESP32 (Advanced)
+description: Upload custom firmware to the ESP32-S3 on the UNO R4 WiFi.
 author: Hannes Siebeneicher
 tags: [ESP32, esptool, Flash]
 hardware:
@@ -70,69 +70,4 @@ esptool.py --chip esp32s3 --port <your port> write_flash -z 0 <yourCustomFirmwar
 
 ## Restore Default Firmware
 
-Restoring the default firmware varies slightly depending on which operating system you are using. 
-
-**Windows**
-
-- [Download the latest firmware](https://github.com/arduino/uno-r4-wifi-usb-bridge/releases/download/0.2.0/unor4wifi-update-windows.zip) and unzip it.
-
-- Unplug all the USB devices except for your **UNO R4 WiFi**.
-
-- Open the **update.bat** file - if a warning dialog appears, click on "More info" and then "Run anyway".
-
--  Follow the steps inside the terminal and select your board from the device list (if you still see more than one device after unplugging everything apart from the board, check under Windows' Device Manager)
-
--  Once done, unplug the board, connect it again and you should have the default firmware installed again.
-
-**MacOS**
-
--  [Download the latest firmware](https://github.com/arduino/uno-r4-wifi-usb-bridge/releases/download/0.2.0/unor4wifi-update-macos.zip) and unzip it.
-
--  Unplug all the USB devices except for your **UNO R4 WiFi**.
-
--  Right-click on the folder, select "New terminal at folder" (you might find it under "Services"), and launch the following commands:
-
-```
-chmod a+x update.command
-```
-
-```
-sudo xattr -d com.apple.quarantine bin/espflash
-```
-
-```
-sudo xattr -d com.apple.quarantine bin/unor4wifi-reboot-macos
-```
-
--  Launch this command in your terminal:
-
-```
-./update.command
-```
-
--  Follow the steps inside the terminal and select your board from the device list, it is listed as
-/dev/tty.usbmodem141301 - USB JTAG_serial debug unit.
-
--  Once done, unplug the board, connect it again and you should have the default firmware installed again.
-
-**Linux**
-
--  [Download the latest firmware](https://github.com/arduino/uno-r4-wifi-usb-bridge/releases/download/0.2.0/unor4wifi-update-linux.zip) and unzip it.
-
--  Unplug all the USB devices except for your **UNO R4 WiFi**.
-
--  Right-click on the folder, select "Open in Terminal" and launch the following command:
-
-```
-sudo ./update.sh
-```
-
--  Follow the steps inside the terminal and answer yes to the first question, no to the second.
-
--  Once done, unplug the board, connect it again and you should have the default firmware installed again.
-
-Alternatively you can also repeat **Step 1** and **Step 2** using the ``.bin`` file found inside the ``.zip`` file using the esptool.
-
-## Conclusion
-
-These are the steps for uploading firmware to your ESP32-S3. This process is **not suitable for beginners** as it easily breaks your board. Unless the new firmware does not implement a new serial bridge, a lot of functionality is lost. But for those who know what they are doing, it opens up many new possibilities as you can rewrite the firmware on the ESP32 to fit your custom needs.
+To restore the default firmware on the ESP32 check out [Update the connectivity module firmware on UNO R4 WiFi](https://support.arduino.cc/hc/en-us/articles/9670986058780-Update-the-connectivity-module-firmware-on-UNO-R4-WiFi#espflash).
