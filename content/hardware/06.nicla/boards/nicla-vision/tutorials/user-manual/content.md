@@ -2021,3 +2021,25 @@ To upload the code to the Nicla Vision from the online editor, click the green _
 Navigate into __Dashboards__ again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's red LED (LEDR) should light on or off when the position of the switch changes.
 
 ![Controlling the Nicla Vision LED](assets/IoTGif.gif)
+
+## Support
+
+If you encounter any issues or have questions while working with the Nicla Vision, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nicla Vision. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Nicla Family help center page](https://support.arduino.cc/hc/en-us/sections/4410176504978-Nicla-Family)
+
+### Forum
+
+Join our community forum to connect with other Nicla Vision users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nicla Vision.
+
+- [Nicla Vision category in the Arduino Forum](https://forum.arduino.cc/c/hardware/nicla-family/nicla-vision/171)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Nicla Vision.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/) 
