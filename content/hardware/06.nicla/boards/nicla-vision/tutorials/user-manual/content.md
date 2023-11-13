@@ -2050,7 +2050,7 @@ void setup() {
   
   // Nicla Vision's red LED macro is LEDR
   pinMode(LEDR, OUTPUT);
-  // As they turn on with "LOW", initialy turn it off.
+  // As they turn on with "LOW", initially turn it off.
   digitalWrite(LEDR, HIGH);
   
   // Defined in thingProperties.h
