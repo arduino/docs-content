@@ -1,5 +1,5 @@
 ---
-title: Arduino UNO R4 WiFi Custom Firmware Upload to ESP32 (Advanced)
+title: Custom Firmware Upload to ESP32 (Advanced)
 description: Upload custom firmware to the ESP32-S3 on the UNO R4 WiFi.
 author: Hannes Siebeneicher
 tags: [ESP32, esptool, Flash]
