@@ -1120,6 +1120,74 @@ To expand your knowledge using the Nicla Vision camera with micropython try our 
 
 ![OpenMV examples for the Nicla Vision](assets/examples.png)
 
+## Machine Learning Tools
+
+The Nicla Vision is a ready-to-use, standalone camera for analyzing and processing images on the Edge. Thanks to its 2MP color camera, smart 6-axis motion sensor, integrated microphone, and distance sensor, it is suitable for almost infinite machine learning applications.
+
+Creating this type of application has never been easier thanks to our Machine Learning Tool powered by Edge Impulse®, where we can easily create in a __No-Code__ environment, __Audio__, __Motion__, __Proximity__ and __Image__ processing models.
+
+The first step to start creating awesome artificial intelligence and machine learning projects is to create an [Arduino Cloud](https://cloud.arduino.cc/home/) account.
+
+There you will find a dedicated section called __Machine Learning Tools__.
+
+![Machine Learning Tools on Arduino Cloud](assets/ml-tools.png)
+
+Once in, create a new project and give it a name.
+
+![Creating a new project](assets/create-pro.png)
+
+Enter your newly created project and the landing page will look like the following:
+
+![Nicla Vision project page](assets/ei-landing.png)
+
+### Edge Impulse® Environment Setup
+
+Now, it's time to set up the __Edge Impulse®__ environment on your PC. For this, follow [these](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation) instructions to install the __Edge Impulse CLI__.
+
+***For Windows users: make sure to install [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).***
+
+- Download and install the latest __Arduino CLI__ from [here](https://arduino.github.io/arduino-cli/0.35/installation/). ([Video Guide for Windows](https://www.youtube.com/watch?v=1jMWsFER-Bc))  
+
+- Download the [latest Edge Impulse® firmware](https://cdn.edgeimpulse.com/firmware/arduino-nicla-vision.zip), and unzip the file.
+
+- Open the flash script for your operating system (`flash_windows.bat`, `flash_mac.command` or `flash_linux.sh`) to flash the firmware.
+
+- To test if the __Edge Impulse CLI__ was installed correctly, open the __Command Prompt__ or your favorite terminal and run:
+
+  `edge-impulse-daemon`
+
+  If everything went okay, you should be asked for your account credentials.
+
+  ![Edge Impulse Daemon](assets/cmd.png)
+
+- Enter your account username or e-mail address and your password. 
+- Select the project you've created on the Arduino ML Tools, it will be listed.
+- Give your device a name and wait for it to connect to the platform.
+
+![Nicla Vision correctly connected to ML Tools](assets/cmd-connected.png)
+
+### Uploading Sensor Data 
+
+The first thing to start developing a machine learning project is to create a dataset for your model. This means, uploading data to your model from any of the Nicla Vision sensors.
+
+To upload data from your Nicla Vision; on the Machine Learning Tools platform, navigate to __Data Acquisition__.
+
+![Data Acquisition section](assets/ml-tools-upload.png)
+
+In this section, you will be able to select from the Nicla Vision onboard sensors individually or from several interesting combinations. 
+
+This is the supported sensor list to date:
+- Built-in microphone
+- Inertial (IMU)
+- ADC sensor (A0)
+- Proximity sensor
+- Camera (different resolutions)
+
+Now you know how to start with our __Machine Learning Tools__ creating your dataset from scratch, you can get inspired by some of our ML projects listed below: 
+
+- [Image Classfication with Edge Impulse®](https://docs.arduino.cc/tutorials/nicla-vision/image-classification) (Article).
+- [Glass-Breaking Detector using Edge Impulse®](https://www.youtube.com/watch?v=x65tRhBIWwY) (Video).
+
 ## Communication
 
 This section of the user manual covers the different communication protocols that are supported by the Nicla Vision, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C), Universal Asynchronous Receiver-Transmitter (UART), and Bluetooth® Low Energy; communication via the onboard ESLOV connector is also explained in this section. The Nicla Vision features dedicated pins for each communication protocol, making connecting and communicating with different components, peripherals, and sensors easy.
