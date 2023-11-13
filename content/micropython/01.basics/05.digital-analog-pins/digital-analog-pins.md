@@ -96,17 +96,24 @@ There are four methods to use inside the ADC class: `ADC.init`, `ADC.block()`, `
 
 ### Analog Read
 
-To read an analog pin, we can use the `ADC.read_u16` command. This reads the specified analog pin and returns an integer in the range 0 - 65535. For this, we need to import `ADC` from the `machine` module.
-
-***Note: This is currently only available on the nightly build***
+To read an analog pin, we can use the `ADC.read_u16` command. This reads the specified analog pin and returns an integer in the range 0 - 65535. For this, we need to import `ADC` and `Pin` from the `machine` module.
 
 ```python
-from machine import ADC
+import machine
+import time
+
+# Make sure to follow the GPIO map for the board you are using.
+# Pin 29 in this case is the "A3" pin on the Nano 33 BLE / BLE Sense
+adc_pin = machine.Pin(29) 
+adc = machine.ADC(adc_pin)
 
 while True:
-    adc = ADC("A4")
-    adc.read_u16()
+    reading = adc.read_u16()     
+    print("ADC: ",reading)
+    time.sleep_ms(500)
 ```
+
+***If you are using an [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect), you can also do the following: `adc = ADC("A4")`. Check out the example [here](http://localhost:8000/micropython/basics/board-examples#analog-read)***
 
 ## PWM (Pulse Width Modulation)
 

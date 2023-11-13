@@ -49,6 +49,20 @@ Before you start using the board's pins, it might be a good idea to check out th
 | D20/A6  | GPIO36 | ADC/NINA-W102 |
 | D21/A7  | GPIO35 | ADC/NINA-W102 |
 
+### Analog Read
+
+***Note: This is currently only available on the nightly build***
+
+To read an analog pin, we can use the `ADC.read_u16` command. This reads the specified analog pin and returns an integer in the range 0 - 65535. For this, we need to import `ADC` from the `machine` module.
+
+```python
+from machine import ADC
+
+while True:
+    adc = ADC("A4")
+    adc.read_u16()
+```
+
 ### Sensors
 
 #### IMU (LSM6DSOX)
@@ -473,6 +487,10 @@ In the MicroPython port of the Nano 33 BLE board, the pinout is the same as the 
 | D19/A5  | 2        |
 | D20/A6  | 28       |
 | D21/A7  | 3        |
+
+### Analog Read
+
+***The following example is currently only possible with the nightly build***
 
 ### LED Control
 
