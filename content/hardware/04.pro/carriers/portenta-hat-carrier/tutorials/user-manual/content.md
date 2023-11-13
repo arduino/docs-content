@@ -2621,21 +2621,7 @@ During the early boot stage, these overlays are merged together into a single DT
 
 ### Handling DTB Overlays
 
-You can modify and maintain the Device Tree Blob (DTB) overlays through a couple of methods. In builds that do not prioritize security, you can edit the file located at the following location:
-
-```
-/boot/devicetree/overlays.txt
-```
-
-After making the desired changes, it is necessary to save the changes and reboot the system to apply them.
-
-On the other hand, in builds that prioritize security, the _fw_setenv tool_ accessible in user space must be used to apply the corresponding changes to the U-boot settings as follows:
-
-```
-fw_setenv overlays=name_ov1 name_ov2
-```
-
-Currently, parameters are passed indirectly to the overlays; however, upcoming enhancements to U-boot will introduce direct parameter passing functionality.
+To modify and maintain the Device Tree Blob (DTB) overlays of your Portenta X8 so it can support different hardware and devices, please read and execute the following steps.
 
 ### Custom DTB Overlays
 
