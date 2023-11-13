@@ -108,6 +108,8 @@ Check out the following resources that will show you how to start with the Ardui
 - [Arduino PLC IDE download page](https://www.arduino.cc/pro/software-plc-ide)
 - [Arduino PLC IDE and Opta™ tutorials](https://docs.arduino.cc/software/plc-ide)
 
+***The Arduino IDE and the Arduino PLC IDE programming environments have important differences in control and real-time performance, which means that the device is configured differently the first time you use one or the other. In case you have been using Opta with the PLC IDE, and you want to come back to use it inside the Arduino environment, we recommend performing the memory partitioning process that is explained in the [Opta™ Memory Partitioning for Use with the Arduino IDE](https://docs.arduino.cc/tutorials/opta/memory-partitioning) tutorial.***
+
 ### Pinout
 
 ![Opta™ pinout (WiFi variant)](assets/user-manual_4.png)
@@ -764,6 +766,10 @@ You should see the following output in the Arduino IDE's Serial Monitor:
 
 You can download the example code [here](assets/opta_ethernet_web_client.zip).
 
+The Media Access Control (MAC) address is essential for computer networking and devices with Internet of Things (IoT) capabilities, such as the Opta™. To learn more into-depth about how to retrieve the MAC address of an Opta™ device using the Arduino ecosystem tools, check out the following tutorial:
+
+- [Retrieve the Opta™ MAC Address](https://docs.arduino.cc/tutorials/opta/mac-address)
+
 ### RS-485
 
 Opta™ RS485 and WiFi variants have a built-in RS-485 interface, enabling the construction of robust and reliable data transmission systems. RS-485 interface is still the most widely used protocol for Point Of Sale (POS), industrial, and telecommunications applications. The wide common-mode range enables data transmission over longer cable lengths and in noisy environments such as the floor of a factory. Also, the high input impedance of the receivers allows more devices to be attached to the lines.
@@ -851,6 +857,10 @@ void loop() {
 
 The sketch starts with the `configureRS485()` function, which initializes the RS-485 interface with the defined baud rate and turns off data receiving. The `printlnRS485()` function handles the transmission of text messages. It starts the transmission, sends the message followed by a carriage return and newline character, and ends the transmission. The `setup()` function calls the `configureRS485()` function to configure the RS-485 interface and then sends a confirmation message. The `loop()` function repeatedly sends a message every two seconds using the `printlnRS485()` function.
 
+To learn more into-depth about the RS-485 interface in Opta™ devices, check out the following tutorial:
+
+- [Getting Started with RS-485 on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-rs485)
+
 ### Modbus (RTU/TCP)
 
 Opta™ RS485 and WiFi variants incorporate a built-in Modbus interface, enabling the implementation of robust and reliable data transmission systems. Modbus, in its RTU version that utilizes RS-485 serial transmission or in its TCP version that operates over Ethernet, remains one of the most widely used protocols for industrial automation applications, building management systems, and process control, among others.
@@ -871,6 +881,8 @@ To learn more about the Modbus interface in Opta™ devices, check out the follo
 - [Getting Started with Modbus RTU on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu)
 - [Modbus TCP On Opta™ Using PLC IDE](https://docs.arduino.cc/tutorials/opta/opta-modbus-tcp-plc-ide)
 - [Tank Level Monitoring with the Opta™](https://docs.arduino.cc/tutorials/opta/tank-level-app-note)
+- [Tank Thermoregulation with Portenta Machine Control & Opta™](https://docs.arduino.cc/tutorials/opta/pmc-opta-temp-ctrl)
+- [Energy Management with Opta™](https://docs.arduino.cc/tutorials/opta/energy-management-application-note)
 
 ### Wi-Fi®
 
@@ -887,7 +899,6 @@ The `Arduino Mbed OS Opta Boards` core has a built-in library that lets you use 
 The sketch below enables an Opta™ device to connect to the Internet via Wi-Fi® (like the Ethernet example). Once connected, it performs a `GET` request to the [`ip-api.com`](https://ip-api.com/) server to fetch details related to its IP address. It then parses the received JSON object using the [`Arduino_JSON` library](https://github.com/arduino-libraries/Arduino_JSON) to extract key IP details: IP address, city, region, and country. This data is then printed to the Arduino IDE's Serial Monitor.
 
 You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking the ellipsis (the three horizontal dots) button on the top right of the Arduino IDE 2.
-
 
 ![Creating a tab in the Arduino IDE 2](assets/user-manual-16.png)
 
@@ -1034,6 +1045,10 @@ Since the data is fetched only once, there's no need for repeatedly sending `HTT
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-17_2.png)
 
 You can download the example code [here](assets/opta_wifi_web_client_example.zip).
+
+The MAC address is essential for computer networking and devices with Internet of Things (IoT) capabilities, such as the Opta™. To learn more into-depth about how to retrieve the MAC address of an Opta™ device using the Arduino ecosystem tools, check out the following tutorial:
+
+- [Retrieve the Opta™ MAC Address](https://docs.arduino.cc/tutorials/opta/mac-address)
 
 ### Bluetooth Low Energy®
 
@@ -1279,6 +1294,10 @@ void changeLights() {
 
 **Note**: The example code above employs a "debouncing" technique to ensure that the user button press is recognized as a singular event despite any rapid electrical fluctuations that can occur when physically pressing the button. Upon detecting a press through an interrupt, the sketch waits for a brief interval (150 milliseconds, set by the `debounceDelay` variable) before processing the press. This delay ensures that any additional "noise" or fluctuations don't trigger multiple registrations of the same press, ensuring precise LED sequencing operation.
 
+To learn more into-depth about interrupts in Opta™ devices, check out the following tutorial:
+
+- [Getting Started with Interrupts on Opta™](https://docs.arduino.cc/tutorials/opta/getting-started-with-interrupts)
+
 ## Real-Time Clock (RTC)
 
 Opta™ device's (all variants) microcontroller (the STM32H747XI) features a low-power Real-Time Clock (RTC) with sub-second accuracy and hardware calendar accessible through specific RTC management methods from Mbed™️.
@@ -1404,7 +1423,9 @@ Once the RTC has been synchronized in the setup, the sketch enters an infinite l
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-18_2.png)
 
-You can download the example code [here](assets/opta_rtc_example.zip). To learn more about date and time manipulation operations, check out the [`time` function documentation from Mbed™️](https://os.mbed.com/docs/mbed-os/v5.15/apis/time.html).
+You can download the example code [here](assets/opta_rtc_example.zip). To learn more about date and time manipulation operations, check out the [`time` function documentation from Mbed™️](https://os.mbed.com/docs/mbed-os/v5.15/apis/time.html). Also, check out this real-world case described in the following application note where Opta's RTC:
+
+- [Home Automation with Opta™️](https://docs.arduino.cc/tutorials/opta/home-automation-application-note)
 
 ## Arduino IoT Cloud
 
@@ -1578,7 +1599,10 @@ To upload the code to the Opta™ from the online editor, click the green **Veri
 
 Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's STATUS LED 1 (`LED_D0`) should light on or off when the position of the switch changes.
 
-To learn more about Opta™ and the Arduino IoT Cloud, check out our [Opta™ Relay Management](https://create.arduino.cc/iot/templates/relay-management) template. This is an excellent template to continue learning about the Arduino IoT Cloud and Opta™.
+To learn more about Opta™ and the Arduino IoT Cloud, check out the following resources that can help you learning about the Arduino IoT Cloud and Opta™:
+
+- [Opta™ Relay Management template](https://create.arduino.cc/iot/templates/relay-management)
+- [Using PLC IDE With Arduino® IoT Cloud](https://docs.arduino.cc/tutorials/opta/plc-ide-cloud-support)
 
 ## Support
 
