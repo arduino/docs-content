@@ -287,7 +287,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 
 The Portent Hat Carrier pinout is shown in Figure 2.
 
-![Figure 2. Portenta Hat Carrier pinout](assets/portentaHatCarrier_pinout.svg)
+![Figure 2. Portenta Hat Carrier pinout](assets/phc-pinout.png)
 
 ### Full Pinout Table
 
@@ -528,13 +528,13 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 
 An overview of the Portenta Hat Carrier high-level architecture is illustrated in Figure 3.
 
-![Figure 3. Portenta Hat Carrier block diagram](assets/portentaHatCarrier_blockDiagram.svg)
+![Figure 3. Portenta Hat Carrier block diagram](assets/phc-blockdiagram.png)
 
 ### Power Tree
 
 <p style="text-align: justify;">Figure 4 shows the power options available on the Portenta Hat Carrier and illustrates the main system power architecture.</p>
 
-![Figure 4. Portenta Hat Carrier power tree](assets/portentaHatCarrier_powerTree.svg)
+![Figure 4. Portenta Hat Carrier power tree](assets/phc-powertree.png)
 
 As shown in Figure 4, the Portenta Hat Carrier can be powered in multiple ways:
 
