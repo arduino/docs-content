@@ -1918,4 +1918,106 @@ In case it is the first time you are using the IoT Cloud:
 
 Let's walk through a step-by-step demonstration of how to use a Nicla Vision with the IoT Cloud.
 
-Log in to your IoT Cloud account; you should see the following:
+Log in to your IoT Cloud account; you should see the following (without any "Thing" created):
+
+![IoT Cloud initial page](assets/iot-cloud-1.png)
+
+First, provision your Nicla Vision on your IoT Cloud space. To do this, navigate to __Devices__ and then click on the __ADD__ button:
+
+![IoT Cloud Devices Page](assets/iot-cloud-2.png)
+
+The Setup Device pop-up window will appear. Navigate into __AUTOMATIC__ and select the __Arduino board__ option:
+
+![IoT Cloud Setup Device pop-up window](assets/iot-cloud-3.png)
+
+After a while, your Nicla Vision should be discovered by the IoT Cloud, as shown below:
+
+![Nicla Vision found and ready to be configured](assets/iot-cloud-4.png)
+
+Click the __CONFIGURE__ button, give your device a name, and your Nicla Vision will be configured to communicate securely with the IoT Cloud; this process can take a while.
+
+![Nicla Vision setup process](assets/iot-cloud-5.png)
+
+Once your Nicla Vision has been configured, let's create a __"Thing"__ to test the connection between your board and the IoT Cloud. Navigate into  __Things__ and select the __CREATE__ button; give your thing a name.
+
+![IoT Cloud "Thing" setup](assets/iot-cloud-6.png)
+
+Navigate into __Associate Device__ and click the __Select Device__ button. Select your Nicla Vision and associate it with your "Thing." Then, navigate into __Network__ and click the __Configure__ button; enter your network credentials.
+
+The project is ready to add variables to your "Thing"; navigate into __Cloud Variables__ and click the __ADD VARIABLE__ button.
+
+Add one variable with the following characteristics:
+
+- **Name:** `led`
+- **Variable type:** `boolean`
+- **Variable permission:** `Read & Write`
+- **Variable update policy:** `On change`
+
+![IoT Cloud "Thing" variable setup](assets/iot-cloud-10.png)
+
+Now, navigate into __Dashboards__ and select the __CREATE__ button; this will create a new dashboard and give your dashboard a name.
+
+![IoT Cloud Dashboards page](assets/iot-cloud-8.png)
+
+Add the following widgets to your dashboard:
+
+- **Switch:** Name the widget Switch and link it to the `led` variable you created before.
+- **LED:** Name the widget LED and link it to the `led` variable you created before.
+- **Sticky Note:** Give context to your dashboard with a descriptive title (optional).
+
+Your dashboard should look like the following:
+
+![IoT Cloud Dashboard setup](assets/iot-cloud-9.png)
+
+Go back to your __Things__ and open the "Thing" you created. In the "Thing" setup page, navigate into __Sketch__, where you should see the online editor.
+
+In the generated sketch, define LEDR pin as an output in the setup() function:
+
+```arduino
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
+  delay(1500); 
+  
+  // Nicla Vision's red LED macro is LEDR
+  pinMode(LEDR, OUTPUT);
+  // As they turn on with "LOW", initialy turn it off.
+  digitalWrite(LEDR, HIGH);
+  
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  
+  /*
+     The following function allows you to obtain more information
+     related to the state of network and IoT Cloud connection and errors
+     the higher number the more granular information you’ll get.
+     The default is 0 (only errors).
+     Maximum is 4
+ */
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+}
+```
+In the `onLedChange()` function, which was generated automatically by the Arduino IoT Cloud when the variable `led` was created, you must associate the onboard green LED state with the `led` variable:
+
+```arduino
+/*
+  Since Led is READ_WRITE variable, onLedChange() is
+  executed every time a new value is received from IoT Cloud.
+*/
+void onLedChange()  {
+  digitalWrite(LEDR, !led);
+}
+```
+
+To upload the code to the Nicla Vision from the online editor, click the green __Verify__ button to compile the sketch and check for errors, then click the green __Upload__ button to program the board with the sketch.
+
+![Uploading a sketch to the Nicla Vision in the Arduino IoT Cloud](assets/iot-cloud-11.png)
+
+Navigate into __Dashboards__ again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's red LED (LEDR) should light on or off when the position of the switch changes.
+
+![Controlling the Nicla Vision LED](assets/IoTGif.gif)
