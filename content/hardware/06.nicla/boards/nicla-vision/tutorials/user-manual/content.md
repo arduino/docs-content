@@ -1185,7 +1185,7 @@ This is the supported sensor list to date:
 
 Now you know how to start with our __Machine Learning Tools__ creating your dataset from scratch, you can get inspired by some of our ML projects listed below: 
 
-- [Image Classfication with Edge Impulse®](https://docs.arduino.cc/tutorials/nicla-vision/image-classification) (Article).
+- [Image Classification with Edge Impulse®](https://docs.arduino.cc/tutorials/nicla-vision/image-classification) (Article).
 - [Glass-Breaking Detector using Edge Impulse®](https://www.youtube.com/watch?v=x65tRhBIWwY) (Video).
 
 ## Communication
