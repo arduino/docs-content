@@ -17,8 +17,6 @@ hardware:
 
 In this tutorial, you will learn how to activate a trial-period subscription plan for the Arduino Cloud for Business with the Portenta X8 Manager, available with selected PRO products.
 
-We will guide you in leveraging this offer to optimize your projects using cutting-edge technology, facilitating secure and efficient management through the integration of the Portenta X8 Manager into the Arduino Cloud.
-
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
@@ -33,19 +31,17 @@ We will guide you in leveraging this offer to optimize your projects using cutti
 
 ## Arduino Cloud for Business Voucher with Portenta X8 Manager Add-On
 
-The __Arduino Cloud for Business Voucher with Portenta X8 Manager Add-On__ is a voucher available with select PRO products. It can be found within the product package for easy identification. It grants the holder a one-time redemption opportunity for a trial-period subscription plan to the Arduino Cloud for Business. It includes a complimentary trial-period subscription plan to the Portenta X8 Manager add-on.
+The __Arduino Cloud for Business Voucher with Portenta X8 Manager Add-On__ grants the holder a one-time redemption opportunity for a trial-period subscription plan to the Arduino Cloud for Business.
 
-***The voucher must be redeemed within one year from the date of receipt. It is non-transferable and can only be used by the original recipient. The voucher is valid specifically for the software type specified on it.***
-
-This tool will speed up the creation and management of your projects by using cutting-edge technology. It lets you easily combine the Portenta X8 Manager with Arduino Cloud for secure updates and efficient management of multiple devices.
+It includes a complimentary trial-period subscription plan to the Portenta X8 Manager add-on.
 
 ## Voucher Activation Code
 
-The voucher lets you try the Arduino Cloud for Business and the Portenta X8 Manager for a limited time. You can activate it using a unique code provided in the following format:
+This voucher grants access to a single trial-period subscription plan to the Arduino Cloud for Business and the Portenta X8 Manager, by means of a a unique alphanumerical code. For simplicity, in this tutorial, we will refer to a sample code formed as:
 
-`C4BX83M-XXXXXXXXXX`
+`XXXXXXXXXX`
 
-The `XXXXXXXXXX` field represents the actual code that needs to be used to redeem the one-time trial-period subscription plan to Arduino Cloud for Business and the Portenta X8 Manager add-on.
+Any alphanumerical character received in the redemption code must be copied and used (including special characters like dash "-"
 
 Once you have your unique code, follow the process below to redeem it and fully leverage the extensive benefits offered.
 
@@ -63,7 +59,7 @@ You will be redirected to the `Plan details` page, where you can customize the p
 
 ![Arduino Cloud Plans Details](assets/voucher_red_plans_details.png)
 
-For this guide, the `Monthly` billing frequency is chosen, and the number of `Things` is set to `50`. You can adjust these details according to your preferences, and the discount will still apply. Clicking `Continue` will take you to the `Integrations` page, where you can choose different add-ons.
+To properly use this voucher, the `Monthly` billing frequency must be selected and the number of `Things` must be set to `50`. Any other configuration may result in a fee to be paid or in a reduction of the voucher duration. Clicking `Continue` will take you to the `Integrations` page.
 
 ![Arduino Cloud Plans Add-Ons](assets/voucher_red_plans_addons.png)
 
@@ -71,17 +67,21 @@ Select the `Portenta X8 Board Manager` add-on to coincide with the valid trial-p
 
 ![Arduino Cloud Plans Add-Ons Customized](assets/voucher_red_plans_addons_custom.png)
 
-The voucher’s add-on option applies to the `Portenta X8 Board Manager` with `50` devices. Once the add-on option is configured, proceed to the `Billing information` page.
+The voucher’s add-on option applies to the `Portenta X8 Board Manager` with `50` devices.
+
+Proceed to the `Billing information` page.
 
 ![Arduino Cloud Billing Information](assets/voucher_red_billInfo.png)
 
-The `Billing Information` page requires you to enter basic details before entering payment information. You will be asked to provide:
+The `Billing Information` page requires you to enter basic details before entering payment information. Payment information entry is an optional step: if you don't fill in the payment information, at the voucher's expiry date, your cloud for business account will expire. If you want to keep it, You will need to access the payment information section and fill it in. 
+
+You will be asked to provide:
 
 - Billing Type
 - Billing Address
 - Billing Contact
 
-If you have previously registered billing information, you can update it if any changes have occurred. Once these details are confirmed, proceed to the `Payment` page, where you will enter payment information and have the opportunity to apply your voucher code.
+If you have previously registered billing information, you can update it if any changes have occurred. Once these details are confirmed, proceed to the `Payment` page, where you will optionally enter payment information and have the opportunity to apply your voucher code.
 
 ![Arduino Cloud Payment Screen with Coupon Option](assets/voucher_red_payment_couponOpt.png)
 
@@ -89,7 +89,9 @@ To apply the unique voucher code, select the `USE COUPON` option, revealing a fi
 
 ![Arduino Cloud Coupon Applied](assets/voucher_red_payment_discountApplied.png)
 
-It will validate your trial-period subscription plan to Arduino Cloud for Business and activate the Portenta X8 Manager add-on. After completing this step, you can proceed to create dedicated company spaces.
+It will validate your trial-period subscription plan to Arduino Cloud for Business and activate the Portenta X8 Manager add-on. Please note that you will see the single monthly billing information detail even if your voucher allows to unlock a multi-monthly Cloud for Business evaluation free usage period.
+
+After completing this step, you can proceed to create dedicated company spaces.
 
 ![Arduino Cloud Subscription with Voucher Redeemed](assets/voucher_red_finished.png)
 

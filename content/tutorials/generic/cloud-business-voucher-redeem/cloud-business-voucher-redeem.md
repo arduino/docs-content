@@ -15,8 +15,6 @@ software:
 
 In this tutorial, you will learn how to activate a trial-period subscription plan for the Arduino Cloud for Business.
 
-We will guide you through leveraging this offer to optimize your projects using cutting-edge technology, facilitating secure and efficient management with the Arduino Cloud for Business.
-
 ## Software Requirements
 
 - An [Arduino Cloud](https://cloud.arduino.cc/) account is required to be able to proceed with the steps provided in the following section. In case you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
@@ -24,10 +22,6 @@ We will guide you through leveraging this offer to optimize your projects using 
 ## Arduino Cloud for Business Voucher
 
 The __Arduino Cloud for Business Voucher__ grants the holder a one-time redemption opportunity for a trial-period subscription plan to the Arduino Cloud for Business.
-
-***The voucher must be redeemed within one year from the date of receipt. It is non-transferable and can only be used by the original recipient. The voucher is valid specifically for the software type specified on it.***
-
-This tool will speed up the creation and management of your projects by using cutting-edge technology.
 
 ## Voucher Activation Code
 
@@ -53,7 +47,7 @@ You will be redirected to the `Plan details` page, where you can customize the p
 
 ![Arduino Cloud Plans Details](assets/voucher_red_plans_details.png)
 
-To properly use this voucher, the `Monthly` billing frequency must be selected and the number of `Things` must be set to `50`. Any other configuration may result in a fee to be paid or in a reduction of the voucher duration. Clicking `Continue` will take you to the `Integrations` page. 
+To properly use this voucher, the `Monthly` billing frequency must be selected and the number of `Things` must be set to `50`. Any other configuration may result in a fee to be paid or in a reduction of the voucher duration. Clicking `Continue` will take you to the `Integrations` page.
 
 ![Arduino Cloud Plans Add-Ons](assets/voucher_red_plans_addons.png)
 
@@ -61,7 +55,9 @@ Proceed to the `Billing information` page.
 
 ![Arduino Cloud Billing Information](assets/voucher_red_billInfo.png)
 
-The `Billing Information` page requires you to enter basic details before entering payment information. Payment information entry is an optional step: if you don't fill in the payment information, at the voucher's expiry date, your cloud for business account will expire. If you want to keep it, You will need to access the payment information section and fill it in. You will be asked to provide:
+The `Billing Information` page requires you to enter basic details before entering payment information. Payment information entry is an optional step: if you don't fill in the payment information, at the voucher's expiry date, your cloud for business account will expire. If you want to keep it, You will need to access the payment information section and fill it in.
+
+You will be asked to provide:
 
 - Billing Type
 - Billing Address
