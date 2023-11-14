@@ -23,7 +23,7 @@ We will guide you through leveraging this offer to optimize your projects using 
 
 ## Arduino Cloud for Business Voucher
 
-The __Arduino Cloud for Business Voucher__ is a voucher available with select PRO products. It can be found within the product package for easy identification. It grants the holder a one-time redemption opportunity for a trial-period subscription plan to the Arduino Cloud for Business.
+The __Arduino Cloud for Business Voucher__ grants the holder a one-time redemption opportunity for a trial-period subscription plan to the Arduino Cloud for Business.
 
 ***The voucher must be redeemed within one year from the date of receipt. It is non-transferable and can only be used by the original recipient. The voucher is valid specifically for the software type specified on it.***
 
