@@ -35,7 +35,7 @@ This voucher grants access to a single trial-period subscription plan to the Ard
 
 `XXXXXXXXXX`
 
-The `XXXXXXXXXX` field represents the actual code that needs to be used to redeem the one-time trial-period subscription plan to the Arduino Cloud for Business.
+Any alphanumerical character received in the redemption code must be copied and used (including special characters like dash "-"
 
 Once you have your unique code, follow the process below to redeem it and fully leverage the extensive benefits offered.
 
