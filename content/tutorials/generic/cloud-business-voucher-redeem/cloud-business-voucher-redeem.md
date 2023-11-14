@@ -67,7 +67,7 @@ The `Billing Information` page requires you to enter basic details before enteri
 - Billing Address
 - Billing Contact
 
-If you have previously registered billing information, you can update it if any changes have occurred. Once these details are confirmed, proceed to the `Payment` page, where you will enter payment information and have the opportunity to apply your voucher code.
+If you have previously registered billing information, you can update it if any changes have occurred. Once these details are confirmed, proceed to the `Payment` page, where you will optionally enter payment information and have the opportunity to apply your voucher code.
 
 ![Arduino Cloud Payment Screen with Coupon Option](assets/voucher_red_payment_couponOpt.png)
 
