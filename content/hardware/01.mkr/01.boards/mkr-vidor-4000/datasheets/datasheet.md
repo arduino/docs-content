@@ -446,8 +446,6 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
 
-<div style="page-break-after: always;"></div>
-
 Exemptions: No exemptions are claimed.
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
@@ -466,13 +464,21 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 2. This device must accept any interference received, including interference that may cause undesired operation.
 
-**FCC RF Radiation Exposure Statement:**
+FCC RF Radiation Exposure Statement:**
 
 1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter
 
 2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
+
+4. This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
+    * Reorient or relocate the receiving antenna.
+    * Increase the separation between the equipment and receiver.
+    * Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+
+<div style="page-break-after: always;"></div>
 
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
@@ -502,11 +508,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| **Company name** |                **Arduino SRL**               |
+| **Company name** |                **Arduino S.r.l.**               |
 |:----------------:|:--------------------------------------------:|
 |  Company address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
+
 |        **Ref**                                      | **Link**                                                                                    |
 |:---------------------------------------------------:|---------------------------------------------------------------------------------------------|
 | Arduino IDE (Desktop)                               | https://www.arduino.cc/en/Main/Software                                                     |
@@ -514,14 +521,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino IDE (Cloud)                                 | https://create.arduino.cc/editor                                                            |
 | Arduino Cloud - Getting started                     | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started             |
 | MKR Vidor Documentation                             | https://docs.arduino.cc/hardware/mkr-vidor-4000                                             |
-| Arduino Project Hub                                         | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                    |
-
+| Arduino Project Hub                                 | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                    |
 | Library Reference                                   | https://www.arduino.cc/reference/en/                                                        |
 | Online Store                                        | https://store.arduino.cc/                                                                   |
          
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |                       **Changes**                      |
-|:----------:|:------------:|:------------------------------------------------------:|
-| 07/09/2023 |       1      |                      First release                     |
+|  **Date**  | **Revision** |  **Changes**  |
+| :--------: | :----------: | :-----------: |
+| 14/11/2023 |      2       |  FCC Update   |
+| 07/09/2023 |      1       | First release |
