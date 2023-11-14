@@ -13,7 +13,7 @@ software:
 
 ## Overview
 
-In this tutorial, you will learn how to activate a trial-period subscription plan for the Arduino Cloud for Business, included with select PRO products.
+In this tutorial, you will learn how to activate a trial-period subscription plan for the Arduino Cloud for Business.
 
 We will guide you through leveraging this offer to optimize your projects using cutting-edge technology, facilitating secure and efficient management with the Arduino Cloud for Business.
 
