@@ -75,7 +75,7 @@ To apply the unique voucher code, select the `USE COUPON` option, revealing a fi
 
 ![Arduino Cloud Coupon Applied](assets/voucher_red_payment_discountApplied.png)
 
-It will validate your trial-period subscription plan to Arduino Cloud for Business. After completing this step, you can proceed to create dedicated company spaces.
+It will validate your trial-period subscription plan to Arduino Cloud for Business. Please note that you will see the single monthly billing information detail even if your voucher allows to unlock a multi-monthly Cloud for Business evaluation free usage period. After completing this step, you can proceed to create dedicated company spaces.
 
 ![Arduino Cloud Subscription with Voucher Redeemed](assets/voucher_red_finished.png)
 
