@@ -39,7 +39,9 @@ This user manual will guide you through a practical journey covering the most in
 
 ## Product Overview
 
-The Arduino® Nicla Vision is a ready-to-use, standalone camera for analyzing and processing images on the edge. Thanks to its 2 MP color camera, smart 6-axis motion sensor, integrated microphone and distance sensor, it is suitable for asset tracking, object recognition and predictive maintenance. Quickly implement sensor nodes to send collected data to the Arduino® Cloud (or third-party vendor services) via integrated Wi-Fi®/Bluetooth® LE connectivity.
+The Arduino® Nicla Vision is a ready-to-use, standalone camera for analyzing and processing images on the edge. Thanks to its 2 MP color camera, smart 6-axis motion sensor, integrated microphone and distance sensor, it is suitable for asset tracking, object recognition and predictive maintenance. 
+
+Quickly implement sensor nodes to send collected data to the Arduino® Cloud (or third-party vendor services) via integrated Wi-Fi®/Bluetooth® LE connectivity.
 
 ### Board Architecture Overview
 
@@ -50,7 +52,7 @@ The Nicla Vision features a robust and efficient architecture that integrates a 
 
 Here is an overview of the board's architecture's main components shown in the images above:
 
-- **Camera**: the Nicla Vision features a camera based on GC2145 Color rolling shutter image sensor. The GC2145 incorporates a 1616V x 1232H active pixel
+- **Camera**: the Nicla Vision features a camera based on the GC2145 Color rolling shutter image sensor. The GC2145 incorporates a 1616V x 1232H active pixel
 array, on-chip 10-bit ADC, and an image signal processor.
 The 2MP GC2145 CMOS camera module is equipped with a 80°(DFOV) stock lens, 1.75 μm pixel size and a focal length of 2.2 mm. It supports RGB output format.
 - **Microcontroller**: at the heart of the Nicla Vision is the dual-core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
@@ -63,22 +65,9 @@ The 2MP GC2145 CMOS camera module is equipped with a 80°(DFOV) stock lens, 1.75
 
 ### Board Core and Libraries
 
-#### With Arduino IDE
-
-The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples you need to work with the board's components, such as its camera and IMU. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nicla Vision` and install the latest `Arduino Mbed OS Nicla Boards` version.
-
-![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE](assets/bsp-install.png)
-
-To update the bootloader firmware of your Nicla Vision,  go to **File > Examples > STM32H747_System > STM32H747_manageBootloader** and upload this sketch to your board.
-
-![Example sketch location for bootloader update](assets/example-bootloader.png)
-
-After the sketch is uploaded, follow the instructions in the Serial Monitor.
-
-  ![Serial Monitor instructions and current bootloader info](assets/firmware-update.png)
-
 #### With OpenMV IDE
-Before you can start programming OpenMV scripts for the Nicla Vision, you need to download and install the OpenMV IDE.
+
+Before you can start programming micropython scripts for the Nicla Vision, you need to download and install the OpenMV IDE.
 
 Open the [OpenMV](https://openmv.io/pages/download) download page in your browser, download the latest version available for your operating system, and follow the instructions of the installer.
 
@@ -107,6 +96,35 @@ Wait until the green LED stops flashing and fading. You will see a message sayin
 The board will start flashing its blue LED when it is ready to be connected. After confirming the completion dialog, the Nicla Vision should already be connected to the OpenMV IDE, otherwise, click the "connect" button (plug symbol) once again (the blue blinking should stop).
 
 ![When the Nicla Vision is successfully connected a green play button appears](assets/ready-connected.png)
+
+While using the Nicla Vision with OpenMV, the RGB LED of the board can be used to inform the user about its current status. Some of the most important ones are the following:
+
+🟢 **Blinking Green:** Your Nicla Vision onboard bootloader is running. The onboard bootloader runs for a few seconds when your Nicla Vision is powered via USB to allow OpenMV IDE to reprogram your Nicla Vision.
+
+🔵 **Blinking Blue:** Your Nicla Vision is running the default __main.py__ script onboard. 
+
+If you overwrite the __main.py__ script on your Nicla Vision, then it will run whatever code you loaded on it instead.
+
+***If the LED is blinking blue but OpenMV IDE cannot connect to your Nicla Vision, please make sure you are connecting your Nicla Vision to your PC with a USB cable that supplies both data and power.***
+
+⚪ **Blinking White:** Your Nicla Vision firmware is panicking because of a hardware failure. Please check that your Nicla Vision's camera module is installed securely.
+
+***If you tap the Nicla Vision reset button once, the board resets. If you tap it twice, the board enters in Device Firmware Upgrade (DFU) mode and its green LED starts blinking and fading.***
+
+
+#### With Arduino IDE
+
+The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples you need to work with the board's components, such as its camera and IMU. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nicla Vision` and install the latest `Arduino Mbed OS Nicla Boards` version.
+
+![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE](assets/bsp-install.png)
+
+To update the bootloader firmware of your Nicla Vision,  go to **File > Examples > STM32H747_System > STM32H747_manageBootloader** and upload this sketch to your board.
+
+![Example sketch location for bootloader update](assets/example-bootloader.png)
+
+After the sketch is uploaded, follow the instructions in the Serial Monitor.
+
+  ![Serial Monitor instructions and current bootloader info](assets/firmware-update.png)
 
 ### Pinout
 
@@ -150,7 +168,7 @@ The Nicla Vision can be powered by:
 
 Let's program the Nicla Vision with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the IDE's and that the Nicla Vision core and the board itself are working as expected. 
 
-#### Using OpenMV
+#### With OpenMV
 Copy and paste the code below into a new sketch in the OpenMV IDE.
 ```python
 import time
@@ -178,7 +196,7 @@ To run the code on the Nicla Vision, click the **Connect** button and the **Star
 
 ![Running the Python Script on OpenMV](assets/click-start.png)
 
-#### Using Arduino
+#### With Arduino IDE
 
 Copy and paste the code below into a new sketch in the Arduino IDE.
 
@@ -188,6 +206,10 @@ void setup() {
   pinMode(LEDR, OUTPUT);
   pinMode(LEDG, OUTPUT);
   pinMode(LEDB, OUTPUT);
+
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, HIGH);
 
 }
 
@@ -237,7 +259,7 @@ We are going to use the Nicla Vision analog inputs on both environments, OpenMV 
 
 ![ADC input example wiring](assets/adc-input.svg)
 
-#### Using OpenMV
+#### With OpenMV
 
 Using Micropython on the OpenMV IDE the Nicla boards ADC resolution is fixed to 12 bits (it's maximum).
 
@@ -256,7 +278,7 @@ while True:
     time.sleep_ms(100)
 ```
 
-#### Using Arduino
+#### With Arduino IDE
 
 Nicla boards ADC can be configured to 8, 10 or 12 bits defining the argument of the following function respectively (default is 10 bits):
 
@@ -301,6 +323,8 @@ The Nicla Vision has **ten digital pins**, mapped as follows:
 
 
 Notice that I2C and SPI pins can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+
+***Technically the __analog inputs__ of the Nicla Vision can be used as digital pins but they can just handle 1.8v, a greater input may damage the board.***
 
 The digital pins of the Nicla Vision can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
 
@@ -421,11 +445,11 @@ void loop() {
 
 ### PWM Pins
 
-Most digital and analog pins of the Nicla Vision can be used as PWM (Pulse Width Modulation) pins, including I2C and SPI interfaces. 
+Most digital pins of the Nicla Vision can be used as PWM (Pulse Width Modulation) pins, including I2C and SPI interfaces. 
 
 #### With OpenMV
 
-PWM outputs can be controlled with Micropython on a very flexible manner by using built-in functions as shown below:
+PWM outputs can be controlled with micropython in a very flexible manner by using built-in functions as shown below:
 
 First, we need to identify the `Timer` and `Channel` used by the `PWM` output to be used. For this, search for the desired pin on the [STM32H747 datasheet](https://www.st.com/resource/en/datasheet/stm32h747ai.pdf) from page 89.
 
@@ -443,7 +467,7 @@ Here is a table with the details of the exposed pins on the Nicla Vision:
 |         PE_14           |           MOSI           |   TIMER1   |    CH4     |
 
 
-To use PWM, you import the `time`, `Pin`, `Timer` modules.
+To use the PWM functions, you need to import the `time`, `Pin`, and `Timer` modules.
 
 ```python
 import time
@@ -473,7 +497,7 @@ Get or set the pulse width value on a channel. To get, pass no arguments. To set
 ```python
 channel1.pulse_width_percentage(Width) # Width (0-100)
 ```
-As a complete example here is an example code to generate a __50% duty cycle__ PWM signal at __1 Mhz__.
+As a complete example here is a code to generate a __50% duty cycle__ PWM signal at __1 Mhz__.
 
 ```python
 import time
@@ -692,7 +716,7 @@ void loop() {
 ```
 ![Accelerometer and gyroscope output in the serial plotter](assets/imu-output.png)
 
-***To test a Machine Learning model on the Arduino IDE, navigate to **File > Examples > MLC > NiclaVision_MLC_Motion_Intesity** and it will identify three scenarios: `Stationary`, `Medium Intensity` and `High Intensity` movements.***
+***To test a Machine Learning model on the Arduino IDE, navigate to __File > Examples > MLC > NiclaVision_MLC_Motion_Intesity__ and it will identify three scenarios: `Stationary`, `Medium Intensity` and `High Intensity` movements.***
 
 ### Microphone
 
@@ -841,7 +865,7 @@ Here are listed the sensor's main features:
 
 #### With OpenMV
 
-The OpenMV IDE includes an example to start using the ToF sensor. To test it navigate to **File > Examples > Sensors > vl53l1x_tof** and run it on the Nicla Vision. 
+The OpenMV IDE includes an example to start using the ToF sensor. To test it, navigate to **File > Examples > Sensors > vl53l1x_tof** and run it on the Nicla Vision. 
 
 ```python
 from machine import I2C
@@ -945,7 +969,13 @@ while True:
 
 From the above example script, we can highlight the main functions:
 
-- `sensor.set_pixformat(<Sensor>)` lets you set the pixel format for the camera sensor. The Nicla Vision is compatible with these: `sensor.GRAYSCALE`, `sensor.RGB565`, `sensor.BAYER` and `sensor.YUV422`. To define the pixel format to any of the supported ones, just add it to the `set_pixformat` function argument.
+- `sensor.set_pixformat(<Sensor>)` lets you set the pixel format for the camera sensor. The Nicla Vision is compatible with these: 
+  - `sensor.GRAYSCALE`
+  - `sensor.RGB565` 
+  - `sensor.BAYER`
+  - `sensor.YUV422` 
+
+To define the pixel format to any of the supported ones, just add it to the `set_pixformat` function argument.
 
 - `sensor.set_framesize(<Resolution>)` lets you define the image frame size in terms of pixels. [Here](https://docs.openmv.io/library/omv.sensor.html#sensor.set_framesize) you can find all the different options.
 
@@ -981,7 +1011,7 @@ After the snapshot is taken, reset the board by pressing the reset button and th
 
 ![Snapshot saved in local storage](assets/snapshot.png)
 
-The example code below lets you records a video and save it on the Nicla Vision local storage as `example.mjpeg`.
+The example code below lets you record a video and save it on the Nicla Vision local storage as `example.mjpeg`.
 
 ```python
 import sensor
@@ -1014,7 +1044,7 @@ After the video is recorded, reset the board by pressing the reset button and th
 
 ![Video saved in local storage](assets/video.png)
 
-***We recommend using VLC to play the video because of the format.***
+***We recommend using VLC to play the video due to the format.***
 
 The next example lets you live stream what the camera sees through HTTP so you can watch it on your favorite browser from any device connected to the same network as the Nicla Vision.
 
@@ -1128,7 +1158,7 @@ Creating this type of application has never been easier thanks to our Machine Le
 
 The first step to start creating awesome artificial intelligence and machine learning projects is to create an [Arduino Cloud](https://cloud.arduino.cc/home/) account.
 
-There you will find a dedicated section called __Machine Learning Tools__.
+There you will find a dedicated integration called __Machine Learning Tools__.
 
 ![Machine Learning Tools on Arduino Cloud](assets/ml-tools.png)
 
@@ -1144,7 +1174,7 @@ Enter your newly created project and the landing page will look like the followi
 
 Now, it's time to set up the __Edge Impulse®__ environment on your PC. For this, follow [these](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation) instructions to install the __Edge Impulse CLI__.
 
-***For Windows users: make sure to install [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).***
+***For Windows users: make sure to install [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) and[Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).***
 
 - Download and install the latest __Arduino CLI__ from [here](https://arduino.github.io/arduino-cli/0.35/installation/). ([Video Guide for Windows](https://www.youtube.com/watch?v=1jMWsFER-Bc))  
 
@@ -1298,11 +1328,6 @@ SPI.transfer(value);
 // Pull the CS pin HIGH to unselect the device
 digitalWrite(SS, HIGH); 
 ```
-
-The example code above should output this:
-
-![SPI logic data output](assets/spi.png)
-
 Here is the complete sketch for a simple SPI communication:
 
 ```arduino
@@ -1334,6 +1359,9 @@ void loop(){
   delay(1000);
 }
 ```
+The example code above should output this:
+
+![SPI logic data output](assets/spi.png)
 
 ### I2C
 
@@ -1951,7 +1979,7 @@ The current time and date will be printed on the IDE serial monitor.
 
 ![Requesting time with NTP server](assets/ntp-arduino.png)
 
-***If your Nicla Vision reports an error when trying to connect to WiFi saying *Failed to mount the filesystem containing the WiFi firmware*, follow the next steps.***
+***If your Nicla Vision reports an error when trying to connect to WiFi saying _Failed to mount the filesystem containing the WiFi firmware_, follow the next steps.***
 
 In the Arduino IDE navigate to **File > Examples > STM32H747_System > WiFiFirmwareUpdater**, upload this code to your Nicla Vision and wait for the update. The progress can be followed in the serial monitor.
 
@@ -1981,8 +2009,8 @@ By using the IoT Cloud, you can, for example, monitor your Nicla's inputs and se
 
 In case it is the first time you are using the IoT Cloud:
 
-- To use the IoT Cloud, you need an account. If you do not have an account, create one for free [here](https://create.arduino.cc/iot/things).
-- To use the Arduino Web Editor or IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome?_gl=1*oeovt6*_ga*Mzg1NjE0MjQ0LjE2OTc4NDQxMjk.*_ga_NEXN8H46L5*MTY5OTY0MzEwMS43NC4xLjE2OTk2NTMyMjEuMC4wLjA.).
+- To use the IoT Cloud, you need an __account__. If you do not have an account, create one for free [here](https://create.arduino.cc/iot/things).
+- To use the Arduino Web Editor or IoT Cloud, the __Arduino Create Agent__ must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome?_gl=1*oeovt6*_ga*Mzg1NjE0MjQ0LjE2OTc4NDQxMjk.*_ga_NEXN8H46L5*MTY5OTY0MzEwMS43NC4xLjE2OTk2NTMyMjEuMC4wLjA.).
 
 Let's walk through a step-by-step demonstration of how to use a Nicla Vision with the IoT Cloud.
 
@@ -2039,7 +2067,7 @@ Your dashboard should look like the following:
 
 Go back to your __Things__ and open the "Thing" you created. In the "Thing" setup page, navigate into __Sketch__, where you should see the online editor.
 
-In the generated sketch, define LEDR pin as an output in the setup() function:
+In the generated sketch, define `LEDR` pin as an output in the `setup()` function:
 
 ```arduino
 void setup() {
@@ -2070,7 +2098,7 @@ void setup() {
   ArduinoCloud.printDebugInfo();
 }
 ```
-In the `onLedChange()` function, which was generated automatically by the Arduino IoT Cloud when the variable `led` was created, you must associate the onboard green LED state with the `led` variable:
+In the `onLedChange()` function, which was generated automatically by the Arduino IoT Cloud when the variable `led` was created, you must associate the onboard red LED state with the `led` variable:
 
 ```arduino
 /*
