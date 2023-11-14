@@ -53,7 +53,7 @@ You will be redirected to the `Plan details` page, where you can customize the p
 
 ![Arduino Cloud Plans Details](assets/voucher_red_plans_details.png)
 
-For this guide, the `Monthly` billing frequency is chosen, and the number of `Things` is set to `50`. You can adjust these details according to your preferences, and the discount will still apply. Clicking `Continue` will take you to the `Integrations` page. Feel free to choose any additional add-ons as you wish. **Please note that the present coupon does not cover the add-ons**. 
+To properly use this voucher, the `Monthly` billing frequency must be selected and the number of `Things` must be set to `50`. Any other configuration may result in a fee to be paid or in a reduction of the voucher duration. Clicking `Continue` will take you to the `Integrations` page. 
 
 ![Arduino Cloud Plans Add-Ons](assets/voucher_red_plans_addons.png)
 
