@@ -61,7 +61,7 @@ Proceed to the `Billing information` page.
 
 ![Arduino Cloud Billing Information](assets/voucher_red_billInfo.png)
 
-The `Billing Information` page requires you to enter basic details before entering payment information. You will be asked to provide:
+The `Billing Information` page requires you to enter basic details before entering payment information. Payment information entry is an optional step: if you don't fill in the payment information, at the voucher's expiry date, your cloud for business account will expire. If you want to keep it, You will need to access the payment information section and fill it in. You will be asked to provide:
 
 - Billing Type
 - Billing Address
