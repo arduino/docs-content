@@ -33,7 +33,7 @@ This tool will speed up the creation and management of your projects by using cu
 
 This voucher grants access to a single trial-period subscription plan to the Arduino Cloud for Business, by means of a a unique alphanumerical code. For simplicity, in this tutorial, we will refer to a sample code formed as:
 
-`C4BX83M-XXXXXXXXXX`
+`XXXXXXXXXX`
 
 The `XXXXXXXXXX` field represents the actual code that needs to be used to redeem the one-time trial-period subscription plan to the Arduino Cloud for Business.
 
