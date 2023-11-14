@@ -587,6 +587,12 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
+4. This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
+    * Reorient or relocate the receiving antenna.
+    * Increase the separation between the equipment and receiver.
+    * Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -633,9 +639,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |                       **Changes**                      |
-|:----------:|:------------:|:------------------------------------------------------:|
-| 30/10/2023 |       4      |           I2C ports information section added          |
-| 20/06/2023 |       3      | Power tree added, related products information updated |
-| 09/06/2023 |       2      |       Board's power consumption information added      |
-| 14/03/2023 |       1      |                      First release                     |
+|  **Date**  | **Revision** |                      **Changes**                       |
+| :--------: | :----------: | :----------------------------------------------------: |
+| 14/11/2023 |      5       |             FCC and Block Diagram Updates              |
+| 30/10/2023 |      4       |          I2C ports information section added           |
+| 20/06/2023 |      3       | Power tree added, related products information updated |
+| 09/06/2023 |      2       |      Board's power consumption information added       |
+| 14/03/2023 |      1       |                     First release                      |
