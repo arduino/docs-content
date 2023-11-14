@@ -57,7 +57,7 @@ For this guide, the `Monthly` billing frequency is chosen, and the number of `Th
 
 ![Arduino Cloud Plans Add-Ons](assets/voucher_red_plans_addons.png)
 
-Once the add-on option is configured, proceed to the `Billing information` page.
+Proceed to the `Billing information` page.
 
 ![Arduino Cloud Billing Information](assets/voucher_red_billInfo.png)
 
