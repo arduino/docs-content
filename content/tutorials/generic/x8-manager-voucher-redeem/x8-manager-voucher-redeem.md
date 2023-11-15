@@ -13,10 +13,6 @@ hardware:
   - hardware/04.pro/boards/portenta-x8
 ---
 
-## Overview
-
-In this tutorial, you will learn how to activate a trial-period subscription plan for the Arduino Cloud for Business with the Portenta X8 Manager.
-
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
