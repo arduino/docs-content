@@ -534,7 +534,7 @@ Install the [UNO R4 Board Package](https://github.com/arduino/ArduinoCore-renesa
 
 **Step 2**
 Navigate to: "C:\Users\YourWindowsUserName\AppData\Local\Arduino15\packages\arduino\hardware\
-renesas\0.5.0\bootloaders\SANTIAGO"
+renesas_uno\1.X\bootloaders\UNO_R4"
 
 **Step 3**
 Identify the `dfu_minima.hex`
