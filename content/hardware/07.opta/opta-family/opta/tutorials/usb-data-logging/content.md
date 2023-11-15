@@ -96,19 +96,19 @@ The example code below shows how to interface an Opta™ device with a USB memor
 
 #include "Arduino_UnifiedStorage.h"
 
-// Define constants for analog input pins and LED pins
+// Constants for analog input pins and LED pins
 const int analog_pins[] = { A0, A1, A2, A3 };
 const int led_pins[] = { LED_D0, LED_D1, LED_D2, LED_D3 };
 
-// Variables for timing control
+// Timing control variables
 unsigned long previousMillis = 0;
 const long interval = 1000;
 
-// Variables for Knight Rider LED pattern
+// Knight Rider LED pattern variables
 int ledDirection = 1;
 int currentLed = 0;
 
-// USB storage variables
+// USB storage and folder instances
 USBStorage usbStorage;
 Folder backupFolder = Folder();
 bool usbIntialized = false;
@@ -123,6 +123,7 @@ volatile bool usbAvailable = false;
 */
 void connectionCallback() {
     usbAvailable = true;
+    Arduino_UnifiedStorage::debugPrint("- USB device connected!");
     usbStorage.removeOnConnectCallback();
 }
 
@@ -135,6 +136,7 @@ void connectionCallback() {
 */
 void disconnectionCallback() {
     usbAvailable = false;
+    Arduino_UnifiedStorage::debugPrint("- USB device disconnected!");
     usbStorage.onConnect(connectionCallback);
 }
 
@@ -173,6 +175,7 @@ bool checkButtonPress() {
     unsigned long buttonPressTime = millis();
     while (digitalRead(BTN_USER) == LOW) {}
     if (millis() - buttonPressTime >= 3000) {
+      Arduino_UnifiedStorage::debugPrint("- Button pressed for 3 seconds!");
       return true;
     }
   }
@@ -212,6 +215,7 @@ void writeToUSB() {
     Folder usbRoot = usbStorage.getRootFolder();
     String folderName = "backup_data";
     backupFolder = usbRoot.createSubfolder(folderName);
+    Arduino_UnifiedStorage::debugPrint("- Backup folder created: " + backupFolder.getPathAsString());
     usbStorage.unmount();
     usbIntialized = true;
   } else if (usbAvailable && usbIntialized) {
@@ -233,12 +237,11 @@ void writeToUSB() {
   @return none
 */
 void performUpdate() {
-  UFile backupFile = backupFolder.createFile("backup_file.txt", FileMode::APPEND);
+  UFile backupFile = backupFolder.createFile("analog_inputs_data.txt", FileMode::APPEND);
   unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;
 
-    // Construct a single line of data from all analog readings
     String buffer = "";
     for (int i = 0; i < 4; i++) {
       int value = analogRead(analog_pins[i]);
@@ -249,14 +252,16 @@ void performUpdate() {
     }
     buffer += "\n";
     backupFile.write(buffer);
+    Arduino_UnifiedStorage::debugPrint("- Data written to file: " + buffer);
   }
   backupFile.close();
   usbStorage.unmount();
+  Arduino_UnifiedStorage::debugPrint("- File closed and USB storage unmounted!");
 }
 
-// Initialization setup
+// Board initialization 
 void setup() {
-  beginRS485(115200);
+  Serial.begin(115200); 
   Arduino_UnifiedStorage::debuggingModeEnabled = true;
   analogReadResolution(12);
 
@@ -264,41 +269,40 @@ void setup() {
   usbStorage.onConnect(connectionCallback);
   usbStorage.onDisconnect(disconnectionCallback);
 
-  // Initialize and turn off the Opta user LEDs
   for (int i = 0; i < 4; i++) {
     pinMode(led_pins[i], OUTPUT);
     digitalWrite(led_pins[i], LOW);
   }
 
-  // Initialize the Opta user button
   pinMode(BTN_USER, INPUT_PULLUP);
+  Arduino_UnifiedStorage::debugPrint("- Setup complete!");
 }
 
 // Main loop
 void loop() {
   static bool dataLoggingStarted = false;
 
-  // Knight Rider pattern when USB is available and data logging not started
   if (usbAvailable && !dataLoggingStarted) {
     knightRiderPattern();
 
-    // Start data logging on button press
     if (checkButtonPress()) {
       dataLoggingStarted = true;
-      digitalWrite(led_pins[0], HIGH); // Turn on LED D0 for data logging indication
+      // Turn on LED_D0 for data logging indication
+      digitalWrite(led_pins[0], HIGH); 
+      Arduino_UnifiedStorage::debugPrint("- Data logging started!");
     }
-  } 
-  // Data logging process
-  else if (dataLoggingStarted) {
+  } else if (dataLoggingStarted) {
     writeToUSB();
 
-    // Toggle LED D0 for data logging indication
-    digitalWrite(led_pins[0], digitalRead(led_pins[0]) == LOW);
+    // Toggle LED_D0
+    digitalWrite(led_pins[0], digitalRead(led_pins[0]) == LOW); 
 
-    // Stop data logging on button press
     if (checkButtonPress()) {
       dataLoggingStarted = false;
-      blinkAllLeds(10); // Blink all LEDs 10 times to indicate end of data logging
+      Arduino_UnifiedStorage::debugPrint("- Data logging stopped!");
+      
+      // Blink all LEDs 10 times to indicate end of data logging
+      blinkAllLeds(10); 
     }
   }
 }
@@ -328,6 +332,17 @@ The main `loop()` function:
 - Once the connection is established, user LEDs are turned off. The file system on the USB memory stick is then mounted.
 - A file named `analog_inputs_data.txt` is opened on the USB memory stick for writing.
 - Finally, the example code takes analog readings and writes them to the file every second. The file is closed once the data is successfully written and the USB memory stick is unmounted.
+
+Debugging with `debugPrint` statements via Opta's RS-485 interface:
+
+- `debugPrint` functions are used throughout the code to monitor the program's execution and track potential issues.
+- These debug statements print vital information through Opta's RS-485 serial interface, such as status messages during USB connection, errors, and file operation outcomes.
+
+***Debugging ensures that each sketch part works as expected, mainly when interfacing with external devices like USB memory sticks.***
+
+To receive and show the debug messages on your computer, you can use a USB to RS-485 converter such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
+
+### Testing the Example Code
 
 ## Conclusion
 
