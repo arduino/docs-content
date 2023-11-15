@@ -27,8 +27,9 @@ In this tutorial, you will learn how to manually flash your Portenta X8 with the
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - Portenta Family Carrier (Optional):
-- [Portenta Breakout Board](https://store.arduino.cc/products/arduino-portenta-breakout)
+- [Arduino Portenta Breakout Board](https://store.arduino.cc/products/arduino-portenta-breakout)
 - [Arduino Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
+- [Arduino Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat-carrier)
 
 ## Instructions
 
@@ -66,7 +67,7 @@ Unzipped folder
 
 #### Flashing Mode with Carrier
 
-Connect your Portenta X8 to your carrier of choice, either *Portenta Breakout*, *Portenta Max Carrier*, or *Hat Carrier*, via High-Density connectors. After connecting the Portenta X8, you must set the `BOOT` DIP switches to the ON position. The `BOOT` switch configuration is crucial as it will put the board into Flashing mode.
+Connect your Portenta X8 to your carrier of choice, either *Portenta Breakout*, *Portenta Max Carrier*, or *Hat Carrier*, via High-Density connectors. After connecting the Portenta X8, you must set the `BOOT` or `BTSEL` DIP switches to the ON position. The `BOOT/BTSEL` switch configuration is crucial as it will put the board into Flashing mode.
 
 For the **Portenta Max Carrier**, set the `BOOT SEL` and `BOOT` DIP switches to the ON position as depicted in the figure:
 
