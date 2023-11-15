@@ -3014,6 +3014,18 @@ Additionally, the __GPIO pins - 19, 21, 23, 24, and 26__ - on the 40-pin connect
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
+<ul>
+  <li>sensor.set_pixformat() lets you...
+    <ul>
+      <li>sensor.GRAYSCALE</li>
+      <li>sensor.RGB565</li>
+      <li>sensor.BAYER</li>
+      <li>sensor.YUV422</li>
+    </ul>
+  </li>
+</ul>
+
+
 #### Using Linux
 
 <br></br>
