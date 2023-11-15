@@ -77,13 +77,13 @@ For the **Portenta Breakout**, the `BT_SEL` and `BOOT` DIP switches should be se
 
 ![Portenta Breakout DIP switches](assets/breakout-dip-switches.png)
 
-You must connect one USB-C® end to the Portenta X8 and the other (USB-C® or USB-A) to your computer. You can see a newly connected device called `SE Blank M845S` if the connection is established correctly.
-
 For the **Portenta Hat Carrier**, the `BTSEL` DIP switch must be set to the ON position, as depicted in the figure below:
 
 ![Portenta Hat Carrier DIP switches](assets/hatCarrier-dip-switches.png)
 
 The `ETH CENTER TAP` DIP switch position does not affect the flashing mode state for the Portenta Hat Carrier.
+
+You must connect one USB-C® end to the Portenta X8 and the other (USB-C® or USB-A) to your computer. With this, the Portenta X8 is ready to begin the flashing process.
 
 #### Flashing Mode without Carrier
 
