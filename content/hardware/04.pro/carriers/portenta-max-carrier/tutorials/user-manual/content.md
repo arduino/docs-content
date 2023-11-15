@@ -212,13 +212,21 @@ The user programmable LED can be controlled using commands within the Portenta X
 
 ## High-Density Connectors
 
+The Portenta X8, H7, and C33 enhance functionality through High-Density connectors. For a comprehensive understanding of these connectors, please refer to the complete pinout documentation for each Portenta model.
+
+- [Complete Portenta X8 pinout information](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
+- [Complete Portenta H7 pinout information](https://docs.arduino.cc/static/2d38006e78d2abc588a80f12bb9c0c70/ABX00042-full-pinout.pdf)
+- [Complete Portenta C33 pinout information](https://docs.arduino.cc/static/903c16295f3bf076c2ed23eb1b38791c/ABX00074-full-pinout.pdf)
+
+
+
 ## Configuration and Control
 
-Configuration and control features allows customize the device's behavior to their specific needs. Whether it's setting up network connectivity or adjusting switch configurations, this sub-section will guide you through the carrier connectivity and profile setup processes.
+Configuration and control features allow customizing the device's behavior to their specific needs. Whether it's setting up network connectivity or adjusting switch configurations, this sub-section will guide you through the carrier connectivity and profile setup processes.
 
 ### DIP Switch Configuration
 
-The Portenta Max Carrier incorporates two DIP switches, giving users ability to manage the behavior of the board. The configuration parameters of this switches differ based on which Portenta board it is paired with.
+The Portenta Max Carrier incorporates two DIP switches, giving users the ability to manage the behavior of the board. The configuration parameters of these switches differ based on which Portenta board it is paired with.
 
 ![Portenta Max Carrier DIP switches](assets/dip-switch-v2.png)
 
@@ -445,7 +453,7 @@ For a comprehensive understanding of these connectivity options, kindly refer to
 
 ### LoRa®
 
-One feature that boosts Portenta's Max Carrier possibilities is its onboard LoRa® module, the CMWX1ZZABZ-078 from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
+One feature that boosts Portenta's Max Carrier possibilities is its onboard LoRa® module, the CMWX1ZZABZ-078 from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) protocol designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
 
 A dedicated SMA connector (J9) allows for an external antenna.
 
@@ -474,7 +482,7 @@ If you are interested in the USB-A port pinout, the following table may serve to
 
 Devices with a USB-A interface, such as storage drives, can be used for logging data. External devices include peripherals like keyboards, mouses, webcams, and hubs.
 
-#### Using Linux
+### Using Linux
 
 As an example, the following command on Portenta X8's shell can be used to test a write command with a USB memory drive. To write a file, the following sequence of commands can help you to accomplish such a task.
 
@@ -541,7 +549,7 @@ umount /dev/sda1 /mnt/USBmount
 
 Now that you know how to locate, mount, write and read information from an external USB stick or hard drive you can expand the possibilities of your solution with the additional storage connected to the Portenta Max Carrier.
 
-#### Using Arduino IDE
+### Using Arduino IDE
 
 The following example demonstrates how to use the USB interface of the Portenta Max Carrier with the Portenta C33 to mount a Mass Storage Device (MSD).
 
@@ -602,7 +610,7 @@ void setup() {
   Serial.println("*** USB HOST Mass Storage Device example ***");
   Serial.println();
 
-  /* attache the callback so that when the device is inserted the device_attached_callback
+  /* attach the callback so that when the device is inserted the device_attached_callback
      will be automatically called */
   block_device.attach_detected_callback(device_attached_callback);
   /* list to store all directory in the root */
@@ -939,7 +947,7 @@ mkfs.ext4 /dev/mmcblk1p1  #Warning: this will erase everything on your micro SD
 ```
 
 ### Using Arduino IDE
-For Portenta H7, you can use the following Arduino IDE script to test the mounted SD card within Portenta Hat Carrier:
+For Portenta H7, you can use the following Arduino IDE script to test the mounted SD card within Portenta Max Carrier:
 
 This example can also be found on the Arduino IDE builtin examples on **File > Examples > Portenta_SDCARD > TestSDCARD**
 
@@ -1277,11 +1285,11 @@ With this code, the Portenta C33 will scan all the files and directories names o
 ## CAN Bus (Onboard Transceiver)
 
 ## JTAG Pins
-For developers aiming to investigate and understand the intricate details of development, the Portenta Hat Carrier features a built-in JTAG interface. This tool is crucial for hardware debugging, offering real-time observation. Through the JTAG pins, users can smoothly debug and program, guaranteeing accurate and optimal device performance.
+For developers aiming to investigate and understand the intricate details of development, the Portenta Max Carrier features a built-in JTAG interface. This tool is crucial for hardware debugging, offering real-time observation. Through the JTAG pins, users can smoothly debug and program, guaranteeing accurate and optimal device performance.
 
 ![Portenta Max Carrier onboard JTAG pin](assets/jtag-conn.png)
 
-The pins used for the JTAG debug port on the Portenta Hat Carrier are the following:
+The pins used for the JTAG debug port on the Portenta Max Carrier are the following:
 
 | **Pin number** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         | **Interface** |
 |:--------------:|:-------------:|:----------------------------:|:--------------------------------------------------------------------:|:-------------:|
