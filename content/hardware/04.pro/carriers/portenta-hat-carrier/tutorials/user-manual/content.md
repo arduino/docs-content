@@ -2351,6 +2351,12 @@ It is characterized as follows:
 
 Understanding and managing the General-Purpose Input/Output (GPIO) pins on your device can be crucial for many applications. The following script is designed to display all the GPIOs available on the 40-pin connector of the Portenta Hat Carrier paired with Portenta X8.
 
+Within the 40-pin connector, certain GPIOs are specifically related to different functionalities:
+
+- __GPIO pins - 15, 16, and 18:__ are associated with the _Serial Audio Interface (SAI)_. These pins are exclusively designated for __OUTPUT__ purposes. As such, these three GPIO pins are not configurable as inputs and are solely used as __OUTPUTS__.
+
+- __GPIO pins - 19, 21, 23, 24, and 26:__ are designated for the _Serial Peripheral Interface (SPI)_. These pins become operational when a specific Device Tree Source (DTS) layer is applied. For more information regarding DTS layer, please refer to the [Device Tree Blob (DTB) Overlays](#understanding-device-tree-blobs-dtb-overlays) section.
+
 #### Using Linux
 
 <br></br>
@@ -2412,6 +2418,8 @@ for pin in all_pins_in_header:
 
 GPIO.cleanup()
 ```
+
+***The latest compatible GPIO library can be found [here](). Make sure to use the latest library for optimal functionality.***
 
 This script will help you verify the following considerations:
 
@@ -3002,6 +3010,8 @@ The Portenta Hat Carrier supports SPI communication via two dedicated ports name
 |       23       |    SPI1 SCK    |           SPI1_CK            |        J2-38         |   SPI 1 CK    |
 |       24       |    SPI1 CE     |           SPI1_CS            |        J2-36         |   SPI 1 CS    |
 
+Additionally, the __GPIO pins - 19, 21, 23, 24, and 26__ - on the 40-pin connector become operational with the application of a specific Device Tree Source (DTS) layer. For detailed information on configuring this DTS layer, please refer to the [Device Tree Blob (DTB) Overlays](#understanding-device-tree-blobs-dtb-overlays) section.
+
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
 #### Using Linux
@@ -3104,11 +3114,11 @@ The pins used in the Portenta Hat Carrier for the I2S communication protocol are
 
 **Serial Audio Interface (SAI)** is a versatile protocol for transmitting audio data between digital components. Unlike the fixed I2S standard, SAI supports multiple audio data formats and configurations. The carrier works with the following data lines:
 
-- **D0**: This serves as the primary data line, transmitting or receiving audio data.
+- **D0**: This is the primary data line, transmitting or receiving audio data.
 - **CK (BCLK)**: The Bit Clock, governing the rate of individual audio data bit transmission or reception.
 - **FS**: Frame Sync, marking the boundary of audio frames, often differentiating channels in stereo audio.
 
-SAI protocol can operate both synchronously and asynchronously, adjusting to various audio system needs. Due to its adaptability, SAI suits complex audio tasks, systems with multi-channel requirements, and specific audio formats.
+SAI protocol can operate synchronously and asynchronously, adjusting to various audio system needs. Due to its adaptability, SAI suits complex audio tasks, systems with multi-channel requirements, and specific audio formats.
 
 In essence, SAI offers greater flexibility than I2S, catering to a broader range of audio system configurations.
 
@@ -3119,6 +3129,8 @@ The pins used in the Portenta Hat Carrier for the SAI protocol are the following
 |       15       |     SAI D0     |            SAI_D0            |        J2-53         |    SAI D0     |
 |       16       |     SAI CK     |            SAI_CK            |        J2-49         |    SAI CK     |
 |       18       |     SAI FS     |            SAI_FS            |        J2-51         |    SAI FS     |
+
+The pins detailed above are exclusively designated for __OUTPUT__ purposes. As such, these three GPIO pins are not configurable as inputs and are solely used as __OUTPUTS__.
 
 ### I2C
 
