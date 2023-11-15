@@ -2349,13 +2349,15 @@ It is characterized as follows:
 
 ### GPIO Pins
 
-Understanding and managing the General-Purpose Input/Output (GPIO) pins on your device can be crucial for many applications. The following script is designed to display all the GPIOs available on the 40-pin connector of the Portenta Hat Carrier paired with Portenta X8.
+Understanding and managing your device's General-Purpose Input/Output (GPIO) pins can be crucial for many applications. The following script is designed to display all the GPIOs available on the 40-pin connector of the Portenta Hat Carrier paired with Portenta X8.
 
 Within the 40-pin connector, certain GPIOs are specifically related to different functionalities:
 
 - __GPIO pins - 15, 16, and 18:__ are associated with the _Serial Audio Interface (SAI)_. These pins are exclusively designated for __OUTPUT__ purposes. As such, these three GPIO pins are not configurable as inputs and are solely used as __OUTPUTS__.
 
-- __GPIO pins - 19, 21, 23, 24, and 26:__ are designated for the _Serial Peripheral Interface (SPI)_. These pins become operational when a specific Device Tree Source (DTS) layer is applied. For more information regarding DTS layer, please refer to the [Device Tree Blob (DTB) Overlays](#understanding-device-tree-blobs-dtb-overlays) section.
+- __GPIO pins - 19, 21, 23, 24, and 26:__ are designated for the _Serial Peripheral Interface (SPI)_. These pins become operational when applying a specific Device Tree Source (DTS) layer. For more information regarding the DTS layer, please refer to the [Device Tree Blob (DTB) Overlays](#understanding-device-tree-blobs-dtb-overlays) section.
+
+***The __Portenta.GPIO__ library, officially supported and compatible with the Portenta Hat Carrier and Portenta X8, can be found [here](https://pypi.org/project/Portenta.GPIO/).***
 
 #### Using Linux
 
@@ -2419,7 +2421,7 @@ for pin in all_pins_in_header:
 GPIO.cleanup()
 ```
 
-***The latest compatible GPIO library can be found [here](). Make sure to use the latest library for optimal functionality.***
+***The latest compatible GPIO library can be found [here](https://pypi.org/project/Portenta.GPIO/). Make sure to use the latest library for optimal functionality.***
 
 This script will help you verify the following considerations:
 
