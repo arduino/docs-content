@@ -3011,6 +3011,7 @@ The Portenta Hat Carrier supports SPI communication via two dedicated ports name
 |       21       |   SPI1 CIPO    |          SPI1_MISO           |        J2-40         |  SPI 1 MISO   |
 |       23       |    SPI1 SCK    |           SPI1_CK            |        J2-38         |   SPI 1 CK    |
 |       24       |    SPI1 CE     |           SPI1_CS            |        J2-36         |   SPI 1 CS    |
+|       26       |    PWM2        |           PWM_2 (SPI1_CE1)   |        J2-63         |               |
 
 Additionally, the __GPIO pins - 19, 21, 23, 24, and 26__ - on the 40-pin connector become operational with the application of a specific Device Tree Source (DTS) layer. For detailed information on configuring this DTS layer, please refer to the [Device Tree Blob (DTB) Overlays](#understanding-device-tree-blobs-dtb-overlays) section.
 
