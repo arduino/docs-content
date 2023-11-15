@@ -11,10 +11,6 @@ software:
   - Arduino-Cloud
 ---
 
-## Overview
-
-In this tutorial, you will learn how to activate a trial-period subscription plan for the Arduino Cloud for Business.
-
 ## Software Requirements
 
 - An [Arduino Cloud](https://cloud.arduino.cc/) account is required to proceed with the steps provided in the following section. If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
@@ -29,7 +25,7 @@ This voucher grants access to a single trial-period subscription plan to the Ard
 
 `XXXXXXXXXX`
 
-Any alphanumerical character received in the redemption code must be copied and used (including special characters like dash "-".
+Any alphanumerical character received in the redemption code must be copied and used (including special characters like dash "-").
 
 Once you have your unique code, follow the process below to redeem it and fully leverage the extensive benefits offered.
 

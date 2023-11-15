@@ -23,7 +23,7 @@ hardware:
 
 ### Software Requirements
 
-- An [Arduino Cloud](https://cloud.arduino.cc/) account is required to proceed with the steps provided in the following section. In case you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
+- An [Arduino Cloud](https://cloud.arduino.cc/) account is required to proceed with the steps provided in the following section. If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
 
 ## Arduino Cloud for Business Voucher with Portenta X8 Manager Add-On
 
@@ -37,7 +37,7 @@ This voucher grants access to a single trial-period subscription plan to the Ard
 
 `XXXXXXXXXX`
 
-Any alphanumerical character received in the redemption code must be copied and used (including special characters like dash "-".
+Any alphanumerical character received in the redemption code must be copied and used (including special characters like dash "-").
 
 Once you have your unique code, follow the process below to redeem it and fully leverage the extensive benefits offered.
 
