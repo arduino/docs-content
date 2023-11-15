@@ -100,7 +100,7 @@ __Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 
 ### Carrier Topology
 
-![Portenta Max Carrier Topology](assets/maxCarrierDesignators.png)
+![Portenta Max Carrier Topology](assets/Top.png)
 
 | **Ref.** | **Description**                                        | **Ref.**       | **Description**                                           |
 | -------- | ------------------------------------------------------ | -------------- | --------------------------------------------------------- |
@@ -114,7 +114,7 @@ __Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 | U15      | STM32F405RG 168MHz 32 bit Arm® Cortex®-M4 MCU IC         | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC                  |
 | U23      | CMWX1ZZABZ-078 Murrata LoRa® module                    | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection      |
 | J1, J2   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors      | J3             | Right-Angle SMA Connector for Modem                       |
-| J4       | 2-1734248-0 FPC Connector                              | J5             | FW-20-05-G-D-254-150 Signal Break                         |
+| J4       | Camera 2-1734248-0 FPC Connector                              | J5             | FW-20-05-G-D-254-150 Signal Break                         |
 | J6       | 615006138421 RS232/RS485 Connector                     | J7             | 615006138421 CAN Connector                                |
 | J8       | 1759546-1 Mini PCIe Connector                          | J9             | Right-Angle SMA Connector for LoRa®                       |
 | J10      | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS | J11            | 114-00841-68 Micro SD Connector                           |
@@ -130,7 +130,7 @@ __Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 
 ### Pinout
 
-* ![Portenta Max Carrier Pinout](assets/ABX00043-pinout.png)
+* ![Portenta Max Carrier Pinout](assets/Pinout_MaxCarrier.png)
 
 The full __pinout__ is available and downloadable as PDF from the link below:
 
@@ -157,7 +157,7 @@ The full __STEP__ files are available and downloadable from the link below:
 ## First Use Of Your Portenta Max Carrier
 ### Stack The Carrier
 
-The Portenta Max Carrier design allows to stack the Portenta board with ease. The following figure shows how the Portenta boards pairs via the High-Density connectors.
+The Portenta Max Carrier design allows to stack the Portenta board with ease. The following figure shows how the Portenta boards pair via the High-Density connectors.
 
 ![Portenta board stack](assets/x8-mount.png)
 
@@ -177,7 +177,7 @@ The Portenta Max Carrier can be powered using the following methods:
 
 The Portenta Max Carrier provides its platform to the Portenta X8, H7, and C33 with different capabilities. The following table summarizes the carrier's features depending on the combination of the paired Portenta.
 
-| Function                 | Portenta H7 Support | Portenta X8 Support | Notes                                                                   |
+| Function                 | Portenta H7/C33 Support | Portenta X8 Support | Notes                                                                   |
 | ------------------------ | ------------------- | ------------------- | ----------------------------------------------------------------------- |
 | USB Host                 | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps                        |
 | Ethernet                 | Fast Ethernet       | 1 Gbps              | Fast Ethernet - 100 Mbps                                                |
@@ -194,7 +194,7 @@ The Portenta Max Carrier provides its platform to the Portenta X8, H7, and C33 w
 | on board console to USB  | Yes                 | Yes                 |                                                                         |
 | on board bus sniffing    | Limited             | Limited             | Only hardware support                                                   |
 
-This provides a general idea how the Portenta Max Carrier will perform depending on the paired Portenta board. Each feature is explained in the following section after quick guide covering how to properly interface the Portenta boards.
+This provides a general idea of how the Portenta Max Carrier will perform depending on the paired Portenta board. Each feature is explained in the following section after a quick guide covering how to properly interface the Portenta boards.
 
 ### Using Portenta X8 with Linux
 
@@ -209,6 +209,7 @@ A 'Hello World' example will be used to verify the Portenta Max Carrier is corre
 The user programmable LED can be controlled using commands within the Portenta X8's shell. The following commands will help you set and control the GPIO3, which connects to the user programmable LED.
 
 ### Hello World Using Arduino
+
 ## High-Density Connectors
 
 ## Configuration and Control
@@ -246,6 +247,7 @@ When the Portenta Max Carrier is combined with either the __Portenta H7 or C33__
 This flexibility ensures that the Portenta Max Carrier remains adaptable to the unique needs of each paired Portenta board.
 
 ## Network Connectivity
+
 ### Ethernet
 The Portenta Max Carrier is equipped with an Ethernet interface, specifically an RJ45 connector supporting 1000 Base-T.
 
@@ -309,7 +311,7 @@ iperf3.exe -c <Server IP Address> # run this on your PC (Windows) and use the Po
 ```
 ![1Gbit speed test between PC and Portenta X8](assets/speed-test.png)
 
-***The speed results could be affected by your Ethernet cables quality or your PC Ethernet card.***
+***The speed results could be affected by your Ethernet cable quality or your PC Ethernet card.***
 
 #### Using a Portenta H7 (Arduino)
 
@@ -427,6 +429,18 @@ void printIPAddress()
 
 ![Portenta H7/C33 Ethernet Test](assets/ethernet-h7.png)
 
+### Wi-Fi® & Bluetooth®
+
+The Portenta Max Carrier is designed to work flawlessly with wireless features. Among its numerous advantages is its capacity to use Wi-Fi® and Bluetooth® technologies present in the Portenta models like X8, H7, or C33. When these wireless options are activated, they can be effectively combined with the intrinsic capabilities and features that the carrier offers. This combination makes this solution more versatile and powerful for many different projects.
+
+This integration not only broadens the spectrum of use cases for the Portenta Max Carrier but also ensures that developers can use robust wireless communications in their applications. The effectiveness of onboard capabilities with these wireless features makes the Portenta Max Carrier an indispensable tool for developers looking for versatile and powerful connectivity solutions.
+
+For a comprehensive understanding of these connectivity options, kindly refer to the specific documentation for each Portenta model.
+
+- Portenta X8 connectivity: [Wi-Fi® configuration](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#wi-fi-configuration) and [Bluetooth®](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#bluetooth)
+- Portenta H7 connectivity: [Wi-Fi® access point](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point) and [BLE connectivity](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity)
+- Portenta C33 User Manual: [Wi-Fi®](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#wi-fi) and [Bluetooth®](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#bluetooth)
+
 ### LTE CAT.M1 NB-IoT
 
 ### LoRa®
@@ -442,7 +456,406 @@ To learn how leverage LoRa® capabilities with this carrier, follow this detaile
 ## Mini PCIe
 ## MIPI Camera
 ## Audio Interface
+
 ## USB Interface
+
+The Portenta Max Carrier features a USB interface suitable for data logging and connecting external devices.
+
+![Portenta Max Carrier USB-A Port](assets/usb-a.png)
+
+If you are interested in the USB-A port pinout, the following table may serve to understand its connection distribution:
+
+| **Pin number** | **Power Net** | **Portenta HD Standard Pin** |                         **High-Density Pin**                         | **Interface** |
+| :------------: | :-----------: | :--------------------------: | :------------------------------------------------------------------: | :-----------: |
+|       1        |      +5V      |       USB0_VBUS        |                  J1-24                  |               |
+|       2        |               |           USB0_D_N           |                                J1-28                                 |    USB D-     |
+|       3        |               |           USB0_D_P           |                                J1-26                                 |    USB D+     |
+|       4        |      GND      |             GND              | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |               |
+
+Devices with a USB-A interface, such as storage drives, can be used for logging data. External devices include peripherals like keyboards, mouses, webcams, and hubs.
+
+#### Using Linux
+
+As an example, the following command on Portenta X8's shell can be used to test a write command with a USB memory drive. To write a file, the following sequence of commands can help you to accomplish such a task.
+
+```bash
+sudo su -
+```
+
+First of all, let's enter root mode to have the right permissions to mount and unmount related peripherals like our USB memory drive.
+
+```bash
+lsblk
+```
+
+The `lsblk` command lists all available block devices, such as hard drives and USB drives. It helps in identifying the device name, like `/dev/sda1` which will be probably the partition designation of the USB drive you just plugged in. A common trick to identify and check the USB drive connected is to execute the `lsblk` command twice; once with the USB disconnected and the next one to the USB connected, to compare both results and spot easily the newly connected USB drive. Additionally, the command `lsusb` can be used to gather more information about the connected USB drive.
+
+```bash
+mkdir -p /mnt/USBmount
+```
+
+The `mkdir -p` command creates the directory `/mnt/USBmount`. This directory will be used as a mount point for the USB drive.
+
+```bash
+mount -t vfat /dev/sda1 /mnt/USBmount
+```
+
+This mount command mounts the USB drive, assumed to have a FAT filesystem (`vfat`), located at `/dev/sda1` to the directory `/mnt/USBmount`. Once mounted, the content of the USB drive can be accessed from the `/mnt/USBmount` directory with `cd`:
+
+```bash
+cd /mnt/USBmount
+```
+
+Now if you do an `ls` you can see the actual content of the connected USB Drive.
+
+```bash
+ls
+```
+![USB drive content listed](assets/usb-list.png)
+
+Let's create a simple text file containing the message `Hello, World!` in the already connected USB memory drive using the following command:
+
+```bash
+dd if=<(echo -n "Hello, World!") of=/mnt/USBmount/helloworld.txt
+```
+
+This command uses the `dd` utility, combined with process substitution. Specifically, it seizes the output of the `echo` command, responsible for generating the `Hello, World!` message, and channels it as an input stream to `dd`.
+
+Subsequently, the message gets inscribed into a file named _helloworld.txt_ situated in the `/mnt/USBmount` directory.
+
+After creating the file, if you wish to retrieve its contents and display them on the shell, you can use:
+
+```bash
+cat helloworld.txt
+```
+
+This command `cat` prompts in the terminal the content of a file, in this case the words `Hello, World!`.
+
+![Helloworld.txt file created](assets/usb-create.png)
+
+To unmount the USB drive use the following command from outside the USB folder:
+
+```bash
+umount /dev/sda1 /mnt/USBmount
+```
+
+Now that you know how to locate, mount, write and read information from an external USB stick or hard drive you can expand the possibilities of your solution with the additional storage connected to the Portenta Max Carrier.
+
+#### Using Arduino IDE
+
+The following example demonstrates how to use the USB interface of the Portenta Max Carrier with the Portenta C33 to mount a Mass Storage Device (MSD).
+
+The Max Carrier uses a USB hub IC (USB2514B) that manages the communication between the two USB-A ports and the USB interface of the Portenta SoM. To use it with the Arduino IDE, a library is needed and you can install it by searching for `USB251X` on the library manager and clicking on install.
+
+Through this code, users will be able to effectively connect to, read from, and write to a USB storage device, making it easier to interact with external storage via the USB interface.
+
+```arduino 
+#include <Wire.h>
+#include "SparkFun_USB251x_Arduino_Library.h"   //Click here to install: http://librarymanager/All#USB251x
+#include <vector>
+#include <string>
+#include "UsbHostMsd.h"
+#include "FATFileSystem.h"
+
+#define TEST_FS_NAME "USB"
+#define TEST_FOLDER_NAME "TEST_FOLDER"
+#define TEST_FILE "test.txt"
+#define DELETE_FILE_DIMENSION 150
+
+USB251x myHub;
+USBHostMSD block_device;
+FATFileSystem fs(TEST_FS_NAME);
+
+std::string root_folder = std::string("/") + std::string(TEST_FS_NAME);
+std::string folder_test_name = root_folder + std::string("/") + std::string(TEST_FOLDER_NAME);
+std::string file_test_name = folder_test_name + std::string("/") + std::string(TEST_FILE);
+
+/* this callback will be called when a Mass Storage Device is plugged in */
+void device_attached_callback(void) {
+  Serial.println();
+  Serial.println("++++ Mass Storage Device detected ++++");
+  Serial.println();
+}
+
+void setup() {
+  /*
+   *  SERIAL INITIALIZATION
+   */
+  Serial.begin(115200);
+  while (!Serial) {
+  }
+
+  Wire.begin();
+
+  if (myHub.begin() == false) {
+    Serial.println("Device not found. USB251xB may already be in hub mode. Please check wiring or reset the hub. Freezing...");
+    while (1)
+      ;
+  }
+
+  Serial.println("Writing default settings to hub");
+  myHub.setDefaults();  //Write ROM defaults
+  myHub.attach();       //Locks settings and begin acting as hub
+
+
+  Serial.println();
+  Serial.println("*** USB HOST Mass Storage Device example ***");
+  Serial.println();
+
+  /* attache the callback so that when the device is inserted the device_attached_callback
+     will be automatically called */
+  block_device.attach_detected_callback(device_attached_callback);
+  /* list to store all directory in the root */
+  std::vector<std::string> dir_list;
+
+  /* 
+   *  Check for device to be connected
+   */
+
+  int count = 0;
+  while (!block_device.connect()) {
+    if (count == 0) {
+      Serial.println("Waiting for Mass Storage Device");
+    } else {
+      Serial.print(".");
+      if (count % 30 == 0) {
+        Serial.println();
+      }
+    }
+    count++;
+    delay(1000);
+  }
+
+  Serial.println("Mass Storage Device connected.");
+
+  /* 
+   *  MOUNTIN SDCARD AS FATFS filesystem
+   */
+
+  Serial.println("Mounting Mass Storage Device...");
+  int err = fs.mount(&block_device);
+  if (err) {
+    // Reformat if we can't mount the filesystem
+    // this should only happen on the first boot
+    Serial.println("No filesystem found, formatting... ");
+    err = fs.reformat(&block_device);
+  }
+
+  if (err) {
+    Serial.println("Error formatting USB Mass Storage Device");
+    while (1)
+      ;
+  }
+
+  /* 
+   *  READING root folder
+   */
+
+  DIR *dir;
+  struct dirent *ent;
+  int dirIndex = 0;
+
+  Serial.println("*** List USB Mass Storage Device content: ");
+  if ((dir = opendir(root_folder.c_str())) != NULL) {
+    while ((ent = readdir(dir)) != NULL) {
+      if (ent->d_type == DT_REG) {
+        Serial.print("- [File]: ");
+      } else if (ent->d_type == DT_DIR) {
+        Serial.print("- [Fold]: ");
+        if (ent->d_name[0] != '.') { /* avoid hidden folders (.Trash might contain a lot of files) */
+          dir_list.push_back(ent->d_name);
+        }
+      }
+      Serial.println(ent->d_name);
+      dirIndex++;
+    }
+    closedir(dir);
+  } else {
+    // Could not open directory
+    Serial.println("Error opening USB Mass Storage Device\n");
+    while (1)
+      ;
+  }
+
+  if (dirIndex == 0) {
+    Serial.println("Empty SDCARD");
+  }
+
+  bool found_test_folder = false;
+
+  /* 
+   *  LISTING CONTENT of the first level folders (the one immediately present in root folder)
+   */
+
+  if (dir_list.size()) {
+    Serial.println();
+    Serial.println("Listing content of folders in root: ");
+  }
+  for (unsigned int i = 0; i < dir_list.size(); i++) {
+    if (dir_list[i] == TEST_FOLDER_NAME) {
+      found_test_folder = true;
+    }
+    Serial.print("- ");
+    Serial.print(dir_list[i].c_str());
+    Serial.println(":");
+
+    std::string d = root_folder + std::string("/") + dir_list[i];
+    if ((dir = opendir(d.c_str())) != NULL) {
+      while ((ent = readdir(dir)) != NULL) {
+        if (ent->d_type == DT_REG) {
+          Serial.print("   - [File]: ");
+        } else if (ent->d_type == DT_DIR) {
+          Serial.print("   - [Fold]: ");
+        }
+        Serial.println(ent->d_name);
+      }
+      closedir(dir);
+    } else {
+      Serial.print("ERROR OPENING SUB-FOLDER ");
+      Serial.println(d.c_str());
+    }
+  }
+
+  /* 
+   *  CREATING TEST FOLDER (if does not exist already)
+   */
+
+  err = 0;
+  if (!found_test_folder) {
+    Serial.println("TEST FOLDER NOT FOUND... creating folder test");
+    err = mkdir(folder_test_name.c_str(), S_IRWXU | S_IRWXG | S_IRWXO);
+    if (err != 0) {
+      Serial.print("FAILED folder creation with error ");
+      Serial.println(err);
+    }
+  }
+
+  /* 
+   *  READING TEST FILE CONTENT
+   */
+
+  if (err == 0) {
+    int file_dimension = 0;
+    FILE *fp = fopen(file_test_name.c_str(), "r");
+    if (fp != NULL) {
+      Serial.print("Opened file: ");
+      Serial.print(file_test_name.c_str());
+      Serial.println(" for reading");
+
+      fseek(fp, 0L, SEEK_END);
+      int numbytes = ftell(fp);
+      fseek(fp, 0L, SEEK_SET);
+
+      Serial.print("Bytes in the file: ");
+      Serial.println(numbytes);
+      file_dimension = numbytes;
+
+      if (numbytes > 0) {
+        Serial.println();
+        Serial.println("-------------------- START FILE CONTENT --------------------");
+      }
+
+      for (int i = 0; i < numbytes; i++) {
+        char ch;
+        fread(&ch, sizeof(char), 1, fp);
+        Serial.print(ch);
+      }
+
+      if (numbytes > 0) {
+        Serial.println("--------------------- END FILE CONTENT ---------------------");
+        Serial.println();
+      } else {
+        Serial.println("File is EMPTY!");
+        Serial.println();
+      }
+
+      fclose(fp);
+    } else {
+      Serial.print("FAILED open file ");
+      Serial.println(file_test_name.c_str());
+    }
+
+    /*
+     * DELETE FILE IF THE File dimension is greater than 150 bytes
+     */
+
+    if (file_dimension > DELETE_FILE_DIMENSION) {
+      Serial.println("Test file reached the delete dimension... deleting it!");
+      if (remove(file_test_name.c_str()) == 0) {
+        Serial.println("TEST FILE HAS BEEN DELETED!");
+      }
+    }
+
+    /*
+     * APPENDING SOMETHING TO FILE 
+     */
+
+    fp = fopen(file_test_name.c_str(), "a");
+    if (fp != NULL) {
+      Serial.print("Opened file: ");
+      Serial.print(file_test_name.c_str());
+      Serial.println(" for writing (append)");
+      char text[] = "This line has been appended to file!\n";
+      fwrite(text, sizeof(char), strlen(text), fp);
+      fclose(fp);
+    } else {
+      Serial.print("FAILED open file for appending ");
+      Serial.println(file_test_name.c_str());
+    }
+
+    /*
+     * READING AGAIN FILE CONTENT
+     */
+
+    fp = fopen(file_test_name.c_str(), "r");
+    if (fp != NULL) {
+      Serial.print("Opened file: ");
+      Serial.print(file_test_name.c_str());
+      Serial.println(" for reading");
+
+      fseek(fp, 0L, SEEK_END);
+      int numbytes = ftell(fp);
+      fseek(fp, 0L, SEEK_SET);
+
+      Serial.print("Bytes in the file: ");
+      Serial.println(numbytes);
+
+      if (numbytes > 0) {
+        Serial.println();
+        Serial.println("-------------------- START FILE CONTENT --------------------");
+      }
+
+      for (int i = 0; i < numbytes; i++) {
+        char ch;
+        fread(&ch, sizeof(char), 1, fp);
+        Serial.print(ch);
+      }
+
+      if (numbytes > 0) {
+        Serial.println("--------------------- END FILE CONTENT ---------------------");
+        Serial.println();
+      } else {
+        Serial.println("File is EMPTY!");
+        Serial.println();
+      }
+
+      fclose(fp);
+
+    } else {
+      Serial.print("FAILED open file for appending ");
+      Serial.println(file_test_name.c_str());
+    }
+  }
+}
+
+void loop() {
+  // Empty
+}
+```
+The example code from above will read the USB drive connected and print all its content on the Serial Monitor. Also, it will create a test file.
+
+![USB host with the Portenta C33 example](assets/usb-arduino.png)
+
 ## MicroSD Storage
 
 The available microSD card slot offers the advantage of expanded storage. This is especially beneficial for processing large volumes of log data, whether from sensors or the onboard computer registry. For the Portenta X8, the microSD can also serve as an external boot source.
@@ -526,7 +939,7 @@ mkfs.ext4 /dev/mmcblk1p1  #Warning: this will erase everything on your micro SD
 ```
 
 ### Using Arduino IDE
-For Portenta H7, you can use the following Arduino IDE script to test mounted SD card within Portenta Hat Carrier:
+For Portenta H7, you can use the following Arduino IDE script to test the mounted SD card within Portenta Hat Carrier:
 
 This example can also be found on the Arduino IDE builtin examples on **File > Examples > Portenta_SDCARD > TestSDCARD**
 
@@ -582,13 +995,13 @@ void loop() {
 
 ```
 
-With this code the Portenta H7 will scan all the files and directories names on the micro SD card and list them on the Arduino IDE Serial Monitor.
+With this code, the Portenta H7 will scan all the files and directories names on the micro SD card and list them on the Arduino IDE Serial Monitor.
 
 ![Example outcome on a Portenta H7](assets/h7-sdcard.png)
 
 For Portenta C33, you can use the following Arduino IDE script:
 
-This example can also be found on the Arduino IDE builtin examples on **File > Examples > Storage > TestSDCARD**.
+This example can also be found on the Arduino IDE built-in examples on **File > Examples > Storage > TestSDCARD**.
 
 ```arduino
 #include <vector>
@@ -857,7 +1270,7 @@ void loop() {
 
 ```
 
-With this code the Portenta C33 will scan all the files and directories names on the micro SD card and list them on the Arduino IDE Serial Monitor, also create a test file and read it back.
+With this code, the Portenta C33 will scan all the files and directories names on the micro SD card and list them on the Arduino IDE Serial Monitor, also create a test file and read it back.
 
 ![Example outcome on a Portenta C33](assets/c33-sdcard.png)
 
@@ -884,6 +1297,7 @@ The pins used for the JTAG debug port on the Portenta Hat Carrier are the follow
 |       10       |               |           JTAG_RST           |                                 J1-73                                |    JTAG RST   |
 
 ## Communication
+
 ### SPI
 ### I2C
 ### CAN Bus
@@ -1063,6 +1477,7 @@ void loop() {
 ![CAN bus communication between both devices](assets/CAN-bus.png)
 
 ### Serial RS-232 / RS-422 / RS-485
+
 ### UART
 
 ## Support
