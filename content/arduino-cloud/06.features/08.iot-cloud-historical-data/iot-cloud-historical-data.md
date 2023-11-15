@@ -7,7 +7,7 @@ author: 'Benjamin Dannegård'
 
 ## Introduction 
 
-It is possible to download historical data from your [Arduino Cloud](app.arduino.cc) Things and Variables. It is downloaded in `.csv` format, and can be used for data comparison.
+It is possible to download historical data from your [Arduino Cloud](https://app.arduino.cc/) Things and Variables. It is downloaded in `.csv` format, and can be used for data comparison.
 
 ## Goals
 
@@ -42,7 +42,7 @@ Combined with 15 days or three months of historical data, you can build a detail
 
 ### Downloading Historical Data
 
-First, to download historical data navigate into one of your dashboards on the [Arduino Cloud](app.arduino.cc/dashboards).
+First, to download historical data navigate into one of your dashboards on the [Arduino Cloud](https://app.arduino.cc/dashboards).
 
 ![Arduino cloud dashboard.](assets/cloud-historical-data-dashboard.png)
 

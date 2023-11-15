@@ -257,7 +257,7 @@ Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. 
 
 Now it is time for you to start managing your fleet of devices/Things. The Arduino Cloud for Business fleet management features allow you to filter your devices/Things by status, add tags to more efficiently identify your projects, search between boards, and list and order them.
 
-Get started with this awesome feature by going to **Things** or **Devices** tab in [Arduino Cloud](app.arduino.cc/devices) and start searching and filtering among your Things/devices.
+Get started with this awesome feature by going to **Things** or **Devices** tab in [Arduino Cloud](https://app.arduino.cc/devices) and start searching and filtering among your Things/devices.
 
 ![Search and filter among devices](assets/search-things.png "Search and filter among devices")
 
@@ -282,7 +282,7 @@ At this point, you can go back to the Things tab and start filtering your Things
 
 With Arduino Cloud for Business, you can create an unlimited number of dashboards. Push button, Switch, Scheduler, Map, Chart… These are just a few of the many widgets you can customize to visualize all your data or to remotely control your devices.
 
-To start creating your dashboard, go to the **Dashboards** tab in [Arduino Cloud](app.arduino.cc/dashboards) and select the Thing you want to create a dashboard for.
+To start creating your dashboard, go to the **Dashboards** tab in [Arduino Cloud](https://app.arduino.cc/dashboards) and select the Thing you want to create a dashboard for.
 
 ![Dashboard example](assets/dashboard-example.png "Dashboard example")
 
@@ -302,7 +302,7 @@ Arduino Cloud for Business allows any user to download historical data from Ardu
 
 The Arduino Cloud for Business plan includes 1-year of data retention by default; this means that your data will be available and downloadable from your Arduino Cloud account for 1 year.
 
-To start exporting your data locally, navigate into one of your dashboards on the [Arduino Cloud](app.arduino.cc/dashboards). While inside a dashboard, press the Download icon in the upper right corner. This will open a new window that will allow you to select which historical data you would like to download.
+To start exporting your data locally, navigate into one of your dashboards on the [Arduino Cloud](https://app.arduino.cc/dashboards). While inside a dashboard, press the Download icon in the upper right corner. This will open a new window that will allow you to select which historical data you would like to download.
 
 ![Download icon](assets/download-button.png "Download icon")
 

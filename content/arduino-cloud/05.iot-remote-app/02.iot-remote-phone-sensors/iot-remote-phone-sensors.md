@@ -54,7 +54,7 @@ Now that you've got your sensor data in the Arduino Cloud, the next step is to u
 
 The mobile "**Thing**" can't be programmed, but you can sync the variables from it with variables in other "**Things**"
 
-So go to the [Arduino Cloud](app.arduino.cc/things) on your computer, and create a new **Thing**. 
+So go to the [Arduino Cloud](https://app.arduino.cc/things) on your computer, and create a new **Thing**. 
 
 Grab your **Arduino Cloud** compatible Arduino board and connect it to your computer, and configure it with your thing. I am using an **Arduino Nano 33 IoT**, and I am going with the suggested name for my device, which happens to be "**Robby**"
 

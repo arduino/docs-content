@@ -13,7 +13,7 @@ The new Arduino Cloud brings a lot of new things, and one of them is the OTA (ov
 ![Over-the-Air uploads.](assets/other_power_supplier.png)
 
 
-Over-the-air update is now available through [Arduino Cloud](app.arduino.cc) and the [Arduino Web Editor](https://create.arduino.cc/editor), which is an always up-to-date online IDE that stores sketches in the Cloud. It also allows you to wirelessly upload sketches from a browser, to any board that is connected to that computer. 
+Over-the-air update is now available through [Arduino Cloud](https://app.arduino.cc/) and the [Arduino Web Editor](https://create.arduino.cc/editor), which is an always up-to-date online IDE that stores sketches in the Cloud. It also allows you to wirelessly upload sketches from a browser, to any board that is connected to that computer. 
 
 This tutorial will guide you through the necessary steps to configure your board to work with the OTA feature.
 
@@ -49,7 +49,7 @@ The following ESP32 boards have been tested and verified to support OTA:
 
 In order to configure the feature, we will need to create a project in the Arduino Cloud following the next steps.
 
-**1.** Go to the [Arduino Cloud](app.arduino.cc) by opening the grid menu in any Arduino Site.
+**1.** Go to the [Arduino Cloud](https://app.arduino.cc/) by opening the grid menu in any Arduino Site.
 
 ![Navigating to the cloud.](assets/iot_cloud_grid.png)
 

@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Getting Started]
 author: 'Karl Söderby'
 ---
 
-The [Arduino Cloud](app.arduino.cc) is a platform for developing Arduino projects and connecting them to the world. It supports secure connections with boards via [Wi-Fi®](/arduino-cloud/hardware/wifi), [LoRa®](/arduino-cloud/hardware/lora), [Ethernet](/arduino-cloud/hardware/ethernet) and [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular), and lets you create a system for sending any variable information you can think of from one board to another within minutes of unboxing them.
+The [Arduino Cloud](https://app.arduino.cc/) is a platform for developing Arduino projects and connecting them to the world. It supports secure connections with boards via [Wi-Fi®](/arduino-cloud/hardware/wifi), [LoRa®](/arduino-cloud/hardware/lora), [Ethernet](/arduino-cloud/hardware/ethernet) and [Cellular (GSM/NB-IoT)](/arduino-cloud/hardware/cellular), and lets you create a system for sending any variable information you can think of from one board to another within minutes of unboxing them.
 
 The Arduino Cloud platform includes:
 - an **Integrated Development Environment (IDE)** for programming your boards,
@@ -34,7 +34,7 @@ And if you want to read the value of a sensor connected to your device, it would
 
 Networking code and data synchronizing is **automatically done**, so just focus on the project, and let the Arduino Cloud handle the rest.
 
-***This document will help you get familiar with the [Arduino Cloud](app.arduino.cc) service, and once you've got a good hang of it, you can explore the [rest of the documentation](/arduino-cloud/).***
+***This document will help you get familiar with the [Arduino Cloud](https://app.arduino.cc/) service, and once you've got a good hang of it, you can explore the [rest of the documentation](/arduino-cloud/).***
 
 ## Compatible Boards
 
@@ -82,7 +82,7 @@ By default, you will have a **free plan**, which can be upgraded to a number of 
 
 ### 2. Configure a Device
 
-First you will need to connect your board to your computer, and configure your device in the [Devices](app.arduino.cc/devices) tab.
+First you will need to connect your board to your computer, and configure your device in the [Devices](https://app.arduino.cc/devices) tab.
 
 ![Devices in the Arduino Cloud.](assets/device.png)
 
@@ -133,7 +133,7 @@ Once you done all configurations, created a program & dashboard, you can sit bac
 ## Guides
 
 We recommend checking out the following guides to get started with various coding frameworks:
-- [Arduino / C++ setup (default setup)](arduino-cloud/guides/arduino-c) - the default installation using the built-in code editor and an Arduino / ESP32 board.
+- [Arduino / C++ setup (default setup)](/arduino-cloud/guides/arduino-c) - the default installation using the built-in code editor and an Arduino / ESP32 board.
 - [Python setup](/arduino-cloud/guides/python) - set up of a manual device to run on a PC / Linux system such as Raspberry Pi.
 - [MicroPython setup](/arduino-cloud/guides/micropython) - setup of MicroPython on a select number of supported boards.
 - [JavaScript / node.js setup](/arduino-cloud/guides/javascript) - setup of JavaScript using node.js, perfect for integrating your front-end projects with the Arduino Cloud.

@@ -69,7 +69,7 @@ Linking a webhook to a Thing is a quite simple process, follow the steps below t
 
 **1.** [Sign in to your Arduino account](https://create.arduino.cc/iot), and open the [Arduino Cloud](https://create.arduino.cc/iot).
 
-**2.** Navigate to [**Things** -> **Create Thing**](app.arduino.cc/things).
+**2.** Navigate to [**Things** -> **Create Thing**](https://app.arduino.cc/things).
 
 **3.** Create your Variables. In our case, we will create a **"message"** Variable and set its type to **"Character String"**.
 
@@ -123,7 +123,7 @@ The fifth value contains an array of objects, each representing a Variable in yo
 
 To test the webhook, we need to create a *Messenger widget*. We can do that by:
 
-**1.** Navigating to [*Dashboards*](app.arduino.cc/dashboards) -> *Edit* -> *Add* -> stay on the *Widgets tab* -> select "Messenger".
+**1.** Navigating to [*Dashboards*](https://app.arduino.cc/dashboards) -> *Edit* -> *Add* -> stay on the *Widgets tab* -> select "Messenger".
 
 ![Add Messenger Widget](./assets/webhooks-04.png)
 

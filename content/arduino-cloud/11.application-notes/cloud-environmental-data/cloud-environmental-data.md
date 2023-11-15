@@ -12,7 +12,7 @@ featuredImage: 'cloud'
 
 ## Introduction
 
-In this tutorial, we will combine the functionality of the [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) and the [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield). The shield, mounted on top of the board, will record environmental data, such as temperature, humidity, pressure and illuminance. This data will be synced with the [Arduino Cloud](app.arduino.cc), a service that allows us to remotely control and monitor our devices. 
+In this tutorial, we will combine the functionality of the [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) and the [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield). The shield, mounted on top of the board, will record environmental data, such as temperature, humidity, pressure and illuminance. This data will be synced with the [Arduino Cloud](https://app.arduino.cc/), a service that allows us to remotely control and monitor our devices. 
 
 This means that whenever we read data on the board, it will also be visible in the cloud dashboard, where we can create different ways of visualizing the data.
 
@@ -28,7 +28,7 @@ The goals of this project are:
 
 ## Hardware & Software needed
 
-- [Arduino Cloud](app.arduino.cc).
+- [Arduino Cloud](https://app.arduino.cc/).
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010).
 - [Arduino MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield).
 - [Arduino_MKRENV](https://www.arduino.cc/en/Reference/ArduinoMKRENV) library.
@@ -39,7 +39,7 @@ The goals of this project are:
 
 ## Configuring the Cloud
 
-The first step in this tutorial is to navigate to the [Arduino Cloud](app.arduino.cc). If you are not logged in, or do not have an account, you will be re-directed to the login page. Here you can create a new account or log in to an existing one.
+The first step in this tutorial is to navigate to the [Arduino Cloud](https://app.arduino.cc/). If you are not logged in, or do not have an account, you will be re-directed to the login page. Here you can create a new account or log in to an existing one.
 
 ### Configure a new device
 

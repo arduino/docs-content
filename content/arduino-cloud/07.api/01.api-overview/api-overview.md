@@ -5,7 +5,7 @@ author: Karl Söderby, Fabrizio Mirabito
 tags: [Arduino Cloud, Device API, Application API, JavaScript]
 ---
 
-The [Arduino Cloud](app.arduino.cc) has different sets of APIs that provide different functionalities. This article serves as an introduction to how to work and what you can achieve with them.
+The [Arduino Cloud](https://app.arduino.cc/) has different sets of APIs that provide different functionalities. This article serves as an introduction to how to work and what you can achieve with them.
 
 ## Application API
 

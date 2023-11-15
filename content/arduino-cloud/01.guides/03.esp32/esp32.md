@@ -24,11 +24,11 @@ You will also need a **ESP32 or ESP8266** development board.
 
 ## Setup
 
-In this section, we will go through the steps necessary to connect your ESP32 board to the Arduino Cloud. To follow these steps, please make sure you have a [registered Arduino account](https://login.arduino.cc/login), and that you have access to the [Arduino Cloud](app.arduino.cc).
+In this section, we will go through the steps necessary to connect your ESP32 board to the Arduino Cloud. To follow these steps, please make sure you have a [registered Arduino account](https://login.arduino.cc/login), and that you have access to the [Arduino Cloud](https://app.arduino.cc/).
 
 ### Configure Device
 
-First navigate to [Arduino Cloud - Devices](app.arduino.cc/devices). Here you can see all your devices, and configure a new one. 
+First navigate to [Arduino Cloud - Devices](https://app.arduino.cc/devices). Here you can see all your devices, and configure a new one. 
 
 1. Click on **"Add Device"**
 2. Select **"Third Party Device"**

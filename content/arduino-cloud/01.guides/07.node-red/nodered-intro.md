@@ -181,7 +181,7 @@ The final step is connecting the **DHT11 humidity sensor** to our Arduino MKR Wi
 
 Use the steps below to use Node-RED with the Arduino Cloud:
 
-**1.** Go to the [API keys section](app.arduino.cc/home/api-keys), and create a new API key.
+**1.** Go to the [API keys section](https://app.arduino.cc/home/api-keys), and create a new API key.
 
 **2.** Save the Client ID and Client Secret in a safe document
 
@@ -249,4 +249,4 @@ Now, all you need to do is replace the debug node with the email node to receive
 
 ## Further Applications
 
-In this tutorial we demonstrated how you can use the [Arduino Cloud](app.arduino.cc) together with [Node-RED](https://nodered.org/) to build a more complex automation applications. The email notification is only one of the many different use cases, other applications can be creating communication between the Arduino Cloud to other home automation devices, sending customized SMS and WhatsApp messages, and many more.
+In this tutorial we demonstrated how you can use the [Arduino Cloud](https://app.arduino.cc/) together with [Node-RED](https://nodered.org/) to build a more complex automation applications. The email notification is only one of the many different use cases, other applications can be creating communication between the Arduino Cloud to other home automation devices, sending customized SMS and WhatsApp messages, and many more.

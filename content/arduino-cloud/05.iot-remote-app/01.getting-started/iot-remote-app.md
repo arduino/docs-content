@@ -5,7 +5,7 @@ author: Karl Söderby
 tags: [Arduino Cloud, Remote App, Phone Data]
 ---
 
-The **Arduino IoT Remote** phone application lets you control and monitor all of your dashboards in the [Arduino Cloud](app.arduino.cc). With the app, you can also access your phone's internal sensors such as GPS data, light sensor, IMU and more (depending on what phone you have).
+The **Arduino IoT Remote** phone application lets you control and monitor all of your dashboards in the [Arduino Cloud](https://app.arduino.cc/). With the app, you can also access your phone's internal sensors such as GPS data, light sensor, IMU and more (depending on what phone you have).
 
 The phone's sensor data is automatically stored in cloud variables, which you can also synchronize with other Things. This means your phone can become a part of your IoT system, acting as another node in your network.
 
@@ -73,7 +73,7 @@ Here you can also choose the update frequency, (either on change, or every `x` s
 
 The sensor data from your phone is tracked through **variables** in the Arduino Cloud, and can therefore be synchronized with other variables.
 
-Head over to the [Arduino Cloud - Things](app.arduino.cc/things) and go to the Thing created for your phone (in this case, it is named `Karl_s S20_ Thing`), and select a variable you want to synchronize. In the following menu you can link it to other variables on other Things.
+Head over to the [Arduino Cloud - Things](https://app.arduino.cc/things) and go to the Thing created for your phone (in this case, it is named `Karl_s S20_ Thing`), and select a variable you want to synchronize. In the following menu you can link it to other variables on other Things.
  
 ![Synchronizing variables.](assets/remote-app-cloud-variables.png)
 

@@ -7,7 +7,7 @@ software:
   - iot-cloud
 ---
 
-It is now possible to schedule jobs with the [Arduino Cloud](app.arduino.cc), using the new `CloudSchedule` variable type. You can pick a start & end date for when the variable should be triggered, and for how long it should be active. This variable can be controlled in real time using a graphical widget that you can place on an Arduino Cloud dashboard.
+It is now possible to schedule jobs with the [Arduino Cloud](https://app.arduino.cc/), using the new `CloudSchedule` variable type. You can pick a start & end date for when the variable should be triggered, and for how long it should be active. This variable can be controlled in real time using a graphical widget that you can place on an Arduino Cloud dashboard.
 
 We can for example have:
 
@@ -153,7 +153,7 @@ time_variable = ArduinoCloud.getLocalTime();
 
 ***If you are new to the Arduino Cloud, you can either visit the [Getting Started with Arduino Cloud](/arduino-cloud/guides/overview) guide, or any of the tutorials in the [Arduino Cloud documentation](/arduino-cloud/). There you will find detailed step by step guides.***
 
-**1.** Navigate to [Arduino Cloud](app.arduino.cc). You will need to log in with your Arduino account.
+**1.** Navigate to [Arduino Cloud](https://app.arduino.cc/). You will need to log in with your Arduino account.
 
 **2.** Create a new Thing by clicking on the "Create Thing" button. You can name it something like "Scheduler Test".
 
