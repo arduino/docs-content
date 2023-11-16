@@ -71,7 +71,7 @@ sensor.set_hmirror(True) # Mirrors the image horizontally
 
 You may have also noticed that there is a labels text file. This file is used to store a textual representation of the classes to later classify the objects and print the class names. The classes are added to that automatically.
 
-***Please note that creating a machine learning model with training data based around just one specific piece of fruit while always using the same background does not create a robust model. It will perform well in the controlled environment but will struggle when being presented with new data.***
+***Please note that creating a machine learning model with training data based around just one specific piece of fruit while always using the same background does not create a robust model. It will perform well in a controlled environment but will struggle when being presented with new data.***
 
 ### 2. Uploading the Data to Edge Impulse®
 Now that all data is ready to be uploaded you need to create a new Edge Impulse® project. If you haven't registered an Edge Impulse® account yet, you may create one on [their website](https://studio.edgeimpulse.com/login). Log in to the Edge Impulse® Studio and create a new project named `Fruit-Detector`.
@@ -123,7 +123,7 @@ Now that the features of your image data are ready to be used for the actual tra
 
 In this example we also increased the drop out rate to 0.15 and the output neurons to 12. This increased the accuracy with the given training / test data. You may need to adapt those values based on your own data.
 
-Click on "Start Training" to train the machine learning model. A small amount of images, the **validation set**, are put aside before the training starts to validate the trained model. Not to be confused with the **test set** which can be used to evaluate the final model. Once the training finishes you will see some statistics on how well the model performed during validation. Ideally you get an accuracy of 100% for each object. If you get poor results you may have some images which are not representative of the objects you're trying to classify and should be removed from the data set.
+Click on "Start Training" to train the machine learning model. A small amount of images, the **validation set**, are put aside before the training starts to validate the trained model. Not to be confused with the **test set** which can be used to evaluate the final model. Once the training finishes you will see some statistics on how well the model performed during validation. Ideally, you get an accuracy of 100% for each object. If you get poor results you may have some images which are not representative of the objects you're trying to classify and should be removed from the data set.
 
 ![The confusion matrix shows the accuracy of the ML model after the last training cycle](assets/edge_impulse_training.png)
 
@@ -143,12 +143,14 @@ The ML model is trained and already optimized to be used with microcontrollers. 
 
 ### Deploy
 
-Deploying the ML model to your board requires a few simple steps. The Edge Impulse® Studio provides an export feature for OpenMV. Since the Nicla Vision doesn't have any on-board SRAM we need to bake the machine learning model into the firmware and load it from the flash. Switch to the deployment section in the menu, select "OpenMV Firmware" under "Configure your deployment" and click "build". This will create an OpenMV compatible firmware that includes the machine learning model. Unzip the file once it's downloaded. The download should start automatically.
+Deploying the ML model to your board requires a few simple steps. The Edge Impulse® Studio provides an export feature for OpenMV. Since the Nicla Vision does not have any dedicated SRAM chip that would provide enough memory to load the ML model at run time, we need to bake the machine learning model into the firmware and load it from the flash. 
+
+Switch to the deployment section in the menu, select "OpenMV Firmware" under "Configure your deployment" and click "build". This will create an OpenMV compatible firmware that includes the machine learning model. Unzip the file once it's downloaded. The download should start automatically.
 
 ![The Edge Impulse® Studio has a built-in export function for OpenMV](assets/deployment.png)
 
 
-Put the board in bootloader mode and click on the connect symbol in the OpenMV IDE. In the dialog select "Load a specific firmware". Select `edge_impulse_firmware_arduino_nicla_vision.bin` in the folder that you created while unziping the downloaded file and flash it to the board.
+Put the board in bootloader mode and click on the connect symbol in the OpenMV IDE. In the dialog select "Load a specific firmware". Select `edge_impulse_firmware_arduino_nicla_vision.bin` in the folder that you created while unzipping the downloaded file and flash it to the board.
 
 ### Run the Script
 
@@ -165,7 +167,7 @@ if confidence > 0.9 and label != "unknown":
     print("It's a ", label, "!")
 ```
 
-This code will print a message saying e.g. "It's a orange!" in case the confidence is above 90%. In the following screenshot you can see that the orange was detected with a confidence level of 0.99 which corresponds to 99%.
+This code will print a message saying e.g. "It's a orange!" in case the confidence is above 90%. In the following screenshot, you can see that the orange was detected with a confidence level of 0.99 which corresponds to 99%.
 
 ![In this example the apple is detected with a 100% certainty](assets/edge_impulse_classification.png)
 
@@ -212,8 +214,8 @@ while(True):
 
 ## Conclusion
 
-You have learned about classification as a machine learning concept which categorizes a set of data into classes. You have also learned how supervised learning works and what quantization of a model means. Furthermore you have learned to train a custom TFLite machine learning model and deploy it to your board.
+You have learned about classification as a machine learning concept which categorizes a set of data into classes. You have also learned how supervised learning works and what quantization of a model means. Furthermore, you have learned to train a custom TFLite machine learning model and deploy it to your board.
 
 ## Troubleshooting
 
-If you’re encountering difficulties while deploying your machine learning model, make sure that you chose `MobileNetV2 96x96 0.1` as model type, otherwise the model will likely be too big.
+If you’re encountering difficulties while deploying your machine learning model, make sure that you choose `MobileNetV2 96x96 0.1` as model type, otherwise the model will likely be too big.
