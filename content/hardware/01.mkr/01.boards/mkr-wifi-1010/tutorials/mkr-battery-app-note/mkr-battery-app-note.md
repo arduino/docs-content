@@ -185,12 +185,12 @@ void loop()
 **13.** In order to convert `rawADC` into a voltage reading (`voltADC`) we will divide `rawADC` by 4095 and then multiply it by the analog reference voltage (3.3V). 
 
 ```arduino
-voltADC = rawADC * (3.3/4095.0);
+voltADC = rawADC * 3.3 / 4096.0;
 ```
 
 **14.** The `voltADC` variable gives us the voltage sensed directly on the PB09 pin. This voltage is passed through the voltage divider, so it is a fraction of the actual battery voltage. We can then calculate the equivilanet battery voltage as follows.
 ```arduino
-voltBat = voltADC * (max_Source_voltage/3.3);
+voltBat = max_Source_voltage * rawADC / 4096.0;
 ```
 
 **15.** We can approximate the battery voltage to be proportional to the capacity level. Since the `map()` function does not work with float variables, we will manually map the values.
@@ -266,7 +266,7 @@ float voltBat;          //calculated voltage on battery
 int R1 =  330000;       // resistor between battery terminal and SAMD pin PB09
 int R2 = 1000000;       // resistor between SAMD pin PB09 and ground
 
-int max_Source_voltage; // upper source voltage for the battery
+float max_Source_voltage; // upper source voltage for the battery
 
 // define voltage at which battery is full/empty
 float batteryFullVoltage = 4.2;   //upper voltage limit for battery
