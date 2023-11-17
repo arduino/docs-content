@@ -133,9 +133,9 @@ if __name__ == "__main__":
     logging_func()
     client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY)
 
-    client.register("test_value")  
-    client["test_value"] = 20
-    client.register("test_switch", value=None, on_write=on_switch_changed)
+    client.register("temperature")  
+    client["temperature"] = 20
+    client.register("ledSwitch", value=None, on_write=on_switch_changed)
     
     client.start()
 ```
