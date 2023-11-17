@@ -511,7 +511,7 @@ In the Ardunio API there is a [`FspTimer`](https://github.com/arduino/ArduinoCor
 
 The UNO R4 WiFi has two timer peripherals, a Asynchronous General Purpose Timer (AGT) and a General PWM Timer (GPT). There are two AGT timers on the board, one of them is used for time measuring methods such as `millis()` and `microseconds()`.
 
-The board has 7 GPT timers to help perform PWM tasks. Such as calculating duty cycles by measuring how long a signal is active. It is possible to use these reserved pwm timers by using the previously mentioned [`FspTimer`](https://github.com/arduino/ArduinoCore-renesas/blob/149f78b6490ccbafeb420f68919c381a5bdb6e21/cores/arduino/FspTimer.h#L87) library. Using this function will explicitly request a PWM timer:
+The board has 7 GPT timers to help perform PWM tasks, such as calculating duty cycles by measuring how long a signal is active. It is possible to use these reserved PWM timers by using the previously mentioned [`FspTimer`](https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/FspTimer.h#L87) library. Using this function will explicitly request a PWM timer:
 
 ```arduino
 FspTimer::force_use_of_pwm_reserved_timer();
