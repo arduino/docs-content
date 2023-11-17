@@ -607,7 +607,7 @@ const char* server = "ip-api.com";
 // API endpoint path to get IP details in JSON format.
 String path = "/json/";
 
-// Static IP configuration for the Opta device.
+// Static IP configuration for the Portenta Machine Control device.
 IPAddress ip(10, 130, 22, 84);
 
 // Ethernet client instance for the communication.
@@ -703,6 +703,163 @@ Key IP details such as IP address, city, region, and country are extracted and t
 You should see the following output in the Arduino IDE's Serial Monitor:
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-15.png)
+
+### Wi-Fi®
+
+The Portenta Machine Control feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing it to connect to Wi-Fi® networks and interact with other devices over-the-air (OTA).
+
+Some of the key capabilities of Portenta's Machine Control onboard Wi-Fi® module are the following:
+
+- **Wireless connectivity**: The onboard Wi-Fi® module supports IEEE 802.11b/g/n Wi-Fi® standards, enabling devices to establish reliable and high-speed wireless connections to access the Internet and communicate with other devices.
+- **Secure communication**: The onboard module incorporates various security protocols such as WEP, WPA, WPA2, and WPA3, ensuring robust data encryption and protection against unauthorized access during wireless communication.
+- **Onboard antenna**: Portenta Machine Control devices feature an onboard Wi-Fi® antenna connector specifically matched for the onboard Wi-Fi® module requirements.
+
+The `Arduino Mbed OS Portenta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module right out of the box: the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/). Let's walk through an example code demonstrating some of the module's capabilities.
+
+The sketch below enables a Portenta Machine Control device to connect to the Internet via Wi-Fi® (like the Ethernet example). Once connected, it performs a `GET` request to the [`ip-api.com`](https://ip-api.com/) server to fetch details related to its IP address. It then parses the received JSON object using the [`Arduino_JSON` library](https://github.com/arduino-libraries/Arduino_JSON) to extract key IP details: IP address, city, region, and country. This data is then printed to the Arduino IDE's Serial Monitor.
+
+You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking the ellipsis (the three horizontal dots) button on the top right of the Arduino IDE 2.
+
+![Creating a tab in the Arduino IDE 2](assets/user-manual-18.png)
+
+Put `arduino_secrets.h` as the "Name for new file" and enter the following code on the header file:
+
+```arduino
+char ssid[] = "SECRET_SSID"; // Your network SSID (name)
+char password[] = "SECRET_PASS"; // Your network password (use for WPA, or use as key for WEP)
+```
+
+Replace `SECRET_SSID` with the name of your Wi-Fi® network and `SECRET_PASS` with the password of it and save the project. The example code is as follows: 
+
+```arduino
+/**
+  WiFi Web Client
+  Name: portenta_machine_control_wifi_web_client.ino
+  Purpose: This sketch connects a Portenta Machine Control to ip-api.com via Wi-Fi
+  and fetches IP details.
+
+  @author Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+#include <WiFi.h>
+#include <Arduino_JSON.h>
+
+// Wi-Fi network details.
+const char* ssid     = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
+
+// Server address for ip-api.com.
+const char* server = "ip-api.com";
+
+// API endpoint path to get IP details in JSON format.
+String path = "/json";
+
+// Wi-Fi client instance for the communication.
+WiFiClient client;
+
+// JSON variable to store and process the fetched data.
+JSONVar doc;
+
+// Variable to ensure we fetch data only once.
+bool dataFetched = false;
+
+void setup() {
+  // Begin serial communication at a baud rate of 115200.
+  Serial.begin(115200);
+
+  // Wait for the serial port to connect,
+  // This is necessary for boards that have native USB.
+  while (!Serial);
+
+  // Start the Wi-Fi connection using the provided SSID and password.
+  Serial.print("- Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.print(".");
+  }
+
+  Serial.println();
+  Serial.println("- Wi-Fi connected!");
+  Serial.print("- IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
+void loop() {
+  // Check if the IP details have been fetched.
+  // If not, call the function to fetch IP details,
+  // Set the flag to true after fetching.
+  if (!dataFetched) {
+    fetchIPDetails();
+    dataFetched = true;
+  }
+}
+
+/**
+  Fetch IP details from defined server
+
+  @param none
+  @return IP details
+*/
+void fetchIPDetails() {
+  if (client.connect(server, 80)) {
+    // Compose and send the HTTP GET request.
+    client.print("GET ");
+    client.print(path);
+    client.println(" HTTP/1.1");
+    client.print("Host: ");
+    client.println(server);
+    client.println("Connection: close");
+    client.println();
+
+    // Wait and skip the HTTP headers to get to the JSON data.
+    char endOfHeaders[] = "\r\n\r\n";
+    client.find(endOfHeaders);
+
+    // Read and parse the JSON response.
+    String payload = client.readStringUntil('\n');
+    doc = JSON.parse(payload);
+
+    // Check if the parsing was successful. 
+    if (JSON.typeof(doc) == "undefined") {
+      Serial.println("- Parsing failed!");
+      return;
+    }
+
+    // Extract and print the IP details.
+    Serial.println("*** IP Details:");
+    String query = doc["query"];
+    Serial.print("- IP Address: ");
+    Serial.println(query);
+    String city = doc["city"];
+    Serial.print("- City: ");
+    Serial.println(city);
+    String region = doc["regionName"];
+    Serial.print("- Region: ");
+    Serial.println(region);
+    String country = doc["country"];
+    Serial.print("- Country: ");
+    Serial.println(country);
+    Serial.println("");
+  } else {
+    Serial.println("- Failed to connect to server!");
+  }
+
+  // Close the client connection once done. 
+  client.stop();
+}
+```
+
+The sketch includes the `WiFi` and `Arduino_JSON`, which provide the necessary Wi-Fi® and JSON handling functionality. The `setup()` function initiates serial communication for debugging purposes and attempts to connect to a specified Wi-Fi® network. If the connection is not established, the sketch will keep trying until a successful connection is made.
+
+Once the Wi-Fi® connection is established, the sketch is ready to connect to the `ip-api.com` server using the HTTP protocol. Specifically, an `HTTP GET` request is constructed to query details related to its IP address. The `GET` request is sent only once after the Wi-Fi® connection is active.
+
+The `loop()` function is the heart of the sketch. It checks whether the data has been fetched or not. If the data still needs to be fetched, it tries to establish a connection to the server. If the connection is successful, the sketch sends an `HTTP GET` request, skips the HTTP headers of the response, and uses the `JSON.parse()` function from the `Arduino_JSON` library to parse the JSON object from the response. The parsed data extracts key IP details like IP address, city, region, and country, which are then printed to the Arduino IDE's Serial Monitor. Once the data is published, the client is disconnected to free up resources. Suppose the JSON parsing fails for any reason. In that case, an error message is outputted to the Arduino IDE's Serial Monitor, and the sketch immediately exits the current iteration of the `loop()` function.
+
+Since the data is fetched only once, there's no need for repeatedly sending `HTTP GET` requests. After the initial fetch, you should see the details related to the IP address displayed in the Arduino IDE's Serial Monitor:
 
 ## Support
 
