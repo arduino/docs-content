@@ -6,7 +6,7 @@ tags:
   - Opta
   - USB Memory Stick
   - Arduino IDE
-author: 'José Bagur'
+author: 'José Bagur and Julián Caro Linares'
 software:
   - ide-v2
 hardware:
@@ -368,12 +368,9 @@ To upload the example sketch, click the **Verify** button to compile and check f
 
 ![Installing libraries in the Arduino IDE](assets/arduino-ide-3.png)
 
-After uploading the example sketch, follow these steps to start and stop the data logging process:
+After uploading the example sketch, you can test it by connecting a compatible USB-C® memory stick.
 
-- Press and hold the user button on your Opta™ device for three seconds to start data logging. This action triggers the device to begin recording data from analog inputs `I1`, `I2`, `I3`, and `I4` of your Opta™ device.
-- During the data logging, a "Knight Rider" LED pattern will display, indicating the status of the USB connection. This visual cue confirms that the device is actively engaged in the data logging process.
-- To stop logging data, press and hold the user button again for three seconds. This action signals your Opta™ device device to stop data recording.
-- Once data logging is complete, all user LEDs on your Opta™ device will blink ten times. This indicates that the data logging process has ended, and the data is securely logged on the connected USB memory stick.
+![Hardware setup](assets/illustration-2.png)
 
 ## Conclusion
 
