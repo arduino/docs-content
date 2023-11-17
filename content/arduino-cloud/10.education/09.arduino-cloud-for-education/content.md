@@ -3,7 +3,7 @@ title: 'Getting started with Arduino Cloud for Education'
 description: 'Get a general overview of Arduino Cloud for Education and its features.'
 difficulty: intermediate
 tags:
-  - IoT Cloud
+  - Cloud
   - Education
   - RBAC
 author: 'Gaia Castronovo'
@@ -156,7 +156,7 @@ On the left menu bar in https://cloud.arduino.cc/home/ are listed the Cloud apps
 | Arduino Cloud Apps | Free Plan | School Plan |
 | :----------------: | :-------: | :---------: |
 |     Web Editor     |     x     |      x      |
-|     IoT Cloud      |     x     |      x      |
+|       Cloud        |     x     |      x      |
 |      Triggers      |           |      x      |
 
 
@@ -179,7 +179,7 @@ You can import your Sketchbook via a .zip file. Arduino Web Editor is part of Ar
 
 If you want to know more about Arduino Web Editor [visit this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor).
 
-A **lite version of the Web Editor** is included in the Arduino IoT Cloud, under `Things > Sketch`, which is actually a preview of a sketch saved on the Web Editor. 
+A **lite version of the Web Editor** is included in the Arduino Cloud, under `Things > Sketch`, which is actually a preview of a sketch saved on the Web Editor. 
 
 ![Arduino IoT Cloud lite Editor](assets/gs-thing-editor.png)
 
@@ -190,9 +190,9 @@ You can check how many times you have left to verify and upload your program fro
 ![Feature usage menu](assets/features-usage.png) 
 
 
-### What is Arduino IoT Cloud?
+### What is Arduino Cloud?
 
-Arduino IoT Cloud is an easy-to-use Internet of Things application platform. Arduino IoT Cloud makes the creation of connected objects quick, simple, and secure. You can connect multiple devices and allow them to exchange real-time data. You can also monitor them from anywhere using a simple user interface. It is integrated into your Arduino Cloud Space. 
+Arduino Cloud is an easy-to-use Internet of Things application platform. Arduino IoT Cloud makes the creation of connected objects quick, simple, and secure. You can connect multiple devices and allow them to exchange real-time data. You can also monitor them from anywhere using a simple user interface. It is integrated into your Arduino Cloud Space. 
 
 ***
 
@@ -200,11 +200,11 @@ Arduino IoT Cloud is an easy-to-use Internet of Things application platform. Ard
 
 In your IoT projects with Arduino you will need **three elements**:
 
-1. The [**Arduino IoT Cloud**](https://docs.arduino.cc/arduino-cloud/guides/overview)
+1. The [**Arduino Cloud**](https://docs.arduino.cc/arduino-cloud/guides/overview)
 2. The [**Arduino Create Agent**](https://create.arduino.cc/getting-started/plugin/welcome) the middle man between Arduino’s Web Editor, Arduino IoT Cloud and your computer. It allows you to use the browser to edit and deploy sketches to your Arduino board.
 3. **A device** of your choice.
 
-### Setup a Device in Arduino IoT Cloud
+### Setup a Device in Arduino Cloud
 
 The Arduino IoT Cloud is compatible with multiple Arduino boards or devices based on the ESP32 / ESP8266 microcontrollers. The Arduino IoT Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRaWAN® (via The Things Network), and cellular connectivity. You can check the [full list of compatible hardware here](https://support.arduino.cc/hc/en-us/articles/360016077320-What-devices-can-be-used-with-Arduino-IoT-Cloud-).
 
@@ -244,17 +244,6 @@ If you want to explore more on how Things work, check [here](https://docs.arduin
 
 ***With a Free Plan you can only connect two Things with the IoT Cloud at a time. With a School Plan, each member you've included in your plan can connect up to five Things to a Device.***
 
-The image below highlights the important elements that we will use frequently. Each number is explained below the image.
-
-![Thing tab Overview](assets/edu-tutorial-thing-overview.png)
-
-1. **Name of thing:** By clicking on "Untitled", we can rename our thing to anything we like. 
-2. **Navigation menu:** This helps to navigate between Things, Dashboards and Devices. 
-3. **Thing tab:** There are two different tabs: **Setup**, **Sketch** and **Metadata**. The setup is the current view, while the sketch works as the Arduino IDE, where the Serial Monitor is detachable.
-4. **Variables:** By clicking the **Add variable** button, we can create variables that will be incorporated in a sketch later on. These variables can then be linked to a dashboard.
-5. **Device configuration:** To associate our Thing with a device, detach or change it.
-6. **Network configuration:** Here, we will enter the name and password of our Wi-Fi® network, which will be necessary to communicate with the IoT Cloud.
-
 ### Filter your Things or Devices
 
 You can search and filter among your Things/Devices by going to **Things** or **Devices** tab in [Arduino IoT Cloud](https://app.arduino.cc/devices).
@@ -273,7 +262,7 @@ You can go back to the Things tab and start filtering your Things according to t
 
 ### Variables
 
-In order to retrieve and store information we need to create Variables in the Arduino IoT Cloud, they are very similar to the variables we create in a regular sketch. 
+In order to retrieve and store information we need to create Variables in the Arduino Cloud, they are very similar to the variables we create in a regular sketch. 
 
 ![Variables associated to a Thing](assets/variable.png)
 
@@ -285,7 +274,7 @@ To learn more about the different types of variables, go to [this tutorial](http
 
 ### Dashboards
 
-Dashboards are used to visualize real-time data and to enable direct interaction with the board through the IoT Cloud. Go to `Dashboard` and click the green button `Create`. We'll link `Variables` we've created before to a *Widget*.
+Dashboards are used to visualize real-time data and to enable direct interaction with the board through the Cloud. Go to `Dashboard` and click the green button `Create`. We'll link `Variables` we've created before to a *Widget*.
 
 ***With a Free Plan is not possible to share your Dashboard with other users. If you want to unlock this function, you'll need to upgrade to a [School Plan](https://digital-store.arduino.cc/education/purchase).***
 
@@ -403,5 +392,5 @@ Arduino IoT Cloud Remote app allows you to monitor your dashboards anywhere, any
 
 ## Arduino Cloud Tutorials
 
-You can find a full list of tutorials on the [Arduino IoT Cloud documentation page](https://docs.arduino.cc/arduino-cloud/).
+You can find a full list of tutorials on the [Arduino Cloud documentation page](https://docs.arduino.cc/arduino-cloud/).
 
