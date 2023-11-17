@@ -251,6 +251,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Changes** |
-| ---------- | ----------- |
-| 24/07/2023 | Release     |
+| **Date**   | **Changes**                  |
+| ---------- | ---------------------------- |
+| 2023/07/24 | Release                      |
+| 2023/11/17 | Update operating temperature |
