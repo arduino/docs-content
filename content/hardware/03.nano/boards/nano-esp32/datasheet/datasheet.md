@@ -70,11 +70,11 @@ The Nano ESP32 uses the [Arduino Core for ESP32 boards](https://github.com/ardui
 
 ## Recommended Operating Conditions
 
-| Symbol          | Description                      | Min | Typ | Max | Unit |
-| --------------- | -------------------------------- | --- | --- | --- | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 6   | 7.0 | 21  | V    |
-| V<sub>USB</sub> | Input voltage from USB connector | 4.8 | 5.0 | 5.5 | V    |
-| T<sub>OP</sub>  | Operating Temperature            | -40 | 25  | 85  | °C   |
+| Symbol              | Description                      | Min | Typ | Max | Unit |
+| ------------------- | -------------------------------- | --- | --- | --- | ---- |
+| V<sub>IN</sub>      | Input voltage from VIN pad       | 6   | 7.0 | 21  | V    |
+| V<sub>USB</sub>     | Input voltage from USB connector | 4.8 | 5.0 | 5.5 | V    |
+| T<sub>ambient</sub> | Ambient Temperature              | -40 | 25  | 105 | °C   |
 
 # Functional Overview
 
@@ -477,5 +477,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 09/11/2023 | Update SPI section, update analog/digital pin section. |
 | 11/06/2023 | Correct company name, correct VBUS/VUSB                |
 | 11/09/2023 | Block Diagram Update, Antenna Specifications           |
+| 11/15/2023 | Ambient temperature update                             |
+
 
 
