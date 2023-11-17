@@ -234,7 +234,7 @@ The device status indicates whether it is connected to the Arduino IoT Cloud (on
 
 ### Link A Thing To Your Device
 
-To use a device in IoT Cloud, you need to [create a Thing](app.arduino.cc/things), or associate it to an existing Thing. A Thing is the digital twin of your device, like a reference to the actual hardware used to implement them. Each Thing is represented by a collection of properties, the configuration of some variables and other settings, as well as the history of the data collected for those variables.
+To use a device in IoT Cloud, you need to [create a Thing](https://app.arduino.cc/things), or associate it to an existing Thing. A Thing is the digital twin of your device, like a reference to the actual hardware used to implement them. Each Thing is represented by a collection of properties, the configuration of some variables and other settings, as well as the history of the data collected for those variables.
 
 To create a Thing, click on **Create Thing** next to the device of your interest, and your Thing will be automatically created for you. 
 
@@ -257,7 +257,7 @@ The image below highlights the important elements that we will use frequently. E
 
 ### Filter your Things or Devices
 
-You can search and filter among your Things/Devices by going to **Things** or **Devices** tab in [Arduino IoT Cloud](app.arduino.cc/devices).
+You can search and filter among your Things/Devices by going to **Things** or **Devices** tab in [Arduino IoT Cloud](https://app.arduino.cc/devices).
 
 ![Search and filter among devices](assets/search-things.png)
 
@@ -309,7 +309,7 @@ Arduino Cloud, both with *Free* or *School Plan*, allows any user to download hi
 
 ***The Arduino Cloud Free Plan allows only 1 day of data retention by default. The Arduino Cloud for School Plan includes 6 months of data retention by default; this means that your data will be available and downloadable from your Arduino Cloud account for 6 months.***
 
-To start exporting your data locally, navigate into one of your dashboards on the [Arduino IoT Cloud](app.arduino.cc/dashboards). While inside a dashboard, press the **Download** icon in the upper right corner. This will open a new window that will allow you to select which historical data you would like to download.
+To start exporting your data locally, navigate into one of your dashboards on the [Arduino IoT Cloud](https://app.arduino.cc/dashboards). While inside a dashboard, press the **Download** icon in the upper right corner. This will open a new window that will allow you to select which historical data you would like to download.
 
 ![Download icon](assets/download-button.png)
 
@@ -361,7 +361,7 @@ Congratulations! Now you own a *School Plan* linked to your Arduino account. You
 
 ### Sharing Dashboards
 
-With a *School Plan* is possible to share any Dashboard with anyone. Go to the [Dashboard](app.arduino.cc/dashboards) tab in Arduino IoT Cloud, click on the three dots on the Dashboard you would like to share.
+With a *School Plan* is possible to share any Dashboard with anyone. Go to the [Dashboard](https://app.arduino.cc/dashboards) tab in Arduino IoT Cloud, click on the three dots on the Dashboard you would like to share.
 
 As shown in the image below you can either send it directly to the user's *email* or *username*, or *share the link* with your class.
 

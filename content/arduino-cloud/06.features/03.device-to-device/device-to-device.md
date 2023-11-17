@@ -22,7 +22,7 @@ The goals of this project are:
 
 ## Hardware & Software needed
 
-- [Arduino Cloud](app.arduino.cc).
+- [Arduino Cloud](https://app.arduino.cc/).
 - 2x [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) or,
 - 2x [Arduino MKR WiFi 1000](https://store.arduino.cc/arduino-mkr1000-wifi) or, 
 - 2x [Arduino Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot) or,
@@ -49,7 +49,7 @@ Follow the circuit below to connect the buttons and LEDs to your Arduino board.
 
 ## Setting up the Arduino Cloud
 
-To start, we will need to head over to the [Arduino Cloud](app.arduino.cc). This is also accessible through the menu at the top right.
+To start, we will need to head over to the [Arduino Cloud](https://app.arduino.cc/). This is also accessible through the menu at the top right.
 
 ![1Navigate to the cloud.](assets/device-to-device-img-02.png)
 

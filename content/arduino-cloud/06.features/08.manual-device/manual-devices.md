@@ -5,7 +5,7 @@ author: Karl Söderby
 tags: [Arduino Cloud, Device API, JavaScript, Node.js, Python, MicroPython]
 ---
 
-Authentication & data synchronisation is automatically handled when you choose the automatic configuration option in the [Arduino Cloud](app.arduino.cc).
+Authentication & data synchronisation is automatically handled when you choose the automatic configuration option in the [Arduino Cloud](https://app.arduino.cc/).
 
 You can during the setup of your device instead choose the manual configuration option. This allows you to connect to the cloud using the **Device API** (MicroPython, Python or Node.js).
 
@@ -43,7 +43,7 @@ Note that the Device API is designed to interact with the MQTT broker. To manage
 
 ## Configure Manual Devices
 
-To configure a manual device, go to [devices in the Arduino Cloud](app.arduino.cc/devices), and click the **"Add"** button. This will open a new window, where you will be asked to either configure automatically, or manually. Choose the **"Manual"** option.
+To configure a manual device, go to [devices in the Arduino Cloud](https://app.arduino.cc/devices), and click the **"Add"** button. This will open a new window, where you will be asked to either configure automatically, or manually. Choose the **"Manual"** option.
 
 ![Add a new device.](assets/configure-manual-device.png)
 

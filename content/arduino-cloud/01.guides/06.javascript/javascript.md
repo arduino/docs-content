@@ -28,7 +28,7 @@ To follow this guide, make sure to have:
 
 ## Cloud Setup
 
-To begin with, we need to create a manual device, and create a new [Thing](/arduino-cloud/cloud-interface/things). Navigate to the [Arduino Cloud](app.arduino.cc) and to the **"Things"** tab.
+To begin with, we need to create a manual device, and create a new [Thing](/arduino-cloud/cloud-interface/things). Navigate to the [Arduino Cloud](https://app.arduino.cc/) and to the **"Things"** tab.
 
 ### Thing & Device Configuration
 

@@ -5,7 +5,7 @@ tags: [Arduino Cloud, Events, Callbacks]
 author: 'Karl Söderby'
 ---
 
-The [Arduino Cloud](app.arduino.cc) has support for events and callbacks. This can be used to trigger specific functionalities depending on what state your device is in. 
+The [Arduino Cloud](https://app.arduino.cc/) has support for events and callbacks. This can be used to trigger specific functionalities depending on what state your device is in. 
 
 You can for example trigger a specific block of code whenever the board is in a **connecting**, **synchronized** or **disconnected** state. In this document, we will explore how to set it up, using an example from the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud/blob/master/examples/ArduinoIoTCloud-Callbacks/ArduinoIoTCloud-Callbacks.ino) library.   
 

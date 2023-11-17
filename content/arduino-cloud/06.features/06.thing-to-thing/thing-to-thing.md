@@ -20,7 +20,7 @@ The goals of this project are:
 
 ## Hardware & Software needed
 
-- [Arduino Cloud](app.arduino.cc) (with a Maker subscription, read more [here](https://store.arduino.cc/digital/create)).
+- [Arduino Cloud](https://app.arduino.cc/) (with a Maker subscription, read more [here](https://store.arduino.cc/digital/create)).
 - 2x [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) or,
 - 2x [Arduino MKR WiFi 1000](https://store.arduino.cc/arduino-mkr1000-wifi) or, 
 - 2x [Arduino Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot) or,
@@ -35,7 +35,7 @@ In this tutorial, we are using no external circuit. You will only need 2x Arduin
 
 ## Setting up the Things
 
-To start, we will need to head over to the [Arduino Cloud](app.arduino.cc). This is also accessible through the menu at the top right.
+To start, we will need to head over to the [Arduino Cloud](https://app.arduino.cc/). This is also accessible through the menu at the top right.
 
 ![Navigate to the cloud.](assets/thing-to-thing-img-00.png)
 

@@ -11,7 +11,7 @@ featuredImage: 'cloud'
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/OMvZjwFYimo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-In this tutorial you will learn how to integrate the [Arduino Cloud](app.arduino.cc) with the [Amazon Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H). At the end of this tutorial, we will be able to change the color of an  RGB matrix connected to your Arduino, using only voice commands in the Alexa app. 
+In this tutorial you will learn how to integrate the [Arduino Cloud](https://app.arduino.cc/) with the [Amazon Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H). At the end of this tutorial, we will be able to change the color of an  RGB matrix connected to your Arduino, using only voice commands in the Alexa app. 
 
 ![The Alexa and Arduino Cloud integration.](assets/alexa-mkr-rgb-shield-img-08.png)
 
@@ -30,7 +30,7 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 
-- [Arduino Cloud](app.arduino.cc)
+- [Arduino Cloud](https://app.arduino.cc/)
 - [Amazon Alexa skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H)
 - \*[Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010).
 - \*[MKR RGB Shield](https://store.arduino.cc/arduino-mkr-rgb-shield) or other RGB matrices.

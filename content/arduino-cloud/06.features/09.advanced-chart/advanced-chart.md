@@ -21,7 +21,7 @@ For example, you could set up a series of sensors around a city, and measure the
 
 ## Hardware & Software Needed
 
-- [Arduino Cloud](app.arduino.cc).
+- [Arduino Cloud](https://app.arduino.cc/).
 - Cloud compatible boards, [see full list](https://docs.arduino.cc/arduino-cloud/guides/overview#compatible-hardware).
 
 ***In this tutorial, we use the [MKR WiFi 1010](/hardware/mkr-wifi-1010) and [MKR ENV Shield](/hardware/mkr-env-shield) for recording environmental values. This is not a requirement, you can use any board for this tutorial.***

@@ -11,7 +11,7 @@ Triggers can be set up for any of your existing projects, and are found in the [
 
 ## Hardware & Software Needed
 
-- [Arduino Cloud](app.arduino.cc) (Maker plan).
+- [Arduino Cloud](https://app.arduino.cc/) (Maker plan).
 - Cloud-compatible boards, [see full list](https://docs.arduino.cc/arduino-cloud/guides/overview#compatible-hardware).
 
 ***In this tutorial, we use the [Nano 33 IoT](https://store.arduino.cc/products/arduino-nano-33-iot). This is not a requirement, you can use any Arduino Cloud-compatible board for this tutorial.***
@@ -83,7 +83,7 @@ void setup() {
   initProperties();
 
   // Connect to Arduino Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection, false, "mqtts-sa.iot.oniudra.cc");
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
      The following function allows you to obtain more information

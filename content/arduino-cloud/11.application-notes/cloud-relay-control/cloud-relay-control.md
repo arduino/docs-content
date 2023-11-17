@@ -7,7 +7,7 @@ author: 'Karl Söderby'
 
 ## Introduction
 
-This tutorial demonstrates how to use a MKR WiFi 1010 and a MKR Relay shield with the [Arduino Cloud](app.arduino.cc). We will create a simple configuration that allows us activate the relays on the shield through a dashboard.
+This tutorial demonstrates how to use a MKR WiFi 1010 and a MKR Relay shield with the [Arduino Cloud](https://app.arduino.cc/). We will create a simple configuration that allows us activate the relays on the shield through a dashboard.
 
 ***You can easily change the board and shield for another setup, as long as the board is supported by the Arduino Cloud.***
 
@@ -22,7 +22,7 @@ The goals of this project are:
 
 ## Hardware & Software needed
 
-- [Arduino Cloud](app.arduino.cc)
+- [Arduino Cloud](https://app.arduino.cc/)
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010)
 - [Arduino MKR Relay Shield](https://store.arduino.cc/arduino-mkr-relay-proto-shield)
 - Arduino Cloud Remote app (optional). 
@@ -44,7 +44,7 @@ To set up the Arduino Cloud, follow the steps below. In there, we will
 
 ### Device Configuration
 
-To configure a device, navigate to the [app.arduino.cc/devices](app.arduino.cc/devices) and click on the **"create a new device"** button. Connect your board to your computer, and make sure you have the [Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) installed. Your board will appear, and the installation takes a couple of minutes.
+To configure a device, navigate to the [app.arduino.cc/devices](https://app.arduino.cc/devices) and click on the **"create a new device"** button. Connect your board to your computer, and make sure you have the [Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) installed. Your board will appear, and the installation takes a couple of minutes.
 
 ***Learn more about Devices in the [Devices documentation](/arduino-cloud/hardware/devices).***
 
@@ -141,7 +141,7 @@ You can verify that your device is connecting properly, by checking the Serial M
 
 Once you have your device running a sketch and syncing with the Arduino Cloud, you can create a **dashboard**, a visualization tool for monitoring & interacting with your board.
 
-Navigate to [app.arduino.cc/dashboard](app.arduino.cc/dashboard) and create a dashboard. Add two switches (or any other preferred widgets), and link them to each `relay_x` variable that we created earlier. These switches will be directly linked with your Arduino MKR WiFi 1010's variables, and will turn ON/OFF the relays on your board.
+Navigate to [app.arduino.cc/dashboard](https://app.arduino.cc/dashboard) and create a dashboard. Add two switches (or any other preferred widgets), and link them to each `relay_x` variable that we created earlier. These switches will be directly linked with your Arduino MKR WiFi 1010's variables, and will turn ON/OFF the relays on your board.
 
 You can also access your dashboard via the [Arduino IoT Remote app](/arduino-cloud/iot-remote-app/getting-started).
 

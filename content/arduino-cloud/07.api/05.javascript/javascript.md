@@ -40,7 +40,7 @@ $ yarn add arduino-iot-js
 
 There are three available methods for connection:
 - Using device credentials (recommended method). 
-- Using an API key (generated and listed at [Arduino Cloud API keys](app.arduino.cc/app-keys)).
+- Using an API key (generated and listed at [Arduino Cloud API keys](https://app.arduino.cc/app-keys)).
 - Using a [JWT token](https://jwt.io/)
 
 ### Device Credentials
@@ -71,7 +71,7 @@ const { ArduinoIoTCloud } = require('arduino-iot-js');
 
 ### API Key
 
-You can also connect using an API key generated from the [Arduino Cloud API Key Section](app.arduino.cc/api-keys), a method that is almost identical to Device Credentials, but where you also need to specify your Thing ID. This is available in the metadata section of your Thing.
+You can also connect using an API key generated from the [Arduino Cloud API Key Section](https://app.arduino.cc/api-keys), a method that is almost identical to Device Credentials, but where you also need to specify your Thing ID. This is available in the metadata section of your Thing.
 
 ```js
 import { ArduinoIoTCloud } from 'arduino-iot-js';

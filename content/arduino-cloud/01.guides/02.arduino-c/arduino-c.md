@@ -30,11 +30,11 @@ You will also need a supported board:
 
 ## Setup
 
-In this section, we will go through the steps necessary to connect your Arduino board to the Arduino Cloud. To follow these steps, please make sure you have a [registered Arduino account](https://login.arduino.cc/login), and that you have access to the [Arduino Cloud](app.arduino.cc).
+In this section, we will go through the steps necessary to connect your Arduino board to the Arduino Cloud. To follow these steps, please make sure you have a [registered Arduino account](https://login.arduino.cc/login), and that you have access to the [Arduino Cloud](https://app.arduino.cc/).
 
 ### Configure Device
 
-First navigate to [Arduino Cloud](app.arduino.cc), and click on the **Devices** tab. Here you can see all your devices, and configure a new one. Depending on what type of board you have, the configuration will vary.
+First navigate to [Arduino Cloud](https://app.arduino.cc/), and click on the **Devices** tab. Here you can see all your devices, and configure a new one. Depending on what type of board you have, the configuration will vary.
 
 ***For more details, see the [documentation for devices](/arduino-cloud/hardware/devices).***
 

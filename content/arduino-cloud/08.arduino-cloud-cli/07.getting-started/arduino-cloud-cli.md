@@ -12,7 +12,7 @@ author: 'Karl Söderby, Paolo Calao'
 
 ## Introduction
 
-The [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli) is a tool developed to access features of the [Arduino Cloud service](app.arduino.cc) from the terminal. 
+The [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli) is a tool developed to access features of the [Arduino Cloud service](https://app.arduino.cc/) from the terminal. 
 
 It can be used as an automation tool to:
 - Clone existing Things & Dashboards (by extracting its template).

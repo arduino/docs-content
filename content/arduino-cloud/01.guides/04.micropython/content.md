@@ -40,7 +40,7 @@ The goals of this tutorial are:
 
 Before we start, make sure you have MicroPython installed on your board. If you haven't you can follow [this tutorial](https://docs.arduino.cc/micropython/basics/board-installation).
 
-Then, we need to configure a Thing in the [Arduino Cloud](app.arduino.cc/things) consisting of two boolean variables called `led` and `ledSwitch`. Follow the instructions below to do so.
+Then, we need to configure a Thing in the [Arduino Cloud](https://app.arduino.cc/things) consisting of two boolean variables called `led` and `ledSwitch`. Follow the instructions below to do so.
 
 ### Thing & Device Configuration
 
@@ -79,7 +79,7 @@ Your Thing should look something like this when you are finished:
 
 When finished with creating your Thing, we also need to create a dashboard, a tool to monitor & interact with the cloud variables.
 
-1. Go to the [dashboards](app.arduino.cc/dashboards) section, and **create a new dashboard.**
+1. Go to the [dashboards](https://app.arduino.cc/dashboards) section, and **create a new dashboard.**
 2. In the dashboard, first create a **LED** widget, and link it to the `led` variable we created earlier.
 3. Create a **Switch** widget, and link it to `ledSwitch`. 
 4. You should now have two widgets, looking something like the image below:
