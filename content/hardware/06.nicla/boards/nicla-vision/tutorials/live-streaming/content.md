@@ -6,7 +6,7 @@ description: This tutorial will show you how to use the Nicla Vision to stream r
 author: Christopher Mendez
 ---
 
-![Nicla Vision streamer overwiew](assets/thumb.png)
+![Nicla Vision streamer overview](assets/thumb.png)
 
 ## Overview
 In this tutorial you will use the Arduino® Nicla Vision to capture and stream a live video feed to your local network. For that, you will use the onboard camera sensor and the WiFi® connectivity. For this task you will write a MicroPython script and run it on the Nicla Vision with the help of the OpenMV IDE.
