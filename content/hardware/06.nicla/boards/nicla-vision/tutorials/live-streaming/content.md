@@ -189,7 +189,7 @@ Let's program the board with the complete script and test if everything works. C
 
 This example code can also be found in OpenMV by navigating to **File > Examples > WiFi > mjpeg_streamer**.
 
-***In the newer versions of the OpenMV IDE you must connect the board to your computer so the examples appears.***
+***In the newer versions of the OpenMV IDE you must connect the board to your computer so the examples appear.***
 
 ```python
 import sensor
