@@ -187,6 +187,10 @@ def start_streaming(s):
 ### 4. Uploading the Script
 Let's program the board with the complete script and test if everything works. Copy the following script and paste it into the new script file that you created.
 
+This example code can also be found in OpenMV by navigating to **File > Examples > WiFi > mjpeg_streamer**.
+
+***In the newer versions of the OpenMV IDE you must connect the board to your computer so the examples appears.***
+
 ```python
 import sensor
 import time
