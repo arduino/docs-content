@@ -309,6 +309,13 @@ void loop() {
 
     if (checkButtonPress()) {
       dataLoggingStarted = true;
+
+      // Turn off all the user LEDs
+      for (int i = 0; i < 4; i++) {
+        pinMode(led_pins[i], OUTPUT);
+        digitalWrite(led_pins[i], LOW);
+      }
+
       // Turn on LED_D0 for data logging indication
       digitalWrite(led_pins[0], HIGH); 
       Arduino_UnifiedStorage::debugPrint("- Data logging started!");
