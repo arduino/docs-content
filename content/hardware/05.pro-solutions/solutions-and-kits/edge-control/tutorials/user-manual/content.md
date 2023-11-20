@@ -1124,6 +1124,10 @@ The Edge Control supports I2C communication, which allows data transmission betw
 
 The NINA-B306 has two I2C ports, the I2C_1 is the one shared with the internal components and the MKR1 header, and the I2C_2 is exclusively connected to the MKR2 header.
 
+![Edge Control I2C Pins on MKR Connectors](assets/i2c-pins.png)
+
+***Use `Wire` to communicate with MKR1 (I2C_1), and `Wire1` to communicate with MKR2 (I2C_2).***
+
 To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
 
 ```arduino
@@ -1133,7 +1137,7 @@ In the setup() function, initialize the I2C library:
 
 ```arduino
 // Initialize the I2C communication
-Wire.begin();
+Wire.begin();   // Wire to use I2C_1 for MKR1
 ```
 
 To transmit data to an I2C-compatible device, you can use the following commands:
@@ -1178,7 +1182,7 @@ while (Wire.available()) {
 }
 ```
 
-In the example code below, we are going to communicate the `Edge Control` with a `MKR WiFi 1010`. With a potentiometer connected to the Edge Control, the onboard `LED` of the `MKR board` will be controlled, so we will be sending the brightness value through I2C to it.  
+In the example code below, we are going to communicate the `Edge Control` with a `MKR WiFi 1010` connected to MKR1 connector. With a potentiometer connected to the Edge Control, the onboard `LED` of the `MKR board` will be controlled, so we will be sending the brightness value through I2C to it.  
 
 ***Use the same connection from [this section](#analog-inputs) for the potentiometer wiring.***
 
@@ -1265,7 +1269,7 @@ void writeBytes(uint8_t *buf, uint8_t len) {
 }
 ```
 
-#### MKR WiFi Code
+#### MKR WiFi 1010 Code
 
 ```arduino
 #include <Wire.h>
