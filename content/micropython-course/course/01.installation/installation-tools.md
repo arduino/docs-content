@@ -16,8 +16,8 @@ In this chapter we will go over how to install the prerequisite software: the **
 
 The software you will have installed are:
 
-- [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython)
-- The [Arduino MicroPython Installer](https://labs.arduino.cc/en/labs/micropython-installer)
+- Arduino Lab for MicroPython
+- The Arduino MicroPython Installer
 
 ![The Installed Software](./assets/apps-open.png)
 
@@ -39,7 +39,7 @@ The **Firmware Installer** program will help install MicroPython on your board.
 
 It will automatically download the latest version of the MicroPython firmware and install it on your board, so that all you need to do is to connect the board and press a button.
 
-First [download the app here](), and extract the files to a folder on your computer.
+First [download the app here](https://labs.arduino.cc/en/labs/micropython-installer), and extract the files to a folder on your computer.
 
 If you're on macOS, move the application to your **Applications** folder.
 
