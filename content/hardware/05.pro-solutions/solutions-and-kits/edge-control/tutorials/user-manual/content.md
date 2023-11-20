@@ -180,14 +180,14 @@ The Edge Control has **eight analog input pins**, mapped as follows:
 
 |       **Input Name**      |        **Arduino Pin Mapping**      |
 |:-------------------------:|:-----------------------------------:|
-|      `0-5V Channel 1`     |           `INPUT_05V_CH01`          |
-|      `0-5V Channel 2`     |           `INPUT_05V_CH02`          |
-|      `0-5V Channel 3`     |           `INPUT_05V_CH03`          |
-|      `0-5V Channel 4`     |           `INPUT_05V_CH04`          |
-|      `0-5V Channel 5`     |           `INPUT_05V_CH05`          |
-|      `0-5V Channel 6`     |           `INPUT_05V_CH06`          |
-|      `0-5V Channel 7`     |           `INPUT_05V_CH07`          |
-|      `0-5V Channel 8`     |           `INPUT_05V_CH08`          |
+|      0-5V Channel 1     |           INPUT_05V_CH01          |
+|      0-5V Channel 2     |           INPUT_05V_CH02          |
+|      0-5V Channel 3     |           INPUT_05V_CH03          |
+|      0-5V Channel 4     |           INPUT_05V_CH04          |
+|      0-5V Channel 5     |           INPUT_05V_CH05          |
+|      0-5V Channel 6     |           INPUT_05V_CH06          |
+|      0-5V Channel 7     |           INPUT_05V_CH07          |
+|      0-5V Channel 8     |           INPUT_05V_CH08          |
 
 Every pin can be used through the built-in functions of the Arduino programming language. 
 
@@ -311,12 +311,12 @@ The Edge Control has **six interrupt request input pins**, mapped as follows:
 
 |             **Input Name**           |    **Arduino Pin Mapping**   |
 |:------------------------------------:|:----------------------------:|
-|      `Interrupt Request Input 1`     |           `IRQ_CH1`          |
-|      `Interrupt Request Input 2`     |           `IRQ_CH2`          |
-|      `Interrupt Request Input 3`     |           `IRQ_CH3`          |
-|      `Interrupt Request Input 4`     |           `IRQ_CH4`          |
-|      `Interrupt Request Input 5`     |           `IRQ_CH5`          |
-|      `Interrupt Request Input 6`     |           `IRQ_CH6`          |
+|      Interrupt Request Input 1     |           IRQ_CH1          |
+|      Interrupt Request Input 2     |           IRQ_CH2          |
+|      Interrupt Request Input 3     |           IRQ_CH3          |
+|      Interrupt Request Input 4     |           IRQ_CH4          |
+|      Interrupt Request Input 5     |           IRQ_CH5          |
+|      Interrupt Request Input 6     |           IRQ_CH6          |
 
 The IRQ inputs of the Edge Control can be used through the built-in functions of the Arduino programming language. The configuration of an interrupt pin is done in the `setup()` function with the function `attachInterrupt()` as shown below:
 
@@ -399,10 +399,10 @@ The Edge Control has **four 4-20mA input pins**, mapped as follows:
 
 |          **Input Name**          |         **Arduino Pin Mapping**       |
 |:--------------------------------:|:-------------------------------------:|
-|      `4-20mA Sensor Input 1`     |           `INPUT_420mA_CH01`          |
-|      `4-20mA Sensor Input 2`     |           `INPUT_420mA_CH02`          |
-|      `4-20mA Sensor Input 3`     |           `INPUT_420mA_CH03`          |
-|      `4-20mA Sensor Input 4`     |           `INPUT_420mA_CH04`          |
+|      4-20mA Sensor Input 1     |           INPUT_420mA_CH01          |
+|      4-20mA Sensor Input 2     |           INPUT_420mA_CH02          |
+|      4-20mA Sensor Input 3     |           INPUT_420mA_CH03          |
+|      4-20mA Sensor Input 4     |           INPUT_420mA_CH04          |
 
 Every 4-20mA input can be read through the built-in functions of the Arduino programming language. They are sampled the same way as the 0-5V analog inputs but the input value is read via a 220 ohm resistor and a +19V reference.
 
@@ -510,22 +510,22 @@ The Edge Control has **16 Watermark sensor inputs**, mapped as follows:
 
 |          **Input Name**          |         **Arduino Pin Mapping**       |
 |:--------------------------------:|:-------------------------------------:|
-|      `Watermark Sensor Input 1`     |           `WATERMARK_CH01`          |
-|      `Watermark Sensor Input 2`     |           `WATERMARK_CH02`          |
-|      `Watermark Sensor Input 3`     |           `WATERMARK_CH03`          |
-|      `Watermark Sensor Input 4`     |           `WATERMARK_CH04`          |
-|      `Watermark Sensor Input 5`     |           `WATERMARK_CH05`          |
-|      `Watermark Sensor Input 6`     |           `WATERMARK_CH06`          |
-|      `Watermark Sensor Input 7`     |           `WATERMARK_CH07`          |
-|      `Watermark Sensor Input 8`     |           `WATERMARK_CH08`          |
-|      `Watermark Sensor Input 9`     |           `WATERMARK_CH09`          |
-|      `Watermark Sensor Input 10`     |           `WATERMARK_CH010`          |
-|      `Watermark Sensor Input 11`     |           `WATERMARK_CH011`          |
-|      `Watermark Sensor Input 12`     |           `WATERMARK_CH012`          |
-|      `Watermark Sensor Input 13`     |           `WATERMARK_CH013`          |
-|      `Watermark Sensor Input 14`     |           `WATERMARK_CH014`          |
-|      `Watermark Sensor Input 15`     |           `WATERMARK_CH015`          |
-|      `Watermark Sensor Input 16`     |           `WATERMARK_CH016`          |
+|      Watermark Sensor Input 1     |           WATERMARK_CH01          |
+|      Watermark Sensor Input 2     |           WATERMARK_CH02          |
+|      Watermark Sensor Input 3     |           WATERMARK_CH03          |
+|      Watermark Sensor Input 4     |           WATERMARK_CH04          |
+|      Watermark Sensor Input 5     |           WATERMARK_CH05          |
+|      Watermark Sensor Input 6     |           WATERMARK_CH06          |
+|      Watermark Sensor Input 7     |           WATERMARK_CH07          |
+|      Watermark Sensor Input 8     |           WATERMARK_CH08          |
+|      Watermark Sensor Input 9     |           WATERMARK_CH09          |
+|      Watermark Sensor Input 10     |           WATERMARK_CH010          |
+|      Watermark Sensor Input 11     |           WATERMARK_CH011          |
+|      Watermark Sensor Input 12     |           WATERMARK_CH012          |
+|      Watermark Sensor Input 13     |           WATERMARK_CH013          |
+|      Watermark Sensor Input 14     |           WATERMARK_CH014          |
+|      Watermark Sensor Input 15     |           WATERMARK_CH015          |
+|      Watermark Sensor Input 16     |           WATERMARK_CH016          |
 
 Watermark sensors are capable of measuring the physical force holding the water in the soil. Those measurements are correlated with the effort plants have to make to extract water from the soil, a really interesting data for agricultural applications.
 
@@ -766,14 +766,14 @@ The board provides a total of 16 latching ports divided in 2 types:
 
   |        **Output Name**        |       **Arduino Pin Mapping**       |
   |:----------------------------:|:-----------------------------------:|
-  |      `Latching Output 1`     |           `LATCHING_OUT_1`          |
-  |      `Latching Output 2`     |           `LATCHING_OUT_2`          |
-  |      `Latching Output 3`     |           `LATCHING_OUT_3`          |
-  |      `Latching Output 4`     |           `LATCHING_OUT_4`          |
-  |      `Latching Output 5`     |           `LATCHING_OUT_5`          |
-  |      `Latching Output 6`     |           `LATCHING_OUT_6`          |
-  |      `Latching Output 7`     |           `LATCHING_OUT_7`          |
-  |      `Latching Output 8`     |           `LATCHING_OUT_8`          |
+  |      Latching Output 1     |           LATCHING_OUT_1          |
+  |      Latching Output 2     |           LATCHING_OUT_2          |
+  |      Latching Output 3     |           LATCHING_OUT_3          |
+  |      Latching Output 4     |           LATCHING_OUT_4          |
+  |      Latching Output 5     |           LATCHING_OUT_5          |
+  |      Latching Output 6     |           LATCHING_OUT_6          |
+  |      Latching Output 7     |           LATCHING_OUT_7          |
+  |      Latching Output 8     |           LATCHING_OUT_8          |
 
 These outputs can handle up to 3.3 A, so they can manage loads directly without problem. Motorized valves or solenoid latching valves are perfect examples of devices to control with these outputs.
 
@@ -792,14 +792,14 @@ If you want to know more about using this outputs, follow our guide: [Connecting
 
   |        **Output Name**        |       **Arduino Pin Mapping**       |
   |:----------------------------:|:-----------------------------------:|
-  |      `Latching Command 1`     |           `LATCHING_CMD_1`          |
-  |      `Latching Command 2`     |           `LATCHING_CMD_2`          |
-  |      `Latching Command 3`     |           `LATCHING_CMD_3`          |
-  |      `Latching Command 4`     |           `LATCHING_CMD_4`          |
-  |      `Latching Command 5`     |           `LATCHING_CMD_5`          |
-  |      `Latching Command 6`     |           `LATCHING_CMD_6`          |
-  |      `Latching Command 7`     |           `LATCHING_CMD_7`          |
-  |      `Latching Command 8`     |           `LATCHING_CMD_8`          |
+  |      Latching Command 1     |           LATCHING_CMD_1          |
+  |      Latching Command 2     |           LATCHING_CMD_2          |
+  |      Latching Command 3     |           LATCHING_CMD_3          |
+  |      Latching Command 4     |           LATCHING_CMD_4          |
+  |      Latching Command 5     |           LATCHING_CMD_5          |
+  |      Latching Command 6     |           LATCHING_CMD_6          |
+  |      Latching Command 7     |           LATCHING_CMD_7          |
+  |      Latching Command 8     |           LATCHING_CMD_8          |
 
 These outputs must be connected to external devices through third-party protection/power circuits with high impedance inputs (max +/- 25 mA). They are suitable for custom applications where just the activation signal is needed. For example for using external relay modules or direct connections with other control devices like PLC inputs.
 
@@ -856,10 +856,10 @@ The Edge Control has **four solid state relay outputs**, mapped as follows:
 
 |          **Output Name**          |         **Arduino Pin Mapping**       |
 |:--------------------------------:|:-------------------------------------:|
-|      `Solid State Relay 1`     |           `RELAY_CH01`          |
-|      `Solid State Relay 2`     |           `RELAY_CH02`          |
-|      `Solid State Relay 3`     |           `RELAY_CH03`          |
-|      `Solid State Relay 4`     |           `RELAY_CH04`          |
+|      Solid State Relay 1     |           RELAY_CH01          |
+|      Solid State Relay 2     |           RELAY_CH02          |
+|      Solid State Relay 3     |           RELAY_CH03          |
+|      Solid State Relay 4     |           RELAY_CH04          |
 
 This relay outputs are suitable for AC loads with a current draw below 2.5A and a 24V AC power supply.
 
@@ -874,7 +874,7 @@ Relay.off(RELAY_CH01);  // this command opens the channel 1 relay contacts
 
 The example code shown below closes and opens the first channel `Relay Contact` repetitively, turning on and off the connected load:
 
-```cpp
+```arduino
 #include "Arduino_EdgeControl.h"
 
 // #define SSR_POLL
@@ -965,7 +965,7 @@ To power on or off a power rail the `Power.on(<rail>)` and `Power.off(<rail>)` f
 
 The different commands and controllable power rails will be specified in the list below:
 
-```cpp
+```arduino
 Power.on(PWR_VBAT); // turns on the 12V power rails for the "Latching Outputs" 
 Power.on(PWR_3V3); // turns on the 3.3V power rail for the micro SD Card 
 Power.on(PWR_19V);  // turns on the 19V power rail for the 4-20mA sensors reference
@@ -997,7 +997,7 @@ To display text, we use the `LCD.print(text)` function.
 
 The example code below prints "Edge Control" in the first row and starts a seconds counter in the second one:
 
-```cpp
+```arduino
 #include <Arduino_EdgeControl.h>
 
 void setup() {
@@ -1026,7 +1026,7 @@ The Enclosure Kit includes a push button so you can interact with the device in 
 
 To read the button state we can use the built-in functions of the Arduino programming language. We first need to define it as an input using the `POWER_ON` macro.
 
-```cpp
+```arduino
 pinMode(POWER_ON, INPUT); // the push button is addressed to the MCU input as "POWER_ON"
 ```
 
@@ -1036,7 +1036,7 @@ The state of the button can be read as usual with the `digitalRead(POWER_ON)` fu
 
 In the example code below, we will attach the input to an interrupt and increase a counter with every tap shown in the LCD.
 
-```cpp
+```arduino
 #include <Arduino_EdgeControl.h>
 
 // Keep track of toggle-style press with an ISR
@@ -1086,13 +1086,13 @@ In the example code, there is a .h file called Helpers that includes very useful
 Initially, you must set the current time as a reference for the RTC. This is made just once and can be done using the function setEpoch([Current Unix Time](https://www.unixtimestamp.com/)):
 
 
-```cpp
+```arduino
 RealTimeClock.setEpoch(Unix Time); // You can use the timestamp generated on https://www.unixtimestamp.com/. Be aware that the time found on the webpage is UTC.
 ```
 
 The `time(NULL)` function returns the Unix time (seconds since Jan 1st 1970), this is perfect for cloud and servers data logging. 
 
-```cpp
+```arduino
 getRTDateTime(); // 2023-09-30 16:33:19 
 getRTCTime(); // 16:33:19
 getRTCDate(); // 2023-09-30
@@ -1100,7 +1100,7 @@ getRTCDate(); // 2023-09-30
 
 Also, you can use these more specific functions to retrieve the time in a custom way:
 
-```cpp
+```arduino
 RealTimeClock.getYears(); //return the current year
 RealTimeClock.getMonths();  //return the current month
 RealTimeClock.getDays();  //return the current day
@@ -1126,19 +1126,19 @@ The NINA-B306 has two I2C ports, the I2C_1 is the one shared with the internal c
 
 To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
 
-```cpp
+```arduino
 #include <Wire.h>
 ```
 In the setup() function, initialize the I2C library:
 
-```cpp
+```arduino
 // Initialize the I2C communication
 Wire.begin();
 ```
 
 To transmit data to an I2C-compatible device, you can use the following commands:
 
-```cpp
+```arduino
 // Replace with the target device's I2C address
 byte deviceAddress = 0x05; 
 
@@ -1162,7 +1162,7 @@ Wire.endTransmission();
 ```
 To read data from an I2C-compatible device, you can use the `requestFrom()` function to request data from the device and the `read()` function to read the received bytes:
 
-```cpp
+```arduino
 // The target device's I2C address
 byte deviceAddress = 0x05; 
 
@@ -1186,7 +1186,7 @@ In the example code below, we are going to communicate the `Edge Control` with a
 
 #### Edge Control Code
 
-```cpp
+```arduino
 #include <Arduino_EdgeControl.h>
 
 // The MKR1 board I2C address
@@ -1267,7 +1267,7 @@ void writeBytes(uint8_t *buf, uint8_t len) {
 
 #### MKR WiFi Code
 
-```cpp
+```arduino
 #include <Wire.h>
 #include <WiFiNINA.h>
 #include <utility/wifi_drv.h>
@@ -1405,7 +1405,7 @@ This example shows how to export Arduino functions as remote procedure calls (RP
 
 #### Edge Control Code
 
-```cpp
+```arduino
 #include <Arduino_EdgeControl.h>
 
 bool led { false };
@@ -1436,7 +1436,7 @@ void loop()
 
 #### MKR Code
 
-```cpp
+```arduino
     void setup() {
       Serial1.begin(9600);  // must be the same on both devices
       pinMode(LED_BUILTIN, OUTPUT);
@@ -1465,7 +1465,7 @@ The example code used below is an adaptation of the "Datalogger" example include
 
 The same wiring of the [analog input section](#analog-inputs) can be used, with the addition of an micro SD card attached.
 
-```cpp
+```arduino
 #include <Arduino_EdgeControl.h>
 #include <SPI.h>
 #include <SD.h>
