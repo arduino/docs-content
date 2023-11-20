@@ -128,7 +128,7 @@ After the sketch is uploaded, follow the instructions in the Serial Monitor.
 
 ### Pinout
 
-![Nicla Vision pinout](assets/simple-pinout.png)
+![Nicla Vision pinout](assets/ABX00051-pinout.png)
 
 The full pinout is available and downloadable as PDF from the link below:
 
