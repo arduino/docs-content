@@ -113,4 +113,4 @@ To do this, **tap the reset button twice**, but not too fast (about 1 second bet
 
 Congratulations! You’ve completed the installation chapter of MicroPython 101.
 
-Having trouble? Continue to the troubleshooting section. Otherwise, move on to the [Next chapter](/micropython-course/course/digital).
+Having trouble? Continue to the troubleshooting section. Otherwise, move on to the [Next chapter](/micropython-course/course/introduction-python).
