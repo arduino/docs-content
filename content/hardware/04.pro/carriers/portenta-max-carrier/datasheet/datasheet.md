@@ -52,7 +52,7 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 
 ### Accessories (Not Included)
 *   LoRa® antenna (e.g. ANT-8/9-IPW1-SMA)
-*   LTE / CAT.M1 / NB-IoT antenna (e.g. MEA-3L-SMA-LP)
+*   Cellular LTE / CAT.M1 / NB-IoT antenna (e.g. ANT-5GW-SPS1-2)
 *   Mini PCIe expansion boards
 *   SIM card
 *   3.7V 18650 Li-ion battery
@@ -500,4 +500,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
+| 11/20/2023 | 2            | Recommended antennas added |
 | 10/05/2022 | 1            | First Release |
