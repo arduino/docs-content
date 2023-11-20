@@ -969,12 +969,7 @@ while True:
 
 From the above example script, we can highlight the main functions:
 
-- `sensor.set_pixformat(<Sensor>)` lets you set the pixel format for the camera sensor. The Nicla Vision is compatible with these: 
-
-  1. `sensor.GRAYSCALE`
-  2.  `sensor.RGB565` 
-  3.  `sensor.BAYER`
-  4. `sensor.YUV422` 
+- `sensor.set_pixformat(<Sensor>)` lets you set the pixel format for the camera sensor. The Nicla Vision is compatible with these: `sensor.GRAYSCALE`, `sensor.RGB565`, `sensor.BAYER`, and `sensor.YUV422`. 
 
   To define the pixel format to any of the supported ones, just add it to the `set_pixformat` function argument.
 
