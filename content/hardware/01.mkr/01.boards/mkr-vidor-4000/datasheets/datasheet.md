@@ -466,7 +466,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 2. This device must accept any interference received, including interference that may cause undesired operation.
 
-FCC RF Radiation Exposure Statement:**
+**FCC RF Radiation Exposure Statement:**
 
 1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter
 
@@ -479,6 +479,7 @@ FCC RF Radiation Exposure Statement:**
     * Reorient or relocate the receiving antenna.
     * Increase the separation between the equipment and receiver.
     * Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
+    * Consult the dealer or an experienced radio/TV technician for help.
 
 <div style="page-break-after: always;"></div>
 
