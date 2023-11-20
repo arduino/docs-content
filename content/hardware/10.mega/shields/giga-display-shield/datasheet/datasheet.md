@@ -72,7 +72,7 @@ The GIGA Display Shield provides easy cross-form factor support for an external 
 | V<sub>IN</sub> | Input voltage from VIN header | 6    | 7.0 | 32  | V    |
 | V<sub>DD</sub> | Input high-level voltage      | 2.31 |     | 3.3 | V    |
 | V<sub>IL</sub> | Input low-level voltage       | 0    |     | 1   | V    |
-| T<sub>OP</sub> | Operating Temperature         | 0    | 25  | 65  | °C   |
+| T<sub>OP</sub> | Operating Temperature         | -20  | +25 | +70 | °C   |
 
 
 <div style="page-break-after: always;"> </div>
@@ -251,6 +251,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Changes** |
-| ---------- | ----------- |
-| 24/07/2023 | Release     |
+| **Date**   | **Changes**                  |
+| ---------- | ---------------------------- |
+| 2023/07/24 | Release                      |
+| 2023/11/17 | Update operating temperature |
