@@ -17,11 +17,11 @@ Industry, Surveillance
 Note: This board needs the Arduino Portenta H7 or Portenta C33 to function.
 
 -   **Himax HM-01B0 camera module**
-    -   Ultra Low Power Image Sensor designed for Always-on vision devices and applications
-    -   High sensitivity 3.6μ BrightSenseTM pixel technology
+    -   Ultra-Low-Power Image Sensor designed for always-on vision devices and applications
+    -   High-sensitivity 3.6 μ BrightSenseTM pixel technology
     -   Window, vertical flip and horizontal mirror readout
     -   Programmable black level calibration target, frame size, frame rate, exposure, analog gain (up to 8x) and digital gain (up to 4x)
-    -   Automatic exposure and gain control loop with support for 50Hz / 60Hz flicker avoidance
+    -   Automatic exposure and gain control loop with support for 50 Hz / 60 Hz flicker avoidance
     -   Motion Detection circuit with programmable ROI and detection threshold with digital output to serve as an interrupt
 
     -   **Supported resolutions**
@@ -29,8 +29,8 @@ Note: This board needs the Arduino Portenta H7 or Portenta C33 to function.
         -   QVGA (320x240) at 15, 30 and 60 FPS
 
     -   **Power**
-        -   \<1.1mW QQVGA resolution at 30FPS,
-        -   \< 2mW QVGA resolution at 30FPS
+        -   \< 1.1 mW QQVGA resolution at 30 FPS,
+        -   \< 2 mW QVGA resolution at 30 FPS
 
 -   **2x MP34DT06JTR MEMS PDM Digital Microphone**
 
