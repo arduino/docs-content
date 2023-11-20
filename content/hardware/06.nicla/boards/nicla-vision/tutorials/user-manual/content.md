@@ -1568,6 +1568,8 @@ To begin with UART communication, you'll need to configure it first. In the `set
 Serial1.begin(115200);  // Serial1 for the external UART pins | Serial for the internal virtual/monitor UART
 ```
 
+***Using the Arduino, IDE the minimum supported baud rate is 19200.***
+
 To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown above stores the incoming characters in a String variable and processes the data when a line-ending character is received:
 
 ```arduino
