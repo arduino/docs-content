@@ -970,12 +970,13 @@ while True:
 From the above example script, we can highlight the main functions:
 
 - `sensor.set_pixformat(<Sensor>)` lets you set the pixel format for the camera sensor. The Nicla Vision is compatible with these: 
-  * `sensor.GRAYSCALE`
-  * `sensor.RGB565` 
-  * `sensor.BAYER`
-  * `sensor.YUV422` 
 
-To define the pixel format to any of the supported ones, just add it to the `set_pixformat` function argument.
+  1. `sensor.GRAYSCALE`
+  2.  `sensor.RGB565` 
+  3.  `sensor.BAYER`
+  4. `sensor.YUV422` 
+
+  To define the pixel format to any of the supported ones, just add it to the `set_pixformat` function argument.
 
 - `sensor.set_framesize(<Resolution>)` lets you define the image frame size in terms of pixels. [Here](https://docs.openmv.io/library/omv.sensor.html#sensor.set_framesize) you can find all the different options.
 
