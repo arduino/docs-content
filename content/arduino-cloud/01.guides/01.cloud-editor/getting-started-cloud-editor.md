@@ -26,7 +26,7 @@ In this tutorial, we will achieve the following:
 
 - [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Create Agent](https://create.arduino.cc/getting-started/plugin/welcome)
-- Arduino board
+- Arduino board (all Arduino boards are supported).
 - USB cable (different depending on the board you are using).
 
 ## Setting up the Cloud Editor
@@ -37,11 +37,11 @@ We will now go through the necessary steps to get your Arduino board working wit
 
 The first step is to create an account. This is done by navigating to the [Log-in page](login.arduino.cc/login). Here, you can either manually create an account, or log in using for example Google.
 
-![Log in to your Arduino account.](assets/WebEditorInstall_1.png)
+![Log in to your Arduino account.](assets/login.png)
 
-### Install a Plugin
+### Install Create Agent
 
-Once you have created and activated your account, we need to install the **Create Plugin.** This is done by navigating to the [Create Agent Installation page](https://create.arduino.cc/getting-started/plugin/welcome). Here, you simply need to click on **"Start"** to begin the installation.
+Once you have created and activated your account, we need to install the **Create Agent.** This is done by navigating to the [Create Agent Installation page](https://create.arduino.cc/getting-started/plugin/welcome). Here, you simply need to click on **"Start"** to begin the installation.
 
 ![Installing.](assets/WebEditorInstall_2.png)
 
@@ -55,31 +55,31 @@ When we are done, we should see this screen:
 
 Congratulations, you now have the necessary tools to start using the Cloud Editor.
 
-> You can find the Arduino Create Agent files by following the path that relates to your operative system:
-> 
-> **Windows:** `C:\Users\{username}\AppData\Roaming\ArduinoCreateAgent`
-> 
-> **MacOS:** `Users/{username}/Applications/ArduinoCreateAgent`
-> 
-> **Linux:** `/home/<user>/ArduinoCreateAgent`
+You can find the Arduino Create Agent files by following the path that relates to your operative system:
+- **Windows:** - `C:\Users\{username}\AppData\Roaming\ArduinoCreateAgent`
+- **MacOS:** - `Users/{username}/Applications/ArduinoCreateAgent`
+- **Linux:** - `/home/<user>/ArduinoCreateAgent`
 
 ## Upload a Program
 
-Now, let's take a look at how the Cloud Editor works, by uploading a simple example to the board. First, we need to navigate to the Cloud Editor, by either [clicking this link](https://create.arduino.cc/editor) or clicking the menu at the top right corner, following the image below:
+Now, let's take a look at how the Cloud Editor works, by uploading a simple example to the board. First, we need to navigate to the Cloud Editor, by either [clicking this link](https://create.arduino.cc/editor) or clicking the **Arduino Cloud icon** at the top right corner, following the image below:
 
-![Clicking on the Cloud Editor button.](assets/WebEditorInstall_4.png)
+![Clicking on the Arduino Cloud button.](assets/quick-access.png)
 
-Once you are in the Cloud Editor, you can see any board that you have connected to the computer. In this case, we have a **Arduino MKR WiFi 1010** at port **COM29** connected. Yours may look differently. This means that the board is recognized and the Create Agent is working.
+In the Arduino Cloud home page, click on **"New Sketch File**. This will direct you to the Cloud Editor.
 
-![Check if connected boards can be found.](assets/WebEditorInstall_5.png)
+![Create new sketch file.](assets/create-sketch.png)
 
-Now, let's test it out by uploading the basic **Blink example.** This is done by navigating to **Examples > 01.Basics > Blink**, following the image below.
+Once you are in the Cloud Editor, you can also access all the built-in examples. Navigate to **Examples > 01.Basics > Blink**, following the image below. This will open the classic blink example, which we will later upload to the board.
 
-![Selecting the blink example.](assets/WebEditorInstall_6.png)
+![Check if connected boards can be found.](assets/blink.png)
 
-To upload it, click on the arrow in the top left corner of the editor. Do not disconnect the board during the uploading phase.
 
-![Upload the sketch to the board.](assets/WebEditorInstall_7.png)
+To upload it, we first need to **select our board.** If you [installed the Create Agent](#install-a-plugin), your board should appear in the dropdown menu. Select your board (in this case, it is an **Arduino Due** at port `/dev/cu.usbmodem1011`). On Windows this will be something like `COM5`.
+
+Once your board is selected, click the upload button following the image below.
+
+![Upload the sketch to the board.](assets/upload.png)
 
 Once it is uploaded, there should be a message in the bottom of the editor saying:
 
