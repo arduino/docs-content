@@ -1,11 +1,11 @@
 ---
 title: MicroPython
-url: /microPython/
+url: /micropython/
 icon: IconMicroPhyton
 link: /micropython/
 links:
   [
-    { title: "Board Installation", url: /link1 },
+    { title: "Board Installation", url: /micropython/basics/board-installation },
     { title: "Project Examples", url: /link2 },
     { title: "MicroPython Basics", url: /link3 },
     { title: "Code Editors", url: /link4 },
