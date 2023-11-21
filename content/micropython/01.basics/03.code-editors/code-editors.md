@@ -1,30 +1,29 @@
----
-title: Code Editors
-description: Explore the available code editors for programming your Arduino board with MicroPython
-author: Francesca Sanfilippo & Karl Söderby
-micropython_type: basics
-featured: micropython
-hero_image: "./hero-banner.png"
----
+const int Trigger = 2;
+const int Echo = 3; 
 
-To write and load scripts to your board, you will also need a Code Editor. In this page, you will find two alternatives:
-- **Arduino Lab for MicroPython:** an experimental editor from Arduino, designed for simpler projects.
-- **OpenMV:** an editor for  more complex projects, such as computer vision.
+void setup() {
+ Serial.begin(9600);
+ pinMode(Trigger, OUTPUT);
+ pinMode(Echo, INPUT);
+ digitalWrite(Trigger, LOW);
+}
 
-## Arduino Lab for MicroPython
-
-Arduino Lab for MicroPython is a software that supports programming Arduino boards with MicroPython. Through the customized editor, we can install MicroPython, and upload scripts directly to the board.  The editor is able to manage the files and you can see what is uploaded on the board and vice versa.
-
-![Arduino Lab for MicroPython](assets/mpylabs-ss.png)
-
-- [Download Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython).
-
-## OpenMV Editor
-
-OpenMV is a platform that supports programming Arduino boards with MicroPython. Through the OpenMV editor, we can install MicroPython and upload scripts directly to the board. There's also a number of examples available directly in the editor.
-
-![OpenMV editor.](assets/openmv-ss.png)
-
-- [Download OpenMV](https://openmv.io/pages/download).
-
-***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/10-Arduino-Boards).***
+void loop()
+{
+ 
+long t; //Tiempo de regreso
+ long d; //Distancia en centímetros
+  
+ digitalWrite(Trigger, HIGH);
+ delayMicroseconds(10); //Se envía un pulso de 10us
+ digitalWrite(Trigger, LOW);
+ 
+ t = pulseIn(Echo, HIGH); 
+ d = t/59; //Se obtiene la distancia en centímetros
+ 
+ Serial.print("Distancia: ");
+ Serial.print(d);
+ Serial.print("cm");
+ Serial.println();
+ delay(100); //Hacemos una pausa de 100ms
+}
