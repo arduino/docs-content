@@ -63,7 +63,9 @@ Data logging, particularly in industrial environments, is essential for predicti
 
 ![USB memory sticks and data logging with Opta™ devices](assets/illustration-1.png)
 
-To manage the communication between a USB memory stick and an Opta™ device, you will use the [`Arduino_UnifiedStorage` library](https://github.com/arduino-libraries/Arduino_UnifiedStorage/tree/main). This library is excellent for working with different types of storage, including the FAT file systems that USB memory sticks often use. The main benefit of this library is that it makes dealing with various storage devices and file systems more straightforward. This is especially important in industrial data logging, where you need reliable and accurate data recording. The `Arduino_UnifiedStorage` library simplifies how to read and write data to external storage devices, ensuring precise and consistent data logging. You can learn more about this library in the [following blog post](https://blog.arduino.cc/2023/11/10/introducing-arduinos-new-storage-libraries-streamline-data-management-for-your-projects/).
+To manage the communication between a USB memory stick and an Opta™ device, you will use the [`Arduino_UnifiedStorage` library](https://github.com/arduino-libraries/Arduino_UnifiedStorage/tree/main). This library is excellent for working with different types of storage, including the FAT file systems that USB memory sticks often use. The main benefit of this library is that it makes dealing with various storage devices and file systems more straightforward. This is especially important in industrial data logging, where you need reliable and accurate data recording. 
+
+***The `Arduino_UnifiedStorage` library simplifies how to read and write data to external storage devices, ensuring precise and consistent data logging. You can learn more about this library in the [following blog post](https://blog.arduino.cc/2023/11/10/introducing-arduinos-new-storage-libraries-streamline-data-management-for-your-projects/).***
 
 ## Instructions 
 
@@ -75,7 +77,7 @@ In the Boards Manager tab, search for `opta` and install the latest `Arduino Mbe
 
 ![Installing the Opta™ core in the Arduino IDE](assets/arduino-ide-1.png)
 
-You can start compiling and uploading Arduino sketches to an Opta™ device using the Arduino IDE.
+You can start now compiling and uploading Arduino sketches to an Opta™ device using the Arduino IDE.
 
 ### Installing the Required Libraries 
 
@@ -89,15 +91,15 @@ This tutorial also requires the latest version of the `Arduino_UnifiedStorage` l
 
 ### Setting Up the Hardware
 
-Connect a +12-24 VDC/0.5 A power supply to your Opta™ device; for receiving debug messages, connect a USB to RS-485 converter to the RS-485 interface of your Opta™ device. The example sketch log data from the analog inputs ports `I1`, `I2`, `I3`, and `I4` of an Opta™ device connect an analog signal source to these input ports to test this functionality. For programming your Opta™ device, connect it to your computer using a USB-C® cable. 
+Connect a +12-24 VDC power supply to your Opta™ device; for receiving debug messages, connect a USB to RS-485 converter to the RS-485 interface of your Opta™ device. The example sketch log data from the analog inputs ports `I1`, `I2`, `I3`, and `I4` of an Opta™ device connect an analog signal source to these input ports to test this functionality. For programming your Opta™ device, connect it to your computer using a USB-C® cable. 
 
 ![Hardware setup](assets/illustration-3.png)
 
 ### Writing Data to a USB Memory Stick
 
-The example code below shows how to interface an Opta™ device with a USB memory stick, storing data from four analog inputs of an Opta device into a single line in a file on a USB memory stick. Here's a brief overview of the user interaction and the device's functionality:
+The example code below shows how to interface an Opta™ device with a USB memory stick for storing data from four analog inputs into a single line in a file on a USB memory stick. Here's a brief overview of the user interaction and the device's functionality:
 
-- **Starting the process**: The data logging process begins by pressing and holding the user button on an Opta™ device for three seconds and then releasing it. This action triggers the device to enter a waiting mode for the connection of a USB memory stick, indicated by a dynamic "Knight Rider" LED pattern with the onboard user LEDs.
+- **Starting the process**: The data logging process begins by pressing and holding the user button on an Opta™ device for three seconds and then releasing it. This action triggers the device to enter a waiting mode for the connection of a USB memory stick indicated by a dynamic "Knight Rider" LED pattern with the onboard user LEDs.
 - **Connecting the USB memory stick**: Once a USB memory stick is connected to an Opta™ device, it automatically starts logging data. Data from four analog inputs of the Opta™ device are recorded in a structured format onto the USB memory stick. During this process, `LED_D0` blinks to indicate active data logging.
 - **Stopping data logging**: The process stops by pressing and holding the user button for another three seconds and then releasing it. The device stops recording data and signals completion by flashing all user LEDs ten times.
 
@@ -382,7 +384,7 @@ To upload the example sketch, click the **Verify** button to compile and check f
 
 ![Installing libraries in the Arduino IDE](assets/arduino-ide-3.png)
 
-After uploading the example sketch, you can test it by connecting a compatible USB-C® memory stick.
+After uploading the example sketch, you can test it by connecting a compatible USB-C® memory stick. The example sketch log data from the analog inputs ports `I1`, `I2`, `I3`, and `I4`. Connect an analog signal source to these input ports to test this functionality.
 
 ![Hardware setup](assets/illustration-2.png)
 
