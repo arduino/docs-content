@@ -45,7 +45,7 @@ You will record readings from four analog input ports of an Opta™ device and s
 
 ### Compatible USB Memory Sticks
 
-Any USB-C® memory stick should work with Opta® devices and the `Arduino_UnifiedStorage` library. The following USB-C® memory sticks have been officially tested by the Arduino Team and are known to be fully compatible with Opta® devices:
+Any USB-C® memory stick should work with Opta® devices and the `Arduino_UnifiedStorage` library. However, the following USB-C® memory sticks have been officially tested by the Arduino Team and are known to be fully compatible with Opta® devices and the `Arduino_UnifiedStorage` library:
 
 - Kingston® DataTraveler® 80 M USB-C 256 GB Flash Drive
 - SanDisk® Ultra® Dual Drive USB Type-C 64 GB Flash Drive
@@ -91,13 +91,13 @@ This tutorial also requires the latest version of the `Arduino_UnifiedStorage` l
 
 ### Setting Up the Hardware
 
-Connect a +12-24 VDC power supply to your Opta™ device; for receiving debug messages, connect a USB to RS-485 converter to the RS-485 interface of your Opta™ device. The example sketch log data from the analog inputs ports `I1`, `I2`, `I3`, and `I4` of an Opta™ device connect an analog signal source to these input ports to test this functionality. For programming your Opta™ device, connect it to your computer using a USB-C® cable. 
+Connect a +12-24 VDC power supply to your Opta™ device; for receiving debug messages, connect a USB to RS-485 converter to the RS-485 interface of your Opta™ device. The example sketch log data from the analog inputs ports `I1`, `I2`, `I3`, and `I4` of an Opta™ device; connect an analog signal source to these input ports to test this functionality. For programming your Opta™ device, connect it to your computer using a USB-A to USB-C® cable. 
 
 ![Hardware setup](assets/illustration-3.png)
 
 ### Writing Data to a USB Memory Stick
 
-The example code below shows how to interface an Opta™ device with a USB memory stick for storing data from four analog inputs into a single line in a file on a USB memory stick. Here's a brief overview of the user interaction and the device's functionality:
+The example code below shows how to interface an Opta™ device with a USB memory stick for storing data from four analog inputs into a single line in a file on a USB memory stick. Here's a brief overview of the example sketch functionality:
 
 - **Starting the process**: The data logging process begins by pressing and holding the user button on an Opta™ device for three seconds and then releasing it. This action triggers the device to enter a waiting mode for the connection of a USB memory stick indicated by a dynamic "Knight Rider" LED pattern with the onboard user LEDs.
 - **Connecting the USB memory stick**: Once a USB memory stick is connected to an Opta™ device, it automatically starts logging data. Data from four analog inputs of the Opta™ device are recorded in a structured format onto the USB memory stick. During this process, `LED_D0` blinks to indicate active data logging.
@@ -361,21 +361,21 @@ Variables and instances definition:
 
 The `setup()` function:
 
-- The sketch initializes your Opta™ device, setting the analog-to-digital converter resolution and preparing the onboard user LEDs.
-- The sketch establishes connection handlers for the USB memory stick using `connectionCallback()` and `disconnectionCallback()` functions.
+- The sketch initializes the Opta™ device, setting the analog-to-digital converter resolution and preparing the onboard user LEDs.
+- The sketch also establishes connection handlers for the USB memory stick using the `connectionCallback()` and `disconnectionCallback()` functions.
 
 The main `loop()` function:
 
 - The sketch monitors the onboard user button for a three-second pressing, holding, and then releasing it to initiate or stop the data logging process.
-- When data logging is started, `LED_D0` is illuminated as an indication. The "Knight Rider" LED pattern is displayed while the device waits for a USB memory stick connection.
+- When data logging is started, `LED_D0` is illuminated as an indication of the process. The "Knight Rider" LED pattern is displayed while the device waits for a USB memory stick connection.
 - The `writeToUSB()` function manages the data writing process to the USB memory stick, including initialization and updating data to the USB memory stick through the `performUpdate()` function.
 - Analog input data is formatted and written to a file named `analog_inputs_data.txt` on the USB memory stick.
-- When the data logging is completed (indicated by pressing the user button for three seconds again), the code stops writing data to the USB memory stick.
+- When the data logging is completed (indicated by pressing the user button for three seconds again), the sketch stops writing data to the USB memory stick.
 - The sketch shows the end of the data logging process by blinking all the onboard user LEDs ten times.
 
-**Optional**: Debugging with `debugPrint` statements via Opta's RS-485 interface
+**Optional**: Debugging with `debugPrint` statements via Opta's RS-485 interface.
 
-- The `debugPrint` functions provide essential feedback throughout the code, aiding in monitoring and troubleshooting.
+- The `debugPrint` functions provide essential feedback throughout the sketch, aiding in monitoring and troubleshooting. The function can be turned on or off by setting the `Arduino_UnifiedStorage::debuggingModeEnabled()` function to `true` or `false`.
 - These statements output important information via your Opta™ device's onboard RS-485 serial interface, including status updates during USB memory stick connection and file operation results.
 
 ### Testing the Example Code
