@@ -7,9 +7,10 @@ title: '2. MicroPython Installation Guide'
 description: 'Learn how to install a code editor needed to program your board with MicroPython.'
 ---
 
-## Software Required
 
-In this chapter we will go over how to install the prerequisite software: the **code editor** and the **MicroPython firmware installer**, that will enable you to dive into the learning activities of this course.
+In this chapter we will go over how to install the prerequisite software: the **MicroPython firmware installer** and the **Arduino Labs for MicroPython (Code Editor)**. The installer will install a MicroPython firmware on your board, and the code editor will allow you to program the board with MicroPython.
+
+## Software Required
 
 ![Arduino Labs for MicroPython and the Installer tool](./assets/logo.png)
 
