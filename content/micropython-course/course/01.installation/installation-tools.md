@@ -7,17 +7,17 @@ title: '2. MicroPython Installation Guide'
 description: 'Learn how to install a code editor needed to program your board with MicroPython.'
 ---
 
-## Goals
+## Software Required
 
 In this chapter we will go over how to install the prerequisite software: the **code editor** and the **MicroPython firmware installer**, that will enable you to dive into the learning activities of this course.
 
-
 ![Arduino Labs for MicroPython and the Installer tool](./assets/logo.png)
 
-The software you will have installed are:
+Later in this chapter, we'll walk you through the installation process step by step. You can download the required softwares below, but if do - you please return to this page afterwards for instructions on what to do with them.
+To run MicroPython code on your Arduino board, you will need:
 
-- Arduino Lab for MicroPython
-- The Arduino MicroPython Installer
+- [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython)
+- [MicroPython Firmware Installer](https://labs.arduino.cc/en/labs/micropython-installer)
 
 ![The Installed Software](./assets/apps-open.png)
 
