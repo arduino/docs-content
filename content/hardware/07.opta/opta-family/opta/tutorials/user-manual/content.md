@@ -355,7 +355,7 @@ void readAndPrint(int terminal, int terminalNumber) {
 
 ## LEDs
 
-Opta™ Lite and Opta™ RS485 devices have **four user-programmable LEDs**, and **Opta™ WiFi devices have an [extra one](#leds)**. 
+Opta™ Lite and Opta™ RS485 devices have **four user-programmable LEDs**, and **Opta™ WiFi devices have an extra one**. 
 
 ![User-programmable LEDs in Opta™ devices](assets/user-manual-10.png)
 
