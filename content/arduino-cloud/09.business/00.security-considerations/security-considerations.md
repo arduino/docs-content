@@ -109,7 +109,7 @@ Results are shared with Software Engineers and reviewed together with the Securi
 
 Should Arduino become aware of any unauthorized release of user data, in violation of applicable privacy laws and/or binding contractual obligations relating to data privacy and security, we will notify the  designated privacy Authority in the most expedient way possible and without unreasonable delay.
 
-Should an Arduino user or customer suspect a vulnerability or security issue, they are invited to report it as described in our Coordinated Vulnerability Disclosure policy available at https://www.arduino.cc/en/security 
+Should an Arduino user or customer suspect a vulnerability or security issue, they are invited to report it as described in our Coordinated Vulnerability Disclosure policy available at https://www.arduino.cc/en/security_cvd
 
 If there is valid reason to suspect a breach (e.g., clients report fraudulent activity on their accounts, or we see signs that someone has gained unauthorized remote or physical access to the data center), Arduino incident response team will check for common indicators of compromise to determine whether or not a breach has actually occurred.
 * Notify the Chief Information Security Officer, security team, and application owners of findings.
