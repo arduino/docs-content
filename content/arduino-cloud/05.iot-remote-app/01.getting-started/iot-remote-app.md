@@ -40,7 +40,7 @@ You can change between the default (light) to the dark theme, by navigating to *
 
 ## Access Phone Sensor Data
 
-To access phone sensor data, go to the **"Settings"** menu, located at the top left corner. Inside the settings, click on the **"Phone as Device"**. 
+To access phone sensor data, go to the **"Settings"** menu, located at the top right corner. Inside the settings, click on the **"Phone as Device"**. 
 
 This will start an configuration process, as seen in the image below. Complete the process to access your phone's sensor data.
 
