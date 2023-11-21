@@ -13,7 +13,7 @@ In this chapter we will go over how to install the prerequisite software: the **
 
 ![Arduino Labs for MicroPython and the Installer tool](./assets/logo.png)
 
-Later in this chapter, we'll walk you through the installation process step by step. You can download the required softwares below, but if do - you please return to this page afterwards for instructions on what to do with them.
+Later in this chapter, we'll walk you through the installation process step by step. You can download the required software below, but if you do - please return to this page afterwards for instructions on what to do with them.
 To run MicroPython code on your Arduino board, you will need:
 
 - [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython)
