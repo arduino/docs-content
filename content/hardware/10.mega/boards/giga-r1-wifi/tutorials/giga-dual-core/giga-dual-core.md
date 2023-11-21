@@ -52,7 +52,7 @@ The M4 supports:
 
 The M4 does **not** support:
 - Serial communication\*
-- Arduino Cloud sketches.
+- [Arduino Cloud](https://app.arduino.cc) sketches.
 
 ***\*Serial Communication from the M4 can be enabled by setting up an RPC that allows the M4 & M7 cores to communicate. Using `RPC.print()` (M4) and `RPC.read()` (M7) helps achieve this. See [RPC Serial Examle](#rpc-serial).***
 
