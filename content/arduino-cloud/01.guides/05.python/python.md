@@ -124,7 +124,7 @@ def logging_func():
         level=logging.INFO,
     )   
 
-# This function is executed each time the "ledSwitch" variable changes 
+# This function is executed each time the "test_switch" variable changes 
 def on_switch_changed(client, value):
     print("Switch Pressed! Status is: ", value)
 
@@ -152,9 +152,11 @@ python cloud_first_test.py
 
 After running the script, you should see in the terminal that we first attempt to connect to the Arduino Cloud. Once connected, we push the variable update for `test_value`. You should now see this value updated in the Thing interface in the Arduino Cloud.
 
-![Value updated in the Arduino Cloud](assets/values.png)
+![Value updated in the Arduino Cloud](assets/variable-update.png)
 
-You can test out the `test_switch` variable by creating a dashboard in the Arduino Cloud with a switch widget linked to the variable. 
+You can test out the `test_switch` variable by creating a dashboard in the Arduino Cloud with a switch widget linked to the variable. Head over to "Dashboards" and create a value widget and a switch widget:
+
+![Control the switch from a dashboard.](assets/dashboard.png)
 
 When flicking the switch, you should see the following command being printed in the terminal:
 
