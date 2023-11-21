@@ -58,7 +58,27 @@ The M4 does **not** support:
 
 ### Boot / Disable M4
 
-The M4 core can be either be booted or disabled
+The M4 core is by manufacturing default, disabled when booting the board. The M4 core can however be booted by using the `RPC.begin()` command, which includes also boots the M4 core. See the [RPC.cpp source file](https://github.com/arduino/ArduinoCore-mbed/blob/main/libraries/RPC/src/RPC.cpp#L122-L140) for more details.
+
+### Boot / Disable M7
+
+The M7 is booted by default and there is currently **no option to disable** this core.
+
+### Peripheral Interference
+
+When booting the M4, the M4 will execute the sketch that has been uploaded to its flash memory. It is a good idea to track what type of code you are running on the M4, as you may create interference between different peripherals. If you run simply a blank sketch on the M4, it should **not** create any interference.
+
+An example of this is if you use the `CAN` library. If you are running a CAN application on the **M7**, you will disrupt it if you enable it on the **M4**. The dual core feature is not intended for using the same peripheral, bus etc.
+
+***Tip: name your sketches with a `_M4` and `_M7` suffix/prefix, and create an initialization sequence. E.g. blink the blue LED three times whenever the M4 boots up.***
+
+## Pin Priority
+
+As the M7 and M4 core share their pins, which one gets priority to the pin? It can be assumed that as the M7 is the more powerful core, it gets first access.
+
+This is however **not true** as pin priority is random. If both cores tries to access the same pin (e.g. `D27`), it is simply random who gets access.
+
+***When developing dual core applications, it is a good idea avoiding using the same pins & peripheral for many reasons.*** 
 
 ## Programming M4/M7
 
