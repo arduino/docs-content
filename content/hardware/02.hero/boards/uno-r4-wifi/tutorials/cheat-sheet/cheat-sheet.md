@@ -505,6 +505,25 @@ if(Serial.available() > 0) {
 }
 ```
 
+### Timers
+
+In the Ardunio API there is a [`FspTimer`](https://github.com/arduino/ArduinoCore-renesas/blob/149f78b6490ccbafeb420f68919c381a5bdb6e21/cores/arduino/FspTimer.h#L87) class which provides all the necessary functionality for using timers in a sketch.
+
+The UNO R4 WiFi has two timer peripherals, a Asynchronous General Purpose Timer (AGT) and a General PWM Timer (GPT). There are two AGT timers on the board, one of them is used for time measuring methods such as `millis()` and `microseconds()`.
+
+The board has 7 GPT timers to help perform PWM tasks, such as calculating duty cycles by measuring how long a signal is active. It is possible to use these reserved PWM timers by using the previously mentioned [`FspTimer`](https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/FspTimer.h#L87) library. Using this function will explicitly request a PWM timer:
+
+```arduino
+FspTimer::force_use_of_pwm_reserved_timer();
+```
+
+When using the timer functions of the library you will need to enter the timers type. Which is either AGT or GPT. This can be declared in the sketch like this:
+
+```arduino
+uint8_t gpt_timer_type = GPT_TIMER;
+uint8_t agt_timer_type = AGT_TIMER;
+```
+
 ### SerialUSB
 
 The UNO R4 WiFi has an extended set of Serial methods that can be enabled whenever you include the `<HID.h>` library in your sketch.
