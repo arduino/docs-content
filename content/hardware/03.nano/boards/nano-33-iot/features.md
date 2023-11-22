@@ -6,7 +6,7 @@ The Arduino Nano 33 IoT is Arduino's smallest board to get started with Internet
 
 <Feature title="Wi-Fi®" image="wifi">
 
-  The board comes with Wi-Fi® connectivity and Arduino Cloud compatibility. This allows you to create IoT applications in your own projects. 
+  The board comes with Wi-Fi® connectivity and Arduino Cloud compatibility. This allows you to create IoT applications in your own projects.
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-iot/wifi-connection"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>

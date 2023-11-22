@@ -2,14 +2,24 @@
 title: MicroPython
 url: /micropython/
 icon: IconMicroPhyton
+external: false
 link: /micropython/
 links:
   [
-    { title: "Board Installation", url: /micropython/basics/board-installation },
-    { title: "Project Examples", url: /link2 },
-    { title: "MicroPython Basics", url: /link3 },
-    { title: "Code Editors", url: /link4 },
-    { title: "Controlling relay from cloud", url: /link5 },
-    { title: "Getting Started with Opta", url: /link6 },
+    {
+      title: "Digital and Analog Pins",
+      url: /micropython/basics/digital-analog-pins/,
+    },
+    {
+      title: "Board Installation",
+      url: /micropython/basics/board-installation/,
+    },
+    { title: "Examples by Boards", url: /micropython/basics/board-examples/ },
+    { title: "Code Editors", url: /micropython/basics/code-editors/ },
+    {
+      title: "MicroPython Basics",
+      url: /micropython/basics/micropython-basics/,
+    },
+    { title: "Overview", url: /micropython/basics/overview/ },
   ]
 ---

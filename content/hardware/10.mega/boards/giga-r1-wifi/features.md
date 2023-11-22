@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The GIGA R1 WiFi comes with a USB-C® connector for programming, communication and HID functionality, a USB-A connector for connecting devices such as USB sticks and keyboards. It features a 3.5 mm audio jack for connecting speakers, microphones etc. Dedicated camera & display connectors are located at the top of the board, which can also be connected from underneath. 
+The GIGA R1 WiFi comes with a USB-C® connector for programming, communication and HID functionality, a USB-A connector for connecting devices such as USB sticks and keyboards. It features a 3.5 mm audio jack for connecting speakers, microphones etc. Dedicated camera & display connectors are located at the top of the board, which can also be connected from underneath.
 
 With a fast dual core microcontroller (480MHz / 240MHz), 76 GPIOs, several communication buses, you can build large projects using the GIGA R1 WiFi as a base. The GIGA R1 WiFi also comes equipped with a radio module, crypto chip and an antenna.
 

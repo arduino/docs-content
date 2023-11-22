@@ -1,14 +1,15 @@
 ---
 title: Language Reference
-url: /language-reference/
+url: https://www.arduino.cc/reference/en/
+external: true
 icon: IconArduino
 links:
   [
-    { title: "digitalRead()", url: /link1 },
-    { title: "analogRead()", url: /link2 },
-    { title: "analogReadResolution()", url: /link3 },
-    { title: "noTone()", url: /link4 },
-    { title: "delay()", url: /link5 },
-    { title: "Getting Started with Opta", url: /link6 },
+    { title: "Serial", url: https://www.arduino.cc/reference/en/language/functions/communication/serial/ },
+    { title: "Wire", url: https://www.arduino.cc/reference/en/language/functions/communication/wire/ },
+    { title: "Print", url: https://www.arduino.cc/reference/en/language/functions/communication/print/ },
+    { title: "attachInterrupt()", url: https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/ },
+    { title: "pinMode()", url: https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/ },
+    { title: "String()", url: https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/ },
   ]
 ---

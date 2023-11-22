@@ -1,30 +1,33 @@
 ---
-url: https://www.youtube.com/embed/uaLrmLCqGnc?controls=0
+url: https://www.youtube.com/embed/-hUrgce4n4A?si=GhWG37pvR52AE6C4"
+
 info:
   [
     {
       icon: IconIoT,
-      title: Get started with IoT projects,
-      description: Create smart dashboards to control connected devices using few coding,
-      link: /,
+      title: Getting Started with Arduino,
+      description: An introduction to hardware,
+      software tools,
+      and the Arduino API.,
+      link: /learn/starting-guide/getting-started-arduino,
     },
     {
       icon: IconBrackets,
-      title: Cloud Editor,
-      description: Create smart dashboards to control connected devices using few coding,
-      link: "/",
+      title: Servo Motor,
+      description: Learn how to connect and control servo motors with your Arduino board,
+      link: "/learn/electronics/servo-motors",
     },
     {
       icon: IconCLI,
-      title: Cloud CLI,
+      title: I2C Article,
       description: Create smart dashboards to control connected devices using few coding,
-      link: /,
+      link: /learn/communication/wire,
     },
     {
       icon: IconBooks,
-      title: Tutorials and templates,
-      description: Create smart dashboards to control connected devices using few coding,
-      link: /,
+      title: Sketches,
+      description: Get to know how sketches work and how they are uploaded to an Arduino.,
+      link: /learn/programming/sketches,
     },
   ]
 ---

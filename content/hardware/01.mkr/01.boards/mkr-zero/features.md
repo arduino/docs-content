@@ -7,10 +7,11 @@ The MKR Zero board is a great board for getting started with various music proje
 
 <Feature title="Micro SD card holder" image="file-icon">
 
-Store large media files, build advanced UIs for displays or log data offline: extra space is always useful.  
-
+Store large media files, build advanced UIs for displays or log data offline: extra space is always useful.
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-zero/mkr-zero-data-logger"/>
   <FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/sd/"/>
+</FeatureWrapper>
 </Feature>
 
 </FeatureList>

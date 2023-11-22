@@ -1,14 +1,27 @@
 ---
 title: Libraries
-url: /libraries/
+url: https://www.arduino.cc/reference/en/libraries/
+external: true
 icon: IconBooks
 links:
   [
-    { title: "AIPOc_Opta", url: /link1 },
-    { title: "AIPOc_PMC", url: /link2 },
-    { title: "Arduino Low Power", url: /link3 },
-    { title: "Servo", url: /link4 },
-    { title: "MKRGSM", url: /link5 },
-    { title: "Arduino_LSM6DS3", url: /link6 },
+    {
+      title: "LiquidCrystal",
+      url: https://www.arduino.cc/reference/en/libraries/liquidcrystal/,
+    },
+    {
+      title: "Servo",
+      url: https://www.arduino.cc/reference/en/libraries/servo/,
+    },
+    {
+      title: "LiquidCrystal I2C",
+      url: https://www.arduino.cc/reference/en/libraries/liquidcrystal-i2c/,
+    },
+    { title: "WiFi", url: https://www.arduino.cc/reference/en/libraries/wifi/ },
+    { title: "SD", url: https://www.arduino.cc/reference/en/libraries/sd/ },
+    {
+      title: "Stepper",
+      url: https://www.arduino.cc/reference/en/libraries/stepper/,
+    },
   ]
 ---
