@@ -4,11 +4,11 @@ url: /language-reference/
 icon: IconArduino
 links:
   [
-    { title: "digitalRead()", url: /link1 },
-    { title: "analogRead()", url: /link2 },
-    { title: "analogReadResolution()", url: /link3 },
-    { title: "noTone()", url: /link4 },
-    { title: "delay()", url: /link5 },
-    { title: "Getting Started with Opta", url: /link6 },
+    { title: "digitalRead()", url: https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/ },
+    { title: "analogRead()", url: https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/ },
+    { title: "analogReadResolution()", url: https://www.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogreadresolution/ },
+    { title: "noTone()", url: https://www.arduino.cc/reference/en/language/functions/advanced-io/notone/ },
+    { title: "delay()", url: https://www.arduino.cc/reference/en/language/functions/time/delay/ },
+    { title: "Getting Started with Opta", url: /hardware/opta },
   ]
 ---
