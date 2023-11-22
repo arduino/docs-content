@@ -4,11 +4,11 @@ url: /built-in-examples/
 icon: IconBuild
 links:
   [
-    { title: "Analog Read Serial", url: /link1 },
-    { title: "Blink without Delay", url: /link2 },
-    { title: "Analog In, Out Serial", url: /link3 },
-    { title: "Portenta X8", url: /link4 },
-    { title: "Plant Watering Kit", url: /link5 },
-    { title: "Getting Started with Opta", url: /link6 },
+    { title: "Analog Read Serial", url: /built-in-examples/basics/AnalogReadSerial/ },
+    { title: "Blink without Delay", url: /built-in-examples/basics/BareMinimum/ },
+    { title: "Analog In, Out Serial", url: /built-in-examples/basics/Blink/ },
+    { title: "Portenta X8", url: /built-in-examples/basics/DigitalReadSerial/ },
+    { title: "Plant Watering Kit", url: /built-in-examples/basics/Fade/ },
+    { title: "Getting Started with Opta", url: /built-in-examples/basics/ReadAnalogVoltage/ },
   ]
 ---
