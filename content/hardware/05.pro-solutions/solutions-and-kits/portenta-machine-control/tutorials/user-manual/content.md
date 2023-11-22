@@ -706,13 +706,15 @@ You should see the following output in the Arduino IDE's Serial Monitor:
 
 ### Wi-Fi®
 
-The Portenta Machine Control feature an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing it to connect to Wi-Fi® networks and interact with other devices over-the-air (OTA).
+The Portenta Machine Control features an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing it to connect to Wi-Fi® networks and interact with other devices over-the-air (OTA).
+
+![Onboard SMA antenna connector of the Portenta Machine Control](assets/user-manual-17.png)
 
 Some of the key capabilities of Portenta's Machine Control onboard Wi-Fi® module are the following:
 
 - **Wireless connectivity**: The onboard Wi-Fi® module supports IEEE 802.11b/g/n Wi-Fi® standards, enabling devices to establish reliable and high-speed wireless connections to access the Internet and communicate with other devices.
 - **Secure communication**: The onboard module incorporates various security protocols such as WEP, WPA, WPA2, and WPA3, ensuring robust data encryption and protection against unauthorized access during wireless communication.
-- **Onboard antenna**: Portenta Machine Control devices feature an onboard Wi-Fi® antenna connector specifically matched for the onboard Wi-Fi® module requirements.
+- **Onboard antenna**: Portenta Machine Control devices feature an onboard vertical SMA antenna connector (5-1814832-2) specifically matched for the onboard Wi-Fi® module RF requirements.
 
 The `Arduino Mbed OS Portenta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module right out of the box: the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/). Let's walk through an example code demonstrating some of the module's capabilities.
 
@@ -725,11 +727,11 @@ You need to create first a header file named `arduino_secrets.h` to store your W
 Put `arduino_secrets.h` as the "Name for new file" and enter the following code on the header file:
 
 ```arduino
-char ssid[] = "SECRET_SSID"; // Your network SSID (name)
-char password[] = "SECRET_PASS"; // Your network password (use for WPA, or use as key for WEP)
+#define SECRET_SSID "YOUR_SSID"; // Your network SSID (name)
+#define SECRET_PASS "YOUR_PASS"; // Your network password (use for WPA, or use as key for WEP)
 ```
 
-Replace `SECRET_SSID` with the name of your Wi-Fi® network and `SECRET_PASS` with the password of it and save the project. The example code is as follows: 
+Replace `YOUR_SSID` with the name of your Wi-Fi® network and `YOUR_PASS` with the password of it and save the project. The example code is as follows: 
 
 ```arduino
 /**
@@ -746,8 +748,8 @@ Replace `SECRET_SSID` with the name of your Wi-Fi® network and `SECRET_PASS` wi
 #include <Arduino_JSON.h>
 
 // Wi-Fi network details.
-const char* ssid     = "YOUR_SSID";
-const char* password = "YOUR_PASSWORD";
+char ssid[]     = SECRET_SSID;
+char password[] = SECRET_PASS;
 
 // Server address for ip-api.com.
 const char* server = "ip-api.com";
@@ -786,6 +788,7 @@ void setup() {
   Serial.println("- Wi-Fi connected!");
   Serial.print("- IP address: ");
   Serial.println(WiFi.localIP());
+  Serial.println();
 }
 
 void loop() {
@@ -859,7 +862,28 @@ Once the Wi-Fi® connection is established, the sketch is ready to connect to th
 
 The `loop()` function is the heart of the sketch. It checks whether the data has been fetched or not. If the data still needs to be fetched, it tries to establish a connection to the server. If the connection is successful, the sketch sends an `HTTP GET` request, skips the HTTP headers of the response, and uses the `JSON.parse()` function from the `Arduino_JSON` library to parse the JSON object from the response. The parsed data extracts key IP details like IP address, city, region, and country, which are then printed to the Arduino IDE's Serial Monitor. Once the data is published, the client is disconnected to free up resources. Suppose the JSON parsing fails for any reason. In that case, an error message is outputted to the Arduino IDE's Serial Monitor, and the sketch immediately exits the current iteration of the `loop()` function.
 
-Since the data is fetched only once, there's no need for repeatedly sending `HTTP GET` requests. After the initial fetch, you should see the details related to the IP address displayed in the Arduino IDE's Serial Monitor:
+Since the data is fetched only once, there's no need to send `HTTP GET` requests repeatedly. After the initial fetch, you should see the details related to the IP address displayed in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-19.png)
+
+### RS-485
+
+The Portenta Machine Control has a built-in RS-485 interface that enables the implementation of robust and reliable data transmission systems. RS-485 interface is still the most widely used protocol for Point Of Sale (POS), industrial, and telecommunications applications. The wide common-mode range enables data transmission over longer cable lengths and in noisy environments such as the floor of a factory. Also, the high input impedance of the receivers allows more devices to be attached to the lines.
+
+The onboard RS-485 transceiver is the SP335 from MaxLinear. The SP335 is an advanced multiprotocol transceiver that supports RS-232, RS-485, and RS-422 serial standards. Integrated cable termination and multiple configuration modes allow all three protocols to be used interchangeably over a single cable or connector with no additional switching components. 
+
+Some of the key capabilities of Portenta's Machine Control onboard RS-485 transceiver are the following:
+
+- **High-speed operation**: The RS-485 transceiver can operate up to 20 Mbps.
+- **EMI Reduction**: The slew rate is limited to 250 kbps to minimize electromagnetic interference (EMI), enhancing signal integrity.
+- **ESD protection**: Transmitter outputs and receiver inputs are protected against electrostatic discharge (ESD) up to ±15 kV.
+- **High impedance**: The transceiver inputs exhibit high impedance, allowing up to 256 devices on a single communication bus.
+- **Communication mode**: The transceiver can be configured either half or full-duplex.
+- **Termination resistors**: 120 Ω termination resistors are integrated and can be connected or disconnected through software. 
+
+RS-485 data lines in the Portenta Machine Control are labeled as described in the following table:
+
+***RS-485 data line labels differ between manufacturers. Most manufacturers will use + and – to label the data lines or variations such as D+ and D-. Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the - line should be connected to the A terminal. The + line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.*** 
 
 ## Support
 
