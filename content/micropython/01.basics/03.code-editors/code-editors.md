@@ -1,30 +1,29 @@
----
-title: Code Editors
-description: Explore the available code editors for programming your Arduino board with MicroPython
-author: Francesca Sanfilippo & Karl Söderby
-micropython_type: basics
-featured: micropython
-hero_image: "./hero-banner.png"
----
+const int Trigger = 2;   //Pin digital 2 para el Trigger del sensor
+const int Echo = 3;   //Pin digital 3 para el Echo del sensor
 
-To write and load scripts to your board, you will also need a Code Editor. In this page, you will find two alternatives:
-- **Arduino Lab for MicroPython:** an experimental editor from Arduino, designed for simpler projects.
-- **OpenMV:** an editor for  more complex projects, such as computer vision.
+void setup() {
+  Serial.begin(9600);//iniciailzamos la comunicación
+  pinMode(Trigger, OUTPUT); //pin como salida
+  pinMode(Echo, INPUT);  //pin como entrada
+  digitalWrite(Trigger, LOW);//Inicializamos el pin con 0
+}
 
-## Arduino Lab for MicroPython
+void loop()
+{
 
-Arduino Lab for MicroPython is a software that supports programming Arduino boards with MicroPython. Through the customized editor, we can install MicroPython, and upload scripts directly to the board.  The editor is able to manage the files and you can see what is uploaded on the board and vice versa.
+  long t; //timepo que demora en llegar el eco
+  long d; //distancia en centimetros
 
-![Arduino Lab for MicroPython](assets/mpylabs-ss.png)
-
-- [Download Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython).
-
-## OpenMV Editor
-
-OpenMV is a platform that supports programming Arduino boards with MicroPython. Through the OpenMV editor, we can install MicroPython and upload scripts directly to the board. There's also a number of examples available directly in the editor.
-
-![OpenMV editor.](assets/openmv-ss.png)
-
-- [Download OpenMV](https://openmv.io/pages/download).
-
-***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/10-Arduino-Boards).***
+  digitalWrite(Trigger, HIGH);
+  delayMicroseconds(10);          //Enviamos un pulso de 10us
+  digitalWrite(Trigger, LOW);
+  
+  t = pulseIn(Echo, HIGH); //obtenemos el ancho del pulso
+  d = t/59;             //escalamos el tiempo a una distancia en cm
+  
+  Serial.print("Distancia: ");
+  Serial.print(d);      //Enviamos serialmente el valor de la distancia
+  Serial.print("cm");
+  Serial.println();
+  delay(100);          //Hacemos una pausa de 100ms
+}
