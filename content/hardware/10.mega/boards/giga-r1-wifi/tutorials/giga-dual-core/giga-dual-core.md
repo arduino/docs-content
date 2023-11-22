@@ -36,7 +36,7 @@ In this guide you will discover:
 
 ***\*For instructions on how to install the GIGA Core, follow the [Getting Started with GIGA R1 guide](/tutorials/giga-r1-wifi/giga-getting-started).***
 
-## What is Supported on M4?
+## M4 Support
 
 The M4 processor can access most of the peripherals that the M7 can access, with some exceptions.
 
@@ -54,11 +54,11 @@ The M4 does **not** support:
 - Serial communication\*
 - [Arduino Cloud](https://app.arduino.cc) sketches.
 
-***\*Serial Communication from the M4 can be enabled by setting up an RPC that allows the M4 & M7 cores to communicate. Using `RPC.print()` (M4) and `RPC.read()` (M7) helps achieve this. See [RPC Serial Examle](#rpc-serial).***
+***\*Serial Communication from the M4 can be enabled by setting up an RPC that allows the M4 & M7 cores to communicate. Using `RPC.print()` (M4) and `RPC.read()` (M7) helps achieve this. See [RPC Serial Example](#rpc-serial).***
 
 ### Boot / Disable M4
 
-The M4 core is by manufacturing default, disabled when booting the board. The M4 core can however be booted by using the `RPC.begin()` command, which includes also boots the M4 core. See the [RPC.cpp source file](https://github.com/arduino/ArduinoCore-mbed/blob/main/libraries/RPC/src/RPC.cpp#L122-L140) for more details.
+The M4 core is by manufacturing default, disabled when booting the board. The M4 core can however be booted by using the `RPC.begin()` command, which includes the necessary functions to boot the M4 core. See the [RPC.cpp source file](https://github.com/arduino/ArduinoCore-mbed/blob/main/libraries/RPC/src/RPC.cpp#L122-L140) for more details.
 
 ### Boot / Disable M7
 
@@ -96,13 +96,15 @@ When writing multiple sketches, there are some things to consider to make your d
 
 ### Partitioning The Flash Memory
 
-To allocate memory for the M4, the flash memory can be partitioned. This is done by navigating to **Tools > Flash Split** in the IDE.
+To allocate the flash memory for the M4, the flash memory can be partitioned. This is done by navigating to **Tools > Flash Split** in the IDE. 
+
+***Note that the flash memory is the space where the application code (your sketch) is stored. It is not the RAM memory (which is significantly lower).***
 
 ![Flash partitioning in the IDE.](assets/flash-split.png)
 
-- **2MB M7 + M4 in SDRAM (default)** - this option is the default configuration, which is for programming the M7 only. This allocates no memory to the M4.
-- **1.5MB M7 + 0.5MB M4** - useful when larger amount of memory is required on the M7.
-- **1MB M7 + 1MB M4** - useful when you need to balance the memory equally between the M4 and M7 cores.
+- **2MB M7 + M4 in SDRAM (default)** - this option is the default configuration, which is for programming the M7 only. This allocates no flash memory to the M4.
+- **1.5MB M7 + 0.5MB M4** - useful when larger amount of flash memory is required on the M7.
+- **1MB M7 + 1MB M4** - useful when you need to balance the flash memory equally between the M4 and M7 cores.
 
 ***It is required to use option 2 or 3 if you intend to program the M4 via the IDE, as the default option provides no memory allocation for the M4.***
 
@@ -144,29 +146,53 @@ Uploading new sketches works the same as a typical upload procedure. The new ske
 
 ## Identify Core Used
 
-To identify which core is being used, we can utilize the `HAL_GetCurrentCPUID()` method. Below is a function that returns which core is used.
+To identify which core is being used, use the `HAL_GetCurrentCPUID()` method. Below is a function that returns which core is currently being used. This can be useful to identify that your program is running on the right core.
 
 ```arduino
-String currentCPU() {
+/*
+GIGA R1 WiFi - Core identify sketch.
+
+This simple sketch blinks an LED on boot.
+You will need to upload it to both the M7 and M4 core.
+
+It checks whether current CPU is M7 or M4, and blinks either 
+the blue LED or the green LED, 10 times. 
+
+As the M4 is booted when invoking RPC.begin() on the M7,
+the M4 sketch will run as soon as the blink() function
+finishes on the M7. 
+*/
+
+#include <RPC.h>
+
+void setup() {
+  pinMode(LEDB, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+
   if (HAL_GetCurrentCPUID() == CM7_CPUID) {
-    return "M7";
+    blink(LEDB, 100); //blink blue LED (M7 core)
   } else {
-    return "M4";
+    blink(LEDG, 100); //blink green LED (M4 core)
   }
+}
+
+void loop() {
+}
+
+void blink(int led, int delaySeconds) {
+  for (int i; i < 10; i++) {
+    digitalWrite(led, LOW);
+    delay(delaySeconds);
+    digitalWrite(led, HIGH);
+    delay(delaySeconds);
+  }
+  RPC.begin();
 }
 ```
 
-With this function, we check whether the M4 or M7 is running, and we can write code for each of the core like this:
-
-```arduino
-  if (currentCPU() == "M4") {
-    //run M4 code
-  }
-
-  if (currentCPU() == "M7") {
-    //run M7 code
-  }
-```
+- The `HAL_GetCurrentCPUID()` is a method that checks the CPU ID, and returns the value in a `uint32_t` format.
+- The `CM7_CPUID` flag that we compare with holds the value `0x00000003` (hexadecimal), or `3` (decimal).
+- It is also possible to use `CM4_CPUID` flag which holds the value `0x00000003`, or `1` (decimal).
 
 ## Remote Call Procedures (RPC)
 
