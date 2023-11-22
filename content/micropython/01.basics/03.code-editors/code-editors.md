@@ -1,30 +1,31 @@
----
-title: Code Editors
-description: Explore the available code editors for programming your Arduino board with MicroPython
-author: Francesca Sanfilippo & Karl Söderby
-micropython_type: basics
-featured: micropython
-hero_image: "./hero-banner.png"
----
+int TRIG = 10;			// trigger en pin 10
+int ECO = 9;			// echo en pin 9
+int LED = 3;			// LED en pin 3
+int DURACION;
+int DISTANCIA;
 
-To write and load scripts to your board, you will also need a Code Editor. In this page, you will find two alternatives:
-- **Arduino Lab for MicroPython:** an experimental editor from Arduino, designed for simpler projects.
-- **OpenMV:** an editor for  more complex projects, such as computer vision.
+void setup()
+{
+  pinMode(TRIG, OUTPUT); 	// trigger como salida
+  pinMode(ECO, INPUT);		// echo como entrada
+  pinMode(LED, OUTPUT);		// LED como salida
+  Serial.begin(9600);  		// inicializacion de comunicacion serial a 9600 bps
 
-## Arduino Lab for MicroPython
+}
 
-Arduino Lab for MicroPython is a software that supports programming Arduino boards with MicroPython. Through the customized editor, we can install MicroPython, and upload scripts directly to the board.  The editor is able to manage the files and you can see what is uploaded on the board and vice versa.
+void loop()
+{
+  
+  digitalWrite(TRIG, HIGH); 		// generacion del pulso a enviar
+  delay(1);				// al pin conectado al trigger
+  digitalWrite(TRIG, LOW);		// del sensor
+  
+  DURACION = pulseIn(ECO, HIGH);	// con funcion pulseIn se espera un pulso
+  					// alto en Echo
+  DISTANCIA = DURACION / 58.2;		// distancia medida en centimetros
+  Serial.println(DISTANCIA);		// envio de valor de distancia por monitor serial
+  delay(200);				// demora entre datos
 
-![Arduino Lab for MicroPython](assets/mpylabs-ss.png)
 
-- [Download Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython).
-
-## OpenMV Editor
-
-OpenMV is a platform that supports programming Arduino boards with MicroPython. Through the OpenMV editor, we can install MicroPython and upload scripts directly to the board. There's also a number of examples available directly in the editor.
-
-![OpenMV editor.](assets/openmv-ss.png)
-
-- [Download OpenMV](https://openmv.io/pages/download).
-
-***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/10-Arduino-Boards).***
+   
+}
