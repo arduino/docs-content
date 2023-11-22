@@ -28,7 +28,7 @@ software:
 
 ## Overview
 
-This user manual offers a detailed guide on the Portenta Max Carrier, consolidating all its features for easy reference. It will show how to set up, adjust, and assess its main functionalities. This manual will guide as a key to proficiently operate the Portenta Max Carrier, making it suitable for project developments related to industrial automation, manufacturing automation, robotics, and prototyping.
+This user manual offers a detailed guide on the Portenta Max Carrier, consolidating all its features for easy reference. It will show how to set up, adjust, and assess its main functionalities. This manual will guide as a key to proficiently operating the Portenta Max Carrier, making it suitable for project developments related to industrial automation, manufacturing automation, robotics, and prototyping.
 
 ![Portenta Max Carrier Overview](assets/overview-colors.jpg)
 
@@ -66,11 +66,11 @@ Here is an overview of the board's architecture's main components shown in the i
 
 - **Compatible core**: The board is compatible with Portenta X8 (ABX00049), Portenta H7 (ABX00042/ABX00045/ABX00046), and Portenta C33 (ABX00074). The Portenta H7 and C33 are limited in camera support and the Ethernet speed to 100 Mbit.
   
-- **Power management**: The Portenta Max Carrier can either be powered through the power jack (6 ~ 36V DC) or a 18650 Li-ion/LiPo battery (3.7V) that can be used as backup power source if the external power supply fails.
+- **Power management**: The Portenta Max Carrier can either be powered through the power jack (6 ~ 36V DC) or an 18650 Li-ion/LiPo battery (3.7V) that can be used as backup power source if the external power supply fails.
 
 The battery is charged while the minimum input voltage to the power jack is met.
 
-- **USB connectivity**: The Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 that manages the 2 USB devices from the USB type A connector plus the LoRa® and PCIe modules. J15 is protected by a NCP383LMUAJAATXG power switch and current limiter.
+- **USB connectivity**: The Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 that manages the 2 USB devices from the USB type A connector plus the LoRa® and PCIe modules. J15 is protected by an NCP383LMUAJAATXG power switch and current limiter.
 
   A USB-A female connector is used for data logging and the connection of external peripherals like keyboards, mice, hubs, and similar devices.
   
@@ -81,7 +81,7 @@ The battery is charged while the minimum input voltage to the power jack is met.
 - **CAN Transceiver**: The Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1049T/3J IC. It is connected to a 4P4C connector (RJ9, RJ10, RJ22).
 
 - **Mini PCIe**: The Portenta Max Carrier includes one female mini PCI Express card slot. The connector is right angled and the board includes 2 removable standoffs for external module support. The Max Carrier supports two different Mini PCIe sizes. Pins 8, 10, 12 and 14 are reserved for UIM (in this case SIM).
-__Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8. Full PCIe functionality not provided at this time.
+__Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8. Full PCIe functionality is not provided at this time.
 
 - **Cell Modem**: The SARA-R412M-02B is a multi-region modem capable of connecting to 2G/Cat-M1/NB-IoT networks worldwide. A dedicated SMA connector allows for an external antenna. The chip operates over the 1V8 power line. A microSIM slot is available, the corresponding SIM card slot for the cell modem is on the top side of the board, directly adjacent to the module.
 
@@ -93,9 +93,9 @@ __Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 
 - **Storage**: The board has a MicroSD card slot for data logging operation and bootloading operation from external memory.
 
-- **Debug interface**: Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via microUSB. The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller. In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines. The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD
+- **Debug interface**: Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via micro USB. The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller. In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines. The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD
    
-- **DIP switch**: The carrier has a DIP switch with two position and allows different profiles depending on the paired Portenta board. See the [DIP Switches section](#dip-switch-configuration) for more details.
+- **DIP switch**: The carrier has a DIP switch with two positions and allows different profiles depending on the paired Portenta board. See the [DIP Switches section](#dip-switch-configuration) for more details.
   
 
 ### Carrier Topology
@@ -157,7 +157,7 @@ The full __STEP__ files are available and downloadable from the link below:
 ## First Use Of Your Portenta Max Carrier
 ### Stack The Carrier
 
-The Portenta Max Carrier design allows to stack the Portenta board with ease. The following figure shows how the Portenta boards pair via the High-Density connectors.
+The Portenta Max Carrier design allows you to stack the Portenta board with ease. The following figure shows how the Portenta boards pair via the High-Density connectors.
 
 ![Portenta board stack](assets/x8-mount.png)
 
@@ -204,9 +204,9 @@ This provides a general idea of how the Portenta Max Carrier will perform depend
 
 ## Hello World Carrier
 ### Hello World Using Linux
-A 'Hello World' example will be used to verify the Portenta Max Carrier is correctly operating with the paired Portenta X8. It will use an example to trigger user programmable LED connected to GPIO3.
+A 'Hello World' example will be used to verify the Portenta Max Carrier is correctly operating with the paired Portenta X8. It will use an example to trigger the user-programmable LED connected to GPIO3.
 
-The user programmable LED can be controlled using commands within the Portenta X8's shell. The following commands will help you set and control the GPIO3, which connects to the user programmable LED.
+The user-programmable LED can be controlled using commands within the Portenta X8's shell. The following commands will help you set and control the GPIO3, which connects to the user-programmable LED.
 
 ### Hello World Using Arduino
 
@@ -264,7 +264,7 @@ The Portenta Max Carrier is equipped with an Ethernet interface, specifically an
 Ethernet performance differs based on the associated Portenta board:
 
 - With the Portenta X8: The system supports 1 Gbit Ethernet.
-- When combined with the Portenta H7 or C33: The performance is limited at 100 Mbit Ethernet.
+- When combined with the Portenta H7 or C33: The performance is limited to 100 Mbit Ethernet.
 
 To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Max Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 
@@ -274,9 +274,9 @@ Using the Portenta X8 in combination with the Max Carrier allows you to evaluate
 
 To measure the bandwidth, use the `iperf3` tool, which is available [here](https://github.com/userdocs/iperf3-static).
 
-Enter to your Portenta X8 using `adb shell` and access to root (admin) typing `sudo su -`, the password is `fio` by default.
+Enter to your Portenta X8 using `adb shell` and access to root (admin) by typing `sudo su -`, the password is `fio` by default.
 
-First, you need an internet connection to download the tool. You can stablish one using the following commands:
+First, you need an internet connection to download the tool. You can establish one using the following commands:
 
 ```bash
 nmcli connection show  # To find the ethernet device name ("eth0" in this case)
@@ -453,13 +453,13 @@ For a comprehensive understanding of these connectivity options, kindly refer to
 
 ### LoRa®
 
-One feature that boosts Portenta's Max Carrier possibilities is its onboard LoRa® module, the CMWX1ZZABZ-078 from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) protocol designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
+One feature that boosts Portenta's Max Carrier possibilities is its onboard LoRa® module, the CMWX1ZZABZ-078 from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) protocol designed to connect low-power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low power consumption and low data throughput.
 
 A dedicated SMA connector (J9) allows for an external antenna.
 
 ![Portenta Max Carrier with LoRa® Antenna](assets/LoRaAntenna.png)
 
-To learn how leverage LoRa® capabilities with this carrier, follow this detailed tutorial on [How to Connect the Portenta Max Carrier with The Things Network using a Portenta H7](https://docs.arduino.cc/tutorials/portenta-max-carrier/connecting-to-ttn)
+To learn how to leverage LoRa® capabilities with this carrier, follow this detailed tutorial on [How to Connect the Portenta Max Carrier with The Things Network using a Portenta H7](https://docs.arduino.cc/tutorials/portenta-max-carrier/connecting-to-ttn)
 
 ## Mini PCIe
 ## MIPI Camera
@@ -949,7 +949,7 @@ mkfs.ext4 /dev/mmcblk1p1  #Warning: this will erase everything on your micro SD
 ### Using Arduino IDE
 For Portenta H7, you can use the following Arduino IDE script to test the mounted SD card within Portenta Max Carrier:
 
-This example can also be found on the Arduino IDE builtin examples on **File > Examples > Portenta_SDCARD > TestSDCARD**
+This example can also be found on the Arduino IDE built-in examples on **File > Examples > Portenta_SDCARD > TestSDCARD**
 
 ```arduino
 #include "SDMMCBlockDevice.h"
