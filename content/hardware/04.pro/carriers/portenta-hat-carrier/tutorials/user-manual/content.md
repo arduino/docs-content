@@ -43,7 +43,7 @@ To use the [Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat
 
 Additionally, the following accessories are needed:
 
-- USB-C® cable (USB-C® to USB-A) (x1)
+- USB-C® cable (USB-C® to USB-A cable) (x1)
 - Wi-Fi® Access Point or Ethernet with Internet access (x1)
 
 ### Software Requirements
@@ -3021,14 +3021,14 @@ echo "spidev" | sudo tee > /etc/modules-load.d/spidev.conf
 sudo systemctl reboot
 ```
 
+Following section configures a service named `my_spi_service` to use the SPI device available at `/dev/spidev0.0`.
+
 ```
 services:
     my_spi_service:
        devices:
           - '/dev/spidev0.0'
 ```
-
-Following section configures a service named `my_spi_service` to use the SPI device available at `/dev/spi-1`.
 
 #### Using Arduino IDE
 
