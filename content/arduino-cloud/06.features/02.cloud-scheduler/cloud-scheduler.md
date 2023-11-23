@@ -202,7 +202,6 @@ Now, let's take a look at the sketch used for this tutorial. First, we need to n
 
 ```arduino
 #include "thingProperties.h"
-#include <RTCZero.h>
 
 bool toggle;
 int LED = 6;
