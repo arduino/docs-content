@@ -1500,7 +1500,7 @@ To use these protocols some libraries are needed and you can install them by sea
 
 Here is the example code for the Max Carrier, it will continuously send a message and wait for one, if a message arrives, will be printed in the Serial Monitor.
 
-##### RS-485 Example Code
+__RS-485 Example Code__
 
 ```arduino
 /*
@@ -1606,7 +1606,7 @@ After uploading the code to the Max Carrier and the Machine Control, open both S
 ![RS-485 communication | Max Carrier - Machine Control](assets/gif-rs485.gif)
 
 
-##### RS-232 Example Code
+__RS-232 Example Code__
 ```arduino
 /*
   Circuit:
