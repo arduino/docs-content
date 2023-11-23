@@ -9,8 +9,9 @@ The **Portenta Breakout** makes all high-density connectors’ signals individua
 <Feature title="Portenta H7 Microcontroller" image="mkr-form-factor">
 
   The Portenta H7 allows for programming with high-level languages and AI while performing low-latency operations on its customizable hardware.
-
-  <FeatureLink title="Read More" url="/hardware/portenta-h7" />
+  <FeatureWrapper>
+    <FeatureLink title="Read More" url="/hardware/portenta-h7" />
+  </FeatureWrapper>
 </Feature>
 
 {/* <Feature title="OpenMV camera socket" image="camera"> */}
