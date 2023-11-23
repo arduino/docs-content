@@ -7,16 +7,18 @@ The MKR FOX 1200 adds Sigfox connectivity to your projects. Using the popular <b
 <Feature title="Microchip® Smart RF Transmitter" image="cellular">
 
   Fully integrated, single-chip RF transmitter with low power consumption.
-
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-fox-1200/sigfox-first-configuration"/>
   <FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/arduino-sigfox-for-mkrfox1200/"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Coverage" image="world-map">
 
-SigFox covers most parts of Europe, South Africa, Japan and is being introduced in many more countries.  
-
+SigFox covers most parts of Europe, South Africa, Japan and is being introduced in many more countries.
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Link to Map" url="https://www.sigfox.com/en/coverage"/>
+</FeatureWrapper>
 </Feature>
 
 </FeatureList>
