@@ -6,6 +6,13 @@ The **Edge control** can be positioned anywhere and is suitable for precision fa
 
 
 <FeatureList>
+
+<Feature title="Smart agriculture" image="uv-sensor">
+
+  Particularly suited to smart agriculture, the sensors can collect real-time data such as weather conditions, soil quality, crop growth, amongst others. All this data can be monitored from the cloud and control actions like irrigation can be automatically fired or remote controlled.
+
+</Feature>
+
 <Feature title="nRF52840" image="mcu">
 
   The Edge Control features a powerful processor, the nRF52840 from Nordic Semiconductors, a 32-bit ARM® Cortex™-M4 CPU running at 64 MHz.
@@ -27,13 +34,13 @@ The **Edge control** can be positioned anywhere and is suitable for precision fa
 
 <Feature title="Solid State Relays" image="settings">
 
-  The Edge Control features four galvanically isolated solid state relays (SSR) that can handle up to 2.5A and 60V AC. 
+  The Edge Control features four galvanically isolated solid state relays (SSR) that can handle up to 2.5 A and 60 VAC. 
 
 </Feature>
 
-<Feature title="4-20mA Sensors" image="communication">
+<Feature title="4-20 mA Sensors" image="communication">
 
-  The Edge Control has four 4-20mA sensor inputs, perfect to support a vast variety of industrial sensors. 
+  The Edge Control has four 4-20 mA sensor inputs, perfect to support a vast variety of industrial sensors. 
 
 </Feature>
 
@@ -45,13 +52,7 @@ The **Edge control** can be positioned anywhere and is suitable for precision fa
 
 <Feature title="Power Flexibility" image="power">
 
-  The Edge Control can be powered by a 12V DC power supply or by a lead-acid battery. Also, it supports a solar panel connection to recharge the battery and ensure the device functions even in remote off-the-grid deployments.
-
-</Feature>
-
-<Feature title="Smart agriculture" image="uv-sensor">
-
-  Particularly suited to smart agriculture, the sensors can collect real-time data such as weather conditions, soil quality, crop growth, amongst others. All this data can be monitored from the cloud and control actions like irrigation can be automatically fired or remote controlled.
+  The Edge Control can be powered by a 12 VDC power supply or by a lead-acid battery. Also, it supports a solar panel connection to recharge the battery and ensure the device functions even in remote off-the-grid deployments.
 
 </Feature>
 
