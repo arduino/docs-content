@@ -1484,7 +1484,238 @@ void loop() {
 ```
 ![CAN bus communication between both devices](assets/CAN-bus.png)
 
-### Serial RS-232 / RS-422 / RS-485
+### Serial RS-232/RS-485
+
+#### Using Arduino IDE
+
+For users working with the Portenta H7 or Portenta C33, the following simple examples can be used to test the RS-232/485 communication.
+
+We are going to communicate the Portenta Max Carrier with the Machine Control using two different protocols, `RS-485` and `RS-232`. Use the following wiring respectively.
+
+![Full duplex RS-485 connection](assets/RS-485-full.png)
+
+![RS-232 connection](assets/RS-232.png)
+
+To use these protocols some libraries are needed and you can install them by searching for `ArduinoRS485` and `Arduino_MachineControl` on the library manager and clicking on install.
+
+Here is the example code for the Max Carrier, it will continuously send a message and wait for one, if a message arrives, will be printed in the Serial Monitor.
+
+##### RS-485 Example Code
+
+```arduino
+/*
+  Circuit:
+   - Portenta H7
+   - Max Carrier
+   - A Slave device with RS485 interface (Tested with a Machine Control)
+   - Connect PMC TXP/Y to Max Carrier RXP/A and TXN/Z to Max Carrier RXN/B
+   - Connect PMC RXP/A to Max Carrier TXP/Y and RXN/B to Max Carrier TXN/Z
+
+  created 21 Nov 2023
+  by Christopher Mendez
+*/
+
+#include <ArduinoRS485.h>
+
+constexpr unsigned long sendInterval{ 1000 };
+unsigned long sendNow{ 0 };
+int counter = 0;
+
+arduino::UART _UART4_{ PA_0, PI_9, NC, NC };
+
+RS485Class rs485{ _UART4_, PA_0, PI_10, PJ_10 };  //  UART4, TX, CTS, RTS
+
+
+void setup() {
+  // Set the Max Carrier Communication Protocols to default config
+  RS485init();
+  // RS485/RS232 default config is:
+  // - RS485 mode
+  // - Half Duplex
+  // - No A/B and Y/Z 120 Ohm termination enabled
+  delay(1000);
+  // Enable the RS485/RS232 system
+  rs485Enable(true);
+  // Enable Full Duplex mode
+  // This will also enable A/B and Y/Z 120 Ohm termination resistors
+  rs485FullDuplex(true);
+  // Specify baudrate, and preamble and postamble times for RS485 communication
+  rs485.begin(115200, 0, 500);
+  // Start in receive mode
+  rs485.receive();
+}
+
+void loop() {
+
+  if (rs485.available()) {
+    Serial.write(rs485.read());
+  }
+
+  if (millis() > sendNow) {
+
+    // Disable receive mode before transmission
+    rs485.noReceive();
+
+    rs485.beginTransmission();
+    rs485.print("hello I'm Max ");
+    rs485.println(counter++);
+    rs485.endTransmission();
+
+    // Re-enable receive mode after transmission
+    rs485.receive();
+    sendNow = millis() + sendInterval;
+  }
+}
+
+void RS485init() {
+  rs485Enable(false);
+  rs485ModeRS232(false);
+  rs485FullDuplex(false);
+  rs485YZTerm(false);
+  rs485ABTerm(false);
+}
+
+void rs485Enable(bool enable) {
+  digitalWrite(PC_7, enable ? HIGH : LOW);
+}
+void rs485ModeRS232(bool enable) {
+  digitalWrite(PC_6, enable ? LOW : HIGH);
+}
+void rs485YZTerm(bool enable) {
+  digitalWrite(PG_3, enable ? HIGH : LOW);
+}
+void rs485ABTerm(bool enable) {
+  digitalWrite(PJ_7, enable ? HIGH : LOW);
+}
+
+void rs485FullDuplex(bool enable) {
+  digitalWrite(PA_8, enable ? LOW : HIGH);
+  if (enable) {
+    // RS485 Full Duplex require YZ and AB 120 Ohm termination enabled
+    rs485YZTerm(true);
+    rs485ABTerm(true);
+  }
+}
+```
+For the __Portenta Machine Control__, use the library's built-in example code. You can find it on **File > Examples > Arduino_MachineControl > RS485_fullduplex**.
+
+Remember that the Portenta Machine Control must be programmed selecting the `Portenta H7` as the target in the Arduino IDE.
+
+After uploading the code to the Max Carrier and the Machine Control, open both Serial Monitors and you will see the message exchange with a counter.
+
+![RS-485 communication | Max Carrier - Machine Control](assets/gif-rs485.gif)
+
+
+##### RS-232 Example Code
+```arduino
+/*
+  Circuit:
+   - Portenta H7 + Max Carrier
+   - Arduino Portenta Machine Control (PMC)
+   - Connect PMC TXN/Z to Max Carrier RXP/A
+   - Connect PMC RXP/A to Max Carrier TXP/Z
+
+  created 21 Nov 2023
+  by Christopher Mendez
+*/
+
+#include <ArduinoRS485.h>
+
+constexpr unsigned long sendInterval{ 1000 };
+unsigned long sendNow{ 0 };
+int counter = 0;
+
+arduino::UART _UART4_{ PA_0, PI_9, NC, NC };  // TX, RX
+
+RS485Class rs485{ _UART4_, PA_0, PI_10, PJ_10 };  //  UART4, TX, CTS, RTS
+
+
+void setup() {
+  // Set the Max Carrier Communication Protocols to default config
+  RS485init();
+  // RS485/RS232 default config is:
+  // - RS485 mode
+  // - Half Duplex
+  // - No A/B and Y/Z 120 Ohm termination enabled
+  delay(1000);
+  // Enable the RS485/RS232 system
+  rs485Enable(true);
+  // Enable the RS232 mode
+  rs485ModeRS232(true);
+  // Specify baudrate for RS232 communication
+  rs485.begin(115200);
+  // Start in receive mode
+  rs485.receive();
+}
+
+void loop() {
+
+  if (rs485.available()) {
+    Serial.write(rs485.read());
+  }
+
+  if (millis() > sendNow) {
+    String log = "[";
+    log += sendNow;
+    log += "] ";
+
+    String msg = "hello I'm Max ";
+    msg += counter++;
+
+    log += msg;
+    Serial.println(log);
+
+    // Disable receive mode before transmission
+    rs485.noReceive();
+
+    rs485.beginTransmission();
+    rs485.println(msg);
+    rs485.endTransmission();
+
+    // Re-enable receive mode after transmission
+    rs485.receive();
+    sendNow = millis() + sendInterval;
+  }
+}
+
+void RS485init() {
+  rs485Enable(false);
+  rs485ModeRS232(false);
+  rs485FullDuplex(false);
+  rs485YZTerm(false);
+  rs485ABTerm(false);
+}
+
+void rs485Enable(bool enable) {
+  digitalWrite(PC_7, enable ? HIGH : LOW);
+}
+void rs485ModeRS232(bool enable) {
+  digitalWrite(PC_6, enable ? LOW : HIGH);
+}
+void rs485YZTerm(bool enable) {
+  digitalWrite(PG_3, enable ? HIGH : LOW);
+}
+void rs485ABTerm(bool enable) {
+  digitalWrite(PJ_7, enable ? HIGH : LOW);
+}
+
+void rs485FullDuplex(bool enable) {
+  digitalWrite(PA_8, enable ? LOW : HIGH);
+  if (enable) {
+    // RS485 Full Duplex require YZ and AB 120 Ohm termination enabled
+    rs485YZTerm(true);
+    rs485ABTerm(true);
+  }
+}
+```
+
+For the __Portenta Machine Control__, use the library's built-in example code. You can find it on **File > Examples > Arduino_MachineControl > RS232**.
+
+Remember that the Portenta Machine Control must be programmed selecting the `Portenta H7` as the target in the Arduino IDE.
+
+After uploading the code to the Max Carrier and the Machine Control, open both Serial Monitors and you will see the message exchange with a counter and a time stamp.
+
+![RS-232 communication | Max Carrier - Machine Control](assets/gif-rs232.gif)
 
 ### UART
 
