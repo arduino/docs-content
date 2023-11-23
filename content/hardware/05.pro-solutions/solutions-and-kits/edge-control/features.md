@@ -40,7 +40,7 @@ The **Edge control** can be positioned anywhere and is suitable for precision fa
 
 <Feature title="4-20 mA Sensors" image="communication">
 
-  The Edge Control has four 4-20 mA sensor inputs, perfect to support a vast variety of industrial sensors. 
+  The Edge Control features four 4-20 mA sensor inputs, perfect to support a vast variety of industrial sensors. 
 
 </Feature>
 
