@@ -49,7 +49,7 @@ Maker, IoT, MicroPython
   * Power Management Unit (PMU)
   * ADC in RTC mode
 
-\*The power consumption in low power modes is only for the ESP32-S3 SoC. Other components on the board (such as LEDs), consumes power as well, which increases the overall power consumption of the board. 
+\*The power consumption ratings listed in low power modes are only for the ESP32-S3 SoC. Other components on the board (such as LEDs), consumes power as well, which increases the overall power consumption of the board.
 
 # Contents
 
@@ -481,6 +481,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 11/06/2023 | Correct company name, correct VBUS/VUSB                |
 | 11/09/2023 | Block Diagram Update, Antenna Specifications           |
 | 11/15/2023 | Ambient temperature update                             |
+| 11/23/2023 | Added label to LP modes                                |
+
 
 
 
