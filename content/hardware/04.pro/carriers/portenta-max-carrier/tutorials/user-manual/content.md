@@ -1321,7 +1321,7 @@ The Portenta Max Carrier is equipped with CAN bus communication capabilities, po
 
 For users working with the Portenta H7 or Portenta C33, the following simple examples can be used to test the CAN bus protocol's capabilities.
 
-The CAN interface on the Portenta Max Carrier must be enabled before using it. To do it, turning an specific pin to `LOW` is necessary:
+The CAN interface on the Portenta Max Carrier must be enabled before using it. To do it, turning a specific pin to `LOW` is necessary:
 
 __For the Portenta H7__:
 ```arduino
@@ -1343,15 +1343,6 @@ The _CAN Read_ example for Portenta H7/C33 starts CAN communication at a rate of
 void setup()
 {
   Serial.begin(115200);
-
-  // Enabling the CAN bus interface
-#ifdef ARDUINO_PORTENTA_C33
-  pinMode(PIN_CAN1_STBY, OUTPUT);
-  digitalWrite(PIN_CAN1_STBY, LOW);
-#elif ARDUINO_PORTENTA_H7_M7
-  pinMode(PG_7, OUTPUT);
-  digitalWrite(PG_7, LOW);
-#endif
 
   while (!Serial) { }   // open the serial monitor to start receiving
 
@@ -1383,15 +1374,6 @@ static uint32_t const CAN_ID = 0x20;
 void setup()
 {
   Serial.begin(115200);
-
-  // Enabling the CAN bus interface
-#ifdef ARDUINO_PORTENTA_C33
-  pinMode(PIN_CAN1_STBY, OUTPUT);
-  digitalWrite(PIN_CAN1_STBY, LOW);
-#elif ARDUINO_PORTENTA_H7_M7
-  pinMode(PG_7, OUTPUT);
-  digitalWrite(PG_7, LOW);
-#endif
 
   while (!Serial) { }   // open the serial monitor to start sending
 
@@ -1482,9 +1464,27 @@ void loop() {
 }
 
 ```
+Remember that the Portenta Machine Control must be programmed selecting the `Portenta H7` as the target in the Arduino IDE.
+
+After uploading the code to the Max Carrier and the Machine Control, open both Serial Monitors and you will see the CAN messages exchange.
+
 ![CAN bus communication between both devices](assets/CAN-bus.png)
 
 ### Serial RS-232/RS-485
+
+The Portenta Max Carrier includes a multi-protocol transceiver supporting RS-232, RS-485, and RS-422 serial standards (configurable) based on the SP335 IC.
+
+Default configuration:
+- Full Duplex
+- 232 protocol
+- No data rate limit
+- Enabled
+
+Here is the connector pinout for reference:
+
+![6P6C RS-232/485 Connector Pinout](assets/rs-connector.png)
+
+#### Using Linux
 
 #### Using Arduino IDE
 
