@@ -50,6 +50,37 @@ The library empowers users to easily initialize, control, and access the diverse
 
 The `Arduino_MachineControl` library offers a wide range of functionalities organized for ease of reference. The table below categorizes the different features and their specifics:
 
+<table>
+<thead>
+  <tr>
+    <th>Feature Category</th>
+    <th>Details</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Input Signals</td>
+    <td>Eight digital inputs at +24 VDC<br>Two channels for encoder readings<br>Three analog inputs for PT100, J, and K temperature probes<br>Three analog inputs for 4-20 mA, 0-10V, and NTC signals</td>
+  </tr>
+  <tr>
+    <td>Output Signals</td>
+    <td>Eight digital output terminals at +24 VDC<br>Four analog output terminals, ranging from 0 to 10 VDC</td>
+  </tr>
+  <tr>
+    <td>Programmable I/O</td>
+    <td>12 programmable digital input/output terminals at +24 VDC</td>
+  </tr>
+  <tr>
+    <td>Communication Protocols</td>
+    <td>CAN bus<br>Serial protocols (RS-232, RS-422, and RS-485)<br>USB</td>
+  </tr>
+  <tr>
+    <td>Additional functionalities</td>
+    <td>Real-Time Clock (RTC)</td>
+  </tr>
+</tbody>
+</table>
+
 ### Improvements Between Library Releases
 
 #### Structural and Functional Enhancements
