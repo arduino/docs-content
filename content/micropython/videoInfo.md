@@ -1,5 +1,5 @@
 ---
-url: https://www.youtube.com/embed/CgOVbtoT8qo?si=i3QVjDL1-MBFZ3Xe
+url: https://www.youtube.com/embed/CgOVbtoT8qo?si=KLUYQrn7hLBRHVZQ
 info:
   [
     {
@@ -13,6 +13,12 @@ info:
       title: Code Editors,
       description: Create smart dashboards to control connected devices using few coding,
       link: /micropython/basics/code-editors,
+    },
+    {
+      icon: IconBooks,
+      title: MicroPython Basics,
+      description: An introduction to MicroPython,
+      link: /micropython/basics/micropython-basics,
     },
     {
       icon: IconSmartDashBoard,
