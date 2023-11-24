@@ -459,7 +459,13 @@ A dedicated SMA connector (J9) allows for an external antenna.
 
 ![Portenta Max Carrier with LoRa® Antenna](assets/LoRaAntenna.png)
 
-To learn how to leverage LoRa® capabilities with this carrier, follow this detailed tutorial on [How to Connect the Portenta Max Carrier with The Things Network using a Portenta H7](https://docs.arduino.cc/tutorials/portenta-max-carrier/connecting-to-ttn)
+#### Using Linux
+
+Empower your Portenta X8 connectivity with LoRa®, to achieve this follow this detailed guide on [How to set up a multi-protocol gateway using the Portenta X8 and the Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway)
+
+#### Using Arduino IDE
+
+To learn how to leverage LoRa® capabilities with this carrier and the Arduino IDE, follow this detailed tutorial on [How to Connect the Portenta Max Carrier with The Things Network using a Portenta H7](https://docs.arduino.cc/tutorials/portenta-max-carrier/connecting-to-ttn)
 
 ## Mini PCIe
 ## MIPI Camera
