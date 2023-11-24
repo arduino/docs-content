@@ -50,13 +50,13 @@ The library empowers users to easily initialize, control, and access the diverse
 
 The `Arduino_MachineControl` library offers a wide range of functionalities organized for ease of reference. The table below categorizes the different features and their specifics:
 
-|    **Feature Category**    | **Details**                                                                                                                                                                                           |
-|:--------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|        Input Signals       | - Eight digital inputs at +24 VDC<br>- Two channels for encoder readings<br>- Three analog inputs for PT100, J, and K temperature probes<br>- Three analog inputs for 4-20 mA, 0-10V, and NTC signals |
-|       Output Signals       | - Eight digital output terminals at +24 VDC<br>- Four analog output terminals, ranging from 0 to 10 VDC                                                                                               |
-|      Programmable I/O      | - 12 programmable digital input/output terminals at +24 VDC                                                                                                                                           |
-|   Communication Protocols  | - CAN bus<br>- Serial protocols (RS-232, RS-422, and RS-485)<br>- USB                                                                                                                                 |
-| Additional functionalities | - Real-Time Clock (RTC)                                                                                                                                                                               |
+| **Feature Category** | **Details** |
+|:---:|---|
+| Input Signals | - Eight digital inputs at +24 VDC<br>- Two channels for encoder readings<br>- Three analog inputs for PT100, J, and K temperature probes<br>- Three analog inputs for 4-20 mA, 0-10V, and NTC signals |
+| Output Signals | - Eight digital output terminals at +24 VDC<br>- Four analog output terminals, ranging from 0 to 10 VDC |
+| Programmable I/O | - 12 programmable digital input/output terminals at +24 VDC |
+| Communication Protocols | - CAN bus<br>- Serial protocols (RS-232, RS-422, and RS-485)<br>- USB |
+| Additional functionalities | - Real-Time Clock (RTC) |
 
 ### Improvements Between Library Releases
 
