@@ -50,42 +50,49 @@ The library empowers users to easily initialize, control, and access the diverse
 
 The `Arduino_MachineControl` library offers a wide range of functionalities organized for ease of reference. The table below categorizes the different features and their specifics:
 
-<style>
-  .centered {
-    text-align: center;
-  }
-  .left-aligned {
-    text-align: left;
-  }
-</style>
-
 <table>
   <thead>
     <tr>
-      <th class="centered">Feature Category</th>
-      <th class="left-aligned">Details</th>
+      <th style={{ textAlign: 'center' }}>Feature Category</th>
+      <th style={{ textAlign: 'left' }}>Details</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td class="centered">Input Signals</td>
-      <td class="left-aligned">- Eight digital inputs at +24 VDC<br>- Two channels for encoder readings<br>- Three analog inputs for PT100, J, and K temperature probes<br>- Three analog inputs for 4-20 mA, 0-10V, and NTC signals</td>
+      <td style={{ textAlign: 'center' }}>Input Signals</td>
+      <td style={{ textAlign: 'left' }}>
+        - Eight digital inputs at +24 VDC<br>
+        - Two channels for encoder readings<br>
+        - Three analog inputs for PT100, J, and K temperature probes<br>
+        - Three analog inputs for 4-20 mA, 0-10V, and NTC signals
+      </td>
     </tr>
     <tr>
-      <td class="centered">Output Signals</td>
-      <td class="left-aligned">- Eight digital output terminals at +24 VDC<br>- Four analog output terminals, ranging from 0 to 10 VDC</td>
+      <td style={{ textAlign: 'center' }}>Output Signals</td>
+      <td style={{ textAlign: 'left' }}>
+        - Eight digital output terminals at +24 VDC<br>
+        - Four analog output terminals, ranging from 0 to 10 VDC
+      </td>
     </tr>
     <tr>
-      <td class="centered">Programmable I/O</td>
-      <td class="left-aligned">- 12 programmable digital input/output terminals at +24 VDC</td>
+      <td style={{ textAlign: 'center' }}>Programmable I/O</td>
+      <td style={{ textAlign: 'left' }}>
+        - 12 programmable digital input/output terminals at +24 VDC
+      </td>
     </tr>
     <tr>
-      <td class="centered">Communication Protocols</td>
-      <td class="left-aligned">- CAN bus<br>- Serial protocols (RS-232, RS-422, and RS-485)<br>- USB</td>
+      <td style={{ textAlign: 'center' }}>Communication Protocols</td>
+      <td style={{ textAlign: 'left' }}>
+        - CAN bus<br>
+        - Serial protocols (RS-232, RS-422, and RS-485)<br>
+        - USB
+      </td>
     </tr>
     <tr>
-      <td class="centered">Additional functionalities</td>
-      <td class="left-aligned">- Real-Time Clock (RTC)</td>
+      <td style={{ textAlign: 'center' }}>Additional functionalities</td>
+      <td style={{ textAlign: 'left' }}>
+        - Real-Time Clock (RTC)
+      </td>
     </tr>
   </tbody>
 </table>
