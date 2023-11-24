@@ -1,5 +1,5 @@
 ---
-title: 'Arduino_MachineControl Library Guide'
+title: 'Arduino MachineControl Library Guide'
 difficulty: beginner
 compatible-products: [portenta-machine-control]
 description: 'Learn about the new release of the Arduino_MachineControl library, which enables efficient management of the features of the Arduino® Portenta Machine Control.'
@@ -58,7 +58,7 @@ The `Arduino_MachineControl` library offers a wide range of functionalities orga
 |   Communication Protocols  | - CAN bus<br>- Serial protocols (RS-232, RS-422, and RS-485)<br>- USB                                                                                                                                 |
 | Additional functionalities | - Real-Time Clock (RTC)                                                                                                                                                                               |
 
-### Improvements Between Releases Overview
+### Improvements Between Library Releases
 
 #### Structural and Functional Enhancements
 <br></br>
