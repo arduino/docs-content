@@ -1,8 +1,8 @@
 ---
-title: 'Portenta Machine Control Arduino Library Guide'
+title: 'Arduino_MachineControl Library Guide'
 difficulty: beginner
 compatible-products: [portenta-machine-control]
-description: 'Learn about the library of the Arduino® Portenta Machine Control.'
+description: 'Learn about the new release of the Arduino_MachineControl library, which enables efficient management of the features of the Arduino® Portenta Machine Control.'
 tags:
   - Library
   - Portenta Machine Control
@@ -18,12 +18,12 @@ software:
 
 ## Overview
 
-The Arduino Portenta Machine Control is a versatile industrial unit for driving machinery. It offers soft-PLC control, diverse I/O options, and flexible network connectivity. The Machine Control library enables efficient management of the features of the Portenta Machine Control board. This tutorial aims to highlight the recent changes in the library, focusing on its user-friendly approach and adherence to the Arduino style.
+The Arduino Portenta Machine Control is a versatile industrial control unit for driving machinery. It offers soft-PLC control, diverse input/output options, and flexible network connectivity. The latest release of the `Arduino_MachineControl` library enables efficient management of the software and hardware features of the Portenta Machine Control. This tutorial aims to highlight the recent changes in the library, focusing on its user-friendly approach and adherence to the Arduino ecosystem rules, conventions, and style.
 
 ## Goals
 
-- Introduce the library’s key features and capabilities.
-- Show the library's main differences between its first and latest version. 
+- Introduce the `Arduino_MachineControl` library’s key features and capabilities.
+- Show the `Arduino_MachineControl` library's main differences between its first and latest version. 
 
 ## Hardware and Software Requirements
 
@@ -33,41 +33,30 @@ The Arduino Portenta Machine Control is a versatile industrial unit for driving 
 - [USB-A to Micro-USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 - +24 VDC power supply (x1)
 
+***The minimum recommended output current rating for the Portenta Machine Control +24 VDC power supply is 0.5 A***
+
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino_MachineControl library](https://github.com/leonardocavagnis/Arduino_MachineControl/tree/lib_refactoring)
 
-## Portenta Machine Control Arduino Library
+## Arduino_MachineControl Library
 
-The Portenta Machine Control Library is a C++ library designed to manage the functionalities of the Portenta Machine Control board efficiently. It provides extensive support for inputs such as digital, analog, and encoder signals while offering outputs including digital and analog signals. This library also manages communication through protocols like CAN-BUS and serial ports, allowing connectivity via Ethernet, USB, Wi-Fi®, and Bluetooth® Low Energy.
+The `Arduino_MachineControl` is a C++ library designed to manage the software and hardware functionalities of the Portenta Machine Control board efficiently. It provides extensive support for inputs such as digital, analog, and encoder ports while offering outputs including digital and analog ports. This library also manages communication through interfaces like CAN bus, RS-232, RS-422, and RS-485, allowing connectivity via Ethernet, USB, Wi-Fi®, and Bluetooth® Low Energy.
 
 The library empowers users to easily initialize, control, and access the diverse functionalities of the Portenta Machine Control, enhancing its capability and adaptability for industrial applications.
 
 ### Library Features
 
-The library manages **input signals**, including:
+The `Arduino_MachineControl` library offers a wide range of functionalities organized for ease of reference. The table below categorizes the different features and their specifics:
 
-- Eight digital inputs at 24 VDC
-- Two channels for encoder readings
-- Three analog inputs for PT100, J, and K temperature probes
-- Three analog inputs for 4-20 mA, 0-10V, and NTC signals
-
-The library manages **output signals**, including:
-
-- Eight digital output terminals at 24 VDC
-- Four analog output terminals, from 0 to 10 VDC
-
-Provides control for other **inputs and outputs**:
-
-- 12 programmable digital input/output terminals at 24 VDC
-
-Supports various **communication protocols**:
-
-- CAN-BUS
-- Serial protocols (RS232, RS422, and RS485)
-- USB
-- Real-Time Clock (RTC) functionality
+|    **Feature Category**    | **Details**                                                                                                                                                                                           |
+|:--------------------------:|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|        Input Signals       | - Eight digital inputs at +24 VDC<br>- Two channels for encoder readings<br>- Three analog inputs for PT100, J, and K temperature probes<br>- Three analog inputs for 4-20 mA, 0-10V, and NTC signals |
+|       Output Signals       | - Eight digital output terminals at +24 VDC<br>- Four analog output terminals, ranging from 0 to 10 VDC                                                                                               |
+|      Programmable I/O      | - 12 programmable digital input/output terminals at +24 VDC                                                                                                                                           |
+|   Communication Protocols  | - CAN bus<br>- Serial protocols (RS-232, RS-422, and RS-485)<br>- USB                                                                                                                                 |
+| Additional functionalities | - Real-Time Clock (RTC)                                                                                                                                                                               |
 
 ### Improvements Between Releases Overview
 
