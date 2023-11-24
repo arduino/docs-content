@@ -258,3 +258,5 @@ void setup() {
 In the new approach the initialization of the thermocouple temperature probe is done directly through the `MachineControl_TCTempProbe` object. This design removes the need for accessing a general temperature probe object (`temp_probes`) and its specific member for thermocouples, streamlining the code and making it more straightforward.
 
 These enhancements in managing temperature sensors within the Portenta Machine Control Library simplify integrating and utilizing temperature sensors in industrial applications.
+
+## Conclusion
