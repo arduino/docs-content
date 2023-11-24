@@ -40,7 +40,7 @@ The Arduino Portenta Machine Control is a versatile industrial control unit for 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino_MachineControl library](https://github.com/leonardocavagnis/Arduino_MachineControl/tree/lib_refactoring)
 
-## Arduino_MachineControl Library 
+## Arduino_MachineControl Library
 
 The `Arduino_MachineControl` is a C++ library designed to manage the software and hardware functionalities of the Portenta Machine Control board efficiently. It provides extensive support for inputs such as digital, analog, and encoder ports while offering outputs including digital and analog ports. This library also manages communication through interfaces like CAN bus, RS-232, RS-422, and RS-485, allowing connectivity via Ethernet, USB, Wi-Fi®, and Bluetooth® Low Energy.
 
@@ -49,14 +49,6 @@ The library empowers users to easily initialize, control, and access the diverse
 ### Library Features
 
 The `Arduino_MachineControl` library offers a wide range of functionalities organized for ease of reference. The table below categorizes the different features and their specifics:
-
-| **Feature Category** | **Details** |
-|:---:|---|
-| Input Signals | Eight digital inputs at +24 VDC<br>Two channels for encoder readings<br>Three analog inputs for PT100, J, and K temperature probes<br>Three analog inputs for 4-20 mA, 0-10V, and NTC signals |
-| Output Signals | Eight digital output terminals at +24 VDC<br>Four analog output terminals, ranging from 0 to 10 VDC |
-| Programmable I/O | 12 programmable digital input/output terminals at +24 VDC |
-| Communication Protocols | CAN bus<br>Serial protocols (RS-232, RS-422, and RS-485)<br>USB |
-| Additional functionalities | Real-Time Clock (RTC) |
 
 ### Improvements Between Library Releases
 
@@ -258,5 +250,3 @@ void setup() {
 In the new approach the initialization of the thermocouple temperature probe is done directly through the `MachineControl_TCTempProbe` object. This design removes the need for accessing a general temperature probe object (`temp_probes`) and its specific member for thermocouples, streamlining the code and making it more straightforward.
 
 These enhancements in managing temperature sensors within the Portenta Machine Control Library simplify integrating and utilizing temperature sensors in industrial applications.
-
-## Conclusion
