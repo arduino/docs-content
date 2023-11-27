@@ -17,10 +17,6 @@ The [Arduino Cloud for Schools](https://cloud.arduino.cc/schools/) is a tool tha
 
 In this article, you will get a general overview of the major features of the Arduino Cloud for Education and the features *Free* and *School* plan can offer.
 
-## Required Software
-
-* [Arduino Cloud ](https://cloud.arduino.cc/plans#school)
-
 ## What is Arduino Cloud?
 
 Arduino Cloud is an easy-to-use Internet of Things application platform. Arduino Cloud makes the creation of connected objects quick, simple, and secure. You can connect multiple devices and allow them to exchange real-time data. You can also monitor them from anywhere using a simple user interface. It is integrated with the online Arduino Web Editor.
@@ -42,7 +38,7 @@ Now let's explore https://app.arduino.cc/.
 The Arduino Cloud for Education consists of **two main subscriptions**:
 
 * Free Plan
-* School Plan
+* [School Plan]((https://cloud.arduino.cc/plans#school))
 
 By default, any new user who created an Arduino account has access to Arduino Cloud with a *Free Plan*.
 
@@ -74,6 +70,13 @@ In your Arduino Cloud *Free plan* comes with one **space** by default:
   * 1-day data retention by default.
   
   You have a quick glance on Device and Things from the menu on the top right corner.
+  
+* **Shared Space**. It's an easy tool to keep track of your students' recent activities on their IoT projects and monitor their project progress.
+	
+	*  *Save online unlimited amount of sketches* and dashboards, and easily search for them later,
+	*  Quickly share your data flow from sensors adding up to *five Things*
+	*  Integrate your lesson plan with Google Classroom, assign tasks and share courses.
+	*  Study data analysis with your students with 6 months of data retention by default
 
 ### Create a Shared Space
 
@@ -349,7 +352,11 @@ It is also possible to share the content of a course or give it as an assignment
 
 ![Share content with Google Classroom](assets/google-classroom-content-share.png)
 
+## IoT Templates
 
+[Templates](https://app.arduino.cc/templates) are ready-made project that will automatically configure your device, Thing, and variables.
+
+It's the easiest way to proceed with a beginner class and you can check that section to get inspiration for your own class project.
 
 ### Over-the-air Uploads
 
