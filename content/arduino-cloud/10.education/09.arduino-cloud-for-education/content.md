@@ -316,7 +316,7 @@ To upgrade from a *Free Plan* to *School Plan* and get access to the features me
 
 https://digital-store.arduino.cc/education/purchase/institution
 
-1. If you're not logged in with an Arduino account, you'll be redirected to the login page. If you've already created a Shared Space **select the institution Space you want to add your members' seats to** or click Set up new shared Space to make a brand new one.
+1. If you're not logged in with an Arduino account, you'll be redirected to the login page. If you've already created a Shared Space **select the institution Space you want to add your members' seats to** or click **Set up new shared Space** to make a brand new one.
 
 	![Select the institution space](assets/school-plan.png)
 
