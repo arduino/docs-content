@@ -200,7 +200,7 @@ If your device is compatible with Arduino Cloud, you can start to **Setup Device
 
 ![Device selection](assets/plugin-device.png)
 
-The agent will start looking for your board, select the kind of device you're setting up and continue to follow
+The agent will start looking for your board, select the kind of device you're setting up and continue to follow the next guided steps.
 
 ![Set up board in the cloud](assets/setup-device.png)
 
