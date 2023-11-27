@@ -1,12 +1,12 @@
 ---
 title: "Arduino - PortManipulation"
 source: "https://arduino.cc/en/Reference/PortManipulation"
-description: Learn how to control pins on an Arduino through three different registers (DDR, PORT, PIN). 
+description: Learn how to control pins on an Arduino Uno R3 through three different registers (DDR, PORT, PIN). 
 ---
 
 ## Port Registers
 
-Port registers allow for lower-level and faster manipulation of the i/o pins of the microcontroller on an Arduino board. The chips used on the Arduino board (the ATmega8 and ATmega168) have three ports:
+Port registers allow for lower-level and faster manipulation of the i/o pins of the microcontroller on an Arduino Uno R3 board(Or similar ). The chips used on the Arduino board (the ATmega8, ATmega168, and ATmega328) have three ports:
 
 * B (digital pin 8 to 13)
 * C (analog input pins)
