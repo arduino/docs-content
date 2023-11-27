@@ -354,7 +354,7 @@ It is also possible to share the content of a course or give it as an assignment
 
 ## IoT Templates
 
-[Templates](https://app.arduino.cc/templates) are ready-made project that will automatically configure your device, Thing, and variables.
+[Templates](https://app.arduino.cc/templates) are ready-made projects that will automatically configure your device, Thing, and variables.
 
 It's the easiest way to proceed with a beginner class and you can check that section to get inspiration for your own class project.
 
