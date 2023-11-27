@@ -242,7 +242,7 @@ When we create variables here, they are automatically generated in a sketch, and
 
 To learn more about the different types of variables, go to [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).
 
-***The Arduino Cloud - Free Plan allows a maximum number of 5 variables per Thing by default. The Arduino Cloud School Plan allows an unlimited number of variables per Thing.***
+***The Arduino Cloud - Free Plan allows a maximum number of 5 variables per Thing by default. The Arduino Cloud - School Plan allows an unlimited number of variables per Thing.***
 
 ### Dashboards
 
@@ -268,7 +268,7 @@ You can read more about Advance Chart Widget [here](https://docs.arduino.cc/ardu
 
 Arduino Cloud, both with *Free* or *School Plan*, allows any user to download historical data from Arduino Cloud Things and Variables. The data are downloaded in **.csv** format to be ready for further editing.
 
-***The Arduino Cloud Free Plan allows only 1 day of data retention by default. The Arduino Cloud for School Plan includes 6 months of data retention by default; this means that your data will be available and downloadable from your Arduino Cloud account for 6 months.***
+***The Arduino Cloud - Free Plan allows only 1 day of data retention by default. The Arduino Cloud - School Plan includes 6 months of data retention by default; this means that your data will be available and downloadable from your Arduino Cloud account for 6 months.***
 
 To start exporting your data locally, navigate into one of your dashboards on the [Arduino Cloud](https://app.arduino.cc/dashboards). While inside a dashboard, press the **Download** icon in the upper right corner. This will open a new window that will allow you to select which historical data you would like to download.
 
