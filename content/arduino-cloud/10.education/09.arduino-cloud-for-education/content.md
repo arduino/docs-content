@@ -161,7 +161,7 @@ Important to remember are **Student role limitations:**
 
 ## IoT Components
 
-On the left menu bar in https://app.arduino.cc/ are listed all the elements you will use to set up your IoT projects for a quick access:
+On the left menu bar in https://app.arduino.cc/, all the elements you will use to set up your IoT projects for a quick access are listed:
 
 1. [Devices](https://app.arduino.cc/devices)
 2. [Things](https://app.arduino.cc/things)
