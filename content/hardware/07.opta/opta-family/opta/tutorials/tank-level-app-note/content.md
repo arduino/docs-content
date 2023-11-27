@@ -61,7 +61,7 @@ The Big Tank has at least twice the capacity of the Small Tank in the experiment
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, `ArduinoModbus`, and `Scheduler`. You can install these libraries via the Library Manager of the Arduino IDE.
-- The [Arduino Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the sketch provided in the following section. The Ethernet connection is also available as a connectivity option to leverage Arduino Cloud applications. The Arduino Cloud account is free and is needed to access its features.
+- The [Arduino Cloud](https://create.arduino.cc/iot/things) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the sketch provided in the following section. The Ethernet connection is also available as a connectivity option to leverage Arduino Cloud applications. The Arduino Cloud account is free and is needed to access its features. To learn more about the Arduino Cloud visit our [Getting Started with Arduino Cloud](https://docs.arduino.cc/arduino-cloud/guides/overview)
 - The [tank level monitoring example code](assets/tank-level-monitoring-sketch.zip)
 
 ## Tank Level Monitoring Model Setup
@@ -87,7 +87,9 @@ The Opta™ responsible of the Small Tank (ST) performs the following actions:
 - It manages the solenoid/ball valve given the Small Tank level and the Big Tank minimum level state.
 - It sends the Small Tank's current maximum level state to the Big Tank while seeking the Big Tank's minimum level state.
 
-In addition to these responsibilities, both Opta™ devices are connected to the Arduino Cloud via Wi-Fi® to leverage monitored functionalities and remote control.
+In addition to these responsibilities, both Opta™ devices are connected to the Arduino Cloud via Wi-Fi® to leverage monitored functionalities and remote control. The same can be done using the Ethernet connectivity, provided nativley on all the Opta variants.
+
+***To learn how to configure Opta in the Arduino Cloud using the two connectivity setup options, check out our tutorials for [Ethernet](https://docs.arduino.cc/arduino-cloud/hardware/ethernet) and [Wi-Fi](https://docs.arduino.cc/arduino-cloud/hardware/wifi)***
 
 ### The Small Tank (ST) Code
 
