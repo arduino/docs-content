@@ -360,7 +360,7 @@ It's the easiest way to proceed with a beginner class and you can check that sec
 
 ### Over-the-air Uploads
 
-This feature, included in the Arduino Cloud *School Plan*, allows you to upload programs wirelessly to your Arduino boards. If you have a compatible board connected to a Wi-Fi®/Ethernet network and configured it to work with OTA, you won’t need to physically connect the board to the computer in order to upload new sketches to it. 
+This feature, included in the Arduino Cloud *School Plan*, allows you to upload programs wirelessly to your Arduino boards. If you have a compatible board connected to a Wi-Fi®/Ethernet network and configured it to work with OTA (over-the-air), you won’t need to physically connect the board to the computer in order to upload new sketches to it. 
 
 Check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/ota-getting-started#how-does-it-work) to learn how to upload your program remotely to your board.
 
