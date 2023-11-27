@@ -214,7 +214,7 @@ If the onboarding proceeds as expected, the following page will appear confirmin
 
 When you click on a `Device`'s name it displays all the associated `Things`, more information about the device, such as its ID number, FQBN, serial number, firmware version, Device Status history, and the date when the device was added.
 
-![details of a device when you click on it](assets/device-details.png)
+![Details of a device when you click on it](assets/device-details.png)
 
 The device status indicates whether it is connected to the Arduino Cloud (online), or not connected (offline). Click on the three dots to rename your device.
 
