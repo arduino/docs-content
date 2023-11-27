@@ -189,7 +189,7 @@ If you want to unlock this function, you'll need to upgrade to a [School Plan](h
 In your IoT projects with Arduino you will need **three elements**:
 
 1. The [**Arduino Cloud**](https://docs.arduino.cc/arduino-cloud/guides/overview)
-2. The [**Arduino Create Agent**](https://create.arduino.cc/getting-started/plugin/welcome) the middle man between Arduino’s Web Editor, Arduino IoT Cloud and your computer. It allows you to use the browser to edit and deploy sketches to your Arduino board.
+2. The [**Arduino Create Agent**](https://create.arduino.cc/getting-started/plugin/welcome) the middle man between Arduino’s Web Editor, Arduino Cloud and your computer. It allows you to use the browser to edit and deploy sketches to your Arduino board.
 3. **A device** of your choice.
 
 ### Setup a Device in Arduino Cloud
