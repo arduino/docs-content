@@ -342,7 +342,7 @@ As shown in the image below you can either send it directly to the user's *email
 
 You can check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/sharing-dashboards) to learn more about sharing a dashboard.
 
-### Google Classroom Integration
+### Google Classroom™ Integration
 
 With a *School plan* any educator that is part of a Shared Space can create assignments and share a sketch directly from the Arduino Web Editor.
 
