@@ -1429,7 +1429,7 @@ You can download the example code [here](assets/opta_rtc_example.zip). To learn 
 
 ## Arduino IoT Cloud
 
-All Opta™ variants are fully compatible with the [Arduino IoT Cloud](https://cloud.arduino.cc/), simplifying how professional applications are developed and tracked. By using the IoT Cloud, you can, for example, monitor your Opta's input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware OTA. 
+All Opta™ variants are fully compatible with the [Arduino IoT Cloud](https://cloud.arduino.cc/), simplifying how professional applications are developed and tracked. By using the IoT Cloud, you can, for example, monitor your Opta's input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware OTA.  To learn more about the Arduino Cloud visit our [Getting Started with Arduino Cloud](https://docs.arduino.cc/arduino-cloud/guides/overview)
 
 In case it is the first time you are using the IoT Cloud:
 
@@ -1454,7 +1454,11 @@ After a while, your Opta™ device should be discovered by the IoT Cloud, as sho
 
 ![IoT Cloud Setup Device pop-up window](assets/user-manual-29.png)
 
-Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device. Your Opta™ will be configured to communicate securely with the IoT Cloud; this process can take a while.
+Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device.
+
+***To learn how to configure Opta in the Arduino Cloud using the two connectivity setup options, check out our tutorials for [Ethernet](https://docs.arduino.cc/arduino-cloud/hardware/ethernet) and [Wi-Fi](https://docs.arduino.cc/arduino-cloud/hardware/wifi)***
+
+Your Opta™ will be configured to communicate securely with the IoT Cloud; this process can take a while.
 
 ![IoT Cloud Setup Device pop-up window](assets/user-manual-30.png)
 
