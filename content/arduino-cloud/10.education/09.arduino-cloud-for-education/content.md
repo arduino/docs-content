@@ -238,7 +238,7 @@ In order to retrieve and store information we need to create Variables in the Ar
 
 ![Variables associated to a Thing](assets/add-variable.png)
 
-When we create variables here, they are automatically generated in a sketch, and when we upload the code to the board, the variables used in the sketch synchronize with the variables in the cloud.
+When we create variables here, they are automatically generated in a sketch, and when we upload the code to the board, the variables used in the sketch synchronize with the variables in the Cloud.
 
 To learn more about the different types of variables, go to [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/cloud-variables).
 
