@@ -11,7 +11,7 @@ The gateway is powered by OpenWRT which allows to develop custom applications.
 
 <FeatureList>
 
-<Feature title="Connectivity" image="wifi">
+<Feature title="Connectivity" image="communication">
   8 configurable channels. Wi-Fi, LTE and Ethernet.
   Internal antenna for Wi-Fi, GPS, and LTE, external antenna for LoRa.
 </Feature>
