@@ -405,7 +405,7 @@ This is one of the few things that are distinctly different from UNO R3 to UNO R
 
 ### Native USB
 
-Sending serial data to your computer is done using the standard `Serial` object. I
+Sending serial data to your computer is done using the standard `Serial` object. 
 
 ```arduino
 Serial.begin(9600);
