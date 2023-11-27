@@ -57,7 +57,7 @@ Here, you get access to several free online courses, for different age groups an
 
 ## Manage Your Spaces
 
-In your Arduino Cloud *Free plan* comes with one **space** by default:
+Your Arduino Cloud *Free plan* comes with one **space** by default:
 
 ![Free courses in the Cloud](assets/private-space-details.png)
 
