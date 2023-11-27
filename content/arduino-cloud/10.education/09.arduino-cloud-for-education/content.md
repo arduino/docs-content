@@ -288,7 +288,7 @@ If you want to know more about Arduino Web Editor [visit this link](https://docs
 
 A **lite version of the Web Editor** is included in the Arduino Cloud, under `Things > Sketch`, which is actually a preview of a sketch saved on the Web Editor. 
 
-![Arduino Cloud lite Editor](assets/thing-sketchtab.png)
+![Arduino Cloud Lite Editor](assets/thing-sketchtab.png)
 
 ***The Arduino Cloud - Free Plan allows a maximum online space to store your sketches and libraries of 100 MB and a maximum of 25 code compilations per day by default. The Arduino Cloud School Plan allows unlimited online storage space and unlimited code compilations for your sketches.***
 
