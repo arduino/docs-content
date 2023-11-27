@@ -290,7 +290,7 @@ A **lite version of the Web Editor** is included in the Arduino Cloud, under `Th
 
 ![Arduino Cloud Lite Editor](assets/thing-sketchtab.png)
 
-***The Arduino Cloud - Free Plan allows a maximum online space to store your sketches and libraries of 100 MB and a maximum of 25 code compilations per day by default. The Arduino Cloud School Plan allows unlimited online storage space and unlimited code compilations for your sketches.***
+***The Arduino Cloud - Free Plan allows a maximum online space to store your sketches and libraries of 100 MB and a maximum of 25 code compilations per day by default. The Arduino Cloud - School Plan allows unlimited online storage space and unlimited code compilations for your sketches.***
 
 You can check how many times you have left to verify and upload your program from the [Arduino Cloud > Space Setting > Plane Usage](https://app.arduino.cc/plan-usage).
 
