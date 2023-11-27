@@ -10,7 +10,7 @@ It is powered by OpenWRT which allows to develop custom applications.
 
 <FeatureList>
 
-<Feature title="Connectivity" image="wifi-bluetooth">
+<Feature title="Connectivity" image="wifi">
   Dual LoRa® Concentrators with 16 channels and dual fiberglass 5dB external antennas. Wi-Fi, LTE and GPS with internal antennas. Ethernet with PoE Capabilities.
 </Feature>
 
