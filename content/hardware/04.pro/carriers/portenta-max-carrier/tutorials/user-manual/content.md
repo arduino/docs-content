@@ -268,7 +268,7 @@ Ethernet performance differs based on the associated Portenta board:
 
 To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Max Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 
-#### Using a Portenta X8 (Linux)
+#### Using Linux
 
 Using the Portenta X8 in combination with the Max Carrier allows you to evaluate the Ethernet speed. First, ensure the Portenta X8 is mounted on the Max Carrier, and then connect them using a __LAN cable__.
 
@@ -321,9 +321,9 @@ iperf3.exe -c <Server IP Address> # run this on your PC (Windows) and use the Po
 
 ***The speed results could be affected by your Ethernet cable quality or your PC Ethernet card.***
 
-#### Using a Portenta H7 (Arduino)
+#### Using Arduino IDE
 
-To test the Ethernet connection using a Portenta H7 we are going to use an example sketch that will retrieve your City information from the internet and show it through the Serial Monitor.
+To test the Ethernet connection using a __Portenta H7__ we are going to use an example sketch that will retrieve your City information from the internet and show it through the Serial Monitor.
 
 ```arduino
 /**
@@ -1314,34 +1314,189 @@ The pins used for the JTAG debug port on the Portenta Max Carrier are the follow
 
 ### SPI
 ### I2C
+
 ### CAN Bus
 
 The CAN bus, short for Controller Area Network bus, is a resilient communication protocol created by Bosch® in the 1980s for vehicles. It lets microcontrollers and devices interact without a central computer. Using a multi-master model, any system device can send data when the bus is available.
 
 This approach ensures system continuity even if one device fails and is especially effective in electrically noisy settings like in vehicles, where various devices need reliable communication.
 
+![CAN Bus connector](assets/can-connector.png)
+
 The Portenta Max Carrier is equipped with CAN bus communication capabilities, powered by the TJA1049 module - a high-speed CAN FD transceiver. With this, developers can leverage the robustness and efficiency of CAN communication in their projects.
 
 #### Using Linux
+
+As a practical example, we are going to communicate the __Max Carrier__ using a Portenta X8 with a __Portenta Machine Control__ using CAN.
+
+![Both devices CAN bus wiring diagram](assets/CAN-bus-wiring-x8.png)
+
+***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines.***
+
+For the Max Carrier, the CAN transceiver is enabled by default, this is due to the initial state of `pwm3` pin that needs to be low so the CAN communication works.
+
+For Portenta X8, it is possible to use the following commands:
+
+`sudo modprobe can-dev`
+
+The necessary modules for __CAN__ (Controller Area Network) support on the Portenta X8 are loaded. The `can-dev` module is added to the system configuration, after which the system is rebooted to apply the changes.
+
+```
+echo "can-dev" | sudo tee > /etc/modules-load.d/can-dev.conf
+sudo systemctl reboot
+```
+Within the Portenta X8's shell, Docker containers offer a streamlined environment for specific tasks, such as command-based CAN bus operations. The `cansend` command is one such utility that facilitates sending CAN frames. 
+
+To use the `cansend` command, it is crucial to set up the appropriate environment. First, clone the following container repository.
+
+```bash
+git clone https://github.com/pika-spark/pika-spark-containers
+```
+Navigate to the _can-utils-sh_ directory:
+
+```bash
+cd pika-spark-containers/can-utils-sh
+```
+Build the Docker container:
+
+```bash
+./docker-build.sh
+```
+Run the Docker container with the desired bitrate:
+
+```bash
+sudo ./docker-run.sh can0 [bitrate]
+```
+As an example, the command can be structured as follows for a 500 kbit/s communication:
+
+```bash
+sudo ./docker-run.sh can0 500000
+```
+Now, you are able to send CAN messages using the `cansend` command as follows:
+
+```bash
+cansend can0 123#CA
+```
+The command follows the format:
+
+`cansend <CAN Interface [can0 | can1]> <CAN ID>#<Data_Payload>`
+
+- `<CAN Interface [can0 | can1]>`: defines the CAN interface (can0 to use the onboard transeiver).
+- `<CAN ID>`: is the identifier of the message and is used for message prioritization. The identifier can be in 11-bit or 29-bit format both HEX.
+- `<Data_Payload>`: is the data payload of the CAN message and ranges from 0 to 8 bytes in standard CAN frames.
+
+This is how the communication is done between the Max Carrier with the Portenta X8 and the Machine Control.
+
+For the __Portenta Machine Control__ this Arduino sketch was used:
+
+```arduino
+#include <Arduino_MachineControl.h>
+#include <CAN.h>
+
+using namespace machinecontrol;
+
+#define DATARATE_500KB   500000
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect.
+  }
+
+  Serial.println("Start CAN initialization");
+  comm_protocols.enableCAN();
+  comm_protocols.can.frequency(DATARATE_500KB);
+  Serial.println("Initialization done");
+}
+
+
+void loop() {
+  mbed::CANMessage msg;
+  if (comm_protocols.can.read(msg)) {
+
+    // Print the sender ID
+    Serial.print("ID: ");
+    Serial.println(msg.id, HEX);
+
+    // Print the first Payload Byte
+    Serial.print("Message received:");
+    Serial.println(msg.data[0], HEX);
+
+  }
+
+  delay(100);
+}
+```
+
+![X8 + Max Carrier sending a CAN message to Machine Control](assets/can-linux.png)
+
+Moreover, if your goal is to monitor and dump all received CAN frames, a slightly different procedure is to be followed. Having the container repository ready with its components, navigate to the _candump_ directory:
+
+```bash
+cd pika-spark-containers/candump
+```
+
+Build the Docker container:
+
+```bash
+./docker-build.sh
+```
+Now, you are able to receive CAN messages running this command:
+
+```bash
+sudo ./docker-run.sh can0 500000 # last parameter is the bitrate
+```
+This is how the communication is done between the Max Carrier with the Portenta X8 and the Machine Control.
+
+For the __Portenta Machine Control__ this Arduino sketch was used:
+
+```arduino
+#include <Arduino_MachineControl.h>
+#include <CAN.h>
+using namespace machinecontrol;
+
+#define DATARATE_500KB   500000
+
+void setup() {
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect.
+  }
+
+  Serial.println("Start CAN initialization");
+  comm_protocols.enableCAN();
+  comm_protocols.can.frequency(DATARATE_500KB);
+  Serial.println("Initialization done");
+}
+
+int counter = 0;
+unsigned char payload = 0x49;
+int payload_size = 1;
+
+void loop() {
+
+  mbed::CANMessage msg = mbed::CANMessage(13ul, &payload, payload_size);
+  if (comm_protocols.can.write(msg)) {
+    Serial.println("Message sent");
+  } else {
+    Serial.println("Transmission Error: ");
+    Serial.println(comm_protocols.can.tderror());
+    comm_protocols.can.reset();
+  }
+
+  delay(1000);
+}
+```
+
+![X8 on Max Carrier CAN receiving from a Machine Control](assets/can-rx-linux.png)
+
 #### Using Arduino IDE
 
-For users working with the Portenta H7 or Portenta C33, the following simple examples can be used to test the CAN bus protocol's capabilities.
+For users working with the Portenta C33, the following simple examples can be used to test the CAN bus protocol's capabilities.
 
-The CAN interface on the Portenta Max Carrier must be enabled before using it. To do it, turning a specific pin to `LOW` is necessary:
+***CAN communication is not supported for the Portenta H7 on the Max Carrier.***
 
-__For the Portenta H7__:
-```arduino
-  pinMode(PG_7, OUTPUT);
-  digitalWrite(PG_7, LOW);  // enable the CAN interface
-```
-
-__For the Portenta C33__:
-```arduino
-  pinMode(PIN_CAN1_STBY, OUTPUT);
-  digitalWrite(PIN_CAN1_STBY, LOW); // enable the CAN interface
-```
-
-The _CAN Read_ example for Portenta H7/C33 starts CAN communication at a rate of _500 kbps_ and continuously listens for incoming messages, displaying such information upon receipt.
+The _CAN Read_ example for Portenta C33 starts CAN communication at a rate of _500 kbps_ and continuously listens for incoming messages, displaying such information upon receipt.
 
 ```arduino
 #include <Arduino_CAN.h>
@@ -1424,6 +1579,8 @@ As a practical example, we are going to communicate the __Max Carrier__ using a 
 
 ![Both devices CAN bus wiring diagram](assets/CAN-bus-wiring.png)
 
+***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines.***
+
 - __For the Portenta C33:__ Use the writing example from above.
 - __For the Portenta Machine Control:__ Install the `Arduino_MachineControl.h` library from the Library Manager and use the following example sketch:
 
@@ -1470,7 +1627,7 @@ void loop() {
 }
 
 ```
-Remember that the Portenta Machine Control must be programmed selecting the `Portenta H7` as the target in the Arduino IDE.
+Remember that the Portenta Machine Control must be programmed by selecting the `Portenta H7` as the target in the Arduino IDE.
 
 After uploading the code to the Max Carrier and the Machine Control, open both Serial Monitors and you will see the CAN messages exchange.
 
@@ -1605,7 +1762,7 @@ void rs485FullDuplex(bool enable) {
 ```
 For the __Portenta Machine Control__, use the library's built-in example code. You can find it on **File > Examples > Arduino_MachineControl > RS485_fullduplex**.
 
-Remember that the Portenta Machine Control must be programmed selecting the `Portenta H7` as the target in the Arduino IDE.
+Remember that the Portenta Machine Control must be programmed by selecting the `Portenta H7` as the target in the Arduino IDE.
 
 After uploading the code to the Max Carrier and the Machine Control, open both Serial Monitors and you will see the message exchange with a counter.
 
@@ -1717,7 +1874,7 @@ void rs485FullDuplex(bool enable) {
 
 For the __Portenta Machine Control__, use the library's built-in example code. You can find it on **File > Examples > Arduino_MachineControl > RS232**.
 
-Remember that the Portenta Machine Control must be programmed selecting the `Portenta H7` as the target in the Arduino IDE.
+Remember that the Portenta Machine Control must be programmed by selecting the `Portenta H7` as the target in the Arduino IDE.
 
 After uploading the code to the Max Carrier and the Machine Control, open both Serial Monitors and you will see the message exchange with a counter and a time stamp.
 
