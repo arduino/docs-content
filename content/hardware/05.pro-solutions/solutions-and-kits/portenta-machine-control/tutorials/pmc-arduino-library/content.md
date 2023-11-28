@@ -22,8 +22,8 @@ The Arduino Portenta Machine Control is a versatile industrial control unit for 
 
 ## Goals
 
-- Introduce the `Arduino_MachineControl` library’s key features and capabilities.
-- Show the `Arduino_MachineControl` library's main differences between its first and latest version. 
+- Introduce the `Arduino_MachineControl` library’s latest release key features and capabilities.
+- Show the `Arduino_MachineControl` library's main differences between its first and latest release. 
 
 ## Hardware and Software Requirements
 
@@ -48,7 +48,28 @@ The library empowers users to easily initialize, control, and access the diverse
 
 ### Library Features
 
-The `Arduino_MachineControl` library offers a wide range of functionalities organized for ease of reference. The table below categorizes the different features and their specifics:
+The `Arduino_MachineControl` library offers a wide range of functionalities organized for ease of reference:
+
+- **Input signals**
+  - Eight digital inputs at +24 VDC
+  - Two channels for encoder readings
+  - Three analog inputs for PT100, J, and K temperature probes
+  - Three analog inputs for 4-20 mA, 0-10V, and NTC signals
+
+- **Output signals**
+  - Eight digital output terminals at +24 VDC
+  - Four analog output terminals, ranging from 0 to 10 VDC
+
+- **Programmable I/O**
+  - 12 programmable digital input/output terminals at +24 VDC
+
+- **Communication protocols**
+  - CAN bus
+  - Serial protocols (RS-232, RS-422, and RS-485)
+  - USB
+
+- **Additional functionalities**
+  - Real-Time Clock (RTC)
 
 ### Improvements Between Library Releases
 
