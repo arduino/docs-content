@@ -183,12 +183,12 @@ The Portenta Max Carrier provides its platform to the Portenta X8, H7, and C33 w
 | ------------------------ | ------------------- | ------------------- | ----------------------------------------------------------------------- |
 | USB Host                 | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps                        |
 | Ethernet                 | Fast Ethernet       | 1 Gbps              | Fast Ethernet - 100 Mbps                                                |
-| CAN                      | Yes                 | Yes                 |                                                                         |
+| CAN                      | Yes                 | Yes                 |    Portenta H7 is not supported                                                                     |
 | Mini PCIe (USB)          | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps                        |
 | Mini PCIe (PCIe)         | No                  | PCIe 2.0            | Portenta H7 only supports USB based PCIe cards                          |
 | Battery Charger          | Yes                 | Yes                 |                                                                         |
 | LoRa®                    | Yes                 | Yes                 |                                                                         |
-| NBIoT/CatM1/2G           | No                  | Yes                 | Communication with the modem is via USB, no firmware support for the H7 |
+| NBIoT/CatM1/2G           | Yes                  | Yes                 |                     |
 | Camera                   | No                  | MIPI up to 4 lanes  | No MIPI camera support on H7                                            |
 | Audio                    | Limited             | Yes                 | No firmware support for the H7                                          |
 | RS232/422/485            | Yes                 | Yes                 |                                                                         |
@@ -1326,11 +1326,13 @@ For the Max Carrier, the CAN transceiver is enabled by default, this is due to t
 
 For Portenta X8, it is possible to use the following commands:
 
-`sudo modprobe can-dev`
+```bash
+sudo modprobe can-dev
+```
 
 The necessary modules for __CAN__ (Controller Area Network) support on the Portenta X8 are loaded. The `can-dev` module is added to the system configuration, after which the system is rebooted to apply the changes.
 
-```
+```bash
 echo "can-dev" | sudo tee > /etc/modules-load.d/can-dev.conf
 sudo systemctl reboot
 ```
