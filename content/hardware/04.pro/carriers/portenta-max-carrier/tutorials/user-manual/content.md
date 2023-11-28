@@ -89,7 +89,7 @@ __Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 
 - **LoRa® Module**: The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the onboard Murata CMWX1ZZABZ-078 LoRa® transceiver module. This module operates on 3V3. A dedicated SMA connector allows for an external antenna. 
 
-- **MIPI Camera**:
+- **MIPI Camera**: The Portenta Max Carrier, when combined with a Portenta X8, supports MIPI cameras. The latter can be plugged into the onboard camera connector (J4) via a flexible flat cable. The camera support is perfect for machine/computer vision applications such as product line inspection, object detection, image classification and robotics.
 
 - **Storage**: The board has a MicroSD card slot for data logging operation and bootloading operation from external memory.
 
@@ -173,6 +173,8 @@ The Portenta Max Carrier can be powered using the following methods:
 
 ![Portenta Max Carrier power options](assets/power-options-v2.png)
 
+***Please ensure to connect the battery with the right polarity, not doing so may damage the board.***
+
 ### Carrier Characteristics Highlight
 
 The Portenta Max Carrier provides its platform to the Portenta X8, H7, and C33 with different capabilities. The following table summarizes the carrier's features depending on the combination of the paired Portenta.
@@ -196,17 +198,8 @@ The Portenta Max Carrier provides its platform to the Portenta X8, H7, and C33 w
 
 This provides a general idea of how the Portenta Max Carrier will perform depending on the paired Portenta board. Each feature is explained in the following section after a quick guide covering how to properly interface the Portenta boards.
 
-### Using Portenta X8 with Linux
-
-### Using Portenta X8 with Arduino
-### Using Portenta H7 with Arduino
-### Using Portenta C33 with Arduino
-
 ## Hello World Carrier
 ### Hello World Using Linux
-A 'Hello World' example will be used to verify the Portenta Max Carrier is correctly operating with the paired Portenta X8. It will use an example to trigger the user-programmable LED connected to GPIO3.
-
-The user-programmable LED can be controlled using commands within the Portenta X8's shell. The following commands will help you set and control the GPIO3, which connects to the user-programmable LED.
 
 ### Hello World Using Arduino
 
@@ -217,7 +210,6 @@ The Portenta X8, H7, and C33 enhance functionality through High-Density connecto
 - [Complete Portenta X8 pinout information](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
 - [Complete Portenta H7 pinout information](https://docs.arduino.cc/static/2d38006e78d2abc588a80f12bb9c0c70/ABX00042-full-pinout.pdf)
 - [Complete Portenta C33 pinout information](https://docs.arduino.cc/static/903c16295f3bf076c2ed23eb1b38791c/ABX00074-full-pinout.pdf)
-
 
 
 ## Configuration and Control
@@ -468,7 +460,9 @@ Empower your Portenta X8 connectivity with LoRa®, to achieve this follow this d
 To learn how to leverage LoRa® capabilities with this carrier and the Arduino IDE, follow this detailed tutorial on [How to Connect the Portenta Max Carrier with The Things Network using a Portenta H7](https://docs.arduino.cc/tutorials/portenta-max-carrier/connecting-to-ttn)
 
 ## Mini PCIe
+
 ## MIPI Camera
+
 ## Audio Interface
 
 ## USB Interface
@@ -1288,8 +1282,6 @@ With this code, the Portenta C33 will scan all the files and directories names o
 
 ![Example outcome on a Portenta C33](assets/c33-sdcard.png)
 
-## CAN Bus (Onboard Transceiver)
-
 ## JTAG Pins
 For developers aiming to investigate and understand the intricate details of development, the Portenta Max Carrier features a built-in JTAG interface. This tool is crucial for hardware debugging, offering real-time observation. Through the JTAG pins, users can smoothly debug and program, guaranteeing accurate and optimal device performance.
 
@@ -1311,9 +1303,6 @@ The pins used for the JTAG debug port on the Portenta Max Carrier are the follow
 |       10       |               |           JTAG_RST           |                                 J1-73                                |    JTAG RST   |
 
 ## Communication
-
-### SPI
-### I2C
 
 ### CAN Bus
 
@@ -1879,8 +1868,6 @@ Remember that the Portenta Machine Control must be programmed by selecting the `
 After uploading the code to the Max Carrier and the Machine Control, open both Serial Monitors and you will see the message exchange with a counter and a time stamp.
 
 ![RS-232 communication | Max Carrier - Machine Control](assets/gif-rs232.gif)
-
-### UART
 
 ## Support
 
