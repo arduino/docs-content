@@ -729,6 +729,7 @@ by Karl Söderby
 
 #include <SPI.h>
 #include <WiFi.h>
+#include <WiFiSSLClient.h>
 
 #include "arduino_secrets.h" 
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
