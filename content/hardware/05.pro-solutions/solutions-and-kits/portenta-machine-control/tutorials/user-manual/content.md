@@ -902,7 +902,85 @@ Some of the key capabilities of Portenta's Machine Control onboard RS-485 transc
 
 RS-485 data lines in the Portenta Machine Control are labeled as described in the following table:
 
-***RS-485 data line labels differ between manufacturers. Most manufacturers will use + and – to label the data lines or variations such as D+ and D-. Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the - line should be connected to the A terminal. The + line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.*** 
+***RS-485 data line labels differ between manufacturers. Most manufacturers will use + and – to label the data lines or variations such as D+ and D-. Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the - line should be connected to the A terminal. The + line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
+
+The sketch below shows how to use the RS-485 interface of the Portenta Machine Control for half-duplex communication.
+
+```arduino
+/*
+  Portenta Machine Control's RS-485 Half-Duplex Communication
+  Name: portenta_machine_control_rs485_example.ino
+  Purpose: Demonstrates half-duplex RS-485 communication using
+  the Portenta Machine Control.
+
+  @author Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+// Include the necessary libraries
+#include <Arduino_MachineControl.h>
+
+// Define the interval for sending messages
+constexpr unsigned long sendInterval { 1000 };
+unsigned long sendNow { 0 };
+unsigned long counter { 0 }; 
+
+void setup() {
+    // Begin serial communication at a baud rate of 9600
+    Serial.begin(9600);
+
+    // Wait for the serial port to connect,
+    // This is necessary for boards that have native USB
+    while (!Serial);
+
+    Serial.println("- Initializing RS-485 interface...");
+
+    // Initialize the RS-485 interface with a baud rate of 115200 and specific timings
+    // The timings define the preamble and postamble durations for RS-485 communication
+    MachineControl_RS485Comm.begin(115200, 0, 500);
+
+    // Set the RS-485 interface in receive mode initially
+    MachineControl_RS485Comm.receive();
+    Serial.println("- RS-485 initialization complete!");
+}
+
+void loop() {
+  // Check if there is incoming data and read it
+  if (MachineControl_RS485Comm.available()) {
+    Serial.write(MachineControl_RS485Comm.read());
+  }
+
+  // Send data at defined intervals
+  if (millis() > sendNow) {
+    // Disable receive mode before starting the transmission
+    MachineControl_RS485Comm.noReceive();
+
+    // Begin transmission and send a message with a counter
+    MachineControl_RS485Comm.beginTransmission();
+    MachineControl_RS485Comm.print("- Message: ");
+    MachineControl_RS485Comm.println(counter++);
+
+    // End the transmission and switch back to receive mode
+    MachineControl_RS485Comm.endTransmission();
+    MachineControl_RS485Comm.receive();
+
+    // Update the time for the next transmission
+    sendNow = millis() + sendInterval;
+  }
+}
+```
+
+In this example sketch, a message is periodically sent over the RS-485 interface Of the Portenta Machine Control. The sketch initializes the RS-485 interface for half-duplex communication and sends a `String` message with a counter. After each transmission, it switches back to receive mode to listen for incoming data.
+
+The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_RS485Comm.receive()`, `MachineControl_RS485Comm.noReceive()`, `MachineControl_RS485Comm.beginTransmission()`, `MachineControl_RS485Comm.endTransmission()`, `MachineControl_RS485Comm.available()`, and `MachineControl_RS485Comm.read()` functions from the `Arduino_MachineControl` library. Here's an explanation of the functions:
+
+- `MachineControl_RS485Comm.begin(baud, pre, post)`: Initializes the RS-485 module with specified baud rate and timing settings.
+- `MachineControl_RS485Comm.receive()`: Puts the module in receive mode.
+- `MachineControl_RS485Comm.noReceive()`: Disables receive mode for transmission.
+- `MachineControl_RS485Comm.beginTransmission()`: Prepares the module to start transmitting data.
+- `MachineControl_RS485Comm.endTransmission()`: Ends data transmission and prepares the module to receive data.
+- `MachineControl_RS485Comm.available()`: Checks if data is available to be read.
+- `MachineControl_RS485Comm.read()`: Reads incoming data.
 
 ## Support
 
