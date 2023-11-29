@@ -5,6 +5,7 @@ authors: Karl Söderby
 micropython_type: basics
 ---
 
+***Note that this article is a work in progress and is subject to major changes.***
 
 This reference acts as a "translation" between what is known as the "Arduino API", which is documented in the [Arduino Language Reference](), and the MicroPython API.
 
