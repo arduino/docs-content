@@ -57,10 +57,19 @@ The Portenta Machine Control features a secure, certified, and durable design th
 Here's an overview of the controller's main components shown in the image above:
 
 - **Microcontroller**: At the heart of the Portenta Machine Control is the STM32H747XI, a powerful, robust, and high-performance dual-core microcontroller from STMicroelectronics®. This microcontroller is built around an Arm® Cortex®-M7 and an Arm® Cortex®-M4 32-bit RISC cores. The Arm® Cortex®-M7 core operates at up to 480 MHz, while the Arm® Cortex®-M4 core operates at up to 240 MHz.
-- **Memory and storage**: The Portenta Machine Control houses 2 MB of Flash Memory, 1 MB of RAM, and additional onboard memory of 8 MB SDRAM and 16 MB Flash QSPI.
+- **Memory and storage**: The Portenta Machine Control houses:
+* * 2 MB of Flash Memory
+* * 1 MB of RAM
+* * Additional onboard memory of 8 MB SDRAM
+* * 16 MB Flash QSPI.
 - **Security**: The controller features an onboard ready-to-use secure element from NXP®, the SE0502. This secure element, specifically designed for Internet of Things (IoT) devices, provides advanced security features, perfect for Industrial IoT (IIoT) environments where security is critical.
 - **Power architecture**: The controller's power system was designed to be resilient. It operates at an input voltage of +24 VDC, with reverse polarity protection, ensuring the controller remains safeguarded from power irregularities.
-- **Digital and analog ports**: Equipped with a versatile set of input and output ports, the Portenta Machine Control supports eight digital input ports, eight digital output ports, three software-configurable analog input ports, and four analog output ports. It is also equipped with 12 digital programmable input/output ports. 
+- **Digital and analog ports**: Equipped with a versatile set of input and output ports, the Portenta Machine Control supports:
+* * 8x Digital input ports with 8x Status LEDs labeled as `DIGITAL INPUTS`
+* * 8x digital output ports with 8x Status LEDs labeled as `DIGITAL OUTPUTS`
+* * 3x Software-configurable analog input ports labeled as `ANALOG IN`
+* * 4x Analog output ports labeled as `ANALOG OUT`
+* * 12x Digital programmable input/output ports labeled as `PROGRAMMABLE DIGITAL I/O` 
 - **Temperature sensing**: With three software-configurable temperature channels, the Portenta Machine Control can measure a variety of temperature ranges using thermocouples (Type K or Type J) or PT100 sensors.
 - **Communication interfaces**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers a high-speed CAN interface, software-configurable RS-232, RS-422, and RS-485 interfaces, and an I<sup>2</sup>C interface accessible via a Grove connector.
 - **Ethernet and USB**: The Portenta Machine Control features onboard Ethernet connectivity and full-speed USB-A and half-speed micro-USB Type B connectors for wired communication.
