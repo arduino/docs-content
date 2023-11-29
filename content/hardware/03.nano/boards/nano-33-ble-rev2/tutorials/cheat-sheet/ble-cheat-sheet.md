@@ -137,11 +137,11 @@ To avoid such risk with existing projects, where you should be able to pull out 
 
 5V on that pin is available only when two conditions are met: you make a solder bridge on the two pads marked as VUSB and you power the Nano 33 BLE Rev2 through the USB port. There are two sets of VUSB pads on the Arduino Nano 33 BLE Rev2, one set on the bottom and one set on top. To enable the 5V Pin, either one of these needs to be connected If you power the board from the VIN pin, you won't get any regulated 5V and therefore even if you do the solder bridge, nothing will come out of that 5V pin. The 3.3V, on the other hand, is always available and supports enough current to drive your sensors. Please make your designs so that sensors and actuators are driven with 3.3V and work with 3.3V digital IO levels. 5V is now an option for many modules and 3.3V is becoming the standard voltage for electronic ICs.
 
-![Soldering the VUSB pins.](assets/TEST_Nano33_ble_rev2vusb.png)
+![Soldering the VUSB pins.](./assets/Nano33_ble_rev2vusb.png)
 
 ## IMU
 
-![IMU sensor](assets/TEST_Nano33_ble_rev2_imu.png)
+![IMU sensor](./assets/Nano33_ble_rev2_imu.png)
 
 ### BMI270 and BMM150
 
@@ -308,7 +308,7 @@ Serial1.write("Hello world!");
 
 The Nano 33 BLE Rev2 supports Bluetooth® through the [u-blox NINA-B306](https://docs.arduino.cc/resources/datasheets/NINA-B3-series.pdf) module. To use this module, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library. 
 
-![ Bluetooth® module.](assets/TEST_Nano33_ble_rev2_ble.png)
+![ Bluetooth® module.](assets/Nano33_ble_rev2_ble.png)
 
 ## Bluetooth®
 
