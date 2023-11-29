@@ -79,7 +79,7 @@ Here's an overview of the controller's main components shown in the image above:
   - RS-232
   - RS-422
   - RS-485
-  - I<sup>2</sup>C (interface )accessible via a Grove connector)
+  - I<sup>2</sup>C interface (accessible via a Grove connector)
 - **Ethernet and USB**: The Portenta Machine Control features onboard Ethernet connectivity and full-speed USB-A and half-speed micro-USB Type B connectors for wired communication.
 - **Wireless connectivity**: The Portenta Machine Control supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® Low Energy (4.2 supported by firmware and 5.1 supported by hardware).
 - **Additional features**: The Portenta Machine Control features an onboard RTC with at least 48 hours of memory retention and two encoder channels. Moreover, Electrostatic Discharge (ESD) protection on all inputs and output ports ensures the longevity and durability of the controller.
