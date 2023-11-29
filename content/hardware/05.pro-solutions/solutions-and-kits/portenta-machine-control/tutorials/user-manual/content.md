@@ -982,6 +982,8 @@ The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_
 - `MachineControl_RS485Comm.available()`: Checks if data is available to be read.
 - `MachineControl_RS485Comm.read()`: Reads incoming data.
 
+**Note**: To receive and show the messages on your computer, you can use a USB to RS-485 converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
+
 ## Support
 
 If you encounter any issues or have questions while working with the Portenta Machine Control, we provide various support resources to help you find answers and solutions.
