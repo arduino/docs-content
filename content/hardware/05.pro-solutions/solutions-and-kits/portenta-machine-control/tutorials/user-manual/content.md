@@ -178,7 +178,7 @@ To upload the code to your Portenta Machine Control, click the **Verify** button
 
 ![Uploading a sketch to a Portenta Machine Control in the Arduino IDE](assets/user-manual-8.png)
 
-Upon successful upload, observe the red LED on top of your controller's digital output labeled `00`. It should turn on for one second, then off for one second, repeatedly.
+Upon successful upload, observe the red LED on top of your controller's digital output labeled as `00`. It should turn on for one second, then off for one second, repeatedly.
 
 ## Digital Outputs
 
