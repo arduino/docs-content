@@ -65,13 +65,21 @@ Here's an overview of the controller's main components shown in the image above:
 - **Security**: The controller features an onboard ready-to-use secure element from NXP®, the SE0502. This secure element, specifically designed for Internet of Things (IoT) devices, provides advanced security features, perfect for Industrial IoT (IIoT) environments where security is critical.
 - **Power architecture**: The controller's power system was designed to be resilient. It operates at an input voltage of +24 VDC, with reverse polarity protection, ensuring the controller remains safeguarded from power irregularities.
 - **Digital and analog ports**: Equipped with a versatile set of input and output ports, the Portenta Machine Control supports:
-  - 8x Digital input ports with 8x Status LEDs labeled as `DIGITAL INPUTS`
-  - 8x Digital output ports with 8x Status LEDs labeled as `DIGITAL OUTPUTS`
-  - 3x Software-configurable analog input ports labeled as `ANALOG IN`
-  - 4x Analog output ports labeled as `ANALOG OUT`
-  - 12x Digital programmable input/output ports labeled as `PROGRAMMABLE DIGITAL I/O` 
-- **Temperature sensing**: With three software-configurable temperature channels, the Portenta Machine Control can measure a variety of temperature ranges using thermocouples (Type K or Type J) or PT100 sensors.
-- **Communication interfaces**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers a high-speed CAN interface, software-configurable RS-232, RS-422, and RS-485 interfaces, and an I<sup>2</sup>C interface accessible via a Grove connector.
+  - 8x digital input ports with 8x Status LEDs labeled as `DIGITAL INPUTS`
+  - 8x digital output ports with 8x Status LEDs labeled as `DIGITAL OUTPUTS`
+  - 3x software-configurable analog input ports labeled as `ANALOG IN`
+  - 4x analog output ports labeled as `ANALOG OUT`
+  - 12x digital programmable input/output ports labeled as `PROGRAMMABLE DIGITAL I/O` 
+- **Temperature sensing**: With three software-configurable temperature channels, the Portenta Machine Control can measure a variety of temperature ranges using:
+  - Type K thermocouples
+  - Type J thermocouples
+  - PT100 sensors
+- **Communication interfaces**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers a high-speed, software-configurable interfaces such as: 
+  - CAN bus
+  - RS-232
+  - RS-422
+  - RS-485
+  - I<sup>2</sup>C (interface )accessible via a Grove connector)
 - **Ethernet and USB**: The Portenta Machine Control features onboard Ethernet connectivity and full-speed USB-A and half-speed micro-USB Type B connectors for wired communication.
 - **Wireless connectivity**: The Portenta Machine Control supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® Low Energy (4.2 supported by firmware and 5.1 supported by hardware).
 - **Additional features**: The Portenta Machine Control features an onboard RTC with at least 48 hours of memory retention and two encoder channels. Moreover, Electrostatic Discharge (ESD) protection on all inputs and output ports ensures the longevity and durability of the controller.
