@@ -1065,6 +1065,8 @@ The example sketch uses the `MachineControl_CANComm.begin()`, `MachineControl_CA
 - `MachineControl_CANComm.read()`: Reads incoming data from the CAN bus. This function is used to retrieve data that has been received.
 - `MachineControl_CANComm.end()`: This function can disable the CAN module when it's no longer needed, helping conserve power.
 
+**Note**: To receive and show the messages on your computer, you can use a USB to CAN bus converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-can-a.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
+
 ## Support
 
 If you encounter any issues or have questions while working with the Portenta Machine Control, we provide various support resources to help you find answers and solutions.
