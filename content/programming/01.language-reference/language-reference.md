@@ -1,14 +1,15 @@
 ---
 title: Language Reference
-url: /language-reference/
+url: https://www.arduino.cc/reference/en/
+external: true
 icon: IconArduino
 links:
   [
-    { title: "digitalRead()", url: https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/ },
-    { title: "analogRead()", url: https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/ },
-    { title: "analogReadResolution()", url: https://www.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogreadresolution/ },
-    { title: "noTone()", url: https://www.arduino.cc/reference/en/language/functions/advanced-io/notone/ },
-    { title: "delay()", url: https://www.arduino.cc/reference/en/language/functions/time/delay/ },
-    { title: "Getting Started with Opta", url: /hardware/opta },
+    { title: "Serial", url: https://www.arduino.cc/reference/en/language/functions/communication/serial/ },
+    { title: "Wire", url: https://www.arduino.cc/reference/en/language/functions/communication/wire/ },
+    { title: "Print", url: https://www.arduino.cc/reference/en/language/functions/communication/print/ },
+    { title: "attachInterrupt()", url: https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/ },
+    { title: "pinMode()", url: https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/ },
+    { title: "String()", url: https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/ },
   ]
 ---
