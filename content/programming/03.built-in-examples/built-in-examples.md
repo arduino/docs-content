@@ -1,14 +1,26 @@
 ---
 title: Built-in Examples
 url: /built-in-examples/
+external: false
 icon: IconBuild
 links:
   [
-    { title: "Analog Read Serial", url: /built-in-examples/basics/AnalogReadSerial/ },
-    { title: "Blink without Delay", url: /built-in-examples/basics/BareMinimum/ },
-    { title: "Analog In, Out Serial", url: /built-in-examples/basics/Blink/ },
-    { title: "Portenta X8", url: /built-in-examples/basics/DigitalReadSerial/ },
-    { title: "Plant Watering Kit", url: /built-in-examples/basics/Fade/ },
-    { title: "Getting Started with Opta", url: /built-in-examples/basics/ReadAnalogVoltage/ },
+    {
+      title: "How to Wire and Program a Button",
+      url: /built-in-examples/digita/Button,
+    },
+    { title: "Blink", url: /built-in-examples/basics/Blink },
+    {
+      title: "If Statement (Conditional Statement)",
+      url: /built-in-examples/control-structures/ifStatementConditional,
+    },
+    { title: "Arduino as ISP and Arduino Bootloaders
+        ", url: /built-in-examples/arduino-isp/ArduinoISP },
+    {
+      title: "Analog Read Serial",
+      url: /built-in-examples/basics/AnalogReadSerial,
+    },
+    { title: "String to Int Function
+        ", url: /built-in-examples/strings/StringToInt },
   ]
 ---

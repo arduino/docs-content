@@ -1,5 +1,5 @@
 ---
-title: Arduino IDE (2.1)
+title: Arduino IDE 2
 icon: IconBrackets
 ---
 
