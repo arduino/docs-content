@@ -974,7 +974,7 @@ void loop() {
 
 In this example sketch, a message is periodically sent over the RS-485 interface Of the Portenta Machine Control. The sketch initializes the RS-485 interface for half-duplex communication and sends a `String` message with a counter. After each transmission, it switches back to receive mode to listen for incoming data.
 
-The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_RS485Comm.receive()`, `MachineControl_RS485Comm.noReceive()`, `MachineControl_RS485Comm.beginTransmission()`, `MachineControl_RS485Comm.endTransmission()`, `MachineControl_RS485Comm.available()`, and `MachineControl_RS485Comm.read()` functions from the `Arduino_MachineControl` library. Here's an explanation of the functions:
+The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_RS485Comm.receive()`, and other functions from the `Arduino_MachineControl` library for RS-485 communication. Here is an explanation of the functions:
 
 - `MachineControl_RS485Comm.begin(baud, pre, post)`: Initializes the RS-485 module with specified baud rate and timing settings.
 - `MachineControl_RS485Comm.receive()`: Puts the module in receive mode.
@@ -989,6 +989,8 @@ The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_
 ### CAN Bus
 
 The Portenta Machine Control features a built-in CAN bus interface, enabling the implementation of robust and reliable data transmission systems in automotive and industrial automation applications. The CAN bus is widely used due to its ability to operate effectively in electrically noisy environments and its communication method that reduces errors.
+
+![Portenta Machine Control CAN bus interface terminals](assets/user-manual-21.png)
 
 The onboard CAN transceiver of the Portenta Machine Control is the TJA1049 from NXP Semiconductors. The TJA1049 is a specialized high-speed CAN transceiver for various applications, especially in automotive and high-speed CAN networks. The third-generation device offers enhanced electromagnetic compatibility (EMC) and ESD protection. This transceiver also features a low-current standby mode with a wake-up function and is compatible with microcontrollers ranging from 3 to 5 VDC. Adhering to the ISO11898 standard, the TJA1049 ensures reliable communication at data rates up to 5 Mbps, making it an optimal choice for High-Speed (HS) CAN networks that require efficient low-power operation modes.
 
@@ -1026,7 +1028,7 @@ void setup() {
 
     // Initialize the CAN interface with a bit rate of 500 kbps
     if (!MachineControl_CANComm.begin(CanBitRate::BR_500k)) {
-        Serial.println("CAN init failed.");
+        Serial.println("- CAN init failed!");
         while(1);
     }
 }
@@ -1039,13 +1041,13 @@ void loop() {
   // Transmit the CAN message
   int const rc = MachineControl_CANComm.write(msg);
   if (rc <= 0) {
-    Serial.print("CAN write failed with error code: ");
+    Serial.print("- CAN write failed with error code: ");
     Serial.println(rc);
     while(1);
   }
 
   // CAN message sent
-  Serial.println("CAN write message!");
+  Serial.println("- CAN write message!");
 
   // Increase the message counter
   msg_cnt++;
@@ -1055,7 +1057,7 @@ void loop() {
 }
 ```
 
-The example sketch uses the `MachineControl_CANComm.begin()`, `MachineControl_CANComm.write()`, and other functions from the `Arduino_MachineControl` library for CAN communication. Here's an explanation of these functions:
+The example sketch uses the `MachineControl_CANComm.begin()`, `MachineControl_CANComm.write()`, and other functions from the `Arduino_MachineControl` library for CAN communication. Here is an explanation of these functions:
 
 - `MachineControl_CANComm.begin(bitRate)`: Initializes the CAN module with a specified bit rate.
 - `MachineControl_CANComm.write(msg)`: Transmits a data message over the CAN network. The `msg` parameter contains the data to be sent.
