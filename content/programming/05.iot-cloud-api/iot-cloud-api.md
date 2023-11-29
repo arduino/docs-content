@@ -1,6 +1,7 @@
 ---
 title: IoT Cloud API
-url: /cloud-api/
+url: https://www.arduino.cc/reference/en/iot/api/
+external: true
 icon: IconBell
 links:
   [
