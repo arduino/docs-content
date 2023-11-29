@@ -5,16 +5,15 @@ authors: Karl Söderby
 ---
 
 
---- 
+This reference acts as a "translation" between what is known as the "Arduino API", which is documented in the [Arduino Language Reference](), and the MicroPython API.
 
-### Template
+Please note that implementations may vary from board to board, such as how you configure pins, and how to use PWM.
 
-``
+The main goal with this reference is to provide an understanding of how to e.g. use common Arduino concepts such as `digitalWrite()` in a MicroPython script.
 
-- **Parameters:**
-- **Returns:**
-
----
+For example:
+- `digitalWrite(pin, HIGH)` (Arduino/C++)
+- `pin.value(1)` (MicroPython)
 
 ## Digital I/O
 
@@ -35,6 +34,8 @@ Parameters:
 **Example:**
 
 ```python
+from machine import Pin
+
 output_pin = Pin(5, Pin.OUT) #define pin
 input_pin = Pin(6, Pin.IN, Pin.PULL_UP) #define pin as an input pullup
 ```
@@ -48,6 +49,8 @@ Reads the state of a digital pin defined as input.
 - **Returns:** the value of the digital pin (0 or 1).
 
 ```python
+from machine import Pin
+
 pin = Pin(5, Pin.PULL_UP) #define pin
 reading = pin.value() #read pin
 
@@ -64,23 +67,39 @@ Writes a state to a digital pin defined as an output.
 
 
 ```python
+from machine import Pin
+
 pin = Pin(5, Pin.PULL_UP) #define pin
 pin.value(1) #set pin to high state
 ```
 
 ## Analog I/O
 
+### Configure Input (ADC)
+
+To read an analog input pin, we need to attach a pin to the ADC.
+
+- `adc_pin = machine.Pin(pin)` - create the pin.
+- `adc = machine.ADC(adc_pin)` - attach it to the ADC.
+
+### Configure Output (PWM)
+
+To write analog values using PWM, we need to define the pin and set the frequency.
+
+- `pwm = PWM(Pin(15))`
+- `pwm.freq(1000)`
+
+On STM32 boards (GIGA R1, Portenta H7 etc.), we need to define at as follows:
+
+- `pin1 = Pin("PC6", Pin.OUT_PP, Pin.PULL_NONE)`
+- `timer1 = Timer(3, freq=1000)`
+- `channel1 = timer1.channel(1, Timer.PWM, pin=pin1, pulse_width=0)`
 
 ### analogRead()
 
 `adc.read_u16()`
 
-To read an analog pin, we first need to attach a pin to the ADC.
-
-- `adc_pin = machine.Pin(pin)` - create the pin.
-- `adc = machine.ADC(adc_pin)` - attach it to the ADC.
-
-Attach a pin to an ADC, and read the raw value.  
+Attach a pin to an ADC, and read the raw value. 
 
 - **Returns:** - the raw analog value in a 16-bit format (0-65535).
 - **Parameters:** none.
@@ -113,13 +132,47 @@ result = (reading >> 6) & 0x3FF
 
 `pwm.duty_u16(duty)`
 
-To write analog values using PWM, we need to define the pin and set the frequency.
+Writes the duty cycle (0-65535) to a PWM pin. 
 
+- **Parameters:** duty cycle (0-65535).
+- **Returns:** None.
 
+**Example:**
 
+```python
+from machine import Pin, PWM, ADC
 
-### analogReadResolution()
-### analogWriteResolution()
+pwm = PWM(Pin(15))
+duty = 30000 #between 0-65535
+
+pwm.freq(1000)
+
+while True:
+    pwm.duty_u16(duty)
+```
+
+### analogWrite() (STM32)
+
+`channel1.pulse_width(duty)`
+
+Writes the duty cycle in percentage (0-100) to a PWM pin. 
+
+- **Parameters:** duty cycle in percentage (0-100).
+- **Returns:** None.
+
+**Example:**
+
+```python
+import pyb
+import time
+from pyb import Pin, Timer
+
+pin1 = Pin("PC6", Pin.OUT_PP, Pin.PULL_NONE)
+timer1 = Timer(3, freq=1000)
+channel1 = timer1.channel(1, Timer.PWM, pin=pin1, pulse_width=0)
+
+channel1.pulse_width(50) #duty cycle at 50%
+```
 
 ## Time
 
@@ -138,7 +191,7 @@ Creates a delay for the number of specified seconds.
 ```python
 import time
 
-time.sleep(5) #freeze program for 5 seconds
+time.sleep(1) #freeze program for 1 seconds
 ```
 
 ### millis()
@@ -170,7 +223,7 @@ while True:
         switch = not switch
         ledPin.value(switch)
 ```
-
+<!-- Section not started yet
 ## Advanced I/O
 
 ### noTone()
@@ -251,3 +304,5 @@ USB
 
 ### Keyboard
 ### Mouse
+
+-->
