@@ -2,6 +2,7 @@
 title: MicroPython Reference
 description: A reference of the MicroPython API
 authors: Karl Söderby
+micropython_type: basics
 ---
 
 
