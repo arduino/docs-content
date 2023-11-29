@@ -197,6 +197,13 @@ time.sleep(1) #freeze program for 1 seconds
 
 ### millis()
 
+`time.time()`
+
+Returns the number of seconds elapsed since the start of the script.
+
+- **Returns:** seconds (float).
+- **Parameters:** none.
+
 **Example:**
 
 ```python
