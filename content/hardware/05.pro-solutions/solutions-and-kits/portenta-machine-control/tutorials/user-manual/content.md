@@ -87,7 +87,7 @@ Here's an overview of the controller's main components shown in the image above:
 
 ### Portenta Machine Control Core and Libraries
 
-The `Arduino Mbed OS Portenta Boards` core contains the libraries and examples to work with Portenta's Machine Control peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® modules. To install the core for the Portenta Machine Control, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `portenta` and install the latest `Arduino Mbed OS Portenta Boards` core version.
+The `Arduino Mbed OS Portenta Boards` core contains the libraries and examples to work with Portenta's Machine Control peripherals and onboard components, such as its input ports, output ports, Wi-Fi® and Bluetooth® modules. To install the Portenta Machine Control core, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the Boards Manager tab, search for `portenta` and install the latest `Arduino Mbed OS Portenta Boards` core version.
 
 ![Installing the Arduino Mbed OS Portenta Boards core in the Arduino IDE](assets/user-manual-3.png)
 
@@ -178,7 +178,7 @@ To upload the code to your Portenta Machine Control, click the **Verify** button
 
 ![Uploading a sketch to a Portenta Machine Control in the Arduino IDE](assets/user-manual-8.png)
 
-Upon successful upload, observe the red LED on top of your controller's digital output labeled as `00`. It should turn on for one second, then off for one second, repeatedly.
+Upon successful upload, observe the red LED on your controller's digital output labeled as `00`. It should turn on for one second, then off for one second, repeatedly.
 
 ## Digital Outputs
 
@@ -354,7 +354,7 @@ The Portenta Machine Control has up to eight digital input channels, as shown in
 
 ![Portenta Machine Control digital input channels](assets/user-manual-12.png)
 
-Below is an example sketch showcasing how to read data from all the digital input channels periodically.
+Below is an example sketch showcasing how to periodically read data from all the digital input channels.
 
 ```arduino
 /*
@@ -411,7 +411,7 @@ The configuration of Portenta's Machine Control analog input channels is determi
 
 ***Each analog input channel has an output voltage pin supplying +24 VDC for powering sensors. This pin has integrated protection through a 500 mA PTC resettable fuse.***
 
-To use a specific operational mode with Portenta's Machine Control analog input channels, the `MachineControl_AnalogIn.begin(SensorType)` function from the `Arduino_MachineControl` library must be called before reading values from the analog input channels. Use the following constants in the `MachineControl_AnalogIn.begin(SensorType)` function to define an specific operational mode:
+To use a specific operational mode with Portenta's Machine Control analog input channels, the `MachineControl_AnalogIn.begin(SensorType)` function from the `Arduino_MachineControl` library must be called before reading values from the analog input channels. Use the following constants in the `MachineControl_AnalogIn.begin(SensorType)` function to define a specific operational mode:
 
 - `SensorType::V_0_10`: 0-10V mode
 - `SensorType::MA_4_20`: 4-20mA mode
@@ -592,11 +592,11 @@ The example sketch uses the `MachineControl_DigitalProgrammables.begin()`, `Mach
 
 ## Communication
 
-This user manual section covers the different communication interfaces and protocols supported by the Portenta Machine Control, including the Ethernet, RS-485, and Wi-Fi®.
+This user manual section covers the different communication interfaces and protocols the Portenta Machine Control supports, including the Ethernet, RS-485, and Wi-Fi®.
 
 ### Ethernet
 
-The Portenta Machine Control feature an onboard low-power 10BASE-T/100BASE-TX Ethernet physical layer (PHY) transceiver. The transceiver complies with the IEEE 802.3 and 802.3u standards and supports communication with an Ethernet MAC through a standard RMII interface. The Ethernet transceiver is accessible through the onboard RJ45 connector.
+The Portenta Machine Control features an onboard low-power 10BASE-T/100BASE-TX Ethernet physical layer (PHY) transceiver. The transceiver complies with the IEEE 802.3 and 802.3u standards and supports communication with an Ethernet MAC through a standard RMII interface. The Ethernet transceiver is accessible through the onboard RJ45 connector.
 
 ![Onboard RJ45 connector of the Portenta Machine Control](assets/user-manual-16.png)
 
@@ -711,7 +711,7 @@ void loop() {
 }
 ```
 
-The sketch includes the `Ethernet` and `Arduino_JSON` libraries, essential for Ethernet and JSON handling functionality. In the `setup()` function, serial communication is initiated for debugging and output. Instead of DHCP, the Ethernet connection uses a predefined static IP address.
+The sketch includes the `Ethernet` and `Arduino_JSON` libraries, which are essential for Ethernet and JSON handling functionality. In the `setup()` function, serial communication is initiated for debugging and output. Instead of DHCP, the Ethernet connection uses a predefined static IP address.
 
 Once the Ethernet connection runs, the sketch connects to the `ip-api.com` service, utilizing the HTTP protocol. Specifically, an `HTTP GET` request is crafted to retrieve details about the device's IP address, including its city, region, and country. If the connection to the server fails, the sketch will output an error message to the Arduino IDE's Serial Monitor for troubleshooting.
 
@@ -990,13 +990,14 @@ The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_
 
 The Portenta Machine Control features a built-in CAN bus interface, enabling the implementation of robust and reliable data transmission systems in automotive and industrial automation applications. The CAN bus is widely used due to its ability to operate effectively in electrically noisy environments and its communication method that reduces errors.
 
-The onboard CAN transceiver of the Portenta Machine Control is capable of operating at various bit rates, allowing its use in a broad range of applications.
+The onboard CAN transceiver of the Portenta Machine Control is the TJA1049 from NXP Semiconductors. The TJA1049 is a specialized high-speed CAN transceiver for various applications, especially in automotive and high-speed CAN networks. The third-generation device offers enhanced electromagnetic compatibility (EMC) and ESD protection. This transceiver also features a low-current standby mode with a wake-up function and is compatible with microcontrollers ranging from 3 to 5 VDC. Adhering to the ISO11898 standard, the TJA1049 ensures reliable communication at data rates up to 5 Mbps, making it an optimal choice for High-Speed (HS) CAN networks that require efficient low-power operation modes.
 
 Some of the key capabilities of the onboard CAN transceiver in the Portenta Machine Control include:
 
-- **High-speed operation**: CAN bus is capable of operating at bit rates up to 1 Mbps.
-- **Noise tolerance**: CAN bus is designed to function reliably in environments with high electromagnetic interference.
-- **Fault protection**: CAN bus incorporates safety features to protect against common failures in industrial networks.
+- **High-speed operation**: The onboard transceiver can operate at bit rates up to 5 Mbps.
+- **Noise tolerance**: The onboard transceiver is designed to function reliably in environments with high electromagnetic interference.
+- **Low-current standby mode with wake-up functionality**: The onboard transceiver features a low-power standby mode, which includes efficient wake-up capabilities, crucial for energy-efficient applications.
+- **Compliance with ISO11898 standard**: Adhering to the ISO11898 standard, the TJA1049 ensures reliable communication at data rates up to 5 Mbit/s, making it ideal for HS CAN networks operating in low-power modes.
 
 The example sketch below shows how to use the CAN bus interface of the Portenta Machine Control to transmit data.
 
@@ -1053,6 +1054,14 @@ void loop() {
   delay(1000);
 }
 ```
+
+The example sketch uses the `MachineControl_CANComm.begin()`, `MachineControl_CANComm.write()`, and other functions from the `Arduino_MachineControl` library for CAN communication. Here's an explanation of these functions:
+
+- `MachineControl_CANComm.begin(bitRate)`: Initializes the CAN module with a specified bit rate.
+- `MachineControl_CANComm.write(msg)`: Transmits a data message over the CAN network. The `msg` parameter contains the data to be sent.
+- `MachineControl_CANComm.available()`: Checks if data is available on the CAN bus to be read.
+- `MachineControl_CANComm.read()`: Reads incoming data from the CAN bus. This function is used to retrieve data that has been received.
+- `MachineControl_CANComm.end()`: This function can disable the CAN module when it's no longer needed, helping conserve power.
 
 ## Support
 
