@@ -232,6 +232,132 @@ while True:
         switch = not switch
         ledPin.value(switch)
 ```
+
+## Bits and Bytes
+
+### bitRead()
+
+`bit_value = (variable >> bit_index) & 1`
+
+Reads a specific bit of an integer variable.
+
+**Parameters:**
+- `variable` - an integer variable with numeric value, e.g. `12345`
+- `bit_index` - the specific bit we want to read (e.g. `5`)
+
+**Returns:**
+- The value of the specific bit.
+
+**Example:**
+
+```python
+'''
+This example prints out each bit of an 8-bit variable
+It stops after 255 (the max value an 8-bit variable can hold)
+'''
+import time
+counter = 0
+
+bit_length = 8 # 8 bits
+while True:
+    bits = []
+    for bit_index in range(bit_length - 1, -1, -1):
+        bit_value = (counter >> bit_index) & 1
+        bits.append(bit_value)
+    print("Binary: ", bits, " DEC: ", counter)
+
+    counter += 1
+    time.sleep(0.01)
+    if counter > 255:
+        break
+```
+
+### bitSet()
+
+`variable = variable | (1 << bit_index)`
+
+Sets a specific bit of an integer variable.
+
+**Parameters:**
+- `variable` - an integer variable with numeric value, e.g. `12345`
+- `bit_index` - the specific bit we want to read (e.g. `5`)
+
+**Returns:**
+- Nothing.
+
+**Example:**
+
+```python
+# Example variable
+variable = 12345
+
+# Set the third bit
+bit_index = 2
+
+print()
+print("Before setting a bit: ",bin(variable))
+print("Before setting a bit: ",variable)
+variable = variable | (1 << bit_index)
+
+# Print the result
+print("After setting a bit: ",bin(variable))
+print("After setting a bit: ",variable)
+```
+
+### highByte()
+
+`leftmost_bit = (variable >> leftmost_bit_index) & 1`
+
+Reads the high-order (leftmost) bit of a variable.
+
+**Parameters**
+- `variable` - an integer variable with numeric value, e.g. `255`
+- `leftmost_bit_index` - the leftmost bit, e.g. `7` in an 8-bit variable.
+
+**Returns**
+- `leftmost_bit` - the value of the leftmost bit.
+
+**Example:**
+
+```python
+# Example variable
+variable = 255
+
+bit_length = 8
+# Extract the leftmost bit
+leftmost_bit_index = bit_length - 1
+leftmost_bit = (variable >> leftmost_bit_index) & 1
+
+# Print the result
+print("Leftmost bit: ", leftmost_bit)
+```
+
+### lowByte()
+
+`rightmost_bit = variable & 1`
+
+Reads the low-order (rightmost) bit of a variable.
+
+**Parameters**
+- `variable` - an integer variable with numeric value, e.g. `255`
+- `rightmost_bit` - the rightmost bit, `0` in an 8-bit variable.
+
+**Returns**
+- `rightmost_bit` - the value of the rightmost bit, e.g. `1` if `variable` is 255 (255 is 11111111 in binary).
+
+**Example:**
+
+```python
+# Example variable
+variable = 255
+
+# Extract the rightmost bit
+rightmost_bit = variable & 1
+
+# Print the result
+print("Rigthmost bit: ", rightmost_bit)
+```
+
 <!-- Section not started yet
 ## Advanced I/O
 
@@ -280,15 +406,6 @@ Random Numbers
 ## random()
 ## randomSeed()
 
-Bits and Bytes
-
-### bit()
-### bitClear()
-### bitRead()
-### bitSet()
-### bitWrite()
-### highByte()
-### lowByte()
 
 External Interrupts
 
