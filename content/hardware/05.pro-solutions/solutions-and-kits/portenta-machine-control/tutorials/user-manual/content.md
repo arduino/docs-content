@@ -889,6 +889,8 @@ Since the data is fetched only once, there's no need to send `HTTP GET` requests
 
 The Portenta Machine Control has a built-in RS-485 interface that enables the implementation of robust and reliable data transmission systems. RS-485 interface is still the most widely used protocol for Point Of Sale (POS), industrial, and telecommunications applications. The wide common-mode range enables data transmission over longer cable lengths and in noisy environments such as the floor of a factory. Also, the high input impedance of the receivers allows more devices to be attached to the lines.
 
+![Portenta Machine Control RS-485 interface terminals](assets/user-manual-20.png)
+
 The onboard RS-485 transceiver is the SP335 from MaxLinear. The SP335 is an advanced multiprotocol transceiver that supports RS-232, RS-485, and RS-422 serial standards. Integrated cable termination and multiple configuration modes allow all three protocols to be used interchangeably over a single cable or connector with no additional switching components. 
 
 Some of the key capabilities of Portenta's Machine Control onboard RS-485 transceiver are the following:
@@ -904,7 +906,7 @@ RS-485 data lines in the Portenta Machine Control are labeled as described in th
 
 ***RS-485 data line labels differ between manufacturers. Most manufacturers will use + and – to label the data lines or variations such as D+ and D-. Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the - line should be connected to the A terminal. The + line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
 
-The sketch below shows how to use the RS-485 interface of the Portenta Machine Control for half-duplex communication.
+The example sketch below shows how to use the RS-485 interface of the Portenta Machine Control for half-duplex communication.
 
 ```arduino
 /*
@@ -983,6 +985,74 @@ The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_
 - `MachineControl_RS485Comm.read()`: Reads incoming data.
 
 **Note**: To receive and show the messages on your computer, you can use a USB to RS-485 converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
+
+### CAN Bus
+
+The Portenta Machine Control features a built-in CAN bus interface, enabling the implementation of robust and reliable data transmission systems in automotive and industrial automation applications. The CAN bus is widely used due to its ability to operate effectively in electrically noisy environments and its communication method that reduces errors.
+
+The onboard CAN transceiver of the Portenta Machine Control is capable of operating at various bit rates, allowing its use in a broad range of applications.
+
+Some of the key capabilities of the onboard CAN transceiver in the Portenta Machine Control include:
+
+- **High-speed operation**: CAN bus is capable of operating at bit rates up to 1 Mbps.
+- **Noise tolerance**: CAN bus is designed to function reliably in environments with high electromagnetic interference.
+- **Fault protection**: CAN bus incorporates safety features to protect against common failures in industrial networks.
+
+The example sketch below shows how to use the CAN bus interface of the Portenta Machine Control to transmit data.
+
+```arduino
+/*
+  Portenta Machine Control's CAN Bus Communication
+  Name: portenta_machine_control_can_example.ino
+  Purpose: Demonstrates data transmission using the CAN bus
+  interface on the Portenta Machine Control.
+
+  @author Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+// Include necessary libraries
+#include <Arduino_MachineControl.h>
+
+// Define the CAN message ID and message counter
+static uint32_t const CAN_ID = 13ul;
+static uint32_t msg_cnt = 0;
+
+void setup() {
+    // Begin serial communication at 9600 baud
+    Serial.begin(9600);
+    while (!Serial); // Wait for the serial port to connect
+
+    // Initialize the CAN interface with a bit rate of 500 kbps
+    if (!MachineControl_CANComm.begin(CanBitRate::BR_500k)) {
+        Serial.println("CAN init failed.");
+        while(1);
+    }
+}
+
+void loop() {
+  // Assemble the CAN message
+  uint8_t const msg_data[] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
+  CanMsg msg(CAN_ID, sizeof(msg_data), msg_data);
+
+  // Transmit the CAN message
+  int const rc = MachineControl_CANComm.write(msg);
+  if (rc <= 0) {
+    Serial.print("CAN write failed with error code: ");
+    Serial.println(rc);
+    while(1);
+  }
+
+  // CAN message sent
+  Serial.println("CAN write message!");
+
+  // Increase the message counter
+  msg_cnt++;
+
+  // Send a message every second
+  delay(1000);
+}
+```
 
 ## Support
 
