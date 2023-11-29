@@ -12,6 +12,7 @@ libraries:
     url: https://www.arduino.cc/en/Reference/ArduinoBLE
 hardware:
   - hardware/03.nano/boards/nano-33-ble
+  - hardware/03.nano/boards/nano-33-ble-rev2
 software:
   - web-editor
 featuredImage: 'led'

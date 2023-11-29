@@ -1,0 +1,31 @@
+Board:
+  Name: Arduino® Nano 33 BLE Rev2
+  SKU: ABX00071
+Microcontroller: nRF52840
+USB connector: Micro USB
+Pins:
+  Built-in LED Pin: 13
+  Digital I/O Pins: 14
+  Analog input pins: 8
+  PWM pins: 5
+  External interrupts: All digital pins
+Connectivity:
+  Bluetooth®: NINA-B306
+Sensors:
+  IMU: LBMI270 (3-axis accelerometer + 3-axis gyroscope) + BMM150 (3-axis Magnetometer)
+Communication:
+  UART: RX/TX 
+  I2C: A4 (SDA), A5 (SCL)
+  SPI: D11 (COPI), D12 (CIPO), D13 (SCK). Use any GPIO for Chip Select (CS).
+Power:
+  I/O Voltage: 3.3V
+  Input voltage (nominal): 5-18V
+  DC Current per I/O Pin: 10 mA
+Clock speed:
+  Processor: nRF52840 64MHz
+Memory:
+  nRF52840: 256 KB SRAM, 1MB flash
+Dimensions:
+  Weight: 5gr
+  Width: 18 mm
+  Length: 45 mm

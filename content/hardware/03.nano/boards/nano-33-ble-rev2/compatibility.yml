@@ -1,0 +1,4 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - web-editor
