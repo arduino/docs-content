@@ -70,12 +70,54 @@ pin.value(1) #set pin to high state
 
 ## Analog I/O
 
+
 ### analogRead()
 
+`adc.read_u16()`
 
+To read an analog pin, we first need to attach a pin to the ADC.
 
-### analogReference()
+- `adc_pin = machine.Pin(pin)` - create the pin.
+- `adc = machine.ADC(adc_pin)` - attach it to the ADC.
+
+Attach a pin to an ADC, and read the raw value.  
+
+- **Returns:** - the raw analog value in a 16-bit format (0-65535).
+- **Parameters:** none.
+
+**Example:**
+
+```python
+import machine
+import time
+
+adc_pin = machine.Pin("PC4") 
+adc = machine.ADC(adc_pin)
+
+while True:
+    reading = adc.read_u16()    
+    print("ADC: ",reading)
+
+    time.sleep_ms(1000)
+```
+
+**Note:** to convert the 16-bit value to a 10-bit value, you can use the following formula:
+
+```python
+# right-shifts the bits and discards the 6 most significant bits
+# effectively changing the value range from 0-65535 to 0-1023
+result = (reading >> 6) & 0x3FF
+```
+
 ### analogWrite()
+
+`pwm.duty_u16(duty)`
+
+To write analog values using PWM, we need to define the pin and set the frequency.
+
+
+
+
 ### analogReadResolution()
 ### analogWriteResolution()
 
