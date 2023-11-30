@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started with the Pro Edge AI/ML: Vision and Speech Kit'
+title: 'Getting Started with the AKX00058: Pro Edge AI/ML: Vision and Speech Kit'
 description: "Learn how to start using your Pro Edge AI/ML: Vision and Speech Kit"
 difficulty: advanced
 tags:
