@@ -768,7 +768,7 @@ Replace `YOUR_SSID` with the name of your Wi-Fi® network and `YOUR_PASS` with t
 
 // Wi-Fi network details.
 char ssid[]     = SECRET_SSID;
-char password[] = SECRET_PASS;
+char password[] = SECRET_PASS;º
 
 // Server address for ip-api.com.
 const char* server = "ip-api.com";
@@ -992,7 +992,7 @@ The Portenta Machine Control features a built-in CAN bus interface, enabling the
 
 ![Portenta Machine Control CAN bus interface terminals](assets/user-manual-21.png)
 
-The onboard CAN transceiver of the Portenta Machine Control is the TJA1049 from NXP Semiconductors. The TJA1049 is a specialized high-speed CAN transceiver for various applications, especially in automotive and high-speed CAN networks. The third-generation device offers enhanced electromagnetic compatibility (EMC) and ESD protection. This transceiver also features a low-current standby mode with a wake-up function and is compatible with microcontrollers ranging from 3 to 5 VDC. Adhering to the ISO11898 standard, the TJA1049 ensures reliable communication at data rates up to 5 Mbps, making it an optimal choice for High-Speed (HS) CAN networks that require efficient low-power operation modes.
+The onboard CAN transceiver of the Portenta Machine Control is the TJA1049 from NXP®. The TJA1049 is a specialized high-speed CAN transceiver for various applications, especially in automotive and high-speed CAN networks. The third-generation device offers enhanced electromagnetic compatibility (EMC) and ESD protection. This transceiver also features a low-current standby mode with a wake-up function and is compatible with microcontrollers ranging from 3 to 5 VDC. Adhering to the ISO11898 standard, the TJA1049 ensures reliable communication at data rates up to 5 Mbps, making it an optimal choice for High-Speed (HS) CAN networks that require efficient low-power operation modes.
 
 Some of the key capabilities of the onboard CAN transceiver in the Portenta Machine Control include:
 
@@ -1066,6 +1066,133 @@ The example sketch uses the `MachineControl_CANComm.begin()`, `MachineControl_CA
 - `MachineControl_CANComm.end()`: This function can disable the CAN module when it's no longer needed, helping conserve power.
 
 **Note**: To receive and show the messages on your computer, you can use a USB to CAN bus converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-can-a.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
+
+## Real-Time Clock
+
+The Portenta Machine Control features an onboard CMOS Real-Time Clock (RTC) and calendar, the PCF8563 from NXP®, optimized for low power consumption.
+
+Some of the key capabilities of Portenta's Machine Control onboard RTC are the following:
+
+- **Timekeeping accuracy**: Provides year, month, day, weekday, hours, minutes, and seconds based on a 32.768 kHz quartz crystal.
+- **Alarm and timer functions**: Offers additional utility for time-based alerts and operations.
+- **Integrated oscillator capacitor**: Enhances timekeeping reliability and stability.
+- **Internal Power-On Reset (POR)**: Ensures consistent performance and reliable operation.
+- **Open-drain interrupt pin**: Facilitates external notifications and system wake-up.
+
+The `Arduino Mbed OS Portenta Boards` core and the `Arduino_MachineControl` are equipped with built-in libraries and functions that enable you to utilize the Portenta's Machine Control onboard Real-Time Clock (RTC), connect to Wi-Fi® networks, and work with time functions using the `mbed_mktime library`. In the following example, we will explore some of these capabilities.
+
+The following example sketch demonstrates how to connect a Portenta Machine Control device to a Wi-Fi® network, synchronize its onboard RTC with a Network Time Protocol (NTP) server using the `NTPClient` library, and display the current RTC time on the Arduino IDE's Serial Monitor every five seconds. To get started, you will need to install the `NTPClient` library, which can be easily added using the Arduino IDE's Library Manager.
+
+Before running the sketch, create a header file named `arduino_secrets.h` to securely store your Wi-Fi network credentials. In the Arduino IDE 2, this can be done by adding a new tab. Click the ellipsis (the three horizontal dots) button at the top right of the IDE, and name the new file `arduino_secrets.h`. 
+
+![Creating a tab in the Arduino IDE 2](assets/user-manual-22.png)
+
+In this file, define your Wi-Fi network SSID and password as constants.
+
+```arduino
+char ssid[] = "SECRET_SSID"; // Your network SSID (name)
+char password[] = "SECRET_PASS"; // Your network password (use for WPA, or use as key for WEP)
+```
+
+Replace `SECRET_SSID` with the name of your Wi-Fi® network and `SECRET_PASS` with the password of it and save the project. The example code is as follows:
+
+```arduino
+/*
+  Portenta Machine Control's RTC
+  Name: portenta_machine_control_enhanced_rtc.ino
+  Purpose: Connects the Portenta Machine Control to a Wi-Fi network
+  and synchronizes its onboard RTC with a NTP server. Displays 
+  the current RTC time on the IDE's Serial Monitor every 5 seconds.
+  
+  @author Arduino PRO Content Team
+  @version 1.0 23/07/23
+*/
+
+// Libraries used in the sketch
+#include <WiFi.h>
+#include "arduino_secrets.h" 
+#include <NTPClient.h>
+#include <mbed_mktime.h>
+#include <Arduino_MachineControl.h>
+
+// Wi-Fi network credentials
+int status = WL_IDLE_STATUS;
+
+// NTP client configuration and RTC update interval
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP, "pool.ntp.org", -6*3600, 0);
+
+// Display time every 5 seconds
+unsigned long interval = 5000UL;
+unsigned long lastTime = 0;
+
+void setup() {
+  // Initialize serial communication
+  Serial.begin(9600);
+  while (!Serial);
+  delay(5000);
+
+  // Attempt Wi-Fi connection
+  while (status != WL_CONNECTED) {
+    Serial.print("- Attempting to connect to WPA SSID: ");
+    Serial.println(ssid);
+    status = WiFi.begin(ssid, password);
+    delay(500);
+  }
+
+  // Initialize NTP client and synchronize time
+  timeClient.begin();
+  timeClient.update();
+  const unsigned long epoch = timeClient.getEpochTime();
+
+  // Synchronize Portenta's Machine Control RTC with NTP time
+  MachineControl_RTCController.begin();
+  MachineControl_RTCController.setEpoch(epoch);
+
+  // Display synchronized time
+  displayRTC();
+}
+
+void loop() {
+  // Periodically display RTC time
+  unsigned long currentTime = millis();
+  if (currentTime - lastTime >= interval) {
+    displayRTC();
+    lastTime = currentTime;
+  }
+}
+
+/**
+  Display Portenta's Machine Control internal RTC time 
+
+  @param none
+  @return none
+*/
+void displayRTC() {
+  Serial.println();
+  Serial.println("- TIME INFORMATION:");
+  Serial.print("- RTC time: ");
+  
+  char buffer[32];
+  tm t;
+  _rtc_localtime(time(NULL), &t, RTC_FULL_LEAP_YEAR_SUPPORT);
+  strftime(buffer, 32, "%Y-%m-%d %H:%M:%S", &t);
+  Serial.println(buffer);
+}
+```
+This sketch uses `WiFi.h`, `NTPClient.h`, and `mbed_mktime.h` libraries and methods to connect to a specific Wi-Fi® network using the provided credentials (network name and password). Once the internet connection has been established, the code synchronizes with a NTP server, using the `NTPClient.h` library, to obtain the current Coordinated Universal Time (UTC). This time is then converted to local time and used to set the device's internal RTC, thanks to the functionalities provided by `mbed_mktime.h` methods.
+
+Once the RTC has been synchronized in the setup, the sketch enters an infinite loop. In this loop, every five seconds, it retrieves the current time from the RTC and prints it to the IDE's Serial Monitor in a more readable format, using the tm structure provided by `mbed_mktime.h`. This ensures that even if the internet connection is interrupted or the system restarts, accurate time tracking is maintained as long as the RTC's power supply is not interrupted. You should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-23.png)
+
+The sketch uses several key functions and methods:
+
+- `WiFi.begin(ssid, password)`: Connects the device to a specified Wi-Fi network.
+- `NTPClient`: A client object to communicate with an NTP server.
+- `MachineControl_RTCController.begin()`: Initializes the onboard RTC.
+- `MachineControl_RTCController.setEpoch(epoch)`: Sets the RTC time based on the epoch time obtained from the NTP server.
+- `displayRTC()`: A custom function to format and display the current time from the RTC on the IDE's Serial Monitor.
 
 ## Support
 
