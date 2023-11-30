@@ -5,9 +5,11 @@ difficulty: advanced
 tags:
   - PRO
   - Kit
-  - Industrial Automation
-  - Healthcare
-  - Smart Cities - Building Automation
+  - Energy Monitoring
+  - Facility Management
+  - Smart city management
+  - Remote Production Monitoring
+  - Remote Actuation
 author: 'Francesca Gentile'
 software:
   - Arduino-Cloud
