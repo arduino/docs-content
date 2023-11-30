@@ -1642,6 +1642,17 @@ Here is the connector pinout for reference:
 
 #### Using Linux
 
+Initialize the serial port:
+`stty -F /dev/ttyX0 115200 -parity cs8 -cstopb`
+
+To send use:
+
+`echo "Hello World" > /dev/ttyX0`
+
+To recive use:
+
+`cat /dev/ttyX0`
+
 #### Using Arduino IDE
 
 For users working with the Portenta H7 or Portenta C33, the following simple examples can be used to test the RS-232/485 communication.
