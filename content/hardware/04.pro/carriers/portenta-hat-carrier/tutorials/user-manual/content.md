@@ -2437,13 +2437,13 @@ The GPIO configuration register for the STM32 microcontroller is structured with
 | PE | HYS | PUE | ODE | FSEL |  DSE  |
 
 - __PE (Pull Resistors Enable)__: Controls the use of pull resistors. 0 disables them, while 1 enables them.
-- __HYS (Hysteresis Enable Field)__: Sets the input type. 0 selects CMOS input, 1 selects Schmitt input.
-- __PUE (Control IO ports PS)__: Determines the type of pull resistors used. 0 selects pull-down resistors, 1 selects pull-up resistors.
-- __ODE (Open Drain Enable Field)__: Configures the pin for open-drain mode. 0 disables, 1 enables.
+- __HYS (Hysteresis Enable Field)__: Sets the input type. 0 selects CMOS input, and 1 selects Schmitt input.
+- __PUE (Control IO ports PS)__: Determines the type of pull resistors used. 0 selects pull-down resistors, and 1 selects pull-up resistors.
+- __ODE (Open Drain Enable Field)__: Configures the pin for open-drain mode. 0 turns off, 1 enables.
 - __FSEL (Slew Rate Field)__: Controls the slew rate. 0X is slow, 1X is fast.
 - __DSE (Drive Strength Field)__: Adjusts the drive strength. Options range from X1 to X6, with varying levels of strength.
 
-To control a desired GPIO within the Linux environment of the Portenta X8, based on STM32 microcontroller, the following GPIO chip formula can help get the required GPIO number designation:
+To control a desired GPIO within the Linux environment of the Portenta X8, based on the STM32 microcontroller, the following GPIO chip formula can help get the required GPIO number designation:
 
 ```
 [(<GPIO group> -1) * 32] + <GPIO number>
