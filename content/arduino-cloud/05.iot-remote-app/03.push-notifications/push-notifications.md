@@ -96,7 +96,7 @@ Finally, we will create a dashboard that we can trigger the notification from.
 
 1. Go to the **"Dashboards"** page, and create a new dashboard / use an existing dashboard.
 2. Create a switch widget and link it to your `trigger` variable, similarly to how we set up the trigger.
-3. Once linked, flick the switch. It should immediately go back to its "off" state, and you should now receive a noticication in your phone.
+3. Once linked, flick the switch. It should immediately go back to its "off" state, and you should now receive a notification in your phone.
 
     ![Flick switch = notification on phone!](assets/notifications.png)
 
