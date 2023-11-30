@@ -75,7 +75,7 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |:---------------------------------------------------------------------------------------------------------------------------------:|:---:|:-----------:|:--------------:|
 |    [Door Intruder Detector Using ML with the Nicla Voice](https://docs.arduino.cc/tutorials/nicla-voice/ei-intruder-detector)     |     |     Yes     |                |
 |   [Audio Analysis with Machine Learning and the Nicla Voice](https://docs.arduino.cc/tutorials/nicla-voice/getting-started-ml)    |     |     Yes     |                |
-| [Motion Detection with Nicla Voice and Machine Learning Tools](https://docs.arduino.cc/tutorials/nicla-voice/motion-detection-ml) |     |     Yes     |       +        |
+| [Motion Detection with Nicla Voice and Machine Learning Tools](https://docs.arduino.cc/tutorials/nicla-voice/motion-detection-ml) |     |     Yes     |                |
 |                [Sensors Readings on a Local Webserver](https://docs.arduino.cc/tutorials/nicla-sense-me/cli-tool)                 |     |             |      Yes       |
 |   [Displaying on-Board Sensor Values on a WebBLE Dashboard](https://docs.arduino.cc/tutorials/nicla-sense-me/web-ble-dashboard)   |     |             |      Yes       |
 |       [Energy Metering with the Portenta C33](https://docs.arduino.cc/tutorials/portenta-c33/energy-meter-application-note)       | Yes |             |                |
