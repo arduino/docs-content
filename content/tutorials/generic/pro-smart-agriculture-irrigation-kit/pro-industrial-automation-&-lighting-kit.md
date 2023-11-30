@@ -17,7 +17,7 @@ hardware:
 
 The Pro Smart Agriculture and Irrigation Kit is the perfect way to learn and create solutions focused on Smart Farming developments, low-energy wireless technologies, and remote monitoring with the Cloud.
 
-- Connect sensors and drive actuators to automatize your irrigation processes.
+- Connect sensors and drive actuators to automate your irrigation processes.
 - Easily implement precision farming, monitoring real-time weather conditions, soil quality, crop’s growth, among other parameters and use Arduino Cloud to generate valuable analytics to support business processes at various levels, including plant growth, equipment efficiency, staff performance, and much more.
 - Connect your devices through WisGate Edge Lite, to add LoRa® connectivity layer and extend the possibility of connecting it in open field. 
 
