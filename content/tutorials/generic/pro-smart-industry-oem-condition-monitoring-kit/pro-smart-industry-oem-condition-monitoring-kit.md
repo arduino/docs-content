@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started with the Pro Smart Industry OEM Condition Monitoring Kit'
+title: 'Getting Started with the AKX00057: Pro Smart Industry OEM Condition Monitoring Kit'
 description: "Learn how to start using your Pro Smart Industry OEM Condition Monitoring Kit"
 difficulty: advanced
 tags:
