@@ -5,9 +5,11 @@ difficulty: advanced
 tags:
   - PRO
   - Kit
-  - Industrial Automation
-  - Healthcare
-  - Smart Cities - Building Automation
+  - Industrial machines control
+  - Industrial IoT Gateway
+  - Wastewater
+  - Condition monitoring
+  - Appliances control systems
 author: 'Francesca Gentile'
 software:
   - Arduino-Cloud
