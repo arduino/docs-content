@@ -5,9 +5,11 @@ difficulty: advanced
 tags:
   - PRO
   - Kit
-  - Industrial Automation
-  - Healthcare
-  - Smart Cities - Building Automation
+  - Industrial machines control
+  - Industrial IoT Gateway
+  - Wastewater
+  - Condition monitoring
+  - Appliances control systems
 author: 'Francesca Gentile'
 software:
   - Arduino-Cloud
@@ -17,7 +19,7 @@ hardware:
 
 The Pro Smart Industry OEM Condition Monitoring Kit is the perfect way to learn and create solutions focused on a micro PLC programming environment, industrial instrumentation and control applications.
 
-- Develop experience in programming a micro PLC with IEC61131-3 languages or Arduino C++ to realize a small industrial control system.
+- Develop experience in programming a micro PLC with IEC 61131-3 languages or Arduino C++ to realize a small industrial control system.
 - Implement projects including temperature measurements exploiting the  Portenta Machine Control’s capabilities with 3 temperature inputs for Thermocouples J/K and RTD PT100.
 - Experience multiple communication features (Ethernet and WiFi) and get familiar with Fieldbus communications (Modbus RTU through RS485 and Modbus TCP through Ethernet) 
 
