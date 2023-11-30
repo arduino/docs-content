@@ -5,9 +5,11 @@ difficulty: advanced
 tags:
   - PRO
   - Kit
-  - Industrial Automation
-  - Healthcare
-  - Smart Cities - Building Automation
+  - Intruder Detection
+  - Environmental Monitoring
+  - Construction Monitoring
+  - Wearable Solutions
+  - Predictive Maintenance
 author: 'Francesca Gentile'
 software:
   - Arduino-Cloud
