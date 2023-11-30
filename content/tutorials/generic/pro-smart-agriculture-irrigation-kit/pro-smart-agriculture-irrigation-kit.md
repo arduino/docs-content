@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started with the Pro Smart Agriculture and Irrigation Kit'
+title: 'Getting Started with the AKX00061/AKX00062: Pro Smart Agriculture and Irrigation Kit'
 description: "Learn how to start using your Pro Smart Agriculture and Irrigation Kit"
 difficulty: advanced
 tags:
