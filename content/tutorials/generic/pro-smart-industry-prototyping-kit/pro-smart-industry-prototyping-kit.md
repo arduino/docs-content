@@ -5,9 +5,11 @@ difficulty: advanced
 tags:
   - PRO
   - Kit
-  - Industrial Automation
-  - Healthcare
-  - Smart Cities - Building Automation
+  - Motion Control
+  - HMI
+  - Industrial IoT Gateway
+  - Smart Kiosk
+  - Access monitoring
 author: 'Francesca Gentile'
 software:
   - Arduino-Cloud
