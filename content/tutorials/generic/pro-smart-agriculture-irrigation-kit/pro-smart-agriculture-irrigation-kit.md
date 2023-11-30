@@ -5,9 +5,10 @@ difficulty: advanced
 tags:
   - PRO
   - Kit
-  - Industrial Automation
-  - Healthcare
-  - Smart Cities - Building Automation
+  - Smart Irrigation
+  - Aquaponics/Hydroponics
+  - Crop Yield Monitoring
+  - Smart City Management
 author: 'Francesca Gentile'
 software:
   - Arduino-Cloud
