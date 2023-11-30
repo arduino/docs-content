@@ -13,7 +13,7 @@ author: 'Francesca Gentile'
 software:
   - Arduino-Cloud
 hardware:
-  - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
+  - hardware/05.pro-solutions/solutions-and-kits/edge-control
 ---
 
 The Pro Smart Agriculture and Irrigation Kit is the perfect way to learn and create solutions focused on Smart Farming developments, low-energy wireless technologies, and remote monitoring with the Cloud.
