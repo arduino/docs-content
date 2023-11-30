@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started with the Pro Industrial Automation and Lighting Kit'
+title: 'Getting Started with the AKX00056: Pro Industrial Automation and Lighting Kit'
 description: "Learn how to start using your Pro Industrial Automation and Lighting Kit"
 difficulty: advanced
 tags:
