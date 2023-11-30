@@ -1,5 +1,5 @@
 ---
-title: 'Getting Started with the Pro Smart Industry Prototyping Kit'
+title: 'Getting Started with the AKX00060: Pro Smart Industry Prototyping Kit'
 description: "Learn how to start using your Pro Smart Industry Prototyping Kit"
 difficulty: advanced
 tags:
