@@ -22,7 +22,7 @@ The Pro Smart Industry Prototyping Kit is the perfect way to learn and create so
 - Experience the X8 Manager integration for Arduino Cloud, enabling secure OTA updates and Fleet management.
 - Get all the X8 resources easily accessible and add the  LoRa® and Cat.M1 connectivity layer thanks to Max carrier.
 
-![Pro Smart Industry Prototyping Kit Main Features](assets/monitoring-thumb.png)
+![Pro Smart Industry Prototyping Kit Main Features](assets/prototyping-thumb.png)
 
 ## The Kit
 
