@@ -11,6 +11,7 @@ tags:
 author: 'Francesca Gentile'
 software:
   - Arduino-Cloud
+  - ide-v2
 hardware:
   - hardware/04.pro/boards/portenta-h7
   - hardware/04.pro/shields/portenta-vision-shield
