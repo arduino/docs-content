@@ -1,6 +1,6 @@
 ---
-title: 'Getting Started with the Pro Smart Industry Monitoring Kit'
-description: "Learn how to start using your Pro Smart Industry Monitoring Kit"
+title: 'Getting Started with the AKX00059: Pro Smart Industry Predictive Maintenance Kit'
+description: "Learn how to start using your Pro Smart Industry Predictive Maintenance Kit"
 difficulty: advanced
 tags:
   - PRO
