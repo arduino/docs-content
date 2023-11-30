@@ -461,8 +461,6 @@ To learn how to leverage LoRa® capabilities with this carrier and the Arduino I
 
 ## Mini PCIe
 
-## MIPI Camera
-
 ## Audio Interface
 
 ## USB Interface
@@ -1322,7 +1320,11 @@ As a practical example, we are going to communicate the __Max Carrier__ using a 
 
 ***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines.***
 
-For the Max Carrier, the CAN transceiver is enabled by default, this is due to the initial state of `pwm3` pin that needs to be low so the CAN communication works.
+For the Portenta X8, when you have admin (root) access, you can execute the following commands within the shell to control the CAN bus protocol. The CAN transceiver can be enabled using the following command
+
+`echo 186 > /sys/class/gpio/export && echo out > /sys/class/gpio/gpio186/direction && echo 0 > /sys/class/gpio/gpio186/value`
+
+This command sequence activates the CAN transceiver. It does so by exporting GPIO 186 (`pwm3`), setting its direction to "`out`", and then writing a value of "`0`" to it. Writing 0 as a value to GPIO 186 means that it will set the GPIO to a LOW state.
 
 For Portenta X8, it is possible to use the following commands:
 
