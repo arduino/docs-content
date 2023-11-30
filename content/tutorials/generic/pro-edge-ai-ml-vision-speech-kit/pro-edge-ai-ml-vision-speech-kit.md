@@ -45,7 +45,7 @@ Additionally you may need the following accessories:
 
 * USB-C® cable (x1)
 
-* 3.7 V Li-Po to externally power the Nicla Vision
+* 3.7 V Li-Po battery to externally power the Nicla Vision
 
 ## Getting Started with Your Kit
 
