@@ -18,12 +18,12 @@ hardware:
   - hardware/06.nicla/boards/nicla-sense-me
 ---
 
-The Pro Smart Industry Monitoring Kit is the perfect way to learn and create solutions focused on artificial intelligence using sound recognition, environmental sensing, and machine learning on the Edge:
+The Pro Smart Industry Predictive Maintenance Kit is the perfect way to learn and create solutions focused on artificial intelligence using sound recognition, environmental sensing, and machine learning on the Edge:
 
 - Practice with Edge AI tools to implement automation systems capable of recognizing Voice Commands and sensing environmental data to trigger processes.
 - Integrate all with remote control thanks to the Arduino Cloud, experiencing the Arduino C++ based programming easiness.
 
-![Pro Smart Industry Monitoring Kit Main Features](assets/monitoring-thumb.png)
+![Pro Smart Industry Predictive Maintenance Kit Main Features](assets/monitoring-thumb.png)
 
 ## The Kit
 
