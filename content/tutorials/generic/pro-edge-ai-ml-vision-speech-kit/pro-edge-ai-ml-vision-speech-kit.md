@@ -7,7 +7,8 @@ tags:
   - Kit
   - Industrial Automation
   - Healthcare
-  - Smart Cities - Building Automation
+  - Smart Cities 
+  - Building Automation
 author: 'Francesca Gentile'
 software:
   - Arduino-Cloud
