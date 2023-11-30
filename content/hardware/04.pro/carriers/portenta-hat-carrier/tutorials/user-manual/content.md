@@ -2360,7 +2360,6 @@ Within the 40-pin connector, certain GPIOs are specifically related to different
 ***The __Portenta.GPIO__ library, officially supported and compatible with the Portenta Hat Carrier and Portenta X8, can be found [here](https://pypi.org/project/Portenta.GPIO/).***
 
 #### Using Linux
-
 <br></br>
 
 Next conditions will help you properly set the hardware to test GPIO controls:
@@ -2430,6 +2429,89 @@ This script will help you verify the following considerations:
 - By staying within the specified voltage range, you ensure the longevity of your device and prevent potential damages.
 
 - With the default pull-ups, you can be confident in your readings, knowing that unintentional fluctuations are minimized.
+
+The GPIO configuration register for the STM32 microcontroller is structured with various fields that control different aspects of GPIO functionality:
+
+|  8 |  7  |  6  |  5  |  4 3 | 2 1 0 |
+|:--:|:---:|:---:|:---:|:----:|:-----:|
+| PE | HYS | PUE | ODE | FSEL |  DSE  |
+
+- __PE (Pull Resistors Enable)__: Controls the use of pull resistors. 0 disables them, while 1 enables them.
+- __HYS (Hysteresis Enable Field)__: Sets the input type. 0 selects CMOS input, 1 selects Schmitt input.
+- __PUE (Control IO ports PS)__: Determines the type of pull resistors used. 0 selects pull-down resistors, 1 selects pull-up resistors.
+- __ODE (Open Drain Enable Field)__: Configures the pin for open-drain mode. 0 disables, 1 enables.
+- __FSEL (Slew Rate Field)__: Controls the slew rate. 0X is slow, 1X is fast.
+- __DSE (Drive Strength Field)__: Adjusts the drive strength. Options range from X1 to X6, with varying levels of strength.
+
+To control a desired GPIO within the Linux environment of the Portenta X8, based on STM32 microcontroller, the following GPIO chip formula can help get the required GPIO number designation:
+
+```
+[(<GPIO group> -1) * 32] + <GPIO number>
+```
+
+Each GPIO chip manages a specific range of GPIO numbers, facilitating organized and efficient access to the GPIO functionality of the STM32 microcontroller. The GPIO groups for the Portenta X8 are segmented in the following manner:
+
+| **GPIO Chip** | **Corresponding GPIO Number** |
+|---------------|-------------------------------|
+| _gpiochip0_   | GPIOs 0-31                    |
+| _gpiochip1_   | GPIOs 32-63                   |
+| _gpiochip2_   | GPIOs 64-95                   |
+| _gpiochip3_   | GPIOs 96-127                  |
+| _gpiochip4_   | GPIOs 128-159                 |
+| _gpiochip5_   | GPIOs 160-193 (H7 GPIOs)      |
+
+The STM32 microcontroller includes various GPIO ports, each with a specific set of pins. The enumeration of these GPIO ports is as follows:
+
+- __Port A__: PA6, PA8, PA9, PA10, PA11, PA12
+- __Port B__: PB1, PB5, PB6, PB10
+- __Port C__: PC4, PC6, PC7, PC8
+- __Port D__: PD0, PD1, PD3, PD4, PD5, PD6, PD15
+- __Port E__: PE10, PE11
+- __Port F__: PF3, PF4, PF5, PF6, PF7, PF8, PF9, PF11, PF12, PF13
+
+Each pin is identified by its port and a unique port number.
+
+| **Port** | **Port Number** | **Port Name** | **Function / Role** |
+|----------|-----------------|---------------|---------------------|
+| _Port A_ |                 |               |                     |
+|          | 168             | PA6           | ADC_CH1 (A1)        |
+|          | 189             | PA8           | PWM_3               |
+|          | 184             | PA9           | PWM_1               |
+|          | 185             | PA10          | PWM_2               |
+|          | 187             | PA11          | PWM_4               |
+|          | 191             | PA12          | PWM_8               |
+| _Port B_ |                 |               |                     |
+|          | 170             | PB1           | ADC_CH3 (A3)        |
+|          | 178             | PB5           | FDCAN2_RX           |
+|          | 177             | PB6           | FDCAN2_TX           |
+|          | 186             | PB10          | PWM_3               |
+| _Port C_ |                 |               |                     |
+|          | 171             | PC4           | ADC_CH4 (A4)        |
+|          | 190             | PC6           | PWM_7               |
+|          | 183             | PC7           | PWM_0               |
+|          | 192             | PC8           | PWM_9               |
+| _Port D_ |                 |               |                     |
+|          | 176             | PD0           | FDCAN1_RX           |
+|          | 175             | PD1           | FDCAN1_TX           |
+|          | 182             | PD3           | USART2_CTS          |
+|          | 181             | PD4           | USART2_RTS          |
+|          | 189             | PD5           | USART2_TX           |
+|          | 180             | PD6           | USART2_RX           |
+|          | 188             | PD15          |                     |
+| _Port E_ |                 |               |                     |
+|          | 165             | PE10          | GPIO_5              |
+|          | 166             | PE11          | GPIO_6              |
+| _Port F_ |                 |               |                     |
+|          | 162             | PF3           | GPIO_2              |
+|          | 163             | PF4           | GPIO_3              |
+|          | 174             | PF5           | ADC_CH7 (A7)        |
+|          | 161             | PF6           | GPIO_1              |
+|          | 172             | PF7           | ADC_CH5 (A5)        |
+|          | 160             | PF8           | GPIO_0              |
+|          | 173             | PF9           | ADC_CH6 (A6)        |
+|          | 167             | PF11          | ADC_CH0 (A0)        |
+|          | 164             | PF12          | GPIO_4              |
+|          | 169             | PF13          | ADC_CH2 (A2)        |
 
 By employing this script, not only do you gain a deeper insight into the state of your GPIOs, but you also save valuable time and reduce the margin for error.
 
