@@ -35,91 +35,37 @@ The goals of this project are:
 
 ## Circuit
 
-![Mount the shield.](assets/IoT_ENV_IMG01.png)
+![Mount the shield.](./assets/IoT_ENV_IMG01.png)
 
 ## Configuring the Cloud
 
-The first step in this tutorial is to navigate to the [Arduino Cloud](https://app.arduino.cc/). If you are not logged in, or do not have an account, you will be re-directed to the login page. Here you can create a new account or log in to an existing one.
+***This tutorial assumes you know the basics of the Arduino Cloud. If you are new check out our [Getting Started Guide](/arduino-cloud/guides/overview).***
 
-### Configure a new device
+- Create a **Thing** with the following variables:
 
-Once we are in the Arduino Cloud, we will need to click on the **"Devices"** tab. This will open a new page which will ask you to add a new device. Click on the **"Add device"** button.
-
-![Adding a new device.](assets/new_device.png)
-
-You will now have an option of either configuring a new Arduino device, or a third party device. Select the **"Set up an Arduino device** option.
-
-![Selecting the type of device.](assets/device_setup_1.png)
-
-At this point, you will need to connect your cloud compatible board to your computer. You will also need to have installed the Create plugin. If if it is not installed, the set up wizard will ask you to install it. Your device should now show up, and you will need to click on the **"Configure"**
-button. 
-
-![Device found.](assets/device_setup_2.png)
-
-You will now be asked to name your device. In this case, a name was randomly generated, which is **Phil**. Click on **"Next"** to proceed.
-
-![Naming the device.](assets/device_setup_3.png)
-
-After clicking on next, the board will start to configure. This process may take a few minutes. 
-
-![The configuration process.](assets/device_setup_4.png)
-
-Once it is done, we will be directed to the devices page, where we can see our device. Congratulations, you have just made your first device IoT ready!
-
-![Configuration complete!](assets/device_overview.png)
-
-### Creating a Thing and linking your device
-
-After our device is configured, we can move on to the next step: creating our very first Thing. Click on the **"Things"** tab. You should now see a button that says **"Create thing"**, which we will need to click.
-
-![Creating a thing.](assets/new_thing.png)
-
-We will now see an interface with multiple options. This is your Thing configuration overview. Here we can select what network we are connecting to, what device we are using and create variables that we want to sync.
-
-![Overview of a Thing.](assets/thing_overview.png)
-
-Let's start by linking our freshly configured device, by clicking on the **"Select Device"** button to the right. This will open up a window, where we can **"Associate"** the board with this Thing.
-
-![Associating the device.](assets/associate_device.png)
-
-### Creating variables
-
-Now, we can continue to create variables for our Thing. These variables will be synced with the cloud, as long as the board is connected to Internet and the cloud. 
-
-To create variables, simply click on the **"Add variable"** button. This will open up a new window.
-
-![The "Add Variable" button.](assets/MKRENV_T1_IMG01.5.png)
-
-Here, we will name our variable `temperature` and choose the data type `float`. Click **"Add variable"** at the bottom to add it.
-
-![Creating a variable.](assets/IoT_ENV_IMG02.png)
-
-Now, we need to add the rest of the variables in a very similar fashion, but changing the name. The variables that we need to add can be seen in the table below:
-
-| Name        | Data type |
-| ----------- | --------- |
-| humidity    | float     |
-| illuminance | float     |
-| pressure    | float     |
-| **uva**\*       | float     |
-| **uvb**\*       | float     |
-| **uvIndex**\*   | float     |
+| Name            | Data type | Permission |
+| --------------- | --------- | ---------- |
+| humidity        | float     | Read Only  |
+| illuminance     | float     | Read Only  |
+| pressure        | float     | Read Only  |
+| **uva**\*       | float     | Read Only  |
+| **uvb**\*       | float     | Read Only  |
+| **uvIndex**\*   | float     | Read Only  |
 
 >**Note:** the `uva`, `uvb` and `uvIndex` variables will only work with the MKR ENV Shield v1. Newer versions does not have the UV sensor. If you have a newer version, do not add these variables. You can read more about the different versions in the this [Arduino Help Center article](https://support.arduino.cc/hc/en-us/articles/360019197540-Different-MKR-ENV-Shield-versions).
 
 When we have added these, the variable list will look something like this:
 
-![full list of variables.](assets/IoT_ENV_IMG04.png)
+![full list of variables.](./assets/thing.png)
 
-Now as a final part of the configuration, we just need to add our network details. Click on the button in the **Network** section, and enter your credentials to your Wi-Fi network.
+- Set up your [MKR WiFi 1010](https://store.arduino.cc/products/arduino-mkr-wifi-1010) and configure your network credentials.
 
-![Entering the network details.](assets/IoT_ENV_IMG05.png)
 
 ## Creating the program
 
 Now, the final thing needed is the actual program that will run on the MKR 1010 board. We can edit the program directly in the Arduino Cloud, by clicking on the **"Sketch"** tab. This will open up the built-in editor, where we can write the program directly.
 
-![The sketch tab.](assets/IoT_ENV_IMG06.png)
+![The sketch tab.](./assets/sketch.png)
 
 For the program, we will need to include the **Arduino_MKRENV** library, which is used to read all the sensors. Below is the code that will allow us to do so, and you can see that the variables in the code is identical to the ones we just created.
 
@@ -177,7 +123,7 @@ void loop() {
 
 Once the code has been uploaded, open the Serial Monitor (tab next to sketch) to initialize the program. If everything went well, it should like the image below:
 
-![Information regarding connection to network & cloud.](assets/IoT_ENV_IMG07.png)
+![Information regarding connection to network & cloud.](./assets/serial.png)
 
 The most important thing is that the two following commands are printed:
 
@@ -187,9 +133,9 @@ Connect to the Arduino Cloud
 ```
 ### Over the Air Uploads
 
-Did you know that the Arduino Cloud supports over the air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
+Did you know that the Arduino Cloud supports over-the-air uploads? When you've uploaded a sketch to your board once, it will become available for you to upload a new sketch to the board without connecting it to your computer!
 
-***Over the Air uploads require an Entry plan to the Arduino Cloud***
+***Over the Air uploads require an Entry plan to the Arduino Cloud. Read more about it [here](/arduino-cloud/features/ota-getting-started)***
 
 To use this feature, make sure the board has power. If your board is already connected to the Cloud, you will be able to upload to it over the air. Navigate to the Things sketch tab in the Arduino Cloud interface, and you should see it being discovered just as if it was connected via USB.
 
@@ -197,21 +143,21 @@ To use this feature, make sure the board has power. If your board is already con
 
 Once we have confirmed that the board is connected to the cloud, the last step is to build the dashboard that we can monitor the environmental data in. Click on the **"Dashboards"** tab, which will take you to the dashboards page. Here, we need to click on the **"Build Dashboard"** button.
 
-![Building a new dashboard.](assets/new_dashboard.png)
+![Building a new dashboard.](./assets/new_dashboard.png)
 
 We will now see an empty dashboard, where we are now going to create something called **widgets**. Widgets are the visual representation of our variables. There's two ways of creating widgets: either we add them one by one, and link them manually, or we can add and link **them all at once**. To save some time, let's do that! 
 
 Simply click on the **"Add"** button, and a dropdown menu will appear. Here we will click on **"Things"**, and select the Thing that appears here. 
 
-![Find and click on your Thing.](assets/IoT_ENV_IMG08.png)
+![Find and click on your Thing.](./assets/dashboard-add.png)
 
 In this case, we changed the name to **Environmental Data**, but whatever you name your thing will appear here. By clicking on it, it gives you a list of variables with a checkpoint, and we can simply click **"Create widgets"**
 
-![Generate widgets from the variables in your Thing.](assets/IoT_ENV_IMG09.png)
+![Generate widgets from the variables in your Thing.](./assets/widgets.png)
 
 All new widgets will now appear here, and when the board is connected to the cload, it will continue to update these values. 
 
-![The complete dashboard.](assets/IoT_ENV_IMG10.png)
+![The complete dashboard.](./assets/dashboard.png)
 
 Congratulations! You can now view your real time data directly in the dashboard.
 
