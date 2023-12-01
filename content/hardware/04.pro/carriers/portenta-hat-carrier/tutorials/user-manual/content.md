@@ -2443,11 +2443,25 @@ The GPIO configuration register for the STM32 microcontroller is structured with
 - __FSEL (Slew Rate Field)__: Controls the slew rate. 0X is slow, 1X is fast.
 - __DSE (Drive Strength Field)__: Adjusts the drive strength. Options range from X1 to X6, with varying levels of strength.
 
-To control a desired GPIO within the Linux environment of the Portenta X8, based on the STM32 microcontroller, the following GPIO chip formula can help get the required GPIO number designation:
+To control a desired GPIO within the Linux environment of the Portenta X8, the following GPIO chip formula can help get the required number designation:
 
 ```
 [(<GPIO group> -1) * 32] + <GPIO number>
 ```
+
+For example, __PA0__ is one available GPIO pin from __Port A__ within i.MX8M Mini found with the Portenta X8. Its GPIO designation is defined as `GPIO1_IO07`. Such port relationship can be found within the provided [schematics of the Portenta X8](https://docs.arduino.cc/resources/schematics/ABX00049-schematics.pdf), that can be exposed to be used with the Portenta Hat Carrier.
+
+Applying the formula to the GPIO designation, the formula field is seen as follows:
+
+```
+# Illustrative form
+[(GPIO1 - 1) * 32] + IO07
+
+# Numeric form
+[(1 - 1) * 32] + 7 = 7
+```
+
+With this, it is possible to recognize that __PA0__, known as `GPIO1_IO07`, can be accessed as __`7`__, representing a numeric designation for this specific GPIO.
 
 Each GPIO chip manages a specific range of GPIO numbers, facilitating organized and efficient access to the GPIO functionality of the STM32 microcontroller. The GPIO groups for the Portenta X8 are segmented in the following manner:
 
@@ -2469,13 +2483,13 @@ The STM32 microcontroller includes various GPIO ports, each with a specific set 
 - __Port E__: PE10, PE11
 - __Port F__: PF3, PF4, PF5, PF6, PF7, PF8, PF9, PF11, PF12, PF13
 
-Each pin is identified by its port and a unique port number.
+Each pin is identified by its port and a unique port number. The following table shows the numeric designations of the GPIOs handled by the STM32 microcontroller.
 
 | **Port** | **Port Number** | **Port Name** | **Function / Role** |
 |----------|-----------------|---------------|---------------------|
 | _Port A_ |                 |               |                     |
 |          | 168             | PA6           | ADC_CH1 (A1)        |
-|          | 189             | PA8           | PWM_3               |
+|          | 189             | PA8           | PWM_6               |
 |          | 184             | PA9           | PWM_1               |
 |          | 185             | PA10          | PWM_2               |
 |          | 187             | PA11          | PWM_4               |
