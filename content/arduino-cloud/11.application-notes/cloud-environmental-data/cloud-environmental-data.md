@@ -35,7 +35,7 @@ The goals of this project are:
 
 ## Circuit
 
-![Mount the shield.](./assets/IoT_ENV_IMG01.png)
+![Mount the shield.](./assets/envShield.png)
 
 ## Configuring the Cloud
 
