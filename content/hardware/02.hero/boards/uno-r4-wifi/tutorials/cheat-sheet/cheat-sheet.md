@@ -135,7 +135,10 @@ The UNO R4 WiFi has six analog input pins (A0-A5) that can be read by using the 
 value = analogRead(pin);
 ```
 
-The reference voltage of these pins is 5 V.
+The default reference voltage of these pins is 5 V, but this can be changed as follows:
+
+- `analogReference(AR_DEFAULT)` (Default reference of 5 V)
+- `analogReference(AR_INTERNAL)` (Built in reference of 1.5 V.)
 
 The default resolution is set to 10-bit, but can be updated to 12 and 14-bit resolutions. To do so, use the following method in the `setup()` of your sketch.
 - `analogReadResolution(10)` (default)
