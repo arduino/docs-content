@@ -12,7 +12,7 @@ tags:
   - Access monitoring
 author: 'Francesca Gentile'
 software:
-  - Arduino-Cloud
+  - iot-Cloud
 hardware:
   - hardware/04.pro/boards/portenta-x8
   - hardware/04.pro/carriers/portenta-max-carrier

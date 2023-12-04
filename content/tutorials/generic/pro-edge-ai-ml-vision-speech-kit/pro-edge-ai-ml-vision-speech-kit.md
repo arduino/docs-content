@@ -11,7 +11,7 @@ tags:
   - Building Automation
 author: 'Francesca Gentile'
 software:
-  - Arduino-Cloud
+  - iot-Cloud
   - ide-v2
 hardware:
   - hardware/04.pro/boards/portenta-h7
@@ -44,9 +44,7 @@ The following items are included in the kit:
 Additionally you may need the following accessories:
 
 * Micro-USB cable (x1)
-
 * USB-C® cable (x1)
-
 * 3.7 V Li-Po battery to externally power the Nicla Vision
 
 ## Getting Started with Your Kit
