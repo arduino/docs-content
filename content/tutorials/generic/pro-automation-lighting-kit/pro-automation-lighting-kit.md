@@ -12,7 +12,7 @@ tags:
   - Remote Actuation
 author: 'Francesca Gentile'
 software:
-  - Arduino-Cloud
+  - iot-cloud
 hardware:
   - hardware/07.opta/opta-family/opta
 ---
@@ -22,6 +22,7 @@ The Pro Industrial Automation and Lighting Kit is the perfect way to learn and c
 - Develop experience in programming a micro PLC with IEC 61131-3 languages or Arduino C++ to realize a small industrial control system.
 - Experience multiple communication features (Ethernet and WiFi) and get familiar with Fieldbus communications (Modbus RTU through RS485 and Modbus TCP through Ethernet).
 
+![Pro Industrial Automation and Lighting Kit Main Features](assets/industrial-thumb.png)
 
 ## The Kit
 
