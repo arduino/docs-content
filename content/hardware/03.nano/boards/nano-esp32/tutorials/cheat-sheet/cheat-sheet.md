@@ -156,6 +156,10 @@ To power the Nano ESP32 you may either use a USB-C® cable, or the VIN pin. When
 - If you're using the USB-C® connector you must power it with 5 V.
 - The recommended input voltage on the VIN pin is 6-21 V.
 
+If you flip the board to view its underside, you'll find a solder jumper labelled "**3.3V**". If you cut the small trace between the two pads, you disconnect the step-down converter from the board, and your board will no longer turn on when plugged in to the USB port, or when its powered through the VIN pin. Instead you must provide **exactly** 3.3 V directly to the 3.3 V pin of your board. This can, depending on your pwoer source, be a more energy efficient method of powering your board than powering through thr VIN pin or the USB port.
+
+![3.3 V Solder Jumper](./assets/nano-3v3-sj.png)
+
 ### Operating Voltage
 
 The internal operating voltage of the ESP32-S3 SoC is 3.3 V, and you should not apply voltages higher than that to the GPIO pins.
