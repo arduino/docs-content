@@ -11,7 +11,7 @@ tags:
   - Building Automation
 author: 'Francesca Gentile'
 software:
-  - Arduino-Cloud
+  - iot-cloud
   - ide-v2
 hardware:
   - hardware/04.pro/boards/portenta-h7

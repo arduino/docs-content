@@ -12,7 +12,7 @@ tags:
   - Predictive Maintenance
 author: 'Francesca Gentile'
 software:
-  - Arduino-Cloud
+  - iot-cloud
 hardware:
   - hardware/04.pro/boards/portenta-c33
   - hardware/04.pro/carriers/portenta-breakout

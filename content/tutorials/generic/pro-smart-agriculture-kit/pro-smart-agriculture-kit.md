@@ -11,7 +11,7 @@ tags:
   - Smart City Management
 author: 'Francesca Gentile'
 software:
-  - Arduino-Cloud
+  - iot-cloud
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/edge-control
 ---
