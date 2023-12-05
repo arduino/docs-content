@@ -416,7 +416,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                       |
 | ---------- | ------------ | --------------------------------- |
-| 05/12/2023 | 4            | Accesories section updated        |
+| 05/12/2023 | 4            | Accessories section updated       |
 | 27/01/2023 | 3            | Add power consumption information |
 | 10/01/2023 | 2            | Updated information and fixes     |
 | 03/09/2021 | 1            | Initial Version                   |

@@ -396,9 +396,9 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 |       Online Store        | https://store.arduino.cc/                                    |
 
 ## Change Log
-| **Date**   | **Revision** | **Changes**                                |
-| ---------- | ------------ | ------------------------------------------ |
-| 05/12/2023 | 4            | Accesories section updated and small fixes |
-| 23/08/2022 | 3            | Add RJ-45 jumpers information              |
-| 14/12/2021 | 2            | Clarified Camera compatibility             |
-| 05/05/2021 | 1            | First Release                              |
+| **Date**   | **Revision** | **Changes**                                 |
+| ---------- | ------------ | ------------------------------------------- |
+| 05/12/2023 | 4            | Accessories section updated and small fixes |
+| 23/08/2022 | 3            | Add RJ-45 jumpers information               |
+| 14/12/2021 | 2            | Clarified Camera compatibility              |
+| 05/05/2021 | 1            | First Release                               |
