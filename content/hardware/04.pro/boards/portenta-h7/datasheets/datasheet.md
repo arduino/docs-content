@@ -637,14 +637,14 @@ Laboratory equipment, Computer vision
 
 Due to the dual core processing, the Portenta supports a wide array of applications.  
 
-### Accessories
+### Accessories (Not Included)
 * Portenta Vision shield
 * USB 2.0 Cable Type A/B
-* Portenta Breakout Board 
+* Portenta Breakout Board
 
 ## Functional Overview
 
-### Board Topology 
+### Board Topology
 
 Depending on the variant, some of the components does not apply. The image below originates from the H7 form factor, see what components are applied on your board:
 
@@ -899,9 +899,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**                        |
-|------------|--------------|------------------------------------|
-| 17/10/2023 | 4            | I2C ports information section added|
-| 27/01/2023 | 3            | Add power consumption information  |
-| 18/08/2022 | 2            | Add Secure Element specs (SE050C2) |
-| 27/12/2021 | 1            | First Release                      |
+| Date       | **Revision** | **Changes**                         |
+| ---------- | ------------ | ----------------------------------- |
+| 05/12/2023 | 5            | Accessories section updated         |
+| 17/10/2023 | 4            | I2C ports information section added |
+| 27/01/2023 | 3            | Add power consumption information   |
+| 18/08/2022 | 2            | Add Secure Element specs (SE050C2)  |
+| 27/12/2021 | 1            | First Release                       |
