@@ -80,7 +80,7 @@ The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time ins
 
 **Mushroom Cultivation:** Mushrooms are notorious for requiring the perfect temperature and humidity conditions to sustain spore growth while also preventing competing fungi from growing. Thanks to the numerous watermark sensors, output ports and connectivity options available on the Arduino® Edge Control as well as the Arduino® IoT Cloud, this precision farming can be achieved on an unprecedented level.
 
-### Accessories
+### Accessories (Not Included)
 *   Irrometer Tensiometers
 *   Watermark soil moisture sensors
 *   Mechanized ball valves
@@ -489,8 +489,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Revision** | **Changes**             |
-| ---------- | ------------ | ----------------------- |
-| 30/12/2021 | 3            | Information updates     |
-| 04/05/2021 | 2            | Design/structure update |
-| 21/02/2020 | 1            | First Release           |
+| **Date**   | **Revision** | **Changes**                |
+| ---------- | ------------ | -------------------------- |
+| 05/12/2023 | 4            | Accesories section updated |
+| 30/12/2021 | 3            | Information updates        |
+| 04/05/2021 | 2            | Design/structure update    |
+| 21/02/2020 | 1            | First Release              |

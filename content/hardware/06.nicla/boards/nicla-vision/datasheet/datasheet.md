@@ -84,7 +84,7 @@ The **Arduino Nicla Vision** is equipped for Automated Optical Inspection (AOI) 
 - **Wireless Sensor Network Reference Design**:
 The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor networks which can be adapted by partners to develop custom-designed industrial solutions. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
 
-### Accessories
+### Accessories (Not Included)
 
 Single-cell Li-ion/Li-Po battery
 
@@ -398,14 +398,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| Company name    | Arduino SRL                                  |
-|-----------------|----------------------------------------------|
+| Company name    | Arduino S.r.l.                               |
+| --------------- | -------------------------------------------- |
 | Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
 
-| Ref                                | Link                                                                                                |
-|------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Ref                                | Link                                                                                                  |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | Arduino® IDE (Desktop)             | <https://www.arduino.cc/en/Main/Software>                                                             |
 | Arduino® IDE (Cloud)               | <https://create.arduino.cc/editor>                                                                    |
 | Arduino® Cloud IDE Getting Started | <https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a> |
@@ -415,7 +415,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 
 | **Date**   | **Revision** | **Changes**                       |
-|------------|--------------|-----------------------------------|
-| 27-01-2023 | 03           | Add power consumption information |
-| 10-01-2023 | 02           | Updated information and fixes     |
-| 03-09-2021 | 01           | Initial Version                   |
+| ---------- | ------------ | --------------------------------- |
+| 05/12/2023 | 4            | Accesories section updated        |
+| 27/01/2023 | 3            | Add power consumption information |
+| 10/01/2023 | 2            | Updated information and fixes     |
+| 03/09/2021 | 1            | Initial Version                   |
