@@ -1,5 +1,5 @@
 ---
-title: Display Camera Feed on GIGA Display Shield with OpenMV (MicroPython)
+title: Display Camera Feed on GIGA Display Shield with OpenMV
 description: Learn how to connect a OV7675 camera module and send the frames directly to the display, using the OpenMV platform.
 author: Karl Söderby
 tags: [OV7675, OpenMV, Camera, Display]
@@ -38,7 +38,7 @@ The **OpenMV IDE** includes all tools necessary for flashing your board with the
 
 Congratulations, you have now set up GIGA R1 board to stream camera sensor data to the GIGA Display Shield!
 
-The image below demonstrates how the setup shoud look like when complete.
+The image below demonstrates how the setup should look like when complete.
 
 ![Final setup.](assets/camera-feed.png)
 
