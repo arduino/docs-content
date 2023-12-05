@@ -332,7 +332,6 @@ To set the pin to `HIGH`:
 
 ```
 echo 1 >/sys/class/gpio/gpio163/value
-echo 0 >/sys/class/gpio/gpio163/value
 ```
 
 To set the pin to `LOW`:
@@ -2355,80 +2354,11 @@ Within the 40-pin connector, certain GPIOs are specifically related to different
 
 - __GPIO pins - 15, 16, and 18:__ are associated with the _Serial Audio Interface (SAI)_. These pins are exclusively designated for __OUTPUT__ purposes. As such, these three GPIO pins are not configurable as inputs and are solely used as __OUTPUTS__.
 
-- __GPIO pins - 19, 21, 23, 24, and 26:__ are designated for the _Serial Peripheral Interface (SPI)_. These pins become operational when applying a specific Device Tree Source (DTS) layer. For more information regarding the DTS layer, please refer to the [Device Tree Blob (DTB) Overlays](#understanding-device-tree-blobs-dtb-overlays) section.
+- __GPIO pins - 19, 21, 23, 24, and 26:__ are allocated for the _Serial Peripheral Interface (SPI)_. By implementing a specific Device Tree Blob (DTB) layer, these pins can be activated as GPIOs. The relevant DTB layers for this purpose are __`ov_som_lbee5kl1dx`__ and __`ov_som_x8h7`__.
+  
+  For more information regarding the DTB layer, please refer to the [Device Tree Blob (DTB) Overlays](#understanding-device-tree-blobs-dtb-overlays) section.
 
-***The __Portenta.GPIO__ library, officially supported and compatible with the Portenta Hat Carrier and Portenta X8, can be found [here](https://pypi.org/project/Portenta.GPIO/).***
-
-#### Using Linux
-<br></br>
-
-Next conditions will help you properly set the hardware to test GPIO controls:
-
-1. Begin by positioning the Portenta-X8 securely onto the Portenta Hat Carrier. Make sure the High-Density connectors are securely connected.
-
-2. Each GPIO on the Portenta Hat Carrier is versatile and robust, designed to safely accept input voltages ranging between 0.0 V and 3.3 V. This input range ensures compatibility with an array of sensors and external devices.
-
-3. To prevent floating states and offer a consistent and predictable behavior, internal pull-ups are automatically enabled on all input pins. This default configuration means that, unless actively driven low, the pins will naturally read as high (or 3.3 V).
-
-When all conditions are set and in place, access the Portenta X8's shell with admin (root) access as follows:
-
-```bash
-adb shell
-sudo su -
-```
-
-Enter the password `fio` when prompted. Next, access the `x8-devel` Docker container with the command:
-
-```bash
-docker exec -it x8-devel sh
-```
-
-Navigate to the directory containing the GPIO example, named `gpios.py`:
-
-```bash
-cd root/examples/portenta-hat-carrier
-```
-
-Run the `gpios.py` script to read the status of all available GPIOs on the 40-pin header:
-
-```python
-#!/usr/bin/env python3
-
-# created 12 October 2023
-# by Riccardo Mereu & Massimo Pennazio
-
-import os
-
-if os.environ['CARRIER_NAME'] != "rasptenta":
-    print("This script requires Portenta HAT carrier")
-    exit(1)
-
-import Portenta.GPIO as GPIO
-
-GPIO.setmode(GPIO.BCM)
-
-all_pins_in_header = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27]
-
-GPIO.setup(all_pins_in_header, GPIO.IN)
-
-for pin in all_pins_in_header:
-    try:
-        print(GPIO.input(pin))
-    except RuntimeError as e:
-        print("Error reading GPIO %s: %s" % (str(pin), str(e)))
-
-GPIO.cleanup()
-```
-
-***The latest compatible GPIO library can be found [here](https://pypi.org/project/Portenta.GPIO/). Make sure to use the latest library for optimal functionality.***
-
-This script will help you verify the following considerations:
-
-- Avoid manually checking each pin by having a consolidated overview of all GPIOs' statuses.
-
-- By staying within the specified voltage range, you ensure the longevity of your device and prevent potential damages.
-
-- With the default pull-ups, you can be confident in your readings, knowing that unintentional fluctuations are minimized.
+The __Portenta.GPIO__ library, officially supported and compatible with the Portenta Hat Carrier and Portenta X8, can be found [here](https://pypi.org/project/Portenta.GPIO/).
 
 The GPIO configuration register for the STM32 microcontroller is structured with various fields that control different aspects of GPIO functionality:
 
@@ -2526,6 +2456,190 @@ Each pin is identified by its port and a unique port number. The following table
 |          | 167             | PF11          | ADC_CH0 (A0)        |
 |          | 164             | PF12          | GPIO_4              |
 |          | 169             | PF13          | ADC_CH2 (A2)        |
+
+#### GPIO Global Map
+<br></br>
+
+For ease of access to all available GPIOs within the Portenta family board and Portenta Hat Carrier, the following table enlists every designations that can be used to access directly each individual GPIO.
+
+The __Port Number__ defines the number designation of the corresponding connector. The __Function__ tells the role of the designated port number. For example, the port number `7` of the `40-Pin connector` is characterized as __`PWM0`__. Thus, on the Portenta X8, it can be handled by using `183` within the ADB shell or `7` within the Python script. The GPIOs mentioned in the following are controllable, while each pin may have its characteristical function.
+
+|   **Connector**    | **Port Number** |       **Function**       | **Portenta X8** | **Portenta H7** | **Portenta C33** |
+|:------------------:|:---------------:|:------------------------:|:---------------:|:---------------:|:----------------:|
+| _40-Pin Connector_ |                 |                          |                 |                 |                  |
+|                    |        3        |         I2C2 SDA         |       XX        |        X        |     36/LEDB      |
+|                    |        5        |         I2C2 SCL         |       XX        |        X        |     36/LEDB      |
+|                    |        7        |           PWM0           |     183 / 7     |        8        |       0/D0       |
+|                    |        8        |        SERIAL3 TX        |       XX        |        X        |     36/LEDB      |
+|                    |       10        |        SERIAL3 RX        |       XX        |        X        |     36/LEDB      |
+|                    |       11        |          GPIO2           |       XX        |        X        |     36/LEDB      |
+|                    |       12        |          I2S CK          |       XX        |        X        |     36/LEDB      |
+|                    |       13        |          GPIO6           |       XX        |        X        |     36/LEDB      |
+|                    |       15        | SAI D0 __(OUTPUT ONLY)__ |       XX        |        X        |     36/LEDB      |
+|                    |       16        | SAI CK __(OUTPUT ONLY)__ |       XX        |        X        |     36/LEDB      |
+|                    |       18        | SAI FS __(OUTPUT ONLY)__ |       XX        |        X        |     36/LEDB      |
+|                    |       22        |           PWM1           |      184 /      |        X        |     36/LEDB      |
+|                    |       29        |        SERIAL1 RX        |       XX        |        X        |     36/LEDB      |
+|                    |       31        |           PWM3           |      186 /      |        X        |     36/LEDB      |
+|                    |       32        |        SERIAL1 TX        |       XX        |        X        |     36/LEDB      |
+|                    |       33        |           PWM4           |      187 /      |        X        |     36/LEDB      |
+|                    |       35        |          I2S WS          |       XX        |        X        |     36/LEDB      |
+|                    |       36        |           PWM5           |      188 /      |        X        |     36/LEDB      |
+|                    |       37        |           PWM6           |      189 /      |        X        |     36/LEDB      |
+|                    |       38        |         I2S SDI          |       XX        |        X        |     36/LEDB      |
+|                    |       40        |         I2S SDO          |       XX        |        X        |     36/LEDB      |
+| _16-Pin Connector_ |                 |                          |                 |                 |                  |
+|                    |        9        |           PWM7           |      190 /      |        X        |     36/LEDB      |
+|                    |       10        |           PWM8           |      191 /      |        X        |     36/LEDB      |
+|                    |       12        |       GPIO0 / PWM4       |       XX        |        X        |     36/LEDB      |
+|                    |       14        |        SERIAL2 TX        |       XX        |        X        |     36/LEDB      |
+|                    |       16        |        SERIAL2 RX        |       XX        |        X        |     36/LEDB      |
+
+In Linux, pins can be controlled using the system's functions via the ADB shell or via the official Python library.
+
+#### Using Linux With Shell
+<br></br>
+
+The GPIOs of the Portenta X8 can be controlled via the ADB shell. The initial procedure involves accessing elevated access to the Portenta X8's shell, a necessary step to adjust system settings protected by administrative privileges.
+
+Subsequently, the command below must be executed to export the GPIO device located within the directory `/sys/class/`. It is important to note that in this particular instance, _GPIO3_ is synonymous with _163_, which is linked to the LED programmable by the user:
+
+```bash
+echo 163 > /sys/class/gpio/export
+```
+
+To ascertain the availability of GPIO elements, the following command is advised:
+
+```bash
+ls /sys/class/gpio
+```
+
+This command will enumerate all GPIOs that the system has initialized. Additionally, the command below provides detailed information about _163_ (equivalent to _GPIO3_), which was previously exported:
+
+```bash
+ls /sys/class/gpio/gpio163
+```
+
+It is possible to configure GPIO3 after exporting it. The ensuing command provides for the specification of the I/O state of the pin, with the options being _Input_ (denoted as `in`) or _Output_ (designated as `out`):
+
+```bash
+echo <I/O> >/sys/class/gpio/gpio163/direction
+```
+
+For this example, the `<I/O>` field will be replaced with `out`:
+
+```bash
+echo out >/sys/class/gpio/gpio163/direction
+```
+
+To verify the pin configuration, use the `cat` command. If the configuration is correct, the command will display the set value.
+
+```bash
+cat /sys/class/gpio/gpio163/direction
+```
+
+Upon setting the GPIO as an output, it becomes possible to manipulate its state. Assigning the value `1` sets the pin __High__, whereas assigning `0` sets it __Low__. The following command adjusts the pin's state.
+
+For __High__ state:
+
+```bash
+echo 1 >/sys/class/gpio/gpio163/value
+```
+
+For __Low__ state:
+
+```bash
+echo 0 >/sys/class/gpio/gpio163/value
+```
+
+After using the GPIO, it is recommended to unexport it using the following command to remove it from the userspace:
+
+```bash
+echo 163 >/sys/class/gpio/unexport
+```
+
+To confirm that the GPIO has been unexported correctly, the following command can help ensure its state:
+
+```bash
+ls /sys/class/gpio
+```
+
+This measure is crucial for preventing unintentional modifications to the configuration of the GPIO. By adhering to these guidelines, one can effectively and securely manage the GPIO settings on the Portenta X8, from obtaining administrative privileges to the eventual safe unexporting of the GPIO.
+
+#### Using Linux With Library
+<br></br>
+
+The General-Purpose Input/Output (GPIO) features of the Portenta X8 can also be efficiently managed using the [__Portenta.GPIO__ library](https://pypi.org/project/Portenta.GPIO/). This library facilitates an accessible means to control the GPIOs, an aspect that is particularly advantageous when integrating GPIO management within Python scripts.
+
+The functionality of the GPIO management using this library will be illustrated by presenting an example that demonstrates how to retrieve the status of all available GPIOs on a Portenta X8 mounted on the Portenta Hat Carrier. This example is available in the `x8-devel` container, where the required environmental configuration is established.
+
+In preparation for this, the following conditions are recommended to ensure the hardware is correctly configured for testing GPIO controls:
+
+1. Begin by positioning the Portenta-X8 securely onto the Portenta Hat Carrier. Make sure the High-Density connectors are securely connected.
+
+2. Each GPIO on the Portenta Hat Carrier is versatile and robust, designed to safely accept input voltages ranging between 0.0 V and 3.3 V. This input range ensures compatibility with an array of sensors and external devices.
+
+3. To prevent floating states and offer a consistent and predictable behavior, internal pull-ups are automatically enabled on all input pins. This default configuration means that, unless actively driven low, the pins will naturally read as high (or 3.3 V).
+
+When all conditions are set and in place, access the Portenta X8's shell with admin (root) access as follows:
+
+```bash
+adb shell
+sudo su -
+```
+
+Enter the password `fio` when prompted. Next, access the `x8-devel` Docker container with the command:
+
+```bash
+docker exec -it x8-devel sh
+```
+
+Navigate to the directory containing the GPIO example, named `gpios.py`:
+
+```bash
+cd root/examples/portenta-hat-carrier
+```
+
+Run the `gpios.py` script to read the status of all available GPIOs on the 40-pin header:
+
+```python
+#!/usr/bin/env python3
+
+# created 12 October 2023
+# by Riccardo Mereu & Massimo Pennazio
+
+import os
+
+if os.environ['CARRIER_NAME'] != "rasptenta":
+    print("This script requires Portenta HAT carrier")
+    exit(1)
+
+import Portenta.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+
+all_pins_in_header = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27]
+
+GPIO.setup(all_pins_in_header, GPIO.IN)
+
+for pin in all_pins_in_header:
+    try:
+        print(GPIO.input(pin))
+    except RuntimeError as e:
+        print("Error reading GPIO %s: %s" % (str(pin), str(e)))
+
+GPIO.cleanup()
+```
+
+***The latest compatible GPIO library can be found [here](https://pypi.org/project/Portenta.GPIO/). Make sure to use the latest library for optimal functionality.***
+
+This script will help you verify the following considerations:
+
+- Avoid manually checking each pin by having a consolidated overview of all GPIOs' statuses.
+
+- By staying within the specified voltage range, you ensure the longevity of your device and prevent potential damages.
+
+- With the default pull-ups, you can be confident in your readings, knowing that unintentional fluctuations are minimized.
 
 By employing this script, not only do you gain a deeper insight into the state of your GPIOs, but you also save valuable time and reduce the margin for error.
 
