@@ -4,7 +4,7 @@ title: Arduino® Nano 33 BLE Rev2
 type: maker
 ---
 
-![](assets/featured.png)
+![](assets/featured.jpg)
 
 # Description
 

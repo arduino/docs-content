@@ -12,14 +12,14 @@ Pins:
 Connectivity:
   Bluetooth®: NINA-B306
 Sensors:
-  IMU: LBMI270 (3-axis accelerometer + 3-axis gyroscope) + BMM150 (3-axis Magnetometer)
+  IMU: BMI270 (3-axis accelerometer + 3-axis gyroscope) + BMM150 (3-axis Magnetometer)
 Communication:
   UART: RX/TX 
   I2C: A4 (SDA), A5 (SCL)
   SPI: D11 (COPI), D12 (CIPO), D13 (SCK). Use any GPIO for Chip Select (CS).
 Power:
-  I/O Voltage: 3.3V
-  Input voltage (nominal): 5-18V
+  I/O Voltage: 3.3 V
+  Input voltage (nominal): 5-18 V
   DC Current per I/O Pin: 10 mA
 Clock speed:
   Processor: nRF52840 64MHz

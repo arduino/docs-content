@@ -7,4 +7,4 @@ forumCategorySlug: '/hardware/nano-family/nano-33-ble/159'
 certifications: [CE,UKCA]
 ---
 
-The Arduino Nano 33 BLE Rev2 shares its pinout with the classic Arduino Nano but builds on the nRF52840 microcontroller with 1MB CPU Flash Memory. Featuring a 9-axis inertial measurement unit and the possibility for Bluetooth® Low Energy connectivity.t can help you to create your next Bluetooth® Low Energy enabled project.
+The Arduino Nano 33 BLE Rev2 shares its pinout with the classic Arduino Nano but builds on the nRF52840 microcontroller with 1MB CPU Flash Memory. Featuring a 9-axis inertial measurement unit and the possibility for Bluetooth® Low Energy connectivity. It can help you to create your next Bluetooth® Low Energy-enabled project.

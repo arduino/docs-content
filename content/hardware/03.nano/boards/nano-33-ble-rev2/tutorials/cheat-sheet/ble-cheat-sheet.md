@@ -63,7 +63,7 @@ The Nano 33 BLE Rev2 can be programmed through the **Arduino IDE 2**. To install
 
 The Nano 33 BLE Rev2 can be programmed through the **Web Editor**. To get started with your board, you will only need to install a plugin, which is explained in the guide below:
 
-- [Getting started with the Web Editor](/arduino-cloud/guides/cloud-editor)
+- [Getting Started with the Web Editor](/arduino-cloud/guides/cloud-editor)
 
 ## Using OpenMV IDE
 
@@ -91,12 +91,12 @@ The Nano 33 BLE Rev2 has 8 analog pins, that can be used through the `analogRead
 value = analogRead(pin, value);
 ```
 
-***Please note: pin `A4` and `A5` should be used for I2C only.***
+***Please note: pins `A4` and `A5` should be used for I2C only.***
 
 
 ### PWM Pins
 
-Pins **D2-D12** and **A0-A7** supports PWM (Pulse Width Modulation).
+Pins **D2-D12** and **A0-A7** support PWM (Pulse Width Modulation).
 ***Pins A4, A5 and D11, D12 are not recommended for PWM as they have I2C & SPI buses attached.***
 
 ```arduino
@@ -221,7 +221,7 @@ The pins used for SPI (Serial Peripheral Interface) on the Nano 33 BLE Rev2 are 
 - (SCK) - D13
 - (CS/SS) - Any GPIO
 
-***The signal names MOSI, MISO and SS has been replaced by COPI (Controller Out, Peripheral In), CIPO (Controller In, Peripheral Out) and CS (Chip Select).***
+***The signal names MOSI, MISO and SS have been replaced by COPI (Controller Out, Peripheral In), CIPO (Controller In, Peripheral Out) and CS (Chip Select).***
 
 To use SPI, we first need to include the [SPI](https://www.arduino.cc/en/reference/SPI) library.
 
@@ -308,11 +308,11 @@ Serial1.write("Hello world!");
 
 The Nano 33 BLE Rev2 supports Bluetooth® through the [u-blox NINA-B306](https://docs.arduino.cc/resources/datasheets/NINA-B3-series.pdf) module. To use this module, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library. 
 
-![ Bluetooth® module.](assets/Nano33_ble_rev2_ble.png)
+![ Bluetooth module.](assets/Nano33_ble_rev2_ble.png)
 
-## Bluetooth®
+## Bluetooth
 
-To enable Bluetooth® on the Nano 33 BLE Rev2, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library, and include it at the top of our sketch:
+To enable Bluetooth on the Nano 33 BLE Rev2, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library, and include it at the top of our sketch:
 
 ```arduino
 #include <ArduinoBLE.h>
@@ -338,7 +338,7 @@ Start advertising:
 BLE.advertise();
 ```
 
-Listen for Bluetooth® Low Energy peripherals to connect:
+Listen for Bluetooth Low Energy peripherals to connect:
 
 ```arduino  
 BLEDevice central = BLE.central();
@@ -346,11 +346,11 @@ BLEDevice central = BLE.central();
 
 ### Tutorials
 
-- [Controlling Nano 33 BLE Rev2 RGB LED via Bluetooth®](/tutorials/nano-33-ble/bluetooth)
+- [Controlling Nano 33 BLE Rev2 RGB LED via Bluetooth](/tutorials/nano-33-ble/bluetooth)
 
 ## USB Keyboard
 
-To use the board as a keyboard, you can refer to the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library that can be found inside the core.
+To use the board as a keyboard, you can refer to the [USB HID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library that can be found inside the core.
 
 You first need to include the libraries and create an object:
 
