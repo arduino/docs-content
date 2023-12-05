@@ -12,7 +12,7 @@ tags:
   - Appliances control systems
 author: 'Francesca Gentile'
 software:
-  - iot-Cloud
+  - iot-cloud
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
 ---
