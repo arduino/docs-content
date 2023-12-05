@@ -98,6 +98,7 @@ Top:
 | U1       | NINA-B306 Module Bluetooth® Low Energy 5.0 Module | U6       | MP2322GQH Step Down Converter    |
 | U2       | BMI270 Sensor IMU                                 | PB1      | IT-1185AP1C-160G-GTR Push button |
 | U7       | BMM150 Magnetometer IC                            | DL1      | Led L                            |
+| SJ5      | VUSB Jumper                                       |          |                                  |
 
 Bottom:
 ![Board topology bot](assets/BLE_Rev2_Bottom.png)
