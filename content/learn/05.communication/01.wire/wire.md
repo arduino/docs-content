@@ -96,7 +96,7 @@ There are no Arduino boards that have a built in Grove connector, however you ca
 ## Wire Library
 The Wire library is what Arduino uses to communicate with I2C devices. It is included in all board packages, so you don't need to install it manually in order to use it.
 
-To see the full API for the Wire library, visit its [documentation page](https://www.arduino.cc/reference/en/language/functions/communication/wire/).
+To see the full API for the Wire library, visit its [documentation page](https://www.arduino.cc/reference/en/language/functions/communication/wire).
 
 - `begin()` - Initialise the I2C bus
 - `end()` - Close the I2C bus
