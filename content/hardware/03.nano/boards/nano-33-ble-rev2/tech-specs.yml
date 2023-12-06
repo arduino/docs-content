@@ -22,10 +22,10 @@ Power:
   Input voltage (nominal): 5-18 V
   DC Current per I/O Pin: 10 mA
 Clock speed:
-  Processor: nRF52840 64MHz
+  Processor: nRF52840 64 MHz
 Memory:
   nRF52840: 256 KB SRAM, 1MB flash
 Dimensions:
-  Weight: 5gr
+  Weight: 5 gr
   Width: 18 mm
   Length: 45 mm

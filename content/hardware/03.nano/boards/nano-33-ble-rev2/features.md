@@ -1,13 +1,13 @@
 <FeatureDescription>
 
-The Arduino Nano 33 BLE Rev2 is a great choice for any beginner, maker or professional to get started with Bluetooth® Low Energy enabled projects. It is built upon the [nRF52840 microcontroller](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf) and runs on **Arm® Mbed™ OS**. The Nano 33 BLE Rev2 not only features the possibility to connect via **BLE** but also comes equipped with a **9-axis IMU** making it suitable for wearable projects. 
+The Arduino Nano 33 BLE Rev2 is a great choice for any beginner, maker or professional to get started with Bluetooth® Low Energy enabled projects. It is built upon the [nRF52840 microcontroller](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf) and runs on **Arm® Mbed™ OS**. The Nano 33 BLE Rev2 not only features the possibility to connect via **Bluetooth® LE** but also comes equipped with a **9-axis IMU** making it suitable for wearable projects. 
 </FeatureDescription>
 
 
 <FeatureList>
 <Feature title="Bluetooth®" image="bluetooth">
 
-  A powerful 2.4 GHz Bluetooth® 5 Low Energy module from u-blox, with an internal antenna. Can be used to transmit data between different devices 
+  A powerful 2.4 GHz Bluetooth® 5 Low Energy module from u-blox®, with an internal antenna. Can be used to transmit data between different devices 
   using the ArduinoBLE library.
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble/bluetooth"/>

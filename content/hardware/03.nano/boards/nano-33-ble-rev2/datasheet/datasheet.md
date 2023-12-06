@@ -8,9 +8,9 @@ type: maker
 
 # Description
 
-The **Arduino Nano 33 BLE Rev2**\* is a miniature-sized module containing a NINA B306 module, based on Nordic nRF52480 and containing a Cortex M4F. The BMI270 and BMM150 jointly provide a 9-axis IMU. The module can either be mounted as a DIP component (when mounting pin headers) or as a SMT component, directly soldering it via the castellated pads.
+The **Arduino Nano 33 BLE Rev2**\* is a miniature-sized module containing a NINA B306 module, based on Nordic nRF52480 and containing an Arm® Cortex®-M4F. The BMI270 and BMM150 jointly provide a 9-axis IMU. The module can either be mounted as a DIP component (when mounting pin headers) or as a SMT component, directly soldering it via the castellated pads.
 
-\*The Arduino Nano 33 BLE Rev2 product has two SKUs:
+\*Nano 33 BLE Rev2 product has two SKUs:
 * Without headers (ABX00071)
 * With headers (ABX00072)
 
@@ -40,7 +40,7 @@ Maker, enhancements, IoT application
   - **Peripherals**
     - Full-speed 12 Mbps USB
     - NFC-A tag
-    - Arm CryptoCell CC310 security subsystem
+    - Arm® CryptoCell CC310 security subsystem
     - QSPI/SPI/TWI/I²S/PDM/QDEC
     - High speed 32 MHz SPI
     - Quad SPI interface 32 MHz
@@ -65,7 +65,7 @@ Maker, enhancements, IoT application
 
 As all Nano form factor boards, Nano 33 BLE Rev2 does not have a battery charger but can be powered through USB or headers.
 
-**NOTE:** Arduino Nano 33 BLE Rev2 only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
+**NOTE:** Nano 33 BLE Rev2 only supports 3.3 V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5 V signals to this board or it will be damaged. Also, as opposed to other Arduino Nano boards that support 5 V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
 
 ### Ratings
 
@@ -73,7 +73,7 @@ As all Nano form factor boards, Nano 33 BLE Rev2 does not have a battery charger
 
 | Symbol | Description                                      | Min             | Max            |
 |--------|--------------------------------------------------|-----------------|----------------|
-|        | Conservative thermal limits for the whole board: | -40 °C ( 40 °F) | 85°C ( 185 °F) |
+|        | Conservative thermal limits for the whole board: | -40 °C ( 40 °F) | 85 °C ( 185 °F) |
 
 ### Power Consumption
 
@@ -110,13 +110,13 @@ Bottom:
 
 ### Processor
 
-The Main Processor is an Arm® Cortex®-M4F running at up to 64MHz. Most of its pins are connected to the external headers however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto).
+The Main Processor is an Arm® Cortex®-M4F running at up to 64 MHz. Most of its pins are connected to the external headers however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto).
 
 **NOTE**: As opposed to other Arduino Nano boards, pins A4 and A5 have an internal pull-up and default to be used as an I<sup>2</sup>C Bus so usage as analog inputs is not recommended.
 
 ### IMU
 
-The Arduino Nano 33 BLE Rev2 provides IMU capabilities with 9-axis, through a combination of the BMI270 and BMM150 ICs. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning.
+Nano 33 BLE Rev2 provides IMU capabilities with 9-axis, through a combination of the BMI270 and BMM150 ICs. The BMI270 includes both a three-axis gyroscope as well as a three-axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning.
 
 ### Power Tree
 
@@ -124,7 +124,7 @@ The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pi
 
 ![Power tree](assets/Nano_33_BLE_Rev2_Power_Tree.svg)
 
-**NOTE:** Since V<sub>USB</sub> feeds V<sub>IN</sub> via a Schottky diode and a DC-DC regulator specified minimum input voltage is 4.5V the minimum supply voltage from USB has to be increased to a voltage in the range between 4.8V to 4.96V depending on the current being drawn.
+**NOTE:** Since V<sub>USB</sub> feeds V<sub>IN</sub> via a Schottky diode and a DC-DC regulator specified minimum input voltage is 4.5 V the minimum supply voltage from USB has to be increased to a voltage in the range between 4.8 V to 4.96 V depending on the current being drawn.
 
 ### Block Diagram
 
@@ -134,7 +134,7 @@ The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pi
 
 ### Getting Started - IDE
 
-If you want to program your Arduino Nano 33 BLE Rev2 while offline you need to install the Arduino Desktop IDE [1] To connect the Arduino Nano 33 BLE Rev2 to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Nano 33 BLE Rev2 while offline you need to install the Arduino Desktop IDE [1] To connect the Nano 33 BLE Rev2 to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Web Editor
 
@@ -144,11 +144,11 @@ The Arduino Web Editor is hosted online, therefore it will always be up-to-date 
 
 ### Getting Started - Arduino IoT Cloud
 
-All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
 
-Sample sketches for the Arduino Nano 33 BLE Rev2 can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website.
+Sample sketches for the Nano 33 BLE Rev2 can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website.
 
 ### Online Resources
 
@@ -225,7 +225,7 @@ On the bottom side of the board, under the communication module, debug signals a
 
 ### Board Outline and Mounting Holes
 
-The board measures are mixed between metric and imperial. Imperial measures are used to maintain a 100 mil pitch grid between pin rows to allow them to fit a breadboard whereas board length is Metric
+The board measures are mixed between metric and imperial. Imperial measures are used to maintain a 100 mil pitch grid between pin rows to allow them to fit a breadboard whereas board length is Metric.
 
 ![Board layout](assets/Outline.png)
 
@@ -254,7 +254,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 
 Exemptions: No exemptions are claimed.
 
-Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (<https://echa.europa.eu/web/guest/candidate-list-table>), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+Arduino boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (<https://echa.europa.eu/web/guest/candidate-list-table>), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ### Conflict Minerals Declaration
 

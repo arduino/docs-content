@@ -1,6 +1,6 @@
 ---
 title: 'Nano 33 BLE Rev2 Cheat Sheet'
-description: 'Learn how to set up the Nano 33 BLE Rev2, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART) and Wireless (Wi-Fi, Bluetooth®) protocols.'
+description: 'Learn how to set up the Nano 33 BLE Rev2, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART) and Wireless (Wi-Fi®, Bluetooth®) protocols.'
 tags:
   - Installation
   - I2C
@@ -67,17 +67,17 @@ The Nano 33 BLE Rev2 can be programmed through the **Web Editor**. To get starte
 
 ## Using OpenMV IDE
 
-If you want to use your board with MicroPython and OpenMV. Follow the tutorial below.
+If you want to use your board with MicroPython and OpenMV, follow the tutorial below:
 
 - [Getting started with OpenMV with Nano 33 BLE Rev2](/tutorials/nano-33-ble/getting-started-omv)
 
-If you want an overlook of the functions and features that MicroPython provides, take a look at the tutorial below.
+If you want an overlook of the functions and features that MicroPython provides, take a look at the tutorial below:
 
 - [MicroPython functions and syntax guide](/tutorials/nano-33-ble/ble-python-api)
 
 ### Forcing Bootloader
 
-There is a risk that the uploading process gets stuck during an upload. If this happens, we can double-tap the reset button, to forcefully trigger the bootloader.
+There is a risk that the uploading process gets stuck during an upload. If this happens, double-tap the reset button, to forcefully trigger the bootloader.
 
 ## Pins
 
@@ -85,7 +85,7 @@ There is a risk that the uploading process gets stuck during an upload. If this 
 
 ### Analog Pins
 
-The Nano 33 BLE Rev2 has 8 analog pins, that can be used through the `analogRead()` function.
+The Nano 33 BLE Rev2 has eight analog pins, that can be used through the `analogRead()` function.
 
 ```arduino
 value = analogRead(pin, value);
@@ -97,6 +97,7 @@ value = analogRead(pin, value);
 ### PWM Pins
 
 Pins **D2-D12** and **A0-A7** support PWM (Pulse Width Modulation).
+
 ***Pins A4, A5 and D11, D12 are not recommended for PWM as they have I2C & SPI buses attached.***
 
 ```arduino
@@ -131,11 +132,11 @@ digitalWrite(pin, HIGH);
 
 ### 5V Pin
 
-The microcontroller on the Arduino Nano 33 BLE Rev2 runs at 3.3V, which means that you must never apply more than 3.3V to its Digital and Analog pins. Care must be taken when connecting sensors and actuators to ensure that this limit of 3.3V is never exceeded. Connecting higher voltage signals, like the 5V commonly used with the other Arduino boards, will damage the Arduino Nano 33 BLE Rev2.
+The microcontroller on the Nano 33 BLE Rev2 runs at 3.3 V, which means that you must never apply more than 3.3 V to its Digital and Analog pins. Care must be taken when connecting sensors and actuators to ensure that this limit of 3.3 V is never exceeded. Connecting higher voltage signals, like the 5 V commonly used with the other Arduino boards, will damage the Nano 33 BLE Rev2.
 
-To avoid such risk with existing projects, where you should be able to pull out a Nano and replace it with the new Nano 33 BLE Rev2, we have the 5V pin on the header, positioned between RST and A7 that is not connected as the default factory setting. This means that if you have a design that takes 5V from that pin, it won't work immediately, as a precaution we put in place to draw your attention to the 3.3V compliance on digital and analog inputs.
+To avoid such risk with existing projects, where you should be able to pull out a Nano and replace it with the Nano 33 BLE Rev2, we have the 5V pin on the header, positioned between RST and A7 that is not connected as the default factory setting. This means that if you have a design that takes 5 V from that pin, it won't work immediately, as a precaution we put in place to draw your attention to the 3.3 V compliance on digital and analog inputs.
 
-5V on that pin is available only when two conditions are met: you make a solder bridge on the two pads marked as VUSB and you power the Nano 33 BLE Rev2 through the USB port. There are two sets of VUSB pads on the Arduino Nano 33 BLE Rev2, one set on the bottom and one set on top. To enable the 5V Pin, either one of these needs to be connected If you power the board from the VIN pin, you won't get any regulated 5V and therefore even if you do the solder bridge, nothing will come out of that 5V pin. The 3.3V, on the other hand, is always available and supports enough current to drive your sensors. Please make your designs so that sensors and actuators are driven with 3.3V and work with 3.3V digital IO levels. 5V is now an option for many modules and 3.3V is becoming the standard voltage for electronic ICs.
+5 V on that pin is available only when two conditions are met: you make a solder bridge on the two pads marked as VUSB and you power the Nano 33 BLE Rev2 through the USB port. There are two sets of VUSB pads on the Nano 33 BLE Rev2, one set on the bottom and one set on top. To enable the 5V pin, either one of these needs to be connected If you power the board from the VIN pin, you won't get any regulated 5 V and therefore even if you do the solder bridge, nothing will come out of that 5V pin. The 3.3V, on the other hand, is always available and supports enough current to drive your sensors. Please make your designs so that sensors and actuators are driven with 3.3 V and work with 3.3 V digital IO levels. 5 V is now an option for many modules and 3.3 V is becoming the standard voltage for electronic ICs.
 
 ![Soldering the VUSB pins.](./assets/Nano33_ble_rev2vusb.png)
 
@@ -145,7 +146,7 @@ To avoid such risk with existing projects, where you should be able to pull out 
 
 ### BMI270 and BMM150
 
-The Arduino Nano 33 BLE Rev2 Inertial Measurement Unit system is made up of two separate IMUs, a 6-axis BMI270 and a 3-axis BMM150, effectively giving you a 9-axis IMU system. This allows you to detect orientation, motion, or vibrations in your project.
+The Nano 33 BLE Rev2 Inertial Measurement Unit system is made up of two separate IMUs, a 6-axis BMI270 and a 3-axis BMM150, effectively giving you a 9-axis IMU system. This allows you to detect orientation, motion, or vibrations in your project.
 
 ### BMI270 and BMM150 Library
 
@@ -202,7 +203,7 @@ The magnetometer data can be accessed through the following commands:
 
 ### Tutorials
 
-If you want to learn more about how to use the IMU, please check out the tutorial below:
+If you want to learn more about how to use the IMU, please check out the tutorials below:
 
 - [Accessing IMU gyroscope data with Nano 33 BLE Rev2](/tutorials/nano-33-ble-rev2/imu-gyroscope)
 - [Accessing IMU accelerometer data with Nano 33 BLE Rev2](/tutorials/nano-33-ble-rev2/imu-accelerometer)
@@ -310,9 +311,9 @@ The Nano 33 BLE Rev2 supports Bluetooth® through the [u-blox NINA-B306](https:/
 
 ![ Bluetooth module.](assets/Nano33_ble_rev2_ble.png)
 
-## Bluetooth
+## Bluetooth®
 
-To enable Bluetooth on the Nano 33 BLE Rev2, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library, and include it at the top of our sketch:
+To enable Bluetooth® on the Nano 33 BLE Rev2, we can use the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) library, and include it at the top of our sketch:
 
 ```arduino
 #include <ArduinoBLE.h>
@@ -338,7 +339,7 @@ Start advertising:
 BLE.advertise();
 ```
 
-Listen for Bluetooth Low Energy peripherals to connect:
+Listen for Bluetooth® Low Energy peripherals to connect:
 
 ```arduino  
 BLEDevice central = BLE.central();
