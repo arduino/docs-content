@@ -152,15 +152,15 @@ There are two ways to program this example in the device:
 
 ```arduino
 void setup() {
-  // Initialize LED_BUILTIN as an output 
+  // Initialize LED_BUILTIN as an output
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
-  // Turn the user LED (RESET) off
+  // Turn the LED_BUILTIN ON
   digitalWrite(LED_BUILTIN, HIGH);
   delay(1000);
-  // Turn the user LED (RESET) on
+  // Turn the user LED_BUILTIN OFF
   digitalWrite(LED_BUILTIN, LOW);
   delay(1000);
 }
@@ -437,15 +437,15 @@ The blink code that uses the green `LED_BUILTIN` LED is shown below:
 
 ```arduino
 void setup() {
-  // Initialize LED_USER as an output 
+  // Initialize LED_BUILTIN as an output
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
-  // Turn the USER LED off
+  // Turn the LED_BUILTIN ON
   digitalWrite(LED_BUILTIN, HIGH);
   delay(1000);
-  // Turn the USER LED on
+  // Turn the user LED_BUILTIN OFF
   digitalWrite(LED_BUILTIN, LOW);
   delay(1000);
 }
