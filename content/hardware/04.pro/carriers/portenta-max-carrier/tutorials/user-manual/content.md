@@ -463,6 +463,101 @@ To learn how to leverage LoRa® capabilities with this carrier and the Arduino I
 
 ## Audio Interface
 
+The Portenta Max Carrier features a low-power but mighty stereo CODEC, ideal for audio applications powered by the Portenta X8. An internal Class D amplifier lets us play high-quality audio directly on external speakers. The audio recording couldn't be simpler thanks to its variety of audio inputs, letting you connect a microphone or any other audio source.
+
+### Recording Audio
+
+In the following example, we are going to record audio using an external microphone and store it on a micro SD card.
+
+![Sound recording setup | Mic + micro SD](assets/rec-wiring.png)
+
+Before, let's connect to the internet so you we download the tools and run the needed dockers. 
+
+***Use `nmcli device wifi connect <SSID> password <PASSWORD>` to easily connect to a WiFi network.***
+
+First, after inserting the micro SD to the Max Carrier slot, mount it with the following command.
+
+```bash
+sudo mount -t vfat /dev/mmcblk1p1 /mnt
+```
+Run the docker image `debian:stable-slim` and set the peripherals to be used with the following command.
+
+```bash
+sudo docker run -it -u '0' --device '/dev/snd:/dev/snd' -v '/mnt:/sdcard' --tmpfs /tmp --name "alsa-utils" debian:stable-slim bash
+```
+
+Install the audio management tools. This will take a while to install everything.
+
+```bash
+apt-get update && apt-get install alsa-utils ffmpeg -y
+```
+
+Define the microphone inputs as the audio sources and the input gain.
+
+```bash
+amixer -c 1 sset 'ADC Left Mux' 'Input3A' # Mic Input
+amixer -c 1 sset 'ADC Right Mux' 'Input3B' # Mic Input
+amixer -c 1 sset 'ADC' 100% # Mic volume
+```
+Now, we are ready for the audio recording. Use `fmpeg` command alongside the settings of your preference.
+
+The following command will record audio for 30 seconds at 44100 Hz and save it on `/sdcard/` as `out.wav`.
+
+```bash
+ffmpeg -f alsa -i hw:1 -t 30 -ac 1 -ar 44100 -c:a pcm_s16le /sdcard/out.wav
+```
+***If you want to learn more about the `ffmpeg` tool and its options, here is a [useful reference](https://ffmpeg.org/ffmpeg.html).***
+
+If we list the `/sdcard/` directory content with `ls /scard/` command, the audio file should be there.
+
+![Sound recording commands](assets/sound-rec.png)
+
+You can open the audio file on your computer by copying it with the following commands:
+
+- First, find the `alsa-utils` container ID with `docker ps -a`.
+- Copy the file from the container to the X8 local storage with `sudo docker cp <CONTAINER ID>:/sdcard/out.wav /home/fio`
+- The audio file is now on `/home/fio`, from here you can pull it using `adb` from a terminal. Use `adb pull /home/fio/out.wav <destination path>`
+
+### Playing back Audio
+
+In the following example we are going to playback the previously recorded audio file and learn how to test the Max Carrier audio outputs.
+
+First, it is important to know some commands to control the audio volume.
+
+```bash
+# This sets the master output volume 
+amixer -c 1 sset 'Master' 100% # accepts also a dB parameter 100% = 12dB
+# This sets the headphone output volume 
+amixer -c 1 sset 'Headphone' 0dB # 0dB = 100%
+# This sets the speaker output volume 
+amixer -c 1 sset 'Speaker' 100% # 100% = odB
+```
+By default, the Class D amplifier outputs are turned off, to be able to play audio on the external speakers you must turn them on with the following commands.
+
+```bash
+amixer -c 1 sset 'SPK Right Amp' on # turn on the right channel speaker
+amixer -c 1 sset 'SPK Left Amp' on # turn on the right channel speaker
+```
+
+The following command will play an example `.wav` audio file stored on `/usr/share/sounds/alsa`.
+```bash
+speaker-test -c 2 -D hw:cs42l52audio -t wav
+```
+
+To play a sine wave at 440 Hz, use:
+
+```bash
+speaker-test -c 2 -D hw:cs42l52audio -t sine -f 440
+```
+
+To play the recorded `.wav` file in the previous section, use this command.
+
+```bash
+aplay -c 2 -D hw:cs42l52audio -t wav /sdcard/out2.wav
+```
+
+***To send a file from the Portenta X8 local storage to the container use: `sudo docker cp /home/fio/<file>.wav <CONTAINER ID>:/sdcard`***
+
 ## USB Interface
 
 The Portenta Max Carrier features a USB interface suitable for data logging and connecting external devices.
