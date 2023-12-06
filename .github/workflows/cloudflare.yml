@@ -13,44 +13,12 @@ jobs:
       REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: "npm"
-          cache-dependency-path: "**/package-lock.json"
 
-      - name: Render Datasheets
-        run: cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering;./render-datasheets.sh
-
-      - name: Copy Static Files
-        run: |
-          mkdir -p static/resources/datasheets static/resources/schematics static/resources/pinouts
-          find ./content/hardware -type f -name "*-schematics.pdf" -exec cp {} ./static/resources/schematics/ \;
-          find ./content/hardware -type f -name "*-datasheet.pdf" -exec cp {} ./static/resources/datasheets/ \;
-          find ./content/hardware -type f -name "*-full-pinout.pdf" -exec cp {} ./static/resources/pinouts/ \;
-          find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
-
-      - name: Gatsby main cache
-        uses: actions/cache@v3
-        id: gatsby-cache-folder
-        with:
-          path: .cache
-          key: ${{ runner.os }}-cache-gatsby-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-cache-gatsby-
-
-      - name: Gatsby Public Folder
-        uses: actions/cache@v3
-        id: gatsby-public-folder
-        with:
-          path: public/
-          key: ${{ runner.os }}-public-gatsby-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-public-gatsby-
-
-      - run: npm install
-      - run: npm run build
-
+      - run: |
+          mkdir public
+          echo "HELLO WORLD" > public/index.html
+        shell: bash
+    
       - name: Docs
         uses: ./.github/actions/cloudflare-upload
         with:
