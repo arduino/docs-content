@@ -518,7 +518,7 @@ You can open the audio file on your computer by copying it with the following co
 - Copy the file from the container to the X8 local storage with `sudo docker cp <CONTAINER ID>:/sdcard/out.wav /home/fio`
 - The audio file is now on `/home/fio`, from here you can pull it using `adb` from a terminal. Use `adb pull /home/fio/out.wav <destination path>`
 
-### Playing back Audio
+### Playing Back Audio
 
 In the following example we are going to playback the previously recorded audio file and learn how to test the Max Carrier audio outputs.
 
@@ -1744,7 +1744,7 @@ To send use:
 
 `echo "Hello World" > /dev/ttyX0`
 
-To recive use:
+To receive use:
 
 `cat /dev/ttyX0`
 
