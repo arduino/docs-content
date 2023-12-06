@@ -1,7 +1,7 @@
 ---
 title: GIGA R1 Camera Guide
 description: Learn about the GIGA R1 WiFi's camera connector, and how to use existing examples.
-tags: [ArduCAM, Camera, Processing]
+tags: [ArduCAM, Camera, WebSerial]
 author: Karl Söderby
 hardware:
   - hardware/10.mega/boards/giga-r1-wifi
@@ -16,9 +16,9 @@ The GIGA R1 has a dedicated camera connector that allows certain camera modules 
 In this guide, we will explore the following:
 
 - Where the camera connector is located.
-- What cameras are compatible.
-- What library to use.
-- How to setup a camera stream to a processing application.
+- What cameras are compatible?
+- What library to use? 
+- How to set up a camera stream to a browser using webserial.
 
 ## Hardware & Software Needed
 
@@ -26,7 +26,7 @@ To follow and use the examples provided in this guide, you will need an [Arduino
 
 You will also need the following software:
 - [Arduino IDE](https://www.arduino.cc/en/software) (any version).
-- [Processing](https://processing.org/download) (for displaying camera feed).
+- [Webserial]() (for displaying camera feed).
 
 ## Supported Cameras
 
@@ -75,8 +75,6 @@ You can also view the schematic for this connector in more detail just below. Th
 ![Live view of the camera.](./assets/webSerial_example.png)
 
 This example allows you to stream the sensor data from your camera to a web interface, using serial over USB. This will allow you to see the image directly in your browser.
-
-***This example requires a version of [Processing](https://processing.org/download) on your machine.***
 
 ### Step 1: Arduino
 
