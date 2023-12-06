@@ -148,7 +148,7 @@ All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows
 
 ### Sample Sketches
 
-Sample sketches for the Nano 33 BLE Rev2 can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website.
+Sample sketches for the Nano 33 BLE Rev2 can be found either in the “Examples” menu in the Arduino IDE or in the “Built-in Examples” section of the Arduino Docs website.
 
 ### Online Resources
 

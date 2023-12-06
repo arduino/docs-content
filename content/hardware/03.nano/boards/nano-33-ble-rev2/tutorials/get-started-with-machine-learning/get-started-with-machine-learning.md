@@ -6,7 +6,7 @@ description: 'Learn how to train and use machine learning models with the Arduin
 tags:
   - Machine learning
   - Tensorflow Lite Micro
-author: 'Sandeep Mistry and Dominic Pajak'
+author: 'Sandeep Mistry, Dominic Pajak, and Hannes Siebeneicher'
 libraries: 
   - name: Arduino_TensorFlowLite
     url: https://github.com/tensorflow/tflite-micro-arduino-examples
@@ -19,13 +19,13 @@ software:
   - Arduino IDE
   - Google Colab
 ---
-***This post was originally published by Sandeep Mistry and Dominic Pajak on the [TensorFlow blog](https://medium.com/tensorflow/how-to-get-started-with-machine-learning-on-arduino-7daf95b4157).*** 
+***This post was originally published by Sandeep Mistry and Dominic Pajak on the [TensorFlow blog](https://medium.com/tensorflow/how-to-get-started-with-machine-learning-on-arduino-7daf95b4157) and uses the Arduino [Nano 33 BLE Sense Rev2](https://store.arduino.cc/products/nano-33-ble-sense-rev2). This revision of the tutorial is adapted to the [Arduino Nano 33 BLE Rev2](store.arduino.cc/products/nano-33-ble-rev2) which comes without a microphone and therefore leaves out the speech recognition.***
 
 ## Introduction
 
 ***Important notice! The [TensorFlow Lite Micro Library](https://github.com/tensorflow/tflite-micro-arduino-examples) is no longer available in the Arduino Library Manager. This library will need to be manually downloaded and included in your IDE.***
 
-[Arduino](https://www.arduino.cc/) is on a mission to make machine learning simple enough for anyone to use. We’ve been working with the TensorFlow Lite team over the past few months and are excited to show you what we’ve been up to together: bringing TensorFlow Lite Micro to the [Arduino Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2). In this article, we’ll show you how to install and run several new [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are now available in the [Arduino Library Manager](https://www.arduino.cc/en/guide/libraries).
+[Arduino®](https://www.arduino.cc/) is on a mission to make machine learning simple enough for anyone to use. We’ve been working with the TensorFlow Lite team over the past few months and are excited to show you what we’ve been up to together: bringing TensorFlow Lite Micro to the [Arduino Nano 33 BLE Rev2](/hardware/nano-33-ble-rev2). In this article, we’ll show you how to install and run several new [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are now available in the [Arduino Library Manager](https://www.arduino.cc/en/guide/libraries).
 
 The first tutorial below shows you how to install a neural network on your Arduino board to recognize simple voice commands.
 
@@ -48,27 +48,27 @@ We’re excited to share some of the first examples and tutorials, and to see wh
 - Use the [BMI270_BMM150](https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/) and [Arduino_TensorFlowLite](https://github.com/tensorflow/tflite-micro-arduino-examples) libraries
 
 ## Hardware & Software Needed
-- An [Arduino Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2) board
+- An [Arduino Nano 33 BLE Rev2](/hardware/nano-33-ble-rev2) board
 - A Micro USB cable to connect the Arduino board to your desktop machine
 - To program your board, you can use the [Arduino Web Editor](https://www.arduino.cc/en/main/software) or install the [Arduino IDE](https://www.arduino.cc/en/main/software). We’ll give you more details on how to set these up in the following sections
 
-The Arduino Nano 33 BLE Sense Rev2 has a variety of onboard sensors meaning potential for some cool TinyML applications:
+The Arduino Nano 33 BLE Rev2 has a variety of onboard sensors meaning potential for some cool TinyML applications:
 
 - Voice – digital microphone
 - Motion – 9-axis IMU (accelerometer, gyroscope, magnetometer)
 - Environmental – temperature, humidity and pressure
 - Light – brightness, color and object proximity
 
-Unlike classic Arduino Uno, the board combines a microcontroller with onboard sensors which means you can address many use cases without additional hardware or wiring. The board is also small enough to be used in end applications like wearables. As the name suggests it has Bluetooth® Low Energy connectivity so you can send data (or inference results) to a laptop, mobile app or other Bluetooth® Low Energy boards and peripherals.
+Unlike classic Arduino UNO, the board combines a microcontroller with onboard sensors which means you can address many use cases without additional hardware or wiring. The board is also small enough to be used in end applications like wearables. As the name suggests it has Bluetooth® Low Energy connectivity so you can send data (or inference results) to a laptop, mobile app or other Bluetooth® Low Energy boards and peripherals.
 
-**Tip: Sensors on a USB stick** – Connecting the BLE Sense board over USB is an easy way to capture data and add multiple sensors to single board computers without the need for additional wiring or hardware – a nice addition to a Raspberry Pi, for example.
+**Tip: Sensors on a USB stick** – Connecting the BLE board over USB is an easy way to capture data and add multiple sensors to single board computers without the need for additional wiring or hardware – a nice addition to a Raspberry Pi, for example.
 
 ## Microcontrollers and TinyML
 Microcontrollers, such as those used on Arduino boards, are low-cost, single-chip, self-contained computer systems. They’re the invisible computers embedded inside billions of everyday gadgets like wearables, drones, 3D printers, toys, rice cookers, smart plugs, e-scooters, and washing machines. The trend to connect these devices is part of what is referred to as the Internet of Things.
 
-Arduino is an open-source platform and community focused on making microcontroller application development accessible to [everyone](https://create.arduino.cc/projecthub). The [board](https://store.arduino.cc/usa/nano-33-ble-sense) we’re using here has an Arm Cortex-M4 microcontroller running at 64 MHz with 1 MB Flash memory and 256 KB of RAM. This is tiny in comparison to cloud, PC, or mobile but reasonable by microcontroller standards.
+Arduino is an open-source platform and community focused on making microcontroller application development accessible to [everyone](https://create.arduino.cc/projecthub). The [board](store.arduino.cc/products/nano-33-ble-rev2) we’re using here has an Arm Cortex-M4 microcontroller running at 64 MHz with 1 MB Flash memory and 256 KB of RAM. This is tiny in comparison to cloud, PC, or mobile but reasonable by microcontroller standards.
 
-![The Arduino Nano 33 BLE Sense Rev2 board is smaller than a stick of gum.](./assets/nanoblerev2.png)
+![The Arduino Nano 33 BLE Rev2 board is smaller than a stick of gum.](./assets/nanoblerev2.png)
 
 There are practical reasons you might want to squeeze ML on microcontrollers, including: 
 
@@ -87,27 +87,20 @@ TinyML is an emerging field and there is still work to do – but what’s excit
 
 ## TensorFlow Lite for Microcontrollers Examples
 
-***The TensorFlow Lite examples are currently not compatible with the [Arduino Nano BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2) board.***
+***The TensorFlow Lite examples are currently not compatible with the [Arduino Nano BLE Rev2](/hardware/nano-33-ble-rev2) board.***
 
 The inference examples for TensorFlow Lite for Microcontrollers are now packaged and available through the Arduino Library Manager making it possible to include and run them on Arduino in a few clicks. In this section, we’ll show you how to run them. The examples are:
 
-- micro_speech – speech recognition using the onboard microphone
 - magic_wand – gesture recognition using the onboard IMU
-- person_detection – person detection using an external ArduCam camera
+- person_detection – person detection using an external ArduCam® camera
 
-For more background on the examples, you can take a look at the source in the [TensorFlow repository](https://github.com/tensorflow/tflite-micro-arduino-examples). The models in these examples were previously trained. The tutorials below show you how to deploy and run them on an Arduino. In the next section, we’ll discuss training.
+For more background on the examples, you can take a look at the source in the [TensorFlow repository](https://github.com/tensorflow/tflite-micro-arduino-examples). The models in these examples were previously trained. The tutorials below show you how to deploy and run them on an Arduino board. In the next section, we’ll discuss training.
 
-## How to Run the Examples Using Arduino Create Web Editor. 
-Once you connect your Arduino Nano 33 BLE Sense Rev2 to your desktop machine with a USB cable you will be able to compile and run the following TensorFlow examples on the board by using the [Arduino Create](https://create.arduino.cc/editor) web editor:
+## How to Run the Examples Using Arduino Web Editor
+
+Once you connect your Arduino Nano 33 BLE Rev2 to your desktop machine with a USB cable you will be able to compile and run the following TensorFlow examples on the board by using the [Web Editor](https://create.arduino.cc/editor):
 
 ![Compiling an example from the Arduino_TensorFlowLite library.](assets/create-lib.gif)
-
-## Focus On The Speech Recognition Example
-One of the first steps with an Arduino board is getting the LED to flash. Here, we’ll do it with a twist by using TensorFlow Lite Micro to recognize voice keywords. It has a simple vocabulary of “yes” and “no.” Remember this model is running locally on a microcontroller with only 256 KB of RAM, so don’t expect commercial ‘voice assistant’ level accuracy – it has no Internet connection and on the order of 2000x less local RAM available.
-
-Note the board can be battery-powered as well. As the Arduino can be connected to motors, actuators and more this offers the potential for voice-controlled projects.
-
-![Running the micro_speech example.](assets/micro.gif)
 
 ## How To Run The Examples Using the Arduino IDE
 
@@ -117,17 +110,17 @@ First, follow the instructions in the next section Setting up the Arduino IDE.
 
 In the Arduino IDE, you will see the examples available via the **File > Examples > Arduino_TensorFlowLite**  menu in the ArduinoIDE.
 
-Select an example and the sketch will open. To compile, upload and run the examples on the board and click the arrow icon:
+Select an example and the sketch will open. To compile, upload and run the examples on the board click the arrow icon:
 
 ![For advanced users who prefer a command line, there is also the arduino-cli.](assets/upload.png)
 
 ## Training a TensorFlow Lite Micro Model For Arduino
 
-![Gesture classification on Arduino Nano 33 BLE Sense Rev2, output as emojis.](assets/ezgif-1-c5bdaa9f0bee.gif)
+![Gesture classification on Arduino Nano 33 BLE Rev2, output as emojis.](assets/ezgif-1-c5bdaa9f0bee.gif)
 
-Next we will use ML to enable the Arduino board to recognize gestures. We’ll capture motion data from the Arduino Nano 33 BLE Sense Rev2 board, import it into TensorFlow to train a model, and deploy the resulting classifier onto the board.
+Next, we will use ML to enable the Arduino board to recognize gestures. We’ll capture motion data from the Arduino Nano 33 BLE Rev2 board, import it into TensorFlow to train a model, and deploy the resulting classifier onto the board.
 
-The idea for this tutorial was based on Charlie Gerard’s awesome [Play Street Fighter with body movements using Arduino and Tensorflow.js](https://medium.com/@devdevcharlie/play-street-fighter-with-body-movements-using-arduino-and-tensorflow-js-6b0e4734e118). In Charlie’s example, the board is streaming all sensor data from the Arduino to another machine which performs the gesture classification in Tensorflow.js. We take this further and “TinyML-ify” it by performing gesture classification on the Arduino board itself. This is made easier in our case as the Arduino Nano 33 BLE Sense Rev2 board we’re using has a more powerful Arm Cortex-M4 processor and an onboard IMU.
+The idea for this tutorial was based on Charlie Gerard’s awesome [Play Street Fighter with body movements using Arduino and Tensorflow.js](https://medium.com/@devdevcharlie/play-street-fighter-with-body-movements-using-arduino-and-tensorflow-js-6b0e4734e118). In Charlie’s example, the board is streaming all sensor data from the Arduino board to another machine which performs the gesture classification in Tensorflow.js. We take this further and “TinyML-ify” it by performing gesture classification on the Arduino board itself. This is made easier in our case as the Arduino Nano 33 BLE Rev2 board we’re using has a more powerful Arm® Cortex®-M4 processor and an onboard IMU.
 
 We’ve adapted the tutorial below, so no additional hardware is needed – the sampling starts once movement is detected. The original version of the tutorial adds a breadboard and a hardware button to press to trigger sampling. If you want to get into a little hardware, you can follow that version [instead](https://github.com/sandeepmistry/aimldevfest-workshop-2019).
 
@@ -141,22 +134,22 @@ We’ve adapted the tutorial below, so no additional hardware is needed – the 
 
 ![Install the necessary libraries](assets/libManager.png)
 
-There are more detailed [Getting Started](https://www.arduino.cc/en/Guide/NANO33BLESense) and [Troubleshooting](https://support.arduino.cc/hc/en-us) guides on the Arduino site if you need help.
+There are more detailed [Getting Started](/hardware/nano-33-ble-rev2) and [Troubleshooting](https://support.arduino.cc/hc/en-us) guides on the Arduino site if you need help.
 
 ## Streaming Sensor Data From the Arduino Board
 
 First, we need to capture some training data. You can capture sensor data logs from the Arduino board over the same USB cable you use to program the board with your laptop or PC.
 
-Arduino boards run small applications (also called sketches) which are compiled from .ino format Arduino source code, and programmed onto the board using the Arduino IDE or Arduino Create. 
+Arduino boards run small applications (also called sketches) which are compiled from .ino format Arduino source code, and programmed onto the board using the Arduino IDE or Web Editor. 
 
 With the sketch we are creating we will do the following:
 
 - Monitor the board’s accelerometer and gyroscope 
 - Trigger a sample window on detecting significant linear acceleration of the board 
-- Sample for one second at 119Hz, outputting CSV format data over USB 
+- Sample for one second at 119 Hz, outputting CSV format data over USB 
 - Loop back and monitor for the next gesture
 
-**The sensors we choose to read from the board, the sample rate, the trigger threshold, and whether we stream data output as CSV, JSON, binary or some other format are all customizable in the sketch running on the Arduino. There is also scope to perform signal preprocessing and filtering on the device before the data is output to the log – this we can cover in another blog. For now, you can just upload the sketch and get a sampling.**
+**The sensors we choose to read from the board, the sample rate, the trigger threshold, and whether we stream data output as CSV, JSON, binary or some other format are all customizable in the sketch running on the Arduino board. There is also scope to perform signal preprocessing and filtering on the device before the data is output to the log – this we can cover in another blog. For now, you can just upload the sketch and get a sampling.**
 
 The complete sketch can be found below:
 
@@ -168,9 +161,9 @@ The complete sketch can be found below:
   when the significant motion is detected.
   You can also use the Serial Plotter to graph the data.
   The circuit:
-  - Arduino Nano 33 BLE or Arduino Nano 33 BLE Sense Rev2 board.
+  - Arduino Nano 33 BLE Rev2 board.
   Created by Don Coleman, Sandeep Mistry
-  Modified by Dominic Pajak, Sandeep Mistry
+  Modified by Dominic Pajak, Sandeep Mistry, Hannes Siebeneicher
   This example code is in the public domain.
 */
 
@@ -284,7 +277,7 @@ To capture data as a CSV log to upload to TensorFlow, you can use **Arduino IDE 
 
 ![Data recorded by your movements](assets/trainingData.png)
 
-***Linux tip:*** *If you prefer you can redirect the sensor log output from the Arduino straight to .csv file on the command line. With the Serial Plotter / Serial MOnitor windows close use: 
+***Linux tip:*** *If you prefer you can redirect the sensor log output from the Arduino board straight to .csv file on the command line. With the Serial Plotter / Serial MOnitor windows close use: 
 ```
  $ cat /dev/cu.usbmodem[nnnnn] > sensorlog.csv
 ```
@@ -322,7 +315,7 @@ We will be starting a new sketch, you will find the complete code below:
         discouraged in Arduino examples, and in the future the TensorFlowLite library
         might change to make the sketch simpler.
   The circuit:
-  - Arduino Nano 33 BLE or Arduino Nano 33 BLE Sense Rev2 board.
+  - Arduino Nano 33 BLE Rev2 board.
   Created by Don Coleman, Sandeep Mistry
   Modified by Dominic Pajak, Sandeep Mistry
   This example code is in the public domain.

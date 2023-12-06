@@ -289,7 +289,7 @@ To send and receive data through UART, we will first need to set the baud rate i
 Serial1.begin(9600);
 ```
 
-To read incoming data, we can use a while loop() to read each individual character and add it to a string.
+To read incoming data, we can use a `while loop()` to read each individual character and add it to a string.
 
 ```arduino
   while(Serial1.available()){
@@ -347,7 +347,7 @@ BLEDevice central = BLE.central();
 
 ### Tutorials
 
-- [Controlling Nano 33 BLE Rev2 RGB LED via Bluetooth](/tutorials/nano-33-ble/bluetooth)
+- [Controlling Nano 33 BLE Rev2 RGB LED via Bluetooth®](/tutorials/nano-33-ble/bluetooth)
 
 ## USB Keyboard
 
