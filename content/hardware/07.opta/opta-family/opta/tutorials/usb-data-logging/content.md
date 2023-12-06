@@ -15,9 +15,10 @@ hardware:
 
 ## Overview
 
-In this tutorial, we will learn how to interface an Opta™ device with a USB memory stick for data logging. Data logging is an essential process in industrial environments, where it is critical to continuously monitor and record vital parameters like temperature, pressure, or flow rates. These parameters are often captured through sensors connected to the input ports of a device like the Opta™. 
+In this tutorial, we will learn how to interface an Opta™ device with a USB memory stick for data logging. Data logging is an essential process in industrial environments, where it is critical to continuously monitor and record vital parameters like temperature, pressure, or flow rates. These parameters are often captured through sensors connected to the input ports of a device like Opta™. 
 
-You will record readings from four analog input ports of an Opta™ device and store the data in a `.txt` file on the USB memory stick. Additionally, we will use the onboard user button and LEDs of the Opta™ device to start, stop, and indicate the status of the data logging process to the user. 
+Through this guide, we will show you how to record readings from four analog input ports of an Opta™ device and store the data in a `.txt` file on the USB memory stick. Additionally, we will use the onboard user button and LEDs of the Opta™ device to start, stop, and indicate the status of the data logging process to the user. 
+
 
 ## Goals
 
@@ -85,13 +86,13 @@ This tutorial also requires the latest version of the `Arduino_UnifiedStorage` l
 
 ![Installing libraries in the Arduino IDE](assets/arduino-ide-2.png)
 
-***The `Arduino_UnifiedStorage` library need other dependencies: the `Arduino_POSIXStorage` and the `Arduino_USBHostMbed5` libraries. Ensure all the mentioned libraries are installed correctly and updated to their latest release.***
+***The `Arduino_UnifiedStorage` library need other dependencies: the `Arduino_POSIXStorage`, the `Arduino_USBHostMbed5` and the `ArduinoRS485` libraries. The IDE will ask you if you want to install them. Ensure all the mentioned libraries are installed correctly and updated to their latest release.***
 
 **Note**: The `Arduino_UnifiedStorage` library can use the RS-485 interface of your Opta™ device for **debugging purposes**. Ensure that the `ArduinoRS485 library` is installed and updated to its latest release since it is used by the `Arduino_UnifiedStorage` library for debugging. To receive and show the debug messages on your computer, you can use a USB to RS-485 converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
 
 ### Setting Up the Hardware
 
-Connect a +12-24 VDC power supply to your Opta™ device; for receiving debug messages, connect a USB to RS-485 converter to the RS-485 interface of your Opta™ device. The example sketch log data from the analog inputs ports `I1`, `I2`, `I3`, and `I4` of an Opta™ device; connect an analog signal source to these input ports to test this functionality. For programming your Opta™ device, connect it to your computer using a USB-A to USB-C® cable. 
+Connect a +12-24 VDC power supply to your Opta™ device. To receive debug messages, which is optional, connect a USB to RS-485 converter to the RS-485 interface of your Opta™ device. The example sketch logs data from the analog inputs ports `I1`, `I2`, `I3`, and `I4` of an Opta™ device; connect an analog signal source to these input ports to test this functionality. For programming your Opta™ device, connect it to your computer using a USB-A to USB-C® cable. 
 
 ![Hardware setup](assets/illustration-3.png)
 
