@@ -2464,36 +2464,44 @@ For ease of access to all available GPIOs within the Portenta family board and P
 
 The __Port Number__ defines the number designation of the corresponding connector. The __Function__ tells the role of the designated port number. For example, the port number `7` of the `40-Pin connector` is characterized as __`PWM0`__. Thus, on the Portenta X8, it can be handled by using `183` within the ADB shell or `7` within the Python script. The GPIOs mentioned in the following are controllable, while each pin may have its characteristical function.
 
-|   **Connector**    | **Port Number** |       **Function**       | **Portenta X8** | **Portenta H7** | **Portenta C33** |
-|:------------------:|:---------------:|:------------------------:|:---------------:|:---------------:|:----------------:|
-| _40-Pin Connector_ |                 |                          |                 |                 |                  |
-|                    |        3        |         I2C2 SDA         |       XX        |        X        |     36/LEDB      |
-|                    |        5        |         I2C2 SCL         |       XX        |        X        |     36/LEDB      |
-|                    |        7        |           PWM0           |     183 / 7     |        8        |       0/D0       |
-|                    |        8        |        SERIAL3 TX        |       XX        |        X        |     36/LEDB      |
-|                    |       10        |        SERIAL3 RX        |       XX        |        X        |     36/LEDB      |
-|                    |       11        |          GPIO2           |       XX        |        X        |     36/LEDB      |
-|                    |       12        |          I2S CK          |       XX        |        X        |     36/LEDB      |
-|                    |       13        |          GPIO6           |       XX        |        X        |     36/LEDB      |
-|                    |       15        | SAI D0 __(OUTPUT ONLY)__ |       XX        |        X        |     36/LEDB      |
-|                    |       16        | SAI CK __(OUTPUT ONLY)__ |       XX        |        X        |     36/LEDB      |
-|                    |       18        | SAI FS __(OUTPUT ONLY)__ |       XX        |        X        |     36/LEDB      |
-|                    |       22        |           PWM1           |      184 /      |        X        |     36/LEDB      |
-|                    |       29        |        SERIAL1 RX        |       XX        |        X        |     36/LEDB      |
-|                    |       31        |           PWM3           |      186 /      |        X        |     36/LEDB      |
-|                    |       32        |        SERIAL1 TX        |       XX        |        X        |     36/LEDB      |
-|                    |       33        |           PWM4           |      187 /      |        X        |     36/LEDB      |
-|                    |       35        |          I2S WS          |       XX        |        X        |     36/LEDB      |
-|                    |       36        |           PWM5           |      188 /      |        X        |     36/LEDB      |
-|                    |       37        |           PWM6           |      189 /      |        X        |     36/LEDB      |
-|                    |       38        |         I2S SDI          |       XX        |        X        |     36/LEDB      |
-|                    |       40        |         I2S SDO          |       XX        |        X        |     36/LEDB      |
-| _16-Pin Connector_ |                 |                          |                 |                 |                  |
-|                    |        9        |           PWM7           |      190 /      |        X        |     36/LEDB      |
-|                    |       10        |           PWM8           |      191 /      |        X        |     36/LEDB      |
-|                    |       12        |       GPIO0 / PWM4       |       XX        |        X        |     36/LEDB      |
-|                    |       14        |        SERIAL2 TX        |       XX        |        X        |     36/LEDB      |
-|                    |       16        |        SERIAL2 RX        |       XX        |        X        |     36/LEDB      |
+|   **Connector**    | **Pin Number** |       **Function**       | **Portenta X8 (Linux/Arduino)** | **Portenta H7** | **Portenta C33 (Numeric/Define)** |
+|:------------------:|:--------------:|:------------------------:|:-------------------------------:|:---------------:|:---------------------------------:|
+| _40-Pin Connector_ |                |                          |                                 |                 |                                   |
+|                    |       3        |         I2C2 SDA         |               XX                |        X        |              36/LEDB              |
+|                    |       5        |         I2C2 SCL         |               XX                |        X        |              36/LEDB              |
+|                    |       7        |           PWM0           |             183 / 7             |        8        |               0/D0                |
+|                    |       8        |        SERIAL3 TX        |               XX                |        X        |              36/LEDB              |
+|                    |       10       |        SERIAL3 RX        |               XX                |        X        |              36/LEDB              |
+|                    |       11       |          GPIO2           |              162 /              |        X        |              36/LEDB              |
+|                    |       12       |          I2S CK          |               XX                |        X        |              36/LEDB              |
+|                    |       13       |          GPIO6           |              166 /              |        X        |              36/LEDB              |
+|                    |       15       | SAI D0 __(OUTPUT ONLY)__ |               XX                |        X        |              36/LEDB              |
+|                    |       16       | SAI CK __(OUTPUT ONLY)__ |               XX                |        X        |              36/LEDB              |
+|                    |       18       | SAI FS __(OUTPUT ONLY)__ |               XX                |        X        |              36/LEDB              |
+|                    |       22       |           PWM1           |              184 /              |        X        |              36/LEDB              |
+|                    |       29       |        SERIAL1 RX        |               XX                |        X        |              36/LEDB              |
+|                    |       31       |           PWM3           |              186 /              |        X        |              36/LEDB              |
+|                    |       32       |        SERIAL1 TX        |               XX                |        X        |              36/LEDB              |
+|                    |       33       |           PWM4           |              187 /              |        X        |              36/LEDB              |
+|                    |       35       |          I2S WS          |               XX                |        X        |              36/LEDB              |
+|                    |       36       |           PWM5           |              188 /              |        X        |              36/LEDB              |
+|                    |       37       |           PWM6           |              189 /              |        X        |              36/LEDB              |
+|                    |       38       |         I2S SDI          |               XX                |        X        |              36/LEDB              |
+|                    |       40       |         I2S SDO          |               XX                |        X        |              36/LEDB              |
+| _16-Pin Connector_ |                |                          |                                 |                 |                                   |
+|                    |       1        |            A0            |            167 / A0             |    2048 / A0    |              36/LEDB              |
+|                    |       2        |            A1            |            168 / A1             |     1 / A1      |              36/LEDB              |
+|                    |       3        |            A2            |            169 / A2             |     34 / A2     |              36/LEDB              |
+|                    |       4        |            A3            |            170 / A3             |     35 / A3     |              36/LEDB              |
+|                    |       5        |            A4            |            171 / A4             |        X        |              36/LEDB              |
+|                    |       6        |            A5            |            172 / A5             |        X        |              36/LEDB              |
+|                    |       7        |            A6            |            173 / A6             |        X        |              36/LEDB              |
+|                    |       8        |            A7            |            174 / A7             |        X        |              36/LEDB              |
+|                    |       9        |           PWM7           |              190 /              |        X        |              36/LEDB              |
+|                    |       10       |           PWM8           |              191 /              |        X        |              36/LEDB              |
+|                    |       12       |       GPIO0 / PWM4       |              160 /              |        X        |              36/LEDB              |
+|                    |       14       |        SERIAL2 TX        |               XX                |        X        |              36/LEDB              |
+|                    |       16       |        SERIAL2 RX        |               XX                |        X        |              36/LEDB              |
 
 In Linux, pins can be controlled using the system's functions via the ADB shell or via the official Python library.
 
