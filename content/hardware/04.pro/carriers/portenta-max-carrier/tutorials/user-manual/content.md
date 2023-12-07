@@ -1767,30 +1767,45 @@ Here is the connector pinout for reference:
 
 ![6P6C RS-232/485 Connector Pinout](assets/rs-connector.png)
 
-#### Using Linux
-
-In the Portenta Max Carrier, the UART used for the RS-232/485 transceiver is the `UART0` and its designation on the Portenta X8 is `ttyX0`.
-
-Initialize the serial port:
-`stty -F /dev/ttyX0 115200 -parity cs8 -cstopb`
-
-To send use:
-
-`echo "Hello World" > /dev/ttyX0`
-
-To receive use:
-
-`cat /dev/ttyX0`
-
-#### Using Arduino IDE
-
-For users working with the Portenta H7 or Portenta C33, the following simple examples can be used to test the RS-232/485 communication.
-
 We are going to communicate the Portenta Max Carrier with the Machine Control using two different protocols, `RS-485` and `RS-232`. Use the following wiring respectively.
 
 ![Full duplex RS-485 connection](assets/RS-485-full.png)
 
 ![RS-232 connection](assets/RS-232.png)
+
+#### Using Linux
+
+In the Portenta Max Carrier, the UART used for the RS-232/485 transceiver is the `UART0` and its designation on the Portenta X8 is `ttyX0`.
+
+To set up the serial communication so it matches the link requirements, we can configure the port baud rate, parity and stop bit as desired.
+
+```bash
+stty -F /dev/ttyX0 115200 -parity cs8 -cstopb
+```
+
+The serial transceiver default configuration is set to __RS-232__, so we are going to use this protocol for the Linux example. Make sure to follow the respective wiring shown above. 
+
+We configured the __Portenta Machine Control__ used for this example using the code included with the `Arduino_MachineControl` library called `RS232` which can be found on **File > Examples > Arduino_MachineControl**. This sketch will continuously send a message and wait to receive one using RS-232.
+
+After setting up the serial communication parameters, we can start receiving from the Machine Control with the following command:
+
+```bash
+cat /dev/ttyX0
+```
+![Portenta X8 receiving RS-232 messages from the Machine Control](assets/rs-232-x8.gif)
+
+
+To send use:
+
+`echo "Hello World" > /dev/ttyX0`
+
+`docker run --privileged -it -u 0 --network host -v /dev:/dev debian:stable-slim bash`
+
+`apt-get update && apt-get install minicom -y`
+
+#### Using Arduino IDE
+
+For users working with the Portenta H7 or Portenta C33, the following simple examples can be used to test the RS-232/485 communication.
 
 To use these protocols some libraries are needed and you can install them by searching for `ArduinoRS485` and `Arduino_MachineControl` on the library manager and clicking on install.
 
