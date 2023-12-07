@@ -447,13 +447,27 @@ To ensure connectivity in a wide variety of possible scenarios, the Max Carrier 
 
 You can easily connect your projects to the cloud leveraging the more suitable communication protocol, from LTE, NB-IoT, Cat.M1 and more.
 
-![Portenta Max Carrier with Cellular Antenna]()
+![Portenta Max Carrier with Cellular Antenna](assets/cellular-antenna.png)
 
 ***Recommended cellular antenna: ANT-5GW-SPS1-2***
 
 #### Using Arduino IDE
 
-To use the cellular connectivity we are going to use a __Portenta H7__. To drive the module we recommend to use the `MKR`
+To use the cellular connectivity we are going to use a __Portenta H7__ alongside the Max Carrier. To drive the module we recommend the `MKRNB` library which can be downloaded directly from the Arduino IDE Library Manager.
+
+To quickly find out if the setup successfully connects to mobile networks, we are going to use an example code that can be found on **File > Examples > MKRNB > NBWwebClient**. 
+
+Go to the __arduino_secrets.h__ tab that opens with the example and enter the PIN of the SIM card you are using into the `SECRET_PINNUMBER` variable.
+
+***Note: A standard pre-paid SIM card typically has 0000 or 1234 as a pin code. This varies from operator to operator, it is important to find out your pin before uploading the code. Otherwise, too many unsuccessful attempts may block the SIM card.***
+
+Upload the code to your Portenta H7 and open the Serial Monitor to follow the connection process.
+
+If the connection is successful, you should see the HTML content of the server printed in the Serial Monitor. The server is set as `example.com` as default. Feel free to change this and take a look at how it prints different webpages. 
+
+Below you can see what will be printed in the Serial Monitor when connecting to example.com.
+
+![Results in the Serial Monitor](assets/Cat-M1-serial-monitor.png)
 
 ### LoRa®
 
@@ -475,7 +489,11 @@ To learn how to leverage LoRa® capabilities with this carrier and the Arduino I
 
 ## Audio Interface
 
-The Portenta Max Carrier features a low-power but mighty stereo CODEC, ideal for audio applications powered by the Portenta X8. An internal Class D amplifier lets us play high-quality audio directly on external speakers. The audio recording couldn't be simpler thanks to its variety of audio inputs, letting you connect a microphone or any other audio source.
+The Portenta Max Carrier features a low-power but mighty stereo CODEC, ideal for audio applications powered by the Portenta X8. An internal Class D amplifier lets us play high-quality audio directly on external speakers. 
+
+![Portenta Max Carrier Audio Setup](assets/audio-setup.png)
+
+The audio recording couldn't be simpler thanks to its variety of audio inputs, letting you connect a microphone or any other audio source.
 
 ### Recording Audio
 
@@ -1750,6 +1768,8 @@ Here is the connector pinout for reference:
 ![6P6C RS-232/485 Connector Pinout](assets/rs-connector.png)
 
 #### Using Linux
+
+In the Portenta Max Carrier, the UART used for the RS-232/485 transceiver is the `UART0` and its designation on the Portenta X8 is `ttyX0`.
 
 Initialize the serial port:
 `stty -F /dev/ttyX0 115200 -parity cs8 -cstopb`
