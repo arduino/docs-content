@@ -1795,13 +1795,29 @@ cat /dev/ttyX0
 ![Portenta X8 receiving RS-232 messages from the Machine Control](assets/rs-232-x8.gif)
 
 
-To send use:
+For sending we can use the following command instead:
 
-`echo "Hello World" > /dev/ttyX0`
+```bash
+echo "Hello World" > /dev/ttyX0
+```
 
-`docker run --privileged -it -u 0 --network host -v /dev:/dev debian:stable-slim bash`
+As a containerized example, here we used Minicom as a serial communication tool. 
 
-`apt-get update && apt-get install minicom -y`
+First, run the container with the following options:
+
+```bash
+docker run --privileged -it -u 0 --network host -v /dev:/dev debian:stable-slim bash
+```
+
+Install __Minicom__:
+
+```bash
+apt-get update && apt-get install minicom -y
+```
+Once installed, run it with `minicom -s`, configure the serial port to `ttyX0` and verify the baud rate is set to `115200`.
+
+Now, you should be able to send and receive through the RS-232 serial transceiver using the Portenta X8 and the Max Carrier to the Machine Control.
+
 
 #### Using Arduino IDE
 
