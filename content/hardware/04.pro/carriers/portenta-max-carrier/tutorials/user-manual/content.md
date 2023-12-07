@@ -443,6 +443,18 @@ For a comprehensive understanding of these connectivity options, kindly refer to
 
 ### LTE CAT.M1 NB-IoT
 
+To ensure connectivity in a wide variety of possible scenarios, the Max Carrier features cellular connectivity powered by the SARA-R412M-02B multi-band module. 
+
+You can easily connect your projects to the cloud leveraging the more suitable communication protocol, from LTE, NB-IoT, Cat.M1 and more.
+
+![Portenta Max Carrier with Cellular Antenna]()
+
+***Recommended cellular antenna: ANT-5GW-SPS1-2***
+
+#### Using Arduino IDE
+
+To use the cellular connectivity we are going to use a __Portenta H7__. To drive the module we recommend to use the `MKR`
+
 ### LoRa®
 
 One feature that boosts Portenta's Max Carrier possibilities is its onboard LoRa® module, the CMWX1ZZABZ-078 from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) protocol designed to connect low-power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low power consumption and low data throughput.
@@ -451,6 +463,8 @@ A dedicated SMA connector (J9) allows for an external antenna.
 
 ![Portenta Max Carrier with LoRa® Antenna](assets/LoRaAntenna.png)
 
+***Recommended LoRa® antenna: ANT-8/9-IPW1-SMA***
+
 #### Using Linux
 
 Empower your Portenta X8 connectivity with LoRa®, to achieve this follow this detailed guide on [How to set up a multi-protocol gateway using the Portenta X8 and the Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway)
@@ -458,8 +472,6 @@ Empower your Portenta X8 connectivity with LoRa®, to achieve this follow this d
 #### Using Arduino IDE
 
 To learn how to leverage LoRa® capabilities with this carrier and the Arduino IDE, follow this detailed tutorial on [How to Connect the Portenta Max Carrier with The Things Network using a Portenta H7](https://docs.arduino.cc/tutorials/portenta-max-carrier/connecting-to-ttn)
-
-## Mini PCIe
 
 ## Audio Interface
 
@@ -520,7 +532,9 @@ You can open the audio file on your computer by copying it with the following co
 
 ### Playing Back Audio
 
-In the following example we are going to playback the previously recorded audio file and learn how to test the Max Carrier audio outputs.
+In the following example, we are going to playback the previously recorded audio file and learn how to test the Max Carrier audio outputs.
+
+![Sound playback setup | Speakers/Headsets + micro SD](assets/play-wiring.png)
 
 First, it is important to know some commands to control the audio volume.
 
@@ -530,7 +544,7 @@ amixer -c 1 sset 'Master' 100% # accepts also a dB parameter 100% = 12dB
 # This sets the headphone output volume 
 amixer -c 1 sset 'Headphone' 0dB # 0dB = 100%
 # This sets the speaker output volume 
-amixer -c 1 sset 'Speaker' 100% # 100% = odB
+amixer -c 1 sset 'Speaker' 100% # 100% = 0dB
 ```
 By default, the Class D amplifier outputs are turned off, to be able to play audio on the external speakers you must turn them on with the following commands.
 
