@@ -54,7 +54,7 @@ Depending on what camera you are using it should be changed accordingly:
 - HM01B0: `#define ARDUCAM_CAMERA_HM01B0`
 - HM0360: `#define ARDUCAM_CAMERA_HM0360`
 - GC2145: `#define ARDUCAM_CAMERA_GC2145`
-- OV7675: `#define ARDUCAM_CAMERA_OV7675`
+- OV7675: `#define ARDUCAM_CAMERA_OV767x`
 
 The sketch will then capture frames into the framebuffer and print a live camera feed to the display.
 
@@ -168,6 +168,8 @@ void loop() {
   }
 }
 ```
+
+***Note: Depending on the camera being used the captured resolution might be smaller than the screen. If this is the case, there will be a black bar displayed next to the captured feed, it will not be automatically centered.*** 
 
 ## Conclusion
 
