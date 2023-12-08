@@ -24,19 +24,20 @@ Servo motors have three wires: power, ground, and signal. The power wire is typi
 
 The signal pin is typically yellow or orange and should be connected to PWM pin on the board. In these examples, it is pin number 9.
 
-***Always make sure to power your servo motor with a external power source. Connecting a servo directly to your board will cause your board to behave erratically and can damage your board***
+***Always make sure to power your servo motor with an external power source. Connecting a servo directly to your board will cause your board to behave erratically and can damage your board. The power supply voltage should match the specifications of the servo motor. for example, [this](https://store.arduino.cc/collections/motors-servos/products/feetech-mini-servo-motor-120-degrees-9g) servo motor's voltage range is between 4.8 V - 6 V, which means you need a power supply in that range (e.g. a battery pack of 4x AA  batteries (1.5V) each).***
+
 
 ### Knob Circuit
 
 For the **Knob** example, wire the potentiometer so that its two outer pins are connected to power (+5V) and ground, and its middle pin is connected to `A0` on the board. Then, connect the servo motor as shown in the circuit below.
 
-![The Knob Circuit.](assets/servo_circuit_knob.png)
+![The Knob Circuit.](./assets/servo_circuit_knob.png)
 
 ### Sweep Circuit
 
 For the **Sweep** example, connect the servo motor as shown in the circuit below.
 
-![The Sweep Circuit.](./assets/servo_circuit_sweep.png)
+![The Sweep Circuit.](./assets/servo_circuit_knob-pot.png)
 
 ## Examples
 
