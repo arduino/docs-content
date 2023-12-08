@@ -70,7 +70,7 @@ The UNO R4 Minima features the powerful and very robust Renesas microcontroller 
 
 These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C), and more.
 
-![Microcontroller on the UNO R4 Minima](assets/R7FA4M1AB3CFM.png)
+![Microcontroller on the UNO R4 Minima](./assets/R7FA4M1AB3CFM.png)
 
 ### Memory
 
@@ -239,7 +239,7 @@ void loop(){
 
 ## DAC
 
-![DAC Pin](assets/dacpin.png)
+![DAC Pin](./assets/dacpin.png)
 
 The UNO R4 Minima has a DAC with up to 12-bit resolution, that can act as a genuine analog output pin which means it's even more capable than PWM pins.
 
@@ -321,7 +321,7 @@ If you want to read more about the EEPROM check out [this article about Arduino 
 
 ## SPI
 
-![SPI Pins](assets/spipins.png)
+![SPI Pins](./assets/spipins.png)
 
 The UNO R4 Minima features a Serial Peripheral Interface (SPI) bus. The bus (connector), ‘SPI’ uses the following pins:
 
@@ -359,7 +359,7 @@ void loop() {
 
 ## I2C
 
-![I2C Pins](assets/i2cpins.png)
+![I2C Pins](./assets/i2cpins.png)
 
 I2C lets you connect multiple I2C-compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
 
@@ -489,7 +489,7 @@ To learn more about the HID capabilities of the UNO R4 Minima, check out the [HI
 
 ## SWD Connector
 
-![SWD Connector](assets/swd.png)
+![SWD Connector](./assets/swd.png)
 
 On the UNO R4 Minima, there is a debugging option available using the SWD connector pins, giving advanced debug functionalities for more advanced users.
 
