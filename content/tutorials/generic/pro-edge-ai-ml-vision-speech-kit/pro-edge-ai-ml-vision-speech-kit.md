@@ -47,6 +47,14 @@ Additionally you may need the following accessories:
 * USB-C® cable (x1)
 * 3.7 V Li-Po battery to externally power the Nicla Vision
 
+### Nicla Enclosures
+
+The Nicla boards enclosures are integrally designed to facilitate the deployment of your solutions alongside their robustness and security.
+
+<video width="100%" controls="true">
+<source src="assets/Nicla-Vision-Enclosure-Assembly.mp4" type="video/mp4"/>
+</video>
+
 ## Getting Started with Your Kit
 
 1. Get to [https://cloud.arduino.cc/](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino IoT Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started with Arduino Cloud For Business](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business)!

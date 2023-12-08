@@ -41,7 +41,6 @@ The following items are included in the kit:
 |    1     |           Portenta Breakout           | ASX00031 |
 |    1     | Cloud for business - 3 Months Voucher |    -     |
 
-
 Additionally, you may need the following accessories:
 
 * Micro-USB cable (x1)
@@ -50,6 +49,14 @@ Additionally, you may need the following accessories:
 * DC brushless fan Model: LD3007MS (x1)
 * 5 VDC wall power adapter (x1)
 * Male headers to solder Nicla boards
+
+### Nicla Enclosures
+
+The Nicla boards enclosures are integrally designed to facilitate the deployment of your solutions alongside their robustness and security.
+
+<video width="100%" controls="true">
+<source src="assets/sense-voice.mp4" type="video/mp4"/>
+</video>
 
 ## Getting Started with Your Kit
 
