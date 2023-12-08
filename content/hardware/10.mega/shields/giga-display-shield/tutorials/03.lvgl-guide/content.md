@@ -133,7 +133,7 @@ Take a look at this graphic to understand it better:
 
 ### Update Loop
 
-Include this in the loop of your sketch to make sure the LVGL engine is running and updating the screen.
+Include this in the loop of your sketch to make sure the LVGL engine is running and updating the screen. The `lv_timer_handler()` function should be called at max every 5 milliseconds. If it would be called more frequently than that please use a non-blocking method to delay it.
 
 ```arduino
 void loop() { 
