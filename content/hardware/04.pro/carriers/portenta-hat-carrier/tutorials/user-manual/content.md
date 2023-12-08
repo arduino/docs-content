@@ -2467,8 +2467,6 @@ The __Port Number__ defines the number designation of the corresponding connecto
 |   **Connector**    | **Pin Number** |         **Function**          | **Portenta X8 (Linux/Arduino)** |  **Portenta H7**   | **Portenta C33 (Numeric/Define)** |
 |:------------------:|:--------------:|:-----------------------------:|:-------------------------------:|:------------------:|:---------------------------------:|
 | _40-Pin Connector_ |                |                               |                                 |                    |                                   |
-|                    |       3        |           I2C2 SDA            |              149*               |    PH_12 (124)     |             39 / D39              |
-|                    |       5        |           I2C2 SCL            |              148*               |    PH_11 (123)     |             40 / D40              |
 |                    |       7        |             PWM0              |         183 / PC_7 (39)         |      PA_8 (8)      |              0 / D0               |
 |                    |       8        |          SERIAL3 TX           |               157               |     PL_8 (152)     |             53 / D53              |
 |                    |       10       |          SERIAL3 RX           |               156               |     PJ_9 (153)     |             54 / D54              |
@@ -2484,8 +2482,6 @@ The __Port Number__ defines the number designation of the corresponding connecto
 |                    |       23       | SPI1 SCK **(DTB Activated)**  |               138               |     PI_0 (128)     |             47 / D47              |
 |                    |       24       |  SPI1 CE **(DTB Activated)**  |               141               |     PI_1 (129)     |             48 / D48              |
 |                    |       26       |             PWM2              |        185 / PA_10 (10)         |     PC_7 (39)      |              2 / D2               |
-|                    |       27       |           I2C0 SDA            |                                 |     PH_8 (120)     |             11 / D11              |
-|                    |       28       |           I2C0 SCL            |                                 |     PH_7 (119)     |             12 / D12              |
 |                    |       29       |          SERIAL1 RX           |               127               |     PA_10 (10)     |             13 / D13              |
 |                    |       31       |             PWM3              |        186 / PB_10 (26)         |     PG_7 (103)     |              3 / D3               |
 |                    |       32       |          SERIAL1 TX           |               128               |      PA_9 (9)      |             14 / D14              |
@@ -2507,8 +2503,8 @@ The __Port Number__ defines the number designation of the corresponding connecto
 |                    |       9        |             PWM7              |         190 / PC_6 (38)         |     PJ_7 (151)     |              7 / D7               |
 |                    |       10       |             PWM8              |        191 / PA_12 (12)         |    PJ_10 (154)     |              8 / D8               |
 |                    |       12       |             PWM4              |        187* / PA_11 (11)        |    PJ_11 (155)     |              4 / D4               |
-|                    |       14       |          SERIAL2 TX           |              155*               |    PG_14 (110)     |             49 / D49              |
-|                    |       16       |          SERIAL2 RX           |              154*               |     PG_9 (105)     |             50 / D50              |
+|                    |       14       |          SERIAL2 TX           |               155               |    PG_14 (110)     |             49 / D49              |
+|                    |       16       |          SERIAL2 RX           |               154               |     PG_9 (105)     |             50 / D50              |
 
 In Linux, pins can be controlled using the system's functions via the ADB shell or via the official Python library.
 
