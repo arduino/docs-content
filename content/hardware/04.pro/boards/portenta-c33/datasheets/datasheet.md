@@ -303,6 +303,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 - Arduino® Nicla Vision (SKU: ABX00051)
 - Arduino® Nicla Voice (SKU: ABX00061)
 - Arduino® Portenta Max Carrier (SKU: ABX00043)
+- Arduino® Portenta Hat Carrier (SKU: ASX00049)
 - Arduino® Portenta CAT.M1/NB IoT GNSS Shield (SKU: ABX00043)
 - Arduino® Portenta Vision Shield - Ethernet (SKU: ABX00021)
 - Arduino® Portenta Vision Shield - LoRa® (SKU: ABX00026)
@@ -651,7 +652,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Document Revision History
 
 |  **Date**  | **Revision** |                      **Changes**                       |
-| :--------: | :----------: | :----------------------------------------------------: |
+|:----------:|:------------:|:------------------------------------------------------:|
+| 14/12/2023 |      6       |            Updated Related Product section             |
 | 14/11/2023 |      5       |             FCC and Block Diagram Updates              |
 | 30/10/2023 |      4       |          I2C ports information section added           |
 | 20/06/2023 |      3       | Power tree added, related products information updated |

@@ -638,9 +638,12 @@ Laboratory equipment, Computer vision
 Due to the dual core processing, the Portenta supports a wide array of applications.  
 
 ### Accessories (Not Included)
-* Portenta Vision shield
+
 * USB 2.0 Cable Type A/B
+* Portenta Vision shield
 * Portenta Breakout Board
+* Portenta Max Carrier
+* Portenta Hat Carrier
 
 ## Functional Overview
 
