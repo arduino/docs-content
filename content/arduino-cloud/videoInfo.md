@@ -3,7 +3,7 @@ url: https://www.youtube.com/embed/uaLrmLCqGnc?si=mrZrx8NTxS3RksyI
 info:
   [
     {
-      icon: IconIoT,
+      icon: IconNet,
       title: Getting Started with Arduino Cloud,
       description: 'An online platform that makes it easy for you to code, deploy and monitor IoT projects.',
       link: /arduino-cloud/guides/overview,
