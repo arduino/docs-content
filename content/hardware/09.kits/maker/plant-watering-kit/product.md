@@ -2,6 +2,8 @@
 title: Plant Watering Kit
 url_shop: https://store.arduino.cc/plant-watering-kit
 url_guide: /tutorials/plant-watering-kit/iot-smart-garden-setup-with-nanorp2040
+primary_button_url: /tutorials/plant-watering-kit/iot-smart-garden-setup-with-nanorp2040
+primary_button_title: Get Started
 certifications: [CE, UKCA]
 ---
 
