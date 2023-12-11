@@ -51,7 +51,7 @@ Before you start using the board's pins, it might be a good idea to check out th
 
 ### Analog Read
 
-***Note: This is currently only available on the nightly build***
+***Note: This is currently only available on the nightly build. Follow [this link](https://docs.arduino.cc/micropython/#firmware) to download it.***
 
 To read an analog pin, we can use the `ADC.read_u16` command. This reads the specified analog pin and returns an integer in the range 0 - 65535. For this, we need to import `ADC` from the `machine` module.
 
