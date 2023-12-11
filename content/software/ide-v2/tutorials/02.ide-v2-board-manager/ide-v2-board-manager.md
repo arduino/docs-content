@@ -1,5 +1,5 @@
 ---
-title: 'Installing a Core in the IDE 2'
+title: 'Installing a Board Package in the IDE 2'
 difficulty: beginner
 description: 'Learn how the new board manager tool works, and how to easily install the boards you want to use in the Arduino IDE 2.'
 tags:
@@ -8,7 +8,7 @@ tags:
 author: 'Karl Söderby & Jacob Hylén'
 ---
 
-The board manager is a great tool for installing the necessary cores to use your Arduino boards. In this quick tutorial, we will take a look at how to install one, and choosing the right core for your board! 
+The board manager is a great tool for installing the necessary board packages to use your Arduino boards. In this quick tutorial, we will take a look at how to install one, and choosing the right package for your board! 
 
 You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). 
 
@@ -20,19 +20,19 @@ You can also follow the [downloading and installing the Arduino IDE 2](/software
 
 ## Why Use the Board Manager?
 
-The board manager is a tool that is used to install different cores on your local computer. So what is a **core**, and why is it necessary that I install one?
+The board manager is a tool that is used to install different board packages on your local computer. So what is a **board package**, and why is it necessary that I install one?
 
-Simply explained, a core is written and designed for specific microcontrollers. Arduino offers several different types of boards, and these boards may also have different types of microcontrollers. While different microcontrollers accomplish tasks in similar ways, the way code is compiled, pins are mapped, and what features are available is tailor-made to the silicon itself, meaning that this will also be microcontroller-specific. 
+Simply explained, a board package is written and designed for specific microcontrollers. Arduino offers several different types of boards, and these boards may also have different types of microcontrollers. While different microcontrollers accomplish tasks in similar ways, the way code is compiled, pins are mapped, and what features are available is tailor-made to the silicon itself, meaning that this will also be microcontroller-specific. 
 
-What a core does is to act as a layer between all of this microcontroller-specific jargon, and you - the maker. The core translates it into the Arduino API you are already familiar with so that you can program any of the microcontrollers in the Arduino ecosystem in the same way.
+What a board package does is to act as a layer between all of this microcontroller-specific jargon, and you - the maker. The board package translates it into the Arduino API you are already familiar with so that you can program any of the microcontrollers in the Arduino ecosystem in the same way.
 
-For example, an Arduino UNO has an **ATmega328P**, which uses the **AVR core**, while an Arduino Nano 33 IoT has a **SAMD21** microcontroller, where we need to use the **SAMD core**. However, regardless of what microcontroller is on the board we are using, `digitalWrite(LED_BUILTIN, HIGH)` will turn on the built-in LED, and `analogRead(A0)` will read the analog pin 0 and check for a voltage.
+For example, an Arduino UNO has an **ATmega328P**, which uses the **AVR package**, while an Arduino Nano 33 IoT has a **SAMD21** microcontroller, where we need to use the **SAMD package**. However, regardless of what microcontroller is on the board we are using, `digitalWrite(LED_BUILTIN, HIGH)` will turn on the built-in LED, and `analogRead(A0)` will read the analog pin 0 and check for a voltage.
 
-In conclusion, to use a specific board, we need to install a specific core. 
+In conclusion, to use a specific board, we need to install a specific board package. 
 
-## Installing a Core
+## Installing a Board Package
 
-Installing a core is quick and easy, but let's take a look at what we need to do. 
+Installing a board package is quick and easy, but let's take a look at what we need to do. 
 
 **1.** Open the Arduino IDE 2. 
 
@@ -40,7 +40,7 @@ Installing a core is quick and easy, but let's take a look at what we need to do
 
 ![The board manager.](assets/installing-a-core-img01.png)
 
-**3.** A list will now appear of all available cores. Now let's say we are using an **Nano 33 BLE** board, and we want to install the core. Simply enter the name in the search field, and the right core (Mbed OS Nano) will appear, where the Nano 33 BLE features in the description. Click on the **"INSTALL"** button.
+**3.** A list will now appear of all available packages. Now let's say we are using an **Nano 33 BLE** board, and we want to install the board package. Simply enter the name in the search field, and the right package (Mbed OS Nano) will appear, where the Nano 33 BLE features in the description. Click on the **"INSTALL"** button.
 
 ![Navigating the board manager.](assets/installing-a-core-img02.png)
 
@@ -52,7 +52,7 @@ Installing a core is quick and easy, but let's take a look at what we need to do
 
 ![Board is installed.](assets/installing-a-core-img04.png)
 
-Congratulations! You have now successfully downloaded and installed a core on your machine, and you can start using your Arduino board! 
+Congratulations! You have now successfully downloaded and installed a board package on your machine, and you can start using your Arduino board! 
 
 ### Changing version
 
@@ -77,13 +77,13 @@ And that should be it!
 To make sure that the process was successful, cross check what version is installed by looking at this little tag right underneath the package name.
 ![Boards manager](./assets/installing-a-core-img08.png)
 
-## What Core Should I Install?
+## What Board Package Should I Install?
 
-Do you have an Arduino board in your hands, but are not sure what core you need to install? When you plug a board in to your computer, and you don't have the appropriate core installed, the IDE should automatically prompt you to install it. But, in case you need it anyways, you can find a list of boards and the core packages they belong to below:
+Do you have an Arduino board in your hands, but are not sure what board package you need to install? When you plug a board in to your computer, and you don't have the appropriate board package installed, the IDE should automatically prompt you to install it. But, in case you need it anyways, you can find a list of boards and the board packages they belong to below:
 
 ### AVR
 
-The **AVR Boards** package is based on the **Arduino AVR Core**, and includes the following boards:
+The **AVR boards package** is based on the **Arduino AVR Core**, and includes the following boards:
 
 - [UNO R3](/hardware/uno-rev3)
 - [UNO R3 SMD](/hardware/uno-rev3-smd)
@@ -93,7 +93,7 @@ The **AVR Boards** package is based on the **Arduino AVR Core**, and includes th
 - [Nano](/hardware/nano)
 - [Mega 2560](/hardware/mega-2560)
 
-The **AVR core** comes pre-installed when you download the Arduino IDE, so if you have one of these boards - Great! You're already done and won't need to install it yourself. You can, however, still find it in the board manager if you want to change what version of the core you have installed. For detailed instructions on how to do this, [follow the steps above](#installing-a-core).
+The **AVR board package** comes pre-installed when you download the Arduino IDE, so if you have one of these boards - Great! You're already done and won't need to install it yourself. You can, however, still find it in the board manager if you want to change what version of the board package you have installed. For detailed instructions on how to do this, [follow the steps above](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -106,7 +106,7 @@ The **MegaAVR Boards package** is based on the **Arduino AVR Core**, and include
 - [UNO WiFi Rev2](/hardware/uno-wifi-rev2)
 - [Nano Every](/hardware/nano-every)
 
-You can install this package in the board manager by searching for "**Arduino MegaAVR Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino MegaAVR Boards**". For detailed instructions, see the [Installing a Board Package section](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -119,7 +119,7 @@ The **UNO R4 Boards** package is based on the **Arduino Renesas Core**, and incl
 - [UNO R4 Minima](/hardware/uno-r4-minima)
 - [UNO R4 WiFi](/hardware/uno-r4-wifi)
 
-You can install this package in the board manager by searching for "**Arduino UNO R4 Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino UNO R4 Boards**". For detailed instructions, see the [Installing a Board Package section](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -131,7 +131,7 @@ The **SAM Boards** package is based on the **Arduino SAM Core**, and includes th
 
 - [Due](/hardware/due)
 
-You can install this package in the board manager by searching for "**Arduino SAM Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino SAM Boards**". For detailed instructions, see the [Installing a Board Package section](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -154,7 +154,7 @@ The **SAMD Boards** package is based on the **Arduino SAMD Core**, and includes 
 - [MKR Vidor 4000](/hardware/mkr-vidor-4000)
 
 
-You can install this package in the board manager by searching for "**Arduino SAMD Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino SAMD Boards**". For detailed instructions, see the [Installing a Board Package section](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -166,7 +166,7 @@ The **Mbed OS GIGA Boards** package is based on the **Arduino Mbed Core**, and i
 
 - [GIGA R1 WiFi](/hardware/giga-r1-wifi)
 
-You can install this package in the board manager by searching for "**Arduino Mbed OS GIGA Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Mbed OS GIGA Boards**". For detailed instructions, see the [Installing a Board Package section](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -181,7 +181,7 @@ The **Mbed OS Nano Boards** package is based on the **Arduino Mbed Core**, and i
 - [Nano 33 BLE Sense](/hardware/nano-33-ble-sense)
 - [Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2)
 
-You can install this package in the board manager by searching for "**Arduino Mbed OS Nano Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Mbed OS Nano Boards**". For detailed instructions, see the [Installing a Board Package section](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -196,7 +196,7 @@ The **Mbed OS Portenta Boards** package is based on the **Arduino Mbed Core**, a
 - [Portenta H7-lite-connected](/hardware/portenta-h7-lite-connected)
 - [Portenta X8](/hardware/portenta-x8)
 
-You can install this package in the board manager by searching for "**Arduino Mbed OS Portenta Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Mbed OS Portenta Boards**". For detailed instructions, see the [Installing a Board Package section](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -210,7 +210,7 @@ The **Mbed OS Nicla Boards** package is based on the **Arduino Mbed Core**, and 
 - [Nicla Vision](/hardware/nicla-vision)
 - [Nicla Voice](/hardware/nicla-voice)
 
-You can install this package in the board manager by searching for "**Arduino Mbed OS Nicla Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Mbed OS Nicla Boards**". For detailed instructions, see the [Installing a Board Package section](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -222,7 +222,7 @@ The **Mbed OS Edge Boards** package is based on the **Arduino Mbed Core**, and i
 
 - [Edge Control](/hardware/edge-control)
 
-You can install this package in the board manager by searching for "**Arduino Mbed OS Edge Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Mbed OS Edge Boards**". For detailed instructions, see the [Installing a Board Package section](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -234,7 +234,7 @@ The **Renesas Portenta Boards** package is based on the **Arduino Renesas Core**
 
 - [Portenta C33](/hardware/portenta-c33)
 
-You can install this package in the board manager by searching for "**Arduino Renesas Portenta Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino Renesas Portenta Boards**". For detailed instructions, see the [Installing a Board Package section](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
@@ -242,11 +242,11 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 ### ESP32
 
-The **ESP32 Boards** package is based on the **Arduino-esp32 core**, and includes the following boards:
+The **ESP32 Boards** package is based on the **Arduino-esp32 Core**, and includes the following boards:
 
 - [Nano ESP32](/hardware/nano-esp32)
 
-You can install this package in the board manager by searching for "**Arduino ESP32 Boards**". For detailed instructions, see the [Installing a Core section](#installing-a-core).
+You can install this package in the board manager by searching for "**Arduino ESP32 Boards**". For detailed instructions, see the [Installing a Board Package section](#installing-a-board-package).
 
 For source code and reporting issues, please visit the official GitHub repository:
 
