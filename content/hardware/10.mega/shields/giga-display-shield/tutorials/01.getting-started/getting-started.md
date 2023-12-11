@@ -106,7 +106,11 @@ This makes it possible to freely use the GIGA R1 WiFi's pins while the display s
 
 Located on the top side of the shield is a 20 pin camera connector, which is Arducam® compatible and supports a wide range of cameras. The connector is connected to the [GIGA R1 WiFi's camera connector](/tutorials/giga-r1-wifi/giga-camera#camera-connector), and is compatible with a wide range of cameras ([see Arducam cameras](https://www.arducam.com/camera-for-arduino-giga/)).
 
-The connector is located just above the display, which makes it possible to see camera's feed directly on the display! Read more about this in the [GIGA Display Camera Connector Guide](/tutorials/giga-display-shield/camera-tutorial), complete with an example.
+The camera can only be mounted **on the front** of the display shield, meaning it only works in selfie mode. Do not attempt to connect the camera from the back. See the image below for how to connect it:
+
+![GIGA R1 + GIGA Display Shield + Camera Module.](assets/camera-connected.png)
+
+Read more about this in the [GIGA Display Camera Connector Guide](/tutorials/giga-display-shield/camera-tutorial), complete with an example.
 
 ## IMU
 

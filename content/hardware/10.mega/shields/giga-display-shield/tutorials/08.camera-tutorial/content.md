@@ -20,7 +20,7 @@ The GIGA Display Shield comes with an Arducam® camera connector. In this tutori
 
 The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the core. Now open the library tab on the left, search for [**Arducam_dvp**](https://www.arduino.cc/reference/en/libraries/arducam_dvp/), and install this library.
 
-![Library tab in the Arduino IDE](assets/ide-library.svg)
+![Library tab in the Arduino IDE](assets/ide-library.png)
 
 ## Compatible Cameras
 
@@ -33,7 +33,7 @@ The GIGA Display Shield is compatible with the following cameras:
 
 Connect the camera to the connector on the front of the display shield as shown in the image below.
 
-![Camera connected to the GIGA Display Shield](assets/camera-connected.svg)
+![Camera connected to the GIGA Display Shield](assets/camera-connected.png)
 
 ***Note the direction of the shield, physically the connector can be plugged in from both directions, but it will only work when facing the same direction as the display.***
 
@@ -41,7 +41,7 @@ Connect the camera to the connector on the front of the display shield as shown 
 
 Open the example sketch by going to **File > Examples > Camera > GigaCameraDisplay** in the Arduino IDE.
 
-![Opening the example sketch in the Arduino IDE](assets/ide-example.svg)
+![Opening the example sketch in the Arduino IDE](assets/ide-example.png)
 
 Whichever of the compatible cameras you are using the sketch will include libraries and definitions for them all, meaning only one line needs to be changed depending on what camera you will be using. The line that needs to be changed is this one:
 

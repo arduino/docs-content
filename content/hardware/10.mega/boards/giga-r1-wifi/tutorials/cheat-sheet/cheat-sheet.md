@@ -669,12 +669,14 @@ void loop() {
 
 The **GIGA R1** features two separate SPI (Serial Peripheral Interface) buses, one is configured on the 6 pin header (ICSP) labelled SPI, and the other is broken out into pin connections on the board.
 
-The first bus (connector), `SPI1` uses the following pins:
+The first bus which has a dedicated SPI header, `SPI1`, uses the following pins:
 
 - (CIPO) - D89
 - (COPI) - D90
 - (SCK) - D91
 - (CS) - unassigned, use any free GPIO for this.
+  
+***Please note that the SPI header provides a 5 V pin. Make sure that the SPI device you are connecting supports an input voltage of 5 V. If you have an SPI device that supports 3.3 V only, use the `SPI5` port (see below).***
 
 The second bus (header), `SPI5`, uses the following pins: 
 
