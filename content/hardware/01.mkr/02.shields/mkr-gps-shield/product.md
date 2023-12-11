@@ -2,6 +2,8 @@
 title: MKR GPS Shield
 url_shop: https://store.arduino.cc/arduino-mkr-gps-shield
 url_guide: /tutorials/mkr-gps-shield/mkr-gps-basic
+primary_button_url: /tutorials/mkr-gps-shield/mkr-gps-basic
+primary_button_title: Get Started
 certifications: [CE, UKCA]
 ---
 
