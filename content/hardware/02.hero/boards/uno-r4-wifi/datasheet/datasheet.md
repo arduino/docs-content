@@ -6,7 +6,7 @@ type: maker
 
 ![](assets/featured.png)
 
-# Description 
+# Description
 
 The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi® module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4 WiFi's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB of EEPROM.
 
@@ -145,12 +145,12 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 
 The UNO R4 WiFi is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#AA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
 
-The operating voltage for the RA4M1 is fixed at 5 V as to be hardware compatible with shields, accessories & circuits based on previous Arduino UNO boards. 
+The operating voltage for the RA4M1 is fixed at 5 V as to be hardware compatible with shields, accessories & circuits based on previous Arduino UNO boards.
 
 The R7FA4M1AB3CFM#AA0 features:
 * 256 kB flash / 32 kB SRAM / 8 kB data flash (EEPROM)
 * Real-time Clock (RTC)
-* 4x Direct Memory Access Controller (DMAC) 
+* 4x Direct Memory Access Controller (DMAC)
 * 14-bit ADC
 * Up to 12-bit DAC
 * OPAMP
@@ -170,7 +170,7 @@ The ESP32-S3-MINI-1-N8 features:
 * 512  kB SRAM
 * Up to 150 Mbps bit rate
 
-This module acts as a secondary MCU on the UNO R4 WiFi, and communicates with the RA4M1 MCU using a logic-level translator. Note that this module operates on 3.3 V as opposed to the RA4M1's 5 V operating voltage. 
+This module acts as a secondary MCU on the UNO R4 WiFi, and communicates with the RA4M1 MCU using a logic-level translator. Note that this module operates on 3.3 V as opposed to the RA4M1's 5 V operating voltage.
 
 ### ESP Header
 
@@ -178,7 +178,7 @@ This module acts as a secondary MCU on the UNO R4 WiFi, and communicates with th
 
 The header located close to the RESET button can be used to access the ESP32-S3 module directly. The pins accessible are:
 
-* `ESP_IO42` - MTMS debugging (Pin 1)  
+* `ESP_IO42` - MTMS debugging (Pin 1)
 * `ESP_IO41` - MTDI debugging (Pin 2)
 * `ESP_TXD0` - Serial Transmit (UART) (Pin 3)
 * `ESP_DOWNLOAD` - boot (Pin 4)
@@ -234,7 +234,7 @@ The DAC can be used for signal generation for e.g. audio applications, like gene
 
 ## I2C Connector
 
-The I2C connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V. 
+The I2C connector SM04B-SRSS-TB(LF)(SN) is connected to a secondary I2C bus on the board. Note that this connector is powered via 3.3 V.
 
 ![I2C connector.](assets/i2c-connector.png)
 
@@ -254,7 +254,7 @@ This connector also shares the following pin connections:
 
 Power can either be supplied via the VIN pin, or via USB-C® connector. If power is supplied via VIN, the ISL854102FRZ buck converter steps the voltage down to 5 V.
 
-Both VUSB and VIN pins are connected to the ISL854102FRZ buck converter, with Schottky diodes in place for reverse polarity & overvoltage protection respectively. 
+Both VUSB and VIN pins are connected to the ISL854102FRZ buck converter, with Schottky diodes in place for reverse polarity & overvoltage protection respectively.
 
 Power via USB supplies about ~4.7 V (due to Schottky drop) to the RA4M1 MCU.
 
@@ -266,7 +266,7 @@ The linear regulator (SGM2205-3.3XKC3G/TR) converts 5 V from either the buck con
 
 ### Pin Voltage
 
-The general operating voltage for UNO R4 WiFi is 5 V, however the ESP32-S3 module's operating voltage is 3.3 V. 
+The general operating voltage for UNO R4 WiFi is 5 V, however the ESP32-S3 module's operating voltage is 3.3 V.
 
 **Note:** It is **very** important that ESP32-S3's pins (3.3 V) do not come in contact with any of the RA4M1's pins (5 V), as this may damage the circuits.
 
@@ -400,7 +400,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 
 Exemptions : No exemptions are claimed.
 
-Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (<https://echa.europa.eu/web/guest/candidate-list-table>), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([https://echa.europa.eu/web/guest/candidate-list-table](https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ## Conflict Minerals Declaration
 
@@ -456,7 +456,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.  
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
@@ -476,12 +476,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Ref                       | Link                                                                                            |
 | ------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                              |
-| Cloud IDE Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Project Hub               | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
-| Library Reference         | <https://github.com/arduino-libraries/>                                                         |
-| Online Store              | <https://store.arduino.cc/>                                                                     |
+| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                       |
+| Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                             |
+| Cloud IDE Getting Started | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor) |
+| Project Hub               | [https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending)                     |
+| Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                        |
+| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                    |
 
 ## Change Log
 
