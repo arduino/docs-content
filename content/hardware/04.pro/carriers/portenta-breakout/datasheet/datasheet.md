@@ -5,8 +5,8 @@ type: pro
 ---
 ![](assets/featured.png)
 
-# Description 
-The Arduino® Portenta Breakout board is designed to assist developers with their prototypes by exposing the high-density connectors of the Portenta family on both sides of the breakout carrier, providing total flexibility for measuring and controlling signals - developing your own hardware, testing the design and measuring the input and output signals out of the high-density connectors. 
+# Description
+The Arduino® Portenta Breakout board is designed to assist developers with their prototypes by exposing the high-density connectors of the Portenta family on both sides of the breakout carrier, providing total flexibility for measuring and controlling signals - developing your own hardware, testing the design and measuring the input and output signals out of the high-density connectors.
 
 # Target areas:
 Prototyping
@@ -15,10 +15,10 @@ Prototyping
 * Power ON Button
 * Boot mode DIP switch
 * Connectors
-  *   USBA 
+  *   USBA
   *   RJ45 Ethernet up to 1Gb/s; speed depending on installed board
   *   Micro SD card
-  <!-- *   OpenMV shutter module -->
+  {/* *   OpenMV shutter module */}
   *   MIPI 20T JTAG with trace capability
 * Power
   *   CR2032 RTC Lithium Battery backup
@@ -39,26 +39,24 @@ This product is designed to work alongside the Portenta family. Please check the
 
 **Product Development:** The Portenta Breakout board reduces development time for industrial-grade solution automation based on the Portenta line.
 
-<!-- **OpenMV:** Connectivity to the OpenMV Global Shutter Camera Module is provided on the Portenta Breakout board allowing for rapid development of machine vision applications alongside the Portenta family. -->
+{/* **OpenMV:** Connectivity to the OpenMV Global Shutter Camera Module is provided on the Portenta Breakout board allowing for rapid development of machine vision applications alongside the Portenta family. */}
 
 **Technical Education:** The Portenta Breakout board can act as a first point of entry for technician education in industrial-grade control and embedded systems.
 
 ### Accessories (Not Included)
 *   8-, 10-, 12- and 22-pin headers/connectors with 2.54 mm pitch
 *   20 pin JTAG programmer
-<!-- *   OpenMV Global Shutter Camera Module -->
-<!-- *   M2x3 screws for attaching the OpenMV Global Shutter Camera Module -->
+{/* *   OpenMV Global Shutter Camera Module */}
+{/* *   M2x3 screws for attaching the OpenMV Global Shutter Camera Module */}
 
 ### Related Products
 *   Arduino Portenta H7 (SKU: ABX00042)
 *   Arduino Portenta H7 Lite (SKU: ABX00045)
 *   Arduino Portenta H7 Lite Connected (SKU: ABX00046)
 *   Arduino Portenta X8 (SKU: ABX00049)
-<!-- *   OpenMV Global Shutter Camera Module -->
+{/* *   OpenMV Global Shutter Camera Module */}
 
 ### Solution Overview
-
-<!-- [Example of a typical installation for a solution including Portenta H7 and Global Shutter Camera Module. A Portenta board must be connected for operation of the Portenta Breakout Board.](assets/breakoutCarrierAssembly.jpg) -->
 
 ![](assets/breakoutsolution.png)
 Example of a typical installation for a solution including Portenta H7. A Portenta board must be connected for operation of the Portenta Breakout Board.
@@ -78,7 +76,7 @@ Example of a typical installation for a solution including Portenta H7. A Porten
 |   5V   | Input voltage from 5V input | 4.8  |  5   | 5.2  |  V   |
 
 ## Functional Overview
-### Board Topology 
+### Board Topology
 Front view
 ![Top view - connectors](assets/breakoutCarrierConnectors.png)
 
@@ -87,7 +85,7 @@ Front view
 |    J1    | DF40HC(3.5)-80DS-0.4V(51) High Density connector |    J5    |        Micro SD card        |
 |    J2    | DF40HC(3.5)-80DS-0.4V(51) High Density connector |    J6    | 20 mm coin battery retainer |
 |    J3    |               USB type A connector               |    J7    |      Ethernet adaptor       |
-|    J4    |               <!--OpenMV-->Cam connector               |    J8    |    Power terminal block     |
+|    J4    |               {/* OpenMV */}Cam connector               |    J8    |    Power terminal block     |
 |   SW1    |               Boot mode selection                |   PB1    |       Power ON button       |
 |    U1    |               USBA power switch IC               |          |                             |
 
@@ -98,7 +96,7 @@ Back view
 | :------: | :----------------------------------------: | :------: | :----------------------------------------: |
 |   J15    | DF40C-80DP-0.4V(51) High Density connector |   J16    | DF40C-80DP-0.4V(51) High Density connector |
 
-<!--
+{/*
 Shared pins table
 Some nets/pins are electrically shared in the board and precaution must be taken to avoid conflicts. The full list is presented below.
 
@@ -112,7 +110,7 @@ Some nets/pins are electrically shared in the board and precaution must be taken
 | SPI1_MOSI |   I2C/OPENMV    | SPI1 MOSI |      OPENMV_CAM_MOSI      |
 |  SPI1_CS  |   I2C/OPENMV    |  SPI1 CS  |       OPENMV_CAM_CS       |
 |  GPIO_0   |   GPIO/OPENMV    |  GPIO 0   |      OPENMV_CAM_RST       |
-|  GPIO_1   |   GPIO/OPENMV    |  GPIO 1   |      OPENMV_CAM_FSIN      | 
+|  GPIO_1   |   GPIO/OPENMV    |  GPIO 1   |      OPENMV_CAM_FSIN      |
 |  GPIO_2   |    GPIO/USBA    |  GPIO 2   |  USBA VBUS FLAG (jumper)  |
 |  GPIO_3   |   GPIO/OPENMV    |  GPIO 3   |      OPENMV_CAM_PWDN      |
 |  GPIO_4   |    GPIO/JTAG    |  GPIO 4   |   TRACEDATA_0 (jumper)    |
@@ -120,7 +118,7 @@ Some nets/pins are electrically shared in the board and precaution must be taken
 |   PWM0    |   PWM/OPENMV |   PWM 0   |      OPENMV_CAM_CLK       |
 |  PDM_CK   |    PDM/JTAG     |  PDM CK   |   TRACEDATACLK (jumper)   |
 | UART2_TX  |    UART/JTAG    | UART2 TX  |     TRACEDATA1 (JTAG)     |
--->
+*/}
 
 ### DIP Switch
 The DIP switch allows for boot mode configuration:

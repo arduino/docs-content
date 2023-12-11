@@ -13,11 +13,11 @@ The **Portenta Breakout** makes all high-density connectors’ signals individua
   <FeatureLink title="Read More" url="/hardware/portenta-h7" />
 </Feature>
 
-<!-- <Feature title="OpenMV camera socket" image="camera"> -->
+{/* <Feature title="OpenMV camera socket" image="camera"> */}
 
-<!--  The Portenta Breakout allows rapid development of machine vision applications alongside the Portenta family. -->
+{/*  The Portenta Breakout allows rapid development of machine vision applications alongside the Portenta family. */}
 
-<!-- </Feature> -->
+{/* </Feature> */}
 
 <Feature title="JTAG connector" image="connection">
 

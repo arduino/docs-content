@@ -16,9 +16,9 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-wi
 
 ### What is Arduino Create?
 
-[Arduino Create](https://create-intel.arduino.cc/) is an online platform that enables makers to write code, access tutorials, configure boards, and share projects. Designed to provide users with a continuous workflow, Arduino Create connects the dots between each part of a maker’s journey from inspiration to implementation. If you want to learn more on the features of Create check out [this getting started guide](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-the-arduino-web-editor-4b3e4a). 
+[Arduino Create](https://create-intel.arduino.cc/) is an online platform that enables makers to write code, access tutorials, configure boards, and share projects. Designed to provide users with a continuous workflow, Arduino Create connects the dots between each part of a maker’s journey from inspiration to implementation. If you want to learn more on the features of Create check out [this getting started guide](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-the-arduino-web-editor-4b3e4a).
 
-## Setting up Your Intel-based Platform 
+## Setting up Your Intel-based Platform
 
 If you have an [Intel-based platform](https://software.intel.com/en-us/iot/hardware/gateways), such as an [Intel Nuc, Up2 Board, Dell Wyse](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html), [Gigabyte GB-BXT ](http://b2b.gigabyte.com/Embedded-Computing/GB-BXBT-3825-rev-10#ov)or any other gateway with Ethernet[ ](http://www.up-board.org/upsquared/)connection, you can easily set it up by following a simple guide. If you have the [UP Squared Grove IoT Development Kit,](https://software.intel.com/en-us/iot/hardware/up-squared-grove-dev-kit) you can follow a simplified setup process [here.](https://create.arduino.cc/getting-started/up2)
 
@@ -53,7 +53,7 @@ If you have just purchased your device and this is your first time using it this
 
 ![Create a new username and password for your gateway.](assets/screenshot_2017-08-08_15_07_28_RLxedgycYm.png)
 
-To be able to correctly install a Linux distribution on your gateway we need to create a new user and set a password. You will be able to use these credentials to access your Gateway if you connect to it via SSH or if you plug it into a screen and keyboard. 
+To be able to correctly install a Linux distribution on your gateway we need to create a new user and set a password. You will be able to use these credentials to access your Gateway if you connect to it via SSH or if you plug it into a screen and keyboard.
 
 
 ![If you require a proxy to be configured to access Internet, you will be able to set it up on this page.](assets/screenshot_2017-10-31_11_45_03_Qgbdzji2Xe.png)
@@ -78,7 +78,7 @@ Now you can quit Etcher and go back to the Getting Started guide in the browser.
 
 ![Setting up Ubuntu OS.](assets/screenshot_2017-10-31_11_49_11_WJgBrLvddz.png)
 
-We are now ready to install the customized OS on your device. 
+We are now ready to install the customized OS on your device.
 
 First thing to do is checking if your device can boot from USB, here are [some guides on how to change the booting order](http://www.boot-disk.com/boot_priority.htm). Once you are sure about the order, plug the USB key in your device, connect it to Internet via Ethernet and turn it on, you can do so by simply and plugging the power jack in.
 
@@ -86,7 +86,7 @@ First thing to do is checking if your device can boot from USB, here are [some g
 
 ![If your installation was successful you should see this message.](assets/screenshot_2017-08-08_17_51_37_WuHBQ4vyj8.png)
 
-The installation process has now started! 
+The installation process has now started!
 
 If something goes wrong (for instance the progress bar gets stuck for a very long time) you can try to flash a new USB key or check your Internet connection. **Please note that you cannot reuse the same USB stick for multiple Gateways and you must always restart the flow** **[from the very beginning](https://create-intel.arduino.cc/getting-started/device)**.
 
@@ -107,7 +107,7 @@ You are now presented with 2 options, (1) Enter your device IP address or (2) Co
 
 ![1. Enter your device IP](assets/screenshot_2017-08-08_17_20_29_Hz0JuNiuek.png)
 
-If you know your device IP address you can simply write it in the text field. You can use services like [Angry IP Scanner](http://angryip.org/) to check what devices are available on your network and what their IP is. 
+If you know your device IP address you can simply write it in the text field. You can use services like [Angry IP Scanner](http://angryip.org/) to check what devices are available on your network and what their IP is.
 
 For this option to work, your host computer and gateway need to be on the same network. Arduino Create is using SSH to login to your target platform from your host, in order to configure the Arduino Connector. If an OpenSSH server isn’t running on your gateway you can install it using `sudo apt-get install openssh-server`. Once it’s installed the SSH server should start automatically.
 
@@ -140,13 +140,13 @@ You have successfully completed the installation (using either the USB, the IP o
 
 At the end of the installation flow you will be redirected to the web editor. For more infos on how to use it [follow this tutorial.](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-the-arduino-web-editor-4b3e4a)
 
-Let's run a test sketch! Open the DebugSerial example included in the UP Squared Grove IoT Development Kit library. 
+Let's run a test sketch! Open the DebugSerial example included in the UP Squared Grove IoT Development Kit library.
 
 You can find it in LIBRARIES > UP SQUARED GROVE IOT DEV KIT > Serial > DebugSerial. You can also just type 'UP' in the search field and it will be easier to find :)
 
 ![Setting up the test sketch.](assets/example_hOfWaKDwJw.png)
 
-While you may have a different board than what’s in the [UP Squared Grove IoT Development Kit](https://software.intel.com/en-us/iot/hardware/up-squared-grove-dev-kit), all of the examples created for that kit should work, with the exception of the ones that include specific sensors (GroveLCD and GroveRotaryAngle for example). 
+While you may have a different board than what’s in the [UP Squared Grove IoT Development Kit](https://software.intel.com/en-us/iot/hardware/up-squared-grove-dev-kit), all of the examples created for that kit should work, with the exception of the ones that include specific sensors (GroveLCD and GroveRotaryAngle for example).
 
 This example demonstrate the use of the Monitor in the online editor, that can be used to receive or send messages to and from your board via Network. To see it in action you need to upload the example onto your board, make sure you have selected your device **via Cloud** in the target dropdown.
 
@@ -158,7 +158,7 @@ Once the upload has completed you will see a success message appearing right und
 
 Congratulations, you've compiled and built your first sketch!
 
-Now you can go to the Monitor panel, if you enter 'hello' into input field and press SEND, you will see the following: 
+Now you can go to the Monitor panel, if you enter 'hello' into input field and press SEND, you will see the following:
 
 ![Serial Monitor data.](assets/monitor_UzYEwHOZw1.png)
 
@@ -178,7 +178,7 @@ Or:
 
 To listen to messages:
 
-`DebugSerial.read()` 
+`DebugSerial.read()`
 
 ## Stopping and Starting Sketches
 
@@ -191,11 +191,11 @@ Now that your sketch is running onto a Intel-based platform you should be seeing
 
 ## My Devices App
 
-Go to the My Devices app by clicking the menu icon in the upper left and clicking My Devices. Alternatively, you can go to <https://create.arduino.cc/devices.>
+Go to the My Devices app by clicking the menu icon in the upper left and clicking My Devices. Alternatively, you can go to [https://create.arduino.cc/devices.](https://create.arduino.cc/devices.)
 
 ![Click My Devices.](assets/mydevices_raRSvtOAl8.png)
 
-[My Devices ](https://create-intel.arduino.cc/devices)allows you to see all the cloud-enabled boards and products that you have setup and are linked to your account. 
+[My Devices ](https://create-intel.arduino.cc/devices)allows you to see all the cloud-enabled boards and products that you have setup and are linked to your account.
 
 From here you can see what processes are running on each board and stop or start them. You can also delete your devices if you don't need them anymore.
 
@@ -209,11 +209,11 @@ You should now see ‘STOPPED’.
 
 ![The sketch is now stopped.](assets/stopped_4FZUsoCoYv.png)
 
-You are not limited to running one sketch at a time and can run multiple sketches, given they don’t conflict with each other. 
+You are not limited to running one sketch at a time and can run multiple sketches, given they don’t conflict with each other.
 
 ### Useful Links
 
-[Using Intel Libraries in Arduino Create](https://software.intel.com/en-us/articles/using-intel-libraries-in-arduino-create) 
+[Using Intel Libraries in Arduino Create](https://software.intel.com/en-us/articles/using-intel-libraries-in-arduino-create)
 
 [MRAA and UPM Basics in Arduino Create](https://software.intel.com/en-us/articles/mraa-and-upm-basics-in-arduino-create)
 

@@ -31,7 +31,7 @@ Devices can connect to GCP IoT Core using HTTP or [MQTT](http://mqtt.org/). This
 
 Devices must use JSON Web Tokens (JWTs) for authentication, more information on JWTs can be found in [RFC 7519](https://tools.ietf.org/html/rfc7519). GCP IoT Core supports both RSA and Elliptic Curve algorithms to verify JSON Web Signatures (JWS). More information on JWS can be found in [RFC 7515](https://tools.ietf.org/html/rfc7515).
 
-Every Arduino MKR board with on-board connectivity, including the MKR GSM 1400, is equipped with a Microchip [ATECC508A](https://www.microchip.com/wwwproducts/en/ATECC508A) or [ATECC608A](https://www.microchip.com/wwwproducts/en/ATECC608A) crypto element. This crypto element can be used to securely generate and store a 256-bit ECC (Elliptic Curve Cryptography) key. We'll be using a private key stored inside the crypto element to sign the JWT. 
+Every Arduino MKR board with on-board connectivity, including the MKR GSM 1400, is equipped with a Microchip [ATECC508A](https://www.microchip.com/wwwproducts/en/ATECC508A) or [ATECC608A](https://www.microchip.com/wwwproducts/en/ATECC608A) crypto element. This crypto element can be used to securely generate and store a 256-bit ECC (Elliptic Curve Cryptography) key. We'll be using a private key stored inside the crypto element to sign the JWT.
 
 ### Software and Hardware Setup
 
@@ -62,7 +62,7 @@ The private and public can be generated using an example sketch from the Arduino
 This sketch will prompt you to permanently configure your ATECC508A to ECC608A crypto element if it is not configured and locked.
 
  ***NOTE: This locking process is permanent and irreversible, but is needed to use the the crypto element - the configuration the sketch sets allows you to use 5 private key slots with any cloud provider(or server) and a private key can be regenerated any time for any of the 5 private key slots (0 - 4).***
- 
+
 When the board is shipped from the factory, the crypto element is in an unconfigured and unlocked state.
 
 After this, you will be prompted for what slot to use. For this tutorial we'll be using slot 0 to generate and store the private key used for a public key (slots 1 to 4 can be used to generate and store additional private keys if needed). **Note:** Since the private key is generated inside the crypto element it never leaves the device and is stored securely and cannot be read.
@@ -82,7 +82,7 @@ We will use it in a later step when adding the device to GCP IoT Core.
 
 Now that we have a PEM public key, we need to login into the GCP IoT Core console and create a new device for it.
 
-Open a web browser and go to <https://cloud.google.com/> and click the "Sign In" link to login with your Google ID.
+Open a web browser and go to [https://cloud.google.com/](https://cloud.google.com/) and click the "Sign In" link to login with your Google ID.
 
 ![Sign in to Google Cloud.](assets/screen_shot_2019-03-14_at_2_30_04_pm_jofsNyf2L7.png)
 
@@ -104,7 +104,7 @@ Open a web browser and go to <https://cloud.google.com/> and click the "Sign In"
 ![You will be prompted to enable the API, click the "Enable API" button.](assets/screen_shot_2019-03-14_at_2_40_13_pm_Od7PToPAm8.png)
 
 
-Once the API is enabled, you will be prompted to create a device registry. 
+Once the API is enabled, you will be prompted to create a device registry.
 
 ![Click the "Create a device registry" button to proceed.](assets/screen_shot_2019-03-14_at_2_41_50_pm_ZijtDPbdcP.png)
 
@@ -317,7 +317,7 @@ String calculateClientId() {
 
 String calculateJWT() {
   unsigned long now = getTime();
-  
+
   // calculate the JWT, based on:
   //   https://cloud.google.com/iot/docs/how-tos/credentials/jwts
   JSONVar jwtHeader;
@@ -328,7 +328,7 @@ String calculateJWT() {
 
   jwtClaim["aud"] = projectId;
   jwtClaim["iat"] = now;
-  jwtClaim["exp"] = now + (24L * 60L * 60L); // expires in 24 hours 
+  jwtClaim["exp"] = now + (24L * 60L * 60L); // expires in 24 hours
 
   return ECCX08JWS.sign(0, JSON.stringify(jwtHeader), JSON.stringify(jwtClaim));
 }
