@@ -30,7 +30,7 @@ In this article, you will learn:
   - Jumper wires
   
   
-##  Operational Amplifier (OPAMP)
+## Operational Amplifier (OPAMP)
 
 An OPAMP is a versatile and widely used electronic component that belongs to the class of analog integrated circuits. Its primary function is to amplify voltage signals but they are very versatile and can be used to:
 
