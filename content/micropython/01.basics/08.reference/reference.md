@@ -358,77 +358,383 @@ rightmost_bit = variable & 1
 print("Rigthmost bit: ", rightmost_bit)
 ```
 
-<!-- Section not started yet
+
 ## Advanced I/O
 
 ### noTone()
+
+Stops generating a tone on a specified pin by deinitializing the PWM (Pulse Width Modulation) associated with the given pin.
+
+**Parameters:**
+- `pin`: The pin number to stop generating the tone.
+
+**Returns:**
+- Nothing
+
+**Example:**
+
+```python
+import machine
+
+def noTone(pin):
+    pwm = machine.PWM(machine.Pin(pin))
+    pwm.deinit()
+```
+
 ### pulseIn()
-### pulseInLong()
+
+**Example:**
+
+```python
+import machine
+
+def pulseIn(pin, level, timeout=1000000):
+    pulse_start = machine.time_pulse_us(machine.Pin(pin), level, timeout)
+    pulse_end = machine.time_pulse_us(machine.Pin(pin), not level, timeout)
+    return pulse_end - pulse_start
+```
+
 ### shiftIn()
+
+**Example:**
+
+```python
+import machine
+
+def shiftIn(dataPin, clockPin, bitOrder=machine.MSBFIRST):
+    value = 0
+    for i in range(8):
+        value |= machine.Pin(dataPin).value() << (7 - i)
+        machine.Pin(clockPin).value(1)
+        machine.Pin(clockPin).value(0)
+    return value
+```
+
 ### shiftOut()
+
+**Example:**
+
+```python
+import machine
+
+def shiftOut(dataPin, clockPin, bitOrder=machine.MSBFIRST, value):
+    for i in range(8):
+        mask = 1 << i if bitOrder == machine.LSBFIRST else 1 << (7 - i)
+        machine.Pin(dataPin).value(bool(value & mask))
+        machine.Pin(clockPin).value(1)
+        machine.Pin(clockPin).value(0)
+```
+
 ### tone()
+
+**Example:**
+
+```python
+import machine
+
+def tone(pin, frequency, duration=None):
+    pwm = machine.PWM(machine.Pin(pin))
+    pwm.freq(frequency)
+    if duration is not None:
+        machine.sleep(duration)
+        pwm.deinit()
+```
 
 ## Math
 
 ### abs()
+
+**Example:**
+
+```python
+result = abs(-5)
+```
+
 ### constrain()
+
+**Example:**
+
+```python
+def constrain(value, lower, upper):
+    return max(min(value, upper), lower)
+
+result = constrain(10, 0, 5)  # Result will be 5
+```
+
+
 ### map()
+
+**Example:**
+
+```python
+def map(value, in_min, in_max, out_min, out_max):
+    return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
+
+result = map(50, 0, 100, 0, 255)
+```
+
+
 ### max()
+
+**Example:**
+
+```python
+result = max(5, 10, 3)  # Result will be 10
+```
+
 ### min()
+
+**Example:**
+
+```python
+result = min(5, 10, 3)  # Result will be 3
+```
+
 ### pow()
+
+**Example:**
+
+```python
+result = pow(2, 3)  # Result will be 8
+```
+
 ### sq()
+
+**Example:**
+
+```python
+result = sq(4)  # Result will be 16
+```
+
 ### sqrt()
+
+**Example:**
+
+```python
+import math
+
+result = math.sqrt(16)  # Result will be 4.0
+```
+
+
+
 
 Trigonometry
 
 ### cos()
+
+
 ### sin()
+
+**Example:**
+
+```python
+import math
+
+# Specify the angle in radians
+angle_in_radians = math.radians(30)
+
+# Calculate the sine of the angle
+sine_value = math.sin(angle_in_radians)
+
+# Print the result
+print(f"The sine of {angle_in_radians} radians is: {sine_value}")
+
+```
+
 ### tan()
 
-Characters
+**Example:**
+
+```python
+import math
+
+# Specify the angle in radians
+angle_in_radians = math.radians(60)
+
+# Calculate the tangent of the angle
+tangent_value = math.tan(angle_in_radians)
+
+# Print the result
+print(f"The tangent of {angle_in_radians} radians is: {tangent_value}")
+```
+
+## Characters
 
 ### isAlpha()
-### isAlphaNumeric()
-### isAscii()
-### isControl()
-### isDigit()
-### isGraph()
-### isHexadecimalDigit()
-### isLowerCase()
-### isPrintable()
-### isPunct()
-### isSpace()
-### isUpperCase()
-### isWhitespace()
 
-Random Numbers
+`char.isalpha()`
+
+Analyse if a single character is alphabetic.
+
+```python
+char = 'a'
+if char.isalpha():
+    print(f"{char} is alphabetic.")
+else:
+    print(f"{char} is not alphabetic.")
+```
+
+### isAlphaNumeric()
+
+`char.isDigit()` and `char.isAlpha()`
+
+Checks if char is a number **or** an alphabetic character.  
+
+**Example:**
+
+```python
+# Function to check if a character is alphanumeric
+def is_alphanumeric(char):
+    return char.isalpha() or char.isdigit()
+
+# Example usage
+test_char = 'a'
+
+if is_alphanumeric(test_char):
+    print(f"{test_char} is alphanumeric.")
+else:
+    print(f"{test_char} is not alphanumeric.")
+
+```
+
+### isAscii()
+
+`ord(char) < 128`
+
+Checks if character is an ASCII character by checking if the decimal number of the character presented is over 128. If it is over, it is not an ASCII character.
+
+```python
+char = 'Ö'
+
+if 0 <= ord(char) < 128:
+    print(f"{char} is an ASCII character.")
+else:
+    print(f"{char} is not an ASCII character.")
+```
+
+### isControl()
+
+`ord(char) < 32 or ord(char) == 127`
+
+Checks whether character presented is less than 32 or 127, which represents control characters.
+
+```python
+char = '\t'  # Example: Tab character
+
+if 0 <= ord(char) < 32 or ord(char) == 127:
+    print(f"{char} is a control character.")
+else:
+    print(f"{char} is not a control character.")
+```
+
+### isDigit()
+
+`char.isDigit()`
+
+
+```python
+char = '5'
+if char.isdigit():
+    print(f"{char} is a digit.")
+else:
+    print(f"{char} is not a digit.")
+```
+
+### isGraph()
+
+**Example:**
+
+```python
+char = 'A'
+
+if char.isprintable() and not char.isspace():
+    print(f"{char} is a graph character.")
+else:
+    print(f"{char} is not a graph character.")
+```
+
+### isHexadecimalDigit()
+<!-- TODO -->
+
+### isLowerCase()
+<!-- TODO -->
+### isPrintable()
+<!-- TODO -->
+### isPunct()
+<!-- TODO -->
+
+### isSpace()
+
+`char.isspace()`
+
+**Example:**
+
+```python
+char = ' '
+
+if char.isspace():
+    print(f"{char} is a space character.")
+else:
+    print(f"{char} is not a space character.")
+```
+
+### isUpperCase()
+
+`char.isupper()`
+
+**Example:**
+
+```python
+char = 'A'
+
+if char.isupper():
+    print(f"{char} is an uppercase letter.")
+else:
+    print(f"{char} is not an uppercase letter.")
+```
+
+
+## Random Numbers
+
 
 ## random()
+<!-- TODO -->
 ## randomSeed()
+<!-- TODO -->
+## External Interrupts
 
-
-External Interrupts
 
 ### attachInterrupt()
+<!-- TODO -->
 ### detachInterrupt()
+<!-- TODO -->
 ### digitalPinToInterrupt()
+<!-- TODO -->
+## Interrupts
 
-Interrupts
 
 ### interrupts()
+<!-- TODO -->
 ### noInterrupts()
+<!-- TODO -->
+## Communication
 
-Communication
 
 ### Print
+<!-- TODO -->
 ### Serial
+<!-- TODO -->
 ### SPI
+<!-- TODO -->
 ### Stream
+<!-- TODO -->
 ### Wire
+<!-- TODO -->
+## USB
 
-USB
 
 ### Keyboard
+<!-- TODO -->
 ### Mouse
-
--->
+<!-- TODO -->
