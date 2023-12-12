@@ -19,7 +19,7 @@ hardware:
 
 AWS IoT Core is a managed Cloud service that lets connected devices easily and securely interact with Cloud applications and other devices. AWS IoT Core can support billions of devices and trillions of messages and can process and route those messages to AWS endpoints and other devices reliably and securely. Devices can connect to AWS IoT Core using the following protocols: HTTP, WebSockets, and MQTT.
 
-In this tutorial, you will learn how to securely connect an Opta™ device to AWS IoT Core using the MQTT protocol. MQTT (Message Queuing Telemetry Transport) is a highly lightweight machine-to-machine (M2M) connectivity protocol that uses a publish/subscribe messaging model. It is particularly suitable for Internet of Things (IoT) applications due to its bandwidth efficiency and ability to ensure message delivery over unstable networks. By the end of this tutorial, you will have the necessary skills to set up your Opta™ device to publish data to the AWS IoT Core and receive data from it. 
+In this tutorial, you will learn how to securely connect an Opta™ device to AWS IoT Core using the MQTT protocol. MQTT (Message Queuing Telemetry Transport) is a highly lightweight machine-to-machine (M2M) connectivity protocol that uses a publish/subscribe messaging model. It is particularly suitable for Internet of Things (IoT) applications due to its bandwidth efficiency and ability to ensure message delivery over unstable networks. By the end of this tutorial, you will have the necessary skills to set up your Opta™ device to publish data to the AWS IoT Core and receive data from it.
 
 ## Goals
 

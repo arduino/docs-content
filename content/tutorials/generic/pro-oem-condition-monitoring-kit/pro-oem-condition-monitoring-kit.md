@@ -69,7 +69,8 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |                 [Arduino® PLC IDE Pin Mapping](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-pin-mapping)                 |       Yes       |
 | [Connect an RTD/Thermocouple to the Portenta Machine Control](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc) |       Yes       |
 
-The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that the product can be used with the experience even when the tutorials are using another board or compatible product.
+The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that to follow the tutorial you must use all the products with the `+` symbol.
+
 
 
 ## Support
