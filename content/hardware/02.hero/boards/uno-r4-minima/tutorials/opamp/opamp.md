@@ -3,7 +3,7 @@ title: 'Arduino UNO R4 Minima OPAMP'
 description: 'Learn how to use the built-in Operational Amplifier in the UNO R4 Minima'
 tags:
   - OPAMP
-author: 'Hannes Siebeneicher'
+author: 'Maximilian Gerhardt, Hannes Siebeneicher'
 hardware:
   - hardware/02.hero/boards/uno-r4-minima
 software:
@@ -73,4 +73,5 @@ void setup () {
 }
 
 void loop() {}
+
 ```

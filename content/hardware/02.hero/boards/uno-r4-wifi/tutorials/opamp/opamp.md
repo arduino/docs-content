@@ -3,7 +3,7 @@ title: 'Arduino UNO R4 WiFi OPAMP'
 description: 'Learn how to use the built-in Operational Amplifier in the UNO R4 WiFi'
 tags:
   - OPAMP
-author: 'Hannes Siebeneicher'
+author: 'Maximilian Gerhardt, Hannes Siebeneicher'
 hardware:
   - hardware/02.hero/boards/uno-r4-wifi
 software:
@@ -61,6 +61,8 @@ Below is a capture of an oscilloscope in which an approx. 2 V square wave (green
 
 ![OPAMP Circuit](./assets/circuitAmplifier.png)
 
+***Read more about an amplifier circuit [here](https://www.electronics-tutorials.ws/opamp/opamp_3.html).***
+
 ## Code
 
 To start up the opamp, simply include the library and call `OPAMP.begin(speed)`. As the optional `speed` argument to this function, can choose either `OPAMP_SPEED_LOWSPEED`` as the low-speed (=lower power) mode or `OPAMP_SPEED_HIGHSPEED` as the high-speed, high-power mode.
@@ -73,4 +75,5 @@ void setup () {
 }
 
 void loop() {}
+
 ```
