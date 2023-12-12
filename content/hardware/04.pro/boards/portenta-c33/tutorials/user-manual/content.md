@@ -921,7 +921,7 @@ First, the necessary libraries are included:
  - The `WiFiC3.h` and `WiFiClient.h` are included at the start, those libraries contains the functionalities required to communicate via Wi-Fi®. 
  - The SSID and password for the Wi-Fi® network are defined.
 
-Then, the server is defined ( "www.google.com" in this case) and the Wi-Fi® client object is created to manage the connection to the server.
+Then, the server is defined ( `www.google.com` in this case) and the Wi-Fi® client object is created to manage the connection to the server.
 
 Next, in the `setup()` function:
 
@@ -1059,7 +1059,7 @@ First, the necessary libraries are included:
 - The `EthernetC33` library which contains the functionality required to communicate via Ethernet is included in the beginning.
 
 
-Then, the server is defined, which is "www.google.com" in this case:
+Then, the server is defined, which is `www.google.com` in this case:
 
 - The static IP address which will be used if the DHCP fails to assign an IP address is set.
 

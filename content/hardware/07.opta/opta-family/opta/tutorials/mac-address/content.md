@@ -68,7 +68,7 @@ Opta™ is available in three variants; **all of them have an Ethernet connectio
 
 ### Setting Up the Arduino IDE 
 
-This tutorial will need the latest version of the Arduino IDE; you can download it [here](https://www.arduino.cc/en/software). If it is your first time setting up the Opta™ with the Arduino IDE, check our [Getting Started with Opta™ tutorial](https://docs.arduino.cc/tutorials/opta/getting-started) first. In the Arduino IDE, we need to install the core for Opta™ devices; this can be done by navigating to **Tools > Board > Boards Manager**. In the Board Manager tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` version.
+This tutorial will need the latest version of the Arduino IDE; you can download it [here](https://www.arduino.cc/en/software). If it is your first time setting up the Opta™ with the Arduino IDE, check the [Opta™ User Manual](https://docs.arduino.cc/tutorials/opta/user-manual) first. In the Arduino IDE, we need to install the core for Opta™ devices; this can be done by navigating to **Tools > Board > Boards Manager**. In the Board Manager tab, search for `Opta` and install the latest `Arduino Mbed OS Opta Boards` version.
 
 ![Installing the Opta™ core in the Arduino IDE bootloader.](assets/arduino-ide-1.png)
 
@@ -240,4 +240,4 @@ In this tutorial, we have learned how to retrieve the MAC address(es) of an Opta
 
 ### Next Steps
 
-Now that you know how to retrieve the MAC address of an Opta™ device, have a look at the Opta™ [connectivity features tutorial](https://docs.arduino.cc/tutorials/opta/getting-started-connectivity) to learn how to use its connectivity features such as Wi-Fi®, Bluetooth® and Ethernet capabilities.
+Now that you know how to retrieve the MAC address of an Opta™ device, have a look at the Opta™ [User Manual](https://docs.arduino.cc/tutorials/opta/user-manual#communication) to learn how to use its connectivity features such as Wi-Fi®, Bluetooth® and Ethernet capabilities.
