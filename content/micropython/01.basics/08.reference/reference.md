@@ -63,7 +63,6 @@ For example:
   - [isControl()](#iscontrol)
   - [isDigit()](#isdigit)
   - [isGraph()](#isgraph)
-  - [isHexadecimalDigit()](#ishexadecimaldigit)
   - [isLowerCase()](#islowercase)
   - [isPrintable()](#isprintable)
   - [isPunct()](#ispunct)
@@ -726,15 +725,51 @@ else:
     print(f"{char} is not a graph character.")
 ```
 
-### isHexadecimalDigit()
-<!-- TODO -->
-
 ### isLowerCase()
-<!-- TODO -->
+
+**Example:**
+
+`islower()`
+
+```python
+char = 'a'
+
+if char.islower():
+    print("Is lower case.")
+else:
+    print("Is not lower case.")
+```
+
 ### isPrintable()
-<!-- TODO -->
+
+`isprintable()`
+
+Checks if a character is printable, e.g. any character, including blank space, but not control characters.
+
+**Example:**
+
+```python
+char = '\t'
+
+if char.isprintable():
+    print("Is printable.")
+else:
+    print("Is not printable.")
+```
+
 ### isPunct()
-<!-- TODO -->
+
+There is no built-in function for checking punctuation in Python. Instead, we can define a variable containing all punctioation characters, and a function that compares the provided value with it.
+
+**Example:**
+
+```python
+def isPunct(char):
+    punctuation_chars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+    return char in punctuation_chars
+
+print(isPunct("."))
+```
 
 ### isSpace()
 
