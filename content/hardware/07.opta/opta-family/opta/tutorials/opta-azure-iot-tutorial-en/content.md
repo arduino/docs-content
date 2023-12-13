@@ -104,6 +104,8 @@ The daily message limit for the **Free** plan is 8,000 and cannot be changed oth
 
 After entering all the necessary information, you should have something similar to this:
 
+![Arduino Opta Azure IoT Tutorial 5](assets/opta-azure-iot-tutorial-194559.png)
+
 ![Arduino Opta Azure IoT Tutorial 5](assets/opta-azure-iot-tutorial-195158.png)
 
 After entering all the necessary information, you can click on **Review + create**, skipping the other configurations.
@@ -111,6 +113,8 @@ After entering all the necessary information, you can click on **Review + create
 A final summary prompts you to check that the entered information is correct, after which you can click on **Create** to complete the Hub creation and move on to the next steps.
 
 ![Arduino Opta Azure IoT Tutorial 6](assets/opta-azure-iot-tutorial-195244.png)
+
+![Arduino Opta Azure IoT Tutorial 6](assets/opta-azure-iot-tutorial-194452.png)
 
 You will be redirected to the creation and registration status page of the new IoT Hub; the operation takes a few moments.
 
@@ -140,9 +144,7 @@ You will then have a page with fields filled in similar to this:
 
 By clicking on **Save**, you will be redirected back to the list of devices.
 
-![Arduino Opta Azure IoT Tutorial 12](
-
-assets/opta-azure-iot-tutorial-195718.png)
+![Arduino Opta Azure IoT Tutorial 12](assets/opta-azure-iot-tutorial-195718.png)
 
 Click on the name of the newly created device in the list of devices associated with your Hub. The device configuration page will be displayed. You don't need to make any changes to this page, but you will need to use the information provided on this page in the sketch to be uploaded to Arduino Opta.
 
@@ -198,18 +200,22 @@ Finally, **IOT_CONFIG_DEVICE_KEY** requires entering the device's private key.
 
 ### Other Code Customizations
 
-In the **iot_configs.h** file, you find a definition that allows indicating in milliseconds the time that must elapse between sending one telemetry message and the next. The relevant definition is **IOT_CONFIG_TELEMETRY_FREQUENCY_MS**.
+In the **iot_configs.h** file, you find a definition that allows indicating in milliseconds the time that must elapse between sending one telemetry message and the next. The relevant definition is **IOT_CONFIG_TELEMETRY_FREQUENCY_MS** at line 19.
 
 In the code, it is set to 300,000 milliseconds, or 5 minutes:
+
+![Arduino Opta Azure IoT Tutorial Sketch 1](assets/opta-azure-iot-tutorial-202105.png)
 
 ```cpp
 // Publish 1 message every 5 minutes
 #define IOT_CONFIG_TELEMETRY_FREQUENCY_MS 300000
 ```
-
 You can customize the value in milliseconds to change the time interval between sending messages.
 
-In the **Azure_IoT_Hub_Opta.ino** file, you find a portion of code represented by the **generateTelemetry()** function, which is called to allow sending the message to Azure IoT:
+In the **Azure_IoT_Hub_Opta.ino** file, you find a portion of code represented by the **generateTelemetry()** function at line 329, which is called to allow sending the message to Azure IoT:
+
+![Arduino Opta Azure IoT Tutorial Sketch 1](assets/opta-azure-iot-tutorial-202627.png)
+
 
 ```cpp
 /*
