@@ -4,6 +4,8 @@ url_shop: https://store.arduino.cc/nicla-voice
 url_guide: /tutorials/nicla-voice/user-manual
 primary_button_url: /tutorials/nicla-voice/user-manual
 primary_button_title: User Manual
+secondary_button_url: /tutorials/nicla-voice/ei-intruder-detector
+secondary_button_title: Audio ML Guide
 core: arduino:mbed_voice
 productCode: 'ABX00061'
 certifications: [CE, UKCA]
