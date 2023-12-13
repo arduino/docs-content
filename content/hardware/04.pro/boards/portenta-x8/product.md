@@ -1,6 +1,7 @@
 ---
 title: Portenta X8
 url_shop: https://store.arduino.cc/portenta-x8
+url_guide: /tutorials/portenta-x8/user-manual
 primary_button_url: /tutorials/portenta-x8/user-manual
 primary_button_title: User Manual
 secondary_button_url: /tutorials/portenta-x8/x8-fundamentals

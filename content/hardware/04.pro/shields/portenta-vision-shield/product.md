@@ -1,6 +1,7 @@
 ---
 title: Portenta Vision Shield
 url_shop: https://store.arduino.cc/portenta-vision-shield
+url_guide: /tutorials/portenta-vision-shield/getting-started-camera
 primary_button_url: /tutorials/portenta-vision-shield/getting-started-camera
 primary_button_title: Get Started
 secondary_button_url: /tutorials/portenta-vision-shield/things-network-openmv

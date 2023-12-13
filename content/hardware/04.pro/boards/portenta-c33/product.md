@@ -1,6 +1,7 @@
 ---
 title: Portenta C33
 url_shop: https://store.arduino.cc/portenta-c33
+url_guide: /tutorials/portenta-c33/user-manual
 primary_button_url: /tutorials/portenta-c33/user-manual
 primary_button_title: User Manual
 core: arduino:mbed_portenta

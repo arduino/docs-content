@@ -1,6 +1,7 @@
 ---
 title: Portenta Max Carrier
 url_shop: https://store.arduino.cc/portenta-max-carrier
+url_guide: /tutorials/portenta-max-carrier/getting-started
 primary_button_url: /tutorials/portenta-max-carrier/getting-started
 primary_button_title: Get Started
 secondary_button_url: /tutorials/portenta-max-carrier/x8-getting-started
