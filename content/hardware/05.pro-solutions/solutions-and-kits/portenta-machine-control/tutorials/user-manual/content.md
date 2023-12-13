@@ -984,6 +984,94 @@ The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_
 - `MachineControl_RS485Comm.available()`: Checks if data is available to be read.
 - `MachineControl_RS485Comm.read()`: Reads incoming data.
 
+Now, as a practical example we are going to establish a full-duplex communication between the Machine Control and a Max Carrier with a Portenta H7.
+
+Follow the wiring below for the RS-485 full-duplex communication.
+
+![Full-duplex RS-485 wiring](assets/RS-485-full.png)
+
+For the Machine Control, use the example code found on **File > Examples > Arduino_MachineControl > RS485_fullduplex**.
+
+For the H7 on the Max Carrier use the following example sketch:
+
+```arduino
+#include <ArduinoRS485.h>
+
+constexpr unsigned long sendInterval{ 1000 };
+unsigned long sendNow{ 0 };
+
+int counter = 0;
+
+arduino::UART _UART4_{ PA_0, PI_9, NC, NC };
+RS485Class rs485{ _UART4_, PA_0, PI_10, PJ_10 };  //  UART4, TX, CTS, RTS
+
+void setup() {
+  // Set the Max Carrier Communication Protocols to default config
+  RS485init();
+  // RS485/RS232 default config is:
+  // - RS485 mode
+  // - Half Duplex
+  // - No A/B and Y/Z 120 Ohm termination enabled
+  delay(1000);
+  // Enable the RS485/RS232 system
+  rs485Enable(true);
+  // Enable Full Duplex mode
+  // This will also enable A/B and Y/Z 120 Ohm termination resistors
+  rs485FullDuplex(true);
+  // Specify baudrate, and preamble and postamble times for RS485 communication
+  rs485.begin(115200, 0, 500);
+  // Start in receive mode
+  rs485.receive();
+}
+void loop() {
+  if (rs485.available()) {
+    Serial.write(rs485.read());
+  }
+  if (millis() > sendNow) {
+    // Disable receive mode before transmission
+    rs485.noReceive();
+    rs485.beginTransmission();
+    rs485.print("hello I'm Max ");
+    rs485.println(counter++);
+    rs485.endTransmission();
+    // Re-enable receive mode after transmission
+    rs485.receive();
+    sendNow = millis() + sendInterval;
+  }
+}
+void RS485init() {
+  rs485Enable(false);
+  rs485ModeRS232(false);
+  rs485FullDuplex(false);
+  rs485YZTerm(false);
+  rs485ABTerm(false);
+}
+void rs485Enable(bool enable) {
+  digitalWrite(PC_7, enable ? HIGH : LOW);
+}
+void rs485ModeRS232(bool enable) {
+  digitalWrite(PC_6, enable ? LOW : HIGH);
+}
+void rs485YZTerm(bool enable) {
+  digitalWrite(PG_3, enable ? HIGH : LOW);
+}
+void rs485ABTerm(bool enable) {
+  digitalWrite(PJ_7, enable ? HIGH : LOW);
+}
+void rs485FullDuplex(bool enable) {
+  digitalWrite(PA_8, enable ? LOW : HIGH);
+  if (enable) {
+    // RS485 Full Duplex require YZ and AB 120 Ohm termination enabled
+    rs485YZTerm(true);
+    rs485ABTerm(true);
+  }
+}
+```
+
+Both, Max Carrier and Machine Control will send and receive messages respectively through the RS-485 protocol and will print them in the Serial Monitor. 
+
+![Full-duplex RS-485 communication running](assets/rs485ani.gif)
+
 **Note**: To receive and show the messages on your computer, you can use a USB to RS-485 converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
 
 ### CAN Bus
@@ -1064,6 +1152,47 @@ The example sketch uses the `MachineControl_CANComm.begin()`, `MachineControl_CA
 - `MachineControl_CANComm.available()`: Checks if data is available on the CAN bus to be read.
 - `MachineControl_CANComm.read()`: Reads incoming data from the CAN bus. This function is used to retrieve data that has been received.
 - `MachineControl_CANComm.end()`: This function can disable the CAN module when it's no longer needed, helping conserve power.
+
+Now, as a practical example we are going to establish a CAN communication between the Machine Control and a Max Carrier with a Portenta C33.
+
+Follow the wiring below for the CAN communication.
+
+![CAN communication wiring](assets/CAN-bus-wiring.png)
+
+***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines, Machine Control has it built-in.***
+
+For the Machine Control, use the example code used above to transmit data, it also can be found on **File > Examples > Arduino_MachineControl > CAN > WriteCan**.
+
+For the C33 on the Max Carrier, install the `Arduino_CAN` library from the library manager and use the following example sketch (it can also be found on **File > Examples > Arduino_CAN > CANRead**):
+
+```arduino
+#include <Arduino_CAN.h>
+
+void setup()
+{
+  Serial.begin(115200);
+  while (!Serial) { }
+
+  if (!CAN.begin(CanBitRate::BR_500k))
+  {
+    Serial.println("CAN.begin(...) failed.");
+    for (;;) {}
+  }
+}
+
+void loop()
+{
+  if (CAN.available())
+  {
+    CanMsg const msg = CAN.read();
+    Serial.println(msg);
+  }
+}
+```
+
+The Machine Control will send messages continuously to the Max Carrier through the CAN protocol, the received message will be printed in the Portenta C33 Serial Monitor. 
+
+![CAN communication running](assets/can.gif)
 
 **Note**: To receive and show the messages on your computer, you can use a USB to CAN bus converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-can-a.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
 
