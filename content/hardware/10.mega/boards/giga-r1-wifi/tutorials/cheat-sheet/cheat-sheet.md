@@ -974,6 +974,17 @@ The reference voltage of all digital pins is 3.3V.
 
 The logic for `LED_BUILTIN` is reversed if compared to the behavior of, for example, the **Arduino UNO** board. What this means is that if you write HIGH to `LED_BUILTIN`, the LED will turn off, and on respectively if you write LOW.
 
+#### D7 Pin
+
+By default, the digital pin 7 (D7) provides a voltage of ~1.65 V. 
+
+To disable this pin, you need to configure it as an output and set it to a `LOW` state.
+
+```arduino
+pinMode(7, OUTPUT);
+digitalWrite(7, LOW);
+```
+
 ### DAC Pins
 
 The **GIGA R1** also has two DAC pins, A12 & A13, that can act as genuine analog output pins which means they are even more capable than PWM pins.
