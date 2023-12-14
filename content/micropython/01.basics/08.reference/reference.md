@@ -73,6 +73,7 @@ For example:
 - [randomSeed()](#randomseed)
 - [External Interrupts](#external-interrupts)
   - [attachInterrupt()](#attachinterrupt)
+- [Attaches an interrupt to a pin with specified mode.](#attaches-an-interrupt-to-a-pin-with-specified-mode)
   - [detachInterrupt()](#detachinterrupt)
   - [digitalPinToInterrupt()](#digitalpintointerrupt)
 - [Interrupts](#interrupts)
@@ -850,6 +851,7 @@ print(random_number)
 `interrupt_pin.irq(trigger=mode, handler=function)`
 
 Attaches an interrupt to a pin with specified mode.
+- 
 
 ```python
 from machine import Pin
