@@ -938,7 +938,7 @@ print(f"The value is {variable}") # prints a string with a value inserted
 
 ## Serial (UART)
 
-UART communication is initalized using the `UART` object from the `machine` module. 
+UART communication is initialized using the `UART` object from the `machine` module. 
 
 ### begin()
 
