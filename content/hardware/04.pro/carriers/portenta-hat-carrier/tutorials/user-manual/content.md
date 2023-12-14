@@ -2462,51 +2462,51 @@ Each pin is identified by its port and a unique port number. The following table
 
 For ease of access to all available GPIOs within the Portenta family board and Portenta Hat Carrier, the following table enlists every designations that can be used to access directly each individual GPIO.
 
-The __Port Number__ defines the number designation of the corresponding connector. The __Function__ tells the role of the designated pin number. For example, the pin number `7` of the `40-Pin connector` is characterized as __`PWM0`__. Thus, on the Portenta X8, it can be handled by using `183` within the ADB shell, `7` within the Python script, or `PC_7` within the Arduino IDE. The GPIOs mentioned in the following are controllable, while each pin may have its characteristical function.
+The __Port Number__ defines the number designation of the corresponding connector. The __Function__ tells the role of the designated pin number. For example, the pin number `7` of the `40-Pin connector` is characterized as __`PWM0`__. Thus, on the Portenta X8, it can be handled by using `183` within the ADB shell, `7` within the Python® script, or `PC_7` within the Arduino IDE. The GPIOs mentioned in the following are controllable, while each pin may have its characteristical function.
 
-|   **Connector**    | **Pin Number** |         **Function**          | **Portenta X8 (Linux/Arduino)** |  **Portenta H7**   | **Portenta C33 (Numeric/Define)** |
-|:------------------:|:--------------:|:-----------------------------:|:-------------------------------:|:------------------:|:---------------------------------:|
-| _40-Pin Connector_ |                |                               |                                 |                    |                                   |
-|                    |       7        |             PWM0              |         183 / PC_7 (39)         |      PA_8 (8)      |              0 / D0               |
-|                    |       8        |          SERIAL3 TX           |               157               |     PL_8 (152)     |             53 / D53              |
-|                    |       10       |          SERIAL3 RX           |               156               |     PJ_9 (153)     |             54 / D54              |
-|                    |       11       |             GPIO2             |         162 / PF_3 (83)         |     PD_4 (52)      |             29 / D29              |
-|                    |       12       |            I2S CK             |               87                |     PD_3 (51)      |             63 / D63              |
-|                    |       13       |             GPIO6             |        166 / PE_11 (75)         |    PG_10 (106)     |             33 / D33              |
-|                    |       15       |   SAI D0 **(OUTPUT ONLY)**    |               108               |     PI_6 (134)     |             80 / D80              |
-|                    |       16       |   SAI CK **(OUTPUT ONLY)**    |               107               |     PI_5 (133)     |             78 / D78              |
-|                    |       18       |   SAI FS **(OUTPUT ONLY)**    |               106               |     PI_7 (135)     |             79 / D79              |
-|                    |       19       | SPI1 COPI **(DTB Activated)** |               139               |     PC_3 (35)      |             46 / D46              |
-|                    |       21       | SPI1 CIPO **(DTB Activated)** |               140               |     PC_2 (34)      |             45 / D45              |
-|                    |       22       |             PWM1              |         184 / PA_9 (9)          |     PC_6 (38)      |              1 / D1               |
-|                    |       23       | SPI1 SCK **(DTB Activated)**  |               138               |     PI_0 (128)     |             47 / D47              |
-|                    |       24       |  SPI1 CE **(DTB Activated)**  |               141               |     PI_1 (129)     |             48 / D48              |
-|                    |       26       |             PWM2              |        185 / PA_10 (10)         |     PC_7 (39)      |              2 / D2               |
-|                    |       29       |          SERIAL1 RX           |               127               |     PA_10 (10)     |             13 / D13              |
-|                    |       31       |             PWM3              |        186 / PB_10 (26)         |     PG_7 (103)     |              3 / D3               |
-|                    |       32       |          SERIAL1 TX           |               128               |      PA_9 (9)      |             14 / D14              |
-|                    |       33       |             PWM4              |        187 / PA_11 (11)         |    PJ_11 (155)     |              4 / D4               |
-|                    |       35       |            I2S WS             |              128*               |     PB_9 (25)      |             64 / D64              |
-|                    |       36       |             PWM5              |        188 / PD_15 (63)         |     PK_1 (161)     |              5 / D5               |
-|                    |       37       |             PWM6              |         189 / PA_8 (8)          |    PH_15 (127)     |              6 / D6               |
-|                    |       38       |            I2S SDI            |               85                |     PI_2 (130)     |             65 / D65              |
-|                    |       40       |            I2S SDO            |               88                |     PI_3 (131)     |             66 / D66              |
-| _16-Pin Connector_ |                |                               |                                 |                    |                                   |
-|                    |       1        |              A0               |            167 / A0             | PA_0_C (2048) / A0 |             15 / D15              |
-|                    |       2        |              A1               |            168 / A1             | PA_1_C (2049) / A1 |             16 / D16              |
-|                    |       3        |              A2               |            169 / A2             | PC_2_C (2082) / A2 |             17 / D17              |
-|                    |       4        |              A3               |            170 / A3             | PC_3_C (2083) / A3 |             18 / D18              |
-|                    |       5        |              A4               |            171 / A4             |   PC_2 (34) / A4   |             19 / D19              |
-|                    |       6        |              A5               |            172 / A5             |   PC_3 (35) / A5   |             20 / D20              |
-|                    |       7        |              A6               |            173 / A6             |   PA_4 (4) / A6    |             21 / D21              |
-|                    |       8        |              A7               |            174 / A7             |   PA_6 (6) / A7    |             22 / D22              |
-|                    |       9        |             PWM7              |         190 / PC_6 (38)         |     PJ_7 (151)     |              7 / D7               |
-|                    |       10       |             PWM8              |        191 / PA_12 (12)         |    PJ_10 (154)     |              8 / D8               |
-|                    |       12       |             PWM4              |        187* / PA_11 (11)        |    PJ_11 (155)     |              4 / D4               |
-|                    |       14       |          SERIAL2 TX           |               155               |    PG_14 (110)     |             49 / D49              |
-|                    |       16       |          SERIAL2 RX           |               154               |     PG_9 (105)     |             50 / D50              |
+|   **Connector**    | **Pin Number** |         **Function**          | **Portenta X8 (Linux/Arduino)** |  **Portenta H7**   | **Portenta C33** |
+|:------------------:|:--------------:|:-----------------------------:|:-------------------------------:|:------------------:|:----------------:|
+| _40-Pin Connector_ |                |                               |                                 |                    |                  |
+|                    |       7        |             PWM0              |         183 / PC_7 (39)         |      PA_8 (8)      |        0         |
+|                    |       8        |          SERIAL3 TX           |               157               |     PL_8 (152)     |        53        |
+|                    |       10       |          SERIAL3 RX           |               156               |     PJ_9 (153)     |        54        |
+|                    |       11       |             GPIO2             |         162 / PF_3 (83)         |     PD_4 (52)      |        29        |
+|                    |       12       |            I2S CK             |               87                |     PD_3 (51)      |        63        |
+|                    |       13       |             GPIO6             |        166 / PE_11 (75)         |    PG_10 (106)     |        33        |
+|                    |       15       |   SAI D0 **(OUTPUT ONLY)**    |               108               |     PI_6 (134)     |        80        |
+|                    |       16       |   SAI CK **(OUTPUT ONLY)**    |               107               |     PI_5 (133)     |        78        |
+|                    |       18       |   SAI FS **(OUTPUT ONLY)**    |               106               |     PI_7 (135)     |        79        |
+|                    |       19       | SPI1 COPI **(DTB Activated)** |               139               |     PC_3 (35)      |        46        |
+|                    |       21       | SPI1 CIPO **(DTB Activated)** |               140               |     PC_2 (34)      |        45        |
+|                    |       22       |             PWM1              |         184 / PA_9 (9)          |     PC_6 (38)      |        1         |
+|                    |       23       | SPI1 SCK **(DTB Activated)**  |               138               |     PI_0 (128)     |        47        |
+|                    |       24       |  SPI1 CE **(DTB Activated)**  |               141               |     PI_1 (129)     |        48        |
+|                    |       26       |             PWM2              |        185 / PA_10 (10)         |     PC_7 (39)      |        2         |
+|                    |       29       |          SERIAL1 RX           |               127               |     PA_10 (10)     |        13        |
+|                    |       31       |             PWM3              |        186 / PB_10 (26)         |     PG_7 (103)     |        3         |
+|                    |       32       |          SERIAL1 TX           |               128               |      PA_9 (9)      |        14        |
+|                    |       33       |             PWM4              |        187 / PA_11 (11)         |    PJ_11 (155)     |        4         |
+|                    |       35       |            I2S WS             |              128*               |     PB_9 (25)      |        64        |
+|                    |       36       |             PWM5              |        188 / PD_15 (63)         |     PK_1 (161)     |        5         |
+|                    |       37       |             PWM6              |         189 / PA_8 (8)          |    PH_15 (127)     |        6         |
+|                    |       38       |            I2S SDI            |               85                |     PI_2 (130)     |        65        |
+|                    |       40       |            I2S SDO            |               88                |     PI_3 (131)     |        66        |
+| _16-Pin Connector_ |                |                               |                                 |                    |                  |
+|                    |       1        |              A0               |            167 / A0             | PA_0_C (2048) / A0 |        15        |
+|                    |       2        |              A1               |            168 / A1             | PA_1_C (2049) / A1 |        16        |
+|                    |       3        |              A2               |            169 / A2             | PC_2_C (2082) / A2 |        17        |
+|                    |       4        |              A3               |            170 / A3             | PC_3_C (2083) / A3 |        18        |
+|                    |       5        |              A4               |            171 / A4             |   PC_2 (34) / A4   |        19        |
+|                    |       6        |              A5               |            172 / A5             |   PC_3 (35) / A5   |        20        |
+|                    |       7        |              A6               |            173 / A6             |   PA_4 (4) / A6    |        21        |
+|                    |       8        |              A7               |            174 / A7             |   PA_6 (6) / A7    |        22        |
+|                    |       9        |             PWM7              |         190 / PC_6 (38)         |     PJ_7 (151)     |        7         |
+|                    |       10       |             PWM8              |        191 / PA_12 (12)         |    PJ_10 (154)     |        8         |
+|                    |       12       |             PWM4              |        187* / PA_11 (11)        |    PJ_11 (155)     |        4         |
+|                    |       14       |          SERIAL2 TX           |               155               |    PG_14 (110)     |        49        |
+|                    |       16       |          SERIAL2 RX           |               154               |     PG_9 (105)     |        50        |
 
-In Linux, pins can be controlled using the system's functions via the ADB shell or via the official Python library.
+In Linux, pins can be controlled using the system's functions via the ADB shell or via the official Python® library.
 
 #### Using Linux With Shell
 <br></br>
@@ -2580,7 +2580,7 @@ This measure is crucial for preventing unintentional modifications to the config
 #### Using Linux With Library
 <br></br>
 
-The General-Purpose Input/Output (GPIO) features of the Portenta X8 can also be efficiently managed using the [__Portenta.GPIO__ library](https://pypi.org/project/Portenta.GPIO/). This library facilitates an accessible means to control the GPIOs, an aspect that is particularly advantageous when integrating GPIO management within Python scripts.
+The General-Purpose Input/Output (GPIO) features of the Portenta X8 can also be efficiently managed using the [__Portenta.GPIO__ library](https://pypi.org/project/Portenta.GPIO/). This library facilitates an accessible means to control the GPIOs, an aspect that is particularly advantageous when integrating GPIO management within Python® scripts.
 
 The functionality of the GPIO management using this library will be illustrated by presenting an example that demonstrates how to retrieve the status of all available GPIOs on a Portenta X8 mounted on the Portenta Hat Carrier. This example is available in the `x8-devel` container, where the required environmental configuration is established.
 
