@@ -7,7 +7,7 @@ Pins:
   Built-in LED Pin: 13
   Digital I/O Pins: 14
   Analog input pins: 8
-  PWM pins: 5
+  PWM pins: all digital pins (4 at once)
   External interrupts: All digital pins
 Connectivity:
   Bluetooth®: NINA-B306

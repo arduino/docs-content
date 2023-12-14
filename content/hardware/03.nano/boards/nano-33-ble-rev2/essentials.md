@@ -15,8 +15,8 @@
 The ArduinoBLE library is designed for Arduino boards that have hardware enabled for Bluetooth® Low Energy and Bluetooth® 4.0 and above. 
   </EssentialElement>
 
-  <EssentialElement title="Arduino_LSM9DS1" type="library" link="https://www.arduino.cc/en/Reference/ArduinoLSM9DS1">
-The Arduino_LSM9DS1 library is designed to be used with the LSM9DS1 IMU module, which includes a 3-axis accelerometer, a 3-axis gyroscope and a 3-axis magnetometer. 
+  <EssentialElement title="Arduino_BMI270_BMM150" type="library" link="https://www.arduino.cc/reference/en/libraries/arduino_bmi270_bmm150/">
+Allows you to read the accelerometer, magnetometer and gyroscope values from the IMU on your Arduino Nano 33 BLE Sense Rev2
   </EssentialElement>
 
 </EssentialsColumn>

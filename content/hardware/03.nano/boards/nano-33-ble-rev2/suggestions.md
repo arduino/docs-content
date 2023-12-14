@@ -4,7 +4,7 @@
   </EssentialElement>
 
 <EssentialElement title="Accessing accelerometer data on Nano 33 BLE" type="tutorial" link="/tutorials/nano-33-ble-rev2/imu_accelerometer">
-    Learn how to measure the relative position of the Nano 33 BLE through the LSM9DS1 IMU sensor.
+    Learn how to measure the relative position of the Nano 33 BLE through the IMU sensor.
   </EssentialElement>
 </EssentialsColumn>
 
