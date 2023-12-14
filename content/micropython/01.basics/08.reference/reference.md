@@ -806,16 +806,105 @@ else:
 
 
 ## random()
-<!-- TODO -->
+
+`random.random()`
+
+Produces a random number within the range provided.
+
+**Example:**
+
+```python
+import random
+
+random_integer = random.randint(1, 10)
+print("Random integer between 1 and 10:", random_integer)
+```
+
 ## randomSeed()
-<!-- TODO -->
+
+`seed_value = int(time.time())` and `random.seed()`
+
+To generate a random seed value, we first use the `time()` module to generate a unique value, and feed it to the `random.seed()` generator. The result is that you will always get a unique random number.
+
+**Example:**
+
+```python
+import random
+import time
+
+# Seed the random number generator with the current time
+seed_value = int(time.time())
+random.seed(seed_value)
+
+# Generate random numbers using the seeded generator
+random_number = random.randint(1,100)
+print(random_number)
+```
+
+***Note that `time.time()` generates a new value every second. E.g. running `random.seed()` twice within a second will generate the same value. `random.seed()` should not be used repetitively.***
+
 ## External Interrupts
 
-
 ### attachInterrupt()
-<!-- TODO -->
+
+`interrupt_pin.irq(trigger=mode, handler=function)`
+
+Attaches an interrupt to a pin with specified mode.
+
+```python
+from machine import Pin
+import time
+
+# Define a callback function to be called when the interrupt occurs
+def interrupt_callback(pin):
+    print("Interrupt occurred on pin", pin_name)
+
+# Pin name
+pin_name = "PA3"
+
+# Define the pin to which you want to attach the interrupt
+interrupt_pin = Pin(pin_name, Pin.IN, Pin.PULL_UP)  # Replace 2 with the actual pin number you are using
+
+# Attach the interrupt to the pin, specifying the callback function and trigger type
+interrupt_pin.irq(trigger=Pin.IRQ_FALLING, handler=interrupt_callback)
+
+while True:
+    print("hello world")
+    time.sleep(1)
+```
+
 ### detachInterrupt()
-<!-- TODO -->
+
+`interrupt_pin.irq(handler=None)`
+
+Detaches the active interrupt from specified pin.
+
+**Example:**
+
+```python
+from machine import Pin
+import time
+
+# Define a callback function to be called when the interrupt occurs
+def interrupt_callback(pin):
+    print("Interrupt occurred on pin", pin_name)
+    # Detaches the interrupt from the pin
+    interrupt_pin.irq(handler=None) 
+
+# Pin name
+pin_name = "PA3"
+
+# Define the pin to which you want to attach the interrupt
+interrupt_pin = Pin(pin_name, Pin.IN, Pin.PULL_UP)  # Replace 2 with the actual pin number you are using
+
+# Attach the interrupt to the pin, specifying the callback function and trigger type
+interrupt_pin.irq(trigger=Pin.IRQ_FALLING, handler=interrupt_callback)
+
+while True:
+    print("hello world")
+    time.sleep(1)
+```
+
 ### digitalPinToInterrupt()
 <!-- TODO -->
 ## Interrupts
