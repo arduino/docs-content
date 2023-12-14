@@ -75,13 +75,14 @@ For example:
   - [attachInterrupt()](#attachinterrupt)
 - [Attaches an interrupt to a pin with specified mode.](#attaches-an-interrupt-to-a-pin-with-specified-mode)
   - [detachInterrupt()](#detachinterrupt)
-  - [digitalPinToInterrupt()](#digitalpintointerrupt)
-- [Interrupts](#interrupts)
-  - [interrupts()](#interrupts-1)
-  - [noInterrupts()](#nointerrupts)
 - [Communication](#communication)
-  - [Print](#print)
-  - [Serial](#serial)
+- [Serial (USB)](#serial-usb)
+  - [print()](#print)
+- [Serial (UART)](#serial-uart)
+  - [begin()](#begin)
+  - [available()](#available)
+  - [read()](#read)
+  - [write()](#write)
   - [SPI](#spi)
   - [Stream](#stream)
   - [Wire](#wire)
@@ -907,22 +908,127 @@ while True:
     time.sleep(1)
 ```
 
-### digitalPinToInterrupt()
-<!-- TODO -->
-## Interrupts
-
-
-### interrupts()
-<!-- TODO -->
-### noInterrupts()
-<!-- TODO -->
 ## Communication
 
+## Serial (USB)
 
-### Print
-<!-- TODO -->
-### Serial
-<!-- TODO -->
+In the Arduino API, we are accustomed to using `Serial.begin()` and `Serial.print()` to send data from a board to a computer.
+
+The same API is used for sending and receiving data over UART, using `Serial1`. For UART, see the [Serial (UART)](#serial-uart) section. 
+
+In MicroPython, to send data over USB, we can use the `print()` function, which prints the content to the REPL. As MicroPython is implemented a bit differently, the REPL also allows you to write commands inside it. The REPL is therefore in many ways, different from the Serial Monitor we are used to in the Arduino IDE.
+
+
+### print()
+
+`print(content)`
+
+This function prints the content to the REPL. 
+
+**Example:**
+
+```python
+variable = 5
+
+print("I am a string!") # prints a string
+print(variable) # prints value of variable
+print(58) # prints a numeric value
+print(f"The value is {variable}") # prints a string with a value inserted
+```
+
+## Serial (UART)
+
+UART communication is initalized using the `UART` object from the `machine` module. 
+
+### begin()
+
+`machine.UART(port, baudrate=baud)`
+
+Initialize UART communication on specified port (default is `1`), and specified baud rate.
+
+**Example:**
+
+```python
+import machine
+import time
+
+uart = machine.UART(1, baudrate=57600)
+```
+
+***Baud rate `57600` is used as using the common `115200` and `9600` interfered with the Arduino IDE's Serial Monitor.***
+
+### available()
+
+`uart.any()`
+
+Checks if there's any data available on the UART port.
+
+**Example:**
+
+```python
+import machine
+import time
+
+uart = machine.UART(1, baudrate=57600)
+
+while True:
+    if uart.any():
+        print("data available")
+```
+
+
+### read()
+
+`uart.read(1)`
+
+Reads one byte from the buffer.
+
+**Example:**
+
+This example reads the first byte of data from the buffer, stores it into the `received_data` string. When a new line character (`\n`) is detected, the received message is printed to the REPL.
+
+```python
+import machine
+import time
+
+
+uart = machine.UART(1, baudrate=57600) 
+received_data = ""
+
+while True:
+    if uart.any():
+        data = uart.read(1)
+        received_data += data
+    
+    if received_data and received_data[-1] == '\n':
+        print("Received:", received_data[:-1])  # Print the accumulated data (excluding the newline character)
+        received_data = ""  # Reset the string after printing
+    
+    time.sleep(0.1) 
+```
+
+### write()
+
+`uart.write(message)`
+
+Writes / sends data over UART.
+
+**Example:**
+
+```python
+import machine
+import time
+
+
+uart = machine.UART(1, baudrate=57600)  
+
+while True:
+    data_to_send = "Hello World!\n"
+    uart.write(data_to_send)
+    
+    time.sleep(1)  
+```
+
 ### SPI
 <!-- TODO -->
 ### Stream
