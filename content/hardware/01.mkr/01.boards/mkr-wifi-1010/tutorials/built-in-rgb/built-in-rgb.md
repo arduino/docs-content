@@ -56,7 +56,7 @@ Controlling the RGB on the MKR WiFi 1010 is slightly different from any previous
 #include <utility/wifi_drv.h>
 ```
 
-After we have included it, it is pretty straightforward. The RGB component uses 25 (green), 26 (red) and 27 (blue), so we need to define those pins by using the following commands:
+After we have included it, it is pretty straightforward. The RGB component uses 25 (red), 26 (green) and 27 (blue), so we need to define those pins by using the following commands:
 
 ```arduino
   WiFiDrv::pinMode(25, OUTPUT); //define GREEN LED
@@ -69,16 +69,16 @@ After we have included it, it is pretty straightforward. The RGB component uses 
 And to control them inside the `loop()`, we simply use:
 
 ```arduino
-  WiFiDrv::analogWrite(25, 255); //GREEN
-  WiFiDrv::analogWrite(26, 0);   //RED
+  WiFiDrv::analogWrite(25, 255); //RED
+  WiFiDrv::analogWrite(26, 0);   //GREEN
   WiFiDrv::analogWrite(27, 0);   //BLUE
 ```
 
 Or, if we want to use `digitalWrite()` (for simply turning on with full brightness), we can write it like this:
 
 ```arduino
-  WiFiDrv::digitalWrite(25, HIGH); //GREEN
-  WiFiDrv::digitalWrite(26, LOW);   //RED
+  WiFiDrv::digitalWrite(25, HIGH); //RED
+  WiFiDrv::digitalWrite(26, LOW);   //GREEN
   WiFiDrv::digitalWrite(27, LOW);   //BLUE
 ```
 
@@ -109,8 +109,8 @@ The sketch can be found in the snippet below. Upload the sketch to the board.
 #include <utility/wifi_drv.h>
 
 void setup() {
-  WiFiDrv::pinMode(25, OUTPUT); //define green pin
-  WiFiDrv::pinMode(26, OUTPUT); //define red pin
+  WiFiDrv::pinMode(25, OUTPUT); //define red pin
+  WiFiDrv::pinMode(26, OUTPUT); //define green pin
   WiFiDrv::pinMode(27, OUTPUT); //define blue pin
 }
 
@@ -145,8 +145,8 @@ void loop() {
 
 Shortly after we have uploaded the sketch to the board, we should see the RGB start changing colors. The correct order should be:
 
-- Green.
 - Red.
+- Green.
 - Blue.
 - Off.
 
