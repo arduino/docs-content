@@ -45,6 +45,7 @@ The goals of this project are:
 
 | Name            | Data type | Permission |
 | --------------- | --------- | ---------- |
+| temperature     | float     | Read Only  |
 | humidity        | float     | Read Only  |
 | illuminance     | float     | Read Only  |
 | pressure        | float     | Read Only  |
