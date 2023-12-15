@@ -1074,6 +1074,210 @@ Both, Max Carrier and Machine Control will send and receive messages respectivel
 
 **Note**: To receive and show the messages on your computer, you can use a USB to RS-485 converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
 
+### Modbus
+
+For using Modbus protocol you will need the `ArduinoRS485` and `ArduinoModbus` libraries, you can install them directly from the Arduino IDE using the Library Manager and searching for their names.
+
+[Jose will add here concepts, explanations, etc.]
+
+#### RTU
+
+#### TCP
+
+For this example we are going to communicate the Machine Control with an Opta micro PLC. For the communication wiring, we have two options:
+
+1. A direct connection between the PMC and the Opta through an ethernet cable.
+2. Individually connect each device to the internet router with ethernet cables.
+
+We are going to use the second option since it will give us the chance to escalate the application by adding more devices to the network.
+
+![Modbus TCP Ethernet Wiring](assets/modbus-tcp.png)
+
+The following example code will let PMC control an Opta LED through the Modbus TCP protocol.
+
+The Portenta Machine Control will be the __Client__ and the Opta will be the __Server__, as they are both connected to the internet router, IP addresses are the way for them to route their messages. 
+
+We can define a __Static__ or __DHCP__ IP address to them using the function `Ethernet.begin()` as follows:
+
+```arduino
+Ethernet.begin(); // DHCP | will assigne an IP automatically
+Ethernet.begin(<mac>, <IP>); // Static IP 
+```
+***The Server IP must be known for the Client so it can communicate.***
+
+Code for the Machine Control (Client):
+
+```arduino
+#include <SPI.h>
+#include <Ethernet.h>
+
+#include <ArduinoRS485.h> // ArduinoModbus depends on the ArduinoRS485 library
+#include <ArduinoModbus.h>
+
+EthernetClient ethClient;
+ModbusTCPClient modbusTCPClient(ethClient);
+
+IPAddress ip(10, 0, 0, 157);  // PMC IP
+
+IPAddress server(10, 0, 0, 227); // update with the IP Address of your Modbus server
+
+void setup() {
+  //Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+
+  // start the Ethernet connection and the server:
+  Ethernet.begin(NULL, ip); // MAC parameter as null so it uses automatically the device one
+
+  // Check for Ethernet hardware present
+  if (Ethernet.hardwareStatus() == EthernetNoHardware) {
+    Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
+    while (true) {
+      delay(1); // do nothing, no point running without Ethernet hardware
+    }
+  }
+  if (Ethernet.linkStatus() == LinkOFF) {
+    Serial.println("Ethernet cable is not connected.");
+  }
+}
+
+void loop() {
+  if (!modbusTCPClient.connected()) {
+    // client not connected, start the Modbus TCP client
+    Serial.println("Attempting to connect to Modbus TCP server");
+    
+    if (!modbusTCPClient.begin(server, 502)) {
+      Serial.println("Modbus TCP Client failed to connect!");
+    } else {
+      Serial.println("Modbus TCP Client connected");
+    }
+  } else {
+    // client connected
+
+    // write the value of 0x01, to the coil at address 0x00
+    if (!modbusTCPClient.coilWrite(0x00, 0x01)) {
+      Serial.print("Failed to write coil! ");
+      Serial.println(modbusTCPClient.lastError());
+    }
+
+    // wait for 1 second
+    delay(1000);
+
+    // write the value of 0x00, to the coil at address 0x00
+    if (!modbusTCPClient.coilWrite(0x00, 0x00)) {
+      Serial.print("Failed to write coil! ");
+      Serial.println(modbusTCPClient.lastError());
+    }
+
+    // wait for 1 second
+    delay(1000);
+  }
+}
+```
+
+Code for the Opta (Server):
+
+```arduino
+#include <SPI.h>
+#include <Ethernet.h>
+
+#include <ArduinoRS485.h> // ArduinoModbus depends on the ArduinoRS485 library
+#include <ArduinoModbus.h>
+
+// The IP address will be dependent on your local network:
+
+IPAddress ip(10, 0, 0, 227);  // Opta IP
+
+EthernetServer ethServer(502);
+
+ModbusTCPServer modbusTCPServer;
+
+const int ledPin = LED_BUILTIN;
+
+void setup() {
+
+  // Open serial communications and wait for port to open:
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+  Serial.println("Ethernet Modbus TCP Example");
+
+  // start the Ethernet connection and the server:
+  Ethernet.begin(NULL, ip);  // MAC parameter as null so it uses automatically the device one
+
+  // Check for Ethernet hardware present
+  if (Ethernet.hardwareStatus() == EthernetNoHardware) {
+    Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
+    while (true) {
+      delay(1); // do nothing, no point running without Ethernet hardware
+    }
+  }
+  if (Ethernet.linkStatus() == LinkOFF) {
+    Serial.println("Ethernet cable is not connected.");
+  }
+
+  // start the server
+  ethServer.begin();
+  
+  // start the Modbus TCP server
+  if (!modbusTCPServer.begin()) {
+    Serial.println("Failed to start Modbus TCP Server!");
+    while (1);
+  }
+
+  // configure the LED
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
+
+  // configure a single coil at address 0x00
+  modbusTCPServer.configureCoils(0x00, 1);
+}
+
+void loop() {
+  // listen for incoming clients
+  EthernetClient client = ethServer.available();
+  
+  if (client) {
+    // a new client connected
+    Serial.println("new client");
+
+    // let the Modbus TCP accept the connection 
+    modbusTCPServer.accept(client);
+
+    while (client.connected()) {
+      // poll for Modbus TCP requests, while client connected
+      modbusTCPServer.poll();
+
+      // update the LED
+      updateLED();
+    }
+
+    Serial.println("client disconnected");
+  }
+}
+
+void updateLED() {
+  // read the current value of the coil
+  int coilValue = modbusTCPServer.coilRead(0x00);
+
+  if (coilValue) {
+    // coil value set, turn LED on
+    digitalWrite(ledPin, HIGH);
+  } else {
+    // coild value clear, turn LED off
+    digitalWrite(ledPin, LOW);
+  }
+}
+
+```
+Results:
+
+![Opta LED controlled by the PMC through Modbus TCP](assets/blink-modbus.gif)
+
+
 ### CAN Bus
 
 The Portenta Machine Control features a built-in CAN bus interface, enabling the implementation of robust and reliable data transmission systems in automotive and industrial automation applications. The CAN bus is widely used due to its ability to operate effectively in electrically noisy environments and its communication method that reduces errors.
