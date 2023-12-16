@@ -47,9 +47,9 @@ To authenticate, you will need to generate a `clientId` and `clientSecret`. This
 
 **1.** Log in to your [Arduino account](https://cloud.arduino.cc/home/).
 
-**2.** Navigate to the [Arduino Cloud home page](https://cloud.arduino.cc/home/).
+**2.** Navigate to the [API Keys page](https://app.arduino.cc/api-keys).
 
-**3.** Click **"API keys"** at the bottom left corner, and then click **"CREATE API KEY"**. Name it, and save it as a PDF. You will **not** be able to see `clientSecret` again.
+**3.** Click **"CREATE API KEY"**. Name it, and save it as a PDF. You will **not** be able to see `clientSecret` again.
 
 ![API Keys in the Arduino Cloud](assets/api-keys.png)
 
