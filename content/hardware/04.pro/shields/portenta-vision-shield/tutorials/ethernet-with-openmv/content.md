@@ -60,7 +60,7 @@ First you are making use of some micropython libraries, [network](http://docs.mi
 import network, usocket
 ```
 
-The script will make the board connect to a website and set a port for later use. This line in the code decides what website it connects to. The example uses "www.google.com", but feel free to change it and experiment with different websites.
+The script will make the board connect to a website and set a port for later use. This line in the code decides what website it connects to. The example uses `www.google.com`, but feel free to change it and experiment with different websites.
 
 ```arduino
 PORT = 80

@@ -73,9 +73,9 @@ While using the Nicla Vision with OpenMV, the RGB LED of the board can be used t
 
 🟢 **Blinking Green:** Your Nicla Vision onboard bootloader is running. The onboard bootloader runs for a few seconds when your Nicla Vision is powered via USB to allow OpenMV IDE to reprogram your Nicla Vision.
 
-🔵 **Blinking Blue:** Your Nicla Vision is running the default [main.py](http://main.py/) script onboard. 
+🔵 **Blinking Blue:** Your Nicla Vision is running the default `main.py` script onboard. 
 
-If you overwrite the [main.py](http://main.py/) script on your Nicla Vision, then it will run whatever code you loaded on it instead.
+If you overwrite the `main.py` script on your Nicla Vision, then it will run whatever code you loaded on it instead.
 
 ***If the LED is blinking blue but OpenMV IDE cannot connect to your Nicla Vision, please make sure you are connecting your Nicla Vision to your PC with a USB cable that supplies both data and power.***
 
