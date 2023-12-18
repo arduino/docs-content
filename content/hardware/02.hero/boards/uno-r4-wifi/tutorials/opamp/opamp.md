@@ -26,7 +26,7 @@ In this article, you will learn:
   To follow along with this article, you will need the following hardware: 
   
   - [Arduino UNO R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
-  - resistors 
+  - resistors
   - Jumper wires
   
   
@@ -41,15 +41,17 @@ An OPAMP is a versatile and widely used electronic component that belongs to the
 
 ## Voltage Follower
 
-The most simple way of testing the OPAMP is to create a voltage follower, by connecting `A2` to `A3`. Then, any voltage applied to `A1` should be mirrored on `A3`. For example, if you connect `A1` to `GND`, the OPAMP output should be `GND`. Connect `A1` to `3.3 V`, the output should be `3.3 V`.
+The simplest way to test the OPAMP is to configure it as a voltage follower by connecting A2 to A3. In this setup, the voltage at A3 should mimic the voltage applied to A1. For instance, if you connect A1 to the ground (GND), the OPAMP output at A3 should also be at the ground potential. Similarly, if you connect A1 to 3.3 V, the output at A3 should be approximately 3.3 V.
 
 ## Circuit
 
-![Voltage Follower Circuit](./assets/circuitFollower.png)
+![Voltage Follower Circuit](./assets/circuitFollowerWiFi.png)
 
 ## Voltage Amplifier
 
-A voltage amplifier, as the name suggests, amplifies the voltage. A simple 2x amplifier can be built using e.g. two `10k` resistors. Connect one resistor between "minus" and GND. Then use the second resistor to connect the output and "minus" together. Any signal input at "plus" will now appear with double the amplitude at the output pin. Of course, the input signal and the Arduino board should share the same `GND`. 
+***Do NOT amplify the voltage provided by a battery as this can pose serious safety risks!***
+
+A voltage amplifier, as the name suggests, amplifies the voltage. A simple 2x amplifier can be built using e.g. two `10k` resistors. Connect one resistor between "minus" and GND. Then use the second resistor to connect the output and "minus" together. Any signal input at "plus" will now appear with double the amplitude at the output pin. Of course, the input signal and the Arduino board should share the same `GND`.
 
 ***The amplified output signal should not go above ~4.7 V, otherwise clipping will appear and you can damage the board***
 
@@ -57,9 +59,35 @@ Below is a capture of an oscilloscope in which an approx. 2 V square wave (green
 
 ![Oscilloscope measurements](./assets/amp_screenshot.png)
 
+But let's say you want to amplify the voltage signal 4x instead of 2x. The amplification of an OPAMP mainly depends on the chosen resistor values. Take a look at the formula below:
+
+![1Calculate resistor value](./assets/calc.png)
+
+**Av** = Amplified Voltage (V)
+
+**R1** = Resistor connected to Ground (Ω)
+
+**R2** = Feedback resistor (Ω)
+
+We know we want to amplify the voltage times four so:
+
+**Av** = 4 V
+
+Now, we need to figure out what resistors to choose. Because we only can solve for one unknown value we choose a predefined value for one of the resistors, e.g. 10k Ω for R1.
+
+**R1** = 10k Ω
+
+Your formula should now look like this:
+
+![1Add values to the formula](./assets/numCalc.png)
+
+ That leaves R2 as the only unknown variable. Now, Subtract one from both sides and multiply by ten, which leaves us with:
+
+**R2 = 30k Ω**
+
 ## Circuit
 
-![OPAMP Circuit](./assets/circuitAmplifier.png)
+![Voltage 2x Amplifier Circuit](./assets/circuitAmplifierWiFi.png)
 
 ***Read more about an amplifier circuit [here](https://www.electronics-tutorials.ws/opamp/opamp_3.html).***
 

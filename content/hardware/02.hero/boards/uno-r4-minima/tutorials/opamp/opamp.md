@@ -41,13 +41,15 @@ An OPAMP is a versatile and widely used electronic component that belongs to the
 
 ## Voltage Follower
 
-The most simple way of testing the OPAMP is to create a voltage follower, by connecting `A2` to `A3`. Then, any voltage applied to `A1` should be mirrored on `A3`. For example, if you connect `A1` to `GND`, the OPAMP output should be `GND`. Connect `A1` to `3.3 V`, the output should be `3.3 V`.
+The simplest way to test the OPAMP is to configure it as a voltage follower by connecting A2 to A3. In this setup, the voltage at A3 should mimic the voltage applied to A1. For instance, if you connect A1 to the ground (GND), the OPAMP output at A3 should also be at the ground potential. Similarly, if you connect A1 to 3.3 V, the output at A3 should be approximately 3.3 V.
 
 ## Circuit
 
-![Voltage Follower Circuit](./assets/circuitFollower.png)
+![Voltage Follower Circuit](./assets/circuitFollowerMinima.png)
 
 ## Voltage Amplifier
+
+***Do NOT amplify the voltage provided by a battery as this can pose serious safety risks!***
 
 A voltage amplifier, as the name suggests, amplifies the voltage. A simple 2x amplifier can be built using e.g. two `10k` resistors. Connect one resistor between "minus" and GND. Then use the second resistor to connect the output and "minus" together. Any signal input at "plus" will now appear with double the amplitude at the output pin. Of course, the input signal and the Arduino board should share the same `GND`. 
 
@@ -59,7 +61,7 @@ Below is a capture of an oscilloscope in which an approx. 2 V square wave (green
 
 ## Circuit
 
-![OPAMP Circuit](./assets/circuitAmplifier.png)
+![Voltage 2x Amplifier Circuit](./assets/circuitAmplifierMinima.png)
 
 ## Code
 
