@@ -19,7 +19,7 @@ This board is Bluetooth® enabled allowing you to control peripheral devices and
 </Feature>
 
 <Feature title="ESP32 Platform" image="mcu">
-The Nano ESP32's core is based on the well maintained & documented <a href="https://github.com/espressif/arduino-esp32">ESP32 core</a> from Espressif.
+The Nano ESP32's Board Package is based on the well maintained & documented <a href="https://github.com/espressif/arduino-esp32">ESP32 core</a> from Espressif.
 <FeatureLink variant="secondary" title="ESP32 Documentation" url="https://docs.espressif.com/projects/arduino-esp32/en/latest/"/>
 </Feature>
 

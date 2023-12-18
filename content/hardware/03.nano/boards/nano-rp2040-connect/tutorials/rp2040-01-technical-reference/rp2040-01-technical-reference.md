@@ -41,9 +41,9 @@ This article is a collection of guides, API calls, libraries and tutorials that 
 
 You can also visit the [documentation platform for the Nano RP2040 Connect](/hardware/nano-rp2040-connect).
 
-## Core
+## Board Package
 
-The Nano RP2040 Connect uses the [Arduino Mbed OS Nano Boards core](https://github.com/arduino/ArduinoCore-mbed).
+The Nano RP2040 Connect uses the [Arduino Mbed OS Nano Board Package](https://github.com/arduino/ArduinoCore-mbed).
 
 ## Datasheet
 
@@ -57,7 +57,7 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 The Nano RP2040 Connect can be programmed through the **Classic Arduino IDE 1.8.X**. To install your board, you can check out the guide below:
 
-- [Installing the Arduino Mbed OS Nano Boards core](/software/ide-v2/tutorials/ide-v2-board-manager)
+- [Installing the Arduino Mbed OS Nano Board Package](/software/ide-v2/tutorials/ide-v2-board-manager)
 
 ### Arduino IDE 2 
 
@@ -272,7 +272,7 @@ The **MP34DT06JTR** is a compact, low-power omnidirectional digital MEMS microph
 
 ### PDM Library
 
-To access the data from the MP34DT06JTR, we need to use the [PDM](https://www.arduino.cc/en/Reference/PDM) library that is included in the **Arduino Mbed OS Nano Boards** core. If the core is installed, you will find an example that works by browsing **File > Examples > PDM > PDMSerialPlotter**. 
+To access the data from the MP34DT06JTR, we need to use the [PDM](https://www.arduino.cc/en/Reference/PDM) library that is included in the **Arduino Mbed OS Nano Board Package**. If the Board Package is installed, you will find an example that works by browsing **File > Examples > PDM > PDMSerialPlotter**. 
 
 - **Please note:** The sampling frequency in the PDMSerialPlotter example is set to 16000 Hz. If the microphone appears to not be working (monitor is printing a value of -128), try to change this rate to 20000 Hz. You can change this at the top of the PDMSerialPlotter example sketch, as shown in the example below:
 
@@ -509,7 +509,7 @@ BLEDevice central = BLE.central();
 
 ## USB Keyboard
 
-To use the board as a keyboard, you can refer to the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library that can be found inside the core.
+To use the board as a keyboard, you can refer to the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library that can be found inside the Board Package.
 
 You first need to include the libraries and create an object:
 
