@@ -59,13 +59,41 @@ Below is a capture of an oscilloscope in which an approx. 2 V square wave (green
 
 ![Oscilloscope measurements](./assets/amp_screenshot.png)
 
+But let's say you want to amplify the voltage signal 4x instead of 2x. The amplification of an OPAMP mainly depends on the chosen resistor values. Take a look at the formula below:
+
+![Calculate resistor value](./assets/calc.png)
+
+**Av** = Amplified Voltage (V)
+
+**R1** = Resistor connected to Ground (Ω)
+
+**R2** = Feedback resistor (Ω)
+
+We know we want to amplify the voltage times four so:
+
+**Av** = 4 V
+
+Now, we need to figure out what resistors to choose. Because we only can solve for one unknown value we choose a predefined value for one of the resistors, e.g. 10k Ω for R1.
+
+**R1** = 10k Ω
+
+Your formula should now look like this:
+
+![Add values to the formula](./assets/numCalc.png)
+
+ That leaves R2 as the only unknown variable. Now, Subtract one from both sides and multiply by ten, which leaves us with:
+
+**R2 = 30k Ω**
+
 ## Circuit
 
 ![Voltage 2x Amplifier Circuit](./assets/circuitAmplifierMinima.png)
 
+***Read more about an amplifier circuit [here](https://www.electronics-tutorials.ws/opamp/opamp_3.html).***
+
 ## Code
 
-To start up the opamp, simply include the library and call `OPAMP.begin(speed)`. As the optional `speed` argument to this function, can choose either `OPAMP_SPEED_LOWSPEED`` as the low-speed (=lower power) mode or `OPAMP_SPEED_HIGHSPEED` as the high-speed, high-power mode.
+To start up the opamp, simply include the library and call `OPAMP.begin(speed)`. As the optional `speed` argument to this function, can choose either `OPAMP_SPEED_LOWSPEED` as the low-speed (lower power) mode or `OPAMP_SPEED_HIGHSPEED` as the high-speed, high-power mode.
 
 ```arduino
 #include <OPAMP.h>
