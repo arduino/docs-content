@@ -4,7 +4,7 @@ url_shop: https://store.arduino.cc/arduino-mkr-vidor-4000
 url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrvidor4000/150'
-certifications: [CE, UKCA, RoHS]
+certifications: [CE, UKCA, RoHS, FCC]
 productCode: '024'
 ---
 
