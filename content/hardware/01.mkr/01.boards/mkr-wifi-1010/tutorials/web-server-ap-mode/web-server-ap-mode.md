@@ -39,7 +39,7 @@ If you have never used the **WiFiNINA** library, you can check out [this tutoria
 -   Breadboard
 -   Jumper wires
 -   Arduino IDE (offline and online versions available)
--   Arduino SAMD core installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010)
+-   Arduino SAMD Board Package installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010)
 -   WiFiNINA library (explained later in this tutorial)
  
 You can also use the built-in LED on the MKR WiFi 1010.
@@ -281,7 +281,7 @@ When interacting with the links, you should see the LED, connected to pin 2, tur
 
 If the code is not working, there are some common issues we might need to troubleshoot:
 - We have not updated the latest firmware for the board.
-- We have not installed the core required for the board.
+- We have not installed the Board Package required for the board.
 - We have not installed the WiFiNINA library.
 - We have not entered the SSID and PASS: remember, it is case sensitive.
 - We have not selected the right port to upload: depending on what computer we use, sometimes the board is duplicated. By simply restarting the editor, this issue can be solved.

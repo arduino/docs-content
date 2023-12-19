@@ -307,7 +307,7 @@ To control the LED, we simply need to write any value other than 0 to turn it on
 If the code is not working, there are some common issues we can troubleshoot:
 
 - We haven't updated the latest firmware for the board.
-- We haven't installed the core required for the board.
+- We haven't installed the Board Package required for the board.
 - We haven't installed the ArduinoBLE library.
 - We haven't opened the Serial Monitor to initialize the program.
 - The device you are using to connect has its Bluetooth® turned off.

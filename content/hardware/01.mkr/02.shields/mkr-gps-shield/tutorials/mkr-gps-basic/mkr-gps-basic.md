@@ -140,7 +140,7 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 - We have not installed the **MKRGPS** library.
 - We have selected the wrong port and board to upload to.
-- We have not installed the right core for the board we are using.
+- We have not installed the right Board Package for the board we are using.
 - We need to move the MKR GPS Shield closer to a window.
 
 ## Conclusion

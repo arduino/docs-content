@@ -75,7 +75,7 @@ We will now get to the programming part of this tutorial. We will here create a 
 
 **1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
 
-**2.** We can now take a look at some of the core functions of this sketch:
+**2.** We can now take a look at some of the Board Package functions of this sketch:
 
 - `while (!Serial)` 
 - `SD.begin(chipSelect)` - initializes the SD card with selected pin.
@@ -171,7 +171,7 @@ And that's how we can log data, using only the MKR Zero board, the SD library an
 If the code is not working, there are some common issues we can troubleshoot:
 
 - Check that the SD card is working.
-- Check that you have installed the core for the MKR Zero board (instructions are above the code).
+- Check that you have installed the Board Package for the MKR Zero board (instructions are above the code).
 - Make sure you open the Serial Monitor.
 
 ## Conclusion
