@@ -44,9 +44,9 @@ If you’re using the USB-C® connector you must power it with 5 V.
 
 When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board. 
 
-## Core
+## Board Package
 
-The UNO R4 WiFi is based on the [Arduino UNO R4 Core](https://github.com/arduino/ArduinoCore-renesas).
+The UNO R4 WiFi is based on the [Arduino UNO R4 Board Package](/tutorials/uno-r4-minima/r4-wifi-getting-starteds).
 
 ## Installation
 
@@ -60,7 +60,7 @@ Read more in the [Getting Started with the UNO R4 WiFi](/tutorials/uno-r4-wifi/r
 
 ### Arduino Web Editor
 
-The Web Editor is an online IDE that includes all official boards, no need for installing the core/package. You will need the Create Plugin installed on your computer to use the Web Editor.
+The Web Editor is an online IDE that includes all official boards, no need for installing the Board Package. You will need the Create Plugin installed on your computer to use the Web Editor.
 
 Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
 
@@ -226,7 +226,7 @@ Please note that the following pins are PWM capable but may interfere with other
 
 ## LED Matrix
 
-The LED Matrix on the UNO R4 WiFi is available to use in your program, to display still graphics, animations, or even play games on. The Renesas core includes the [Arduino_LED_Matrix](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/Arduino_LED_Matrix) library for displaying frames on the matrix.
+The LED Matrix on the UNO R4 WiFi is available to use in your program, to display still graphics, animations, or even play games on. The UNO R4 Board Package includes the [Arduino_LED_Matrix](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/Arduino_LED_Matrix) library for displaying frames on the matrix.
 
 To learn about the LED matrix in depth, check out the [LED Matrix Guide](/tutorials/uno-r4-wifi/led-matrix/).
 
@@ -636,7 +636,7 @@ If you wish you can change this and get direct access to the serial bus on the R
 
 The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi® module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
 
-To use the Wi-Fi® features of the UNO R4 WiFi, use the **WiFiS3** library that is built in to the UNO R4 Core.
+To use the Wi-Fi® features of the UNO R4 WiFi, use the **WiFiS3** library that is built in to the UNO R4 Board Package.
 
 To learn more about the Wi-Fi® capabilities of the UNO R4 WiFi, try out the [Network Examples](/tutorials/uno-r4-wifi/wifi-examples).
 
