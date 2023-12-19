@@ -1,6 +1,6 @@
 ---
 title: GIGA R1 WiFi Network Examples
-description: Discover examples compatible with the WiFi library included in the GIGA core.
+description: Discover examples compatible with the WiFi library included in the GIGA Board Package.
 author: Karl Söderby
 hardware:
   - hardware/10.mega/boards/giga-r1-wifi
@@ -13,7 +13,7 @@ tags: [Wi-Fi, Web Server, AP Mode, SSL, UDP]
 
 The [GIGA R1 WiFi](/hardware/giga-r1-wifi) has a Murata LBEE5KL1DX-883 radio module that allows you to connect to local Wi-Fi networks, and perform network operations. Protocols including HTTPS, MQTT, UDP are tested and supported, and in this article, you will find a number of examples that will get you started.
 
-Wi-Fi support is enabled via the built-in `WiFi` library that is shipped with the [Arduino Mbed Core](https://github.com/arduino/ArduinoCore-mbed). Installing the core automatically installs the `WiFi` library.
+Wi-Fi support is enabled via the built-in `WiFi` library that is shipped with the [Arduino Mbed OS GIGA Board Package](https://github.com/arduino/ArduinoCore-mbed). Installing the Board Package automatically installs the `WiFi` library.
 
 The radio module also supports Bluetooth® Low Energy, which is supported via the [ArduinoBLE](https://www.arduino.cc/reference/en/libraries/arduinoble/) library.
 

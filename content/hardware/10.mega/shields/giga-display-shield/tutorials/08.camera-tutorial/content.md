@@ -16,9 +16,9 @@ The GIGA Display Shield comes with an Arducam® camera connector. In this tutori
 - [Arduino IDE](https://www.arduino.cc/en/software)
 - HM01B0, HM0360, GC2145 or OV7675 camera
 
-## Downloading the Library and Core
+## Downloading the Library and Board Package
 
-The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the core. Now open the library tab on the left, search for [**Arducam_dvp**](https://www.arduino.cc/reference/en/libraries/arducam_dvp/), and install this library.
+The Arduino Mbed OS Giga Boards Board Package contains most of the libraries you need to work with the shield's camera connector. To install the Board Package for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the Board Package. Now open the library tab on the left, search for [**Arducam_dvp**](https://www.arduino.cc/reference/en/libraries/arducam_dvp/), and install this library.
 
 ![Library tab in the Arduino IDE](assets/ide-library.png)
 
@@ -173,4 +173,4 @@ void loop() {
 
 ## Conclusion
 
-This tutorial went through how to connect a compatible camera to the shield and also how to test it out quickly with the example sketch included in the core. Now you should see a live feed from the camera on your GIGA Display Shield!
+This tutorial went through how to connect a compatible camera to the shield and also how to test it out quickly with the example sketch included in the Board Package. Now you should see a live feed from the camera on your GIGA Display Shield!

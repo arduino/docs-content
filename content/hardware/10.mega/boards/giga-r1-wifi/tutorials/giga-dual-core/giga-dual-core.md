@@ -32,7 +32,7 @@ In this guide you will discover:
 
 - [GIGA R1 WiFi](/hardware/giga-r1-wifi)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- Arduino GIGA Core installed.\*
+- Arduino GIGA Board Package installed.\*
 
 ***\*For instructions on how to install the GIGA Core, follow the [Getting Started with GIGA R1 guide](/tutorials/giga-r1-wifi/giga-getting-started).***
 
