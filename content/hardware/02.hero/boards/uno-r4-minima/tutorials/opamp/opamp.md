@@ -35,7 +35,7 @@ In this article, you will learn:
 An OPAMP is a versatile and widely used electronic component that belongs to the class of analog integrated circuits. Its primary function is to amplify voltage signals but they are very versatile and can be used to:
 
 - mirror an input voltage to its output,
-- amplify a small analog voltage to its output pin, output voltage range from 0 to ~4.7 V,
+- amplify a small analog voltage to its output pin, the UNO R4's output voltage range is 0 to ~4.7 V,
 - compare two input voltages and give a binary "higher" or "lower" output,
 - integrate and differentiate signals.
 
@@ -49,9 +49,9 @@ The simplest way to test the OPAMP is to configure it as a voltage follower by c
 
 ## Voltage Amplifier
 
-***Do NOT amplify the voltage provided by a battery as this can pose serious safety risks!***
+***Caution: When amplifying the voltage of a battery using an operational amplifier, you should be aware of potential risks. The amplification process can lead to a high current draw, essentially placing a significant load on the battery, which may result in overheating, damage, or even pose a security risk. To mitigate this risk, you may for example add a resistor in series with the battery.***
 
-A voltage amplifier, as the name suggests, amplifies the voltage. A simple 2x amplifier can be built using e.g. two `10k` resistors. Connect one resistor between "minus" and GND. Then use the second resistor to connect the output and "minus" together. Any signal input at "plus" will now appear with double the amplitude at the output pin. Of course, the input signal and the Arduino board should share the same `GND`. 
+A voltage amplifier, as the name suggests, amplifies the voltage. A simple 2x amplifier can be built using e.g. two `10k` resistors. Connect one resistor between "minus" and GND. Then use the second resistor to connect the output and "minus" together. a circuit diagram [can be seen below](#circuit). Any signal input at "plus" will now appear with double the amplitude at the output pin. Of course, the input signal and the Arduino board should share the same `GND`. 
 
 ***The amplified output signal should not go above ~4.7 V, otherwise clipping will appear and you can damage the board***
 
