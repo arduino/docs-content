@@ -50,14 +50,6 @@ Additionally, you may need the following accessories:
 * 5 VDC wall power adapter (x1)
 * Male headers to solder Nicla boards
 
-### Nicla Enclosures
-
-The Nicla boards enclosures are integrally designed to facilitate the deployment of your solutions alongside their robustness and security.
-
-<video width="100%" controls="true">
-<source src="assets/sense-voice.mp4" type="video/mp4"/>
-</video>
-
 ## Getting Started with Your Kit
 
 1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino IoT Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business) with Arduino Cloud For Business!
@@ -68,11 +60,17 @@ The Nicla boards enclosures are integrally designed to facilitate the deployment
 
 4. Check the [Nicla Sense ME docs](https://docs.arduino.cc/hardware/nicla-sense-me) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00050-datasheet.pdf), consult the [Cheat Sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet) and [Set it up](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00050-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00050-schematics.pdf)
 
-5. Check the [Portenta C33 docs](https://docs.arduino.cc/hardware/portenta-c33) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00074-datasheet.pdf) and [User Manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00074-schematics.pdf)
+5. Check this video to see how to assemble your Nicla boards into their enclosures. This will facilitate the deployment of your solutions and improve their robustness and security.
 
-6. Check the [Portenta Breakout docs](https://docs.arduino.cc/hardware/portenta-breakout) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ASX00031-datasheet.pdf) and the [Getting Started guide](https://docs.arduino.cc/tutorials/portenta-breakout/getting-started). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ASX00031-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ASX00031-schematics.pdf)
+<video width="100%" controls="true">
+<source src="assets/sense-voice.mp4" type="video/mp4"/>
+</video>
 
-7. Start practicing the first examples included in the user manual, the IDE examples and the experiences proposed below.
+6. Check the [Portenta C33 docs](https://docs.arduino.cc/hardware/portenta-c33) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00074-datasheet.pdf) and [User Manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00074-schematics.pdf)
+
+7. Check the [Portenta Breakout docs](https://docs.arduino.cc/hardware/portenta-breakout) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ASX00031-datasheet.pdf) and the [Getting Started guide](https://docs.arduino.cc/tutorials/portenta-breakout/getting-started). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ASX00031-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ASX00031-schematics.pdf)
+
+8. Start practicing the first examples included in the user manual, the IDE examples and the experiences proposed below.
 
 ## Experiences Proposed
 
