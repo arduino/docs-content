@@ -13,7 +13,7 @@ The main goal of the Application API is to allow you to create and manage IoT re
 
 The core of those APIs is organized around  [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer). Our API has predictable resource-oriented URLs, accepts  [form-encoded](https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms)  request bodies, returns  [JSON-encoded](http://www.json.org/) responses, and uses standard HTTP response codes, authentication, and verbs. 
 
-You can use those APIs, both directly calling our HTTP endpoints or using our clients that wrap those calls into easy-to-use abstractions like objects and functions. We have Applications API clients available in `javascript`, `golang`, and `python`. To use the Application API, you need to create an **API Key** in the [API Keys](https://cloud.arduino.cc/home/api-keys) section.
+You can use those APIs, both directly calling our HTTP endpoints or using our clients that wrap those calls into easy-to-use abstractions like objects and functions. We have Applications API clients available in `javascript`, `golang`, and `python`. To use the Application API, you need to create an **API Key** in the [API Keys](https://cloud.arduino.cc/api-keys) section.
 
 With this API, you can:
 - Build an automated script to create your things, in bulk
