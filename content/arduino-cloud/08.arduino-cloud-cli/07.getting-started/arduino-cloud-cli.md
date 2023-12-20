@@ -73,7 +73,7 @@ Each command has a set of **subcommands** which we will be exploring in this gui
 
 - `arduino-cloud-cli credentials`
 
-***Get your API key from the [Arduino Cloud home page](https://cloud.arduino.cc/home/) (bottom left corner of the page)***
+***Get your API key from the [Arduino Cloud API Keys page](https://app.arduino.cc/api-keys)***
 
 To authenticate with the Arduino Cloud, we will need to first set our credentials, using our `clientId` and `clientSecret` which is obtained from the Arduino Cloud API keys section.
 
