@@ -15,8 +15,6 @@ hardware:
   - hardware/07.opta/opta-family/opta
 ---
 
-![Arduino Opta Azure IoT Tutorial Hero Banner](hero-banner.png)
-
 ## Introduction
 
 This tutorial demonstrates the integration of Arduino Opta with Azure IoT. You will proceed to create a reliable and secure IoT environment, harnessing the power of these two technologies.
@@ -168,7 +166,7 @@ The example modified for Arduino Opta is available [here](assets/opta-azure-iot-
 
 ### Sketch Configuration for Connection
 
-To establish a connection to Azure IoT, you don't need to make many changes to your sketch. All the configurations necessary to make the transmission of data from Arduino Opta to the Microsoft cloud work are enclosed in a few lines of code.
+To establish a connection to Azure IoT, you don't need to make any changes to your sketch. All the configurations necessary to make the transmission of data from Arduino Opta to the Microsoft cloud work are enclosed in a few lines of code.
 
 In particular, the information to be customized for the connection is represented by various **#define** in the **iot_configs.h** file.
 
@@ -200,9 +198,9 @@ Finally, **IOT_CONFIG_DEVICE_KEY** requires entering the device's private key.
 
 ### Other Code Customizations
 
-In the **iot_configs.h** file, you find a definition that allows indicating in milliseconds the time that must elapse between sending one telemetry message and the next. The relevant definition is **IOT_CONFIG_TELEMETRY_FREQUENCY_MS** at line 19.
+In the **iot_configs.h** file, you find a definition that allows indicating in milliseconds the time that must elapse between sending one telemetry message and the next. The relevant definition is **IOT_CONFIG_TELEMETRY_FREQUENCY_MS** on line 19.
 
-In the code, it is set to 300,000 milliseconds, or 5 minutes:
+In the code, it is set to 300,000 milliseconds or 5 minutes:
 
 ![Arduino Opta Azure IoT Tutorial Sketch 1](assets/opta-azure-iot-tutorial-202105.png)
 
@@ -265,4 +263,4 @@ In conclusion to this tutorial, we have explored and customized a sample sketch 
 - **Integration with Azure IoT Hub:** We illustrated the process of configuring the definitions in the `iot_configs.h` file, which manages Wi-Fi connection and communication with Azure IoT Hub.
 - **Code Customizations:** We provided guidance on further customizing the code, including adjusting the telemetry message sending interval and modifying the simulated data sent to Azure IoT.
 
-The tutorial provides a detailed guide to connect Arduino Opta to Azure IoT, allowing the secure and reliable transmission of data. This is just a starting point, and further customizations can be made based on the specific needs of the project. Hoping that this tutorial has been helpful and has contributed to understanding the integration of Arduino Opta with Azure IoT.
+The tutorial provides a detailed guide to connect Arduino Opta to Azure IoT, allowing the secure and reliable transmission of data. This is just a starting point, and further customizations can be made based on the specific needs of the project. In case you want to dig deeper into the Azure IoT technology, check the [Azure IoT official documentation](https://learn.microsoft.com/en-us/azure/iot/).
