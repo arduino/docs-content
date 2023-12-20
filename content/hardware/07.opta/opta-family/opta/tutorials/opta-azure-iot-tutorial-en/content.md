@@ -148,7 +148,7 @@ Click on the name of the newly created device in the list of devices associated 
 
 From the current page, the only information needed for the configuration is the **Device ID** and the **Primary key**. Once requested, you can easily copy them using the 'Copy' button next to each corresponding field.
 
-![Opta™ Azure IoT Tutorial 13](assets/opta-azure-iot-tutorial-195821.png)
+![Device ID and Primary key credentials](assets/opta-azure-iot-tutorial-195821.png)
 
 The next step of the tutorial is dedicated to customizing and understanding the sample code.
 
