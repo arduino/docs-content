@@ -981,100 +981,230 @@ The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_
 - `MachineControl_RS485Comm.noReceive()`: Disables receive mode for transmission.
 - `MachineControl_RS485Comm.beginTransmission()`: Prepares the module to start transmitting data.
 - `MachineControl_RS485Comm.endTransmission()`: Ends data transmission and prepares the module to receive data.
-- `MachineControl_RS485Comm.available()`: Checks if data is available to be read.
+- `MachineControl_RS485Comm.available()`: Checks if data can be read.
 - `MachineControl_RS485Comm.read()`: Reads incoming data.
 
-Now, as a practical example we are going to establish a full-duplex communication between the Machine Control and a Max Carrier with a Portenta H7.
+**Note**: To receive and show the messages on your computer, you can use a USB to RS-485 converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
 
-Follow the wiring below for the RS-485 full-duplex communication.
+As a practical example, we will **establish a full duplex communication between the Portenta Machine Control and a Portenta Max Carrier paired with a Portenta H7 board**. Follow the wiring below for the RS-485 full-duplex communication.
 
 ![Full-duplex RS-485 wiring](assets/RS-485-full.png)
 
-For the Machine Control, use the example code found on **File > Examples > Arduino_MachineControl > RS485_fullduplex**.
-
-For the H7 on the Max Carrier use the following example sketch:
+For the Portenta Machine Control, use the example sketch shown below; it can also be found on the Arduino IDE by navigating to **File > Examples > Arduino_MachineControl > RS485_fullduplex**.
 
 ```arduino
-#include <ArduinoRS485.h>
+/*
+ * Portenta Machine Control's RS-485 Full Duplex Communication
+ * Name: portenta_machine_control_rs485_full_duplex_example.ino
+ * Purpose: Demonstrates full duplex RS-485 communication using
+ * the Portenta Machine Control. The sketch shows how to send 
+ * and receive data periodically on the RS-485 interface.
+ *
+ * @author Riccardo Rizzo, modified by Arduino PRO Content Team
+ * @version 1.0 01/10/23
+ */
 
-constexpr unsigned long sendInterval{ 1000 };
-unsigned long sendNow{ 0 };
+// Include the necessary libraries
+#include "Arduino_MachineControl.h"
 
-int counter = 0;
-
-arduino::UART _UART4_{ PA_0, PI_9, NC, NC };
-RS485Class rs485{ _UART4_, PA_0, PI_10, PJ_10 };  //  UART4, TX, CTS, RTS
+// Define the interval for sending messages
+constexpr unsigned long sendInterval { 1000 };
+unsigned long sendNow { 0 };
+unsigned long counter = 0;
 
 void setup() {
-  // Set the Max Carrier Communication Protocols to default config
-  RS485init();
-  // RS485/RS232 default config is:
-  // - RS485 mode
-  // - Half Duplex
-  // - No A/B and Y/Z 120 Ohm termination enabled
-  delay(1000);
-  // Enable the RS485/RS232 system
-  rs485Enable(true);
-  // Enable Full Duplex mode
-  // This will also enable A/B and Y/Z 120 Ohm termination resistors
-  rs485FullDuplex(true);
-  // Specify baudrate, and preamble and postamble times for RS485 communication
-  rs485.begin(115200, 0, 500);
-  // Start in receive mode
-  rs485.receive();
+  // Begin serial communication at a baud rate of 9600
+  Serial.begin(9600);
+  // Wait for the serial port to connect
+  while (!Serial);
+
+  Serial.println("- Start RS485 initialization...");
+
+  // Initialize the RS-485 interface with specific settings
+  // Specify baud rate, preamble and postamble times for RS-485 communication
+  MachineControl_RS485Comm.begin(115200, 0, 500);
+
+  // Enable full duplex mode and 120 Ohm termination resistors
+  MachineControl_RS485Comm.setFullDuplex(true);
+    
+  // Set the RS-485 interface in receive mode initially
+  MachineControl_RS485Comm.receive();
+    
+  Serial.println("- Initialization done!");
 }
+
 void loop() {
-  if (rs485.available()) {
-    Serial.write(rs485.read());
-  }
+  // Check if there is incoming data and read it
+  if (MachineControl_RS485Comm.available())
+    Serial.write(MachineControl_RS485Comm.read());
+
+  // Send data at defined intervals
   if (millis() > sendNow) {
-    // Disable receive mode before transmission
-    rs485.noReceive();
-    rs485.beginTransmission();
-    rs485.print("hello I'm Max ");
-    rs485.println(counter++);
-    rs485.endTransmission();
+    // Disable receive mode before starting the transmission
+    MachineControl_RS485Comm.noReceive();
+
+    // Begin transmission and send a message with a counter
+    MachineControl_RS485Comm.beginTransmission();
+    MachineControl_RS485Comm.print("- Hello ");
+    MachineControl_RS485Comm.println(counter++);
+
+    // End the transmission and switch back to receive mode
+    MachineControl_RS485Comm.endTransmission();
+        
     // Re-enable receive mode after transmission
-    rs485.receive();
+    MachineControl_RS485Comm.receive();
+
+    // Update the time for the next transmission
     sendNow = millis() + sendInterval;
-  }
-}
-void RS485init() {
-  rs485Enable(false);
-  rs485ModeRS232(false);
-  rs485FullDuplex(false);
-  rs485YZTerm(false);
-  rs485ABTerm(false);
-}
-void rs485Enable(bool enable) {
-  digitalWrite(PC_7, enable ? HIGH : LOW);
-}
-void rs485ModeRS232(bool enable) {
-  digitalWrite(PC_6, enable ? LOW : HIGH);
-}
-void rs485YZTerm(bool enable) {
-  digitalWrite(PG_3, enable ? HIGH : LOW);
-}
-void rs485ABTerm(bool enable) {
-  digitalWrite(PJ_7, enable ? HIGH : LOW);
-}
-void rs485FullDuplex(bool enable) {
-  digitalWrite(PA_8, enable ? LOW : HIGH);
-  if (enable) {
-    // RS485 Full Duplex require YZ and AB 120 Ohm termination enabled
-    rs485YZTerm(true);
-    rs485ABTerm(true);
   }
 }
 ```
 
-Both, Max Carrier and Machine Control will send and receive messages respectively through the RS-485 protocol and will print them in the Serial Monitor. 
+For the Portenta H7 board paired with the Portenta Max Carrier, use the following example sketch:
 
-![Full-duplex RS-485 communication running](assets/rs485ani.gif)
+```arduino
+ /*
+ * Portenta H7 RS-485 Full Duplex Communication
+ * Name: portenta_h7_rs485_full_duplex_example.ino
+ * Purpose: Demonstrates full duplex RS-485 communication using
+ * the Portenta Portenta H7 (on Portenta Max Carrier) and the 
+ * Portenta Machine Control. The sketch demonstrates how to send 
+ * and receive data periodically on the RS-485 interface.
+ *
+ * @author Arduino PRO Content Team
+ * @version 1.0 01/10/23
+ */
 
-**Note**: To receive and show the messages on your computer, you can use a USB to RS-485 converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
+// Include the necessary libraries
+#include <ArduinoRS485.h>
+
+// Define the interval for sending messages
+constexpr unsigned long sendInterval{ 1000 };
+unsigned long sendNow{ 0 };
+int counter = 0;
+
+arduino::UART _UART4_{ PA_0, PI_9, NC, NC };
+RS485Class rs485{ _UART4_, PA_0, PI_10, PJ_10 };  // UART4, TX, CTS, RTS
+
+void setup() {
+  // Initialize RS-485 with default settings for the Portenta H7 and the Portenta Max Carrier
+  RS485init();
+  delay(1000);
+
+  // Enable RS-485 interface
+  rs485Enable(true);
+
+  // Enable full duplex mode with A/B and Y/Z 120 Ohm termination resistors
+  rs485FullDuplex(true);
+
+  // Initialize RS-485 communication with specific baudrate and timing
+  rs485.begin(115200, 0, 500);
+
+  // Start in receive mode for communication with the Portenta Machine Control
+  rs485.receive();
+}
+
+void loop() {
+  // Read incoming data from the Portenta Machine Control
+  if (rs485.available()) {
+    Serial.write(rs485.read());
+  }
+
+  // Send data at defined intervals to Portenta Machine Control
+  if (millis() > sendNow) {
+    // Prepare for sending data
+    rs485.noReceive();  
+
+    rs485.beginTransmission();
+    rs485.print("- Hello I'm Max! ");
+    rs485.println(counter++);
+
+    // End of data transmission
+    rs485.endTransmission();
+
+    // Switch back to receive mode and schedule next transmission
+    rs485.receive(); 
+    sendNow = millis() + sendInterval;
+  }
+}
+
+/**
+  Initializes the RS-485 settings for the Portenta H7 and Portenta Max Carrier.
+
+  Sets the initial state of the RS-485 communication interface and configures
+  the communication mode and termination resistors.
+*/
+void RS485init() {
+    rs485Enable(false);
+    rs485ModeRS232(false);
+    rs485FullDuplex(false);
+    rs485YZTerm(false);
+    rs485ABTerm(false);
+}
+
+/**
+  Enables or disables the RS-485 communication interface.
+  Set to true to enable the RS-485 interface, or false to disable it.
+
+  @param enable (bool)
+*/
+void rs485Enable(bool enable) {
+    digitalWrite(PC_7, enable ? HIGH : LOW);
+}
+
+/**
+  Sets the communication mode to RS232 or RS485.
+  Set to true to enable RS232 mode, or false for RS485 mode.
+
+  @param enable (bool)
+*/
+void rs485ModeRS232(bool enable) {
+    digitalWrite(PC_6, enable ? LOW : HIGH);
+}
+
+/**
+  Enables or disables the YZ termination resistors for RS-485 communication.
+  Set to true to enable YZ termination resistors, or false to disable them.
+
+  @param enable (bool)
+*/
+void rs485YZTerm(bool enable) {
+    digitalWrite(PG_3, enable ? HIGH : LOW);
+}
+
+/**
+  Enables or disables the AB termination resistors for RS-485 communication.
+  Set to true to enable AB termination resistors, or false to disable them.
+
+  @param enable (bool)
+*/
+void rs485ABTerm(bool enable) {
+    digitalWrite(PJ_7, enable ? HIGH : LOW);
+}
+
+/**
+  Sets the RS485 communication to full duplex mode.
+  Set to true to enable full duplex mode, or false for half duplex.
+
+  @param enable (bool)
+*/
+void rs485FullDuplex(bool enable) {
+    digitalWrite(PA_8, enable ? LOW : HIGH);
+    if (enable) {
+        // RS485 Full Duplex requires YZ and AB 120 Ohm termination enabled
+        rs485YZTerm(true);
+        rs485ABTerm(true);
+    }
+}
+```
+
+Both, the Portenta Max Carrier and the Portenta Machine Control will send and receive messages respectively through the RS-485 interface and will print them in the IDE's Serial Monitor as shown in the animation below. 
+
+![Full-duplex RS-485 communication example](assets/rs485ani.gif)
 
 ### Modbus
+
+The Portenta Machine Control incorporate a built-in Modbus interface, enabling the implementation of robust and reliable data transmission systems. Modbus, in its RTU version that utilizes RS-485 serial transmission or in its TCP version that operates over Ethernet, remains one of the most widely used protocols for industrial automation applications, building management systems, and process control, among others.
 
 For using Modbus protocol you will need the `ArduinoRS485` and `ArduinoModbus` libraries, you can install them directly from the Arduino IDE using the Library Manager and searching for their names.
 
