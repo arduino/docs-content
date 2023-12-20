@@ -62,9 +62,9 @@ Additionally, you may need the following accessories:
 
 5. Check this video to see how to assemble your Nicla boards into their enclosures. This will facilitate the deployment of your solutions and improve their robustness and security.
 
-<video width="100%" controls="true">
-<source src="assets/sense-voice.mp4" type="video/mp4"/>
-</video>
+  <video width="100%" controls="true">
+  <source src="assets/sense-voice.mp4" type="video/mp4"/>
+  </video>
 
 6. Check the [Portenta C33 docs](https://docs.arduino.cc/hardware/portenta-c33) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00074-datasheet.pdf) and [User Manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00074-schematics.pdf)
 
