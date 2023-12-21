@@ -32,9 +32,9 @@ In this guide you will discover:
 
 - [GIGA R1 WiFi](/hardware/giga-r1-wifi)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- Arduino GIGA Core installed.\*
+- Arduino GIGA Board Package installed.\*
 
-***\*For instructions on how to install the GIGA Core, follow the [Getting Started with GIGA R1 guide](/tutorials/giga-r1-wifi/giga-getting-started).***
+***\*For instructions on how to install the GIGA Board Package, follow the [Getting Started with GIGA R1 guide](/tutorials/giga-r1-wifi/giga-getting-started).***
 
 ## M4 Support
 
@@ -458,7 +458,7 @@ int servoMove(int angle) {
 
 The `RPC` library is based on the [rpclib](https://github.com/rpclib/rpclib) C++ library which provides a client and server implementation. In addition, it provides a method for communication between the M4 and M7 cores. 
 
-This library is included in the GIGA core, so it is automatically installed with the core. To use this library, you need to include `RPC.h`:
+This library is included in the GIGA Board Package, so it is automatically installed with the Board Package. To use this library, you need to include `RPC.h`:
 
 ```arduino
 #include <RPC.h>

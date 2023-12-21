@@ -54,7 +54,7 @@ It should however be noted that the internal operating voltage of the microcontr
 
 ## Installation
 
-***For detailed instructions on how to install the GIGA R1 core, please refer to the [Getting Started with GIGA R1](/tutorials/giga-r1-wifi/giga-getting-started) guide.***
+***For detailed instructions on how to install the GIGA R1 Board Package, please refer to the [Getting Started with GIGA R1](/tutorials/giga-r1-wifi/giga-getting-started) guide.***
 
 The **GIGA R1** can be programmed through:
 
@@ -62,15 +62,15 @@ The **GIGA R1** can be programmed through:
 - the **Arduino IDE 2**, 
 - and the Web-editor. 
 
-## Core
+## Board Package
 
-The GIGA R1 is based on the [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed), which also provides a set of examples that works out of the box.
+The GIGA R1 is based on the [Arduino Mbed OS GIGA Board Package](/tutorials/giga-r1-wifi/giga-getting-started), which also provides a set of examples that works out of the box.
 
 These examples are available in the Arduino IDE via **File > Examples > Examples for GIGA**.
 
 ### Mbed OS
 
-As [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed) is based on [MbedOS](https://os.mbed.com/), it is possible for the operating system to crash while running a sketch. 
+As the [Arduino Mbed OS GIGA Board Package](/tutorials/giga-r1-wifi/giga-getting-started) is based on [MbedOS](https://os.mbed.com/), it is possible for the operating system to crash while running a sketch. 
 
 On most Arduino boards, when a sketch fails due to e.g. memory shortage, the board resets.
 
@@ -145,7 +145,7 @@ The external Flash storage on the **GIGA R1** is QSPI and can be accessed and us
 
 The GIGA firmware has full support for FATFS and littleFS.
 
-To access the QSPI flash storage as a USB flash drive, you need to follow a few steps, first you need to update the WiFi modules firmware, then you need to create partitions on the flash storage, before finally exposing the partitions to be detected by a computer. These three steps are broken down into different built in example sketches that conveniently all come with the GIGA core.
+To access the QSPI flash storage as a USB flash drive, you need to follow a few steps, first you need to update the WiFi modules firmware, then you need to create partitions on the flash storage, before finally exposing the partitions to be detected by a computer. These three steps are broken down into different built in example sketches that conveniently all come with the GIGA Board Package.
 
 Firstly, navigate in the IDE menu to `File > Examples > STM32H747_System > WiFiFirmwareUpdater` and upload the sketch to your board. 
 
@@ -171,7 +171,7 @@ The antenna connector (see image above) is located right next to the USB-C conne
 
 ### Wi-Fi®
 
-Wi-Fi® on the GIGA R1 WiFi is supported via the `WiFi` library. This library is included in the core, so it is automatically installed when installing the core.
+Wi-Fi® on the GIGA R1 WiFi is supported via the `WiFi` library. This library is included in the core, so it is automatically installed when installing the Board Package.
 
 To use the Wi-Fi® features on this board, please refer to the [GIGA R1 WiFi Network Examples](/tutorials/giga-r1-wifi/giga-wifi) guide.
 

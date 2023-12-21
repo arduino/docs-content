@@ -40,15 +40,15 @@ The LVGL framework supports building more advanced UIs with dropdown menus, inte
 
 ***To get started, visit the [GIGA Display Shield Draw Images Guide](/tutorials/giga-display-shield/basic-draw-and-image).***
 
-## Core & Libraries
+## Board Package & Libraries
 
-The GIGA Display Shield requires you to install the core for GIGA boards, along with some additional software libraries.
+The GIGA Display Shield requires you to install the Board Package for GIGA boards, along with some additional software libraries.
 
 The libraries can be installed via the Arduino IDE's library manager, where you will also discover examples.
 
-### GIGA Core
+### GIGA Board Package
 
-To use the shield you will need a [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi) board. You also need to install the **GIGA core**, which can be done directly in the Arduino IDE, under "Board Manager". The source code for this core can be found in [this GitHub repository](https://github.com/arduino/ArduinoCore-mbed).
+To use the shield you will need a [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi) board. You also need to install the **GIGA Board Package**, which can be done directly in the Arduino IDE, under "Board Manager". The source code for this Board Package can be found in [this GitHub repository](https://github.com/arduino/ArduinoCore-mbed).
 
 ***For more details, see [Getting Started with GIGA R1 WiFi](/tutorials/giga-r1-wifi/giga-getting-started).***
 
@@ -56,7 +56,7 @@ To use the shield you will need a [GIGA R1 WiFi](https://store.arduino.cc/produc
 
 The [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) manages the video output and integrates third party frameworks such as [LVGL](https://lvgl.io/). This library is used to configure and initialize the display and to perform basic draw functions.
 
-***This library is included with the GIGA core, and does not need to be installed. The documentation for this library is available [here](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video/docs).***
+***This library is included with the GIGA Board Package, and does not need to be installed. The documentation for this library is available [here](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video/docs).***
 
 ### ArduinoGraphics
 
@@ -214,7 +214,7 @@ void loop() {
 
 ## Microphone
 
-This shield has an embedded omnidirectional microphone, **MP34DT06JTR**, which can be used together with the [PDM](https://docs.arduino.cc/learn/built-in-libraries/pdm) library. This library is shipped with the GIGA core, so there's no need to manually install it.
+This shield has an embedded omnidirectional microphone, **MP34DT06JTR**, which can be used together with the [PDM](https://docs.arduino.cc/learn/built-in-libraries/pdm) library. This library is shipped with the GIGA Board Package, so there's no need to manually install it.
 
 Below is a minimal sketch that will print out the samples in the serial plotter (See [Using the Serial Plotter Tool](/software/ide-v2/tutorials/ide-v2-serial-plotter) for more information). 
 

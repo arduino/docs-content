@@ -26,7 +26,7 @@ In this guide, we will take a look at the available features, how to enable them
 ### Libraries
 
 USB features on the GIGA R1 is currently enabled through three separate libraries.
-- [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) - included in the core.
+- [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) - included in the Board Package.
 - [Arduino_USBHostMbed5](https://github.com/arduino-libraries/Arduino_USBHostMbed5/) - can be downloaded through the Arduino IDE.
 - [USBHostGiga (Alpha)](https://github.com/arduino-libraries/USBHostGiga) - library only available through its GitHub repository.
 
@@ -477,7 +477,7 @@ void loop() {
 
 ## USB HID
 
-It is possible to turn your GIGA R1 board into a Human Interface Device **(HID)**, aka mouse & keyboard, using the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library which is included in the GIGA core. 
+It is possible to turn your GIGA R1 board into a Human Interface Device **(HID)**, aka mouse & keyboard, using the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library which is included in the GIGA Board Package. 
 
 Among other things, you can:
 - Create a custom keyboard, or a keyboard accessory,
