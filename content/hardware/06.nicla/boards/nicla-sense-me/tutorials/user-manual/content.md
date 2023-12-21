@@ -1100,8 +1100,8 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
 
   |         **Description**        |       **ID**       |
   |:------------------------------:|:------------------:|
-  |  Battery Service`             |       180F       |
-  | Battery Level Characteristic` |       2A19       |
+  |  Battery Service             |       180F       |
+  | Battery Level Characteristic |       2A19       |
 
 - In the `setup()` function, the code initializes the Nicla Sense ME board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
 
