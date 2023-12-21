@@ -148,7 +148,7 @@ You can now test out the board by moving it around, and notice how both the `x` 
 
 If the code is not working, there are some common issues we can troubleshoot:
 
-- We have not installed the core for the board we are using (a MKR family board is required).
+- We have not installed the Board Package for the board we are using (a MKR family board is required).
 - We have not installed the [MKRIMU](https://www.arduino.cc/reference/en/libraries/mkrimu/) library.
 - We have mounted the shield the wrong way around. Check that the pins on the board are aligned with the pins on the shield.
 
