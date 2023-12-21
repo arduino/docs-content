@@ -59,7 +59,7 @@ Additionally you may need the following accessories:
 
 5. Check this video to see how to assemble your Nicla boards into their enclosures. This will facilitate the deployment of your solutions and improve their robustness and security.
 
-  <video width="60%" controls="true">
+  <video width="100%" controls="true">
   <source src="assets/vision-enclosure.mp4" type="video/mp4"/>
   </video>
 
