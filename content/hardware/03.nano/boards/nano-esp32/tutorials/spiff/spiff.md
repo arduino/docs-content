@@ -15,7 +15,7 @@ The SPIFFS (Serial Peripheral Interface Flash File System) is a file system desi
 
 - [Arduino Nano ESP32](https://store.arduino.cc/nano-esp32)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32) installed (done in the Arduino IDE).
+- [Arduino ESP32 Board Package](https://github.com/arduino/arduino-esp32) installed (done in the Arduino IDE).
 
 ## Set Up SPIFFS File System
 

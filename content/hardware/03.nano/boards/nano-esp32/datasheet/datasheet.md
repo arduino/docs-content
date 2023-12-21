@@ -67,7 +67,7 @@ Nano ESP32 is a 3.3 V development board based on the NORA-W106-10B from u-blox®
 
 ## ESP32 Core
 
-The Nano ESP32 uses the [Arduino Core for ESP32 boards](https://github.com/arduino/arduino-esp32), a derivation of Espressif's [arduino-esp32](https://github.com/espressif/arduino-esp32) core.
+The Nano ESP32 uses the [Arduino Board Package for ESP32 boards](https://github.com/arduino/arduino-esp32), a derivation of Espressif's [arduino-esp32](https://github.com/espressif/arduino-esp32) core.
 
 # Rating
 

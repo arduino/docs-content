@@ -45,17 +45,17 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 - [Download the Nano ESP32 datasheet](/resources/datasheets/ABX00083-datasheet.pdf)
 
-## Arduino ESP32 Core
+## Arduino ESP32 Board Package
 
-This board is based on the [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32), that is derived from the original ESP32 core. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
+This board is based on the [Arduino ESP32 Board Package](https://github.com/arduino/arduino-esp32), that is derived from the original ESP32 Board Package. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
 
 ![ESP32 examples in the IDE.](assets/esp32-examples.png)
 
-To install the core, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the core, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
+To install the Board Package, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the Board Package, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
 
 ## ESP32 Pin Map
 
-The Nano ESP32's default pins are designed to match the **Nano form factor**. This pin mapping is done in the official Arduino ESP32 core (see just above). See below the pin map to understand how the physical pins correlate to the ESP32: 
+The Nano ESP32's default pins are designed to match the **Nano form factor**. This pin mapping is done in the official Arduino ESP32 Board Package (see just above). See below the pin map to understand how the physical pins correlate to the ESP32: 
 
 | Nano  | ESP32  |
 | ----- | ------ |
@@ -447,7 +447,7 @@ To read data, use the `read()` method, which will return the last sample.
 I2S.read()
 ```
 
-Examples for different modes & different audio devices are available in the core under **Examples > I2S**.
+Examples for different modes & different audio devices are available in the Board Package under **Examples > I2S**.
 
 
 Further reading:
@@ -458,7 +458,7 @@ Further reading:
 
 The ESP32-S3 is based on the dual-core XTensa LX7, which can run code separately on two cores. This is enabled through FreeRTOS, by setting up tasks that run on each core (similarly to how `void loop()` is implemented). The cores available are `0` and `1`.
 
-The example below is a modified version of the [BasicMultiThreading](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading) example found in the Arduino ESP32 core, and demonstrates how to use two common operations simultaneously:
+The example below is a modified version of the [BasicMultiThreading](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading) example found in the Arduino ESP32 Board Package, and demonstrates how to use two common operations simultaneously:
 - Blink an LED using one task on a specific core (0),
 - Read an analog pin using a second task on a specific core (1).
 
@@ -601,7 +601,7 @@ You can also read Espressifs technical reference manual here:
 
 The Nano ESP32 has a NORA-W106 module which has the ESP32-S3 SoC embedded. This module supports Wi-Fi® communication over the 2.4 GHz band.
 
-There are several examples provided bundled with the core that showcase how to make HTTP requests, host web servers, send data over MQTT etc.
+There are several examples provided bundled with the Board Package that showcase how to make HTTP requests, host web servers, send data over MQTT etc.
 
 ## RGB
 
@@ -667,6 +667,6 @@ void loop() {
 }
 ```
 
-Several ready to use examples are also available in the core at **Examples > USB**.
+Several ready to use examples are also available in the Board Package at **Examples > USB**.
 
 Remember that if the board stops being recognised in the IDE, you can put it in [Arduino Bootloader Mode](#arduino-bootloader-mode) to recover it.
