@@ -67,15 +67,17 @@ The Nano 33 BLE Sense Rev2 can be programmed through the **Web Editor**. To get 
 
 - [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
 
+
+## MicroPython
+
+This board is supported by MicroPython. Visit the [MicroPython documentation](/micropython) for getting started with installation and usage.
+
 ## Using OpenMV IDE
 
 If you want to use your board with MicroPython and OpenMV. Follow the tutorial below.
 
 - [Getting started with OpenMV with Nano 33 BLE Sense Rev2](/tutorials/nano-33-ble-sense/getting-started-omv)
 
-If you want an overlook of the functions and features that MicroPython provides, take a look at the tutorial below.
-
-- [MicroPython functions and syntax guide](/tutorials/nano-33-ble-sense/ble-sense-python-api)
 
 ### Forcing Bootloader
 
