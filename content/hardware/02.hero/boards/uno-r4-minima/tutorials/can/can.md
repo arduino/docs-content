@@ -21,7 +21,7 @@ The goals of this tutorial are:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 - [Arduino R4 Minima](https://store.arduino.cc/uno-r4-minima)
-- [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
+- [UNO R4 Board Package](/tutorials/uno-r4-minima/minima-getting-started)
 - CAN transceiver module * 
 - Jumper wires
 
@@ -57,9 +57,9 @@ Then, between the CAN transceivers, connect the following:
 
 ## Code Examples
 
-The following code examples needs to be uploaded to each of the UNO R4 Minima boards, one will send a message, one will receive it. These examples are available in the Renesas core, and using the Arduino IDE, you can access them by navigating to **File > Examples > Arduino_CAN > CANWrite/CANRead**
+The following code examples needs to be uploaded to each of the UNO R4 Minima boards, one will send a message, one will receive it. These examples are available in the UNO R4 Board Package, and using the Arduino IDE, you can access them by navigating to **File > Examples > Arduino_CAN > CANWrite/CANRead**
 
-The library used is built in to the core, so no need to install the library if you have the core installed.
+The library used is built in to the Board Package, so no need to install the library if you have the Board Package installed.
 
 To initialize the library, use `CAN.begin(CanBitRate::BR_250k)`, where a CAN bit rate is specified. Choose between:
 - BR_125k (125000)

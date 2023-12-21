@@ -44,9 +44,9 @@ If you’re using the USB-C® connector you must power it with 5 V.
 When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board. 
 
 
-## Core
+## Board Package
 
-The UNO R4 Minima is based on the [Arduino Core for Renesas devices](https://github.com/arduino/ArduinoCore-renesas).
+The UNO R4 Minima is based on the [UNO R4 Board Package](/tutorials/uno-r4-minima/minima-getting-started).
 
 ## Installation
 
@@ -60,7 +60,7 @@ Read more in the [Getting Started with the UNO R4 Minima](/tutorials/uno-r4-mini
 
 ### Arduino Web Editor
 
-The Web Editor is an online IDE that includes all official boards, no need for installing the core/package. You will need the Create Plugin installed on your computer to use the Web Editor.
+The Web Editor is an online IDE that includes all official boards, no need for installing the Board Package. You will need the Create Plugin installed on your computer to use the Web Editor.
 
 Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
 
