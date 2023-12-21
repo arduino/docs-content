@@ -2470,53 +2470,55 @@ The __Connector__ column shows the position of each GPIO pin within the Portenta
 
 This logic applies to all listed GPIOs. The GPIOs in the table are controllable, and each pin may have its specific function.
 
-|       **Connector**       | **Pin number** |        **Function**         | **Portenta X8<br>(Linux / Python® [BCM Mode])** | **Portenta X8<br>(Arduino*)** | **Portenta H7** | **Portenta C33** |
-|:-------------------------:|:--------------:|:---------------------------:|:-----------------------------------------------:|:-----------------------------:|:---------------:|:----------------:|
-|  _40-Pin Connector (J5)_  |                |                             |                                                 |                               |                 |                  |
-|                           |       3        |          I2C2 SDA           |                     149 / 2                     |                               |      PH_12      |        39        |
-|                           |       5        |          I2C2 SCL           |                     148 / 3                     |                               |      PH_11      |        40        |
-|                           |       7        |            PWM0             |                     183 / 4                     |             PC_7              |      PA_8       |        0         |
-|                           |       8        |         SERIAL3 TX          |                    157 / 14                     |                               |      PL_8       |        53        |
-|                           |       10       |         SERIAL3 RX          |                    156 / 15                     |                               |      PJ_9       |        54        |
-|                           |       11       |            GPIO2            |                    162 / 17                     |             PF_3              |      PD_4       |        29        |
-|                           |       12       |           I2S CK            |                     87 / 18                     |                               |      PD_3       |        63        |
-|                           |       13       |            GPIO6            |                    166 / 27                     |             PE_11             |      PG_10      |        33        |
-|                           |       15       |   SAI D0 _(OUTPUT ONLY)_    |                    108 / 22                     |                               |      PI_6       |        80        |
-|                           |       16       |   SAI CK _(OUTPUT ONLY)_    |                    107 / 23                     |                               |      PI_5       |        78        |
-|                           |       18       |   SAI FS _(OUTPUT ONLY)_    |                    106 / 24                     |                               |      PI_7       |        79        |
-|                           |       19       | SPI1 COPI _(DTB Activated)_ |                    135 / 10                     |                               |      PC_3       |        46        |
-|                           |       21       | SPI1 CIPO _(DTB Activated)_ |                     136 / 9                     |                               |      PC_2       |        45        |
-|                           |       22       |            PWM1             |                    184 / 25                     |             PA_9              |      PC_6       |        1         |
-|                           |       23       | SPI1 SCK _(DTB Activated)_  |                    134 / 11                     |                               |      PI_0       |        47        |
-|                           |       24       |  SPI1 CE _(DTB Activated)_  |                     137 / 8                     |                               |      PI_1       |        48        |
-|                           |       26       |            PWM2             |                     185 / 7                     |             PA_10             |      PC_7       |        2         |
-|                           |       29       |         SERIAL1 RX          |                     127 / 5                     |                               |      PA_10      |        13        |
-|                           |       31       |            PWM3             |                     186 / 6                     |             PB_10             |      PG_7       |        3         |
-|                           |       32       |         SERIAL1 TX          |                    128 / 12                     |                               |      PA_9       |        14        |
-|                           |       33       |            PWM4             |                    187 / 13                     |             PA_11             |      PJ_11      |        4         |
-|                           |       35       |           I2S WS            |                     86 / 19                     |                               |      PB_9       |        64        |
-|                           |       36       |            PWM5             |                    188 / 16                     |             PD_15             |      PK_1       |        5         |
-|                           |       37       |            PWM6             |                    189 / 26                     |             PA_8              |      PH_15      |        6         |
-|                           |       38       |           I2S SDI           |                     85 / 20                     |                               |      PI_2       |        65        |
-|                           |       40       |           I2S SDO           |                     88 / 21                     |                               |      PI_3       |        66        |
-|  _16-Pin Connector (J6)_  |                |                             |                                                 |                               |                 |                  |
-|                           |       1        |        Analog 0 - A0        |                       167                       |              A0               |   PA_0C / A0    |        15        |
-|                           |       2        |        Analog 1 - A1        |                       168                       |              A1               |   PA_1C / A1    |        16        |
-|                           |       3        |        Analog 2 - A2        |                       169                       |              A2               |   PC_2C / A2    |        17        |
-|                           |       4        |        Analog 3 - A3        |                       170                       |              A3               |   PC_3C / A3    |        18        |
-|                           |       5        |        Analog 4 - A4        |                       171                       |              A4               |    PC_2 / A4    |        19        |
-|                           |       6        |        Analog 5 - A5        |                       172                       |              A5               |    PC_3 / A5    |        20        |
-|                           |       7        |        Analog 6 - A6        |                       173                       |              A6               |    PA_4 / A6    |        21        |
-|                           |       8        |        Analog 7 - A7        |                       174                       |              A7               |    PA_6 / A7    |        22        |
-|                           |       9        |            PWM7             |                       190                       |             PC_6              |      PJ_7       |        7         |
-|                           |       10       |            PWM8             |                       191                       |             PA_12             |      PJ_10      |        8         |
-|                           |       12       |            PWM4             |                       187                       |             PA_11             |      PJ_11      |        4         |
-|                           |       14       |         SERIAL2 TX          |                       155                       |                               |      PG_14      |        49        |
-|                           |       16       |         SERIAL2 RX          |                       154                       |                               |      PG_9       |        50        |
-| _PWM Fan Connector (J11)_ |                |                             |                                                 |                               |                 |                  |
-|                           |       1        |            PWM9             |                       192                       |             PC_8              |      PH_6       |        25        |
-|    _On-Board Element_     |                |                             |                                                 |                               |                 |                  |
-|                           |       -        |      GPIO3 (User LED)       |                       163                       |             PF_4              |      PD_5       |        30        |
+|       **Connector**       | **Pin number** |              **Function**              | **Portenta X8<br>(Linux)** | **Portenta X8<br>(Python® - Modes:<br>BOARD / BCM / IMX / X8)** | **Portenta X8<br>(Arduino)** | **Portenta H7** | **Portenta C33** |
+|:-------------------------:|:--------------:|:--------------------------------------:|:--------------------------:|:---------------------------------------------------------------:|:----------------------------:|:---------------:|:----------------:|
+|  _40-Pin Connector (J5)_  |                |                                        |                            |                                                                 |                              |                 |                  |
+|                           |       3        |                I2C2 SDA                |            149             |                     3 / 2 / 149 / I2C2_SDA                      |              -               |      PH_12      |        39        |
+|                           |       5        |                I2C2 SCL                |            148             |                     5 / 3 / 148 / I2C2_SCL                      |              -               |      PH_11      |        40        |
+|                           |       7        |              PWM0 [1WIRE]              |            183             |                       7 / 4 / 183 / PWM0                        |             PC_7             |      PA_8       |        0         |
+|                           |       8        |               SERIAL3 TX               |            157             |                       8 / 14 / 157 / TX3                        |              -               |      PL_8       |        53        |
+|                           |       10       |               SERIAL3 RX               |            156             |                       10 / 15 / 156 / RX3                       |              -               |      PJ_9       |        54        |
+|                           |       11       |                 GPIO2                  |            162             |                       11 / 17 / - / GPIO2                       |             PF_3             |      PD_4       |        29        |
+|                           |       12       |            I2S CK [PCM_CLK]            |             87             |                      12 / 18 / 87 / I2S_CK                      |              -               |      PD_3       |        63        |
+|                           |       13       |                 GPIO6                  |            166             |                       13 / 27 / - / GPIO6                       |            PE_11             |      PG_10      |        33        |
+|                           |       15       |         SAI D0 _(OUTPUT ONLY)_         |            108             |                     15 / 22 / 108 / SAI_D0                      |              -               |      PI_6       |        80        |
+|                           |       16       |         SAI CK _(OUTPUT ONLY)_         |            107             |                     16 / 23 / 107 / SAI_CK                      |              -               |      PI_5       |        78        |
+|                           |       18       |         SAI FS _(OUTPUT ONLY)_         |            106             |                     18 / 24 / 106 / SAI_FS                      |              -               |      PI_7       |        79        |
+|                           |       19       |      SPI1 COPI _(DTB Activated)_       |            135             |                    19 / 10 / 135 / SPI1_COPI                    |              -               |      PC_3       |        46        |
+|                           |       21       |      SPI1 CIPO _(DTB Activated)_       |            136             |                    21 / 9 / 136 / SPIO1_CIPO                    |              -               |      PC_2       |        45        |
+|                           |       22       |                  PWM1                  |            184             |                      22 / 25 / 184 / PWM1                       |             PA_9             |      PC_6       |        1         |
+|                           |       23       |       SPI1 SCK _(DTB Activated)_       |            134             |                    23 / 11 / 134 / SPI1_SCK                     |              -               |      PI_0       |        47        |
+|                           |       24       | SPI1 CE [SPI1_CE0_N] _(DTB Activated)_ |            137             |                     24 / 8 / 137 / SPI1_CE                      |              -               |      PI_1       |        48        |
+|                           |       26       |           PWM2 [SPI1_CE1_N]            |            185             |                       26 / 7 / 185 / PWM2                       |            PA_10             |      PC_7       |        2         |
+|                           |       27       |                I2C0 SDA                |            147             |                     27 / - / 147 / I2C0_SDA                     |              -               |      PH_8       |        11        |
+|                           |       28       |                I2C0 SCL                |            146             |                     28 / - / 146 / I2C0_SCL                     |              -               |      PH_7       |        12        |
+|                           |       29       |               SERIAL1 RX               |            127             |                       29 / 5 / 127 / RX1                        |              -               |      PA_10      |        13        |
+|                           |       31       |                  PWM3                  |            186             |                       31 / 6 / 186 / PWM3                       |            PB_10             |      PG_7       |        3         |
+|                           |       32       |               SERIAL1 TX               |            128             |                       31 / 12 / 128 / TX1                       |              -               |      PA_9       |        14        |
+|                           |       33       |                  PWM4                  |            187             |                      33 / 13 / 187 / PWM4                       |            PA_11             |      PJ_11      |        4         |
+|                           |       35       |                 I2S WS                 |             86             |                      35 / 19 / 86 / I2S_WS                      |              -               |      PB_9       |        64        |
+|                           |       36       |                  PWM5                  |            188             |                      36 / 16 / 188 / PWM5                       |            PD_15             |      PK_1       |        5         |
+|                           |       37       |                  PWM6                  |            189             |                      37 / 26 / 189 / PWM6                       |             PA_8             |      PH_15      |        6         |
+|                           |       38       |                I2S SDI                 |             85             |                     38 / 20 / 85 / I2S_SDI                      |              -               |      PI_2       |        65        |
+|                           |       40       |                I2S SDO                 |             88             |                     40 / 21 / 88 / I2S_SDO                      |              -               |      PI_3       |        66        |
+|  _16-Pin Connector (J6)_  |                |                                        |                            |                                                                 |                              |                 |                  |
+|                           |       1        |             Analog 0 - A0              |            167             |                                -                                |              A0              |   PA_0C / A0    |        15        |
+|                           |       2        |             Analog 1 - A1              |            168             |                                -                                |              A1              |   PA_1C / A1    |        16        |
+|                           |       3        |             Analog 2 - A2              |            169             |                                -                                |              A2              |   PC_2C / A2    |        17        |
+|                           |       4        |             Analog 3 - A3              |            170             |                                -                                |              A3              |   PC_3C / A3    |        18        |
+|                           |       5        |             Analog 4 - A4              |            171             |                                -                                |              A4              |    PC_2 / A4    |        19        |
+|                           |       6        |             Analog 5 - A5              |            172             |                                -                                |              A5              |    PC_3 / A5    |        20        |
+|                           |       7        |             Analog 6 - A6              |            173             |                                -                                |              A6              |    PA_4 / A6    |        21        |
+|                           |       8        |             Analog 7 - A7              |            174             |                                -                                |              A7              |    PA_6 / A7    |        22        |
+|                           |       9        |                  PWM7                  |            190             |                                -                                |             PC_6             |      PJ_7       |        7         |
+|                           |       10       |                  PWM8                  |            191             |                                -                                |            PA_12             |      PJ_10      |        8         |
+|                           |       12       |                  PWM4                  |            187             |                                -                                |            PA_11             |      PJ_11      |        4         |
+|                           |       14       |               SERIAL2 TX               |            155             |                                -                                |              -               |      PG_14      |        49        |
+|                           |       16       |               SERIAL2 RX               |            154             |                                -                                |              -               |      PG_9       |        50        |
+| _PWM Fan Connector (J11)_ |                |                                        |                            |                                                                 |                              |                 |                  |
+|                           |       1        |                  PWM9                  |            192             |                                -                                |             PC_8             |      PH_6       |        25        |
+|    _On-Board Element_     |                |                                        |                            |                                                                 |                              |                 |                  |
+|                           |       -        |            GPIO3 (User LED)            |            163             |                                -                                |             PF_4             |      PD_5       |        30        |
 
 To effectively understand and use the GPIO (General Purpose Input/Output) designations of the table above, which are specific to combinations of the Portenta family board and the Portenta Hat Carrier, it is important to consider the following details:
 
@@ -2524,9 +2526,20 @@ To effectively understand and use the GPIO (General Purpose Input/Output) design
   
   For more information, please refer to the [Hello World Using Linux](#hello-world-using-linux) section in this present user manual.
 
-- The __Python®__ GPIO designations for the Portenta X8 are available through the [official __Portenta.GPIO__ library](https://github.com/SuMere/portenta-gpio), using BroadCom SoC GPIO numbers in BCM mode. This applies to the 40-pin Connector (J5) pins compatible with Raspberry Pi® HATs on the Portenta Hat Carrier.
-  
-  To learn about the practical implementation of these designations, please refer to the `gpio.py` example in the [GPIO Pins](#gpio-pins) section of this user manual.
+- The __Python®__ GPIO designations defined for the Portenta X8 are available via different modes through the [official Portenta.GPIO library](https://github.com/SuMere/portenta-gpio). It applies with pins on the 40-pin Connector compatible with Raspberry Pi® HATs (J5) of the Portenta Hat Carrier. These modes, in Python® script, are available as:
+
+* __BOARD__ - e.g. GPIO.setmode(GPIO.BOARD)
+* __BCM__   - e.g. GPIO.setmode(GPIO.BCM)
+* __X8__    - e.g. GPIO.setmode(GPIO.X8)
+* __IMX__   - e.g. GPIO.setmode(GPIO.IMX)
+
+  The initial pair of methods align with the *RPi.GPIO* library's numbering conventions, specifically the **BOARD** and **BCM** modes.
+
+  **BOARD** mode is based on the physical pin layout of the 40-pin GPIO header. Meanwhile, **BCM** mode relies on the Broadcom SoC's GPIO numbering system.
+
+  The other two modes, **X8** and **IMX**, have distinctive approaches. **X8** mode employs strings for identification, consistent with the naming on the Portenta HAT Carrier's serigraphy. While **IMX** mode uses the NXP standard for pin numbering.
+
+  To learn about the practical implementation of these designations, please refer to the `gpio.py` example in the [GPIO Pins](#gpio-pins) section of this user manual. More information about the official Portenta.GPIO library can be found [here](https://github.com/SuMere/portenta-gpio).
 
 - The __Arduino__ GPIO designations for the Portenta X8 are applicable if desired in the Arduino IDE. The GPIO definitions for the Portenta H7, including its H7 Lite and H7 Lite Connected variants and the C33, are directly usable in the Arduino IDE.
   
