@@ -201,8 +201,8 @@ The Nicla Sense ME has **two analog input pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|      `ADC1`/`P0_02`     |           `A0`          |
-|      `ADC2`/`P0_30`     |           `A1`          |
+|      ADC1/P0_02     |           A0          |
+|      ADC2/P0_30     |           A1          |
 
 Both pins can be used through the built-in functions of the Arduino programming language. 
 
@@ -248,18 +248,18 @@ The Nicla Sense ME has **twelve digital pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|         `P0_10`         |           `0`           |
-|         `P0_09`         |           `1`           |
-|         `P0_20`         |           `2`           |
-|         `P0_23`         |           `3`           |
-|         `P0_22`         |           `4`           |
-|         `P0_24`         |           `5`           |
-|         `P0_29`         |           `6`           |
-|         `P0_27`         |           `7`           |
-|         `P0_28`         |           `8`           |
-|         `P0_11`         |           `9`           |
-|         `P0_02`         |           `A0`          |
-|         `P0_30`         |           `A1`          |
+|         P0_10         |           0           |
+|         P0_09         |           1           |
+|         P0_20         |           2           |
+|         P0_23         |           3           |
+|         P0_22         |           4           |
+|         P0_24         |           5           |
+|         P0_29         |           6           |
+|         P0_27         |           7           |
+|         P0_28         |           8           |
+|         P0_11         |           9           |
+|         P0_02         |           A0          |
+|         P0_30         |           A1          |
 
 Notice that analog pins `A0` and `A1` (`P0_02` and `P0_30`) can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
@@ -786,10 +786,10 @@ The Nicla Sense ME supports SPI communication, which allows data transmission be
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|       `CS`/`P0_29`      |       `SS` or `6`       |
-|      `COPI`/`P0_27`     |       `MOSI` or `7`     |
-|      `CIPO`/`P0_28`     |       `MISO` or `9`     |
-|      `SCLK`/`P0_11`     |       `SCK` or `8`      |
+|       CS/P0_29      |       SS or 6       |
+|      COPI/P0_27     |       MOSI or 7     |
+|      CIPO/P0_28     |       MISO or 9     |
+|      SCLK/P0_11     |       SCK or 8      |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
@@ -846,8 +846,8 @@ The Nicla Sense ME supports I2C communication, which allows data transmission be
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|         `P0_23`         |       `SCL` or `3`      |
-|         `P0_22`         |       `SDA` or `4`      |
+|         P0_23         |       SCL or 3      |
+|         P0_22         |       SDA or 4      |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Sense ME.
 
@@ -918,8 +918,8 @@ The pins used in the Nicla Sense ME for the UART communication protocol are the 
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|         `P0_09`         |       `RX` or `1`       |
-|         `P0_20`         |       `TX` or `2`       |
+|         P0_09         |       RX or 1       |
+|         P0_20         |       TX or 2       |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
@@ -1100,8 +1100,8 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
 
   |         **Description**        |       **ID**       |
   |:------------------------------:|:------------------:|
-  |  `Battery Service`             |       `180F`       |
-  | `Battery Level Characteristic` |       `2A19`       |
+  |  Battery Service`             |       180F       |
+  | Battery Level Characteristic` |       2A19       |
 
 - In the `setup()` function, the code initializes the Nicla Sense ME board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
 
