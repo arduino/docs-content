@@ -68,7 +68,7 @@ Next you can look at some of the code in the example sketch.
 
 Now let's take a look at some important parts of the code.
 
-The sketch will make the board connect to a website. This line in the code decides what website it connects to. The example uses "www.google.com", but feel free to change it and experiment with different websites.
+The sketch will make the board connect to a website. This line in the code decides what website it connects to. The example uses `www.google.com`, but feel free to change it and experiment with different websites.
 
 ```arduino
 char server[] = "www.google.com";

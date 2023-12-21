@@ -181,7 +181,7 @@ The final step is connecting the **DHT11 humidity sensor** to our Arduino MKR Wi
 
 Use the steps below to use Node-RED with the Arduino Cloud:
 
-**1.** Go to the [API keys section](https://app.arduino.cc/home/api-keys), and create a new API key.
+**1.** Go to the [API keys section](https://app.arduino.cc/api-keys), and create a new API key.
 
 **2.** Save the Client ID and Client Secret in a safe document
 
