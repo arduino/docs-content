@@ -1998,7 +1998,6 @@ The pin layout of the ESLOV connector is the following:
 4. SDA
 5. GND
 
-The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
 
 ## Arduino IoT Cloud
 
