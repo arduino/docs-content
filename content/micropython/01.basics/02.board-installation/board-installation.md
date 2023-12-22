@@ -276,3 +276,19 @@ Do not disconnect your board during this part of the process, watch the progress
 Once complete, you're all set and you're ready to start programming the board in MicroPython.
 
 Go to the Arduino Lab MicroPython IDE and press connect in the top left corner, choose the port and you are ready to load scripts to your board.
+
+## Portenta C33
+
+To install the MicroPython firmware to the Portenta C33 board you can use the Arduino MicroPython Installer. This tool lets you plug in the board, select it from a menu, and automatically flash the latest firmware, or a custom one of your choice to the board. 
+
+You can download the [Arduino MicroPython Installer here](https://labs.arduino.cc/en/labs/micropython-installer). 
+
+***The Arduino MicroPython Installer is part of [Arduino Labs](https://labs.arduino.cc), and is therefore considered experimental software.***
+
+To get started, open the installer and plug in your board to your computer; you should now see it pop up ready to be selected. If it does not pop ups, try putting it in bootloader mode by double tapping your board's reset button. 
+
+![Arduino Nano ESP32 detected!](./assets/board-selected.png)
+
+To install the MicroPython firmware, press the **INSTALL MICROPYTHON** and waiting for a couple of seconds while the installer tool takes care of everything else.
+
+![Firmware Successfully Uploaded!](./assets/flashed.png)
