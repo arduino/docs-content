@@ -1203,7 +1203,7 @@ To upload data from your Nicla Vision on the Machine Learning Tools platform, na
 
 In this section, you will be able to select the Nicla Vision onboard sensors individually or several interesting combinations. 
 
-This is the supported sensor list to date:
+This is the supported sensors list:
 - Built-in microphone
 - Inertial (IMU)
 - ADC sensor (A0)
