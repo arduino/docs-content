@@ -1512,7 +1512,7 @@ The pins used in the Nicla Vision for the UART (external) communication protocol
 |         PA_10           |        SERIAL1_RX       |
 |         PA_9            |        SERIAL1_TX       |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
 
 #### With OpenMV
