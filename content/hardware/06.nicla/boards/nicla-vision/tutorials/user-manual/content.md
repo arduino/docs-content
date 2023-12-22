@@ -328,6 +328,8 @@ Notice that I2C and SPI pins can also be used as digital pins. Please, refer to 
 
 The digital pins of the Nicla Vision can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
 
+***The Nicla Vision digital I/O's are low power, so to drive output devices like LEDs, resistive loads, buzzers, etc, it is recommended to use a MOSFET driver or a buffer to guarantee the required current flow. Learn more about the Nicla I/O's considerations [here](https://docs.arduino.cc/learn/hardware/nicla-form-factor).***
+
 As an application example after learning the __Digital Pins__ basics, we are going to control an LED using a push button. See the wiring below:
 
 ![Digital I/O example wiring](assets/digital-io.svg)
