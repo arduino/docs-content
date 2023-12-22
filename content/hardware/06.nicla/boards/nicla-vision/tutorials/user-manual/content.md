@@ -253,7 +253,7 @@ The Nicla Vision has **three analog input pins**, mapped as follows:
 
 All of them can be used through the built-in functions of the Arduino programming language. 
 
-***The Nicla vision ADC reference voltage is fixed to 3.3v, this means that it will map the ADC range from 0 to 3.3 volts.***
+***The Nicla vision ADC reference voltage is fixed to 3.3V, this means that it will map the ADC range from 0 to 3.3 volts.***
 
 We will use the Nicla Vision analog inputs on both IDEs, OpenMV and Arduino. For the example codes shown below, we will be reading the analog input `A0` and displaying the read voltage on the Serial Monitor of both IDEs:
 
