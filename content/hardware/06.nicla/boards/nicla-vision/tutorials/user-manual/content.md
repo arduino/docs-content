@@ -1149,7 +1149,7 @@ To expand your knowledge using the Nicla Vision camera with micropython, try oth
 
 ## Machine Learning Tools
 
-The Nicla Vision is a ready-to-use, standalone camera for analyzing and processing images on the Edge. Thanks to its 2MP color camera, smart 6-axis motion sensor, integrated microphone, and distance sensor, it is suitable for almost infinite machine learning applications.
+The Nicla Vision is a ready-to-use, standalone camera board, ready for analyzing and processing images on the Edge. Thanks to its 2MP color camera, smart 6-axis motion sensor, integrated microphone, and distance sensor, it is suitable for almost infinite machine-learning applications.
 
 Creating this type of application has never been easier thanks to our Machine Learning Tool powered by Edge Impulse®, where we can easily create in a __No-Code__ environment, __Audio__, __Motion__, __Proximity__ and __Image__ processing models.
 
