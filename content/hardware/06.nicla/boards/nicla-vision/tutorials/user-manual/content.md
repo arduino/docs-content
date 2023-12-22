@@ -1369,7 +1369,7 @@ The Nicla Vision supports I2C communication, which allows data transmission betw
 |          PB_8           |       I2C_SCL or 12     |
 |          PB_9           |       I2C_SDA or 11     |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Vision.
+Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Vision.
 
 
 #### With OpenMV
