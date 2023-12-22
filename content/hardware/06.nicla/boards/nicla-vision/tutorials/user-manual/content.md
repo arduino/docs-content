@@ -1984,7 +1984,7 @@ In the Arduino IDE navigate to **File > Examples > STM32H747_System > WiFiFirmwa
 
 ### ESLOV Connector 
 
-The Nicla Vision board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Nicla Vision without soldering or wiring.
+The Nicla Vision board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies the communication between the Nicla Vision and various sensors, actuators, and other modules without soldering or wiring.
 
 ![Nicla Vision built-in ESLOV connector](assets/eslov.png)
 
