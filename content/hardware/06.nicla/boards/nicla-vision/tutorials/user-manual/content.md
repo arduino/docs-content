@@ -50,7 +50,7 @@ The Nicla Vision features a robust and efficient architecture that integrates a 
 ![Nicla Vision main components (top view)](assets/arch-top.png)
 ![Nicla Vision main components (bottom view)](assets/arch-bot.png)
 
-Here is an overview of the board's architecture's main components shown in the images above:
+Here is an overview of main components of the board, as shown in the images above:
 
 - **Camera**: the Nicla Vision features a camera based on the GC2145 Color rolling shutter image sensor. The GC2145 incorporates a 1616V x 1232H active pixel
 array, on-chip 10-bit ADC, and an image signal processor.
