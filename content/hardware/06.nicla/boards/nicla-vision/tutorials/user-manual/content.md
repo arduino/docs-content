@@ -1562,7 +1562,7 @@ This is the output of the example code from above.
 
 #### With Arduino IDE
 
-To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
+To begin with UART communication, you will need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
 
 ```arduino
 // Start UART communication at 115200 baud
