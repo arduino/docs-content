@@ -1256,7 +1256,7 @@ To receive data over SPI, use:
 ```python
 spi.recv(<bytes>) # add the number of bytes to be received as the argument
 ```
-Here is a simple example of how to send data over SPI.
+Here is a simple example showing how to send data over SPI.
 
 ```python
 import time
