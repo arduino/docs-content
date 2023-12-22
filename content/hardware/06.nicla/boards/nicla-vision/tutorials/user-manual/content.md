@@ -641,7 +641,7 @@ In the OpenMV IDE Serial Monitor, the inference results will be printed after a 
 ![Model inference results](assets/ml-inference.png)
 
 
-***You can download and test many other pre-trained models found in this [repository](https://github.com/STMicroelectronics/STMems_Machine_Learning_Core/tree/master/application_examples/lsm6dsox).***
+***You can download and test many other pre-trained models available in this [repository](https://github.com/STMicroelectronics/STMems_Machine_Learning_Core/tree/master/application_examples/lsm6dsox).***
 
 #### With Arduino IDE
 
