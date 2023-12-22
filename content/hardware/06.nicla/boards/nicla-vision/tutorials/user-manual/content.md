@@ -29,7 +29,7 @@ This user manual will guide you through a practical journey covering the most in
 ### Hardware Requirements
 
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision) (x1)
-- Micro USB cable (x1)
+- [Micro USB cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 
 ### Software Requirements
 
@@ -39,9 +39,9 @@ This user manual will guide you through a practical journey covering the most in
 
 ## Product Overview
 
-The Arduino® Nicla Vision is a ready-to-use, standalone camera for analyzing and processing images on the edge. Thanks to its 2 MP color camera, smart 6-axis motion sensor, integrated microphone and distance sensor, it is suitable for asset tracking, object recognition and predictive maintenance. 
+The Arduino® Nicla Vision is a ready-to-use, standalone camera board for analyzing and processing images on the edge. Thanks to its 2 MP color camera, smart 6-axis motion sensor, integrated microphone, and distance sensor, it is suitable for asset tracking, object recognition, and predictive maintenance.
 
-Quickly implement sensor nodes to send collected data to the Arduino® Cloud (or third-party vendor services) via integrated Wi-Fi®/Bluetooth® LE connectivity.
+The Nicla Vision lets you quickly implement sensor nodes to send collected data to the Arduino® Cloud (or third-party vendor services) via its onboard Wi-Fi® and Bluetooth® module.
 
 ### Board Architecture Overview
 
@@ -192,7 +192,7 @@ while True:
     blueLED.off()
     time.sleep_ms(1000)
 ```
-To run the code on the Nicla Vision, click the **Connect** button and the **Start**.
+To run the code on the Nicla Vision, click the **Connect** button and then the **Start** button.
 
 ![Running the Python Script on OpenMV](assets/click-start.png)
 
@@ -236,7 +236,7 @@ To upload the code to the Nicla Vision, click the **Verify** button to compile t
 ![Uploading a sketch to the Nicla Vision in the Arduino IDE](assets/verify-upload.png)
 
 #### Results
-You should see now the LED turning red, green and blue, repeatedly.
+You should now repeatedly see the onboard LED turning red, green, and blue.
 
 ![Hello World example running in the Nicla Vision](assets/colors.gif)
 
@@ -249,13 +249,13 @@ The Nicla Vision has **three analog input pins**, mapped as follows:
 |:-----------------------:|:-----------------------:|
 |      ADC1/PC_4         |           A0            |
 |      ADC2/PF_13        |           A1            |
-|      ADC3/PF_3`        |           A2            |
+|      ADC3/PF_3        |           A2            |
 
 All of them can be used through the built-in functions of the Arduino programming language. 
 
 ***The Nicla vision ADC reference voltage is fixed to 3.3v, this means that it will map the ADC range from 0 to 3.3 volts.***
 
-We are going to use the Nicla Vision analog inputs on both environments, OpenMV and Arduino. For the example codes shown below, we will be reading the analog input `A0` and displaying the read voltage on the Serial Monitor:
+We will use the Nicla Vision analog inputs on both IDEs, OpenMV and Arduino. For the example codes shown below, we will be reading the analog input `A0` and displaying the read voltage on the Serial Monitor of both IDEs:
 
 ![ADC input example wiring](assets/adc-input.svg)
 
@@ -324,7 +324,7 @@ The Nicla Vision has **ten digital pins**, mapped as follows:
 
 Notice that I2C and SPI pins can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
-***Technically the __analog inputs__ of the Nicla Vision can be used as digital pins but they can just handle 1.8v, a greater input may damage the board.***
+***The __analog inputs__ of the Nicla Vision can be used as digital pins but they can just handle 1.8v, a greater input may damage the board.***
 
 The digital pins of the Nicla Vision can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
 
@@ -344,7 +344,7 @@ pin1 = Pin("D1", Pin.IN, Pin.PULL_UP)
 # Pin configured as an output
 pin0 = Pin("D0", Pin.OUT_PP, Pin.PULL_NONE)     
 ```
-The pin function can be set as: `Pin.IN`, `Pin.OUT_PP`, `Pin.OUT_OD`, `Pin.AF_PP`, or `Pin.AF_OD`. An explanation of the pin modes can be found [here](https://docs.openmv.io/library/pyb.Pin.html#methods). The third parameter represents the pull mode. It can be set to: `Pin.PULL_NONE`, `Pin.PULL_UP` or `Pin.PULL_DOWN`.
+The pin function can be set as: `Pin.IN`, `Pin.OUT_PP`, `Pin.OUT_OD`, `Pin.AF_PP`, or `Pin.AF_OD`. An explanation of the pin modes can be found [here](https://docs.openmv.io/library/pyb.Pin.html#methods). The third parameter represents the pull-up/pull-down resistor. It can be set to: `Pin.PULL_NONE`, `Pin.PULL_UP` or `Pin.PULL_DOWN`.
 
 The state of a digital pin, configured as an input, can be read as shown below:
 
@@ -449,7 +449,7 @@ Most digital pins of the Nicla Vision can be used as PWM (Pulse Width Modulation
 
 #### With OpenMV
 
-PWM outputs can be controlled with micropython in a very flexible manner by using built-in functions as shown below:
+PWM outputs can be controlled with MicroPython easily by using built-in functions as shown below:
 
 First, we need to identify the `Timer` and `Channel` used by the `PWM` output to be used. For this, search for the desired pin on the [STM32H747 datasheet](https://www.st.com/resource/en/datasheet/stm32h747ai.pdf) from page 89.
 
@@ -527,7 +527,7 @@ This functionality can be used with the built-in function `analogWrite()` as sho
 ```arduino
 analogWrite(pin, value);  
 ```
-By default, the output resolution is 8 bits, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
+The output resolution is 8 bits by default, so the output value should be between 0 and 255. To set a greater resolution, you can use the built-in function `analogWriteResolution` as shown below:
 
 ```arduino
 analogWriteResolution(bits);  
@@ -649,7 +649,7 @@ First, to use this sensor with the Arduino IDE, you need to install the `Arduino
 
 ![IMU library installation](assets/library-install.png)
 
-The example code below shows how to get acceleration and angular velocity data from the onboard IMU and stream it to the Serial Monitor and Serial Plotter.
+The example code below shows how to get acceleration and angular velocity data from the onboard IMU and stream it to the IDE's Serial Monitor and Serial Plotter.
 
 ```arduino
 #include <Arduino_LSM6DSOX.h>
@@ -854,7 +854,7 @@ Upload the example code to the Nicla Vision and open the Serial Plotter to see t
 
 ### Time of Flight (Distance) Sensor
 
-The onboard ToF sensor of the Nicla Vision is the VL53L1CBV0FY from ST®. It adds accurate and low power ranging capabilities to the Arduino® Nicla Vision. The invisible near infrared VCSEL laser (including the analog driver) is encapsulated together with receiving optics in an all-in-one small module located below the camera.
+The onboard ToF sensor of the Nicla Vision is the VL53L1CBV0FY from ST®. It adds accurate and low power ranging capabilities to the Arduino® Nicla Vision. The invisible near-infrared VCSEL laser (including the analog driver) is encapsulated with receiving optics in an all-in-one small module located below the camera.
 
 ![Onboard Time-of-Flight ranging sensor](assets/tof.png)
 
@@ -887,7 +887,7 @@ To use the ToF sensor with the Arduino IDE, install the `VL53L1X` library author
 
 Once installed, you will be able to compile and upload the example code below to your Nicla Vision.
 
-The distance measured by the sensor will be printed on the IDE serial monitor and the built-in LED will blink proportionally to that distance.
+The distance measured by the sensor will be printed on the IDE's Serial Monitor, and the built-in LED will blink proportionally to that distance.
 
 ```arduino 
 #include "VL53L1X.h"
@@ -935,17 +935,18 @@ void loop() {
 
 ### Camera
 
-The Nicla Vision main feature is its onboard 2MP camera, which is based on the GC2145 color rolling shutter image sensor. It is perfect for machine learning applications such as object detection, image classification, machine/computer vision, robotics, IoT and more.
+The Nicla Vision's main feature is its onboard 2MP camera, based on the GC2145 color rolling shutter image sensor. It is perfect for Machine Learning applications such as object detection, image classification, machine/computer vision, robotics, IoT, and more.
 
 ![Onboard camera sensor](assets/camera.png)
 
-The Nicla Vision is primarily intended to be used with the OpenMV micropython ecosystem. So, it's recommended to use this IDE for machine vision applications.
+The Nicla Vision is primarily intended to be used with the OpenMV MicroPython ecosystem. So, it's recommended to use this IDE for machine vision applications.
+
 
 #### With OpenMV
 
-The OpenMV IDE is an environment designed to work specifically with machine/computer vision hardware, it is optimized for easy and fast development of image processing applications with a micropython framework and streaming monitors, color data graphics and more.
+The OpenMV IDE is designed to work specifically with machine/computer vision hardware, it is optimized for easy and fast development of image processing applications with a MicroPython framework and streaming monitors, color data graphics, and more.
 
-The Nicla Vision uses a 2MP camera sensor which means that its maximum resolution should be 1920x1080 pixels. However, the effective resolution is 1616(H) × 1232(V).
+The Nicla Vision uses a 2MP camera sensor, meaning its maximum resolution is 1920x1080 pixels. However, the effective resolution is 1616(H) × 1232(V).
 
 Here we have the minimum code necessary to make the camera work streaming live video on the OpenMV IDE:
 
@@ -1040,7 +1041,7 @@ After the video is recorded, reset the board by pressing the reset button and th
 
 ![Video saved in local storage](assets/video.png)
 
-***We recommend using VLC to play the video due to the format.***
+***We recommend using [VLC](https://www.videolan.org/vlc/index.es.html) to play the video due to the format.***
 
 The next example lets you live stream what the camera sees through HTTP so you can watch it on your favorite browser from any device connected to the same network as the Nicla Vision.
 
