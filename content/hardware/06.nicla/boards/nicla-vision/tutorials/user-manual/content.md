@@ -1188,7 +1188,7 @@ Now, it is time to set up the __Edge Impulse®__ environment on your PC. For thi
   ![Edge Impulse Daemon](assets/cmd.png)
 
 - Enter your account username or e-mail address and your password. 
-- Select the project you've created on the Arduino ML Tools, it will be listed.
+- Select the project you have created on the Arduino ML Tools, it will be listed.
 - Give your device a name and wait for it to connect to the platform.
 
 ![Nicla Vision correctly connected to ML Tools](assets/cmd-connected.png)
