@@ -1615,7 +1615,7 @@ Serial1.println("Hello world!");
 
 ![UART "Hello World!" data frame](assets/uart.png)
 
-***All the commands explained above apply to communicating with the PC through the USB serial port. Use "Serial" instead of "Serial1" for this case.***
+***If you want to communicate through the USB serial port, use "Serial" instead of "Serial1" for this case.***
 
 ### Bluetooth® Low Energy
 
