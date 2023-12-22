@@ -1231,7 +1231,7 @@ The Nicla Vision supports SPI communication, which allows data transmission betw
 |         CS / PE_11         |      SS or 7         |
 
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
 #### With OpenMV
 
