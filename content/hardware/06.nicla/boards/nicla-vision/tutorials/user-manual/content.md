@@ -1143,7 +1143,7 @@ To watch the live stream, enter the device IP address followed by the `:8080` po
 
 ![HTTP camera live stream](assets/streaming.gif)
 
-To expand your knowledge using the Nicla Vision camera with micropython try our other built-in examples with the OpenMV IDE.
+To expand your knowledge using the Nicla Vision camera with micropython, try other built-in examples within the OpenMV IDE.
 
 ![OpenMV examples for the Nicla Vision](assets/examples.png)
 
