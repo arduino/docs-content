@@ -1197,7 +1197,7 @@ Now, it is time to set up the __Edge Impulse®__ environment on your PC. For thi
 
 The first thing to start developing a machine learning project is to create a dataset for your model. This means, uploading data to your model from any of the Nicla Vision sensors.
 
-To upload data from your Nicla Vision; on the Machine Learning Tools platform, navigate to __Data Acquisition__.
+To upload data from your Nicla Vision on the Machine Learning Tools platform, navigate to __Data Acquisition__.
 
 ![Data Acquisition section](assets/ml-tools-upload.png)
 
