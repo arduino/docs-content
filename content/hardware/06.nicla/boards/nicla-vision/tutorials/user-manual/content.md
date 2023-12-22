@@ -1201,7 +1201,7 @@ To upload data from your Nicla Vision on the Machine Learning Tools platform, na
 
 ![Data Acquisition section](assets/ml-tools-upload.png)
 
-In this section, you will be able to select from the Nicla Vision onboard sensors individually or from several interesting combinations. 
+In this section, you will be able to select the Nicla Vision onboard sensors individually or several interesting combinations. 
 
 This is the supported sensor list to date:
 - Built-in microphone
