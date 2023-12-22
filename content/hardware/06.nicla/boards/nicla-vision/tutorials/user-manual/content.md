@@ -1137,7 +1137,7 @@ while True:
 
 Once you run this script, the Nicla Vision IP address will be printed on the OpenMV serial monitor after the WiFi connection processes. 
 
-To watch the live stream enter the device IP address followed by the `:8080` port as follows:
+To watch the live stream, enter the device IP address followed by the `:8080` port as follows:
 
 `<Nicla Vision IP>:8080`
 
