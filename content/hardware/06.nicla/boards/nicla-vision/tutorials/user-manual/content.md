@@ -324,7 +324,7 @@ The Nicla Vision has **ten digital pins**, mapped as follows:
 
 Notice that I2C and SPI pins can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
-***The __analog inputs__ of the Nicla Vision can be used as digital pins but they can just handle 1.8v, a greater input may damage the board.***
+***The __analog inputs__ of the Nicla Vision can be used as digital pins but they can just handle 1.8V, a greater input may damage the board.***
 
 The digital pins of the Nicla Vision can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
 
