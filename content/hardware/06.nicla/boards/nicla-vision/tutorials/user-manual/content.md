@@ -1402,7 +1402,7 @@ i2c.send(0x42)       # send a single byte, given by the number
 data = i2c.recv(3)   # receive 3 bytes
 ```
 
-This is a simple example of how to send data over I2C from a master to a slave.
+This is a simple example showing how to send data over I2C from a master to a slave.
 
 ```python
 from pyb import I2C
