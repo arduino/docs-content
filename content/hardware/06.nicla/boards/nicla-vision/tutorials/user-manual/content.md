@@ -1169,7 +1169,7 @@ Enter your newly created project and the landing page will look like the followi
 
 ### Edge Impulse® Environment Setup
 
-Now, it's time to set up the __Edge Impulse®__ environment on your PC. For this, follow [these](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation) instructions to install the __Edge Impulse CLI__.
+Now, it is time to set up the __Edge Impulse®__ environment on your PC. For this, follow [these](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation) instructions to install the __Edge Impulse CLI__.
 
 ***For Windows users: make sure to install [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) and[Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).***
 
