@@ -1517,7 +1517,7 @@ Please, refer to the [board pinout section](#pinout) of the user manual to local
 
 #### With OpenMV
 
-To begin with UART communication, you'll need to import `UART` from the `machine` module.
+To begin with UART communication, you will need to import `UART` from the `machine` module.
 
 ```python
 from machine import UART
