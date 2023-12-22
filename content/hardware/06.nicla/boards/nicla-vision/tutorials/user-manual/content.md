@@ -2008,7 +2008,7 @@ By using the IoT Cloud, you can, for example, monitor your Nicla's inputs and se
 
 In case it is the first time you are using the IoT Cloud:
 
-- To use the IoT Cloud, you need an __account__. If you do not have an account, create one for free [here](https://create.arduino.cc/iot/things).
+- You need an __account__. If you do not have an account, create one for free [here](https://create.arduino.cc/iot/things).
 - To use the Arduino Web Editor or IoT Cloud, the __Arduino Create Agent__ must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome?_gl=1*oeovt6*_ga*Mzg1NjE0MjQ0LjE2OTc4NDQxMjk.*_ga_NEXN8H46L5*MTY5OTY0MzEwMS43NC4xLjE2OTk2NTMyMjEuMC4wLjA.).
 
 Let's walk through a step-by-step demonstration of how to use a Nicla Vision with the IoT Cloud.
