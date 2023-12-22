@@ -773,7 +773,7 @@ After running the code, the matches will be printed on the Serial Monitor if the
 
 #### Using Arduino IDE
 
-The Arduino IDE includes a simple example to visualize raw data from the PDM microphone. To test it navigate to **File > Examples > PDM > PDMSerialPlotter**. 
+The Arduino IDE includes a simple example to visualize raw data from the PDM microphone. To test it, navigate to **File > Examples > PDM > PDMSerialPlotter**. 
 
 ```arduino
 #include <PDM.h>
