@@ -58,7 +58,7 @@ ___
 -   2x Antenna ([link to store](https://store.arduino.cc/antenna))
 -   2x Micro USB cable 
 -   Arduino IDE (offline and online versions available)
--   Arduino SAMD core installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010)
+-   Arduino SAMD Board Package installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010)
 -   LoRa library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)
 
 

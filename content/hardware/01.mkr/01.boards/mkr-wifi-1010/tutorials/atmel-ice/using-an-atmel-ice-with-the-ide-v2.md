@@ -151,7 +151,7 @@ void loop() {
 }
 ```
 
-Before uploading the code to our board, we must optimize it for debugging. This can be made easily by clicking on the **Sketch** tab and then selecting the option **Optimize for Debbuging**:
+Before uploading the code to our board, we must optimize it for debugging. This can be made easily by clicking on the **Sketch** tab and then selecting the option **Optimize for Debugging**:
 
 ![The "Optimize for Debugging" option in the Arduino IDE 2](assets/ide_v2_t1_img06.png)
 

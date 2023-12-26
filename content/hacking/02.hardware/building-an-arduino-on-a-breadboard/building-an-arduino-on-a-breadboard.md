@@ -91,7 +91,7 @@ Start by connecting a 10k ohm pullup resistor to +5V from the RESET pin in order
 * Pin 8 - GND
 * Pin 22 - GND
 * Pin 21 - AREF - Analog reference pin for ADC
-* Pin 20 - AVcc - Suppply voltage for the ADC converter. Needs to be connected to power if ADC isn't being used and to power via a low-pass filter if it is (a low pass filter is a circuit that reduces noise from the power source. This example isn't using one)
+* Pin 20 - AVcc - Supply voltage for the ADC converter. Needs to be connected to power if ADC isn't being used and to power via a low-pass filter if it is (a low pass filter is a circuit that reduces noise from the power source. This example isn't using one)
 
 ![Add the Clock & Caps](assets/arduinobb_08.jpg)
 

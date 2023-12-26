@@ -2,7 +2,9 @@
 title: MKR Therm Shield
 url_shop: https://store.arduino.cc/arduino-mkr-therm-shield
 url_guide: /tutorials/mkr-therm-shield/mkr-therm-shield-basic
-certifications: [CE]
+primary_button_url: /tutorials/mkr-therm-shield/mkr-therm-shield-basic
+primary_button_title: Get Started
+certifications: [CE, UKCA]
 ---
 
 The MKR Therm Shield is a great addon for MKR family boards, and allows you to connect high quality thermocouplers, and can calculate temperatures from -200 °C to +700 °C. An ideal solution to use for ovens, freezers, smokers and similar environments.

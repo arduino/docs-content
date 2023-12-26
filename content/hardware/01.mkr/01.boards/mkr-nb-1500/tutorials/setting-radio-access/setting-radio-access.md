@@ -279,7 +279,7 @@ Now it is as simple as writing the number corresponding with your desired option
 If the code is not working, there are some common issues we can troubleshoot:
 
 - We have not updated the latest firmware for the board.
-- We have not installed the core required for the board.
+- We have not installed the Board Package required for the board.
 - We have not selected the right port to upload: depending on what computer we use, sometimes the board is duplicated. By simply restarting the editor, this issue can be solved.
 
 ## Conclusion

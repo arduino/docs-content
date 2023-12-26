@@ -21,11 +21,11 @@ The goals of this project are:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 - [Arduino R4 Minima](https://store.arduino.cc/uno-r4-minima)
-- [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
+- [UNO R4 Board Package](/tutorials/uno-r4-minima/minima-getting-started)
 
 ## Real-Time Clock (RTC)
 
-The RTC on the UNO R4 Minima can be accessed using the [RTC](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/RTC) library that is included in the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core. This library allows you to set/get the time as well as using alarms to trigger interrupts. 
+The RTC on the UNO R4 Minima can be accessed using the [RTC](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/RTC) library that is included in the [UNO R4 Board Package](/tutorials/uno-r4-minima/minima-getting-started). This library allows you to set/get the time as well as using alarms to trigger interrupts. 
 
 There are many practical examples using an RTC, and the examples provided in this page will help you get started with it.
 
@@ -178,36 +178,50 @@ To use this, you will need to initialize the periodic callback, using the `setPe
 - `RTC.setPeriodicCallback(periodic_cbk, Period::ONCE_EVERY_2_SEC)`
 
 You will also need to create a function that will be called:
-- `void periodic_cbk() { code to be executed }`
+- `void periodicCallback() { code to be executed }`
+
+***Note the IRQ has a very fast execution time. Placing a lot of code is not a good practice, so in the example below we are only switching  a single flag, `irqFlag`.***
 
 The example below blinks a light every 2 seconds:
 
 ```arduino
 #include "RTC.h"
 
-const int LED_ON_INTERRUPT  = 22;
+volatile bool irqFlag = false;
+volatile bool ledState = false;
 
-void setup(){
+const int led = LED_BUILTIN;
+
+void setup() {
+  pinMode(led, OUTPUT);
+
+  Serial.begin(9600);
+
+  // Initialize the RTC
   RTC.begin();
-  if (!RTC.setPeriodicCallback(periodic_cbk, Period::ONCE_EVERY_2_SEC)) {
+
+  // RTC.setTime() must be called for RTC.setPeriodicCallback to work, but it doesn't matter
+  // what date and time it's set to
+  RTCTime mytime(30, Month::JUNE, 2023, 13, 37, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
+  RTC.setTime(mytime);
+
+  if (!RTC.setPeriodicCallback(periodicCallback, Period::ONCE_EVERY_2_SEC)) {
     Serial.println("ERROR: periodic callback not set");
   }
 }
 
-void loop() {
+void loop(){
+  if(irqFlag){
+    Serial.println("Timed CallBack");
+    ledState = !ledState;
+    digitalWrite(LED_BUILTIN, ledState);
+    irqFlag = false;
+  }
 }
 
-void periodic_cbk() {
-  static bool clb_st = false;
-  if(clb_st) {
-    digitalWrite(LED_ON_INTERRUPT,HIGH);
-  }
-  else {
-    digitalWrite(LED_ON_INTERRUPT,LOW);
-  }
-  clb_st = !clb_st;
- 
-  Serial.println("PERIODIC INTERRUPT");
+void periodicCallback()
+{
+  irqFlag = true;
 }
 ```
 
@@ -229,26 +243,62 @@ The period can be specified using the following enumerations:
 - `RTC.setAlarmCallback(alarm_cbk, alarmtime, am)`
 
 ```arduino
+unsigned long previousMillis = 0;
+const long interval = 1000;
+bool ledState = false;
+
+// Include the RTC library
 #include "RTC.h"
 
 void setup() {
+  //initialize Serial Communication
   Serial.begin(9600);
 
+  //define LED as output
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  // Initialize the RTC
   RTC.begin();
 
-  RTCTime alarmtime;
-  alarmtime.setSecond(35);
+  // RTC.setTime() must be called for RTC.setAlarmCallback to work, but it doesn't matter
+  // what date and time it's set to in this example
+  RTCTime initialTime(7, Month::JUNE, 2023, 13, 03, 00, DayOfWeek::WEDNESDAY, SaveLight::SAVING_TIME_ACTIVE);
+  RTC.setTime(initialTime);
 
-  AlarmMatch am;
-  am.addMatchSecond();
+  // Trigger the alarm every time the seconds are zero
+  RTCTime alarmTime;
+  alarmTime.setSecond(0);
 
-  if (!RTC.setAlarmCallback(alarm_cbk, alarmtime, am)) {
-    Serial.println("ERROR: alarm callback not set");
+  // Make sure to only match on the seconds in this example - not on any other parts of the date/time
+  AlarmMatch matchTime;
+  matchTime.addMatchSecond();
+
+  //sets the alarm callback
+  RTC.setAlarmCallback(alarmCallback, alarmTime, matchTime);
+}
+
+void loop() {
+
+  // in the loop, we continuously print the alarm's current state
+  // this is for debugging only and has no effect on the alarm whatsoever
+  unsigned long currentMillis = millis();
+  if (currentMillis - previousMillis >= interval) {
+    // save the last time you blinked the LED
+    previousMillis = currentMillis;
+    Serial.print("Alarm state: ");
+    Serial.println(ledState);
   }
 }
 
-void alarm_cbk() {
-  Serial.println("ALARM INTERRUPT");
+// this function activates every minute
+// and changes the ledState boolean
+void alarmCallback() {
+  if (!ledState) {
+    digitalWrite(LED_BUILTIN, HIGH);
+  } else {
+    digitalWrite(LED_BUILTIN, LOW);
+  }
+  ledState = !ledState;
 }
 ```
 

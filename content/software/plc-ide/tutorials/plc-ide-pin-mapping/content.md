@@ -67,6 +67,7 @@ To create a variable for a **pin map** you have two options:
 ***By default they are not available as variables, in any case, you can get the values by accessing their memory registers, which is not as easy as having variables with the data.***
 
 #### Single Variable
+<br></br>
 
 Double-click the **Pin Map** that you want to edit, for example, the **Digital Output table**.
 
@@ -85,6 +86,7 @@ digitalOut01 := 1;
 ```
 
 #### Array
+<br></br>
 
 Go to your project tile window, and right-click on the **Global Variable** element.
 

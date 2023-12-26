@@ -2,6 +2,8 @@
 title: MKR Motor Carrier
 url_shop: https://store.arduino.cc/arduino-mkr-motor-carrier
 url_guide: /tutorials/mkr-motor-carrier/mkr-motor-carrier-battery
+primary_button_url: /tutorials/mkr-motor-carrier/mkr-motor-carrier-battery
+primary_button_title: Get Started
 certifications: [CE, UKCA]
 ---
 

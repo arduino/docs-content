@@ -11,8 +11,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
   This board can be programmed using MicroPython which is an implementation of the Python® programming language that comes with a subset of the Python® standard library.
 
-  <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense/micropython-installation"/>
-  <FeatureLink variant="secondary" title="Learn More" url="/learn/programming/arduino-and-python"/>
+  <FeatureLink variant="primary" title="MicroPython Docs" url="/micropython"/>
 </Feature>
 
 <Feature title="Machine Learning" image="core">

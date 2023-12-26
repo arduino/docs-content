@@ -249,7 +249,7 @@ When interacting with the links, you should see the LED, connected to pin 2, tur
 
 If the code is not working, there are some common issues we might need to troubleshoot:
 - We have not updated the latest firmware for the board.
-- We have not installed the core required for the board.
+- We have not installed the Board Package required for the board.
 - We have not installed the **WiFi101** library.
 - We have not selected the right port to upload: depending on what computer we use, sometimes the board is duplicated. By simply restarting the editor, this issue can be solved.
 

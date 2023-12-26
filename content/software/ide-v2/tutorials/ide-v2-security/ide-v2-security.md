@@ -38,7 +38,7 @@ As part of the security testing activities, Arduino periodically performs the fo
 - **Secure Component Analysis (SCA)**: security engineers evaluate components related to Theia npm packages and Electron.
 - **Secrets scanning analysis**: activities performed to ensure that secrets are not inadvertently leaked within the repository.
 
-Finally, should an Arduino user or customer suspect a vulnerability or security issue, they are invited to report it as described in our Coordinated Vulnerability Disclosure policy available at: [https://www.arduino.cc/en/security](https://www.arduino.cc/en/security).
+Finally, should an Arduino user or customer suspect a vulnerability or security issue, they are invited to report it as described in our Coordinated Vulnerability Disclosure policy available at: [https://www.arduino.cc/en/security_cvd](https://www.arduino.cc/en/security_cvd).
 
 ## Third Party Components
 

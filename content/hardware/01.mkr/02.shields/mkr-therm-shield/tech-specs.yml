@@ -2,7 +2,9 @@ Shield:
   Name: Arduino® MKR Therm Shield
   SKU: ASX00012
   Compatibility: MKR
-Communication: SPI
+Communication: SPI and 1-Wire®
+Chip Select Pin (SPI): A3
+1-Wire® Pin: D0
 Digital converter: MAX31855
 Connectors:
   K-type: Yes

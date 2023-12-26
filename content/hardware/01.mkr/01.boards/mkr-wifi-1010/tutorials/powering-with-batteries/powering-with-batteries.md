@@ -37,7 +37,7 @@ ___
 - Pushbutton NO
 - Power source with micro-USB cable
 - Arduino IDE (offline and online versions available)
-- Arduino SAMD core installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010)
+- Arduino SAMD Board Package installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010)
 - WiFiNINA library (explained later in this tutorial)
 
 ### Circuit

@@ -68,7 +68,7 @@ and, if all has gone as it should, in the log console you will see "OK".
 
 **13.** Go to "Memories"
 
-**14.** Select the file to write (typically Bootloader\_board\_Vxxx.hex) that you will find in your Arduino Software (IDE) installation, under the \_hardware/arduino/samd/...* path found in your '**Documents/Arduino/sketchbook**' folder. You need to install the SAMD core from board manager if you haven't done it yet. If your Arduino installation has been made ["portable"](https://arduino.cc/en/Guide/PortableIDE), the firmware will be in the **portable/packages/arduino** path. folder, as seen in our screen capture below.
+**14.** Select the file to write (typically Bootloader\_board\_Vxxx.hex) that you will find in your Arduino Software (IDE) installation, under the \_hardware/arduino/samd/...* path found in your '**Documents/Arduino/sketchbook**' folder. You need to install the SAMD Board Package from board manager if you haven't done it yet. If your Arduino installation has been made ["portable"](https://arduino.cc/en/Guide/PortableIDE), the firmware will be in the **portable/packages/arduino** path. folder, as seen in our screen capture below.
 
 **15.** Click "Program" and again, in the log console you will see "OK".
 

@@ -30,7 +30,7 @@ In this tutorial, we will set up a configuration that allows two MKR WAN 1300's 
 - 1x [MKR ENV shield](https://store.arduino.cc/arduino-mkr-env-shield).
 - 2x Micro USB cable.
 - Arduino IDE (offline and online versions available).
-- Arduino SAMD core installed, [follow this link for instructions](/software/ide-v1/tutorials/getting-started/cores/arduino-samd).
+- Arduino SAMD Board Package installed, [follow this link for instructions](/software/ide-v2/tutorials/ide-v2-board-manager).
 - **LoRa** library installed (see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)).
 - **Arduino_MKRENV** installed ([click here for more documentation](https://www.arduino.cc/en/Reference/ArduinoMKRENV)).
 

@@ -38,6 +38,7 @@ There are 2 types of variables:
 * Local variables: Only one program has access to it.
 
 #### Global Variable
+<br></br>
 
 Click inside the **Project** tab and click the **Global_vars** section, a table is available to see the full list of global variables on your project.
 
@@ -53,6 +54,7 @@ You will see a list with all the global variables in the **Global_vars** section
 ![Using a global variable inside a program](assets/usingGlobalVariable.png)
 
 #### Local Variable
+<br></br>
 
 Go inside the **Project** tab and select a program by double-clicking it, once it has been opened you will see a **Local Variables** table on the top panel.
 ![Default Ladder Diagram Program](assets/default_LD_program.png)
@@ -78,6 +80,7 @@ Once you drag and drop it on your canvas it will generate a block with some inpu
 Once you have your programs you can attach them to a task inside the runtime.
 
 There are 4 Tasks:
+
 * Init: Single execution of the assigned programs, done on the initialization
 * Fast: Loop that executes the attached programs, every 10ms by default (it can be changed)
 * Slow: Loop that executes the attached programs, every 100ms, can not be changed
@@ -183,6 +186,7 @@ This is how a counter program looks:
 ![Ladder Diagram counter program](assets/LDprogram.png)
 
 Here is a video doing that from scratch:
+
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/0EdATSgIc9o" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Sequential Function Chart
@@ -192,6 +196,7 @@ This language approaches the script in a similar way as a flowchart, meaning you
 SFC language can not interact directly with the machine, meaning you can not make an output be OFF directly, to do so you will need to create **actions**
 
 #### Actions
+<br></br>
 
 An action is a script in another language (i.e. structured text) that performs the work, this will get triggered depending on the chart.
 
@@ -200,6 +205,7 @@ To create one go to your project tree, right-click the SFC script and click the 
 ![Creating new action](assets/newAction.png)
 
 #### SFC Program
+<br></br>
 
 You have blocks available by right-clicking inside the canvas or on the top bar, you can drag and drop them.
 
@@ -213,6 +219,7 @@ The counter program should look like the following picture. Note the action insi
 ![Sequential Function Chart counter program](assets/SFCprogram.png)
 
 Here is a video doing that from scratch:
+
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/olQooS4bX4A" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Functional Block Diagram
@@ -225,6 +232,7 @@ This is how the counter program looks:
 ![Functional Block Diagram](assets/FBDprogram.png)
 
 Here is a video doing that from scratch:
+
 <iframe width="100%" height="415" src="https://www.youtube.com/embed/l1L4jzDVKyE" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ***In the previous programs, we used local variables, remember to select the program's specific variables to be watched, or you will not see any data***
@@ -232,6 +240,7 @@ Here is a video doing that from scratch:
 ## Conclusion
 
 You have:
+
 * Created a simple counter with each language
 * Learned how to watch live variable's value
 * Attached a program to a task
