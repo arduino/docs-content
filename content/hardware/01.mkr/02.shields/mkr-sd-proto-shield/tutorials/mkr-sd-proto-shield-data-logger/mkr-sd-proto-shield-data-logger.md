@@ -179,7 +179,7 @@ And that's how we can log data using a MKR family board, a MKR SD Proto Shield, 
 If the code is not working, there are some common issues we can troubleshoot:
 
 - Check that the SD card is working.
-- Check that you have installed the core for the MKR family boards (instructions are above the code).
+- Check that you have installed the Board Package for the MKR family boards (instructions are above the code).
 - Make sure you open the Serial Monitor.
 
 ## Conclusion

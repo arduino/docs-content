@@ -1,4 +1,4 @@
 ---
 title: MKR Proto Shield
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

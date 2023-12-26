@@ -1,6 +1,6 @@
 ---
-title: "Using the Arduino UNO R4 WiFi LED Matrix"
-description: "Get off the ground with the Arduino UNO R4 WiFi's built in LED matrix. Learn the different techniques for controlling it, create animations, graphics or even games."
+title: 'Using the Arduino UNO R4 WiFi LED Matrix'
+description: 'Get off the ground with the Arduino UNO R4 WiFi built-in LED matrix. Learn the different techniques for controlling it, create animations, graphics or even games.'
 tags:
   - Guide
   - LED Matrix
@@ -23,7 +23,7 @@ The matrix and its API are developed to be programmed in a few different ways, e
 ## Hardware & Software Needed
 
 - [Arduino UNO R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
-- [UNO R4 Core](https://github.com/arduino/ArduinoCore-renesas) (latest version)
+- [UNO R4 Board Package](/tutorials/uno-r4-wifi/r4-wifi-getting-started) (latest version)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
 ## Initializing Matrix
@@ -276,14 +276,97 @@ matrix.renderBitmap(frame, 8, 12);
 delay(1000);
 }
 ```
- 
+
+## Scrolling Text Example
+
+The LED Matrix now supports printing characters via the [ArduinoGraphics](https://github.com/arduino-libraries/ArduinoGraphics) library. With it, you are able to:
+- Set a start location for the text via `matrix.beginText(x,y, 0xFFFFFF)`. The "0xFFFFFF" represents the default color (red). As the **ArduinoGraphics** library supports other hardware with multiple colors, we need to specify it.
+- Print the text via `matrix.printText("This message is printed")`
+- End the print and (optionally) specify scroll direction with `matrix.endText(direction)`
+- `SCROLL_LEFT`, `SCROLL_RIGHT` are supported. Leave blank if no scroll is desired.
+
+The example below simply prints out **"Hello World!"** on the matrix.
+
+```arduino
+// To use ArduinoGraphics APIs, please include BEFORE Arduino_LED_Matrix
+#include "ArduinoGraphics.h"
+#include "Arduino_LED_Matrix.h"
+
+ArduinoLEDMatrix matrix;
+
+void setup() {
+  Serial.begin(115200);
+  matrix.begin();
+
+  matrix.beginDraw();
+  matrix.stroke(0xFFFFFFFF);
+  // add some static text
+  // will only show "UNO" (not enough space on the display)
+  const char text[] = "UNO r4";
+  matrix.textFont(Font_4x6);
+  matrix.beginText(0, 1, 0xFFFFFF);
+  matrix.println(text);
+  matrix.endText();
+
+  matrix.endDraw();
+
+  delay(2000);
+}
+
+void loop() {
+
+  // Make it scroll!
+  matrix.beginDraw();
+
+  matrix.stroke(0xFFFFFFFF);
+  matrix.textScrollSpeed(50);
+
+  // add the text
+  const char text[] = "    Hello World!    ";
+  matrix.textFont(Font_5x7);
+  matrix.beginText(0, 1, 0xFFFFFF);
+  matrix.println(text);
+  matrix.endText(SCROLL_LEFT);
+
+  matrix.endDraw();
+}
+```
+
 ## Animation Generation
 We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. This tool is part of [Arduino labs](https://labs.arduino.cc), and is therefore considered experimental software. 
 
-[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool.
+To use the tool you need to upload the following sketch, allowing the board to read serial inputs send by the browser. 
+
+You can also find the sketch in **File > Examples > LED_Matrix > LivePreview**
+
+```arduino
+#include "Arduino_LED_Matrix.h"
+
+ArduinoLEDMatrix matrix;
+
+void setup() {
+  Serial.begin(115200);
+  matrix.begin();
+}
+
+uint32_t frame[] = {
+  0, 0, 0, 0xFFFF
+};
+
+void loop() {
+  if(Serial.available() >= 12){
+    frame[0] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[1] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    frame[2] = Serial.read() | Serial.read() << 8 | Serial.read() << 16 | Serial.read() << 24;
+    matrix.loadFrame(frame);
+  }
+}
+```
+
+[Click here](https://ledmatrix-editor.arduino.cc) to go to the LED Matrix tool. 
 
 
-![LED Matrix Editor](./assets/led-matrix-editor.png)
+![LED Matrix Editor](assets/led-matrix-tool.png)
 
 Once you've made your animations, you can export them from the tool in the format that lets you use them like [previously discussed](#how-to-write-a-frame).
 
@@ -298,93 +381,108 @@ Have fun creating interactive interfaces or animation on your UNO R4 WiFi!
 
 To write more advanced sketches on your own, you may use the full API of the library as found below.
 
- Members                        | Descriptions                                
---------------------------------|---------------------------------------------
-`public ` [`ArduinoLEDMatrix`](#)`()` | The main class for controlling the LED matrix.
-`public void` [`autoscroll`](#)`(int32_t interval_ms)` | Sets the time in ms for each frame to be displayed.
-`public void` [`on`](#)`(size_t pin)` | Turn an individual pixel on.
-`public void` [`off`](#)`(size_t pin)` | Turn an individual pixel off.
-`public void` [`begin`](#)`()` | Start the LED matrix.
-`public void` [`next`](#)`()` | Manually move to the next frame in the sequence.
-`public void` [`loadFrame`](#)`(const uint32_t buffer[3])` | Load a new single frame that is not in any sequence.
-`public void` [`renderFrame`](#)`(uint8:t frameNumber)` | Render the loaded frame.
-`public void` [`play`](#)`(bool loop = false)` | Start playing the sequence of frames, with the option to loop indefinitely or play once.
-`public bool` [`sequenceDone`](#)`()` | checks if the sequence has finished playing.
-`public void` [`loadPixels`](#)`(uint8_t *arr, size_t size)` |Loads the pixels into the buffer but does not display them.
-`public void` [`loadWrapper`](#)`(`[`const uint32_t frames[][4], uint32_t howMany`](#)` callback)` | Sets the current frame to number 0 in the sequence.
+ Members                                                       | Descriptions                                
+---------------------------------------------------------------|---------------------------------------------
+`public ` [`ArduinoLEDMatrix`](#)`()`                          | The main class for controlling the LED matrix.
+`public void` [`autoscroll`](#)`(int32_t interval_ms)`         | Sets the time in ms for each frame to be displayed.
+`public void` [`begin`](#)`()`                                 | Start the LED matrix.
+`public void` [`next`](#)`()`                                  | Manually move to the next frame in the sequence.
+`public void` [`loadFrame`](#)`(const uint32_t buffer[3])`     | Load a new single frame that is not in any sequence.
+`public void` [`renderFrame`](#)`(uint8:t frameNumber)`        | Render the loaded frame.
+`public void` [`loadSequence`](#)`(const uint32_t frames[][4])`| Loads an animation sequence into the buffer but does not display it.
+`public void` [`play`](#)`(bool loop = false)`                 | Start playing the sequence of frames, with the option to loop indefinitely or play once.
+`public bool` [`sequenceDone`](#)`()`                          | checks if the sequence has finished playing.
 
 ## Members
 
-**public  ArduinoLEDMatrix()**
+### `ArduinoLEDMatrix()`
 
-Construct a new `LEDMatrix` object.
+Construct a new LED matrix object. This will be used to access the methods in the library.
 
-**public void autoscroll(int32_t interval_ms)**
+```
+ArduinoLEDMatrix LEDMatrix;
+```
+
+
+### `autoscroll()`
 
 Enable autoscrolling through the frames in a sequence. 
 
-**Parameters**
-* `interval_ms` Sets the time in milliseconds that should be spent on a frame before switching to the next frame in the sequence.
-
-
-**public void on(size_t pin)**
-
-Turn on an individual LED.
 
 **Parameters**
-* `pin` Defines which LED should be turned on. Accepted values are 0-95. 
-**public void off(size_t pin)**
 
-Turn off an individual LED.
+- `interval_ms` Sets the time in milliseconds that should be spent on a frame before switching to the next frame in the sequence.
 
-**Parameters**
-* `pin` Defines which LED should be turned off. Accepted values are 0-95. 
 
-**public void begin()**
+### `begin()`
 
 Starts the LED matrix.
 
-**public void next()**
+```arduino
+LEDMatrix.begin()
+```
+
+### `next()`
 
 Manually moves to the next frame in the sequence.
 
-**public void loadFrame(const uint32_t buffer[3])**
+```
+LEDMatrix.next()
+```
 
-loads a single frame that is not part of a sequence.
+### `loadFrame()`
+
+Loads a single frame that is not part of a sequence.
+
+```arduino
+LEDMatrix.loadFrame(buffer[i])
+```
  
 **Parameters**
-* `buffer[3]` an array of three 32bit integers, where each bit represents an LED.  
 
-**public void renderFrame(uint8_t frameNumber)** 
+- `buffer[3]` an array of three 32bit integers, where each bit represents an LED.  
 
-Render a specific frame from a sequence
+### `renderFrame()`
+
+Render a specific frame from a sequence.
+
+```
+LEDMatrix.renderFrame(frameNumber)
+```
 
 **Parameters**
-* `frameNumber` Specifies which frame of the sequence should be rendered. 
 
-**public void play(bool loop)** 
+- `int` - frame to load.
+
+### `loadSequence()`
+
+ Loads an animation sequence into the buffer but does not display it.
+
+```arduino
+LEDMatrix.frames[][4]
+```
+
+**Parameters**
+
+- `frameNumber` Specifies which frame of the sequence should be rendered. 
+
+### `play()`
 
 Starts playing the loaded sequence. 
 
-**Parameters**
-* `loop` true to enable looping the sequence, false to play once.
+```
+LEDMatrix.play(state) //true or false
+```
 
-**public bool sequenceDone()**
+**Parameters**
+
+- `loop` true to enable looping the sequence, false to play once.
+
+### `sequenceDone()`
 
 Check for if the sequence is finished playing or if the frame should be advanced another step.
 
 **Returns**
-false if the sequence is not finished, true if it is.
 
-**public void loadPixels(uint8_t arr, size_t size)**
+- `false` if the sequence is not finished, `true` if it is.
 
-Loads the pixels into the frame but does not load them.
-
-**Parameters**
-* `arr` Pointer to an array that holds the frame
-
-* `size` the amount of pixels in your frame. 
-
-**public void loadWrapper(const uint32_t frames[][4], uint32_t howMany)**
-
-Sets the current frame to frame 0 in the sequence.

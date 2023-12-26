@@ -1,5 +1,5 @@
 <EssentialsColumn title="Guides">
-    <EssentialElement link="/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano" title="Quickstart Guide" type="getting-started">
+    <EssentialElement link="/software/ide-v2/tutorials/ide-v2-board-manager" title="Quickstart Guide" type="getting-started">
         A quick guide to installing your board with the Arduino IDE.
     </EssentialElement>
     <EssentialElement link="/tutorials/nano-rp2040-connect/rp2040-01-technical-reference" title="Cheat Sheet" type="tutorial">

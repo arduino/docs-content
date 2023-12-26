@@ -8,7 +8,7 @@ tags:
   - Cheat sheet
   - RGB
   - Communication
-author: 'Benjamin Dannegård and José Bagur'
+author: 'José Bagur and Benjamin Dannegård'
 hardware:
   - hardware/06.nicla/boards/nicla-voice
 software:
@@ -20,19 +20,19 @@ software:
 
 ## Overview
 
-This user manual will provide you with a comprehensive overview of the Arduino Nicla Voice board, covering its main hardware and software features. With this user manual, you will also learn how to set up, configure and use these features. 
+This user manual will provide you with a comprehensive overview of the Arduino Nicla Voice board, covering its main hardware and software features. This user manual will also show you how to set up, configure, and use these features. 
 
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
 
 - [Nicla Voice](https://store.arduino.cc/products/nicla-voice) (x1)
-- Micro USB cable (x1)
+- [Micro USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 
 ### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
-- To create custom Machine Learning models, the integrated Machine Learning Tools of the [Arduino Cloud](https://create.arduino.cc/iot/) are needed. In case you do not have an Arduino Cloud account, you will need to create one first.
+- To create custom Machine Learning models, the integrated [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) of the [Arduino Cloud](https://create.arduino.cc/iot/) are needed. In case you do not have an Arduino Cloud account, you will need to create one first.
 
 ## Product Overview
 
@@ -40,7 +40,7 @@ The Nicla Voice is an innovative and versatile development board designed by the
 
 ### Board Architecture Overview
 
-The Nicla Voice features a robust and efficient architecture that integrates various components to enable speech, sound, and motion projects and applications. 
+The Nicla Voice features a robust and efficient architecture integrating various components to enable speech, sound, and motion projects and applications. 
 
 ![The Nicla Voice main components (top view)](assets/user-manual-2.png)
 
@@ -96,18 +96,34 @@ The complete STEP files are available and downloadable from the link below:
 The Nicla voice can be powered by:
 
 - Using a Micro USB cable (not included). 
-- Using an external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#pinout) of the user manual).
+- Using an external **5V power supply** connected to `VIN_BQ25120` pin (please refer to the [board pinout section](#pinout) of the user manual).
 - Using a **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
 - Using the onboard **ESLOV connector**, which has a dedicated 5V power line.
 
 ![Different ways to power the Nicla Voice](assets/user-manual-6.png)
 
-The onboard battery charger of your board is, by default, **disabled**. To enable it, you can use the `enableCharge()` function defined in the Nicla Voice board core:
+***A 3.7V Li-Po battery can be also connected through the board's pins: `1 (NTC)`, `2 (VBAT)`, and `6 (GND)`. Please refer to the board's [pinout](#pinout) to locate those pins on your Nicla Voice board.***
+
+#### Onboard Battery Charger
+<br></br>
+
+The onboard battery charger of your board is, by default, **disabled**. To enable it, you can use the `enableCharging()` function defined in the Nicla Voice board core:
 
 ```arduino
-// Enabling the battery charger 
-// The function parameter defines the charging current in mA
-nicla::enableCharge(100);
+// Enable the onboard battery charger 
+// The function parameter defines the charging current in mA (between 5 mA and 300 mA)
+nicla::enableCharging(100);
+```
+
+The desired charging current can be set to a value between 5 mA and 300 mA; the default value is 20 mA.
+
+***A safe default charging current value that works for most common LiPo batteries is 0.5C, which means charging at a rate equal to half the battery's capacity. For example, a 200 mAh battery could be safely charged at 100 mA (0.1 A).***
+
+ To disable the onboard battery charger, you can use the `disableCharging()` function defined in the Nicla Voice board core:
+
+```arduino
+// Disable the onboard battery charger 
+nicla::disableCharging();
 ```
 
 ### NDP120 Processor Firmware Update
@@ -144,6 +160,7 @@ It is recommended to update the NDP120 processor firmware and the built-in speec
 After uploading the three files, your board's firmware is updated to the latest release and ready to be used.
 
 #### External Memory Format
+<br></br>
 
 Your board NDP120 processor files (firmware and models) are stored in your board's external Flash memory. It is recommended to **format your Nicla Voice external Flash memory** every time you are going to update the processor firmware or when you are going to update/add models to the external Flash memory.
 
@@ -691,7 +708,7 @@ Next, in the `setup()` function:
 - The serial communication is initialized at a baud rate of 115200.
 - The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the IMU. 
 - Error and event handlers are initialized.
-- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the Machine Learning model (`ei_model.synpkg`). 
 - The BMI270 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the accelerometer and gyroscope operational. 
 
 Finally, in the `loop()` function:
@@ -912,7 +929,7 @@ Next, in the `setup()` function:
 - The serial communication is initialized at a baud rate of 115200.
 - The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the magnetometer. 
 - Error and event handlers are initialized.
-- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the Machine Learning model (`ei_model.synpkg`). 
 - The BMM150 sensor is initialized; this includes setting it into normal operation with an output data rate (ODR) of 10 Hz. 
 
 Finally, in the `loop()` function:
@@ -1026,6 +1043,10 @@ In the example code above, a Machine Learning model is loaded into the Nicla Voi
 - If the model matches the input data with a known motion pattern, the built-in RGB LED is turned blue, and the event label is printed to the IDE's Serial Monitor.
 - If an error occurs, the built-in RGB LED will blink red continuously. 
 - While an event is recognized, the built-in RGB LED is turned on green.
+
+To learn more about your Nicla Voice board Machine Learning capabilities, check out the following tutorial and learn how to create a simple motion detection application: 
+
+- [Motion Detection with Nicla Voice and Machine Learning Tools](https://docs.arduino.cc/tutorials/nicla-voice/motion-detection-ml)
 
 ## Actuators
 

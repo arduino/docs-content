@@ -30,7 +30,7 @@ This tutorial demonstrates how to make use the Arduino 101's onboard [6-axis acc
 
 7. Upload the example contained in the Madgwik library called Visualizer101 to your 101, making sure that the board is flat and stationery so it can perform the calibration accurately.
 
-8. After a few seconds, run the Processing sketch, adjust the orientation of your board, and watch as the Processing sketch gives a visualization of your board. The Pocessing is contained in the "extras" folder of the Madgwick library.
+8. After a few seconds, run the Processing sketch, adjust the orientation of your board, and watch as the Processing sketch gives a visualization of your board. The Processing is contained in the "extras" folder of the Madgwick library.
 
 ## The Circuit
 
@@ -57,7 +57,7 @@ First, we must create a Madgwick object to access the functions from the Madgwic
 Madgwick filter;
 ```
 
-In the `setup()` function we perform a preliminary configuration of the CurieIMU, by setting the sample rate of the acelerometer and the gyro and the filter to 25Hz:
+In the `setup()` function we perform a preliminary configuration of the CurieIMU, by setting the sample rate of the accelerometer and the gyro and the filter to 25Hz:
 
 ```arduino
 CurieIMU.begin();

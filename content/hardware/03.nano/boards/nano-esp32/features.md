@@ -19,12 +19,20 @@ This board is Bluetooth® enabled allowing you to control peripheral devices and
 </Feature>
 
 <Feature title="ESP32 Platform" image="mcu">
-The Nano ESP32's core is based on the well maintained & documented <a href="https://github.com/espressif/arduino-esp32">ESP32 core</a> from Espressif.
+The Nano ESP32's Board Package is based on the well maintained & documented <a href="https://github.com/espressif/arduino-esp32">ESP32 core</a> from Espressif.
 <FeatureLink variant="secondary" title="ESP32 Documentation" url="https://docs.espressif.com/projects/arduino-esp32/en/latest/"/>
 </Feature>
 
 <Feature title="USB-C®" image="usb">
 The first Nano board to feature a USB-C® connector!
+</Feature>
+
+<Feature title="Debugging" image="mcu">
+The Nano ESP32 supports out-of-the-box debugging with no additional hardware required!<FeatureLink variant="secondary" title="Documentation" url="/tutorials/nano-esp32/debugging"/>
+</Feature>
+
+<Feature title="ESP-NOW" image="communication">
+The Nano ESP32 supports the ESP-NOW protocol develop by Espressif!<FeatureLink variant="secondary" title="Documentation" url="/tutorials/nano-esp32/esp-now"/>
 </Feature>
 
 </FeatureList>

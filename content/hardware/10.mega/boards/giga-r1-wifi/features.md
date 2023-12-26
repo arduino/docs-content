@@ -33,7 +33,7 @@ The GIGA R1 WiFi comes with a Murata LBEE5KL1DX-883 radio module for Wi-Fi/Bluet
 <Feature title="MicroPython" image="python">
 The GIGA R1 WiFi has support for MicroPython, which can be set up in just minutes.
 
-<FeatureLink title="Install MicroPython" url="/tutorials/giga-r1-wifi/giga-micropython"/>
+<FeatureLink title="Install MicroPython" url="/micropython/basics/board-installation"/>
 </Feature>
 
 <Feature title="USB" image="usb">

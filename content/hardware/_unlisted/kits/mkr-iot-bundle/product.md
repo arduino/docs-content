@@ -1,4 +1,4 @@
 ---
 title: MKR IoT Bundle
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

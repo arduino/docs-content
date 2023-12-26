@@ -61,6 +61,24 @@ Once you have uploaded the code to the board, it should start generating a sine 
 
 Now try twisting the potentiometer, and listen to how the sound changes.
 
+### Analog Wave Types
+
+The sketch above generates what is known as a sine wave. It is called a sine wave because if you were to plot the voltage against time, you'd notice that the line looks just like a sine function.
+
+There are other types of analog waves that will produce a distinctly different type of sound compared to a sine wave. The library we're using in this sketch also allows you to create sawtooth and square waves. These types of wave also gets their names from how they look when the voltages are plotted against time.
+
+Try changing the wave type and listen how it changes the feel of the sound. 
+
+Change the wave by replacing **Line 18 in the sketch** "`wave.sine(freq);`" with either
+
+ ```arduino
+ wave.square(freq);
+ ```
+or 
+```arduino
+wave.saw(freq);
+```
+
 Now that you know your setup is working, you can experiment further with different examples and see how you can use the DAC of the UNO R4 to generate sounds and even melodies.
 
 ***Note: In this setup, we're just using a piezo buzzer, you may notice that the sounds it's making are pretty faint. If you want to fix this you'll need a 4 or 8 Ohm speaker, and an amplifier. You can find many breakout amplifier modules that are easy to use online.***

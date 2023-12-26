@@ -151,7 +151,7 @@ We will go through some important code sections to make this application fully o
 - Including `NDP.h` will enable and run the Neural Decision Processor (NDP120), it's included in the BSP of the Nicla Voice.
 - Including `ArduinoBLE.h` will enable the Bluetooth® Low Energy communication, install it by searching for it on the Library Manager.
 
-The Bluetooth® Low Energy services and characteristics are standardized for the specific use of this application's features. The service is defined as "Immediate alert" which makes it ideal for the use that we will give of notifying on a door opening or forcing event. In addition to this, we defined two characteristics, one for the "Alert Level" that will advertise between both events and a "Battery Level" one to advertise the Nicla Voice battery level to the host. Notice that they have specific and standardized Bluetooth® Low Energy UUIDs.
+The Bluetooth® Low Energy services and characteristics are standardized for the specific use of this application's features. The service is defined as `Immediate alert` which makes it ideal for the use that we will give of notifying on a door opening or forcing event. In addition to this, we defined two characteristics, one for the `Alert Level` that will advertise between both events and a `Battery Level` one to advertise the Nicla Voice battery level to the host. Notice that they have specific and standardized Bluetooth® Low Energy UUIDs.
 
 ```arduino
 #include "NDP.h"
@@ -173,7 +173,13 @@ The Nicla Voice's integrated NDP needs some files stored in the external flash o
 - dsp_firmware_v91.synpkg
 - ei_model.synpkg
 
-***The files must be named exactly as shown above. To store them in the Nicla Voice memory you must use the [Syntiant Uploader](assets/Syntiant_Uploader.zip), these files won't be overwritten after any sketch update.***
+***The files must be named exactly as shown above.***
+
+[Here](assets/Syntiant_Uploader.zip) you can download these files including the Machine Learning model already trained and the uploading tools.
+
+After downloading the required files, to store them in the Nicla Voice memory you must follow the steps detailed on this [guide section](https://docs.arduino.cc/tutorials/nicla-voice/user-manual#ndp120-processor-firmware-update).
+
+***These files won't be overwritten after any sketch update.***
 
 ```arduino
   // Neural Decision Processor firmware and ML model files loading
@@ -185,9 +191,11 @@ The Nicla Voice's integrated NDP needs some files stored in the external flash o
   Serial.println("Configure mic");
   NDP.turnOnMicrophone();
 ```
-The main responsibility of the Nicla Voice code is to listen to and identify the trained sounds. The below code section is in charge of comparing the inferred category and taking a certain action between them. In the case the Nicla detects the door opening, the label parameter will turn to "NN0:opened", this will trigger a Bluetooth® Low Energy alert sending command followed by a listening pause to avoid duplicated alerts and a green LED blinking to visually indicate the event. The same for the "NN0:forcing" label, with the difference that in this case the LED flashes red and the alert message changes.
+The main responsibility of the Nicla Voice code is to listen to and identify the trained sounds. The below code section is in charge of comparing the inferred category and taking a certain action between them. 
 
-```arduino
+In the case the Nicla detects the door opening, the label parameter will turn to `NN0:opened`, this will trigger a Bluetooth® Low Energy alert sending command followed by a listening pause to avoid duplicated alerts and a green LED blinking to visually indicate the event. The same for the `NN0:forcing` label, with the difference that in this case the LED flashes red and the alert message changes.
+
+```cpp
 /**
   Inference Interruption Callback to be executed with every triggered inference,
   it controls the built-in LED's and send the alerts through BLE.
@@ -351,7 +359,7 @@ void loop() {
 
 In order to just get connected with the Nicla Voice, the Portenta searches for the specific "Alert Service" using its UUID `1802` and for the necessary characteristics, the "Battery Level" using the `2A19` UUID  and the "Alert Level" using the `2A06` UUID.
 
-```arduino
+```cpp
   // discover peripheral attributes
   Serial.println("Searching for service 1802 ...");
 
@@ -390,7 +398,7 @@ In order to just get connected with the Nicla Voice, the Portenta searches for t
 ```
 Finally, the Portenta verifies continuously if a characteristic is updated to upload it to the Cloud:
 
-```arduino
+```cpp
 // while the peripheral is connected
   while (peripheral.connected()) {
     
@@ -457,17 +465,16 @@ Within the Arduino Cloud's dashboard, the system variables can be monitored. We 
 
 We can easily access this dashboard from a PC, mobile phone or tablet from anywhere, receiving an instantaneous update wherever we are. In addition, we can set different integrations to complement our project, for example, setting up an IFTTT automation to receive an email, a cellphone notification, or even triggering some automation like turning on all the lights at home whenever an alert is fired.
 
-![Door opening event](assets/opened_door.png)
+![Door opening and intruder detection events](assets/realGif2.gif)
 
-![Intruder detected event](assets/forced_door.png)
 
 ## Full Intruder Detector Example
 
 All the necessary files to replicate this application notes can be found below:
 
-* The complete code can be downloaded [here](assets/Nicla_Portenta_Codes.zip)
-* The enclosure 3D printed models can be downloaded [here](assets/Intruder_Detector_3D_Files.zip). 
-* The Machine Learning Tools project is public [here](https://mltools.arduino.cc/public/204744/latest) so you can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
+* The complete code can be downloaded [**here**](assets/Nicla_Portenta_Codes.zip)
+* The enclosure 3D printed models can be downloaded [**here**](assets/Intruder_Detector_3D_Files.zip). 
+* The Machine Learning Tools project is public [**here**](https://mltools.arduino.cc/public/204744/latest) so you can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
 
 ## Conclusion
 

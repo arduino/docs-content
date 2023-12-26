@@ -14,6 +14,7 @@ The Nano ESP32 is compatible with the Arduino IoT Cloud, and has support for Mic
 Maker, IoT, MicroPython
 
 # Features
+
 * **Xtensa® Dual-core 32-bit LX7 Microprocessor**
   * Up to 240 MHz
   * 384 kB ROM
@@ -22,7 +23,7 @@ Maker, IoT, MicroPython
   * DMA Controller
 * **Power**
   * Operating voltage 3.3 V
-  * VUSB supplies 5 V via USB-C® connector
+  * VBUS supplies 5 V via USB-C® connector
   * VIN range is 6-21 V
 * **Connectivity**
   * Wi-Fi®
@@ -41,12 +42,14 @@ Maker, IoT, MicroPython
   * UART
   * CAN (TWAI®)
 * **Low Power**
-  * 7 μA consumption in deep sleep mode
-  * 240 μA consumption in light sleep mode
+  * 7 μA consumption in deep sleep mode\*
+  * 240 μA consumption in light sleep mode\*
   * RTC Memory
   * Ultra Low Power (ULP) Coprocessor
   * Power Management Unit (PMU)
   * ADC in RTC mode
+
+\*The power consumption ratings listed in low power modes are only for the ESP32-S3 SoC. Other components on the board (such as LEDs), consumes power as well, which increases the overall power consumption of the board.
 
 # Contents
 
@@ -64,17 +67,17 @@ Nano ESP32 is a 3.3 V development board based on the NORA-W106-10B from u-blox®
 
 ## ESP32 Core
 
-The Nano ESP32 uses the [Arduino Core for ESP32 boards](https://github.com/arduino/arduino-esp32), a derivation of Espressif's [arduino-esp32](https://github.com/espressif/arduino-esp32) core.
+The Nano ESP32 uses the [Arduino Board Package for ESP32 boards](https://github.com/arduino/arduino-esp32), a derivation of Espressif's [arduino-esp32](https://github.com/espressif/arduino-esp32) core.
 
 # Rating
 
 ## Recommended Operating Conditions
 
-| Symbol          | Description                      | Min | Typ | Max | Unit |
-| --------------- | -------------------------------- | --- | --- | --- | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 6   | 7.0 | 21  | V    |
-| V<sub>USB</sub> | Input voltage from USB connector | 4.8 | 5.0 | 5.5 | V    |
-| T<sub>OP</sub>  | Operating Temperature            | -40 | 25  | 85  | °C   |
+| Symbol              | Description                      | Min | Typ | Max | Unit |
+| ------------------- | -------------------------------- | --- | --- | --- | ---- |
+| V<sub>IN</sub>      | Input voltage from VIN pad       | 6   | 7.0 | 21  | V    |
+| V<sub>USB</sub>     | Input voltage from USB connector | 4.8 | 5.0 | 5.5 | V    |
+| T<sub>ambient</sub> | Ambient Temperature              | -40 | 25  | 105 | °C   |
 
 # Functional Overview
 
@@ -91,7 +94,7 @@ The Nano ESP32 uses the [Arduino Core for ESP32 boards](https://github.com/ardui
 | **Ref.** | **Description**                                  |
 | -------- | ------------------------------------------------ |
 | M1       | NORA-W106-10B (ESP32-S3 SoC)                     |
-| J1       | CX90B-16P USB-C® connector                        |
+| J1       | CX90B-16P USB-C® connector                       |
 | JP1      | 1x15 analog header                               |
 | JP2      | 1x15 digital header                              |
 | U2       | MP2322GQH step down converter                    |
@@ -130,6 +133,22 @@ The NORA-W106-10B module supports Bluetooth® LE v5.0 with an output power EIRP 
 ### PSRAM
 
 The NORA-W106-10B module includes 8 MB of embedded PSRAM. (Octal SPI)
+
+### Antenna Gain
+
+The built-in antenna on the NORA-W106-10B module uses GFSK modulation technique, with the performance ratings listed below:
+
+Wi-Fi®:
+- Typical conducted output power: **17 dBm.**
+- Typical radiated output power: **20 dBm EIRP.**
+- Conducted sensitivity: **-97 dBm**.
+
+Bluetooth® Low Energy:
+- Typical conducted output power: **7 dBm.**
+- Typical radiated output power: **10 dBm EIRP.**
+- Conducted sensitivity: **-98 dBm**.
+
+This data is retrieved from the uBlox NORA-W10 data sheet (page 7, section 1.5) available [here](https://www.u-blox.com/en/product/nora-w10-series). 
 
 ## System
 
@@ -196,8 +215,8 @@ Read more about the I2S protocol in [Espressif's Peripheral API - InterIC Sounds
 ### Serial Peripheral Interface (SPI)
 
 - SCK - D13
-- COPI - D12
-- CIPO - D11  
+- CIPO - D12
+- COPI - D11  
 - CS - D10
 
 The SPI controller is by default assigned to the pins above.
@@ -254,11 +273,11 @@ The efficiency of the converter depends on the input voltage via the VIN pin. Se
 
 This information is extracted from the MP2322GQH's datasheet.
 
-### VUSB
+### VBUS
 
-There is no 5V pin available on the Nano ESP32. 5 V can only be provided via the **VUSB**, which is supplied directly from the USB-C® power source.
+There is no 5V pin available on the Nano ESP32. 5 V can only be provided via the **VBUS**, which is supplied directly from the USB-C® power source.
 
-While powering the board via the VIN pin, the VUSB pin is not activated. This means you have no option of providing 5 V from the board unless powered via USB or externally.
+While powering the board via the VIN pin, the VBUS pin is not activated. This means you have no option of providing 5 V from the board unless powered via USB or externally.
 
 ### Using the 3.3 V Pin
 
@@ -276,45 +295,45 @@ The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and 
 
 ### Analog (JP1)
 
-| Pin | Function | Type   | Description                             |
-| --- | -------- | ------ | --------------------------------------- |
-| 1   | SCK      | NC     | Serial Clock                            |
-| 2   | +3V3     | Power  | +3V3 Power Rail                         |
-| 3   | BOOT0    | Mode   | Board Reset 0                           |
-| 4   | A0       | Analog | Analog input 0                          |
-| 5   | A1       | Analog | Analog input 1                          |
-| 6   | A2       | Analog | Analog input 2                          |
-| 7   | A3       | Analog | Analog input 3                          |
-| 8   | A4       | Analog | Analog input 4 / I²C Serial Datal (SDA) |
-| 9   | A5       | Analog | Analog input 5 / I²C Serial Clock (SCL) |
-| 10  | A6       | Analog | Analog input 6                          |
-| 11  | A7       | Analog | Analog input 7                          |
-| 12  | VUSB     | Power  | USB power (5V)                          |
-| 13  | BOOT1    | Mode   | Board Reset 1                           |
-| 14  | GND      | Power  | Ground                                  |
-| 15  | VIN      | Power  | Voltage Input                           |
+| Pin | Function  | Type   | Description                             |
+| --- | --------- | ------ | --------------------------------------- |
+| 1   | D13 / SCK | NC     | Serial Clock                            |
+| 2   | +3V3      | Power  | +3V3 Power Rail                         |
+| 3   | BOOT0     | Mode   | Board Reset 0                           |
+| 4   | A0        | Analog | Analog input 0                          |
+| 5   | A1        | Analog | Analog input 1                          |
+| 6   | A2        | Analog | Analog input 2                          |
+| 7   | A3        | Analog | Analog input 3                          |
+| 8   | A4        | Analog | Analog input 4 / I²C Serial Datal (SDA) |
+| 9   | A5        | Analog | Analog input 5 / I²C Serial Clock (SCL) |
+| 10  | A6        | Analog | Analog input 6                          |
+| 11  | A7        | Analog | Analog input 7                          |
+| 12  | VBUS      | Power  | USB power (5V)                          |
+| 13  | BOOT1     | Mode   | Board Reset 1                           |
+| 14  | GND       | Power  | Ground                                  |
+| 15  | VIN       | Power  | Voltage Input                           |
 
 ### Digital (JP2)
 
-| Pin | Function     | Type     | Description                        |
-| --- | ------------ | -------- | ---------------------------------- |
-| 1   | D12 / CIPO\* | Digital  | Controller In Peripheral Out       |
-| 2   | D11 / COPI\* | Digital  | Controller Out Peripheral In       |
-| 3   | D10          | Digital  | Chip Select                        |
-| 4   | D9           | Digital  | GPIO 9                             |
-| 5   | D8           | Digital  | GPIO 8                             |
-| 6   | D7           | Digital  | GPIO 7                             |
-| 7   | D6           | Digital  | GPIO 6                             |
-| 8   | D5           | Digital  | GPIO 5                             |
-| 9   | D4           | Digital  | GPIO 4                             |
-| 10  | D3           | Digital  | GPIO 3                             |
-| 11  | D2           | Digital  | GPIO 2                             |
-| 12  | GND          | Power    | Ground                             |
-| 13  | RST          | Internal | Reset                              |
-| 14  | D1/RX        | Digital  | GPIO 4 / Serial 0 Receiver (RX)    |
-| 15  | D0/TX        | Digital  | GPIO 3 / Serial 0 Transmitter (TX) |
+| Pin | Function     | Type     | Description                             |
+| --- | ------------ | -------- | --------------------------------------- |
+| 1   | D12 / CIPO\* | Digital  | Controller In Peripheral Out            |
+| 2   | D11 / COPI\* | Digital  | Controller Out Peripheral In            |
+| 3   | D10 / CS\*   | Digital  | Chip Select                             |
+| 4   | D9           | Digital  | Digital pin 9                           |
+| 5   | D8           | Digital  | Digital pin 8                           |
+| 6   | D7           | Digital  | Digital pin 7                           |
+| 7   | D6           | Digital  | Digital pin 6                           |
+| 8   | D5           | Digital  | Digital pin 5                           |
+| 9   | D4           | Digital  | Digital pin 4                           |
+| 10  | D3           | Digital  | Digital pin 3                           |
+| 11  | D2           | Digital  | Digital pin 2                           |
+| 12  | GND          | Power    | Ground                                  |
+| 13  | RST          | Internal | Reset                                   |
+| 14  | D1/RX        | Digital  | Digital pin 1 / Serial Receiver (RX)    |
+| 15  | D0/TX        | Digital  | Digital pin 0 / Serial Transmitter (TX) |
 
-\*CIPO/COPI replaces the MISO/MOSI terminology. 
+\*CIPO/COPI/CS replaces the MISO/MOSI/SS terminology. 
 
 ## Mounting Holes And Board Outline
 
@@ -393,6 +412,21 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
 English:
 User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -421,24 +455,34 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| Company name    | Arduino SRL                                  |
-| --------------- | -------------------------------------------- |
-| Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy) |
+| Company name    | Arduino S.r.l.                                |
+| --------------- | --------------------------------------------- |
+| Company Address | Via Andrea Appiani, 25 Monza, MB, 20900 Italy |
 
 
 ## Reference Documentation
 
-| Ref                       | Link                                                                                            |
-| ------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino Web Editor (Cloud)       | <https://create.arduino.cc/editor>                                                              |
+| Ref                          | Link                                                                                            |
+| ---------------------------- | ----------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)        | <https://www.arduino.cc/en/Main/Software>                                                       |
+| Arduino Web Editor (Cloud)   | <https://create.arduino.cc/editor>                                                              |
 | Web Editor - Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Project Hub               | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
-| Library Reference         | <https://github.com/arduino-libraries/>                                                         |
-| Online Store              | <https://store.arduino.cc/>                                                                     |
+| Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
+| Library Reference            | <https://github.com/arduino-libraries/>                                                         |
+| Online Store                 | <https://store.arduino.cc/>                                                                     |
 
 ## Change Log
 
-| **Date**   | **Changes** |
-| ---------- | ----------- |
-| 08/06/2023 | Release     |
+| **Date**   | **Changes**                                            |
+| ---------- | ------------------------------------------------------ |
+| 08/06/2023 | Release                                                |
+| 09/01/2023 | Update power tree flowchart.                           |
+| 09/11/2023 | Update SPI section, update analog/digital pin section. |
+| 11/06/2023 | Correct company name, correct VBUS/VUSB                |
+| 11/09/2023 | Block Diagram Update, Antenna Specifications           |
+| 11/15/2023 | Ambient temperature update                             |
+| 11/23/2023 | Added label to LP modes                                |
+
+
+
+

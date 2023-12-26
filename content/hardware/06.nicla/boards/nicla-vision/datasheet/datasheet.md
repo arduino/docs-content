@@ -9,7 +9,7 @@ author: Ali Jahangiri
 
 # Description
 
-The **Arduino® Nicla Vision** packs machine vision capabilities on the edge into a tiny fingerprint. Record, analyse and upload to the cloud all with the help of one **Arduino® Nicla Vision**. Leverage the onboard camera, STM32 microcontroller, Wi-Fi/Bluetooth® module and 6-axis IMU to create your own wireless sensor network for machine vision applications.
+The **Arduino® Nicla Vision** packs machine vision capabilities on the edge into a tiny fingerprint. Record, analyse and upload to the cloud all with the help of one **Arduino® Nicla Vision**. Leverage the onboard camera, STM32 microcontroller, Wi-Fi®/Bluetooth® module and 6-axis IMU to create your own wireless sensor network for machine vision applications.
 
 # Target Areas
 
@@ -23,9 +23,9 @@ Dual-core
   - 32-bit Arm® 32-bit Cortex®-M4 core with FPU up to 240 MHz
   - Full set of DSP instructions
   - Memory Protection Unit (MPU)
-- **Murata® 1DX** Wi-Fi/BT Module
-  - Wi-Fi 802.11b/g/n 65 Mbps
-  - Bluetooth 4.2 BR/EDR/LE
+- **Murata® 1DX** Wi-Fi®/Bluetooth® Module
+  - Wi-Fi® 802.11b/g/n 65 Mbps
+  - Bluetooth® 4.2 BR/EDR/LE
 - **MAX17262REWL+T** Fuel Gauge
   - Implements ModelGauge m5 EZ for battery monitoring
   - Low 5.2 μA Operating Current
@@ -84,7 +84,7 @@ The **Arduino Nicla Vision** is equipped for Automated Optical Inspection (AOI) 
 - **Wireless Sensor Network Reference Design**:
 The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor networks which can be adapted by partners to develop custom-designed industrial solutions. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
 
-### Accessories
+### Accessories (Not Included)
 
 Single-cell Li-ion/Li-Po battery
 
@@ -141,7 +141,7 @@ Single-cell Li-ion/Li-Po battery
 
 | **Ref.** | **Description**                                   | **Ref.** | **Description**                           |
 |----------|---------------------------------------------------|----------|-------------------------------------------|
-| U1       | STM32H747AII6 Dual ARM® Cortex® M7/M4 IC          | U4       | VL53L1CBV0FY/1 Time-of-flight sensor IC   |
+| U1       | STM32H747AII6 Dual Arm® Cortex® M7/M4 IC          | U4       | VL53L1CBV0FY/1 Time-of-flight sensor IC   |
 | U5       | USB3320C-EZK-TR  USB 2.0 Transceiver              | U6       | MP34DT06JTR Omnidirectional Mic           |
 | U14      | DSC6151HI2B 25 MHz MEMS Oscillator                | U15      | DSC6151HI2B 27 MHz MEMS Oscillator        |
 | U8       | IS31FL3194-CLS2-TR 3-channel LED IC               | U9       | BQ25120AYFPR Battery Charger IC           |
@@ -157,7 +157,7 @@ Single-cell Li-ion/Li-Po battery
 | **Ref.** | **Description**                             | **Ref.** | **Description**                                    |
 |----------|---------------------------------------------|----------|----------------------------------------------------|
 | U2,U7    | LM66100DCKR Ideal Diode                     | U3       | LSM6DSOXTR 6-axis IMU with ML Core                 |
-| U8       | SE050C2HQ1/Z01SDZ Crypto IC                 | U9       | LBEE5KL1DX-883 Wi-Fi/Bluetooth Module              |
+| U8       | SE050C2HQ1/Z01SDZ Crypto IC                 | U9       | LBEE5KL1DX-883 Wi-Fi®/Bluetooth® Module              |
 | U10      | MC34PF1550A0EP PMIC                         | U11      | TXB0108YZPR Bidirectional Voltage Shifter          |
 | U12      | NTS0304EUKZ Bidirectional Voltage Shifter   | U13      | AT25QL128A-UUE-T 16 MB FLASH Memory IC             |
 | U19      | MAX17262REWL+T Fuel Gauge IC                | J4       | BM03B-ACHSS-GAN-TF(LF)(SN) 3-pin battery connector |
@@ -171,9 +171,9 @@ The Nicla Vision's main processor is the dual-core STM32H747 (U1) including a Co
 
 It is possible to obtain 3D gyroscope and 3D accelerometer data from the LSM6DSOX 6-axis IMU (U3). In addition to providing such data, it is also possible to do machine learning on the IMU for gesture detection, offloading computation load from the main processor.
 
-### Wi-Fi/Bluetooth® Connectivity
+### Wi-Fi®/Bluetooth® Connectivity
 
-The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi and Bluetooth® connectivity in an ultra-small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or dual-mode simultaneous AP/STA. It supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J6) to be shared between Wi-Fi and Bluetooth®.
+The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra-small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or dual-mode simultaneous AP/STA. It supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J6) to be shared between Wi-Fi® and Bluetooth®.
 
 ### Crypto Capabilities
 
@@ -197,9 +197,9 @@ An NTC (negative thermal coefficient) sensor provides overtemperature shutoff to
 
 There are three main power lines provided:
 
-- **+3V1** provides power to the microprocessor (U1), 25 MHz oscillator (U14), 32.768 MHz oscillator (Y1), USB transceiver (U5) and Wi-Fi/Bluetooth module.
+- **+3V1** provides power to the microprocessor (U1), 25 MHz oscillator (U14), 32.768 MHz oscillator (Y1), USB transceiver (U5) and Wi-Fi®/Bluetooth® module.
 - **+2V8A** provides power to the camera (M1) and time-of-flight sensor (U4)
-- **+1V8** provides power to the microprocessor (U1), camera (M1), USB transceiver (U5), Wi-Fi/Bluetooth module (U9), accelerometer (U3), microphone (U6), crypto (U8), FLASH (U13), 27 MHz oscillator (U15) as well as the two level translators (U11, U12).
+- **+1V8** provides power to the microprocessor (U1), camera (M1), USB transceiver (U5), Wi-Fi®/Bluetooth® module (U9), accelerometer (U3), microphone (U6), crypto (U8), FLASH (U13), 27 MHz oscillator (U15) as well as the two level translators (U11, U12).
 
 - Additionally, a dedicated analog supply rail (VDDA) is provided for the microcontroller (U1). The camera module (M1) also has a dedicated power rail (+1V8CAM).
 
@@ -398,14 +398,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| Company name    | Arduino SRL                                  |
-|-----------------|----------------------------------------------|
+| Company name    | Arduino S.r.l.                               |
+| --------------- | -------------------------------------------- |
 | Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
 
-| Ref                                | Link                                                                                                |
-|------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Ref                                | Link                                                                                                  |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | Arduino® IDE (Desktop)             | <https://www.arduino.cc/en/Main/Software>                                                             |
 | Arduino® IDE (Cloud)               | <https://create.arduino.cc/editor>                                                                    |
 | Arduino® Cloud IDE Getting Started | <https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a> |
@@ -415,7 +415,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 
 | **Date**   | **Revision** | **Changes**                       |
-|------------|--------------|-----------------------------------|
-| 27-01-2023 | 03           | Add power consumption information |
-| 10-01-2023 | 02           | Updated information and fixes     |
-| 03-09-2021 | 01           | Initial Version                   |
+| ---------- | ------------ | --------------------------------- |
+| 05/12/2023 | 4            | Accessories section updated       |
+| 27/01/2023 | 3            | Add power consumption information |
+| 10/01/2023 | 2            | Updated information and fixes     |
+| 03/09/2021 | 1            | Initial Version                   |

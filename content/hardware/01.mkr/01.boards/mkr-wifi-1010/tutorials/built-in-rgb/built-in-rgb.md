@@ -43,7 +43,7 @@ There is a good chance that you have already seen or heard the term **RGB**. RGB
 
 The RGB component is used for many different purposes. They can be particularly useful to signify the state of something. For example: if we want to signify that everything is OK, we can simply change the color to green, if there's a minor error we can change the color to yellow, and if there is a major error we can change it to red.
 
-### Controlling the Built-in RGB on the MKR WiFi 1010
+### Controlling the Built-in RGB
 
 The built-in RGB is located right next to the **NINA-W102** Wi-Fi module on the MKR 1010 board.
 
@@ -59,10 +59,12 @@ Controlling the RGB on the MKR WiFi 1010 is slightly different from any previous
 After we have included it, it is pretty straightforward. The RGB component uses 25 (green), 26 (red) and 27 (blue), so we need to define those pins by using the following commands:
 
 ```arduino
-  WiFiDrv::pinMode(25, OUTPUT);
-  WiFiDrv::pinMode(26, OUTPUT);
-  WiFiDrv::pinMode(27, OUTPUT);
+  WiFiDrv::pinMode(25, OUTPUT); //define GREEN LED
+  WiFiDrv::pinMode(26, OUTPUT); //define RED LED
+  WiFiDrv::pinMode(27, OUTPUT); //define BLUE LED
 ```
+
+***Please note that in some older versions, the green and red LEDs are swapped (pin `25` and `26`).***
 
 And to control them inside the `loop()`, we simply use:
 

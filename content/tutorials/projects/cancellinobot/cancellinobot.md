@@ -272,7 +272,7 @@ Then we need to include in our code the SD library. Just add at the beginning of
 #include <SD.h> 
 ```
 
-In this project, every auhtorized user will be saved in the file in the format XXXXXX:AAAAAA where XXXXXXX is the unique ID, and AAAAAA is the nickname of the user (e.g. 
+In this project, every authorized user will be saved in the file in the format XXXXXX:AAAAAA where XXXXXXX is the unique ID, and AAAAAA is the nickname of the user (e.g. 
 
 ```arduino
 12345678:Max
@@ -618,7 +618,7 @@ Here a gallery of a user (Andrea): at the beginning he's not authorized so at th
 
 
 
-![The autorized user finally is able to open the gate!](assets/photo5258022371514756003_Dk5LcmIuZ9.jpg)
+![The authorized user finally is able to open the gate!](assets/photo5258022371514756003_Dk5LcmIuZ9.jpg)
 
 
 

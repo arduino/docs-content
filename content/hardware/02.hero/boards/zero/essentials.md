@@ -1,5 +1,5 @@
 <EssentialsColumn title="First Steps">
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/tutorials/getting-started/cores/arduino-samd/">
+  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v2/tutorials/ide-v2-board-manager/">
     All you need to know to get started with your new Arduino board.
   </EssentialElement>
 </EssentialsColumn>

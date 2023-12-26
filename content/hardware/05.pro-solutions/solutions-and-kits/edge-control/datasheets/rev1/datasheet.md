@@ -80,7 +80,7 @@ The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time ins
 
 **Mushroom Cultivation:** Mushrooms are notorious for requiring the perfect temperature and humidity conditions to sustain spore growth while also preventing competing fungi from growing. Thanks to the numerous watermark sensors, output ports and connectivity options available on the Arduino® Edge Control as well as the Arduino® IoT Cloud, this precision farming can be achieved on an unprecedented level.
 
-### Accessories
+### Accessories (Not Included)
 *   Irrometer Tensiometers
 *   Watermark soil moisture sensors
 *   Mechanized ball valves
@@ -116,11 +116,14 @@ The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time ins
 | V<sub>Batt</sub>  | Input voltage from battery input | -   | 12  | -   | V    |
 | V<sub>Solar</sub> | Input voltage from solar panel   | 16  | 18  | 20  | V    |
 
+<div style="break-after:page"></div>
+
 ## Functional Overview
 
 ### Board Topology
 
-  Top View
+Top view
+
 ![Board Topology](assets/edgeControlTopology_80.png)
 
 | **Ref.**     | **Description**                | **Ref.**       | **Description**                                  |
@@ -135,7 +138,10 @@ The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time ins
 | U16          | CD40109BNSRG4 I/O Expander     | U9             | NINA-B306 Module                                 |
 | U18,19,20,21 | TS13102 solid state relay IC   | U10            | ADR360AUJZ-R2 Voltage reference series 2.048V IC |
 
-Back View
+<div style="break-after:page"></div>
+
+Back view
+
 ![Board topolgy back](assets/edgeControlTopologyBack_80.png)
 
 | **Ref.** | **Description**           | **Ref.** | **Description**                  |
@@ -144,7 +150,7 @@ Back View
 | U7       | CD4081BNSR AND gate IC    | U14, 15  | MC14067BDWG IC MUX               |
 
 ### Processor
-The Main Processor is a Cortex M4F running at up to 64MHz.
+The main processor is a Cortex®-M4F running at up to 64 MHz.
 
 ### LCD Screen
 The Arduino® Edge Control provides a dedicated connector (J1) for interfacing with a HD44780 16x2 LCD display module, sold separately. The main processor controls the LCD via a TCA6424 port expander over I2C. Data is transferred over a 4-bit interface. LCD backlight intensity is also adjustable by the main processor.
@@ -369,7 +375,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 | 17  | BATTERY+     | Power    | Battery Positive Terminal                             |
 | 18  | RELAY4_N     | Switch   | Relay 4 negative                                      |
 
-
+<div style="break-after:page"></div>
 
 ## Mechanical Information
 ### Board Outline
@@ -380,10 +386,13 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 ![](assets/edgeControlMountingHoles_80.png)
 
+<div style="break-after:page"></div>
+
 ### Connector Positions
 
 ![](assets/edgeControlConnectors_80.png)
 
+<div style="break-after:page"></div>
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
@@ -480,8 +489,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Revision** | **Changes**             |
-| ---------- | ------------ | ----------------------- |
-| 30/12/2021 | 3            | Information updates     |
-| 04/05/2021 | 2            | Design/structure update |
-| 21/02/2020 | 1            | First Release           |
+| **Date**   | **Revision** | **Changes**                 |
+| ---------- | ------------ | --------------------------- |
+| 05/12/2023 | 4            | Accessories section updated |
+| 30/12/2021 | 3            | Information updates         |
+| 04/05/2021 | 2            | Design/structure update     |
+| 21/02/2020 | 1            | First Release               |
