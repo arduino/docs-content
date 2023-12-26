@@ -1,9 +1,9 @@
 ---
 title: Nicla Sense ME
 url_shop: https://store.arduino.cc/products/nicla-sense-me
-url_guide: /tutorials/nicla-sense-me/cheat-sheet
-primary_button_url: /tutorials/nicla-sense-me/getting-started
-primary_button_title: Get Started
+url_guide: /tutorials/nicla-sense-me/user-manual
+primary_button_url: /tutorials/nicla-sense-me/user-manual
+primary_button_title: User Manual
 secondary_button_url: /tutorials/nicla-sense-me/cheat-sheet
 secondary_button_title: Cheat Sheet
 core: arduino:mbed_nicla
