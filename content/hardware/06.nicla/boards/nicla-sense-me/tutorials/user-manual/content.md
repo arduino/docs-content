@@ -189,7 +189,7 @@ auto operatingStatus = nicla::getOperatingStatus();
     }
 ```
 
-To extend your knowledge on this topic, refer to the board examples by navigating to "**File > Examples > Nicla_Sense_System**", and chose between both examples:
+To extend your knowledge on this topic, refer to the board examples by navigating to "**File > Examples > Nicla_Sense_System**", and choose between both examples:
 
 - `NiclaSenseME_BatteryStatus`
 - `NiclaSenseME_BatteryChargingSimple`
