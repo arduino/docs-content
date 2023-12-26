@@ -101,7 +101,7 @@ The Nicla Sense ME can be powered by:
 
 ### Hello World Example
 
-Let's program the Nicla Sense ME with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the Arduino IDE and that the Nicla Sense ME core and the board itself are working as expected. 
+Let's program the Nicla Sense ME with the classic `hello world` example typical of the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the board is correctly connected to the Arduino IDE and that the Nicla Sense ME core and the board itself are working as expected. 
 
 Copy and paste the code below into a new sketch in the Arduino IDE.
 
