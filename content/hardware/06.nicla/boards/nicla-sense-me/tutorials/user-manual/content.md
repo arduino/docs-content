@@ -95,7 +95,7 @@ The Nicla Sense ME can be powered by:
 - A Micro USB cable (not included). 
 - An external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#pinout) of the user manual).
 - A **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Sense ME is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
-- Using the onboard **ESLOV connector**, which has a dedicated 5V power line.
+- The onboard **ESLOV connector**, which has a dedicated 5V power line.
 
 ![Nicla Sense ME battery powered](assets/battery-white.png)
 
