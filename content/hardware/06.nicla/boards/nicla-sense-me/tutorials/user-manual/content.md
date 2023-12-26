@@ -682,7 +682,7 @@ void loop() {
 
 ### On-Board Sensors WebBLE Dashboard
 
-A very interesting way to test the Nicla Sense ME onboard sensors all at once, is by the WebBLE dashboard demo.
+A very interesting way to test the Nicla Sense ME onboard sensors all at once is through the WebBLE dashboard demo.
 
 - Enable your PC Bluetooth connection and go to the [dashboard link](https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/), add this [firmware](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) to your sketchbook in the Arduino Cloud or download it to use it locally.
 
@@ -692,7 +692,7 @@ A very interesting way to test the Nicla Sense ME onboard sensors all at once, i
 
 ![WebBLE dashboard](assets/WebBLE.gif)
 
-Follow this [dedicated guide](https://docs.arduino.cc/tutorials/nicla-sense-me/web-ble-dashboard) for more details.
+Follow this [dedicated guide](https://docs.arduino.cc/tutorials/nicla-sense-me/web-ble-dashboard) to get more details.
 
 ## Actuators
 
@@ -791,7 +791,7 @@ void loop() {
 
 ## Communication
 
-This section of the user manual covers the different communication protocols that are supported by the Nicla Sense ME board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C), Universal Asynchronous Receiver-Transmitter (UART), and Bluetooth® Low Energy; communication via the onboard ESLOV connector is also explained in this section. The Nicla Sense ME features dedicated pins for each communication protocol, making connecting and communicating with different components, peripherals, and sensors easy.
+This section of the user manual covers the different communication protocols that are supported by the Nicla Sense ME board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C), Universal Asynchronous Receiver-Transmitter (UART), and Bluetooth® Low Energy; communication via the onboard ESLOV connector is also explained in this section. The Nicla Sense ME features dedicated pins for each communication protocol, simplifying the connection and communication with different components, peripherals, and sensors.
 
 ### SPI
 
@@ -804,7 +804,7 @@ The Nicla Sense ME supports SPI communication, which allows data transmission be
 |      CIPO/P0_28     |       MISO or 9     |
 |      SCLK/P0_11     |       SCK or 8      |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
 Include the `SPI` library at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
 
@@ -862,7 +862,7 @@ The Nicla Sense ME supports I2C communication, which allows data transmission be
 |         P0_23         |       SCL or 3      |
 |         P0_22         |       SDA or 4      |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Sense ME.
+Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board. The I2C pins are also available through the Nicla Sense ME ESLOV connector.
 
 To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
 
@@ -934,16 +934,16 @@ The pins used in the Nicla Sense ME for the UART communication protocol are the 
 |         P0_09         |       RX or 1       |
 |         P0_20         |       TX or 2       |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
-To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
+To begin with UART communication, you will need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
 
 ```arduino
 // Start UART communication at 115200 baud
 Serial1.begin(115200); 
 ```
 
-To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown above stores the incoming characters in a String variable and process the data when a line-ending character is received:
+To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown below stores the incoming characters in a String variable and processes the data when a line-ending character is received:
 
 ```arduino
 // Variable for storing incoming data
@@ -1108,7 +1108,7 @@ void updateBatteryLevel() {
 
 The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [BLE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting a battery percentage value read by Nicla Sense ME power management IC. 
 
-- The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristic for a battery level application.
+- The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristics for a battery-level application.
 
 
   |         **Description**        |       **ID**       |
@@ -1116,7 +1116,7 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
   |  Battery Service             |       180F       |
   | Battery Level Characteristic |       2A19       |
 
-- In the `setup()` function, the code initializes the Nicla Sense ME board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
+- In the `setup()` function, the code initializes the Nicla Sense ME board and sets up the Bluetooth® Low Energy service and characteristics; then, it begins advertising the defined Bluetooth® Low Energy service.
 
 - A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Sense ME, its built-in LED is turned on blue. The code then enters into a loop that constantly reads the battery percent. It also prints it to the Serial Monitor and transmits it to the central device over the defined Bluetooth® Low Energy characteristic.
 
@@ -1126,12 +1126,13 @@ Using the nRF Connect app (available for [Android](https://play.google.com/store
 
 ### ESLOV Connector 
 
-The Nicla Sense ME board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Nicla Sense ME without soldering or wiring.
+The Nicla Sense ME board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies the interaction between the Nicla Sense ME and various sensors, actuators, and other modules, without soldering or wiring.
 
 ![Nicla Sense ME built-in ESLOV connector](assets/eslov.png)
 
- The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
+The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
 
+The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
 The pin layout of the ESLOV connector is the following:
 
 1. VCC_IN (5V input)
@@ -1140,22 +1141,18 @@ The pin layout of the ESLOV connector is the following:
 4. SDA
 5. GND
 
-The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
 
 
 ## Arduino IoT Cloud
 
-The Nicla Sense ME doesn't have built-in Wi-Fi®, so it can not be directly connected to the internet. For this, we need to use a Wi-Fi® capable Arduino board as a host for the Nicla.
-
+The Nicla Sense ME does not have built-in Wi-Fi®, so it can not be directly connected to the internet. For this, we need to use a Wi-Fi® capable Arduino board as a host for the Nicla.
 In this example, a Portenta C33 will be used as a gateway to forward Nicla Sense ME sensors data to the Arduino IoT Cloud.
 
 ### Nicla Sense ME Setup
 
-The **Nicla Sense ME** will be listening to the Host board to send back the required data, this is all automated via the libraries **Arduino_BHY2** and **Arduino_BHY2Host**
+The **Nicla Sense ME** will be listening to the Host board to send back the required data. This is all automated via the libraries **Arduino_BHY2** and **Arduino_BHY2Host**.
 
-The code is available inside the examples provided with the Arduino_BHY2 Library. Open it by going to **Examples > Arduino_BHY2 > App.ino**
-
-This is the code, which initializes the sensors, and maintains the communication:
+The code is available inside the examples provided with the Arduino_BHY2 Library. Open it by going to **Examples > Arduino_BHY2 > App.ino**.
 
 ```arduino
 #include "Arduino.h"
