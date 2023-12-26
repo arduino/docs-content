@@ -1,6 +1,6 @@
 <EssentialsColumn title="Guides">
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla">
-    All you need to know to get started with your new Arduino board.
+  <EssentialElement title="Quickstart Guide" type="getting-started" link="/tutorials/nicla-vision/getting-started">
+    All you need to know to get started with your Nicla Vision.
   </EssentialElement>
   <EssentialElement title="Nicla Vision User Manual" type="getting-started" link="/tutorials/nicla-vision/user-manual">
     A full guide to the basics of the Nicla Vision.
