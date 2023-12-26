@@ -46,17 +46,17 @@ The Nicla Sense ME features a robust and efficient architecture that integrates 
 ![Nicla Sense ME main components (top view)](assets/architecture-top.png)
 ![Nicla Sense ME main components (bottom view)](assets/architecture-bottom.png)
 
-Here is an overview of the board's architecture's main components shown in the images above:
+Here is an overview of main components of the board, as shown in the images above:
 
 - **Microcontroller**: at the heart of the Nicla Sense ME is the nRF52832, a powerful and versatile System-on-Chip (SoC) from Nordic® Semiconductor. The nRF52832 is built around a 32-bit Arm® Cortex®-M4 processor running at 64 MHz.
-- **Onboard advanced motion sensors**: the board features the BHI260AP, a smart IMU that includes a 3-axis accelerometer and a 3-axis gyroscope. It is trained with Machine Learning algorithms for step counting, position tracking, and activity recognition. The board also features the BMM150, a compact geomagnetic sensor from Bosch® Sensortec with a 3-axis magnetometer.
-- **Onboard environment sensors**: the Nicla Sense ME is equipped with the BME688, this is the first gas sensor with Artificial Intelligence (AI) and integrated high-linearity and high-accuracy pressure, humidity and temperature sensors. The gas sensor can detect Volatile Organic Compounds (VOCs), volatile sulfur compounds (VSCs) and other gases such as carbon monoxide and hydrogen in the part per billion (ppb) range.
+- **Onboard advanced motion sensors**: the board features the BHI260AP, a smart IMU that includes a 3-axis accelerometer and a 3-axis gyroscope. It is trained with Machine Learning algorithms able to perform step counting, position tracking, and activity recognition. The board also features the BMM150, a compact geomagnetic sensor from Bosch® Sensortec including a 3-axis magnetometer.
+- **Onboard environment sensors**: the Nicla Sense ME is equipped with the BME688, this is the first gas sensor with Artificial Intelligence (AI) and integrated high-linearity and high-accuracy pressure, humidity and temperature sensors. The gas sensor can detect Volatile Organic Compounds (VOCs), volatile sulfur compounds (VSCs) and other gases, such as carbon monoxide and hydrogen, in the part per billion (ppb) range.
 - **Wireless connectivity**: the board supports Bluetooth® Low Energy connectivity, provided by the ANNA-B112 module developed by u-blox®. This compact, high-performance Bluetooth® Low Energy module allows the Nicla Sense ME to communicate wirelessly with other devices and systems.
-- **Power management**: the Nicla Sense ME is designed for ultra-low power operation, with efficient power management features that ensure minimal energy consumption even when using always-on motion recognition and environment analysis sensors. The Nicla Sense ME features the BQ25120 from Texas Instruments®; a highly integrated battery charge management integrated circuit (IC) designed for wearables and Internet of Things (IoT) devices. 
+- **Power management**: the Nicla Sense ME is designed for ultra-low power operations, with efficient power management features that ensure minimal energy consumption even when using always-on motion recognition and environment analysis sensors. The Nicla Sense ME features the BQ25120 from Texas Instruments®, a highly integrated battery charge management integrated circuit (IC) designed for wearables and Internet of Things (IoT) devices. 
 
 ### Board Core and Libraries
 
-The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples you need to work with the board's components, such as its IMU, magnetometer, and environment sensor. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nicla Sense ME` and install the latest `Arduino Mbed OS Nicla Boards` version.
+The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples you need to work with the board's components, such as its IMU, magnetometer, and environment sensor. To install the Nicla boards core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nicla Sense ME` and install the latest `Arduino Mbed OS Nicla Boards` version.
 
 ![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader](assets/bsp-install.png)
 
@@ -92,16 +92,16 @@ The complete STEP files are available and downloadable from the link below:
 
 The Nicla Sense ME can be powered by:
 
-- Using a Micro USB cable (not included). 
-- Using an external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#pinout) of the user manual).
-- Using a **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Sense ME is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
-- Using the onboard **ESLOV connector**, which has a dedicated 5V power line.
+- A Micro USB cable (not included). 
+- An external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#pinout) of the user manual).
+- A **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Sense ME is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
+- The onboard **ESLOV connector**, which has a dedicated 5V power line.
 
 ![Nicla Sense ME battery powered](assets/battery-white.png)
 
 ### Hello World Example
 
-Let's program the Nicla Sense ME with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the Arduino IDE and that the Nicla Sense ME core and the board itself are working as expected. 
+Let's program the Nicla Sense ME with the classic `hello world` example typical of the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the board is correctly connected to the Arduino IDE and that the Nicla Sense ME core and the board itself are working as expected. 
 
 Copy and paste the code below into a new sketch in the Arduino IDE.
 
@@ -129,7 +129,7 @@ To upload the code to the Nicla Sense ME, click the **Verify** button to compile
 
 ![Uploading a sketch to the Nicla Sense ME in the Arduino IDE](assets/BOARD.png)
 
-You should see now all the LEDs of the built-in RGB LED turn on for one second, then off for one second, repeatedly.
+You should now see all the LEDs of the built-in RGB LED turn on for one second, then off for one second, repeatedly.
 
 ![Hello World example running in the Nicla Sense ME](assets/White-blink.gif)
 
@@ -189,7 +189,7 @@ auto operatingStatus = nicla::getOperatingStatus();
     }
 ```
 
-To extend your knowledge on this topic, refer to the board examples by navigating to "**File > Examples > Nicla_Sense_System**", and chose between both examples:
+To extend your knowledge on this topic, refer to the board examples by navigating to "**File > Examples > Nicla_Sense_System**", and choose between both examples:
 
 - `NiclaSenseME_BatteryStatus`
 - `NiclaSenseME_BatteryChargingSimple`
@@ -212,9 +212,9 @@ Nicla boards ADC can be configured to 8, 10 or 12 bits defining the argument of 
 analogReadResolution(12);  // ADC resolution set to 12 bits (0-4095)
 ```
 
-***The Nicla boards ADC reference voltage is fixed to 1.8v, this means that it will map the ADC range from 0 to 1.8 volts.***
+***The Nicla boards ADC reference voltage is fixed to 1.8V, this means that it will map the ADC range from 0 to 1.8 volts.***
 
-The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor:
+The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor. To understand how to properly connect a potentiometer to the Nicla Sense ME pins, take the following image as a reference:
 
 ![ADC input example wiring](assets/ADC-input.svg)
 
@@ -227,7 +227,7 @@ int sensorValue = 0;  // variable to store the value coming from the sensor
 void setup() {
 
   analogReadResolution(12); // ADC bits configuration
-  nicla::begin();           // Nicla peripherals initialization, this enables the VDDIO_EXT 3.3v output.
+  nicla::begin();           // Nicla peripherals initialization, this enables the VDDIO_EXT 3.3V output.
   Serial.begin(115200);     // Serial initialization
 }
 
@@ -240,7 +240,7 @@ void loop() {
 }
 ```
 
-***The ADC inputs support 3.3v even when the ADC reference is 1.8v, it just won't sense any change from 1.8v and above.***
+***The ADC inputs support 3.3V even when the ADC reference is 1.8V. In this perspective, the ADC will not sense any change from 1.8V and above.***
 
 ### Digital Pins
 
@@ -261,7 +261,7 @@ The Nicla Sense ME has **twelve digital pins**, mapped as follows:
 |         P0_02         |           A0          |
 |         P0_30         |           A1          |
 
-Notice that analog pins `A0` and `A1` (`P0_02` and `P0_30`) can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+Notice that analog pins `A0` and `A1` (`P0_02` and `P0_30`) can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to check their location.
 
 The digital pins of the Nicla Sense ME can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
 
@@ -283,7 +283,7 @@ pinMode(pin, INPUT_PULLUP);
 The state of a digital pin, configured as an input, can be read using the built-in function `digitalRead()` as shown below:
 
 ```arduino
-// Reads pin state, stores value in state variable
+// Read pin state, store value in a state variable
 state = digitalRead(pin);
 ```
 
