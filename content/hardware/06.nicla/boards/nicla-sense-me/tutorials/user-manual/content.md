@@ -515,15 +515,6 @@ void loop() {
 
 }
 ```
-The code from above prints the inferred activity between:
-
-- Standing still
-- Walking
-- Running
-- On bicycle
-- In vehicle
-- Tilting
-- In vehicle still
 
 ### Magnetometer
 
