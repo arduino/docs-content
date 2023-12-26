@@ -332,7 +332,7 @@ The digital pins of the Nicla Vision can be used as inputs or outputs through th
 
 As an application example after learning the __Digital Pins__ basics, we are going to control an LED using a push button. See the wiring below:
 
-![Digital I/O example wiring](assets/digital-io.svg)
+![Digital I/O example wiring](assets/digital-io-mosfet.svg)
 
 #### With OpenMV
 
