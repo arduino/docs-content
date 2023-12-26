@@ -279,7 +279,7 @@ pinMode(pin, INPUT_PULLUP);
 The state of a digital pin, configured as an input, can be read using the built-in function `digitalRead()` as shown below:
 
 ```arduino
-// Reads pin state, stores value in state variable
+// Read pin state, store value in a state variable
 state = digitalRead(pin);
 ```
 
