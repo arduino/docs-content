@@ -471,7 +471,16 @@ void loop() {
 
 ![Accelerometer and gyroscope output in the serial plotter](assets/IMU-output.png)
 
-To take advantage of the IMU pre-trained ML capabilities, we can do it by using the *Activity Recognition* class, the following example code let your Nicla Sense ME classify movements from different daily activities.
+To take advantage of the IMU pre-trained ML capabilities, we can use the *Activity Recognition* class. The following example code enables your Nicla Sense ME to classify movements from different daily activities:
+
+- Standing still
+- Walking
+- Running
+- On bicycle
+- In vehicle
+- Tilting
+- In vehicle still
+
 
 ```arduino
 #include "Nicla_System.h"
