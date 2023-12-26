@@ -240,7 +240,7 @@ void loop() {
 }
 ```
 
-***The ADC inputs support 3.3v even when the ADC reference is 1.8v, it just won't sense any change from 1.8v and above.***
+***The ADC inputs support 3.3V even when the ADC reference is 1.8V. In this perspective, the ADC will not sense any change from 1.8V and above.***
 
 ### Digital Pins
 
