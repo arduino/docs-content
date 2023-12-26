@@ -639,7 +639,7 @@ The Nicla Sense ME can accurately measure pressure thanks to its digital pressur
 
 ![Nicla Sense ME onboard barometric pressure sensor](assets/pressure.png)
 
-To use this sensor in standalone mode, you can do it with the below example code:
+To use this sensor in standalone mode, you can leverage the example code below:
 
 ```arduino
 
