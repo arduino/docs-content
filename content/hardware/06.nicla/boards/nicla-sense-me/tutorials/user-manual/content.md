@@ -625,7 +625,7 @@ void loop() {
 
 ```
 
-***When using the BSEC sensor class be aware that the system will need several minutes to start providing IAQ and CO<sub>2</sub> measurements due to some internal calibrations.***
+***When using the BSEC sensor class, be aware that the system will need several minutes to start providing IAQ and CO<sub>2</sub> measurements due to some mandatory internal calibrations.***
 
 ### Pressure Sensor
 
