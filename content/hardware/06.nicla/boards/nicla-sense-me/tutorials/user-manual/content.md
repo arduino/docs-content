@@ -129,7 +129,7 @@ To upload the code to the Nicla Sense ME, click the **Verify** button to compile
 
 ![Uploading a sketch to the Nicla Sense ME in the Arduino IDE](assets/BOARD.png)
 
-You should see now all the LEDs of the built-in RGB LED turn on for one second, then off for one second, repeatedly.
+You should now see all the LEDs of the built-in RGB LED turn on for one second, then off for one second, repeatedly.
 
 ![Hello World example running in the Nicla Sense ME](assets/White-blink.gif)
 
