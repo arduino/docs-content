@@ -629,7 +629,7 @@ void loop() {
 
 ### Pressure Sensor
 
-The Nicla Sense ME counts with a high-accuracy digital pressure sensor (BMP390). Its operating range is from 300 to 1250 hPa which makes it perfect for a variety of applications such as:
+The Nicla Sense ME can accurately measure pressure thanks to its digital pressure sensor (BMP390). Its operating range is from 300 to 1250 hPa, which makes it perfect for a variety of applications, including:
 
 - Weather forecast
 - Outdoor navigation
