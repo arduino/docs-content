@@ -527,7 +527,7 @@ The code from above prints the inferred activity between:
 
 ### Magnetometer
 
-The Nicla Sense ME is equipped with an onboard magnetometer, which allows the board to sense orientation and magnetic fields. The BMM150 allows measurements of the magnetic field in three perpendicular axes. Based on Bosch’s proprietary FlipCore technology, performance and features of BMM150 are carefully tuned and perfectly match the demanding requirements of all 3-axis mobile applications such as electronic compass, navigation or augmented reality.
+The Nicla Sense ME is equipped with an onboard magnetometer, which allows the board to sense orientation and magnetic fields. The BMM150 enables measurements of the magnetic field in three perpendicular axes. Based on Bosch’s proprietary FlipCore technology, the performance and features of BMM150 are carefully tuned to perfectly match the demanding requirements of 3-axis mobile applications such as electronic compass, navigation, or augmented reality.
 
 ![Nicla Sense ME onboard magnetometer](assets/magnetometer.png)
 
