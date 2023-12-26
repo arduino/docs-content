@@ -263,7 +263,11 @@ The Nicla Sense ME has **twelve digital pins**, mapped as follows:
 
 Notice that analog pins `A0` and `A1` (`P0_02` and `P0_30`) can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
-The digital pins of the Nicla Sense ME can be used as inputs or outputs through the built-in functions of the Arduino programming language. The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
+The digital pins of the Nicla Sense ME can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
+
+***The Nicla Sense ME digital I/O's are low power, so to drive output devices like LEDs, resistive loads, buzzers, etc, it is recommended to use a MOSFET driver or a buffer to guarantee the required current flow. Learn more about the Nicla I/O's considerations [here](https://docs.arduino.cc/learn/hardware/nicla-form-factor).***
+
+The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
 
 ```arduino
 // Pin configured as an input
@@ -295,7 +299,7 @@ digitalWrite(pin, LOW);
 
 The example code shown below uses digital pin `3` to control an LED and reads the state of a button connected to digital pin `2`:
 
-![Digital I/O example wiring](assets/Digital-IO.svg)
+![Digital I/O example wiring](assets/digital-io-mosfet.svg)
 
 ```arduino
 // Define button and LED pin
