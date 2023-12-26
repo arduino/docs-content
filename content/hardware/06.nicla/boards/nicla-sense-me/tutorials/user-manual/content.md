@@ -261,7 +261,7 @@ The Nicla Sense ME has **twelve digital pins**, mapped as follows:
 |         P0_02         |           A0          |
 |         P0_30         |           A1          |
 
-Notice that analog pins `A0` and `A1` (`P0_02` and `P0_30`) can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+Notice that analog pins `A0` and `A1` (`P0_02` and `P0_30`) can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to check their location.
 
 The digital pins of the Nicla Sense ME can be used as inputs or outputs through the built-in functions of the Arduino programming language. The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
 
