@@ -227,7 +227,7 @@ int sensorValue = 0;  // variable to store the value coming from the sensor
 void setup() {
 
   analogReadResolution(12); // ADC bits configuration
-  nicla::begin();           // Nicla peripherals initialization, this enables the VDDIO_EXT 3.3v output.
+  nicla::begin();           // Nicla peripherals initialization, this enables the VDDIO_EXT 3.3V output.
   Serial.begin(115200);     // Serial initialization
 }
 
