@@ -56,7 +56,7 @@ Here is an overview of main components of the board, as shown in the images abov
 
 ### Board Core and Libraries
 
-The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples you need to work with the board's components, such as its IMU, magnetometer, and environment sensor. To install the core for Nicla boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nicla Sense ME` and install the latest `Arduino Mbed OS Nicla Boards` version.
+The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples you need to work with the board's components, such as its IMU, magnetometer, and environment sensor. To install the Nicla boards core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nicla Sense ME` and install the latest `Arduino Mbed OS Nicla Boards` version.
 
 ![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader](assets/bsp-install.png)
 
