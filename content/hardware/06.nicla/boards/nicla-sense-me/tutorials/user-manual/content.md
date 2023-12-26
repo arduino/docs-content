@@ -46,7 +46,7 @@ The Nicla Sense ME features a robust and efficient architecture that integrates 
 ![Nicla Sense ME main components (top view)](assets/architecture-top.png)
 ![Nicla Sense ME main components (bottom view)](assets/architecture-bottom.png)
 
-Here is an overview of the board's architecture's main components shown in the images above:
+Here is an overview of main components of the board, as shown in the images above:
 
 - **Microcontroller**: at the heart of the Nicla Sense ME is the nRF52832, a powerful and versatile System-on-Chip (SoC) from Nordic® Semiconductor. The nRF52832 is built around a 32-bit Arm® Cortex®-M4 processor running at 64 MHz.
 - **Onboard advanced motion sensors**: the board features the BHI260AP, a smart IMU that includes a 3-axis accelerometer and a 3-axis gyroscope. It is trained with Machine Learning algorithms for step counting, position tracking, and activity recognition. The board also features the BMM150, a compact geomagnetic sensor from Bosch® Sensortec with a 3-axis magnetometer.
