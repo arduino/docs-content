@@ -1263,8 +1263,6 @@ Finally, after searching for and connecting to your Wi-Fi® network, it will gat
 
 ### Bluetooth® Low Energy Connection
 
-***This option just works with the Portenta H7 series.***
-
 For Bluetooth® communication, substitute the line of code `BHY2Host.begin(false, NICLA_VIA_ESLOV);` with `BHY2Host.begin(false, NICLA_VIA_BLE);` in the host sketch so that the boards will bind wirelessly.
 
 ![Bluetooth® Low Energy connection](assets/ble-connection.png)
