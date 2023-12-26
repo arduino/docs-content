@@ -1133,6 +1133,7 @@ The Nicla Sense ME board features an onboard ESLOV connector meant as an **exten
 The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
 
 The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
+
 The pin layout of the ESLOV connector is the following:
 
 1. VCC_IN (5V input)
@@ -1141,11 +1142,10 @@ The pin layout of the ESLOV connector is the following:
 4. SDA
 5. GND
 
-
-
 ## Arduino IoT Cloud
 
 The Nicla Sense ME does not have built-in Wi-Fi®, so it can not be directly connected to the internet. For this, we need to use a Wi-Fi® capable Arduino board as a host for the Nicla.
+
 In this example, a Portenta C33 will be used as a gateway to forward Nicla Sense ME sensors data to the Arduino IoT Cloud.
 
 ### Nicla Sense ME Setup
@@ -1178,13 +1178,13 @@ void loop()
 }
 ```
 
-Upload the sketch from above to the Nicla Sense ME using the Arduino IDE.
+Upload the sketch above to the Nicla Sense ME using the Arduino IDE.
 
 ### Arduino IoT Cloud Setup
 
-To start using the Arduino IoT cloud, we first need to [log in or sign up](https://create.arduino.cc/iot/things) to Arduino.
+To start using the Arduino IoT cloud, we first need to [log in or sign up](https://create.arduino.cc/iot/things).
 
-Once in, it's time to configure your Portenta C33. For this, follow this [section](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#arduino-iot-cloud) on the Portenta C33 user manual.
+Once in, it is time to configure your Portenta C33. For this, follow this [section](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#arduino-iot-cloud) on the Portenta C33 user manual.
 
 With a Thing already created, add a variable, in this case, "temperature" float type.
 
@@ -1194,7 +1194,7 @@ Once the variable is added, let's define the Wi-Fi® credentials for the board, 
 
 ![Wi-Fi® credentials](assets/wifi.png)
 
-It's time to open the automatically generated sketch and modify the code. It should be replaced by the following:
+It is time to open the automatically generated sketch and modify the code. It should be replaced by the following:
 
 ```arduino
 #include "thingProperties.h"
@@ -1247,7 +1247,7 @@ void loop() {
 
 ### Portenta C33 Setup
 
-With the Portenta C33 code ready on the Arduino Cloud, before uploading it to the board let's connect everything together. 
+Before uploading the code to the Portenta C33 code ready on the Arduino Cloud, let's connect everything together. 
 
 Using the ESLOV cable included with the Nicla Sense ME, connect both boards by their respective connectors as shown below:
 
@@ -1265,7 +1265,7 @@ Finally, after searching for and connecting to your Wi-Fi® network, it will gat
 
 ***This option just works with the Portenta H7 series.***
 
-For Bluetooth® communication, substitute the line of code `BHY2Host.begin(false, NICLA_VIA_ESLOV);` with `BHY2Host.begin(false, NICLA_VIA_BLE);` in the host sketch, the boards will bind wirelessly.
+For Bluetooth® communication, substitute the line of code `BHY2Host.begin(false, NICLA_VIA_ESLOV);` with `BHY2Host.begin(false, NICLA_VIA_BLE);` in the host sketch so that the boards will bind wirelessly.
 
 ![Bluetooth® Low Energy connection](assets/ble-connection.png)
 
@@ -1277,13 +1277,13 @@ To convert the Nicla Sense ME into a Shield, you will have to **solder** 2 rows 
 
 The host (Portenta C33/H7) will communicate through the BHY2Host library with the Nicla Sense ME (both devices communicate over I2C).
 
-We learned how to communicate the Nicla Sense ME with the IoT Cloud using BLE and a wired ESLOV connection. For this example, set the communication method to `NICLA_AS_SHIELD` in the host sketch as follows:
+To the Nicla Sense ME to communicate with the Arduino Cloud, set the communication method as `NICLA_AS_SHIELD` in the host sketch as follows:
 
 `BHY2Host.begin(false, NICLA_AS_SHIELD);`
 
 ![Nicla Sense ME as a shield](assets/AS_SHIELD.png)
 
-***This setup works with the ESLOV cable as well. Keep in mind female headers or raw cables can be used as well, but make sure the connections of the pinout match with the MKR pinout (3V3, GND, SCL and SDA).***
+***This setup works with the ESLOV cable as too. Keep in mind female headers or raw cables can be used as well, but make sure the connection of the pin matches the MKR pinout (3V3, GND, SCL and SDA).***
 
 ***For a more detailed process on how to connect the Nicla Sense ME to the Arduino Cloud, follow this [guide](https://docs.arduino.cc/tutorials/nicla-sense-me/connecting-to-iot-cloud)***
 
