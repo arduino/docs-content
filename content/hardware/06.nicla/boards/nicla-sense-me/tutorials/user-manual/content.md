@@ -580,7 +580,7 @@ The Arduino Nicla Sense ME can perform environmental monitoring via the Bosch BM
 
 ![Nicla Sense ME onboard environmental sensor](assets/environmental.png)
 
-The BME688 apart from letting you measure pressure, humidity, temperature and gas sensor resistance, alongside a proprietary solution from Bosch called BSEC, the system is capable of providing numerous useful outputs such as:
+The BME688 lets you measure pressure, humidity, temperature, and gas sensor resistance, thanks to a proprietary solution from Bosch called BSEC. In addition, the system is capable of providing numerous useful outputs such as:
 
 - Index for Air Quality (IAQ)
 - CO<sub>2</sub> equivalents
