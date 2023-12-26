@@ -37,7 +37,7 @@ This user manual will guide you through a practical journey covering the most in
 
 ## Product Overview
 
-Introducing the Arduino® Nicla Sense ME, our most compact design to date, housing an array of high-quality industrial grade sensors in a remarkably small package. This versatile device allows you to monitor essential process parameters like temperature, humidity, and movement accurately. Equipped with a 9-axis inertial measurement unit and the option for Bluetooth® Low Energy connectivity, it becomes an ideal choice for crafting your next Bluetooth® Low Energy enabled project. Harness the power of the onboard Bosch sensors, including BHI260AP, BMP390, BMM150, and BME688, to create your very own industrial grade wireless sensing network.
+The Arduino® Nicla Sense ME is one of the most compact designs of the Arduino portfolio, housing an array of high-quality industrial-grade sensors in a remarkably small package. This versatile device allows you to accurately monitor essential process parameters like temperature, humidity, and motion, and share data through Bluetooth® Low Energy connectivity, enabling endless low-power smart sensing applications.
 
 ### Board Architecture Overview
 
