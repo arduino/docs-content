@@ -212,7 +212,7 @@ Nicla boards ADC can be configured to 8, 10 or 12 bits defining the argument of 
 analogReadResolution(12);  // ADC resolution set to 12 bits (0-4095)
 ```
 
-***The Nicla boards ADC reference voltage is fixed to 1.8v, this means that it will map the ADC range from 0 to 1.8 volts.***
+***The Nicla boards ADC reference voltage is fixed to 1.8V, this means that it will map the ADC range from 0 to 1.8 volts.***
 
 The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor:
 
