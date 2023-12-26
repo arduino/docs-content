@@ -410,7 +410,7 @@ To read from any of these sensors you need to install the Arduino_BHY2 and Ardui
 
 ### IMU
 
-The Nicla Sense ME features an advanced IMU, which allows the board to sense motion. The IMU on the board is the BHI260AP from Bosch®. It consists of a 3-axis accelerometer and a 3-axis gyroscope. They can provide information about the board's motion, orientation, and rotation in a 3D space. The BHI260AP apart from being able to do raw measurements of movements; is equipped with pre-trained machine-learning models that recognize activities right out of the box.
+The Nicla Sense ME features an advanced IMU, which allows the board to sense motion. The IMU on the board is the BHI260AP from Bosch®. It consists of a 3-axis accelerometer and a 3-axis gyroscope. They can provide information about the board's motion, orientation, and rotation in a 3D space. The BHI260AP, apart from being able to do raw movement measurements, is equipped with pre-trained machine-learning models that recognize activities right out of the box.
 
 ![Nicla Sense ME onboard IMU](assets/imu.png)
 
