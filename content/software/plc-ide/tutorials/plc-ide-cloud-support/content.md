@@ -277,7 +277,7 @@ In the context of the PLC IDE, the libraries will need to be added manually unde
 | Arduino_ConnectionHandler | 0.7.6       |
 | ArduinoECCX08             | 1.3.7       |
 | ArduinoMqttClient         | 0.1.7       |
-| Arduini_DebugUtils        | 1.4.0       |
+| Arduino_DebugUtils        | 1.4.0       |
 | Arduino_Portenta_OTA      | 1.1.3       |
 
 Once the libraries are in place within `Sketch Libraries`, we should have a similar table as the following image:
