@@ -28,7 +28,7 @@ This user manual will guide you through a practical journey covering the most in
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
-- [Nicla Vision](https://store.arduino.cc/products/nicla-vision) (x1)
+- [Arduino Nicla Vision](https://store.arduino.cc/products/nicla-vision) (x1)
 - [Micro USB cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 
 ### Software Requirements
@@ -39,13 +39,13 @@ This user manual will guide you through a practical journey covering the most in
 
 ## Product Overview
 
-The Arduino® Nicla Vision is a ready-to-use, standalone camera board for analyzing and processing images on the edge. Thanks to its 2 MP color camera, smart 6-axis motion sensor, integrated microphone, and distance sensor, it is suitable for asset tracking, object recognition, and predictive maintenance.
+The Nicla Vision is a ready-to-use, standalone camera board for analyzing and processing images on the edge. Thanks to its 2 MP color camera, smart 6-axis motion sensor, integrated microphone, and distance sensor, it is suitable for asset tracking, object recognition, and predictive maintenance.
 
 The Nicla Vision lets you quickly implement sensor nodes to send collected data to the Arduino® Cloud (or third-party vendor services) via its onboard Wi-Fi® and Bluetooth® module.
 
 ### Board Architecture Overview
 
-The Nicla Vision features a robust and efficient architecture that integrates a range of sensors packed into a tiny footprint. Nicla Vision combines a powerful STM32H747AII6 Dual ARM® Cortex® M7/M4 IC processor with a 2MP color camera that supports TinyML, as well as a smart 6-axis motion sensor, integrated PDM microphone and a Time of Flight distance sensor.
+The Nicla Vision features a robust and efficient architecture that integrates a range of sensors packed into a tiny footprint. Nicla Vision combines a powerful STM32H747AII6 Dual Arm® Cortex®-M7/M4 IC processor with a 2MP color camera that supports TinyML, as well as a smart 6-axis motion sensor, integrated PDM microphone and a Time of Flight distance sensor.
 
 ![Nicla Vision main components (top view)](assets/arch-top.png)
 ![Nicla Vision main components (bottom view)](assets/arch-bot.png)
@@ -54,20 +54,20 @@ Here is an overview of main components of the board, as shown in the images abov
 
 - **Camera**: the Nicla Vision features a camera based on the GC2145 Color rolling shutter image sensor. The GC2145 incorporates a 1616V x 1232H active pixel
 array, on-chip 10-bit ADC, and an image signal processor.
-The 2MP GC2145 CMOS camera module is equipped with a 80°(DFOV) stock lens, 1.75 μm pixel size and a focal length of 2.2 mm. It supports RGB output format.
-- **Microcontroller**: the heart of the Nicla Vision is the dual-core STM32H747 (U1), including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
+The 2MP GC2145 CMOS camera module is equipped with an 80° (DFOV) stock lens, 1.75 μm pixel size and a focal length of 2.2 mm. It supports RGB output format.
+- **Microcontroller**: the heart of the Nicla Vision is the dual-core STM32H747 (U1), including an Arm® Cortex®-M7 running at 480 MHz and an Arm® Cortex®-M4 running at 240 MHz. The two cores communicate via a Remote Procedure Call mechanism that allows calling functions on the other processor seamlessly.
 - **Onboard advanced motion sensor**: the board features the LSM6DSOX, a smart IMU that includes a 3-axis accelerometer and a 3-axis gyroscope. The LSM6DSOX has a full-scale acceleration range of ±2/±4/±8/±16 g and an angular rate range of ±125/±250/±500/±1000/±2000 dps.
-- **Onboard distance sensor**: the VL53L1CBV0FY Time-of-Flight sensor (U4) adds accurate and low-power ranging capabilities to the Arduino® Nicla Vision. The invisible near infrared VCSEL laser (including the analog driver) is encapsulated together with receiving optics in an all-in-one small module located below the camera.
+- **Onboard distance sensor**: the VL53L1CBV0FY Time-of-Flight sensor (U4) adds accurate and low-power ranging capabilities to the Nicla Vision. The invisible near infrared VCSEL laser (including the analog driver) is encapsulated together with receiving optics in an all-in-one small module located below the camera.
 - **Digital Microphone**: the MP34DT05 digital MEMS microphone (U6) is omnidirectional and operates via a capacitive sensing element with a high (64 dB) signal-to-noise ratio. The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to audio sensors production.
-- **Wireless connectivity**: the Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra-small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi® interface can operate as an access point (AP), station (STA), or dual-mode simultaneous AP/STA. It supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and BLE. An integrated antenna circuitry switch allows a single external antenna (J6) to be shared between Wi-Fi® and Bluetooth®.
+- **Wireless connectivity**: the Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra-small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi® interface can operate as an access point (AP), station (STA), or dual-mode simultaneous AP/STA. It supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and Bluetooth® Low Energy. An integrated antenna circuitry switch allows a single external antenna (J6) to be shared between Wi-Fi® and Bluetooth®.
 - **Power management**: the Nicla Vision is designed for ultra-low power operation, with efficient power management features that ensure minimal energy consumption even when using always-on motion recognition and image processing. The Nicla Vision features the PF1550 from NXP®, a highly integrated battery charge management integrated circuit (IC) designed for wearables and Internet of Things (IoT) devices. 
-- **Security Elements**: the Arduino® Nicla Vision enables IC level edge-to-cloud security capability through the NXP SE050C2 Crypto chip (U8). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage.
+- **Security Elements**: the Nicla Vision enables IC level edge-to-cloud security capability through the NXP SE050C2 Crypto chip (U8). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage.
 
 ### Board Core and Libraries
 
 #### With OpenMV IDE
 
-Before you can start programming micropython scripts for the Nicla Vision, you need to download and install the OpenMV IDE.
+Before you can start programming MicroPython scripts for the Nicla Vision, you need to download and install the OpenMV IDE.
 
 Open the [OpenMV](https://openmv.io/pages/download) download page in your browser, download the latest version available for your operating system, and follow the instructions of the installer.
 
@@ -81,7 +81,7 @@ Click on the "connect" symbol at the bottom of the left toolbar.
 
 ![Click the connect button to attach the Nicla Vision to the OpenMV IDE](assets/click-connect.png)
 
-If your Nicla Vision has not the latest firmware, a pop-up will ask you to install it. Your board will enter in DFU mode and its green LED will start fading. 
+If your Nicla Vision does not have the latest firmware, a pop-up will ask you to install it. Your board will enter in DFU mode and its green LED will start fading. 
 
 Select `Install the latest release firmware`. This will install the latest OpenMV firmware on the Nicla Vision. You can leave the option of erasing the internal file system unselected and click `OK`.
 
@@ -158,15 +158,15 @@ The complete STEP files are available and downloadable from the link below:
 The Nicla Vision can be powered by:
 
 - Using a Micro USB cable (not included). 
-- Using an external **5V power supply** connected to `VIN` pin (please, refer to the [board pinout section](#pinout) of the user manual).
-- Using a **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Vision is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
+- Using an external **5 V power supply** connected to `VIN` pin (please, refer to the [board pinout section](#pinout) of the user manual).
+- Using a **3.7 V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Vision is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
 - Using the onboard **ESLOV connector**, which has a dedicated 5V power line.
 
 ![Nicla Vision battery powered](assets/battery-power.png)
 
 ### Hello World Example
 
-Let's program the Nicla Vision with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the IDE's and that the Nicla Vision core and the board itself are working as expected. 
+Let's program the Nicla Vision with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the IDEs and that the Nicla Vision core and the board itself are working as expected. 
 
 #### With OpenMV
 Copy and paste the code below into a new sketch in the OpenMV IDE.
@@ -253,7 +253,7 @@ The Nicla Vision has **three analog input pins**, mapped as follows:
 
 All of them can be used through the built-in functions of the Arduino programming language. 
 
-***The Nicla vision ADC reference voltage is fixed to 3.3V, this means that it will map the ADC range from 0 to 3.3 volts.***
+***The Nicla Vision ADC reference voltage is fixed to 3.3V, this means that it will map the ADC range from 0 to 3.3 volts.***
 
 We will use the Nicla Vision analog inputs on both IDEs, OpenMV and Arduino. For the example codes shown below, we will be reading the analog input `A0` and displaying the read voltage on the Serial Monitor of both IDEs:
 
@@ -324,7 +324,7 @@ The Nicla Vision has **ten digital pins**, mapped as follows:
 
 Notice that I2C and SPI pins can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
-***The __analog inputs__ of the Nicla Vision can be used as digital pins but they can just handle 1.8V, a greater input may damage the board.***
+***The __analog inputs__ of the Nicla Vision can be used as digital pins but they can just handle 1.8 V, a greater input may damage the board.***
 
 The digital pins of the Nicla Vision can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
 
@@ -565,7 +565,7 @@ The Nicla Vision features an advanced IMU, which allows the board to sense motio
 
 #### With OpenMV
 
-In this Micropython environment, you can choose between a basic usage of the IMU by sampling raw motion data using the example code below.
+In this MicroPython environment, you can choose between a basic usage of the IMU by sampling raw motion data using the example code below.
 
 ```python
 import time
@@ -856,7 +856,7 @@ Upload the example code to the Nicla Vision and open the Serial Plotter to see t
 
 ### Time of Flight (Distance) Sensor
 
-The onboard ToF sensor of the Nicla Vision is the VL53L1CBV0FY from ST®. It adds accurate and low power ranging capabilities to the Arduino® Nicla Vision. The invisible near-infrared VCSEL laser (including the analog driver) is encapsulated with receiving optics in an all-in-one small module located below the camera.
+The onboard ToF sensor of the Nicla Vision is the VL53L1CBV0FY from ST®. It adds accurate and low power ranging capabilities to the Nicla Vision. The invisible near-infrared VCSEL laser (including the analog driver) is encapsulated with receiving optics in an all-in-one small module located below the camera.
 
 ![Onboard Time-of-Flight ranging sensor](assets/tof.png)
 
@@ -1047,7 +1047,7 @@ After the video is recorded, reset the board by pressing the reset button and th
 
 The next example lets you live stream what the camera sees through HTTP so you can watch it on your favorite browser from any device connected to the same network as the Nicla Vision.
 
-Make sure to fill in the `SSID` and `KEY` variables with your WiFi credentials.
+Make sure to fill in the `SSID` and `KEY` variables with your Wi-Fi® credentials.
 
 ```python
 import sensor
@@ -1137,7 +1137,7 @@ while True:
 
 ```
 
-Once you run this script, the Nicla Vision IP address will be printed on the OpenMV serial monitor after the WiFi connection processes. 
+Once you run this script, the Nicla Vision IP address will be printed on the OpenMV serial monitor after the Wi-Fi® connection processes. 
 
 To watch the live stream, enter the device IP address followed by the `:8080` port as follows:
 
@@ -1145,7 +1145,7 @@ To watch the live stream, enter the device IP address followed by the `:8080` po
 
 ![HTTP camera live stream](assets/streaming.gif)
 
-To expand your knowledge using the Nicla Vision camera with micropython, try other built-in examples within the OpenMV IDE.
+To expand your knowledge using the Nicla Vision camera with MicroPython, try other built-in examples within the OpenMV IDE.
 
 ![OpenMV examples for the Nicla Vision](assets/examples.png)
 
@@ -1422,7 +1422,7 @@ The output data should look like the image below, where we can see the device ad
 
 ![I2C output data](assets/i2c.png)
 
-To learn more about the I2C class on microphyton, continue [here](https://docs.openmv.io/library/pyb.I2C.html). 
+To learn more about the I2C class on MicroPython, continue [here](https://docs.openmv.io/library/pyb.I2C.html). 
 
 #### With Arduino IDE
 To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
@@ -1571,7 +1571,7 @@ To begin with UART communication, you will need to configure it first. In the `s
 Serial1.begin(115200);  // Serial1 for the external UART pins | Serial for the internal virtual/monitor UART
 ```
 
-***Using the Arduino, IDE the minimum supported baud rate is 19200.***
+***Using the Arduino IDE, the minimum supported baud rate is 19200.***
 
 To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown above stores the incoming characters in a String variable and processes the data when a line-ending character is received:
 
@@ -1623,11 +1623,11 @@ Serial1.println("Hello world!");
 
 To enable the Bluetooth® Low Energy communication on the Nicla Vision, you can use the `bluetooth` module in [OpenMV](#with-openmv-5) or the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/) in the [Arduino IDE](#with-arduino-ide-5).
 
-We are going to build a BLE temperature monitor that using the __nRF Connect__ app (available for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=es_419&gl=US) and [iOS](https://apps.apple.com/us/app/nrf-connect-for-mobile/id1054362403?platform=iphone)) will let us easily connect to our Nicla Vision and monitor the temperature in real time.
+We are going to build a Bluetooth® LE temperature monitor that using the __nRF Connect__ app (available for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=es_419&gl=US) and [iOS](https://apps.apple.com/us/app/nrf-connect-for-mobile/id1054362403?platform=iphone)) will let us easily connect to our Nicla Vision and monitor the temperature in real time.
 
 #### With OpenMV
 
-For this BLE application example, we are going to emulate the temperature sensor.  Below you will find the complete sketch.
+For this Bluetooth® LE application example, we are going to emulate the temperature sensor.  Below you will find the complete sketch.
 
 ```python
 import bluetooth
@@ -1725,16 +1725,16 @@ if __name__ == "__main__":
         time.sleep_ms(1000)
 ```
 
-The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [BLE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting an emulated temperature value. 
+The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [Bluetooth® LE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting an emulated temperature value. 
 
-- The code begins by importing all the necessary modules and defining the Bluetooth® Low Energy service and characteristic for an environment-sensing application.
+- The code begins by importing all the necessary modules and defining the Bluetooth® Low Energy service and characteristics for an environment-sensing application.
 
   |         **Description**        |       **ID**       |
   |:------------------------------:|:------------------:|
   | Environmental Sensing Service  |        181A        |
   | Temperature Characteristic     |        2A6E        |
 
-- Then sets up the Bluetooth® Low Energy service and characteristic; and begins advertising the defined Bluetooth® Low Energy service.
+- Then sets up the Bluetooth® Low Energy service and characteristics; and begins advertising the defined Bluetooth® Low Energy service.
 
 - A Bluetooth® Low Energy connection is constantly verified; when a central device connects to the Nicla Vision, its built-in LED is turned on blue. The code then enters into a loop that constantly emulates a temperature reading.
 
@@ -1742,7 +1742,7 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
 
 #### With Arduino IDE
 
-For this BLE application example, we are going to monitor the Nicla Vision IMU __temperature sensor__. Below you will find the complete sketch.
+For this Bluetooth® LE application example, we are going to monitor the Nicla Vision IMU __temperature sensor__. Below you will find the complete sketch.
 
 ```arduino
 
@@ -1852,9 +1852,9 @@ void updateTemperature() {
 }
 ```
 
-The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [BLE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting temperature value read by Nicla Vision IMU IC. 
+The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [Bluetooth® LE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting temperature value read by Nicla Vision IMU IC. 
 
-- The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristic for an environment sensing application.
+- The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristics for an environment sensing application.
 
 
   |         **Description**        |       **ID**       |
@@ -1862,13 +1862,13 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
   | Environmental Sensing Service  |        181A        |
   | Temperature Characteristic     |        2A6E        |
 
-- In the `setup()` function, the code initializes the Nicla Vision board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
+- In the `setup()` function, the code initializes the Nicla Vision board and sets up the Bluetooth® Low Energy service and characteristics; then, it begins advertising the defined Bluetooth® Low Energy service.
 
 - A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Vision, its built-in LED is turned on blue. The code then enters into a loop that constantly reads the IMU temperature sensor. It also prints it to the Serial Monitor and transmits it to the central device over the defined Bluetooth® Low Energy characteristic.
 
 ![Nicla Vision temperature monitored from the nRF Connect app](assets/temperature-monitor.png)
 
-### WiFi®
+### Wi-Fi®
 
 The Nicla Vision onboard IEEE802.11 b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or dual-mode simultaneous AP/STA. It supports a maximum transfer rate of 65 Mbps.
 
@@ -1919,13 +1919,13 @@ print("Year:%d Month:%d Day:%d Time: %d:%d:%d" % (time.localtime(t)[0:6]))
 
 ```
 
-Make sure to enter your WiFi credentials on the `SSID` and `KEY` variables and run the script from the OpenMV IDE.
+Make sure to enter your Wi-Fi® credentials on the `SSID` and `KEY` variables and run the script from the OpenMV IDE.
 
 The current time and date will be printed on the IDE serial monitor.
 
 ![Requesting time with NTP server](assets/ntp.png)
 
-***If you want to learn more about using Nicla Vision's WiFi with OpenMV, explore the built-in examples on __File > Examples > WiFi__.***
+***If you want to learn more about using Nicla Vision's Wi-Fi® with OpenMV, explore the built-in examples on __File > Examples > WiFi__.***
 
 #### With Arduino IDE
 
@@ -1974,15 +1974,15 @@ void loop() {
   delay(1000);
 }
 ```
-Make sure to enter your WiFi credentials on the `*ssid` and `*password` variables and upload the code from the Arduino IDE.
+Make sure to enter your Wi-Fi® credentials on the `*ssid` and `*password` variables and upload the code from the Arduino IDE.
 
 The current time and date will be printed on the IDE serial monitor.
 
 ![Requesting time with NTP server](assets/ntp-arduino.png)
 
-***If your Nicla Vision reports an error when trying to connect to WiFi saying _Failed to mount the filesystem containing the WiFi firmware_, follow the next steps.***
+***If your Nicla Vision reports an error when trying to connect to Wi-Fi® saying _Failed to mount the filesystem containing the WiFi firmware_, follow the next steps.***
 
-In the Arduino IDE navigate to **File > Examples > STM32H747_System > WiFiFirmwareUpdater**, upload this code to your Nicla Vision and wait for the update. The progress can be followed in the serial monitor.
+In the Arduino IDE navigate to **File > Examples > STM32H747_System > WiFiFirmwareUpdater**, upload this code to your Nicla Vision and wait for the update. The progress can be followed in the Serial Monitor.
 
 ### ESLOV Connector 
 
@@ -2001,42 +2001,42 @@ The pin layout of the ESLOV connector is the following:
 5. GND
 
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-Leveraging the Nicla Vision's WiFi connectivity we can develop Smart IoT projects using the [Arduino Cloud](https://cloud.arduino.cc/).
+Leveraging the Nicla Vision's Wi-Fi® connectivity we can develop Smart IoT projects using the [Arduino Cloud](https://cloud.arduino.cc/).
 
-By using the IoT Cloud, you can, for example, monitor your Nicla's inputs and sensors, control your device's built-in LEDs remotely, and update your device's firmware OTA.
+By using the Arduino Cloud, you can, for example, monitor your Nicla's inputs and sensors, control your device's built-in LEDs remotely, and update your device's firmware OTA.
 
-In case it is the first time you are using the IoT Cloud:
+In case it is the first time you are using the Arduino Cloud:
 
 - You need an __account__. If you do not have an account, create one for free [here](https://create.arduino.cc/iot/things).
-- To use the Arduino Web Editor or IoT Cloud, the __Arduino Create Agent__ must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome?_gl=1*oeovt6*_ga*Mzg1NjE0MjQ0LjE2OTc4NDQxMjk.*_ga_NEXN8H46L5*MTY5OTY0MzEwMS43NC4xLjE2OTk2NTMyMjEuMC4wLjA.).
+- To use the Arduino Web Editor or Arduino Cloud, the __Arduino Create Agent__ must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome?_gl=1*oeovt6*_ga*Mzg1NjE0MjQ0LjE2OTc4NDQxMjk.*_ga_NEXN8H46L5*MTY5OTY0MzEwMS43NC4xLjE2OTk2NTMyMjEuMC4wLjA.).
 
-Let's walk through a step-by-step demonstration of how to use a Nicla Vision with the IoT Cloud.
+Let's walk through a step-by-step demonstration of how to use a Nicla Vision with the Arduino Cloud.
 
-Log in to your IoT Cloud account; you should see the following (without any "Thing" created):
+Log in to your Arduino Cloud account; you should see the following (without any "Thing" created):
 
-![IoT Cloud initial page](assets/iot-cloud-1.png)
+![Arduino Cloud initial page](assets/iot-cloud-1.png)
 
-First, provision your Nicla Vision on your IoT Cloud space. To do this, navigate to __Devices__ and then click on the __ADD__ button:
+First, provision your Nicla Vision on your Arduino Cloud space. To do this, navigate to __Devices__ and then click on the __ADD__ button:
 
-![IoT Cloud Devices Page](assets/iot-cloud-2.png)
+![Arduino Cloud Devices Page](assets/iot-cloud-2.png)
 
 The Setup Device pop-up window will appear. Navigate into __AUTOMATIC__ and select the __Arduino board__ option:
 
-![IoT Cloud Setup Device pop-up window](assets/iot-cloud-3.png)
+![Arduino Cloud Setup Device pop-up window](assets/iot-cloud-3.png)
 
-After a while, your Nicla Vision should be discovered by the IoT Cloud, as shown below:
+After a while, your Nicla Vision should be discovered by the Arduino Cloud, as shown below:
 
 ![Nicla Vision found and ready to be configured](assets/iot-cloud-4.png)
 
-Click the __CONFIGURE__ button, give your device a name, and your Nicla Vision will be configured to communicate securely with the IoT Cloud; this process can take a while.
+Click the __CONFIGURE__ button, give your device a name, and your Nicla Vision will be configured to communicate securely with the Arduino Cloud; this process can take a while.
 
 ![Nicla Vision setup process](assets/iot-cloud-5.png)
 
-Once your Nicla Vision has been configured, let's create a __"Thing"__ to test the connection between your board and the IoT Cloud. Navigate into  __Things__ and select the __CREATE__ button; give your thing a name.
+Once your Nicla Vision has been configured, let's create a __"Thing"__ to test the connection between your board and the Arduino Cloud. Navigate into  __Things__ and select the __CREATE__ button; give your thing a name.
 
-![IoT Cloud "Thing" setup](assets/iot-cloud-6.png)
+![Arduino Cloud "Thing" setup](assets/iot-cloud-6.png)
 
 Navigate into __Associate Device__ and click the __Select Device__ button. Select your Nicla Vision and associate it with your "Thing." Then, navigate into __Network__ and click the __Configure__ button; enter your network credentials.
 
@@ -2049,11 +2049,11 @@ Add one variable with the following characteristics:
 - **Variable permission:** `Read & Write`
 - **Variable update policy:** `On change`
 
-![IoT Cloud "Thing" variable setup](assets/iot-cloud-10.png)
+![Arduino Cloud "Thing" variable setup](assets/iot-cloud-10.png)
 
 Now, navigate into __Dashboards__ and select the __CREATE__ button; this will create a new dashboard and give your dashboard a name.
 
-![IoT Cloud Dashboards page](assets/iot-cloud-8.png)
+![Arduino Cloud Dashboards page](assets/iot-cloud-8.png)
 
 Add the following widgets to your dashboard:
 
@@ -2063,7 +2063,7 @@ Add the following widgets to your dashboard:
 
 Your dashboard should look like the following:
 
-![IoT Cloud Dashboard setup](assets/iot-cloud-9.png)
+![Arduino Cloud Dashboard setup](assets/iot-cloud-9.png)
 
 Go back to your __Things__ and open the "Thing" you created. In the "Thing" setup page, navigate into __Sketch__, where you should see the online editor.
 
@@ -2098,7 +2098,7 @@ void setup() {
   ArduinoCloud.printDebugInfo();
 }
 ```
-In the `onLedChange()` function, which was generated automatically by the Arduino IoT Cloud when the variable `led` was created, you must associate the onboard red LED state with the `led` variable:
+In the `onLedChange()` function, which was generated automatically by the Arduino Cloud when the variable `led` was created, you must associate the onboard red LED state with the `led` variable:
 
 ```arduino
 /*
@@ -2112,9 +2112,9 @@ void onLedChange()  {
 
 To upload the code to the Nicla Vision from the online editor, click the green __Verify__ button to compile the sketch and check for errors, then click the green __Upload__ button to program the board with the sketch.
 
-![Uploading a sketch to the Nicla Vision in the Arduino IoT Cloud](assets/iot-cloud-11.png)
+![Uploading a sketch to the Nicla Vision in the Arduino Cloud](assets/iot-cloud-11.png)
 
-Navigate into __Dashboards__ again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's red LED (LEDR) should light on or off when the position of the switch changes.
+Navigate into __Dashboards__ again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor's integrated Serial Monitor). Your board's red LED (LEDR) should light on or off when the position of the switch changes.
 
 ![Controlling the Nicla Vision LED](assets/IoTGif.gif)
 
@@ -2126,7 +2126,7 @@ If you encounter any issues or have questions while working with the Nicla Visio
 
 Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nicla Vision. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
-- [Nicla Family help center page](https://support.arduino.cc/hc/en-us/sections/4410176504978-Nicla-Family)
+- [Nicla Family Help Center page](https://support.arduino.cc/hc/en-us/sections/4410176504978-Nicla-Family)
 
 ### Forum
 
