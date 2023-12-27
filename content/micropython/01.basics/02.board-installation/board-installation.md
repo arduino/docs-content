@@ -279,16 +279,20 @@ Go to the Arduino Lab MicroPython IDE and press connect in the top left corner, 
 
 ## Portenta C33
 
-To install the MicroPython firmware to the Portenta C33 board you can use the Arduino MicroPython Installer. This tool lets you plug in the board, select it from a menu, and automatically flash the latest firmware, or a custom one of your choice to the board. 
+To install the MicroPython firmware to the Portenta C33 board, you can use the **Arduino MicroPython Installer**. This tool lets you plug in the board, select it from a menu, and automatically flash the latest firmware or a custom one of your choice to the board. You can download the [Arduino MicroPython Installer here](https://labs.arduino.cc/en/labs/micropython-installer). 
 
-You can download the [Arduino MicroPython Installer here](https://labs.arduino.cc/en/labs/micropython-installer). 
+***The Arduino MicroPython Installer is part of [Arduino Labs](https://labs.arduino.cc) and is considered experimental software.***
 
-***The Arduino MicroPython Installer is part of [Arduino Labs](https://labs.arduino.cc), and is therefore considered experimental software.***
+Before installing the MicroPython firmware, **ensure you have installed the latest Portenta Renesas core**. To install the core for the Portenta C33 board, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `renesas` and install the latest `Arduino Renesas Boards` version. 
 
-To get started, open the installer and plug in your board to your computer; you should now see it pop up ready to be selected. If it does not pop ups, try putting it in bootloader mode by double tapping your board's reset button. 
+![Installing the Arduino Renesas Boards core in the Arduino IDE](./assets/portenta-c33-1.png)
+    
+With the latest core installed, open the Arduino Micropython Installer and plug your board into your computer; your board should appear ready to be selected, as shown in the image below. If your board does not appear in the installer, try putting it in bootloader mode by double-tapping your board's reset button.
 
-![Arduino Nano ESP32 detected!](./assets/board-selected.png)
+![Portenta C33 board detected on the Arduino MicroPython Installer](./assets/portenta-c33-2.png)
 
-To install the MicroPython firmware, press the **INSTALL MICROPYTHON** and waiting for a couple of seconds while the installer tool takes care of everything else.
+To install the MicroPython firmware, press the **INSTALL MICROPYTHON** button and wait a few seconds while the installer tool takes care of everything else. When finished, you should see a message in the image below.
 
-![Firmware Successfully Uploaded!](./assets/flashed.png)
+![Firmware succesfully uploaded to the Portenta C33 board](./assets/portenta-c33-3.png)
+
+Now, you are ready to use MicroPython with your Portenta C33 board.
