@@ -1050,13 +1050,13 @@ The MAC address is essential for computer networking and devices with Internet o
 
 - [Retrieve the Opta™ MAC Address](https://docs.arduino.cc/tutorials/opta/mac-address)
 
-### Bluetooth Low Energy®
+### Bluetooth® Low Energy
 
-Opta™ WiFi variant devices feature an onboard Bluetooth Low Energy® module, which supports Bluetooth 5.1 BR/EDR/LE up to 3 Mbps PHY data rate. Bluetooth 4.2 is supported by Arduino firmware.
+Opta™ WiFi variant devices feature an onboard Bluetooth® Low Energy module, which supports Bluetooth® 5.1 BR/EDR/LE up to 3 Mbps PHY data rate. Bluetooth® 4.2 is supported by Arduino firmware.
 
 To enable Bluetooth® communication on Opta™ devices, you can use the [`ArduinoBLE` library](https://www.arduino.cc/reference/en/libraries/arduinoble/). Let's use an example code demonstrating some of its Bluetooth® module's capabilities. Here is an example of using the ArduinoBLE library to create a voltage level monitor application, such as a 0 to 10 VDC sensor. The provided example code demonstrates the creation of a Bluetooth® Low Energy service and the characteristic of voltage values read from one of the analog input terminals of an Opta™ device to a central device, for example, a smartphone.
 
-***You can use the [nRF Connect for Mobile](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-mobile) app from Nordic Semiconductor® to test the functionality of the example code shown below. nRF Connect is a powerful tool that allows you to scan and explore Bluetooth Low Energy® devices and communicate with them.***
+***You can use the [nRF Connect for Mobile](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-mobile) app from Nordic Semiconductor® to test the functionality of the example code shown below. nRF Connect is a powerful tool that allows you to scan and explore Bluetooth® Low Energy devices and communicate with them.***
 
 ```arduino
 /**
@@ -1105,19 +1105,19 @@ void setup() {
   // Set the resolution of the ADC to 12 bits.
   analogReadResolution(12); 
 
-  // Initialize the BLE module.
+  // Initialize the Bluetooth LE module.
   if (!BLE.begin()) {
     Serial.println("- Starting BLE failed!");
     while (1); // In case of failure, loop indefinitely.
   }
 
-  // Set the local name and advertised service for the BLE module.
+  // Set the local name and advertised service for the Bluetooth LE module.
   BLE.setLocalName("VoltageMonitor");
   BLE.setAdvertisedService(voltageService);
   voltageService.addCharacteristic(voltageLevelChar);
   BLE.addService(voltageService);
 
-  // Start advertising the BLE service.
+  // Start advertising the Bluetooth LE service.
   BLE.advertise();
   Serial.println("- Bluetooth device active, waiting for connections...");
 }

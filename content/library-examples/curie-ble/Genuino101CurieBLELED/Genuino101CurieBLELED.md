@@ -85,11 +85,11 @@ In the loop() you check the connection with a Bluetooth® Low Energy central and
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // Bluetooth® Low Energy Peripheral Device (the board you're programming)
+BLEPeripheral blePeripheral;  // Bluetooth Low Energy Peripheral Device (the board you're programming)
 
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
@@ -119,7 +119,7 @@ void setup() {
 
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
 
   blePeripheral.begin();
 

@@ -63,7 +63,7 @@ Without a valid license, the TRACE32 debugger only works for a few minutes in de
 
 In order to obtain a new license, you need to first get the serial number of your board. There are two alternative ways to do so:
 
-- In the Arduino IDE, select the "Tools->Get Board Info" menu command after choosing the port to which your board is connected. This should show a 16-character (64-bit) long serial number for your Nano BLE devices and a 24-character (96-bit) long serial number for your Portenta H7 or Nicla Vision.
+- In the Arduino IDE, select the "Tools->Get Board Info" menu command after choosing the port to which your board is connected. This should show a 16-character (64-bit) long serial number for your Nano 33 BLE devices and a 24-character (96-bit) long serial number for your Portenta H7 or Nicla Vision.
 
 ![Your board's serial number can be displayed in the Arduino IDE using the "Get Board Info" command](assets/por_ard_trace32_board_info.png)
 

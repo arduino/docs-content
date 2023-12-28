@@ -6,7 +6,7 @@ tags:
   - Intruder detector
   - Nicla
   - Portenta
-  - BLE
+  - Bluetooth® LE
   - Machine Learning Tools
   - Sound recognition
   - Arduino IoT Cloud
@@ -160,7 +160,7 @@ The Bluetooth® Low Energy services and characteristics are standardized for the
 // Alert Service
 BLEService alertService("1802");  // Immediate alert
 
-// BLE Alert Characteristic
+// Bluetooth LE Alert Characteristic
 BLEUnsignedCharCharacteristic alertLevel("2A06",                // standard 16-bit characteristic UUID
                                          BLERead | BLENotify);  // remote clients will be able to get notifications if this characteristic changes
 
@@ -198,7 +198,7 @@ In the case the Nicla detects the door opening, the label parameter will turn to
 ```cpp
 /**
   Inference Interruption Callback to be executed with every triggered inference,
-  it controls the built-in LED's and send the alerts through BLE.
+  it controls the built-in LED's and send the alerts through Bluetooth LE.
   
   Possible labels: NN0:opened, NN0:forcing
 
@@ -292,7 +292,7 @@ WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
 The main responsibility of the Portenta H7 code is to connect to the Nicla Voice and be aware of new notifications to forward them to the Cloud. To achieve this, the first thing done by the Portenta is to initialize the Bluetooth® Low Energy communication, then initialize the Arduino IoT Cloud service and start scanning for peripherals.
 
 ```arduino
-  // Initialize BLE
+  // Initialize Bluetooth LE
   if (!BLE.begin()) {
     Serial.println("Starting BLE failed!");
     while (1) {

@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Arduino Nano 33 BLE is a great choice for any beginner, maker or professional to get started with Bluetooth® Low Energy enabled projects. It is build upon the [nRF52840 microcontroller](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf) and runs on **Arm® Mbed™ OS**. The Nano 33 BLE not only features the possibility to connect via **BLE** but also comes equipped with a **9 axis IMU** making it suitable for wearable projects. 
+The Arduino Nano 33 BLE is a great choice for any beginner, maker or professional to get started with Bluetooth® Low Energy enabled projects. It is build upon the [nRF52840 microcontroller](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf) and runs on **Arm® Mbed™ OS**. The Nano 33 BLE not only features the possibility to connect via **Bluetooth® LE** but also comes equipped with a **9 axis IMU** making it suitable for wearable projects. 
 </FeatureDescription>
 
 

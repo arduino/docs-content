@@ -5,7 +5,7 @@ description: 'The first steps to setting up the Arduino Tian'
 
 **This is a retired product.**
 
-The Arduino Tian is based on the Atheros AR9342 connected to an Atmel Cortex® M0+ 32-bit microcontroller plus all connectivity: Ethernet, Wi-Fi, Bluetooth.
+The Arduino Tian is based on the Atheros AR9342 connected to an Atmel Cortex® M0+ 32-bit microcontroller plus all connectivity: Ethernet, Wi-Fi, Bluetooth®.
 
 The Arduino Tian is programmed using the [Arduino Software (IDE)](https://arduino.cc/en/Main/Software), our Integrated Development Environment common to all our boards and running both [online](https://create.arduino.cc/editor) and offline. For more information on how to get started with the Arduino Software visit the [Getting Started page](https://arduino.cc/en/Guide/HomePage).
 

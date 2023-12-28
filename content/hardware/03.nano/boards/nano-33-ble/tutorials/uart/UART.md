@@ -21,7 +21,7 @@ In this tutorial we will control the built-in LED on the Arduino Nano 33 BLE fro
 
 > **Note:** This example would work connecting an Arduino Bluetooth® Low Energy board with any other Arduino board, but be mindful that both board must work at the same voltage. If the operating voltage differ between connected boards, the board with the lower operating voltage could be damaged.
 
-In this example, we will power both the Arduino boards through the computer, then we will use the Serial Monitor to send some commands to the 33 Arduino Nano BLE board, that will be connected through the UART with another Arduino Nano 33 BLE board. Depending on the commands received by the Nano 33 BLE board, it will turn **ON** or **OFF** its built-in LED.
+In this example, we will power both the Arduino boards through the computer, then we will use the Serial Monitor to send some commands to the 33 Arduino Nano 33 BLE board, that will be connected through the UART with another Arduino Nano 33 BLE board. Depending on the commands received by the Nano 33 BLE board, it will turn **ON** or **OFF** its built-in LED.
 
 
 ## Goals

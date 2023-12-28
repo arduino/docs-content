@@ -10,7 +10,7 @@
         The WiFi library is designed to use the Murata 1DX module, which allows your Arduino to connect to the Internet.
     </EssentialElement>
     <EssentialElement link="https://www.arduino.cc/en/Reference/ArduinoBLE" title="Arduino BLE" type="library">
-        Bluetooth® 4.0 includes both traditional Bluetooth, now labeled " Bluetooth® Classic", and the Bluetooth® Low Energy.
+        Bluetooth® 4.0 includes both traditional Bluetooth®, now labeled " Bluetooth® Classic", and the Bluetooth® Low Energy.
     </EssentialElement>
     <EssentialElement link="https://github.com/arduino-libraries/Arduino_Pro_Tutorials" title="Arduino Pro Tutorials" type="library">
         The complete Arduino sketches from the Pro tutorials.     

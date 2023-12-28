@@ -180,7 +180,7 @@ Some key differences are:
 
 -	Bluetooth® Classic: is designed for continuous, relatively high-data-rate communication. As a result, it consumes more power, making it less suitable for battery-operated devices with limited power sources.
 
--	Bluetooth® Low Energy: is optimized for energy efficiency. It is specifically designed for applications where power consumption is a critical consideration, such as fitness trackers, IoT sensors, and wearable devices. BLE devices can operate for extended periods on small batteries or even energy harvesting solutions.
+-	Bluetooth® Low Energy: is optimized for energy efficiency. It is specifically designed for applications where power consumption is a critical consideration, such as fitness trackers, IoT sensors, and wearable devices. Bluetooth® LE devices can operate for extended periods on small batteries or even energy harvesting solutions.
 
 **Data Transfer Rates**
 
@@ -192,7 +192,7 @@ Some key differences are:
 
 -	Bluetooth® Classic: establishes a continuous and relatively power-hungry connection, making it suitable for applications requiring real-time, continuous communication.
 
--	Bluetooth® Low Energy: supports two primary modes - advertising and connection. In advertising mode, a BLE peripheral periodically broadcasts its presence but doesn't maintain a continuous connection, conserving power. When needed, a central device can establish a connection for data exchange.
+-	Bluetooth® Low Energy: supports two primary modes - advertising and connection. In advertising mode, a Bluetooth® LE peripheral periodically broadcasts its presence but doesn't maintain a continuous connection, conserving power. When needed, a central device can establish a connection for data exchange.
 
 ## ArduinoBLE Library
 

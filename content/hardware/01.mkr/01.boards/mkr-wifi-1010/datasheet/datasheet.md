@@ -55,13 +55,13 @@ Prototyping, IoT application examples
       - 2.4 GHz, 13 channels
       - 96 dBm sensitivity
 
-  - **Bluetooth BR/EDR**
+  - **Bluetooth® BR/EDR**
       - Max 7 Clients
       - 2.4 GHz, 79 channels
       - Up to 3 Mbit/s
       - -88 dBm sensitivity
-      - Bluetooth Low Energy
-      - Bluetooth 5.0 dual mode
+      - Bluetooth® Low Energy
+      - Bluetooth® 5.0 dual mode
       - 2.4GHz 40 channels
       - -88 dBm sensitivity
       - Up to 1 Mbit/s
@@ -84,11 +84,11 @@ Also the 5V pin does NOT supply voltage but is rather connected, through a jumpe
 
 ### Application Examples
 
-**Bluetooth:** The communications chipset on the MKR WiFi 1010 is something pretty unique in the world of microcontroller platforms, since this can be both a BLE and Bluetooth® client and host device. 
+**Bluetooth®:** The communications chipset on the MKR WiFi 1010 is something pretty unique in the world of microcontroller platforms, since this can be both a Bluetooth® LE and Bluetooth® client and host device. 
 
 **WiFi:**  The WiFi connectivity is performed with a module from u-blox, the NINA-W10, a low power chipset operating in the 2.4GHz range. 
 
-**IoT:** Whether you are looking at building a sensor network connected to your office or home router, or if you want to create a BLE device sending data to a cell phone, the MKR WiFi 1010 is your one-stop-solution for many of the basic IoT application scenarios.
+**IoT:** Whether you are looking at building a sensor network connected to your office or home router, or if you want to create a Bluetooth® LE device sending data to a cell phone, the MKR WiFi 1010 is your one-stop-solution for many of the basic IoT application scenarios.
 
 
 ## Ratings

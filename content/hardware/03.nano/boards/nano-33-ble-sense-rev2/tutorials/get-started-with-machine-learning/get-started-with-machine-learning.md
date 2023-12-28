@@ -87,7 +87,7 @@ TinyML is an emerging field and there is still work to do – but what’s excit
 
 ## TensorFlow Lite for Microcontrollers Examples
 
-***The TensorFlow Lite examples are currently not compatible with the [Arduino Nano BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2) board.***
+***The TensorFlow Lite examples are currently not compatible with the [Arduino Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2) board.***
 
 The inference examples for TensorFlow Lite for Microcontrollers are now packaged and available through the Arduino Library Manager making it possible to include and run them on Arduino in a few clicks. In this section we’ll show you how to run them. The examples are:
 
@@ -135,7 +135,7 @@ We’ve adapted the tutorial below, so no additional hardware is needed – the 
 
 **1.** First, let's make sure we have the drivers for the Nano 33 BLE boards installed. If we are using the online IDE, there is no need to install anything, if you are using the offline IDE, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**, search for **Arduino Mbed OS Nano Boards**, and install it. 
 
-![Install Nano BLE board](assets/BoardsManager.png)
+![Install Nano 33 BLE board](assets/BoardsManager.png)
 
 **2.** Also, let's make sure we have all the libraries we need installed. If we are using the online IDE, there is no need to install anything. If we are using the offline IDE, this can be done by navigating to **Tools > Manage libraries...**, search for **Arduino_TensorFlowLite** and **Arduino_BMI270_BMM150**, and install them both. 
 

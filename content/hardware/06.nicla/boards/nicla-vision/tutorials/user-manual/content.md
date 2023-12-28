@@ -1803,8 +1803,8 @@ void setup() {
   environmentService.addCharacteristic(temperatureVal);                  // add the temperature characteristic
   BLE.addService(environmentService);                                    // Add the environment sensing service
   temperatureVal.writeValue(oldTemperature);                             // set initial value for this characteristic
-  BLE.setEventHandler(BLEDisconnected, blePeripheralDisconnectHandler);  // handler that fires when BLE is disconnected
-  BLE.setEventHandler(BLEConnected, blePeripheralConnectHandler);        // handler that fires when BLE is disconnected
+  BLE.setEventHandler(BLEDisconnected, blePeripheralDisconnectHandler);  // handler that fires when Bluetooth LE is disconnected
+  BLE.setEventHandler(BLEConnected, blePeripheralConnectHandler);        // handler that fires when Bluetooth LE is disconnected
   /* Start advertising Bluetooth® Low Energy.  It will start continuously transmitting Bluetooth® Low Energy
      advertising packets and will be visible to remote Bluetooth® Low Energy central devices
      until it receives a new connection */

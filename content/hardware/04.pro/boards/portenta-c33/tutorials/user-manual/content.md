@@ -1093,7 +1093,7 @@ To enable Bluetooth® communication on the Portenta C33, you can use the [`Ardui
   Purpose: Read voltage level from an analog input of the Portenta C33
   then maps the voltage reading to a percentage value ranging from 0 to 100.
 
-  Then exposes the voltage percentage level using a Custom BLuetooth Service.
+  Then exposes the voltage percentage level using a Custom Bluetooth Service.
 
   @author Arduino Team
   @version 1.1 13/07/23

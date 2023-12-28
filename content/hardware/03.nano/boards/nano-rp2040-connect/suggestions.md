@@ -3,7 +3,7 @@
     Learn how to set up the Nano RP2040 Connect, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART) and Wireless (Wi-Fi, Bluetooth®) protocols.
   </EssentialElement>
 
-<EssentialElement title="BLE device to device with Nano RP2040 Connect" type="tutorial" link="/tutorials/nano-rp2040-connect/rp2040-ble-device-to-device">
+<EssentialElement title="Bluetooth® LE device to device with Nano RP2040 Connect" type="tutorial" link="/tutorials/nano-rp2040-connect/rp2040-ble-device-to-device">
     Learn how to connect 2x Nano RP2040 Connect boards with each other, using Bluetooth® Low Energy.
   </EssentialElement>
 </EssentialsColumn>

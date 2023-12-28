@@ -133,7 +133,7 @@ We’ve adapted the tutorial below, so no additional hardware is needed – the 
 
 **1.** First, let's make sure we have the drivers for the Nano 33 BLE boards installed. Select the board manager in the left panel, and search for **"Nano 33 BLE"** and install the **"Arduino Mbed OS Nano Boards"**.
 
-![Install Nano BLE board](assets/install-board.png)
+![Install Nano 33 BLE board](assets/install-board.png)
 
 **2.** Also, let's make sure we have all the libraries we need installed. The **Arduino_LSM9DS1** can be installed in the library manager in the IDE:
 

@@ -98,7 +98,7 @@ Here a list of tutorials that will help you in making very cool things!
 
 more examples on the respective library pages
 
-### Libraries for Bluetooth, Accelerometer + Gyroscope, and Real-Time Clock
+### Libraries for Bluetooth®, Accelerometer + Gyroscope, and Real-Time Clock
 
 All 101's embedded peripherals have dedicated libraries, namely:
 

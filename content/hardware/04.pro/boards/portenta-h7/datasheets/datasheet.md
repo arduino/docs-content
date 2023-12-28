@@ -54,9 +54,9 @@ Laboratory equipment, Computer vision
       </tr>
       <tr>
          <td style="text-align: center;">Connectivity</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi® / Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)</td>
+         <td style="text-align: center;">Ethernet PHY / Wi-Fi® / Bluetooth® Low Energy (Bluetooth® LE 5 via Cordio stack, Bluetooth® LE 4.2 via Arduino Stack)</td>
          <td style="text-align: center;">Ethernet PHY</td>
-         <td style="text-align: center;">Ethernet PHY / Wi-Fi® / Bluetooth® Low Energy (BLE 5 via Cordio stack, BLE 4.2 via Arduino Stack)</td>
+         <td style="text-align: center;">Ethernet PHY / Wi-Fi® / Bluetooth® Low Energy (Bluetooth® LE 5 via Cordio stack, Bluetooth® LE 4.2 via Arduino Stack)</td>
       </tr>
       <tr>
          <td style="text-align: center;">Memory</td>

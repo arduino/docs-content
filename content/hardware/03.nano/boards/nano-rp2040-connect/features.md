@@ -40,7 +40,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
 <Feature title="Bluetooth" image="bluetooth">
 
-  The board is Bluetooth® enabled allowing you to control peripheral devices via bluetooth.
+  The board is Bluetooth® enabled allowing you to control peripheral devices via Bluetooth®.
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-ble-device-to-device"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/arduinoble/"/>

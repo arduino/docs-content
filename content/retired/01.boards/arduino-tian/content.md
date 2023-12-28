@@ -57,7 +57,7 @@ The ATSAMD21G18 has 256 KB of flash program memory (with 69 KB used for the boot
 
 ### Input and Output
 
-It is not possible to access the I/O pins of the Atheros AR9342\. All I/O lines are tied to the Atmel SAMD21\. The Atheros is connected a usb hub with 4 ports (see the block diagram) to which are connected the Bluetooth, memory eMMCs, the SAMD21 and the USB Host port.
+It is not possible to access the I/O pins of the Atheros AR9342\. All I/O lines are tied to the Atmel SAMD21\. The Atheros is connected a usb hub with 4 ports (see the block diagram) to which are connected the Bluetooth®, memory eMMCs, the SAMD21 and the USB Host port.
 
 Each of the 20 digital i/o pins on the Tian can be used as an input or output, using pinMode(), digitalWrite(), and digitalRead() functions. They operate at 3.3 volts. Each pin can provide or receive a maximum of 40 mA and has an internal pull-up resistor (disconnected by default) of 20-50 kOhms. In addition, some pins have specialized functions:
 

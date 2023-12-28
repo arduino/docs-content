@@ -7,7 +7,7 @@ tags:
   - SPI
   - UART
   - Wi-Fi
-  - Bluetooth
+  - Bluetooth®
 author: 'Jacob Hylén'
 hardware:
   - hardware/02.hero/boards/uno-r4-wifi
@@ -644,7 +644,7 @@ To learn more about the Wi-Fi® capabilities of the UNO R4 WiFi, try out the [Ne
 
 Thanks to the ESP32 module, the UNO R4 WiFi has Bluetooth® LE and Bluetooth® 5 capabilities, at a speed of up to 2 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
 
-Below is an example sketch scans for bluetooth devices:
+Below is an example sketch scans for Bluetooth® devices:
 
 ```arduino
 #include <ArduinoBLE.h>
@@ -808,7 +808,7 @@ void printData(const unsigned char data[], int length) {
 }
 ```
 
-If you want to learn more about Bluetooth LE check out our article [here](/learn/communication/bluetooth).
+If you want to learn more about Bluetooth® LE check out our article [here](/learn/communication/bluetooth).
 
 ### Programming the ESP32 (Advanced)
 

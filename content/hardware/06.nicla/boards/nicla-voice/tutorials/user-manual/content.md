@@ -1378,26 +1378,26 @@ void setup() {
   while (!Serial)
     ;
 
-  // Initialize the BLE module
+  // Initialize the Bluetooth LE module
   if (!BLE.begin()) {
     Serial.println("starting BLE failed!");
     while (1)
       ;
   }
 
-  // Set the local name and advertised service for the BLE module
+  // Set the local name and advertised service for the Bluetooth LE module
   BLE.setLocalName("VoltageMonitor");
   BLE.setAdvertisedService(voltageService);
   voltageService.addCharacteristic(voltageLevelChar);
   BLE.addService(voltageService);
 
-  // Start advertising the BLE service
+  // Start advertising the Bluetooth LE service
   BLE.advertise();
   Serial.println("- Bluetooth device active, waiting for connections...");
 }
 
 void loop() {
-  // Check for incoming BLE connections
+  // Check for incoming Bluetooth LE connections
   BLEDevice central = BLE.central();
 
   // If a central device is connected
@@ -1410,7 +1410,7 @@ void loop() {
 
     // While the central device is connected
     while (central.connected()) {
-      // Read the voltage level and update the BLE characteristic with the level value
+      // Read the voltage level and update the Bluetooth LE characteristic with the level value
       int voltageLevel = readVoltageLevel();
 
       Serial.print("- Voltage level is: ");

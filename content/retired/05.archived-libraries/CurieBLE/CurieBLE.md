@@ -13,9 +13,9 @@ To use this library
 #include <CurieBLE.h>
 ```
 ## A quick introduction to Bluetooth® Low Energy
-Bluetooth® 4.0 includes both traditional Bluetooth, now labeled "Bluetooth® Classic", and the new Bluetooth® Low Energy. Bluetooth® Low Energy is optimized for low power use at low data rates, and was designed to operate from simple lithium coin cell batteries.
+Bluetooth® 4.0 includes both traditional Bluetooth®, now labeled "Bluetooth® Classic", and the new Bluetooth® Low Energy. Bluetooth® Low Energy is optimized for low power use at low data rates, and was designed to operate from simple lithium coin cell batteries.
 
-Unlike standard Bluetooth® communication basically based on an asynchronous serial connection (UART) a Bluetooth® Low Energy radio acts like a community bulletin board. The computers that connect to it are like community members that read the bulletin board. Each radio acts as either the bulletin board or the reader. If your radio is a bulletin board (called a peripheral device in Bluetooth® Low Energy parlance) it posts data for all radios in the community to read. If your radio is a reader (called a central device in Blueooth LE terms) it reads from any of the bulletin boards (peripheral devices) that have information about which it cares. You can also think of peripheral devices as the servers in a client-server transaction, because they contain the information that reader radios ask for. Similarly, central devices are the clients of the Bluetooth® Low Energy world because they read information available from the peripherals.
+Unlike standard Bluetooth® communication basically based on an asynchronous serial connection (UART) a Bluetooth® Low Energy radio acts like a community bulletin board. The computers that connect to it are like community members that read the bulletin board. Each radio acts as either the bulletin board or the reader. If your radio is a bulletin board (called a peripheral device in Bluetooth® Low Energy parlance) it posts data for all radios in the community to read. If your radio is a reader (called a central device in Bluetooth® LE terms) it reads from any of the bulletin boards (peripheral devices) that have information about which it cares. You can also think of peripheral devices as the servers in a client-server transaction, because they contain the information that reader radios ask for. Similarly, central devices are the clients of the Bluetooth® Low Energy world because they read information available from the peripherals.
 ![](assets/ble-bulletin-board-model.png)
 
 Think of a Bluetooth® Low Energy peripheral device as a bulletin board and central devices as viewers of the board. Central devices view the services, get the data, then move on. Each transaction is quick (a few milliseconds), so multiple central devices can get data from one peripheral.
@@ -70,7 +70,7 @@ There are 4 things a central device can do with a characteristic:
 ---
 
 ### `Advertising and GAP`
-BLE devices let other devices know that they exist by advertising using the **General Advertising Profile (GAP)**. Advertising packets can contain a device name, some other information, and also a list of the services it provides.
+Bluetooth® LE devices let other devices know that they exist by advertising using the **General Advertising Profile (GAP)**. Advertising packets can contain a device name, some other information, and also a list of the services it provides.
 
 Advertising packets have a limited size. You will only be able to fit a single 128-bit service UUID in the packet. Make sure the device name is not too long, or you won't even be able to fit that.
 
@@ -120,10 +120,10 @@ none
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -145,14 +145,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -223,10 +223,10 @@ true in case of correct initialization; false otherwise.
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -248,14 +248,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -326,10 +326,10 @@ Nothing
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -351,14 +351,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -429,10 +429,10 @@ true in case of correct initialization; false otherwise.
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -454,14 +454,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -532,10 +532,10 @@ advertisedServiceUuid: TBD
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -557,14 +557,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -635,10 +635,10 @@ localName: the name to be set
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -660,14 +660,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -738,10 +738,10 @@ deviceName: the name to be set
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -763,14 +763,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -841,10 +841,10 @@ appearance: TBD
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -866,14 +866,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -1056,10 +1056,10 @@ attributeName: the name of the characteristic or the service to be added as an a
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -1081,14 +1081,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -1159,10 +1159,10 @@ true if success; false otherwise
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -1184,14 +1184,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -1262,10 +1262,10 @@ true in case of connection; false otherwise
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -1287,14 +1287,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -1365,10 +1365,10 @@ true in case of connection; false otherwise
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -1390,14 +1390,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -1479,10 +1479,10 @@ value: string value
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -1504,14 +1504,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -1566,7 +1566,7 @@ void loop() {
 
 ### `BLECentral constructor`
 #### Description
-The BLE central is typically the device that asks the BLE peripheral its data
+The Bluetooth® LE central is typically the device that asks the Bluetooth® LE peripheral its data
 
 #### Syntax
 ```
@@ -1612,7 +1612,7 @@ void setup() {
   // configure the button pin as input
   pinMode(buttonPin, INPUT);
 
-  // initialize the BLE hardware
+  // initialize the Bluetooth LE hardware
   BLE.begin();
 
   Serial.println("BLE Central - LED control");
@@ -1748,10 +1748,10 @@ true in case of connection; false otherwise
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -1773,14 +1773,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -1851,10 +1851,10 @@ The central's address
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -1876,14 +1876,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -1954,10 +1954,10 @@ true if success; false otherwise
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -1979,14 +1979,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -2057,10 +2057,10 @@ None
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -2082,14 +2082,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -2165,7 +2165,7 @@ BLELongCharacteristic yourCharacteristicName(UUID, properties)
 BLEUnsignedLongCharacteristic yourCharacteristicName(UUID, properties)
 BLEFloatCharacteristic yourCharacteristicName(UUID, properties)
 BLEDoubleCharacteristic yourCharacteristicName(UUID, properties)
-Note: BLE characteristics are typed.
+Note: Bluetooth LE characteristics are typed.
 ```
 #### Parameters
 - UUID: standard 16-bit characteristic UUID
@@ -2179,10 +2179,10 @@ Note: BLE characteristics are typed.
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -2204,14 +2204,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:
@@ -2283,10 +2283,10 @@ uuid: the 16 bit or 128 bit UUID defined by Bluetooth® Low Energy standard
 
 #include <CurieBLE.h>
 
-BLEPeripheral blePeripheral;  // BLE Peripheral Device (the board you're programming)
-BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // BLE LED Service
+BLEPeripheral blePeripheral;  // Bluetooth LE Peripheral Device (the board you're programming)
+BLEService ledService("19B10000-E8F2-537E-4F6C-D104768A1214"); // Bluetooth LE LED Service
 
-// BLE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
+// Bluetooth LE LED Switch Characteristic - custom 128-bit UUID, read and writable by central
 BLEUnsignedCharCharacteristic switchCharacteristic("19B10001-E8F2-537E-4F6C-D104768A1214", BLERead | BLEWrite);
 
 const int ledPin = 13; // pin to use for the LED
@@ -2308,14 +2308,14 @@ void setup() {
   // set the initial value for the characeristic:
   switchCharacteristic.setValue(0);
 
-  // begin advertising BLE service:
+  // begin advertising Bluetooth LE service:
   blePeripheral.begin();
 
   Serial.println("BLE LED Peripheral");
 }
 
 void loop() {
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
   BLECentral central = blePeripheral.central();
 
   // if a central is connected to peripheral:

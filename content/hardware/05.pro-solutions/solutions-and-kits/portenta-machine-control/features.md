@@ -28,7 +28,7 @@ Thanks to its computing power, the **Portenta Machine Control** enables a wide r
 
 <Feature title="Connectivity" image="wifi-bluetooth">
 
-  Multiple choices are available for network connectivity, including USB, Ethernet, and WiFi/BLE in addition to industry specific protocols such as RS485.
+  Multiple choices are available for network connectivity, including USB, Ethernet, and WiFi/Bluetooth® LE in addition to industry specific protocols such as RS485.
   
 </Feature>
 

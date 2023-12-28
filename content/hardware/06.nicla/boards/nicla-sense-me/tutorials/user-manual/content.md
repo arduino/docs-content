@@ -675,7 +675,7 @@ void loop() {
 
 A very interesting way to test the Nicla Sense ME onboard sensors all at once is through the WebBLE dashboard demo.
 
-- Enable your PC Bluetooth connection and go to the [dashboard link](https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/), add this [firmware](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) to your sketchbook in the Arduino Cloud or download it to use it locally.
+- Enable your PC Bluetooth® connection and go to the [dashboard link](https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/), add this [firmware](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) to your sketchbook in the Arduino Cloud or download it to use it locally.
 
 - Upload the code to your Nicla Sense ME and now you are ready to start monitoring the variables through the WebBLE dashboard.
 
@@ -983,7 +983,7 @@ Serial1.println("Hello world!");
 
 To enable Bluetooth® Low Energy communication on the Nicla Sense ME, you can use the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/).
 
-For this BLE application example, we are going to monitor the Nicla Sense ME battery level. Here is an example of how to use the ArduinoBLE library to achieve it:
+For this Bluetooth® LE application example, we are going to monitor the Nicla Sense ME battery level. Here is an example of how to use the ArduinoBLE library to achieve it:
 
 ```arduino
 #include "Nicla_System.h"
@@ -1041,8 +1041,8 @@ void setup() {
   batteryService.addCharacteristic(batteryLevelChar);  // add the battery level characteristic
   BLE.addService(batteryService);                      // Add the battery service
   batteryLevelChar.writeValue(oldBatteryLevel);        // set initial value for this characteristic
-  BLE.setEventHandler(BLEDisconnected, blePeripheralDisconnectHandler);   // handler that fires when BLE is disconnected
-  BLE.setEventHandler(BLEConnected, blePeripheralConnectHandler);         // handler that fires when BLE is disconnected
+  BLE.setEventHandler(BLEDisconnected, blePeripheralDisconnectHandler);   // handler that fires when Bluetooth LE is disconnected
+  BLE.setEventHandler(BLEConnected, blePeripheralConnectHandler);         // handler that fires when Bluetooth LE is disconnected
 
   /* Start advertising Bluetooth® Low Energy.  It will start continuously transmitting Bluetooth® Low Energy
      advertising packets and will be visible to remote Bluetooth® Low Energy central devices
@@ -1097,7 +1097,7 @@ void updateBatteryLevel() {
 
 ```
 
-The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [BLE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting a battery percentage value read by Nicla Sense ME power management IC. 
+The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [Bluetooth® LE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting a battery percentage value read by Nicla Sense ME power management IC. 
 
 - The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristics for a battery-level application.
 
@@ -1159,7 +1159,7 @@ void setup()
   BHY2.debug(Serial);
 #endif
 
-  BHY2.begin();   // this initialization enables the ESLOV and BLE communication
+  BHY2.begin();   // this initialization enables the ESLOV and Bluetooth LE communication
 }
 
 void loop()

@@ -62,7 +62,7 @@ As all Nano form factor boards, Nano 33 BLE does not have a battery charger but 
 **NOTE:** Arduino Nano 33 BLE only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
 
 ### Application Examples
-**Sound spectrum:** Create a sound spectrum to visualize sound frequencies. Connect an Arduino 33 Nano BLE and a microphone or amplifier.
+**Sound spectrum:** Create a sound spectrum to visualize sound frequencies. Connect an Arduino Nano 33 BLE and a microphone or amplifier.
 
 **Social distancing sensor:** Keeping the social distance has become more important than ever to ensure your own, as well as others health. By connecting an Arduino Nano 33 BLE with a sensor and a LED display, you can create a wearable band that alerts you when you get too close to other people.
 

@@ -77,11 +77,11 @@ Every 200ms the connection is tested and if still active, updateBatteryLevel is 
 
 /*  */
 
-BLEPeripheral blePeripheral;       // BLE Peripheral Device (the board you're programming)
+BLEPeripheral blePeripheral;       // Bluetooth LE Peripheral Device (the board you're programming)
 
-BLEService batteryService("180F"); // BLE Battery Service
+BLEService batteryService("180F"); // Bluetooth LE Battery Service
 
-// BLE Battery Level Characteristic"
+// Bluetooth LE Battery Level Characteristic"
 
 BLEUnsignedCharCharacteristic batteryLevelChar("2A19",  // standard 16-bit characteristic UUID
 
@@ -97,11 +97,11 @@ void setup() {
 
   pinMode(13, OUTPUT);   // initialize the LED on pin 13 to indicate when a central is connected
 
-  /* Set a local name for the BLE device
+  /* Set a local name for the Bluetooth LE device
 
      This name will appear in advertising packets
 
-     and can be used by remote devices to identify this BLE device
+     and can be used by remote devices to identify this Bluetooth LE device
 
      The name can be changed but maybe be truncated based on space left in advertisement packet */
 
@@ -109,15 +109,15 @@ void setup() {
 
   blePeripheral.setAdvertisedServiceUuid(batteryService.uuid());  // add the service UUID
 
-  blePeripheral.addAttribute(batteryService);   // Add the BLE Battery service
+  blePeripheral.addAttribute(batteryService);   // Add the Bluetooth LE Battery service
 
   blePeripheral.addAttribute(batteryLevelChar); // add the battery level characteristic
 
   batteryLevelChar.setValue(oldBatteryLevel);   // initial value for this characteristic
 
-  /* Now activate the BLE device.  It will start continuously transmitting BLE
+  /* Now activate the Bluetooth LE device.  It will start continuously transmitting Bluetooth LE
 
-     advertising packets and will be visible to remote BLE central devices
+     advertising packets and will be visible to remote Bluetooth LE central devices
 
      until it receives a new connection */
 
@@ -128,7 +128,7 @@ void setup() {
 
 void loop() {
 
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
 
   BLECentral central = blePeripheral.central();
 

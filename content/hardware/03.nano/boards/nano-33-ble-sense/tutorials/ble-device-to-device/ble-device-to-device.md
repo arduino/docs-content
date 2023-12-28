@@ -2,7 +2,7 @@
 title: 'Connecting Nano 33 BLE Devices over Bluetooth®'
 difficulty: intermediate
 compatible-products: [nano-33-ble-sense]
-description: 'Learn about the history of Bluetooth®, how Bluetooth® Low Energy works and how to connect two Nano BLE devices over Bluetooth®.'
+description: 'Learn about the history of Bluetooth®, how Bluetooth® Low Energy works and how to connect two Nano 33 BLE devices over Bluetooth®.'
 tags: 
   - Bluetooth®
   - Bluetooth® Low Energy

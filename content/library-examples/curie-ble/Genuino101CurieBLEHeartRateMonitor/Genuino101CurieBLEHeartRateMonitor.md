@@ -96,7 +96,7 @@ BLEPeripheral blePeripheral;       // Bluetooth® Low Energy Peripheral Device (
 
 BLEService heartRateService("180D"); // Bluetooth® Low Energy Heart Rate Service
 
-// BLE Heart Rate Measurement Characteristic"
+// Bluetooth LE Heart Rate Measurement Characteristic"
 
 BLECharacteristic heartRateChar("2A37",  // standard 16-bit characteristic UUID
 
@@ -115,11 +115,11 @@ void setup() {
 
   pinMode(13, OUTPUT);   // initialize the LED on pin 13 to indicate when a central is connected
 
-  /* Set a local name for the Bluetooth® Low Energy device
+  /* Set a local name for the Bluetooth Low Energy device
 
      This name will appear in advertising packets
 
-     and can be used by remote devices to identify this Bluetooth® Low Energy device
+     and can be used by remote devices to identify this Bluetooth Low Energy device
 
      The name can be changed but maybe be truncated based on space left in advertisement packet */
 
@@ -127,13 +127,13 @@ void setup() {
 
   blePeripheral.setAdvertisedServiceUuid(heartRateService.uuid());  // add the service UUID
 
-  blePeripheral.addAttribute(heartRateService);   // Add the BLE Heart Rate service
+  blePeripheral.addAttribute(heartRateService);   // Add the Bluetooth LE Heart Rate service
 
   blePeripheral.addAttribute(heartRateChar); // add the Heart Rate Measurement characteristic
 
-  /* Now activate the BLE device.  It will start continuously transmitting BLE
+  /* Now activate the Bluetooth LE device.  It will start continuously transmitting Bluetooth LE
 
-     advertising packets and will be visible to remote BLE central devices
+     advertising packets and will be visible to remote Bluetooth LE central devices
 
      until it receives a new connection */
 
@@ -144,7 +144,7 @@ void setup() {
 
 void loop() {
 
-  // listen for BLE peripherals to connect:
+  // listen for Bluetooth LE peripherals to connect:
 
   BLECentral central = blePeripheral.central();
 

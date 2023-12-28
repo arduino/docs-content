@@ -1,5 +1,5 @@
 ---
-title: 'BLE Connectivity on Portenta H7'
+title: 'Bluetooth® LE Connectivity on Portenta H7'
 description: 'This tutorial explains how to use Bluetooth® Low Energy connectivity on the Portenta H7 to control the built-in LED using an external Bluetooth® application.'
 coverImage: assets/por_ard_ble_cover.svg
 difficulty: beginner
@@ -46,7 +46,7 @@ The onboard Wi-Fi/Bluetooth® module of the Portenta H7 offers low energy Blueto
 ### Configuring the Development Environment
 To communicate with the Portenta H7 via Bluetooth®, you need to upload a pre-built sketch that starts a Bluetooth® network and allows your mobile device, which will be used to control the LEDs, to connect to it. The sketch uses the [ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE) Library that enables the Bluetooth® Low Energy module and handles important functions, such as scanning, connecting and interacting with services provided by other devices. You will also be using a third party application (e.g. [nRF Connect](https://www.nordicsemi.com/Software-and-tools/Development-Tools/nRF-Connect-for-mobile)), running on your mobile device in order to connect your device to the board and help you control the built-in LED.
 
-![BLE Configuration Scheme](assets/por_ard_ble_configuration.svg) 
+![Bluetooth® LE Configuration Scheme](assets/por_ard_ble_configuration.svg) 
 
 ### 1. The Basic Setup
 

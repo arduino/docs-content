@@ -14,7 +14,7 @@ In order to understand which board is more suitable to your project, you can vis
 ## Supported Boards
 
 The following boards support MicroPython:
-- [Nano BLE](https://store.arduino.cc/products/arduino-nano-33-ble) / [Nano BLE Sense](https://store.arduino.cc/products/arduino-nano-33-ble-sense) / [Nano BLE Sense Rev2](https://store.arduino.cc/products/nano-33-ble-sense-rev2)
+- [Nano 33 BLE](https://store.arduino.cc/products/arduino-nano-33-ble) / [Nano 33 BLE Sense](https://store.arduino.cc/products/arduino-nano-33-ble-sense) / [Nano 33 BLE Sense Rev2](https://store.arduino.cc/products/nano-33-ble-sense-rev2)
 - [Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
 - [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)

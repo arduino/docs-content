@@ -721,11 +721,11 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands           | Maximum output power (EIRP) |
-|---------------------------|---------------------------- |
-| 2412-2472 MHz (2.4G WIFI) | 5.42 dBm                    |
-| 2402-2480 MHz (BLE)       | 2.41 dBm                    |
-| 2402-2480 MHz (EDR)       | -6.27 dBm                   |
+| Frequency bands                     | Maximum output power (EIRP) |
+|-------------------------------------|---------------------------- |
+| 2412-2472 MHz (2.4G WIFI)           | 5.42 dBm                    |
+| 2402-2480 MHz (Bluetooth® LE)       | 2.41 dBm                    |
+| 2402-2480 MHz (EDR)                 | -6.27 dBm                   |
 
 
 

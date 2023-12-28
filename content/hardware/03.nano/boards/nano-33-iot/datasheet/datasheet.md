@@ -106,7 +106,7 @@ As all Nano form factor boards, Nano 33 IoT and Nano 33 IoT with headers does no
 | **Ref.** | **Description**               | **Ref.** | **Description**               |
 | -------- | ----------------------------- | -------- | ----------------------------- |
 | U1       | ATSAMD21G18A Controller       | U3       | LSM6DSOXTR IMU Sensor         |
-| U2       | NINA-W102-00B WiFi/BLE Module | U4       | ATECC608A-MAHDA-T Crypto Chip |
+| U2       | NINA-W102-00B WiFi/Bluetooth® LE Module | U4       | ATECC608A-MAHDA-T Crypto Chip |
 | J1       | Micro USB Connector           | PB1      | IT-1185-160G-GTR Push button  |
 
 ![Board topology bottom](assets/boardTopologyBot.png)
@@ -348,7 +348,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Frequency bands         | Maximum output power (EIRP) |
 | :---------------------- | :-------------------------- |
 | 2402-2480MHz(EDR)       | 6.24 dBm                    |
-| 2402-2480MHz(BLE)       | 6.30 dBm                    |
+| 2402-2480MHz(Bluetooth® LE)       | 6.30 dBm                    |
 | 2412-2472MHz(2.4G WiFi) | 13.61 dBm                   |
  
 

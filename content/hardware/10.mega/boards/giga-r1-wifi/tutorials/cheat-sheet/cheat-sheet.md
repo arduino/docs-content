@@ -179,7 +179,7 @@ To use the Wi-Fi® features on this board, please refer to the [GIGA R1 WiFi Net
 
 ### Bluetooth® Low Energy
 
-To use the BLE features on this board, refer to the [ArduinoBLE library documentation](https://reference.arduino.cc/reference/en/libraries/arduinoble/).
+To use the Bluetooth® LE features on this board, refer to the [ArduinoBLE library documentation](https://reference.arduino.cc/reference/en/libraries/arduinoble/).
 
 ## Ethernet
 

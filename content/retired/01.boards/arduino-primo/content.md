@@ -100,7 +100,7 @@ A [SoftwareSerial library](https://www.arduino.cc/en/Reference/SoftwareSerial) a
   
 The [nRF52832](/resources/datasheets/nRF52832_PS_v1.1.pdf) also supports I2C (TWI) and SPI communication. The Arduino software includes a [Wire library](https://www.arduino.cc/en/Reference/Wire) to simplify use of the I2C bus and the [SPI library](https://www.arduino.cc/en/Reference/SPI) for the SPI communication.  
   
-The board allows wireless communication with other devices via Bluetooth, NFC, WiFi and IR, using specific libraries for each protocol.  
+The board allows wireless communication with other devices via Bluetooth®, NFC, WiFi and IR, using specific libraries for each protocol.  
   
 The Bluetooth® Low Energy interface allows Primo to communicate with other Bluetooth® Low Energy devices. It can also be used by PCs, tablets, and smartphones. The library used is Bluetooth® Low Energy that allows peripheral and central capabilities.  
   

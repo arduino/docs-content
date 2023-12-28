@@ -77,7 +77,7 @@ If you want to learn more about the technologies of the kit, we propose the foll
 
 |                                                                     Experience                                                                     | H7  | Vision Shield | Nicla Vision |
 | :------------------------------------------------------------------------------------------------------------------------------------------------: | :-: | :-----------: | :----------: |
-|                         [BLE Connectivity on Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity)                          | Yes |               |              |
+|                         [Bluetooth® LE Connectivity on Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity)                          | Yes |               |              |
 |                        [Creating GUIs with LVGL (V7)](https://docs.arduino.cc/tutorials/portenta-h7/creating-gui-with-lvgl)                        | Yes |               |              |
 |                             [Dual Core Processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing)                             | Yes |               |              |
 |            [Creating a Flash-Optimized Key-Value Store](https://docs.arduino.cc/tutorials/portenta-h7/flash-optimized-key-value-store)             | Yes |               |              |

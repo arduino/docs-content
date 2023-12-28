@@ -65,7 +65,7 @@ The second version of the Arduino USB corrected the USB connector pinout and upd
 
 The Arduino USB was the first board labelled "Arduino". These were mainly sold unassembled as kits. The first version had an incorrect pinout for the USB connector and had the URL "[www.potemkin.org](www.potemkin.org)".
 
-## Arduino Bluetooth
+## Arduino Bluetooth®
 
 ### ARDUINO BT
 

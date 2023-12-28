@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Arduino® Nicla Vision is a powerful microcontroller equipped with 2MP color camera in a tiny form factor. With WiFi and BLE connectivity, the board maximizes compatibility with professional and consumer equipment. The board features an integrated microphone, distance sensor, smart 6-axis motion sensor and MicroPython support. The Nicla Vision can also be battery powered making it standalone.
+The Arduino® Nicla Vision is a powerful microcontroller equipped with 2MP color camera in a tiny form factor. With WiFi and Bluetooth® LE connectivity, the board maximizes compatibility with professional and consumer equipment. The board features an integrated microphone, distance sensor, smart 6-axis motion sensor and MicroPython support. The Nicla Vision can also be battery powered making it standalone.
 
 </FeatureDescription>
 

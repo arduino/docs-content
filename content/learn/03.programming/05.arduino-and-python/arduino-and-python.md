@@ -83,7 +83,7 @@ All of above are also compatible with the **OpenMV IDE**.
 
 If you need help getting started with MicroPython on the **Nano 33 BLE** board, you can check out the tutorials below:
 
-- [Install MicroPython on your Nano BLE](/tutorials/nano-33-ble-sense/micropython-installation#arduino-nano-33-ble).
+- [Install MicroPython on your Nano 33 BLE](/tutorials/nano-33-ble-sense/micropython-installation#arduino-nano-33-ble).
 - [Getting started with OpenMV and Nano 33 BLE](/tutorials/nano-33-ble/getting-started-omv)
 - [Nano 33 BLE Python® API guide](/tutorials/nano-33-ble/ble-python-api) (a collection of useful scripts).
 
@@ -95,7 +95,7 @@ If you need help getting started with MicroPython on the **Nano 33 BLE** board, 
 
 If you need help getting started with MicroPython on the **Nano 33 BLE Sense** board, you can check out the tutorials below:
 
-- [Install MicroPython on your Nano BLE Sense](/tutorials/nano-33-ble-sense/micropython-installation#arduino-nano-33-ble).
+- [Install MicroPython on your Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/micropython-installation#arduino-nano-33-ble).
 - [Getting started with OpenMV and Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/getting-started-omv)
 - [Nano 33 BLE Sense Python® guide](/tutorials/nano-33-ble-sense/ble-sense-python-api) (a collection of useful scripts).
 
@@ -161,8 +161,8 @@ Visit the [MicroPython documentation](https://docs.micropython.org/en/latest/) f
 Below you will find some useful examples that can be used by any Arduino board. For more specific features, such as on-board sensors, connectivity and communication, please refer to the individual guides:
 
 - [Nano RP2040 Connect Python® API guide](/tutorials/nano-rp2040-connect/rp2040-python-api)
-- [Nano BLE API guide](/tutorials/nano-33-ble/ble-python-api)
-- [Nano BLE Sense API guide](/tutorials/nano-33-ble-sense/ble-sense-python-api)
+- [Nano 33 BLE API guide](/tutorials/nano-33-ble/ble-python-api)
+- [Nano 33 BLE Sense API guide](/tutorials/nano-33-ble-sense/ble-sense-python-api)
 
 ### Print
 
@@ -287,7 +287,7 @@ import machine
 import time
 
 # Make sure to follow the GPIO map for the board you are using.
-# Pin 29 in this case is the "A3" pin on the Nano BLE / BLE Sense
+# Pin 29 in this case is the "A3" pin on the Nano 33 BLE / BLE Sense
 adc_pin = machine.Pin(29)
 adc = machine.ADC(adc_pin)
 

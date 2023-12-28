@@ -135,11 +135,11 @@ All I/O pins operate at V<sub>DDIO_EXT</sub> apart from the following:
 **<sup>2</sup>** : If the internal V<sub>DDIO_EXT</sub> is disabled by software, it is possible to supply it externally.
 
 ## Power Consumption
-| Description                                                   | Min | Typ  | Max | Unit |
-| ------------------------------------------------------------- | --- | ---- | --- | ---- |
-| Standby                                                       | -   | 0.46 | -   | mA   |
-| Alexa demo ON with BLE off                                    | -   | 0.80 | -   | mA   |
-| Alexa demo ON with BLE advertising and sensor polling at 1 Hz | -   | 2.4  | -   | mA   |
+| Description                                                             | Min | Typ  | Max | Unit |
+| ----------------------------------------------------------------------- | --- | ---- | --- | ---- |
+| Standby                                                                 | -   | 0.46 | -   | mA   |
+| Alexa demo ON with Bluetooth® LE off                                    | -   | 0.80 | -   | mA   |
+| Alexa demo ON with Bluetooth® LE advertising and sensor polling at 1 Hz | -   | 2.4  | -   | mA   |
 
 The measurements have been performed with VBAT = 3.7 V. Alexa demo corresponds to the factory firmware flashed by default on the Nicla Voice.
 

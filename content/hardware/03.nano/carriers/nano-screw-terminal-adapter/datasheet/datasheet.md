@@ -32,15 +32,15 @@ Maker, Nano projects, Prototyping,
 As it turned out that Arduino users have a need of a quick and easy way to securely build projects as well as adding small circuits for extra control, the Nano Screw Terminal Adapter was developed to assist in building such robust projects, without the need of soldering.
 
 ### Compatible boards ###
-| Product name                                     | SKU               | Min voltage | Max voltage | 
-| ------------------------------------------------ | ----------------- | ----------- | ----------- |
-| Arduino® Nano 33 IoT                             | ABX00027/ABX00032 | 5 V         | 18 V      |
-| Arduino® Nano 33 BLE Sense                       | ABX00031/ABX00035 | 5 V         | 18 V      |
-| Arduino® Nano BLE                                | ABX00030/ABX00028 | 5 V         | 18 V      |
-| Arduino® Nano Every                              | ABX00033/ABX00028 | 5 V         | 18 V      |
-| Arduino® Nano RP2040 connect                     | ABX00052/ABX00053 | 5 V         | 18 V      |
-| Arduino® Nano Every                              | ABX00033/ABX00028 | 7 V         | 18 V      |
-| Arduino® Nano                                    | A000005           | 7 V         | 12 V      |
+| Product name                                        | SKU               | Min voltage | Max voltage | 
+| --------------------------------------------------- | ----------------- | ----------- | ----------- |
+| Arduino® Nano 33 IoT                                | ABX00027/ABX00032 | 5 V         | 18 V      |
+| Arduino® Nano 33 BLE Sense                          | ABX00031/ABX00035 | 5 V         | 18 V      |
+| Arduino® Nano 33 BLE                                | ABX00030/ABX00028 | 5 V         | 18 V      |
+| Arduino® Nano Every                                 | ABX00033/ABX00028 | 5 V         | 18 V      |
+| Arduino® Nano RP2040 connect                        | ABX00052/ABX00053 | 5 V         | 18 V      |
+| Arduino® Nano Every                                 | ABX00033/ABX00028 | 7 V         | 18 V      |
+| Arduino® Nano                                       | A000005           | 7 V         | 12 V      |
 **Note!** Please turn to each board's datasheet for further information about power and their capacity. 
 
 ### Application Examples
