@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with the AKX00061/AKX00062: Pro Smart Agriculture and Irrigation Kit'
-description: "Learn how to start using your Pro Smart Agriculture and Irrigation Kit"
+description: "Learn how to start using your Pro Smart Agriculture and Irrigation Kit."
 difficulty: advanced
 tags:
   - PRO
@@ -16,7 +16,7 @@ hardware:
   - hardware/05.pro-solutions/solutions-and-kits/edge-control
 ---
 
-The Pro Smart Agriculture and Irrigation Kit is the perfect way to learn and create solutions focused on Smart Farming developments, low-energy wireless technologies, and remote monitoring with the Cloud.
+The Pro Smart Agriculture and Irrigation Kit is the perfect way to learn and create solutions focused on Smart Farming developments, low-energy wireless technologies, and remote monitoring with the Arduino Cloud.
 
 - Connect sensors and drive actuators to automate your irrigation processes.
 - Easily implement precision farming, monitoring real-time weather conditions, soil quality, crop’s growth, among other parameters and use Arduino Cloud to generate valuable analytics to support business processes at various levels, including plant growth, equipment efficiency, staff performance, and much more.
@@ -56,11 +56,11 @@ Additionally, you may need the following accessories:
 
 ## Getting Started with Your Kit
 
-1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in, or Create an Arduino account. Rescue your Arduino IoT Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business!)
+1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in, or Create an Arduino account. Rescue your Arduino IoT Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business).
 
-2. Download [Arduino IDE](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide) and follow the [Installation Procedure](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) and [Get Started with it](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2)
+2. Download [Arduino IDE](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide) and follow the [Installation Procedure](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) and [Get Started with it](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2).
 
-3. Check the [Edge Control docs](https://docs.arduino.cc/hardware/edge-control) and [Enclosure kit](https://docs.arduino.cc/hardware/enclosure-kit) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/AKX00034-rev-1-datasheet.pdf), and [get started](https://docs.arduino.cc/tutorials/edge-control/getting-started-edge-control) with the product and learn how to [assemble the enclosure](https://docs.arduino.cc/tutorials/enclosure-kit/assembly-instructions). On [docs.arduino.cc](http://docs.arduino.cc) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/AKX00034-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/AKX00044-schematics.pdf)
+3. Check the [Edge Control docs](https://docs.arduino.cc/hardware/edge-control) and [Enclosure kit](https://docs.arduino.cc/hardware/enclosure-kit) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/AKX00034-rev-1-datasheet.pdf), and [get started](https://docs.arduino.cc/tutorials/edge-control/getting-started-edge-control) with the product and learn how to [assemble the enclosure](https://docs.arduino.cc/tutorials/enclosure-kit/assembly-instructions). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/AKX00034-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/AKX00044-schematics.pdf) are also available.
 
 4. Check the [MKR WAN 1310 docs](https://docs.arduino.cc/hardware/mkr-wan-1310) and [MKR WiFi 1010](https://docs.arduino.cc/hardware/mkr-wifi-1010) for more info on the boards used with Edge Control.
 

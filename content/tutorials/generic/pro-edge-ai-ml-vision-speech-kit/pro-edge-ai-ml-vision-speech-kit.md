@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with the AKX00058: Pro Edge AI/ML: Vision and Speech Kit'
-description: "Learn how to start using your Pro Edge AI/ML: Vision and Speech Kit"
+description: "Learn how to start using your Pro Edge AI/ML: Vision and Speech Kit."
 difficulty: advanced
 tags:
   - PRO
@@ -55,18 +55,19 @@ Additionally you may need the following accessories:
 
 3. [Get started](https://docs.arduino.cc/tutorials/portenta-vision-shield/speech-recognition-engine) with your Speech Recognition Engine and redeem the voucher on the [License Activation platform](https://tool.cyberon.com.tw/ArduinoDSpotterAuth/CFMain.php).
 
-4. Check the [Portenta H7 docs](https://docs.arduino.cc/hardware/portenta-h7) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00042-ABX00045-ABX00046-datasheet.pdf) and [Set it up](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta). On [docs.arduino.cc](http://docs.arduino.cc) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00042-full-pinout.pdf) and the [Schematics](https://docs.arduino.cc/resources/schematics/ABX00042-schematics.pdf).
+4. Check the [Portenta H7 docs](https://docs.arduino.cc/hardware/portenta-h7) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00042-ABX00045-ABX00046-datasheet.pdf) and [Set it up](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00042-full-pinout.pdf) and the [Schematics](https://docs.arduino.cc/resources/schematics/ABX00042-schematics.pdf) are also available.
 
 5. Check this video to see how to assemble your Nicla boards into their enclosures. This will facilitate the deployment of your solutions and improve their robustness and security.
-  <div style="text-align: center;">
-    <video width="75%" controls="true">
-    <source src="assets/vision-enclosure.mp4" type="video/mp4"/>
-    </video>
-  </div>
 
-6. Check the [Portenta Vision Shield docs](https://docs.arduino.cc/hardware/portenta-vision-shield) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ASX00021-ASX00026-datasheet.pdf), [Set it up](https://docs.arduino.cc/tutorials/portenta-vision-shield/getting-started-camera) and check how to [use it with Arduino IDE](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-ide). On [docs.arduino.cc](http://docs.arduino.cc) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ASX00021-ASX00026-full-pinout.pdf) and the [Schematics](https://docs.arduino.cc/resources/schematics/ASX00026-schematics.pdf).
+    <div style="text-align: center;">
+      <video width="75%" controls="true">
+      <source src="assets/vision-enclosure.mp4" type="video/mp4"/>
+      </video>
+    </div>
 
-7. Check the [Nicla Vision docs](https://docs.arduino.cc/hardware/nicla-vision) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00051-datasheet.pdf). On [docs.arduino.cc](http://docs.arduino.cc) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00051-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00051-schematics.pdf).
+6. Check the [Portenta Vision Shield docs](https://docs.arduino.cc/hardware/portenta-vision-shield) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ASX00021-ASX00026-datasheet.pdf), [Set it up](https://docs.arduino.cc/tutorials/portenta-vision-shield/getting-started-camera) and check how to [use it with Arduino IDE](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-ide). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ASX00021-ASX00026-full-pinout.pdf) and the [Schematics](https://docs.arduino.cc/resources/schematics/ASX00026-schematics.pdf) are also available.
+
+7. Check the [Nicla Vision docs](https://docs.arduino.cc/hardware/nicla-vision) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00051-datasheet.pdf). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00051-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00051-schematics.pdf) are also available.
 
 8. Start practicing the first examples included in the User Manual, the IDE examples and the experiences proposed in the following section.
 
@@ -75,7 +76,7 @@ Additionally you may need the following accessories:
 
 If you want to learn more about the technologies of the kit, we propose the following experiences:
 
-|                                                                     Experience                                                                     | H7  | Vision Shield | Nicla Vision |
+|                                                                     Experience                                                                     | Portenta H7  | Portenta Vision Shield | Nicla Vision |
 | :------------------------------------------------------------------------------------------------------------------------------------------------: | :-: | :-----------: | :----------: |
 |                         [BLE Connectivity on Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity)                          | Yes |               |              |
 |                        [Creating GUIs with LVGL (V7)](https://docs.arduino.cc/tutorials/portenta-h7/creating-gui-with-lvgl)                        | Yes |               |              |
