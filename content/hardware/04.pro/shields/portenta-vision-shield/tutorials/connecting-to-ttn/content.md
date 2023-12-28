@@ -1,5 +1,5 @@
 ---
-title: Connecting the Portenta Vision Shield - LoRa® to TTN Using LoRa®
+title: Connecting the Portenta Vision Shield to TTN Using LoRa®
 coverImage: assets/vs_ard_things_nw.svg
 difficulty: intermediate
 tags: [Things Network, LoRa, Vision Shield]
