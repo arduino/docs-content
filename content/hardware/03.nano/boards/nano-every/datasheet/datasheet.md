@@ -6,7 +6,7 @@ type: maker
 ![](assets/featured.jpg)
 
 # Description 
-Nano Every is a miniature sized module containing an ATMega4809 AVR processor and an ATSAMD11D14A ARM Cortex M0+ processor to act as a bridge between USB and the main AVR processor. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
+Nano Every is a miniature sized module containing an ATMega4809 AVR processor and an ATSAMD11D14A Arm® Cortex®-M0+ processor to act as a bridge between USB and the main AVR processor. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
 
 # Target Areas: 
 Maker, robotics
@@ -35,7 +35,7 @@ Maker, robotics
 
 - **ATSAMD11D14A**
     - **Processor**
-        - ARM Cortex M0+ at up to 48 MHz
+        - Arm® Cortex®-M0+ at up to 48 MHz
         - 16KB Flash
         - 4KB SRAM
         - Power On Reset (POR) and Brown Out Detection (BOD)
