@@ -108,7 +108,7 @@ To see the full API for the Wire library, visit its [documentation page](https:/
 - `read()` - Reads a byte that was transmitted from a peripheral to a controller.
 - `setClock()` - Modify the clock frequency
 - `onReceive()` - Register a function to be called when a peripheral receives a transmission
-- `onRequest()` - Register a function to be called hwen a controller requests data
+- `onRequest()` - Register a function to be called when a controller requests data
 - `setWireTimeout()` - Sets the timeout for transmissions in controller mode
 - `clearWireTimeoutFlag()` - Clears the timeout flag
 - `getWireTimeoutFlag()` - Checks whether a timeout has occurred since the last time the flag was cleared.
