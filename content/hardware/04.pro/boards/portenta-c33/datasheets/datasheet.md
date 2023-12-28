@@ -306,11 +306,11 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 - Arduino® Portenta Hat Carrier (SKU: ASX00049)
 - Arduino® Portenta CAT.M1/NB IoT GNSS Shield (SKU: ABX00043)
 - Arduino® Portenta Vision Shield - Ethernet (SKU: ABX00021)
-- Arduino® Portenta Vision Shield - LoRa® (SKU: ABX00026)
+- Arduino® Portenta Vision Shield - LoRa (SKU: ABX00026)
 - Arduino® Portenta Breakout (SKU: ABX00031)
 - Arduino® boards with an onboard ESLOV connector
 
-**Note**: The Portenta Vision Shields (Ethernet and LoRa® variants) are compatible with the Portenta C33 except for the camera, which is not supported by the Portenta C33 microcontroller. 
+**Note**: The Portenta Vision Shields (Ethernet and LoRa variants) are compatible with the Portenta C33 except for the camera, which is not supported by the Portenta C33 microcontroller. 
 
 ## Ratings
 
