@@ -640,7 +640,7 @@ Due to the dual core processing, the Portenta supports a wide array of applicati
 ### Accessories (Not Included)
 
 * USB 2.0 Cable Type A/B
-* Portenta Vision shield
+* Portenta Vision Shield
 * Portenta Breakout Board
 * Portenta Max Carrier
 * Portenta Hat Carrier

@@ -28,12 +28,12 @@ This tutorial shows you how to capture frames from the Arduino Portenta Vision S
 - Processing 3.5.4+
 
 ## Instructions
-Accessing the Vision Shield's camera data is done with the help of both Arduino and the Processing IDE. The Arduino sketch handles the capture of image data by the on-board camera, while the java applet created with Processing helps to visualize this data with the help of a serial connection. The following steps will run you through how to capture, package the data through the serial port and visualize the output in Processing. 
+Accessing the Portenta Vision Shield's camera data is done with the help of both Arduino and the Processing IDE. The Arduino sketch handles the capture of image data by the on-board camera, while the java applet created with Processing helps to visualize this data with the help of a serial connection. The following steps will run you through how to capture, package the data through the serial port and visualize the output in Processing. 
 
 ### 1. The Basic Setup
 Connect the Portenta Vision Shield to your Portenta H7 as shown in the figure. The top and bottom high density connecters are connected to the corresponding ones on the underside of the H7 board. Plug in the H7 to your computer using the USB-C® cable.
 
-![Connecting the Vision Shield to Portenta](assets/vs_ard_gs_attach_boards.svg)
+![Connecting the Portenta Vision Shield to Portenta](assets/vs_ard_gs_attach_boards.svg)
 
 Open the board manager in the Arduino IDE and install the latest version of the Portenta Core which is [v1.3.2](https://github.com/arduino/ArduinoCore-mbed/releases/tag/1.3.2)
 
@@ -102,7 +102,7 @@ Open a new processing sketch file and name it `CameraCapture.pde`.
 
 ![Create a processing sketch](assets/vs_ard_open_pde_sketch.png)
 
-Let's start by importing the libraries and initializing the variables you will need to process. To process the data sent by the Vision Shield, you will need to import the following libraries:
+Let's start by importing the libraries and initializing the variables you will need to process. To process the data sent by the Portenta Vision Shield, you will need to import the following libraries:
 
 - `processing.serial.*`: a [Serial Library](https://processing.org/reference/libraries/serial/index.html)  that is used to read and write data to external devices over the serial line. 
 - `java.nio.ByteBuffer`: a java class that provides access to operations on byte buffers

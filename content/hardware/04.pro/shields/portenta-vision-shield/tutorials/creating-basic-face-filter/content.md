@@ -172,7 +172,7 @@ while (True):
     print(clock.fps())
 ```
 
-Click on the "Play" button at the bottom of the left toolbar. Point the camera on the Vision Shield towards your face and check if the Portenta can detect it. Once it detects your face, it should be covered with a smiley. 
+Click on the "Play" button at the bottom of the left toolbar. Point the camera on the Portenta Vision Shield towards your face and check if the Portenta can detect it. Once it detects your face, it should be covered with a smiley. 
 
 ![Copy the bitmap image to Flash drive](assets/por_openmv_fd_output.png)
 
