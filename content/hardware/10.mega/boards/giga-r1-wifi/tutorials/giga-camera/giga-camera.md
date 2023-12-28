@@ -1,7 +1,7 @@
 ---
 title: GIGA R1 Camera Guide
 description: Learn about the GIGA R1 WiFi's camera connector, and how to use existing examples.
-tags: [ArduCAM, Camera, Processing]
+tags: [Arducam, Camera, Processing]
 author: Karl Söderby
 hardware:
   - hardware/10.mega/boards/giga-r1-wifi
@@ -41,13 +41,13 @@ The GIGA R1 currently supports the following cameras, via the [Camera](https://g
 
 ![Camera Connector on GIGA R1](assets/camera-connector-pins.png)
 
-The 20 pin camera connector onboard the GIGA R1 is designed to be directly compatible with some breakout boards from ArduCam. 
+The 20 pin camera connector onboard the GIGA R1 is designed to be directly compatible with some breakout boards from Arducam®. 
 
 This allows you to simply connect the camera module directly to the board, without making any additional circuit.
 
 ![Camera Module Connected](assets/camera-connector-photo.png)
 
-Some of the 20 pin connector breakout boards from ArduCam can be found [here](https://www.arducam.com/product-category/stm32-camera-modules-dcmi-and-spi/).
+Some of the 20 pin connector breakout boards from Arducam can be found [here](https://www.arducam.com/product-category/stm32-camera-modules-dcmi-and-spi/).
 
 The complete pin map can be found below:
 

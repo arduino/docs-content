@@ -91,7 +91,7 @@ The inference examples for TensorFlow Lite for Microcontrollers are now packaged
 
 - micro_speech – speech recognition using the onboard microphone
 - magic_wand – gesture recognition using the onboard IMU
-- person_detection – person detection using an external ArduCam camera
+- person_detection – person detection using an external Arducam® camera
 
 For more background on the examples you can take a look at the source in the [TensorFlow repository](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro). The models in these examples were previously trained. The tutorials below show you how to deploy and run them on an Arduino. In the next section, we’ll discuss training.
 
