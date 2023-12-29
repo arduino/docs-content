@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with the AKX00059: Pro Smart Industry Predictive Maintenance Kit'
-description: "Learn how to start using your Pro Smart Industry Predictive Maintenance Kit"
+description: "Learn how to start using your Pro Smart Industry Predictive Maintenance Kit."
 difficulty: advanced
 tags:
   - PRO
@@ -54,11 +54,11 @@ Additionally, you may need the following accessories:
 
 1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino IoT Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business) with Arduino Cloud For Business!
 
-2. Download [Arduino IDE](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide) and follow the [Installation Procedure](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) and [Get Started with it](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2)
+2. Download [Arduino IDE](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide) and follow the [Installation Procedure](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) and [Get Started with it](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2).
 
-3. Check the [Nicla Voice docs](https://docs.arduino.cc/hardware/nicla-voice) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00061-datasheet.pdf) and [User Manual](https://docs.arduino.cc/tutorials/nicla-voice/user-manual). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00061-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00061-schematics.pdf)
+3. Check the [Nicla Voice docs](https://docs.arduino.cc/hardware/nicla-voice) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00061-datasheet.pdf) and [User Manual](https://docs.arduino.cc/tutorials/nicla-voice/user-manual). On [docs.arduino.cc](http://docs.arduino.cc/) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00061-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00061-schematics.pdf) are also available.
 
-4. Check the [Nicla Sense ME docs](https://docs.arduino.cc/hardware/nicla-sense-me) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00050-datasheet.pdf), consult the [Cheat Sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet) and [Set it up](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00050-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00050-schematics.pdf)
+4. Check the [Nicla Sense ME docs](https://docs.arduino.cc/hardware/nicla-sense-me) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00050-datasheet.pdf), consult the [Cheat Sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet) and [Set it up](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla). On [docs.arduino.cc](http://docs.arduino.cc/) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00050-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00050-schematics.pdf) are also available.
 
 5. Check this video to see how to assemble your Nicla boards into their enclosures. This will facilitate the deployment of your solutions and improve their robustness and security.
   <div style="text-align: center;">
@@ -67,9 +67,9 @@ Additionally, you may need the following accessories:
     </video>
   </div>
 
-6. Check the [Portenta C33 docs](https://docs.arduino.cc/hardware/portenta-c33) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00074-datasheet.pdf) and [User Manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00074-schematics.pdf)
+6. Check the [Portenta C33 docs](https://docs.arduino.cc/hardware/portenta-c33) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00074-datasheet.pdf) and [User Manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual). On [docs.arduino.cc](http://docs.arduino.cc/) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00074-schematics.pdf) are also available.
 
-7. Check the [Portenta Breakout docs](https://docs.arduino.cc/hardware/portenta-breakout) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ASX00031-datasheet.pdf) and the [Getting Started guide](https://docs.arduino.cc/tutorials/portenta-breakout/getting-started). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ASX00031-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ASX00031-schematics.pdf)
+7. Check the [Portenta Breakout docs](https://docs.arduino.cc/hardware/portenta-breakout) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ASX00031-datasheet.pdf) and the [Getting Started guide](https://docs.arduino.cc/tutorials/portenta-breakout/getting-started). On [docs.arduino.cc](http://docs.arduino.cc/) the [Pinout](https://docs.arduino.cc/resources/pinouts/ASX00031-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ASX00031-schematics.pdf) are also available.
 
 8. Start practicing the first examples included in the user manual, the IDE examples and the experiences proposed below.
 
