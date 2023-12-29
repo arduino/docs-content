@@ -1,9 +1,9 @@
 ---
-title: Connecting the Vision Shield - LoRa® to TTN Using LoRa®
+title: Connecting the Portenta Vision Shield to TTN Using LoRa®
 coverImage: assets/vs_ard_things_nw.svg
 difficulty: intermediate
 tags: [Things Network, LoRa, Vision Shield]
-description: This tutorial explains how to connect your Portenta H7 to The Things Network (TTN) using the the Vision Shield's LoRa® Connectivity feature.
+description: This tutorial explains how to connect your Portenta H7 to The Things Network (TTN) using the the Portenta Vision Shield's LoRa® Connectivity feature.
 author: Lenard George, Ignacio Herrera
 hardware:
   - hardware/04.pro/shields/portenta-vision-shield
@@ -12,7 +12,7 @@ hardware:
 
 ## Overview 
 
-This tutorial explains how to connect your Portenta H7 to The Things Network (TTN) using the the Vision Shield's LoRa® Connectivity feature. A data communication channel will be enabled between the H7 and a TTN application that will be configured on your TTN console.
+This tutorial explains how to connect your Portenta H7 to The Things Network (TTN) using the the Portenta Vision Shield's LoRa® Connectivity feature. A data communication channel will be enabled between the H7 and a TTN application that will be configured on your TTN console.
 
 ***In order to connect your Portenta to the TTN, make sure you are within the range (max. 10 Km) from an available LoRa® Gateway. Indoor gateways will have a much shorter range. It is recommended that you check LoRa® Gateway availability on [The Things Network map](https://www.thethingsnetwork.org/map) before you try this tutorial.***
 
@@ -25,7 +25,7 @@ This tutorial explains how to connect your Portenta H7 to The Things Network (TT
 ### Required Hardware and Software
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
-- [Portenta Vision Shield - LoRa®](https://store.arduino.cc/portenta-vision-shield-lora)
+- [Portenta Vision Shield - LoRa](https://store.arduino.cc/portenta-vision-shield-lora)
 - [1x Dipole Pentaband antenna](https://store.arduino.cc/antenna) or a UFL Antenna of the H7 
 - Arduino [offline](https://www.arduino.cc/en/main/software) IDE or Arduino [Web Editor](https://create.arduino.cc/)
 - USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
@@ -34,7 +34,7 @@ This tutorial explains how to connect your Portenta H7 to The Things Network (TT
 ### Updating the LoRa® Module Firmware
 To be able to use the LoRa® functionality, we need to first update the firmware on the LoRa® modem. This can be done through Arduino IDE by running a sketch included in the examples from the MKRWAN library.
 
-1. Connect the Portenta H7 and the Portenta Vision Shield - LoRa® to your computer and open the Arduino IDE. 
+1. Connect the Portenta H7 and the Portenta Vision Shield - LoRa to your computer and open the Arduino IDE. 
 2. Install/update the **MKRWAN** library from Arduino IDE menu  **Tools > Manage Libraries**. Type "MKRWAN" to find the library and click 'Install' or 'Update' if necessary. This library provides all the APIs to communicate with LoRa® and LoRaWAN® networks.
 3. Open the **MKRWANFWUpdate_standalone** sketch from the Arduino IDE  menu: **File > Examples > MKRWAN**.
 
@@ -49,7 +49,7 @@ To be able to use the LoRa® functionality, we need to first update the firmware
 
 ## Connecting to the TTN
 
-The Portenta Vision Shield - LoRa® can be connected to the TTN and can transmit data to other devices connected to this network through a secure channel. This channel is nothing but an application on the TTN network dedicated for your board. In this tutorial, you will be guided through a step-by-step process of setting up your Portenta board and the Vision Shield - LoRa® to communicate with a TTN application. As stated before, to be able to follow this guide, you need to be under coverage of one of the TTN gateways. You can check for [the coverage](https://www.thethingsnetwork.org/map) now if you have not done so yet.
+The Portenta Vision Shield - LoRa can be connected to the TTN and can transmit data to other devices connected to this network through a secure channel. This channel is nothing but an application on the TTN network dedicated for your board. In this tutorial, you will be guided through a step-by-step process of setting up your Portenta board and the Vision Shield - LoRa to communicate with a TTN application. As stated before, to be able to follow this guide, you need to be under coverage of one of the TTN gateways. You can check for [the coverage](https://www.thethingsnetwork.org/map) now if you have not done so yet.
 
 ### 1. Setting up the Environment
 
@@ -79,22 +79,22 @@ After completing these two fields, press the "Create application" button located
 Let's take a closer look at these sections:
 
 - **Application Overview**: in order to use this app, you will need the Application ID and a device specific AppKey. An EUI is a globally unique identifier for networks, gateways applications and devices. The EUIs are used to identify all parts of the LoRaWAN® inside the backend server.
-- **End devices**: here you can see and manage all the associated devices (e.g. your Portenta H7 with Vision Shield - LoRa®, Arduino MKR WAN 1300 or MKR WAN 1310), or proceed with the registration of a new one. Registering a new device lets you generate an AppEUI and an AppKey.
+- **End devices**: here you can see and manage all the associated devices (e.g. your Portenta H7 with Portenta Vision Shield - LoRa, Arduino MKR WAN 1300 or MKR WAN 1310), or proceed with the registration of a new one. Registering a new device lets you generate an AppEUI and an AppKey.
 - **Collaborators**: here you can see and manage all the app collaborators, to integrate with other collaborative platforms or to manage access rights to the app with other TTN registered profiles.
 - **API keys**: here you can create an API key, it is the most sensible information. It is basically the key to gain access to your app, so keep it safe.
 
-### 3. Configuring the Vision Shield
+### 3. Configuring the Portenta Vision Shield
 
-It iss now time to connect your Portenta H7 and  Vision Shield - LoRa® to TTN. You will need to upload code to the board, so, as you probably already know, there are two options:
+It iss now time to connect your Portenta H7 and  Portenta Vision Shield - LoRa to TTN. You will need to upload code to the board, so, as you probably already know, there are two options:
 
 - Use the [Arduino Web Editor](https://create.arduino.cc/editor) 
 - Use the [Arduino IDE](https://www.arduino.cc/en/software), (this is the option this guide will follow)
 
-Plug the Portenta Vision Shield - LoRa® to the Portenta H7 and them to your PC through the USB port. Be sure to have selected the right board "Arduino Portenta H7 (M7 core)" and the right port.
+Plug the Portenta Vision Shield - LoRa to the Portenta H7 and them to your PC through the USB port. Be sure to have selected the right board "Arduino Portenta H7 (M7 core)" and the right port.
 
 ![Select port M7 Core](assets/vs_ard_select_port.png)
 
-The LoRa® module on the Vision Shield - LoRa® can be accessed by using the [MKRWAN library](https://github.com/arduino-libraries/MKRWAN)(if you cannot find it in your examples list, you can go to **Tools > Library Manager** and type "MKRWAN library" to install it). This library provides all the APIS to communicate with LoRa® and LoRaWAN® networks and can be installed from the library Manager. The first code you need to upload and run is from the **MKRWAN** library, and its name is **FirstConfiguration**.
+The LoRa® module on the Portenta Vision Shield - LoRa can be accessed by using the [MKRWAN library](https://github.com/arduino-libraries/MKRWAN)(if you cannot find it in your examples list, you can go to **Tools > Library Manager** and type "MKRWAN library" to install it). This library provides all the APIS to communicate with LoRa® and LoRaWAN® networks and can be installed from the library Manager. The first code you need to upload and run is from the **MKRWAN** library, and its name is **FirstConfiguration**.
 
 ![Upload code to IDE](assets/vs_ard_select_example.png)
 
@@ -122,7 +122,7 @@ Before your Portenta H7 can start communicating with the TTN, you need to [regis
 
 ![Registering a Device](assets/vs_ard_ttn_click_register.png)
 
-On the registration page, first you have to fill in information about your board. Select brand Arduino SA, and Portenta Vision Shield - LoRa® as the model. Hardware and firmware versions will automatically be set to the newest ones. Then set your preferred region.
+On the registration page, first you have to fill in information about your board. Select brand Arduino SA, and Portenta Vision Shield - LoRa as the model. Hardware and firmware versions will automatically be set to the newest ones. Then set your preferred region.
 
 ![Entering the device EUI](assets/vs_ard_ttn_register_device_1.png)
 
@@ -162,7 +162,7 @@ Message sent correctly!
 
 ## Conclusion
 
-If you receive this message, you have managed to configure the Portenta H7 and the Vision Shield - LoRa® on TTN.
+If you receive this message, you have managed to configure the Portenta H7 and the Portenta Vision Shield - LoRa on TTN.
 
 You have retrieved the device EUI, used it to register the device in the TTN console, and programmed the board using the data provided by TTN. Now, you can send data over the LoRa® network which can be viewed from anywhere in the world (as long as we have an Internet connection and your device is in the range of a TTN gateway).
 

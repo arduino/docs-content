@@ -201,7 +201,7 @@ The Portenta Max Carrier only requires the Portenta H7 as the main unit to be ab
 
 If it is not installed or requires an update, it is possible to navigate under **Tools > Board > Board Manager** and search for the `Arduino Mbed OS Portenta Core` and proceed with the update.
 
-To take advantage of Portenta Max Carrier's Power Architecture, an important physical configuration requires to be verified. A DIP Switch for Boot mode selection is present on the Portena Max Carrier board. It requires setting **BOOT_SEL** to select between 2 boot addresses, which will enable Portenta H7 and Max Carrier to run the firmware. **BOOT** parameter will switch the Portenta H7 state into Boot mode.
+To take advantage of Portenta Max Carrier's Power Architecture, an important physical configuration requires to be verified. A DIP Switch for Boot mode selection is present on the Portenta Max Carrier board. It requires setting **BOOT_SEL** to select between 2 boot addresses, which will enable Portenta H7 and Max Carrier to run the firmware. **BOOT** parameter will switch the Portenta H7 state into Boot mode.
 
 Every time it initiates at Boot mode, the Portenta H7 will fade the Green LED to indicate its state. It will help to understand the board is in Boot mode and not turned off due to an unavailable electric supply as it shut off. As the power lines are alive even if the board shows no indication of an operating instance.
 
