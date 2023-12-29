@@ -58,11 +58,12 @@ Additionally you may need the following accessories:
 4. Check the [Portenta H7 docs](https://docs.arduino.cc/hardware/portenta-h7) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00042-ABX00045-ABX00046-datasheet.pdf) and [Set it up](https://docs.arduino.cc/tutorials/portenta-h7/setting-up-portenta). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00042-full-pinout.pdf) and the [Schematics](https://docs.arduino.cc/resources/schematics/ABX00042-schematics.pdf) are also available.
 
 5. Check this video to see how to assemble your Nicla boards into their enclosures. This will facilitate the deployment of your solutions and improve their robustness and security.
-  <div style="text-align: center;">
-    <video width="75%" controls="true">
-    <source src="assets/vision-enclosure.mp4" type="video/mp4"/>
-    </video>
-  </div>
+
+    <div style="text-align: center;">
+      <video width="75%" controls="true">
+      <source src="assets/vision-enclosure.mp4" type="video/mp4"/>
+      </video>
+    </div>
 
 6. Check the [Portenta Vision Shield docs](https://docs.arduino.cc/hardware/portenta-vision-shield) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ASX00021-ASX00026-datasheet.pdf), [Set it up](https://docs.arduino.cc/tutorials/portenta-vision-shield/getting-started-camera) and check how to [use it with Arduino IDE](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-ide). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ASX00021-ASX00026-full-pinout.pdf) and the [Schematics](https://docs.arduino.cc/resources/schematics/ASX00026-schematics.pdf) are also available.
 
@@ -82,7 +83,7 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |                             [Dual Core Processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing)                             | Yes |               |              |
 |            [Creating a Flash-Optimized Key-Value Store](https://docs.arduino.cc/tutorials/portenta-h7/flash-optimized-key-value-store)             | Yes |               |              |
 |          [Getting Started with OpenMV and MicroPython](https://docs.arduino.cc/tutorials/portenta-h7/getting-started-openmv-micropython)           | Yes |               |              |
-|       [Using the Portenta Vision Shield Ethernet with OpenMV](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-openmv)       |  +  |       +       |              |
+|       [Using the Portenta Vision Shield - Ethernet with OpenMV](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-openmv)       |  +  |       +       |              |
 |                        [Getting Started with Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/getting-started)                         |     |               |     Yes      |
 |           [Flashing MicroPython Firmware to your Arduino Board](https://docs.arduino.cc/tutorials/portenta-h7/micropython-installation)            | Yes |               |              |
 |                  [Arduino Portenta H7 MicroPython Cheat Sheet](https://docs.arduino.cc/tutorials/portenta-h7/openmv-cheat-sheet)                   | Yes |               |              |
