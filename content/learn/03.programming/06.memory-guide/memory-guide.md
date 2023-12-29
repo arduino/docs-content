@@ -446,5 +446,6 @@ Memory architectures in microcontroller-based systems is a pretty vast topic; if
 ### References
 
 [1] S. F. Barrett and D. J. Pack, Microchip AVR® Microcontroller Primer: Programming and Interfacing, Third Edition (Synthesis Lectures on Digital Circuits and Systems), Morgan & Claypool, 2019. <br />
-[2] J. Y. Yiu, The Definitive Guide to Arm® Cortex®--M0 and Cortex-M0+ Processors, Second ed., Newnes, 2015.<br />
+[2] J. Y. Yiu, The Definitive Guide to Arm® Cortex®-M0 and Cortex-M0+ Processors, Second ed., Newnes, 2015.<br />
+
 [3] J. Yiu, The Definitive Guide to ARM® Cortex®-M3 and Cortex®-M4 Processors, Third ed., Newnes, 2014.<br />
