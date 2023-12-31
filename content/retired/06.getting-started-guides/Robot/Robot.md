@@ -95,7 +95,7 @@ Once you have gone through the setup process with the robot, you can start writi
 
 ### Uploading a test sketch
 
-To program the robot, connect the **Control Board** to your computer via USB. Open the Arduino IDE, and load the sketch located in File > Examples > Robot_Control > learn > MotorTest.
+To program the robot, connect the **Control Board** to your computer via USB. Open the Arduino IDE, and load the sketch located in File > Examples > Robot Control > learn > MotorTest.
 
 You need to tell the IDE which Arduino board you are targeting with your software, so open the **Tools > Board** menu and choose **Arduino Robot Control**.
 
@@ -109,7 +109,7 @@ Click the "Upload" button in the top left of the IDE window. Wait a few seconds 
 
 With batteries in the robot, turn on the power switch and put it on the ground. The robot should show you a few basic moves. Congratulations! You've gotten the robot up and running.
 
-If the robot is not moving, turn the power switch off. Connect the **motor board** to the computer with a USB cable. Load the File > Examples > Robot_Motor > Robot_Motor_Core sketch in the IDE, and select **Arduino Robot Motor** from the **Boards** menu. Upload this sketch, disconnect from the computer and try turning it on again.
+If the robot is not moving, turn the power switch off. Connect the **motor board** to the computer with a USB cable. Load the File > Examples > Robot Motor > Robot_Motor_Core sketch in the IDE, and select **Arduino Robot Motor** from the **Boards** menu. Upload this sketch, disconnect from the computer and try turning it on again.
 
 **Note: If no Serial port shows up after you plug in the robot, and restarting the IDE/unplug-replug the robot does not help, follow the steps below:**
 

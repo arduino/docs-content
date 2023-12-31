@@ -120,7 +120,7 @@ Now that we have a self signed certificate and the SHA1 fingerprint to identify 
 
 ## Connecting the Board to Azure IoT Hub
 
-1) Open the Azure IoT Hub NB sketch in the Arduino IDE using **File -> Examples -> Arduino Cloud Provider Examples -> AzureIoTHub-> Azure_IoT_Hub_NB.**
+1) Open the Azure IoT Hub NB sketch in the Arduino IDE using **File -> Examples -> Arduino Cloud Provider Examples -> Azure IoT Hub-> Azure_IoT_Hub_NB**.
 
 2) In the arduino_secrets.h tab, fill in the pin (if required) for the SIM card.
 

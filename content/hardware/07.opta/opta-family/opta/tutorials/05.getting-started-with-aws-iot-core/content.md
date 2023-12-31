@@ -157,11 +157,11 @@ The first step to connect your Opta™ device is getting the **device data endpo
 
 The next step depends on the variant of your Opta™ device you have. 
 
-- **For Opta™ Lite (SKU: AFX00003)**: Open the AWS IoT Ethernet example sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWSIoT > AWS_IoT_Opta > **AWS_IoT_Opta_ethernet.ino**
+- **For Opta™ Lite (SKU: AFX00003)**: Open the AWS IoT Ethernet example sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWS IoT > AWS_IoT_Opta > **AWS_IoT_Opta_Ethernet**
 
-- **For Opta™ RS485 (SKU: AFX0001)**: Open the AWS IoT Ethernet example sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWSIoT > AWS_IoT_Opta > **AWS_IoT_Opta_ethernet.ino**
+- **For Opta™ RS485 (SKU: AFX0001)**: Open the AWS IoT Ethernet example sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWS IoT > AWS_IoT_Opta > **AWS_IoT_Opta_Ethernet**
 
-- **For Opta™ WiFi (SKU: AFX00002)**: If you connect using Ethernet, open the AWS IoT Ethernet example sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWSIoT > AWS_IoT_Opta >AWS_IoT_Opta_ethernet > **AWS_IoT_Opta_ethernet.ino**. If you connect using Wi-Fi®, open the AWS IoT Wi-Fi® example sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWSIoT > AWS_IoT_Opta->AWS_IoT_Opta_wifi > **AWS_IoT_Opta_wifi.ino**
+- **For Opta™ WiFi (SKU: AFX00002)**: If you connect using Ethernet, open the AWS IoT Ethernet example sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWS IoT > AWS_IoT_Opta > **AWS_IoT_Opta_Ethernet**. If you connect using Wi-Fi®, open the AWS IoT Wi-Fi® example sketch in the Arduino IDE using the File > Examples > Arduino Cloud Provider Examples > AWS IoT > AWS_IoT_Opta > **AWS_IoT_Opta_WiFi**
 
 In the `arduino_secrets.h` tab update the Wi-Fi® Setting with the SSID and password of your Wi-Fi® network. Update the `secret_broker` with the device data endpoint captured before, and update the `secret_port` with the proper port used to connect to AWS IoT. Finally, open the certificate file you downloaded with a text editor and copy/paste the value in the sketch in the `secret_certificate` area. In the image below, the `arduino_secrets.h` tab for the `AWS_IoT_Opta_wifi.ino` sketch is shown.
 

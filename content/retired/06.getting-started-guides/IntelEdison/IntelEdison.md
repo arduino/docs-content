@@ -51,7 +51,7 @@ Note: If you do not see a new drive, and the LED light (DS1 on the Arduino expan
 
 #### Open the blink example
 
-Open the LED blink example sketch: **File > Examples > 1.Basics > Blink**.
+Open the LED blink example sketch: **File > Examples > 01.Basics > Blink**.
 
 ![](./assets/UNO_Load_Blink.jpg)
 

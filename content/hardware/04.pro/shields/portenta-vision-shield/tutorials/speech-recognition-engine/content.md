@@ -97,7 +97,7 @@ In case you need more instructions about how to install libraries, read this [gu
 
 To use the Arduino Speech Recognition Engine, you will need a free trial license or paid license. In any of the cases, the serial number of the board that you are using is necessary to activate the license.
 
-To get your board's serial number, and once you have the library downloaded, navigate to **File > Examples > Cyberon_DSpotterSDK > GetSerialNumber**.
+To get your board's serial number, and once you have the library downloaded, navigate to **File > Examples > DSpotterSDK_Maker_33BLE/NiclaVision/PortentaH7/RP2040 > GetSerialNumber**.
 
 Connect your board to the computer, upload the sketch to it and, once is done, open the **Serial Monitor** to see your device's Serial Number.
 
@@ -117,7 +117,7 @@ Once everything is ready, click on the **submit** button to get your license, it
 
 ### Test the Free Demo Sketch
 
-* Open the sketch **File > Example > Cyberon_DSpotterSDK > VoiceRecognition**
+* Open the sketch **File > Examples > DSpotterSDK_Maker_33BLE/NiclaVision/PortentaH7/RP2040 > VoiceRecognition**
 * Navigate to the `CybLicense.h` tab.
 * Paste your license between the brackets, like in the following example:
   ```cpp
@@ -193,7 +193,7 @@ Once everything is checked, click **Confirm** and you will get the model header 
 
 You will now get some files in your e-mail inbox. Download them to your computer.
 
-On the IDE, open the example **File > Examples > Cyberon_DSpotterSDK > VoiceRecognition** and click **File > Save As...** and type a name for your sketch.
+On the IDE, open the example **File > Examples > DSpotterSDK_Maker_33BLE/NiclaVision/PortentaH7/RP2040 > VoiceRecognition** and click **File > Save As...** and type a name for your sketch.
 
 Once it is saved, open your File Explorer, and navigate to your sketch path.
 

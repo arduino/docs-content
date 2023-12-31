@@ -1143,7 +1143,7 @@ In this example, a Portenta C33 will be used as a gateway to forward Nicla Sense
 
 The **Nicla Sense ME** will be listening to the Host board to send back the required data. This is all automated via the libraries **Arduino_BHY2** and **Arduino_BHY2Host**.
 
-The code is available inside the examples provided with the Arduino_BHY2 Library. Open it by going to **Examples > Arduino_BHY2 > App.ino**.
+The code is available inside the examples provided with the Arduino_BHY2 Library. Open it by going to **Examples > Arduino_BHY2 > App**.
 
 ```arduino
 #include "Arduino.h"
