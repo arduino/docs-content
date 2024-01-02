@@ -106,9 +106,7 @@ For example:
   - [char()](#char)
   - [float()](#float)
   - [int()](#int)
-- [Scope](#scope)
-  - [Local Variables](#local-variables)
-  - [Global Variables](#global-variables)
+- [Local / Global Variables](#local--global-variables)
 
 ## Digital I/O
 
@@ -1388,9 +1386,38 @@ int_value = int(value)
 print("Int value:", int_value)
 ```
 
-## Scope
+## Local / Global Variables
 
-### Local Variables
+Variables can either be globally or locally declared:
 
-### Global Variables
+- Global variables can be accessed anywhere in the program.
+- Local variables can only be accessed within the function it is declared.
 
+When creating a program, you can decide whether you want certain variables accessible from anywhere, or just within the function. 
+
+The benefit of declaring a local variable is that it uses less memory space (as it is only assigned within the function).
+
+The con of declaring a local variable is that it is not accessible anywhere else in the program.
+
+```python
+global_var = 0 #initial value
+
+def my_function():
+    local_var = 10 # declare local variable
+    print()
+    print("(inside function) local_var is: ", local_var)
+
+    global_var = local_var + 25
+    print("(inside function) global_var is updated to: ", global_var)
+
+    return global_var
+
+global_var = my_function() + 25
+print("(outside function) global_var is finally: ", global_var)
+
+'''
+The line below will cause the script to fail
+because it is not declared globally.
+'''
+#print(local_var) 
+```
