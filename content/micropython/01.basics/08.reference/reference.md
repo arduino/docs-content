@@ -77,17 +77,17 @@ For example:
   - [detachInterrupt()](#detachinterrupt)
 - [Communication](#communication)
 - [Serial (USB)](#serial-usb)
-  - [print()](#print)
-- [Serial (UART)](#serial-uart)
-  - [begin()](#begin)
-  - [available()](#available)
-  - [read()](#read)
-  - [write()](#write)
+  - [Serial.print()](#serialprint)
+- [Serial1 (UART)](#serial1-uart)
+  - [Serial1.begin()](#serial1begin)
+  - [Serial1.available()](#serial1available)
+  - [Serial1.read()](#serial1read)
+  - [Serial1.write()](#serial1write)
 - [SPI](#spi)
-  - [begin()](#begin-1)
-  - [read()](#read-1)
-  - [transfer()](#transfer)
-  - [read() \& write()](#read--write)
+  - [SPI.begin()](#spibegin)
+  - [SPI.read()](#spiread)
+  - [SPI.write()](#spiwrite)
+  - [SPI.transfer()](#spitransfer)
   - [Bit Size](#bit-size)
 - [Wire / I2C](#wire--i2c)
   - [Wire.begin()](#wirebegin)
@@ -929,7 +929,7 @@ The same API is used for sending and receiving data over UART, using `Serial1`. 
 In MicroPython, to send data over USB, we can use the `print()` function, which prints the content to the REPL. As MicroPython is implemented a bit differently, the REPL also allows you to write commands inside it. The REPL is therefore in many ways, different from the Serial Monitor we are used to in the Arduino IDE.
 
 
-### print()
+### Serial.print()
 
 `print(content)`
 
@@ -946,11 +946,13 @@ print(58) # prints a numeric value
 print(f"The value is {variable}") # prints a string with a value inserted
 ```
 
-## Serial (UART)
+## Serial1 (UART)
 
-UART communication is initialized using the `UART` object from the `machine` module. 
+UART communication is initialized using the `UART` object from the `machine` module.
 
-### begin()
+***When sending & receiving data on a hardware UART port on an Arduino board, we use the `Serial1` class.***
+
+### Serial1.begin()
 
 `machine.UART(port, baudrate=baud)`
 
@@ -967,7 +969,7 @@ uart = machine.UART(1, baudrate=57600)
 
 ***Baud rate `57600` is used as using the common `115200` and `9600` interfered with the Arduino IDE's Serial Monitor.***
 
-### available()
+### Serial1.available()
 
 `uart.any()`
 
@@ -987,7 +989,7 @@ while True:
 ```
 
 
-### read()
+### Serial1.read()
 
 `uart.read(1)`
 
@@ -1017,7 +1019,7 @@ while True:
     time.sleep(0.1) 
 ```
 
-### write()
+### Serial1.write()
 
 `uart.write(message)`
 
@@ -1043,7 +1045,7 @@ while True:
 
 SPI communication is initialized using the `SPI` object from the `machine` module. 
 
-### begin()
+### SPI.begin()
 
 `spi = machine.SPI(port, baudrate, polarity, phase)`
 
@@ -1057,7 +1059,9 @@ import machine
 spi = machine.SPI(0, baudrate=1000000, polarity=0, phase=0)
 ```
 
-### read()
+### SPI.read()
+
+***Note that `SPI.read()` is not in the Arduino API, as the `SPI.transfer()` handles both outgoing and incoming data.***
 
 `spi.readinto(data_in)`
 
@@ -1077,7 +1081,9 @@ spi.readinto(data_in)
 print("Received Data:", data_in)
 ```
 
-### transfer()
+### SPI.write()
+
+***Note that `SPI.write()` is not in the Arduino API, as the `SPI.transfer()` handles both outgoing and incoming data.***
 
 `spi.write(data_out)`
 
@@ -1095,7 +1101,7 @@ data_out = b'\x01\x02\x03'
 spi.write(data_out)
 ```
 
-### read() & write()
+### SPI.transfer()
 
 `spi.write_readinto(data_out, data_in)`
 
