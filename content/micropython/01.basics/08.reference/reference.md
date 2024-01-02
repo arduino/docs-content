@@ -53,6 +53,7 @@ For example:
   - [pow()](#pow)
   - [sq()](#sq)
   - [sqrt()](#sqrt)
+- [Trigonometry](#trigonometry)
   - [cos()](#cos)
   - [sin()](#sin)
   - [tan()](#tan)
@@ -96,9 +97,18 @@ For example:
   - [Wire.write()](#wirewrite)
   - [Wire.setClock()](#wiresetclock)
   - [SoftI2C](#softi2c)
-- [USB](#usb)
-  - [Keyboard](#keyboard)
-  - [Mouse](#mouse)
+- [USB HID](#usb-hid)
+- [Data Types](#data-types)
+  - [size\_t](#size_t)
+  - [void](#void)
+- [Conversion](#conversion)
+  - [byte()](#byte)
+  - [char()](#char)
+  - [float()](#float)
+  - [int()](#int)
+- [Scope](#scope)
+  - [Local Variables](#local-variables)
+  - [Global Variables](#global-variables)
 
 ## Digital I/O
 
@@ -599,15 +609,34 @@ import math
 result = math.sqrt(16)  # Result will be 4.0
 ```
 
-
-
-
-Trigonometry
+## Trigonometry
 
 ### cos()
 
+`math.cos(angle_in_radians)`
+
+Calculates the cosine of an angle (in radians). The result will be between -1 and 1.
+
+**Example:**
+
+```python
+import math
+
+# Specify the angle in radians
+angle_in_radians = math.radians(45)
+
+# Calculate the cosine of the angle
+cos_value = math.cos(angle_in_radians)
+
+# Print the result
+print(f"The cosine of {angle_in_radians} radians is: {cosine_value}")
+```
 
 ### sin()
+
+`math.sin(angle_in_radians)`
+
+Calculates the sine of an angle (in radians). The result will be between -1 and 1.
 
 **Example:**
 
@@ -626,6 +655,10 @@ print(f"The sine of {angle_in_radians} radians is: {sine_value}")
 ```
 
 ### tan()
+
+`math.tan(angle_in_radians)`
+
+Calculates the tangent of an angle (in radians). The result will be between negative infinity and infinity.
 
 **Example:**
 
@@ -1216,11 +1249,148 @@ MicroPython has a built in class called `SoftI2C` (as in software I2C). Software
 - `softi2c.start()` - create the start condition for initializing communication over I2C (SDA goes to **LOW** while SCL is **HIGH**).
 - `softi2c.stop()` - create the stop condition for ending communication over I2C (SDA goes to **HIGH** while SCL is **HIGH**).
 
-## USB
+## USB HID
+
+Human Interface Device (HID) is currently **not supported** on any of the Arduino boards. 
+
+To use HID functions on Arduino boards that support it (most modern boards), please refer to the Arduino / C++ reference:
+- [Mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/)
+- [Keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/)
+
+## Data Types
+
+When declaring variables in MicroPython / Python, you do not need to specify the data type, this is done automatically.
+
+Examples for variable declaration can be seen in the snippet below:
+
+```python
+var_array = [1, 2, 3]
+var_bool = True/False
+var_unsigned_byte = 255
+var_signed_byte = -128
+var_char = 'A'
+var_double = 3.14
+var_float = 29.231232
+var_int = 2147483647
+var_long = 2147483647
+var_short = 32767
+var_string = "This is a string"
+var_unsigned_int = 4294967295
+var_unsigned_long = 4294967295
+```
+
+### size_t
+
+`len(my_array)`
+
+There is no direct equivalent to `size_t`, but using the `len()` function, you can return the size of an object.
+
+**Example:**
+
+```python
+my_array = [1,2,3,4,5]
+
+array_size = len(my_array)
+
+print("Size of array is: ", array_size)
+```
+
+### void
+
+`def my_func():`
+
+There is no direct equivalent to `void`, but when defining a function without a return statement, the function is of a "void" type.
+
+**Example:**
+
+```python
+def my_function():
+    print("Function executed, nothing returned though!")
+```
+
+## Conversion
+
+### byte()
+
+`bytes(value)`
+
+Converts a value to a byte.
+
+**Example:**
+
+```python
+my_byte = bytes([255])
+print(my_byte) # prints \xff which in hex is 255
+```
+
+### char()
+
+`chr(value)`
+
+Converts a value to a char
 
 
+**Example:**
 
-### Keyboard
-<!-- TODO -->
-### Mouse
-<!-- TODO -->
+```python
+value = 65  # 65 is "A" in ASCII code
+char_value = chr(value) # converts a value to char (65 to "A")
+print("Char value:", char_value) # prints "A"
+```
+
+### float()
+
+`float(value)`
+
+**Example 1:**
+
+Converts an integer to float.
+
+```python
+value = 25
+float_value = float(value)
+print("Float value:", float_value) # prints 25.0
+```
+
+**Example 2:**
+
+Converts a string to float.
+
+```python
+value = "3.14"
+float_value = float(value)
+print("Float value:", float_value) #prints 3.14
+```
+
+### int()
+
+`int(value)`
+
+Converts a value
+
+**Example 1:**
+
+Converts a float to int. Rounds the number up/down, e.g. `42.232` = `42`.
+
+```python
+value = 42.232
+int_value = int(value)
+print("Int value:", int_value)
+```
+
+**Example 2:**
+
+Converts a string to int.
+
+```python
+value = "42"
+int_value = int(value)
+print("Int value:", int_value)
+```
+
+## Scope
+
+### Local Variables
+
+### Global Variables
+
