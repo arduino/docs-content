@@ -83,9 +83,19 @@ For example:
   - [available()](#available)
   - [read()](#read)
   - [write()](#write)
-  - [SPI](#spi)
-  - [Stream](#stream)
-  - [Wire](#wire)
+- [SPI](#spi)
+  - [begin()](#begin-1)
+  - [read()](#read-1)
+  - [transfer()](#transfer)
+  - [read() \& write()](#read--write)
+  - [Bit Size](#bit-size)
+- [Wire / I2C](#wire--i2c)
+  - [Wire.begin()](#wirebegin)
+  - [Wire.available()](#wireavailable)
+  - [Wire.read()](#wireread)
+  - [Wire.write()](#wirewrite)
+  - [Wire.setClock()](#wiresetclock)
+  - [SoftI2C](#softi2c)
 - [USB](#usb)
   - [Keyboard](#keyboard)
   - [Mouse](#mouse)
@@ -1029,13 +1039,179 @@ while True:
     time.sleep(1)  
 ```
 
-### SPI
-<!-- TODO -->
-### Stream
-<!-- TODO -->
-### Wire
-<!-- TODO -->
+## SPI
+
+SPI communication is initialized using the `SPI` object from the `machine` module. 
+
+### begin()
+
+`spi = machine.SPI(port, baudrate, polarity, phase)`
+
+SPI is initalized by importing the `machine` module and specifying a number of parameters, such as baudrate and polarity.
+
+**Example:**
+
+```python
+import machine
+
+spi = machine.SPI(0, baudrate=1000000, polarity=0, phase=0)
+```
+
+### read()
+
+`spi.readinto(data_in)`
+
+Reads incoming data and stores it in an array. The size of the array needs to be adjusted to match the size of the incoming data size.
+
+**Example:**
+
+```python
+import machine
+import time
+
+spi = machine.SPI(0, baudrate=1000000, polarity=0, phase=0)
+data_in = bytearray(3)
+
+spi.readinto(data_in)
+
+print("Received Data:", data_in)
+```
+
+### transfer()
+
+`spi.write(data_out)`
+
+Writes data to the SPI bus.
+
+**Example:**
+
+```python
+import machine
+import time
+
+spi = machine.SPI(0, baudrate=1000000, polarity=0, phase=0) 
+data_out = b'\x01\x02\x03'
+
+spi.write(data_out)
+```
+
+### read() & write()
+
+`spi.write_readinto(data_out, data_in)`
+
+Reads & writes data simultaneously, where incoming data is stored in a buffer.
+
+**Example:**
+
+```python
+import machine
+import time
+
+spi = machine.SPI(0, baudrate=1000000, polarity=0, phase=0)
+
+data_to_send = b'\x01\x02\x03'
+
+data_received = bytearray(len(data_to_send))
+
+spi.write_readinto(data_to_send, data_received)
+
+print("Received Data:", data_received)
+
+spi.deinit()
+```
+
+### Bit Size
+
+`spi.bits = 8`
+
+Sets the number of bits per word. 
+
+**Example:**
+
+```python
+spi.bits = 8
+```
+
+## Wire / I2C
+
+### Wire.begin()
+
+`i2c = I2C(port, scl, sda, freq)`
+
+Initializes I2C communication on specified port and pins. The `port` and `freq` are optional parameters, if left unspecified, default values will be set. 
+```python
+from machine import I2C
+
+i2c = I2C(0, scl=Pin(SCL_PIN), sda=Pin(SDA_PIN), freq=100000)
+```
+
+### Wire.available()
+
+`i2c.in_waiting()`
+
+Checks the number of available bytes to read.
+
+```python
+available_bytes = i2c.in_waiting()
+
+print("Available bytes to read: ", available_bytes)
+```
+
+### Wire.read()
+
+`i2c.readfrom(address, num_bytes)`
+
+Reads data in specified number of bytes from a device with the specified address.
+
+```python
+data_in = i2c.readfrom(address, num_bytes)
+
+print("I2C data: ", data_in)
+```
+
+### Wire.write()
+
+`i2c.writeto(address, data_out)`
+
+Writes data to specified address.
+
+**Example:**
+
+```python
+from machine import I2C, Pin
+
+# Initialize I2C anc configure device & reg addresses
+i2c = I2C(0, scl=Pin(22), sda=Pin(21), freq=100000)  # Adjust pins and frequency as needed
+device_address = 0x68
+register_address = 0x00
+
+# The array of bytes to be send out
+# This buffer simply stores 1,2,3,4
+data_out = bytearray([0x01, 0x02, 0x03, 0x04])
+
+# Send the device address with the write bit to indicate a write operation
+i2c.writeto(device_address, bytearray([register_address]))
+
+# Finally, send data to the device
+i2c.writeto(device_address, data_out)
+```
+
+### Wire.setClock()
+
+The frequency for the clock is set during initialization. See [begin()](#wirebegin) for more info.
+
+### SoftI2C
+
+MicroPython has a built in class called `SoftI2C` (as in software I2C). Software I2C does not use a dedicated hardware I2C peripheral, but instead relies on the CPU to handle the clock signal, communication protocol etc.
+
+`SoftI2C` is avaialable through the `machine` module, and uses the same API as hardware I2C, with a few additional methods.
+
+- `softi2c = machine.SoftI2C(scl,sda,freq,timeout)` - creates the `softi2c` object with specified pins, frequency and timeout.
+- `softi2c.start()` - create the start condition for initializing communication over I2C (SDA goes to **LOW** while SCL is **HIGH**).
+- `softi2c.stop()` - create the stop condition for ending communication over I2C (SDA goes to **HIGH** while SCL is **HIGH**).
+
 ## USB
+
 
 
 ### Keyboard
