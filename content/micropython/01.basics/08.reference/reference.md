@@ -107,6 +107,9 @@ For example:
   - [float()](#float)
   - [int()](#int)
 - [Local / Global Variables](#local--global-variables)
+- [Sketch](#sketch)
+  - [loop()](#loop)
+  - [setup()](#setup)
 
 ## Digital I/O
 
@@ -1420,4 +1423,51 @@ The line below will cause the script to fail
 because it is not declared globally.
 '''
 #print(local_var) 
+```
+
+## Sketch
+
+MicroPython uses scripts as opposed to traditional sketches that require the `void loop()` and `void setup()` functions.
+
+A script can be as simple as a single line that prints "Hello World!"
+
+```python
+print("Hello World!")
+```
+
+### loop()
+
+`while True:`
+
+A loop is not required in a MicroPython script, but is required in order to run a script continuously on the board. To have a loop in a program, we need to use a [while loop]().
+
+**Example:**
+
+The example below runs a loop that increases the `value` variable by `1` each time the loop is run. It then prints the value to the REPL, and waits for a second.
+
+```python
+import time
+value = 0
+
+while True:
+    value += 1
+    print(value)
+    time.sleep(1)
+```
+
+### setup()
+
+In MicroPython, there's no equalivent of the `setup()` function. Configurations that are traditionally done in this function can simply be declared at the top of the program.
+
+**Example:**
+
+This script simply declares a pin's pin mode (see [pinMode()](#pinmode)).
+
+```python
+from machine import Pin
+
+output_pin = Pin(5, Pin.OUT)
+
+while True:
+    #loops forever
 ```
