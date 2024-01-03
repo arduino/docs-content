@@ -311,8 +311,8 @@ The Nano ESP32's SPI pins are listed below:
 | Pin   | Function | Description                   |
 | ----- | -------- | ----------------------------- |
 | D10\* | CS       | Chip Select                   |
-| D11   | COPI     | Controller In, Peripheral Out |
-| D12   | CIPO     | Controller Out, Peripheral In |
+| D11   | COPI     | Controller Out, Peripheral In |
+| D12   | CIPO     | Controller In, Peripheral Out |
 | D13   | SCK      | Serial Clock                  |
 
 \*Any GPIO can be used for chip select.
