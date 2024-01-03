@@ -126,3 +126,71 @@ If you overwrite the __main.py__ script on your Portenta H7, then it will run wh
 ⚪ **Blinking White:** Your Portenta H7 firmware is panicking because of a hardware failure. Please check that your Vision Shield's camera module is installed securely.
 
 ***If you tap the Portenta H7 reset button once, the board resets. If you tap it twice, the board enters Device Firmware Upgrade (DFU) mode and its green LED starts blinking and fading.***
+
+### Pinout
+
+![Vision Shield simple pinout](assets/ethernet-pinout.png)
+
+The full pinout is available and downloadable as PDF from the link below:
+
+- [Vision Shield full pinout](https://docs.arduino.cc/resources/pinouts/ABX00051-full-pinout.pdf)
+
+### Datasheet
+
+The complete datasheet is available and downloadable as PDF from the link below:
+
+- [Vision Shield datasheet](https://docs.arduino.cc/resources/datasheets/ASX00021-ASX00026-datasheet.pdf)
+
+### Schematics
+
+The complete schematics are available and downloadable as PDF from the links below:
+
+- [Vision Shield - Ethernet schematics](https://docs.arduino.cc/resources/schematics/ASX00021-schematics.pdf)
+- [Vision Shield - LoRa® schematics](https://docs.arduino.cc/resources/schematics/ASX00026-schematics.pdf)
+
+### STEP Files
+
+The complete STEP files are available and downloadable from the link below:
+
+- [Vision Shield STEP files](https://docs.arduino.cc/static/c1c3c72a51d20228fe415ac8717615f6/visionShields-step.zip)
+
+## First Use
+
+### Hello World Example
+
+Working with camera modules, the `Hello World` classic example is not an LED blink but the simplest sketch to capture images. We will use this example to verify the board's connection to the IDEs and that the Vision Shield itself is working as expected.
+
+The following example script can be found on **File > Examples > HelloWorld > helloworld.py** in the OpenMV IDE.
+
+```python
+import sensor
+import time
+
+sensor.reset()  # Reset and initialize the sensor.
+sensor.set_pixformat(sensor.GRAYSCALE)  # Set pixel format to RGB565 (or GRAYSCALE)
+sensor.set_framesize(sensor.QVGA)  # Set frame size to QVGA (320x240)
+sensor.skip_frames(time=2000)  # Wait for settings take effect.
+clock = time.clock()  # Create a clock object to track the FPS.
+
+while True:
+    clock.tick()  # Update the FPS clock.
+    img = sensor.snapshot()  # Take a picture and return the image.
+    print(clock.fps())  # Note: OpenMV Cam runs about half as fast when connected
+    # to the IDE. The FPS should increase once disconnected.
+```
+
+![Camera streaming demo](assets/helloworld.gif)
+
+From the above example script, we can highlight the main functions:
+
+- `sensor.set_pixformat(<Sensor>)` lets you set the pixel format for the camera sensor. The Vision Shield is compatible with these: `sensor.GRAYSCALE`, and `sensor.BAYER`. 
+
+  To define the pixel format to any of the supported ones, just add it to the `set_pixformat` function argument.
+
+- `sensor.set_framesize(<Resolution>)` lets you define the image frame size in terms of pixels. [Here](https://docs.openmv.io/library/omv.sensor.html#sensor.set_framesize) you can find all the different options.
+
+  To leverage full sensor resolution with the Vision Shield camera module `HM01B0`, use `sensor.B320X320`.
+
+  ![Different resolutions examples](assets/resolutions.png)
+
+- `sensor.snapshot()` lets you take a picture and return the image so you can save it, stream it or process it.
