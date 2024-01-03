@@ -194,3 +194,113 @@ From the above example script, we can highlight the main functions:
   ![Different resolutions examples](assets/resolutions.png)
 
 - `sensor.snapshot()` lets you take a picture and return the image so you can save it, stream it or process it.
+
+### Camera
+
+The Portenta Vision Shields's main feature is its onboard camera, based on the HM01B0 ultralow power CMOS image sensor. It is perfect for Machine Learning applications such as object detection, image classification, machine/computer vision, robotics, IoT, and more.
+
+![Onboard camera sensor](assets/camera.png)
+
+#### Main Camera Features
+
+- Ultra-Low-Power Image Sensor designed for always-on vision devices and applications
+- High-sensitivity 3.6 μ BrightSenseTM pixel technology Window, vertical flip and horizontal mirror readout
+- Programmable black level calibration target, frame size, frame rate, exposure, analog gain (up to 8x) and digital gain (up to 4x)
+- Automatic exposure and gain control loop with support for 50 Hz / 60 Hz flicker avoidance
+- Motion Detection circuit with programmable ROI and detection threshold with digital output to serve as an interrupt
+
+#### Supported Resolutions
+
+- QQVGA (160x120) at 15, 30, 60 and 120 FPS
+- QVGA (320x240) at 15, 30 and 60 FPS
+- B320X320 (320x320) at 15, 30 and 45 FPS
+
+#### Power Consumption
+- < 1.1 mW QQVGA resolution at 30 FPS,
+- < 2 mW QVGA resolution at 30 FPS
+- < 4 mW QVGA resolution at 60 FPS
+
+The Vision Shield is primarily intended to be used with the OpenMV MicroPython ecosystem. So, it's recommended to use this IDE for machine vision applications.
+
+#### Snapshot Example
+
+The example code below lets you take a picture and save it on the Portenta H7 local storage or in a Micro SD card as `example.jpg`.
+
+```python
+import sensor
+import time
+import machine
+
+sensor.reset()  # Reset and initialize the sensor.
+sensor.set_pixformat(sensor.GRAYSCALE)  # Set pixel format to RGB565 (or GRAYSCALE)
+sensor.set_framesize(sensor.B320X320)  # Set frame size to QVGA (320x240)
+sensor.skip_frames(time=2000)  # Wait for settings take effect.
+
+led = machine.LED("LED_BLUE")
+
+start = time.ticks_ms()
+while time.ticks_diff(time.ticks_ms(), start) < 3000:
+    sensor.snapshot()
+    led.toggle()
+
+led.off()
+
+img = sensor.snapshot()
+img.save("example.jpg")  # or "example.bmp" (or others)
+
+raise (Exception("Please reset the camera to see the new file."))
+```
+
+***If a Micro SD card is inserted into the Vision Shield, the snapshot will be stored there***
+
+After the snapshot is taken, reset the board by pressing the reset button and the image will be on the board storage drive.
+
+![Snapshot saved in H7 local storage](assets/snapshot.png)
+
+#### Video Recording Example
+
+The example code below lets you record a video and save it on the Portenta H7 local storage or in a Micro SD card as `example.mjpeg`.
+
+```python
+import sensor
+import time
+import mjpeg
+import machine
+
+sensor.reset()  # Reset and initialize the sensor.
+sensor.set_pixformat(sensor.GRAYSCALE)  # Set pixel format to RGB565 (or GRAYSCALE)
+sensor.set_framesize(sensor.QVGA)  # Set frame size to QVGA (320x240)
+sensor.skip_frames(time=2000)  # Wait for settings take effect.
+
+led = machine.LED("LED_RED")
+
+led.on()
+m = mjpeg.Mjpeg("example.mjpeg")
+
+clock = time.clock()  # Create a clock object to track the FPS.
+for i in range(50):
+    clock.tick()
+    m.add_frame(sensor.snapshot())
+    print(clock.fps())
+    
+m.close()
+led.off()
+
+raise (Exception("Please reset the camera to see the new file."))
+```
+
+![Video saved in local storage](assets/video-ani.gif)
+
+#### Sensor Control
+
+#### Bar Codes 
+
+#### QR Codes
+
+#### Face Tracking
+
+### Microphone
+
+### Ethernet (ASX00021)
+
+### LoRa® (ASX00026)
