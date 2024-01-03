@@ -2,7 +2,9 @@ Shield:
   Name: MKR ENV Shield
   SKU: ASX00011
   Compatibility: MKR
-Communication: I2C and analog
+Communication: SPI and I2C
+Chip Select Pin (SPI): D4
+Device Ready Pin (I2C): LPS22HB on D7, HTS221 on D6
 Storage: Micro SD card slot
 Sensors:
   Temperature (HTS221):

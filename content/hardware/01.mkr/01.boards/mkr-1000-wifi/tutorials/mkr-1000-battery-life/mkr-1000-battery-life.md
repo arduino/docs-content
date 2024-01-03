@@ -30,7 +30,7 @@ This tutorial gives an overview on how to determine the duration of a rechargeab
 
 ## Hardware & Software Needed
 
-- [Arduino MKR1000 WiFi Board](https://store.arduino.cc/arduino-mkr1000-wifi-with-headers-mounted)
+- [Arduino MKR1000 WiFi Board](/hardware/mkr-1000-wifi)
 
 - 1400mAh LiPo battery
 - Ammeter
@@ -71,7 +71,7 @@ The main feature of the MKR1000 board that affects battery life is the Wi-Fi con
 Application Run Time = Battery Life = (1400mAh) / (120mA) * 0.7 = 8.16h
 ## Programming the Board
 
-**1.** First, let's make sure we have correct the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it.
+**1.** First, let's make sure we have correct the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it.
 
 **2.** To successfully run the code on the board you need to load two libraries:
 

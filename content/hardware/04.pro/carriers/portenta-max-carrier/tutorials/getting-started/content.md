@@ -80,25 +80,25 @@ A Micro USB port is available for debugging on the Portenta Max Carrier. The deb
 
 The Portenta Max Carrier is equipped with a wide spectrum of connectors for expandability. The following table will show briefly the connectors that are available on the carrier.
 
-| Connector (Ref.)                    | Description                                               |
-| ----------------------------------- | --------------------------------------------------------- |
-| **USB Hub (U3)**                    | USB2514Bi/M2 4-port USB 2.0 Hub IC                        |
-| **LoRa® Header (CN2)**              | Debug Header                                              |
-| **Debug Header (CN3)**              | LoRa® Debug Header                                        |
-| **High Density Connectors (J1,J2)** | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors         |
-| **Modem SMA Connector (J3)**        | Right-Angle SMA Connector for Modem                       |
-| **LoRa® SMA Connector (J9)**        | Right-Angle SMA Connector for LoRa®                       |
-| **FPC Connector (J4)**              | 2-1734248-0 FPC Connector                                 |
-| **JTAG Header (CN1)**               | FTSH-105-01-F-DV 10-pin JTAG Header                       |
-| **USB DBG0 (J10)**                  | ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS    |
-| **USB DBG1 (J19)**                  | ZX62-AB-5PA(31) Micro USB Debugger Connector without VBUS |
-| **Grove Connector for Audio (J20)** | 110990030 Grove Connector for a Speaker                   |
-| **Header Connector (J5)**           | FW-20-05-G-D-254-150 Signal Break                         |
-| **4P4C CAN Connector (J7)**         | J6 615006138421 RS232/RS485 Connector J7 6                |
-| **6P6C Serial Connector (J6)**      | 615006138421 RS232/RS485 Connector                        |
-| **PCIe Connector (J8)**             | 1759546-1 Mini PCIe Connector                             |
-| **Micro SD Connector (J11)**        | 114-00841-68 Micro SD Connector                           |
-| **Ethernet Connector (J17)**        | TRJK7003A97NL Gigabit Ethernet Connector                  |
+|         **Connector (Ref.)**        |                      **Description**                      |
+|:-----------------------------------:|:---------------------------------------------------------:|
+|           **USB Hub (U3)**          |             USB2514Bi/M2 4-port USB 2.0 Hub IC            |
+|        **LoRa® Header (CN2)**       |                        Debug Header                       |
+|        **Debug Header (CN3)**       |                     LoRa® Debug Header                    |
+| **High Density Connectors (J1,J2)** |     DF40HC(3.5)-80DS-0.4V(51) High Density Connectors     |
+|     **Modem SMA Connector (J3)**    |            Right-Angle SMA Connector for Modem            |
+|     **LoRa® SMA Connector (J9)**    |            Right-Angle SMA Connector for LoRa®            |
+|        **FPC Connector (J4)**       |                 2-1734248-0 FPC Connector                 |
+|        **JTAG Header (CN1)**        |            FTSH-105-01-F-DV 10-pin JTAG Header            |
+|          **USB DBG0 (J10)**         |   ZX62-AB-5PA(31) Micro USB Debugger Connector with VBUS  |
+|          **USB DBG1 (J19)**         | ZX62-AB-5PA(31) Micro USB Debugger Connector without VBUS |
+| **Grove Connector for Audio (J20)** |          110990030 Grove Connector for a Speaker          |
+|      **Header Connector (J5)**      |             FW-20-05-G-D-254-150 Signal Break             |
+|     **4P4C CAN Connector (J7)**     |        J6 615006138421 RS-232/RS-485 Connector J7 6       |
+|    **6P6C Serial Connector (J6)**   |            615006138421 RS-232/RS-485 Connector           |
+|       **PCIe Connector (J8)**       |               1759546-1 Mini PCIe Connector               |
+|     **Micro SD Connector (J11)**    |              114-00841-68 Micro SD Connector              |
+|     **Ethernet Connector (J17)**    |          TRJK7003A97NL Gigabit Ethernet Connector         |
 
 ***PCIe connector is available on-board. However, only USB and I<sub>2</sub>C is available for use at the moment.***
 
@@ -201,7 +201,7 @@ The Portenta Max Carrier only requires the Portenta H7 as the main unit to be ab
 
 If it is not installed or requires an update, it is possible to navigate under **Tools > Board > Board Manager** and search for the `Arduino Mbed OS Portenta Core` and proceed with the update.
 
-To take advantage of Portenta Max Carrier's Power Architecture, an important physical configuration requires to be verified. A DIP Switch for Boot mode selection is present on the Portena Max Carrier board. It requires setting **BOOT_SEL** to select between 2 boot addresses, which will enable Portenta H7 and Max Carrier to run the firmware. **BOOT** parameter will switch the Portenta H7 state into Boot mode.
+To take advantage of Portenta Max Carrier's Power Architecture, an important physical configuration requires to be verified. A DIP Switch for Boot mode selection is present on the Portenta Max Carrier board. It requires setting **BOOT_SEL** to select between 2 boot addresses, which will enable Portenta H7 and Max Carrier to run the firmware. **BOOT** parameter will switch the Portenta H7 state into Boot mode.
 
 Every time it initiates at Boot mode, the Portenta H7 will fade the Green LED to indicate its state. It will help to understand the board is in Boot mode and not turned off due to an unavailable electric supply as it shut off. As the power lines are alive even if the board shows no indication of an operating instance.
 

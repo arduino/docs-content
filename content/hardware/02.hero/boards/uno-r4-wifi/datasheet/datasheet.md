@@ -10,7 +10,7 @@ type: maker
 
 The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi® module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4 WiFi's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB of EEPROM.
 
-The RA4M1's operating voltage is fixed at 5 V, whereas the ESP32-S3 module is 3.3 V. Communication between these two MCUs are performed via a logic level translator (TXB0108DQSR).
+The RA4M1's operating voltage is fixed at 5 V, whereas the ESP32-S3 module is 3.3 V. Communication between these two MCUs is performed via a logic-level translator (TXB0108DQSR).
 
 # Target areas:
 Maker, beginner, education
@@ -49,7 +49,7 @@ The **R7FA4M1AB3CFM#AA0**, often referred to as RA4M1 in this datasheet, is the 
 See the full datasheet for the R7FA4M1AB3CFM#AA0 in the link below:
 - [R7FA4M1AB3CFM#AA0 datasheet](/resources/datasheets/ra4m1.pdf)
 
-The **ESP32-S3-MINI-1-N8** is the secondary MCU with a built-in antenna for Wi-Fi® & Bluetooth® connectivity. This module operates on 3.3 V and communicates with the RA4M1 using a logic level translator (TXB0108DQSR).
+The **ESP32-S3-MINI-1-N8** is the secondary MCU with a built-in antenna for Wi-Fi® & Bluetooth® connectivity. This module operates on 3.3 V and communicates with the RA4M1 using a logic-level translator (TXB0108DQSR).
 
 * **Overview**
   * Xtensa® dual-core 32-bit LX7 microprocessor
@@ -75,7 +75,7 @@ The UNO R4 WiFi is part of the first UNO series of 32-bit development boards, be
 
 The board features 14 digital I/O ports, 6 analog channels, dedicated pins for I2C, SPI and UART connections. It has a significantly larger memory: 8 times more flash memory (256 kB) and 16 times more SRAM (32 kB). With a 48 MHz clock speed, it is also 3x faster than its predecessors.
 
-In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivity, as well as a built-in 12x8 LED matrix, making one of the most visually unique Arduino board to date. The LED matrix is fully programmable, where you can load anything from still frames to custom animations.
+In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivity, as well as a built-in 12x8 LED matrix, making it one of the most visually unique Arduino boards to date. The LED matrix is fully programmable, where you can load anything from still frames to custom animations.
 
 **Entry-level projects:** If this is your first project within coding and electronics, the UNO R4 WiFi is a good fit. It is easy to get started with, and it has a lot of online documentation.
 
@@ -120,7 +120,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 | U4          | TXB0108DQSR logic level translator (5 V - 3.3 V) |
 | U5          | SGM2205-3.3XKC3G/TR 3.3 V linear regulator       |
 | U6          | NLASB3157DFT2G Multiplexer                       |
-| U_LEDMATRIX | 12x8 LED Red Matrix                             |
+| U_LEDMATRIX | 12x8 LED Red Matrix                              |
 | M1          | ESP32-S3-MINI-1-N8                               |
 | PB1         | RESET Button                                     |
 | JANALOG     | Analog input/output headers                      |
@@ -170,7 +170,7 @@ The ESP32-S3-MINI-1-N8 features:
 * 512  kB SRAM
 * Up to 150 Mbps bit rate
 
-This module acts as a secondary MCU on the UNO R4 WiFi, and communicates with the RA4M1 MCU using a logic level translator. Note that this module operates on 3.3 V as opposed to the RA4M1's 5 V operating voltage. 
+This module acts as a secondary MCU on the UNO R4 WiFi, and communicates with the RA4M1 MCU using a logic-level translator. Note that this module operates on 3.3 V as opposed to the RA4M1's 5 V operating voltage. 
 
 ### ESP Header
 
@@ -230,7 +230,7 @@ This matrix can be used for a number of projects and prototyping purposes, and s
 
 The UNO R4 WiFi has a DAC with up to 12-bit resolution attached to the A0 analog pin. A DAC is used to convert a digital signal to an analog signal.
 
-The DAC can be used for signal generation for e.g. audio applications, like generating and altering sawtooth wave.
+The DAC can be used for signal generation for e.g. audio applications, like generating and altering sawtooth waves.
 
 ## I2C Connector
 
@@ -276,6 +276,8 @@ The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can safely handle up to 8 mA 
 
 For powering e.g. servo motors, always use an external power supply.
 
+<div style="page-break-after:always;"></div>
+
 # Mechanical Information
 
 ## Pinout
@@ -320,8 +322,8 @@ For powering e.g. servo motors, always use an external power supply.
 | 12  | D6             | Digital | GPIO 6 (PWM~)                                          |
 | 13  | D5             | Digital | GPIO 5 (PWM~)                                          |
 | 14  | D4             | Digital | GPIO 4                                                 |
-| 15  | D3             | Digital | GPIO 3 (PWM~)                                          |
-| 16  | D2             | Digital | GPIO 2                                                 |
+| 15  | D3             | Digital | GPIO 3 (PWM~) / Interrupt Pin                          |
+| 16  | D2             | Digital | GPIO 2 / Interrupt Pin                                 |
 | 17  | D1/TX0         | Digital | GPIO 1 / Serial 0 Transmitter (TX)                     |
 | 18  | D0/TX0         | Digital | GPIO 0 / Serial 0 Receiver    (RX)                     |
 
@@ -422,6 +424,21 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
 English:
 User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -468,6 +485,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| Date       | **Revision** | **Changes**                        |
-|------------|--------------|------------------------------------|
-| 08/06/2023 | 1            | First Release                      |
+| Date       | **Revision** | **Changes**        |
+| ---------- | ------------ | ------------------ |
+| 19/09/2023 | 4            | Update FCC section |
+| 25/07/2023 | 3            | Update Pin Table   |
+| 30/06/2023 | 2            | Update Pinout File |
+| 08/06/2023 | 1            | First Release      |

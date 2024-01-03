@@ -1,7 +1,7 @@
 ---
 title: Portenta H7 Lite
 url_shop: https://store.arduino.cc/products/portenta-h7-lite
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta
+url_guide: /tutorials/portenta-h7/setting-up-portenta
 core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/portenta/91'
 productCode: '115'

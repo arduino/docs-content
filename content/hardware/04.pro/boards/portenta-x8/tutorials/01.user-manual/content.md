@@ -348,7 +348,7 @@ At this point, if you would to continue to use your Out-of-the-box, you can open
 
 #### Troubleshooting
 
-If something gets wrong during the update, you still have the possibility to manually flash your Portenta X8 with the latest Linux image provided at [this link](https://github.com/arduino/lmp-manifest/releases). You can follow [this section](#update-using-uuu-command) to learn to use `uuu` tool and update your device manually with the latest OS Image version. Follow [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) to learn how to flash your device manually.
+If something gets wrong during the update, you still have the possibility to manually flash your Portenta X8 with the latest Linux image provided at [this link](https://github.com/arduino/lmp-manifest/releases). You can follow [this section](#update-using-uuu-tool) to learn to use `uuu` tool and update your device manually with the latest OS Image version. Follow [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) to learn how to flash your device manually.
 
 ### Update With Portenta X8 Board Manager
 
@@ -379,15 +379,29 @@ Unzipped folder
 
 #### Set Flashing Mode with Carrier
 
-The Portenta X8 can be set into programming mode by using a carrier platform, such as Max Carrier or Breakout, which provides DIP switches for convenient access; or using a few more lines of command with barebone Portenta X8 via ADB.
+The Portenta X8 can be set into programming mode by using a carrier platform, such as Max Carrier, Breakout, or Hat Carrier, which provides DIP switches for convenient access; or using a few more lines of command with barebone Portenta X8 via ADB.
 
-If you are to use a carrier, please check the carrier's configuration to be paired with Portenta X8. For **Portenta Max Carrier**, `BOOT SEL` and `BOOT` must be set to ON position with DIP switches as shown in the figure:
+If you plan to use a carrier, please check the carrier's configuration to be paired with Portenta X8.
+
+For the **Portenta Max Carrier**, set the `BOOT SEL` and `BOOT` DIP switches to ON position as depicted in the figure:
 
 ![Portenta Max Carrier DIP switches](assets/max-carrier-dip-switches.png)
 
-For **Portenta Breakout**, `BT_SEL` and `BOOT`DIP switches must be set to ON position as well as shown in the figure:
+Upon executing the `uuu` tool and ensuring the DIP switches are correctly configured, the Portenta Max Carrier will automatically start the flashing operation for the Portenta X8.
+
+For the **Portenta Breakout**, the `BT_SEL` and `BOOT` DIP switches should be set to the ON position, as illustrated in the figure:
 
 ![Portenta Breakout DIP switches](assets/breakout-dip-switches.png)
+
+After running the `uuu` tool, perform a long press on the `ON` button of the Portenta Breakout to begin the flashing process. This action enables the tool to identify and connect with the device, continuing with the flashing operation.
+
+For the **Portenta Hat Carrier**, the `BTSEL` DIP switch must be set to the ON position, as depicted in the figure below:
+
+![Portenta Hat Carrier DIP switches](assets/hatCarrier-dip-switches.png)
+
+The `ETH CENTER TAP` DIP switch position does not affect the flashing mode state for the Portenta Hat Carrier.
+
+Like with the Portenta Max Carrier, once the `uuu` tool is run and starts searching for the device, the flashing process will commence.
 
 #### Set Flashing Mode without Carrier
 
@@ -423,7 +437,7 @@ Once the flashing operation finishes, you will be greeted with a similar message
 
 ![Successful uuu flashing operation](assets/uuu-flashing-success.png)
 
-This applies to both flashing scenarios. If you have the carrier attached and decide to continue using docked with the platform, you will have to reset the DIP switch positions for either `BOOT SEL` or `BT_SEL` and `BOOT` to OFF state. Reconnect the board and wait approximately 10 seconds until Blue LED starts blinking, confirming the boot was successful.
+This applies to both flashing scenarios. If you have the carrier attached and decide to continue using docked with the platform, you must reset the DIP switch positions for either `BOOT SEL`, `BTSEL`, or `BT_SEL` and `BOOT` to OFF state. Reconnect the board and wait approximately 10 seconds until the Blue LED blinks, confirming the boot was successful.
 
 In case the Portenta X8 was flashed barebone, you will just need to recycle the power and should be ready with the latest OS image.
 
@@ -750,6 +764,16 @@ To gain admin (root) access, type `sudo su -` and the password, which by default
 
 You can now freely program your Portenta X8 Linux OS. In the sections below you can check some basic commands to get started.
 
+### Change Default User Password
+
+Your Portenta X8 comes with the default user fio with password fio.
+
+For security reasons, we strongly suggest changing the default password. To do so, when logged in to your Portenta X8, launch this command to change the password of the fio account:
+
+```arduino
+passwd fio
+```
+
 ### Manage Your Network Via CLI
 
 In order to connect to a Wi-Fi® Access Point via CLI, you can use the network manager tool **nmcli**. These are some of the most used commands:
@@ -757,6 +781,126 @@ In order to connect to a Wi-Fi® Access Point via CLI, you can use the network m
 * `nmcli device wifi connect <SSID> password <PASSWORD>` to connect to a specific SSID
 * `nmcli de` to check the connection status
 * `nmcli connection show` to visualize the active network interfaces (and their types) on your Portenta X8
+
+### Accessing Over SSH Session
+
+Establishing communication with the Portenta X8 via an SSH session is possible. To do so, a network connection is needed, either over Wi-Fi® or Ethernet. For Ethernet connections, using a device with DHCP server capabilities, such as a network router, is recommended. After setting up the network connection and DHCP, the Portenta X8 will be ready for SSH communication.
+
+For Windows users, it is necessary to install a service tool to ease the following procedures. While Bonjour, Apple's implementation of zero-configuration networking, comes built into macOS, it is not natively included in Windows and must be installed separately.
+
+***Before proceeding on __Windows__, please install [Bonjour Print Services for Windows](https://support.apple.com/kb/DL999?locale=en_US) before continuing the following steps.***
+
+For macOS and Linux users, _Bonjour_ is pre-installed on macOS, and _Avahi-Browse_ is typically available on Linux by default. Thus, additional installation steps may be unnecessary for these operating systems.
+
+In the subsequent sections, we will first guide you through the process on Windows, followed by details and instructions for Linux and macOS.
+
+#### Using the Terminal
+<br></br>
+
+![SSH Services Availability Discovery](assets/ssh-x8-dns-sd-service.png "SSH Services Availability Discovery")
+
+The command below is used to browse for SSH services on the local network that are advertised over a multicast Domain Name System (mDNS). This protocol resolves hostnames to IP addresses within small networks without a local name server.
+
+```bash
+dns-sd -B _sftp-ssh._tcp local
+```
+
+By executing this command, you can discover devices offering _SFTP services_ (file transfer over SSH) without prior knowledge of their IP addresses or hostnames.
+
+The command lists these services, indicating where an SSH connection can be established for secure file transfers or shell access, helping to ease the identification and utilization of networked devices that support this protocol.
+
+![Network Query for IPv4 and IPv6](assets/ssh-x8-dns-sd-v4v6.png "Network Query for IPv4 and IPv6")
+
+```bash
+dns-sd -G v4v6 portenta-x8-<UUID>.local
+```
+
+The command above queries the network for the _IPv4_ and _IPv6_ addresses associated with the hostname `portenta-x8-<UUID>.local`. The _UUID_ can be found within the instance name listed previously or if you have accessed the Portenta X8 via an ADB shell. An example command would look as follows:
+
+```bash
+dns-sd -G v4v6 portenta-x8-1822aa09dab6fad9.local
+```
+
+This command is handy for finding the IP addresses of devices such as the Portenta X8 that a DHCP server may assign dynamic IP addresses. It simplifies connecting to such devices over the network by providing their current IP addresses.
+
+![Device Ping Test](assets/ssh-x8-dns-sd-ping.png "Device Ping Test")
+
+The following command sends echo requests to the device with the hostname `portenta-x8-<UUID>.local` to check its network availability and measure round-trip time.
+
+```bash
+ping portenta-x8-<UUID>.local
+```
+
+This command helps verify that the Portenta X8 is online and reachable over the network and for diagnosing connectivity issues. The UUID can be ascertained by referring to the findings from an earlier SSH services scan with network query or the ADB shell.
+
+![Portenta X8 Communication over SSH Session](assets/ssh-x8-session.png "Portenta X8 Communication over SSH Session")
+
+After verifying that the Portenta X8 is accessible using a simple ping test, it is now possible to start an SSH session using the following command:
+
+```bash
+ssh fio@portenta-x8-1822aa09dab6fad9.local
+```
+
+The example command above starts an SSH (Secure Shell) connection to the Portenta X8 with the hostname `portenta-x8-1822aa09dab6fad9.local` using the username `fio`. The command format should be as follows:
+
+```bash
+ssh fio@portenta-x8-<UUID>.local
+```
+
+When executing the command, substitute the `<UUID>` placeholder with the actual UUID of the Portenta X8 you are attempting to connect to. You can confirm this UUID by checking the results of a prior SSH services scan with a network query or ADB shell.
+
+If the device is configured correctly to accept SSH connections and the _fio_ account exists with SSH access, this command will prompt for the password associated with the _fio_ user.
+
+Upon successful authentication, it will open a secure shell session to the device, allowing for command-line interface access and the execution of commands remotely on the Portenta X8.
+
+The password and the rest of the configuration for using the Portenta X8 inside the shell remain the same.
+
+The process is similar for _GNU/Linux_ and _macOS_, with minor differences in the initial steps when browsing for SSH services on the local network.
+
+- __For GNU/Linux__:
+
+Use _Avahi-Browse_ to search for SSH services on the local network:
+
+```bash
+avahi-browse -d local _sftp-ssh._tcp --resolve -t
+```
+
+- __macOS__:
+
+On macOS, you can use the similar command:
+
+```bash
+dns-sd -B _sftp-ssh._tcp local
+```
+
+Alternatively, you can use a software called "_Discovery_", which is available [here](https://apps.apple.com/it/app/discovery-dns-sd-browser/id1381004916?l=en&mt=12).
+
+#### Using Software With GUI
+<br></br>
+
+The SSH session can be initialized using third-party software with a Graphical User Interface (GUI) for easy access. An example is a software called "_Bonjour Browser_", which can be downloaded [here](https://hobbyistsoftware.com/bonjourbrowser).
+
+![SSH Services Availability Discovery with GUI](assets/ssh-x8-bonjour.png "SSH Services Availability Discovery with GUI")
+
+This software simplifies browsing SSH services on the local network advertised over mDNS using a GUI. The image above, for example, shows all available services on the network, including those for the Portenta X8. By simply clicking on a service item, you can retrieve the IP address information.
+
+Once the information is verified, you can use that data with software such as [_PuTTY_](https://www.putty.org/). _PuTTY_ is a free and open-source terminal emulator, serial console, and network file transfer application. It supports several network protocols, including _SSH (Secure Shell)_ and _SFTP (SSH File Transfer Protocol)_.
+
+![Portenta X8 SSH Session with PuTTY - Setup](assets/ssh-x8-putty.png "Portenta X8 SSH Session with PuTTY - Setup")
+
+In the PuTTY Configuration window, keeping the default values, you must specify the _Host Name (or IP address)_ field with `portenta-x8-<UUID>`. For instance, you would use:
+
+```
+portenta-x8-1822aa09dab6fad9
+```
+
+Click on `Open`, and it will prompt a security alert. It displays information about the connection, including fingerprint details. Depending on your connection profile preference, you can choose to `Accept` or `Connect Once`.
+
+![Portenta X8 SSH Session with PuTTY - Authentication](assets/ssh-x8-putty-auth.png "Portenta X8 SSH Session with PuTTY - Authentication")
+
+After verifying the security alert and proceeding, you have an SSH session that has begun communicating with the Portenta X8.
+
+![Portenta X8 SSH Session with PuTTY](assets/ssh-x8-putty-session.png "Portenta X8 SSH Session with PuTTY")
 
 ### Inspect Real-Time Tasks And Logs Via CLI
 
@@ -1043,17 +1187,18 @@ With this tool, you can easily upload containers to a board that is linked to yo
 In order to learn how to properly call GPIOs or other peripherals both in the Arduino environment or in Linux, with or without a carrier, you can check the following pinout diagrams:
 
 * [Portenta X8 pinout](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
-* [Portenta Breakout pinout](https://docs.arduino.cc/static/1d4277f47a3df614b726a89b2129ec69/ASX00031-full-pinout.pdf)
+* [Portenta Breakout pinout](https://docs.arduino.cc/static/8d54d1a01d6174ed60fc9698e881ad4c/ASX00031-full-pinout.pdf)
 * [Portenta Max Carrier pinout](https://docs.arduino.cc/static/d0bd73b17e97af0fe376b7d518b18660/ABX00043-full-pinout.pdf)
+* [Portenta Hat Carrier pinout](https://docs.arduino.cc/resources/pinouts/ASX00049-full-pinout.pdf)
 
 ## Communication
 
 In this section you will learn how to make your Portenta X8 to communicate with multiple types of sensors or other external devices, leveraging the vast variety of supported interfaces:
 
-* [SPI](#SPI)
-* [I2C](#I2C)
-* [UART](#UART)
-* [Bluetooth®](#Bluetooth®)
+* [SPI](#spi)
+* [I2C](#i2c)
+* [UART](#uart)
+* [Bluetooth®](#bluetooth)
 
 ### SPI
 
@@ -1147,7 +1292,7 @@ Open Portenta X8 Shell as explained [here](#working-with-linux).
 Thus, execute the following command:
 
 ```arduino
-sudo madprobe i2c-dev
+sudo modprobe i2c-dev
 ```
 
 Insert the user password `fio`.

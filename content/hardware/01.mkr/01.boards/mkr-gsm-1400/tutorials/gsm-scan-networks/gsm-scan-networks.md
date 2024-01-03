@@ -49,7 +49,7 @@ It is also designed to operate in temperature conditions between -40 °C to +85 
 
 The module also provides an interface for SIM cards, and supports both 1.8V and 3V SIM cards, which can be automatically detected. 
 
-You can find out much more information about this component in the <a href="https://www.u-blox.com/sites/default/files/SARA-U2_DataSheet_(UBX-13005287).pdf" target="_blank">uBlox SARA-02 datasheet</a>.
+You can find out much more information about this component in the <a href="https://www.u-blox.com/sites/default/files/SARA-U2_DataSheet_UBX-13005287.pdf" target="_blank">uBlox SARA-02 datasheet</a>.
 
 ### Circuit
 
@@ -59,7 +59,7 @@ You can find out much more information about this component in the <a href="http
 
 We will now get to the programming part of this tutorial. 
 
-**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
+**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex- M0+)** and install it. 
 
 **2.** Now, we need to install the libraries needed. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **MKRGSM** and install it.
 

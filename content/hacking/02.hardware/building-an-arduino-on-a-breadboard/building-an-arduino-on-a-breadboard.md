@@ -91,7 +91,7 @@ Start by connecting a 10k ohm pullup resistor to +5V from the RESET pin in order
 * Pin 8 - GND
 * Pin 22 - GND
 * Pin 21 - AREF - Analog reference pin for ADC
-* Pin 20 - AVcc - Suppply voltage for the ADC converter. Needs to be connected to power if ADC isn't being used and to power via a low-pass filter if it is (a low pass filter is a circuit that reduces noise from the power source. This example isn't using one)
+* Pin 20 - AVcc - Supply voltage for the ADC converter. Needs to be connected to power if ADC isn't being used and to power via a low-pass filter if it is (a low pass filter is a circuit that reduces noise from the power source. This example isn't using one)
 
 ![Add the Clock & Caps](assets/arduinobb_08.jpg)
 
@@ -165,7 +165,7 @@ There are also many different kinds of AVR programmers but two are most commonly
 
 ![ArduinoISP](assets/ArduinoISP_Front2.jpg)
 
-The AVRISP mkII can be purchased from Digikey (Part # [ATAVRISP2-ND](http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name=ATAVRISP2-ND)) while the USBtinyISP must be assembled and can be found at [Adafruit Industries](http://www.adafruit.com/index.php?main_page=product_info&cPath=16&products_id=46). The documentation and the links to the Arduino Store and to the distributors list can be found in the [ArduinoISP product page](http://www.arduino.cc/en/Main/ArduinoISP).
+The AVRISP mkII can be purchased from Digikey (Part # [ATAVRISP2-ND](http://search.digikey.com/scripts/DkSearch/dksus.dll?Detail?name=ATAVRISP2-ND)) while the USBtinyISP must be assembled and can be found at [Adafruit Industries](https://www.adafruit.com/product/46). The documentation and the links to the Arduino Store and to the distributors list can be found in the [ArduinoISP product page](http://www.arduino.cc/en/Main/ArduinoISP).
 
 ### Using an Arduino board
 

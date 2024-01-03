@@ -1,4 +1,4 @@
 ---
-title: Science Kit
-certifications: [CE]
+title: Science Kit Physics Lab
+certifications: [CE, UKCA]
 ---

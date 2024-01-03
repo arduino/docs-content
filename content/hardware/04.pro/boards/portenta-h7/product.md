@@ -1,10 +1,10 @@
 ---
 title: Portenta H7
 url_shop: https://store.arduino.cc/portenta-h7
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta
+url_guide: /tutorials/portenta-h7/setting-up-portenta
 core: arduino:mbed_portenta
 forumCategorySlug: '/hardware/portenta/91'
-certifications: [CE, FCC, MIC, RCM, UKCA]
+certifications: [CE, FCC, MIC, RCM, UKCA, RoHS]
 productCode: '041'
 ---
 

@@ -1,11 +1,14 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement link="https://www.arduino.cc/pro/tutorials/portenta-h7/setting-up-portenta" title="Quickstart Guide" type="getting-started">
+    <EssentialElement link="/tutorials/portenta-breakout/getting-started/" title="Quickstart Guide" type="getting-started">
         A quick guide to installing your board with the Arduino IDE.
     </EssentialElement>
 
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
+    <EssentialElement link="https://github.com/arduino-libraries/Arduino_PortentaBreakout" title="Portenta Breakout Library" type="library">
+        The Official Arduino library to use the Portenta Breakout.
+    </EssentialElement>
     <EssentialElement link="https://www.arduino.cc/en/Reference/WiFi" title="WiFi" type="library">
         The WiFi library is designed to use the Murata 1DX module, which allows your Arduino to connect to the Internet.
     </EssentialElement>

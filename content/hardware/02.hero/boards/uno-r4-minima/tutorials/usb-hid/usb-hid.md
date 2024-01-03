@@ -24,7 +24,7 @@ The goals of this tutorial are to:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 - [Arduino R4 Minima](https://store.arduino.cc/uno-r4-minima)
-- [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
+- [UNO R4 Board Package](/tutorials/uno-r4-minima/minima-getting-started)
 
 ## Human Interface Device (HID) 
 
@@ -32,7 +32,8 @@ Human interface devices (HID) are devices designed for humans (keyboards, mice, 
 
 The UNO R4 Minima has built-in support for HID, a feature found on most modern day development boards, but not on previous UNO revisions. 
 
-To turn your board into an HID, you can use the **keyboard/mouse** API that is built into the core. You can visit the documentation for this API in the language reference at:
+To turn your board into an HID, you can use the **keyboard/mouse** API that is built in to the Board Package. You can visit the documentation for this API in the language reference at:
+
 - [Keyboard](https://www.arduino.cc/reference/en/language/functions/usb/keyboard/)
 - [Mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/)
 
@@ -57,6 +58,7 @@ To emulate a keyboard, we can use the `press()` and `releaseAll()` methods. This
 
 void setup() {
   Keyboard.begin();
+  delay(1000);
 }
 
 void loop() {
@@ -66,6 +68,15 @@ void loop() {
   delay(1000); 
 }
 ```
+
+To see more examples, please refer to links below:
+
+- [Keyboard and Mouse Control Tutorial](/built-in-examples/usb/KeyboardAndMouseControl)
+- [Keyboard Reprogram Tutorial](/built-in-examples/usb/KeyboardReprogram)
+- [Keyboard Serial Tutorial](/built-in-examples/usb/KeyboardSerial)
+- [Keyboard Logout Tutorial](/built-in-examples/usb/KeyboardLogout)
+- [Keyboard Message Tutorial](/built-in-examples/usb/KeyboardMessage)
+
 
 ## Mouse 
 
@@ -86,6 +97,7 @@ The following example moves both axis of mouse just slightly (10 points), back a
 
 void setup() {
   Mouse.begin();
+  delay(1000);
 }
 
 void loop() {
@@ -96,6 +108,12 @@ void loop() {
 }
 ```
 
+To see more examples, please refer to links below:
+
+- [Keyboard and Mouse Control Tutorial](/built-in-examples/usb/KeyboardAndMouseControl)
+- [Button Mouse Control Tutorial](/built-in-examples/usb/ButtonMouseControl)
+- [Joystick Mouse Control Tutorial](/built-in-examples/usb/JoystickMouseControl)
+
 ## Summary
 
 In this tutorial, we have demonstrated some basic HID usage with the UNO R4 Minima. To view the full API, please refer to the following APIs:
@@ -103,3 +121,4 @@ In this tutorial, we have demonstrated some basic HID usage with the UNO R4 Mini
 - [Mouse](https://www.arduino.cc/reference/en/language/functions/usb/mouse/)
 
 In there, you will find a detailed reference along with some good examples to get you started with HID features.
+

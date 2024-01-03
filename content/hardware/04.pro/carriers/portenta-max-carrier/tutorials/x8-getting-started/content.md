@@ -15,7 +15,7 @@ software:
   - web-editor
 ---
 
-## Introduction 
+## Introduction
 
 Using the Portenta X8 with the Portenta Max Carrier enables a large suite of peripherals and features. With the Portenta X8 it is possible to use Linux containers and Python® scripts, it is also possible to use the M4 core on the board to interface with the Portenta Max Carrier. In this tutorial we will focus on the peripherals and features that are available to us.
 
@@ -33,7 +33,7 @@ The goals of this project are:
 
 ## The Portenta Max Carrier
 
-The Arduino® Portenta Max Carrier was designed to add capabilities to the Arduino® Portenta X8 board and provide easy access to its on-board peripherals. It is designed to enable research and develop industrial grade advanced applications, from fast prototyping to deployable robust single board computer.
+The Arduino® Portenta Max Carrier was designed to add capabilities to the Arduino® Portenta X8 board and provide easy access to its onboard peripherals. It is designed to enable research and development of industrial-grade advanced applications, from fast prototyping to deployable robust single-board computers.
 
 To make use of the Portenta Max Carrier you will need to power it through either the barrel jack connector or with a 3.7V 18650 Li-Ion battery, connected to the Portenta Max Carriers battery clips.
 
@@ -59,16 +59,16 @@ To make use of the Portenta Max Carrier you will need to power it through either
 
 ### Memory
 
-The Portenta Max Carrier equips two different memory units on-board, a flash memory and a mini SD card slot. The Flash memory on-board the Portenta Max Carrier has 2 MB of storage via QSPI. The Mini SD card interface makes it possible to extend the storage size. It can be used to process log data, from sensors or programmed on-board computer registry.
+The Portenta Max Carrier equips two different memory units onboard, a flash memory and a mini SD card slot. The Flash memory onboard the Portenta Max Carrier has 2 MB of storage via QSPI. The Mini SD card interface makes it possible to extend the storage size. It can be used to process log data, from sensors or programmed on-board computer registry.
 
-If you have a sd card connected to the Max Carrier you can create a directory on the sd card by using the following command:
+If you have an SD card connected to the Max Carrier you can create a directory on the SD card by using the following command:
 ```python
 mkdir -p /tmp/sdcard
 ```
 
 ### Audio Interfaces
 
-The Portenta Max Carrier features the CS42L52 from Cirrus Logic®, a stereo CODEC. The CS42L52 is a 24-bit, low-power stereo CODEC that can provide up to 1W per channel of Class D stereo/mono amplification to external speakers or enough power to drive 44mW per channel into stereo headphones. There are four analog audio interfaces on the Portenta Max Carrier, these are marked on the image below.
+The Portenta Max Carrier features the CS42L52 from Cirrus Logic®, a stereo CODEC. The CS42L52 is a 24-bit, low-power stereo CODEC that can provide up to 1W per channel of Class D stereo/mono amplification to external speakers or enough power to drive 44mW per channel into stereo headphones. There are four analog audio interfaces on the Portenta Max Carrier, these are marked in the image below.
 
 ![Audio connections on the Portenta Max Carrier](assets/audio-interface-max-carrier.svg)
 
@@ -81,23 +81,23 @@ apk update && apk add alsa-utils alsa-utils-doc alsa-lib alsaconf alsa-ucm-conf 
 
 ### GSM Modem
 
-The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out tasks requiring general network connectivity. This cellular modem is capable of establishing 2G / Cat-M1 / NB-IoT connections globally. It is powered by bidirectional logic level shifter SN74LVC1T45 and an internal regulator, implemented for the use of SIM card and I/O. The cellular modem requires a SIM card and an antenna connected to the SMA connector.
+The Portenta Max Carrier carries a cellular modem SARA-R412M-02B to carry out tasks requiring general network connectivity. This cellular modem is capable of establishing 2G / Cat-M1 / NB-IoT connections globally. It is powered by a bidirectional logic level shifter SN74LVC1T45 and an internal regulator, implemented for the use of SIM cards and I/O. The cellular modem requires a SIM card and an antenna connected to the SMA connector.
 
 ![LoRa® and GSM peripherals on the Max Carrier](assets/lora-on-max-carrier.svg)
 
-If you want to use this feature with Python® scripts, have a look at the [Modem Manager api](https://github.com/freedesktop/ModemManager).
+If you want to use this feature with Python® scripts, have a look at the [Modem Manager API](https://www.freedesktop.org/software/ModemManager/doc/latest/ModemManager/).
 
 ### LoRa®
 
-One of the many features of the Portenta Max Carrier is the Murata CMWX1ZZABZ-078 that enables LoRaWAN® connectivity. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
+One of the many features of the Portenta Max Carrier is the Murata CMWX1ZZABZ-078 which enables LoRaWAN® connectivity. LoRaWAN® is a Low Power Wide Area Network (LPWAN) designed to connect low-power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low-power consumption and low data throughput.
 
-The appropriate antenna and frequencies depends on the region. The common frequencies are 915 MHz for North America and Australia, and 863 MHz for European region. Frequencies are on a range, so for example Australia region it is possible to use 928 MHz compatible antenna and configuration.
+The appropriate antenna and frequencies depend on the region. The common frequencies are 915 MHz for North America and Australia and 863 MHz for the European region. Frequencies are on a range, so for example in the Australia region it is possible to use a 928 MHz compatible antenna and configuration.
 
-For more in-depth information about LoRa® and LoRaWAN®, please read [The Arduino Guide to LoRa® and LoRaWAN®](https://docs.arduino.cc/learn/communication/lorawan-101).
+For more in-depth information about LoRa® and LoRaWAN®, please read [The Arduino Guide to LoRa® and LoRaWAN®](/learn/communication/lorawan-101).
 
 ### Ethernet
 
-The Gigabit Ethernet physical interface is directly connected to the high density connector to the Portenta X8 board. The connector includes a LED for indicating activity using the color orange, there is also a LED using the color green to indicate speed.
+The Gigabit Ethernet physical interface is directly connected to the high-density connector to the Portenta X8 board. The connector includes an LED for indicating activity using the color orange, there is also a LED using the color green to indicate speed.
 
 To access the 1 Gbps connection Ethernet peripheral on the Max Carrier you can use the following command:
 ```python
@@ -116,7 +116,7 @@ The Portenta Max Carrier and the Portenta X8 are connected with High Density con
 
 If you wish to use the Portenta X8 and Max Carrier with the Arduino IDE, please follow our [Uploading sketches to Arduino Portenta X8 tutorial](/tutorials/portenta-x8/uploading-sketches-m4). Also, make sure that you have the latest version of the Portenta Core installed. Go to **Tools > Boards > board manager...** and search for **Arduino Mbed OS Portenta boards**. When this is installed and your Portenta X8 board is connected to the computer, the board should be assigned a port in the Arduino IDE.
 
-If you want to use the Portenta X8 and Max Carrier with a FoundriesFactory, Python® scripts and Linux containers, Please take a look at our [Portenta X8 Getting started tutorial](./tutorials/portenta-x8/out-of-the-box). You may also find our tutorial on how to [manage dockers on the Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/docker-container) useful.
+If you want to use the Portenta X8 and Max Carrier with a FoundriesFactory, Python® scripts and Linux containers, Please take a look at our [Portenta X8 User Manual](/tutorials/portenta-x8/user-manual). You may also find our tutorial on how to [manage dockers on the Portenta X8](/tutorials/portenta-x8/docker-container) useful.
 
 ## Quick Reference Tables for the Portenta Max Carrier
 

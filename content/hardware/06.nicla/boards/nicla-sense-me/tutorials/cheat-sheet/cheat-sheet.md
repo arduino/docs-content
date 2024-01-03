@@ -731,7 +731,7 @@ Use the sensor IDs from the section "Sensor IDs" to enable and configure the des
 
 The BHI260AP sensor runs a customizable firmware based on the BSX Sensor Fusion library. It provides a complete 9-axis fusion solution, which combines the measurements from 3-axis gyroscope, 3-axis geomagnetic sensor and a 3-axis accelerometer, to provide a robust absolute orientation vector. The algorithm fuses the sensor raw data from the accelerometer, geomagnetic sensor and gyroscope in an intelligent way to improve each sensor’s output.
 
-Go to this [site](https://www.bosch-sensortec.com/software-tools/software/sensor-fusion-software/) or take a look at the BHI260AP's [datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bhi260ap-ds000.pdf) for more information.
+Go to this [site](https://www.bosch-sensortec.com/software-tools/software/sensor-fusion-software-bsx/) or take a look at the BHI260AP's [datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bhi260ap-ds000.pdf) for more information.
 
 ## Communication
 

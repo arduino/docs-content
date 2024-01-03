@@ -1,10 +1,14 @@
 ---
 title: Nicla Vision
 url_shop: https://store.arduino.cc/products/nicla-vision
-url_guide: /software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla
+url_guide: /tutorials/nicla-vision/user-manual
+primary_button_url: /tutorials/nicla-vision/user-manual
+primary_button_title: User Manual
+secondary_button_url: /tutorials/nicla-vision/getting-started
+secondary_button_title: Get Started
 core: arduino:mbed_nicla
-certifications: [CE]
+certifications: [CE, UKCA]
 productCode: '120'
 ---
 
-The Arduino® Nicla Vision is a ready-to-use, standalone camera for analyzing and processing images on the edge. Thanks to its 2MP color camera, smart 6-axis motion sensor, integrated microphone and distance sensor, it is suitable for asset tracking, object recognition and predictive maintenance. Quickly implement sensor nodes to send collected data to the Arduino® Cloud (or third-party vendor services) via integrated WiFi/BLE connectivity.
+The Arduino® Nicla Vision is a ready-to-use, standalone camera for analyzing and processing images on the edge. Thanks to its 2 MP color camera, smart 6-axis motion sensor, integrated microphone and distance sensor, it is suitable for asset tracking, object recognition and predictive maintenance. Quickly implement sensor nodes to send collected data to the Arduino® Cloud (or third-party vendor services) via integrated Wi-Fi®/Bluetooth® LE connectivity.

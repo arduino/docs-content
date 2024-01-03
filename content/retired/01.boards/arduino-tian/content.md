@@ -15,7 +15,7 @@ The new **Arduino Tian** board is powered by Atmel’s SAMD21 MCU, featuring a 3
 
 **NB:** In some countries, it is prohibited to sell WiFi enabled devices without government approval. While waiting for proper certification, some local distributors are disabling WiFi functionality. Check with your dealer before purchasing a Tian if you believe you may live in such a country.
 
-**NB:** Before to start to run Arduino Tian must install CP201x driver on the computer. Find Drivers link [here](http://www.silabs.com/products/interface/Pages/CP2105EK.aspx).
+**NB:** Before to start to run Arduino Tian must install CP201x driver on the computer. Find Drivers link [here](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads).
 
 ## Getting Started
 
@@ -80,7 +80,7 @@ The Arduino Tian has a number of facilities for communicating with a computer, w
 
 ### Programming
 
-The Arduino Tian can be programmed with the Arduino software ([download](https://www.arduino.cc/en/Main/Software)). If you use Linux-based OS follow the guide Arduino IDE onLinux-basedOS. Uploading sketches to the SAMD21 is different from how it works with the AVR microcontrollers found in other Arduino boards: the flash memory needs to be erased before being re-programmed. Upload operation is managed by a dedicated ROM area on the SAMD21\. USB port: To use this port, select "Arduino Tian as your board in the Arduino IDE. The USB port is connected to the CP2105\. Installated the driver the user view two serial ports: one for SAMD21 and other for AR9342\. Connect the Tian USB port (the one closest to the reset button) to your computer. Opening and closing the USB port at 1200bps triggers a 'soft reset' procedure:the board is restarted with the boot loader. Note: Keep in mind that every time you open the Serial Terminal then the Microcontroller is reset. Note: At the moment the Bridge library isn't compatible but it is possible to use the [Ciao library](https://www.arduino.cc/en/Reference/Ciao).
+The Arduino Tian can be programmed with the Arduino software ([download](https://www.arduino.cc/en/Main/Software)). If you use Linux-based OS follow the guide Arduino IDE onLinux-basedOS. Uploading sketches to the SAMD21 is different from how it works with the AVR microcontrollers found in other Arduino boards: the flash memory needs to be erased before being re-programmed. Upload operation is managed by a dedicated ROM area on the SAMD21\. USB port: To use this port, select "Arduino Tian as your board in the Arduino IDE. The USB port is connected to the CP2105\. Install the driver the user view two serial ports: one for SAMD21 and other for AR9342\. Connect the Tian USB port (the one closest to the reset button) to your computer. Opening and closing the USB port at 1200bps triggers a 'soft reset' procedure:the board is restarted with the boot loader. Note: Keep in mind that every time you open the Serial Terminal then the Microcontroller is reset. Note: At the moment the Bridge library isn't compatible but it is possible to use the [Ciao library](https://www.arduino.cc/en/Reference/Ciao).
 
 ### Automatic (Software) Reset
 

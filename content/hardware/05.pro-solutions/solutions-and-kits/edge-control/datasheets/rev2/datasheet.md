@@ -125,7 +125,7 @@ The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time ins
 
 **Mushroom Cultivation:** Mushrooms are notorious for requiring the perfect temperature and humidity conditions to sustain spore growth while also preventing competing fungi from growing. Thanks to the numerous watermark sensors, output ports and connectivity options available on the Arduino® Edge Control as well as the Arduino® IoT Cloud, this precision farming can be achieved on an unprecedented level.
 
-### Accessories
+### Accessories (Not Included)
 *   Irrometer Tensiometers
 *   Watermark soil moisture sensors
 *   Mechanized ball valves
@@ -161,6 +161,8 @@ The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time ins
 | V<sub>Batt</sub>  | Input voltage from battery input | -   | 12  | -   | V    |
 | V<sub>Solar</sub> | Input voltage from solar panel   | 16  | 18  | 20  | V    |
 
+<div style="break-after:page"></div>
+
 ## Functional Overview
 
 ### Block Diagram
@@ -186,6 +188,8 @@ The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time ins
 | U8           | TCA6424A IO expander IC        | U13            | AP2141 IC power SW USB                           |
 | U9           | NINA-B306 Module               | U16            | CD40109BNSR voltage translator                   |
 | Q1, Q2       | MOSFET P-CH 30V 20A 8SO        |                |                                                  |
+
+<div style="break-after:page"></div>
 
 #### Bot Topology
 
@@ -422,8 +426,7 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 | 17  | BATTERY+     | Power    | Battery Positive Terminal                             |
 | 18  | RELAY4_N     | Switch   | Relay 4 negative                                      |
 
-
-<div style="page-break-after:always;"> </div>
+<div style="break-after:page"></div>
 
 ## Mechanical Information
 
@@ -435,10 +438,13 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 ![](assets/edgeControlMountingHoles_60.svg)
 
+<div style="break-after:page"></div>
+
 ### Connector Positions
 
 ![](assets/edgeControlConnectors_60.svg)
 
+<div style="break-after:page"></div>
 
 ## Certifications
 ### Declaration of Conformity CE DoC (EU)
@@ -535,6 +541,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Revision** | **Changes**             |
-| ---------- | -------------|------------------------ |
-| 05/01/2022 | 1            | First Release           |
+| **Date**   | **Revision** | **Changes**                 |
+| ---------- | ------------ | --------------------------- |
+| 05/12/2023 | 2            | Accessories section updated |
+| 05/01/2022 | 1            | First Release               |

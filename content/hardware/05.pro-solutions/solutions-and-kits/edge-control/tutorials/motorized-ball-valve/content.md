@@ -11,7 +11,7 @@ author: Ernesto E. Lopez, Lenard George Swamy
 
 A ball valve is a form of quarter-turn [valve](https://en.wikipedia.org/wiki/Valve) which uses a hollow, perforated and pivoting ball to control flow of liquids and gasses through it. This tutorial will guide you through connecting the board to a 3 Wire-Valve and writing a sketch that controls the basic operations such as the opening and closing of the valves. 
 
-***Tip : If this is for your first Edge Control project, we recommend you to take a look at the [Getting Started Tutorial](https://www.arduino.cc/pro/tutorials/portenta-h7/getting-started-edge-control) to setup the development environment before you proceed.*** 
+***Tip : If this is for your first Edge Control project, we recommend you to take a look at the [Getting Started Tutorial](/tutorials/edge-control/getting-started-edge-control) to setup the development environment before you proceed.*** 
 
 ## Goals
 

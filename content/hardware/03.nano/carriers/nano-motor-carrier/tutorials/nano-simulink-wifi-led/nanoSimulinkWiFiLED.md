@@ -106,7 +106,7 @@ The LED in the Arduino Nano 33 IoT is connected to Digital Pin 13. By pulling th
 
 ![Signal path between the Pulse Generator block to the Digital Output block with the Scope block connected](img/nano-Simulink-WiFi-LED-Three-Blocks-Connected.png)
 
-**9.** The blocks are now connected! However, before we continue we need to configure the **Pulse Generator** and **Digital Output** blocks. Let us start with the **Digital Output** block. You can see that by default the Pin is 9. However, [as you know](##-LED-on-the-Arduino-Nano-33-IoT) the LED is connected to Pin 13 on the Nano 33 IoT. Double click on this block to open up the properties and change **Pin number** to 13.
+**9.** The blocks are now connected! However, before we continue we need to configure the **Pulse Generator** and **Digital Output** blocks. Let us start with the **Digital Output** block. You can see that by default the Pin is 9. However, [as you know](#led-on-the-arduino-nano-33-iot) the LED is connected to Pin 13 on the Nano 33 IoT. Double click on this block to open up the properties and change **Pin number** to 13.
 
 ![Changing Pin Number for Digital Output](img/nano-Simulink-WiFi-LED-Change-Pin-Number.png)
 

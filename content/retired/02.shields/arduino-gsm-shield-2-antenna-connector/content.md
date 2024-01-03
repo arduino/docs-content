@@ -10,7 +10,7 @@ source: "https://store.arduino.cc/arduino-gsm-shield-2-antenna-connector"
 
 ![The Arduino GSM Shield 2 with antenna connector](./assets/a000106_featured.jpg)
 
-The **Arduino GSM Shield 2** allows an Arduino board to connect to the internet, make/receive voice calls and send/receive SMS messages. The shield uses a radio modem [M10 by Quectel](https://www.arduino.cc/en/uploads/Main/Quectel_M10_datasheet.pdf). It is possible to communicate with the board using [AT commands](https://www.arduino.cc/en/Main/en/uploads/Main/Quectel_M10_AT_commands.pdf). The [GSM library](https://www.arduino.cc/en/Reference/GSM) has a large number of methods for communication with the shield.
+The **Arduino GSM Shield 2** allows an Arduino board to connect to the internet, make/receive voice calls and send/receive SMS messages. The shield uses a radio modem [M10 by Quectel](https://www.arduino.cc/en/uploads/Main/Quectel_M10_datasheet.pdf). It is possible to communicate with the board using [AT commands](https://www.arduino.cc/en/uploads/Main/Quectel_M10_AT_commands.pdf). The [GSM library](https://www.arduino.cc/en/Reference/GSM) has a large number of methods for communication with the shield.
 
 The shield uses digital pins 2 and 3 for software serial communication with the M10\. Pin 2 is connected to the M10’s TX pin and pin 3 to its RX pin. [See these notes](https://docs.arduino.cc/retired/getting-started-guides/ArduinoGSMShield) for working with an Arduino Mega, Mega ADK, or Leonardo. The modem's PWRKEY pin is connected to Arduino pin 7.
 
@@ -81,4 +81,4 @@ Several of the modem pins are exposed on the underside of the board. These provi
 
 ## Previous Versions
 
-Do you own a past an old version of this product? Check [Arduino GSM Shield V1](https://www.arduino.cc/en/Main.ArduinoGSMShieldV1) product page.
+Do you own a past an old version of this product? Check [Arduino GSM Shield V1](/retired/shields/arduino-gsm-shield) product page.

@@ -49,6 +49,20 @@ Before you start using the board's pins, it might be a good idea to check out th
 | D20/A6  | GPIO36 | ADC/NINA-W102 |
 | D21/A7  | GPIO35 | ADC/NINA-W102 |
 
+### Analog Read
+
+***Note: This is currently only available on the nightly build. Follow [this link](https://docs.arduino.cc/micropython/#firmware) to download it.***
+
+To read an analog pin, we can use the `ADC.read_u16` command. This reads the specified analog pin and returns an integer in the range 0 - 65535. For this, we need to import `ADC` from the `machine` module.
+
+```python
+from machine import ADC
+
+while True:
+    adc = ADC("A4")
+    adc.read_u16()
+```
+
 ### Sensors
 
 #### IMU (LSM6DSOX)
@@ -473,6 +487,10 @@ In the MicroPython port of the Nano 33 BLE board, the pinout is the same as the 
 | D19/A5  | 2        |
 | D20/A6  | 28       |
 | D21/A7  | 3        |
+
+### Analog Read
+
+***The following example is currently only possible with the nightly build***
 
 ### LED Control
 
@@ -1328,7 +1346,7 @@ The pins used for SPI on the Portenta H7 are the following:
 |  PI1  |    CK    |
 |  PC2  |   CIPO   |
 
-You can refer to the [pinout](#pins) above to find them on the board.
+You can refer to the [pinout](#gpio-map-2) above to find them on the board.
 
 First, you have to import the relevant module from `pyb`.
 
@@ -1367,7 +1385,7 @@ The pins used for I2C (Inter-Integrated Circuit) on the Portenta H7 are the foll
 |  PH8  |   SDA    |
 |  PH7  |   SCL    |
 
-You can refer to the [pinout](#pins) above to find them on the board.
+You can refer to the [pinout](##gpio-map-2) above to find them on the board.
 
 To use the I2C, you import the relevant module.
 
@@ -1419,7 +1437,7 @@ The pins used for UART on the Portenta H7 are the following:
 | PA10  |    RX    |
 |  PA9  |    TX    |
 
-You can refer to the [pinout](#pins) above to find them on the board.
+You can refer to the [pinout](#gpio-map-2) above to find them on the board.
 
 To use the UART, you need to import the relevant module.
 

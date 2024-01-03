@@ -7,7 +7,7 @@ author: Arduino
 
 The [Servo Library](https://www.arduino.cc/reference/en/libraries/servo/) is a great library for controlling servo motors. In this article, you will find two easy examples that can be used by any Arduino board.
 
-The first example controls the position of a RC (hobby) [servo motor](http://en.wikipedia.org/wiki/Servo_motor#RC_servos) with your Arduino and a potentiometer. The second example sweeps the shaft of a RC [servo motor](http://en.wikipedia.org/wiki/Servo_motor#RC_servos) back and forth across 180 degrees.
+The first example controls the position of a RC (hobby) [servo motor](https://en.wikipedia.org/wiki/Servo_(radio_control)) with your Arduino and a potentiometer. The second example sweeps the shaft of a RC [servo motor](https://en.wikipedia.org/wiki/Servo_(radio_control)) back and forth across 180 degrees.
 
 You can also visit the [Servo GitHub repository](https://github.com/arduino-libraries/Servo) to learn more about this library.
 
@@ -20,19 +20,23 @@ You can also visit the [Servo GitHub repository](https://github.com/arduino-libr
 
 ## Circuit
 
-Servo motors have three wires: power, ground, and signal. The power wire is typically red, and should be connected to the 5V pin on the Arduino board. The ground wire is typically black or brown and should be connected to a ground pin on the board. The signal pin is typically yellow or orange and should be connected to PWM pin on the board. In these examples, it is pin number 9.
+Servo motors have three wires: power, ground, and signal. The power wire is typically red, and should be connected to positive pole (+) of your power source. The ground wire is typically black or brown and should be connected to the negative pole (-) of your power source. 
+
+The signal pin is typically yellow or orange and should be connected to PWM pin on the board. In these examples, it is pin number 9.
+
+***Always make sure to power your servo motor with a external power source. Connecting a servo directly to your board will cause your board to behave erratically and can damage your board***
 
 ### Knob Circuit
 
-For the **Knob** example, wire the potentiometer so that its two outer pins are connected to power (+5V) and ground, and its middle pin is connected to `A0` on the board. Then, connect the servo motor to +5V, GND and pin 9.
+For the **Knob** example, wire the potentiometer so that its two outer pins are connected to power (+5V) and ground, and its middle pin is connected to `A0` on the board. Then, connect the servo motor as shown in the circuit below.
 
-![The Knob Circuit.](assets/servo-knob-circuit.png)
+![The Knob Circuit.](assets/servo_circuit_knob.png)
 
 ### Sweep Circuit
 
-For the **Sweep** example, connect the servo motor to +5V, GND and pin 9.
+For the **Sweep** example, connect the servo motor as shown in the circuit below.
 
-![The Sweep Circuit.](assets/servo-sweep-circuit.png)
+![The Sweep Circuit.](./assets/servo_circuit_sweep.png)
 
 ## Examples
 

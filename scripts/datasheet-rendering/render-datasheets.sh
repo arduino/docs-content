@@ -24,7 +24,7 @@ if [ -n "$CI" ]; then
     echo "Running on Node version: `node -v`"
     npm install
     npx datasheet-renderer config.json
-    exit 0
+    exit $?
 fi
 
 if ! command -v node &> /dev/null

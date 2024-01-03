@@ -10,6 +10,6 @@
   "author": "Sebastian Romero",
   "license": "ISC",
   "dependencies": {
-    "datasheet-renderer": "^1.0.2"
+    "datasheet-renderer": "^1.0.3"
   }
 }

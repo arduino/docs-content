@@ -45,7 +45,7 @@ Inside the Arduino PLC IDE navigate to the left side panel and click on the "Res
 
 To configure the Modbus communication click on the "RS485 Serialport" label, it will open a new window in the middle to customize:
 
-![Arduino PLC IDE Resources panel, -> RS485 settings](assets/PLC-IDE-ModBus.png)
+![Arduino PLC IDE Resources panel, -> RS-485 settings](assets/PLC-IDE-ModBus.png)
 
 Then you can attach some functions to the Generic Modbus item, they will appear also in the **Catalog Tile Window**, you need to select first the **Generic Modbus_01**
 
@@ -54,12 +54,15 @@ Then you can attach some functions to the Generic Modbus item, they will appear 
 ![Modbus catalog select new item](assets/modbusCatalog-add-prompt.png)
 
 #### Mode
+<br></br>
 
 * Not used
 * Modbus RTU Master
 * Modbus RTU Slave
 
 #### Baud Rate
+<br></br>
+
 
 Baud rate, options:
   * 600
@@ -73,6 +76,7 @@ Baud rate, options:
   * 115200
 
 #### Serial Mode
+<br></br>
 
 | Name    | Parity      | data bits | stop bits |
 | ------- | ----------- | --------- | ----------|
@@ -83,6 +87,7 @@ Baud rate, options:
 | O, 8, 2 | Odd parity  | 8         | 2         |
 
 #### Slave Settings
+<br></br>
 
 (Only available on slave mode)
 
@@ -90,6 +95,7 @@ Baud rate, options:
   Address of the device: from 1 to 247. It can not be repeated within the same Modbus net.
 
 #### Modbus Node Configuration
+<br></br>
 
 Once you have configured your device as a **Modbus Master** you can attach some blocks to configure it, you can see them while you have the **RS485 SerialPort** on the **Catalog Tile Window**
 ![Modbus catalog](assets/modBusCatalog.png)

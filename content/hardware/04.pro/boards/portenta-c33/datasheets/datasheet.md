@@ -56,7 +56,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
   </tr>
   <tr>
     <td>Internal Memory</td>
-    <td>2MB Flash and 512 kB SRAM</td>
+    <td>2 MB Flash and 512 kB SRAM</td>
   </tr>
   <tr>
     <td>External Memory</td>
@@ -105,7 +105,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 1: Portenta C33 Main Features</caption>**
+<caption>Table 1: Portenta C33 Main Features</caption>
 </div>
 
 ### Microcontroller
@@ -144,7 +144,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 2: Portenta C33 Microcontroller Features</caption>**
+<caption>Table 2: Portenta C33 Microcontroller Features</caption>
 
 </div>
 
@@ -169,7 +169,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 3: Portenta C33 Wireless Communication Features</caption>**
+<caption>Table 3: Portenta C33 Wireless Communication Features</caption>
 
 </div>
 
@@ -209,7 +209,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 4: Portenta C33 Ethernet Connectivity Features</caption>**
+<caption>Table 4: Portenta C33 Ethernet Connectivity Features</caption>
 
 </div>
 
@@ -246,7 +246,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 5: Portenta C33 Security Features</caption>**
+<caption>Table 5: Portenta C33 Security Features</caption>
 
 </div>
 
@@ -286,7 +286,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 </tbody>
 </table>
 
-**<caption>Table 6: Portenta C33 External Memory Features</caption>**
+<caption>Table 6: Portenta C33 External Memory Features</caption>
 
 </div>
 
@@ -303,13 +303,14 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 - Arduino® Nicla Vision (SKU: ABX00051)
 - Arduino® Nicla Voice (SKU: ABX00061)
 - Arduino® Portenta Max Carrier (SKU: ABX00043)
+- Arduino® Portenta Hat Carrier (SKU: ASX00049)
 - Arduino® Portenta CAT.M1/NB IoT GNSS Shield (SKU: ABX00043)
 - Arduino® Portenta Vision Shield - Ethernet (SKU: ABX00021)
-- Arduino® Portenta Vision Shield - LoRa® (SKU: ABX00026)
+- Arduino® Portenta Vision Shield - LoRa (SKU: ABX00026)
 - Arduino® Portenta Breakout (SKU: ABX00031)
 - Arduino® boards with an onboard ESLOV connector
 
-**Note**: The Portenta Vision Shields (Ethernet and LoRa® variants) are compatible with the Portenta C33 except for the camera, which is not supported by the Portenta C33 microcontroller. 
+**Note**: The Portenta Vision Shields (Ethernet and LoRa variants) are compatible with the Portenta C33 except for the camera, which is not supported by the Portenta C33 microcontroller. 
 
 ## Ratings
 
@@ -328,7 +329,7 @@ Table 7 provides a comprehensive guideline for the optimal use of the Portenta C
 |     Supply Input Voltage     |  V<sub>IN</sub> |   4.1   |   5.0   |   6.0   |     V    |
 |     Operating Temperature    |  T<sub>OP</sub> |   -40   |    -    |    85   |    °C    |
 
-**<caption>Table 7: Recommended Operating Conditions</caption>**
+<caption>Table 7: Recommended Operating Conditions</caption>
 </div>
 
 ### Current Consumption
@@ -369,11 +370,11 @@ Table 8 summarizes the power consumption of the Portenta C33 on different test c
 </tbody>
 </table>
 
-**<caption>Table 8: Board Current Consumption</caption>**
+<caption>Table 8: Board Current Consumption</caption>
 
 </div>
 
-<sup>1</sup> All peripherals off, wake-up on RTC interrupt.\
+<sup>1</sup> All peripherals off, wake-up on RTC interrupt.
 <sup>2</sup> All peripherals on, continuous data download via Wi-Fi®.
 
 <div style="page-break-after: always;"></div>
@@ -388,13 +389,13 @@ The core of the Portenta C33 is the R7FA6M5BH2CBG microcontroller from Renesas. 
 
 The MKR-styled connectors pinout is shown in Figure 1.
 
-**![Figure 1. Portenta C33 pinout (MKR-styled connectors)](assets/Portenta_C33_Pinout_MKR.png)**
+![Figure 1. Portenta C33 pinout (MKR-styled connectors)](assets/Portenta_C33_Pinout_MKR.png)
 
 <div style="page-break-after: always;"></div>
 
 The High-Density connectors pinout is shown in Figure 2.
 
-**![Figure 2. Portenta C33 pinout (High-Density connectors)](assets/Portenta_C33_Pinout_HDC.png)**
+![Figure 2. Portenta C33 pinout (High-Density connectors)](assets/Portenta_C33_Pinout_HDC.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -402,8 +403,7 @@ The High-Density connectors pinout is shown in Figure 2.
 
 An overview of the Portenta C33 high-level architecture is illustrated in Figure 3.
 
-**![Figure 3. High-level architecture of the Portenta C33](assets/Portenta_C33_Block_Diagram.svg)**
-
+![Figure 3. High-level architecture of the Portenta C33](assets/Portenta_C33_Block_Diagram.svg)
 
 <div style="page-break-after: always;"></div>
 
@@ -422,7 +422,52 @@ The recommended minimum battery capacity is 700 mAh. The battery is connected to
 Figure 4 shows the power options available on the Portenta C33 and illustrates the main system power architecture.
 </div>
 
-**![Figure 4. Power architecture of the Portenta C33](assets/Portenta_C33_Power_Tree.svg)**
+![Figure 4. Power architecture of the Portenta C33](assets/Portenta_C33_Power_Tree.svg)
+
+### I2C Ports 
+
+<p style="text-align: justify;"> System integrators can use the Portenta C33's High-Density connectors to expand signals of the board to a custom-designed daughter board or carrier. Table 9 summarizes the I2C pins mapping on the board's High-Density connectors and shared peripherals/resources. Please refer to Figure 2 for the board's High-Density connectors pinout.</p>
+
+<div style="text-align:center;">
+<table>
+<thead>
+  <tr>
+    <th style="text-align: center; vertical-align: middle;">HD Connector</th>
+    <th style="text-align: center; vertical-align: middle;">Interface</th>
+    <th style="text-align: center; vertical-align: middle;">Pins</th>
+    <th style="text-align: center; vertical-align: middle;">Status<sup>1</sup></th>
+    <th style="text-align: center; vertical-align: middle;">Shared Peripherals</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">J1</td>
+    <td style="text-align: center; vertical-align: middle;">I2C1</td>
+    <td style="text-align: center; vertical-align: middle;">43-45</td>
+    <td style="text-align: center; vertical-align: middle;">Free</td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">J1</td>
+    <td style="text-align: center; vertical-align: middle;">I2C0</td>
+    <td style="text-align: center; vertical-align: middle;">44-46</td>
+    <td style="text-align: center; vertical-align: middle;">Free</td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">J2</td>
+    <td style="text-align: center; vertical-align: middle;">I2C2</td>
+    <td style="text-align: center; vertical-align: middle;">45-47</td>
+    <td style="text-align: center; vertical-align: middle;">Free</td>
+    <td style="text-align: center; vertical-align: middle;">-</td>
+  </tr>
+</tbody>
+</table>
+
+<caption>Table 9: I2C pins mapping of the Portenta C33</caption>
+</div>
+
+<p style="text-align: justify;"><sup>1</sup>Status column indicates the current status of the pins. "Free" means the pins are not in use by another resource or peripheral of the board and are available for usage, while "Shared" means the pins are used by one or several resources or peripherals of the board.</p>
 
 ## Device Operation
 
@@ -462,7 +507,7 @@ castellated/through-hole pins around the two long edges and two High-Density con
 
 Portenta C33 board outline and mounting holes dimensions can be seen in Figure 5. 
 
-**![Figure 5. Portenta C33 board outline (left) and mounting holes dimensions (right)](assets/Portenta_C33_Mechanical_1.png)**
+![Figure 5. Portenta C33 board outline (left) and mounting holes dimensions (right)](assets/Portenta_C33_Mechanical_1.png)
 
 The Portenta C33 has four 1.12 mm drilled mounting holes to provide for mechanical fixing.
 
@@ -470,8 +515,7 @@ The Portenta C33 has four 1.12 mm drilled mounting holes to provide for mechanic
 
 Connectors of the Portenta C33 are placed on the top and bottom side of the board, their placement can be seen in Figure 6.
 
-**![Figure 6. Portenta C33 connectors placement (top view left, bottom view right)](assets/Portenta_C33_Mechanical_2.png)**
-
+![Figure 6. Portenta C33 connectors placement (top view left, bottom view right)](assets/Portenta_C33_Mechanical_2.png)
 
 <p style="text-align: justify;">
 The Portenta C33 is designed to be usable as a surface-mount module as well as presenting a dual inline package (DIP) format with the MKR-styled connectors on a 2.54 mm pitch grid with 1 mm holes.
@@ -511,7 +555,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Hexavalent Chromium (Cr6+)             | 1000                    |
 | Poly Brominated Biphenyls (PBB)        | 1000                    |
 | Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
-| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
 | Benzyl butyl phthalate (BBP)           | 1000                    |
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
@@ -544,6 +588,23 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
+<div style="page-break-after: always;"></div>
+
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -572,7 +633,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| **Company name** |                **Arduino SRL**               |
+| **Company name** |                **Arduino S.r.l.**               |
 |:----------------:|:--------------------------------------------:|
 |  Company address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
@@ -590,8 +651,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |                       **Changes**                      |
+|  **Date**  | **Revision** |                      **Changes**                       |
 |:----------:|:------------:|:------------------------------------------------------:|
-| 20/06/2023 |       3      | Power tree added, related products information updated |
-| 09/06/2023 |       2      |       Board's power consumption information added      |
-| 14/03/2023 |       1      |                      First release                     |
+| 14/12/2023 |      6       |            Updated Related Product section             |
+| 14/11/2023 |      5       |             FCC and Block Diagram Updates              |
+| 30/10/2023 |      4       |          I2C ports information section added           |
+| 20/06/2023 |      3       | Power tree added, related products information updated |
+| 09/06/2023 |      2       |      Board's power consumption information added       |
+| 14/03/2023 |      1       |                     First release                      |

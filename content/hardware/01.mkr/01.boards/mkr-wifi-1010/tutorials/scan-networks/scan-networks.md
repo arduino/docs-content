@@ -52,7 +52,7 @@ This tutorial requires no additional circuit.
 
 **1.** First we need to make sure we have the dependencies installed. For this tutorial, we will need to install the [WiFiNINA](https://www.arduino.cc/en/Reference/WiFiNINA) library. If we are using the offline editor, we can locate this library in **Tools > Manage Libraries...**. If we are using the [Web Editor](https://create.arduino.cc/), it is already installed.
 
-**2.** If we are using the offline editor, we need to make sure we have the drivers installed for the MKR WiFi 1010 board. In the editor, navigate to **Tools > Board > Board Manager...**, and install the **Arduino SAMD boards (32-bits ARM Cortex M0+)** core. 
+**2.** If we are using the offline editor, we need to make sure we have the drivers installed for the MKR WiFi 1010 board. In the editor, navigate to **Tools > Board > Board Manager...**, and install the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** core. 
 
 **3.** Now let's take a look at some of the core functionalities of the sketch that we will use.
 

@@ -51,6 +51,8 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 **Reference Design:** The Portenta Max Carrier is a great reference design for developing your own custom products around the Portenta ecosystem that conforms to the industry standard specifications. Arduino Pro also provides full development, production and operation support to develop solutions tailored to your business needs.
 
 ### Accessories (Not Included)
+*   LoRa® antenna (e.g. ANT-8/9-IPW1-SMA)
+*   Cellular LTE / CAT.M1 / NB-IoT antenna (e.g. ANT-5GW-SPS1-2)
 *   Mini PCIe expansion boards
 *   SIM card
 *   3.7V 18650 Li-ion battery
@@ -71,6 +73,8 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 
 >  (1) RF performance of the SARA-R4 modem above 65°C may be affected, although module is fully functional
 
+<div style="break-after:page"></div>
+
 ## Functional Overview
 
 ### Block Diagram
@@ -88,7 +92,7 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 | U9       | DSC6111HI2B 12MHz MEMS Oscillator IC                   | U10            | SN74LVC1G125 Single Bus Buffer Gate IC                    |
 | U11      | BQ24195RGET 4.5A Single Cell Charger IC                | U12            | AP7311 1.8V 150mA LDO Linear Regulator IC                 |
 | U13      | TPS54620 6A Buck Regulator IC                          | U14            | AP2112K-3.3TRG1 3.3V 600mA LDO Regulator IC               |
-| U15      | STM32F405RG 168MHz 32 bit ARM Cortex-M4 MCU IC         | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC                  |
+| U15      | STM32F405RG 168MHz 32 bit Arm® Cortex®-M4 MCU IC         | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC                  |
 | U23      | CMWX1ZZABZ-078 Murrata LoRa® module                    | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection      |
 | J1, J2   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors      | J3             | Right-Angle SMA Connector for Modem                       |
 | J4       | 2-1734248-0 FPC Connector                              | J5             | FW-20-05-G-D-254-150 Signal Break                         |
@@ -156,25 +160,25 @@ The Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1
 ### Micro SD Card Slot
 The on board Micro SD card can be used for data logging operations.
 
-### FEATURES SUPPORTED BY PORTENTA BOARDS
+### Features Supported By Portenta Boards
 The supported features depend upon your choice of Portenta board used together with the Portenta Max Carrier.
 
-| Function                 | Portenta H7 Support | Portenta X8 Support | Notes                                            |
-| ------------------------ | ------------------- | ------------------- | ------------------------------------------------ |
-| USB Host                 | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
-| Ethernet                 | Fast Ethernet       | 1 Gbps              | Fast Ethernet - 100 Mbps                         |
-| CAN                      | Yes                 | Yes                 |                                                  |
-| Mini PCIe (USB)          | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
-| Mini PCIe (PCIe)         | No                  | PCIe 2.0            | Portenta H7 only supports USB based PCIe cards   |
-| Battery Charger          | Yes                 | Yes                 |                                                  |
-| LoRa®                    | Yes                 | Yes                 |                                                  |
-| NBIoT/CatM1/2G           | Yes                 | Yes                 | Communication with modem is via USB              |
-| Camera                   | No                  | MIPI up to 4 lanes  |                                                  |
-| Audio                    | Limited             | Yes                 | No firmware support for the H7                   |
-| RS232/422/485            | Yes                 | Yes                 |                                                  |
-| on board JTAG  debugging | Yes                 | No                  |                                                  |
-| on board console to USB  | Yes                 | Yes                 |                                                  |
-| on board bus sniffing    | Limited             | Limited             | Only hardware support                            |
+| Function                 | Portenta H7 Support | Portenta X8 Support | Notes                                                                   |
+| ------------------------ | ------------------- | ------------------- | ----------------------------------------------------------------------- |
+| USB Host                 | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps                        |
+| Ethernet                 | Fast Ethernet       | 1 Gbps              | Fast Ethernet - 100 Mbps                                                |
+| CAN                      | Yes                 | Yes                 |                                                                         |
+| Mini PCIe (USB)          | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps                        |
+| Mini PCIe (PCIe)         | No                  | PCIe 2.0            | Portenta H7 only supports USB based PCIe cards                          |
+| Battery Charger          | Yes                 | Yes                 |                                                                         |
+| LoRa®                    | Yes                 | Yes                 |                                                                         |
+| NBIoT/CatM1/2G           | No                  | Yes                 | Communication with the modem is via USB, no firmware support for the H7 |
+| Camera                   | No                  | MIPI up to 4 lanes  | No MIPI camera support on H7                                            |
+| Audio                    | Limited             | Yes                 | No firmware support for the H7                                          |
+| RS232/422/485            | Yes                 | Yes                 |                                                                         |
+| on board JTAG  debugging | Yes                 | No                  |                                                                         |
+| on board console to USB  | Yes                 | Yes                 |                                                                         |
+| on board bus sniffing    | Limited             | Limited             | Only hardware support                                                   |
 
 
 ### Power Tree
@@ -297,7 +301,7 @@ Voltage range and max current are provided as a general guideline only. Consult 
 | 39  | PWM3         | Digital  | PWM Output 3                      |
 | 40  | CAN1_RX      | Digital  | CAN Receive Line                  |
 
-### microSD Module
+### MicroSD Module
 | Pin | **Function** | **Type** | **Description**                             |
 | --- | ------------ | -------- | ------------------------------------------- |
 | 1   | DATA2        | Digital  | Data bit 2                                  |
@@ -392,6 +396,8 @@ Note: Functions of pins 2-5 are dependent upon the configured protocol for the S
 | 51  | NC           | NC           | Not Connected                           |
 | 52  | +3V3_PCIE    | Power        | +3V3 Power Rail                         |
 
+<div style="break-after:page"></div>
+
 ## Mechanical Information
 ### Board Outline
 ![Board outline](assets/maxCarrierBoardOutline.png)
@@ -481,17 +487,18 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Company Address | Via Andrea Appiani 25, 20900 Monza MB, Italy |
 
 ## Reference Documentation
-| Reference                        | **Link**                                                                     |
-| -------------------------------- | ---------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)            | https://www.arduino.cc/en/Main/Software                                      |
-| Arduino IDE (Cloud)              | https://create.arduino.cc/editor                                             |
-| Cloud Web Editor Getting Started | https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started/ |
-| Arduino Pro Website              | https://www.arduino.cc/pro                                                   |
-| Library Reference                | https://www.arduino.cc/reference/en/                                         |
-| Online Store                     | https://store.arduino.cc/                                                    |
-| Arduino Max Carrier Docs         | https://docs.arduino.cc/hardware/portenta-max-carrier                        |
+| Reference                        | **Link**                                                                        |
+| -------------------------------- | ------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)            | https://www.arduino.cc/en/Main/Software                                         |
+| Arduino IDE (Cloud)              | https://create.arduino.cc/editor                                                |
+| Cloud Web Editor Getting Started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
+| Arduino Pro Website              | https://www.arduino.cc/pro                                                      |
+| Library Reference                | https://www.arduino.cc/reference/en/                                            |
+| Online Store                     | https://store.arduino.cc/                                                       |
+| Arduino Max Carrier Docs         | https://docs.arduino.cc/hardware/portenta-max-carrier                           |
 
 ## Revision History
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
+| 11/20/2023 | 2            | Recommended antennas added |
 | 10/05/2022 | 1            | First Release |

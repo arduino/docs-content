@@ -30,7 +30,7 @@ This tutorial demonstrates how to make use the Arduino 101's onboard [6-axis acc
 
 7. Upload the example contained in the Madgwik library called Visualizer101 to your 101, making sure that the board is flat and stationery so it can perform the calibration accurately.
 
-8. After a few seconds, run the Processing sketch, adjust the orientation of your board, and watch as the Processing sketch gives a visualization of your board. The Pocessing is contained in the "extras" folder of the Madgwick library.
+8. After a few seconds, run the Processing sketch, adjust the orientation of your board, and watch as the Processing sketch gives a visualization of your board. The Processing is contained in the "extras" folder of the Madgwick library.
 
 ## The Circuit
 
@@ -40,7 +40,7 @@ image developed using [Fritzing](http://www.fritzing.org).
 
 ## How it works
 
-The Madgwick filter algorithm is open-source and is well documented in Madgwick's [information and reports](http://www.x-io.co.uk/open-source-imu-and-ahrs-algorithms). The Madgwick filter algorithm was developed by Sebastian Madgwick during his Ph.D. in 2010 and is designed to be computationally inexpensive and efficient even at low sampling rates. The algorithm takes raw values from a gyroscope and accelerometer, and uses them to return four quaternions, which are 4-dimensional numbers which contain *x*, *y*, and *z* values to represent the axis around which rotation occurs, as well as a *&#x3C9;* value which represents the value of rotation which occurs around the same axis. These quaternions can be used to calculate the Euler angles pitch, yaw, and roll; three angles used to describe the orientation of a rigid body in terms of *x*,*y*, and *z* as presented by Leonhard Euler in the 1700s. The equations (7) (8) (9) in [Madgwick's Report](http://www.x-io.co.uk/res/doc/madgwick_internal_report.pdf) are used to calculate the values for pitch, roll, and yaw, and their functions are included within the library.
+The Madgwick filter algorithm is open-source and is well documented in Madgwick's [information and reports](http://www.x-io.co.uk/open-source-imu-and-ahrs-algorithms). The Madgwick filter algorithm was developed by Sebastian Madgwick during his Ph.D. in 2010 and is designed to be computationally inexpensive and efficient even at low sampling rates. The algorithm takes raw values from a gyroscope and accelerometer, and uses them to return four quaternions, which are 4-dimensional numbers which contain *x*, *y*, and *z* values to represent the axis around which rotation occurs, as well as a *&#x3C9;* value which represents the value of rotation which occurs around the same axis. These quaternions can be used to calculate the Euler angles pitch, yaw, and roll; three angles used to describe the orientation of a rigid body in terms of *x*,*y*, and *z* as presented by Leonhard Euler in the 1700s. The equations (7) (8) (9) in [Madgwick's Report](https://web.archive.org/web/20210325125059/http://www.x-io.co.uk/res/doc/madgwick_internal_report.pdf) are used to calculate the values for pitch, roll, and yaw, and their functions are included within the library.
 
 We can create a 3D representation of the Arduino 101's onboard IMU  in Processing, which will move as the board does. This is achieved with the values for Euler angles pitch, roll and yaw obtained by the Madgwick filter algorithm. These values can then be sent via Serial to [Processing](https://processing.org) and used as angle arguments for Processing's  to compute the position of the Arduino 3D model using the methods:
 [applyMatrix()](https://processing.org/reference/applyMatrix_.html), [pushMatrix()](https://processing.org/reference/pushMatrix_.html), and [popMatrix()](https://processing.org/reference/popMatrix_.html) functions.
@@ -57,7 +57,7 @@ First, we must create a Madgwick object to access the functions from the Madgwic
 Madgwick filter;
 ```
 
-In the `setup()` function we perform a preliminary configuration of the CurieIMU, by setting the sample rate of the acelerometer and the gyro and the filter to 25Hz:
+In the `setup()` function we perform a preliminary configuration of the CurieIMU, by setting the sample rate of the accelerometer and the gyro and the filter to 25Hz:
 
 ```arduino
 CurieIMU.begin();

@@ -27,14 +27,15 @@ In this tutorial, you will learn how to manually flash your Portenta X8 with the
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - Portenta Family Carrier (Optional):
-- [Portenta Breakout Board](https://store.arduino.cc/products/arduino-portenta-breakout)
+- [Arduino Portenta Breakout Board](https://store.arduino.cc/products/arduino-portenta-breakout)
 - [Arduino Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
+- [Arduino Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat-carrier)
 
 ## Instructions
 
 ### Arduino's Download Repository
 
-Go to [Arduino Download repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) and a compressed `.tar.gz` with latest version of all the required OS image files will be there to download.
+Go to [Arduino Download repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz), and a compressed `.tar.gz` with the latest version of all the required OS image files will be there to download.
 
 ![lpm-manifest repository overview](assets/lpm-manifest-overview.png)
 
@@ -49,7 +50,7 @@ Unzipped folder
 └── u-boot-portenta-x8.itb
 ```
 
-After verifying these files are available, you will need to decompress `mfgtool-files-portenta-x8.tar.gz` and `lmp-partner-arduino-image-portenta-x8.wic.gz`. Please make sure the `.wic` is in the unzipped folder in the main directory. The folder structure should share a similar following layout.
+After verifying these files are available, you will need to decompress `mfgtool-files-portenta-x8.tar.gz` and `lmp-partner-arduino-image-portenta-x8.wic.gz`. Please ensure the `.wic` is in the unzipped folder in the main directory. The folder structure should share a similar following layout.
 
 ```
 Unzipped folder
@@ -66,21 +67,29 @@ Unzipped folder
 
 #### Flashing Mode with Carrier
 
-Connect your Portenta X8 into your carrier of choice, either *Portenta Breakout* or *Portenta Max Carrier*, via High-Density connectors. After connecting the Portenta X8, you will need to set the `BOOT` DIP switches to the ON position. The `BOOT` switch configuration is important as it will put the board into Flashing mode.
+Connect your Portenta X8 to your carrier of choice, either *Portenta Breakout*, *Portenta Max Carrier*, or *Hat Carrier*, via High-Density connectors. After connecting the Portenta X8, you must set the `BOOT` or `BTSEL` DIP switches to the ON position. The `BOOT/BTSEL` switch configuration is crucial as it will put the board into Flashing mode.
 
-On the Portenta Max Carrier, the DIP switches are identified by the label `BOOT SEL` and `BOOT` as shown in the figure:
+For the **Portenta Max Carrier**, set the `BOOT SEL` and `BOOT` DIP switches to the ON position as depicted in the figure:
 
-![Max Carrier DIP switches](assets/max-carrier-dip-switches.png)
+![Portenta Max Carrier DIP switches](assets/max-carrier-dip-switches.png)
 
-On the Portenta Breakout, the DIP switches are identified by the label `BT_SEL` and `BOOT` as shown in the figure:
+For the **Portenta Breakout**, the `BT_SEL` and `BOOT` DIP switches should be set to the ON position, as illustrated in the figure:
 
-![Breakout DIP switches](assets/breakout-dip-switches.png)
+![Portenta Breakout DIP switches](assets/breakout-dip-switches.png)
 
-You will need to connect one USB-C® end to the Portenta X8 and the other end (USB-C® or USB-A) to your computer. If the connection is established correctly, you will be able to see a newly connected device called `SE Blank M845S`.
+For the **Portenta Hat Carrier**, the `BTSEL` DIP switch must be set to the ON position, as depicted in the figure below:
+
+![Portenta Hat Carrier DIP switches](assets/hatCarrier-dip-switches.png)
+
+The `ETH CENTER TAP` DIP switch position does not affect the flashing mode state for the Portenta Hat Carrier.
+
+You must connect one USB-C® end to the Portenta X8 and the other (USB-C® or USB-A) to your computer. With this, the Portenta X8 is ready to begin the flashing process.
 
 #### Flashing Mode without Carrier
 
-If *Portenta Breakout* or *Portenta Max Carrier* is not available to you, the Portenta X8 can be configured for programming mode using a few lines of command inside the Portenta X8's terminal via ADB. Please use the following commands in exact sequence while you are in the root environment with root permission.
+***It is recommended to flash the board with the carrier. If it is not possible, we provide an alternative procedure for advanced users only implying the full flash memory erasing. If something goes wrong during the procedure, you might not be able to recover the board. Proceed with caution.***
+
+If *Portenta Breakout* or *Portenta Max Carrier* is unavailable, the Portenta X8 can be configured for programming mode using a few command lines inside the Portenta X8's terminal via ADB. Please use the following commands in exact sequence while in the root environment with root permission.
 
 ```arduino
 echo 0 > /sys/block/mmcblk2boot0/force_ro
@@ -102,21 +111,21 @@ This sequence of commands will allow you to reset Portenta X8's bootloader secto
 
 ### Flashing the Portenta X8
 
-To flash the Portenta X8, you need to begin by opening a terminal. Within the terminal, you need to change the directory to where `mfgtool-files-portenta-x8` file is located using the `cd` command. Once it is inside the directory where the previous file is included, the following command is used:
+To flash the Portenta X8, you need to begin by opening a terminal. Within the terminal, you need to change the directory to where the `mfgtool-files-portenta-x8` file is located using the `cd` command. Once it is inside the directory where the previous file is included, the following command is used:
 
 ```
 uuu full_image.uuu
 ```
 
-If you have followed the __Flashing Mode without Carrier__ method to flash an OS or a custom image, the `uuu` command should be active and seeking for the board. While the process is active, please unplug and reconnect the USB-C® cable powering the Portenta X8 to allow entering the programming mode of the boot sequence. This should trigger the standing-by `uuu` task to run the flash process.
+If you have followed the __Flashing Mode without Carrier__ method to flash an OS or a custom image, the `uuu` command should be active and seeking the board. While the process is active, please unplug and reconnect the USB-C® cable powering the Portenta X8 to allow entering the programming mode of the boot sequence. It should trigger the standing-by `uuu` task to run the flash process.
 
 When the flashing operation is finished, you should see a similar result as the following figure:
 
 ![uuu tool flashing success output](assets/uuu-flashing-success.png)
 
-Once you have verified it has successfully flashed the Portenta X8, the `BOOT` DIP switches that have been configured to the ON position, now need to be set to the OFF position. Otherwise, you will always have the Portenta X8 in Flashing mode whenever it is attached to a carrier. Recycle the power for Portenta X8 by reconnecting the board to your computer and start using with the latest updates.
+Once you have verified it has successfully flashed the Portenta X8, the `BOOT` DIP switches configured to the ON position now need to be set to the OFF position. Otherwise, you will always have the Portenta X8 attached to a carrier in Flashing mode. Recycle the power for Portenta X8 by reconnecting the board to your computer. The board is now ready for use with the latest updates.
 
-In case the Portenta X8 was flashed barebone, you will just need to recycle the power and should be ready with the latest OS image.
+If the Portenta X8 was flashed barebone, you will need to recycle the power and be ready with the latest OS image.
 
 ***After booting, you will need to wait 10 seconds until the Portenta X8 starts blinking Blue LED. The Blue LED indicates it was able to boot successfully.***
 

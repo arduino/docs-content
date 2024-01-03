@@ -9,9 +9,9 @@ source: "https://arduino.cc/en/Main/ArduinoXbeeShield"
 
 ### Overview
 
-The Xbee shield allows an Arduino board to communicate wirelessly using Zigbee. It is based on the [Xbee module from MaxStream](http://www.maxstream.net/products/xbee/xbee-oem-rf-module-zigbee.php). The module can communicate up to 100 feet indoors or 300 feet outdoors (with line-of-sight). It can be used as a serial/usb replacement or you can put it into a command mode and configure it for a variety of broadcast and mesh networking options. The shields breaks out each of the Xbee's pins to a through-hole solder pad. It also provides female pin headers for use of digital pins 2 to 7 and the analog inputs, which are covered by the shield (digital pins 8 to 13 are not obstructed by the shield, so you can use the headers on the board itself).
+The Xbee shield allows an Arduino board to communicate wirelessly using Zigbee. It is based on the Xbee module from MaxStream. The module can communicate up to 100 feet indoors or 300 feet outdoors (with line-of-sight). It can be used as a serial/usb replacement or you can put it into a command mode and configure it for a variety of broadcast and mesh networking options. The shields breaks out each of the Xbee's pins to a through-hole solder pad. It also provides female pin headers for use of digital pins 2 to 7 and the analog inputs, which are covered by the shield (digital pins 8 to 13 are not obstructed by the shield, so you can use the headers on the board itself).
 
-The Xbee shield was created in collaboration with [Libelium](http://www.libelium.com/), who developed it for use in their [SquidBee motes](http://www.libelium.com/index.php?option=com%5Fcontent&task=view&id=14&Itemid=60) (used for creating sensor networks).
+The Xbee shield was created in collaboration with [Libelium](http://www.libelium.com/), who developed it for use in their [SquidBee motes](https://web.archive.org/web/20080705225616/http://squidbee.libelium.com/) (used for creating sensor networks).
 
 ### Schematic
 
@@ -68,11 +68,11 @@ Here are a couple more useful commands for configuring the Xbee module (you'll n
 
 ## Guide to Arduino Xbee Shield
 
-The Arduino Xbee shield allows your Arduino board to communicate wirelessly using Zigbee. It was developed in collaboration with [Libelium](http://www.libelium.com/). This documentation describes the use of the shield with the XBee 802.15.4 module (sometimes called "Series 1" to distinguish them from the Series 2 modules, although "Series 1" doesn't appear in the official name or product description). For the XBee ZNet 2.5 ("Series 2") modules, see [this configuration guide](http://www.humboldt.edu/~cm19/XBee%20setup.pdf).
+The Arduino Xbee shield allows your Arduino board to communicate wirelessly using Zigbee. It was developed in collaboration with [Libelium](http://www.libelium.com/). This documentation describes the use of the shield with the XBee 802.15.4 module (sometimes called "Series 1" to distinguish them from the Series 2 modules, although "Series 1" doesn't appear in the official name or product description). For the XBee ZNet 2.5 ("Series 2") modules, see [this configuration guide](https://web.archive.org/web/20091122122957/http://www.humboldt.edu/~cm19/XBee%20setup.pdf).
 
 ### A Simple Example
 
-You should be able to get two Arduino boards with Xbee shields talking to each other without any configuration, using just the standard Arduino serial commands (described in the [reference](//www.arduino.cc/en/Reference/HomePage)). 
+You should be able to get two Arduino boards with Xbee shields talking to each other without any configuration, using just the standard Arduino serial commands (described in the [reference](https://www.arduino.cc/reference/en/)). 
 
 To upload a sketch to an Arduino board with a Xbee shield, you'll need to put both jumpers on the shield to the "USB" setting (i.e. place them on the two pins closest to the edge of the board) or remove them completely (but be sure not to lose them!). Then, you can upload a sketch normally from the Arduino environment. In this case, upload the **Communication | Physical Pixel** sketch to one of the boards. This sketch instructs the board to turn on the LED attached to pin 13 whenever it receives an 'H' over its serial connection, and turn the LED off when it gets an 'L'. You can test it by connecting to the board with the Arduino serial monitor (be sure it's set at 9600 baud), typing an H, and pressing enter (or clicking send). The LED should turn on. Send an L and the LED should turn off. If nothing happens, you may have an Arduino board that doesn't have a built-in LED on pin 13, in this case you'll need to supply your own.
 
@@ -171,4 +171,6 @@ Note that like the other commands, the reset will not be permanent unless you fo
 
 ### References
 
-For more information, see: the [hardware page](//www.arduino.cc/en/Main/ArduinoXbeeShield) for the Xbee shield, the [Libelium SquidBee wiki](http://www.squidbee.org/), and the [MaxStream Xbee page](http://www.maxstream.net/products/xbee/xbee-oem-rf-module-zigbee.php). The text of the Arduino getting started guide is licensed under a[Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.
+For more information, see the [Libelium SquidBee wiki](https://web.archive.org/web/20080424034833/http://www.libelium.com/squidbee/index.php?title=Main_Page).
+
+The text of the Arduino getting started guide is licensed under a[Creative Commons Attribution-ShareAlike 3.0 License](http://creativecommons.org/licenses/by-sa/3.0/). Code samples in the guide are released into the public domain.

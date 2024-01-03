@@ -10,7 +10,7 @@ source: "https://create.arduino.cc/projecthub/313276/full-control-of-your-tv-usi
 
 ## Components and Supplies
 
-- [Arduino Nano 33 IoT](https://store.arduino.cc/usa/nano-33-iot)
+- [Arduino Nano 33 IoT](/hardware/nano-33-iot)
 - [Resistor 330 ohm](https://www.newark.com/multicomp/mccfr0w4j0331a50/carbon-film-resistor-330-ohm-250mw/dp/58K5042?COM=ref_hackster)
 - [IR receiver (generic)](https://www.newark.com/02P9885?COM=ref_hackster)
 - IR transmitter (generic)

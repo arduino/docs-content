@@ -53,7 +53,7 @@ You can check Docker's reference documentation, which covers all the features of
 
 The following steps will show how to install, run and uninstall the "Hello World" container.
 
-To avoid a lack of permissions while running the Docker's commands, you may need to run the next command to gain admin (root) access: ```sudo su -``` , which default password is ```fio```
+To avoid a lack of permissions while launching ```adb shell```, you may type the following: ```newgrp - docker```.
 
 The previous command and other important info about Linux on your Portenta are described in the [Portenta X8 User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#working-with-linux).
 
