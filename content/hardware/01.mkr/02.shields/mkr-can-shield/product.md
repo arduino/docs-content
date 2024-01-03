@@ -2,6 +2,8 @@
 title: MKR CAN Shield
 url_shop: https://store.arduino.cc/arduino-mkr-can-shield
 url_guide: /tutorials/mkr-can-shield/mkr-can-communication
+primary_button_url: /tutorials/mkr-can-shield/mkr-can-communication
+primary_button_title: Get Started
 certifications: [CE, UKCA]
 ---
 

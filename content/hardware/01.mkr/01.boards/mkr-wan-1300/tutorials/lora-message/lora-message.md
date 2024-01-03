@@ -34,7 +34,7 @@ ___
 -   2x Micro USB cable .
 -   2x Computers.
 -   Arduino IDE (offline and online versions available).
--   Arduino SAMD core installed ([follow this link for instructions](/software/ide-v2/tutorials/ide-v2-board-manager)).
+-   Arduino SAMD Board Package installed ([follow this link for instructions](/software/ide-v2/tutorials/ide-v2-board-manager)).
 -   **LoRa** library installed (see the [github repository](https://github.com/sandeepmistry/arduino-LoRa)).
 
 

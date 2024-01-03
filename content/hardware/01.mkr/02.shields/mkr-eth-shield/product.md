@@ -2,6 +2,8 @@
 title: MKR ETH Shield
 url_shop: https://store.arduino.cc/arduino-mkr-eth-shield
 url_guide: /tutorials/mkr-eth-shield/mkr-eth-shield-webserver
+primary_button_url: /tutorials/mkr-eth-shield/mkr-eth-shield-webserver
+primary_button_title: Get Started
 certifications: [CE, UKCA]
 ---
 

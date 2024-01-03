@@ -289,6 +289,7 @@ The Arduino® Portenta X8 has been designed for high-performance embedded comput
 
 - Arduino® Portenta Breakout Board (ASX00031)
 - Arduino® Portenta Max Carrier (ABX00043)
+- Arduino® Portenta Hat Carrier (ASX00049)
 
 ## Rating
 
@@ -435,7 +436,7 @@ Now that you have gone through the basics of what you can do with the board you 
 
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by configuring DIP switches.
 
-**Note: A compatible carrier board with DIP switches (e.g. Portenta Max Carrier or Portenta Breakout) is required to enable bootloader mode. It cannot be enabled with the Portenta X8 alone.**
+**Note: A compatible carrier board with DIP switches (e.g. Portenta Max Carrier, Portenta Hat Carrier, or Portenta Breakout) is required to enable bootloader mode. It cannot be enabled with the Portenta X8 alone.**
 
 ## Mechanical Information
 
@@ -563,6 +564,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                            |
 |------------|--------------|----------------------------------------|
+| 11/12/2023 | 5            | Add Portenta Hat Carrier compatibility |
 | 07/11/2023 | 4            | Add missing board dimensions           |
 | 26/01/2023 | 3            | Clarify open-source nature of M7 core  |
 | 12/09/2022 | 2            | Make cores clear, minor fixes          |

@@ -84,7 +84,7 @@ Last, but not least important, every Arduino can be either the controller or the
 
 ## Creating the Programs
 
-First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
+First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
 
 ---
 
@@ -214,7 +214,7 @@ ___
 
 If the code is not working, there are some common issues we can troubleshoot:
 - We have not updated the latest firmware for the board.
-- We have not installed the core required for the board.
+- We have not installed the Board Package required for the board.
 - We have not installed the **JWA BME280** library.
 - We have selected the wrong port to upload: depending on what computer we use, sometimes the board is duplicated. By simply restarting the editor, this issue can be solved.
 

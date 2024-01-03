@@ -54,7 +54,7 @@ It should however be noted that the internal operating voltage of the microcontr
 
 ## Installation
 
-***For detailed instructions on how to install the GIGA R1 core, please refer to the [Getting Started with GIGA R1](/tutorials/giga-r1-wifi/giga-getting-started) guide.***
+***For detailed instructions on how to install the GIGA R1 Board Package, please refer to the [Getting Started with GIGA R1](/tutorials/giga-r1-wifi/giga-getting-started) guide.***
 
 The **GIGA R1** can be programmed through:
 
@@ -62,15 +62,15 @@ The **GIGA R1** can be programmed through:
 - the **Arduino IDE 2**, 
 - and the Web-editor. 
 
-## Core
+## Board Package
 
-The GIGA R1 is based on the [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed), which also provides a set of examples that works out of the box.
+The GIGA R1 is based on the [Arduino Mbed OS GIGA Board Package](/tutorials/giga-r1-wifi/giga-getting-started), which also provides a set of examples that works out of the box.
 
 These examples are available in the Arduino IDE via **File > Examples > Examples for GIGA**.
 
 ### Mbed OS
 
-As [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed) is based on [MbedOS](https://os.mbed.com/), it is possible for the operating system to crash while running a sketch. 
+As the [Arduino Mbed OS GIGA Board Package](/tutorials/giga-r1-wifi/giga-getting-started) is based on [MbedOS](https://os.mbed.com/), it is possible for the operating system to crash while running a sketch. 
 
 On most Arduino boards, when a sketch fails due to e.g. memory shortage, the board resets.
 
@@ -145,7 +145,7 @@ The external Flash storage on the **GIGA R1** is QSPI and can be accessed and us
 
 The GIGA firmware has full support for FATFS and littleFS.
 
-To access the QSPI flash storage as a USB flash drive, you need to follow a few steps, first you need to update the WiFi modules firmware, then you need to create partitions on the flash storage, before finally exposing the partitions to be detected by a computer. These three steps are broken down into different built in example sketches that conveniently all come with the GIGA core.
+To access the QSPI flash storage as a USB flash drive, you need to follow a few steps, first you need to update the WiFi modules firmware, then you need to create partitions on the flash storage, before finally exposing the partitions to be detected by a computer. These three steps are broken down into different built in example sketches that conveniently all come with the GIGA Board Package.
 
 Firstly, navigate in the IDE menu to `File > Examples > STM32H747_System > WiFiFirmwareUpdater` and upload the sketch to your board. 
 
@@ -171,7 +171,7 @@ The antenna connector (see image above) is located right next to the USB-C conne
 
 ### Wi-Fi®
 
-Wi-Fi® on the GIGA R1 WiFi is supported via the `WiFi` library. This library is included in the core, so it is automatically installed when installing the core.
+Wi-Fi® on the GIGA R1 WiFi is supported via the `WiFi` library. This library is included in the core, so it is automatically installed when installing the Board Package.
 
 To use the Wi-Fi® features on this board, please refer to the [GIGA R1 WiFi Network Examples](/tutorials/giga-r1-wifi/giga-wifi) guide.
 
@@ -277,11 +277,41 @@ Finally, read the ADC, and store it in a way that you can use it, do this within
 
 ***The options for audio input on your GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1-wifi/giga-audio).***
 
-## MIPI Display Interface
+## MIPI DSI®
+
+Display Serial Interface (DSI), is a specification from the Mobile Industry Processor Interface (MIPI).
 
 The **STM32H747XI** has an internal 2D graphics accelerator with support for resolutions up to 1024x768, it also has the ability to encode and decode JPEG codec. This is what allows the **GIGA R1** to boast a 2 lane MIPI display interface. 
 
-This means that the **GIGA R1** is capable of driving a touch-display large enough to build a substantial user interface. The [LVGL](https://lvgl.io) library is a powerful tool to quickly build an interactive interface.
+The [GIGA Display Shield]() is designed to be mounted on the GIGA R1 through the MIPI/DSI connector located on the board, with support for popular frameworks such as [LVGL](https://docs.arduino.cc/tutorials/giga-display-shield/lvgl-guide) and [GFX](https://docs.arduino.cc/tutorials/giga-display-shield/gfx-guide).
+
+The pinout for the display connector is shown in the image below:
+
+![MIPI/DSI connector.](assets/mipi-dsi.png)
+
+The following pins are directly connected to the STM32H747XI and cannot be used as GPIOs.
+- D1N
+- D1P
+- CKN
+- CKP
+- D0N
+- D0P
+
+The following pins can also be used as GPIOs:
+- D68
+- D69
+- D70
+- D71
+- D72
+- D73
+- D74
+- D75
+
+The connector also has a series of power connections, including:
+- 3.3 V
+- 5 V
+- GND
+- VIN
 
 ## USB Features
 
@@ -639,12 +669,14 @@ void loop() {
 
 The **GIGA R1** features two separate SPI (Serial Peripheral Interface) buses, one is configured on the 6 pin header (ICSP) labelled SPI, and the other is broken out into pin connections on the board.
 
-The first bus (connector), `SPI1` uses the following pins:
+The first bus which has a dedicated SPI header, `SPI1`, uses the following pins:
 
 - (CIPO) - D89
 - (COPI) - D90
 - (SCK) - D91
 - (CS) - unassigned, use any free GPIO for this.
+  
+***Please note that the SPI header provides a 5 V pin. Make sure that the SPI device you are connecting supports an input voltage of 5 V. If you have an SPI device that supports 3.3 V only, use the `SPI5` port (see below).***
 
 The second bus (header), `SPI5`, uses the following pins: 
 
@@ -896,13 +928,13 @@ Pins A8, A9, A10 and A11 can not be used as GPIOs, but are limited to use as ana
 
 The **STM32H7** has an internal OPAMP and comparator that are exposed on the **GIGA R1** as follows:
 
-| Pin | OPAMP             | Comparator           |
-| --- | ------------------| -------------------- |
-| A0  | OPAMP1_VOUT       | COMP1_INM            |
-| A1  | OPAMP1_VINM &VINM0|                      |
-| A2  | OPAMP1_VINP       | COMP1_INP            |
-| A3  |                   | COMP1_INM            |
-| A6  |                   | COMP1_INM            |
+| Pin | OPAMP              | Comparator |
+| --- | ------------------ | ---------- |
+| A0  | OPAMP1_VOUT        | COMP1_INM  |
+| A1  | OPAMP1_VINM &VINM0 |            |
+| A2  | OPAMP1_VINP        | COMP1_INP  |
+| A3  |                    | COMP1_INM  |
+| A6  |                    | COMP1_INM  |
 
 ***For more advanced analog readings, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced ADC section](/tutorials/giga-r1-wifi/giga-audio#analog-to-digital-converters).***
 
@@ -941,6 +973,17 @@ The **GIGA R1** features more pins than any other Arduino board for makers, a fu
 The reference voltage of all digital pins is 3.3V.
 
 The logic for `LED_BUILTIN` is reversed if compared to the behavior of, for example, the **Arduino UNO** board. What this means is that if you write HIGH to `LED_BUILTIN`, the LED will turn off, and on respectively if you write LOW.
+
+#### D7 Pin
+
+By default, the digital pin 7 (D7) provides a voltage of ~1.65 V. 
+
+To disable this pin, you need to configure it as an output and set it to a `LOW` state.
+
+```arduino
+pinMode(7, OUTPUT);
+digitalWrite(7, LOW);
+```
 
 ### DAC Pins
 

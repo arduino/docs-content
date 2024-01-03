@@ -25,9 +25,9 @@ Debugging is an essential skill for anyone working with technology, whether you'
 
 - [Arduino Nano ESP32](https://store.arduino.cc/nano-esp32)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32) installed (2.0.12 or newer)
+- [Arduino ESP32 Board Package](https://github.com/arduino/arduino-esp32) installed (2.0.12 or newer)
 
-***It's important to use the "Arduino ESP32 Boards" core by "Arduino" and not the "esp32" core by "Espressif Systems". For Windows users this is paramount, otherwise no drivers will be ever installed and no debugging can be performed.***
+***It's important to use the "Arduino ESP32 Boards" Board Package by "Arduino" and not the "esp32" Board Package by "Espressif Systems". For Windows users this is paramount, otherwise no drivers will be ever installed and no debugging can be performed.***
 
 ## System Setup
 
@@ -44,7 +44,7 @@ To fix this, you can copy [this file](https://raw.githubusercontent.com/espressi
 
 ### Debugging on Windows
 
-On Windows machines it's important to accept the driver installation when prompted during the core installation.
+On Windows machines it's important to accept the driver installation when prompted during the Board Package installation.
 
 ### IDE Setup
 

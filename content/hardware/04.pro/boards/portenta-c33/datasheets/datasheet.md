@@ -303,13 +303,14 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 - Arduino® Nicla Vision (SKU: ABX00051)
 - Arduino® Nicla Voice (SKU: ABX00061)
 - Arduino® Portenta Max Carrier (SKU: ABX00043)
+- Arduino® Portenta Hat Carrier (SKU: ASX00049)
 - Arduino® Portenta CAT.M1/NB IoT GNSS Shield (SKU: ABX00043)
 - Arduino® Portenta Vision Shield - Ethernet (SKU: ABX00021)
-- Arduino® Portenta Vision Shield - LoRa® (SKU: ABX00026)
+- Arduino® Portenta Vision Shield - LoRa (SKU: ABX00026)
 - Arduino® Portenta Breakout (SKU: ABX00031)
 - Arduino® boards with an onboard ESLOV connector
 
-**Note**: The Portenta Vision Shields (Ethernet and LoRa® variants) are compatible with the Portenta C33 except for the camera, which is not supported by the Portenta C33 microcontroller. 
+**Note**: The Portenta Vision Shields (Ethernet and LoRa variants) are compatible with the Portenta C33 except for the camera, which is not supported by the Portenta C33 microcontroller. 
 
 ## Ratings
 
@@ -587,6 +588,23 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
+<div style="page-break-after: always;"></div>
+
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -615,7 +633,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| **Company name** |                **Arduino SRL**               |
+| **Company name** |                **Arduino S.r.l.**               |
 |:----------------:|:--------------------------------------------:|
 |  Company address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
@@ -633,9 +651,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |                       **Changes**                      |
+|  **Date**  | **Revision** |                      **Changes**                       |
 |:----------:|:------------:|:------------------------------------------------------:|
-| 30/10/2023 |       4      |           I2C ports information section added          |
-| 20/06/2023 |       3      | Power tree added, related products information updated |
-| 09/06/2023 |       2      |       Board's power consumption information added      |
-| 14/03/2023 |       1      |                      First release                     |
+| 14/12/2023 |      6       |            Updated Related Product section             |
+| 14/11/2023 |      5       |             FCC and Block Diagram Updates              |
+| 30/10/2023 |      4       |          I2C ports information section added           |
+| 20/06/2023 |      3       | Power tree added, related products information updated |
+| 09/06/2023 |      2       |      Board's power consumption information added       |
+| 14/03/2023 |      1       |                     First release                      |

@@ -535,7 +535,7 @@ The example code explained before can be modified to connect the roller window s
 - Open or close the roller window shade at any time.
 - Monitor the roller window shade status (open or close).
 
-***If you are new to the Arduino IoT Cloud, check out this [getting started guide](https://docs.arduino.cc/learn/starting-guide/arduino-iot-cloud).***
+***If you are new to the Arduino IoT Cloud, check out this [getting started guide](https://docs.arduino.cc/arduino-cloud/guides/overview).***
 
 After associating your Opta™️ device to your Arduino IoT Cloud account, create a thing; in this example, we called the thing "Shade Controller." In the "Shade Controller" thing, create the cloud variables explained below:
 

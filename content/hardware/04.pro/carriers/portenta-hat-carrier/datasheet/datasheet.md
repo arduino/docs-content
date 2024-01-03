@@ -287,7 +287,7 @@ The Portenta Hat Carrier is designed to complement the Portenta family. It provi
 
 The Portent Hat Carrier pinout is shown in Figure 2.
 
-![Figure 2. Portenta Hat Carrier pinout](assets/portentaHatCarrier_pinout.svg)
+![Figure 2. Portenta Hat Carrier pinout](assets/phc-pinout.png)
 
 ### Full Pinout Table
 
@@ -528,13 +528,13 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 
 An overview of the Portenta Hat Carrier high-level architecture is illustrated in Figure 3.
 
-![Figure 3. Portenta Hat Carrier block diagram](assets/portentaHatCarrier_blockDiagram.svg)
+![Figure 3. Portenta Hat Carrier block diagram](assets/phc-blockdiagram.png)
 
 ### Power Tree
 
 <p style="text-align: justify;">Figure 4 shows the power options available on the Portenta Hat Carrier and illustrates the main system power architecture.</p>
 
-![Figure 4. Portenta Hat Carrier power tree](assets/portentaHatCarrier_powerTree.svg)
+![Figure 4. Portenta Hat Carrier power tree](assets/phc-powertree.png)
 
 As shown in Figure 4, the Portenta Hat Carrier can be powered in multiple ways:
 
@@ -870,6 +870,21 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
+
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
 
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:

@@ -7,7 +7,7 @@ tags: [Power Consumption]
 
 ## Arduino Zero Low Power Overview
 
-This tutorial aims to show the low power characteristics of the Arduino Zero. The Arduino Zero has on board an ATMEL SAMD21G18 that is a low power microcontroller using the 32 bit ARM Cortex M0+ architecture.
+This tutorial aims to show the low power characteristics of the Arduino Zero. The Arduino Zero has on board an ATMEL SAMD21G18 that is a low power microcontroller using the 32 bit Arm® Cortex®-M0+ architecture.
 
 The device has two different software selectable sleep modes: idle & standby.
 - In idle mode the CPU is stopped while all the other functions can be kept running.

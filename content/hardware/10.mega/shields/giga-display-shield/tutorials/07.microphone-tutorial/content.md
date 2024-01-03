@@ -22,24 +22,24 @@ In this guide we will take a closer look at the [PDM library](https://docs.ardui
 - [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
-## Downloading the Library and Core
+## Downloading the Library and Board Package
 
-Make sure the latest GIGA core is installed in the Arduino IDE. You can install it directly in the IDE by navigating to the board manager and searching for **Arduino Mbed OS Giga Boards** and install it.
+Make sure the latest GIGA Board Package is installed in the Arduino IDE. You can install it directly in the IDE by navigating to the board manager and searching for **Arduino Mbed OS Giga Boards** and install it.
 
-The [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm) is included in the core, as well as the video driver library, [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video). Some examples in this guide uses other libraries that are listed in each example.
+The [PDM library](https://docs.arduino.cc/learn/built-in-libraries/pdm) is included in the Board Package, as well as the video driver library, [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video). Some examples in this guide uses other libraries that are listed in each example.
 
 ## PDM Library
 
 Pulse Density Modulation (PDM) is a technique used to convert analog signals into a digital 1-bit stream. 
 
-The [PDM library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/PDM) is library built-in to the GIGA core and allows you to read and process PDM signals. In this case, it reads the signal from the 
+The [PDM library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/PDM) is library built-in to the GIGA Board Package and allows you to read and process PDM signals. In this case, it reads the signal from the 
 
 - Source code is available [here](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/PDM)
 - Library documentation is available [here](https://docs.arduino.cc/learn/built-in-libraries/pdm)
 
 ## Microphone PDM Example
 
-The GIGA R1 core includes a sample sketch called **PDM**, and in this section it is explained in more detail.
+The GIGA R1 Board Package includes a sample sketch called **PDM**, and in this section it is explained in more detail.
 
 First we need to define the number of output channels, output frequency, a variable for counting when reading from the buffer and creating the buffer which the readings will be put into. This is done with the following lines:
 
@@ -380,9 +380,6 @@ void onPDMdata() {
   samplesRead = bytesAvailable / 2;
 }
 ```
-
-
-![GIF of sketch running](./assets/P1066383.gif)
 
 ## Next Step
 Now that you know how to use the on-board microphone, feel free to explore the shield's other features, like the IMU with our [Orientation tutorial](/tutorials/giga-display-shield/image-orientation). Or if you rather dive deeper into LVGL, take a look at our [LVGL guide](tutorials/giga-display-shield/lvgl-guide).

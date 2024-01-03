@@ -59,7 +59,7 @@ The circuit in this tutorial is pretty simple, and the simplest assembly is to c
 
 We will now get to the programming part of this tutorial. 
 
-**1.** First, let's make sure we have the drivers installed for the board we are using. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
+**1.** First, let's make sure we have the drivers installed for the board we are using. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
 
 **2.** Now, we need to install the library needed. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **Arduino_MKRGPS** and install it.
 
@@ -140,7 +140,7 @@ If the code is not working, there are some common issues we can troubleshoot:
 
 - We have not installed the **MKRGPS** library.
 - We have selected the wrong port and board to upload to.
-- We have not installed the right core for the board we are using.
+- We have not installed the right Board Package for the board we are using.
 - We need to move the MKR GPS Shield closer to a window.
 
 ## Conclusion
