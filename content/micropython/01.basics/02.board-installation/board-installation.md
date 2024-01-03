@@ -293,6 +293,7 @@ With the latest core installed, open the Arduino Micropython Installer and plug 
 
 To install the MicroPython firmware, press the **INSTALL MICROPYTHON** button and wait a few seconds while the installer tool takes care of everything else. When finished, you should see a message in the image below.
 
-![Firmware succesfully uploaded to the Portenta C33 board](./assets/portenta-c33-3.png)
+![Firmware successfully uploaded to the Portenta C33 board](./assets/portenta-c33-3.png)
+
 
 Now, you are ready to use MicroPython with your Portenta C33 board.
