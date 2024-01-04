@@ -1,13 +1,13 @@
 ---
-title: 'Servo Motor Basics with Arduino'
-description: 'Learn how to connect and control servo motors with your Arduino board.'
+title: "Servo Motor Basics with Arduino"
+description: "Learn how to connect and control servo motors with your Arduino board."
 tags: [Servo]
 author: Arduino
 ---
 
 The [Servo Library](https://www.arduino.cc/reference/en/libraries/servo/) is a great library for controlling servo motors. In this article, you will find two easy examples that can be used by any Arduino board.
 
-The first example controls the position of a RC (hobby) [servo motor](https://en.wikipedia.org/wiki/Servo_(radio_control)) with your Arduino and a potentiometer. The second example sweeps the shaft of a RC [servo motor](https://en.wikipedia.org/wiki/Servo_(radio_control)) back and forth across 180 degrees.
+The first example controls the position of an RC (hobby) [servo motor](<https://en.wikipedia.org/wiki/Servo_(radio_control)>) with your Arduino and a potentiometer. The second example sweeps the shaft of an RC servo motor back and forth across 180 degrees.
 
 You can also visit the [Servo GitHub repository](https://github.com/arduino-libraries/Servo) to learn more about this library.
 
@@ -17,15 +17,45 @@ You can also visit the [Servo GitHub repository](https://github.com/arduino-libr
 - Servo Motor
 - 10k ohm potentiometer
 - hook-up wires
+- capacitors
+- power supply
+
+## Powering Servo Motors
+
+Servo motors have different power requirements depending on their size and the workload they are experiencing. A common servo motor such as the [Feetech Mini Servo Motor](https://store.arduino.cc/products/feetech-mini-servo-motor-120-degrees-9g) requires between 4.8 - 6 V at 5 – 6 mA when idle. But as soon as the motor experiences heavier loads such as added weight or an object blocking its movement the current consumption can reach up to 800 mA.
+
+This amount of current is significantly above the max ratings for any Arduino board. To avoid damaging our board we need to power the servo motor through an external power supply. Choosing the correct power supply depends on the servo motor you are using, so always check the specifications. Pay especially close attention to the:
+
+- **operating voltage range**
+- **idle current** (in mA) - consumption when **not** moving
+- **running current** (in mA) - consumption when moving freely
+- **stall current** (in mA) - consumption under max load or when blocked
+
+To power a 4.8 - 6 V servo you could use a **5 V 1 A** AC Adapter, cut the cable, and connect the wires to the servo using e.g. a breadboard.
+
+**_Note that USB wall chargers are limited to 500 mA (USB 2.0) or 900 mA (USB 3.0)._**
+
+If your project needs to move around freely without being attached to a power outlet you can also choose batteries to power the servo. If you need 5 V exactly you can use two 18650 Li-Ion batteries together with a step-down converter.
+
+A step-down converter is needed because 18650 Li-Ion batteries will give you around 7.4 V. The max current depends on the specific battery but most of them are designed to output above 1A which is enough to power our small servo.
+
+**_If you are using bigger or more servos make sure to check your power requirements accordingly._**
+
+**Capacitors** are recommended for powering servo motors. While not strictly necessary, they help stabilize the power supply, minimize voltage drops, and reduce electrical noise. The specific capacitor values may vary based on the servo motor's requirements, but including them is good practice for better performance and reliability.
+
+When using a [Feetech Mini Servo Motor](https://store.arduino.cc/products/feetech-mini-servo-motor-120-degrees-9g) we recommend using a **100 µF** capacitor.
+
+![Capacitor](./assets/capacitor.png)
+
+**_When using capacitors, make sure to connect them the right way by checking for markings like a white stripe or a '+' symbol. Match these with the corresponding signs on the capacitor and in your circuit (mind the + and - signs), and don't exceed the voltage limits. This helps avoid problems like leaks or damage that could harm your circuit_**
+
+You can read more about capacitors [here](https://learn.sparkfun.com/tutorials/capacitors/all).
 
 ## Circuit
 
-Servo motors have three wires: power, ground, and signal. The power wire is typically red, and should be connected to positive pole (+) of your power source. The ground wire is typically black or brown and should be connected to the negative pole (-) of your power source. 
+Servo motors have three wires: power, ground, and signal. The power wire is typically red, and should be connected to positive pole (+) of your power source. The ground wire is typically black or brown and should be connected to the negative pole (-) of your power source.
 
 The signal pin is typically yellow or orange and should be connected to PWM pin on the board. In these examples, it is pin number 9.
-
-***Always make sure to power your servo motor with an external power source. Connecting a servo directly to your board will cause your board to behave erratically and can damage your board. The power supply voltage should match the specifications of the servo motor. for example, [this](https://store.arduino.cc/collections/motors-servos/products/feetech-mini-servo-motor-120-degrees-9g) servo motor's voltage range is between 4.8 V - 6 V, which means you need a power supply in that range (e.g. a battery pack of 4x AA  batteries (1.5V) each).***
-
 
 ### Knob Circuit
 
