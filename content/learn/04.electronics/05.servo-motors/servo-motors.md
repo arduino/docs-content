@@ -47,7 +47,7 @@ When using a [Feetech Mini Servo Motor](https://store.arduino.cc/products/feetec
 
 ![Capacitor](./assets/capacitor.png)
 
-**_When using capacitors, make sure to connect them the right way by checking for markings like a white stripe or a '+' symbol. Match these with the corresponding signs on the capacitor and in your circuit (mind the + and - signs), and don't exceed the voltage limits. This helps avoid problems like leaks or damage that could harm your circuit_**
+**_When using capacitors, make sure to connect them correctly by checking for markings such as a white stripe, a '+' symbol, or a longer lead. Match these indicators with the corresponding signs on the capacitor and in your circuit (pay attention to the + and - signs), and be careful not to exceed the voltage limits. This precaution helps prevent issues like leaks or damage that could harm your circuit._**
 
 You can read more about capacitors [here](https://learn.sparkfun.com/tutorials/capacitors/all).
 
