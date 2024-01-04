@@ -1095,7 +1095,7 @@ SPI communication is initialized using the `SPI` object from the `machine` modul
 
 `spi = machine.SPI(port, baudrate, polarity, phase)`
 
-SPI is initalized by importing the `machine` module and specifying a number of parameters, such as baudrate and polarity.
+SPI is initialized by importing the `machine` module and specifying a number of parameters, such as baudrate and polarity.
 
 **Example:**
 
@@ -1256,7 +1256,7 @@ The frequency for the clock is set during initialization. See [begin()](#wirebeg
 
 MicroPython has a built in class called `SoftI2C` (as in software I2C). Software I2C does not use a dedicated hardware I2C peripheral, but instead relies on the CPU to handle the clock signal, communication protocol etc.
 
-`SoftI2C` is avaialable through the `machine` module, and uses the same API as hardware I2C, with a few additional methods.
+`SoftI2C` is available through the `machine` module, and uses the same API as hardware I2C, with a few additional methods.
 
 - `softi2c = machine.SoftI2C(scl,sda,freq,timeout)` - creates the `softi2c` object with specified pins, frequency and timeout.
 - `softi2c.start()` - create the start condition for initializing communication over I2C (SDA goes to **LOW** while SCL is **HIGH**).
