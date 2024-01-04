@@ -109,16 +109,13 @@ For example:
   - [loop()](#loop)
   - [setup()](#setup)
 - [Control Structure](#control-structure)
-  - [break](#break)
-  - [continue](#continue)
-  - [do...while](#dowhile)
+  - [if](#if)
   - [else](#else)
   - [for](#for)
-  - [goto](#goto)
-  - [if](#if)
-  - [return](#return)
-  - [switch...case](#switchcase)
   - [while](#while)
+  - [break](#break)
+  - [continue](#continue)
+  - [return](#return)
 - [Operators](#operators)
   - [Arithmetic Operators](#arithmetic-operators)
   - [Comparison Operators](#comparison-operators)
@@ -1486,16 +1483,132 @@ while True:
 
 ## Control Structure
 
-### break
-### continue
-### do...while
-### else
-### for
-### goto
+Control structures are used to control the flow of a program, i.e. what code will and won't execute. When a condition is met, the specified code block executes.
+
 ### if
-### return
-### switch...case
+
+The `if` statement checks *if* a condition is met, and executes the following block of code.
+
+**Example:**
+
+```python
+x = 10
+if x > 5:
+    print("x is greater than 5")
+```
+
+### else
+
+The `else` statement can be used after e.g. an `if` statement. If the previous condition is not met, then it will the block of code following the `else` statement
+
+**Example:**
+
+```python
+x = 5
+y = 10
+
+if x > y:
+    print("x is greater")
+else:
+    print("y is greater")
+```
+
+### for
+
+The `for` loop is used to iterate through a sequence, e.g. a range of numbers, a list, or a string. 
+
+**Example 1: Number Range**
+
+```python
+for number in range(5):
+    print(number)
+```
+
+**Example 2: List**
+
+```python
+my_list = [10, 20, 30, 40, 50]
+for item in my_list:
+    print(item)
+```
+
+**Example 3: String**
+
+```python
+my_string = "Hello World!"
+for char in my_string:
+    print(char)
+```
+
 ### while
+
+The while loop is used to repeatedly execute a block of code as long as the specified condition is `True`. 
+
+**Example 1:**
+
+```python
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+```
+
+**Example 2: Infinity Loop**
+
+The while loop is critical to MicroPython as it is needed to create the "infinity" loop, i.e. a loop that runs whenever the board is powered. 
+
+```python
+while True:
+    # your program
+```
+
+
+
+### break
+
+The `break` statement is used to break out of loops before it ends.
+
+**Example:**
+
+```python
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+
+```
+
+### continue
+
+The `continue` statement is used to skip to the end of the code block, effectively moving on to the next iteration. This is useful to e.g. filter out specific data points.
+
+**Example:**
+
+This example iterates through a list of numbers. If the number is less than `0` (negative), it will skip it.
+
+```python
+my_list = [0, -5, -3, 8, 9 , 11]
+for num in my_list:
+    if num < 0:
+        continue
+    print(num)
+```
+
+### return
+
+Terminates a function and `return` a value from a function to the calling function.
+
+**Example:**
+
+In this example, we call a function named `add_numbers()`, which takes two parameters. It then returns the processed value, using the `return` statement.
+
+```python
+def add_numbers(a, b):
+    result = a + b
+    return result
+
+print(add_numbers(5,5))
+```
 
 ## Operators
 
