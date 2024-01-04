@@ -22,14 +22,18 @@ You can also visit the [Servo GitHub repository](https://github.com/arduino-libr
 
 ## Powering Servo Motors
 
-Servo motors have different power requirements depending on their size and the workload they are experiencing. A common servo motor such as the [Feetech Mini Servo Motor](https://store.arduino.cc/products/feetech-mini-servo-motor-120-degrees-9g) requires between 4.8 - 6 V at 5 – 6 mA when idle. But as soon as the motor experiences heavier loads such as added weight or an object blocking its movement the current consumption can reach up to 800 mA.
+Servo motors have different power requirements depending on their size and the workload they are experiencing. A common servo motor such as the [Feetech Mini Servo Motor](https://store.arduino.cc/products/feetech-mini-servo-motor-120-degrees-9g) requires between 4.8 - 6 V at 5 – 6 mA when idle. It doesn't take very much energy to stand still.
 
-This amount of current is significantly above the max ratings for any Arduino board. To avoid damaging our board we need to power the servo motor through an external power supply. Choosing the correct power supply depends on the servo motor you are using, so always check the specifications. Pay especially close attention to the:
+But as soon as the motor starts moving, it starts using more energy, and it gets that energy by pulling more current from the power source. 
+
+If it experiences heavier loads such as added weight or an object blocking its movement , it naturally needs to use even more energy to move the obstacle, and as a result the current consumption increases. The current consumption of the motor linked above can reach up to 800 mA.
+
+This high current-draw is generally not safe to draw from an Arduino board. To avoid damaging our board we need to power the servo motor through an external power supply. Choosing the correct power supply depends on the servo motor you are using, so always check the specifications. Pay especially close attention to the:
 
 - **operating voltage range**
-- **idle current** (in mA) - consumption when **not** moving
-- **running current** (in mA) - consumption when moving freely
-- **stall current** (in mA) - consumption under max load or when blocked
+- **idle current** - consumption when **not** moving
+- **running current** - consumption when moving freely
+- **stall current** - consumption under max load or when blocked
 
 To power a 4.8 - 6 V servo you could use a **5 V 1 A** AC Adapter, cut the cable, and connect the wires to the servo using e.g. a breadboard.
 
@@ -41,13 +45,13 @@ A step-down converter is needed because 18650 Li-Ion batteries will give you aro
 
 **_If you are using bigger or more servos make sure to check your power requirements accordingly._**
 
-**Capacitors** are recommended for powering servo motors. While not strictly necessary, they help stabilize the power supply, minimize voltage drops, and reduce electrical noise. The specific capacitor values may vary based on the servo motor's requirements, but including them is good practice for better performance and reliability.
+**Capacitors** are recommended for powering servo motors. They help stabilize the power supply, minimize voltage drops, and reduce electrical noise. The specific capacitor values may vary based on the servo motor's requirements, but including them is good practice for better performance and reliability.
 
 When using a [Feetech Mini Servo Motor](https://store.arduino.cc/products/feetech-mini-servo-motor-120-degrees-9g) we recommend using a **100 µF** capacitor.
 
 ![Capacitor](./assets/capacitor.png)
 
-**_When using capacitors, make sure to connect them correctly by checking for markings such as a white stripe, a '+' symbol, or a longer lead. Match these indicators with the corresponding signs on the capacitor and in your circuit (pay attention to the + and - signs), and be careful not to exceed the voltage limits. This precaution helps prevent issues like leaks or damage that could harm your circuit._**
+**_Because some capacitors are polarised (meaning that they have a direction), you may need to be careful with how you connect them to your circuit. Make sure to connect them correctly by checking for markings such as a white stripe, a '+' symbol, or a longer lead. If your capacitor has these, match the indicators of the capacitor with your circuit (pay attention to the + and - signs), and be careful not to exceed the voltage limits. This precaution helps prevent issues like leaks or damage that could harm your circuit._**
 
 You can read more about capacitors [here](https://learn.sparkfun.com/tutorials/capacitors/all).
 
