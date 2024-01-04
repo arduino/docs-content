@@ -1,4 +1,4 @@
 ---
-title: Project
-description: Learn about the Arduino project
+title: Projects
+description: Discover plug-and-play projects with complete code & circuit examples.
 ---
