@@ -472,7 +472,7 @@ while True:
 
     img = sensor.snapshot()
 
-    # detect() returns all objects found in the image (splitted out per class already)
+    # detect() returns all objects found in the image (split out per class already)
     # we skip class index 0, as that is the background, and then draw circles of the center
     # of our objects
 
@@ -494,6 +494,7 @@ while True:
 
     print(clock.fps(), "fps", end="\n")
 ```
+![Face tracking example running](assets/face.gif)
 
 You can load different Machine Learning models for detecting other objects, for example, persons. 
 
@@ -540,6 +541,8 @@ When a person is in the field of view of the camera, you should see the inferenc
 ![Person detection example running](assets/person-detect.gif)
 
 ### Microphone
+
+The Portenta Vision Shield features two microphones, based on the MP34DT05 ultra-compact, low-power, omnidirectional, digital MEMS microphone. 
 
 ### Ethernet (ASX00021)
 
