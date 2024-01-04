@@ -70,13 +70,11 @@ For example:
   - [isSpace()](#isspace)
   - [isUpperCase()](#isuppercase)
 - [Random Numbers](#random-numbers)
-- [random()](#random)
-- [randomSeed()](#randomseed)
+  - [random()](#random)
+  - [randomSeed()](#randomseed)
 - [External Interrupts](#external-interrupts)
   - [attachInterrupt()](#attachinterrupt)
-- [Attaches an interrupt to a pin with specified mode.](#attaches-an-interrupt-to-a-pin-with-specified-mode)
   - [detachInterrupt()](#detachinterrupt)
-- [Communication](#communication)
 - [Serial (USB)](#serial-usb)
   - [Serial.print()](#serialprint)
 - [Serial1 (UART)](#serial1-uart)
@@ -110,6 +108,23 @@ For example:
 - [Sketch](#sketch)
   - [loop()](#loop)
   - [setup()](#setup)
+- [Control Structure](#control-structure)
+  - [break](#break)
+  - [continue](#continue)
+  - [do...while](#dowhile)
+  - [else](#else)
+  - [for](#for)
+  - [goto](#goto)
+  - [if](#if)
+  - [return](#return)
+  - [switch...case](#switchcase)
+  - [while](#while)
+- [Operators](#operators)
+  - [Arithmetic Operators](#arithmetic-operators)
+  - [Comparison Operators](#comparison-operators)
+  - [Boolean Operators](#boolean-operators)
+  - [Bitwise Operators](#bitwise-operators)
+  - [Compound Operators](#compound-operators)
 
 ## Digital I/O
 
@@ -851,7 +866,7 @@ else:
 ## Random Numbers
 
 
-## random()
+### random()
 
 `random.random()`
 
@@ -866,7 +881,7 @@ random_integer = random.randint(1, 10)
 print("Random integer between 1 and 10:", random_integer)
 ```
 
-## randomSeed()
+### randomSeed()
 
 `seed_value = int(time.time())` and `random.seed()`
 
@@ -896,7 +911,6 @@ print(random_number)
 `interrupt_pin.irq(trigger=mode, handler=function)`
 
 Attaches an interrupt to a pin with specified mode.
-- 
 
 ```python
 from machine import Pin
@@ -951,8 +965,6 @@ while True:
     print("hello world")
     time.sleep(1)
 ```
-
-## Communication
 
 ## Serial (USB)
 
@@ -1470,4 +1482,352 @@ output_pin = Pin(5, Pin.OUT)
 
 while True:
     #loops forever
+```
+
+## Control Structure
+
+### break
+### continue
+### do...while
+### else
+### for
+### goto
+### if
+### return
+### switch...case
+### while
+
+## Operators
+
+### Arithmetic Operators
+
+Arithmetic operators are symbols used in programming and mathematics to perform basic arithmetic operations on numerical values.
+
+To assign a new value to any variable, use an assignment operator (single equal sign `=`).
+
+```python
+my_variable = 5 # the value of my_variable is now 5
+```
+
+The following arithmetic operators can be used:
+
+- `%` (remainder)
+- `*` (multiplication)
+- `+` (addition)
+- `-` (subtraction)
+- `/` (division)
+- `**` (exponentiation)
+
+
+**Example:**
+
+The script below demonstrates 
+
+```python
+remainder = 5 % 10 # remainder is 5
+multiplication = 10 * 5 # result of multiplication is 50
+addition = 10 + 5 # result of addition is 15
+subtraction = 10 - 5 # result of subtraction is 5
+division = 10 / 5 # result of division is 2
+exponentiation = 10 ** 5 # result of exponentiation is 10000 (10*10*10*10*10)
+
+print("remainder:", remainder)
+print("multiplication:", multiplication)
+print("addition:", addition)
+print("subtraction:", subtraction)
+print("division:", division)
+print("exponentiation:", exponentiation)
+```
+
+### Comparison Operators
+
+Comparison operators are used to compare two values or expressions, and returns a boolean result (`True` or `False`)
+
+- `==` (equal to)
+- `!=` (not equal to)
+- `<` (less than)
+- `<=` (less than or equal to)
+- `>` (greater than)
+- `>=` (greater than or equal to)
+
+The following scripts will compare the `x` with `y` variables and print the result in the REPL.
+
+**Equal to `==`**
+
+```python
+x = 10
+y = 5
+
+if x == y:
+    print("x is equal to y")
+else:
+    print("x is not equal to y")
+```
+
+**Not equal to `!=`**
+
+```python
+x = 10
+y = 5
+
+if x != y:
+    print("x is not equal to y")
+else: 
+    print("x is equal to y")
+```
+
+**Less than `<`**
+
+```python
+x = 10
+y = 5
+
+if x <  y:
+    print("x is smaller than x")
+else:
+    print("x is not smaller than y")
+```
+
+**Less or equal to `<=`**
+
+```python
+x = 10
+y = 5
+
+if x <= y:
+    print("x is smaller or equal to y")
+else:    
+    print("x is not smaller or equal to y")
+
+```
+
+**Greater than `>`**
+
+```python
+x = 10
+y = 5
+
+if x >  y:
+    print("x is greater than y")
+else:
+    print("x is not greater than y")
+```
+
+**Greater than or equal to `>=`**
+
+```python
+x = 10
+y = 5
+
+if x >= y:
+    print("x is greater than or equal to y")
+else:
+    print("x is not greater than or equal to y")
+
+```
+
+### Boolean Operators
+
+Boolean operators are used to perform logical operations between Boolean values (`True` or `False`).
+
+Boolean operators are expressed in written format, and not with symbols ( `!`, `&&`, `||`) like other programming frameworks such as Arduino / C++ use. 
+
+- `not` (logical not)
+- `and` (logical and)
+- `or` (logical or)
+
+The following scripts demonstrates how to use the boolean operators:
+
+**Logical `not`:**
+
+```python
+x = True
+
+if not x:
+    print("False")
+else:
+    print("True")
+```
+
+**Logical `and`:**
+
+```python
+x = 7
+
+if x > 5 and x < 10:
+    print("x is greater than 5 AND smaller than 10")
+```
+
+**Logical `or`:**
+
+```python
+x = 5
+y = 10
+
+if x == 3 or y == 10:
+    print("One condition matched!") 
+```
+
+
+### Bitwise Operators
+
+Bitwise operators are used to manipulate individual bits at a binary level. For example, an integer variable that holds the value of `15` is in binary `1111`. With bitwise operators, you can for example change `1111` (15) to `1011` (11).
+
+The following bitwise operators are available:
+
+- `&` (bitwise and)
+- `<<` (bitshift left)
+- `>>` (bitshift right)
+- `^` (bitwise xor)
+- `|` (bitwise or)
+- `~` (bitwise not)
+
+Below are a set of scripts that explains the usage of bitwise operators:
+
+**Bitwise and `&`:**
+
+```python
+a = 5   # 101 in binary
+b = 3   # 011 in binary
+
+result = a & b
+print(result)  # Output: 1 (001 in binary)
+```
+
+**Bitshift left `<<`:**
+
+```python
+x = 3   # 11 in binary
+
+result = x << 2
+print(result)  # Output: 12 (1100 in binary)
+```
+
+**Bitshift right `>>`:**
+
+```python
+y = 16  # 10000 in binary
+
+result = y >> 2
+print(result)  # Output: 4 (100 in binary)
+```
+
+**Bitwise xor `^`:**
+
+```python
+p = 12  # 1100 in binary
+q = 7   # 0111 in binary
+
+result = p ^ q
+print(result)  # Output: 11 (1011 in binary)
+```
+
+**Bitwise or `|`:**
+
+```python
+m = 10  # 1010 in binary
+n = 5   # 0101 in binary
+
+result = m | n
+print(result)  # Output: 15 (1111 in binary)
+```
+
+**Bitwise not `~`:**
+
+```python
+z = 7   # 0111 in binary
+
+result = ~z
+print(result)  # Output: -8 (1000 in two's complement binary)
+```
+
+### Compound Operators
+
+A compound operator combines an arithmetic or bitwise operation with an assignment. For example, instead of writing `x = x +3`, you can write `x += 3`, using the compound addition (+) operator. 
+
+The following compound operators are available:
+
+- `%=` (compound remainder)
+- `&=` (compound bitwise and)
+- `*=` (compound multiplication)
+- `+=` (compound addition)
+- `-=` (compound subtraction)
+- `/=` (compound division)
+- `^=` (compound bitwise xor)
+- `|=` (compound bitwise or)
+
+***Please note that increment `++` and decrement `--` are not available in the Python language. The equalivent is `x +=1` and `x -=1`.**
+
+Below are a set of scripts that explains the usage of compound operators:
+
+**Compound remainder `%=`:**
+
+```python
+a = 15
+b = 7
+
+a %= b
+print(a)  # Output: 1 (15 % 7)
+```
+
+**Compound bitwise and `&=`:**
+
+```python
+x = 5
+y = 3
+
+x &= y
+print(x)  # Output: 1 (5 & 3)
+```
+
+**Compound multiplication `*=`:**
+
+```python
+num = 8
+
+num *= 3
+print(num)  # Output: 24 (8 * 3)
+```
+
+**Compound addition `+=`:**
+
+```python
+total = 10
+
+total += 5
+print(total)  # Output: 15 (10 + 5)
+```
+
+**Compound subtraction `-=`:**
+
+```python
+result = 20
+
+result -= 8
+print(result)  # Output: 12 (20 - 8)
+```
+
+**Compound division `/=`:**
+
+```python
+
+```
+
+**Compound bitwise xor `^=`:**
+
+```python
+value = 30
+
+value /= 6
+print(value)  # Output: 5.0 (30 / 6)
+```
+
+**Compound bitwise or `|=`:**
+
+```python
+m = 12
+n = 7
+
+m ^= n
+print(m)  # Output: 11 (12 ^ 7)
 ```
