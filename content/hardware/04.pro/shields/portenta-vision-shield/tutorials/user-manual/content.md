@@ -195,13 +195,13 @@ From the above example script, we can highlight the main functions:
 
 - `sensor.snapshot()` lets you take a picture and return the image so you can save it, stream it or process it.
 
-### Camera
+## Camera
 
 The Portenta Vision Shields's main feature is its onboard camera, based on the HM01B0 ultralow power CMOS image sensor. It is perfect for Machine Learning applications such as object detection, image classification, machine/computer vision, robotics, IoT, and more.
 
 ![Onboard camera sensor](assets/camera.png)
 
-#### Main Camera Features
+**Main Camera Features**
 
 - Ultra-Low-Power Image Sensor designed for always-on vision devices and applications
 - High-sensitivity 3.6 μ BrightSenseTM pixel technology Window, vertical flip and horizontal mirror readout
@@ -209,20 +209,20 @@ The Portenta Vision Shields's main feature is its onboard camera, based on the H
 - Automatic exposure and gain control loop with support for 50 Hz / 60 Hz flicker avoidance
 - Motion Detection circuit with programmable ROI and detection threshold with digital output to serve as an interrupt
 
-#### Supported Resolutions
+**Supported Resolutions**
 
 - QQVGA (160x120) at 15, 30, 60 and 120 FPS
 - QVGA (320x240) at 15, 30 and 60 FPS
 - B320X320 (320x320) at 15, 30 and 45 FPS
 
-#### Power Consumption
+**Power Consumption**
 - < 1.1 mW QQVGA resolution at 30 FPS,
 - < 2 mW QVGA resolution at 30 FPS
 - < 4 mW QVGA resolution at 60 FPS
 
 The Vision Shield is primarily intended to be used with the OpenMV MicroPython ecosystem. So, it's recommended to use this IDE for machine vision applications.
 
-#### Snapshot Example
+### Snapshot Example
 
 The example code below lets you take a picture and save it on the Portenta H7 local storage or in a Micro SD card as `example.jpg`.
 
@@ -257,7 +257,7 @@ After the snapshot is taken, reset the board by pressing the reset button and th
 
 ![Snapshot saved in H7 local storage](assets/snapshot.png)
 
-#### Video Recording Example
+### Video Recording Example
 
 The example code below lets you record a video and save it on the Portenta H7 local storage or in a Micro SD card as `example.mjpeg`.
 
@@ -291,13 +291,253 @@ raise (Exception("Please reset the camera to see the new file."))
 
 ![Video saved in local storage](assets/video-ani.gif)
 
-#### Sensor Control
+### Sensor Control
 
-#### Bar Codes 
+There are several functions that allow us to configure the behavior of the camera sensor and adapt it to our needs.
+
+**Gain**: the gain is related to the sensor sensitivity and affects how bright or dark the final image will be.
+
+With the following functions, you can control the camera gain:
+
+```python
+sensor.set_auto_gain(True, gain_db_ceiling=16.0)  # True = auto gain enabled, with a max limited to gain_db_ceiling parameter.
+sensor.set_auto_gain(False, gain_db=8.0)  # False = auto gain disabled, fixed to gain_db parameter.
+```
+![Auto Gain example](assets/gain.gif)
+
+**Orientation**: flip the image captured to meet your application's needs.
+
+With the following functions, you can control the image orientation:
+
+```python
+sensor.set_hmirror(True) # Enable horizontal mirror | undo the mirror if False
+sensor.set_vflip(True) # Enable the vertical flip | undo the flip if False
+```
+
+You can find complete `Sensor Control` examples in **File > Examples > Camera > Sensor Control** of the OpenMV IDE.
+
+### Bar and QR Codes 
+
+The Vision Shield is ideal for production line inspections, in these examples, we are going to be locating and reading bar codes and QR codes.
+
+#### Bar Codes
+
+This example code can be found in **File > Examples > Barcodes** in the OpenMV IDE.
+
+```python
+import sensor
+import image
+import time
+import math
+
+sensor.reset()
+sensor.set_pixformat(sensor.GRAYSCALE)
+sensor.set_framesize(sensor.QVGA)  # High Res!
+sensor.set_windowing((640, 80))  # V Res of 80 == less work (40 for 2X the speed).
+sensor.skip_frames(time=2000)
+sensor.set_auto_gain(False)  # must turn this off to prevent image washout...
+sensor.set_auto_whitebal(False)  # must turn this off to prevent image washout...
+clock = time.clock()
+
+# Barcode detection can run at the full 640x480 resolution of your OpenMV Cam's.
+
+def barcode_name(code):
+    if code.type() == image.EAN2:
+        return "EAN2"
+    if code.type() == image.EAN5:
+        return "EAN5"
+    if code.type() == image.EAN8:
+        return "EAN8"
+    if code.type() == image.UPCE:
+        return "UPCE"
+    if code.type() == image.ISBN10:
+        return "ISBN10"
+    if code.type() == image.UPCA:
+        return "UPCA"
+    if code.type() == image.EAN13:
+        return "EAN13"
+    if code.type() == image.ISBN13:
+        return "ISBN13"
+    if code.type() == image.I25:
+        return "I25"
+    if code.type() == image.DATABAR:
+        return "DATABAR"
+    if code.type() == image.DATABAR_EXP:
+        return "DATABAR_EXP"
+    if code.type() == image.CODABAR:
+        return "CODABAR"
+    if code.type() == image.CODE39:
+        return "CODE39"
+    if code.type() == image.PDF417:
+        return "PDF417"
+    if code.type() == image.CODE93:
+        return "CODE93"
+    if code.type() == image.CODE128:
+        return "CODE128"
+
+
+while True:
+    clock.tick()
+    img = sensor.snapshot()
+    codes = img.find_barcodes()
+    for code in codes:
+        img.draw_rectangle(code.rect())
+        print_args = (
+            barcode_name(code),
+            code.payload(),
+            (180 * code.rotation()) / math.pi,
+            code.quality(),
+            clock.fps(),
+        )
+        print(
+            'Barcode %s, Payload "%s", rotation %f (degrees), quality %d, FPS %f'
+            % print_args
+        )
+    if not codes:
+        print("FPS %f" % clock.fps())
+```
+
+The format, payload, orientation and quality will be printed out in the Serial Monitor when a bar code becomes readable.
+
+![Bar codes reading](assets/bar-codes.gif)
 
 #### QR Codes
 
-#### Face Tracking
+This example code can be found in **File > Examples > Barcodes** in the OpenMV IDE.
+
+```python
+import sensor
+import time
+
+sensor.reset()
+sensor.set_pixformat(sensor.GRAYSCALE)
+sensor.set_framesize(sensor.B320X320)
+sensor.skip_frames(time=2000)
+sensor.set_auto_gain(False)  # must turn this off to prevent image washout...
+clock = time.clock()
+
+while True:
+    clock.tick()
+    img = sensor.snapshot()
+    img.lens_corr(1.8)  # strength of 1.8 is good for the 2.8mm lens.
+    for code in img.find_qrcodes():
+        img.draw_rectangle(code.rect(), color=(255, 255, 0))
+        print(code)
+    print(clock.fps())
+```
+The coordinates, size, and payload will be printed out in the Serial Monitor when a QR code becomes readable.
+
+![QR codes reading](assets/qr.gif)
+
+### Face Tracking
+
+You can track faces using the built-in FOMO face detection model. This example can be found in **File > Examples > Machine Learning > TensorFlow > tf_object_detection.py**.
+
+This script will draw a circle on each detected face and will print their coordinates in the Serial Monitor.
+
+```python
+import sensor
+import time
+import tf
+import math
+
+sensor.reset()  # Reset and initialize the sensor.
+sensor.set_pixformat(sensor.GRAYSCALE)  # Set pixel format to RGB565 (or GRAYSCALE)
+sensor.set_framesize(sensor.QVGA)  # Set frame size to QVGA (320x240)
+sensor.set_windowing((240, 240))  # Set 240x240 window.
+sensor.skip_frames(time=2000)  # Let the camera adjust.
+
+min_confidence = 0.4
+
+# Load built-in FOMO face detection model
+labels, net = tf.load_builtin_model("fomo_face_detection")
+
+# Alternatively, models can be loaded from the filesystem storage.
+# net = tf.load('<object_detection_network>', load_to_fb=True)
+# labels = [line.rstrip('\n') for line in open("labels.txt")]
+
+colors = [  # Add more colors if you are detecting more than 7 types of classes at once.
+    (255, 0, 0),
+    (0, 255, 0),
+    (255, 255, 0),
+    (0, 0, 255),
+    (255, 0, 255),
+    (0, 255, 255),
+    (255, 255, 255),
+]
+
+clock = time.clock()
+while True:
+    clock.tick()
+
+    img = sensor.snapshot()
+
+    # detect() returns all objects found in the image (splitted out per class already)
+    # we skip class index 0, as that is the background, and then draw circles of the center
+    # of our objects
+
+    for i, detection_list in enumerate(
+        net.detect(img, thresholds=[(math.ceil(min_confidence * 255), 255)])
+    ):
+        if i == 0:
+            continue  # background class
+        if len(detection_list) == 0:
+            continue  # no detections for this class?
+
+        print("********** %s **********" % labels[i])
+        for d in detection_list:
+            [x, y, w, h] = d.rect()
+            center_x = math.floor(x + (w / 2))
+            center_y = math.floor(y + (h / 2))
+            print(f"x {center_x}\ty {center_y}")
+            img.draw_circle((center_x, center_y, 12), color=colors[i], thickness=2)
+
+    print(clock.fps(), "fps", end="\n")
+```
+
+You can load different Machine Learning models for detecting other objects, for example, persons. 
+
+Download the `.tflite` and `.txt` files from this [repository](https://github.com/openmv/tensorflow-lib/tree/master/libtf/models) and copy them to the Portenta H7 local storage.
+
+Use the following example script to run the **person detection** model.
+
+```python
+import sensor
+import time
+import tf
+import math
+import uos, gc
+
+sensor.reset()  # Reset and initialize the sensor.
+sensor.set_pixformat(sensor.GRAYSCALE)  # Set pixel format to RGB565 (or GRAYSCALE)
+sensor.set_framesize(sensor.QVGA)  # Set frame size to QVGA (320x240)
+sensor.set_windowing((240, 240))  # Set 240x240 window.
+sensor.skip_frames(time=2000)  # Let the camera adjust.
+
+net = tf.load('person_detection.tflite', load_to_fb=True)
+labels = [line.rstrip('\n') for line in open("person_detection.txt")]
+
+
+clock = time.clock()
+while True:
+    clock.tick()
+
+    img = sensor.snapshot()
+
+    for obj in net.classify(img, min_scale = 1.0, scale_mul= 0.8, x_overlap = 0.5, y_overlap = 0.5):
+        print("*********** \nDetections at [x=%d,y=%d, w=%d, h=%d]" % obj.rect())
+        img.draw_rectangle(obj.rect())
+        predictions_list = list(zip(labels,obj.output()))
+        
+        for i in range(len(predictions_list)):                 
+            print ("%s = %f" % (predictions_list[i][0], predictions_list[i][1]))
+            
+    print(clock.fps(), "fps", end="\n")
+```
+
+When a person is in the field of view of the camera, you should see the inference result for `person` rising above 70% of certainty.
+
+![Person detection example running](assets/person-detect.gif)
 
 ### Microphone
 
