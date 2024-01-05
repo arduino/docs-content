@@ -748,4 +748,10 @@ Run the script and the current date and time will be printed in the OpenMV IDE S
 
 ### LoRa® (ASX00026)
 
-To 
+The **Vision Shield - LoRa®** can extend our project connectivity by leveraging it LoRa® module for long-range communication in remote areas with a lack of internet access.
+
+![LoRa® antenna connection](assets/antenna.png)
+
+First, connect the Vision Shield - LoRa® to the Portenta H7. Attach the LoRa® antenna to its respective connector. Now connect the USB-C® cable to the Portenta H7 and your computer. 
+
+Now you are ready to test the connectivity with the following Python script. This example lets you connect to The Things Network using LoRaWAN® and send a `Hello World` message to it.
