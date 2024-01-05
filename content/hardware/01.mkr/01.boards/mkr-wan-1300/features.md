@@ -6,7 +6,7 @@ The MKR WAN 1300 brings LoRa® connectivity to your projects. Using the popular 
 
 <Feature title="LoRaWAN® Connectivity" image="cellular">
 
-Use LoRaWAN® in remote places to send data to nearby gateways connected to the TTS service, which in turn forwards the data to the Arduino IoT Cloud.
+Use LoRaWAN® in remote places to send data to nearby gateways connected to the TTS service, which in turn forwards the data to the Arduino Cloud.
 
   <FeatureLink variant="primary" title="Documentation" url="/arduino-cloud/getting-started/cloud-lora-getting-started"/>
 
