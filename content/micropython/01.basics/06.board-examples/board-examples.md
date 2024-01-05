@@ -1547,3 +1547,211 @@ If you need to stop the audio streaming, you can call `.stop_streaming()`.
 ```python
 audio.stop_streaming()
 ```
+
+## Portenta C33
+
+### Pinout Mapping
+
+The Portenta C33 has two ways its pins are physically available: through its MKR-styled connectors and its High-Density connectors. Most pins are referred to via their port name or function. In the image below, the Portenta C33 MKR-styled connectors pinout is shown. 
+
+The MKR-styled connectors pinout is mapped in MicroPython as follows:
+
+| **Arduino Pin Mapping** | **MicroPython Pin Mapping** |
+|:-----------------------:|:---------------------------:|
+|       `P006`/`A0`       |            `P006`           |
+|       `P005`/`A1`       |            `P005`           |
+|       `P004`/`A2`       |            `P004`           |
+|       `P002`/`A3`       |            `P002`           |
+|       `P001`/`A4`       |            `P001`           |
+|       `P015`/`A5`       |            `P015`           |
+|       `P014`/`A6`       |            `P014`           |
+|       `P105`/`D0`       |            `P105`           |
+|       `P106`/`D1`       |            `P106`           |
+|       `P111`/`D2`       |            `P111`           |
+|       `P303`/`D3`       |            `P303`           |
+|       `P401`/`D4`       |            `P401`           |
+|       `P210`/`D5`       |            `P210`           |
+|          `P602`         |            `P602`           |
+|          `P110`         |            `P110`           |
+|          `P408`         |            `P408`           |
+|          `P407`         |            `P407`           |
+|          `P315`         |            `P315`           |
+|          `P204`         |            `P204`           |
+|          `P900`         |            `P900`           |
+|          `P402`         |            `P402`           |
+|          `P601`         |            `P601`           |
+
+The complete MicroPython pinout is available and downloadable as PDF from the link below:
+
+- Portenta C33 MicroPython pinout
+
+### Input/Output Pins
+
+The `Pin` class in the `machine` module is essential for controlling Input/Output (I/O) pins of the Portenta C33 board.  These pins are crucial for a wide range of applications, including reading sensor data, controlling actuators, and interfacing with other hardware components.
+
+#### Pin Initialization
+
+To begin using an I/O pin of the Portenta C33 board with MicroPython, you need to initialize it using the `Pin` class from the `machine` module. This involves specifying the pin identifier and its mode (input, output, etc.).
+
+```python
+from machine import Pin
+
+# Initializing pin P107 as an output
+p107 = Pin('P107', Pin.OUT)
+```
+
+#### Configuring Pin Modes
+
+You can configure a pin as an input or output. For input pins, it's often useful to activate an internal pull-up or pull-down resistor. This helps to stabilize the input signal, especially in cases where the pin is reading a mechanical switch or a button.
+
+```python
+# Configuring pin P105 as an input with its pull-up resistor enabled
+p105 = Pin('P105', Pin.IN, Pin.PULL_UP)
+```
+
+#### Reading from and Writing to Pins
+
+To read a digital value from a pin, use the `.value()` method without any arguments. This is particularly useful for input pins. Conversely, to write a digital value, use the `.value()` method with an argument. Passing `1` sets the pin to `HIGH`, while `0` sets it to `LOW`. This is applicable to output pins.
+
+```python
+# Reading from P105
+pin_value = p105.value()
+
+# Writing to P107
+p107.value(1)  # Set p2 to high
+```
+
+#### Advanced Pin Configuration
+
+The Pin class allows dynamic reconfiguration of pins and setting up interrupt callbacks. This feature is essential for creating responsive and interactive applications.
+
+```python
+# Reconfiguring P105 as an input with a pull-down resistor
+p105.init(Pin.IN, Pin.PULL_DOWN)
+
+# Setting up an interrupt on P105
+p105.irq(lambda p: print("- IRQ triggered!", p))
+```
+
+#### Practical Example
+
+In this example, we will configure one pin as an input to read the state of a button and another pin as an output to control an LED. The LED will turn on when the button is pressed and off when it's released.
+
+```python
+from machine import Pin
+import time
+
+# Configure pin P107 as an output (for the LED)
+led = Pin('P107', Pin.OUT_PP)
+
+# Configure pin P105 as input with pull-up resistor enabled (for the button)
+button = Pin('P105', Pin.IN, Pin.PULL_UP)
+
+while True:
+    # Read the state of the button
+    button_state = button.value()  
+    if button_state == 0:
+        # Turn on LED if button is pressed (button_state is LOW)
+        led.value(1)  
+    else:
+        # Turn off LED if button is not pressed (button_state is HIGH)
+        led.value(0) 
+
+    # Short delay to debounce the button 
+    time.sleep(0.1)
+```
+
+This practical example demonstrates controlling an LED based on a button's state. The LED, connected to pin `P107` (configured as an output), is turned on or off depending on the button's input read from pin `P105` (set as an input with a pull-up resistor). The main loop continually checks the button's state; pressing the button fixes the LED on while releasing it turns the LED off. A brief delay is included for debouncing, ensuring stable operation without false triggers from the button.
+
+### Pulse Width Modulation
+
+Pulse Width Modulation (PWM) is a method to emulate an analog output using a digital pin. It does this by rapidly toggling the pin between low and high states. Two primary aspects define PWM behavior:
+
+- **Frequency**: This is the speed at which the pin toggles between low and high states. A higher frequency means the pin toggles faster.
+- **Duty cycle**: This refers to the ratio of the high state duration to the total cycle duration. A 100% duty cycle means the pin remains high all the time, while a 0% duty cycle means it stays low.
+
+The available PWM pins of the Portenta C33 board in MicroPython are the following:
+
+| **Available PWM Pins** |
+|:----------------------:|
+|         `P105`         |
+|         `P106`         |
+|         `P111`         |
+|         `P303`         |
+|         `P401`         |
+|         `P601`         |
+
+#### Setting Up PWM
+
+To use PWM, start by initializing a pin and then creating a PWM object associated with that pin.
+
+```python
+import machine
+
+# Initialize a pin for PWM (e.g., pin P105)
+p105 = machine.Pin('P105')
+pwm1 = machine.PWM(p105)
+```
+
+#### Configuring PWM Parameters
+
+The frequency and duty cycle of the PWM signal are set based on the specific needs of your application:
+
+```python
+# Set the frequency to 500 Hz
+pwm1.freq(500)
+
+# Adjusting the duty cycle to 50 for 50% duty
+pwm1.duty(50)
+```
+
+#### Checking PWM Configuration
+
+You can check the current configuration of the PWM object by printing it:
+
+```python
+# Will show the current frequency and duty cycle
+print(pwm1)
+```
+
+Retrieve the frequency and duty cycle values:
+
+```python
+current_freq = pwm1.freq()
+current_duty = pwm1.duty()
+```
+
+#### Deinitializing PWM
+
+When PWM is no longer needed, the pin can be deinitialized:
+
+```python
+pwm1.deinit()
+```
+
+#### Practical Example
+
+In this example, we will use PWM to control the brightness of an LED connected to pin `P105` of the Portenta C33 board.
+
+```python
+import machine
+import time
+
+# Configure the LED pin and PWM
+led_pin = machine.Pin('P105')
+led_pwm = machine.PWM(led_pin)
+led_pwm.freq(500)
+
+# Loop to vary brightness
+while True:
+    # Increase brightness
+    for duty in range(100):
+        led_pwm.duty(duty)
+        time.sleep(0.001)
+
+    # Decrease brightness
+    for duty in range(100, -1, -1):
+        led_pwm.duty(duty)
+        time.sleep(0.001)
+```
+
