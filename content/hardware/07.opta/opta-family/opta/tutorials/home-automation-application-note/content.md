@@ -39,7 +39,7 @@ This application note shows a home automation system based on an Opta™️, cap
 - Implement the roller window shade control (opening and closing) upon a programmed scenario
 
 - Get inputs from limit switches included in the roller window shade's control system, for feedback and security reinforcement
-- Control and monitor the roller window shade via [Arduino IoT Cloud](https://create.arduino.cc/iot/)
+- Control and monitor the roller window shade via [Arduino Cloud](https://create.arduino.cc/iot/)
 
 ## Hardware and Software Requirements
 
@@ -59,7 +59,7 @@ This application note shows a home automation system based on an Opta™️, cap
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: [`WiFi`](https://www.arduino.cc/reference/en/libraries/wifi/) and [`NTPClient`](https://github.com/arduino-libraries/NTPClient)
-- For the IoT capabilities and features of the Opta™️, we will use [Arduino IoT Cloud](https://create.arduino.cc/iot/things) (you will need to create an account if you don't have one yet)
+- For the IoT capabilities and features of the Opta™️, we will use [Arduino Cloud](https://create.arduino.cc/iot/things) (you will need to create an account if you don't have one yet)
 
 ## Hardware Setup Overview
 
@@ -76,7 +76,7 @@ The Opta™️ controls a DC motor via a driver using the digital output termina
 
 ### Application Overview
 
-The first task of the program is to create the connection between the Opta™️ and the predefined Wi-Fi® network by the user in the Arduino IoT Cloud; when the Wi-Fi® connection is established, the internal real-time clock (RTC) of the Opta™️ will be synced using a Network Time Protocol (NTP) server. Opta™️ RTC will be synced with the NTP server periodically (in this example, every 30 minutes) for security and reliability reasons.
+The first task of the program is to create the connection between the Opta™️ and the predefined Wi-Fi® network by the user in the Arduino Cloud; when the Wi-Fi® connection is established, the internal real-time clock (RTC) of the Opta™️ will be synced using a Network Time Protocol (NTP) server. Opta™️ RTC will be synced with the NTP server periodically (in this example, every 30 minutes) for security and reliability reasons.
 
 ***The NTP is a protocol used to synchronize the clocks of servers and clients across the Internet; it is intended to synchronize computers participating in the network within a few milliseconds of Coordinated Universal Time (UTC). You can read more about the NTP protocol [here](https://en.wikipedia.org/wiki/Network_Time_Protocol).***
 
@@ -527,17 +527,17 @@ void printCurrentNet() {
 }
 ```
 
-### Arduino IoT Cloud Integration
+### Arduino Cloud Integration
 
-The example code explained before can be modified to connect the roller window shade to the [Arduino IoT Cloud](https://create.arduino.cc/iot/), leveraging the wireless connectivity features of the Opta™️; **remember that you must have an Arduino IoT Cloud account**. With the Arduino IoT Cloud integration, we are going to add more advanced functionalities such as remote programming, actuation and monitoring to the application:
+The example code explained before can be modified to connect the roller window shade to the [Arduino Cloud](https://create.arduino.cc/iot/), leveraging the wireless connectivity features of the Opta™️; **remember that you must have an Arduino Cloud account**. With the Arduino Cloud integration, we are going to add more advanced functionalities such as remote programming, actuation and monitoring to the application:
 
 - Change the programmed scenarios (hours and minutes).
 - Open or close the roller window shade at any time.
 - Monitor the roller window shade status (open or close).
 
-***If you are new to the Arduino IoT Cloud, check out this [getting started guide](https://docs.arduino.cc/arduino-cloud/guides/overview).***
+***If you are new to the Arduino Cloud, check out this [getting started guide](https://docs.arduino.cc/arduino-cloud/guides/overview).***
 
-After associating your Opta™️ device to your Arduino IoT Cloud account, create a thing; in this example, we called the thing "Shade Controller." In the "Shade Controller" thing, create the cloud variables explained below:
+After associating your Opta™️ device to your Arduino Cloud account, create a thing; in this example, we called the thing "Shade Controller." In the "Shade Controller" thing, create the Cloud variables explained below:
 
 Variable: `programmed_hour_1`
 - Type: `int`
@@ -581,11 +581,11 @@ Variable: `shade_shade`
 - Update policy: `Periodically`
 - Description: this variable is used to monitor the current status of the roller window shade, `true` for open and `false` for closed.
 
-![Variables created in the Arduino IoT Cloud thing of the application](assets/arduino-cloud-1.png)
+![Variables created in the Arduino Cloud thing of the application](assets/arduino-cloud-1.png)
 
 We will use a dashboard and widgets to modify the variables explained before. An example dashboard is shown below:
 
-![Dashboard created in the Arduino IoT Cloud thing of the application](assets/arduino-cloud-2.png)
+![Dashboard created in the Arduino Cloud thing of the application](assets/arduino-cloud-2.png)
 
 In the dashboard shown above:
 
@@ -593,7 +593,7 @@ In the dashboard shown above:
 -  `LED`-type widget shows the current status of the `shade_state` variable, green when the shade is open and red when the shade is closed.
 -  `Push button` widgets are used to open or close the shade anytime.
 
-The complete example sketch with the Arduino IoT Cloud integration is shown below:
+The complete example sketch with the Arduino Cloud integration is shown below:
 
 ```arduino
 #include <NTPClient.h>
@@ -621,7 +621,7 @@ void setup() {
   
   while (ArduinoCloud.connected() == 0) {
     ArduinoCloud.update();
-		Serial.println("- Waiting for connection to Arduino IoT Cloud");
+		Serial.println("- Waiting for connection to Arduino Cloud");
 		delay(1000);
 	}
 
@@ -649,7 +649,7 @@ void setup() {
 }
 
 void loop() {
-  // Update Arduino IoT Cloud
+  // Update Arduino Cloud
   ArduinoCloud.update();
   delay(1000);
   
@@ -862,4 +862,4 @@ void onShadeStateChange()  {
 
 ## Conclusion
 
-This application note shows how to implement an effective home automation system that can control roller window shades with Opta™️. By leveraging the internal RTC of the Opta™️ and NTP server time data, the proposed system can accurately and automatically control the shades based on pre-programmed scenarios. Additionally, the proposed system can be easily monitored and controlled through the Arduino IoT Cloud, providing users with remote management capabilities.
+This application note shows how to implement an effective home automation system that can control roller window shades with Opta™️. By leveraging the internal RTC of the Opta™️ and NTP server time data, the proposed system can accurately and automatically control the shades based on pre-programmed scenarios. Additionally, the proposed system can be easily monitored and controlled through the Arduino Cloud, providing users with remote management capabilities.
