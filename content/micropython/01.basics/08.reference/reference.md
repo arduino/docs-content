@@ -1923,19 +1923,13 @@ print(result)  # Output: 12 (20 - 8)
 **Compound division `/=`:**
 
 ```python
-
-```
-
-**Compound bitwise xor `^=`:**
-
-```python
 value = 30
 
 value /= 6
 print(value)  # Output: 5.0 (30 / 6)
 ```
 
-**Compound bitwise or `|=`:**
+**Compound bitwise xor `^=`:**
 
 ```python
 m = 12
@@ -1943,4 +1937,14 @@ n = 7
 
 m ^= n
 print(m)  # Output: 11 (12 ^ 7)
+```
+
+**Compound bitwise or `|=`:**
+
+```python
+p = 10
+q = 5
+
+p |= q
+print(p)  # Output: 15 (10 | 5)
 ```
