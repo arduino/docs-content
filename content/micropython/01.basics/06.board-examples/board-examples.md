@@ -1663,6 +1663,65 @@ while True:
 
 This practical example demonstrates controlling an LED based on a button's state. The LED, connected to pin `P107` (configured as an output), is turned on or off depending on the button's input read from pin `P105` (set as an input with a pull-up resistor). The main loop continually checks the button's state; pressing the button fixes the LED on while releasing it turns the LED off. A brief delay is included for debouncing, ensuring stable operation without false triggers from the button.
 
+### Analog to Digital Converter
+
+The `ADC` class in MicroPython provides an interface for the Analog-to-Digital (ADC) converter of the Portenta C33 board, enabling the measurement of continuous voltages and their conversion into discrete digital values. This functionality is crucial for applications that, for example, require reading from analog sensors. The `ADC` class represents a single endpoint for sampling voltage from an analog pin and converting it to a digital value. 
+
+The available ADC pins of the Portenta C33 board in MicroPython are the following:
+
+| **Available ADC Pins** |
+|:----------------------:|
+|         `P006`         |
+|         `P005`         |
+|         `P004`         |
+|         `P002`         |
+|         `P001`         |
+|         `P015`         |
+|         `P014`         |
+|         `P000`         |
+
+#### Initializing the ADC
+
+First, to use an ADC of the Portenta C33 board, create an ADC object associated with a specific pin. This pin will be used to read analog values.
+
+```python
+from machine import ADC
+
+# Create an ADC object on a specific pin
+adc = ADC(pin)
+```
+
+#### Reading Analog Values
+
+You can read analog values as raw values using the `read_u16()` method. This method returns a raw integer from 0-65535, representing the analog reading.
+
+```python
+# Reading a raw analog value
+val = adc.read_u16()
+```
+
+#### Practical Example
+
+This example demonstrates the use of the `ADC` class to read values from a potentiometer on the Portenta C33 board. First, connect your potentiometer to the Portenta C33 board. One outer pin goes to `GND`, the other to `3V3`, and the middle pin to an analog-capable I/O pin, such as `P006`. This setup creates a variable voltage divider, with the voltage at the center pin changing as you adjust the potentiometer.
+
+```python
+from machine import ADC, Pin
+import time
+
+# Initialize the ADC on the potentiometer-connected pin
+pot_pin = Pin('P006')
+pot_adc = ADC(pot_pin)
+
+while True:
+    # Read the raw analog value
+    raw_value = pot_adc.read_u16()
+    print("- Potentiometer raw value:", raw_value)
+
+    # Delay for readability
+    time.sleep(0.1)
+```
+The example starts by importing the necessary modules and setting up the ADC on a pin connected to a potentiometer (`P006`). The ADC object (`pot_adc`) is used to interface with the potentiometer. Inside the loop, the analog value from the potentiometer is continuously read using the `read_u16()` method that provides a raw integer value scaled between `0` and `65535`, reflecting the potentiometer's position. The analog value value is printed to the console, and a short delay is included in the loop to ensure the output is readable.
+
 ### Pulse Width Modulation
 
 Pulse Width Modulation (PWM) is a method to emulate an analog output using a digital pin. It does this by rapidly toggling the pin between low and high states. Two primary aspects define PWM behavior:
@@ -1755,3 +1814,57 @@ while True:
         time.sleep(0.001)
 ```
 
+### Real-Time Clock
+
+The `RTC` class in MicroPython provides a way to manage and utilize the Real-Time Clock (RTC) of the Portenta C33 board. This feature is essential for applications that require accurate timekeeping, even when the main processor is not active. The RTC maintains accurate time and date, functioning independently from the main system. It continues to keep track of the time even when the board is powered off, as long as it's connected to a power source like a battery.
+
+#### Initializing the RTC
+
+To use the RTC, create first an RTC object. This object is then used to set or read the current date and time.
+
+```python
+import machine
+
+# Create an RTC object
+rtc = machine.RTC()
+```
+
+#### Setting and Getting Date and Time
+
+The RTC allows you to set and retrieve the current date and time. The date and time are represented as an 8-tuple format.
+
+```python
+# Setting the RTC date and time
+rtc.datetime((2024, 1, 4, 4, 20, 0, 0, 0))
+
+# Getting the current date and time
+current_datetime = rtc.datetime()
+print("- Current date and time:", current_datetime)
+```
+
+The 8-tuple for the date and time follows the format `(year, month, day, weekday, hours, minutes, seconds, subseconds)`.
+
+#### Practical Example
+
+A practical use case for the RTC is to add timestamps to sensor data readings. By setting the current time on the RTC, you can then append an accurate timestamp each time a sensor value is logged.
+
+```python
+import machine
+
+# Initialize the RTC and set the current datetime
+rtc.datetime((2024, 1, 4, 4, 20, 0, 0, 0))
+
+# Function to read a sensor value (placeholder)
+def read_sensor():
+    # Replace with actual sensor reading logic
+    return 42  
+
+# Read sensor value and get the current time
+sensor_value = read_sensor()
+timestamp = rtc.datetime()
+
+# Output the sensor value with its timestamp
+print("- Sensor value at ", timestamp, ":", sensor_value)
+```
+
+In this example, every sensor reading is accompanied by A timestamp, which can be crucial for data analysis or logging purposes. The RTC's ability to maintain time independently of the main system's power status makes it reliable for time-sensitive applications.
