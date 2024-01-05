@@ -60,7 +60,7 @@ Here is an overview of the board's main components, as shown in the images above
 - **Digital Microphones**: the dual MP34DT05 digital MEMS microphones are omnidirectional and operate via a capacitive sensing element
 with a high (64 dB) signal-to-noise ratio. The microphones have been configured to provide separate left and right audio over a single PDM stream.
 
-    The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors.
+  The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors.
 
 - **Micro SD Card Slot**: a Micro SD card slot is available under the Portenta Vision Shield board. Available libraries allow reading and
 writing to FAT16/32 formatted cards
@@ -288,6 +288,7 @@ led.off()
 
 raise (Exception("Please reset the camera to see the new file."))
 ```
+We recommend you use [VLC](https://www.videolan.org/vlc/) to play the video.
 
 ![Video saved in local storage](assets/video-ani.gif)
 
@@ -542,8 +543,209 @@ When a person is in the field of view of the camera, you should see the inferenc
 
 ### Microphone
 
-The Portenta Vision Shield features two microphones, based on the MP34DT05 ultra-compact, low-power, omnidirectional, digital MEMS microphone. 
+The Portenta Vision Shield features two omnidirectional microphones, based on the MP34DT05 ultra-compact, low-power, and digital MEMS microphone. 
+
+![Vision Shield omnidirectional microphones](assets/microphones.png)
+
+**Features:**
+- AOP = 122.5 dB SPL
+- 64 dB signal-to-noise ratio
+- Omnidirectional sensitivity
+- –26 dBFS ± 1 dB sensitivity
+
+#### FFT Example
+
+You can analyze frequencies present in sounds alongside their harmonic features using this example.
+
+By measuring the sound level on each microphone we can easily know from where the sound is coming, an interesting capability for robotics and AIoT applications.
+
+```python
+import image
+import audio
+from ulab import numpy as np
+from ulab import utils
+
+CHANNELS = 2
+SIZE = 512 // (2 * CHANNELS)
+
+raw_buf = None
+fb = image.Image(SIZE + 50, SIZE, image.RGB565, copy_to_fb=True)
+audio.init(channels=CHANNELS, frequency=16000, gain_db=24, highpass=0.9883)
+
+
+def audio_callback(buf):
+    # NOTE: do Not call any function that allocates memory.
+    global raw_buf
+    if raw_buf is None:
+        raw_buf = buf
+
+
+# Start audio streaming
+audio.start_streaming(audio_callback)
+
+
+def draw_fft(img, fft_buf):
+    fft_buf = (fft_buf / max(fft_buf)) * SIZE
+    fft_buf = np.log10(fft_buf + 1) * 20
+    color = (222, 241, 84)
+    for i in range(0, SIZE):
+        img.draw_line(i, SIZE, i, SIZE - int(fft_buf[i]), color, 1)
+
+
+def draw_audio_bar(img, level, offset):
+    blk_size = SIZE // 10
+    color = (214, 238, 240)
+    blk_space = blk_size // 4
+    for i in range(0, int(round(level / 10))):
+        fb.draw_rectangle(
+            SIZE + offset,
+            SIZE - ((i + 1) * blk_size) + blk_space,
+            20,
+            blk_size - blk_space,
+            color,
+            1,
+            True,
+        )
+
+
+while True:
+    if raw_buf is not None:
+        pcm_buf = np.frombuffer(raw_buf, dtype=np.int16)
+        raw_buf = None
+
+        if CHANNELS == 1:
+            fft_buf = utils.spectrogram(pcm_buf)
+            l_lvl = int((np.mean(abs(pcm_buf[1::2])) / 32768) * 100)
+        else:
+            fft_buf = utils.spectrogram(pcm_buf[0::2])
+            l_lvl = int((np.mean(abs(pcm_buf[1::2])) / 32768) * 100)
+            r_lvl = int((np.mean(abs(pcm_buf[0::2])) / 32768) * 100)
+
+        fb.clear()
+        draw_fft(fb, fft_buf)
+        draw_audio_bar(fb, l_lvl, 0)
+        if CHANNELS == 2:
+            draw_audio_bar(fb, r_lvl, 25)
+        fb.flush()
+
+# Stop streaming
+audio.stop_streaming()
+```
+
+With this script running you will be able to see the Fast Fourier Transform result in the image viewport. Also, the sound level on each microphone channel.
+
+![FFT example running](assets/fft.gif)
+
+#### Speech Recognition Example
+
+You can easily implement sound/voice recognition applications using Machine Learning on the edge, this means that the Portenta H7 plus the Vision Shield can run these algorithms locally. 
+
+For this example, we are going to test a [pre-trained model]((https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite)) that can recognize the `yes` and `no` keywords
+
+First, download the `.tflite` [model](https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite) and copy it to the H7 local storage. 
+
+Use the following script to run the example. It can also be found on **File > Examples > Audio > micro_speech.py** in the OpenMV IDE.
+
+```python
+import audio
+import time
+import tf
+import micro_speech
+import pyb
+
+labels = ["Silence", "Unknown", "Yes", "No"]
+
+led_red = pyb.LED(1)
+led_green = pyb.LED(2)
+
+model = tf.load("/model.tflite")
+speech = micro_speech.MicroSpeech()
+audio.init(channels=1, frequency=16000, gain_db=24, highpass=0.9883)
+
+# Start audio streaming
+audio.start_streaming(speech.audio_callback)
+
+while True:
+    # Run micro-speech without a timeout and filter detections by label index.
+    idx = speech.listen(model, timeout=0, threshold=0.70, filter=[2, 3])
+    led = led_green if idx == 2 else led_red
+    print(labels[idx])
+    for i in range(0, 4):
+        led.on()
+        time.sleep_ms(25)
+        led.off()
+        time.sleep_ms(25)
+
+# Stop streaming
+audio.stop_streaming()
+```
+Now, just say `yes` or `no` and you will see the inference result in the OpenMV Serial Monitor.
+
+![Speech recognition example](assets/ml-inference.png)
 
 ### Ethernet (ASX00021)
 
+The **Portenta Vision Shield - Ethernet** gives you the possibility of connecting your Portenta H7 board to the internet using a wired connection.
+
+![Ethernet cable connected](assets/ethernet-connect.png)
+
+First, connect the Vision Shield - Ethernet to the Portenta H7. Now connect the USB-C® cable to the Portenta H7 and your computer. Lastly, connect the Ethernet cable to the Portenta Vision Shield's Ethernet port and your router or modem.
+
+Now you are ready to test the connectivity with the following Python script. This example lets you know if an Ethernet cable is connected successfully to the shield. 
+
+```python
+import network
+import time
+
+lan = network.LAN()
+
+# Make sure Eth is not in low-power mode.
+lan.config(low_power=False)
+
+# Delay for auto negotiation
+time.sleep(3.0)
+
+while True:
+    print("Cable is", "connected." if lan.status() else "disconnected.")
+    time.sleep(1.0)
+```
+ If the physical connection is detected, in the OpenMV Serial Monitor, you will see the following message:
+
+ `Cable is connected.`
+
+Once the connection is confirmed, we can try to connect to the internet using the example script below. 
+
+This example lets you gather the current time from an NTP server.
+
+```python
+import network
+import socket
+import struct
+import time
+
+TIMESTAMP = 2208988800 + (3600*4) # (3600*4) is used to set the Time Zone (UTC-4)
+
+if time.gmtime(0)[0] == 2000:
+    TIMESTAMP += 946684800
+
+# Create new socket
+client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# Get addr info via DNS
+addr = socket.getaddrinfo("pool.ntp.org", 123)[0][4]
+
+# Send query
+client.sendto("\x1b" + 47 * "\0", addr)
+data, address = client.recvfrom(1024)
+
+# Print time
+t = struct.unpack(">IIIIIIIIIIII", data)[10] - TIMESTAMP
+print("Year:%d Month:%d Day:%d Time: %d:%d:%d" % (time.localtime(t)[0:6]))
+```
+Run the script and the current date and time will be printed in the OpenMV IDE Serial Monitor.
+
+![Ethernet connection example script](assets/ntp.png)
+
 ### LoRa® (ASX00026)
+
+To 
