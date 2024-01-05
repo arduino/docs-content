@@ -92,7 +92,7 @@ The same script that was before printing text on the terminal, will now produce 
 
 ![Figure 4: Serial Plotter from the offline Arduino IDE](assets/image0204.png)
 
-This technique is giving you a way to graph data as it arrives, but it is lost over time. We are interested in analysing historical data from your sensors, what requires storing it into files, or alternatively, onto the cloud. In the second part of this exercise, you are going to be storing the data into a file and later opening it in a spreadsheet software.
+This technique is giving you a way to graph data as it arrives, but it is lost over time. We are interested in analysing historical data from your sensors, what requires storing it into files, or alternatively, onto the Cloud. In the second part of this exercise, you are going to be storing the data into a file and later opening it in a spreadsheet software.
 
 ### How Data can be Stored in Files from the Serial Port
 

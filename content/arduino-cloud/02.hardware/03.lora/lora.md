@@ -49,7 +49,7 @@ In this tutorial, we will walk you through the steps needed to successfully prov
 - **MKR WAN 1300/1310** - development boards that have a LoRa® module capable of sending and receiving packets of data.
 - **End device/node** - end device/node is a term used for deployed devices such as the MKR WAN 1310, that for example are reading and processing sensor data.
 - **The Things Network (TTN)** - a nonprofit association, making the TTS Community Edition available as a public LoRaWAN® network service for free.
-- **The Things Stack Network (TTS)** - a cloud platform used by TTN and TTI for their LoRaWAN® connectivity networks.
+- **The Things Stack Network (TTS)** - a Cloud platform used by TTN and TTI for their LoRaWAN® connectivity networks.
 - **The Things Industries (TTI)** -  a company that runs and manages The Things Network and offers private LoRaWAN network and support for enterprise customers.
 - **The Things Stack console (TTC)** - a service that allows you to register devices and handle incoming or outgoing data.
 - **Device EUI** - a code to identify your device.

@@ -454,6 +454,6 @@ The Arduino Cloud CLI can also be well combined with the [Arduino CLI](https://a
 To recap, this tool can be used to:
 - Extract templates from your existing Things & dashboards previously created in the Arduino Cloud.
 - Perform the same actions as the Arduino Cloud but from a terminal (like creating/deleting devices, Things and linking them).
-- List all available components from the cloud (like `thing list`).
+- List all available components from the Cloud (like `thing list`).
 - Tag your devices & Things with the `--tags <key0>=<value0>` command.
 

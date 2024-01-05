@@ -1133,11 +1133,11 @@ The pin layout of the ESLOV connector is the following:
 4. SDA
 5. GND
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
 The Nicla Sense ME does not have built-in Wi-Fi®, so it can not be directly connected to the internet. For this, we need to use a Wi-Fi® capable Arduino board as a host for the Nicla.
 
-In this example, a Portenta C33 will be used as a gateway to forward Nicla Sense ME sensors data to the Arduino IoT Cloud.
+In this example, a Portenta C33 will be used as a gateway to forward Nicla Sense ME sensors data to the Arduino Cloud.
 
 ### Nicla Sense ME Setup
 
@@ -1171,9 +1171,9 @@ void loop()
 
 Upload the sketch above to the Nicla Sense ME using the Arduino IDE.
 
-### Arduino IoT Cloud Setup
+### Arduino Cloud Setup
 
-To start using the Arduino IoT cloud, we first need to [log in or sign up](https://create.arduino.cc/iot/things).
+To start using the Arduino Cloud, we first need to [log in or sign up](https://create.arduino.cc/iot/things).
 
 Once in, it is time to configure your Portenta C33. For this, follow this [section](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#arduino-iot-cloud) on the Portenta C33 user manual.
 
@@ -1197,14 +1197,14 @@ void setup() {
   Serial.begin(9600);
   delay(1500);
 
-  Serial.print("Configuring the Arduino IoT Cloud");
+  Serial.print("Configuring the Arduino Cloud");
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
-  Serial.println("Connecting to the Arduino IoT Cloud");
+  Serial.println("Connecting to the Arduino Cloud");
   while (ArduinoCloud.connected() != 1) {
     ArduinoCloud.update();
     delay(500);
@@ -1248,7 +1248,7 @@ Upload the code to the Portenta C33 by connecting it to your computer using a US
 
 ![Uploading the sketch to the Portenta C33](assets/code_upload.png)
 
-Finally, after searching for and connecting to your Wi-Fi® network, it will gather the temperature information from the Nicla Sense ME. Every 2 seconds it will forward it to the cloud where we can monitor it from anywhere in the world and from any device.
+Finally, after searching for and connecting to your Wi-Fi® network, it will gather the temperature information from the Nicla Sense ME. Every 2 seconds it will forward it to the Cloud where we can monitor it from anywhere in the world and from any device.
 
 ![Temperature monitor dashboard](assets/Dashboard2.gif)
 

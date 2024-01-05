@@ -117,7 +117,7 @@ Agriculture measurements, smart irrigation systems, hydroponics
 
 ## The Board
 ### Application Examples
-The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time insight into the state of your process and increase crop yield. Improve business efficiency through automation and predictive farming. Tailor the Edge Control to your needs by using up two Arduino® MKR Boards and an assortment of compatible Shields. Maintain historical records, automate quality control, implement crop planning and more through the Arduino IoT Cloud from anywhere in the world.
+The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time insight into the state of your process and increase crop yield. Improve business efficiency through automation and predictive farming. Tailor the Edge Control to your needs by using up two Arduino® MKR Boards and an assortment of compatible Shields. Maintain historical records, automate quality control, implement crop planning and more through the Arduino Cloud from anywhere in the world.
 
 **Automated Greenhouses:** In order to minimize carbon emissions and increase economic yield, it is important to ensure that the best environment is provided for the growth of crops in terms of humidity, temperature and other factors. The Arduino® Edge Control is an integrated platform that enables remote monitoring and real-times optimization to this end. Including an Arduino® MKR GPS Shield (SKU:ASX00017) allows for optimum crop rotation planning and acquisition of geospatial data.
 
@@ -263,8 +263,8 @@ All Arduino® boards, including this one, work out-of-the-box on the Arduino® W
 
 The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
-All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+### Getting Started - Arduino Cloud
+All Arduino® IoT enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
 Sample sketches for the Arduino® Edge Control can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation” section of the Arduino® Pro website **[4]**

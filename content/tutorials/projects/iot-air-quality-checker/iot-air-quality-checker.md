@@ -41,7 +41,7 @@ Of course you can reach the same setup using a breadboard, floating wires and sp
 
 ### The Board Setup
 
-In this project we are going to use [Arduino IoT Cloud](https://create.arduino.cc/iot), where you can create IoT applications in a few simple steps.
+In this project we are going to use [Arduino Cloud](https://create.arduino.cc/iot), where you can create IoT applications in a few simple steps.
 
 We can just start connecting the MKR WiFi 1010 to the Web Editor.
 
@@ -51,15 +51,15 @@ After connecting your Arduino to the usb port, be sure to have selected the righ
 
 ![I'm running Linux, your usb port may be different!](assets/image_CmuCsjXu70.png)
 
-At this point, since the MKR Wifi 1010 is a cloud compatible board, we can start with the Arduino IoT Cloud setup.
+At this point, since the MKR WiFi 1010 is a Cloud compatible board, we can start with the Arduino Cloud setup.
 
-### Arduino IoT Cloud Setup
+### Arduino Cloud Setup
 
 Thanks to this platform, the dashboard creation will be really easy, and the base of the Arduino code will be auto-generated, and usable directly on the Arduino Web Editor.
 
-This is one of the feature of Arduino IoT Cloud, many interesting others are described in [this official blog post](https://blog.arduino.cc/2021/06/18/14-awesome-arduino-cloud-features-you-never-knew-existed)!
+This is one of the feature of Arduino Cloud, many interesting others are described in [this official blog post](https://blog.arduino.cc/2021/06/18/14-awesome-arduino-cloud-features-you-never-knew-existed)!
 
-The very first steps to use Arduino IoT Cloud are well described in the [official "Getting started" guide](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started). 
+The very first steps to use Arduino Cloud are well described in the [official "Getting started" guide](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started). 
 
 First step is to create a *thing*, in which we'll configure the board we are going to use, the variables used for the measurements and the wifi credentials.
 
@@ -121,7 +121,7 @@ And last, create a `String` variable read & write, in order to let the dashboard
 
 ![String variable set to read & write.](assets/screenshot_2021-06-25_01-10-18_J4HE27KBuo.png)
 
-Next step is to setup the Wifi Credentials that will be used by the board to connect to the Internet and to the Arduino IoT Cloud
+Next step is to setup the Wifi Credentials that will be used by the board to connect to the Internet and to the Arduino Cloud
 
 ![Configure your WiFi settings.](assets/image_3pokJpjQu0.png)
 
@@ -361,7 +361,7 @@ That's it! the complete sketch can be found below.
 
 Last step is to create a custom Dashboard.
 
-Just press the **Go to IoT Cloud** button to switch from the Web Editor to the Arduino IoT Cloud.
+Just press the **Go to IoT Cloud** button to switch from the Web Editor to the Arduino Cloud.
 
 Here switch to the Dashboards menu, and then *BUILD DASHBOARD*
 

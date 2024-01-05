@@ -53,7 +53,7 @@ To begin with, we need to create a manual device, and create a new [Thing](/ardu
 
 ### Create Variables
 
-Next step is to create some cloud variables, which we will later interact with via a Python script.
+Next step is to create some Cloud variables, which we will later interact with via a Python script.
 
 1. While in Thing configuration, click on **"Add Variable"** which will open a new window.
 2. Name your variable `test_switch` and select it to be of an `boolean` type.

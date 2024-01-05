@@ -27,7 +27,7 @@ The connection is going to be held through [MQTT](https://en.wikipedia.org/wiki/
 
 In order to do this we need to do some work on the server side. I'm using a Raspberry PI with Node-RED on it, but you can host an instance of Node-RED on Windows/MAC/Linux or on the Cloud (Bluemix, AWS, etc..).
 
-This tutorial heavily relies on [Interfacing Arduino MKR or ESP via MQTT - Node-RED 101 ](https://www.hackster.io/officine/interfacing-arduino-mkr-or-esp-via-mqtt-node-red-101-4833bc)we did back in January. We are touching all the points and adding the data visualisation, but don't hesitate to go through that tutorial in order to see all the steps in the setup of the cloud instance. 
+This tutorial heavily relies on [Interfacing Arduino MKR or ESP via MQTT - Node-RED 101 ](https://www.hackster.io/officine/interfacing-arduino-mkr-or-esp-via-mqtt-node-red-101-4833bc)we did back in January. We are touching all the points and adding the data visualisation, but don't hesitate to go through that tutorial in order to see all the steps in the setup of the Cloud instance. 
 
 ### The Server
 

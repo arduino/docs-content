@@ -5,7 +5,7 @@ description: 'Learn how to import your local sketchbook and custom libraries to 
 
 ## Import Your Sketchbook and Libraries to the Web Editor
 
-Are you sticking to the desktop Arduino IDE because all your work is saved locally? That’s no longer a problem! Our brand new import tool enables you to upload your entire sketchbook with just a few clicks on the [Arduino Web Editor](https://create.arduino.cc/editor). It is particularly handy because it lets you **move all your sketches and libraries to the cloud** in a single flow.
+Are you sticking to the desktop Arduino IDE because all your work is saved locally? That’s no longer a problem! Our brand new import tool enables you to upload your entire sketchbook with just a few clicks on the [Arduino Web Editor](https://create.arduino.cc/editor). It is particularly handy because it lets you **move all your sketches and libraries to the Cloud** in a single flow.
 
 Once your sketchbook is online it will be available on any device and backed up.
 
@@ -34,7 +34,7 @@ Make a `.zip` pack of your sketchbook, you should obtain a file called *Arduino.
 ![import_sketch_and_library_img_1](assets/import_sketch_and_library_img_1.jpg)
 ![import_sketch_and_library_img_2](assets/import_sketch_and_library_img_2.jpg)
 
-### 3. Import your sketchbook to the cloud
+### 3. Import your sketchbook to the Cloud
 
 Go to [create.arduino.cc/editor](https://create.arduino.cc/editor). For some general information on how to get started on the Web Editor see [this tutorial](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a?ref=platform&ref_id=424_trending___&offset=0). When you are logged in and ready, hit the import button on the sketchbook panel. A popup with some instructions on how to import files into the Web Editor will be displayed. Press `“Import”` to continue.
 

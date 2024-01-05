@@ -14,7 +14,7 @@ Dashboards are composed of [widgets](#widgets), which are directly linked to a v
 
 ![Widgets in a dashboard.](assets/dashboard.png)
 
-A dashboard consists of one or several **widgets** that are linked with your cloud variables. You can for example set up a switch to turn on/off a light, a gauge that displays temperature, or a chart that shows data over time. 
+A dashboard consists of one or several **widgets** that are linked with your Cloud variables. You can for example set up a switch to turn on/off a light, a gauge that displays temperature, or a chart that shows data over time. 
 
 Dashboards are not tied to one Thing, or one device, and they can be used to control and monitor several devices simultaneously. For example, you can have 10 devices monitoring temperature in different parts of the world, and the data is displayed in one single dashboard. 
 
@@ -53,7 +53,7 @@ You can share your live dashboards with other people, allowing them to monitor a
 
 ## Widgets
 
-Widgets are the building blocks of your dashboard and can be used to either visualize data or interact with your board. Widgets are linked to a single cloud variable, and as that variable updates, the widget will as well.
+Widgets are the building blocks of your dashboard and can be used to either visualize data or interact with your board. Widgets are linked to a single Cloud variable, and as that variable updates, the widget will as well.
 
 There are many different widgets available that fit different types of uses, such as:
 - **Gauge** - displaying data in a "gauge" style.
@@ -217,7 +217,7 @@ Can be linked with a **Dimmed Light** variable.
 An example of how it is used in a sketch:
 
 ```arduino
-  //retrieve and map brightness value from cloud
+  //retrieve and map brightness value from Cloud
   uint8_t brightness = map(dimmedVariable.getBrightness(), 0, 100, 0, 255);
 
   //then check if switch is on/off 
