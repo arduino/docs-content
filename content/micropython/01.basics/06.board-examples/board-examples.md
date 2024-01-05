@@ -1554,6 +1554,8 @@ audio.stop_streaming()
 
 The Portenta C33 has two ways its pins are physically available: through its MKR-styled connectors and its High-Density connectors. Most pins are referred to via their port name or function. In the image below, the Portenta C33 MKR-styled connectors pinout is shown. 
 
+![Portenta C33 MKR-styled connectors pinout](assets/portenta33_MKR_pinout.png)
+
 The MKR-styled connectors pinout is mapped in MicroPython as follows:
 
 | **Arduino Pin Mapping** | **MicroPython Pin Mapping** |
