@@ -56,7 +56,7 @@ Then, we need to configure a Thing in the [Arduino Cloud](https://app.arduino.cc
 
 ### Create Variables
 
-Next step is to create some cloud variables, which we will later interact with via a MicroPython script.
+Next step is to create some Cloud variables, which we will later interact with via a MicroPython script.
 
 1. While in Thing configuration, click on **"Add Variable"** which will open a new window.
 2. Name your variable `led` and select it to be of an `boolean` type.
@@ -77,7 +77,7 @@ Your Thing should look something like this when you are finished:
 
 ### Create Dashboard
 
-When finished with creating your Thing, we also need to create a dashboard, a tool to monitor & interact with the cloud variables.
+When finished with creating your Thing, we also need to create a dashboard, a tool to monitor & interact with the Cloud variables.
 
 1. Go to the [dashboards](https://app.arduino.cc/dashboards) section, and **create a new dashboard.**
 2. In the dashboard, first create a **LED** widget, and link it to the `led` variable we created earlier.
@@ -154,8 +154,8 @@ def on_switch_changed(client, value):
     # Toggles the hardware LED on or off.
     led.value(not value)
     
-    # Sets the value of the cloud variable "led" to the current state of the LED
-    # and thus mirrors the hardware state in the cloud.
+    # Sets the value of the Cloud variable "led" to the current state of the LED
+    # and thus mirrors the hardware state in the Cloud.
     client["led"] = value
 
 def wifi_connect():
@@ -182,21 +182,21 @@ if __name__ == "__main__":
     # NOTE: Add networking code here or in boot.py
     wifi_connect()
     
-    # Create a client object to connect to the Arduino IoT cloud.
+    # Create a client object to connect to the Arduino Cloud.
     # For MicroPython, the key and cert files must be stored in DER format on the filesystem.
     # Alternatively, a username and password can be used to authenticate:
     client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=CLOUD_PASSWORD)
 
-    # Register cloud objects.
+    # Register Cloud objects.
     # Note: The following objects must be created first in the dashboard and linked to the device.
-    # This cloud object is initialized with its last known value from the cloud. When this object is updated
+    # This Cloud object is initialized with its last known value from the Cloud. When this object is updated
     # from the dashboard, the on_switch_changed function is called with the client object and the new value.
     client.register("ledSwitch", value=None, on_write=on_switch_changed, interval=0.250)
 
-    # This cloud object is updated manually in the switch's on_write_change callback to update the LED state in the cloud.
+    # This Cloud object is updated manually in the switch's on_write_change callback to update the LED state in the Cloud.
     client.register("led", value=None)
 
-    # Start the Arduino IoT cloud client.
+    # Start the Arduino Cloud client.
     client.start()
 
 ```
@@ -204,9 +204,9 @@ if __name__ == "__main__":
 **Explanations:**
 
 - `wifi_connect()` - Connects to your local Wi-Fi® using the credentials specified in secrets.py.
-- `client.register` - Registers a variable that will be synced with the cloud.
-- `on_switch_changed` - Is the callback that gets executed when the `ledSwitch` variable is changed by toggling the switch on the cloud dashboard. This function in turn toggles the on-board LED and updates the cloud variable `led` that reflects the state of the on-board LED to be displayed in the cloud dashboard.
-- `client.start()` - Enters a loop that runs as long as the board is connected to the cloud and synchronises data as it runs.
+- `client.register` - Registers a variable that will be synced with the Cloud.
+- `on_switch_changed` - Is the callback that gets executed when the `ledSwitch` variable is changed by toggling the switch on the Cloud dashboard. This function in turn toggles the on-board LED and updates the Cloud variable `led` that reflects the state of the on-board LED to be displayed in the Cloud dashboard.
+- `client.start()` - Enters a loop that runs as long as the board is connected to the Cloud and synchronises data as it runs.
 
 ## Testing It Out
 

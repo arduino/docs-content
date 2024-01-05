@@ -231,9 +231,9 @@ To create a Thing, click on **Create Thing** next to the device of your interest
 
 It is now time to start uploading sketches on your devices.
 
-The Arduino Cloud has a feature capable of creating some pre-built sections of the sketch related to a Thing, including some libraries necessary to interact with the cloud variables, as well as directly populating and updating the sketch once the new cloud variables are created and defined.
+The Arduino Cloud has a feature capable of creating some pre-built sections of the sketch related to a Thing, including some libraries necessary to interact with the Cloud variables, as well as directly populating and updating the sketch once the new Cloud variables are created and defined.
 
-The sketch related to the thing is visible from the tab "Sketch" next to the "Setup" view, where the Thing's list of cloud variables is shown.
+The sketch related to the thing is visible from the tab "Sketch" next to the "Setup" view, where the Thing's list of Cloud variables is shown.
 
 From this sketch view, by clicking the "Open full editor button", it is fast and smooth to access the Arduino Cloud integrated [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally.
 

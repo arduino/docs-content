@@ -44,7 +44,7 @@ To begin with, we need to create a manual device, and create a new [Thing](/ardu
 
 ### Create Variable
 
-Next step is to create a cloud variable, which we will later interact with in our JavaScript code.
+Next step is to create a Cloud variable, which we will later interact with in our JavaScript code.
 
 1. While in Thing configuration, click on **"Add Variable"** which will open a new window.
 2. Name your variable `test_value` and select it to be of an `int` type.
@@ -80,7 +80,7 @@ This will install the library in your current directory. You can check that the 
 
 Create a file with a `.js` extension, and call it something appropriate such as `cloud_first_test.js`. Note that it needs to be in the same directory as you installed the library.
 
-Below is a script that connects to the cloud using the **device ID** and **secret key** that we obtained in the [cloud setup](#cloud-setup) section. Copy the contents into your `.js` file.
+Below is a script that connects to the Cloud using the **device ID** and **secret key** that we obtained in the [cloud setup](#cloud-setup) section. Copy the contents into your `.js` file.
 
 ```javascript
 const { ArduinoIoTCloud } = require('arduino-iot-js');
@@ -102,10 +102,10 @@ const { ArduinoIoTCloud } = require('arduino-iot-js');
 })();
 ```
 
-- `sendProperty(cloudVar, value)` - update a variable in the cloud, 
+- `sendProperty(cloudVar, value)` - update a variable in the Cloud, 
 - `onPropertyValue(cloudVar, (value))` - when receiving an update from the Arduino Cloud, updates the `value` variable.
 
-This example simply sends an update to the Arduino Cloud (updating the value of `test_value` to `20`), and awaits any changes from the cloud. You can ensure it is working by checking your Thing interface as well:
+This example simply sends an update to the Arduino Cloud (updating the value of `test_value` to `20`), and awaits any changes from the Cloud. You can ensure it is working by checking your Thing interface as well:
 
 ![Value in the Thing interface](assets/test_value.png)
 
