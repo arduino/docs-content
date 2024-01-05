@@ -5,15 +5,15 @@ tags: [Reference, Arduino API]
 author: Karl Söderby
 ---
 
-Compact version of the [Arduino Language Reference](https://www.arduino.cc/reference/en/).
+Compact version of the [Arduino Language Reference](https://www.arduino.cc/reference/en/). This document is a **TLDR;** of the Arduino API.
 
-***Please note that as of 2024/01/05, this article is a work in progress.***
+***Please note that as of 2024/01/05, this article is still a work in progress.***
 
 ## Functions
 
 ### Digital I/O
 
-| Method                                  | Description                       | Returns |
+| Method & Parameters                     | Description                       | Returns |
 | --------------------------------------- | --------------------------------- | ------- |
 | `int digitalRead(int pin)`              | Reads the state of a digital pin. | `int`   |
 | `void digitalWrite(int pin, int state)` | Writes a state to a digital pin.  | Nothing |
@@ -28,16 +28,17 @@ Compact version of the [Arduino Language Reference](https://www.arduino.cc/refer
 
 ### Analog I/O
 
-| Method                                       | Description                                    | Returns                                |
-| -------------------------------------------- | ---------------------------------------------- | -------------------------------------- |
-| `int analogRead(int pin)`                    | Reads the value of an analog pin.              | `int` - value from the ADC (0-1023).\* |
-| `void analogReadResolution(int resolution)`  | Sets ADC read resolution in bits.              | Nothing                                |
-| `void analogReference(int reference)`        | Changes the voltage reference for a board.**   | Nothing                                |
-| `void analogWrite(int pin, int value)`       | Writes a value to a PWM supported pin (0-255). | Nothing                                |
-| `void analogWriteResolution(int resolution)` | Sets write resolution for a board.             | Nothing                                |
+| Method & Parameters                          | Description                                                            | Returns |
+| -------------------------------------------- | ---------------------------------------------------------------------- | ------- |
+| `int analogRead(int pin)`                    | Reads the value of an analog pin in a 10-bit resolution (0-1023).\*    | `int`   |
+| `void analogReadResolution(int resolution)`  | Sets ADC read resolution in bits.                                      | Nothing |
+| `void analogReference(int reference)`        | Changes the voltage reference for a board.**                           | Nothing |
+| `void analogWrite(int pin, int value)`       | Writes a value to a PWM supported pin in a 8-bit resolution (0-255).** | Nothing |
+| `void analogWriteResolution(int resolution)` | Sets write resolution for a board.                                     | Nothing |
 
 - \*The value range changes based on the resolution. 0-1023 is 10-bit resolution, 0-4096 is 12-bit and so on.
-- **Each board/architecture has a set of different reference voltages available. See the [analog reference page]() for more details.
+- **Each board/architecture has a set of different reference voltages available.
+- ***The value range changes based on the resolution. 0-255 is default (8-bit).
 
 ### Advanced I/O
 
@@ -146,7 +147,7 @@ Compact version of the [Arduino Language Reference](https://www.arduino.cc/refer
 | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------- |
 | `int available()`                                               | Returns the number of bytes available in the serial buffer.                                  | `int`    |
 | `int read()`                                                    | Reads the next byte from the serial buffer.                                                  | `int`    |
-| `void flush()`                                                  | Waits for the transmission of outgoing serial data to complete.                              |          |
+| `void flush()`                                                  | Waits for the transmission of outgoing serial data to complete.                              | Nothing  |
 | `int find(char *target)`                                        | Searches for a target string in the serial buffer.                                           | `int`    |
 | `int findUntil(char *target, char *terminate)`                  | Searches for a target string until a specified termination string is found.                  | `int`    |
 | `int peek()`                                                    | Returns the next byte in the serial buffer without removing it.                              | `int`    |
@@ -156,7 +157,7 @@ Compact version of the [Arduino Language Reference](https://www.arduino.cc/refer
 | `String readStringUntil(char terminator)`                       | Reads characters from the serial buffer into a String until a specified terminator is found. | `String` |
 | `int parseInt()`                                                | Reads characters from the serial buffer and converts them to an integer.                     | `int`    |
 | `float parseFloat()`                                            | Reads characters from the serial buffer and converts them to a float.                        | `float`  |
-| `void setTimeout(unsigned long timeout)`                        | Sets the maximum duration for `find()`, `findUntil()`, `parseInt()`, and `parseFloat()`.     |          |
+| `void setTimeout(unsigned long timeout)`                        | Sets the maximum duration for `find()`, `findUntil()`, `parseInt()`, and `parseFloat()`.     | Nothing  |
 
 ### Serial
 
