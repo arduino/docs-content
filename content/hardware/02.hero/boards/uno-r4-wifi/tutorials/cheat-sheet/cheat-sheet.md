@@ -64,11 +64,11 @@ The Web Editor is an online IDE that includes all official boards, no need for i
 
 Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-The Arduino UNO R4 WiFi is compatible with the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows you to create IoT applications in just minutes.
+The Arduino UNO R4 WiFi is compatible with the [Arduino Cloud](https://create.arduino.cc/iot/things), a Cloud service that allows you to create IoT applications in just minutes.
 
-***Visit the [Getting Started with Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
+***Visit the [Getting Started with Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
 
 ## Renesas RA4M1
 

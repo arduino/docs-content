@@ -11,7 +11,7 @@ The [Arduino UNO R4 WiFi](/hardware/uno-r4-wifi) has a built in ESP32-S3 module 
 
 Wi-Fi® support is enabled via the built-in `WiFiS3` library that is shipped with the [Arduino UNO R4 Board Package](/tutorials/uno-r4-wifi/r4-wifi-getting-started). Installing the Board Package automatically installs the `WiFiS3` library.
 
-***The easiest way to connect your board to the Internet is via the [Arduino IoT Cloud](https://create.arduino.cc/iot/) platform. Here you can configure, program, monitor and synchronize your devices without having to write any networking code.*** 
+***The easiest way to connect your board to the Internet is via the [Arduino Cloud](https://create.arduino.cc/iot/) platform. Here you can configure, program, monitor and synchronize your devices without having to write any networking code.*** 
 
 
 ## Hardware & Software Needed
