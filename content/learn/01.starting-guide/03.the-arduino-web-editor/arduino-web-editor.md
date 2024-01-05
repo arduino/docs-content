@@ -9,7 +9,7 @@ The Arduino Web Editor allows you to write code and upload sketches to any offic
 
 This IDE (Integrated Development Environment) is part of [Arduino Create](https://create.arduino.cc/), an online platform that enables developers to write code, access tutorials, configure boards, and share projects. Designed to provide users with a continuous workflow, Arduino Create connects the dots between each part of a developer's journey from inspiration to implementation. Meaning, you now have the ability to manage every aspect of your project right from a single dashboard.
 
-The Arduino Web Editor is hosted online, therefore it is always be up-to-date with the latest features and support for new boards.This IDE lets you write code and save it to the cloud, always backing it up and making it accessible from any device. It automatically recognizes any Arduino and Genuino board connected to your PC, and configures itself accordingly.
+The Arduino Web Editor is hosted online, therefore it is always be up-to-date with the latest features and support for new boards.This IDE lets you write code and save it to the Cloud, always backing it up and making it accessible from any device. It automatically recognizes any Arduino and Genuino board connected to your PC, and configures itself accordingly.
 
 All you need to get started is an Arduino account. The following steps can guide you to start using the Arduino Web Editor:
 
@@ -38,7 +38,7 @@ The Arduino Web Editor’s interface is as follows:
 
 **2.** The **second column** views the content of the chosen option.
    
-**3.** The **third column**, the code area, is the one you will use the most. Here, you can write code, verify it and upload it to your boards, save your sketches on the cloud, and share them with anyone you want.
+**3.** The **third column**, the code area, is the one you will use the most. Here, you can write code, verify it and upload it to your boards, save your sketches on the Cloud, and share them with anyone you want.
 
 Now that you are all set up, **let’s try to make your board blink!**
 

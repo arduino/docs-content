@@ -26,7 +26,7 @@ source: "https://create.arduino.cc/projecthub/318759/cancellinobot-17d223"
 
 In this project we'll see how to do home automation by using a tool that you probably have already installed into your smartphone (and if not, this is the moment to install it!): Telegram.
 
-Telegram is "a cloud-based mobile and desktop messaging app with a focus on security and speed."
+Telegram is "a Cloud-based mobile and desktop messaging app with a focus on security and speed."
 
 It runs on almost all devices like smartphone or pc, and is available for almost all the OS. And it's free.
 
