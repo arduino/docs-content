@@ -13,12 +13,12 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/i-love-you-pillow-
 
 ## Apps and Online Services
 
-- [Arduino IoT Cloud](https://cloud.arduino.cc)
+- [Arduino Cloud](https://cloud.arduino.cc)
 - [Arduino IoT Cloud Remote app](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US)
 
 ## About This Project
 
-**Create a pillow that sends your love with the help of the Arduino IoT Cloud!**
+**Create a pillow that sends your love with the help of the Arduino Cloud!**
 
 We all know that being without that special person in your life can be difficult, but what if you could send love and affection remotely over the Internet by just hugging a pillow?
 
@@ -44,10 +44,10 @@ Show your love with a hug!
 
 ### Learning Goals
 
-* Introducing the Arduino IoT Cloud
+* Introducing the Arduino Cloud
 * Introducing the Arduino IoT Remote app
 * Managing capacitive sensors
-* Creating an Arduino IoT Cloud Dashboard
+* Creating an Arduino Cloud Dashboard
 * Sharing dashboards **#ProTips**
 
 **Pro Tips** are useful but not strictly necessary steps that add a layer of complexity to the project.
@@ -67,19 +67,19 @@ In this project, we will be using the following circuit. In it, we have a piezo 
 
 ![Show your love with a hug!](assets/circuit_tLcnUy2ifl.png)
 
-### Setting up the Arduino IoT Cloud
+### Setting up the Arduino Cloud
 
-If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
+If you are new to the Arduino Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
 ### Template
 
-To connect your board to the Arduino IoT Cloud, we will use the [I Love You Pillow Template](https://create.arduino.cc/iot/templates/i-love-you-pillow). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
+To connect your board to the Arduino Cloud, we will use the [I Love You Pillow Template](https://create.arduino.cc/iot/templates/i-love-you-pillow). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
 
 See the image below to understand how to set it up.
 
 ![Thing overview](assets/template_overview.png)
 
-**We will start by setting up the Arduino IoT Cloud by following the steps below:**
+**We will start by setting up the Arduino Cloud by following the steps below:**
 
 * Login to your **Arduino Create account**
 * Creating a **Thing**
@@ -100,10 +100,10 @@ We will start by adding these variables:
 We will gradually build the code for the project. There are three steps to this:
 
 * Testing the chat function.
-* Sending hugs to the cloud.
+* Sending hugs to the Cloud.
 * The heartbeat (Final Sketch)
 
-In each of the sections, a separate code is provided. If you have created the variables in the Thing interface correctly, the code presented can simply be copy and pasted into the cloud editor, and be uploaded to your board.
+In each of the sections, a separate code is provided. If you have created the variables in the Thing interface correctly, the code presented can simply be copy and pasted into the Cloud editor, and be uploaded to your board.
 
 If you want to skip ahead to the final part, go to the **The Heartbeat** section which has the final sketch.
 
@@ -121,7 +121,7 @@ void setup() {
   delay(1500);
   // Defined in thingProperties.h
   initProperties();
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
@@ -147,7 +147,7 @@ void onPressedChange() {
 }
 ```
 
-After uploading the sketch above to your **Nano RP2040 Connect** board, you need to create a messenger widget where you can send and receive messages. To achieve that, navigate to **Arduino IoT Cloud -> Dashboards -> Build Dashboard -> Add -> Messenger Widget**.
+After uploading the sketch above to your **Nano RP2040 Connect** board, you need to create a messenger widget where you can send and receive messages. To achieve that, navigate to **Arduino Cloud -> Dashboards -> Create Dashboard -> Add -> Messenger Widget**.
 
 Now, you can try it out! Send `<3` via the messenger chat, and you should receive a heart. The "heart response" is sent from the physical Arduino board, and if it works, we know the connection between the Arduino Cloud and your Arduino is working!
 
@@ -169,7 +169,7 @@ void setup() {
   delay(1500);
   // Defined in thingProperties.h
   initProperties();
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
@@ -220,7 +220,7 @@ void setup() {
   delay(1500);
   // Defined in thingProperties.h
   initProperties();
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
@@ -305,7 +305,7 @@ void setup() {
   delay(1500);
   // Defined in thingProperties.h
   initProperties();
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
