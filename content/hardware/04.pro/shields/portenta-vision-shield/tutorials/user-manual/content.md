@@ -748,10 +748,70 @@ Run the script and the current date and time will be printed in the OpenMV IDE S
 
 ### LoRa® (ASX00026)
 
-The **Vision Shield - LoRa®** can extend our project connectivity by leveraging it LoRa® module for long-range communication in remote areas with a lack of internet access.
+The **Vision Shield - LoRa®** can extend our project connectivity by leveraging it LoRa® module for long-range communication in remote areas with a lack of internet access. Powered by the Murata CMWX1ZZABZ module which contains an STM32L0 processor along with a Semtech SX1276 Radio.
 
 ![LoRa® antenna connection](assets/antenna.png)
 
 First, connect the Vision Shield - LoRa® to the Portenta H7. Attach the LoRa® antenna to its respective connector. Now connect the USB-C® cable to the Portenta H7 and your computer. 
 
 Now you are ready to test the connectivity with the following Python script. This example lets you connect to The Things Network using LoRaWAN® and send a `Hello World` message to it.
+
+```python
+from lora import *
+
+lora = Lora(band=BAND_AU915, poll_ms=60000, debug=False)
+
+print("Firmware:", lora.get_fw_version())
+print("Device EUI:", lora.get_device_eui())
+print("Data Rate:", lora.get_datarate())
+print("Join Status:", lora.get_join_status())
+
+# Example keys for connecting to the backend
+appEui = "*****************"  # now called JoinEUI
+appKey = "*****************************"
+
+try:
+    lora.join_OTAA(appEui, appKey)
+    # Or ABP:
+    # lora.join_ABP(devAddr, nwkSKey, appSKey, timeout=5000)
+# You can catch individual errors like timeout, rx etc...
+except LoraErrorTimeout as e:
+    print("Something went wrong; are you indoor? Move near a window and retry")
+    print("ErrorTimeout:", e)
+except LoraErrorParam as e:
+    print("ErrorParam:", e)
+
+print("Connected.")
+lora.set_port(3)
+
+try:
+    if lora.send_data("HeLoRA world!", True):
+        print("Message confirmed.")
+    else:
+        print("Message wasn't confirmed")
+
+except LoraErrorTimeout as e:
+    print("ErrorTimeout:", e)
+
+# Read downlink messages
+while True:
+    if lora.available():
+        data = lora.receive_data()
+        if data:
+            print("Port: " + data["port"])
+            print("Data: " + data["data"])
+    lora.poll()
+    sleep_ms(1000)
+```
+
+Find the frequency used in your country for The Things Network on this [list](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/) and modify the parameter in the script with the following function.
+
+```python
+lora = Lora(band=BAND_AU915, poll_ms=60000, debug=False) # change the band with yours e.g BAND_US915
+```
+Define your application `appEUI` and `appKey`.
+
+```python
+appEui = "*****************"  # now called JoinEUI
+appKey = "*****************************"
+```
