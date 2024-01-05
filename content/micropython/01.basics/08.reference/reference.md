@@ -1,15 +1,11 @@
 ---
 title: MicroPython Reference
-description: A reference of the MicroPython API
+description: A single document reference of the MicroPython API
 authors: Karl Söderby
 micropython_type: basics
 ---
 
-***Note that this article is a work in progress and is subject to major changes.***
-
-This reference acts as a "translation" between what is known as the "Arduino API", which is documented in the [Arduino Language Reference](), and the MicroPython API.
-
-Please note that implementations may vary from board to board, such as how you configure pins, and how to use PWM.
+This reference serves as a "translation" between what is known as the **Arduino API**, which is documented in the [Arduino Language Reference](https://www.arduino.cc/reference/en/), and the **MicroPython API**.
 
 The main goal with this reference is to provide an understanding of how to e.g. use common Arduino concepts such as `digitalWrite()` in a MicroPython script.
 
@@ -17,7 +13,13 @@ For example:
 - `digitalWrite(pin, HIGH)` (Arduino/C++)
 - `pin.value(1)` (MicroPython)
 
+The entries are named exactly the same as in the language reference, with the MicroPython syntax, description and code example provided for each entry. 
+
+***Note that several entries in the original [Language Reference](https://www.arduino.cc/reference/en/) are directly taken from the C++ reference. In the same fashion, many functions located in this reference are taken from the Python reference, and are not MicroPython specific.***
+
 ## Index
+
+The entire reference is located inside this document, and the index below helps navigate to the right section.
 
 - [Index](#index)
 - [Digital I/O](#digital-io)
