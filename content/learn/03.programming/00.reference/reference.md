@@ -7,7 +7,7 @@ author: Karl Söderby
 
 Compact version of the [Arduino Language Reference](https://www.arduino.cc/reference/en/).
 
-***Note: this is a work in progress.***
+***Please note that as of 2024/01/05, this article is a work in progress.***
 
 ## Functions
 
