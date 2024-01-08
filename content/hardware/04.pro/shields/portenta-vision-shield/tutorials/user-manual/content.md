@@ -683,7 +683,73 @@ Now, just say `yes` or `no` and you will see the inference result in the OpenMV 
 
 ![Speech recognition example](assets/ml-inference.png)
 
-## Machine Learning Tools
+## Machine Learning Tool
+
+The main features of the Portenta Vision Shield are the audio and video capabilities. This makes it a perfect option for almost infinite machine-learning applications.
+
+Creating this type of application has never been easier thanks to our Machine Learning Tool powered by Edge Impulse®, where we can easily create in a __No-Code__ environment, __Audio__, __Motion__, __Proximity__ and __Image__ processing models.
+
+The first step to start creating awesome artificial intelligence and machine learning projects is to create an [Arduino Cloud](https://cloud.arduino.cc/home/) account.
+
+There you will find a dedicated integration called __Machine Learning Tools__.
+
+![Machine Learning Tools on Arduino Cloud](assets/ml-tools.png)
+
+Once in, create a new project and give it a name.
+
+![Creating a new project](assets/create-pro.png)
+
+Enter your newly created project and the landing page will look like the following:
+
+![Nicla Vision project page](assets/ei-landing.png)
+
+### Edge Impulse® Environment Setup
+
+Now, it is time to set up the __Edge Impulse®__ environment on your PC. For this, follow [these](https://docs.edgeimpulse.com/docs/tools/edge-impulse-cli/cli-installation) instructions to install the __Edge Impulse CLI__.
+
+***For Windows users: make sure to install [Visual Studio Community](https://visualstudio.microsoft.com/downloads/) and [Visual Studio Build Tools](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022).***
+
+- Download and install the latest __Arduino CLI__ from [here](https://arduino.github.io/arduino-cli/0.35/installation/). ([Video Guide for Windows](https://www.youtube.com/watch?v=1jMWsFER-Bc))  
+
+- Download the [latest Edge Impulse® firmware](https://cdn.edgeimpulse.com/firmware/arduino-portenta-h7.zip) for the Portenta H7, and unzip the file.
+
+- Open the flash script for your operating system (`flash_windows.bat`, `flash_mac.command` or `flash_linux.sh`) to flash the firmware.
+
+- To test if the __Edge Impulse CLI__ was installed correctly, open the __Command Prompt__ or your favorite terminal and run:
+
+  `edge-impulse-daemon`
+
+  If everything goes okay, you should be asked for your Edge Impulse account credentials.
+
+  ![Edge Impulse Daemon](assets/cmd.png)
+
+- Enter your account username or e-mail address and your password. 
+- Select the project you have created on the Arduino ML Tools, it will be listed.
+- Give your device a name and wait for it to connect to the platform.
+
+    ![H7 + Vision Shield correctly connected to ML Tools](assets/cmd-connected.png)
+
+### Uploading Sensor Data 
+
+The first thing to start developing a machine learning project is to create a _dataset_ for your model. This means, uploading _data_ to your model from the Vision Shield sensors.
+
+To upload data from your Vision Shield on the Machine Learning Tools platform, navigate to __Data Acquisition__.
+
+![Data Acquisition section](assets/ml-tools-upload.png)
+
+In this section, you will be able to select the Vision Shield onboard sensors individually. 
+
+This is the supported sensors list:
+- Built-in microphone
+- Camera (320x240)
+- Camera (160x160)
+- Camera (128x96)
+
+![Samples uploaded using the Vision Shield](assets/ml-tools-data.png)
+
+Now you know how to start with our __Machine Learning Tools__ creating your dataset from scratch, you can get inspired by some of our ML projects listed below: 
+
+- [Image Classification with Edge Impulse®](https://docs.arduino.cc/tutorials/portenta-vision-shield/custom-machine-learning-model) (Article).
 
 ## Ethernet (ASX00021)
 
