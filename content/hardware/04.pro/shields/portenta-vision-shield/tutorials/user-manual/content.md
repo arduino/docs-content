@@ -541,7 +541,7 @@ When a person is in the field of view of the camera, you should see the inferenc
 
 ![Person detection example running](assets/person-detect.gif)
 
-### Microphone
+## Microphone
 
 The Portenta Vision Shield features two omnidirectional microphones, based on the MP34DT05 ultra-compact, low-power, and digital MEMS microphone. 
 
@@ -553,7 +553,7 @@ The Portenta Vision Shield features two omnidirectional microphones, based on th
 - Omnidirectional sensitivity
 - –26 dBFS ± 1 dB sensitivity
 
-#### FFT Example
+### FFT Example
 
 You can analyze frequencies present in sounds alongside their harmonic features using this example.
 
@@ -636,7 +636,7 @@ With this script running you will be able to see the Fast Fourier Transform resu
 
 ![FFT example running](assets/fft.gif)
 
-#### Speech Recognition Example
+### Speech Recognition Example
 
 You can easily implement sound/voice recognition applications using Machine Learning on the edge, this means that the Portenta H7 plus the Vision Shield can run these algorithms locally. 
 
@@ -683,7 +683,9 @@ Now, just say `yes` or `no` and you will see the inference result in the OpenMV 
 
 ![Speech recognition example](assets/ml-inference.png)
 
-### Ethernet (ASX00021)
+## Machine Learning Tools
+
+## Ethernet (ASX00021)
 
 The **Portenta Vision Shield - Ethernet** gives you the possibility of connecting your Portenta H7 board to the internet using a wired connection.
 
@@ -746,15 +748,17 @@ Run the script and the current date and time will be printed in the OpenMV IDE S
 
 ![Ethernet connection example script](assets/ntp.png)
 
-### LoRa® (ASX00026)
+## LoRa® (ASX00026)
 
 The **Vision Shield - LoRa®** can extend our project connectivity by leveraging it LoRa® module for long-range communication in remote areas with a lack of internet access. Powered by the Murata CMWX1ZZABZ module which contains an STM32L0 processor along with a Semtech SX1276 Radio.
 
 ![LoRa® antenna connection](assets/antenna.png)
 
-First, connect the Vision Shield - LoRa® to the Portenta H7. Attach the LoRa® antenna to its respective connector. Now connect the USB-C® cable to the Portenta H7 and your computer. 
+To test the LoRa® connectivity, first, connect the Vision Shield - LoRa® to the Portenta H7. Attach the LoRa® antenna to its respective connector. Now connect the USB-C® cable to the Portenta H7 and your computer. 
 
-Now you are ready to test the connectivity with the following Python script. This example lets you connect to The Things Network using LoRaWAN® and send a `Hello World` message to it.
+***Follow this [guide](https://docs.arduino.cc/tutorials/portenta-vision-shield/things-network-openmv) to learn how to set up and create your __end device__ on The Things Network.***
+
+The following Python script lets you connect to The Things Network using LoRaWAN® and send a `Hello World` message to it.
 
 ```python
 from lora import *
@@ -804,14 +808,44 @@ while True:
     sleep_ms(1000)
 ```
 
-Find the frequency used in your country for The Things Network on this [list](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/) and modify the parameter in the script with the following function.
+Find the frequency used in your country for **The Things Network** on this [list](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country/) and modify the parameter in the script within the following function.
 
 ```python
 lora = Lora(band=BAND_AU915, poll_ms=60000, debug=False) # change the band with yours e.g BAND_US915
 ```
-Define your application `appEUI` and `appKey`.
+Define your application `appEUI` and `appKey` in the Python script so the messages are correctly authenticated by the network server.
 
 ```python
 appEui = "*****************"  # now called JoinEUI
 appKey = "*****************************"
 ```
+
+After configuring your credentials and frequency band, you can run the script. You must be in an area with LoRaWAN® coverage, if not, you should receive an alert from the code advising you to move near a window.
+
+![LoRaWAN® uplink received on TTN](assets/lora.png)
+
+***You can set up your own LoRaWAN® network using our [LoRa® gateways](https://www.arduino.cc/pro/lora-gateways/)***
+
+
+## Support
+
+If you encounter any issues or have questions while working with the Vision Shield, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Vision Shield. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Vision Shield Help Center page](https://support.arduino.cc/hc/en-us/sections/360004767859-Portenta-Family)
+
+### Forum
+
+Join our community forum to connect with other Portenta Vision Shield users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Vision Shield.
+
+- [Vision Shield category in the Arduino Forum](https://forum.arduino.cc/c/hardware/portenta/portenta-vision-shield/177)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Vision Shield.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/) 
+
