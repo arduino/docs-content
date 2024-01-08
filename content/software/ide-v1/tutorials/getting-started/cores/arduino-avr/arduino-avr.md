@@ -1,5 +1,5 @@
 ---
-title: 'Installing classic AVR boards.'
+title: 'Installing classic AVR boards'
 compatible-products: [uno-rev3, uno, micro, mega, leonardo, nano]
 difficulty: beginner
 description: 'A quick guide to installing classic Arduino boards, including the UNO, Mega, Leonardo and Micro.'
@@ -19,11 +19,11 @@ You can download the editor from [our software page](https://www.arduino.cc/en/s
 ### Boards using the AVR core
 
 - Arduino UNO R3
-- Arduino Mega2560
+- Arduino Mega 2560 Rev3
 - Arduino Nano (classic)
 - Arduino Micro
 - Arduino Leonardo
-- UNO Mini LE
+- Arduino UNO Mini Limited Edition
 
 ### Retired boards using the AVR core
 
