@@ -55,7 +55,7 @@ Here is an overview of the board's main components, as shown in the images above
 
     HM-01B0 offers very low-power image acquisition and provides the possibility to perform motion detection without main processor interaction. The“Always-on” operation provides the ability to turn on the main processor when movement is detected with minimal power consumption.
 
-    ***The Portenta C33 is not compatible with the camera of the Portenta Vision Shield***.
+    ***The Portenta C33 is not compatible with the camera of the Portenta Vision Shield***
 
 - **Digital Microphones**: the dual MP34DT05 digital MEMS microphones are omnidirectional and operate via a capacitive sensing element
 with a high (64 dB) signal-to-noise ratio. The microphones have been configured to provide separate left and right audio over a single PDM stream.
@@ -81,7 +81,7 @@ Connect the Vision Shield with a Portenta H7 through their High-Density connecto
   </video>
 </div>
 
-#### With OpenMV IDE
+#### OpenMV IDE Setup
 
 Before you can start programming MicroPython scripts for the Vision Shield, you need to download and install the OpenMV IDE.
 
@@ -99,7 +99,7 @@ Click on the "connect" symbol at the bottom of the left toolbar.
 
 If your Portenta H7 does not have the latest firmware, a pop-up will ask you to install it. Your board will enter in DFU mode and its green LED will start fading. 
 
-Select `Install the latest release firmware`. This will install the latest OpenMV firmware on the H7. You can leave the option of erasing the internal file system unselected and click `OK`.
+Select `Install the latest release firmware`. This will install the latest OpenMV firmware on the H7. You can leave the option of erasing the internal file system unselected and click `OK`
 
 ![Install the latest version of the OpenMV firmware](assets/first-connect.png)
 
@@ -497,7 +497,7 @@ while True:
 ```
 ![Face tracking example running](assets/face.gif)
 
-You can load different Machine Learning models for detecting other objects, for example, persons. 
+You can load different **Machine Learning** models for detecting other objects, for example, persons. 
 
 Download the `.tflite` and `.txt` files from this [repository](https://github.com/openmv/tensorflow-lib/tree/master/libtf/models) and copy them to the Portenta H7 local storage.
 
