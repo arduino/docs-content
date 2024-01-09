@@ -19,6 +19,7 @@ You can download the editor from [our software page](https://www.arduino.cc/en/s
 ### Boards using the AVR core
 
 - Arduino UNO R3
+- Arduino UNO R3 SMD
 - Arduino Mega 2560 Rev3
 - Arduino Nano (classic)
 - Arduino Micro
