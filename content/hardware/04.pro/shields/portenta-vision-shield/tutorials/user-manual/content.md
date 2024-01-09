@@ -701,7 +701,7 @@ Once in, create a new project and give it a name.
 
 Enter your newly created project and the landing page will look like the following:
 
-![Nicla Vision project page](assets/ei-landing.png)
+![Vision Shield project page](assets/ei-landing.png)
 
 ### Edge Impulse® Environment Setup
 
