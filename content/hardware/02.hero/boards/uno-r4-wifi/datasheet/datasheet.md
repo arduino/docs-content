@@ -465,6 +465,10 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
+## SRRC
+
+The Arduino® UNO R4 WiFi has a ESP32-S3 MCU embedded in the NORA-W106 radio module , which has been certified by the State Radio Regulatory Commission (SRRC).
+
 ## Company Information
 
 | Company name    | Arduino SRL                                  |
