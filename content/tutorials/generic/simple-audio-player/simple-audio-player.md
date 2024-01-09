@@ -83,7 +83,7 @@ For MKRZero, the microSD Slot is built in. A .wav file named "test.wav" is in th
 
 We will now get to the programming part of this tutorial.
 
-**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager....** Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it.
+**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager....** Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it.
 
 **2.**  Now, we need to install the libraries needed. If we are using the Web Editor, there is no need to install anything. The AudioZero library can installed from Arduino IDE's library manager. To do this, open the Arduino IDE, go to **Tools-> Manage Libraries**. There you can search **AudioZero** and install the library shown. The 'more info' link will take you to the GitHub page which includes all the documentation for the library. For a more detailed explanation on installing and importing libraries see [this tutorial](https://www.arduino.cc/en/Guide/Libraries#toc3).
 

@@ -129,9 +129,9 @@ Note that you always need to select your board for autocompletion to work.
 
 The Remote Sketchbook feature lets you sync sketches from your [Arduino Cloud](https://cloud.arduino.cc/) sketchbook with your local computer. To enable this feature, you will need to login to your Arduino Cloud account.
 
-You can also create a new cloud sketch directly in the IDE.
+You can also create a new Cloud sketch directly in the IDE.
 
-![New cloud sketch](./assets/new-cloud.png)
+![New Cloud sketch](./assets/new-cloud.png)
 
 ***To learn more about the Remote Sketchbook feature, visit the [Synchronizing Sketches tutorial](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync).***
 

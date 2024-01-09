@@ -9,7 +9,7 @@ author: Ali Jahangiri
 
 # Description
 
-The **Arduino® Nicla Vision** packs machine vision capabilities on the edge into a tiny fingerprint. Record, analyse and upload to the cloud all with the help of one **Arduino® Nicla Vision**. Leverage the onboard camera, STM32 microcontroller, Wi-Fi®/Bluetooth® module and 6-axis IMU to create your own wireless sensor network for machine vision applications.
+The **Arduino® Nicla Vision** packs machine vision capabilities on the edge into a tiny fingerprint. Record, analyse and upload to the Cloud all with the help of one **Arduino® Nicla Vision**. Leverage the onboard camera, STM32 microcontroller, Wi-Fi®/Bluetooth® module and 6-axis IMU to create your own wireless sensor network for machine vision applications.
 
 # Target Areas
 
@@ -76,7 +76,7 @@ Dual-core
 The **Arduino® Nicla Vision** houses the computational power, camera and IMU you need to quickly develop machine vision solutions at the edge together with two wireless technologies. The board can act as a field-ready standalone board or can be augmented with external peripherals through the I/O available on the chip. Ultra-low power consumption and integrated battery management allow for deployment in various capabilities. WebBLE allows for easy OTA updates to the firmware as well as remote monitoring.
 
 - **Warehouse & Automated Inventory Management**:
-The **Arduino Nicla Vision** is capable of detecting packages as they come near its vicinity and wake up. These provide the benefits of an always-on camera, but with less power consumption. It can take pictures, predict volume/weight and also analyse for possible defects. Additionally, QR codes on the package can be tracked for automated pursuit of the package and relay of information to the cloud.
+The **Arduino Nicla Vision** is capable of detecting packages as they come near its vicinity and wake up. These provide the benefits of an always-on camera, but with less power consumption. It can take pictures, predict volume/weight and also analyse for possible defects. Additionally, QR codes on the package can be tracked for automated pursuit of the package and relay of information to the Cloud.
 
 - **Real-time process management**:
 The **Arduino Nicla Vision** is equipped for Automated Optical Inspection (AOI) even in hard-to-reach and hazardous areas thanks to the small footprint and wireless connectivity options. The fast Time-of-Flight sensor ensures that the image acquisition is performed in a repeatable manner, with minimal modifications to the process. Additionally, the IMU can provide vibration analysis for predictive maintenance.

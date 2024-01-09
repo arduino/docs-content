@@ -23,7 +23,7 @@ Webhooks allow you to send and receive automated messages to and from other serv
 - The [Arduino Create Agent](https://github.com/arduino/arduino-create-agent)
 - An [Arduino account](http://create.arduino.cc/iot).
 
-You will also need a cloud compatible board:
+You will also need a Cloud compatible board:
 
 ***Read more about compatible board [here](/arduino-cloud/guides/overview#compatible-boards)***
 

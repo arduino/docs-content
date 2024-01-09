@@ -36,7 +36,7 @@ The **Device API** allows sending and receiving any kind of data (sensors' value
 - manage compression, data format, and transport protocols
 
 With this API, you can:
-- Send sensors' values to the cloud
+- Send sensors' values to the Cloud
 - Send and receive input and commands from and to dashboards
 - Listen for variables' values changes and act upon them
 
@@ -81,7 +81,7 @@ Full examples and documentation can be found at:
 
 ### MicroPython
 
-The [Arduino Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) can be installed on a board running MicroPython, and is designed to be easy to use. With just a few lines of code you can connect to the cloud, using credentials obtained during the manual device configuration.
+The [Arduino Cloud Python Client](https://github.com/arduino/arduino-iot-cloud-py) can be installed on a board running MicroPython, and is designed to be easy to use. With just a few lines of code you can connect to the Cloud, using credentials obtained during the manual device configuration.
 
 Below is a minimal example:
 

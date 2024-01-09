@@ -49,7 +49,7 @@ Additionally you may need the following accessories:
 
 ## Getting Started with Your Kit
 
-1. Get to [https://cloud.arduino.cc/](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino IoT Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started with Arduino Cloud For Business](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business)!
+1. Get to [https://cloud.arduino.cc/](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started with Arduino Cloud For Business](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business)!
 
 2. Download the [Arduino IDE](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide), follow the [Installation Procedure](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) and [Get Started with it](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2).
 

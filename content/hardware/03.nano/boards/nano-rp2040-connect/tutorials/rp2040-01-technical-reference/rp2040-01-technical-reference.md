@@ -71,11 +71,11 @@ The Nano RP2040 Connect can be programmed through the **Web Editor**. To get sta
 
 - [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-The Nano RP2040 Connect is compatible with the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows you to create IoT applications in just minutes.
+The Nano RP2040 Connect is compatible with the [Arduino Cloud](https://create.arduino.cc/iot/things), a Cloud service that allows you to create IoT applications in just minutes.
 
-If you need help to get started, you can go through the [Nano RP2040 Connect with Arduino IoT Cloud tutorial](/tutorials/nano-rp2040-connect/rp2040-iot-cloud).
+If you need help to get started, you can go through the [Nano RP2040 Connect with Arduino Cloud tutorial](/tutorials/nano-rp2040-connect/rp2040-iot-cloud).
 
 ## Upgrading the Firmware
 

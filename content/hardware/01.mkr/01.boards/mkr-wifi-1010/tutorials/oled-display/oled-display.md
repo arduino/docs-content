@@ -59,7 +59,7 @@ The SSD1306 display is of the PMOLED type, and its behavior can be controlled by
 
 ## Step by Step
 
-**1.** First, we need to make sure the drivers for the MKR WiFi 1010 board is installed properly. The Web Editor already comes equipped with these, but if we are using an offline editor, we will need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and click on the install button.
+**1.** First, we need to make sure the drivers for the MKR WiFi 1010 board is installed properly. The Web Editor already comes equipped with these, but if we are using an offline editor, we will need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and click on the install button.
 
 ![Installing the correct drivers.](assets/mkr_tutorial_08_img_03.png)
 

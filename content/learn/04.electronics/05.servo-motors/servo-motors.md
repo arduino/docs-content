@@ -1,13 +1,13 @@
 ---
-title: 'Servo Motor Basics with Arduino'
-description: 'Learn how to connect and control servo motors with your Arduino board.'
+title: "Servo Motor Basics with Arduino"
+description: "Learn how to connect and control servo motors with your Arduino board."
 tags: [Servo]
 author: Arduino
 ---
 
 The [Servo Library](https://www.arduino.cc/reference/en/libraries/servo/) is a great library for controlling servo motors. In this article, you will find two easy examples that can be used by any Arduino board.
 
-The first example controls the position of a RC (hobby) [servo motor](https://en.wikipedia.org/wiki/Servo_(radio_control)) with your Arduino and a potentiometer. The second example sweeps the shaft of a RC [servo motor](https://en.wikipedia.org/wiki/Servo_(radio_control)) back and forth across 180 degrees.
+The first example controls the position of an RC (hobby) [servo motor](<https://en.wikipedia.org/wiki/Servo_(radio_control)>) with your Arduino and a potentiometer. The second example sweeps the shaft of an RC servo motor back and forth across 180 degrees.
 
 You can also visit the [Servo GitHub repository](https://github.com/arduino-libraries/Servo) to learn more about this library.
 
@@ -17,26 +17,61 @@ You can also visit the [Servo GitHub repository](https://github.com/arduino-libr
 - Servo Motor
 - 10k ohm potentiometer
 - hook-up wires
+- capacitors
+- power supply
+
+## Powering Servo Motors
+
+Servo motors have different power requirements depending on their size and the workload they are experiencing. A common servo motor such as the [Feetech Mini Servo Motor](https://store.arduino.cc/products/feetech-mini-servo-motor-120-degrees-9g) requires between 4.8 - 6 V at 5 – 6 mA when idle. It doesn't take very much energy to stand still.
+
+But as soon as the motor starts moving, it starts using more energy, and it gets that energy by pulling more current from the power source. 
+
+If it experiences heavier loads such as added weight or an object blocking its movement , it naturally needs to use even more energy to move the obstacle, and as a result the current consumption increases. The current consumption of the motor linked above can reach up to 800 mA.
+
+This high current-draw is generally not safe to draw from an Arduino board. To avoid damaging our board we need to power the servo motor through an external power supply. Choosing the correct power supply depends on the servo motor you are using, so always check the specifications. Pay especially close attention to the:
+
+- **operating voltage range**
+- **idle current** - consumption when **not** moving
+- **running current** - consumption when moving freely
+- **stall current** - consumption under max load or when blocked
+
+To power a 4.8 - 6 V servo you could use a **5 V 1 A** AC Adapter, cut the cable, and connect the wires to the servo using e.g. a breadboard.
+
+**_Note that USB wall chargers are limited to 500 mA (USB 2.0) or 900 mA (USB 3.0)._**
+
+If your project needs to move around freely without being attached to a power outlet you can also choose batteries to power the servo. If you need 5 V exactly you can use two 18650 Li-Ion batteries together with a step-down converter.
+
+A step-down converter is needed because 18650 Li-Ion batteries will give you around 7.4 V. The max current depends on the specific battery but most of them are designed to output above 1A which is enough to power our small servo.
+
+**_If you are using bigger or more servos make sure to check your power requirements accordingly._**
+
+**Capacitors** are recommended for powering servo motors. They help stabilize the power supply, minimize voltage drops, and reduce electrical noise. The specific capacitor values may vary based on the servo motor's requirements, but including them is good practice for better performance and reliability.
+
+When using a [Feetech Mini Servo Motor](https://store.arduino.cc/products/feetech-mini-servo-motor-120-degrees-9g) we recommend using a **100 µF** capacitor.
+
+![Capacitor](./assets/capacitor.png)
+
+**_Because some capacitors are polarised (meaning that they have a direction), you may need to be careful with how you connect them to your circuit. Make sure to connect them correctly by checking for markings such as a white stripe, a '+' symbol, or a longer lead. If your capacitor has these, match the indicators of the capacitor with your circuit (pay attention to the + and - signs), and be careful not to exceed the voltage limits. This precaution helps prevent issues like leaks or damage that could harm your circuit._**
+
+You can read more about capacitors [here](https://learn.sparkfun.com/tutorials/capacitors/all).
 
 ## Circuit
 
-Servo motors have three wires: power, ground, and signal. The power wire is typically red, and should be connected to positive pole (+) of your power source. The ground wire is typically black or brown and should be connected to the negative pole (-) of your power source. 
+Servo motors have three wires: power, ground, and signal. The power wire is typically red, and should be connected to positive pole (+) of your power source. The ground wire is typically black or brown and should be connected to the negative pole (-) of your power source.
 
 The signal pin is typically yellow or orange and should be connected to PWM pin on the board. In these examples, it is pin number 9.
-
-***Always make sure to power your servo motor with a external power source. Connecting a servo directly to your board will cause your board to behave erratically and can damage your board***
 
 ### Knob Circuit
 
 For the **Knob** example, wire the potentiometer so that its two outer pins are connected to power (+5V) and ground, and its middle pin is connected to `A0` on the board. Then, connect the servo motor as shown in the circuit below.
 
-![The Knob Circuit.](assets/servo_circuit_knob.png)
+![The Knob Circuit.](./assets/servo_circuit_knob.png)
 
 ### Sweep Circuit
 
 For the **Sweep** example, connect the servo motor as shown in the circuit below.
 
-![The Sweep Circuit.](./assets/servo_circuit_sweep.png)
+![The Sweep Circuit.](./assets/servo_circuit_knob-pot.png)
 
 ## Examples
 
