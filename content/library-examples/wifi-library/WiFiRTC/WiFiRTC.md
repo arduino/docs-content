@@ -155,7 +155,7 @@ void setup() {
 
     Serial.println(epoch);
 
-    rtc.setEpoch(epoch);
+    rtc.setEpoch(epoch+ GMT*3600); //Add the time zone to the epoch
 
     Serial.println();
 
@@ -176,7 +176,7 @@ void loop() {
 void printTime()
 {
 
-  print2digits(rtc.getHours() + GMT);
+  print2digits(rtc.getHours());
 
   Serial.print(":");
 
