@@ -44,13 +44,15 @@ Industry 4.0, prototyping, robotics, data logging
 ### Application Examples
 The Portenta Max Carrier provides the user with almost limitless possibilities to create edge computing applications. Together with the Portenta X8, there is a wide range of application options.
 
-**Industrial IoT:** The Portenta Max Carrier enables connectivity between the Portenta boards and Fieldbus (MODBUS/CAN bus). Join the Industry 4.0 bandwagon with edge computing and a range of connectivity options to increase the revenue on your specific application. Remotely control machinery through the Arduino IoT Cloud or your own choice of third-party services without concern for vendor lock-in and identify process bottlenecks with continuous flow monitoring. The low power consumption and integrated Li-ion battery power management ensure reliable operation even in the face of external power failures.
+**Industrial IoT:** The Portenta Max Carrier enables connectivity between the Portenta boards and Fieldbus (MODBUS/CAN bus). Join the Industry 4.0 bandwagon with edge computing and a range of connectivity options to increase the revenue on your specific application. Remotely control machinery through the Arduino Cloud or your own choice of third-party services without concern for vendor lock-in and identify process bottlenecks with continuous flow monitoring. The low power consumption and integrated Li-ion battery power management ensure reliable operation even in the face of external power failures.
 
 **Digital Smart Kiosk:** Develop fully-fledged Information Kiosks, Point of Sales devices or other HMI solutions with the Portenta Max Carrier. Increase the productivity and satisfaction of your personnel and customers with real time information. The Portenta Max Carrier can be part of your solution for real time assessment of production environments, just-in-time management of warehouses, patient centric healthcare experiences and mobility management with a streamlined development process
 
 **Reference Design:** The Portenta Max Carrier is a great reference design for developing your own custom products around the Portenta ecosystem that conforms to the industry standard specifications. Arduino Pro also provides full development, production and operation support to develop solutions tailored to your business needs.
 
 ### Accessories (Not Included)
+*   LoRa® antenna (e.g. ANT-8/9-IPW1-SMA)
+*   Cellular LTE / CAT.M1 / NB-IoT antenna (e.g. ANT-5GW-SPS1-2)
 *   Mini PCIe expansion boards
 *   SIM card
 *   3.7V 18650 Li-ion battery
@@ -498,4 +500,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
+| 11/20/2023 | 2            | Recommended antennas added |
 | 10/05/2022 | 1            | First Release |

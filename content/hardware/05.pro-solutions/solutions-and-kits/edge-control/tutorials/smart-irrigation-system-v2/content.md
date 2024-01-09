@@ -7,7 +7,7 @@ tags:
   - Arduino Edge Control
   - Arduino MKR WAN 1310
   - Solenoid Valve
-  - Arduino IoT Cloud
+  - Arduino Cloud
   - Agriculture
   - WisGate Lite
   - LoRaWAN®
@@ -47,14 +47,14 @@ Arduino has you covered in these scenarios with its Pro solutions, including pro
 
 ## Goals
 
-The goal of this application note is to showcase a LoRaWAN® farming irrigation system that can be implemented on real agriculture fields using a combination of an Edge Control, an MKR WAN 1310, and the Arduino IoT Cloud. The project's objectives are the following:
+The goal of this application note is to showcase a LoRaWAN® farming irrigation system that can be implemented on real agriculture fields using a combination of an Edge Control, an MKR WAN 1310, and the Arduino Cloud. The project's objectives are the following:
 
 - Independently control four irrigation zones using latching valves.
-- Leverage MKR WAN 1310 with LoRa® and a Wisgate (Lite or PRO) to communicate with Arduino IoT Cloud.
+- Leverage MKR WAN 1310 with LoRa® and a Wisgate (Lite or PRO) to communicate with Arduino Cloud.
 - Monitor soil moisture and decide whether to irrigate based on it. 
 - Display the soil humidity level on the Edge Control Enclosure kit LCD.
 - Manually activate irrigation through Enclosure Kit built-in push button.
-- Monitor average humidity level, irrigation time and water consumption on dedicated charts on Arduino IoT Cloud.
+- Monitor average humidity level, irrigation time and water consumption on dedicated charts on Arduino Cloud.
 - Get water from a garden hose with a flow sensor able to evaluate the amount of consumed water.
 
 ## Hardware and Software Requirements
@@ -89,7 +89,7 @@ The goal of this application note is to showcase a LoRaWAN® farming irrigation 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor).
 - If you are going to use an offline Arduino IDE, you must install the following libraries: `Arduino_EdgeControl`, `RunningMedian`, `ArduinoIoTCloud`, `ArduinoJson` and `Arduino_ConnectionsHandler`. You can install them through the Arduino IDE Library Manager.
 - The [Irrigation System Arduino Sketches](assets/Edge-Control_MKR_Codes.zip).
-- [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to provision the MKR WAN 1310 on the Arduino IoT Cloud.
+- [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to provision the MKR WAN 1310 on the Arduino Cloud.
 
 ## Irrigation System Setup
 
@@ -135,7 +135,7 @@ The Edge Control is responsible for:
 The MKR WAN 1310 is responsible for:
 
 - Providing Cloud connectivity using LoRaWAN®.
-- Reporting the values of the Edge Control sensors on the cloud. 
+- Reporting the values of the Edge Control sensors on the Cloud. 
 
 The communication between both devices is done leveraging the I2C communication protocol.
 
@@ -143,7 +143,7 @@ The communication between both devices is done leveraging the I2C communication 
 
 ### Valves Control
 
-The valves can be controlled manually by using the onboard button, one tap opens the first valve, two taps the second valve, and so on. In addition, the valves can be controlled automatically by the system when the soil moisture is poor. To do so, a "Smart mode" has to be enabled by tapping the button five times. The working time of the valves is monitored and reported on the cloud to enable an efficient visualization of the average daily use.
+The valves can be controlled manually by using the onboard button, one tap opens the first valve, two taps the second valve, and so on. In addition, the valves can be controlled automatically by the system when the soil moisture is poor. To do so, a "Smart mode" has to be enabled by tapping the button five times. The working time of the valves is monitored and reported on the Cloud to enable an efficient visualization of the average daily use.
 
 ![Latching valves activation pulse](assets/VALVES_ACTIVATION.png)
 
@@ -151,13 +151,13 @@ The valves can be controlled manually by using the onboard button, one tap opens
 
 ### Water Usage
 
-The water flow sensor will measure the consumed water and will calculate its volume in liters. This information will be monitored through the cloud and the integrated LCD.
+The water flow sensor will measure the consumed water and will calculate its volume in liters. This information will be monitored through the Cloud and the integrated LCD.
 
 ![Water flow sensor output signal](assets/FLOW_SENSOR.png)
 
 The water flow is measured by a Hall effect sensor that generates a pulsed output by the rotation steps of a propeller inside the metal body.
 
-The data is shown on dedicated widgets in the Arduino IoT Cloud.
+The data is shown on dedicated widgets in the Arduino Cloud.
 
 ![Water usage widgets in the Arduino Cloud](assets/WATER_FLOW.png)
 
@@ -383,7 +383,7 @@ void loop() {
 
     previousMillis = currentMillis;
 
-    // send local sensors values and retrieve cloud variables status back and forth
+    // send local sensors values and retrieve Cloud variables status back and forth
     Serial.println("Sending variables to MKR");
     updateSensors();
   }
@@ -396,7 +396,7 @@ void loop() {
 The Edge Control will check the number of button taps for the valve's manual control and handle the right action to do through the use of a switch case statement.
 Then, it will read the watermark sensors and periodically measure the battery voltage.
 
-Every 3 minutes, the Edge Control will request the MKR WAN to send a LoRaWAN® message updating the sensors values in the cloud. 
+Every 3 minutes, the Edge Control will request the MKR WAN to send a LoRaWAN® message updating the sensors values in the Cloud. 
 
 Finally, in the loop function, we will check the valves states to control them and keep track of their active time.
 
@@ -409,7 +409,7 @@ The MKR WAN 1310 needs the following libraries:
 
 There are three headers included in the project code that handles some helper functions and structures:
 
-- `thingProperties.h` is automatically generated by the Arduino IoT Cloud. However, if you are using an offline IDE, verify it is in the same directory as your sketch and includes all the Arduino IoT Cloud variables.
+- `thingProperties.h` is automatically generated by the Arduino Cloud. However, if you are using an offline IDE, verify it is in the same directory as your sketch and includes all the Arduino Cloud variables.
 - `SensorValues.hpp` handles the shared variables between the Edge Control and the MKR WAN 1310 through I2C.
 - `arduino_secrets.h` includes the LoRaWAN® credentials of your device.
 
@@ -442,7 +442,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection, false);
 
   /*
@@ -535,13 +535,13 @@ As a **gateway** we will be using the [WisGate Edge Lite 2](https://docs.arduino
 
 ***If there is coverage of a TTN public gateway in your area, it is not necessary to install yours. You can check your area network [here](https://ttnmapper.org/heatmap/).***
 
-### The Arduino IoT Cloud Dashboard
+### The Arduino Cloud Dashboard
 
-Taking advantage of the Arduino IoT Cloud, it is possible to seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system from remote, resulting in a professional Human-Computer Interaction (HCI) as shown below:
+Taking advantage of the Arduino Cloud, it is possible to seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system from remote, resulting in a professional Human-Computer Interaction (HCI) as shown below:
 
 ![Arduino Cloud project dashboard ](assets/DASHBOARD2.png)
 
-Within the Arduino IoT Cloud's dashboard, the system variables can be monitored as follow:
+Within the Arduino Cloud's dashboard, the system variables can be monitored as follow:
 - Each solenoid valve status is shown as **OFF** or **ON**.
 - The activated time of each valve is graphed next to its state.
 - The watermark sensor instant values are shown in gauges alongside a time series record chart.

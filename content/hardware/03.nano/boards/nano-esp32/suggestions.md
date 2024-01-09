@@ -3,8 +3,8 @@
     A technical reference to the Nano ESP32 board.
   </EssentialElement>
 
-<EssentialElement title="Arduino IoT Cloud" type="tutorial" link="/arduino-cloud/getting-started-with-the-arduino-iot-cloud">
-    Get started with the Arduino IoT Cloud
+<EssentialElement title="Arduino Cloud" type="tutorial" link="/arduino-cloud/getting-started-with-the-arduino-iot-cloud">
+    Get started with the Arduino Cloud
   </EssentialElement>
 </EssentialsColumn>
 

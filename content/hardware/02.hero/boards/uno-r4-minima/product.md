@@ -2,6 +2,8 @@
 title: UNO R4 Minima
 url_shop: https://store.arduino.cc/uno-r4-minima
 url_guide: /tutorials/uno-r4-minima/minima-getting-started
+primary_button_url: /tutorials/uno-r4-minima/minima-getting-started
+primary_button_title: Get Started
 certifications: [CE, UKCA, RoHS, FCC]
 ---
 

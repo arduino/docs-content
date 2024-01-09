@@ -6,7 +6,7 @@ difficulty: 'advanced'
 author: Arduino
 ---
 
-This example shows the flexibility and power of the FPGA architecture. A QR code recognition set of APIs is included in the VidorGraphics library and the corresponding IP is in the bitstream that is loaded in the FPGA together with the sketch for the SAMD core. The example highlights on video the QR code markers and prints on the serial monitor the coordinates of the markers found.
+This example shows the flexibility and power of the FPGA architecture. A QR code recognition set of APIs is included in the VidorGraphics library and the corresponding IP is in the bitstream that is loaded in the FPGA together with the sketch for the SAMD Board Package. The example highlights on video the QR code markers and prints on the serial monitor the coordinates of the markers found.
 
 ## Hardware Required
 

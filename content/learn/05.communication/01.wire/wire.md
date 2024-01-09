@@ -96,7 +96,7 @@ There are no Arduino boards that have a built in Grove connector, however you ca
 ## Wire Library
 The Wire library is what Arduino uses to communicate with I2C devices. It is included in all board packages, so you don't need to install it manually in order to use it.
 
-To see the full API for the Wire library, visit its [documentation page](https://www.arduino.cc/reference/en/language/functions/communication/wire/).
+To see the full API for the Wire library, visit its [documentation page](https://www.arduino.cc/reference/en/language/functions/communication/wire).
 
 - `begin()` - Initialise the I2C bus
 - `end()` - Close the I2C bus
@@ -108,7 +108,7 @@ To see the full API for the Wire library, visit its [documentation page](https:/
 - `read()` - Reads a byte that was transmitted from a peripheral to a controller.
 - `setClock()` - Modify the clock frequency
 - `onReceive()` - Register a function to be called when a peripheral receives a transmission
-- `onRequest()` - Register a function to be called hwen a controller requests data
+- `onRequest()` - Register a function to be called when a controller requests data
 - `setWireTimeout()` - Sets the timeout for transmissions in controller mode
 - `clearWireTimeoutFlag()` - Clears the timeout flag
 - `getWireTimeoutFlag()` - Checks whether a timeout has occurred since the last time the flag was cleared.

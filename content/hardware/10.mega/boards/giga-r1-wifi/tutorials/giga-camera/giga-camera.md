@@ -30,7 +30,7 @@ You will also need the following software:
 
 ## Supported Cameras
 
-The GIGA R1 currently supports the following cameras, via the [Camera](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/Camera) library that is bundled with the [Arduino Mbed Core](https://github.com/arduino/ArduinoCore-mbed):
+The GIGA R1 currently supports the following cameras, via the [Camera](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/Camera) library that is bundled with the [Arduino Mbed PS GIGA Board Package](https://github.com/arduino/ArduinoCore-mbed):
 
 - **OV7670** and **OV7675**
 - **GC2145**

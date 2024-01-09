@@ -61,7 +61,7 @@ The private and public can be generated using an example sketch from the Arduino
 
 This sketch will prompt you to permanently configure your ATECC508A to ECC608A crypto element if it is not configured and locked.
 
- ***NOTE: This locking process is permanent and irreversible, but is needed to use the the crypto element - the configuration the sketch sets allows you to use 5 private key slots with any cloud provider(or server) and a private key can be regenerated any time for any of the 5 private key slots (0 - 4).***
+ ***NOTE: This locking process is permanent and irreversible, but is needed to use the the crypto element - the configuration the sketch sets allows you to use 5 private key slots with any Cloud provider(or server) and a private key can be regenerated any time for any of the 5 private key slots (0 - 4).***
  
 When the board is shipped from the factory, the crypto element is in an unconfigured and unlocked state.
 
@@ -140,7 +140,7 @@ Enter the device name, in the screenshot below "MyMKRGSM1400" was used. "ES256" 
 #define SECRET_GPRS_PASSWORD "password" // replace with your GPRS password
 ```
 
-4) Then update the project id, cloud region, registry id and device id values.
+4) Then update the project id, Cloud region, registry id and device id values.
 
 ```arduino
 // Fill in your Google Cloud Platform - IoT Core info

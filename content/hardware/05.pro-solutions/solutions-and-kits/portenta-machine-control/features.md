@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-Thanks to its computing power, the **Portenta Machine Control** enables a wide range of predictive maintenance and AI use cases. It enables the collection of real-time data from the factory floor and supports the remote control of equipment, even from the cloud, when desired.
+Thanks to its computing power, the **Portenta Machine Control** enables a wide range of predictive maintenance and AI use cases. It enables the collection of real-time data from the factory floor and supports the remote control of equipment, even from the Cloud, when desired.
 
 </FeatureDescription>
 

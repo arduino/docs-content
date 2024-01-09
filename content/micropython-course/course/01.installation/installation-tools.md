@@ -7,17 +7,18 @@ title: '2. MicroPython Installation Guide'
 description: 'Learn how to install a code editor needed to program your board with MicroPython.'
 ---
 
-## Goals
 
-In this chapter we will go over how to install the prerequisite software: the **code editor** and the **MicroPython firmware installer**, that will enable you to dive into the learning activities of this course.
+In this chapter we will go over how to install the prerequisite software: the **MicroPython firmware installer** and the **Arduino Labs for MicroPython (Code Editor)**. The installer will install a MicroPython firmware on your board, and the code editor will allow you to program the board with MicroPython.
 
+## Software Required
 
 ![Arduino Labs for MicroPython and the Installer tool](./assets/logo.png)
 
-The software you will have installed are:
+Later in this chapter, we'll walk you through the installation process step by step. You can download the required software below, but if you do - please return to this page afterwards for instructions on what to do with them.
+To run MicroPython code on your Arduino board, you will need:
 
 - [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython)
-- The [Arduino MicroPython Installer](https://labs.arduino.cc/en/labs/micropython-installer)
+- [MicroPython Firmware Installer](https://labs.arduino.cc/en/labs/micropython-installer)
 
 ![The Installed Software](./assets/apps-open.png)
 
@@ -39,7 +40,7 @@ The **Firmware Installer** program will help install MicroPython on your board.
 
 It will automatically download the latest version of the MicroPython firmware and install it on your board, so that all you need to do is to connect the board and press a button.
 
-First [download the app here](), and extract the files to a folder on your computer.
+First [download the app here](https://labs.arduino.cc/en/labs/micropython-installer), and extract the files to a folder on your computer.
 
 If you're on macOS, move the application to your **Applications** folder.
 
@@ -113,4 +114,4 @@ To do this, **tap the reset button twice**, but not too fast (about 1 second bet
 
 Congratulations! You’ve completed the installation chapter of MicroPython 101.
 
-Having trouble? Continue to the troubleshooting section. Otherwise, move on to the [Next chapter](/micropython-course/course/digital).
+Having trouble? Continue to the troubleshooting section. Otherwise, move on to the [Next chapter](/micropython-course/course/introduction-python).

@@ -20,7 +20,7 @@ You can also follow the [downloading and installing the Arduino IDE 2](/software
 
 - Arduino IDE 2 installed. 
 - Arduino board.
-- Core installed for the board used.
+- Board package installed for the board used.
 
 ## Notable Changes
 
@@ -86,7 +86,7 @@ This is really useful when working with various communication / connectivity pro
 
 ![Open a new sketch.](assets/serial-monitor-img04.png)
 
-**2.** Now, we need to choose another board. In this example, we are using an **Arduino Nano 33 IoT**. If you have connected it to your computer and installed the necessary core for it, it will show up in the board list.
+**2.** Now, we need to choose another board. In this example, we are using an **Arduino Nano 33 IoT**. If you have connected it to your computer and installed the necessary board package for it, it will show up in the board list.
 
 ![List of available boards.](assets/serial-monitor-img05.png)
 

@@ -23,11 +23,11 @@ The goals of this project are:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
 - [Arduino UNO R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
-- [Arduino Renesas Core](https://github.com/arduino/ArduinoCore-renesas)
+- [UNO R4 Board Package](/tutorials/uno-r4-wifi/r4-wifi-getting-started)
 
 ## Real-Time Clock (RTC)
 
-The RTC on the UNO R4 WiFi can be accessed using the [RTC](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/RTC) library that is included in the [Renesas](https://github.com/arduino/ArduinoCore-renesas) core. This library allows you to set/get the time as well as using alarms to trigger interrupts. 
+The RTC on the UNO R4 WiFi can be accessed using the [RTC](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/RTC) library that is included in the [UNO R4 Board Package](/tutorials/uno-r4-wifi/r4-wifi-getting-started). This library allows you to set/get the time as well as using alarms to trigger interrupts. 
 
 ***The UNO R4 WiFi features a VRTC pin, that is used to keep the onboard RTC running, even when the boards power supply is is cut off. In order to use this, apply a voltage in the range of 1.6 - 3.6 V to the VRTC pin.***
 
