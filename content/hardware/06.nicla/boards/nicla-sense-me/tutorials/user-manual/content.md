@@ -1234,7 +1234,7 @@ void loop() {
   
 }
 ```
-***If you are interested in using a different sensor from the onboard options of the Nicla Sense ME, check all the sensors ID on this [list](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids)***
+***If you are interested in using a different sensor from the onboard options of the Nicla Sense ME, check all the sensors IDs on this [list](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids)***
 
 ### Portenta C33 Setup
 
@@ -1272,7 +1272,7 @@ To the Nicla Sense ME to communicate with the Arduino Cloud, set the communicati
 
 ![Nicla Sense ME as a shield](assets/AS_SHIELD.png)
 
-***This setup works with the ESLOV cable as too. Keep in mind female headers or raw cables can be used as well, but make sure the connection of the pin matches the MKR pinout (3V3, GND, SCL and SDA).***
+***This setup works with the ESLOV cable too. Keep in mind that female headers or raw cables can be used as well, but make sure the connection of the pin matches the MKR pinout (3V3, GND, SCL and SDA).***
 
 ***For a more detailed process on how to connect the Nicla Sense ME to the Arduino Cloud, follow this [guide](https://docs.arduino.cc/tutorials/nicla-sense-me/connecting-to-iot-cloud)***
 
