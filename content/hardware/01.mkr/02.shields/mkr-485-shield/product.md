@@ -2,6 +2,8 @@
 title: MKR 485 Shield
 url_shop: https://store.arduino.cc/arduino-mkr-485-shield
 url_guide: /tutorials/mkr-485-shield/mkr-485-communication
+primary_button_url: /tutorials/mkr-485-shield/mkr-485-communication
+primary_button_title: Get Started
 certifications: [CE, UKCA]
 ---
 

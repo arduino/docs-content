@@ -2,6 +2,8 @@
 title: UNO Mini Limited Edition
 url_shop: https://store.arduino.cc/products/uno-mini-le
 url_guide: /tutorials/uno-mini-le/uno-mini-le-guide
+primary_button_url: /tutorials/uno-mini-le/uno-mini-le-guide
+primary_button_title: Get Started
 core: arduino:avr
 productCode: '117'
 certifications: [CE, UKCA, FCC, RCM, RoHS]

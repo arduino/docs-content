@@ -130,5 +130,5 @@ In this tutorial, you learned how to use the docker infrastructure to build a co
 
 ### Next Steps
 
-- You may now further process the data that you receive from the Arduino sketch and e.g. upload it to a cloud service or similar.
+- You may now further process the data that you receive from the Arduino sketch and e.g. upload it to a Cloud service or similar.
 - Familiarize yourself with Docker commands to adjust the docker configuration to your needs.

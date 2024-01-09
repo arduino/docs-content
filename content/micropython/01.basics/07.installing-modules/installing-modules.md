@@ -14,6 +14,8 @@ There are currently two methods available when installing a module on your board
 
 In this article, we will cover these two methods, as well as how to remove them from your board.
 
+***Please note: installing packages that contain 2-byte characters (such as emojis, Chinese symbols), is currently not supported in the [Arduino Lab for MicroPython editor](https://labs.arduino.cc/en/labs/micropython). You will however receive a "successful installation" response, which is a bug being investigated.***
+
 ## Hardware & Software Needed
 
 - [A MicroPython compatible board](/micropython/basics/board-installation#supported-boards),

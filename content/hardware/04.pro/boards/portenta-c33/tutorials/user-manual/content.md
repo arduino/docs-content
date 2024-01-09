@@ -921,7 +921,7 @@ First, the necessary libraries are included:
  - The `WiFiC3.h` and `WiFiClient.h` are included at the start, those libraries contains the functionalities required to communicate via Wi-Fi®. 
  - The SSID and password for the Wi-Fi® network are defined.
 
-Then, the server is defined ( "www.google.com" in this case) and the Wi-Fi® client object is created to manage the connection to the server.
+Then, the server is defined ( `www.google.com` in this case) and the Wi-Fi® client object is created to manage the connection to the server.
 
 Next, in the `setup()` function:
 
@@ -1059,7 +1059,7 @@ First, the necessary libraries are included:
 - The `EthernetC33` library which contains the functionality required to communicate via Ethernet is included in the beginning.
 
 
-Then, the server is defined, which is "www.google.com" in this case:
+Then, the server is defined, which is `www.google.com` in this case:
 
 - The static IP address which will be used if the DHCP fails to assign an IP address is set.
 
@@ -1452,43 +1452,43 @@ Here's what each section of the example code does:
 - **Public key import**: The public key derived from the generated private key is imported to the secure element with key ID 899.
 - **Signature verification**: The example code then verifies the signature using the imported public key and prints a success or failure message accordingly.
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
 The Portenta C33 is fully compatible with the Arduino Cloud IoT, which simplifies how professional applications are developed and tracked. By using the IoT Cloud, you can, for example, monitor sensor data, control your board and actuators connected to it remotely, and update your device's firmware over-the-air.
 
 
-In case it is the first time you are using the Arduino IoT Cloud:
+In case it is the first time you are using the Arduino Cloud:
 
-- To use the Arduino IoT Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
-- To use the Arduino Web Editor or Arduino IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome).
+- To use the Arduino Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
+- To use the Arduino Web Editor or Arduino Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome).
 
-Let's walk through a step-by-step demonstration of how to use your Portenta C33 board with the Arduino IoT Cloud.
+Let's walk through a step-by-step demonstration of how to use your Portenta C33 board with the Arduino Cloud.
 
-Log in to your Arduino IoT Cloud account; you should see the following:
-
-
-![Arduino IoT Cloud initial page](assets/user-manual-13.png)
-
-First, provision your Portenta C33 board on your Arduino IoT Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
+Log in to your Arduino Cloud account; you should see the following:
 
 
-![Arduino IoT Cloud Devices page](assets/user-manual-14.png)
+![Arduino Cloud initial page](assets/user-manual-13.png)
+
+First, provision your Portenta C33 board on your Arduino Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
+
+
+![Arduino Cloud Devices page](assets/user-manual-14.png)
 
 The **Setup Device** pop-up window will appear. Navigate into **AUTOMATIC** and select the **Arduino board** option:
 
-![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-15.png)
+![Arduino Cloud Setup Device pop-up window](assets/user-manual-15.png)
 
-After a while, your Portenta C33 board should be discovered by the Arduino IoT Cloud, as shown below:
+After a while, your Portenta C33 board should be discovered by the Arduino Cloud, as shown below:
 
-![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-16.png)
+![Arduino Cloud Setup Device pop-up window](assets/user-manual-16.png)
 
-Click the **CONFIGURE** button, give your board a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with a [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier), a [Portenta Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), a [Portenta Vision Shield](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet) or a custom-made board with an Ethernet connector. Your Portenta C33 board will be configured to securely communicate with the Arduino IoT Cloud. This process can take a while.
+Click the **CONFIGURE** button, give your board a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with a [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier), a [Portenta Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), a [Portenta Vision Shield](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet) or a custom-made board with an Ethernet connector. Your Portenta C33 board will be configured to securely communicate with the Arduino Cloud. This process can take a while.
 
-![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-17.png)
+![Arduino Cloud Setup Device pop-up window](assets/user-manual-17.png)
 
-Once the Portenta C33 has been configured, let's create a "Thing" to test the connection between your board and the Arduino IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name.
+Once the Portenta C33 has been configured, let's create a "Thing" to test the connection between your board and the Arduino Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name.
 
-![Arduino IoT Cloud "Thing" setup](assets/user-manual-18.png)
+![Arduino Cloud "Thing" setup](assets/user-manual-18.png)
 
 Navigate into **Associate Device** and click the **Select Device** button. Select your Portenta C33 board and associate it with your "Thing." Then, navigate into **Network** and click the **Configure** button; enter your network credentials.
 
@@ -1503,7 +1503,7 @@ Add one variable with the following characteristics:
 - **Variable permission** `Read & Write`
 - **Variable update policy**: `On change`
 
-![Arduino IoT Cloud "Thing" variable setup](assets/user-manual-21.png)
+![Arduino Cloud "Thing" variable setup](assets/user-manual-21.png)
 
 You should see the `led` variable in the **Cloud Variables** section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; create a new dashboard and give your dashboard a name.
 
@@ -1514,7 +1514,7 @@ Add the following widgets to your dashboard:
 
 Your dashboard should look like the following:
 
-![Arduino IoT Cloud Dashboard setup](assets/user-manual-20.png)
+![Arduino Cloud Dashboard setup](assets/user-manual-20.png)
 
 Go back to your **Things** and open the "Thing" you created. In the "Thing" setup page, navigate into **Sketch**, where you should see the online editor.
 
@@ -1533,7 +1533,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
   /*
@@ -1548,7 +1548,7 @@ void setup() {
 }
 ```
 
-In the `onLedChange()` function, which was generated automatically by the Arduino IoT Cloud when the variable `led` was created, you must associate the onboard green LED state with the `led` variable:
+In the `onLedChange()` function, which was generated automatically by the Arduino Cloud when the variable `led` was created, you must associate the onboard green LED state with the `led` variable:
 
 ```arduino
 /*
@@ -1564,9 +1564,9 @@ The complete example code can be found below:
 
 ```arduino
 /*
-  Sketch generated by the Arduino IoT Cloud
+  Sketch generated by the Arduino Cloud
 
-  Arduino IoT Cloud Variables description
+  Arduino Cloud Variables description
 
   The following variables are automatically generated and updated when changes are made to the Thing
 
@@ -1588,7 +1588,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
   /*
@@ -1618,7 +1618,7 @@ void onLedChange()  {
 
 To upload the code to the Portenta C33 from the online editor, click the green **Verify** button to compile the sketch and check for errors, then click the green **Upload** button to program the board with the sketch.
 
-![Uploading a sketch to the Portenta C33 in the Arduino IoT Cloud](assets/user-manual-22.png)
+![Uploading a sketch to the Portenta C33 in the Arduino Cloud](assets/user-manual-22.png)
 
 Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's green LED should light on or off when the position of the switch changes.
 

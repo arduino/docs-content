@@ -9,7 +9,7 @@ author: Ali Jahangiri
 
 # Description
 
-The **Arduino® Nicla Vision** packs machine vision capabilities on the edge into a tiny fingerprint. Record, analyse and upload to the cloud all with the help of one **Arduino® Nicla Vision**. Leverage the onboard camera, STM32 microcontroller, Wi-Fi®/Bluetooth® module and 6-axis IMU to create your own wireless sensor network for machine vision applications.
+The **Arduino® Nicla Vision** packs machine vision capabilities on the edge into a tiny fingerprint. Record, analyse and upload to the Cloud all with the help of one **Arduino® Nicla Vision**. Leverage the onboard camera, STM32 microcontroller, Wi-Fi®/Bluetooth® module and 6-axis IMU to create your own wireless sensor network for machine vision applications.
 
 # Target Areas
 
@@ -76,7 +76,7 @@ Dual-core
 The **Arduino® Nicla Vision** houses the computational power, camera and IMU you need to quickly develop machine vision solutions at the edge together with two wireless technologies. The board can act as a field-ready standalone board or can be augmented with external peripherals through the I/O available on the chip. Ultra-low power consumption and integrated battery management allow for deployment in various capabilities. WebBLE allows for easy OTA updates to the firmware as well as remote monitoring.
 
 - **Warehouse & Automated Inventory Management**:
-The **Arduino Nicla Vision** is capable of detecting packages as they come near its vicinity and wake up. These provide the benefits of an always-on camera, but with less power consumption. It can take pictures, predict volume/weight and also analyse for possible defects. Additionally, QR codes on the package can be tracked for automated pursuit of the package and relay of information to the cloud.
+The **Arduino Nicla Vision** is capable of detecting packages as they come near its vicinity and wake up. These provide the benefits of an always-on camera, but with less power consumption. It can take pictures, predict volume/weight and also analyse for possible defects. Additionally, QR codes on the package can be tracked for automated pursuit of the package and relay of information to the Cloud.
 
 - **Real-time process management**:
 The **Arduino Nicla Vision** is equipped for Automated Optical Inspection (AOI) even in hard-to-reach and hazardous areas thanks to the small footprint and wireless connectivity options. The fast Time-of-Flight sensor ensures that the image acquisition is performed in a repeatable manner, with minimal modifications to the process. Additionally, the IMU can provide vibration analysis for predictive maintenance.
@@ -84,7 +84,7 @@ The **Arduino Nicla Vision** is equipped for Automated Optical Inspection (AOI) 
 - **Wireless Sensor Network Reference Design**:
 The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor networks which can be adapted by partners to develop custom-designed industrial solutions. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
 
-### Accessories
+### Accessories (Not Included)
 
 Single-cell Li-ion/Li-Po battery
 
@@ -398,14 +398,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| Company name    | Arduino SRL                                  |
-|-----------------|----------------------------------------------|
+| Company name    | Arduino S.r.l.                               |
+| --------------- | -------------------------------------------- |
 | Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
 
-| Ref                                | Link                                                                                                |
-|------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Ref                                | Link                                                                                                  |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | Arduino® IDE (Desktop)             | <https://www.arduino.cc/en/Main/Software>                                                             |
 | Arduino® IDE (Cloud)               | <https://create.arduino.cc/editor>                                                                    |
 | Arduino® Cloud IDE Getting Started | <https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a> |
@@ -415,7 +415,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 
 | **Date**   | **Revision** | **Changes**                       |
-|------------|--------------|-----------------------------------|
-| 27-01-2023 | 03           | Add power consumption information |
-| 10-01-2023 | 02           | Updated information and fixes     |
-| 03-09-2021 | 01           | Initial Version                   |
+| ---------- | ------------ | --------------------------------- |
+| 05/12/2023 | 4            | Accessories section updated       |
+| 27/01/2023 | 3            | Add power consumption information |
+| 10/01/2023 | 2            | Updated information and fixes     |
+| 03/09/2021 | 1            | Initial Version                   |

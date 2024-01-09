@@ -8,12 +8,13 @@ type: maker
 # Description 
 The Arduino Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 (embedded in the NORA-W106-10B from u-blox®). This is the first Arduino board to be based fully on an ESP32, and features Wi-Fi® as well as Bluetooth® LE.
 
-The Nano ESP32 is compatible with the Arduino IoT Cloud, and has support for MicroPython. It is an ideal board for getting started with IoT development.
+The Nano ESP32 is compatible with the Arduino Cloud, and has support for MicroPython. It is an ideal board for getting started with IoT development.
 
 # Target areas:
 Maker, IoT, MicroPython
 
 # Features
+
 * **Xtensa® Dual-core 32-bit LX7 Microprocessor**
   * Up to 240 MHz
   * 384 kB ROM
@@ -41,12 +42,14 @@ Maker, IoT, MicroPython
   * UART
   * CAN (TWAI®)
 * **Low Power**
-  * 7 μA consumption in deep sleep mode
-  * 240 μA consumption in light sleep mode
+  * 7 μA consumption in deep sleep mode\*
+  * 240 μA consumption in light sleep mode\*
   * RTC Memory
   * Ultra Low Power (ULP) Coprocessor
   * Power Management Unit (PMU)
   * ADC in RTC mode
+
+\*The power consumption ratings listed in low power modes are only for the ESP32-S3 SoC. Other components on the board (such as LEDs), consumes power as well, which increases the overall power consumption of the board.
 
 # Contents
 
@@ -64,17 +67,17 @@ Nano ESP32 is a 3.3 V development board based on the NORA-W106-10B from u-blox®
 
 ## ESP32 Core
 
-The Nano ESP32 uses the [Arduino Core for ESP32 boards](https://github.com/arduino/arduino-esp32), a derivation of Espressif's [arduino-esp32](https://github.com/espressif/arduino-esp32) core.
+The Nano ESP32 uses the [Arduino Board Package for ESP32 boards](https://github.com/arduino/arduino-esp32), a derivation of Espressif's [arduino-esp32](https://github.com/espressif/arduino-esp32) core.
 
 # Rating
 
 ## Recommended Operating Conditions
 
-| Symbol          | Description                      | Min | Typ | Max | Unit |
-| --------------- | -------------------------------- | --- | --- | --- | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 6   | 7.0 | 21  | V    |
-| V<sub>USB</sub> | Input voltage from USB connector | 4.8 | 5.0 | 5.5 | V    |
-| T<sub>OP</sub>  | Operating Temperature            | -40 | 25  | 85  | °C   |
+| Symbol              | Description                      | Min | Typ | Max | Unit |
+| ------------------- | -------------------------------- | --- | --- | --- | ---- |
+| V<sub>IN</sub>      | Input voltage from VIN pad       | 6   | 7.0 | 21  | V    |
+| V<sub>USB</sub>     | Input voltage from USB connector | 4.8 | 5.0 | 5.5 | V    |
+| T<sub>ambient</sub> | Ambient Temperature              | -40 | 25  | 105 | °C   |
 
 # Functional Overview
 
@@ -130,6 +133,22 @@ The NORA-W106-10B module supports Bluetooth® LE v5.0 with an output power EIRP 
 ### PSRAM
 
 The NORA-W106-10B module includes 8 MB of embedded PSRAM. (Octal SPI)
+
+### Antenna Gain
+
+The built-in antenna on the NORA-W106-10B module uses GFSK modulation technique, with the performance ratings listed below:
+
+Wi-Fi®:
+- Typical conducted output power: **17 dBm.**
+- Typical radiated output power: **20 dBm EIRP.**
+- Conducted sensitivity: **-97 dBm**.
+
+Bluetooth® Low Energy:
+- Typical conducted output power: **7 dBm.**
+- Typical radiated output power: **10 dBm EIRP.**
+- Conducted sensitivity: **-98 dBm**.
+
+This data is retrieved from the uBlox NORA-W10 data sheet (page 7, section 1.5) available [here](https://www.u-blox.com/en/product/nora-w10-series). 
 
 ## System
 
@@ -332,9 +351,9 @@ All Arduino boards, including this one, work out-of-the-box on the Arduino Web E
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
+### Getting Started - Arduino Cloud
 
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 
@@ -460,4 +479,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 09/01/2023 | Update power tree flowchart.                           |
 | 09/11/2023 | Update SPI section, update analog/digital pin section. |
 | 11/06/2023 | Correct company name, correct VBUS/VUSB                |
+| 11/09/2023 | Block Diagram Update, Antenna Specifications           |
+| 11/15/2023 | Ambient temperature update                             |
+| 11/23/2023 | Added label to LP modes                                |
+
+
+
 

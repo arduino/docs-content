@@ -195,7 +195,7 @@ Go to the My Devices app by clicking the menu icon in the upper left and clickin
 
 ![Click My Devices.](assets/mydevices_raRSvtOAl8.png)
 
-[My Devices ](https://create-intel.arduino.cc/devices)allows you to see all the cloud-enabled boards and products that you have setup and are linked to your account. 
+[My Devices ](https://create-intel.arduino.cc/devices)allows you to see all the Cloud-enabled boards and products that you have setup and are linked to your account. 
 
 From here you can see what processes are running on each board and stop or start them. You can also delete your devices if you don't need them anymore.
 

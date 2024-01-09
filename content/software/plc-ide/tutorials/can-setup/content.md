@@ -60,7 +60,7 @@ In order to use the CAN communication, you will need to:
 1. Supply the board with 24V DC, through the 24VIn and GND
 2. Connecting the CANH, CANL, and GND with a CAN Device
 
-![Header pinout for CAN communication](assets/PMC-CAN-pins.svg)
+![Header pinout for CAN communication](assets/PMC-CAN-pins.png)
 
 ## Enable The CAN Communication
 

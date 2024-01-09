@@ -62,7 +62,7 @@ The self signed certificate can be generated using an example sketch from the Ar
 
 This sketch will prompt you to permanently configure your ATECC508A to ECC608A crypto element if it is not configured and locked.
 
- ***Note: This locking process is permanent and irreversible, but is needed to use the the crypto element - the configuration the sketch sets allows to use 5 private key slots with any cloud provider(or server) and a private key can be regenerated any time for any of  the 5 private key slots (0 - 4).When the board is shipped from the factory, the crypto element is in an un-configured and unlocked state.*** 
+ ***Note: This locking process is permanent and irreversible, but is needed to use the the crypto element - the configuration the sketch sets allows to use 5 private key slots with any Cloud provider(or server) and a private key can be regenerated any time for any of  the 5 private key slots (0 - 4).When the board is shipped from the factory, the crypto element is in an un-configured and unlocked state.*** 
 
 After this, you will be prompted for information to include in the self signed certificate, including the issue year, month, day and hour of the certificate and the expiry period in years. For this tutorial we'll be using slot 0 to generate and store the private key used to sign the self signed certificate (slots 1 to 4 can be used to generate and store additional private keys if needed) - then slot 8 will be used to store the issue and expiry date of the certificate along with it's signature.
 

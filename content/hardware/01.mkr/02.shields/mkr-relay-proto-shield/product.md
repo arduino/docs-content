@@ -2,6 +2,8 @@
 title: MKR Relay Shield
 url_shop: https://store.arduino.cc/arduino-mkr-relay-proto-shield
 url_guide: /tutorials/mkr-relay-proto-shield/mkr-relay-shield-basic
+primary_button_url: /tutorials/mkr-relay-proto-shield/mkr-relay-shield-basic
+primary_button_title: Get Started
 certifications: [CE, UKCA]
 ---
 

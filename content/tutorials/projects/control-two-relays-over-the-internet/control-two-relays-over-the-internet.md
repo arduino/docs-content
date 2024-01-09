@@ -19,7 +19,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/control-two-relays
 
 ## About This Project
 
-This project shows how to control a MKR Relay shield using an Arduino MKR GSM 1400 and the Blynk cloud service; we implemented a simple application that allows to switch the relays integrated on the shield using the widgets of Blynk.
+This project shows how to control a MKR Relay shield using an Arduino MKR GSM 1400 and the Blynk Cloud service; we implemented a simple application that allows to switch the relays integrated on the shield using the widgets of Blynk.
 
 ### What You Need
 
@@ -53,7 +53,7 @@ Be careful to connect the MKR GSM 1400 to the MKR Relay Protoshield properly, al
 
 ### How It Works
 
-This project uses the Blynk cloud service and application interface to control the two relays of the MKR Relay Protoshield from a smartphone. The Blynk library allows the connection over the internet between our MKR GSM 1400 and an interface on an IOS or Android smartphone. The ease of use of Blynk makes the building of the interface very simple and straightforward. The communication is two way and this allows us to create two virtual switches and a LED on the interface. The LED on the smartphone screen is driven by our MKR GSM 1400, while the two switches are used to drive D1 and D2 that are connected to the MKR Relay Protoshield. 
+This project uses the Blynk Cloud service and application interface to control the two relays of the MKR Relay Protoshield from a smartphone. The Blynk library allows the connection over the internet between our MKR GSM 1400 and an interface on an IOS or Android smartphone. The ease of use of Blynk makes the building of the interface very simple and straightforward. The communication is two way and this allows us to create two virtual switches and a LED on the interface. The LED on the smartphone screen is driven by our MKR GSM 1400, while the two switches are used to drive D1 and D2 that are connected to the MKR Relay Protoshield. 
 
 ### Blynk Setup
 

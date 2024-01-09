@@ -72,7 +72,7 @@ Agriculture measurements, smart irrigation systems, hydroponics
 
 ## The Board
 ### Application Examples
-The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time insight into the state of your process and increase crop yield. Improve business efficiency through automation and predictive farming. Tailor the Edge Control to your needs by using up two Arduino® MKR Boards and an assortment of compatible Shields. Maintain historical records, automate quality control, implement crop planning and more through the Arduino IoT Cloud from anywhere in the world.
+The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time insight into the state of your process and increase crop yield. Improve business efficiency through automation and predictive farming. Tailor the Edge Control to your needs by using up two Arduino® MKR Boards and an assortment of compatible Shields. Maintain historical records, automate quality control, implement crop planning and more through the Arduino Cloud from anywhere in the world.
 
 **Automated Greenhouses:** In order to minimize carbon emissions and increase economic yield, it is important to ensure that the best environment is provided for the growth of crops in terms of humidity, temperature and other factors. The Arduino® Edge Control is an integrated platform that enables remote monitoring and real-times optimization to this end. Including an Arduino® MKR GPS Shield (SKU:ASX00017) allows for optimum crop rotation planning and acquisition of geospatial data.
 
@@ -80,7 +80,7 @@ The Arduino® Edge Control is your gateway to Agriculture 4.0. Get real-time ins
 
 **Mushroom Cultivation:** Mushrooms are notorious for requiring the perfect temperature and humidity conditions to sustain spore growth while also preventing competing fungi from growing. Thanks to the numerous watermark sensors, output ports and connectivity options available on the Arduino® Edge Control as well as the Arduino® IoT Cloud, this precision farming can be achieved on an unprecedented level.
 
-### Accessories
+### Accessories (Not Included)
 *   Irrometer Tensiometers
 *   Watermark soil moisture sensors
 *   Mechanized ball valves
@@ -212,7 +212,7 @@ All Arduino® boards, including this one, work out-of-the-box on the Arduino® W
 
 The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
+### Getting Started - Arduino Cloud
 All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
@@ -489,8 +489,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Change Log
 
-| **Date**   | **Revision** | **Changes**             |
-| ---------- | ------------ | ----------------------- |
-| 30/12/2021 | 3            | Information updates     |
-| 04/05/2021 | 2            | Design/structure update |
-| 21/02/2020 | 1            | First Release           |
+| **Date**   | **Revision** | **Changes**                 |
+| ---------- | ------------ | --------------------------- |
+| 05/12/2023 | 4            | Accessories section updated |
+| 30/12/2021 | 3            | Information updates         |
+| 04/05/2021 | 2            | Design/structure update     |
+| 21/02/2020 | 1            | First Release               |

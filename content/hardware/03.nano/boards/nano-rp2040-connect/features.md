@@ -24,7 +24,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 
 <Feature title="WiFi" image="wifi">
 
-  The first and only RP2040 board with native WiFi connectivity and Arduino IoT Cloud compatibility. Control your peripherals wirelessly and start implementing IoT and WiFi applications in your projects.
+  The first and only RP2040 board with native WiFi connectivity and Arduino Cloud compatibility. Control your peripherals wirelessly and start implementing IoT and WiFi applications in your projects.
 
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-ap-web-server-rgb"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>

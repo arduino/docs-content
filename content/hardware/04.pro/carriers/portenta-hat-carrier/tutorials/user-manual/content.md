@@ -43,7 +43,7 @@ To use the [Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat
 
 Additionally, the following accessories are needed:
 
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
+- USB-C® cable (USB-C® to USB-A cable) (x1)
 - Wi-Fi® Access Point or Ethernet with Internet access (x1)
 
 ### Software Requirements
@@ -52,7 +52,7 @@ If you want to use the Portenta Hat Carrier with a Portenta X8, check the follow
 
 - Make sure you have the latest Linux image. Refer to [this section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#portenta-x8-os-image-update) to confirm that your Portenta X8 is up-to-date.
 
-**\_To ensure a stable operation of the Portenta Hat Carrier with Portenta X8, the minimum Linux image version required for Portenta X8 is **746**. To flash the latest image on your board, you can use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) or [flash it manually](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) downloading the latest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).\_**
+***To ensure a stable operation of the Portenta Hat Carrier with Portenta X8, the minimum Linux image version required for Portenta X8 is __746__. To flash the latest image on your board, you can use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) or [flash it manually](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) downloading the latest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor) in case you want to use the auxiliary microcontroller of the Portenta X8 to run Arduino code.
 
@@ -200,7 +200,7 @@ The Portenta Hat Carrier can be powered according to one of the following method
 
 - Using a USB-C® cable (not included) connected to the Portenta core board of your choice powers not only the selected core board, like the Portenta X8, H7, or C33, but also the Portenta Hat Carrier, and any connected hat that does not require a dedicated external power supply.
 
-**\_The Portenta Hat Carrier can deliver a **maximum** of 1.5 A.\_**
+***The Portenta Hat Carrier can deliver a __maximum__ of 1.5 A.***
 
 ![Portenta Hat Carrier Power Connection Overview](assets/portentaHATcarrier_powerSource.png)
 
@@ -261,7 +261,7 @@ To use the Portenta Hat Carrier with the Portenta X8, you will have to align the
 
 ![Portenta Hat Carrier with X8](assets/portentaHATcarrier_x8_stack.png)
 
-**\_For the stable functionality of the Portenta Hat Carrier when used with Portenta X8, it is crucial to have at least version **746** of the Linux image on the Portenta X8. Access and download the latest version directly through this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).\_**
+***For the stable functionality of the Portenta Hat Carrier when used with Portenta X8, it is crucial to have at least version __746__ of the Linux image on the Portenta X8. Access and download the latest version directly through this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
 
 #### Hello World With Portenta X8 Shell
 
@@ -1779,10 +1779,11 @@ The Portenta Hat Carrier significantly augments the networking functionalities o
 Thus, when conceptualizing and executing project developments, the user can proficiently exploit both the wired and wireless communication capabilities. The inherent wireless attributes of the Portenta devices, combined with the carrier's sophisticated onboard components and adaptable protocol choices, enable a comprehensive suite of communication solutions ideal for a wide range of applications.
 
 #### Ethernet
-
 <br></br>
 
-The Portenta Hat Carrier is equipped with an Ethernet interface, specifically an RJ45 connector supporting 1000 Base-T.
+The Portenta HAT Carrier features a gigabit Ethernet port with an RJ45 connector model _TRJG16414AENL_ with integrated magnetics. These magnetics are crucial for voltage isolation, noise suppression, signal quality maintenance, and rejecting common mode noise, ensuring adherence to waveform standards.
+
+The connector supports the _1000BASE-T_ standard, complying with _IEEE 802.3ab_, guaranteeing high-speed, reliable network connections for data-intensive industrial applications.
 
 ![Portenta Hat Carrier Ethernet Port](assets/portentaHATcarrier_ethernet.png)
 
@@ -1805,18 +1806,28 @@ The following table shows an in-depth connector designation:
 |       13       |      N/A       |               |             N/A              |                                                                      |
 |       14       |      N/A       |               |           ETH_LED1           |                                J1-17                                 |
 
-Ethernet performance differs based on the associated Portenta board:
+Ethernet connection speeds differ based on the associated Portenta board:
 
 - With the Portenta X8: The system supports 1 Gbit Ethernet.
 - When combined with the Portenta H7 or C33: The performance is limited to 100 Mbit Ethernet.
 
-To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Hat Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
+To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch on the Portenta Hat Carrier. The following table shows the specific DIP switch configuration needed to enable Ethernet on the carrier:
+
+| **Mounted Portenta Device** | **ETH CENTER TAP DIP SWITCH** |
+|:---------------------------:|:-----------------------------:|
+|         Portenta X8         |         Position: OFF         |
+|       Portenta H7/C33       |          Position: ON         |
+
+***For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).***
+
+It is advisable to connect the Portenta X8 through the Portenta HAT Carrier to a device with DHCP server capabilities, such as a network router, to ease the automatic assignment of an IP address. DHCP will allow the Portenta X8 to communicate with other devices on the network without manual IP configuration. Employing DHCP simplifies device management, supports dynamic reconfiguration, and provides an advantage for applications involving many devices.
+
+In case you want to assign a manual IP to your device, or even create a direct network between your computer and your board, you can follow the multiple procedures available depending on your network devices and operating system.
 
 #### Ethernet Interface With Linux
-
 <br></br>
 
-Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed. First, ensure that the Portenta X8 is mounted on the Hat Carrier, and then connect them using an RJ45 LAN cable.
+Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed between your device and your computer in your network. First, ensure that the Portenta X8 is mounted on the Hat Carrier, and then connect them using an RJ45 LAN cable to your local network. Be sure that your computer and your devices are connected to the same network and are on the same IP range, been capable of seeing each other.
 
 Subsequently, open a terminal to access the shell of the Portenta X8 with admin (root) privileges.
 
@@ -2610,21 +2621,7 @@ During the early boot stage, these overlays are merged together into a single DT
 
 ### Handling DTB Overlays
 
-You can modify and maintain the Device Tree Blob (DTB) overlays through a couple of methods. In builds that do not prioritize security, you can edit the file located at the following location:
-
-```
-/boot/devicetree/overlays.txt
-```
-
-After making the desired changes, it is necessary to save the changes and reboot the system to apply them.
-
-On the other hand, in builds that prioritize security, the _fw_setenv tool_ accessible in user space must be used to apply the corresponding changes to the U-boot settings as follows:
-
-```
-fw_setenv overlays=name_ov1 name_ov2
-```
-
-Currently, parameters are passed indirectly to the overlays; however, upcoming enhancements to U-boot will introduce direct parameter passing functionality.
+To modify and maintain the Device Tree Blob (DTB) overlays of your Portenta X8 so it can support different hardware and devices, please read and execute the following steps.
 
 ### Custom DTB Overlays
 
@@ -3024,14 +3021,14 @@ echo "spidev" | sudo tee > /etc/modules-load.d/spidev.conf
 sudo systemctl reboot
 ```
 
+Following section configures a service named `my_spi_service` to use the SPI device available at `/dev/spidev0.0`.
+
 ```
 services:
     my_spi_service:
        devices:
           - '/dev/spidev0.0'
 ```
-
-Following section configures a service named `my_spi_service` to use the SPI device available at `/dev/spi-1`.
 
 #### Using Arduino IDE
 

@@ -181,7 +181,7 @@ Once the kit is assembled, the user can solder and assemble the **Audio Synth Sh
 
 The **BOM** or **Bill Of Materials** of the **Arduino Make Your UNO kit** is made up of common components that can be found on the market. Use this list to reference and/or replace a damaged component if necessary. The designator references can be found written on the board and inside the board source files.
 
-![Make Your UNO board topology](assets/fusionOutline.svg)
+![Make Your UNO board topology](assets/fusionOutline.png)
 
 | **Designator**                | **Quantity** | **Description**                                  |
 | ----------------------------- | ------------ | ------------------------------------------------ |
@@ -229,8 +229,8 @@ All Arduino boards, including this one, work out-of-the-box on the Arduino Web E
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
 
-#### Getting Started - Arduino IoT Cloud
-All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business. In the case of the **UNO** and the **Make Your UNO** boards, you will need additional hardware to connect them to the cloud.
+#### Getting Started - Arduino Cloud
+All Arduino IoT-enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business. In the case of the **UNO** and the **Make Your UNO** boards, you will need additional hardware to connect them to the Cloud.
 
 #### Sample Sketches
 Sample sketches for the **UNO** can be found either in the “Examples” menu in the Arduino IDE.
