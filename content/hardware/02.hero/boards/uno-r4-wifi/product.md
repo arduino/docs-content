@@ -2,6 +2,8 @@
 title: UNO R4 WiFi
 url_shop: https://store.arduino.cc/uno-r4-wifi
 url_guide: /tutorials/uno-r4-wifi/r4-wifi-getting-started
+primary_button_url: /tutorials/uno-r4-wifi/r4-wifi-getting-started
+primary_button_title: Get Started
 certifications: [CE, UKCA, RCM, MIC, FCC, IC, KC]
 =======
 ---
