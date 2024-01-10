@@ -5,15 +5,18 @@ The Arduino Nano ESP32 features the NORA-W106, a module with a ESP32-S3 chip ins
 <FeatureList>
 
 <Feature title="MicroPython 101" image="core">
-Learn the basics of MicroPython with the Nano ESP32 and our free MicroPython 101 course.
-<FeatureWrapper>
-  <FeatureLink title="MicroPython 101" url="/micropython-course"/>
-</FeatureWrapper>
+Learn the basics of MicroPython with the Nano ESP
+32 and our free MicroPython 101 course.
+  <FeatureWrapper>
+    <FeatureLink title="MicroPython 101" url="/micropython-course"/>
+  </FeatureWrapper>
 </Feature>
 
 <Feature title="Arduino Cloud" image="wifi">
 The Nano ESP32 is compatible with the Arduino Cloud platform. Build IoT projects in just minutes!
-<FeatureLink title="Go to Platform" url="https://create.arduino.cc/iot/"/>
+<FeatureWrapper>
+  <FeatureLink title="Go to Platform" url="https://create.arduino.cc/iot/"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Bluetooth®" image="bluetooth">
@@ -32,11 +35,19 @@ The first Nano board to feature a USB-C® connector!
 </Feature>
 
 <Feature title="Debugging" image="mcu">
-The Nano ESP32 supports out-of-the-box debugging with no additional hardware required!<FeatureLink variant="secondary" title="Documentation" url="/tutorials/nano-esp32/debugging"/>
+The Nano ESP32 supports out-of-the-box debugging with no additional hardware required!
+<FeatureWrapper>
+  <FeatureLink variant="secondary" title="Documentation" url="/tutorials/nano-esp32/debugging"/>
+</FeatureWrapper>
+
 </Feature>
 
 <Feature title="ESP-NOW" image="communication">
-The Nano ESP32 supports the ESP-NOW protocol develop by Espressif!<FeatureLink variant="secondary" title="Documentation" url="/tutorials/nano-esp32/esp-now"/>
+The Nano ESP32 supports the ESP-NOW protocol develop by Espressif!
+<FeatureWrapper>
+  <FeatureLink variant="secondary" title="Documentation" url="/tutorials/nano-esp32/esp-now"/>
+</FeatureWrapper>
+
 </Feature>
 
 </FeatureList>
