@@ -364,7 +364,7 @@ The Arduino Portenta X8 makes use of two Arm®-based physical processing units.
 
 ### NXP® i.MX 8M Mini Quad Core Microprocessor
 
-The MIMX8MM6CVTKZAA iMX8M (U2) features a quad-core Arm® Cortex® A53 running at up to 1.8 GHz for high-performance applications alongside an Arm® Cortex® M4 running at up to 400 MHz. The Arm® Cortex® A53 is capable of running a fully-fledged Linux or Android operating system through a Board Support Packages (BSP) in a multithreaded fashion. This can be expanded via the use of specialized software containers via OTA updates. The Arm® Cortex® M4 has lower power consumption allowing for effective sleep management as well as optimal performance in real-time applications and is reserved for future use. Both processors can share all peripherals and resources available on the i.MX 8M Mini, including PCIe, on-chip memory, GPIO, GPU and Audio.
+The MIMX8MM6CVTKZAA iMX8M (U2) features a quad-core Arm® Cortex® A53 running at up to 1.8 GHz for high-performance applications alongside an Arm® Cortex® M4 running at up to 400 MHz. The Arm® Cortex® A53 is capable of running a fully-fledged Linux or Android operating system through a Board Support Packages (BSP) in a multithreaded fashion. This can be expanded via the use of specialized software containers via OTA updates. The Arm® Cortex® M4 has lower power consumption allowing for effective sleep management as well as optimal performance in real-time applications and is not officially supported. Both processors can share all peripherals and resources available on the i.MX 8M Mini, including PCIe, on-chip memory, GPIO, GPU and Audio.
 
 ### STM32 Dual Core Microprocessor
 
