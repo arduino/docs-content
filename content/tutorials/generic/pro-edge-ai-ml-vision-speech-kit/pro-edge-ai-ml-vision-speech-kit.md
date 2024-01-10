@@ -76,32 +76,32 @@ Additionally you may need the following accessories:
 If you want to learn more about the technologies of the kit, we propose the following experiences:
 
 |                                                                     Experience                                                                     | H7  | Portenta Vision Shield | Nicla Vision |
-| :------------------------------------------------------------------------------------------------------------------------------------------------: | :-: | :-----------: | :----------: |
-|                         [BLE Connectivity on Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity)                          | Yes |               |              |
-|                        [Creating GUIs with LVGL (V7)](https://docs.arduino.cc/tutorials/portenta-h7/creating-gui-with-lvgl)                        | Yes |               |              |
-|                             [Dual Core Processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing)                             | Yes |               |              |
-|            [Creating a Flash-Optimized Key-Value Store](https://docs.arduino.cc/tutorials/portenta-h7/flash-optimized-key-value-store)             | Yes |               |              |
-|          [Getting Started with OpenMV and MicroPython](https://docs.arduino.cc/tutorials/portenta-h7/getting-started-openmv-micropython)           | Yes |               |              |
-|       [Using the Portenta Vision Shield - Ethernet with OpenMV](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-openmv)       |  +  |       +       |              |
-|                        [Getting Started with Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/getting-started)                         |     |               |     Yes      |
-|           [Flashing MicroPython Firmware to your Arduino Board](https://docs.arduino.cc/tutorials/portenta-h7/micropython-installation)            | Yes |               |              |
-|                  [Arduino Portenta H7 MicroPython Cheat Sheet](https://docs.arduino.cc/tutorials/portenta-h7/openmv-cheat-sheet)                   | Yes |               |              |
-|            [Over-The-Air (OTA) Updates with the Arduino Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/over-the-air-update)            | Yes |               |              |
-|                   [Reading and Writing Flash Memory](https://docs.arduino.cc/tutorials/portenta-h7/reading-writing-flash-memory)                   | Yes |               |              |
-|                              [Secure Boot on Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/secure-boot)                               | Yes |               |              |
-|        [Voice Commands With The Arduino Speech Recognition Engine](https://docs.arduino.cc/tutorials/portenta-h7/speech-recognition-engine)        |  +  |       +       |     Yes      |
-|                     [Updating the Portenta Bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader)                      | Yes |               |              |
-|                                [Portenta H7 as a USB Host](https://docs.arduino.cc/tutorials/portenta-h7/usb-host)                                 | Yes |               |              |
-|                       [Portenta H7 as a Wi-Fi Access Point](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point)                       | Yes |               |              |
-|                 [Blob Detection with Portenta and OpenMV](https://docs.arduino.cc/tutorials/portenta-vision-shield/blob-detection)                 |  +  |       +       |              |
-|                            [Blob Detection with OpenMV](https://docs.arduino.cc/tutorials/nicla-vision/blob-detection)                             |     |               |     Yes      |
-|          [Saving Bitmap Camera Images to the SD Card](https://docs.arduino.cc/tutorials/portenta-vision-shield/camera-to-bitmap-sd-card)           |  +  |       +       |              |
-|          [Creating a Basic Face Filter With OpenMV](https://docs.arduino.cc/tutorials/portenta-vision-shield/creating-basic-face-filter)           |  +  |       +       |              |
-| [Training a Custom Machine Learning Model for Portenta H7](https://docs.arduino.cc/tutorials/portenta-vision-shield/custom-machine-learning-model) |  +  |       +       |              |
-|                   [Image Classification with Edge Impulse®](https://docs.arduino.cc/tutorials/nicla-vision/image-classification)                   |     |               |     Yes      |
-|               [Reading Audio Samples With the Onboard Microphone](https://docs.arduino.cc/tutorials/nicla-vision/microphone-sensor)                | Yes |               |              |
-|                       [Accessing IMU Data on Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/nicla-vision-imu)                        | Yes |               |              |
-|                     [Proximity Detection with Arduino Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/proximity)                      | Yes |               |              |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------:|:---:|:----------------------:|:------------:|
+|                         [BLE Connectivity on Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/ble-connectivity)                          | Yes |                        |              |
+|                        [Creating GUIs with LVGL (V7)](https://docs.arduino.cc/tutorials/portenta-h7/creating-gui-with-lvgl)                        | Yes |                        |              |
+|                             [Dual Core Processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing)                             | Yes |                        |              |
+|            [Creating a Flash-Optimized Key-Value Store](https://docs.arduino.cc/tutorials/portenta-h7/flash-optimized-key-value-store)             | Yes |                        |              |
+|          [Getting Started with OpenMV and MicroPython](https://docs.arduino.cc/tutorials/portenta-h7/getting-started-openmv-micropython)           | Yes |                        |              |
+|      [Using the Portenta Vision Shield - Ethernet with OpenMV](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-openmv)      |  +  |           +            |              |
+|                               [Nicla Vision User Manual](https://docs.arduino.cc/tutorials/nicla-vision/user-manual)                               |     |                        |     Yes      |
+|           [Flashing MicroPython Firmware to your Arduino Board](https://docs.arduino.cc/tutorials/portenta-h7/micropython-installation)            | Yes |                        |              |
+|                  [Arduino Portenta H7 MicroPython Cheat Sheet](https://docs.arduino.cc/tutorials/portenta-h7/openmv-cheat-sheet)                   | Yes |                        |              |
+|            [Over-The-Air (OTA) Updates with the Arduino Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/over-the-air-update)            | Yes |                        |              |
+|                   [Reading and Writing Flash Memory](https://docs.arduino.cc/tutorials/portenta-h7/reading-writing-flash-memory)                   | Yes |                        |              |
+|                              [Secure Boot on Portenta H7](https://docs.arduino.cc/tutorials/portenta-h7/secure-boot)                               | Yes |                        |              |
+|        [Voice Commands With The Arduino Speech Recognition Engine](https://docs.arduino.cc/tutorials/portenta-h7/speech-recognition-engine)        |  +  |           +            |     Yes      |
+|                     [Updating the Portenta Bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader)                      | Yes |                        |              |
+|                                [Portenta H7 as a USB Host](https://docs.arduino.cc/tutorials/portenta-h7/usb-host)                                 | Yes |                        |              |
+|                       [Portenta H7 as a Wi-Fi Access Point](https://docs.arduino.cc/tutorials/portenta-h7/wifi-access-point)                       | Yes |                        |              |
+|                 [Blob Detection with Portenta and OpenMV](https://docs.arduino.cc/tutorials/portenta-vision-shield/blob-detection)                 |  +  |           +            |              |
+|                            [Blob Detection with OpenMV](https://docs.arduino.cc/tutorials/nicla-vision/blob-detection)                             |     |                        |     Yes      |
+|          [Saving Bitmap Camera Images to the SD Card](https://docs.arduino.cc/tutorials/portenta-vision-shield/camera-to-bitmap-sd-card)           |  +  |           +            |              |
+|          [Creating a Basic Face Filter With OpenMV](https://docs.arduino.cc/tutorials/portenta-vision-shield/creating-basic-face-filter)           |  +  |           +            |              |
+| [Training a Custom Machine Learning Model for Portenta H7](https://docs.arduino.cc/tutorials/portenta-vision-shield/custom-machine-learning-model) |  +  |           +            |              |
+|                   [Image Classification with Edge Impulse®](https://docs.arduino.cc/tutorials/nicla-vision/image-classification)                   |     |                        |     Yes      |
+|               [Reading Audio Samples With the Onboard Microphone](https://docs.arduino.cc/tutorials/nicla-vision/microphone-sensor)                | Yes |                        |              |
+|                       [Accessing IMU Data on Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/nicla-vision-imu)                        | Yes |                        |              |
+|                     [Proximity Detection with Arduino Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/proximity)                      | Yes |                        |              |
 
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that to follow the tutorial you must use all the products with the `+` symbol.
 
