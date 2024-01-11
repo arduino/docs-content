@@ -467,7 +467,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## SRRC
 
-The Arduino® UNO R4 WiFi has a ESP32-S3 MCU embedded in the NORA-W106 radio module, which has been certified by the State Radio Regulatory Commission (SRRC).
+This equipment contains a radio transmitter module with model approval code: CMIIT ID: 2022DP6085.
 
 ## Company Information
 
