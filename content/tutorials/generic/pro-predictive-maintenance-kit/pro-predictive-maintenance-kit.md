@@ -85,7 +85,9 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |                [Sensors Readings on a Local Webserver](https://docs.arduino.cc/tutorials/nicla-sense-me/cli-tool)                 |     |             |      Yes       |
 |   [Displaying on-Board Sensor Values on a WebBLE Dashboard](https://docs.arduino.cc/tutorials/nicla-sense-me/web-ble-dashboard)   |     |             |      Yes       |
 |       [Energy Metering with the Portenta C33](https://docs.arduino.cc/tutorials/portenta-c33/energy-meter-application-note)       | Yes |             |                |
-
+|                    [Nicla Sense ME User Manual](https://docs.arduino.cc/tutorials/nicla-sense-me/user-manual)                     |     |             |      Yes       |
+|                       [Nicla Voice User Manual](https://docs.arduino.cc/tutorials/nicla-voice/user-manual)                        |     |     Yes     |                |
+|                      [Portenta C33 User Manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual)                       | Yes |             |                |
 
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that the product can be used with the experience even when the tutorials are using another board or compatible product.
 
