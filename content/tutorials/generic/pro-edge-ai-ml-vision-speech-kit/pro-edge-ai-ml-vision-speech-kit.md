@@ -69,7 +69,7 @@ Additionally you may need the following accessories:
 
 7. Check the [Nicla Vision docs](https://docs.arduino.cc/hardware/nicla-vision) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00051-datasheet.pdf). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00051-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00051-schematics.pdf) are also available.
 
-8. Start practicing the first examples included in the User Manual, the IDE examples and the experiences proposed in the following section.
+8. Start practicing the first examples included in the products user manuals, the IDE examples and the experiences proposed in the following section.
 
 
 ## Experiences Proposed
