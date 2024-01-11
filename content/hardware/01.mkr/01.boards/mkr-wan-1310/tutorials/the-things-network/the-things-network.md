@@ -75,7 +75,7 @@ In this tutorial, we will be covering the basics of setting up a MKRWAN series d
 
 The aim with this tutorial is to achieve a connection between a MKR WAN 1310 board and The Things Network (TTN). First, we will need to retrieve our device's Extended Unique Identifier (EUI). Then, we will create an account at [The Things Network](https://console.cloud.thethings.network/), connect to a gateway in range and send a message through the gateway to the TTN service.
 
-**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it.
+**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it.
 
 **2.** Now, we need to install the library needed. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **MKRWAN** and install it.
 

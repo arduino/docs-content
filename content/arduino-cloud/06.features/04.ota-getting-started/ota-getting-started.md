@@ -51,7 +51,7 @@ In order to configure the feature, we will need to create a project in the Ardui
 
 **1.** Go to the [Arduino Cloud](https://app.arduino.cc/) by opening the grid menu in any Arduino Site.
 
-![Navigating to the cloud.](assets/iot_cloud_grid.png)
+![Navigating to the Cloud.](assets/iot_cloud_grid.png)
 
 > **Note:** You will need to have an Arduino account to be able to use both the Web editor and Arduino Cloud features.
 
@@ -97,7 +97,7 @@ Check the highlighted lines in the following code to see what required changes a
 
 Now that we have checked that everything is working as it should, let’s go back to the **Things > smart_led >**  **Sketch** tab in the Arduino Cloud, and see what has happened there.
 
-Once in the sketch tab, let’s open the board's drop down menu. There, a new option to connect our board should be available. The name of the board configured for the cloud will appear, followed by the **Over-the-Air** option.
+Once in the sketch tab, let’s open the board's drop down menu. There, a new option to connect our board should be available. The name of the board configured for the Cloud will appear, followed by the **Over-the-Air** option.
 
 ![List of devices available.](assets/device_OtA.png)
 

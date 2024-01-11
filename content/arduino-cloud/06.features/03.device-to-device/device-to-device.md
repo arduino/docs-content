@@ -51,11 +51,11 @@ Follow the circuit below to connect the buttons and LEDs to your Arduino board.
 
 To start, we will need to head over to the [Arduino Cloud](https://app.arduino.cc/). This is also accessible through the menu at the top right.
 
-![1Navigate to the cloud.](assets/device-to-device-img-02.png)
+![1Navigate to the Cloud.](assets/device-to-device-img-02.png)
 
 ### Step 1: Configuring two devices
 
-In this tutorial, we will need to set up **two devices in the Arduino Cloud**. If you have never used this service before, you can check out [our getting started with the IoT cloud guide](https://www.arduino.cc/en/Tutorial/iot-cloud-getting-started).
+In this tutorial, we will need to set up **two devices in the Arduino Cloud**. If you have never used this service before, you can check out [our getting started with the Arduino Cloud guide](https://www.arduino.cc/en/Tutorial/iot-cloud-getting-started).
 
 Now that we are working with two devices, it is important to separate them from each other, since they will later be linked to two different Things. In this tutorial, we named the devices:
 

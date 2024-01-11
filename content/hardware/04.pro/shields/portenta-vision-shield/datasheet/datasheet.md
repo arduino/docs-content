@@ -57,17 +57,17 @@ The Portenta Vision Shield is available in two variants:
 
 
 ### Application Examples
-Thanks to the low power consumption of the Vision Shield, it is well suited for bringing machine learning to a wide range of Industry 4.0 and IoT applications.
+Thanks to the low power consumption of the Portenta Vision Shield, it is well suited for bringing machine learning to a wide range of Industry 4.0 and IoT applications.
 
 - **Industrial production:** The included HM-01B0 camera along with the OpenMV libraries allows for quality control of items within a manufacturing or packaging plant. The small footprint, low power consumption and LoRa®/Ethernet connectivity allow for the module to be deployed essentially anywhere so that defects are identified quickly and removed from the production environment.
 
-- **Predictive maintenance:** The combination of machine vision and machine learning capabilities of the Vision Shield and the Portenta H7 opens up possibilities for predictive maintenance based on subtle differences in the visual representation of machinery. These capabilities are further enhanced with the two MP34DT05 MEMS microphones included in the Vision Shield.
+- **Predictive maintenance:** The combination of machine vision and machine learning capabilities of the Portenta Vision Shield and the Portenta H7 opens up possibilities for predictive maintenance based on subtle differences in the visual representation of machinery. These capabilities are further enhanced with the two MP34DT05 MEMS microphones included in the Portenta Vision Shield.
 
-- **Surveillance:** The Vision Shield is able to provide surveillance capabilities in areas with low Wi-Fi® penetration (e.g. warehouses) and large areas
- (e.g. shopping centers). The OpenMV libraries enable the Vision Shield to identify objects and alert the operator via LoRa® while saving a snapshot on the microSD storage slot.
+- **Surveillance:** The Portenta Vision Shield is able to provide surveillance capabilities in areas with low Wi-Fi® penetration (e.g. warehouses) and large areas
+ (e.g. shopping centers). The OpenMV libraries enable the Portenta Vision Shield to identify objects and alert the operator via LoRa® while saving a snapshot on the microSD storage slot.
 
 ### Related Products
-The Vision Shield is developed as an add-on shield compatible with the following Portenta boards:
+The Portenta Vision Shield is developed as an add-on shield compatible with the following Portenta boards:
 * Portenta H7 (ABX00042)
 * Portenta H7 Lite (ABX00045)
 * Portenta H7 Lite Connected (ABX00046)
@@ -111,7 +111,7 @@ The Portenta H7/C33 supplies 3.3 V power to the LoRa® module (ASX00026 only), E
 
 ### Camera Module
 
-The Himax HM-01B0 Module is a very low-power camera with 324x324 resolution and a maximum of 60 FPS depending on the operating mode. Video data is transferred over a configurable 8-bit interconnect with support for frame and line synchronization. The module delivered with the Vision Shield is the monochrome version. Configuration is achieved via an I2C connection with the compatible Portenta boards microcontrollers.
+The Himax HM-01B0 Module is a very low-power camera with 324x324 resolution and a maximum of 60 FPS depending on the operating mode. Video data is transferred over a configurable 8-bit interconnect with support for frame and line synchronization. The module delivered with the Portenta Vision Shield is the monochrome version. Configuration is achieved via an I2C connection with the compatible Portenta boards microcontrollers.
 
 HM-01B0 offers very low-power image acquisition and provides the possibility to perform motion detection without main processor interaction. The “Always-on” operation provides the ability to turn on the main processor when movement is detected with minimal power consumption.
 
@@ -127,7 +127,7 @@ The sensing element, capable of detecting acoustic waves, is manufactured using 
 
 ### Micro SD Card Slot
 
-A Micro SD card slot is available under the Vision Shield board. Available libraries allow reading and writing to FAT16/32 formatted cards.
+A Micro SD card slot is available under the Portenta Vision Shield board. Available libraries allow reading and writing to FAT16/32 formatted cards.
 
 
 ### Ethernet (ASX00021 Only)
@@ -157,9 +157,9 @@ All Arduino and Genuino boards, including this one, work out-of-the-box on the A
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[5]** to start coding on the browser and upload your sketches onto your board.
 
 
-### Getting Started – Arduino IoT Cloud
+### Getting Started – Arduino Cloud
 
-All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT-enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[6]**, the Arduino Library Reference **[7]** and the online store **[8]** where you will be able to complement your board with sensors, actuators and more.

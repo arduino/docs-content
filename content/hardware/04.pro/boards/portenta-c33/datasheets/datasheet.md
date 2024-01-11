@@ -22,13 +22,13 @@ IoT, building automation, smart cities, and agriculture
 Thanks to its high-performance processor, the Portenta C33 supports many applications. From industrial applications to rapid prototyping, IoT solutions, and building automation, among many others. Here are some application examples:
 
 - **Industrial Automation:** The Portenta C33 can be implemented as a solution for different industrial applications, such as:
-    - **Industrial IoT gateway:** Connect your devices, machines, and sensors to a Portenta C33 gateway. Collect real-time operation data and display them on an Arduino IoT Cloud dashboard, leveraging end-to-end secure data encryption.
+    - **Industrial IoT gateway:** Connect your devices, machines, and sensors to a Portenta C33 gateway. Collect real-time operation data and display them on an Arduino Cloud dashboard, leveraging end-to-end secure data encryption.
     - **Machine monitoring to track OEE/OPE:** Track Overall Equipment Efficiency (OEE) and Overall Process Effectiveness (OPE) with the Portenta C33 as an IoT node. Collect data and get alerted on machine uptime and unplanned downtime to provide reactive maintenance and improve production rate.
     - **Inline Quality Assurance:** Leverage full compatibility between Portenta C33 and Nicla family to carry out quality control in your production lines. Collect Nicla smart sensing data with the Portenta C33 to catch defects early and resolve them before they travel down the line.
 - **Prototyping:** The Portenta C33 can assist Portenta and MKR developers with their IoT prototypes by integrating ready-to-use Wi-Fi®/Bluetooth® connectivity and various peripheral interfaces, including CAN, SAI, SPI, and I2C. Moreover, the Portenta C33 can be promptly programmed with high-level languages like MicroPython, allowing for rapid prototyping of IoT applications.
 
 - **Building Automation:** The Portenta C33 can be used in multiple building automation applications:
-    - **Energy Consumption Monitoring:** Collect and monitor consumption data from all services (e.g., gas, water, electricity) in a single system. Display usage trends in Arduino IoT Cloud charts, providing an overall image for energy management optimization and cost reduction.
+    - **Energy Consumption Monitoring:** Collect and monitor consumption data from all services (e.g., gas, water, electricity) in a single system. Display usage trends in Arduino Cloud charts, providing an overall image for energy management optimization and cost reduction.
     - **Appliances Control System**: Leverage high-performing Portenta C33 microcontroller to control in real-time your appliances. Adjust HVAC heating or improve the efficiency of your ventilation system, control the motors of your curtains, and switch on/off lights. The onboard Wi-Fi® connectivity easily allows Cloud integration, so that everything is under control even from the remote.
 
 </div>
@@ -306,11 +306,11 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 - Arduino® Portenta Hat Carrier (SKU: ASX00049)
 - Arduino® Portenta CAT.M1/NB IoT GNSS Shield (SKU: ABX00043)
 - Arduino® Portenta Vision Shield - Ethernet (SKU: ABX00021)
-- Arduino® Portenta Vision Shield - LoRa® (SKU: ABX00026)
+- Arduino® Portenta Vision Shield - LoRa (SKU: ABX00026)
 - Arduino® Portenta Breakout (SKU: ABX00031)
 - Arduino® boards with an onboard ESLOV connector
 
-**Note**: The Portenta Vision Shields (Ethernet and LoRa® variants) are compatible with the Portenta C33 except for the camera, which is not supported by the Portenta C33 microcontroller. 
+**Note**: The Portenta Vision Shields (Ethernet and LoRa variants) are compatible with the Portenta C33 except for the camera, which is not supported by the Portenta C33 microcontroller. 
 
 ## Ratings
 
@@ -483,9 +483,9 @@ All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by
 
 The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
-### Getting Started - Arduino IoT Cloud
+### Getting Started - Arduino Cloud
 
-All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino® IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
 

@@ -9,8 +9,8 @@ Learn the basics of MicroPython with the Nano ESP32 and our free MicroPython 101
 <FeatureLink title="MicroPython 101" url="/micropython-course"/>
 </Feature>
 
-<Feature title="Arduino IoT Cloud" image="wifi">
-The Nano ESP32 is compatible with the Arduino IoT Cloud platform. Build IoT projects in just minutes!
+<Feature title="Arduino Cloud" image="wifi">
+The Nano ESP32 is compatible with the Arduino Cloud platform. Build IoT projects in just minutes!
 <FeatureLink title="Go to Platform" url="https://create.arduino.cc/iot/"/>
 </Feature>
 

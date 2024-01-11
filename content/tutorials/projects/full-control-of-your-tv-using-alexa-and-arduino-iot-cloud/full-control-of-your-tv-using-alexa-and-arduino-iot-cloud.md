@@ -1,6 +1,6 @@
 ---
-title: "Full Control of Your TV Using Alexa and Arduino IoT Cloud"
-description: "Learn how to use Arduino IoT Cloud and Amazon Alexa to switch the channel, adjust the volume and turn on or off any TV."
+title: "Full Control of Your TV Using Alexa and Arduino Cloud"
+description: "Learn how to use Arduino Cloud and Amazon Alexa to switch the channel, adjust the volume and turn on or off any TV."
 coverImage: "assets/_VKKWOq5yC4.png"
 tags: [alexa, cloud, home automation, television]
 difficulty: "advanced"
@@ -20,16 +20,16 @@ source: "https://create.arduino.cc/projecthub/313276/full-control-of-your-tv-usi
 ## Apps and Online Services
 
 - [Arduino Web Editor](https://create.arduino.cc/editor)
-- [Arduino IoT Cloud](https://cloud.arduino.cc)
+- [Arduino Cloud](https://cloud.arduino.cc)
 - [Arduino Amazon Alexa Official Arduino Skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H)
 
 ## About This Project
 
-### Intro: Arduino IoT Cloud
+### Intro: Arduino Cloud
 
-[Arduino IoT Cloud](https://create.arduino.cc/iot/) is a platform that enables anyone to build IoT connected object with ease. In order to control our TV using Alexa, we'll also be using the [Official Arduino Alexa Skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H).
+[Arduino Cloud](https://create.arduino.cc/iot/) is a platform that enables anyone to build IoT connected object with ease. In order to control our TV using Alexa, we'll also be using the [Official Arduino Alexa Skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H).
 
-If you are new to Arduino IoT Cloud, we advise to first take a look at [this introductory project](https://create.arduino.cc/projecthub/133030/iot-cloud-getting-started-c93255), which will give you an overview and guide you through the process of setting up one of the supported boards, IoT Cloud *Things* and *Properties* and get you onboard.
+If you are new to Arduino Cloud, we advise to first take a look at [this introductory project](https://create.arduino.cc/projecthub/133030/iot-cloud-getting-started-c93255), which will give you an overview and guide you through the process of setting up one of the supported boards, IoT Cloud *Things* and *Properties* and get you onboard.
 
 ### Part 1: How to Control a TV Set
 
@@ -74,9 +74,9 @@ CHANNEL DOWN
 unsigned int chanDown[67] = {4500,4450, 600,1650, 550,1700, 550,1650, 550,600, 550,550, 550,550, 550,600, 500,600, 550,1700, 500,1700, 550,1700, 550,550, 550,600, 550,550, 550,550, 550,550, 600,550, 550,550, 550,600, 500,600, 550,1650, 600,550, 550,550, 550,550, 600,1650, 550,1700, 500,1700, 600,1650, 550,550, 600,1650, 550,1700, 500,1700, 550};
 ```
 
-### Part 2: Arduino IoT Cloud
+### Part 2: Arduino Cloud
 
-From the main **Arduino IoT Cloud** page, we'll create a new *Thing* and assign it a meaningful name. Let's call it **TVRemoteController**. We'll then select the board we are going to use. For this tutorial we used an Arduino Nano 33 IoT, but if you have another compatible board it will also be fine, just keep in mind that the pinout and the behavior of the IR library might change. If at this point you cannot see your board, you might have skipped the *Getting Started* procedure we mentioned above, if this is the case, go back through that process.
+From the main **Arduino Cloud** page, we'll create a new *Thing* and assign it a meaningful name. Let's call it **TVRemoteController**. We'll then select the board we are going to use. For this tutorial we used an Arduino Nano 33 IoT, but if you have another compatible board it will also be fine, just keep in mind that the pinout and the behavior of the IR library might change. If at this point you cannot see your board, you might have skipped the *Getting Started* procedure we mentioned above, if this is the case, go back through that process.
 
 Once done, we'll add one *Property* to our *Thing*, it will represent our TV set. Under the *Smart Home* category, select "TV" as Property Type, set it as "Read & Write", and under "Update" select "When the value changes".
 
@@ -253,7 +253,7 @@ Let's go through the steps necessary to install the Arduino Alexa Skill and conf
 
 
 
-![7/11: Our Alexa and Arduino IoT Cloud can now talk to each other :)](assets/06_eEr9LwQeSJ.png)
+![7/11: Our Alexa and Arduino Cloud can now talk to each other :)](assets/06_eEr9LwQeSJ.png)
 
 
 

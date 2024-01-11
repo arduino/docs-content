@@ -8,7 +8,7 @@ author: Karl Söderby
 The communication between IoT devices and the Arduino Cloud is handled through something called **Things**. Things are a virtual twin of your hardware/setup, where you perform a lot of the configurations for your projects. 
 
 In the Thing interface you can:
-- Create cloud variables that can be synced across devices,
+- Create Cloud variables that can be synced across devices,
 - select the main device you want to associate with,
 - enter network credentials (such as Wi-Fi network/password),
 - edit & upload sketches to your board,
@@ -38,7 +38,7 @@ The variables section is where you create **"Cloud Variables"**, a variable that
 
 When you create a variable, it is automatically\* added to your `thingProperties.h` file, which is included in your Arduino Cloud sketch. This means that you do not need to declare them again. Read more in the [Automatic Sketch Generation](#automatic-sketch-generation) section further down.
 
-For example, if you want to send temperature values to the cloud from a sensor, all you need to do is:
+For example, if you want to send temperature values to the Cloud from a sensor, all you need to do is:
 
 ```arduino
 temperature = sensor.readTemperature();
@@ -105,7 +105,7 @@ Your Thing ID can be obtained from your metadata tab, and looks like this:
 cd628fe4-31d1-42a8-bf33-a627997ce602
 ```
 
-This ID is used when connecting with the [REST API](/arduino-cloud/api/arduino-iot-api) or with the [Arduino CLI](/arduino-cloud/arduino-cloud-cli/getting-started). Using either of these clients provides information about your Thing, such as device associated and cloud variables.
+This ID is used when connecting with the [REST API](/arduino-cloud/api/arduino-iot-api) or with the [Arduino CLI](/arduino-cloud/arduino-cloud-cli/getting-started). Using either of these clients provides information about your Thing, such as device associated and Cloud variables.
 
 ### Timezone
 
@@ -129,6 +129,6 @@ For example:
 - Creating a variable with **read/write** permission will also add a callback function at the bottom of your sketch. This will trigger any time the value changes.
 - Changing your network credentials will update the `arduino_secrets.h` file.
 
-This is implemented so that the connection and synchronization between the board and cloud is handled automatically, meaning you do not need to do any networking code when using the Arduino / C++ language.
+This is implemented so that the connection and synchronization between the board and Cloud is handled automatically, meaning you do not need to do any networking code when using the Arduino / C++ language.
 
-***Please note that if you are using an offline environment, [Arduino IDE](/software/ide-v2), changes will only be made in the cloud environment and will manually need to be adjusted. If you plan on using the offline IDE, you make use of the [sketch synchronisation](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync) feature that allows you to push/pull your cloud sketches from the offline IDE.***
+***Please note that if you are using an offline environment, [Arduino IDE](/software/ide-v2), changes will only be made in the Cloud environment and will manually need to be adjusted. If you plan on using the offline IDE, you make use of the [sketch synchronisation](/software/ide-v2/tutorials/ide-v2-cloud-sketch-sync) feature that allows you to push/pull your Cloud sketches from the offline IDE.***

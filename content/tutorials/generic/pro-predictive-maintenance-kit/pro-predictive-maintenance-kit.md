@@ -52,13 +52,13 @@ Additionally, you may need the following accessories:
 
 ## Getting Started with Your Kit
 
-1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino IoT Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business) with Arduino Cloud For Business!
+1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business) with Arduino Cloud For Business!
 
 2. Download [Arduino IDE](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide) and follow the [Installation Procedure](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) and [Get Started with it](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2)
 
 3. Check the [Nicla Voice docs](https://docs.arduino.cc/hardware/nicla-voice) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00061-datasheet.pdf) and [User Manual](https://docs.arduino.cc/tutorials/nicla-voice/user-manual). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00061-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00061-schematics.pdf)
 
-4. Check the [Nicla Sense ME docs](https://docs.arduino.cc/hardware/nicla-sense-me) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00050-datasheet.pdf), consult the [Cheat Sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet) and [Set it up](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00050-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00050-schematics.pdf)
+4. Check the [Nicla Sense ME docs](https://docs.arduino.cc/hardware/nicla-sense-me) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00050-datasheet.pdf) and the [User Manual](https://docs.arduino.cc/tutorials/nicla-sense-me/user-manual). On [docs.arduino.cc](http://docs.arduino.cc/) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00050-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00050-schematics.pdf)
 
 5. Check this video to see how to assemble your Nicla boards into their enclosures. This will facilitate the deployment of your solutions and improve their robustness and security.
   <div style="text-align: center;">
@@ -85,7 +85,9 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |                [Sensors Readings on a Local Webserver](https://docs.arduino.cc/tutorials/nicla-sense-me/cli-tool)                 |     |             |      Yes       |
 |   [Displaying on-Board Sensor Values on a WebBLE Dashboard](https://docs.arduino.cc/tutorials/nicla-sense-me/web-ble-dashboard)   |     |             |      Yes       |
 |       [Energy Metering with the Portenta C33](https://docs.arduino.cc/tutorials/portenta-c33/energy-meter-application-note)       | Yes |             |                |
-
+|                    [Nicla Sense ME User Manual](https://docs.arduino.cc/tutorials/nicla-sense-me/user-manual)                     |     |             |      Yes       |
+|                       [Nicla Voice User Manual](https://docs.arduino.cc/tutorials/nicla-voice/user-manual)                        |     |     Yes     |                |
+|                      [Portenta C33 User Manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual)                       | Yes |             |                |
 
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that the product can be used with the experience even when the tutorials are using another board or compatible product.
 

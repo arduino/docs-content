@@ -38,9 +38,9 @@ This tutorial shows you how to capture a frame from the Portenta Vision Shield C
 ## Instructions
 
 ### 1. The Setup
-Connect the Vision Shield to your Portenta H7 as shown in the figure. The top and bottom high density connectors are connected to the corresponding ones on the underside of the H7 board. Plug in the H7 to your computer using the USB-C® cable.
+Connect the Portenta Vision Shield to your Portenta H7 as shown in the figure. The top and bottom high density connectors are connected to the corresponding ones on the underside of the H7 board. Plug in the H7 to your computer using the USB-C® cable.
 
-![Connecting the Vision Shield to Portenta](assets/vs_ard_gs_attach_boards.svg)
+![Connecting the Portenta Vision Shield to Portenta](assets/vs_ard_gs_attach_boards.svg)
 
 #### The Camera
 
@@ -271,7 +271,7 @@ Select the right serial port on your IDE and upload the Arduino sketch to your P
 
 Insert a micro SD Card into the Portenta Vision Shield.
 
-Connect the Portenta Vision shield to the Portenta H7.
+Connect the Portenta Vision Shield to the Portenta H7.
 
 Once the sketch is uploaded, open the Serial Monitor or wait 5 seconds: you should see that everything is fine and the capture has been taken.
 
@@ -430,7 +430,7 @@ void countDownBlink(){
 
 ## Conclusion
 
-In this tutorial you learned how to capture frames with your Vision Shield's Camera in the Arduino IDE, encode it with the bitmap standards and save it to an SD Card. 
+In this tutorial you learned how to capture frames with your Portenta Vision Shield's Camera in the Arduino IDE, encode it with the bitmap standards and save it to an SD Card. 
 
 ## Next Steps
 

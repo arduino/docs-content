@@ -2084,7 +2084,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
