@@ -22,7 +22,7 @@ The Pro Smart Industry Prototyping Kit is the perfect way to learn and create so
 
 - Try the Arduino's most advanced SOM experience with X8, a powerful, industrial-grade SOM with Linux OS preloaded onboard, capable of running device-independent software thanks to its modular container architecture.
 - Experience the X8 Manager integration for Arduino Cloud, enabling secure OTA updates and Fleet management.
-- Get all the X8 resources easily accessible and add the  LoRa® and Cat.M1 connectivity layer thanks to Portenta Max Carrier.
+- Get all the X8 resources easily accessible and add the  LoRa® and Cat.M1 connectivity layer thanks to the Portenta Max Carrier.
 
 ![Pro Smart Industry Prototyping Kit Main Features](assets/prototyping-thumb.png)
 
