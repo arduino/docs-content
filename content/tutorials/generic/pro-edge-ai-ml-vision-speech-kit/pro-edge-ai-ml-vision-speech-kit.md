@@ -64,7 +64,7 @@ Additionally you may need the following accessories:
       <source src="assets/vision-enclosure.mp4" type="video/mp4"/>
       </video>
     </div>
-
+  
 6. Check the [Portenta Vision Shield docs](https://docs.arduino.cc/hardware/portenta-vision-shield) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ASX00021-ASX00026-datasheet.pdf), [Set it up](https://docs.arduino.cc/tutorials/portenta-vision-shield/getting-started-camera) and check how to [use it with Arduino IDE](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-ide). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ASX00021-ASX00026-full-pinout.pdf) and the [Schematics](https://docs.arduino.cc/resources/schematics/ASX00026-schematics.pdf) are also available.
 
 7. Check the [Nicla Vision docs](https://docs.arduino.cc/hardware/nicla-vision) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00051-datasheet.pdf). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00051-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00051-schematics.pdf) are also available.
@@ -83,7 +83,7 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |                             [Dual Core Processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing)                             | Yes |               |              |
 |            [Creating a Flash-Optimized Key-Value Store](https://docs.arduino.cc/tutorials/portenta-h7/flash-optimized-key-value-store)             | Yes |               |              |
 |          [Getting Started with OpenMV and MicroPython](https://docs.arduino.cc/tutorials/portenta-h7/getting-started-openmv-micropython)           | Yes |               |              |
-|       [Using the Portenta Vision Shield - Ethernet with OpenMV](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-openmv)       |  +  |       +       |              |
+|       [Using the Portenta Vision Shield - Ethernet with OpenMV](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-openmv)     |  +  |       +       |              |
 |                        [Getting Started with Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/getting-started)                         |     |               |     Yes      |
 |           [Flashing MicroPython Firmware to your Arduino Board](https://docs.arduino.cc/tutorials/portenta-h7/micropython-installation)            | Yes |               |              |
 |                  [Arduino Portenta H7 MicroPython Cheat Sheet](https://docs.arduino.cc/tutorials/portenta-h7/openmv-cheat-sheet)                   | Yes |               |              |
@@ -103,6 +103,7 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |               [Reading Audio Samples With the Onboard Microphone](https://docs.arduino.cc/tutorials/nicla-vision/microphone-sensor)                | Yes |               |              |
 |                       [Accessing IMU Data on Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/nicla-vision-imu)                        | Yes |               |              |
 |                     [Proximity Detection with Arduino Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/proximity)                      | Yes |               |              |
+
 
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that to follow the tutorial you must use all the products with the `+` symbol.
 
