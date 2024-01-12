@@ -150,7 +150,7 @@ const int amplitude = 500; // amplitude of square wave
 
 const int sampleRate = 8000; // sample rate in Hz
 
-const int halfWavelength = (sampleRate / frequency); // half wavelength of square wave
+const int halfWavelength = (sampleRate / frequency) / 2; // half wavelength of square wave
 
 short sample = amplitude; // current sample value
 int count = 0;
