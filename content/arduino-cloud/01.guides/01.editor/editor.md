@@ -31,10 +31,29 @@ In this guide, we will cover:
 - Arduino board (all Arduino boards are supported).
 - USB cable (different depending on the board you are using).
 
-## Create an Account
-
-## Install the Plugin
-
 ## Cloud Editor Overview
 
-## Upload a Sketch
+The Cloud Editor features all the necessary tools to develop and test your Arduino projects, including:
+- A compiler that checks that your code works on the specified board,
+- an upload tool that uploads a sketch to your board,
+- the Serial Monitor, a tool that reads the serial commands send from your board.
+
+In the image below, you can get a brief overview of the available functionalities.
+
+![Cloud Editor overview.](assets/editor-overview.png)
+
+1. **Arduino Cloud Menu** - quicklinks to the Arduino Cloud platform.
+2. **Built-in Examples** -  a set of basic Arduino examples.
+3. **Libraries** - all libraries that are included in the Arduino library manager (5000+).
+4. **Reference** - the Arduino Reference provides an overview of the available methods in the Arduino programming API.
+5. **Editor** - the code editor area, where we write the program for our board.
+6. **Verify/Upload** - verify (compile) your code using the checkmark button, and upload it to your board using the right arrow. 
+7. ****
+
+## Setup
+
+### Create an Account
+
+### Install the Plugin
+
+### Upload a Sketch
