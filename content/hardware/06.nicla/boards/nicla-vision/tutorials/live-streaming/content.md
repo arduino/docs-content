@@ -226,7 +226,7 @@ s.setblocking(True)
 
 ```
 
-#### 2. Preparing the Sensor
+#### 3. Preparing the Sensor
 ```python
 # Camera setup and initialization
 sensor.reset() # Resets the sensor
@@ -238,7 +238,7 @@ The most relevant functions in this snipped are `set_pixformat` and `set_framesi
 
 The resolution of the camera needs to be set to a supported format both by the sensor and the algorithm. `QVGA` is a good trade-off between performance and resolution so you will use that in this tutorial.
 
-#### 3. Streaming Function
+#### 4. Streaming Function
 
 The `start_streaming()` function waits for a client to get connected to the socket server, prints the client address and sends it the headers preparing the connection for live streaming.
 
@@ -284,7 +284,7 @@ def start_streaming(s):
         print(clock.fps())
 ```
 
-#### 4. Uploading the Script
+#### 5. Uploading the Script
 Let's program the board with the complete script and test if everything works. Copy the whole [example code](#the-example-code) and paste it into the new script file that you created.
 
 Open the OpenMV Serial Monitor by clicking on _Serial Terminal_ in the lower left corner. Click the _Play_ button at the bottom of the left toolbar. See the board connection progress in the terminal, once connected, the _host address_ will be printed out. 
