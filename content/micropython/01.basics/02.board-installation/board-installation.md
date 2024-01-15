@@ -72,6 +72,7 @@ Now your board should be prepared to be programmed with MicroPython!
 ## Nano 33 BLE & Nano 33 BLE Sense
 
 - [Nano 33 BLE documentation](/hardware/nano-33-ble).
+- [Nano 33 BLE Rev2 documentation.](/hardware/nano-33-ble-rev2)
 - [Nano 33 BLE Sense documentation.](/hardware/nano-33-ble-sense)
 - [Nano 33 BLE Sense Rev2 documentation.](/hardware/nano-33-ble-sense-rev2)
 
