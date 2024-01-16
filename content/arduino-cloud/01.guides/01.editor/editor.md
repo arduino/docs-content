@@ -86,13 +86,15 @@ In the Serial Moitor window you can:
 - Pause the stream, and search through the log,
 - Clear the log.
 
+***Note that the Serial Monitor opens as a new window.***
+
 ## Resources
 
 The resources (examples, libraries & reference) are all available from the menu on the left hand side. 
 
 ### Examples
 
-The "built-in" examples are a set of basic examples focused at learning some key Arduino concepts. Classic examples such as `Blink` and `AnalogReadSerial` will help you get started, with links inside each example to more detailed documentation.
+The "built-in examples" are a set of basic examples focused at teaching some key Arduino concepts. Classic examples such as `Blink` and `AnalogReadSerial` will help you get started, with links inside each example to more detailed documentation.
 
 ![Examples.](assets/examples.png)
 
@@ -106,6 +108,6 @@ Most libraries provide examples, which can be accessed be clicking the three dot
 
 ### Reference
 
-The reference is an embedded version of the [Arduino Language Reference](), which helps you understand the Arduino programming language & syntax.
+The reference is an embedded version of the [Arduino Language Reference](https://www.arduino.cc/reference/en/), which helps you understand the Arduino programming language & syntax.
 
 ![Reference.](assets/reference.png)
