@@ -83,7 +83,7 @@ The library has undergone significant structural changes to improve its efficien
 - **Function optimization**: Unused functions have been removed, streamlining the library.
 - **Direct calls to mbed core removed**: This change enhances the library's compatibility and ease of use.
 - **Example reworking**: Updated examples provide clearer demonstrations of the library's capabilities.
-- **Documentation improvement**: Enhanced documentation offers bette support to users.
+- **Documentation improvement**: Enhanced documentation offers better support to users.
 
 #### Practical Application Enhancements
 <br></br>
