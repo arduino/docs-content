@@ -18,7 +18,7 @@ software:
 
 ## Overview
 
-The Arduino Portenta Machine Control is a versatile industrial control unit for driving machinery. It offers soft-PLC control, diverse input/output options, and flexible network connectivity. The latest release of the `Arduino_MachineControl` library enables efficient management of the software and hardware features of the Portenta Machine Control. This tutorial aims to highlight the recent changes in the library, focusing on its user-friendly approach and adherence to the Arduino ecosystem rules, conventions, and style.
+The Arduino Portenta Machine Control is a versatile industrial control unit for driving machinery. It offers soft-PLC control, diverse input/output options, and flexible network connectivity. The `Arduino_PortentaMachineControl` library enables efficient management of the software and hardware features of the Portenta Machine Control. This library is an upgraded and improved version designed to replace the deprecated [Arduino_MachineControl](https://github.com/arduino-libraries/Arduino_MachineControl) library. This tutorial aims to highlight the recent changes in the library, focusing on its user-friendly approach and adherence to the Arduino ecosystem rules, conventions, and style.
 
 ## Goals
 
