@@ -7,7 +7,7 @@ author: Karl Söderby
 
 Compact version of the [Arduino Language Reference](https://www.arduino.cc/reference/en/). This document is a **TLDR;** of the Arduino API.
 
-***Please note that as of 2024/01/05, this article is still a work in progress.***
+***Please note that as of 2024/01/15, this article is still a work in progress.***
 
 ## Functions
 
