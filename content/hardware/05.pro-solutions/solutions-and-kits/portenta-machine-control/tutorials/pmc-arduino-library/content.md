@@ -38,7 +38,7 @@ The Arduino Portenta Machine Control is a versatile industrial control unit for 
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
-- [Arduino_MachineControl library](https://github.com/leonardocavagnis/Arduino_MachineControl/tree/lib_refactoring)
+- [Arduino_PortentaMachineControl library](https://github.com/arduino-libraries/Arduino_PortentaMachineControl)
 
 ## Arduino_MachineControl Library
 
