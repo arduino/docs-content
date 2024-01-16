@@ -71,7 +71,7 @@ The `Arduino_PortentaMachineControl` library offers a wide range of functionalit
 **Additional functionalities**
 - Real-Time Clock (RTC)
 
-### Improvements Between Library Releases
+### Improvements Between Libraries
 
 #### Structural and Functional Enhancements
 <br></br>
