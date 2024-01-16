@@ -5,6 +5,8 @@ authors: Karl Söderby
 micropython_type: basics
 ---
 
+***Please note that some part of this reference is still in progress and will be updated over time. The article is subject to minor changes.***
+
 This reference serves as a "translation" between what is known as the **Arduino API**, which is documented in the [Arduino Language Reference](https://www.arduino.cc/reference/en/), and the **MicroPython API**.
 
 The main goal with this reference is to provide an understanding of how to e.g. use common Arduino concepts such as `digitalWrite()` in a MicroPython script.
