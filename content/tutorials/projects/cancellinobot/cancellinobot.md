@@ -36,11 +36,11 @@ https://web.telegram.org
 
 Use Telegram is a smart way to do domotic, because you don't have to install other apps and overall because you can create your own Bot and share it with relatives or friends.
 
-What is a Bot? 
+What is a Bot?
 
 "Bots are third-party applications that run inside Telegram. Users can interact with bots by sending them messages, commands and inline requests".
 
-So basically it's a small App hosted and delivered for you by Telegram! 
+So basically it's a small App hosted and delivered for you by Telegram!
 
 *Don't forget that the components needed for this project are available on our store in the [BOT Bundle](https://store.arduino.cc/bot-bundle).*
 
@@ -115,13 +115,13 @@ Just update the row:
 #include <WiFi101.h>
 ```
 
-into 
+into
 
 ```arduino
 #include <WiFiNINA.h>
 ```
 
-Change also: 
+Change also:
 
 ```arduino
 // Initialize Wifi connection to the router
@@ -132,7 +132,7 @@ const int ledPin = 13;
 #define BOTtoken "XXXXXXXXX:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"  // your Bot Token (Get from Botfather)
 ```
 
-into 
+into
 
 ```arduino
 // Initialize Wifi connection to the router
@@ -152,9 +152,9 @@ Don't forget to add in the *void setup()* function the following instruction:
 pinMode(relayPin, OUTPUT);
 ```
 
-Then, instead of keeping the relevant info like ssid, password, token on the main code, by putting the "SECRET_" word in front of the variables name, we have moved them in the *SECRET* tab! 
+Then, instead of keeping the relevant info like ssid, password, token on the main code, by putting the "SECRET_" word in front of the variables name, we have moved them in the *SECRET* tab!
 
-If we'll share this sketch with someone else, the values on that tab will be blank. 
+If we'll share this sketch with someone else, the values on that tab will be blank.
 
 ![Fill the fields with the values of your wifi network credentials, and with your Bot token.](assets/screenshot_2020-01-10_15-38-44_IKCpHaT6b7.png)
 
@@ -177,7 +177,7 @@ Let's see now how we can transform this example in tart now with a few improveme
 
 ### The Sketch #2: From LED to Gate and Keyboard Update
 
-This is the easiest improvement! 
+This is the easiest improvement!
 
 We need to:
 
@@ -246,7 +246,7 @@ So how can we solve this issue?
 
 Well, we know that in the message received from Telegram Bot, there are other info than the simple message itself.
 
-For example, we have also the user id that has sent the message! 
+For example, we have also the user id that has sent the message!
 
 The user id is a unique number assigned from Telegram at the moment of the account creation. Nobody can change it: it's exactly like an ID.
 
@@ -260,7 +260,7 @@ This will replay with a few info, and between them the ID.
 
 ![User info.](assets/screenshot_2020-01-10_16-49-21_HBM1GSiP1V.png)
 
-We have to consider that there must be an Admin, able to add or remove other users. 
+We have to consider that there must be an Admin, able to add or remove other users.
 
 The ID of this Admin will be written into the code and stored in the Secret tab, meanwhile the ID of the authorized users will be stored in the file *telegram.txt* the SD card, in order to save them between reboot or reset.
 
@@ -269,10 +269,10 @@ So, first of all we have to create this file into the SD card!
 Then we need to include in our code the SD library. Just add at the beginning of the sketch:
 
 ```arduino
-#include <SD.h> 
+#include <SD.h>
 ```
 
-In this project, every authorized user will be saved in the file in the format XXXXXX:AAAAAA where XXXXXXX is the unique ID, and AAAAAA is the nickname of the user (e.g. 
+In this project, every authorized user will be saved in the file in the format XXXXXX:AAAAAA where XXXXXXX is the unique ID, and AAAAAA is the nickname of the user (e.g.
 
 ```arduino
 12345678:Max
@@ -394,7 +394,7 @@ So the old keyboard become something like this: in case of the user is the Admin
      keyboardJson += (isAdmin ? ",[\"View Log\"],[\"List Users\", \"Add / Remove User\"]" : "");
      keyboardJson += "]";
      bot.sendMessageWithReplyKeyboard(chat_id, "Choose from one of the following options", "", keyboardJson, true);
-   } 
+   }
 ```
 
 Since now, and only for the Admin, the keyboard will be something like this:
@@ -418,12 +418,12 @@ Add the following code just after the conditional statement used for the */start
        bot.sendMessage(chat_id, String(i) + " - " + telegram_ids[i]);
      }
    }
-   
+
    if (text == "Add / Remove User" && isAdmin) {
      bot.sendMessage(chat_id, "To add a new ID, just type \"/add XXXXXXXX YYYYYY\" where XXXXXXXX is the user ID you want to add, and YYYYYY is his/her nickname, and send the message!");
      bot.sendMessage(chat_id, "To remove an existent ID, just type \"/del XXXXXXXX\" where XXXXXXXX is the user ID you want to remove, and send the message!");
    }
-   
+
    if (text.indexOf("/add") > -1  && isAdmin) {
      if (idIndex < MAX_IDS) {
        //extract from the string the ID and the nick. We know that there's a space after "/add", and a space after the ID
@@ -470,10 +470,10 @@ Add the following code just after the conditional statement used for the */start
        bot.sendMessage(chat_id, ID + " successfully removed!");
      }
    }
-  
+
    //View the Log!
    if (text == "View Log" && isAdmin) {
-     //show the entries of the "rolling array" 
+     //show the entries of the "rolling array"
      if (logIndex == 0) {
        bot.sendMessage(chat_id, "Nothing to see here...", "");
      } else {
@@ -556,13 +556,13 @@ Now we can go on, and add these few rows of code just before the authorization l
     unsigned long t = msgDate.toInt();
     char msgDateStr[17];
     sprintf (msgDateStr, "%02d/%02d/%02d %02d:%02d:%02d", day(t), month(t), year(t), hour(t) + timeZone, minute(t), second(t));
-   
+
     //prepare the string for the log
     String logRow = String(msgDateStr) + " - " + userId + " " + userName + " - " + text;
 ```
 
 We will use then this `saveToLog()` function to write to both the buffer and to the file (just put it at the end of the sketch)
- 
+
 ```arduino
 void saveToLog(String logRow) {
  Serial.println(logRow);
@@ -579,7 +579,7 @@ void saveToLog(String logRow) {
 }
 ```
 
-Now we have a String with all the info related to a new message, and the function to store it. 
+Now we have a String with all the info related to a new message, and the function to store it.
 
 So let's update the code by adding the row:
 
@@ -587,7 +587,7 @@ So let's update the code by adding the row:
 saveToLog(logRow);
 ```
 
-every time we want to save a particular command. 
+every time we want to save a particular command.
 
 Maybe we don't need to save ALL the incoming message, but only the message from unauthorized user and message related to the opening of the gate, so for example the code that send back to the unauthorized user the message "Nice try" can become something like this:
 

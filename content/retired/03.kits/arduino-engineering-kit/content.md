@@ -10,9 +10,9 @@ source: "https://store.arduino.cc/arduino-engineering-kit"
 
 ![The Arduino Engineering Kit](./assets/engineering_kit_featured_1.jpg)
 
-This product is retired and 
+This product is retired and
 
-Challenge engineering students and help them develop engineering skills with the Arduino Engineering Kit. The kit is a practical, hands-on tool that demonstrates key engineering concepts, core aspects of mechatronics, and MATLAB and Simulink programming. Ideal for advanced high school and college students, it includes three projects to teach the basics of modeling, controls, image processing, robotics, signal processing, and more. 
+Challenge engineering students and help them develop engineering skills with the Arduino Engineering Kit. The kit is a practical, hands-on tool that demonstrates key engineering concepts, core aspects of mechatronics, and MATLAB and Simulink programming. Ideal for advanced high school and college students, it includes three projects to teach the basics of modeling, controls, image processing, robotics, signal processing, and more.
 
 These projects create a collaborative learning environment— plus they’re fun to do.
 
@@ -28,9 +28,9 @@ This vehicle can navigate between given reference points, move objects with a fo
 
 This amazing robot can take a drawing it’s given and duplicate it on a whiteboard.
 
-The kit is sold in a hard plastic, stackable tool box for storage and years of reuse. Inside the box is an easy-to-use Arduino MKR1000 board, several customized parts, and a complete set of electrical and mechanical components needed to assemble all three projects. 
+The kit is sold in a hard plastic, stackable tool box for storage and years of reuse. Inside the box is an easy-to-use Arduino MKR1000 board, several customized parts, and a complete set of electrical and mechanical components needed to assemble all three projects.
 
-In addition, students get access to a dedicated e-learning platform and other learning materials. Additionally, they are granted a one-year individual license of MATLAB and Simulink. This license is for educational use only, not for government, research, commercial, or other organizational use.  
+In addition, students get access to a dedicated e-learning platform and other learning materials. Additionally, they are granted a one-year individual license of MATLAB and Simulink. This license is for educational use only, not for government, research, commercial, or other organizational use.
 
 ### Need Help?
 
@@ -41,9 +41,9 @@ In addition, students get access to a dedicated e-learning platform and other le
 
 The Arduino Engineering Kit is built on its own Education Learning Management System (LMS) with step-by-step instructions and lessons.
 
-The content of this kit is divided into six chapters, featuring a short introduction, a getting-started guide for the tools that will be used, a concepts section, and finally the projects themselves. Users will receive access to the online platform for one year and can purchase additional licenses to extend platform access.   
-  
-Learning objectives include, but are not limited to the following:  
+The content of this kit is divided into six chapters, featuring a short introduction, a getting-started guide for the tools that will be used, a concepts section, and finally the projects themselves. Users will receive access to the online platform for one year and can purchase additional licenses to extend platform access.
+
+Learning objectives include, but are not limited to the following:
 
 * MATLAB and Simulink basics;
 * Connect MATLAB and Simulink to the Arduino MKR1000 and read/write data from connected sensors (encoders, IMU, hall sensor) and actuators (DC motors, servo motor);
@@ -55,7 +55,7 @@ Learning objectives include, but are not limited to the following:
 * Tune and optimize Simulink model parameters as the application is running on Arduino;
 * Download the completed Simulink model for standalone execution on the Arduino
 
-The online platform will help students learn fundamental engineering concepts, key aspects of mechatronics, and MATLAB and Simulink programming. The content is currently available in English.  
+The online platform will help students learn fundamental engineering concepts, key aspects of mechatronics, and MATLAB and Simulink programming. The content is currently available in English.
 
 ## Kit content
 
@@ -106,14 +106,14 @@ Each Arduino Engineering Kit includes:
 * 2 Whiteboard Pens
 * 1 Sticker for Vision Recognition
 
-Since some components are used in more than one project, users are limited to one fully assembled project at a time. 
+Since some components are used in more than one project, users are limited to one fully assembled project at a time.
 
 ## FAQ
 
 **This kit is intended for whom? Do users need an engineering background?**
 
 The kit has primarily been designed for: students learning about engineering at a university or vocational school, instructors teaching engineering and related courses, makers with an interest or background in engineering. Users don’t necessarily need to have engineering background to operate the projects, since all MATLAB and Simulink programs are included. However, for users that wish to extend and evolve the provided programs it will be helpful to understand the underlying engineering concepts.
-  
+
 **Why are MATLAB and Simulink used instead of Arduino IDE?**
 
 MATLAB and Simulink are built for engineers and make the complex math and engineering calculations in the kit’s projects easier and more intuitive. They are pervasive across industries and many engineers will use them in their future jobs.
@@ -132,7 +132,7 @@ The kit covers system modeling, controls, image processing, robotics, signal pro
 
 **What if the included license is not sufficient? Suppose several individuals who will be sharing a kit need access for longer than one year. What should we do to get more licenses?**
 
-MathWorks has various options for supplementing the included license. They will assist you in determining what is appropriate for your situation. Please visit <https://www.mathworks.com/company/aboutus/contact_us/arduino_engineering_kit.html> to learn more.
+MathWorks has various options for supplementing the included license. They will assist you in determining what is appropriate for your situation. Please visit [https://www.mathworks.com/company/aboutus/contact_us/arduino_engineering_kit.html](https://www.mathworks.com/company/aboutus/contact_us/arduino_engineering_kit.html) to learn more.
 
 **If I have an existing MATLAB license, can I use just that?**
 
@@ -144,5 +144,5 @@ You can login [here](https://create.arduino.cc/edu/courses/course/) with your de
 
 **My Mathwork and simulink license has expired, how do I renew it?**
 
-The Arduino engineering kit includes a one year license for Matlab and Simulink for free. If you wish to continue using Matlab/Simulink after the trial period, you can purchase a new license by following the link below:  
-<https://se.mathworks.com/store>
+The Arduino engineering kit includes a one year license for Matlab and Simulink for free. If you wish to continue using Matlab/Simulink after the trial period, you can purchase a new license by following the link below:
+[https://se.mathworks.com/store](https://se.mathworks.com/store)

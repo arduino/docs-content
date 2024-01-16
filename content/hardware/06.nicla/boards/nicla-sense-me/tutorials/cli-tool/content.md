@@ -71,7 +71,7 @@ Where `bhy` is the program and `list` is the command. This command will print th
 
 When you run the Web application, you are going to connect through Bluetooth® to the Nicla Sense ME and you will configure the sensors inside the browser. This application is going to use WebBLE from your browser.
 
-***For this feature to work, make sure that WebBLE is both supported and enabled! In Google Chrome go to [chrome://flags]() and enable "Experimental Web Platform features". [Check the browser list](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility) to confirm that your browser has this feature.***
+***For this feature to work, make sure that WebBLE is both supported and enabled! In Google Chrome go to [chrome://flags](chrome://flags) and enable "Experimental Web Platform features". [Check the browser list](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility) to confirm that your browser has this feature.***
 
 So let's run the app by going to the directory of the **bhy-controller** app and enter the next command:
 
@@ -79,7 +79,7 @@ So let's run the app by going to the directory of the **bhy-controller** app and
 bhy webserver
 ```
 
-This will start a local server hosted at <[localhost:8000](localhost:8000)>
+This will start a local server hosted at [localhost:8000](localhost:8000)
 
 Click the button "Open sensor page" and you will see:
 ![Sensor page in the browser](assets/web-ble-unpaired.png)
@@ -124,7 +124,7 @@ To do it continuously, you can add the parameter `-live`
 ## Using a Passthrough Board with CLI
 When you have a firmware for the BHI module or a sketch for the MCU already compiled in a **.bin** file, you can upload them through a MKR or Portenta board directly using the terminal. You need to upload a passthrough sketch to the MKR or Portenta board, allowing the Nicla to communicate with the computer through the host board. The sketch can be found at **Examples > Arduino_BHY_HOST > Passthrough.ino**.
 
-You then need to connect the Nicla board to the desired passthrough board either with an Eslov cable or you can mount the Nicla onto the board as a shield. If you wish to mount the Nicla as a shield, take a look at this [tutorial.](./use-as-mkr-shield) Now that you have everything set up, you can use the commands below to upload the firmware or a sketch if they are in the right format.
+You then need to connect the Nicla board to the desired passthrough board either with an Eslov cable or you can mount the Nicla onto the board as a shield. If you wish to mount the Nicla as a shield, take a look at this [tutorial](./use-as-mkr-shield). Now that you have everything set up, you can use the commands below to upload the firmware or a sketch if they are in the right format.
 
 ### Upload a Sketch
 Syntax for uploading a sketch:
