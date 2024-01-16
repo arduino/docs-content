@@ -2,7 +2,7 @@
 title: 'Arduino PortentaMachineControl Library Guide'
 difficulty: beginner
 compatible-products: [portenta-machine-control]
-description: 'Learn about the new release of the Arduino_MachineControl library, which enables efficient management of the features of the Arduino® Portenta Machine Control.'
+description: 'Learn about the new Arduino_PortentaMachineControl library, which enables efficient management of the features of the Arduino® Portenta Machine Control.'
 tags:
   - Library
   - Portenta Machine Control
