@@ -1,7 +1,8 @@
 Board:
-  Arduino Opta® Lite: AFX00003
-  Arduino Opta® RS485: AFX00001
-  Arduino Opta® WiFi: AFX00002
+  SKUs:
+    Arduino Opta® Lite: AFX00003
+    Arduino Opta® RS485: AFX00001
+    Arduino Opta® WiFi: AFX00002
 Microcontroller:
   ID: STM32H747XI Dual ARM® Cortex®
   Cortex-M7 core: Up to 480 MHz
@@ -12,18 +13,20 @@ Input:
   Digital VIL Max: 4.46 V
   Digital VIH Min: 6.6 V
   Analog Operational Range: 0-10 V
-Digital Outputs:
+Relays:
   Nº of relays: 4
-  Type: Relay - Normally Open (NO)
+  Type: Normally Open (NO)
   Relay rated voltage: 250 VAC
   Relay maximum switching voltage: 400 VAC
   Maximum current per relay: 10 A
   Maximum peak current per relay: 15 A
 Connectivity:
   USB Programming Port: Yes
-  Ethernet: TCP/IP and ModBus TCP compatible
-  Bluetooth® Low Energy: Only in Arduino Opta® WiFi
-  Wi-Fi®: Only in Arduino Opta® WiFi
+  Ethernet:
+    TCP/IP: Yes
+    ModBus TCP: Yes
+  Bluetooth® Low Energy: Arduino Opta® WiFi
+  Wi-Fi®: Arduino Opta® WiFi
 Communication protocols:
   RS-485: Arduino Opta® RS485 & Arduino Opta® WiFi
   Programmable Serial ports: RS-485
