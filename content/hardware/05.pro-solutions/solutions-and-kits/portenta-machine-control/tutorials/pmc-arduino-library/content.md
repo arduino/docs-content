@@ -48,7 +48,7 @@ The library empowers users to easily initialize, control, and access the diverse
 
 ### Library Features
 
-The `Arduino_MachineControl` library offers a wide range of functionalities organized for ease of reference:
+The `Arduino_PortentaMachineControl` library offers a wide range of functionalities organized for ease of reference:
 
 **Input signals**
 - Eight digital inputs at +24 VDC
