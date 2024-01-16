@@ -42,7 +42,7 @@ The Arduino Portenta Machine Control is a versatile industrial control unit for 
 
 ## Arduino_PortentaMachineControl Library
 
-The `Arduino_MachineControl` is a C++ library designed to manage the software and hardware functionalities of the Portenta Machine Control board efficiently. It provides extensive support for inputs such as digital, analog, and encoder ports while offering outputs including digital and analog ports. This library also manages communication through interfaces like CAN bus, RS-232, RS-422, and RS-485, allowing connectivity via Ethernet, USB, Wi-Fi®, and Bluetooth® Low Energy.
+The `Arduino_PortentaMachineControl` is a C++ library designed to manage the software and hardware functionalities of the Portenta Machine Control board efficiently. It provides extensive support for inputs such as digital, analog, and encoder ports while offering outputs including digital and analog ports. This library also manages communication through interfaces like CAN bus, RS-232, RS-422, and RS-485, allowing connectivity via Ethernet, USB, Wi-Fi®, and Bluetooth® Low Energy.
 
 The library empowers users to easily initialize, control, and access the diverse functionalities of the Portenta Machine Control, enhancing its capability and adaptability for industrial applications.
 
