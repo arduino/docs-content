@@ -1,5 +1,5 @@
 ---
-title: 'Arduino MachineControl Library Guide'
+title: 'Arduino PortentaMachineControl Library Guide'
 difficulty: beginner
 compatible-products: [portenta-machine-control]
 description: 'Learn about the new release of the Arduino_MachineControl library, which enables efficient management of the features of the Arduino® Portenta Machine Control.'
