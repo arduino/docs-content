@@ -167,7 +167,7 @@ This update enhances the user experience by making the code more intuitive and a
 
 ### Encoders
 
-The handling of encoders has been updated in the latest version of the Portenta Machine Control Library for a more streamlined and intuitive approach. One key new feature is the **removal of array object access**. In the previous library version, encoder objects were accessed using array notation (`[]`). The latest version has simplified this approach, enhancing code readability and reducing potential errors.
+The handling of encoders has been updated in the `Arduino_PortentaMachineControl` Library for a more streamlined and intuitive approach. One key new feature is the **removal of array object access**. In the previous library version, encoder objects were accessed using array notation (`[]`). The latest version has simplified this approach, enhancing code readability and reducing potential errors.
 
 #### Example of Encoder Usage
 <br></br>
