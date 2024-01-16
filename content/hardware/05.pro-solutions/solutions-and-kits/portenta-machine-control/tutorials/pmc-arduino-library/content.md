@@ -22,7 +22,7 @@ The Arduino Portenta Machine Control is a versatile industrial control unit for 
 
 ## Goals
 
-- Introduce the `Arduino_MachineControl` library’s latest release key features and capabilities.
+- Introduce the `Arduino_PortentaMachineControl` library’s latest release key features and capabilities.
 - Show the `Arduino_MachineControl` library's main differences between its first and latest release. 
 
 ## Hardware and Software Requirements
