@@ -20,6 +20,8 @@ software:
 
 The Arduino Portenta Machine Control is a versatile industrial control unit for driving machinery. It offers soft-PLC control, diverse input/output options, and flexible network connectivity. The `Arduino_PortentaMachineControl` library enables efficient management of the software and hardware features of the Portenta Machine Control. This library is an upgraded and improved version designed to replace the deprecated [Arduino_MachineControl](https://github.com/arduino-libraries/Arduino_MachineControl) library. This tutorial aims to highlight the recent changes in the library, focusing on its user-friendly approach and adherence to the Arduino ecosystem rules, conventions, and style.
 
+![The Arduino ecosystem: hardware and software](assets/new_library_001.png)
+
 ## Goals
 
 - Introduce the `Arduino_PortentaMachineControl` library’s latest release key features and capabilities.
@@ -51,24 +53,29 @@ The library empowers users to easily initialize, control, and access the diverse
 The `Arduino_PortentaMachineControl` library offers a wide range of functionalities organized for ease of reference:
 
 **Input signals**
+
 - Eight digital inputs at +24 VDC
 - Two channels for encoder readings
 - Three analog inputs for PT100, J, and K temperature probes
 - Three analog inputs for 4-20 mA, 0-10V, and NTC signals
 
 **Output signals**
+
 - Eight digital output terminals at +24 VDC
 - Four analog output terminals, ranging from 0 to 10 VDC
 
 **Programmable I/O**
+
 - 12 programmable digital input/output terminals at +24 VDC
 
 **Communication protocols**
+
 - CAN bus
 - Serial protocols (RS-232, RS-422, and RS-485)
 - USB
 
 **Additional functionalities**
+ 
 - Real-Time Clock (RTC)
 
 ### Improvements Between Libraries
@@ -276,4 +283,4 @@ These enhancements in managing temperature sensors within the Portenta Machine C
 
 In this tutorial, we have explored the features of the `Arduino_PortentaMachineControl` library, specifically designed for the Portenta Machine Control. Covering everything from the library's enhanced structure to its modules like I/O, encoders, and communication interfaces, our goal has been to provide you with a thorough understanding of these improvements.
 
-Whether you're a newcomer or an experienced Arduino user, these insights are designed to improve your ability to implement this library effectively in your projects. We encourage you to experiment with what you've learned here and share your experiences with the Arduino community. Thank you for following this guide, and we hope it has been a valuable resource in your journey with Arduino. Your feedback is always welcome!screenshot.
+Whether you're a newcomer or an experienced Arduino user, these insights are designed to improve your ability to implement this library effectively in your projects. We encourage you to experiment with what you've learned here and share your experiences with the Arduino community. Thank you for following this guide, and we hope it has been a valuable resource in your journey with Arduino. Your feedback is always welcome!
