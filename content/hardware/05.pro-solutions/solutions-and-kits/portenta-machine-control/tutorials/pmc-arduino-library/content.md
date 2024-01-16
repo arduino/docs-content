@@ -131,7 +131,7 @@ This new naming structure aligns with the Arduino standard of using clear and de
 
 ### Input/Output Modules 
 
-In the latest Portenta Machine Control Library version, interacting with input/output modules has been streamlined for better usability and consistency with Arduino standards. Two new important features are the following:
+In the `Arduino_PortentaMachineControl` Library, interacting with input/output modules has been streamlined for better usability and consistency with Arduino standards. Two new important features are the following:
 
 - **Initializing input/output modules**: Initializing an input/output module is more intuitive in the updated library. The `begin()` function is now used to start a module, providing a clear starting point for module operations.
 - **CamelCase notation**: The library has adopted CamelCase notation for function names, aligning with the standard Arduino library style. This change makes the library more consistent with other Arduino libraries, enhancing readability and ease of use.
