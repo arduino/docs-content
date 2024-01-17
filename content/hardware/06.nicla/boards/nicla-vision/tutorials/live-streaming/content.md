@@ -236,7 +236,7 @@ sensor.set_pixformat(sensor.RGB565) # Sets the sensor to RGB
 
 The most relevant functions in this snipped are `set_pixformat` and `set_framesize`. The camera that comes with the Nicla Vision supports RGB 565 images. Therefore you need to set it via the `sensor.RGB565` parameter.
 
-The resolution of the camera needs to be set to a supported format both by the sensor and the algorithm. `QVGA` is a good trade-off between performance and resolution so you will use that in this tutorial.
+The resolution of the camera needs to be set to a supported format both by the sensor and the algorithm. `QVGA` is a good trade-off between performance and resolution so you will use this resolution in the tutorial.
 
 #### 4. Streaming Function
 
