@@ -2,7 +2,7 @@
 identifier: ABX00049
 title: Arduino® Portenta X8
 type: pro
-author: Ali Jahangiri
+author: Ali Jahangiri and Christopher Mendez
 ---
 
 ![](assets/featured.png)
