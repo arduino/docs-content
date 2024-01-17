@@ -69,7 +69,7 @@ Some application examples are:
 
 - Monitor industrial processes, from analog gauges, food-industry processes, to CNC machinery or 3D printers
 - Local video surveillance
-- Robotics perception, from AGVs vehicles to computer vision powered robotics arms or SLAM navigation
+- Robotics, from SLAM navigation with AGVs to computer vision-powered robotics arms 
 
 ### The Example Code
 
