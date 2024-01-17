@@ -1234,7 +1234,7 @@ The following example code will let PMC control an Opta™ LED through the Modbu
 We can define a **Static** or **DHCP** IP address to them using the function `Ethernet.begin()` as follows:
 
 ```arduino
-// DHCP (will assigne an IP automatically)
+// DHCP (will assign an IP automatically)
 Ethernet.begin();
 
 // Static IP 
