@@ -73,7 +73,7 @@ Some application examples are:
 
 ### The Example Code
 
-This tutorial's main objective is to use the Nicla Vision to stream live video reachable from inside the network using our favorite web browser.
+This tutorial's main objective is to leverage the Nicla Vision to stream live video reachable from inside the network using your favorite web browser.
 
 The example code we are going to use can also be found in OpenMV by navigating to **File > Examples > WiFi > mjpeg_streamer**.
 
