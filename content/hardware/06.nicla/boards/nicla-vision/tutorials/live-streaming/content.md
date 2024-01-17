@@ -285,7 +285,7 @@ def start_streaming(s):
 ```
 
 #### 5. Uploading the Script
-Let's program the board with the complete script and test if everything works. Copy the whole [example code](#the-example-code) and paste it into the new script file that you created.
+Let's program the board with the complete script and test if everything works as expected. Copy the whole [example code](#the-example-code) and paste it into the new script file that you created.
 
 Open the OpenMV Serial Monitor by clicking on _Serial Terminal_ in the lower left corner. Click the _Play_ button at the bottom of the left toolbar. See the board connection progress in the terminal, once connected, the _host address_ will be printed out. 
 
