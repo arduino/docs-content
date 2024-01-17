@@ -318,6 +318,23 @@ The Arduino® Portenta X8 has been designed for high-performance embedded comput
 
 The use of a USB 3.0 compatible port will ensure that the current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
 
+### Temperature
+
+The following charts represent the thermal behavior of the Portenta X8 in different cooling scenarios.
+
+![First charts](assets/Frame-1.svg)
+![Second charts](assets/Frame-2.svg)
+
+The ✅ and ❌ symbols in the horizontal axis of the charts represent the Portenta X8 working state respectively.
+
+#### Mean Time Between Failure (MTBF)
+
+![MTBF Chart](assets/Frame-3.svg)
+
+#### Survival Probability After n Working Hours
+
+![Survival Probability After n Working Hours](assets/Frame-4.png)
+
 ## Functional Overview
 
 ### Block Diagram
