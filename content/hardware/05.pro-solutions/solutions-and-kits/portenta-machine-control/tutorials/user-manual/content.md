@@ -1680,6 +1680,83 @@ The sketch uses several key functions and methods:
 - `MachineControl_RTCController.setEpoch(epoch)`: Sets the RTC time based on the epoch time obtained from the NTP server.
 - `displayRTC()`: A custom function to format and display the current time from the RTC on the IDE's Serial Monitor.
 
+## Temperature Measurments
+
+The Portenta Machine Control is equipped with three independent temperature measurement channels, enhancing its capabilities for various industrial and environmental monitoring applications.
+
+Some of the key capabilities of Portenta's Machine Control temperature channels are the following:
+
+- **Independent channels**: Each of the three channels can measure temperature independently, offering flexibility in data collection and monitoring.
+- **Sensor compatibility**: The channels are designed to measure temperature using either non-grounded thermocouples or PT100 sensors, but not simultaneously. This allows for versatile use with different types of temperature sensors.
+
+***It is crucial not to connect both a thermocouple and a PT100 sensor to the same channel at the same time. Only one sensor type can be read per channel, based on the position of an analog switch.***
+
+The Portenta Machine Control includes two onboard specialized front ends:
+
+- **MAX31855KASA+T**: This front end is dedicated to **thermocouples**, providing accurate temperature measurements for a wide range of thermocouple types.
+- **MAX31865ATP+T**: This front end is dedicated to **PT100 sensors**, ensuring precise temperature readings for these sensors.
+
+The two onboard front ends are connected to the three temperature channels through a multiplexing system based on the following analog switches:
+
+- **NX3L4053HR,115**: A single low-ohmic single-pole double-throw switch that selects between the two front ends.
+- **TMUX1511RSVR**: Three quadruple single pole single throw switches that direct the active channel among the three available.
+  
+This multiplexing system allows for seamless switching between different sensor types and channels, enabling comprehensive temperature monitoring across multiple points.
+
+**Important note**: Connect only **non-grounded** thermocouples. For more information about how to connect thermocouples to the Portenta Machine Control, please refer to the [complete pinout available here](#pinout).
+
+The following example sketch demonstrates how to read temperatures from thermocouples connected to a Portenta Machine Control device. It uses the `Arduino_MachineControl` library to interface with the thermocouple sensors and prints the temperature values to the Arduino IDE's Serial Monitor every second.
+
+```arduino
+/*
+  Portenta Machine Control's Thermocouples Temperature Reading Example
+  Name: portenta_machine_control_thermocouples_temp_read.ino
+  Purpose: Reads temperatures from thermocouples connected to the 
+  Portenta Machine Control. The temperature values are printed to the 
+  Serial Monitor every second.
+
+  @author Riccardo Rizzo, modified by Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+#include <Arduino_MachineControl.h>
+
+void setup() {
+  // Initialize serial communication
+  Serial.begin(9600);
+  while (!Serial);
+  
+  // Initialize temperature probes
+  MachineControl_TCTempProbe.begin();
+  Serial.println("- Temperature probes initialization done!");
+}
+
+void loop() {
+  // Measure and display temperature from each channel
+  for (int channel = 0; channel < 3; channel++) {
+    // Select channel and read temperature
+    MachineControl_TCTempProbe.selectChannel(channel);
+    float temperature = MachineControl_TCTempProbe.readTemperature(); 
+    Serial.print("- Temperature CH");
+    Serial.print(channel);
+    Serial.print(" °C: ");
+    Serial.println(temperature);
+  }
+  Serial.println();
+
+  // Wait one second before next reading
+  delay(1000); 
+}
+```
+
+This example sketch reads temperatures from thermocouples connected to its temperature probe inputs. It demonstrates the use of the `Arduino_MachineControl.h` library to interface with thermocouple sensors. The sketch initiates serial communication in the `setup()` function and then enters a loop where it reads and displays the temperature from each channel to the Serial Monitor every second.
+
+Key functions used in the sketch:
+
+- `MachineControl_TCTempProbe.begin()`: Initializes the temperature probes.
+- `MachineControl_TCTempProbe.selectChannel(channel)`: Selects the active channel for temperature measurement.
+- `MachineControl_TCTempProbe.readTemperature()`: Reads the temperature from the selected channel.
+
 ## Encoders 
 
 The Portenta Machine Control has two independent `ABZ` encoder channels, `0` and `1`, offering precise motion control and feedback for various applications.
