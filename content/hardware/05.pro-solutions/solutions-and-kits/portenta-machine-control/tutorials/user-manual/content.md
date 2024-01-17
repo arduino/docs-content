@@ -115,7 +115,7 @@ In the PLC IDE, you can mix PLC programming with standard Arduino sketches withi
 Check out the following resources that will show you how to start with the Arduino PLC IDE and use IEC 61131-3 programming languages with the Portenta Machine Control:
 
 - [Arduino PLC IDE download page and tutorials](https://docs.arduino.cc/software/plc-ide/)
-- [Arduino PLC IDE and Portenta Machine Control tutorials](https://docs.arduino.cc/hardware/portenta-machine-control)
+- [Portenta Machine Control tutorials](https://docs.arduino.cc/hardware/portenta-machine-control/#tutorials)
 
 ### Pinout
 
