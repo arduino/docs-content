@@ -312,7 +312,7 @@ For example, the streaming below is in `HD`, as you can notice, this affects the
 
 ## Conclusion
 
-In this tutorial, you learned how to use the OpenMV IDE to develop MicroPython scripts that then run on the Nicla Vision. You also learned how to connect it to the network via WiFi®. Last but not least you learned how to configure the Nicla Vision to be used as a surveillance camera in OpenMV.  
+In this tutorial, you learned how to use the OpenMV IDE to develop MicroPython scripts that then run on the Nicla Vision. You also learned how to connect it to the network via WiFi®. Last but not least, you learned how to configure the Nicla Vision to be used as a surveillance camera thanks to OpenMV.  
 
 ### Next Steps
 
