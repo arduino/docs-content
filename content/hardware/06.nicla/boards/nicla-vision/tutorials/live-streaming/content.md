@@ -77,7 +77,7 @@ This tutorial's main objective is to use the Nicla Vision to stream live video r
 
 The example code we are going to use can also be found in OpenMV by navigating to **File > Examples > WiFi > mjpeg_streamer**.
 
-***In the newer versions of the OpenMV IDE you must connect the board to your computer so the examples appear.***
+***In the newer versions of the OpenMV IDE you must connect the board to your computer so see the examples.***
 
 You can copy and paste the script below to test this tutorial application.
 
