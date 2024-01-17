@@ -15,7 +15,7 @@ For example:
 - `digitalWrite(pin, HIGH)` (Arduino/C++)
 - `pin.value(1)` (MicroPython)
 
-The entries are named exactly the same as in the language reference, with the MicroPython syntax, description and code example provided for each entry. 
+The entries are named exactly the same as in the language reference, with the MicroPython syntax, description and code example provided for each entry. It is however important to understand that any given board may not be fully compatible with this reference, as some implementations vary between board/architecture. For example, using PWM on a STM32 board will differ from using it on an ESP32 board.
 
 ***Note that several entries in the original [Language Reference](https://www.arduino.cc/reference/en/) are directly taken from the C++ reference. In the same fashion, many functions located in this reference are taken from the Python reference, and are not MicroPython specific.***
 
@@ -30,7 +30,7 @@ To access digital GPIOs using MicroPython, we use the `Pin` module. To define a 
 - `input_pullup = Pin(pin, Pin.IN, Pin.PULL_UP` (define as input pull up)
 - `input_pulldown = Pin(pin, Pin.IN, Pin.PULL_DOWN` (define as input pull down)
 
-Parameters:
+**Parameters:**
 - `pin` - pin we want to set
 - `type` - define as input or output
 - `pullmode` - define as pull up or pull down mode (optional). 
@@ -363,24 +363,35 @@ print("Rigthmost bit: ", rightmost_bit)
 
 ## Advanced I/O
 
-### noTone()
+### tone() / noTone()
 
-Stops generating a tone on a specified pin by deinitializing the PWM (Pulse Width Modulation) associated with the given pin.
+- `tone(pin,frequency,volume,duration)`
+- `noTone(pin,duration)`
 
-**Parameters:**
-- `pin`: The pin number to stop generating the tone.
-
-**Returns:**
-- Nothing
+To use the popular `tone()` and `noTone()` functions, we need to define them as functions as they currently are not implemented.
 
 **Example:**
 
 ```python
-import machine
+from machine import Pin, PWM
+import time
+    
+def tone(pin,frequency,volume,duration=None):
+    speaker = PWM(Pin(pin))
+    speaker.freq(frequency)
+    speaker.duty_u16(volume)
+    if duration is not None:
+        time.sleep(duration)
 
-def noTone(pin):
-    pwm = machine.PWM(machine.Pin(pin))
-    pwm.deinit()
+def noTone(pin,duration=None):
+    speaker = PWM(Pin(pin))
+    speaker.deinit()
+    if duration is not None:
+        time.sleep(duration)
+
+while True:
+    tone(5,500,1000,1)
+    noTone(5,1)
 ```
 
 ### pulseIn()
@@ -427,32 +438,26 @@ def shiftOut(dataPin, clockPin, bitOrder=machine.MSBFIRST, value):
         machine.Pin(clockPin).value(0)
 ```
 
-### tone()
-
-**Example:**
-
-```python
-import machine
-
-def tone(pin, frequency, duration=None):
-    pwm = machine.PWM(machine.Pin(pin))
-    pwm.freq(frequency)
-    if duration is not None:
-        machine.sleep(duration)
-        pwm.deinit()
-```
-
 ## Math
 
 ### abs()
+
+`abs(value)`
+
+Returns the absolute value of a number.
 
 **Example:**
 
 ```python
 result = abs(-5)
+print(result)
 ```
 
 ### constrain()
+
+`constrain(value, min, max)`
+
+Constrains the value to be within a specific range.
 
 **Example:**
 
@@ -461,10 +466,15 @@ def constrain(value, lower, upper):
     return max(min(value, upper), lower)
 
 result = constrain(10, 0, 5)  # Result will be 5
+print(result)
 ```
 
 
 ### map()
+
+`map(value, in_min, in_max, out_min, out_max)`
+
+Maps a value from one range to another.
 
 **Example:**
 
@@ -472,43 +482,68 @@ result = constrain(10, 0, 5)  # Result will be 5
 def map(value, in_min, in_max, out_min, out_max):
     return (value - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
-result = map(50, 0, 100, 0, 255)
+result = map(50, 0, 100, 0, 255) # Result is 127.5
+print(result)
 ```
 
 
 ### max()
 
+`max(value1, value2, value3, valueX)`
+
+Returns the highest value among the given parameters. Accepts many arguments separated by comma.
+
 **Example:**
 
 ```python
 result = max(5, 10, 3)  # Result will be 10
+print(result)
 ```
 
 ### min()
+
+`min(value1, value2, value3, valueX)`
+
+Returns the lowest value among the given parameters. Accepts many arguments separated by comma.
 
 **Example:**
 
 ```python
 result = min(5, 10, 3)  # Result will be 3
+print(result)
 ```
 
 ### pow()
+
+`pow(base, exponent)`
+
+Raises a number to the power of another.
 
 **Example:**
 
 ```python
 result = pow(2, 3)  # Result will be 8
+print(result)
 ```
 
 ### sq()
+
+`sq(value)`
+
+Returns the square of a number.
 
 **Example:**
 
 ```python
 result = sq(4)  # Result will be 16
+print(result)
 ```
 
 ### sqrt()
+
+`math.sqrt(value)`
+
+This function returns the square root of a number.
 
 **Example:**
 
@@ -516,6 +551,7 @@ result = sq(4)  # Result will be 16
 import math
 
 result = math.sqrt(16)  # Result will be 4.0
+print(result)
 ```
 
 ## Trigonometry
