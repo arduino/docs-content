@@ -156,7 +156,7 @@ Copy and paste the code below into a new sketch in the Arduino IDE.
 
 ```arduino
 // Include the Arduino_MachineControl library
-#include <Arduino_MachineControl.h>
+#include <Arduino_PortentaMachineControl.h>
 
 void setup() {
     // Initialize the digital outputs terminals of the Arduino_MachineControl library
