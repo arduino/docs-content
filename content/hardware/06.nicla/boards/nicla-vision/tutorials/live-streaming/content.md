@@ -68,7 +68,7 @@ In this section you will learn how the MicroPython script works in order to capt
 Some application examples are:
 
 - Monitor industrial processes, from analog gauges, food-industry processes, to CNC machinery or 3D printers
-- Video surveillance of a place
+- Local video surveillance
 - Robotics perception, from AGVs vehicles to computer vision powered robotics arms or SLAM navigation
 
 ### The Example Code
