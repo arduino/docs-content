@@ -196,7 +196,7 @@ Set the `SSID` and `KEY` variables with your Wi-Fi® network credentials respect
 
 The `HOST` variable must be empty so the socket uses the DHCP IP assigned to the Nicla Vision for the connection.
 
-You can use `8080` as the `PORT` by default. Check with your network administrator if the port is closed or reserved so you know which you can use for this application.
+You can use `8080` as the `PORT` by default. Check with your network administrator if the port is closed or reserved so you know which one you can use for this application.
 
 The code section below search for a WiFi® network with the credentials supplied before and start a connection process to it. Also, it creates a socket server for video streaming.
 
