@@ -22,32 +22,32 @@ In this tutorial we'll learn how to integrate your sketch with the super-optimiz
 
 First of all, you need a suitable IoT gateway with a couple of free GB hard disk space (libraries can be heavy sometimes). Follow the Getting Started section of Create to get your Gateway up and running (choose Ubuntu distribution, for example).
 
-### Why do I need so much space 
+### Why do I need so much space
 
 **(AKA: how I learned to love shared libraries)**
 
-In the Arduino world, a library is a collection of code which helps you interacting with a certain piece of hardware or perform particular operations. 
+In the Arduino world, a library is a collection of code which helps you interacting with a certain piece of hardware or perform particular operations.
 
-On Linux, a library has the same properties, but can be shared between multiple programs. This allows saving a lot of space, since the function they contain can be used by different process at no cost. 
+On Linux, a library has the same properties, but can be shared between multiple programs. This allows saving a lot of space, since the function they contain can be used by different process at no cost.
 
 ## Setting up the Board
 
 Libraries are usually shipped via the package manager or using an installer (we'll use the latter one in this example). First of all, access your board via ssh by using its IP address and the username/password you provided during installation. To do this, you can use Putty (if you are on Windows) or a serial terminal. The port must be set to 22 for SSH login to work properly.
 
-Now we need to download the MKL package. Open your browser and go to <https://software.intel.com/en-us/mkl> , click "Free Download" and complete the registration process. Select "Intel Performance Libraries for Linux" and right click on "Intel Math Kernel Library", selecting "Copy link address" (or similar, depending on your browser).
+Now we need to download the MKL package. Open your browser and go to [https://software.intel.com/en-us/mkl](https://software.intel.com/en-us/mkl), click "Free Download" and complete the registration process. Select "Intel Performance Libraries for Linux" and right click on "Intel Math Kernel Library", selecting "Copy link address" (or similar, depending on your browser).
 
 ![Copy the link address.](assets/1_CsVFimT6ke.png)
 
-Now reopen the SSH shell, type: 
+Now reopen the SSH shell, type:
 
 ```arduino
-wget 
+wget
 ```
 
 And paste the link you just copied. Press **Enter** and the download should start. Once downloaded, extract the package by typing:
 
 ```arduino
-tar xvf l_mkl_2017* 
+tar xvf l_mkl_2017*
 ```
 
 Let's `cd` into the extract folder (typically with the same name of the downloaded package, without the extension) and type:
@@ -78,7 +78,7 @@ The example executes the same computation using multiple thread numbers, form 1 
 
 ### Let's Unleash the Monster
 
-When ready, open the Monitor on the left panel, press "Upload" and wait a couple of seconds for upload and sketch start to happen. The output of the program will be printed on the Monitor. 
+When ready, open the Monitor on the left panel, press "Upload" and wait a couple of seconds for upload and sketch start to happen. The output of the program will be printed on the Monitor.
 
 ![Open the serial monitor to see the output of the program.](assets/2_dZplITasct.png)
 

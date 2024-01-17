@@ -11,7 +11,7 @@ source: "https://arduino.cc/en/IoT-Prime/Experiment03"
 
 This experiment will introduce you to the use of SD memory cards with your ENV Shield to store data into files that you can later transfer to your computer and use as explained in the previous experiment. In this case we will introduce the remaining sensors in the shield: barometric pressure, and different types of light radiation, collect data from all of the sensors and store it in a file inside an SD card for later analysis.
 
-There are scenarios where it is not possible to send the data to a different location via WiFi or Bluetooth® (as you could do with the MKR1010), but you are still interested in collecting data for offline analysis. It could also be the case when you can only transmit small amounts of data in real time, but you are interested in collecting as much as possible for a later in-depth study. There is also the situation when you want to have a local backup of the data in case the communication fails at any given time. All of those scenarios are supported by the use of the SD card slot in the ENV Shield, the only thing you will need is a micro SD card. 
+There are scenarios where it is not possible to send the data to a different location via WiFi or Bluetooth® (as you could do with the MKR1010), but you are still interested in collecting data for offline analysis. It could also be the case when you can only transmit small amounts of data in real time, but you are interested in collecting as much as possible for a later in-depth study. There is also the situation when you want to have a local backup of the data in case the communication fails at any given time. All of those scenarios are supported by the use of the SD card slot in the ENV Shield, the only thing you will need is a micro SD card.
 
 ### Learning Objectives
 
@@ -37,7 +37,7 @@ The *Arduino MKR1010* (read “maker ten ten”) is a microcontroller board feat
 
 ##### Start Using your Board
 
-You can see how to connect this board to your computer by checking this [Getting Started Guide](https://www.arduino.cc/en/Guide/MKRWiFi1010). You can use that guide to install the offline Arduino IDE that will run from your computer, and to learn how to troubleshoot any potential issues you might have when writing your first programs. You can also start using the online version of Arduino’s code editor that you will find at: <https://create.arduino.cc> Please note that you have to become a registered Arduino user to use the online editor.
+You can see how to connect this board to your computer by checking this [Getting Started Guide](https://www.arduino.cc/en/Guide/MKRWiFi1010). You can use that guide to install the offline Arduino IDE that will run from your computer, and to learn how to troubleshoot any potential issues you might have when writing your first programs. You can also start using the online version of Arduino’s code editor that you will find at: [https://create.arduino.cc](https://create.arduino.cc) Please note that you have to become a registered Arduino user to use the online editor.
 
 #### MKR ENV Shield
 
@@ -59,7 +59,7 @@ These new features come with associated software you will need to install. The s
 
 #### MKR Relay Proto Shield
 
-The MKR Relay Proto Shield is a board providing your MKR1010 board with two relays, which are electromechanical switches, that can be used to control any kind of electrical devices that could be activated with an on-off switch: lamps, fans, water pumps, electrical motors, heaters, etc. Activating the relays is as simple as activating one of the pins that control them, this will allow for electricity to flow. 
+The MKR Relay Proto Shield is a board providing your MKR1010 board with two relays, which are electromechanical switches, that can be used to control any kind of electrical devices that could be activated with an on-off switch: lamps, fans, water pumps, electrical motors, heaters, etc. Activating the relays is as simple as activating one of the pins that control them, this will allow for electricity to flow.
 
 The shield has a prototyping area that could be used to solder your own components and, in that way, make a more final installation using it. This is something we will not see throughout this course, but you should be aware of the possibility.
 
@@ -71,7 +71,7 @@ We recommend that you mount the three boards together from now and keep them thi
 
 #### SD card and Reader
 
-Note that there is no memory card provided in the kit, you will have to find one externally. Also, if your computer doesn’t have a card reader, you will need an external card reader, or learn how to use your Arduino board and a serial terminal software (CoolTerm) as a way to transfer the file into your computer. 
+Note that there is no memory card provided in the kit, you will have to find one externally. Also, if your computer doesn’t have a card reader, you will need an external card reader, or learn how to use your Arduino board and a serial terminal software (CoolTerm) as a way to transfer the file into your computer.
 
 ![Figure 2: Micro SD card](assets/image0302.jpg)
 
@@ -99,13 +99,13 @@ The sensor’s range and accuracy makes is suitable for a lot of scientific expe
 
 ![Figure 4: ENV Shield highlighting the light sensor](assets/image0304.jpg)
 
-The ENV Shield has two light sensors called VEML6075 ([datasheet here](https://content.arduino.cc/assets/Iot-Prime/VEML6075.pdf)) and TEMT6000 ([datasheet here](https://content.arduino.cc/assets/Iot-Prime/TEMT6000.pdf)). Both sensors are manufactured by *Vishay Semiconductors*. The library exposes the sensors with the methods `readUVA()`, `readUVB()`, `readUVIndex()`, and `readUVIlluminance()` being the first three methods working with the VEML6075 sensor, and the last one with the TEMT6000. 
+The ENV Shield has two light sensors called VEML6075 ([datasheet here](https://content.arduino.cc/assets/Iot-Prime/VEML6075.pdf)) and TEMT6000 ([datasheet here](https://content.arduino.cc/assets/Iot-Prime/TEMT6000.pdf)). Both sensors are manufactured by *Vishay Semiconductors*. The library exposes the sensors with the methods `readUVA()`, `readUVB()`, `readUVIndex()`, and `readUVIlluminance()` being the first three methods working with the VEML6075 sensor, and the last one with the TEMT6000.
 
 Solar radiation is mainly of optical nature. It is composed of ultraviolet (UV), visible, and infrared (IR) components. There are other components, but they cannot be measured by the sensors on the ENV Shield in any way. UV radiation can be divided into UVA, UVB, and UVC, depending on their wavelength. Due to the atmosphere, not all of the ultraviolet light components make it to the surface of the earth, only long wave ultraviolet (UVA) and short wave ultraviolet (UVB) cross the atmosphere and reach us. The total UV radiation is made of 95% of UVA type and 5% of UVB type. In the past, the only UV radiation affecting us, humans, animals, and plants, was coming from the sun. In the present, there are other sources of UV radiation coming from human-made machinery.
 
 The UV Index is a tool meant to communicate to the general public about the UV radiation. It was proposed by the World Health Organization, United Nations, among others. The UV Index is a unit-less value obtained from the total amount of radiation measured in Watts per square meter (W/m^2). The UV Index should be in the range of 0 to 12 at the earth’s surface, being values over 11 considered extreme. The UV index is calculated taking the UVA and UVB radiation values as parameters.
 
-Read more about the UV Index calculation and the forms of UV radiation . 
+Read more about the UV Index calculation and the forms of UV radiation .
 
 The UV sensor’s range and accuracy makes is suitable for a lot of scientific experiments. The temperature range of operation goes from -40 °C to +85 °C.
 
@@ -121,7 +121,7 @@ At technical level, the TEMT6000 sensor is a *phototransistor*, a component that
 
 #### Other Sensors
 
-Read more about the specifics of the temperature and humidity sensors in the [previous exercise](./../Experiment02/content.md). 
+Read more about the specifics of the temperature and humidity sensors in the [previous exercise](./../Experiment02/content.md).
 
 ### How Data is Consumed
 
@@ -162,7 +162,7 @@ Start by making a new program, and give it a good name. For example: *02\_sensor
 #include <SD.h>
 
 // chip select for SD card
-const int SD_CS_PIN = 4;  
+const int SD_CS_PIN = 4;
 
 // variables
 float temperature = 0;
@@ -242,11 +242,11 @@ void loop() {
 
 [\[Get Code\]](//www.arduino.cc/en/IoT-Prime/Experiment03?action=sourceblock&num=1)
 
-*Figure 7: Code listing of 02\_sensors\_to\_SD\_v0001* 
+*Figure 7: Code listing of 02\_sensors\_to\_SD\_v0001*
 
-To use of the ENV Shield library call: `#include <Arduino_MKRENV.h>` 
+To use of the ENV Shield library call: `#include <Arduino_MKRENV.h>`
 
-The call to `ENV.begin()` is both initialising the sensors on the board, and checking that there is a shield connected to the MKR1010 board and that the sensors are operating properly. 
+The call to `ENV.begin()` is both initialising the sensors on the board, and checking that there is a shield connected to the MKR1010 board and that the sensors are operating properly.
 
 #### Using the SD card
 
@@ -262,13 +262,13 @@ Unlike the previous examples where we were sending data over the serial port bac
 
 #### Getting the sensor data
 
-The readings for all of the values of the sensors are of float type, therefore the variable declarations read `float temperature = 0`, `float humidity = 0`, `float pressure = 0`, `float UVA = 0`, `float UVB = 0`, `float UVIndex = 0` 
+The readings for all of the values of the sensors are of float type, therefore the variable declarations read `float temperature = 0`, `float humidity = 0`, `float pressure = 0`, `float UVA = 0`, `float UVB = 0`, `float UVIndex = 0`
 
 When calling `temperature = ENV.readTemperature()`, `humidity = ENV.readHumidity()`, and so on, the program will be requesting the information about the sensors from the shield and storing them in their respective variables. The key aspect is going to be how to package that information to store it in a file inside the SD card.
 
 As you saw in the example CSV file in the previous experiment, the information is separated by commas (you could use other separators instead) and each record is stored in separate lines. Also, the first line of the CSV file can be filled up with strings indicating the type of data to be stored. We will therefore start by sending the string: *“temperature,humidity,pressure,UVA,UVB,UVindex”* to the card. This first line should be included just once, directly at the program’s setup, once the SD card has been made available.
 
-In the loop, after requesting the data from the sensors, you will have to sequentially print each one of the pieces of the data to the card, including a comma between the information of each sensor: `datafile.print(temperature); datafile.print(“,”); [...] datafile.print(UVIndex);` Note how the program finally calls to `datafile.println()` to include an end of line after printing the data. 
+In the loop, after requesting the data from the sensors, you will have to sequentially print each one of the pieces of the data to the card, including a comma between the information of each sensor: `datafile.print(temperature); datafile.print(“,”); [...] datafile.print(UVIndex);` Note how the program finally calls to `datafile.println()` to include an end of line after printing the data.
 
 ### Data Displayed
 
@@ -294,6 +294,6 @@ In this experiment you have seen how to use the SD card to store data from the s
 
 You have seen how to use all of the features of the ENV Shield in this example. We have used all of the available sensing chips for measuring temperature, humidity, barometric pressure, light intensity, and light radiation, as well as the SD card slot to write and read data from external cards.
 
-You got two possible challenges: one to add a button to the project to start and stop the recording, and a second one where you are supposed to create different files every time the program runs. If you implemented any of those, they will be come very handy whenever you run offline experiments in the future. 
+You got two possible challenges: one to add a button to the project to start and stop the recording, and a second one where you are supposed to create different files every time the program runs. If you implemented any of those, they will be come very handy whenever you run offline experiments in the future.
 
-Let’s dive in the final experiment of the series by looking at how to send data to the Arduino Cloud. [Learn more at Experiment 04](./../Experiment04/content.md) 
+Let’s dive in the final experiment of the series by looking at how to send data to the Arduino Cloud. [Learn more at Experiment 04](./../Experiment04/content.md)
