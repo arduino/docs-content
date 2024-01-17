@@ -270,16 +270,21 @@ Compact version of the [Arduino Language Reference](https://www.arduino.cc/refer
 
 ### Variable Scope & Qualifiers
 
+| Method & Parameter | Description                                       |
+| ------------------ | ------------------------------------------------- |
+| `const`            | Qualifier to define constants.                    |
+| `scope`            | Not a specific keyword; refers to variable scope. |
+| `static`           | Qualifier to declare static variables.            |
+| `volatile`         | Qualifier to declare volatile variables.          |
+
+### Utilities
+
 | Method & Parameter | Description                                                |
 | ------------------ | ---------------------------------------------------------- |
-| `const`            | Qualifier to define constants.                             |
-| `scope`            | Not a specific keyword; refers to variable scope.          |
-| `static`           | Qualifier to declare static variables.                     |
-| `volatile`         | Qualifier to declare volatile variables.                   |
-| `Utilities`        | Miscellaneous utility keywords.                            |
 | `PROGMEM`          | Qualifier to store data in program memory.                 |
 | `sizeof()`         | Operator to determine the size of a data type or variable. |
 
+## Structure
 
 ### Sketch
 
@@ -307,6 +312,7 @@ Compact version of the [Arduino Language Reference](https://www.arduino.cc/refer
 
 
 ### Further Syntax
+
 | Method & Parameter         | Description                                        |
 | -------------------------- | -------------------------------------------------- |
 | `#define (define)`         | Macro definition for code substitution.            |
@@ -318,6 +324,7 @@ Compact version of the [Arduino Language Reference](https://www.arduino.cc/refer
 
 
 ### Arithmetic Operators
+
 | Method & Parameter        | Description                                              |
 | ------------------------- | -------------------------------------------------------- |
 | `% (remainder)`           | Modulo operator for finding the remainder of a division. |
