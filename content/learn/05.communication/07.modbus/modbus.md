@@ -109,7 +109,7 @@ Inside you can see how the `requestFrom()` is being called with *Device Address*
 float readVoltage() {
   float volt = 0.;
   // Send reading request over RS485
-  if (!ModbusRTUClient.requestFrom(0x21, INPUT_REGISTERS, 30017, 2)) {
+  if (!ModbusRTUClient.requestFrom(0x21, INPUT_REGISTERS, 30107, 2)) {
     // Error handling
     Serial.print("- Failed to read the voltage! ");
     Serial.println(ModbusRTUClient.lastError());

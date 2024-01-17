@@ -201,7 +201,7 @@ The Portenta Max Carrier only requires the Portenta H7 as the main unit to be ab
 
 If it is not installed or requires an update, it is possible to navigate under **Tools > Board > Board Manager** and search for the `Arduino Mbed OS Portenta Core` and proceed with the update.
 
-To take advantage of Portenta Max Carrier's Power Architecture, an important physical configuration requires to be verified. A DIP Switch for Boot mode selection is present on the Portena Max Carrier board. It requires setting **BOOT_SEL** to select between 2 boot addresses, which will enable Portenta H7 and Max Carrier to run the firmware. **BOOT** parameter will switch the Portenta H7 state into Boot mode.
+To take advantage of Portenta Max Carrier's Power Architecture, an important physical configuration requires to be verified. A DIP Switch for Boot mode selection is present on the Portenta Max Carrier board. It requires setting **BOOT_SEL** to select between 2 boot addresses, which will enable Portenta H7 and Max Carrier to run the firmware. **BOOT** parameter will switch the Portenta H7 state into Boot mode.
 
 Every time it initiates at Boot mode, the Portenta H7 will fade the Green LED to indicate its state. It will help to understand the board is in Boot mode and not turned off due to an unavailable electric supply as it shut off. As the power lines are alive even if the board shows no indication of an operating instance.
 
@@ -231,11 +231,11 @@ All Arduino boards work Out-of-the-Box with the Arduino Web Editor, and the Port
 
 ***If you want to know how to get started with Arduino Web Editor, please look into [Getting started with the Web Editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).***
 
-#### 4.3. Using Arduino IoT Cloud
+#### 4.3. Using Arduino Cloud
 
-The Arduino boards that are IoT enabled, can use the Arduino IoT Cloud to develop an automated system and a feedback system that gathers useful data for analysis purposes. By following this [link to Arduino IoT Cloud](https://create.arduino.cc/iot/things), you will be able to access and begin developing the code.
+The Arduino boards that are IoT enabled, can use the Arduino Cloud to develop an automated system and a feedback system that gathers useful data for analysis purposes. By following this [link to Arduino Cloud](https://create.arduino.cc/iot/things), you will be able to access and begin developing the code.
 
-***If you want to know how to get started with Arduino IoT Cloud, please look into [Getting Started With the Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started).***
+***If you want to know how to get started with Arduino Cloud, please look into [Getting Started With the Arduino Cloud](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started).***
 
 ### 5. Portenta Max Carrier Quick Peripheral Table
 

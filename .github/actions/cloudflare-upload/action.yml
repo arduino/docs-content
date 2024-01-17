@@ -1,0 +1,81 @@
+name: "Upload an app to Cloudflare Pages"
+description: "Manually deploy an app to cloudflare pages"
+inputs:
+  upload-dir:
+    description: "The name of the app to build and export"
+    required: true
+  
+  project-name:
+    description: "The name of the project to upload to"
+    required: true
+
+  cloudflare-account:
+    description: "The Cloudflare account ID"
+    required: true
+
+  cloudflare-api-token:
+    description: "The Cloudflare API token"
+    required: true
+
+runs:
+  using: composite
+  steps:
+
+    - name: Find PR Preview Comment
+      if: github.event_name == 'pull_request'
+      uses: peter-evans/find-comment@v1
+      id: deploy-preview-comment
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        comment-author: "github-actions[bot]"
+        body-includes: ${{ inputs.project-name }}
+
+    - name: Update Comment if exists
+      if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id != 0
+      uses: peter-evans/create-or-update-comment@v1.4.5
+      with:
+        comment-id: ${{ steps.deploy-preview-comment.outputs.comment-id }}
+        edit-mode: replace
+        body: |
+          ### ${{ inputs.project-name }}
+          Waiting for deployment to complete...
+
+    - id: branch-name
+      uses: tj-actions/branch-names@v5
+
+    - id: format-branch
+      shell: bash
+      run: format=$(echo ${{ steps.branch-name.outputs.current_branch }} | tr / -) && echo "::set-output name=branch::$(echo "${format:0:28}")"
+
+    - name: deploy-cloudflare
+      uses: cloudflare/pages-action@v1
+      id: deploy-cloudflare
+      with:
+        apiToken: ${{ inputs.cloudflare-api-token }}
+        accountId: ${{ inputs.cloudflare-account }}
+        projectName: ${{ inputs.project-name }}
+        directory: ${{ inputs.upload-dir }}
+        branch: ${{ steps.format-branch.outputs.branch }}
+
+    - name: Create PR Preview Comment
+      if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id == 0
+      uses: peter-evans/create-or-update-comment@v1.4.5
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          ### ${{ inputs.project-name }}
+          🚀 Preview this PR: ${{ steps.deploy-cloudflare.outputs.url }}
+          📍 Commit SHA: ${{ github.sha }}
+          
+
+    - name: Update PR Preview Comment
+      if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id != 0
+      uses: peter-evans/create-or-update-comment@v1.4.5
+      with:
+        comment-id: ${{ steps.deploy-preview-comment.outputs.comment-id }}
+        edit-mode: replace
+        body: |
+          ### ${{ inputs.project-name }}
+          🚀 Preview this PR: ${{ steps.deploy-cloudflare.outputs.url }}
+          📍 Commit SHA: ${{ github.sha }}
+

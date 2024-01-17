@@ -28,17 +28,17 @@ In this tutorial you will learn to use [LVGL](https://lvgl.io/) to create a simp
 ## Goals
 
 -   Understanding the structure to build LVGL interfaces.
--   Building a simple UI with a text label. 
--   Configuring the setup to display the User-Interface. 
+-   Building a simple UI with a text label.
+-   Configuring the setup to display the User-Interface.
 
 ### Required Hardware and Software
 
 -   [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7)
 -   USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
--   Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
+-   Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+
 -   USB-C® hub with HDMI
--   External monitor 
--   HDMI cable 
+-   External monitor
+-   HDMI cable
 
 ## The Light and Versatile Graphics Library
 
@@ -46,7 +46,7 @@ Graphical User interfaces are needed for visualizing information and interacting
 
 ## Instructions
 
-### Building a Simple GUI 
+### Building a Simple GUI
 
 This tutorial will guide you through building a basic user interface using the LVGL Library, which you can download using the Arduino Library Manager. The setup for this tutorial requires you to first upload the finished sketch file to the Portenta board. You will then connect the board to a USB-hub in order to connect it to an external monitor as well. Once the hub is powered externally, a graphical user interface with a label will be displayed on the screen.
 
@@ -60,11 +60,11 @@ Begin by plugging your Portenta board into the computer using a USB-C® cable an
 
 ### 2. Download the LVGL Library
 
-Next, select 'Portenta' in the **Tools > Board** menu before installing [lvgl](https://github.com/lvgl/lvgl) from the Library Manager. Then go to **Sketch > Include Libraries > Manage Libraries** and search for LVGL. Download **lvgl** by [kisvegabor](https://github.com/kisvegabor).  
+Next, select 'Portenta' in the **Tools > Board** menu before installing [lvgl](https://github.com/lvgl/lvgl) from the Library Manager. Then go to **Sketch > Include Libraries > Manage Libraries** and search for LVGL. Download **lvgl** by [kisvegabor](https://github.com/kisvegabor).
 
 ![Library Manager showing the installed lvgl library.](assets/por_ard_lvgl_select_library.png)
 
-***The sketches that we show are using the version 7.11.0. If you have the version 8 or greater you will need to make changes on the code, check LVGL API docs to see the update changes: <https://docs.lvgl.io/master/>.***
+***The sketches that we show are using the version 7.11.0. If you have the version 8 or greater you will need to make changes on the code, check LVGL API docs to see the update changes: [https://docs.lvgl.io/master/](https://docs.lvgl.io/master/).***
 
 ### 3. Adding a Label Widget
 
@@ -83,9 +83,9 @@ static lv_obj_t *label;
 Then inside the `setup()` configure the content and the position of the label.
 
 ```cpp
-void setup() {  
+void setup() {
   Serial.begin(9600);
-  
+
   // Initialize Portenta's video interface
   portenta_init_video();
 
@@ -100,11 +100,11 @@ void setup() {
 }
 ```
 
-This sketch creates a label that will be displayed in the center of the connected monitor. 
+This sketch creates a label that will be displayed in the center of the connected monitor.
 
 ### 4. Connect an External Monitor
 
-Compile and upload the sketch to your Portenta H7. At this point your board becomes the host. Unplug the board from your computer and connect it to the USB-hub along with a monitor, which is connected to the HDMI port. Power up your hub by connecting it to an external power source and the monitor will display a label saying `Counter`. 
+Compile and upload the sketch to your Portenta H7. At this point your board becomes the host. Unplug the board from your computer and connect it to the USB-hub along with a monitor, which is connected to the HDMI port. Power up your hub by connecting it to an external power source and the monitor will display a label saying `Counter`.
 
 ![Connecting the USB peripherals and the display to Portenta.](assets/por_ard_lvgl_connect_monitor.svg)
 
@@ -114,7 +114,7 @@ Our label object currently has LVGL's default style. If you want to customize th
 
 ### 5. Creating a Simple Counter
 
-Let's create a counter that increases each second and update the label on the screen. To do so, you have to create a label and an updating task that is going to update the label periodically and change its value. This is possible using an LVGL concept called 'Task'. 
+Let's create a counter that increases each second and update the label on the screen. To do so, you have to create a label and an updating task that is going to update the label periodically and change its value. This is possible using an LVGL concept called 'Task'.
 
 First, you can create a counter variable at the beginning of the program (before the `setup()` function).
 
@@ -130,10 +130,10 @@ static void updateCounterTask(lv_task_t *task) {
   Serial.println(counter);
 
   // Update the text of the label
-  lv_label_set_text_fmt(label, "%d" , counter);    
-  
+  lv_label_set_text_fmt(label, "%d" , counter);
+
   // Increase the count number
-  counter++;                                               
+  counter++;
 }
 ```
 
@@ -157,7 +157,7 @@ void loop() {
 
 ### 6. Upload the Sketch
 
-Below is the complete sketch of the tutorial that updates the label's text with an incrementing counter value. Upload the sketch to your Portenta H7 and connect it to an external monitor as described in Step 4. 
+Below is the complete sketch of the tutorial that updates the label's text with an incrementing counter value. Upload the sketch to your Portenta H7 and connect it to an external monitor as described in Step 4.
 
 ```cpp
 #include "Portenta_LittleVGL.h"
@@ -170,15 +170,15 @@ static void updateCounterTask(lv_task_t *task) {
   Serial.println(counter);
 
   // Update the text of the label
-  lv_label_set_text_fmt(label, "%d" , counter);    
-  
+  lv_label_set_text_fmt(label, "%d" , counter);
+
   // Increase the count number
-  counter++;                                               
+  counter++;
 }
 
-void setup() {  
+void setup() {
   Serial.begin(9600);
-  
+
   // Initialize Portenta's video interface
   portenta_init_video();
 

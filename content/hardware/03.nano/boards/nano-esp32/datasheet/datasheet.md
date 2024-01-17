@@ -5,15 +5,16 @@ type: maker
 ---
 ![](assets/featured.png)
 
-# Description 
+# Description
 The Arduino Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 (embedded in the NORA-W106-10B from u-blox®). This is the first Arduino board to be based fully on an ESP32, and features Wi-Fi® as well as Bluetooth® LE.
 
-The Nano ESP32 is compatible with the Arduino IoT Cloud, and has support for MicroPython. It is an ideal board for getting started with IoT development.
+The Nano ESP32 is compatible with the Arduino Cloud, and has support for MicroPython. It is an ideal board for getting started with IoT development.
 
 # Target areas:
 Maker, IoT, MicroPython
 
 # Features
+
 * **Xtensa® Dual-core 32-bit LX7 Microprocessor**
   * Up to 240 MHz
   * 384 kB ROM
@@ -41,12 +42,14 @@ Maker, IoT, MicroPython
   * UART
   * CAN (TWAI®)
 * **Low Power**
-  * 7 μA consumption in deep sleep mode
-  * 240 μA consumption in light sleep mode
+  * 7 μA consumption in deep sleep mode\*
+  * 240 μA consumption in light sleep mode\*
   * RTC Memory
   * Ultra Low Power (ULP) Coprocessor
   * Power Management Unit (PMU)
   * ADC in RTC mode
+
+\*The power consumption ratings listed in low power modes are only for the ESP32-S3 SoC. Other components on the board (such as LEDs), consumes power as well, which increases the overall power consumption of the board.
 
 # Contents
 
@@ -56,25 +59,25 @@ Nano ESP32 is a 3.3 V development board based on the NORA-W106-10B from u-blox®
 
 ### Application Examples
 
-**Home automation:** an ideal board for automating your home, and can be used for smart switches, automatic lighting and motor control for e.g. motor controlled blinds. 
+**Home automation:** an ideal board for automating your home, and can be used for smart switches, automatic lighting and motor control for e.g. motor controlled blinds.
 
-**IoT sensors:** with several dedicated ADC channels, accessible I2C/SPI buses and a robust ESP32-S3 based radio module, this board can easily be deployed to monitor sensor values. 
+**IoT sensors:** with several dedicated ADC channels, accessible I2C/SPI buses and a robust ESP32-S3 based radio module, this board can easily be deployed to monitor sensor values.
 
 **Low power designs:** create battery powered applications with low power consumption, utilising the built in low power modes of the ESP32-S3 SoC.
 
 ## ESP32 Core
 
-The Nano ESP32 uses the [Arduino Core for ESP32 boards](https://github.com/arduino/arduino-esp32), a derivation of Espressif's [arduino-esp32](https://github.com/espressif/arduino-esp32) core.
+The Nano ESP32 uses the [Arduino Board Package for ESP32 boards](https://github.com/arduino/arduino-esp32), a derivation of Espressif's [arduino-esp32](https://github.com/espressif/arduino-esp32) core.
 
 # Rating
 
 ## Recommended Operating Conditions
 
-| Symbol          | Description                      | Min | Typ | Max | Unit |
-| --------------- | -------------------------------- | --- | --- | --- | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 6   | 7.0 | 21  | V    |
-| V<sub>USB</sub> | Input voltage from USB connector | 4.8 | 5.0 | 5.5 | V    |
-| T<sub>OP</sub>  | Operating Temperature            | -40 | 25  | 85  | °C   |
+| Symbol              | Description                      | Min | Typ | Max | Unit |
+| ------------------- | -------------------------------- | --- | --- | --- | ---- |
+| V<sub>IN</sub>      | Input voltage from VIN pad       | 6   | 7.0 | 21  | V    |
+| V<sub>USB</sub>     | Input voltage from USB connector | 4.8 | 5.0 | 5.5 | V    |
+| T<sub>ambient</sub> | Ambient Temperature              | -40 | 25  | 105 | °C   |
 
 # Functional Overview
 
@@ -110,7 +113,7 @@ The Nano ESP32 features the **NORA-W106-10B** stand alone radio module, embeddin
 
 The microprocessor for the ESP32-S3 SoC inside the NORA-W106 module is a dual-core 32-bit Xtensa® LX7. Each core can run at up to 240 MHz and has 512 kB SRAM memory. The LX7 features:
 - 32-bit customized instruction set
-- 128-bit data bus 
+- 128-bit data bus
 - 32-bit multiplier / divider
 
 The LX7 has a 384 kB ROM (Read Only Memory), and 512 kB of SRAM (Static Random Access Memory). It also features an 8 kB **RTC FAST** and **RTC SLOW** memory. These memories are designed for low-power operations, where the **SLOW** memory can be accessed by the ULP (Ulta Low Power) coprocessor, retaining the data in deep sleep mode.
@@ -120,7 +123,7 @@ The LX7 has a 384 kB ROM (Read Only Memory), and 512 kB of SRAM (Static Random A
 The NORA-W106-10B module supports the Wi-Fi® 4 IEEE 802.11 standards b/g/n, with an output power EIRP at up to 10 dBm. The max range for this module is 500 meters.
 
 * 802.11b: 11 Mbit/s
-* 802.11g: 54 Mbit/s 
+* 802.11g: 54 Mbit/s
 * 802.11n: 72 Mbit/s max at HT-20 (20 MHz), 150 Mbit/s max at HT-40 (40 MHz)
 
 ### Bluetooth®
@@ -131,24 +134,40 @@ The NORA-W106-10B module supports Bluetooth® LE v5.0 with an output power EIRP 
 
 The NORA-W106-10B module includes 8 MB of embedded PSRAM. (Octal SPI)
 
+### Antenna Gain
+
+The built-in antenna on the NORA-W106-10B module uses GFSK modulation technique, with the performance ratings listed below:
+
+Wi-Fi®:
+- Typical conducted output power: **17 dBm.**
+- Typical radiated output power: **20 dBm EIRP.**
+- Conducted sensitivity: **-97 dBm**.
+
+Bluetooth® Low Energy:
+- Typical conducted output power: **7 dBm.**
+- Typical radiated output power: **10 dBm EIRP.**
+- Conducted sensitivity: **-98 dBm**.
+
+This data is retrieved from the uBlox NORA-W10 data sheet (page 7, section 1.5) available [here](https://www.u-blox.com/en/product/nora-w10-series). 
+
 ## System
 
 ### Resets
 
 The ESP32-S3 has support for four levels of reset:
-- **CPU:** resets CPU0/CPU1 core 
+- **CPU:** resets CPU0/CPU1 core
 - **Core:** resets the digital system, except for the RTC peripherals (ULP coprocessor, RTC memory).
 - **System:** resets the entire digital system, including the RTC peripherals.
 - **Chip:** resets the entire chip.
 
 It is possible to conduct a software reset of this board, as well as obtaining the reset reason.
 
-To do a hardware reset of the board, use the onboard reset button (PB1). 
+To do a hardware reset of the board, use the onboard reset button (PB1).
 
 ### Timers
 
 The Nano ESP32 has the following timers:
-- 52-bit system timer with 2x 52-bit counters (16 MHz) and 3x comparators. 
+- 52-bit system timer with 2x 52-bit counters (16 MHz) and 3x comparators.
 - 4x general-purpose 54-bit timers
 - 3x watchdog timers, two in main system (MWDT0/1), one in the RTC module (RWDT).
 
@@ -158,7 +177,7 @@ All GPIOs on the Nano ESP32 can be configured to be used as interrupts, and is p
 - LOW
 - HIGH
 - CHANGE
-- FALLING	
+- FALLING
 - RISING
 
 ## Serial Communication Protocols
@@ -191,13 +210,13 @@ Using PDM mode:
 - **CLK** - PDM clock
 - **DIN/DOUT** serial data
 
-Read more about the I2S protocol in [Espressif's Peripheral API - InterIC Sounds (I2S)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/i2s.html)  
+Read more about the I2S protocol in [Espressif's Peripheral API - InterIC Sounds (I2S)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-reference/peripherals/i2s.html)
 
 ### Serial Peripheral Interface (SPI)
 
 - SCK - D13
 - CIPO - D12
-- COPI - D11  
+- COPI - D11
 - CS - D10
 
 The SPI controller is by default assigned to the pins above.
@@ -211,7 +230,7 @@ The UART controller is by default assigned to the the pins above.
 
 ### Two Wire Automotive Interface (TWAI®)
 
-The CAN/TWAI® controller is used to communicate with systems using the CAN/TWAI® protocol, particularly common in the automotive industry. There are no specific pins assigned for the CAN/TWAI® controller, any free GPIO can be used. 
+The CAN/TWAI® controller is used to communicate with systems using the CAN/TWAI® protocol, particularly common in the automotive industry. There are no specific pins assigned for the CAN/TWAI® controller, any free GPIO can be used.
 
 **Please note:** TWAI® is also known as the CAN2.0B, or "CAN classic". The CAN controller is **NOT** compatible with CAN FD frames.
 
@@ -247,7 +266,7 @@ The recommended input voltage range is **6-21 V**.
 
 You should not attempt to power the board with a voltage outside the recommended range, particularly not higher than 21 V.
 
-The efficiency of the converter depends on the input voltage via the VIN pin. See the average below for a board operation with normal current consumption:  
+The efficiency of the converter depends on the input voltage via the VIN pin. See the average below for a board operation with normal current consumption:
 - **4.5 V** - >90%.
 - **12 V** - 85-90%
 - **18 V** - <85%
@@ -266,7 +285,7 @@ The 3.3 V pin is connected to the 3.3 V rail which is connected to the output of
 
 ### Pin Current
 
-The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and **sink currents** up to **28 mA**. Never connect devices that draw higher current directly to a GPIO. 
+The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and **sink currents** up to **28 mA**. Never connect devices that draw higher current directly to a GPIO.
 
 # Mechanical Information
 
@@ -314,7 +333,7 @@ The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and 
 | 14  | D1/RX        | Digital  | Digital pin 1 / Serial Receiver (RX)    |
 | 15  | D0/TX        | Digital  | Digital pin 0 / Serial Transmitter (TX) |
 
-\*CIPO/COPI/CS replaces the MISO/MOSI/SS terminology. 
+\*CIPO/COPI/CS replaces the MISO/MOSI/SS terminology.
 
 ## Mounting Holes And Board Outline
 
@@ -332,9 +351,9 @@ All Arduino boards, including this one, work out-of-the-box on the Arduino Web E
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
+### Getting Started - Arduino Cloud
 
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 
@@ -369,7 +388,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 
 Exemptions : No exemptions are claimed.
 
-Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (<https://echa.europa.eu/web/guest/candidate-list-table>), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([https://echa.europa.eu/web/guest/candidate-list-table](https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ## Conflict Minerals Declaration
 
@@ -425,7 +444,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.  
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
@@ -460,4 +479,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 09/01/2023 | Update power tree flowchart.                           |
 | 09/11/2023 | Update SPI section, update analog/digital pin section. |
 | 11/06/2023 | Correct company name, correct VBUS/VUSB                |
+| 11/09/2023 | Block Diagram Update, Antenna Specifications           |
+| 11/15/2023 | Ambient temperature update                             |
+| 11/23/2023 | Added label to LP modes                                |
+
+
+
 

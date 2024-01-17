@@ -14,10 +14,6 @@
 
 </EssentialElement>
 
-<EssentialElement link="https://github.com/arduino-libraries/Arduino_Pro_Tutorials" title="Arduino Pro Tutorials" type="library">
-        The complete Arduino sketches from the Pro tutorials.
-</EssentialElement>
-
 </EssentialsColumn>
 
 <EssentialsColumn title="Arduino Basics">

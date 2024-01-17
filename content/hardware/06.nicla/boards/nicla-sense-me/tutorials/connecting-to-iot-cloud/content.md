@@ -25,8 +25,8 @@ In this tutorial you will learn how to upload data from the Nicla module to the 
 ## Goals
 
 - How to configure the Portenta H7 to read temperature values from the Nicla Sense ME using the ESLOV connector.
-- How to Connect the Portenta H7 to the Arduino IoT Cloud
-- Publish the temperature values that you obtained from the Nicla board to the Arduino IoT Cloud.
+- How to Connect the Portenta H7 to the Arduino Cloud
+- Publish the temperature values that you obtained from the Nicla board to the Arduino Cloud.
 
 ### Required Hardware and Software
 
@@ -65,11 +65,11 @@ The code is available inside the examples provided with the **Arduino_BHY2** Lib
 This is the code, which initialize the sensors, and maintain the communication:
 
 ```cpp
-/* 
- * Use this sketch if you want to control nicla from 
+/*
+ * Use this sketch if you want to control nicla from
  * an external device acting as a host.
  * Here, nicla just reacts to external stimuli coming from
- * the eslov port or through Bluetooth® Low Energy 
+ * the eslov port or through Bluetooth® Low Energy
 */
 
 #include "Arduino.h"
@@ -85,19 +85,19 @@ void loop(){
 }
 ```
 
-### Set up the Arduino IoT Cloud
+### Set up the Arduino Cloud
 
-To configure the Arduino IoT cloud you can follow the tutorial [Getting Started with the Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started).
+To configure the Arduino Cloud you can follow the tutorial [Getting Started with the Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started).
 
 Create a new Thing at <https://create.arduino.cc/iot/things>, you can call it "PRO - Portenta and Nicla". You will need to attach the Portenta H7 as a new device to your **Thing setup.** After that, go to **Variables**, click the **add** button and select a float variable called **temperature** to store the temperature readings.
 
-![Arduino IoT Cloud - Thing Setup](assets/IoTCloud-thingSetup.png)
+![Arduino Cloud - Thing Setup](assets/IoTCloud-thingSetup.png)
 
-***Remember to add your Wi-Fi SSID name and its password (you can do that inside the Thing setup tab) to be able to connect to the Arduino IoT Cloud.***
+***Remember to add your Wi-Fi SSID name and its password (you can do that inside the Thing setup tab) to be able to connect to the Arduino Cloud.***
 
 ### Host Board: Edit the Cloud Sketch
 
-You can edit the sketch by clicking the **sketch tab** inside your **Thing page**. The sketch is automatically generated with enough code to upload it and connect it to the Cloud. 
+You can edit the sketch by clicking the **sketch tab** inside your **Thing page**. The sketch is automatically generated with enough code to upload it and connect it to the Cloud.
 
 Before uploading, you should add the following code:
 
@@ -113,7 +113,7 @@ Sensor tempSensor(SENSOR_ID_TEMP);
 
 ***You can find all the Sensor IDs at <https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids>.***
 
-Inside `void setup()` initialize the `Serial` communication, set up the variables and configuration for the Arduino IoT Cloud (properties) and wait until the **Portenta H7** is connected to the Wi-Fi and IoT Cloud. At this point, the communication with the **Nicla Sense ME** will be set up and you can start configuring the temperature sensor.
+Inside `void setup()` initialize the `Serial` communication, set up the variables and configuration for the Arduino Cloud (properties) and wait until the **Portenta H7** is connected to the Wi-Fi and IoT Cloud. At this point, the communication with the **Nicla Sense ME** will be set up and you can start configuring the temperature sensor.
 
 ***Note: Now we are using "NICLA_VIA_ESLOV". In case you mount it as a shield use "NICLA_AS_SHIELD" as the second parameter of the `begin()` function, or "NICLA_VIA_BLE" if you use Bluetooth® Low Energy.***
 
@@ -122,15 +122,15 @@ Inside `void setup()` initialize the `Serial` communication, set up the variable
     Serial.begin(9600);
     delay(1500);
 
-    Serial.print("Configuring the Arduino IoT Cloud");
+    Serial.print("Configuring the Arduino Cloud");
     // Defined in thingProperties.h
     initProperties();
 
-    // Connect to Arduino IoT Cloud
+    // Connect to Arduino Cloud
     ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
     // Wait to be connected before intitalize the communication with the Nicla Sense ME
-    Serial.println("Connecting to the Arduino IoT Cloud");
+    Serial.println("Connecting to the Arduino Cloud");
     while (ArduinoCloud.connected() != 1) {
       ArduinoCloud.update();
       delay(500);
@@ -142,7 +142,7 @@ Inside `void setup()` initialize the `Serial` communication, set up the variable
     BHY2Host.begin(false, NICLA_VIA_ESLOV);
 
     //If you want to connect the NICLA through Bluetooth® Low Energy use the following line instead of the above
-    //while(!BHY2Host.begin(false, NICLA_VIA_BLE)) {} 
+    //while(!BHY2Host.begin(false, NICLA_VIA_BLE)) {}
 
     tempSensor.configure(1, 0);
     temperature = tempSensor.value();
@@ -153,7 +153,7 @@ Inside `void setup()` initialize the `Serial` communication, set up the variable
 
 If the Nicla Sense ME communicates through Bluetooth® Low Energy, we recommend wrapping `BHY2Host.begin(false, NICLA_VIA_BLE)` in a `while` clause to make sure the connection is established before the sketch continues.
 
-Inside the `void loop()` function you will make the **Portenta H7**  get all the needed data from the **Nicla Sense ME**, store and print the temperature sensor value and update the data to the Arduino IoT Cloud.
+Inside the `void loop()` function you will make the **Portenta H7**  get all the needed data from the **Nicla Sense ME**, store and print the temperature sensor value and update the data to the Arduino Cloud.
 
 ```cpp
 void loop(){
@@ -169,15 +169,15 @@ void loop(){
 
 Upload the sketch from the **sketch tab** by clicking the second button at the top left of the left side of the sketch bar. Once it has been uploaded, you can see the temperature value just uploaded by going to your **Thing Setup** tab and looking at the last value of the **temperature** variable. You can also open the Serial Monitor to see your data live.
 
-![Arduino IoT Cloud - Sketch tab](assets/IoTCloud-thingSketch.png)
+![Arduino Cloud - Sketch tab](assets/IoTCloud-thingSketch.png)
 
 The Sketch:
 
 ```arduino
 /*
-  Sketch generated by the Arduino IoT Cloud Thing "PRO - Portenta and Nicla IoT"
+  Sketch generated by the Arduino Cloud Thing "PRO - Portenta and Nicla IoT"
 
-  Arduino IoT Cloud Variables description
+  Arduino Cloud Variables description
 
   The following variables are automatically generated and updated when changes are made to the Thing
 
@@ -197,21 +197,21 @@ void setup() {
   Serial.begin(9600);
   delay(1500);
 
-  Serial.print("Configuring the Arduino IoT Cloud");
+  Serial.print("Configuring the Arduino Cloud");
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
-  Serial.println("Connecting to the Arduino IoT Cloud");
+  Serial.println("Connecting to the Arduino Cloud");
   while (ArduinoCloud.connected() != 1) {
     ArduinoCloud.update();
     delay(500);
   }
 
   delay(1500);
-  
+
 
   Serial.println("Initialize the Nicla and the ");
   BHY2Host.begin(false, NICLA_VIA_ESLOV);
@@ -241,7 +241,7 @@ void onTemperatureChange()  {
 
 ## Conclusion
 
-In this tutorial you learned how to upload the temperature values from the Nicla Sense ME to the Arduino IoT Cloud. You followed the process to set up the Nicla board in order to send data via ESLOV connection and you configured the Arduino IoT Cloud to receive the temperature data.
+In this tutorial you learned how to upload the temperature values from the Nicla Sense ME to the Arduino Cloud. You followed the process to set up the Nicla board in order to send data via ESLOV connection and you configured the Arduino Cloud to receive the temperature data.
 
 ### Next Steps
 
@@ -250,5 +250,5 @@ In this tutorial you learned how to upload the temperature values from the Nicla
 
 ## Troubleshooting
 
-### Arduino IoT Cloud
-If you encounter any issue in the process of using the Arduino IoT Cloud, please visit the [IoT Cloud Getting started](/arduino-cloud/getting-started/iot-cloud-getting-started)
+### Arduino Cloud
+If you encounter any issue in the process of using the Arduino Cloud, please visit the [Getting Started with Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started)

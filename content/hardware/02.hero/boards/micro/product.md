@@ -2,6 +2,8 @@
 title: Micro
 url_shop: https://store.arduino.cc/arduino-micro
 url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#avr
+primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#avr
+primary_button_title: Get Started
 core: arduino:avr
 productCode: '006'
 certifications: [CE, UKCA]

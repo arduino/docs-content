@@ -9,8 +9,10 @@ The **Edge control** can be positioned anywhere and is suitable for precision fa
 <Feature title="nRF52840" image="mcu">
 
   The Edge Control features a powerful processor, the nRF52840 from Nordic Semiconductors, a 32-bit ARM® Cortex™-M4 CPU running at 64 MHz.
+  <FeatureWrapper>
+    <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf" download blank/>
+  </FeatureWrapper>
 
-  <FeatureLink title="Datasheet" url="https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf" download blank/>
 </Feature>
 
 <Feature title="MKR slots" image="mkr-form-factor">

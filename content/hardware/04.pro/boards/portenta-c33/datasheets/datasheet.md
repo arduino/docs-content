@@ -22,13 +22,13 @@ IoT, building automation, smart cities, and agriculture
 Thanks to its high-performance processor, the Portenta C33 supports many applications. From industrial applications to rapid prototyping, IoT solutions, and building automation, among many others. Here are some application examples:
 
 - **Industrial Automation:** The Portenta C33 can be implemented as a solution for different industrial applications, such as:
-    - **Industrial IoT gateway:** Connect your devices, machines, and sensors to a Portenta C33 gateway. Collect real-time operation data and display them on an Arduino IoT Cloud dashboard, leveraging end-to-end secure data encryption.
+    - **Industrial IoT gateway:** Connect your devices, machines, and sensors to a Portenta C33 gateway. Collect real-time operation data and display them on an Arduino Cloud dashboard, leveraging end-to-end secure data encryption.
     - **Machine monitoring to track OEE/OPE:** Track Overall Equipment Efficiency (OEE) and Overall Process Effectiveness (OPE) with the Portenta C33 as an IoT node. Collect data and get alerted on machine uptime and unplanned downtime to provide reactive maintenance and improve production rate.
     - **Inline Quality Assurance:** Leverage full compatibility between Portenta C33 and Nicla family to carry out quality control in your production lines. Collect Nicla smart sensing data with the Portenta C33 to catch defects early and resolve them before they travel down the line.
 - **Prototyping:** The Portenta C33 can assist Portenta and MKR developers with their IoT prototypes by integrating ready-to-use Wi-Fi®/Bluetooth® connectivity and various peripheral interfaces, including CAN, SAI, SPI, and I2C. Moreover, the Portenta C33 can be promptly programmed with high-level languages like MicroPython, allowing for rapid prototyping of IoT applications.
 
 - **Building Automation:** The Portenta C33 can be used in multiple building automation applications:
-    - **Energy Consumption Monitoring:** Collect and monitor consumption data from all services (e.g., gas, water, electricity) in a single system. Display usage trends in Arduino IoT Cloud charts, providing an overall image for energy management optimization and cost reduction.
+    - **Energy Consumption Monitoring:** Collect and monitor consumption data from all services (e.g., gas, water, electricity) in a single system. Display usage trends in Arduino Cloud charts, providing an overall image for energy management optimization and cost reduction.
     - **Appliances Control System**: Leverage high-performing Portenta C33 microcontroller to control in real-time your appliances. Adjust HVAC heating or improve the efficiency of your ventilation system, control the motors of your curtains, and switch on/off lights. The onboard Wi-Fi® connectivity easily allows Cloud integration, so that everything is under control even from the remote.
 
 </div>
@@ -303,13 +303,14 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 - Arduino® Nicla Vision (SKU: ABX00051)
 - Arduino® Nicla Voice (SKU: ABX00061)
 - Arduino® Portenta Max Carrier (SKU: ABX00043)
+- Arduino® Portenta Hat Carrier (SKU: ASX00049)
 - Arduino® Portenta CAT.M1/NB IoT GNSS Shield (SKU: ABX00043)
 - Arduino® Portenta Vision Shield - Ethernet (SKU: ABX00021)
-- Arduino® Portenta Vision Shield - LoRa® (SKU: ABX00026)
+- Arduino® Portenta Vision Shield - LoRa (SKU: ABX00026)
 - Arduino® Portenta Breakout (SKU: ABX00031)
 - Arduino® boards with an onboard ESLOV connector
 
-**Note**: The Portenta Vision Shields (Ethernet and LoRa® variants) are compatible with the Portenta C33 except for the camera, which is not supported by the Portenta C33 microcontroller. 
+**Note**: The Portenta Vision Shields (Ethernet and LoRa variants) are compatible with the Portenta C33 except for the camera, which is not supported by the Portenta C33 microcontroller. 
 
 ## Ratings
 
@@ -482,9 +483,9 @@ All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by
 
 The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
-### Getting Started - Arduino IoT Cloud
+### Getting Started - Arduino Cloud
 
-All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino® IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
 
@@ -587,6 +588,23 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
+<div style="page-break-after: always;"></div>
+
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -615,7 +633,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| **Company name** |                **Arduino SRL**               |
+| **Company name** |                **Arduino S.r.l.**               |
 |:----------------:|:--------------------------------------------:|
 |  Company address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
@@ -633,9 +651,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |                       **Changes**                      |
+|  **Date**  | **Revision** |                      **Changes**                       |
 |:----------:|:------------:|:------------------------------------------------------:|
-| 30/10/2023 |       4      |           I2C ports information section added          |
-| 20/06/2023 |       3      | Power tree added, related products information updated |
-| 09/06/2023 |       2      |       Board's power consumption information added      |
-| 14/03/2023 |       1      |                      First release                     |
+| 14/12/2023 |      6       |            Updated Related Product section             |
+| 14/11/2023 |      5       |             FCC and Block Diagram Updates              |
+| 30/10/2023 |      4       |          I2C ports information section added           |
+| 20/06/2023 |      3       | Power tree added, related products information updated |
+| 09/06/2023 |      2       |      Board's power consumption information added       |
+| 14/03/2023 |      1       |                     First release                      |

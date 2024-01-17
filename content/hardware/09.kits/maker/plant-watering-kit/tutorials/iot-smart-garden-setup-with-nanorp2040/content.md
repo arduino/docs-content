@@ -12,21 +12,21 @@ difficulty: beginner
 
 ## Introduction
 
-**Water your plants from anywhere using the Arduino IoT Cloud**
+**Water your plants from anywhere using the Arduino Cloud**
 
-Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why not spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the [Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud)?
+Decorating your home with plants is an easy way to bring some life into your day-to-day. The only problem is - those plants need water to survive, and if you forget to pay attention to them for a while you may need to start over. So instead of staying ever vigilant, why not spend an afternoon creating a setup that will let you both monitor the amount of moisture in your plants soil, and water your plants from afar using the [Arduino Cloud](https://docs.arduino.cc/cloud/iot-cloud)?
 
-In this tutorial we will learn how attaching an external relay to the Arduino Nano Screw Terminal Adapter lets you control circuits that are powered separately. We will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino IoT Cloud thanks to the functionality of the Arduino Nano RP2040 Connect.
+In this tutorial we will learn how attaching an external relay to the Arduino Nano Screw Terminal Adapter lets you control circuits that are powered separately. We will be using a relay module attached to the Arduino Nano Screw Terminal Adapter to control a pump, providing water for one of our plants from the Arduino Cloud thanks to the functionality of the Arduino Nano RP2040 Connect.
 
 ## Goals
 
-* Introducing the Arduino IoT Cloud
-* Introducing the Arduino IoT Remote app
-* Managing sensors with the Arduino IoT Cloud
-* Creating an Arduino IoT Cloud Dashboard
+* Introducing the Arduino Cloud
+* Introducing the Arduino IoT Cloud Remote app
+* Managing sensors with the Arduino Cloud
+* Creating an Arduino Cloud Dashboard
 
 ## Hardware & Software Needed
-* [Arduino IoT Cloud](https://cloud.arduino.cc)
+* [Arduino Cloud](https://cloud.arduino.cc)
 * [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit)
 * [3D-printed enclosure](https://www.printables.com/model/379111-plant-watering-kit-parts) (optional)
 * USB - wall adapter (not included in the kit)
@@ -124,18 +124,18 @@ We recommend gathering the cables that will leave through the opening, and zip-t
 ![GIF of zip-tying the cables](assets/ziptie.gif)
 
 ## IoT Cloud Setup
-If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
+If you are new to the Arduino Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
 ### Template
-To connect your board to the Arduino IoT Cloud, we will use the [Plant Watering Kit Template](https://create.arduino.cc/iot/templates/plant-watering-kit). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all!
+To connect your board to the Arduino Cloud, we will use the [Plant Watering Kit Template](https://create.arduino.cc/iot/templates/plant-watering-kit). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all!
 
 See the image below to understand how to set it up.
 
 ![Template overview](assets/template_overview.png)
 
 ### Manual Setup
-***This section is for you who want to set up the cloud manually. For easy setup, use the template provided (see section just above).*** 
-Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things). You will need to have a registered account with Arduino to use it. Follow the steps below to set up the Arduino IoT Cloud.
+***This section is for you who want to set up the Cloud manually. For easy setup, use the template provided (see section just above).*** 
+Begin by navigating to the [Arduino Cloud](https://create.arduino.cc/iot/things). You will need to have a registered account with Arduino to use it. Follow the steps below to set up the Arduino Cloud.
 
 **1.** Create a new Thing, and select/configure the Nano RP2040 board. Note that the board needs to be connected to your computer during this setup.
 
@@ -163,7 +163,7 @@ Begin by navigating to the [Arduino IoT Cloud](https://create.arduino.cc/iot/thi
 
  A setup that allows for remote/local control of a pump, as well as reading sensors.
 
- Built using the Arduino IoT Cloud service
+ Built using the Arduino Cloud service
 
  Components used:
 - Arduino Nano RP2040 Connect
@@ -210,7 +210,7 @@ void setup() {
   // Make sure the pump is not running
   stopWatering();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   initProperties();
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(4);
@@ -308,7 +308,7 @@ Depending on what type of plant you decide to use this device with, you may need
 
 ## Final Setup
 
-We have now assembled the hardware + configured the Arduino IoT Cloud, and we are ready to start using our setup. Now, let's start using it.
+We have now assembled the hardware + configured the Arduino Cloud, and we are ready to start using our setup. Now, let's start using it.
 
 **1.** If you have confirmed that the connection works, we can unplug the setup from the computer, and move it to the plant we want to monitor.
 
@@ -320,7 +320,7 @@ We have now assembled the hardware + configured the Arduino IoT Cloud, and we ar
 
 ## Usage
 
-Let's take a look at what our Smart Garden can do. To control it, we can either use the dashboard in the Arduino IoT Cloud, or the Arduino Remote app ([Playstore](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) / [Appstore](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)).
+Let's take a look at what our Smart Garden can do. To control it, we can either use the dashboard in the Arduino Cloud, or the Arduino Remote app ([Playstore](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) / [Appstore](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431)).
 
 ![Control and monitor your smart garden](assets/dashboard-overview.png)
 
@@ -331,7 +331,7 @@ Let's take a look at what our Smart Garden can do. To control it, we can either 
 - Click on the switch widget. The pump will now run for **x** amount of seconds, and then it will turn off.
 - You can also activate the pump locally with the Grove button. 
 
-**Moisture:** monitor the moisture of your plant: if it is low, turn on the pump, and watch the moisture levels rise. The moisture of your plant can be viewed in the cloud dashboard.
+**Moisture:** monitor the moisture of your plant: if it is low, turn on the pump, and watch the moisture levels rise. The moisture of your plant can be viewed in the Cloud dashboard.
 
 **Button:** you can activate the pump from without a connection by pressing the button. 
 

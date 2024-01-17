@@ -1,6 +1,6 @@
 ---
 title: Arduino Nano ESP32 IoT Cloud Setup Guide
-description: A step-by-step guide on how to set up the Nano ESP32 with the Arduino IoT Cloud.
+description: A step-by-step guide on how to set up the Nano ESP32 with the Arduino Cloud.
 hardware:
   - hardware/03.nano/boards/nano-esp32
 author: Hannes Siebeneicher
@@ -9,18 +9,18 @@ tags: [Nano ESP32, IoT Cloud]
 
 The ESP32 microcontroller on the Nano ESP32 allows for Wi-Fi® functionality. This also means you can use it with Arduino's IoT Cloud!
 
-This article shows you how to set up your board and connect it to the cloud allowing you to upload code over the air, create dashboards to monitor your data and control your Arduino remotely.
+This article shows you how to set up your board and connect it to the Cloud allowing you to upload code over the air, create dashboards to monitor your data and control your Arduino remotely.
 
 ## Software & Hardware Needed
 
 - [Arduino Nano ESP32](https://store.arduino.cc/products/nano-esp32)
-- [Arduino IoT Cloud](https://cloud.arduino.cc/home/)
+- [Arduino Cloud](https://cloud.arduino.cc/home/)
 
 ## Setup and Process
 
-***If you are new to the Arduino IoT Cloud before check out [Getting Started With the Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started).***
+***If you are new to the Arduino Cloud before check out [Getting Started With the Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started).***
 
-To use the Arduino IoT Cloud you will need to register and set up a **free** account. 
+To use the Arduino Cloud you will need to register and set up a **free** account. 
 
 ### Configure Your Board
 
@@ -28,7 +28,7 @@ After you have set up your account you can connect your board to your pc. Inside
 
 ![Create new Thing](./assets/thingsOverview.png)
 
-This will take you to the setup menu for creating your Thing. Here you can set up your device, configure your network connection and add cloud variables. You can learn more about cloud variables in [Getting Started With the Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started). First, under associate device, click on **Select Device**.
+This will take you to the setup menu for creating your Thing. Here you can set up your device, configure your network connection and add Cloud variables. You can learn more about Cloud variables in [Getting Started With the Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started). First, under associate device, click on **Select Device**.
 
 ![Select Device](./assets/selectDevice.png)
 
@@ -40,7 +40,7 @@ You can now choose between three different options depending on what type of boa
 
 ![Select Arduino](./assets/selectArduino.png)
 
-If this is your first time using the Arduino IoT Cloud you will be asked to download the **Arduino Create Agent**. The Create Agent is a piece of software that is necessary for your Arduino board to communicate with your browser. Download and install it by clicking on download and following the installation process.
+If this is your first time using the Arduino Cloud you will be asked to download the **Arduino Create Agent**. The Create Agent is a piece of software that is necessary for your Arduino board to communicate with your browser. Download and install it by clicking on download and following the installation process.
 
 ![Arduino Create Agent](./assets/createAgent.png)
 
@@ -67,4 +67,4 @@ We are almost done with the setup. In the following step, you will need the **se
 
 ## Summary
 
-You have now successfully set up your Nano ESP32 to work with the IoT Cloud. To get started with your first IoT project, check out our [Getting Started With the Arduino IoT Cloud](arduino-cloud/getting-started/iot-cloud-getting-started) guide.
+You have now successfully set up your Nano ESP32 to work with the IoT Cloud. To get started with your first IoT project, check out our [Getting Started With the Arduino Cloud](arduino-cloud/getting-started/iot-cloud-getting-started) guide.

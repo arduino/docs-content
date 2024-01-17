@@ -32,7 +32,7 @@ ___
 - 1x MKR ENV shield* ([link to store](https://store.arduino.cc/arduino-mkr-env-shield))
 - 2x Micro USB cable
 - Arduino IDE (offline and online versions available).
-- Arduino SAMD core installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010).
+- Arduino SAMD Board Package installed, [follow this link for instructions](https://www.arduino.cc/en/Guide/MKRWiFi1010#installing-drivers-for-the-mkr-wifi-1010).
 - **LoRa** library installed, see the [github repository](https://github.com/sandeepmistry/arduino-LoRa).
 - **Arduino_MKRENV** installed, [click here for more documentation](https://www.arduino.cc/en/Reference/ArduinoMKRENV).
 

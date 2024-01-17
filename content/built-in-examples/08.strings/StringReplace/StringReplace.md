@@ -30,7 +30,7 @@ If you try to replace a substring that's more than the whole String itself, noth
 
 ```arduino
 String stringOne = "<html><head><body>";
-String stringTwo = stringOne.replace("<html><head></head><body></body></html>", "Blah");
+stringOne.replace("<html><head></head><body></body></html>", "Blah");
 ```
 
 In this case, the code will compile, but `stringOne` will remain unchanged, since the replacement substring is more than the String itself.

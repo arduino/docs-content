@@ -2,6 +2,8 @@
 title: MKR Connector Carrier
 url_shop: https://store.arduino.cc/arduino-mkr-connector-carrier
 url_guide: /tutorials/mkr-connector-carrier/connector-basics
+primary_button_url: /tutorials/mkr-connector-carrier/connector-basics
+primary_button_title: Get Started
 certifications: [CE, UKCA]
 ---
 

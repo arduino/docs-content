@@ -44,9 +44,9 @@ If you’re using the USB-C® connector you must power it with 5 V.
 
 When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board. 
 
-## Core
+## Board Package
 
-The UNO R4 WiFi is based on the [Arduino UNO R4 Core](https://github.com/arduino/ArduinoCore-renesas).
+The UNO R4 WiFi is based on the [Arduino UNO R4 Board Package](/tutorials/uno-r4-minima/r4-wifi-getting-starteds).
 
 ## Installation
 
@@ -60,15 +60,15 @@ Read more in the [Getting Started with the UNO R4 WiFi](/tutorials/uno-r4-wifi/r
 
 ### Arduino Web Editor
 
-The Web Editor is an online IDE that includes all official boards, no need for installing the core/package. You will need the Create Plugin installed on your computer to use the Web Editor.
+The Web Editor is an online IDE that includes all official boards, no need for installing the Board Package. You will need the Create Plugin installed on your computer to use the Web Editor.
 
 Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-The Arduino UNO R4 WiFi is compatible with the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows you to create IoT applications in just minutes.
+The Arduino UNO R4 WiFi is compatible with the [Arduino Cloud](https://create.arduino.cc/iot/things), a Cloud service that allows you to create IoT applications in just minutes.
 
-***Visit the [Getting Started with Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
+***Visit the [Getting Started with Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
 
 ## Renesas RA4M1
 
@@ -107,10 +107,10 @@ If you just need a quick overview of the pins functionality, this is a full tabl
 | D11 | Digital   | SPI (COPI), GPIO pin, PWM         |
 | D12 | Digital   | SPI (CIPO), GPIO pin              |
 | D13 | Digital   | SPI (SCK), GPIO pin, Built-in LED |
-| A0  | Digital   | Analog In, DAC                    |
+| A0  | Analog    | Analog In, DAC OUT                |
 | A1  | Analog in | Analog In, OPAMP +                |
 | A2  | Analog in | Analog In, OPAMP -                |
-| A3  | Analog in | Analog In, OPAMP OUT              |
+| A3  | Analog    | Analog In, OPAMP OUT              |
 | A4  | Analog in | Analog In, SDA\*                  |
 | A5  | Analog in | Analog In, SCL\*                  |
 
@@ -135,7 +135,10 @@ The UNO R4 WiFi has six analog input pins (A0-A5) that can be read by using the 
 value = analogRead(pin);
 ```
 
-The reference voltage of these pins is 5 V.
+The default reference voltage of these pins is 5 V, but this can be changed as follows:
+
+- `analogReference(AR_DEFAULT)` (Default reference of 5 V)
+- `analogReference(AR_INTERNAL)` (Built in reference of 1.5 V.)
 
 The default resolution is set to 10-bit, but can be updated to 12 and 14-bit resolutions. To do so, use the following method in the `setup()` of your sketch.
 - `analogReadResolution(10)` (default)
@@ -223,7 +226,7 @@ Please note that the following pins are PWM capable but may interfere with other
 
 ## LED Matrix
 
-The LED Matrix on the UNO R4 WiFi is available to use in your program, to display still graphics, animations, or even play games on. The Renesas core includes the [Arduino_LED_Matrix](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/Arduino_LED_Matrix) library for displaying frames on the matrix.
+The LED Matrix on the UNO R4 WiFi is available to use in your program, to display still graphics, animations, or even play games on. The UNO R4 Board Package includes the [Arduino_LED_Matrix](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/Arduino_LED_Matrix) library for displaying frames on the matrix.
 
 To learn about the LED matrix in depth, check out the [LED Matrix Guide](/tutorials/uno-r4-wifi/led-matrix/).
 
@@ -505,6 +508,25 @@ if(Serial.available() > 0) {
 }
 ```
 
+### Timers
+
+In the Ardunio API there is a [`FspTimer`](https://github.com/arduino/ArduinoCore-renesas/blob/149f78b6490ccbafeb420f68919c381a5bdb6e21/cores/arduino/FspTimer.h#L87) class which provides all the necessary functionality for using timers in a sketch.
+
+The UNO R4 WiFi has two timer peripherals, a Asynchronous General Purpose Timer (AGT) and a General PWM Timer (GPT). There are two AGT timers on the board, one of them is used for time measuring methods such as `millis()` and `microseconds()`.
+
+The board has 7 GPT timers to help perform PWM tasks, such as calculating duty cycles by measuring how long a signal is active. It is possible to use these reserved PWM timers by using the previously mentioned [`FspTimer`](https://github.com/arduino/ArduinoCore-renesas/blob/main/cores/arduino/FspTimer.h#L87) library. Using this function will explicitly request a PWM timer:
+
+```arduino
+FspTimer::force_use_of_pwm_reserved_timer();
+```
+
+When using the timer functions of the library you will need to enter the timers type. Which is either AGT or GPT. This can be declared in the sketch like this:
+
+```arduino
+uint8_t gpt_timer_type = GPT_TIMER;
+uint8_t agt_timer_type = AGT_TIMER;
+```
+
 ### SerialUSB
 
 The UNO R4 WiFi has an extended set of Serial methods that can be enabled whenever you include the `<HID.h>` library in your sketch.
@@ -614,7 +636,7 @@ If you wish you can change this and get direct access to the serial bus on the R
 
 The ESP32 onboard the UNO R4 WiFi is used to give the board Wi-Fi® capabilities. The Wi-Fi® module has a bitrate of up to 150 Mbps. The ESP32 module has a built in trace-antenna, meaning that you do not need an external one to use the connectivity features of the board. However, this trace antenna is shared with the Bluetooth® module, which means that you cannot use Bluetooth® and Wi-Fi® at the same time.
 
-To use the Wi-Fi® features of the UNO R4 WiFi, use the **WiFiS3** library that is built in to the UNO R4 Core.
+To use the Wi-Fi® features of the UNO R4 WiFi, use the **WiFiS3** library that is built in to the UNO R4 Board Package.
 
 To learn more about the Wi-Fi® capabilities of the UNO R4 WiFi, try out the [Network Examples](/tutorials/uno-r4-wifi/wifi-examples).
 

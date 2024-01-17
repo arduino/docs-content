@@ -32,23 +32,79 @@ In this guide you will discover:
 
 - [GIGA R1 WiFi](/hardware/giga-r1-wifi)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- Arduino GIGA Core installed.\*
+- Arduino GIGA Board Package installed.\*
 
-***\*For instructions on how to install the GIGA Core, follow the [Getting Started with GIGA R1 guide](/tutorials/giga-r1-wifi/giga-getting-started).***
+***\*For instructions on how to install the GIGA Board Package, follow the [Getting Started with GIGA R1 guide](/tutorials/giga-r1-wifi/giga-getting-started).***
+
+## M4 Support
+
+The M4 processor can access most of the peripherals that the M7 can access, with some exceptions.
+
+The M4 supports:
+- I2C
+- SPI
+- UART
+- CAN
+- DAC
+- ADC
+- Bluetooth® Low Energy (via [ArduinoBLE Library](https://www.arduino.cc/reference/en/libraries/arduinoble/))
+
+The M4 does **not** support:
+- Wi-Fi®
+- Serial communication\*
+- [Arduino Cloud](https://app.arduino.cc) sketches.
+
+***\*Serial Communication from the M4 can be enabled by setting up an RPC that allows the M4 & M7 cores to communicate. Using `RPC.print()` (M4) and `RPC.read()` (M7) helps achieve this. See [RPC Serial Example](#rpc-serial).***
+
+### Boot / Disable M4
+
+The M4 core is by manufacturing default, disabled when booting the board. The M4 core can however be booted by using the `RPC.begin()` command, which includes the necessary functions to boot the M4 core. See the [RPC.cpp source file](https://github.com/arduino/ArduinoCore-mbed/blob/main/libraries/RPC/src/RPC.cpp#L122-L140) for more details.
+
+### Boot / Disable M7
+
+The M7 is booted by default and there is currently **no option to disable** this core.
+
+### Peripheral Interference
+
+When booting the M4, the M4 will execute the sketch that has been uploaded to its flash memory. It is a good idea to track what type of code you are running on the M4, as you may create interference between different peripherals. If you run simply a blank sketch on the M4, it should **not** create any interference.
+
+An example of this is if you use the `CAN` library. If you are running a CAN application on the **M7**, you will disrupt it if you enable it on the **M4**. The dual core feature is not intended for using the same peripheral, bus etc.
+
+***Tip: name your sketches with a `_M4` and `_M7` suffix/prefix, and create an initialization sequence. E.g. blink the blue LED three times whenever the M4 boots up.***
+
+## Pin Priority
+
+As the M7 and M4 core share their pins, which one gets priority to the pin? It can be assumed that as the M7 is the more powerful core, it gets first access.
+
+This is however **not true** as pin priority is random. If both cores tries to access the same pin (e.g. `D27`), it is simply random who gets access.
+
+***When developing dual core applications, it is a good idea avoiding using the same pins & peripheral for many reasons.*** 
 
 ## Programming M4/M7
 
-Programming the cores is done via the Arduino IDE, in a special interface that appears only when you **select the Arduino GIGA R1 board** from the board menu. 
+When programming the GIGA R1 WiFi's M7 and M4, we **create a sketch for each core**, and program them like we would program two individual Arduino boards. As only a single serial port is available, we need to specify which core we want to target. 
+
+Some essential things to consider when programming the cores are:
+- You need to [partition the memory](#partitioning-the-flash-memory), allocating flash memory to the M4 core.
+- You need to select the [target core](#target-core), which is either **Main Core** or **M4 Co-processor**.
+- The M4 has no serial communication enabled, here we need to use RPC (see [RPC Serial example](#rpc-serial)).
+
+When writing multiple sketches, there are some things to consider to make your development experience easier:
+- Name your sketches with either `_M4` or `_M7` suffix or prefix. This will make it easier if the code is intended to be shared with others.
+- Consider having a starting sequence (e.g. the blue LED blinking 3 times), whenever a core is initialized.
+- Always include `RPC.begin()` on your M7 core sketch.
 
 ### Partitioning The Flash Memory
 
-To allocate memory for the M4, the flash memory can be partitioned. This is done by navigating to **Tools > Flash Split** in the IDE.
+To allocate the flash memory for the M4, the flash memory can be partitioned. This is done by navigating to **Tools > Flash Split** in the IDE. 
+
+***Note that the flash memory is the space where the application code (your sketch) is stored. It is not the RAM memory (which is significantly lower).***
 
 ![Flash partitioning in the IDE.](assets/flash-split.png)
 
-- **2MB M7 + M4 in SDRAM (default)** - this option is the default configuration, which is for programming the M7 only. This allocates no memory to the M4.
-- **1.5MB M7 + 0.5MB M4** - useful when larger amount of memory is required on the M7.
-- **1MB M7 + 1MB M4** - useful when you need to balance the memory equally between the M4 and M7 cores.
+- **2MB M7 + M4 in SDRAM (default)** - this option is the default configuration, which is for programming the M7 only. This allocates no flash memory to the M4.
+- **1.5MB M7 + 0.5MB M4** - useful when larger amount of flash memory is required on the M7.
+- **1MB M7 + 1MB M4** - useful when you need to balance the flash memory equally between the M4 and M7 cores.
 
 ***It is required to use option 2 or 3 if you intend to program the M4 via the IDE, as the default option provides no memory allocation for the M4.***
 
@@ -88,108 +144,55 @@ Once the M4 is booted from the M7, both cores will run in parallel, much like tw
 
 Uploading new sketches works the same as a typical upload procedure. The new sketch will overwrite the current sketch running on the core you upload to.
 
-## Limitations
+## Identify Core Used
 
-The M7 and M4 cores are two separate cores, and when initialized, they will continue to execute their corresponding program.
-
-In this section you will find some known limitations of using the two parallel cores. 
-
-### Booting M4
-
-As mentioned in the previous section, the M4 requires to be booted from the M7, by using the `RPC.begin()` method. If this is not included, the M4 will not boot.
-
-### Serial Communication
-
-Serial communication is not available by default on the M4 core. A work around for this is by sending data using the `RPC` library, and printing it from the M7 core. To achieve this, see the following examples:
-
-**M4 Sketch**
+To identify which core is being used, use the `HAL_GetCurrentCPUID()` method. Below is a function that returns which core is currently being used. This can be useful to identify that your program is running on the right core.
 
 ```arduino
+/*
+GIGA R1 WiFi - Core identify sketch.
+
+This simple sketch blinks an LED on boot.
+You will need to upload it to both the M7 and M4 core.
+
+It checks whether current CPU is M7 or M4, and blinks either 
+the blue LED or the green LED, 10 times. 
+
+As the M4 is booted when invoking RPC.begin() on the M7,
+the M4 sketch will run as soon as the blink() function
+finishes on the M7. 
+*/
+
 #include <RPC.h>
 
 void setup() {
-  RPC.begin();
-}
+  pinMode(LEDB, OUTPUT);
+  pinMode(LEDG, OUTPUT);
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  RPC.println("Hello World!");
-}
-```
-
-**M7 Sketch**
-
-```arduino
-#include <RPC.h>
-
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  RPC.begin();
-}
-
-void loop() {
-  String buffer = "";
-    while (RPC.available()) {
-      buffer += (char)RPC.read();
-    }
-
-    if (buffer.length() > 0) {
-      Serial.print(buffer);
-    }
-}
-```
-
-***Note that both of these sketches needs to be uploaded to their corresponding cores.***
-
-## Methods of Programming
-
-Programming the M4 and M7 cores is straightforward, but can be complicated to track. Having a strategy for how you want to build your dual core applications is key. 
-
-In this section we introduce the "single" and "multiple" sketch approach, and the pros and cons of each method.
-
-### Single Sketch Approach
-
-The single sketch approach means writing a single sketch that is **uploaded to both cores** each time a change is made. In the sketch, we can keep track of what each core does, simply by querying the core used with a simple function:
-
-```arduino
-String currentCPU() {
   if (HAL_GetCurrentCPUID() == CM7_CPUID) {
-    return "M7";
+    blink(LEDB, 100); //blink blue LED (M7 core)
   } else {
-    return "M4";
+    blink(LEDG, 100); //blink green LED (M4 core)
   }
+}
+
+void loop() {
+}
+
+void blink(int led, int delaySeconds) {
+  for (int i; i < 10; i++) {
+    digitalWrite(led, LOW);
+    delay(delaySeconds);
+    digitalWrite(led, HIGH);
+    delay(delaySeconds);
+  }
+  RPC.begin();
 }
 ```
 
-With this function, we check whether the M4 or M7 is running, and we can write code for each of the core like this:
-
-```arduino
-  if (currentCPU() == "M4") {
-    //run M4 code
-  }
-
-  if (currentCPU() == "M7") {
-    //run M7 code
-  }
-```
-
-The pros of using this approach is that you can write all code in a single file, therefore, revisioning code, as well as the provisioning is easier to manage.
-
-The cons of using this approach is that you will run out of program memory faster. You will also upload code to the cores that will never execute (the M7 code will not execute on M4 and vice versa).
-
-### Multiple Sketch Approach
-
-The multiple sketch approach means developing two separate sketches, one for each core. This does not require the use of the `HAL_GetCurrentCPUID()` to retrieve the core you are using, you can instead just write sketches as you would normally do.
-
-The pros of using this approach is that the code you write is optimized only for one core, and this saves a lot of program memory.
-
-The cons is to manage the versions becomes harder, and while flashing the board, you'd need to keep track on which version is uploaded to which core. It is easier to upload to the wrong core by accident using this approach, but you have more optimized code.
-
-When writing multiple sketches, there are some things to consider to make your development experience easier:
-- Name your sketches with either `_M4` or `_M7` suffix or prefix. This will make it easier if the code is intended to be shared with others.
-- Consider having a starting sequence (e.g. the blue LED blinking 3 times), whenever a core is initialized.
-- Always include `RPC.begin()` on your M7 core sketch.
+- The `HAL_GetCurrentCPUID()` is a method that checks the CPU ID, and returns the value in a `uint32_t` format.
+- The `CM7_CPUID` flag that we compare with holds the value `0x00000003` (hexadecimal), or `3` (decimal).
+- It is also possible to use `CM4_CPUID` flag which holds the value `0x00000003`, or `1` (decimal).
 
 ## Remote Call Procedures (RPC)
 
@@ -455,7 +458,7 @@ int servoMove(int angle) {
 
 The `RPC` library is based on the [rpclib](https://github.com/rpclib/rpclib) C++ library which provides a client and server implementation. In addition, it provides a method for communication between the M4 and M7 cores. 
 
-This library is included in the GIGA core, so it is automatically installed with the core. To use this library, you need to include `RPC.h`:
+This library is included in the GIGA Board Package, so it is automatically installed with the Board Package. To use this library, you need to include `RPC.h`:
 
 ```arduino
 #include <RPC.h>

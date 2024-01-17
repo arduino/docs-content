@@ -44,9 +44,9 @@ If you’re using the USB-C® connector you must power it with 5 V.
 When powered via USB, you are bypassing the onboard voltage regulator completely. In this case, the 5 V pin can provide up to 2 A without damaging the board. 
 
 
-## Core
+## Board Package
 
-The UNO R4 Minima is based on the [Arduino Core for Renesas devices](https://github.com/arduino/ArduinoCore-renesas).
+The UNO R4 Minima is based on the [UNO R4 Board Package](/tutorials/uno-r4-minima/minima-getting-started).
 
 ## Installation
 
@@ -60,7 +60,7 @@ Read more in the [Getting Started with the UNO R4 Minima](/tutorials/uno-r4-mini
 
 ### Arduino Web Editor
 
-The Web Editor is an online IDE that includes all official boards, no need for installing the core/package. You will need the Create Plugin installed on your computer to use the Web Editor.
+The Web Editor is an online IDE that includes all official boards, no need for installing the Board Package. You will need the Create Plugin installed on your computer to use the Web Editor.
 
 Read more in the [Getting Started with the Web Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor) guide.
 
@@ -70,7 +70,7 @@ The UNO R4 Minima features the powerful and very robust Renesas microcontroller 
 
 These peripherals include analog-to-digital converters, timers, pulse width modulation (PWM) units, communication interfaces (such as UART, SPI, and I2C), and more.
 
-![Microcontroller on the UNO R4 Minima](assets/R7FA4M1AB3CFM.png)
+![Microcontroller on the UNO R4 Minima](./assets/R7FA4M1AB3CFM.png)
 
 ### Memory
 
@@ -129,9 +129,12 @@ The UNO R4 Minima has six analog input pins (A0-A5) that can be read by using th
 value = analogRead(pin);
 ```
 
-The reference voltage of these pins is 5 V.
+The default reference voltage of these pins is 5 V, but this can be changed as follows:
 
-The default resolution is set to 10-bit but can be updated to 12 and 14-bit resolutions. To do so, use the following method in the `setup()` of your sketch.
+- `analogReference(AR_DEFAULT)` (Default reference of 5 V)
+- `analogReference(AR_INTERNAL)` (Built in reference of 1.5 V.)
+
+The default resolution is set to 10-bit, but can be updated to 12 and 14-bit resolutions. To do so, use the following method in the `setup()` of your sketch.
 - `analogReadResolution(10)` (default)
 - `analogReadResolution(12)`
 - `analogReadResolution(14)`
@@ -236,7 +239,7 @@ void loop(){
 
 ## DAC
 
-![DAC Pin](assets/dacpin.png)
+![DAC Pin](./assets/dacpin.png)
 
 The UNO R4 Minima has a DAC with up to 12-bit resolution, that can act as a genuine analog output pin which means it's even more capable than PWM pins.
 
@@ -318,7 +321,7 @@ If you want to read more about the EEPROM check out [this article about Arduino 
 
 ## SPI
 
-![SPI Pins](assets/spipins.png)
+![SPI Pins](./assets/spipins.png)
 
 The UNO R4 Minima features a Serial Peripheral Interface (SPI) bus. The bus (connector), ‘SPI’ uses the following pins:
 
@@ -356,11 +359,16 @@ void loop() {
 
 ## I2C
 
-![I2C Pins](assets/i2cpins.png)
+![I2C Pins](./assets/i2cpins.png)
 
 I2C lets you connect multiple I2C-compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7-bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
 
 The UNO R4 Minima has one I2C bus which is marked with SCL and SDA. They are shared with A4 (SDA) and A5 (SCL) which owners of previous UNOs are familiar with. The pullups are not mounted on the PCB but there are footprints to do so if needed.
+
+There are a couple of advantages to not mounting the pullup resistors from the factory:
+
+ - As the pins used for I2C are directly connected to A4 and A5 respectively, they are also able to be used as digital input/output, and analog input pins. Mounting I2C pullup resistors to these pins would limit the functionality to only I2C, as they would be locically `HIGH` by default.
+ - By choosing to mount different resistances, you are able to select if you want to operate a 3.3 V or a 5 V I2C device with these pins. 
 
 The pins used for I2C on the UNO R4 Minima are the following:
 - SDA - D18 or A4
@@ -386,6 +394,9 @@ Wire.write(byte(0x00)); //send instruction byte
 Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
+
+Learn more about the I2C protocol in our [I2C Protocol Guide](/learn/communication/wire)
+
 ## USB Serial & UART
 
 The UNO R4 Minima board features two separate hardware serial ports. 
@@ -397,7 +408,7 @@ This is one of the few things that are distinctly different from UNO R3 to UNO R
 
 ### Native USB
 
-Sending serial data to your computer is done using the standard `Serial` object. I
+Sending serial data to your computer is done using the standard `Serial` object. 
 
 ```arduino
 Serial.begin(9600);
@@ -478,7 +489,7 @@ To learn more about the HID capabilities of the UNO R4 Minima, check out the [HI
 
 ## SWD Connector
 
-![SWD Connector](assets/swd.png)
+![SWD Connector](./assets/swd.png)
 
 On the UNO R4 Minima, there is a debugging option available using the SWD connector pins, giving advanced debug functionalities for more advanced users.
 
@@ -526,7 +537,7 @@ Install the [UNO R4 Board Package](https://github.com/arduino/ArduinoCore-renesa
 
 **Step 2**
 Navigate to: "C:\Users\YourWindowsUserName\AppData\Local\Arduino15\packages\arduino\hardware\
-renesas\0.5.0\bootloaders\SANTIAGO"
+renesas_uno\1.X\bootloaders\UNO_R4"
 
 **Step 3**
 Identify the `dfu_minima.hex`
