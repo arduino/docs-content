@@ -394,50 +394,6 @@ while True:
     noTone(5,1)
 ```
 
-### pulseIn()
-
-**Example:**
-
-```python
-import machine
-
-def pulseIn(pin, level, timeout=1000000):
-    pulse_start = machine.time_pulse_us(machine.Pin(pin), level, timeout)
-    pulse_end = machine.time_pulse_us(machine.Pin(pin), not level, timeout)
-    return pulse_end - pulse_start
-```
-
-### shiftIn()
-
-**Example:**
-
-```python
-import machine
-
-def shiftIn(dataPin, clockPin, bitOrder=machine.MSBFIRST):
-    value = 0
-    for i in range(8):
-        value |= machine.Pin(dataPin).value() << (7 - i)
-        machine.Pin(clockPin).value(1)
-        machine.Pin(clockPin).value(0)
-    return value
-```
-
-### shiftOut()
-
-**Example:**
-
-```python
-import machine
-
-def shiftOut(dataPin, clockPin, bitOrder=machine.MSBFIRST, value):
-    for i in range(8):
-        mask = 1 << i if bitOrder == machine.LSBFIRST else 1 << (7 - i)
-        machine.Pin(dataPin).value(bool(value & mask))
-        machine.Pin(clockPin).value(1)
-        machine.Pin(clockPin).value(0)
-```
-
 ## Math
 
 ### abs()
