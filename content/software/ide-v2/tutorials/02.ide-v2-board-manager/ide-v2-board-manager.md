@@ -8,33 +8,33 @@ tags:
 author: 'Karl Söderby & Jacob Hylén'
 ---
 
-The board manager is a great tool for installing the necessary board packages to use your Arduino boards. In this quick tutorial, we will take a look at how to install one, and choosing the right package for your board! 
+The board manager is a great tool for installing the necessary board packages to use your Arduino boards. In this quick tutorial, we will take a look at how to install one, and choosing the right package for your board!
 
-You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software). 
+You can easily download the editor from the [Arduino Software page](https://www.arduino.cc/en/software).
 
 You can also follow the [downloading and installing the Arduino IDE 2](/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) tutorial for more detailed guide on how to install the editor.
 
 ## Requirements
 
-- Arduino IDE 2 installed. 
+- Arduino IDE 2 installed.
 
 ## Why Use the Board Manager?
 
 The board manager is a tool that is used to install different board packages on your local computer. So what is a **board package**, and why is it necessary that I install one?
 
-Simply explained, a board package is written and designed for specific microcontrollers. Arduino offers several different types of boards, and these boards may also have different types of microcontrollers. While different microcontrollers accomplish tasks in similar ways, the way code is compiled, pins are mapped, and what features are available is tailor-made to the silicon itself, meaning that this will also be microcontroller-specific. 
+Simply explained, a board package is written and designed for specific microcontrollers. Arduino offers several different types of boards, and these boards may also have different types of microcontrollers. While different microcontrollers accomplish tasks in similar ways, the way code is compiled, pins are mapped, and what features are available is tailor-made to the silicon itself, meaning that this will also be microcontroller-specific.
 
 What a board package does is to act as a layer between all of this microcontroller-specific jargon, and you - the maker. The board package translates it into the Arduino API you are already familiar with so that you can program any of the microcontrollers in the Arduino ecosystem in the same way.
 
 For example, an Arduino UNO has an **ATmega328P**, which uses the **AVR package**, while an Arduino Nano 33 IoT has a **SAMD21** microcontroller, where we need to use the **SAMD package**. However, regardless of what microcontroller is on the board we are using, `digitalWrite(LED_BUILTIN, HIGH)` will turn on the built-in LED, and `analogRead(A0)` will read the analog pin 0 and check for a voltage.
 
-In conclusion, to use a specific board, we need to install a specific board package. 
+In conclusion, to use a specific board, we need to install a specific board package.
 
 ## Installing a Board Package
 
-Installing a board package is quick and easy, but let's take a look at what we need to do. 
+Installing a board package is quick and easy, but let's take a look at what we need to do.
 
-**1.** Open the Arduino IDE 2. 
+**1.** Open the Arduino IDE 2.
 
 **2.** With the editor open, let's take a look at the left column. Here, we can see a couple of icons. Let's click the on the **Arduino board** icon.
 
@@ -44,7 +44,7 @@ Installing a board package is quick and easy, but let's take a look at what we n
 
 ![Navigating the board manager.](assets/installing-a-core-img02.png)
 
-**4.** This will begin an installation process, which usually only take a few moments. 
+**4.** This will begin an installation process, which usually only take a few moments.
 
 ![Installation may take a few minutes.](assets/installing-a-core-img03.png)
 
@@ -52,7 +52,7 @@ Installing a board package is quick and easy, but let's take a look at what we n
 
 ![Board is installed.](assets/installing-a-core-img04.png)
 
-Congratulations! You have now successfully downloaded and installed a board package on your machine, and you can start using your Arduino board! 
+Congratulations! You have now successfully downloaded and installed a board package on your machine, and you can start using your Arduino board!
 
 ### Changing version
 
@@ -112,7 +112,7 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 - [ArduinoCore-megaavr](https://github.com/arduino/ArduinoCore-megaavr)
 
-### UNO R4 
+### UNO R4
 
 The **UNO R4 Boards** package is based on the **Arduino Renesas Core**, and includes the following boards:
 
@@ -160,7 +160,7 @@ For source code and reporting issues, please visit the official GitHub repositor
 
 - [ArduinoCore-samd](https://github.com/arduino/ArduinoCore-samd)
 
-### Mbed OS GIGA 
+### Mbed OS GIGA
 
 The **Mbed OS GIGA Boards** package is based on the **Arduino Mbed Core**, and includes the following boards:
 

@@ -5,8 +5,8 @@ type: pro
 ---
 ![](assets/featured.png)
 
-# Description 
-The Arduino® Portenta Breakout board is designed to assist developers with their prototypes by exposing the high-density connectors of the Portenta family on both sides of the breakout carrier, providing total flexibility for measuring and controlling signals - developing your own hardware, testing the design and measuring the input and output signals out of the high-density connectors. 
+# Description
+The Arduino® Portenta Breakout board is designed to assist developers with their prototypes by exposing the high-density connectors of the Portenta family on both sides of the breakout carrier, providing total flexibility for measuring and controlling signals - developing your own hardware, testing the design and measuring the input and output signals out of the high-density connectors.
 
 # Target areas:
 Prototyping
@@ -15,7 +15,7 @@ Prototyping
 * Power ON Button
 * Boot mode DIP switch
 * Connectors
-  *   USBA 
+  *   USBA
   *   RJ45 Ethernet up to 1Gb/s; speed depending on installed board
   *   Micro SD card
   <!-- *   OpenMV shutter module -->
@@ -78,7 +78,7 @@ Example of a typical installation for a solution including Portenta H7. A Porten
 |   5V   | Input voltage from 5V input | 4.8  |  5   | 5.2  |  V   |
 
 ## Functional Overview
-### Board Topology 
+### Board Topology
 Front view
 ![Top view - connectors](assets/breakoutCarrierConnectors.png)
 
@@ -112,7 +112,7 @@ Some nets/pins are electrically shared in the board and precaution must be taken
 | SPI1_MOSI |   I2C/OPENMV    | SPI1 MOSI |      OPENMV_CAM_MOSI      |
 |  SPI1_CS  |   I2C/OPENMV    |  SPI1 CS  |       OPENMV_CAM_CS       |
 |  GPIO_0   |   GPIO/OPENMV    |  GPIO 0   |      OPENMV_CAM_RST       |
-|  GPIO_1   |   GPIO/OPENMV    |  GPIO 1   |      OPENMV_CAM_FSIN      | 
+|  GPIO_1   |   GPIO/OPENMV    |  GPIO 1   |      OPENMV_CAM_FSIN      |
 |  GPIO_2   |    GPIO/USBA    |  GPIO 2   |  USBA VBUS FLAG (jumper)  |
 |  GPIO_3   |   GPIO/OPENMV    |  GPIO 3   |      OPENMV_CAM_PWDN      |
 |  GPIO_4   |    GPIO/JTAG    |  GPIO 4   |   TRACEDATA_0 (jumper)    |

@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with the AKX00060: Pro Smart Industry Prototyping Kit'
-description: "Learn how to start using your Pro Smart Industry Prototyping Kit"
+description: "Learn how to start using your Pro Smart Industry Prototyping Kit."
 difficulty: advanced
 tags:
   - PRO
@@ -22,7 +22,7 @@ The Pro Smart Industry Prototyping Kit is the perfect way to learn and create so
 
 - Try the Arduino's most advanced SOM experience with X8, a powerful, industrial-grade SOM with Linux OS preloaded onboard, capable of running device-independent software thanks to its modular container architecture.
 - Experience the X8 Manager integration for Arduino Cloud, enabling secure OTA updates and Fleet management.
-- Get all the X8 resources easily accessible and add the  LoRa® and Cat.M1 connectivity layer thanks to Max carrier.
+- Get all the X8 resources easily accessible and add the  LoRa® and Cat.M1 connectivity layer thanks to the Portenta Max Carrier.
 
 ![Pro Smart Industry Prototyping Kit Main Features](assets/prototyping-thumb.png)
 
@@ -52,11 +52,11 @@ Additionally, you may need the following accessories:
 
 1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/x8-manager-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business) with Arduino Cloud For Business!
 
-2. Download [Arduino IDE](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide) and follow the [Installation Procedure](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) and [Get Started with it](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2)
+2. Download [Arduino IDE](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide) and follow the [Installation Procedure](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) and [Get Started with it](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2).
 
-3. Check the [Portenta X8 docs](https://docs.arduino.cc/hardware/portenta-x8) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00049-datasheet.pdf) and the [User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual). On [docs.arduino.cc](http://docs.arduino.cc) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00049-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00049-schematics.pdf)
+3. Check the [Portenta X8 docs](https://docs.arduino.cc/hardware/portenta-x8) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00049-datasheet.pdf) and the [User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00049-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00049-schematics.pdf) are also available.
 
-4. Check the [Portenta Max Carrier docs](https://docs.arduino.cc/hardware/portenta-max-carrier) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00043-datasheet.pdf) and the [Get Started](https://docs.arduino.cc/tutorials/portenta-max-carrier/getting-started) with it. On [docs.arduino.cc](http://docs.arduino.cc) are also available the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00043-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00043-schematics.pdf)
+4. Check the [Portenta Max Carrier docs](https://docs.arduino.cc/hardware/portenta-max-carrier) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00043-datasheet.pdf) and the [Get Started](https://docs.arduino.cc/tutorials/portenta-max-carrier/getting-started) with it. On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00043-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00043-schematics.pdf) are also available.
 
 5. Connect the products together and [get started](https://docs.arduino.cc/tutorials/portenta-max-carrier/x8-getting-started) with them. Practice the first examples included in the user manual, the IDE examples and the experiences proposed below.
 

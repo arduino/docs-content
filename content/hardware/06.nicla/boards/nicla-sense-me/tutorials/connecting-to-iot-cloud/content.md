@@ -65,11 +65,11 @@ The code is available inside the examples provided with the **Arduino_BHY2** Lib
 This is the code, which initialize the sensors, and maintain the communication:
 
 ```cpp
-/* 
- * Use this sketch if you want to control nicla from 
+/*
+ * Use this sketch if you want to control nicla from
  * an external device acting as a host.
  * Here, nicla just reacts to external stimuli coming from
- * the eslov port or through Bluetooth® Low Energy 
+ * the eslov port or through Bluetooth® Low Energy
 */
 
 #include "Arduino.h"
@@ -97,7 +97,7 @@ Create a new Thing at <https://create.arduino.cc/iot/things>, you can call it "P
 
 ### Host Board: Edit the Cloud Sketch
 
-You can edit the sketch by clicking the **sketch tab** inside your **Thing page**. The sketch is automatically generated with enough code to upload it and connect it to the Cloud. 
+You can edit the sketch by clicking the **sketch tab** inside your **Thing page**. The sketch is automatically generated with enough code to upload it and connect it to the Cloud.
 
 Before uploading, you should add the following code:
 
@@ -142,7 +142,7 @@ Inside `void setup()` initialize the `Serial` communication, set up the variable
     BHY2Host.begin(false, NICLA_VIA_ESLOV);
 
     //If you want to connect the NICLA through Bluetooth® Low Energy use the following line instead of the above
-    //while(!BHY2Host.begin(false, NICLA_VIA_BLE)) {} 
+    //while(!BHY2Host.begin(false, NICLA_VIA_BLE)) {}
 
     tempSensor.configure(1, 0);
     temperature = tempSensor.value();
@@ -211,7 +211,7 @@ void setup() {
   }
 
   delay(1500);
-  
+
 
   Serial.println("Initialize the Nicla and the ");
   BHY2Host.begin(false, NICLA_VIA_ESLOV);

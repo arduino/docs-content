@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with the AKX00056: Pro Industrial Automation and Lighting Kit'
-description: "Learn how to start using your Pro Industrial Automation and Lighting Kit"
+description: "Learn how to start using your Pro Industrial Automation and Lighting Kit."
 difficulty: advanced
 tags:
   - PRO
@@ -20,7 +20,7 @@ hardware:
 The Pro Industrial Automation and Lighting Kit is the perfect way to learn and create solutions focused on a micro PLC programming environment, industrial communication protocols and control applications.
 
 - Develop experience in programming a micro PLC with IEC 61131-3 languages or Arduino C++ to realize a small industrial control system.
-- Experience multiple communication features (Ethernet and WiFi) and get familiar with Fieldbus communications (Modbus RTU through RS485 and Modbus TCP through Ethernet).
+- Experience multiple communication features (Ethernet and Wi-Fi®) and get familiar with Fieldbus communications (Modbus RTU through RS485 and Modbus TCP through Ethernet).
 
 ![Pro Industrial Automation and Lighting Kit Main Features](assets/industrial-thumb.png)
 
@@ -46,13 +46,13 @@ Additionally, you may need the following accessories:
 
 ## Getting Started with Your Kit
 
-1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business!)
+1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business)!
 
-2. Download [Arduino IDE](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide) and follow the [Installation Procedure](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) and [Get Started with it](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2)
+2. Download [Arduino IDE](https://www.arduino.cc/en/software#future-version-of-the-arduino-ide) and follow the [Installation Procedure](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing) and [Get Started with it](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started-ide-v2).
 
-3. Download [Arduino PLC IDE](https://www.arduino.cc/en/software#arduino-plc-ide) and follow the [Installation Procedure](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license) and [Get Started with it](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction)
+3. Download [Arduino PLC IDE](https://www.arduino.cc/en/software#arduino-plc-ide) and follow the [Installation Procedure](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license) and [Get Started with it](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction).
 
-4. Check the [Opta docs](https://docs.arduino.cc/hardware/opta) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/AFX00001-AFX00002-AFX00003-datasheet.pdf) and the [User Manual](https://docs.arduino.cc/tutorials/opta/user-manual). On [docs.arduino.cc](http://docs.arduino.cc) is also available the [Pinout](https://docs.arduino.cc/resources/pinouts/opta-full-pinout.pdf).
+4. Check the [Opta docs](https://docs.arduino.cc/hardware/opta) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/AFX00001-AFX00002-AFX00003-datasheet.pdf) and the [User Manual](https://docs.arduino.cc/tutorials/opta/user-manual). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/opta-full-pinout.pdf) is also available.
 
 5. Start practicing the first examples included in the user manual, the IDE examples, and deep dive into the knowledge topics needed to exploit all the product’s features such as [Modbus Protocol](https://docs.arduino.cc/learn/communication/modbus) and the experiences proposed below.
 
