@@ -1680,6 +1680,66 @@ The sketch uses several key functions and methods:
 - `MachineControl_RTCController.setEpoch(epoch)`: Sets the RTC time based on the epoch time obtained from the NTP server.
 - `displayRTC()`: A custom function to format and display the current time from the RTC on the IDE's Serial Monitor.
 
+## Encoders 
+
+The Portenta Machine Control has two independent `ABZ` encoder channels, `0` and `1`, offering precise motion control and feedback for various applications.
+
+![Portenta Machine Control encoder channels](assets/user-manual-25.png)
+
+Some of the key capabilities of Portenta's Machine Control encoders channels are the following:
+
+- **Independent operation**: Each `ABZ` encoder channel functions independently, providing motion measurement and control versatility.
+- **Pull-up resistance**: The channels are equipped with 10 kΩ pull-up resistors connected to the board's 24 VDC supply, ensuring stable signal integrity and reduced noise interference.
+- **24 VDC compatibility**: The connection to the 24 VDC supply makes these encoders suitable for industrial systems and applications that operate at this voltage level.
+
+The `Arduino Mbed OS Portenta Boards` core and the `Arduino_MachineControl` have with built-in libraries and functions that enable you to utilize the Portenta's Machine Control encoders. In the following example, we will explore this capability.
+
+```arduino
+/*
+  Portenta Machine Control's Single Encoder Read Example
+  Name: portenta_machine_control_single_encoder_read.ino
+  Purpose: Reads values from one of the encoder channels on the Portenta Machine Control,
+  periodically displays the state, number of pulses, and revolutions of the encoder.
+  
+  @author Riccardo Rizzo, modified by Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+#include <Arduino_MachineControl.h>
+
+void setup() {
+  // Initialize serial communication
+  Serial.begin(9600);
+  while (!Serial); 
+}
+
+void loop() {
+  // Read and print the current state of encoder channel 0 in binary format
+  Serial.print("- Encoder 0 state: ");
+  Serial.println(MachineControl_Encoders.getCurrentState(0), BIN);
+
+  // Read and print the number of pulses recorded by encoder channel 0
+  Serial.print("- Encoder 0 pulses: ");
+  Serial.println(MachineControl_Encoders.getPulses(0));
+
+  // Read and print the number of complete revolutions made by encoder channel 0
+  Serial.print("- Encoder 0 revolutions: ");
+  Serial.println(MachineControl_Encoders.getRevolutions(0));
+  Serial.println();
+
+  // Short delay before the next read
+  delay(25); 
+}
+```
+
+This sketch for the Portenta Machine Control reads and displays data from one of its encoder channels, primarily using the `Arduino_MachineControl` library. Serial communication is initiated in the `setup()` function for output to the Arduino IDE's Serial Monitor. In the main loop, the sketch reads and displays the encoder's state, total pulses, and revolutions on the Serial Monitor, updating the readings every 25 milliseconds. 
+
+The sketch uses several key functions and methods:
+
+- `MachineControl_Encoders.getCurrentState(channel)`: Retrieves the current binary state of the specified encoder channel.
+- `MachineControl_Encoders.getPulses(channel)`: Obtains the total number of pulses recorded by the specified encoder channel.
+- `MachineControl_Encoders.getRevolutions(channel)`: Calculates the total revolutions made by the specified encoder channel.
+
 ## Support
 
 If you encounter any issues or have questions while working with the Portenta Machine Control, we provide various support resources to help you find answers and solutions.
