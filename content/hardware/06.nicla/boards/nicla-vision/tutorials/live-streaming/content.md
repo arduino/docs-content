@@ -198,7 +198,7 @@ The `HOST` variable must be empty so the socket uses the DHCP IP assigned to the
 
 You can use `8080` as the `PORT` by default. Check with your network administrator if the port is closed or reserved so you know which one you can use for this application.
 
-The code section below search for a WiFi® network with the credentials supplied before and start a connection process to it. Also, it creates a socket server for video streaming.
+The code section below searches for a WiFi® network with the supplied credentials and starts a connection process to it. Also, it creates a socket server for video streaming.
 
 ```python
 # Init wlan module and connect to network
