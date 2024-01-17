@@ -322,8 +322,8 @@ The use of a USB 3.0 compatible port will ensure that the current requirements f
 
 The following charts represent the thermal behavior of the Portenta X8 in different cooling scenarios.
 
-![First charts](assets/Frame-1.svg)
-![Second charts](assets/Frame-2.svg)
+![](assets/Frame-1.svg)
+![](assets/Frame-2.svg)
 
 The ✅ and ❌ symbols in the horizontal axis of the charts represent the Portenta X8 working state respectively.
 
