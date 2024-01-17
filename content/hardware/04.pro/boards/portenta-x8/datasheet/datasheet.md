@@ -331,7 +331,7 @@ The ✅ and ❌ symbols in the horizontal axis of the charts represent the Porte
 
 ![MTBF Chart](assets/Frame-3.svg)
 
-#### Survival Probability After n Working Hours
+#### Survival Probability After N Working Hours
 
 ![Survival Probability After n Working Hours](assets/Frame-4.png)
 
