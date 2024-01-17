@@ -581,6 +581,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                            |
 |------------|--------------|----------------------------------------|
+| 17/01/2024 | 5            | Add Temperature and MTBF Tables        |
 | 11/12/2023 | 5            | Add Portenta Hat Carrier compatibility |
 | 07/11/2023 | 4            | Add missing board dimensions           |
 | 26/01/2023 | 3            | Clarify open-source nature of M7 core  |
