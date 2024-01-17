@@ -242,7 +242,7 @@ The resolution of the camera needs to be set to a supported format both by the s
 
 The `start_streaming()` function waits for a client to get connected to the socket server, prints the client address and sends it to the headers preparing the connection for live streaming.
 
-Finally, it captures images continuously and sends them to the client compressed and in the right format. 
+Eventually, it captures images continuously and sends them to the client compressed and in the right format. 
 
 ```python
 def start_streaming(s):
