@@ -1565,7 +1565,7 @@ Some of the key capabilities of Portenta's Machine Control onboard RTC are the f
 - **Internal Power-On Reset (POR)**: Ensures consistent performance and reliable operation.
 - **Open-drain interrupt pin**: Facilitates external notifications and system wake-up.
 
-The `Arduino Mbed OS Portenta Boards` core and the `Arduino_MachineControl` are equipped with built-in libraries and functions that enable you to utilize the Portenta's Machine Control onboard Real-Time Clock (RTC), connect to Wi-Fi® networks, and work with time functions using the `mbed_mktime library`. In the following example, we will explore some of these capabilities.
+The `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` are equipped with built-in libraries and functions that enable you to utilize the Portenta's Machine Control onboard Real-Time Clock (RTC), connect to Wi-Fi® networks, and work with time functions using the `mbed_mktime library`. In the following example, we will explore some of these capabilities.
 
 The following example sketch demonstrates how to connect a Portenta Machine Control device to a Wi-Fi® network, synchronize its onboard RTC with a Network Time Protocol (NTP) server using the `NTPClient` library, and display the current RTC time on the Arduino IDE's Serial Monitor every five seconds. To get started, you will need to install the `NTPClient` library, which can be easily added using the Arduino IDE's Library Manager.
 
