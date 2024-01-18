@@ -266,7 +266,7 @@ void toggleChannel(int channel) {
   delay(200);
 }
 ```
-Notice that the sketch shown above utilizes the following functions from the `Arduino_MachineControl` library:
+Notice that the sketch shown above utilizes the following functions from the `Arduino_PortentaMachineControl` library:
 
 - `MachineControl_DigitalOutputs.begin(true)`: This function initializes the digital outputs channels with overcurrent behavior set to **latch mode**, meaning that upon overcurrent detection, channels remain open until manually toggled in software.
 - `MachineControl_DigitalOutputs.writeAll(0)`: This function initially sets all digital output channels to an open state (off).
