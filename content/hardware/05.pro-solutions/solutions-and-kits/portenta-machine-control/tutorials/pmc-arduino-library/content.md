@@ -84,7 +84,7 @@ The `Arduino_PortentaMachineControl` library offers a wide range of functionalit
 #### Structural and Functional Enhancements
 <br></br>
 
-The library has undergone significant structural changes to improve its efficiency and user-friendliness. These key improvements include the following:
+The library has undergone significant structural changes to improve its efficiency and user-friendliness. Some of these key improvements include the following:
 
 - **Library structure revamping**: Transition from a single header file to multiple `.cpp` and `.h` files organized by functionality.
 - **Naming refactoring**: Removal of the `machinecontrol namespace`, adopting a more descriptive prefix-based naming system.
