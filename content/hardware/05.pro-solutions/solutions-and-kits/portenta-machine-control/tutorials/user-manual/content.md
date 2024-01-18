@@ -992,7 +992,7 @@ As a practical example, we will **establish a full duplex communication between 
 
 ![Full-duplex RS-485 wiring](assets/RS-485-full.png)
 
-For the Portenta Machine Control, use the example sketch shown below; it can also be found on the Arduino IDE by navigating to **File > Examples > Arduino_MachineControl > RS485_fullduplex**.
+For the Portenta Machine Control, use the example sketch shown below; it can also be found on the Arduino IDE by navigating to **File > Examples > Arduino_PortentaMachineControl > RS485_fullduplex**.
 
 ```arduino
 /*
