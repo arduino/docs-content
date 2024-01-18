@@ -1684,6 +1684,8 @@ The sketch uses several key functions and methods:
 
 The Portenta Machine Control is equipped with three independent temperature measurement channels, enhancing its capabilities for various industrial and environmental monitoring applications.
 
+![Portenta Machine Control temperature probes terminals](assets/user-manual-26.png)
+
 Some of the key capabilities of Portenta's Machine Control temperature channels are the following:
 
 - **Independent channels**: Each of the three channels can measure temperature independently, offering flexibility in data collection and monitoring.
@@ -1693,13 +1695,13 @@ Some of the key capabilities of Portenta's Machine Control temperature channels 
 
 The Portenta Machine Control includes two onboard specialized front ends:
 
-- **MAX31855KASA+T**: This front end is dedicated to **thermocouples**, providing accurate temperature measurements for a wide range of thermocouple types.
-- **MAX31865ATP+T**: This front end is dedicated to **PT100 sensors**, ensuring precise temperature readings for these sensors.
+- **MAX31855**: This front end is dedicated to **thermocouples**, providing accurate temperature measurements for a wide range of thermocouple types.
+- **MAX31865**: This front end is dedicated to **PT100 sensors**, ensuring precise temperature readings for these sensors.
 
 The two onboard front ends are connected to the three temperature channels through a multiplexing system based on the following analog switches:
 
-- **NX3L4053HR,115**: A single low-ohmic single-pole double-throw switch that selects between the two front ends.
-- **TMUX1511RSVR**: Three quadruple single pole single throw switches that direct the active channel among the three available.
+- **NX3L4053**: A single low-ohmic single-pole double-throw switch that selects between the two front ends.
+- **TMUX1511**: Three quadruple single pole single throw switches that direct the active channel among the three available.
   
 This multiplexing system allows for seamless switching between different sensor types and channels, enabling comprehensive temperature monitoring across multiple points.
 
