@@ -212,7 +212,6 @@ This update to the encoder module in the Portenta Machine Control Library simpli
 The latest Portenta Machine Control Library update has refined how communication interfaces are managed. The updated library version moves away from using public objects for communication protocols; this change leads to a more encapsulated and modular approach, enhancing the robustness and clarity of the communication code.
 
 #### Example of Communication Protocol Usage
-<br></br>
 
 Let's use **the RS-485 interface** as example to show the new communication protocol usage.
 
@@ -254,7 +253,6 @@ The Portenta Machine Control Library's latest update has restructured the handli
 This separation ensures a more organized and intuitive approach to temperature sensing, allowing users to work more efficiently with the specific type of sensor they are using.
 
 #### Example of Temperature Sensor Usage
-<br></br>
 
 Old approach:
 
