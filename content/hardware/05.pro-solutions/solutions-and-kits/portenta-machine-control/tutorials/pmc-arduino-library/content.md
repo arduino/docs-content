@@ -115,7 +115,7 @@ Main changes in naming:
 
 #### Example of the Updated Naming
 <br></br>
-
+In the following example we can see the main improvements made in the Naming convention:
 Old naming convention:
 
 ```arduino
