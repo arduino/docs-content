@@ -431,7 +431,7 @@ Below is an example sketch showcasing how to read voltages from the analog input
   @version 1.0 01/10/23
 */
 
-#include <Arduino_MachineControl.h>
+#include <Arduino_PortentaMachineControl.h>
 
 // Define the resistor divider ratio for 0-10V input mode
 const float RES_DIVIDER = 0.28057;
