@@ -1719,7 +1719,7 @@ The following example sketch demonstrates how to read temperatures from thermoco
   @version 1.0 01/10/23
 */
 
-#include <Arduino_MachineControl.h>
+#include <Arduino_PortentaMachineControl.h>
 
 void setup() {
   // Initialize serial communication
