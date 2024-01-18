@@ -86,7 +86,7 @@ The `Arduino_PortentaMachineControl` library offers a wide range of functionalit
 
 The library has undergone significant structural changes to improve its efficiency and user-friendliness. Some of these key improvements include the following:
 
-- **Library structure revamping**: Transition from a single header file to multiple `.cpp` and `.h` files organized by functionality (check "Library Features" section)
+- **Library structure revamping**: Transition from a single header file to multiple `.cpp` and `.h` files organized by functionality (check [Library Features](#library-features) section)
 - **Naming refactoring**: Removal of the `machinecontrol namespace`, adopting a more descriptive prefix-based naming system.
 - **Function optimization**: Unused functions have been removed, streamlining the library.
 - **Direct calls to mbed core removed**: This change enhances the library's compatibility and ease of use.
