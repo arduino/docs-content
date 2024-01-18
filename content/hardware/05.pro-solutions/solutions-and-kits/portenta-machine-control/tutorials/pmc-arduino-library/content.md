@@ -135,7 +135,7 @@ void setup() {
 }
 ```
 
-This new naming structure aligns with the Arduino standard of using clear and descriptive names, making the library more user-friendly, especially for those new to programming with the Arduino language.
+This new naming structure aligns with the Arduino programming language standard of using clear and descriptive names, making the library more user-friendly, especially for those new to programming with it.
 
 ### Input/Output Modules 
 
