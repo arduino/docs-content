@@ -249,7 +249,7 @@ The Portenta Machine Control Library's latest update has restructured the handli
 1. **Temperature RTD**: Specifically for Resistance Temperature Detectors (RTD).
 2. **Temperature TC**: Dedicated to Thermocouple (TC) temperature sensors.
 
-This separation ensures a more organized and intuitive approach to temperature sensing, allowing users to work more efficiently with the specific type of sensor they are using.
+The separation ensures a more organized and intuitive approach to temperature sensing, allowing users to work more efficiently with the specific type of sensor they are using.
 
 #### Example of Temperature Sensor Usage
 <br></br>
