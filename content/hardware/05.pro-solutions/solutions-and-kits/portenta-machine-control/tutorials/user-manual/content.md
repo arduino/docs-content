@@ -1705,7 +1705,7 @@ This multiplexing system allows for seamless switching between different sensor 
 
 **Important note**: Connect only **non-grounded** thermocouples. For more information about how to connect thermocouples to the Portenta Machine Control, please refer to the [complete pinout available here](#pinout).
 
-The following example sketch demonstrates how to read temperatures from thermocouples connected to a Portenta Machine Control device. It uses the `Arduino_MachineControl` library to interface with the thermocouple sensors and prints the temperature values to the Arduino IDE's Serial Monitor every second.
+The following example sketch demonstrates how to read temperatures from thermocouples connected to a Portenta Machine Control device. It uses the `Arduino_PortentaMachineControl` library to interface with the thermocouple sensors and prints the temperature values to the Arduino IDE's Serial Monitor every second.
 
 ```arduino
 /*
