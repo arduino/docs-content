@@ -976,7 +976,7 @@ void loop() {
 
 In this example sketch, a message is periodically sent over the RS-485 interface Of the Portenta Machine Control. The sketch initializes the RS-485 interface for half-duplex communication and sends a `String` message with a counter. After each transmission, it switches back to receive mode to listen for incoming data.
 
-The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_RS485Comm.receive()`, and other functions from the `Arduino_MachineControl` library for RS-485 communication. Here is an explanation of the functions:
+The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_RS485Comm.receive()`, and other functions from the `Arduino_PortentaMachineControl` library for RS-485 communication. Here is an explanation of the functions:
 
 - `MachineControl_RS485Comm.begin(baud, pre, post)`: Initializes the RS-485 module with specified baud rate and timing settings.
 - `MachineControl_RS485Comm.receive()`: Puts the module in receive mode.
