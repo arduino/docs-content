@@ -1,5 +1,5 @@
 ---
-title: 'Using PLC IDE With ArduinoCloud'
+title: 'Using PLC IDE With Arduino Cloud'
 description: "Learn how to integrate PLC IDE compatible devices with the Arduino Cloud."
 difficulty: beginner 
 tags:
@@ -44,7 +44,7 @@ In this comprehensive tutorial, you will learn how to integrate and utilize the 
 - [PLC IDE & Arduino Cloud integration example project](assets/Opta_PLCIDE_Cloud.zip) file compatible with Opta™
 
 ***This tutorial requires the latest versions of the PLC IDE & PLC IDE Tools ( >= v 1.0.4 ). 
-You can get the latest versions [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools. If it is your first time using the Arduino PLC IDE, we highly recommend you to begin with [Arduino® PLC IDE Setup & Device License Activation](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license).***
+You can get the latest versions [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools. If it is your first time using the Arduino PLC IDE, we highly recommend you to begin with [Arduino PLC IDE Setup & Device License Activation](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license).***
 
 ## PLC IDE & Arduino Cloud Integration
 

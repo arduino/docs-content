@@ -1,6 +1,6 @@
 ---
 beta: true
-title: Arduino® PLC IDE Setup & Device License Activation
+title: Arduino PLC IDE Setup & Device License Activation
 difficulty: beginner
 tags: 
   - PLC
@@ -77,7 +77,7 @@ When you download the Arduino PLC IDE executable, the file naming scheme is as f
 
 If you have the correct IDE software, its name should include the version format `X.X.X.X`, with the associated release date in the `{ReleaseDate}` field. For instance, a release date might look like `20230329`.
 
-Run the Arduino PLC IDE installer after you have installed the Arduino PLC IDE Tools. If you have not installed the PLC IDE tools, please check [Arduino® PLC IDE Tools Setup section](#1-arduino-plc-ide-tools-setup) before proceeding as it needs to have the tools set before IDE software installation.
+Run the Arduino PLC IDE installer after you have installed the Arduino PLC IDE Tools. If you have not installed the PLC IDE tools, please check [Arduino PLC IDE Tools Setup section](#1-arduino-plc-ide-tools-setup) before proceeding as it needs to have the tools set before IDE software installation.
 
 Follow the installation instructions and finish the IDE setup process.
 
