@@ -6,6 +6,12 @@ if [ -n "$CI" ]; then
     # Fix for SSL problem in phantom.js
     # export OPENSSL_CONF=/etc/ssl/
 
+    fc-list :lang=zh
+
+    apt-get install -y language-pack-zh*
+
+    fc-list :lang=zh
+
     mkdir /usr/share/fonts/truetype/open-sans
     mkdir /usr/share/fonts/truetype/roboto-mono
 
