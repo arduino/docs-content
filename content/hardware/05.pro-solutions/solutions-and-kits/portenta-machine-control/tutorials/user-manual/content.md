@@ -1502,7 +1502,7 @@ void loop() {
 }
 ```
 
-The example sketch uses the `MachineControl_CANComm.begin()`, `MachineControl_CANComm.write()`, and other functions from the `Arduino_MachineControl` library for CAN communication. Here is an explanation of these functions:
+The example sketch uses the `MachineControl_CANComm.begin()`, `MachineControl_CANComm.write()`, and other functions from the `Arduino_PortentaMachineControl` library for CAN communication. Here is an explanation of these functions:
 
 - `MachineControl_CANComm.begin(bitRate)`: Initializes the CAN module with a specified bit rate.
 - `MachineControl_CANComm.write(msg)`: Transmits a data message over the CAN network. The `msg` parameter contains the data to be sent.
