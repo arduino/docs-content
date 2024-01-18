@@ -4,8 +4,6 @@ url_shop: https://store.arduino.cc/products/portenta-hat-carrier
 url_guide: /tutorials/portenta-hat-carrier/user-manual
 primary_button_url: /tutorials/portenta-hat-carrier/user-manual
 primary_button_title: User Manual
-secondary_button_url: /interactive/portenta-hat-carrier/ASX00049-pinout.png
-secondary_button_title: Simple Pinout
 certifications: [CE, UKCA, RoHS, FCC, IC, RCM]
 ---
 
