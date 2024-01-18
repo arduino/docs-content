@@ -159,7 +159,7 @@ Copy and paste the code below into a new sketch in the Arduino IDE.
 #include <Arduino_PortentaMachineControl.h>
 
 void setup() {
-    // Initialize the digital outputs terminals of the Arduino_MachineControl library
+    // Initialize the digital outputs terminals of the Arduino_PortentaMachineControl library
     MachineControl_DigitalOutputs.begin();
 }
 
