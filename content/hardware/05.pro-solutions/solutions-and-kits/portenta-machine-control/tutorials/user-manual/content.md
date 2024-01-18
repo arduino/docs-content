@@ -1518,7 +1518,7 @@ Follow the wiring below for the CAN communication.
 
 ***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines, Machine Control has it built-in.***
 
-For the Machine Control, use the example code used above to transmit data, it also can be found on **File > Examples > Arduino_MachineControl > CAN > WriteCan**.
+For the Machine Control, use the example code used above to transmit data, it also can be found on **File > Examples > Arduino_PortentaMachineControl > CAN > WriteCan**.
 
 For the C33 on the Max Carrier, install the `Arduino_CAN` library from the library manager and use the following example sketch (it can also be found on **File > Examples > Arduino_CAN > CANRead**):
 
