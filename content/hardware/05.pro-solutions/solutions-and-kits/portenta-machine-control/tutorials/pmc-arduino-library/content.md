@@ -230,7 +230,7 @@ New approach:
 
 ```arduino
 // Using the updated library
-#include "Arduino_MachineControl.h"
+#include <Arduino_PortentaMachineControl.h>
 void setup() {
     MachineControl_RS485Comm.begin(115200, 0, 500);
     MachineControl_RS485Comm.receive();
