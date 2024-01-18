@@ -240,7 +240,7 @@ void setup() {
 
 The new approach directly handles communication initialization and data reception through the `MachineControl_RS485Comm object`. This design eliminates the need to initialize a separate communication protocol object (`comm_protocols`) and then access its members, making maintaining the code more straightforward.
 
-These improvements in the communication module of the Portenta Machine Control Library are part of the effort to make the library more user-friendly and aligned with best practices in software design.
+These improvements in the communication module of the Portenta Machine Control Library are part of the effort to make the library more user-friendly and aligned with the best practices in software design.
 
 ### Temperature Sensors
 
