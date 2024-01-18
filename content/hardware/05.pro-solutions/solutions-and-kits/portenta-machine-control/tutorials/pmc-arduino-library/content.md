@@ -108,7 +108,7 @@ These improvements make the Portenta Machine Control Library more adaptable and 
 
 One of the significant updates in the Portenta Machine Control Library is the change in **naming conventions**, which enhances clarity and consistency across the library.
 
-Changes in naming:
+Main changes in naming:
 
 - **Removal of `machinecontrol` namespace**: The previous version of the library used the `machinecontrol` namespace. This has been removed to simplify the code and make it more accessible.
 - **Introduction of the `MachineControl_` prefix**: In the updated library, a prefix `MachineControl_` is used for each functionality's singleton object. This change ensures a clearer and more descriptive approach to accessing library functionalities.
