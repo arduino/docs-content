@@ -213,7 +213,7 @@ The sketch below showcases a "scanning" effect using the digital output channels
   @version 1.0 01/10/23
 */
 
-#include <Arduino_MachineControl.h>
+#include <Arduino_PortentaMachineControl.h>
 
 // Initialize the digital outputs and serial communication.
 void setup() {
