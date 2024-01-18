@@ -922,7 +922,7 @@ The example sketch below shows how to use the RS-485 interface of the Portenta M
 */
 
 // Include the necessary libraries
-#include <Arduino_MachineControl.h>
+#include <Arduino_PortentaMachineControl.h>
 
 // Define the interval for sending messages
 constexpr unsigned long sendInterval { 1000 };
