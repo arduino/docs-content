@@ -583,7 +583,7 @@ String formatChannel(int channel) {
 
 The example sketch uses the `MachineControl_DigitalProgrammables.begin()`, `MachineControl_DigitalProgrammables.set(pin, state)`, `MachineControl_DigitalProgrammables.read(pin)`, `MachineControl_DigitalProgrammables.writeAll(state)`, and `MachineControl_DigitalProgrammables.readAll()` functions from the `Arduino_PortentaMachineControl` library. These functions are used to write to specific channels or all channels, read the status of a specific channel or all channels, and toggle the states of all channels. Here's an explanation of the functions:
 
-- `MachineControl_DigitalProgrammables.begin()`: Utilized to initialize the programmable digital input/output channels, it returns a `FALSE` if the initialization fails.
+- `MachineControl_DigitalProgrammables.begin()`: Utilized to initialize the programmable digital input/output channels, it returns a `FALSE` if the initialization fails. `MachineControl_DigitalProgrammables` is based on the I2C protocol. To work properly, it must be preceded by `Wire.begin()`, which initializes the I2C interface.
 - `MachineControl_DigitalProgrammables.set(pin, state)`: Used to define a particular channel's state (ON/OFF).
 - `MachineControl_DigitalProgrammables.read(pin)`: Used to discern the state of a specific channel.
 - `MachineControl_DigitalProgrammables.writeAll(state)`: Used to configure the state (ON/OFF) for all available pins or channels simultaneously.
