@@ -43,7 +43,7 @@ The Arduino Portenta Machine Control is a versatile industrial control unit for 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino_PortentaMachineControl library](https://github.com/arduino-libraries/Arduino_PortentaMachineControl)
 
-##  The Arduino_PortentaMachineControl Library
+## The Arduino_PortentaMachineControl Library
 
 The `Arduino_PortentaMachineControl` is a C++ library designed to manage the software and hardware functionalities of the Portenta Machine Control board efficiently. It provides extensive support for inputs such as digital, analog, and encoder ports while offering outputs including digital and analog ports. This library also manages communication through interfaces like CAN bus, RS-232, RS-422, and RS-485, allowing connectivity via Ethernet, Wi-Fi®, Bluetooth® Low Energy and USB.
 
@@ -108,14 +108,14 @@ The following improvements make the Portenta Machine Control Library more adapta
 
 One of the significant updates in the Portenta Machine Control Library is the change in **naming conventions**, which enhances clarity and consistency across the library.
 
-Main changes in naming:
+Changes in naming:
 
 - **Removal of `machinecontrol` namespace**: The previous version of the library used the `machinecontrol` namespace. This has been removed to simplify the code and make it more accessible.
 - **Introduction of the `MachineControl_` prefix**: In the updated library, a prefix `MachineControl_` is used for each functionality's singleton object. This change ensures a clearer and more descriptive approach to accessing library functionalities.
 
 #### Example of the Updated Naming
 <br></br>
-In the following example we can see the main improvements made in the Naming convention:
+
 Old naming convention:
 
 ```arduino
@@ -139,7 +139,7 @@ This new naming structure aligns with the Arduino standard of using clear and de
 
 ### Input/Output Modules 
 
-In the `Arduino_PortentaMachineControl` library, interacting with input/output modules has been streamlined for better usability and consistency with Arduino standards. Two new important features are the following:
+In the `Arduino_PortentaMachineControl` Library, interacting with input/output modules has been streamlined for better usability and consistency with Arduino standards. Two new important features are the following:
 
 - **Initializing input/output modules**: Initializing an input/output module is more intuitive in the updated library. The `begin()` function is now used to start a module, providing a clear starting point for module operations.
 - **CamelCase notation**: The library has adopted CamelCase notation for function names, aligning with the standard Arduino library style. This change makes the library more consistent with other Arduino libraries, enhancing readability and ease of use.
@@ -175,7 +175,7 @@ This update enhances the user experience by making the code more intuitive and a
 
 ### Encoders
 
-The handling of encoders has been updated in the `Arduino_PortentaMachineControl` Library for a more streamlined and intuitive approach. One key new feature is the **removal of array object access**. In the previous library version, encoder objects were accessed using the array notation (`[]`). The latest version has simplified this approach, enhancing code readability and reducing potential errors.
+The handling of encoders has been updated in the `Arduino_PortentaMachineControl` Library for a more streamlined and intuitive approach. One key new feature is the **removal of array object access**. In the previous library version, encoder objects were accessed using array notation (`[]`). The latest version has simplified this approach, enhancing code readability and reducing potential errors.
 
 #### Example of Encoder Usage
 <br></br>
@@ -240,7 +240,7 @@ void setup() {
 
 The new approach directly handles communication initialization and data reception through the `MachineControl_RS485Comm object`. This design eliminates the need to initialize a separate communication protocol object (`comm_protocols`) and then access its members, making maintaining the code more straightforward.
 
-These improvements in the communication module of the Portenta Machine Control Library are part of the effort to make the library more user-friendly and aligned with the best practices in software design.
+These improvements in the communication module of the Portenta Machine Control Library are part of the effort to make the library more user-friendly and aligned with best practices in software design.
 
 ### Temperature Sensors
 
@@ -249,7 +249,7 @@ The Portenta Machine Control Library's latest update has restructured the handli
 1. **Temperature RTD**: Specifically for Resistance Temperature Detectors (RTD).
 2. **Temperature TC**: Dedicated to Thermocouple (TC) temperature sensors.
 
-The separation ensures a more organized and intuitive approach to temperature sensing, allowing users to work more efficiently with the specific type of sensor they are using.
+This separation ensures a more organized and intuitive approach to temperature sensing, allowing users to work more efficiently with the specific type of sensor they are using.
 
 #### Example of Temperature Sensor Usage
 <br></br>
@@ -282,6 +282,6 @@ These enhancements in managing temperature sensors within the Portenta Machine C
 
 ## Conclusion
 
-In this guide we have explored the features of the latest `Arduino_PortentaMachineControl` library, Covering everything from the library's enhanced structure to its modules like I/O, encoders, and communication interfaces to give you a better understanding of the new features and improvements.
+In this tutorial, we have explored the features of the `Arduino_PortentaMachineControl` library, specifically designed for the Portenta Machine Control. Covering everything from the library's enhanced structure to its modules like I/O, encoders, and communication interfaces, our goal has been to provide you with a thorough understanding of these improvements.
 
-Whether you're a newcomer or an experienced Arduino user, these insights are designed to improve your ability to implement this library effectively in your projects. We encourage you to experiment with what you have learned here and share your experiences with the Arduino community. In case you have any problem or doubt, do not hesitate to [contact us](https://www.arduino.cc/en/contact-us/). 
+Whether you're a newcomer or an experienced Arduino user, these insights are designed to improve your ability to implement this library effectively in your projects. We encourage you to experiment with what you've learned here and share your experiences with the Arduino community. Thank you for following this guide, and we hope it has been a valuable resource in your journey with Arduino. Your feedback is always welcome!
