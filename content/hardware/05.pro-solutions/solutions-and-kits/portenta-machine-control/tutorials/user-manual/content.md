@@ -1782,7 +1782,7 @@ The `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineContr
   @version 1.0 01/10/23
 */
 
-#include <Arduino_MachineControl.h>
+#include <Arduino_PortentaMachineControl.h>
 
 void setup() {
   // Initialize serial communication
