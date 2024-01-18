@@ -1680,7 +1680,7 @@ The sketch uses several key functions and methods:
 - `MachineControl_RTCController.setEpoch(epoch)`: Sets the RTC time based on the epoch time obtained from the NTP server.
 - `displayRTC()`: A custom function to format and display the current time from the RTC on the IDE's Serial Monitor.
 
-## Temperature Measurments
+## Temperature Measurements
 
 The Portenta Machine Control is equipped with three independent temperature measurement channels, enhancing its capabilities for various industrial and environmental monitoring applications.
 
