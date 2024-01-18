@@ -301,7 +301,7 @@ Below is an example demonstrating using a single analog output channel to genera
 */
 
 #include <math.h> 
-#include <Arduino_MachineControl.h>
+#include <Arduino_PortentaMachineControl.h>
 
 // PWM period set to 4 ms (or 250 Hz)
 #define PERIOD_MS 4 
