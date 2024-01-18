@@ -217,7 +217,7 @@ Old approach:
 
 ```arduino
 // Using the previous library version
-#include "Arduino_MachineControl.h"
+#include <Arduino_MachineControl.h>
 using namespace machinecontrol;
 void setup() {
     comm_protocols.init();
