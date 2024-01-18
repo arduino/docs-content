@@ -395,7 +395,7 @@ void loop() {
 }
 ```
 
-Note that the example sketch employs the `MachineControl_DigitalInputs.readAll()` function from the `Arduino_MachineControl` library, which facilitates the reading of the status of all the digital input channels in a single operation. The sketch then prints the status of each channel on the Serial Monitor.
+Note that the example sketch employs the `MachineControl_DigitalInputs.readAll()` function from the `Arduino_PortentaMachineControl` library, which facilitates the reading of the status of all the digital input channels in a single operation. The sketch then prints the status of each channel on the Serial Monitor.
 
 ## Analog Inputs
 
