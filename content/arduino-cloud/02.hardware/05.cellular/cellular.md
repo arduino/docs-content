@@ -23,7 +23,7 @@ Connection through cellular networks can be considered in remote areas where the
 
 ## Setup
 
-To configure a NB-IoT / GSM board, follow the steps below:
+To configure a cellular board, follow the steps below:
 
 **1.** Connect your board to your computer.
 
