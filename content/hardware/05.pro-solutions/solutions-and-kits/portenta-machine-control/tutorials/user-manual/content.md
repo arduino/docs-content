@@ -1007,7 +1007,7 @@ For the Portenta Machine Control, use the example sketch shown below; it can als
  */
 
 // Include the necessary libraries
-#include "Arduino_MachineControl.h"
+#include "Arduino_PortentaMachineControl.h"
 
 // Define the interval for sending messages
 constexpr unsigned long sendInterval { 1000 };
