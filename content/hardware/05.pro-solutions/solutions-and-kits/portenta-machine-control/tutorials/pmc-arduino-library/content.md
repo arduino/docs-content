@@ -209,11 +209,13 @@ This update to the encoder module in the Portenta Machine Control Library simpli
 
 ### Communication Interfaces
 
-The latest Portenta Machine Control Library update has refined how communication interfaces are managed. Let's take a particular example: **the RS-485 interface**. The updated library version moves away from using public objects for communication protocols; this change leads to a more encapsulated and modular approach, enhancing the robustness and clarity of the communication code.
+The latest Portenta Machine Control Library update has refined how communication interfaces are managed. The updated library version moves away from using public objects for communication protocols; this change leads to a more encapsulated and modular approach, enhancing the robustness and clarity of the communication code.
 
 #### Example of Communication Protocol Usage
 <br></br>
-Let's use **the RS-485 interface** as example to show the new Communication Protocol Usage:
+
+Let's use **the RS-485 interface** as example to show the new communication protocol usage.
+
 Old approach:
 
 ```arduino
