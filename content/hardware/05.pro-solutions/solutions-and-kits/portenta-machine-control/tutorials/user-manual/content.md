@@ -1460,7 +1460,7 @@ The example sketch below shows how to use the CAN bus interface of the Portenta 
 */
 
 // Include necessary libraries
-#include <Arduino_MachineControl.h>
+#include <Arduino_PortentaMachineControl.h>
 
 // Define the CAN message ID and message counter
 static uint32_t const CAN_ID = 13ul;
