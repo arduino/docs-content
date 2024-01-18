@@ -155,7 +155,7 @@ Let's program the Portenta Machine Control with a modified version of the classi
 Copy and paste the code below into a new sketch in the Arduino IDE.
 
 ```arduino
-// Include the Arduino_MachineControl library
+// Include the Arduino_PortentaMachineControl library
 #include <Arduino_PortentaMachineControl.h>
 
 void setup() {
