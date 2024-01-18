@@ -282,6 +282,6 @@ These enhancements in managing temperature sensors within the Portenta Machine C
 
 ## Conclusion
 
-In this tutorial, we have explored the features of the `Arduino_PortentaMachineControl` library, specifically designed for the Portenta Machine Control. Covering everything from the library's enhanced structure to its modules like I/O, encoders, and communication interfaces, our goal has been to provide you with a thorough understanding of these improvements.
+In this guide we have explored the features of the latest `Arduino_PortentaMachineControl` library, Covering everything from the library's enhanced structure to its modules like I/O, encoders, and communication interfaces to give you a better understanding of the new features and improvements.
 
 Whether you're a newcomer or an experienced Arduino user, these insights are designed to improve your ability to implement this library effectively in your projects. We encourage you to experiment with what you have learned here and share your experiences with the Arduino community. In case you have any problem or doubt, do not hesitate to [contact us](https://www.arduino.cc/en/contact-us/). 
