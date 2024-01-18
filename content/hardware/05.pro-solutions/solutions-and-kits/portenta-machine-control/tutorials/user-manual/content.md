@@ -1809,7 +1809,7 @@ void loop() {
 }
 ```
 
-This sketch for the Portenta Machine Control reads and displays data from one of its encoder channels, primarily using the `Arduino_MachineControl` library. Serial communication is initiated in the `setup()` function for output to the Arduino IDE's Serial Monitor. In the main loop, the sketch reads and displays the encoder's state, total pulses, and revolutions on the Serial Monitor, updating the readings every 25 milliseconds. 
+This sketch for the Portenta Machine Control reads and displays data from one of its encoder channels, primarily using the `Arduino_PortentaMachineControl` library. Serial communication is initiated in the `setup()` function for output to the Arduino IDE's Serial Monitor. In the main loop, the sketch reads and displays the encoder's state, total pulses, and revolutions on the Serial Monitor, updating the readings every 25 milliseconds. 
 
 The sketch uses several key functions and methods:
 
