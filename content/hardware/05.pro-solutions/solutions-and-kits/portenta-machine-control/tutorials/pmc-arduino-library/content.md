@@ -96,11 +96,11 @@ The library has undergone significant structural changes to improve its efficien
 #### Practical Application Enhancements
 <br></br>
 
+The following improvements make the Portenta Machine Control Library more adaptable and efficient for various industrial applications, from machinery control to sensor integration:
+
 - **Input/output management**: Enhanced handling of digital and analog signals for improved accuracy and reliability.
 - **Communication protocol integration**: Improved support for CAN-BUS and serial protocols, facilitating smoother data exchange.
 - **RTC functionality**: More robust RTC management, ensuring precise timekeeping for time-sensitive applications.
-
-These improvements make the Portenta Machine Control Library more adaptable and efficient for various industrial applications, from machinery control to sensor integration.
 
 ## Key Major Improvements 
 
