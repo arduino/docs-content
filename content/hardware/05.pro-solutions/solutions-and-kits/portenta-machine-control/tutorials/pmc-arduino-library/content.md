@@ -213,7 +213,7 @@ The latest Portenta Machine Control Library update has refined how communication
 
 #### Example of Communication Protocol Usage
 <br></br>
-
+Let's use **the RS-485 interface** as example to show the new Communication Protocol Usage:
 Old approach:
 
 ```arduino
