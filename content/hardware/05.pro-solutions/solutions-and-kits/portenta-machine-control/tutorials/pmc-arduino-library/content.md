@@ -161,7 +161,7 @@ New approach:
 
 ```arduino
 // Using the updated library
-#include <Arduino_MachineControl.h>
+#include <Arduino_PortentaMachineControl.h>
 void setup() {
     MachineControl_AnalogOut.begin();
     MachineControl_AnalogOut.setPeriod(0, 4);
