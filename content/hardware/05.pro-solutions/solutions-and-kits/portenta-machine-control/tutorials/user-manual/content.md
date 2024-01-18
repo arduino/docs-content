@@ -1599,7 +1599,7 @@ Replace `SECRET_SSID` with the name of your Wi-Fi® network and `SECRET_PASS` wi
 #include "arduino_secrets.h" 
 #include <NTPClient.h>
 #include <mbed_mktime.h>
-#include <Arduino_MachineControl.h>
+#include <Arduino_PortentaMachineControl.h>
 
 // Wi-Fi network credentials
 int status = WL_IDLE_STATUS;
