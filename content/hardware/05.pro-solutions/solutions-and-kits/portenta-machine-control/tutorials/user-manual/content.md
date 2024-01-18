@@ -367,7 +367,7 @@ Below is an example sketch showcasing how to periodically read data from all the
   @version 1.0 01/10/23
 */
 
-#include <Arduino_MachineControl.h>
+#include <Arduino_PortentaMachineControl.h>
 
 void setup() {
   // Initialize serial communication at 9600 bps
