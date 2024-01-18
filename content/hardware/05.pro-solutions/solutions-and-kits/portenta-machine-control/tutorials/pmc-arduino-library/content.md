@@ -90,7 +90,7 @@ The library has undergone significant structural changes to improve its efficien
 - **Naming refactoring**: Removal of the `machinecontrol namespace`, adopting a more descriptive prefix-based naming system.
 - **Function optimization**: Unused functions have been removed, streamlining the library.
 - **Direct calls to mbed core removed**: This change enhances the library's compatibility and ease of use.
-- **Example reworking**: Updated examples provide clearer demonstrations of the library's capabilities.
+- **Examples reworking**: Updated examples provide clearer demonstrations of the library's capabilities.
 - **Documentation improvement**: Enhanced documentation offers better support to users.
 
 #### Practical Application Enhancements
