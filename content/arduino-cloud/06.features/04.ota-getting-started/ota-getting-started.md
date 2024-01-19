@@ -23,6 +23,7 @@ OTA is supported on several Arduino devices, as well as many ESP32 devices.
 
 ### Supported Arduino Boards
 
+- [Arduino UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010)
 - [Arduino Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect-with-headers)
