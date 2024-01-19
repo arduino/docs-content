@@ -16,7 +16,7 @@ software:
   - arduino-cli
   - web-editor
   - plc-ide
-  - iot-cloud
+  - cloud
 ---
 
 This user manual provides a comprehensive overview of the Portenta Machine Control, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure, and use all the main features of the Portenta Machine Control.
@@ -1825,6 +1825,175 @@ The sketch uses several key functions and methods:
 - `MachineControl_Encoders.getCurrentState(channel)`: Retrieves the current binary state of the specified encoder channel.
 - `MachineControl_Encoders.getPulses(channel)`: Obtains the total number of pulses recorded by the specified encoder channel.
 - `MachineControl_Encoders.getRevolutions(channel)`: Calculates the total revolutions made by the specified encoder channel.
+
+## Arduino Cloud
+
+The Portenta Machine Control is fully compatible with [Arduino Cloud](https://cloud.arduino.cc/), simplifying how professional applications are developed and tracked. By using Arduino Cloud, you can, for example, monitor your Portenta's Machine Control input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware OTA. 
+
+In case it is the first time you are using Arduino Cloud:
+
+- To use it, you need an account. If you do not have an account, create one for free here.
+- To use the Arduino Web Editor, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent here.
+
+Let's walk through a step-by-step demonstration of how to use a Portenta Machine Control device with Arduino Cloud.
+
+Log in to your Cloud account; provision your Portenta Machine Control on your Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
+
+![Cloud initial page](assets/user-manual-28.png)
+
+The Setup Device pop-up window will appear. Navigate into **AUTOMATIC** and select the **Arduino board** option:
+
+![Cloud Setup Device pop-up window](assets/user-manual-27.png)
+
+After a while, your Portenta Machine Control should be discovered by Cloud, as shown below:
+
+![Cloud Setup Device pop-up window](assets/user-manual-32.png)
+
+Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device. Your Portenta Machine Control will be configured to communicate securely with Cloud; this process can take a while.
+
+![Cloud Setup Device pop-up window](assets/user-manual-29.png)
+
+Once your Portenta Machine Control has been configured, let's create a "Thing" to test the connection between your board and Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name.
+
+![Cloud "Thing" setup](assets/user-manual-30.png)
+
+Navigate into **Associate Device** and click the **Select Device** button. Select your Portenta Machine Control device and associate it with your "Thing." Then, navigate into **Network** and click the **Configure** button; enter your network credentials.
+
+The project is ready to add variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD** button.
+
+![Add variable button](assets/user-manual-36.png)
+
+Add one variable with the following characteristics:
+
+- **Name**: `led`
+- **Variable type**: `boolean`
+- **Variable permission**: `Read & Write`
+- **Variable update policy**: `On change`
+
+![Cloud "Thing" variable setup](assets/user-manual-35.png)
+
+You should see the `led` variable in the Cloud Variables section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; this will create a new dashboard and give your dashboard a name.
+
+![Cloud Dashboards page](assets/user-manual-31.png)
+
+Add the following widgets to your dashboard:
+
+- **Switch**:  Name the widget Switch and link it to the `led` variable you created before.
+- **LED**: Name the widget **LED** and link it to the `led` variable you created before.
+
+Your dashboard should look like the following:
+
+![Cloud Dashboard setup](assets/user-manual-34.png)
+
+Go back to your **Things** and open the "Thing" you created. In the "Thing" setup page, navigate into Sketch, where you should see the online editor.
+
+In the generated sketch, initialize digital output at channel `0` in the `setup()` function:
+
+```arduino
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
+  delay(1500);
+
+  // Initialize the digital outputs terminals of the Arduino_PortentaMachineControl library
+  MachineControl_DigitalOutputs.begin();
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+
+  /*
+     The following function allows you to obtain more information
+     related to the state of network and Cloud connection and errors
+     the higher number the more granular information you’ll get.
+     The default is 0 (only errors).
+     Maximum is 4
+ */
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+}
+```
+
+In the `onLedChange()` function, which was generated automatically by Cloud when the variable `led` was created, you must associate the digital output at channel `0` state with the `led` variable:
+
+```arduino
+/*
+  Since Led is READ_WRITE variable, onLedChange() is
+  executed every time a new value is received from Cloud.
+*/
+void onLedChange()  {
+  MachineControl_DigitalOutputs.write(0, !led);
+}
+```
+
+The complete example code can be found below:
+
+```arduino
+/*
+  Sketch generated by the Arduino Cloud
+
+  Arduino Cloud Variables description
+
+  The following variables are automatically generated and updated when changes are made to the Thing
+
+  bool led;
+
+  Variables which are marked as READ/WRITE in the Cloud Thing will also have functions
+  which are called when their values are changed from the Dashboard.
+  These functions are generated with the Thing and added at the end of this sketch.
+*/
+
+#include <Arduino_PortentaMachineControl.h>
+#include "thingProperties.h"
+
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
+  delay(1500);
+
+  // Initialize the digital outputs terminals of the Arduino_PortentaMachineControl library
+  MachineControl_DigitalOutputs.begin();
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+
+  /*
+     The following function allows you to obtain more information
+     related to the state of network and Cloud connection and errors
+     the higher number the more granular information you’ll get.
+     The default is 0 (only errors).
+     Maximum is 4
+ */
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+}
+
+void loop() {
+  ArduinoCloud.update();
+  // Your code here
+}
+
+/*
+  Since Led is READ_WRITE variable, onLedChange() is
+  executed every time a new value is received from Cloud.
+*/
+void onLedChange()  {
+  MachineControl_DigitalOutputs.write(0, !led);
+}
+```
+
+To upload the code to the Portenta Machine Control from the online editor, click the green **Verify** button to compile the sketch and check for errors, then click the green **Upload** button to program the board with the sketch.
+
+![Uploading a sketch to the Portenta Machine Control in the Arduino Cloud](assets/user-manual-33.png)
+
+Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your Portenta's Machine Control digital output at channel `0` should light on or off when the position of the switch changes.
 
 ## Support
 
