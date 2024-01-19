@@ -2,10 +2,10 @@
 
 <Feature title="Low Signal Relay" image="power">
 
-These tiny relays are capable of handling up to 24V components, ideal for controlling e.g. low-voltage lamps. 
-
+These tiny relays are capable of handling up to 24V components, ideal for controlling e.g. low-voltage lamps.
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-relay-proto-shield/mkr-relay-shield-basic"/>
-
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Prototyping" image="configurability">

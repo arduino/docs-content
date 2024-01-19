@@ -1,7 +1,7 @@
 ---
 title: 'Displaying on-Board Sensor Values on a WebBLE Dashboard'
 coverImage: hero-banner.svg
-tags: 
+tags:
   - Bluetooth®
   - WEB-BLE
   - Bluetooth® Low Energy
@@ -27,9 +27,9 @@ The Arduino® Nicla Sense ME can give you information about the environment such
 
 Thanks to the ANNA B112 Bluetooth® chip and the libraries developed for the Nicla Sense ME, you can easily stream data over Bluetooth® to a device of your choice. By using WebBLE, no additional software other than a compatible browser (Google Chrome is recommended) is required.
 
-To demonstrate this, we prepared a simple sketch and hosted a dashboard so you can try it yourself. 
+To demonstrate this, we prepared a simple sketch and hosted a dashboard so you can try it yourself.
 
-A [previous version](https://arduino.github.io/ArduinoAI/BLESense-test-dashboard/) of this dashboard was developed to be used with the Arduino® Nano 33 BLE. You can see a video that shows how it looks [here](https://www.facebook.com/official.arduino/videos/ble-sense-test-dashboard/336762167617547/). 
+A [previous version](https://arduino.github.io/ArduinoAI/BLESense-test-dashboard/) of this dashboard was developed to be used with the Arduino® Nano 33 BLE. You can see a video that shows how it looks [here](https://www.facebook.com/official.arduino/videos/ble-sense-test-dashboard/336762167617547/).
 
 In this tutorial, we will focus on the Arduino® Nicla Sense ME.
 
@@ -49,9 +49,9 @@ In this tutorial, we will focus on the Arduino® Nicla Sense ME.
 
 ### Set up the Board
 
-If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI, you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries. 
+If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI, you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
 
-These libraries can be found within the Library Manager in the Arduino IDE, or it can be downloaded separately following the links attached within required hardware and software section. 
+These libraries can be found within the Library Manager in the Arduino IDE, or it can be downloaded separately following the links attached within required hardware and software section.
 
 If you use a local IDE, you can copy & paste the following sketch:
 ```arduino
@@ -90,7 +90,7 @@ If you use a local IDE, you can copy & paste the following sketch:
 
   BLEFloatCharacteristic bsecCharacteristic(BLE_SENSE_UUID("9001"), BLERead);
   BLEIntCharacteristic  co2Characteristic(BLE_SENSE_UUID("9002"), BLERead);
-  BLEUnsignedIntCharacteristic gasCharacteristic(BLE_SENSE_UUID("9003"), BLERead); 
+  BLEUnsignedIntCharacteristic gasCharacteristic(BLE_SENSE_UUID("9003"), BLERead);
 
   // String to calculate the local and device name
   String name;
@@ -166,7 +166,7 @@ If you use a local IDE, you can copy & paste the following sketch:
 
     // Disconnect event handler
     BLE.setEventHandler(BLEDisconnected, blePeripheralDisconnectHandler);
-    
+
     // Sensors event handlers
     temperatureCharacteristic.setEventHandler(BLERead, onTemperatureCharacteristicRead);
     humidityCharacteristic.setEventHandler(BLERead, onHumidityCharacteristicRead);
@@ -266,7 +266,7 @@ If you use a local IDE, you can copy & paste the following sketch:
   }
 ```
 
-Once you have these tools, you can select the Nicla Sense ME as target board and its corresponding port. Now you are ready to upload the sketch. 
+Once you have these tools, you can select the Nicla Sense ME as target board and its corresponding port. Now you are ready to upload the sketch.
 
 ### Connect to the Dashboard
 
@@ -278,7 +278,7 @@ To connect your board to the dashboard, you will need to click on the top left b
 
 ![Popup message to connect the device to the browser](assets/arduinoAI_Nicla_dashboard_connectDevice.png)
 
-***For this feature to work, make sure that WebBLE is both supported and enabled! In Google Chrome go to <chrome://flags> and enable "Experimental Web Platform features". Check the website [compatibility list](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility) to confirm that your browser supports this feature***
+***For this feature to work, make sure that WebBLE is both supported and enabled! In Google Chrome go to [chrome://flags](chrome://flags) and enable "Experimental Web Platform features". Check the website [compatibility list](https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API#browser_compatibility) to confirm that your browser supports this feature***
 
 Once it is connected, the button will change its color to green, and the graphs will start to show data in real time. You will be able to verify its operation by trying out the following actions:
 

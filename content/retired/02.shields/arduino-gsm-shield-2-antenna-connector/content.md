@@ -16,8 +16,8 @@ The shield uses digital pins 2 and 3 for software serial communication with the 
 
 The M10 is a Quad-band GSM/GPRS modem that works at frequencies GSM850MHz, GSM900MHz, DCS1800MHz and PCS1900MHz. It supports TCP/UDP and HTTP protocols through a GPRS connection. GPRS data downlink and uplink transfer speed maximum is 85.6 kbps.
 
-To interface with the cellular network, the board requires a SIM card provided by a network operator. See the [getting started page](https://docs.arduino.cc/retired/getting-started-guides/ArduinoGSMShield#toc4) for additional information on SIM usage.  
-  
+To interface with the cellular network, the board requires a SIM card provided by a network operator. See the [getting started page](https://docs.arduino.cc/retired/getting-started-guides/ArduinoGSMShield#toc4) for additional information on SIM usage.
+
 The most recent revision of the board uses the 1.0 pinout on rev 3 of the Arduino Uno board.
 
 To use this board you should note that:
@@ -46,8 +46,8 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoGSMShiel
 Arduino GSM Shield 2 is open-source hardware! You can build your own board using the following files:
 
 [EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/GSMShield3V1.0.zip)
- 
-<!-- [SCHEMATICS IN .PDF]() -->
+
+{/* [SCHEMATICS IN .PDF]() */}
 
 ### SIM to use with this shield
 
@@ -67,7 +67,7 @@ The shield contains a number of status LEDs:
 
 ### On board interfaces
 
-The shield comes with a on-board audio jack as well, and it can be used for both microphone and line inputs. It is also possible to make voice calls. You don’t need to add a speaker and microphone.  
+The shield comes with a on-board audio jack as well, and it can be used for both microphone and line inputs. It is also possible to make voice calls. You don’t need to add a speaker and microphone.
 
 There are two small buttons on the shield. The button labeled "Reset" is tied to the Arduino reset pin. When pressed, it will restart the sketch. The button labeled "Power" is connected to the modem and will power the modem on and off. For early versions of the shield, it was necessary to press the power button to turn on the modem. Newer versions of the board will turn the modem on automatically.
 

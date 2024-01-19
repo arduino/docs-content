@@ -420,7 +420,7 @@ All Arduino® boards, including this one, work out-of-the-box on the Arduino® W
 
 The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
+### Getting Started - Arduino Cloud
 
 All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
@@ -529,7 +529,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English
-This equipment should be installed and operated with a minimum distance of 20cm between the radiator and your body.  
+This equipment should be installed and operated with a minimum distance of 20cm between the radiator and your body.
 
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.

@@ -1,7 +1,12 @@
 ---
 title: Portenta Vision Shield
 url_shop: https://store.arduino.cc/portenta-vision-shield
+
 url_guide: /tutorials/portenta-vision-shield/user-manual
+primary_button_url: /tutorials/portenta-vision-shield/user-manual
+primary_button_title: User Manual
+secondary_button_url: /tutorials/portenta-vision-shield/things-network-openmv
+secondary_button_title: TTN OpenMV Guide
 core: arduino:mbed_portenta
 certifications: [CE, REACH, RoHS, WEEE, UKCA, FCC, RCM]
 ---

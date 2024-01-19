@@ -7,7 +7,7 @@ tags: [Arduino Cloud, Device API, JavaScript, Node.js, Python, MicroPython]
 
 Authentication & data synchronisation is automatically handled when you choose the automatic configuration option in the [Arduino Cloud](https://app.arduino.cc/).
 
-You can during the setup of your device instead choose the manual configuration option. This allows you to connect to the cloud using the **Device API** (MicroPython, Python or Node.js).
+You can during the setup of your device instead choose the manual configuration option. This allows you to connect to the Cloud using the **Device API** (MicroPython, Python or Node.js).
 
 This opens up possibilities for more kinds of devices, mainly Linux based, to connect to the Arduino Cloud.
 
@@ -69,7 +69,7 @@ To connect with MicroPython, you will need to have a manual device created in th
 
 ### MicroPython Example
 
-Below is a script that connects to the cloud, and allows you to control the onboard LED from a dashboard in the cloud. You will need to have exactly matching variables created inside your Thing in the cloud for this to work. For example:
+Below is a script that connects to the Cloud, and allows you to control the onboard LED from a dashboard in the Cloud. You will need to have exactly matching variables created inside your Thing in the Cloud for this to work. For example:
 - `client.register("led", value=None)` requires a variable named `led`.
 
 ```python
@@ -90,8 +90,8 @@ def on_switch_changed(client, value):
     # Toggles the hardware LED on or off.
     led.value(not value)
     
-    # Sets the value of the cloud variable "led" to the current state of the LED
-    # and thus mirrors the hardware state in the cloud.
+    # Sets the value of the Cloud variable "led" to the current state of the LED
+    # and thus mirrors the hardware state in the Cloud.
     client["led"] = value
 
 def wifi_connect():
@@ -123,13 +123,13 @@ if __name__ == "__main__":
     # Alternatively, a username and password can be used to authenticate:
     client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY)
 
-    # Register cloud objects.
+    # Register Cloud objects.
     # Note: The following objects must be created first in the dashboard and linked to the device.
-    # This cloud object is initialized with its last known value from the cloud. When this object is updated
+    # This Cloud object is initialized with its last known value from the Cloud. When this object is updated
     # from the dashboard, the on_switch_changed function is called with the client object and the new value.
     client.register("ledSwitch", value=None, on_write=on_switch_changed, interval=0.250)
 
-    # This cloud object is updated manually in the switch's on_write_change callback to update the LED state in the cloud.
+    # This Cloud object is updated manually in the switch's on_write_change callback to update the LED state in the Cloud.
     client.register("led", value=None)
 
     # Start the Arduino Cloud client.
@@ -145,7 +145,7 @@ The pre-requisities for connecting with Python is:
 - [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) installed,
 - a Thing + [manual device](#configure-manual-devices) created in the Arduino Cloud.
 
-Connection to the cloud via Python uses the same API as the MicroPython example listed in this article. To install the [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) module, we can use `pip`.
+Connection to the Cloud via Python uses the same API as the MicroPython example listed in this article. To install the [arduino-iot-cloud-py](https://github.com/arduino/arduino-iot-cloud-py) module, we can use `pip`.
 
 ```
 pip install arduino-iot-cloud
@@ -157,7 +157,7 @@ You will also need to install [SWIG](https://pypi.org/project/swig/), which is a
 pip install swig
 ```
 
-You will also need to have configured a manual device in the cloud. The **Device ID** and **Secret Key** are required in your script to authenticate. To connect, we use the following command:
+You will also need to have configured a manual device in the Cloud. The **Device ID** and **Secret Key** are required in your script to authenticate. To connect, we use the following command:
 
 ```python
 client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY)
@@ -167,7 +167,7 @@ To use the script further below, you will need to create a Thing with the follow
 - `ledSwitch` - boolean
 - `temperature` - float
 
-The variables are set up to test bi-directional communication between the cloud and the manual device. The `temperature` variable will send just a dummy value to the cloud, and the `ledSwitch` will send data from the cloud to the manual device.
+The variables are set up to test bi-directional communication between the Cloud and the manual device. The `temperature` variable will send just a dummy value to the Cloud, and the `ledSwitch` will send data from the Cloud to the manual device.
 
 In the script, we need register the variables to use them, and set some parameters. 
 
@@ -229,17 +229,17 @@ The pre-requisities for connecting with Node.js is:
 - a Thing created in the Arduino Cloud,
 - a manual device created in the Arduino Cloud, associated to your Thing.
 
-Connection to the cloud via Node.js/Javascript requires you to first install the [arduino-iot-js](https://github.com/arduino/arduino-iot-js) package. You will also need to configure a manual device in the cloud, which will generate the **Device ID** and **Secret Key** needed to connect. 
+Connection to the Cloud via Node.js/Javascript requires you to first install the [arduino-iot-js](https://github.com/arduino/arduino-iot-js) package. You will also need to configure a manual device in the Cloud, which will generate the **Device ID** and **Secret Key** needed to connect. 
 
 ```sh
 npm install arduino-iot-js
 ```
 
-After installation, you can use the example below to connect and send variable updates to the cloud.
+After installation, you can use the example below to connect and send variable updates to the Cloud.
 
 ### JavaScript Example
 
-This example connects to the cloud (MQTT broker), and sends a variable update with `sendProperty()`, and then listens for updates using the `onPropertyValue()` method.
+This example connects to the Cloud (MQTT broker), and sends a variable update with `sendProperty()`, and then listens for updates using the `onPropertyValue()` method.
 
 ***Please note: `cloudVar` needs to contain the variable name you create in the Arduino Cloud. In this case, we are calling it `test_variable`*** 
 

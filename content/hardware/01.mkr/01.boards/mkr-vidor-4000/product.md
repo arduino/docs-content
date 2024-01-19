@@ -6,7 +6,7 @@ primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrvidor4000/150'
-certifications: [CE, UKCA, RoHS]
+certifications: [CE, UKCA, RoHS, FCC]
 productCode: '024'
 ---
 

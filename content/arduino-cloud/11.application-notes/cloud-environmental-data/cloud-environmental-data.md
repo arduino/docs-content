@@ -14,7 +14,7 @@ featuredImage: 'cloud'
 
 In this tutorial, we will combine the functionality of the [MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010) and the [MKR ENV Shield](https://store.arduino.cc/arduino-mkr-env-shield). The shield, mounted on top of the board, will record environmental data, such as temperature, humidity, pressure and illuminance. This data will be synced with the [Arduino Cloud](https://app.arduino.cc/), a service that allows us to remotely control and monitor our devices. 
 
-This means that whenever we read data on the board, it will also be visible in the cloud dashboard, where we can create different ways of visualizing the data.
+This means that whenever we read data on the board, it will also be visible in the Cloud dashboard, where we can create different ways of visualizing the data.
 
 >**Note:** Newer versions of the MKR ENV Shield does not have the UV sensor component. You can read more about the different versions in [this Arduino Help Center article](https://support.arduino.cc/hc/en-us/articles/360019197540-Different-MKR-ENV-Shield-versions).
 
@@ -124,7 +124,7 @@ void loop() {
 
 Once the code has been uploaded, open the Serial Monitor (tab next to sketch) to initialize the program. If everything went well, it should like the image below:
 
-![Information regarding connection to network & cloud.](./assets/serial.png)
+![Information regarding connection to network & Cloud.](./assets/serial.png)
 
 The most important thing is that the two following commands are printed:
 
@@ -142,7 +142,7 @@ To use this feature, make sure the board has power. If your board is already con
 
 ## Building a dashboard
 
-Once we have confirmed that the board is connected to the cloud, the last step is to build the dashboard that we can monitor the environmental data in. Click on the **"Dashboards"** tab, which will take you to the dashboards page. Here, we need to click on the **"Build Dashboard"** button.
+Once we have confirmed that the board is connected to the Cloud, the last step is to build the dashboard that we can monitor the environmental data in. Click on the **"Dashboards"** tab, which will take you to the dashboards page. Here, we need to click on the **"Build Dashboard"** button.
 
 ![Building a new dashboard.](./assets/new_dashboard.png)
 
@@ -164,9 +164,9 @@ Congratulations! You can now view your real time data directly in the dashboard.
 
 ## Conclusion
 
-In this tutorial, we demonstrated simply how a MKR WiFi 1010, a MKR ENV Shield and the Arduino Cloud is used to create a simple IoT application. This, without having to connect a single wire, or create a difficult program: the cloud takes care of all of that. 
+In this tutorial, we demonstrated simply how a MKR WiFi 1010, a MKR ENV Shield and the Arduino Cloud is used to create a simple IoT application. This, without having to connect a single wire, or create a difficult program: the Cloud takes care of all of that. 
 
-You can now start thinking about how this application might work in real life. There are a lot of different things you can add to it, such as wind sensors (anemometers), rain sensors, CO2 sensors and much more. With some easy connections, you can build anything you want to, connect it to the cloud and view all the data live from anywhere in the world!
+You can now start thinking about how this application might work in real life. There are a lot of different things you can add to it, such as wind sensors (anemometers), rain sensors, CO2 sensors and much more. With some easy connections, you can build anything you want to, connect it to the Cloud and view all the data live from anywhere in the world!
 
 ### More tutorials
 

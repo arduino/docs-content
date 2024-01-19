@@ -6,7 +6,7 @@ type: maker
 
 ![Arduino® UNO R4 Minima](assets/featured.png)
 
-# Description 
+# Description
 
 The Arduino UNO R4 Minima (from here on referred to as UNO R4 Minima) is the first UNO board to feature a 32-bit microcontroller. It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM).
 
@@ -41,7 +41,7 @@ Maker, beginner, education
   * 5 V operating voltage
   * Barrel jack connected to VIN pin
   * Power via USB-C® at 5 V
-  * Schottky diodes for overvoltage and reverse polarity protection 
+  * Schottky diodes for overvoltage and reverse polarity protection
 * **Communication**
   * 1x UART (pin D0, D1)
   * 1x SPI (pin D10-D13, ICSP header)
@@ -117,7 +117,7 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 The UNO R4 Minima is based on the 32-bit RA4M1 series microcontroller, **R7FA4M1AB3CFM#AA0**, from Renesas, which uses a 48 MHz Arm® Cortex®-M4 microprocessor with a floating point unit (FPU).
 
-On the UNO R4 Minima, the operating voltage is fixed at 5 V to be fully retro compatible with shields, accessories & circuits originally designed for older UNO revisions. 
+On the UNO R4 Minima, the operating voltage is fixed at 5 V to be fully retro compatible with shields, accessories & circuits originally designed for older UNO revisions.
 
 The R7FA4M1AB3CFM#AA0 features:
 * 256 kB flash / 32 kB SRAM / 8 kB data flash (EEPROM)
@@ -144,7 +144,7 @@ The UNO R4 Minima has a DAC with up to 12-bit resolution attached to the A0 anal
 
 Power can either be supplied via the VIN pin, the barrel jack, or via USB-C® connector. If power is supplied via VIN, the ISL854102FRZ buck converter steps the voltage down to 5 V.
 
-The VUSB, barrel jack connector and VIN pins are connected to the ISL854102FRZ buck converter, with Schottky diodes in place for reverse polarity & overvoltage protection respectively. 
+The VUSB, barrel jack connector and VIN pins are connected to the ISL854102FRZ buck converter, with Schottky diodes in place for reverse polarity & overvoltage protection respectively.
 
 Power via USB supplies about ~4.7 V (due to Schottky drop) to the RA4M1 microcontroller.
 
@@ -257,9 +257,9 @@ All Arduino boards, including this one, work out-of-the-box on the Arduino Web E
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
+### Getting Started - Arduino Cloud
 
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 
@@ -294,7 +294,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 
 Exemptions : No exemptions are claimed.
 
-Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (<https://echa.europa.eu/web/guest/candidate-list-table>), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([<https://echa.europa.eu/web/guest/candidate-list-table](<https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ## Conflict Minerals Declaration
 
@@ -335,7 +335,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.  
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
@@ -356,12 +356,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Ref                       | Link                                                                                            |
 | ------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                              |
-| Cloud IDE Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Arduino Project Hub       | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
-| Library Reference         | <https://github.com/arduino-libraries/>                                                         |
-| Online Store              | <https://store.arduino.cc/>                                                                     |
+| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                     |
+| Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                          |
+| Cloud IDE Getting Started | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)       |
+| Arduino Project Hub       | [https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending)                        |
+| Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                     |
+| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                       |
 
 ## Change Log
 

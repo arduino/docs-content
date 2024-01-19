@@ -8,10 +8,11 @@ The MKR CAN Shield is based on the **MCP2515** CAN controller and the **TJA1049*
 
 <Feature title="Can Interface" image="connection">
 
-This high-speed CAN transceiver provides an interface between a CAN controller (MCP2515) and the physical CAN bus. 
-
+This high-speed CAN transceiver provides an interface between a CAN controller (MCP2515) and the physical CAN bus.
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-can-shield/mkr-can-communication"/>
   <FeatureLink variant="secondary" title="Library" url="https://github.com/sandeepmistry/arduino-CAN"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Power with battery" image="power">

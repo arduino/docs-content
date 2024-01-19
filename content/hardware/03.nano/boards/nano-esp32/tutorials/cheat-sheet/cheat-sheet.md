@@ -119,12 +119,12 @@ In this course, you will fundamental knowledge to get started, as well as a larg
 
 If you have installed MicroPython but wish to go back to classic Arduino / C++ programming, it is easy to do so. Simply **double tap** the **RESET** button on the board (there's only one button). The board will enter boot mode (you should see a pulsing green light), and will be visible in the Arduino IDE. 
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-Nano ESP32 is supported in the [Arduino IoT Cloud](https://create.arduino.cc/iot/) platform. You can connect to the cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
+Nano ESP32 is supported in the [Arduino Cloud](https://create.arduino.cc/iot/) platform. You can connect to the Cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
 
-- [Getting Started with Arduino IoT Cloud (classic)](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
-- [MicroPython with Arduino IoT Cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-micropython)
+- [Getting Started with Arduino Cloud (classic)](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
+- [MicroPython with Arduino Cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-micropython)
 
 
 ## API
@@ -311,8 +311,8 @@ The Nano ESP32's SPI pins are listed below:
 | Pin   | Function | Description                   |
 | ----- | -------- | ----------------------------- |
 | D10\* | CS       | Chip Select                   |
-| D11   | COPI     | Controller In, Peripheral Out |
-| D12   | CIPO     | Controller Out, Peripheral In |
+| D11   | COPI     | Controller Out, Peripheral In |
+| D12   | CIPO     | Controller In, Peripheral Out |
 | D13   | SCK      | Serial Clock                  |
 
 \*Any GPIO can be used for chip select.

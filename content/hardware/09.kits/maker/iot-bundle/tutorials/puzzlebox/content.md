@@ -15,18 +15,18 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/puzzlebox-with-ard
 
 ## Apps and Online Services
 
-- [Arduino IoT Cloud](https://cloud.arduino.cc)
+- [Arduino Cloud](https://cloud.arduino.cc)
 - [Arduino IoT Cloud Remote app](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US)
 
 ## About This Project
 
-**Create a Puzzle Box with the help of the Arduino IoT Cloud!**
+**Create a Puzzle Box with the help of the Arduino Cloud!**
 
 Keeping your valuable items away from prying eyes can be hard sometimes, unless you put it in a big safe or something similar... but who has room for that? Instead, create your own puzzle box using the components from the IoT Bundle and some cardboard! We can't guarantee the safety of your belongings, but at least it will be a fun deterrent for potential thieves. Of course, we advise you to stash your candy in there... not actual valuables.
 
 ### In a Nutshell
 
-In order to open the box, which is held closed with a servo motor, you will have to turn the potentiometers until you get the right combination. The combination can be set through the dashboard on the Arduino IoT Cloud. An LED will help you guess, giving you colour feedbacks: the closer you are, the warmer the color. When the right combination is guessed, the box will open and a victorious melody will start playing, revealing whatever you have locked inside. In order to create our puzzle box we will need the following components:
+In order to open the box, which is held closed with a servo motor, you will have to turn the potentiometers until you get the right combination. The combination can be set through the dashboard on the Arduino Cloud. An LED will help you guess, giving you colour feedbacks: the closer you are, the warmer the color. When the right combination is guessed, the box will open and a victorious melody will start playing, revealing whatever you have locked inside. In order to create our puzzle box we will need the following components:
 
 * Buzzer
 * RGB LED
@@ -37,10 +37,10 @@ In order to open the box, which is held closed with a servo motor, you will have
 
 ### Learning Goals
 
-* Introducing the Arduino IoT Cloud
+* Introducing the Arduino Cloud
 * Introducing the Arduino IoT Remote app
 * Playing a melody with the piezo buzzer
-* Creating an Arduino IoT Cloud Dashboard
+* Creating an Arduino Cloud Dashboard
 
 ### Want to Know More
 
@@ -51,19 +51,19 @@ This tutorial is part of a series of experiments that familiarize you with the A
 * [Plant Communicator with the Arduino IoT Bundle ](/tutorials/iot-bundle/plant-communicator)
 * [The Nerd with the Arduino IoT Bundle](/tutorials/iot-bundle/the-nerd)
 
-### Setting up the Arduino IoT Cloud
+### Setting up the Arduino Cloud
 
-If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
+If you are new to the Arduino Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
 ### Template
 
-To connect your board to the Arduino IoT Cloud, we will use the [Puzzle Box Template](https://create.arduino.cc/iot/templates/puzzle-box). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
+To connect your board to the Arduino Cloud, we will use the [Puzzle Box Template](https://create.arduino.cc/iot/templates/puzzle-box). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
 
 See the image below to understand how to set it up.
 
 ![Thing overview](assets/template_overview.png)
 
-We will start by setting up the Arduino IoT Cloud by following the steps below:
+We will start by setting up the Arduino Cloud by following the steps below:
 
 * Creating a **Thing**
 * Attaching a **Device**
@@ -101,7 +101,7 @@ void setup() {
   delay(1500);
   /* Defined in thingProperties.h */
   initProperties();
-  /* Connect to Arduino IoT Cloud */
+  /* Connect to Arduino Cloud */
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
@@ -164,7 +164,7 @@ void setup() {
   delay(1500);
   /* Defined in thingProperties.h */
   initProperties();
-  /* Connect to Arduino IoT Cloud */
+  /* Connect to Arduino Cloud */
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
@@ -242,7 +242,7 @@ void setup() {
   delay(1500);
   /* Defined in thingProperties.h */
   initProperties();
-  /* Connect to Arduino IoT Cloud */
+  /* Connect to Arduino Cloud */
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
@@ -323,7 +323,7 @@ void setup() {
   delay(1500);
   /* Defined in thingProperties.h */
   initProperties();
-  /* Connect to Arduino IoT Cloud */
+  /* Connect to Arduino Cloud */
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
@@ -424,7 +424,7 @@ void setup() {
   delay(1500);
   /* Defined in thingProperties.h */
   initProperties();
-  /* Connect to Arduino IoT Cloud */
+  /* Connect to Arduino Cloud */
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   setDebugMessageLevel(2);
   ArduinoCloud.printDebugInfo();
@@ -497,7 +497,7 @@ void onDisplayChange() {
 }
 ```
 
-### Connect It to the Arduino IoT Cloud
+### Connect It to the Arduino Cloud
 
 Now we are starting to put things together: we have connected the potentiometers to unlock the box, created two dashboards for setting the combination and seeing your current position, as well as installed a RGB which will tell you how close you are to the right combination.
 
@@ -507,7 +507,7 @@ Now we are starting to put things together: we have connected the potentiometers
 void giveColorFeedback(int PotOne, int PotTwo, int PotThree){...}
 ```
 
-- Note that the initial value is set to 1, it will change only if you modify the values of the sliders on the cloud dashboard. If you reset the board the combination will be back to the default value.
+- Note that the initial value is set to 1, it will change only if you modify the values of the sliders on the Cloud dashboard. If you reset the board the combination will be back to the default value.
 
 A boolean variable **bool start = true;**  is used to detect when the combination has already been guessed, so to avoid reopening the the box at every loop.
 

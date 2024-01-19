@@ -3,8 +3,8 @@
     Learn how to connect the Nano 33 IoT to IFTTT to send an email each time an action is performed
   </EssentialElement>
 
-<EssentialElement title="Nano 33 IoT alarm with the Arduino IoT Cloud" type="tutorial" link="/tutorials/nano-33-iot/iot-cloud">
-    Learn how to create an alarm with the Nano 33 IoT controlled by the Arduino IoT Cloud.
+<EssentialElement title="Nano 33 IoT alarm with the Arduino Cloud" type="tutorial" link="/tutorials/nano-33-iot/iot-cloud">
+    Learn how to create an alarm with the Nano 33 IoT controlled by the Arduino Cloud.
   </EssentialElement>
 </EssentialsColumn>
 

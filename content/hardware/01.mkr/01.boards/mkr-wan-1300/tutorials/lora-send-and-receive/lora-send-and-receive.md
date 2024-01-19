@@ -7,7 +7,7 @@ tags:
   - IoT
   - LoRa®
 author: 'Karl Söderby'
-libraries: 
+libraries:
   - name: LoRa
     url: https://github.com/sandeepmistry/arduino-LoRa
 hardware:
@@ -31,9 +31,9 @@ There are many different terms to be familiar with in the world of LoRa® techno
 
 LoRa® is short for long range modulation technique based on a technology called chirp spread spectrum (CSS). It is designed to carry out long-range transmissions with minimal power consumption. LoRa® defines as the "lower layer" or **"physical layer"**, according to the **OSI model**. The physical layer is defined by hardware, signals and frequencies.
 
-LoRa® uses different radio frequencies depending on where you are located in the world. The most common are Europe (868 MHz) and North America & Australia (915 MHz), but it differs from country to country. You can also read more about a [country's unique radio frequency](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country.html). 
+LoRa® uses different radio frequencies depending on where you are located in the world. The most common are Europe (868 MHz) and North America & Australia (915 MHz), but it differs from country to country. You can also read more about a [country's unique radio frequency](https://www.thethingsnetwork.org/docs/lorawan/frequencies-by-country.html).
 
-LoRa® is also often used to describe hardware devices supported by LoRa®, e.g. modules or gateways. The Arduino MKR WAN 1300 has a LoRa® module called **Murata CMWX1ZZABZ**. 
+LoRa® is also often used to describe hardware devices supported by LoRa®, e.g. modules or gateways. The Arduino MKR WAN 1300 has a LoRa® module called **Murata CMWX1ZZABZ**.
 
 ### LoRaWAN®
 
@@ -122,9 +122,9 @@ void setup() {
 
 ```
 
-In the `loop()` we start by printing "Sending packet" in the Serial Monitor + the value of `counter`. We then begin a packet by using the command, `LoRa.beginPacket()`, and print "hello" and the value of `counter`. This is done using the `LoRa.print()` function, then we broadcast it by using `LoRa.endPacket()`. 
+In the `loop()` we start by printing "Sending packet" in the Serial Monitor + the value of `counter`. We then begin a packet by using the command, `LoRa.beginPacket()`, and print "hello" and the value of `counter`. This is done using the `LoRa.print()` function, then we broadcast it by using `LoRa.endPacket()`.
 
-Finally, we add increase counter by 1 each time the loop has run, and a delay of 5 seconds, to limit the message rate. 
+Finally, we add increase counter by 1 each time the loop has run, and a delay of 5 seconds, to limit the message rate.
 
 ```cpp
 void loop() {
@@ -147,9 +147,9 @@ void loop() {
 
 ### Programming the Receiver
 
-The initialization and setup of the receiver is more or less identical to the **sender** sketch. 
+The initialization and setup of the receiver is more or less identical to the **sender** sketch.
 
-But inside the loop, we will not be creating any packets. Instead, we will listen to incoming ones. This is done by first using the command `int packetSize = LoRa.parsePacket();`, and then check for an incoming packet. If we receive one, it is parsed and printed in the Serial Monitor. 
+But inside the loop, we will not be creating any packets. Instead, we will listen to incoming ones. This is done by first using the command `int packetSize = LoRa.parsePacket();`, and then check for an incoming packet. If we receive one, it is parsed and printed in the Serial Monitor.
 
 ```cpp
 
@@ -188,7 +188,7 @@ void loop() {
 
 ```
 
-<!-- Here we link the full program from create -->
+{/*  Here we link the full program from create */}
 ## Complete Code
 
 If you choose to skip the code building section, the complete code can be found below:
@@ -270,7 +270,7 @@ void loop() {
 
 ## Upload Sketch and Testing the Program
 
-Once we are finished with the coding, we can upload the sketch to the board. The easiest way to go forward is to have two separate computers, as we will need to have the Serial Monitor open for both boards. This way, you can move the boards further away from each other while testing the signal. 
+Once we are finished with the coding, we can upload the sketch to the board. The easiest way to go forward is to have two separate computers, as we will need to have the Serial Monitor open for both boards. This way, you can move the boards further away from each other while testing the signal.
 
 ### Troubleshoot
 
@@ -284,5 +284,5 @@ If the code is not working, there are some common issues we might need to troubl
 
 ## Conclusion
 
-In this tutorial, we have introduced some fundamental concepts around LoRa®, where we have setup a basic communication line between two boards using the LoRa® network. With this basic framework, you can go on to combine this tutorial with sensors and other software libraries, so that you can create your own long-range, low-powered devices! 
+In this tutorial, we have introduced some fundamental concepts around LoRa®, where we have setup a basic communication line between two boards using the LoRa® network. With this basic framework, you can go on to combine this tutorial with sensors and other software libraries, so that you can create your own long-range, low-powered devices!
 

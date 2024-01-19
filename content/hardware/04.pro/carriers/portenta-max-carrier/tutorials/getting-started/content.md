@@ -231,11 +231,11 @@ All Arduino boards work Out-of-the-Box with the Arduino Web Editor, and the Port
 
 ***If you want to know how to get started with Arduino Web Editor, please look into [Getting started with the Web Editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).***
 
-#### 4.3. Using Arduino IoT Cloud
+#### 4.3. Using Arduino Cloud
 
-The Arduino boards that are IoT enabled, can use the Arduino IoT Cloud to develop an automated system and a feedback system that gathers useful data for analysis purposes. By following this [link to Arduino IoT Cloud](https://create.arduino.cc/iot/things), you will be able to access and begin developing the code.
+The Arduino boards that are IoT enabled, can use the Arduino Cloud to develop an automated system and a feedback system that gathers useful data for analysis purposes. By following this [link to Arduino Cloud](https://create.arduino.cc/iot/things), you will be able to access and begin developing the code.
 
-***If you want to know how to get started with Arduino IoT Cloud, please look into [Getting Started With the Arduino IoT Cloud](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started).***
+***If you want to know how to get started with Arduino Cloud, please look into [Getting Started With the Arduino Cloud](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started).***
 
 ### 5. Portenta Max Carrier Quick Peripheral Table
 

@@ -50,7 +50,7 @@ The float format is very wide (you can represent numbers as big as 3.402823e+38 
 
 ### Configuration of the Cloud Services
 
-We'll use two cloud services:
+We'll use two Cloud services:
 
 * [Sigfox backend](http://backend.sigfox.com/)
 * [Thingspeak](https://thingspeak.com/)

@@ -157,9 +157,9 @@ All Arduino and Genuino boards, including this one, work out-of-the-box on the A
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[5]** to start coding on the browser and upload your sketches onto your board.
 
 
-### Getting Started – Arduino IoT Cloud
+### Getting Started – Arduino Cloud
 
-All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT-enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[6]**, the Arduino Library Reference **[7]** and the online store **[8]** where you will be able to complement your board with sensors, actuators and more.

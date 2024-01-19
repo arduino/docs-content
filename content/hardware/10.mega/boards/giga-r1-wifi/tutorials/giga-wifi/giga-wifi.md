@@ -17,7 +17,7 @@ Wi-Fi support is enabled via the built-in `WiFi` library that is shipped with th
 
 The radio module also supports Bluetooth® Low Energy, which is supported via the [ArduinoBLE](https://www.arduino.cc/reference/en/libraries/arduinoble/) library.
 
-***The easiest way to connect your board to the Internet is via the [Arduino IoT Cloud](https://create.arduino.cc/iot/) platform. Here you can configure, program, monitor and synchronize your devices without having to write any networking code.*** 
+***The easiest way to connect your board to the Internet is via the [Arduino Cloud](https://create.arduino.cc/iot/) platform. Here you can configure, program, monitor and synchronize your devices without having to write any networking code.*** 
 
 ## Hardware & Software Needed
 

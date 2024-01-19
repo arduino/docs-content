@@ -1,5 +1,5 @@
 ---
-title: 'CAN Bus Setup with Arduino® PLC IDE'
+title: 'CAN Bus Setup with Arduino PLC IDE'
 description: 'This tutorial will show you how to set up the CAN bus communication with the Arduino PLC IDE.'
 tags:
   - PLC
@@ -17,7 +17,7 @@ The Arduino Portenta Machine Control has the **TJA1049T** CAN transceiver which 
 
 ### What Is CAN
 
-CAN is the acronym used for Controlled Area Network. This protocol was developed to be used on automotive and industrial applications to communicate with precise and critical demanding sensors. 
+CAN is the acronym used for Controlled Area Network. This protocol was developed to be used on automotive and industrial applications to communicate with precise and critical demanding sensors.
 
 The main advantages of the CAN bus protocol are:
 
@@ -80,7 +80,7 @@ Once the **Generic CANOpen device** has been added you can customize the configu
 
 ![CANopen configuration window](assets/CAN-configuration-general.png)
 
-<!--
+{/*
 Below, you will find an enumeration of the options located in each of the CAN configuration tabs and windows.
 
 #### Network Settings Tabs
@@ -112,7 +112,7 @@ Modes:
 * User Defined Mode
 * Sync Mode
 * Event Mode
--->
+*/}
 
 ### Parametrization Tab
 
