@@ -2,7 +2,7 @@
 title: 'Arduino Portenta Machine Control Library Guide'
 difficulty: beginner
 compatible-products: [portenta-machine-control]
-description: 'Learn about the new Arduino Portenta Machine Control library, which enables efficient management of the features of the Arduino® Portenta Machine Control.'
+description: 'Learn about the new Arduino Portenta Machine Control library, which enables efficient management of the features of the Arduino Portenta Machine Control.'
 tags:
   - Library
   - Portenta Machine Control
@@ -43,7 +43,7 @@ The Arduino Portenta Machine Control is a versatile industrial control unit for 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino_PortentaMachineControl library](https://github.com/arduino-libraries/Arduino_PortentaMachineControl)
 
-## The Arduino_PortentaMachineControl Library
+## The Arduino Portenta Machine Control Library
 
 The `Arduino_PortentaMachineControl` is a C++ library designed to manage the software and hardware functionalities of the Portenta Machine Control board efficiently. It provides extensive support for inputs such as digital, analog, and encoder ports while offering outputs including digital and analog ports. This library also manages communication through interfaces like CAN bus, RS-232, RS-422, and RS-485, allowing connectivity via Ethernet, Wi-Fi®, Bluetooth® Low Energy and USB.
 
@@ -82,7 +82,6 @@ The `Arduino_PortentaMachineControl` library offers a wide range of functionalit
 ### Improvements Between Libraries
 
 #### Structural and Functional Enhancements
-<br></br>
 
 The library has undergone significant structural changes to improve its efficiency and user-friendliness. Some of these key improvements include the following:
 
@@ -94,7 +93,6 @@ The library has undergone significant structural changes to improve its efficien
 - **Documentation improvement**: Enhanced documentation offers better support to users.
 
 #### Practical Application Enhancements
-<br></br>
 
 The following improvements make the Portenta Machine Control Library more adaptable and efficient for various industrial applications, from machinery control to sensor integration:
 
@@ -114,7 +112,6 @@ Changes in naming:
 - **Introduction of the `MachineControl_` prefix**: In the updated library, a prefix `MachineControl_` is used for each functionality's singleton object. This change ensures a clearer and more descriptive approach to accessing library functionalities.
 
 #### Example of the Updated Naming
-<br></br>
 
 Old naming convention:
 
@@ -145,7 +142,6 @@ In the `Arduino_PortentaMachineControl` Library, interacting with input/output m
 - **CamelCase notation**: The library has adopted CamelCase notation for function names, aligning with the standard Arduino library style. This change makes the library more consistent with other Arduino libraries, enhancing readability and ease of use.
 
 #### Example of the Input/Output Module Usage:
-<br></br>
 
 Old approach:
 
@@ -178,7 +174,6 @@ This update enhances the user experience by making the code more intuitive and a
 The handling of encoders has been updated in the `Arduino_PortentaMachineControl` Library for a more streamlined and intuitive approach. One key new feature is the **removal of array object access**. In the previous library version, encoder objects were accessed using array notation (`[]`). The latest version has simplified this approach, enhancing code readability and reducing potential errors.
 
 #### Example of Encoder Usage
-<br></br>
 
 Old approach:
 
@@ -213,7 +208,7 @@ The latest Portenta Machine Control Library update has refined how communication
 
 #### Example of Communication Protocol Usage
 
-Let's use **the RS-485 interface** as example to show the new communication protocol usage.
+Let's use the **RS-485 interface** as example to show the new communication protocol usage.
 
 Old approach:
 
