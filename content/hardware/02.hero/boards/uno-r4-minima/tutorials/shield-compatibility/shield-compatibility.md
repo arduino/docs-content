@@ -23,7 +23,6 @@ This article covers a list of shields compatible with the [UNO R4 Minima](/hardw
 | Arduino 4 Relays Shield          | Yes        | None                                                                                    |
 | Arduino Ethernet Shield Rev2     | Yes        | [Ethernet.h](https://github.com/arduino-libraries/Ethernet)                             |
 | Arduino Motor Shield Rev3        | Yes        | None                                                                                    |
-| Arduino 9 Axis Motion Shield     | No         | [Arduino_NineAxesMotion](https://github.com/arduino-libraries/Arduino_NineAxesMotion)   |
 | Arduino Education Shield         | Yes        | [EducationShield.h](https://github.com/arduino-libraries/EducationShield)               |
 
 ### Third-Party Shields
