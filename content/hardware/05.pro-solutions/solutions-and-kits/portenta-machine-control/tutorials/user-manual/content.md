@@ -35,8 +35,8 @@ This user manual provides a comprehensive overview of the Portenta Machine Contr
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino PLC IDE 1.0.3+](https://www.arduino.cc/en/software) (for IEC 61131-3 PLC programming languages)
-- [Arduino PLC IDE 1.0.3+ Tools](https://www.arduino.cc/en/software#arduino-plc-ide) 
-[Arduino_PortentaMachineControl](https://github.com/arduino-libraries/Arduino_PortentaMachineControl)
+- [Arduino PLC IDE 1.0.3+ Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
+- [Arduino_PortentaMachineControl](https://github.com/arduino-libraries/Arduino_PortentaMachineControl) library
 
 ***This User Manuals shows how to use the Portenta Machine Control using the Arduino IDE environment. To learn more about how to use it with IEC-61131-3 languages and the PLC IDE, check out our tutorials [here](https://docs.arduino.cc/software/plc-ide).***
 
@@ -46,7 +46,7 @@ The Portenta Machine Control is designed for efficiency and adaptability in indu
 
 ![Portenta Machine Control board](assets/user-manual-1.png)
 
-This controller offers many connectivity options, from USB and Ethernet to Wi-Fi®/Bluetooth® Low Energy, as well as industry-specific protocols. It can also connect with various external sensors, actuators, and different Human Machine Interfaces (HMI), such as displays and touch panels, showcasing its adaptability. It is designed for harsh industrial operations with features like DIN bar compatible housing, compact size, and an integrated Real Time Clock (RTC). For real-time control or predictive maintenance tasks, the Portenta Machine Control is a solid choice for businesses aiming to enhance production and equipment management processes.
+This controller offers many connectivity options, from USB and Ethernet to Wi-Fi®/Bluetooth® Low Energy, as well as industry-specific protocols. It can also connect with various external sensors, actuators, and different Human Machine Interfaces (HMI), such as displays and touch panels, showcasing its adaptability. It is designed for harsh industrial operations with features like DIN bar compatible housing, compact size, and an integrated Real-Time Clock (RTC). For real-time control or predictive maintenance tasks, the Portenta Machine Control is a solid choice for businesses aiming to enhance production and equipment management processes.
 
 ### Portenta Machine Control Main Components
 
@@ -56,34 +56,44 @@ The Portenta Machine Control features a secure, certified, and durable design th
 
 Here is an overview of the controller's main components shown in the image above:
 
-- **Microcontroller**: At the heart of the Portenta Machine Control is the STM32H747XI, a powerful, robust, and high-performance dual-core microcontroller from STMicroelectronics®. This microcontroller is built around an Arm® Cortex®-M7 and an Arm® Cortex®-M4 32-bit RISC cores. The Arm® Cortex®-M7 core operates at up to 480 MHz, while the Arm® Cortex®-M4 core operates at up to 240 MHz.
-- **Memory and storage**: The Portenta Machine Control houses:
-  - 2 MB of Flash Memory
-  - 1 MB of RAM
-  - Additional onboard memory of 8 MB SDRAM
-  - 16 MB Flash QSPI.
-- **Security**: The controller features an onboard ready-to-use secure element from NXP®, the SE0502. This secure element, specifically designed for Internet of Things (IoT) devices, provides advanced security features, perfect for Industrial IoT (IIoT) environments where security is critical.
-- **Power architecture**: The controller's power system was designed to be resilient. It operates at an input voltage of +24 VDC, with reverse polarity protection, ensuring the controller remains safeguarded from power irregularities.
-- **Digital and analog ports**: Equipped with a versatile set of input and output ports, the Portenta Machine Control supports:
-  - 8x digital input ports with 8x Status LEDs labeled as `DIGITAL INPUTS`
-  - 8x digital output ports with 8x Status LEDs labeled as `DIGITAL OUTPUTS`
-  - 3x software-configurable analog input ports labeled as `ANALOG IN`
-  - 4x analog output ports labeled as `ANALOG OUT`
-  - 12x digital programmable input/output ports labeled as `PROGRAMMABLE DIGITAL I/O` 
-- **Temperature sensing**: With three software-configurable temperature channels, the Portenta Machine Control can measure a variety of temperature ranges using:
-  - Type K thermocouples
-  - Type J thermocouples
-  - PT100 sensors
-- **Communication interfaces**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers a high-speed, software-configurable interfaces such as: 
-  - CAN bus
-  - RS-232
-  - RS-422
-  - RS-485
-  - I<sup>2</sup>C interface (accessible via a Grove connector)
-- **Ethernet and USB**: The Portenta Machine Control features onboard Ethernet connectivity and full-speed USB-A and half-speed micro-USB Type B connectors for wired communication.
-- **Wireless connectivity**: The Portenta Machine Control supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® Low Energy (4.2 supported by firmware and 5.1 supported by hardware).
-- **Additional features**: The Portenta Machine Control features an onboard RTC with at least 48 hours of memory retention and two encoder channels. Moreover, Electrostatic Discharge (ESD) protection on all inputs and output ports ensures the longevity and durability of the controller.
-- **Form factor**: The Portenta Machine Control can be standalone on a DIN rail, a grid, or a panel, providing quick and easy access to all input/output ports and peripherals.
+**Microcontroller**: At the heart of the Portenta Machine Control is the STM32H747XI, a powerful, robust, and high-performance dual-core microcontroller from STMicroelectronics®. This microcontroller is built around an Arm® Cortex®-M7 and an Arm® Cortex®-M4 32-bit RISC cores. The Arm® Cortex®-M7 core operates at up to 480 MHz, while the Arm® Cortex®-M4 core operates at up to 240 MHz.
+
+**Memory and storage**: The Portenta Machine Control houses:
+- 2 MB of Flash Memory
+- 1 MB of RAM
+- Additional onboard memory of 8 MB SDRAM
+- 16 MB Flash QSPI.
+
+**Security**: The controller features an onboard ready-to-use secure element from NXP®, the SE0502. This secure element, specifically designed for Internet of Things (IoT) devices, provides advanced security features, perfect for Industrial IoT (IIoT) environments where security is critical.
+
+**Power architecture**: The controller's power system was designed to be resilient. It operates at an input voltage of +24 VDC, with reverse polarity protection, ensuring the controller remains safeguarded from power irregularities.
+
+**Digital and analog ports**: Equipped with a versatile set of input and output ports, the Portenta Machine Control supports:
+- 8x digital input ports with 8x Status LEDs labeled as `DIGITAL INPUTS`
+- 8x digital output ports with 8x Status LEDs labeled as `DIGITAL OUTPUTS`
+- 3x software-configurable analog input ports labeled as `ANALOG IN`
+- 4x analog output ports labeled as `ANALOG OUT`
+- 12x digital programmable input/output ports labeled as `PROGRAMMABLE DIGITAL I/O` 
+
+**Temperature sensing**: With three software-configurable temperature channels, the Portenta Machine Control can measure a variety of temperature ranges using:
+- Type K thermocouples
+- Type J thermocouples
+- PT100 sensors
+
+**Communication interfaces**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers a high-speed, software-configurable interfaces such as: 
+- CAN bus
+- RS-232
+- RS-422
+- RS-485
+- I2C interface (accessible via a Grove connector)
+
+**Ethernet and USB**: The Portenta Machine Control features onboard Ethernet connectivity and full-speed USB-A and half-speed micro-USB Type B connectors for wired communication.
+
+**Wireless connectivity**: The Portenta Machine Control supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® Low Energy (4.2 supported by firmware and 5.1 supported by hardware).
+
+**Additional features**: The Portenta Machine Control features an onboard RTC with at least 48 hours of memory retention and two encoder channels. Moreover, Electrostatic Discharge (ESD) protection on all inputs and output ports ensures the longevity and durability of the controller.
+
+**Form factor**: The Portenta Machine Control can be standalone on a DIN rail, a grid, or a panel, providing quick and easy access to all input/output ports and peripherals.
 
 ### Portenta Machine Control Core and Libraries
 
@@ -1510,17 +1520,13 @@ The example sketch uses the `MachineControl_CANComm.begin()`, `MachineControl_CA
 - `MachineControl_CANComm.read()`: Reads incoming data from the CAN bus. This function is used to retrieve data that has been received.
 - `MachineControl_CANComm.end()`: This function can disable the CAN module when it's no longer needed, helping conserve power.
 
-Now, as a practical example we are going to establish a CAN communication between the Machine Control and a Max Carrier with a Portenta C33.
-
-Follow the wiring below for the CAN communication.
+As a practical example, we will establish a CAN communication between the Machine Control and a Portenta Max Carrier with a Portenta C33 board. Follow the wiring shown below for the CAN communication.
 
 ![CAN communication wiring](assets/CAN-bus-wiring.png)
 
-***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines, Machine Control has it built-in.***
+***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines. The Portenta Machine Control has built-in 120 Ω termination resistors.***
 
-For the Machine Control, use the example code used above to transmit data, it also can be found on **File > Examples > Arduino_PortentaMachineControl > CAN > WriteCan**.
-
-For the C33 on the Max Carrier, install the `Arduino_CAN` library from the library manager and use the following example sketch (it can also be found on **File > Examples > Arduino_CAN > CANRead**):
+For the Portenta Machine Control, use the example explained before to transmit data. For the Portenta C33 board on the Portenta Max Carrier, use the example sketch shown below. Notice that the `Arduino_CAN` library is a built-in library of the the `Arduino Mbed OS Portenta Boards` core that lets you use the onboard CAN interface of the Portenta C33 board. 
 
 ```arduino
 #include <Arduino_CAN.h>
@@ -1547,9 +1553,9 @@ void loop()
 }
 ```
 
-The Machine Control will send messages continuously to the Max Carrier through the CAN protocol, the received message will be printed in the Portenta C33 Serial Monitor. 
+The Portenta Machine Control will send messages continuously to the Portenta Max Carrier through CAN bus, the received message will be received in the Portenta C33 board; you can see the received message using the Arduino's IDE Serial Monitor. 
 
-![CAN communication running](assets/can.gif)
+![Communication between the Portenta Machine Control and Portenta Max Carrier](assets/can.gif)
 
 **Note**: To receive and show the messages on your computer, you can use a USB to CAN bus converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-can-a.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
 
