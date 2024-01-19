@@ -1,5 +1,5 @@
 ---
-title: 'Programming Introduction with Arduino® PLC IDE'
+title: 'Programming Introduction with Arduino PLC IDE'
 difficulty: intermediate
 description: "Create programs with all the IEC-61131-3 languages on the Arduino PLC IDE."
 tags:
