@@ -4,6 +4,7 @@ description: 'A step-by-step guide to set up your online development environment
 author: 'Karl Söderby'
 ---
 
+***Please note that this documentation refers to the old Web Editor version that soon will be replaced. See the documentation for the [Cloud Editor (New)](https://docs.arduino.cc/arduino-cloud/guides/editor/).***
 
 The Cloud Editor is a great choice for working with your Arduino board. It stores all of your sketches online, doesn't require you to install board packages and includes most of the popular libraries, while letting you upload your own if you need to.
 
