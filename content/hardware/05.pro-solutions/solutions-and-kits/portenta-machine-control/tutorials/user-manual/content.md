@@ -368,16 +368,19 @@ Below is an example sketch showcasing how to periodically read data from all the
 
 ```arduino
 /*
-  Portenta Machine Control's Digital Input Example 
+  Portenta Machine Control Digital Input Example
   Name: portenta_machine_control_digital_input_example.ino
-  Purpose: This sketch demonstrates how to periodically read from 
-  all the digital input channels on the Portenta Machine Control.
+  Purpose: This sketch demonstrates how to periodically read 
+  from all the digital input channels on the Portenta Machine Control.
   
-  @author Arduino PRO Content Team
-  @version 1.0 01/10/23
+  Author: Arduino PRO Content Team
+  Version: 1.0 01/10/23
 */
 
 #include <Arduino_PortentaMachineControl.h>
+
+const int totalChannels = 8;
+const int channelPins[totalChannels] = {DIN_READ_CH_PIN_00, DIN_READ_CH_PIN_01, DIN_READ_CH_PIN_02, DIN_READ_CH_PIN_03, DIN_READ_CH_PIN_04, DIN_READ_CH_PIN_05, DIN_READ_CH_PIN_06, DIN_READ_CH_PIN_07};
 
 void setup() {
   // Initialize serial communication at 9600 bps
@@ -391,12 +394,10 @@ void setup() {
 }
 
 void loop() {
-  // Read the status of all digital input channels
-  uint32_t inputs = MachineControl_DigitalInputs.readAll();
-
-  // Display the status of each channel on the IDE's Serial Monitor
-  for (int i = 0; i < 8; i++) {
-    Serial.print("- CH0" + String(i) + ": " + String((inputs & (1 << i)) >> i) + "\t");
+  // Read the status of each digital input channel and display it
+  for (int i = 0; i < totalChannels; i++) {
+    uint16_t readings = MachineControl_DigitalInputs.read(channelPins[i]);
+    Serial.print("- CH0" + String(i) + ": " + String(readings) + "\t");
   }
 
   // Print a new line for better readability
@@ -405,7 +406,7 @@ void loop() {
 }
 ```
 
-Note that the example sketch employs the `MachineControl_DigitalInputs.readAll()` function from the `Arduino_PortentaMachineControl` library, which facilitates the reading of the status of all the digital input channels in a single operation. The sketch then prints the status of each channel on the Serial Monitor.
+Note that the example sketch uses a loop to individually read each digital input channel using the `MachineControl_DigitalInputs.read()` function from the `Arduino_PortentaMachineControl` library. This approach allows for the precise reading of each channel's status in a sequenced manner. The status of each channel is then printed on the IDE's Serial Monitor, ensuring accurate and orderly representation of the digital input states.
 
 ## Analog Inputs
 
