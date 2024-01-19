@@ -12,6 +12,6 @@ certifications: [CE, UKCA]
 
 The WisGate Edge Lite 2 gateway for LoRaWAN® embeds RAKwireless<sup>TM</sup> technologies and allows you to set home and small medium-sized industrial indoor applications
 
-Different models (SKU) are compatibles with three radio frequencies adopted in different regions of the world: Europe, United States, Australia and New Zealand
+Different models (SKU) are compatibles with three radio frequencies adopted in different regions of the world: Europe, United States, Australia and New Zealand.
 
 >Warning: The user is responsible for respecting the local regulations of the country of installation and use the model with the approved frequency spectrum only
