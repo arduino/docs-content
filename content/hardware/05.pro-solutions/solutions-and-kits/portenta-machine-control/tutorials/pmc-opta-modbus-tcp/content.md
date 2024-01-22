@@ -86,7 +86,7 @@ For the Modbus TCP configuration, on the **resources tab** go to the **Ethernet*
 
 ![Modbus set to slave mode](assets/slave-mode.png)
 
-Now, go to **sketch editor** and uncomment the library and setup function code lines. As the IP, we must use the same as the Portenta Machine Control, as it is connected to your router, you can find it on its configurations. 
+Now, go to the **sketch editor** and uncomment the library and setup function code lines. As the IP, we must use the same as the Portenta Machine Control, as it is connected to your router, you can find it on its configurations. 
 
 In this case, the following configurations are used.
 
@@ -109,7 +109,7 @@ void setup()
 ```
 ![Network settings for Modbus TCP](assets/ip-setup.png)
 
-Now, let's create the variable that will be shared with the temperature sensor data in the network. For this, we go to **status variables** and click on **Add**, we give it a name, in this case: `temp_send`, change the variable address to `25000`, and the type to `REAL`.
+Now, create the variable that will be shared with the temperature sensor data in the network. For this, we go to **status variables** and click on **Add**, we give it a name, in this case: `temp_send`, change the variable address to `25000`, and the type to `REAL`.
 
 ![Temperature variable setup](assets/var-setup.png)
 
@@ -117,7 +117,7 @@ Next, go to **Temperature probes** and select the sensor type, for this tutorial
 
 ![Temperature probe configuration](assets/probe-setup.png)
 
-Finally, let's go to the **main program** in **project** and match the temperature variable with the temperature sensor lectures as follows:
+Finally, go to the **main program** in **project** and match the temperature variable with the temperature sensor lectures as follows:
 
 ```
 temp_send := sysTempProbes[0].temperature; 
@@ -137,5 +137,82 @@ You should see the temperature value measured by the sensor.
 
 ### Opta Micro PLC Setup
 
+Now the server is configured, create a new project, this time for the Opta™ micro PLC that will be the Client or Master.
+
+![New project for the Opta™](assets/new-project-opta.png)
+
+Upload the runtime for Opta™ by selecting its serial port and clicking on the **Download** button as before.
+
+![Uploading the runtime to the Opta™](assets/runtime-opta.png)
+
+Once the runtime is flashed, with your Opta™ connected to your router, search for its IP address on the router configurations.
+
+On the PLC IDE, navigate to **On-line > Set up communication**, activate and then open the **ModbusTCP** properties, add the Opta™ IP address, then click "OK". 
+
+![Modbus TCP connection](assets/modbus-prog-opta.png)
+![Modbus TCP IP setup](assets/modbus-ip-opta.png)
+
+Now, in the upper left corner, click on the **Connect** button and wait for the base program to be uploaded. A green **Connected** flag should appear in the lower right corner if everything goes well.
+
+![Connecting the board](assets/connected-opta.png)
+
+***The Opta doesn’t need any license activation to be used with the PLC IDE***
+
 #### Modbus TCP - Client
 
+With the Opta™ successfully connected to the PLC IDE, it is time to configure the Modbus TCP communication.
+
+In the **Ethernet** tab, enable the Modbus TCP Master mode.
+
+![Modbus TCP Master mode enabled](assets/master-modbus.png)
+
+Then right-click on the **Ethernet** tab, click on **Add** and select the _Generic Modbus device_.
+
+![Modbus Device Configuration 1](assets/modbus-device.png)
+
+On the `Generic Modbus_1` device settings, enter the Server IP, the Portenta Machine Control One.
+
+![Modbus Device Configuration 2](assets/modbus-device-2.png)
+
+Right-click on the device and add the FC-04 Modbus function that will let us read the server input registers. 
+
+![Modbus Device Configuration 3](assets/modbus-device-3.png)
+
+Now, click on the function and in the general settings, enter the shared variable address that you defined earlier in the server, `25000` in this case.
+
+![Modbus Device Configuration 4](assets/modbus-device-4.png)
+
+In the Input Register tab, create a label for it, which could be `temp_reg`.
+
+![Label the register](assets/modbus-device-5.png)
+
+Now, go to the **sketch editor** and uncomment the library and setup function code lines. As the IP, we must use the same as the Opta™. 
+
+In this case, the following configurations are used.
+
+```arduino
+// Enable usage of EtherClass, to set static IP address and other
+#include <PortentaEthernet.h>
+arduino::EthernetClass eth(&m_netInterface);
+
+void setup()
+{
+	// Configure static IP address
+	IPAddress ip(10, 0, 0, 227);    // Opta IP address
+	IPAddress dns(10, 0, 0, 1);     // gateway IP address
+	IPAddress gateway(10, 0, 0, 1); // gateway IP address
+	IPAddress subnet(255, 255, 255, 0); 
+	// If cable is not connected this will block the start of PLC with about 60s of timeout!
+	eth.begin(ip, dns, gateway, subnet);
+
+}
+```
+![Network settings for Modbus TCP](assets/ip-setup-opta.png)
+
+Finally, define the Opta™ outputs behavior in function of the temperature read from the Portenta Machine Control. For this, we go to the **resources tab > Relay Outputs** and we give a variable name to each relay, in this case, call them `relay_1`, 2, 3 and 4 respectively.
+
+![Outputs definitions](assets/outputs-opta.png)
+
+The same with the LED outputs, LED1, 2, 3 and 4.
+
+![LEDs definitions](assets/led-opta.png)
