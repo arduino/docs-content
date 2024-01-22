@@ -382,7 +382,8 @@ const int channelPins[totalChannels] = {DIN_READ_CH_PIN_00, DIN_READ_CH_PIN_01, 
 void setup() {
   // Initialize serial communication at 9600 bps
   Serial.begin(9600);
-
+// Initialize Wire transmission
+Wire.begin();
   // Initialize the digital input channels
   // If initialization fails, notify via Serial Monitor
   if (!MachineControl_DigitalInputs.begin()) {
