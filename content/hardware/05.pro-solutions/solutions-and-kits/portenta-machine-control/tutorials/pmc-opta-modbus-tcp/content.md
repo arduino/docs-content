@@ -86,6 +86,54 @@ For the Modbus TCP configuration, on the **resources tab** go to the **Ethernet*
 
 ![Modbus set to slave mode](assets/slave-mode.png)
 
+Now, go to **sketch editor** and uncomment the library and setup function code lines. As the IP, we must use the same as the Portenta Machine Control, as it is connected to your router, you can find it on its configurations. 
+
+In this case, the following configurations are used.
+
+```arduino
+// Enable usage of EtherClass, to set static IP address and other
+#include <PortentaEthernet.h>
+arduino::EthernetClass eth(&m_netInterface);
+
+void setup()
+{
+	// Configure static IP address
+	IPAddress ip(10, 0, 0, 157);    // Portenta IP address
+	IPAddress dns(10, 0, 0, 1);     // gateway IP address
+	IPAddress gateway(10, 0, 0, 1); // gateway IP address
+	IPAddress subnet(255, 255, 255, 0); 
+	// If cable is not connected this will block the start of PLC with about 60s of timeout!
+	eth.begin(ip, dns, gateway, subnet);
+
+}
+```
+![Network settings for Modbus TCP](assets/ip-setup.png)
+
+Now, let's create the variable that will be shared with the temperature sensor data in the network. For this, we go to **status variables** and click on **Add**, we give it a name, in this case: `temp_send`, change the variable address to `25000`, and the type to `REAL`.
+
+![Temperature variable setup](assets/var-setup.png)
+
+Next, go to **Temperature probes** and select the sensor type, for this tutorial, enable the **thermocouple** connected to the first channel by setting it to true.
+
+![Temperature probe configuration](assets/probe-setup.png)
+
+Finally, let's go to the **main program** in **project** and match the temperature variable with the temperature sensor lectures as follows:
+
+```
+temp_send := sysTempProbes[0].temperature; 
+```
+
+![Main program for the server](assets/main-code.png)
+
+To check if everything is okay, click on compile, and if no error is shown, you can upload the code to your Portenta Machine Control. 
+
+![Project compiled with no errors](assets/compile.png)
+
+Once uploaded, click on the **Connect** button again. Now, you can monitor the **temp_send** variable in the **Watch** window dragging and dropping it from the __Global shared__ variables in the project tab.
+
+You should see the temperature value measured by the sensor.
+
+![Live temperature measurement on the PMC](assets/temp-check.gif)
 
 ### Opta Micro PLC Setup
 
