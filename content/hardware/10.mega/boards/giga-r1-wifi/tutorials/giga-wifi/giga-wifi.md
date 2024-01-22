@@ -476,7 +476,7 @@ unsigned long parseNtpPacket() {
   
   new_epoch = epoch + (3600 * timezone); //multiply the timezone with 3600 (1 hour)
 
-  set_time(epoch);
+  set_time(new_epoch);
 
 #if defined(VERBOSE)
   Serial.print("Seconds since Jan 1 1900 = ");
