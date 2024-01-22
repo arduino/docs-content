@@ -1,7 +1,7 @@
 ---
 title: 'Modbus TCP Communication with Portenta Machine Control & Opta™'
 difficulty: intermediate
-description: "Modbus TCP communication on a temperature industrial application using a Portenta Machine Control, Opta™, a temperature sensor, and the Arduino® PLC IDE."
+description: "Modbus TCP communication on a real industrial application using a Portenta Machine Control, Opta™, a temperature sensor, and the Arduino® PLC IDE."
 tags:
   - Thermocouple
   - IEC-61131-3
@@ -17,7 +17,7 @@ software:
   - plc-ide
 ---
 
-## Overwiew
+## Overview
 
 In this tutorial, a Portenta Machine Control and an Opta micro PLC will be used as a **server** and a **client** respectively to share temperature information through a Modbus TCP using the PLC IDE. The server will do the measurements using a type K thermocouple and the client will activate its relay outputs when a certain threshold is reached.
 
