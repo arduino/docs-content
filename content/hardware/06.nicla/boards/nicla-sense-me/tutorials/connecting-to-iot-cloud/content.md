@@ -167,7 +167,9 @@ void loop(){
 }
 ```
 
-Upload the sketch from the **sketch tab** by clicking the second button at the top left of the left side of the sketch bar. Once it has been uploaded, you can see the temperature value just uploaded by going to your **Thing Setup** tab and looking at the last value of the **temperature** variable. You can also open the Serial Monitor to see your data live.
+Upload the sketch from the **sketch tab** by clicking the second button at the top left side of the sketch bar.
+
+Once it has been uploaded, you can see the temperature value just uploaded by going to your **Thing Setup** tab and looking at the last value of the **temperature** variable. You can also open the Serial Monitor to see your data live.
 
 ![Arduino Cloud - Sketch tab](assets/IoTCloud-thingSketch.png)
 
