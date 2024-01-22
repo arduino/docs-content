@@ -1,5 +1,5 @@
 ---
-title: 'Modbus TCP Communication with Portenta Machine Control & Opta™'
+title: 'Modbus TCP with Portenta Machine Control & Opta™'
 difficulty: intermediate
 description: "Modbus TCP communication on a real industrial application using a Portenta Machine Control, Opta™, a temperature sensor, and the Arduino® PLC IDE."
 tags:
