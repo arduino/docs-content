@@ -23,7 +23,7 @@ In this tutorial, a Portenta Machine Control and an Opta micro PLC will be used 
 
 Here is a detailed guide in video format if you are a visual learner.
 
-<iframe width="100%" height="30%" src="https://www.youtube.com/embed/reBrbCq86uQ?si=q0EkR-B8bR0MeF5p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="480" src="https://www.youtube.com/embed/reBrbCq86uQ?si=q0EkR-B8bR0MeF5p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Goals
 
