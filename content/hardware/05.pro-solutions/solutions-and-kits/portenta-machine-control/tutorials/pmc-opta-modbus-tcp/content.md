@@ -42,7 +42,7 @@ Here is a detailed guide in video format if you are a visual learner.
 - 24 VDC Power Supply (x2)
 ### Software
 - The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (including Arduino PLC IDE Tools)
-- [Portenta Machine Control - PLC IDE Activation](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
+- [Portenta Machine Control - PLC IDE Activation](https://store-usa.arduino.cc/products/plc-key-portenta-machine-control?queryID=undefined&selectedStore=us)
 
 ## Instructions 
 
@@ -62,7 +62,7 @@ After downloading the [PLC IDE](https://www.arduino.cc/pro/software-plc-ide), op
 
 ![New project for the PMC](assets/new-project.png)
 
-We need a license for this product to be used with the PLC IDE that we can buy directly from the [Arduino store](https://store-usa.arduino.cc/products/plc-key-portenta-machine-control), it will include a **product key** needed to activate the device. 
+A license is needed for this product to be used with the PLC IDE, you can buy it directly from the [Arduino store](https://store-usa.arduino.cc/products/plc-key-portenta-machine-control), and it will include the **product key** to activate the device. 
 
 Connect the PMC to the computer using a micro USB cable, the board needs to run a specific program (runtime) in order to interact with the **PLC IDE**. To flash it, select the device serial port and click on download.
 
@@ -77,13 +77,13 @@ Now, in the upper left corner, click on the **Connect** button and wait for the 
 
 ![Connecting the board](assets/connect.png)
 
-The device will show its activation status, in this case, **No License** as is the first time we are using it with the PLC IDE. To activate it, paste the **product key** you bought in the highlighted box and click on **Activate**. 
+The device will show its activation status, in this case, **No License** as it is the first time using it with the PLC IDE. To activate it, paste the **product key** you bought in the highlighted box and click on **Activate**. 
 
 ![Activation process](assets/activate.png)
 
 After that, the status should say **OK**, and now you are ready to start programming the Portenta Machine Control with the PLC IDE.
 
-If want to learn more about the PLC IDE first setup, continue reading this [detailed guide](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license/#6-license-activation-with-product-key-portenta-machine-control).
+To learn more about the PLC IDE first setup, continue reading this [detailed guide](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license/#6-license-activation-with-product-key-portenta-machine-control).
 
 #### Modbus TCP - Server
 For the Modbus TCP configuration, on the **resources tab** go to the **Ethernet** section. As noticed, the Modbus TCP Slave mode is always enabled, so you don't have to make any changes.
@@ -102,7 +102,7 @@ arduino::EthernetClass eth(&m_netInterface);
 void setup()
 {
 	// Configure static IP address
-	IPAddress ip(10, 0, 0, 157);    // Portenta IP address
+	IPAddress ip(10, 0, 0, 157);    // PMC IP address
 	IPAddress dns(10, 0, 0, 1);     // gateway IP address
 	IPAddress gateway(10, 0, 0, 1); // gateway IP address
 	IPAddress subnet(255, 255, 255, 0); 
@@ -113,7 +113,11 @@ void setup()
 ```
 ![Network settings for Modbus TCP](assets/ip-setup.png)
 
-Now, create the variable that will be shared with the temperature sensor data in the network. For this, we go to **status variables** and click on **Add**, we give it a name, in this case: `temp_send`, change the variable address to `25000`, and the type to `REAL`.
+Now, create the variable that will be shared with the temperature sensor data in the network. For this, we go to **status variables** and click on **Add**. Configure it as follows:
+
+- Name: `temp_send`
+- Address: `25000`
+- PLC type: `REAL`
 
 ![Temperature variable setup](assets/var-setup.png)
 
@@ -151,7 +155,7 @@ Upload the runtime for Opta™ by selecting its serial port and clicking on the 
 
 Once the runtime is flashed, with your Opta™ connected to your router, search for its IP address on the router configurations.
 
-On the PLC IDE, navigate to **On-line > Set up communication**, activate and then open the **ModbusTCP** properties, add the Opta™ IP address, then click "OK". 
+On the PLC IDE, navigate to **On-line > Set up communication**, activate and then open the **ModbusTCP** properties. Add the Opta™ IP address, then click "OK". 
 
 ![Modbus TCP connection](assets/modbus-prog-opta.png)
 ![Modbus TCP IP setup](assets/modbus-ip-opta.png)
@@ -174,11 +178,11 @@ Then right-click on the **Ethernet** tab, click on **Add** and select the _Gener
 
 ![Modbus Device Configuration 1](assets/modbus-device.png)
 
-On the `Generic Modbus_1` device settings, enter the Server IP, the Portenta Machine Control One.
+On the `Generic Modbus_1` device settings, enter the Server IP, the one from the Portenta Machine Control.
 
 ![Modbus Device Configuration 2](assets/modbus-device-2.png)
 
-Right-click on the device and add the FC-04 Modbus function that will let us read the server input registers. 
+Right-click on the device and add the **FC-04 Modbus** function that will let us read the server input registers. 
 
 ![Modbus Device Configuration 3](assets/modbus-device-3.png)
 
@@ -213,11 +217,11 @@ void setup()
 ```
 ![Network settings for Modbus TCP](assets/ip-setup-opta.png)
 
-Finally, define the Opta™ outputs behavior in function of the temperature read from the Portenta Machine Control. For this, we go to the **resources tab > Relay Outputs** and we give a variable name to each relay, in this case, call them `relay_1`, 2, 3 and 4 respectively.
+Finally, define the Opta™ outputs behavior in function of the temperature read from the Portenta Machine Control. For this, go to the **resources tab > Relay Outputs** and give a variable name to each relay, in this case, call them `relay_1`, 2, 3 and 4 respectively.
 
 ![Outputs definitions](assets/outputs-opta.png)
 
-The same with the LED outputs, LED1, 2, 3 and 4.
+The same with the LED outputs, `LED1`, 2, 3 and 4.
 
 ![LEDs definitions](assets/led-opta.png)
 
@@ -227,7 +231,7 @@ Now, go to the main code in the Project tab. Create a variable by right-clicking
 
 In the code editor, match the local variable with the shared one sent by the Portenta Machine Control.
 
-And once stored locally, design the logic to control the outputs as you want. In this case, four different temperature levels will be set to control each output with the temperature rise respectively. Copy and paste the following script into the **main code** section.
+Once stored locally, design the logic to control the outputs as you want. In this case, four different temperature levels will be set to control each output with the temperature rise respectively. Copy and paste the following script into the **main code** section.
 
 ```
 temp_local:= temp_reg;
