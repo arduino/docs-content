@@ -271,7 +271,7 @@ Otherwise, to open the Web Editor to retrieve your sketches directly, go to Ardu
 
 ![Get started with the Web Editor](assets/web-editor-button.png "Get started with the Web Editor")
 
-It can also be accessed directly by navigating to **"</> Sketches"** within the Shared Space sidebar. It will list all the available developed sketches. Clicking on one of the sketches will directly take you to the [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor).
+It can also be accessed directly by navigating to **Sketches** within the Shared Space sidebar. It will list all the available developed sketches. Clicking on one of the sketches will directly take you to the [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor).
 
 ***To get started with the Web Editor, check the dedicated tutorial at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor). However, if you have already developed your sketch and you would like to import it into the Web Editor, see the corresponding documentation [here](https://docs.arduino.cc/arduino-cloud/tutorials/import-your-sketchbook-and-libraries-to-the-web-editor)***
 
