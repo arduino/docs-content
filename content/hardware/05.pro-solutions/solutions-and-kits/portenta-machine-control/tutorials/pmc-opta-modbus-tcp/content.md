@@ -156,7 +156,7 @@ Now, in the upper left corner, click on the **Connect** button and wait for the 
 
 ![Connecting the board](assets/connected-opta.png)
 
-***The Opta doesn’t need any license activation to be used with the PLC IDE***
+***The Opta™ doesn’t need any license activation to be used with the PLC IDE***
 
 #### Modbus TCP - Client
 
@@ -216,3 +216,65 @@ Finally, define the Opta™ outputs behavior in function of the temperature read
 The same with the LED outputs, LED1, 2, 3 and 4.
 
 ![LEDs definitions](assets/led-opta.png)
+
+Now, go to the main code in the Project tab. Create a variable by right-clicking on the local variables window and then **insert**, call it **temp_local** and _integer_ as the type.
+
+![Create a local variable](assets/variable-opta.png)
+
+In the code editor, match the local variable with the shared one sent by the Portenta Machine Control.
+
+And once stored locally, design the logic to control the outputs as you want. In this case, four different temperature levels will be set to control each output with the temperature rise respectively. Copy and paste the following script into the **main code** section.
+
+```
+temp_local:= temp_reg;
+
+IF temp_local >= 30 THEN
+    relay_1 := TRUE;
+    LED1 := TRUE;    
+ELSE
+    relay_1 := FALSE;
+    LED1 := FALSE;
+END_IF;
+
+IF temp_local >= 50 THEN 
+    relay_2 := TRUE;
+    LED2 := TRUE;
+ELSE
+    relay_2 := FALSE;
+    LED2 := FALSE;
+END_IF;
+
+IF temp_local >= 70 THEN 
+    relay_3 := TRUE;
+    LED3 := TRUE;
+ELSE
+    relay_3 := FALSE;
+    LED3 := FALSE;    
+END_IF;
+
+IF temp_local >= 100 THEN 
+    relay_4 := TRUE;
+    LED4 := TRUE;
+ELSE
+    relay_4 := FALSE;
+    LED4 := FALSE;    
+END_IF;
+
+```
+![Final code to control the outputs](assets/main-code-opta.png)
+
+With the final code written, compile the project and upload it the the Opta™ micro PLC.
+
+### Final Test
+
+You can leave each device connected separately to the internet router or connect them together directly with one ethernet cable. The first option will let you update the preferred device remotely as you can access it through the local network.
+
+Now, you can expose the temperature sensor to some heat and monitor it from the PLC IDE. The Opta™ relay outputs and LEDs will close and turn on when the temperature surpasses the programmed thresholds respectively.
+
+![Testing the project](assets/final.gif)
+
+#### Conclusion 
+
+In this tutorial you learned how to communicate two Arduino PRO products using the Modbus TCP protocol, demonstrating a simple application of sharing temperature data to control a device's outputs.
+
+As you can notice, the configuration process is very straightforward and the results were as expected. 
