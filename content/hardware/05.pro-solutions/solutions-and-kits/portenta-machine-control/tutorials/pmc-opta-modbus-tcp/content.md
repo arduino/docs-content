@@ -21,6 +21,12 @@ software:
 
 In this tutorial, a Portenta Machine Control and an Opta micro PLC will be used as a **server** and a **client** respectively to share temperature information through a Modbus TCP using the PLC IDE. The server will do the measurements using a type K thermocouple and the client will activate its relay outputs when a certain threshold is reached.
 
+Here is a detailed guide in video format if you are a visual learner.
+
+{% embed url="https://youtu.be/reBrbCq86uQ" %}
+
+If you prefer reading, continue here.
+
 ## Goals
 
 - Learn how to measure temperature with the Portenta Machine Control using a thermocouple and the PLC IDE
