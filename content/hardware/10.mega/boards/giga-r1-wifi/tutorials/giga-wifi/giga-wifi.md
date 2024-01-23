@@ -348,7 +348,7 @@ void printWifiStatus()
 
 ### Wi-Fi RTC Example with Timezone Adjustment
 
-If you want to adjust the timezone, you can add the following lines after the epoch is received. As the received epoch is based on GMT time, you can input e.g. `-1` or `5` which represents the hours.
+This example provides an option to set the timezone. As the received epoch is based on GMT time, you can input e.g. `-1` or `5` which represents the hours. The `timezone` variable is changed at the top of the example.
 
 ```arduino
 /*
