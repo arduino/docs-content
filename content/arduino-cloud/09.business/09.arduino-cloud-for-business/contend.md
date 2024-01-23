@@ -306,9 +306,6 @@ Click on **ADD**. You will be asked to customize your tag through two fields:
 
 You can add an unlimited number of tags to each Thing.
 
-At this point, you can go back to the Things tab and start filtering your Things according to the new tag you have just created.
-
-![New tag filtering](assets/new-tag-filtering.png "New tag filtering")
 
 ## Dashboards
 
