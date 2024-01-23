@@ -20,7 +20,7 @@ The goals of this tutorial are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
-- [Arduino R4 Minima](https://store.arduino.cc/uno-r4-minima)
+- [Arduino UNO R4 Minima](https://store.arduino.cc/uno-r4-minima)
 - [UNO R4 Board Package](/tutorials/uno-r4-minima/minima-getting-started)
 - CAN transceiver module * 
 - Jumper wires
@@ -29,7 +29,7 @@ The goals of this tutorial are:
 
 ## Controller Area Network (CAN)
 
-The CAN bus uses two wires: **CAN high** and **CAN low**. On the Arduino UNO R4 Minima, these pins are: 
+The CAN bus uses two wires: **CAN high** and **CAN low**. On the UNO R4 Minima, these pins are: 
 - D5/CANRX0 (receive)
 - D4/CANTX0 (transmit)
 
