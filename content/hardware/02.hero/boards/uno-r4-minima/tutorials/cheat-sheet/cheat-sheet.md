@@ -218,21 +218,21 @@ To control these, define them as outputs and write desired state. The below exam
 void setup(){
   //define pins as output
   pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(RX_LED, OUTPUT);
-  pinMode(TX_LED, OUTPUT);
+  pinMode(LED_RX, OUTPUT);
+  pinMode(LED_TX, OUTPUT);
 }
 
 void loop(){
   //turn on all LEDs
   digitalWrite(LED_BUILTIN, HIGH);
-  digitalWrite(LED_RX, HIGH);
-  digitalWrite(LED_TX, HIGH);
+  digitalWrite(LED_RX, LOW);
+  digitalWrite(LED_TX, LOW);
   delay(1000);
 
   //turn off all LEDs
   digitalWrite(LED_BUILTIN, LOW);
-  digitalWrite(LED_RX, LOW);
-  digitalWrite(LED_TX, LOW);
+  digitalWrite(LED_RX, HIGH);
+  digitalWrite(LED_TX, HIGH);
   delay(1000);
 }
 ```
