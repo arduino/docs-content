@@ -88,7 +88,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
   </tr>
   <tr>
     <td>Digital Peripherals</td>
-    <td>GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), PDM (x1), and SAI (x1)</td>
+    <td>GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), SPDIF (x1), and SAI (x1)</td>
   </tr>
   <tr>
     <td>Debugging</td>
@@ -652,7 +652,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Document Revision History
 
 |  **Date**  | **Revision** |                      **Changes**                       |
-|:----------:|:------------:|:------------------------------------------------------:|
+| :--------: | :----------: | :----------------------------------------------------: |
+| 23/01/2024 |      7       |               Updated Interfaces section               |
 | 14/12/2023 |      6       |            Updated Related Product section             |
 | 14/11/2023 |      5       |             FCC and Block Diagram Updates              |
 | 30/10/2023 |      4       |          I2C ports information section added           |
