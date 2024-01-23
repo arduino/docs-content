@@ -212,7 +212,7 @@ The UNO R4 Minima has a total of four LEDs, three of which are programmable:
 - `LED_RX` - LED labelled "RX" on the board.
 - `LED_TX` - LED labelled "TX" on the board.
 
-To control these, define them as outputs and write desired state. The below example blinks each LED every second.
+To control these, define them as outputs and write the desired state. The below example blinks each LED every second.
 
 ```arduino
 void setup(){
