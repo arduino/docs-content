@@ -1492,20 +1492,20 @@ Once the Portenta C33 has been configured, let's create a "Thing" to test the co
 
 Navigate into **Associate Device** and click the **Select Device** button. Select your Portenta C33 board and associate it with your "Thing." Then, navigate into **Network** and click the **Configure** button; enter your network credentials.
 
-The project is now ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button. 
+The project is now ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD** button to add variable. 
 
 ![Add variable button](assets/user-manual-19.png)
 
 Add one variable with the following characteristics:
 
 - **Name**: `led`
-- **Variable type**: `boolean`
+- **Variable type**: `Boolean`
 - **Variable permission** `Read & Write`
 - **Variable update policy**: `On change`
 
 ![Arduino Cloud "Thing" variable setup](assets/user-manual-21.png)
 
-You should see the `led` variable in the **Cloud Variables** section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; create a new dashboard and give your dashboard a name.
+You should see the `led` variable in the **Cloud Variables** section. Navigate into **Dashboards** and select the **CREATE DASHBOARD** button; create a new dashboard and give your dashboard a name.
 
 Add the following widgets to your dashboard:
 

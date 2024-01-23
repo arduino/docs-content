@@ -23,11 +23,7 @@ hardware:
 
 The home automation systems allow to control electronic devices remotely and to perform automatic routines based on the user's programming preferences, making domestic environments more convenient, comfortable, and efficient, also optimizing energy costs.
 
-
-
-Home automation applications allow, for example, smart lights management and HVAC control. 
-Thanks to its industrial IoT capabilities, Opta™️ is an excellent product for home automation applications.
-
+Home automation applications allow, for example, smart lights management and HVAC control. Thanks to its industrial IoT capabilities, Opta™️ is an excellent product for home automation applications.
 
 ![Opta™️ with Wi-Fi® connectivity support](assets/opta-device.png)
 
@@ -35,9 +31,7 @@ Thanks to its industrial IoT capabilities, Opta™️ is an excellent product fo
 
 This application note shows a home automation system based on an Opta™️, capable of controlling a roller window shade, also known as roller blind, based on a programmed scenario. The application note's goals are to:
 
-
 - Implement the roller window shade control (opening and closing) upon a programmed scenario
-
 - Get inputs from limit switches included in the roller window shade's control system, for feedback and security reinforcement
 - Control and monitor the roller window shade via [Arduino Cloud](https://create.arduino.cc/iot/)
 
@@ -76,7 +70,9 @@ The Opta™️ controls a DC motor via a driver using the digital output termina
 
 ### Application Overview
 
-The first task of the program is to create the connection between the Opta™️ and the predefined Wi-Fi® network by the user in the Arduino Cloud; when the Wi-Fi® connection is established, the internal real-time clock (RTC) of the Opta™️ will be synced using a Network Time Protocol (NTP) server. Opta™️ RTC will be synced with the NTP server periodically (in this example, every 30 minutes) for security and reliability reasons.
+The first task of the program is to create the connection between the Opta™️ and the predefined Wi-Fi® network by the user in the Arduino IoT Cloud; when the Wi-Fi® connection is established, the internal real-time clock (RTC) of the Opta™️ will be synced using a Network Time Protocol (NTP) server.
+
+Opta™️ RTC will be synced with the NTP server periodically (in this example, every 30 minutes) for security and reliability reasons.
 
 ***The NTP is a protocol used to synchronize the clocks of servers and clients across the Internet; it is intended to synchronize computers participating in the network within a few milliseconds of Coordinated Universal Time (UTC). You can read more about the NTP protocol [here](https://en.wikipedia.org/wiki/Network_Time_Protocol).***
 
@@ -85,7 +81,7 @@ After the RTC is synced, Opta™️ will be programmed for **opening** and **clo
 - The roller window shade will open automatically in the morning as the sun rises (e.g. 6:00 AM) and close in the evening (e.g. 6:00 PM)
 - The NO SPDT limit switches will provide Opta™️ a feedback for the sun shield's upper or lower end limit, triggering the motor's stop
 
-### Example Sketch of the Application 
+### Example Sketch of the Application
 
 Hereafter the sketch explained. Note that **this code must be updated considering the proper parameters of your roller window shade and DC motor characteristics**.
 
@@ -122,9 +118,10 @@ int programmed_minutes_2 = 0;
 ```
 
 For Wi-Fi® connectivity, we will use [`WiFi`](https://www.arduino.cc/reference/en/libraries/wifi/) library.
-For the connection to an NTP server and to retrieve time information from it, we will use [`NTPClient`](https://github.com/arduino-libraries/NTPClient).
-We are going to use specific RTC management methods from Mbed™️ to handle the internal RTC of the Opta™️ microcontroller. More information regarding those methods can be found [here](https://os.mbed.com/docs/mbed-os/v6.15/mbed-os-api-doxy/mbed__mktime_8h_source.html).
 
+For the connection to an NTP server and to retrieve time information from it, we will use [`NTPClient`](https://github.com/arduino-libraries/NTPClient).
+
+We are going to use specific RTC management methods from Mbed™️ to handle the internal RTC of the Opta™️ microcontroller. More information regarding those methods can be found [here](https://os.mbed.com/docs/mbed-os/v6.15/mbed-os-api-doxy/mbed__mktime_8h_source.html).
 
 From the code shown above, there are two important lines:
 
@@ -589,9 +586,11 @@ We will use a dashboard and widgets to modify the variables explained before. An
 
 In the dashboard shown above:
 
--  `Value`-type widgets are used to show the current value of the `programmed_hour_1`, `programmed_hour_2`, `programmed_minutes_1`, and `programmed_minutes_2` variables. These widgets can also be used to modify the value of the linked variables.
--  `LED`-type widget shows the current status of the `shade_state` variable, green when the shade is open and red when the shade is closed.
--  `Push button` widgets are used to open or close the shade anytime.
+-  **`Value`**-type widgets are used to show the current value of the `programmed_hour_1`, `programmed_hour_2`, `programmed_minutes_1`, and `programmed_minutes_2` variables. These widgets can also be used to modify the value of the linked variables.
+
+-  **`LED`**-type widget shows the current status of the `shade_state` variable, green when the shade is open and red when the shade is closed.
+
+-  **`Push button`** widgets are used to open or close the shade anytime.
 
 The complete example sketch with the Arduino Cloud integration is shown below:
 
@@ -642,7 +641,7 @@ void setup() {
   open_shade = false;
   close_shade = false;
   programmed_hour_1 = 6;
-  programmed_hour_1 = 18;
+  programmed_hour_2 = 18;
   programmed_minutes_1 = 0;
   programmed_minutes_2 = 0;
   

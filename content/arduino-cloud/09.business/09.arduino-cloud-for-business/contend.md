@@ -41,6 +41,7 @@ In order to get started with Arduino Cloud for Business, you need to [subscribe 
 The Arduino Cloud for Business plan consists of two main subscriptions:
 
 * **Enterprise Base Plan.** It includes all the Arduino Cloud for Business features, like data plane, fleet management, Role-Based-Access-Control, Web Editor with Over-the-air updates, IoT Cloud with dashboards, etc. Multiples of 50 devices can be connected under the Enterprise Base Plan – and you can always [contact our team](https://www.arduino.cc/pro/contact-us) for a tailored plan to accelerate your IoT solutions.
+
 * **Optional Add-Ons.** To address additional needs, Arduino Cloud for Business can be customized with optional add-ons. Check the [dedicated section](#optional-add-ons) of this tutorial to learn more.
 
 If you do not need any tailored plan, go to [Arduino Cloud for Business page](https://cloud.arduino.cc/plans#business) and select **Purchase**. You will be then asked to log in with your Arduino credentials. If you do not have an account yet, feel free to create a new one.
@@ -63,57 +64,61 @@ Check the next sections to understand how to set up your account and which featu
 
 ## Manage Your Spaces
 
-Once your plan has been successfully activated, you will be asked to define the company/space name for your workspace. You are free to modify it later by navigating to `Arduino Cloud > General Settings > Space information > Edit info > Name`.
+Once your plan has been successfully activated, you will be asked to define the company/space name for your workspace. You are free to modify it later by navigating to `Arduino Cloud > Space Settings > General` and clicking on `Edit Info` within the three dots located at the top right side.
 
 ![Create new shared space](assets/create-new-space.png "Create new shared space")
 
 Your Arduino Cloud for Business plan comes with two spaces by default:
 
 * **My Cloud**. My Cloud is an automatically created private space once the Arduino Cloud for Business plan is purchased. You can use this space for personal projects you do not want to share with all your team. This space is free and includes two Things, unlimited dashboards, and 100MB of Sketch storage by default, but it can be further extended and customized within *My plans* settings. Have a look at the [Arduino IT Cloud Getting Started](https://docs.arduino.cc/arduino-cloud/guides/overview) if you would like to start using your private space.
+
 * **Shared Space**. A *Shared Space* is a company space you can use with all your team. It can have any number of members, who can all access the resources within its space. The access level and specific permissions can be customized by the *Space Admin* (see [Invite members into your space section](#invite-members-into-your-space) to learn more).
 
 In the next sections, you will learn more about Shared Space features and functionalities.
 
 ### Switch Between Spaces
 
-If you are the owner of more than one Shared Space, or you have been invited into a Shared Space by another user, you can switch to other Shared Spaces at any time using the corresponding menu.
+If you are the owner of more than one Shared Space or have been invited into a Shared Space by another user, you can switch to other Shared Spaces at any time using the corresponding menu.
 
-Move your mouse over the Space-Selector, which you can find at the top right-hand corner, and click on it. All the Spaces you have access to will be listed there.
+Move your mouse over the account button, which you can find at the top left-hand corner, and click on it. All the Spaces you have access to will be listed there.
 
 ![Switch between Spaces](assets/switch-spaces.png "Switch between Spaces")
 
-The Space-Selector shows you at any time which Space you are currently working on, in this case, *Arduino PRO*. To switch to another Space, simply select the Space you would like to work on.
+If you have four shared spaces or more, it will show you a button named **Switch space**.
+
+![Switch Space Selector](assets/switch-spaces-multiple-option.png "Switch Space Selector")
+
+Clicking on the **Switch space** option will display all your spaces within the account.
+
+![Multiple Spaces](assets/switch-spaces-multiple.png "Multiple Spaces")
+
+The Space-Selector shows you which space you are currently working on at any time, in this case, *Test*. To switch to another Space, select the space you would like to work on.
 
 ### Change Shared Space Settings
 
-To change the current settings of your Shared Space, navigate to the **General Settings** tab using the sidebar.
+To change the current settings of your Shared Space, navigate to the **Space Settings** tab using the sidebar.
 
 ![Shared Space settings](assets/shared-space-settings.png "Shared space settings")
 
-There you will find multiple options to customize your Shared Space, including:
+There, you will find multiple options to customize your Shared Space:
 
-* Editing the Space name
-* Assigning your custom logo
+* **General** tab to view shared space information and to edit space name
+* **Custom Branding** to assign custom logo
+* **Manage Members** for space member management
+* **Roles & Permissions** for Role-Based-Access-Control management
+* **Plan Usage** to view features usage
 
 ### Create Additional Spaces
 
 The Arduino Cloud for Business plan allows you to create and manage one Shared Space and one Private Space. If you need additional Spaces, you have to purchase a new Arduino Cloud plan. Check the available plans [here](https://cloud.arduino.cc/plans).
 
-In order to create a new Shared Space, click on **New Shared Space** in the Space-Selector.
-
-![Switch between Spaces](assets/switch-spaces.png "Switch between Spaces")
-
-Then you will be asked which type of Shared Space you want to create (i.e. For Business or For Education). Click on the type of your interest and proceed with purchasing a new plan.
-
-![Shared Space type selection](assets/shared-space-type-selection.png "Shared Space Type Selection")
-
 ### Invite Members Into Your Space
 
-To add more members to your Shared Space, use the sidebar to navigate to the **Members** item under **Your space** group.
+To add more members to your Shared Space, use the sidebar to navigate to the **Manage Members** item under **Space Settings**.
 
 ![List of Shared Space Members](assets/members-home.png "List of Shared Space Members")
 
-There you will find the complete list of all members who have access to your Shared Space, as well as the current role of each member.
+There you will find the complete list of all members who have access to your Shared Space, as well as the role of each member.
 
 #### Members Types
 
@@ -123,27 +128,46 @@ By default the member who has activated the plan and created the workspace is se
 
 The table below reports the list of supported roles and corresponding permissions.
 
-|                                           | Admin | Editor  | Service Account |
-|-------------------------------------------|-------|---------|-----------------|
-| **Create/edit/delete Things**             | X     | X       |                 |
-| **View Things**                           | X     | X       |                 |
-| **Add/edit/delete Devices**               | X     | X       |                 |
-| **View Devices**                          | X     | X       |                 |
-| **Create/edit/delete Dashboards/Widgets** | X     | X       |                 |
-| **View Dashboards**                       | X     | X       |                 |
-| **Widget Interaction**                    | X     | X       |                 |
-| **Download Historical Data**              | X     | X       |                 |
-| **Add/remove Members**                    | X     | X \[1\] |                 |
-| **Manage billing**                        | X     |         |                 |
-| **Create/edit/delete API keys**           |       |         | X               |
+| **Things**                        | **Admin** | **Editor** | **Service Account** |
+|-----------------------------------|-----------|------------|---------------------|
+| Create/edit/delete things         | X         | X          |                     |
+| Create/edit/delete variables      | X         | X          |                     |
+| Create/edit/delete webhooks (API) |           |            | X                   |
+| View Things                       | X         | X          |                     |
+| Edit sketches                     | X         | X \[1\]    |                     |
+| Change associated devices         | X         | X          |                     |
+| Change network                    | X         | X \[2\]    |                     |
 
-\[1\] It can add/remove only Editors.
+| **Dashboards**                | **Admin** | **Editor** | **Service Account** |
+|-------------------------------|-----------|------------|---------------------|
+| Create/edit/delete dashboards | X         | X          |                     |
+| Create/edit/delete widgets    | X         | X          |                     |
+| View dashboards               | X         | X          |                     |
+| Widgets interaction           | X         | X          |                     |
+| Download historic data        | X         | X          |                     |
+
+| **Devices**             | **Admin** | **Editor** | **Service Account** |
+|-------------------------|-----------|------------|---------------------|
+| Add/edit/delete devices | X         | X          |                     |
+| View devices            | X         | X          |                     |
+
+| **Members Management**      | **Admin** | **Editor** | **Service Account** |
+|-----------------------------|-----------|------------|---------------------|
+| Add members to organization | X         |            |                     |
+| Assign members’ roles       | X         |            |                     |
+
+| **Plan Management** | **Admin** | **Editor** | **Service Account** |
+|---------------------|-----------|------------|---------------------|
+| Payment             | X         |            |                     |
+
+\[1\] It can add/remove only Sketch owner.
+\[2\] It can add/remove only Thing owner.
 
 In addition to editor role, we added a Service Account, which should be one dedicated to the creation and maintenance of API Keys Tokens. We recommend having at least one Service Account for each Shared Space and linking it to a non-personal email account. In this way, API Keys do not risk getting lost with the cancellation of a personal email address.
 
 #### Add A New Member
 
-To add a new member, click on **Add member** in the top right-hand corner.
+To add a new member, click on **ADD MEMBERS** in the top right-hand corner.
 
 ![Add a new member](assets/members-home.png "Add a new member")
 
@@ -151,7 +175,8 @@ The following page will appear to allow you to send an email invitation to all t
 
 ![New member invitation](assets/new-member-invitation.png "New member invitation")
 
-Type the email addresses of all your team and define which role they will cover in your Space based on the available options. Click on **Invite**.  
+Type the email addresses of all your team and define which role they will cover in your Space based on the available options. Click on **INVITE**.
+
 The users you added will get the invitation by email with a link to join your Shared Space. You are now ready to start working all together on your Arduino Cloud projects.
 
 ## Device Management
@@ -169,6 +194,7 @@ To check the full list of compatible Hardware, have a look at [this tutorial](ht
 Arduino Cloud allows you to securely provision your devices through two different tools:
 
 * **Arduino Cloud.** Arduino Cloud is an App integrated into your Arduino Cloud Space, guaranteeing straightforward provisioning of Arduino or other Cloud-compatible devices. It is provided with a dedicated User Interface which will guide you step-by-step during the onboarding process. This is a great choice in case you need to provision a few devices or you are not an advanced user.
+
 * **Arduino Cloud CLI.** As explained in [this section](#arduino-cloud-cli), Arduino has developed a command line tool enabling the access of all Arduino Cloud features from a terminal window. Arduino Cloud CLI is the right choice when you need to provision multiple devices at the same time and you are an advanced user.
 
 #### Device Provisioning With Arduino Cloud
@@ -177,23 +203,27 @@ If your device is compatible with Arduino Cloud, you can start provisioning it i
 
 In addition, Arduino Cloud requires your computer to have the [Arduino Create Agent installed](https://create.arduino.cc/getting-started/plugin/welcome).
 
-When you are all set up correctly, you can click on **Arduino Cloud** button in your Shared Space.
+Let's begin by relocating to your Shared Space when you are all set up correctly.
 
 ![Arduino Cloud button](assets/iot-cloud-button.png "Arduino Cloud button")
 
-Go to the **Devices** tab, click on **Add** and decide which type of device you would like to onboard. In this case, a Portenta H7 board will be used.
+Go to the **Devices** item within the sidebar, where it will list all the added devices. Since no devices have been added yet, it will show the option to add a device as the main option on the page.
+
+![Devices page](assets/devices-list-page.png "Devices page")
+
+click on **ADD DEVICE** and decide which type of device you would like to onboard. In this case, a Portenta H7 board will be used.
 
 ![Device selection](assets/device-onboarding.png "Device selection")
 
-The agent will start looking for your board. When your board has been found, the following screen will appear. Click on **Configure**.
+The agent will start looking for your board. When your board has been found, the following screen will appear. Click on **CONFIGURE**.
 
 ![Device configuration during provisioning](assets/portenta-found.png "Device configuration during provisioning")
 
-Select a board name to be able to correctly identify your device and click on **Next**.  
+Select a board name to be able to correctly identify your device and click on **NEXT**.  
 
 ![Device name configuration](assets/device-name-configuration.png "Device name configuration")
 
-Define the connection type you want to use with your board and click on **Next.** The agent will start securely provisioning your device by leveraging the secure element embedded in your board. This way, your security keys will be stored in the secure element and full data encryption will be guaranteed during data exchanges between Arduino devices and the Cloud.
+Define the connection type you want to use with your board and click on **NEXT**. The agent will start securely provisioning your device by leveraging the secure element embedded in your board. This way, your security keys will be stored in the secure element and full data encryption will be guaranteed during data exchanges between Arduino devices and the Cloud.
 
 ***If you want to learn more about security in Arduino Cloud, please check the [dedicated documentation](https://docs.arduino.cc/arduino-cloud/features/security-considerations).***
 
@@ -201,17 +231,15 @@ If the onboarding proceeds as expected, the following page will appear confirmin
 
 ![Successful provisioning](assets/provisioning-success.png "Successful provisioning")
 
-You can now check its status under the Devices section. This section displays the name, status, and linked Things for each of the configured devices. Clicking on the device allows for renaming it, as well as accessing more information about the device, such as its ID number, type, FQBN, serial number, firmware version, linked Thing, latest activity, and the date when the device was added.
+You can now check its status under the Devices section. This section displays the name, status, and linked Things for each of the configured devices. Clicking on the device allows for renaming it, as well as accessing more information about the device, such as its ID number, type, FQBN, firmware version, associated Thing, latest activity, and the date when the device was added.
 
 The device status indicates whether it is connected to the Arduino Cloud (online), or not connected (offline).
 
 ![List of devices in your Arduino Cloud](assets/devices-list.png "List of devices in your Arduino Cloud")
 
-#### Device Provisioning With Arduino Cloud CLI
+If you click on the added device, it is possible to look into its details. The details can be its device properties, device status history, and device Over-The-Air updates.
 
-If you need to provision more than one device at a time or you prefer to work through your terminal window, we have the right tool for you: [Arduino Cloud CLI](https://github.com/arduino/arduino-cloud-cli).
-
-To proceed with the onboarding, check [this tutorial](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli). It will explain to you all the required steps to provision your board through your terminal.
+![Device detail](assets/device-detail-information.png "Device detail")
 
 ### Assign A Thing To Your Device
 
@@ -219,7 +247,7 @@ As already said, once a device is successfully configured, it appears in the "De
 
 To use your devices in IoT Cloud, you need to associate a Thing with each of them. A Thing is the digital twin of your device, holding the configuration of some variables and other settings, as well as the history of the data collected for those variables.
 
-To create a Thing, click on **Create Thing** next to the device of your interest, and your Thing will be automatically created for you. At this point, you can start updating it.
+To create a Thing, click on **CREATE THING** found within **Things** page accessed via the Shared Space sidebar.
 
 ![Create a new Thing](assets/create-thing.png "Create a new Thing")
 
@@ -231,15 +259,19 @@ To create a Thing, click on **Create Thing** next to the device of your interest
 
 It is now time to start uploading sketches on your devices.
 
-The Arduino Cloud has a feature capable of creating some pre-built sections of the sketch related to a Thing, including some libraries necessary to interact with the Cloud variables, as well as directly populating and updating the sketch once the new Cloud variables are created and defined.
+The Arduino Cloud has a feature capable of creating some pre-built sections of the sketch related to a Thing, including some libraries necessary to interact with the cloud variables, as well as directly populating and updating the sketch once the new cloud variables are created and defined.
 
-The sketch related to the thing is visible from the tab "Sketch" next to the "Setup" view, where the Thing's list of Cloud variables is shown.
+The sketch related to the thing is visible from the tab "Sketch" next to the "Setup" view, where the Thing's list of cloud variables is shown.
 
-From this sketch view, by clicking the "Open full editor button", it is fast and smooth to access the Arduino Cloud integrated [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally.
+![Web Editor - Full Editor](assets/sketch-full-editor.png "Get started with the Web Editor")
 
-Otherwise, to open the Web Editor to directly retrieve your sketches, go to Arduino Cloud Home and click on the [Web Editor](https://create.arduino.cc/editor) button.
+From this sketch view, by clicking the **Open full editor**, it is fast and smooth to access the Arduino Cloud integrated [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally.
+
+Otherwise, to open the Web Editor to retrieve your sketches directly, go to Arduino Cloud Home and click on the [New Sketch File](https://create.arduino.cc/editor) button.
 
 ![Get started with the Web Editor](assets/web-editor-button.png "Get started with the Web Editor")
+
+It can also be accessed directly by navigating to **Sketches** within the Shared Space sidebar. It will list all the available developed sketches. Clicking on one of the sketches will directly take you to the [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor).
 
 ***To get started with the Web Editor, check the dedicated tutorial at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor). However, if you have already developed your sketch and you would like to import it into the Web Editor, see the corresponding documentation [here](https://docs.arduino.cc/arduino-cloud/tutorials/import-your-sketchbook-and-libraries-to-the-web-editor)***
 
@@ -263,9 +295,9 @@ Get started with this awesome feature by going to **Things** or **Devices** tab 
 
 If you want to create your tag, which you can use as a filtering option, go to **Things** tab, click on the Thing you would like to tag and go to the Metadata tab as shown in the figure below.
 
-![Thing metadata](assets/thing-metadata.png "Thing metadata").
+![Thing metadata](assets/thing-metadata.png "Thing metadata")
 
-Click on **Add**. You will be asked to customize your tag through two fields:
+Click on **ADD**. You will be asked to customize your tag through two fields:
 
 * **Key**. The Key is the filter name which you will see among the list of available filtering options. E.g. Location.
 * **Value**. The Value corresponds to the specific value your tag has for that specific Thing. E.g. Rome.
@@ -308,11 +340,11 @@ To start exporting your data locally, navigate into one of your dashboards on th
 
 From here you can select all the variables you want to download by checking the boxes as well as the time frame you are interested in.
 
-When you have selected the data, click on the **Select Data Source** button.
+When you have selected the data, click on the **SELECT DATA SOURCE** button.
 
 ![Export your data](assets/download-data.png "Exporte your data")
 
-At this point, click on **Get data** to receive your data by email.
+At this point, click on **GET DATA** to receive your data by email.
 
 ![Get your data](assets/get-data.png "Get your data")
 
@@ -362,14 +394,16 @@ These are the main features of Arduino Cloud CLI:
 
 Arduino Cloud for Business can be customized with optional add-ons:
 
-* **Portenta X8 Manager**
+* **Portenta X8 Board Manager**
 * **Machine Learning Tools Enterprise**
+
+These add-ons are located under **Integrations** page, found within the Shared Space sidebar.
 
 ![Arduino Cloud Homepage with Add-ons](assets/cloud-add-on.png "Arduino Cloud Homepage with Add-ons")
 
 To get started with them, it is sufficient to click on the corresponding tab.
 
-### Portenta X8 Manager
+### Portenta X8 Board Manager
 
 Securely maintain Portenta X8 Linux distribution with this dedicated add-on, powered by [Foundries.io](https://foundries.io/). Deploy and update all your applications packaged into containers and perform secure Over-The-Air differential updates to target Portenta X8 devices/fleets.
 

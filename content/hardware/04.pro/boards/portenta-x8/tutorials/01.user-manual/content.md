@@ -575,7 +575,7 @@ Sign in to your Arduino Cloud account by adding your credentials, i.e. Username/
 
 ![Arduino Cloud Sign in](assets/web_cloud_signin.png "Arduino Cloud Sign in")
 
-You are now logged into your Arduino Cloud space. Go on by clicking on **API keys** in the bottom left-hand corner.
+You are now logged into your Arduino Cloud space. Go on by clicking on **API keys** found within the account banner located at the top right corner.
 
 ![Arduino Cloud Homepage](assets/web_cloud_homepage.png "Arduino Cloud Homepage")
 
@@ -583,7 +583,7 @@ It is time to generate your API keys. Click on **CREATE API KEY** in the upper r
 
 ![Arduino Cloud New API Key](assets/web_cloud_new_api.png "Arduino Cloud New API Key")
 
-Define a name for your API key, in this case *portenta-x8-test-API*, and click on **CONTINUE**. These API Keys are personal and visible just from your account.
+Define a name for your API key, in this case *portenta-x8-test-API*, and click on **CREATE**. These API Keys are personal and visible just from your account.
 
 ![Arduino Cloud API Key name](assets/web_cloud_API_name.png "Arduino Cloud API Key name")
 
@@ -605,7 +605,8 @@ If you are using an Arduino Cloud for Business account with Shared Spaces, you n
 
 ![Out-of-the-box successful Cloud provisioning](assets/OOTB_cloud_success.png "Out-of-the-box successful Cloud provisioning")
 
-In order to recover the Organization ID of your Shared Space on Arduino Cloud for Business, open your Arduino Cloud homepage and navigate to **Settings > General Settings** in the sidebar on the left.
+In order to recover the Organization ID, known as Space ID, of your Shared Space on Arduino Cloud for Business, open your Arduino Cloud homepage and navigate to **Space Settings > General** in the sidebar on the left.
+
 ![Space ID on Cloud Settings](assets/shared-space-settings.png "Space ID on Cloud Settings")
 
 At this point, you can copy the **Space ID** of your Shared Space and paste it into your Out-of-the-box dashboard together with your API keys.
@@ -641,7 +642,7 @@ Now you can start connecting your Portenta X8 to the Portenta X8 Board Manager. 
 
 Check the Arduino Cloud for business plan with Portenta X8 Manager [here](https://cloud.arduino.cc/plans#business) and create your Arduino Cloud account in a couple of steps (see the dedicated documentation at [this link](https://docs.arduino.cc/arduino-cloud/)).
 
-When your Arduino Cloud for business account is correctly set up, log into it [here](https://cloud.arduino.cc/home/) and click on **Portenta X8 Board Manager**.
+When your Arduino Cloud for business account is correctly set up, log into it [here](https://cloud.arduino.cc/home/) and click on **Portenta X8 Board Manager**. The feature is located within the **Integrations** section of the Cloud.
 
 ![Arduino Cloud homepage with Portenta X8 Manager](assets/web_board_manager_cloud_integration.png "Arduino Cloud homepage with Portenta X8 Manager")
 

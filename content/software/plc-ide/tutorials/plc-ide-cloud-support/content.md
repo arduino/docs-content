@@ -150,7 +150,8 @@ float analog01;
 int counter;
 bool cloudButton;
 
-WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PA
+WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
+
 void setup() {
   // Initialize serial and wait for port to open:
   Serial.begin(9600);
