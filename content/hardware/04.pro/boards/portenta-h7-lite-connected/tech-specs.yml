@@ -38,7 +38,7 @@ Communication Interfaces:
   I2C: 3 ports (I2C0, I2C1, and I2C2; is advised to use I2C0 as it is free to use without restrictions)
   UART: 4
   CAN: 2
-  I2S: 1
+  I2S: 1 (Only supported by Third Party Libraries)
   SPI: 1
   PWM: 10
   USB: USB 1.0/Full-Speed (x1), USB 2.0/Hi-Speed (x1)
