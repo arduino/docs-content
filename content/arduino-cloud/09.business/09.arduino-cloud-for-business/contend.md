@@ -265,7 +265,7 @@ The sketch related to the thing is visible from the tab "Sketch" next to the "Se
 
 ![Web Editor - Full Editor](assets/sketch-full-editor.png "Get started with the Web Editor")
 
-From this sketch view, by clicking the **"</> Open full editor"**, it is fast and smooth to access the Arduino Cloud integrated [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally.
+From this sketch view, by clicking the **Open full editor**, it is fast and smooth to access the Arduino Cloud integrated [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally.
 
 Otherwise, to open the Web Editor to retrieve your sketches directly, go to Arduino Cloud Home and click on the [New Sketch File](https://create.arduino.cc/editor) button.
 
@@ -306,6 +306,9 @@ Click on **ADD**. You will be asked to customize your tag through two fields:
 
 You can add an unlimited number of tags to each Thing.
 
+At this point, you can go back to the Things tab and start filtering your Things according to the new tag you have just created.
+
+![New tag filtering](assets/new-tag-filtering.png "New tag filtering")
 
 ## Dashboards
 
