@@ -31,7 +31,7 @@ The goals of this tutorial are:
 ## Hardware & Software Needed
 
 - [Arduino IDE](https://www.arduino.cc/en/main/software)
-- [Arduino R4 Minima](https://store.arduino.cc/uno-r4-minima)
+- [Arduino UNO R4 Minima](https://store.arduino.cc/uno-r4-minima)
 - [UNO R4 Board Package](/tutorials/uno-r4-minima/minima-getting-started)
 - [Segger J-Link](https://www.segger.com/products/debug-probes/j-link/)
 - [Ozone](https://www.segger.com/products/development-tools/ozone-j-link-debugger/)

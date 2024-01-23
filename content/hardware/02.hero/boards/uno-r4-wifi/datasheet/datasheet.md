@@ -104,7 +104,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 
 ## Block Diagram
 
-![Arduino R4 WiFi Block Diagram](assets/UNO_R4_WiFi_Block_Diagram.png)
+![Arduino UNO R4 WiFi Block Diagram](assets/UNO_R4_WiFi_Block_Diagram.png)
 
 ## Board Topology
 
@@ -597,7 +597,7 @@ UNO R4 WiFi是第一代32位开发板的一部分, 之前基于8位AVR微控制�
 
 ## 方框图
 
-![Arduino R4 WiFi 框图](assets/UNO_R4_WiFi_Block_Diagram.png)
+![Arduino UNO R4 WiFi 框图](assets/UNO_R4_WiFi_Block_Diagram.png)
 
 ## 板卡拓扑
 
