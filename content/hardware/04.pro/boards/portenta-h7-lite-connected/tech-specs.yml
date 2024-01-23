@@ -12,6 +12,7 @@ High-Density pins:
   UART pins: 16
   CAN pins: 4
   I2S pins: 4
+  PDM: 3
   USB: 6
 MKR-styled pins:
   Digital I/O pins: 22
@@ -39,6 +40,7 @@ Communication Interfaces:
   UART: 4
   CAN: 2
   I2S: 1 (Only supported by Third Party Libraries)
+  PDM: 1
   SPI: 1
   PWM: 10
   USB: USB 1.0/Full-Speed (x1), USB 2.0/Hi-Speed (x1)

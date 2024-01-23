@@ -606,16 +606,16 @@ Laboratory equipment, Computer vision
 
 ![High density connectors pinouts](assets/portentaH7_higDensity_pinOut.png)
 
-| Pin                | **Description**        | **Pin**                                | **Description**        |
-| ------------------ | ---------------------- | -------------------------------------- | ---------------------- |
-| ETH                | High Density Connector | CAN                                    | High Density Connector |
-| USB                | High Density Connector | DSI                                    | High Density Connector |
-| CAM                | High Density Connector | DMIC                                   | High Density Connector |
-| I2C0 I2C1 I2C2 I2S | High Density Connector | VSYS VIN V-SDCARDVCC VBUS USB ADC-VREF | Power                  |
-| GND                | Ground                 | PWM                                    | High Density Connector |
-| GPIO               | High Density Connector | SPI1                                   | High Density Connector |
-| SWDIOSWCK SWO      | High Density Connector | ADC                                    | High Density Connector |
-| SDC                | High Density Connector | RESET                                  | Other Pin              |
+| Pin                | **Description**        | **Pin**                                 | **Description**        |
+| ------------------ | ---------------------- | --------------------------------------- | ---------------------- |
+| ETH                | High Density Connector | CAN                                     | High Density Connector |
+| USB                | High Density Connector | DSI                                     | High Density Connector |
+| CAM                | High Density Connector | DMIC                                    | High Density Connector |
+| I2C0 I2C1 I2C2 I2S | High Density Connector | VSYS VIN V-SDCARD VCC VBUS USB ADC-VREF | Power                  |
+| GND                | Ground                 | PWM                                     | High Density Connector |
+| GPIO               | High Density Connector | SPI1                                    | High Density Connector |
+| SWDIOSWCK SWO      | High Density Connector | ADC                                     | High Density Connector |
+| SDC                | High Density Connector | RESET                                   | Other Pin              |
 
 ### I2C Ports 
 
