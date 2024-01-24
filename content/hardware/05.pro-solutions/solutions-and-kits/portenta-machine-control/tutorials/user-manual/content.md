@@ -207,75 +207,43 @@ There are two modes of overcurrent protection in the digital output channels:
 
 ***Ensure each channel does not exceed a maximum current of 500 mA to avoid potential damage or malfunctions in the digital output channels.***
 
-The sketch below showcases a "scanning" effect using the digital output channels of the Portenta Machine Control. It sequentially activates each channel in sequence from the first to the last and then in the opposite direction. As each channel is activated, feedback is provided in the Arduino IDE's Serial Monitor, indicating the active channel at each step.
+The example sketch below showcases a "scanning" effect using the digital output channels of the Portenta Machine Control, activating each channel sequentially. This method also provides visual feedback through the Arduino IDE's Serial Monitor, indicating which channel is active at any given moment.
 
 ```arduino
 /*
   Portenta Machine Control's Digital Outputs 
-  Name: portenta_machine_control_digital_outputs_example.ino
-  Purpose: This sketch demonstrates a "scanning" effect using 
-  the digital output channels of the Portenta Machine Control.
-
+  Demonstrates a "scanning" effect using the digital output channels.
   @author Arduino PRO Content Team
   @version 1.0 01/10/23
 */
 
 #include <Arduino_PortentaMachineControl.h>
 
-// Initialize the digital outputs and serial communication.
 void setup() {
   Serial.begin(9600);
-
-  // Set overcurrent behavior of all channels to latch mode (true)
+  // Initialize the digital outputs to latch mode (true)
   MachineControl_DigitalOutputs.begin(true);
-
-  // At startup, set all channels to open state (OFF)
+  // Turn all channels off at startup
   MachineControl_DigitalOutputs.writeAll(0);
 }
 
 void loop() {
-  // Create the "scanning" effect moving forward
-  for (int i = 0; i < 8; i++) {
-    toggleChannel(i);
-
-    // Turn off the previous channel to maintain the "scanning" effect
-    if (i < 7) {
-      MachineControl_DigitalOutputs.write(i - 1, LOW);
-    }
+  // Sequentially activate each channel from 00 to 07
+  for (int i = 0; i < 8; i++) {  
+    // Turn on the current channel
+    MachineControl_DigitalOutputs.write(i, HIGH); 
+    Serial.println("- CH" + String(i) + ": ON");
+    delay(200); // Wait to make the effect visible
+    // Turn off the current channel
+    MachineControl_DigitalOutputs.write(i, LOW);
+    delay(200); // Wait to smooth the transition
   }
-
-  // Create the "scanning" effect moving backward
-  for (int i = 6; i >= 0; i--) {
-    toggleChannel(i);
-
-    // Turn off the next channel to maintain the "scanning" effect
-    if (i < 7) {  
-      MachineControl_DigitalOutputs.write(i + 1, LOW);
-    }
-  }
-}
-
-/**
-  Toggles a specific digital output channel, creating part of the "scanning" effect.
-  
-  @param channel (int)
-*/
-void toggleChannel(int channel) {
-  // Activate the digital output channel
-  MachineControl_DigitalOutputs.write(channel, HIGH); 
-  Serial.println("- CH" + String(channel) + ": ON");
-  // Delay to keep the channel activated, making the effect visible
-  delay(200);
-
-  // Deactivate the digital output channel
-  MachineControl_DigitalOutputs.write(channel, LOW);
-  // Delay to make the transition between channels smoother
-  delay(200);
 }
 ```
+
 Notice that the sketch shown above utilizes the following functions from the `Arduino_PortentaMachineControl` library:
 
-- `MachineControl_DigitalOutputs.begin(true)`: This function initializes the digital outputs channels with overcurrent behavior set to **latch mode**, meaning that upon overcurrent detection, channels remain open until manually toggled in software.
+- `MachineControl_DigitalOutputs.begin(true)`: This function initializes the digital outputs channels with overcurrent behavior set to latch mode, meaning that upon overcurrent detection, channels remain open until manually toggled in software.
 - `MachineControl_DigitalOutputs.writeAll(0)`: This function initially sets all digital output channels to an open state (off).
 - `MachineControl_DigitalOutputs.write(channel, HIGH/LOW)`: This function controls individual channel states, turning them either on (`HIGH`) or off (`LOW`). In the example sketch, this function creates the "scanning" effect by activating one channel at a time.
 
