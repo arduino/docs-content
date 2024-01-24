@@ -89,7 +89,7 @@ while True:
 Now whenever you press the button you should see `Button pressed` being printed in the REPL. 
 
 <video width="100%" loop autoplay>
-<source src="assets/Button.mp4" type="video/mp4" />
+<source src="assets/button.mp4" type="video/mp4" />
 </video>
 
 ## LED
@@ -449,7 +449,7 @@ if imu.device_check():
 Move around your sensor to see the numbers in the REPL change. This is the acceleration data recorded. This data can be used to trigger specific things whenever a specific movements is initialized.
 
 <video width="100%" loop autoplay>
-<source src="assets/Accelerometer.mp4" type="video/mp4" />
+<source src="assets/accelerometer.mp4" type="video/mp4" />
 </video>
 
 ## Sound Sensor
@@ -490,7 +490,7 @@ while True:
 After running the script, test it out by clapping your hands or making other loud noises next to the sensor. You should see the output change in the REPL. 
 
 <video width="100%" loop autoplay>
-<source src="assets/SoundSensor.mp4" type="video/mp4" />
+<source src="assets/soundSensor.mp4" type="video/mp4" />
 </video>
 
 ## 4 Digit Display
