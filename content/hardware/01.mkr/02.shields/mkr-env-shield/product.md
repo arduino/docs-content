@@ -4,6 +4,7 @@ url_shop: https://store.arduino.cc/mkr-env-shield-r2
 url_guide: /tutorials/mkr-env-shield/mkr-env-shield-basic
 primary_button_url: /tutorials/mkr-env-shield/mkr-env-shield-basic
 primary_button_title: Get Started
+forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
 certifications: [CE, UKCA]
 ---
 
