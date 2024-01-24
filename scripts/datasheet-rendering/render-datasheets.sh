@@ -11,6 +11,7 @@ if [ -n "$CI" ]; then
 
     cp -a ./styles/fonts/OpenSans*.ttf /usr/share/fonts/truetype/open-sans
     cp -a ./styles/fonts/RobotoMono*.ttf /usr/share/fonts/truetype/roboto-mono
+    cp -a ./styles/fonts/NotoSansSC*.ttf /usr/share/fonts/truetype/noto-sans-sc
     fc-cache /usr/share/fonts
 
     echo "Font info:"
