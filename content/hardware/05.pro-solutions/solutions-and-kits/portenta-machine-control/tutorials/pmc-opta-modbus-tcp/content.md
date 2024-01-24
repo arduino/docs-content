@@ -287,7 +287,7 @@ Now you can expose the temperature sensor to some heat and monitor it from the P
 
 ### Conclusion 
 
-In this tutorial you learned how to communicate two Arduino PRO products using the Modbus TCP protocol, demonstrating a simple application of sharing temperature data to control a device's outputs.
+In this tutorial you learned how to communicate two Arduino PRO products using the Modbus TCP protocol, demonstrating a simple application of sharing temperature data to control the outputs of the devices.
 
 As you can notice, the configuration process is very straightforward and the results were as expected, being a good starting point to adapt the work done here to create your own professional solution.
 
