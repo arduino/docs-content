@@ -203,7 +203,7 @@ From this menu, `Plan Settings > Plan Usage` you can check your plan's limit and
 
 ## Do you still need help?
 
-For more troubleshooting articles, we recommend to read from ArduinHelp Center:
+For more troubleshooting articles, we recommend these from our Help Center:
 
 * [Add members to a space](https://support.arduino.cc/hc/en-us/articles/360011787820-Add-members-to-a-space)
 * [Roles and permissions in shared spaces](https://support.arduino.cc/hc/en-us/articles/4405753330706-Roles-and-permissions-in-shared-spaces)
