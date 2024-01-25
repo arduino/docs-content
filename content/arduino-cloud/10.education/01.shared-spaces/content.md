@@ -40,7 +40,7 @@ Here, you get access to several free online courses, for different age groups an
 
 ### Collaborate on Sketches & IoT Projects
 
-Cultivate an environment of shared exploration and mutual learning by actively promoting collaboration within your classroom. Encourage students to engage with one another, exchange ideas, and collaborate on projects by leveraging the use of [shared Sketches](https://docs.arduino.cc/arduino-cloud/cloud-editor/share-your-sketches) and [IoT Dashboards](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets/#sharing-dashboards). 
+Cultivate an environment of shared exploration and mutual learning by actively promoting collaboration within your classroom. Encourage students to engage with one another, exchange ideas, and collaborate on projects by leveraging the use of [shared sketches](https://docs.arduino.cc/arduino-cloud/cloud-editor/share-your-sketches) and [IoT Dashboards](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets/#sharing-dashboards). 
 
 ![Share dashboard button](assets/button-share-dashboard.png) 
 
