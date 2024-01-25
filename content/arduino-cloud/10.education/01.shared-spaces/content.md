@@ -42,7 +42,7 @@ Here, you get access to several free online courses, for different age groups an
 
 Cultivate an environment of shared exploration and mutual learning by actively promoting collaboration within your classroom. Encourage students to engage with one another, exchange ideas, and collaborate on projects by leveraging the use of [shared Sketches](https://docs.arduino.cc/arduino-cloud/cloud-editor/share-your-sketches) and [IoT Dashboards](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets/#sharing-dashboards). 
 
-![share dashboard button](assets/button-share-dashboard.png) 
+![Share dashboard button](assets/button-share-dashboard.png) 
 
 By emphasizing teamwork and communication, you create a space where collective intelligence thrives, enhancing the educational experience for everyone involved. 
 
@@ -64,7 +64,7 @@ Login to https://app.arduino.cc/ with your Arduino Account by default, any new u
 
 ![Arduino Cloud Homepage view](assets/cloud-home-u.png)
 
-***Note: A Private space is an automatically created private space once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class.*** 
+***Note: a Private Space is an automatically created once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class.*** 
 
 ### Create a Shared Space for your classroom 
 
@@ -92,7 +92,7 @@ Let’s begin by inviting members to your space. You can add more members to you
 
 Once inside the Cloud homepage, from the card on the right top corner, you will find the **complete list of all members** who have access to your Shared Space, as well as the **current role** of each member. Let’s go ahead and Click on **Add Members:**
 
-![add member button](assets/add-members.PNG)
+![add member button](assets/add-members-u.png)
 
 You can add members in **three possible ways**:
 
@@ -104,14 +104,14 @@ You can add members in **three possible ways**:
 
 Email invites are usually sent once you have entered the email ID of the intended user. Type the **email addresses** of each user followed by a space. 
 
-![invite through email](assets/invite-email.png)
+![Invite through email](assets/invite-email.png)
 
 Define which **role** they will cover in your Space based on the available options.  There are three role types in Arduino Cloud for Schools:
 - Admin
 - Teacher
 - Students
 
-![choose role of a member](assets/choose-role.png)
+![Choose role of a member](assets/choose-role.png)
 
 ***Note: by default the member who has activated the plan and created the class-space is set as Admin. It is possible to have multiple Admins with same permissions. The admin has full control of the rights/permissions each user has in a Shared Space.***
 
@@ -147,11 +147,9 @@ As minors have restricted access to content and tools they have a slightly diffe
 
 Ask your students to log into their Junior Account and click on the **Join Space** from the orange box on the right.
 
-
-
 Enter the space code that you have shared with them admin or teacher shared with you to join their space.
 
-![Join Space](https://lh7-eu.googleusercontent.com/RxvHSl0NcDAGp5Ew_1BiThrdHCFtc31i1x68ZQVGt7q1YfTw35ZPyYRdvz3cmYb_nxOVUH0ObYivIqTVglnswpyjwkkz8Qm7gw3J3XBC_9-f06D42Sjo_HQ6uEqnryIXFoaQqiOOstz8MObTQxN9KKE)
+![Join Space](assets/copy-code-join.png)
 
 Once they click Join, they will then be added to your Shared Space and be visible inside your members list. 
 
@@ -169,7 +167,7 @@ To change the current settings of your Shared Space, navigate to the **Space Set
 
 If you would like to change the name of your space and have a custom logo, you can do that by going to `Space settings > General Settings`
 
-![general settings](assets/space-setting.png)
+![General settings](assets/space-setting.png)
 
 ### Managing members & roles 
 
@@ -177,11 +175,11 @@ You can also change the role of a certain member or remove them from the **Manag
 
 If you would like to change the role, you do this by first selecting on the Roles dropdown for a certain member. 
 
-![changing role](assets/change-role.png)
+![Changing role menu](assets/change-role.png)
 
 You can also remove an individual member or a group by **selecting their row** and deleting them 
 
-![delete member](assets/delete-member.png)
+![Delete a member](assets/delete-member.png)
 
 ### Switch Between Spaces
 
@@ -193,19 +191,19 @@ If you are a part of more than 1 shared space, you can switch to other Shared Sp
 
 If you have more than 3 spaces, there will be pop up listing out all the shared spaces that you are a part of
 
-![more than 3 spaces preview](assets/mote-than-3.png)
+![More than three spaces preview](assets/mote-than-3.png)
 
-***Note -  With a Free Plan or School Plan there are no limitations in the number of Shared Space you can have.***
+***Note: with a Free Plan or School Plan there are no limitations in the number of Shared Space you can have.***
 
 ### Keep track on plan usage
 
 From this menu, `Plan Settings > Plan Usage` you can check your plan's limit and quota or upgrade it to a School Plan if needed. 
 
-![plan overview](assets/features-usage.png)
+![Plan overview](assets/features-usage.png)
 
 ## Do you still need help?
 
-For more troubleshooting articles, we recommend to read from our help center:
+For more troubleshooting articles, we recommend to read from ArduinHelp Center:
 
 * [Add members to a space](https://support.arduino.cc/hc/en-us/articles/360011787820-Add-members-to-a-space)
 * [Roles and permissions in shared spaces](https://support.arduino.cc/hc/en-us/articles/4405753330706-Roles-and-permissions-in-shared-spaces)
