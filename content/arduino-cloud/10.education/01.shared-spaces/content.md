@@ -70,7 +70,7 @@ Login to https://app.arduino.cc/ with your Arduino account by default, any new u
 
 Now that you have a private space let's get you started. In order to create a shared space go to [this link](https://app.arduino.cc/space?spaceType="edu").
 
-Then you will be asked which type of Shared Space you want to create (i.e. For Business or For Education). Click on **For Education** and proceed with creating an online space to share with your students or other colleagues.
+Then you will be asked which type of shared space you want to create (i.e. For Business or For Education). Click on **For Education** and proceed with creating an online space to share with your students or other colleagues.
 
 ![Shared Space type selection](assets/shared-space-type-selection.png)
 
