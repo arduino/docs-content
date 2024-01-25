@@ -78,7 +78,7 @@ Fill in additional information such as the name of your School, Country and Grad
 
 ![Fill in school information for the new Space](assets/fillschoolinfo.png)
 
-Congratulations! Now you own a Shared Space linked to your Arduino account. In the next section we will show you how to add members into your space and make it lively. 
+Congratulations! Now you own a shared space linked to your Arduino account. In the next section we will show you how to add members into your space and make it lively. 
 
 ## Adding members to a Shared Space
 
