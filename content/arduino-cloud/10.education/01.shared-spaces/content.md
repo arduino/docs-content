@@ -189,7 +189,7 @@ If you are a part of more than 1 shared space, you can switch to other Shared Sp
 
 
 
-If you have more than 3 spaces, there will be pop up listing out all the shared spaces that you are a part of
+If you have more than three spaces, there will be pop up listing out all the shared spaces that you are a part of.
 
 ![More than three spaces preview](assets/mote-than-3.png)
 
