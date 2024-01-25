@@ -40,8 +40,37 @@ Now, if we wanted to power this application using a battery, we know that the po
 
 With that information, we can make an educated guess of what type of battery we should get. For example, a battery with more capacity, let's say 600 mAh, would in theory last for twice the period.
 
-***Note that there are other factors at play, such as the battery's discharge rate and the general quality of the battery.***
+***Note that there are other factors at play, such as the battery's discharge rate and the general quality of the battery. The above formulas and measurements are to be considered guidelines.***
+
+
+## Software Setup
+
+The software setup involves two steps: **upload a sketch** and **insatlling nRF Connect for Desktop**. 
+
+### Upload Sketch
+
+This step is rather straightforward. Upload the sketch that you want to measure the power consumption of. Below is a minimal sketch that reads an analog pin continuously. 
+
+```arduino
+
+```
+
+### Install Desktop App
+
+To measure the power consumption, we are going to use the [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop/Download) tool. This is a program that you install on your computer.
 
 ## Hardware Setup
 
-## Software Setup
+The profiler we used is the [Power Profiler Kit II](https://www.nordicsemi.com/Products/Development-hardware/Power-Profiler-Kit-2).
+
+1. First disconnect the USB cable from your board. You will be powering the board directly from the power profiler, so there's no need for the USB cable at this point.
+2. Use the provided cable from the kit, and connect it to your board's GND and power pin, following the illustration below:
+
+![Connect the power profiler to the board.]()
+
+***Important note! In the software setup you enable the "Power Output" of the power profiler. Make sure that the voltage (3.3 V or 5 V) matches the voltage on the power pin of the board. Applying 5 V to a 3.3 V pin will damage your board.***
+
+## Power Consumption Test
+
+With the hardware and software set up, let's take a look at how to record the power consumption of your device.
+
