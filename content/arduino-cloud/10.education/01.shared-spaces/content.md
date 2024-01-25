@@ -157,7 +157,7 @@ Once they click **Join**, they will then be added to your shared space and be vi
 
 ## Space Settings 
 
-In space settings, you can configure everything from the logo of your space to adding and removing members. If you have a free plan you can also track the usage of the Cloud tools and choose to upgrade to a School plan. 
+In space settings, you can configure everything from `Change Image` of your space profile to adding and removing members. If you have a free plan you can also track the usage of the Cloud tools and choose to upgrade to a School plan. 
 
 To change the current settings of your shared space, navigate to the **Space Settings** tab using the sidebar.
 
