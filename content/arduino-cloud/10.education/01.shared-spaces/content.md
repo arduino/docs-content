@@ -13,7 +13,7 @@ software:
 
 ## Introduction
 
-A Shared space is a virtual classroom environment where you can optimize classwork, keep track of student’s progress, boost learning and connect with peers and students seamlessly. It's an easy way to keep track of all your students' recent activities on their programming, electronics and IoT projects and monitor their project progress. 
+A **shared space** is a virtual classroom environment where you can optimize classwork, keep track of student’s progress, boost learning and connect with peers and students seamlessly. It's an easy way to keep track of all your students' recent activities on their programming, electronics and IoT projects and monitor their project progress. 
 
 In this article, we're spilling the beans on all the necessary tips and tricks you could do with a shared space and how to set it up for your classroom. Let's get started! 
 
@@ -22,9 +22,9 @@ In this article, we're spilling the beans on all the necessary tips and tricks y
 ## What you will learn 
 
 - Shared spaces and its benefits 
-- Creating Shared Spaces 
-- Adding members to a Shared Space 
-- Managing a Shared Space 
+- Creating shared spaces 
+- Adding members to a shared space 
+- Managing a shared space 
 
 ## Benefits of Shared Spaces
 
@@ -34,7 +34,7 @@ Shared spaces were created primarily for an educational audience where collabora
 
 Once you've created a space and added members, all of them will have access to the learning materials available on https://app.arduino.cc/courses.
 
-![Free Content Courses in the Cloud](assets/content-courses.png)
+![Free content courses in the Cloud](assets/content-courses.png)
 
 Here, you get access to several free online courses, for different age groups and topics. This library of courses gets widened and extended regularly with new releases.
 
@@ -48,7 +48,7 @@ By emphasizing teamwork and communication, you create a space where collective i
 
 ### Keep tabs on all the activities
 
-Quickly find all the recent sketch files and IoT Dashboards worked by your students right from the Shared Spaces dashboard manage your efficiently without unnecessary clicks or complex steps.
+Quickly find all the recent sketch files and IoT Dashboards worked by your students right from the shared spaces dashboard manage your efficiently without unnecessary clicks or complex steps.
 
 ![Recent sketches overview](assets/recent-sketches.png)
 
@@ -60,11 +60,11 @@ Creating a shared space is simple and straightforward, however it requires you t
 
 ### Login to your Private Space
 
-Login to https://app.arduino.cc/ with your Arduino account by default, any new user who has recently created an Arduino account starts their journey with their Private Space.
+Login to https://app.arduino.cc/ with your Arduino account by default, any new user who has recently created an Arduino account starts their journey with their **private space**.
 
 ![Arduino Cloud Homepage view](assets/cloud-home-u.png)
 
-***Note: a Private Space is an automatically created once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class.*** 
+***Note: A private space is an automatically created once joined Arduino Cloud. You can use this space for personal projects you do not want to share with all your class.*** 
 
 ### Create a Shared Space for your classroom 
 
@@ -113,7 +113,7 @@ Define which **role** they will cover in your space based on the available optio
 
 ![Choose role of a member](assets/choose-role.png)
 
-***Note: By default the member who has activated the plan and created the class-space is set as Admin. It is possible to have multiple Admins with same permissions. The admin has full control of the rights/permissions each user has in a shared space.***
+***Note: By default the member who has activated the plan and created the class-space is set as admin. It is possible to have multiple admins with same permissions. The admin has full control of the rights/permissions each user has in a shared space.***
 
 The list of supported roles and corresponding permissions can be found here: https://cloud.arduino.cc/home/roles-permissions
 
@@ -151,7 +151,7 @@ Enter the space code that you have shared with them admin or teacher shared with
 
 ![Join Space](assets/copy-code-join.png)
 
-Once they click Join, they will then be added to your shared space and be visible inside your members list. 
+Once they click **Join**, they will then be added to your shared space and be visible inside your members list. 
 
 ***There is no limitation on the number of members you can add into a shared space.***
 
