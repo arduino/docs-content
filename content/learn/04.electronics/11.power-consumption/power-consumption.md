@@ -74,3 +74,69 @@ The profiler we used is the [Power Profiler Kit II](https://www.nordicsemi.com/P
 
 With the hardware and software set up, let's take a look at how to record the power consumption of your device.
 
+1. Open the **nRF Desktop App**
+2. instructions for setting up the PP
+3. Enable the power output, by clicking the "Enable Power Output" option.
+    
+    ![Enable power output.]()
+
+4. Select sample period (60 seconds) and number of samples (100k).
+5. Click on the "Begin Sampling" to start the power consumption test.
+    
+    ![Start sampling.]()
+
+6. During the test, you can see the power consumption in real-time. After 60 seconds (or when specified sample period ends), you will have the data, which includes the **max** and **avg** consumption. You can also zoom in to view the data.
+    
+    ![Power consumption data.]()
+
+You have now recorded the power consumption of your device. You can note down the results, export it as a `.csv` or take a screenshot for future reference.
+
+## Example Results
+
+In this section, you will find a number of tests we ran on a set of Arduino boards during different conditions.
+
+### Simple Analog Read
+
+The simple analog read sketch continuously reads an analog pin.
+
+```arduino
+void setup() {
+
+}
+
+void loop() {
+  int analog_value = analogRead(A0);
+  delay(1);
+}
+```
+
+In the table below, you can see the results of each board tested with the sketch:
+
+| Board        | Min      | Max       | Average  |
+| ------------ | -------- | --------- | -------- |
+| UNO R4 WiFi  | 82.86 mA | 124.04 mA | 92.63 mA |
+| GIGA R1 WiFi | 51.02 mA | 94.08 mA  | 58.05 mA |
+| Nano ESP32   | 29.18 mA | 46.58 mA  | 31.05 mA |
+
+
+
+### Arduino Cloud Basic
+
+The **Arduino Cloud Basic** sketch sends sensor data to the Arduino Cloud, and turns on the built-in LED whenever activated from a dashboard.
+
+```arduino
+
+```
+
+In the table below, you can see the results of each board tested with the sketch:
+
+| Board        | Min       | Max       | Average   |
+| ------------ | --------- | --------- | --------- |
+| UNO R4 WiFi  | 94.07 mA  | 513.70 mA | 140.19 mA |
+| GIGA R1 WiFi | 121.00 mA | 477.44 mA | 139.83 mA |
+| Nano ESP32   | 36.70 mA  | 274.19 mA | 58.81 mA  |
+
+## Summary
+
+In this guide we have learned how to use a power profiler to record power consumption data. This is an incredibly good utility, as it helps you identify the power needs of your application, which can aid your decision in selecting the right power source.
+
