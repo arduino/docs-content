@@ -5,6 +5,7 @@ author: Francesca Sanfilippo, Karl Söderby & Jacob Hylén
 micropython_type: basics
 featured: micropython
 hero_image: "./hero-banner.png"
+hero_position: 1
 ---
 
 So what do you need to start your first project with MicroPython and Arduino? First, you will need a compatible board. In this page, you will find the compatible boards, with instructions on how to install them.
