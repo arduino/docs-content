@@ -28,7 +28,7 @@ In this article, we're spilling the beans on all the necessary tips and tricks y
 
 ## Benefits of Shared Spaces
 
-Shared spaces were created primarily for an educational audience where collaboration, access to learning materials and efficient class management are of high importance. Here’s how shared spaces can improve your teaching experience of hands-on projects using Arduino tools 
+Shared spaces were created primarily for an educational audience where collaboration, access to learning materials and efficient class management are of high importance. Here’s how shared spaces can improve your teaching experience of hands-on projects using Arduino tools.
 
 ### Sharing Learning Materials with your space members 
 
