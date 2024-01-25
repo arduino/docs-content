@@ -52,7 +52,7 @@ Quickly find all the recent sketch files and IoT Dashboards worked by your stude
 
 ![recent sketches overview](assets/recent-sketches.png)
 
-In the next sections we will take you through setting up a Shared space for your classroom and your students. Let's jump in and see what awesome things we can create together! 
+In the next sections we will take you through setting up a shared space for your classroom and your students. Let's jump in and see what awesome things we can create together! 
 
 ## Create a Shared Space 
 
