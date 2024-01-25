@@ -32,7 +32,7 @@ Shared spaces were created primarily for an educational audience where collabora
 
 ### Sharing Learning Materials with your space members 
 
-Once you've created a space and added members, all of them will have access to the learning materials available on https://app.arduino.cc/courses 
+Once you've created a space and added members, all of them will have access to the learning materials available on https://app.arduino.cc/courses.
 
 ![Free Content Courses in the Cloud](assets/content-courses.png)
 
