@@ -60,7 +60,7 @@ Creating a shared space is simple and straightforward, however it requires you t
 
 ### Login to your Private Space
 
-Login to https://app.arduino.cc/ with your Arduino Account by default, any new user who has recently created an Arduino account starts their journey with their Private Space.
+Login to https://app.arduino.cc/ with your Arduino account by default, any new user who has recently created an Arduino account starts their journey with their Private Space.
 
 ![Arduino Cloud Homepage view](assets/cloud-home-u.png)
 
