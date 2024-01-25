@@ -92,7 +92,7 @@ Let’s begin by inviting members to your space. You can add more members to you
 
 Once inside the Cloud homepage, from the card on the right top corner, you will find the **complete list of all members** who have access to your shared space, as well as the **current role** of each member. Let’s go ahead and Click on **Add Members:**
 
-![Add member button](assets/add-members-u.png)
+![Add member button](assets/add-member-1.png)
 
 You can add members in **three possible ways**:
 
