@@ -197,7 +197,7 @@ If you have more than 3 spaces, there will be pop up listing out all the shared 
 
 ### Keep track on plan usage
 
-From this menu, `Plan Settings > Plan Usage` you can check your plan's limit and quota or upgrade it to a School Plan if needed. 
+From this menu, `Plan Settings > Plan Usage`, you can check your plan's limit and quota or upgrade it to a School Plan if needed. 
 
 ![Plan overview](assets/features-usage.png)
 
