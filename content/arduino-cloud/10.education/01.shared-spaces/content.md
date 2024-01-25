@@ -50,7 +50,7 @@ By emphasizing teamwork and communication, you create a space where collective i
 
 Quickly find all the recent sketch files and IoT Dashboards worked by your students right from the Shared Spaces dashboard manage your efficiently without unnecessary clicks or complex steps.
 
-![recent sketches overview](assets/recent-sketches.png)
+![Recent sketches overview](assets/recent-sketches.png)
 
 In the next sections we will take you through setting up a shared space for your classroom and your students. Let's jump in and see what awesome things we can create together! 
 
@@ -72,11 +72,11 @@ Now that you have a private space let's get you started. In order to create a sh
 
 Then you will be asked which type of shared space you want to create (i.e. For Business or For Education). Click on **For Education** and proceed with creating an online space to share with your students or other colleagues.
 
-![Shared Space type selection](assets/shared-space-type-selection.png)
+![Shared space type selection](assets/shared-space-type-selection.png)
 
 Fill in additional information such as the name of your School, Country and Grade. 
 
-![Fill in school information for the new Space](assets/fillschoolinfo.png)
+![Fill in school information for the new space](assets/fillschoolinfo.png)
 
 Congratulations! Now you own a shared space linked to your Arduino account. In the next section we will show you how to add members into your space and make it lively. 
 
@@ -88,17 +88,17 @@ In this section we will show you how to add students, teachers and Administrator
 
 Let’s begin by inviting members to your space. You can add more members to your shared space by clicking on the **Invite Members** button. 
 
-![invite members to a shared space](assets/invite-members.png)
+![Invite members to a shared space](assets/invite-members.png)
 
-Once inside the Cloud homepage, from the card on the right top corner, you will find the **complete list of all members** who have access to your Shared Space, as well as the **current role** of each member. Let’s go ahead and Click on **Add Members:**
+Once inside the Cloud homepage, from the card on the right top corner, you will find the **complete list of all members** who have access to your shared space, as well as the **current role** of each member. Let’s go ahead and Click on **Add Members:**
 
-![add member button](assets/add-members-u.png)
+![Add member button](assets/add-members-u.png)
 
 You can add members in **three possible ways**:
 
-1. Email Invites
+1. Email invites
 2. Sharing an invite link 
-3. Sharing an invite Code (Only for Minors) 
+3. Sharing an invite code (only for minors) 
 
 ### Sending Members Email invites 
 
@@ -106,66 +106,66 @@ Email invites are usually sent once you have entered the email ID of the intende
 
 ![Invite through email](assets/invite-email.png)
 
-Define which **role** they will cover in your Space based on the available options.  There are three role types in Arduino Cloud for Schools:
+Define which **role** they will cover in your space based on the available options.  There are three role types in Arduino Cloud for Schools:
 - Admin
 - Teacher
 - Students
 
 ![Choose role of a member](assets/choose-role.png)
 
-***Note: by default the member who has activated the plan and created the class-space is set as Admin. It is possible to have multiple Admins with same permissions. The admin has full control of the rights/permissions each user has in a Shared Space.***
+***Note: By default the member who has activated the plan and created the class-space is set as Admin. It is possible to have multiple Admins with same permissions. The admin has full control of the rights/permissions each user has in a shared space.***
 
 The list of supported roles and corresponding permissions can be found here: https://cloud.arduino.cc/home/roles-permissions
 
 Once you have added the list of members and assigned their roles. Click on **Invite**. 
 
-![invite button](assets/invite-button.png)
+![Invite button](assets/invite-button.png)
 
-The users you added will receive an invitation by email with a link to join your Shared Space.
+The users you added will receive an invitation by email with a link to join your shared space.
 
-![email confirmation](assets/email-conf.png)
+![Email confirmation](assets/email-conf.png)
 
 ### Sharing an invite link with Students 
 
-If you don’t have the option of emailing your students you can invite your students to the Space by manually sending them an **Invite URL.** 
+If you don’t have the option of emailing your students you can invite your students to the space by manually sending them an **Invite URL.** 
 
-Click on the **Invite via Link** option from the invite pop up
+Click on the **Invite via Link** option from the invite pop up.
 
-![invite via link](assets/invite-with-link.png)
+![Invite via link](assets/invite-with-link.png)
 
 **Copy paste the link** and share it with the whole class.
 
-![copy paste the link](assets/inviteurl.png)
+![Copy paste the link](assets/inviteurl.png)
 
-The users you added will receive an invitation by email with a link to join your Shared Space.
+The users you added will receive an invitation by email with a link to join your shared space.
 
 ### Sharing an invite code with Minors 
 
 As minors have restricted access to content and tools they have a slightly different way of joining a shared space. It is mandatory that you ensure that you have [created a Junior Arduino account](https://support.arduino.cc/hc/en-us/articles/360022234360-Create-an-Arduino-account-for-juniors) for them before you proceed. 
 
-![copy space code for junior account](assets/copyurl-minor.png)
+![Copy space code for junior account](assets/copyurl-minor.png)
 
-Ask your students to log into their Junior Account and click on the **Join Space** from the orange box on the right.
+Ask your students to log into their Junior account and click on the **Join Space** from the orange box on the right.
 
 Enter the space code that you have shared with them admin or teacher shared with you to join their space.
 
 ![Join Space](assets/copy-code-join.png)
 
-Once they click Join, they will then be added to your Shared Space and be visible inside your members list. 
+Once they click Join, they will then be added to your shared space and be visible inside your members list. 
 
-***There is no limitation on the number of members you can add into a Shared Space.***
+***There is no limitation on the number of members you can add into a shared space.***
 
 ## Space Settings 
 
 In space settings, you can configure everything from the logo of your space to adding and removing members. If you have a free plan you can also track the usage of the Cloud tools and choose to upgrade to a School plan. 
 
-To change the current settings of your Shared Space, navigate to the **Space Settings** tab using the sidebar.
+To change the current settings of your shared space, navigate to the **Space Settings** tab using the sidebar.
 
-![Shared Space Side Bar](assets/space-setting-side-bar.png)
+![Shared space sidebar](assets/space-setting-side-bar.png)
 
 ### Change space name and logo
 
-If you would like to change the name of your space and have a custom logo, you can do that by going to `Space settings > General Settings`
+If you would like to change the name of your space and have a custom logo, you can do that by going to `Space settings > General Settings`.
 
 ![General settings](assets/space-setting.png)
 
@@ -177,13 +177,13 @@ If you would like to change the role, you do this by first selecting on the Role
 
 ![Changing role menu](assets/change-role.png)
 
-You can also remove an individual member or a group by **selecting their row** and deleting them 
+You can also remove an individual member or a group by **selecting their row** and deleting them.
 
 ![Delete a member](assets/delete-member.png)
 
 ### Switch Between Spaces
 
-If you are a part of more than 1 shared space, you can switch to other Shared Spaces at any time using the corresponding menu, which you can find at the top left-corner, and click on it. 
+If you are a part of more than one shared space, you can switch to other shared spaces at any time using the corresponding menu, which you can find at the top left-corner, and click on it. 
 
 ![Switch between spaces menu](assets/switch-space.png)
 
