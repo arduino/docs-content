@@ -86,7 +86,7 @@ In this section we will show you how to add students, teachers and Administrator
 
 ### Inviting members to a shared space
 
-Let’s begin by inviting members to your space. You can add more members to your Shared Space by clicking on the **Invite Members** button. 
+Let’s begin by inviting members to your space. You can add more members to your shared space by clicking on the **Invite Members** button. 
 
 ![invite members to a shared space](assets/invite-members.png)
 
