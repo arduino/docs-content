@@ -51,7 +51,7 @@ The Arduino core for the Portenta H7 sits on top of the Mbed OS and allows to de
 ### Configuring the Development Environment
 In this section, we will guide you through a step-by-step process of setting up your Portenta board for running an Arduino Sketch that blinks the built-in RGB LED.
 
-***IMPORTANT: Please make sure to update the bootloader to the most recent version to benefit from the latest improvements. Follow [these steps](updating-the-bootloader) before you proceed with the next step of this tutorial.***
+***IMPORTANT: Please make sure to update the bootloader to the most recent version to benefit from the latest improvements. Follow [these steps](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader/) before you proceed with the next step of this tutorial.***
 
 ### 1. The Basic Setup
 Let's begin by Plug-in your Portenta to your computer using the appropriate USB-C® cable. Next, open your IDE and make sure that you have the right version of the Arduino IDE downloaded on to your computer.
@@ -92,12 +92,12 @@ void loop() {
 
 For Portenta H7 LED_BUILTIN represents the built-in RGB LED on the board in green color.
 
-**Note:** The individual colors of the built-in RGB LED can be accessed and controlled separately. In the tutorial [Dual core processing](dual-core-processing) you will learn how to control the LED to light it in different colors
+**Note:** The individual colors of the built-in RGB LED can be accessed and controlled separately. In the tutorial [Dual core processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing/) you will learn how to control the LED to light it in different colors
 
 ### 4. Upload the Blink Sketch 
 Now it's time to upload the sketch and see if the LED will start to blink. Make sure you select Arduino Portenta H7 (M7 core) as the board and the port to which the Portenta H7 is connected. If the Portenta H7 doesn't show up in the list of ports, go back to step 1 and make sure that the drivers are installed correctly. Once selected click Upload. Once uploaded the built-in LED should start blinking with an interval of 1 second.
 
-**Note:** The Portenta H7 has an M7 and an M4 processor which run separate cores. That's why you need to select the one to which you want to upload your sketch to (check out the tutorial [Dual core processing](dual-core-processing) to learn more about Portenta's processors).
+**Note:** The Portenta H7 has an M7 and an M4 processor which run separate cores. That's why you need to select the one to which you want to upload your sketch to (check out the tutorial [Dual core processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing/) to learn more about Portenta's processors).
 
 ![Select the Arduino Portenta H7 (M7 core) in the board selector.](assets/por_ard_gs_upload_sketch.png)
 
@@ -107,7 +107,7 @@ Now it's time to upload the sketch and see if the LED will start to blink. Make 
 You have now configured your Portenta board to run Arduino sketches. Along with that you gained an understanding of how the Arduino Core runs on top of Mbed OS.
 
 ### Next Steps
--   Proceed with the next tutorial [Dual core processing](dual-core-processing) to learn how to make use of Portenta H7's two processors to do two separate tasks simultaneously.
+-   Proceed with the next tutorial [Dual core processing](https://docs.arduino.cc/tutorials/portenta-h7/dual-core-processing/) to learn how to make use of Portenta H7's two processors to do two separate tasks simultaneously.
 -   Read more about why we chose Mbed as as the foundation [here](https://blog.arduino.cc/2019/07/31/why-we-chose-to-build-the-arduino-nano-33-ble-core-on-mbed-os/).
 
 ## Troubleshooting

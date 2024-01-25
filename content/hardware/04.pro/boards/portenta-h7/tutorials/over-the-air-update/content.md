@@ -106,7 +106,7 @@ To continue, macOS or Linux environment is required. For Windows environment, it
 
 Once you're comfortable with an environment, you will need a tool which can be found at the following link.
 
-***Arduino IoT Cloud Library - Over-The-Air Tools: https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/extras/tools***
+***[Arduino IoT Cloud Library - Over-The-Air Tools](https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/extras/tools)***
 
 You will have to extract the library at a preferred location to be able to use the tools. Then, you will need to run on the terminal the following commands in sequence to be able to create the OTA file. 
 
@@ -166,7 +166,7 @@ Once you have done it, you should be able to run the bin2ota.py script successfu
 
 Now you can upload your .OTA file to an online reachable location, e.g. *OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota*  has been uploaded to: 
 
-http://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota
+https://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota
 
 You can change the default file location on the code by modifying the next line on the ***"OTA_Qspi_Flash"** sketch or in the **"OTA_SD_Portenta"** sketch depending on which method are you going to follow:
 
