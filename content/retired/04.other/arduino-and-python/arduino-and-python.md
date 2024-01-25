@@ -6,10 +6,9 @@ tags:
   - MicroPython
   - Arduino Lab
   - OpenMV
-hero_position: 1
 ---
 
-***To download the firmware required to run MicroPython on your Arduino board, visit the [Arduino MicroPython downloads page](/micropython).***
+***This article is archived and no longer updated. MicroPython documentation now lives at [docs.arduino.cc/micropython](https://docs.arduino.cc/micropython/).***
 
 [MicroPython](https://micropython.org/) is an implementation of the [Python® programming language](https://www.python.org/) that comes with a subset of the Python® standard library, and is designed **to run on microcontrollers**.
 
