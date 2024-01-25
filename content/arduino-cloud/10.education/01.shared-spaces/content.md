@@ -143,13 +143,11 @@ The users you added will receive an invitation by email with a link to join your
 
 As minors have restricted access to content and tools they have a slightly different way of joining a shared space. It is mandatory that you ensure that you have [created a Junior Arduino account](https://support.arduino.cc/hc/en-us/articles/360022234360-Create-an-Arduino-account-for-juniors) for them before you proceed. 
 
-Copy the Space Code for Minor Code 
-
-[ Image https://www.figma.com/file/EwQacWNWGJVu8FX8jBOgCr/EDU-CLOUD-USER-JOURNEY?type=whiteboard&node-id=253-1082&t=7r9fKoH6gshHrZOJ-4 ]
+![copy space code for junior account](assets/copyurl-minor.png)
 
 Ask your students to log into their Junior Account and click on the **Join Space** from the orange box on the right.
 
-[Image - Junior Account home page highlighting the Join space]
+
 
 Enter the space code that you have shared with them admin or teacher shared with you to join their space.
 
@@ -169,7 +167,7 @@ To change the current settings of your Shared Space, navigate to the **Space Set
 
 ### Change space name and logo
 
-If you would like to change the name of your space and have a custom logo, you can do that by going to **Space settings** **->** **General Settings**
+If you would like to change the name of your space and have a custom logo, you can do that by going to `Space settings > General Settings`
 
 ![general settings](assets/space-setting.png)
 
@@ -179,15 +177,11 @@ You can also change the role of a certain member or remove them from the **Manag
 
 If you would like to change the role, you do this by first selecting on the Roles dropdown for a certain member. 
 
-[image : Changing the Role 
-
-https://www.figma.com/file/EwQacWNWGJVu8FX8jBOgCr/EDU-CLOUD-USER-JOURNEY?type=whiteboard&node-id=280-1961&t=UjCbj3Ez0RkkNDPJ-4 ]
+![changing role](assets/change-role.png)
 
 You can also remove an individual member or a group by **selecting their row** and deleting them 
 
-[Image : deleting a member 
-
-https://www.figma.com/file/EwQacWNWGJVu8FX8jBOgCr/EDU-CLOUD-USER-JOURNEY?type=whiteboard&node-id=270-1746&t=UjCbj3Ez0RkkNDPJ-4 ]
+![delete member](assets/delete-member.png)
 
 ### Switch Between Spaces
 
@@ -199,19 +193,21 @@ If you are a part of more than 1 shared space, you can switch to other Shared Sp
 
 If you have more than 3 spaces, there will be pop up listing out all the shared spaces that you are a part of
 
-[Image : Switch Space pop up 
-
-https://www.figma.com/file/EwQacWNWGJVu8FX8jBOgCr/EDU-CLOUD-USER-JOURNEY?type=whiteboard&node-id=270-1749&t=UjCbj3Ez0RkkNDPJ-4 
-
-]
+![more than 3 spaces preview](assets/mote-than-3.png)
 
 ***Note -  With a Free Plan or School Plan there are no limitations in the number of Shared Space you can have.***
 
-### Keep a track on plan usage
+### Keep track on plan usage
 
-From this menu you can check your plan's limit and quota or upgrade it to a School Plan if needed. 
+From this menu, `Plan Settings > Plan Usage` you can check your plan's limit and quota or upgrade it to a School Plan if needed. 
 
-## Arduino Cloud Tutorials
+![plan overview](assets/features-usage.png)
 
-You can find a full list of tutorials on the [Arduino Cloud documentation page](https://docs.arduino.cc/arduino-cloud/).
+## Do you still need help?
+
+For more troubleshooting articles, we recommend to read from our help center:
+
+* [Add members to a space](https://support.arduino.cc/hc/en-us/articles/360011787820-Add-members-to-a-space)
+* [Roles and permissions in shared spaces](https://support.arduino.cc/hc/en-us/articles/4405753330706-Roles-and-permissions-in-shared-spaces)
+* [Access and share course content](https://support.arduino.cc/hc/en-us/articles/360021587259-Access-and-share-course-content)
 
