@@ -185,7 +185,7 @@ You can also remove an individual member or a group by **selecting their row** a
 
 If you are a part of more than 1 shared space, you can switch to other Shared Spaces at any time using the corresponding menu, which you can find at the top left-corner, and click on it. 
 
-![Switch between Space Menu](assets/switch-space.png)
+![Switch between spaces menu](assets/switch-space.png)
 
 
 
