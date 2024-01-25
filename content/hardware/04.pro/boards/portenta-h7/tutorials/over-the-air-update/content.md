@@ -1,6 +1,7 @@
 ---
 title: 'Over-The-Air (OTA) Updates with the Arduino Portenta H7'
 description: 'Learn how to perform an OTA update of the firmware on the Arduino Portenta H7'
+difficulty: intermediate
 tags: 
   - OTA
   - Over-The-Air 
