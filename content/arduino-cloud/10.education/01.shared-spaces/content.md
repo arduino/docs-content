@@ -193,7 +193,7 @@ If you have more than 3 spaces, there will be pop up listing out all the shared 
 
 ![More than three spaces preview](assets/mote-than-3.png)
 
-***Note: with a Free Plan or School Plan there are no limitations in the number of Shared Space you can have.***
+***Note: with a Free Plan or School Plan there are no limitations in the number of shared spaces you can have.***
 
 ### Keep track on plan usage
 
