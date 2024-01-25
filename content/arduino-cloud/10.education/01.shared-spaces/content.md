@@ -90,7 +90,7 @@ Let’s begin by inviting members to your space. You can add more members to you
 
 ![Invite members to a shared space](assets/invite-members.png)
 
-Once inside the Cloud homepage, from the card on the right top corner, you will find the **complete list of all members** who have access to your shared space, as well as the **current role** of each member. Let’s go ahead and Click on **Add Members:**
+Once inside the Cloud homepage, from the card on the right top corner, you will find the **complete list of all members** who have access to your shared space, as well as the **current role** of each member. Let’s go ahead and click on **Add Members:**
 
 ![Add member button](assets/add-member-1.png)
 
@@ -173,7 +173,7 @@ If you would like to change the name of your space and have a custom logo, you c
 
 You can also change the role of a certain member or remove them from the **Manage Members** section. 
 
-If you would like to change the role, you do this by first selecting on the Roles dropdown for a certain member. 
+If you would like to change the role, you do this by first selecting on the ` Role`  dropdown for a certain member. 
 
 ![Changing role menu](assets/change-role.png)
 
