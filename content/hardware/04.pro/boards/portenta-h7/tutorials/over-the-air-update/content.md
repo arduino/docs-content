@@ -25,7 +25,7 @@ software:
 ## Overview
 In this tutorial, you will learn how to use and allow firmware updates via **OTA (Over-The-Air)** feature with the **Arduino Portenta H7**. With this tutorial, you will be able to create a binary file to be used with the OTA feature and use the internal **QSPI** or a external **SD card** to accomplish the OTA (Over-The-Air) process. 
 
-***To proceed with OTA using a SD Card, you will need to use a carrier or shield with a SD card slot, e.g Portenta Breakout, Portenta Max Carrier, Portenta Vision Shield.***
+***To proceed with OTA using a SD Card, you will need to use a carrier or shield with a SD card slot, e.g Portenta Breakout, Portenta Max Carrier, Portenta Vision shield.***
 
 ## Goals
 The goals of this tutorial are: 
@@ -165,7 +165,7 @@ Once you have done it, you should be able to run the bin2ota.py script successfu
 
 Now you can upload your .OTA file to an online reachable location, e.g. *OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota*  has been uploaded to: 
 
-http://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota
+https://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota
 
 You can change the default file location on the code by modifying the next line on the ***"OTA_Qspi_Flash"** sketch or in the **"OTA_SD_Portenta"** sketch depending on which method are you going to follow:
 
@@ -205,7 +205,7 @@ Then prepare the OTA storage, download the .ota file from the internet, decompre
 #### Setting Up
 To use the **SD card** as the preferred OTA (Over-The-Air) storage device, you can use the Arduino Portenta Vision Shield and Portenta H7 connected via **HD (High-Density)** Connectors.  
 
-![Arduino Portenta H7 with Portenta Vision Shield - Ethernet](assets/portenta_h7_plus_vision_shield.svg)
+![Arduino Portenta H7 with Vision Shield (Ethernet)](assets/portenta_h7_plus_vision_shield.svg)
 
 With this, you will need the Arduino Portenta H7 board connected to the computer with the Arduino IDE. You will need to have selected the **Arduino Portenta H7 (M7 Core)** with the Flash split of **1MB M7 + 1 MB M4** for the purpose of this tutorial and the corresponding port.
 
@@ -246,7 +246,7 @@ The complete script is as follows.
 static char const SSID[] = SSID_NAME;  /* your network SSID (name) */
 static char const PASS[] = SSID_PASS;  /* your network password (use for WPA, or use as key for WEP) */
 
-static char const OTA_FILE_LOCATION[] = "http://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota";
+static char const OTA_FILE_LOCATION[] = "https://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota";
 
 void setup()
 {
@@ -344,7 +344,7 @@ void loop()
 static char const SSID[] = SSID_NAME;  /* your network SSID (name) */
 static char const PASS[] = SSID_PASS;  /* your network password (use for WPA, or use as key for WEP) */
 
-static char const OTA_FILE_LOCATION[] = "http://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota";
+static char const OTA_FILE_LOCATION[] = "https://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota";
 
 void setup()
 {
