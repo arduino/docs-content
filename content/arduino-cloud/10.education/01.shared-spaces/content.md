@@ -163,9 +163,9 @@ To change the current settings of your shared space, navigate to the **Space Set
 
 ![Shared space sidebar](assets/space-setting-side-bar.png)
 
-### Change space name and logo
+### Change space name and image
 
-If you would like to change the name of your space and have a custom logo, you can do that by going to `Space settings > General Settings`.
+If you would like to change the name of your space and have a custom image, you can do that by going to `Space settings > General Settings`.
 
 ![General settings](assets/space-setting.png)
 
