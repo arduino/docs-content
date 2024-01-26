@@ -1,6 +1,7 @@
 ---
 title: '04. Data Exchange Between Python® on Linux & Arduino Sketch'
 description: 'This tutorial will show you how to run a Python® application that exchanges data with an Arduino Sketch.'
+difficulty: intermediate
 tags: 
   - RPC
   - Python®
@@ -112,7 +113,7 @@ python-sensor-rpc_1  | Altitude:  311.0769348144531
 
 Whenever you change anything in the Python® script on your computer, you will have to sync it back to the X8 and re-build the container. Following command sequence will help you to do this process:
 
-```
+```bash
 # On your computer
 adb push python-sensor-rpc /home/fio
 

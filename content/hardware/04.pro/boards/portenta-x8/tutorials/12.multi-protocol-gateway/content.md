@@ -1,6 +1,7 @@
 ---
 title: '12. Multi-Protocol Gateway With Portenta X8 & Max Carrier'
 description: 'This tutorial shows how to setup a multi-protocol gateway environment on Portenta X8 using Max Carrier'
+difficulty: intermediate
 tags:
   - Containers
   - Docker
@@ -111,7 +112,7 @@ Before you begin diving deep into creating a Multi-protocol gateway, and having 
 
 The `m4-proxy` is a service that manages data exchange between these layers. You can use the following command in the terminal to observe if the service is running correctly.
 
-```
+```bash
 sudo journalctl -fu m4-proxy
 ```
 
@@ -119,7 +120,7 @@ Now you will implement RPC (Remote Procedure Call) to establish communication be
 
 **You will not be able to check messages via `Serial.println()` statements** to check if the Arduino sketch is running in the desired manner. You will have to use instead **`py-serialrpc`**, which is a service that will assist you in listening to those messages, and printing them on a console on the Linux layer. To have the service active, please download [this compressed file](assets/py-serialrpc.zip) to build and run the container on the Linux side of Portenta X8. Please execute the following commands to have the service running.
 
-```
+```bash
 // Copy the decompressed files in ../adb/32.0.0 
 adb push py-serialrpc /home/fio
 adb shell
@@ -134,7 +135,7 @@ cd /home/fio/py-serialrpc
 
 To access the logs of `py-serialrpc` service, while maintaining the same directory, execute the following command.
 
-```
+```bash
 sudo docker-compose logs -f --tail 20
 ```
 
@@ -142,7 +143,7 @@ sudo docker-compose logs -f --tail 20
 
 If you have not configured internal Wi-Fi® connectivity within the system, please use the following command line:
 
-```
+```bash
 nmcli device wifi connect "SSID" password "PASSWORD"
 ```
 
@@ -495,22 +496,22 @@ It is now time to make the multi-protocol gateway run and for this, you will nee
 
 You will need to have the files ready in a folder inside the `adb` directory within Arduino root.
 
-```
+```bash
 C:\Users\#USERNAME#\AppData\Local\Arduino15\packages\arduino\tools\adb\32.0.0
 ```
 
 Having the files ready in that directory, you can use the following commands to push the files to the `fio` directory inside the Portenta X8. The second command will let you navigate inside the Portenta X8.
 
-```
+```bash
 adb push multi-protocol-gateway /home/fio
 adb shell
 ```
 
 You will now build the container using the following commands. The following command will tag the container with `Multi_Protocol_Gateway_X8` as its name.
 
-```
+```bash
 cd ../home/fio/Multi_Protocol_Gateway_X8
-#Multi_Protocol_Gateway_X8 sudo docker build . -t multi_gateway
+Multi_Protocol_Gateway_X8 sudo docker build . -t multi_gateway
 ```
 
 You will be able to see the following results when the image is built successfully.
@@ -521,19 +522,19 @@ You will be able to see the following results when the image is built successful
 
 After a successful container build, you will run the image. To do that, you can use the following command. This command will immediately give an output in your terminal, telling you how the Python® script is running. If you wish to have it running in the background, please add the `-d` flag at the end of the command.
 
-```
-#Multi_Protocol_Gateway_X8 sudo docker-compose up
+```bash
+Multi_Protocol_Gateway_X8 sudo docker-compose up
 ```
 
 Finally, you will have the multi-protocol gateway running, which uses Wi-Fi® and LoRa® connectivity. Also, RPC for exchanging data between its layers. However, there are cases where you would wish to make changes by adding more functionalities, such as including Cat. M1 or NB-IoT to expand its communication spectrum. For this, you will need to stop the image. To stop the image from running, you can use the following command.
 
-```
-#Multi_Protocol_Gateway_X8 sudo docker-compose down
+```bash
+Multi_Protocol_Gateway_X8 sudo docker-compose down
 ```
 
 Getting to know the status of the image is also crucial as it is the indicator of the state of operation. The following command brings up **active** containers and shows the status if the container restarted or stopped due to certain reasons. The second command lists built images and it will show you the components that go with the main image that you're building.
 
-```
+```bash
 docker ps -a
 docker images
 ```
