@@ -45,9 +45,9 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 - [Download the Arduino MKR IoT Carrier Rev2 datasheet](https://docs.arduino.cc/resources/datasheets/ABX00073-datasheet.pdf)
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-The MKR IoT Carrier Rev2 can be controlled through the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows us to create IoT applications in just minutes, if combined with an Arduino IoT Cloud compatible board. Here's a list of the Arduino MKR family boards that are compatible with the Arduino IoT Cloud:
+The MKR IoT Carrier Rev2 can be controlled through the [Arduino Cloud](https://create.arduino.cc/iot/things), a Cloud service that allows us to create IoT applications in just minutes, if combined with an Arduino Cloud compatible board. Here's a list of the Arduino MKR family boards that are compatible with the Arduino Cloud:
 
 - [MKR 1000 WiFi](https://docs.arduino.cc/hardware/mkr-1000-wifi)
 - [MKR GSM 1400](https://docs.arduino.cc/hardware/mkr-gsm-1400)
@@ -56,9 +56,9 @@ The MKR IoT Carrier Rev2 can be controlled through the [Arduino IoT Cloud](https
 - [MKR WAN 1310](https://docs.arduino.cc/hardware/mkr-wan-1310)
 - [MKR WiFi 1010](https://docs.arduino.cc/hardware/mkr-wifi-1010)
 
-***Note: The MKR GSM 1400 and MKR NB 1500 require a SIM card to connect to the Cloud, as they communicate over the mobile networks. The MKR WAN 1300 and 1310 board requires a Arduino PRO Gateway LoRa® to connect to the cloud.***
+***Note: The MKR GSM 1400 and MKR NB 1500 require a SIM card to connect to the Cloud, as they communicate over the mobile networks. The MKR WAN 1300 and 1310 board requires a Arduino PRO Gateway LoRa® to connect to the Cloud.***
 
-If you need help to get started, you can go through the [Arduino IoT Cloud tutorial](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started).
+If you need help to get started, you can go through the [Arduino Cloud tutorial](https://docs.arduino.cc/cloud/iot-cloud/tutorials/iot-cloud-getting-started).
 
 ## Pinout
 

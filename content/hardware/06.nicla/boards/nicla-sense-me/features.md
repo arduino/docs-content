@@ -14,29 +14,33 @@ The Arduino Nicla Sense ME is our smallest form factor yet.
 <Feature title="BHI260AP" image="imu">
 
   An AI smart sensor hub with integrated 6-axis IMU (3-Axis Accelerometer + 3-Axis Gyroscope) for activity detection, powered by a 32 Bit Synopsys DesignWare ARC™ EM4™ CPU.
-
-<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bhi260ap-ds000.pdf" download blank/>
-  
+<FeatureWrapper>
+  <FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bhi260ap-ds000.pdf" download blank/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="BMP390" image="pressure-sensor">
 
   A high performance pressure sensor operating between 300 - 1250 hPa with low drift.
-<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp390-ds002.pdf" download blank/>
+<FeatureWrapper>
+  <FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmp390-ds002.pdf" download blank/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="BMM150" image="magnetometer">
 
-  A low noise magnetometer with a typical range of ±1300μT in the X,Y axis and ±2500μT in the Z axis. 
-
-<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf" download blank/>
+  A low noise magnetometer with a typical range of ±1300μT in the X,Y axis and ±2500μT in the Z axis.
+<FeatureWrapper>
+  <FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf" download blank/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="BME688" image="temperature-sensor">
 
   An Environmental sensor that can measure pressure, humidity and temperature. Additionally, the onboard smart gas sensor can also help in determining the air quality index by detecting a broad range of gases, including Volatile Organic Compounds (VOC).
-
-<FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf" download blank/>
+<FeatureWrapper>
+  <FeatureLink title="Datasheet" url="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf" download blank/>
+</FeatureWrapper>
 </Feature>
 
 </FeatureList>

@@ -16,7 +16,7 @@ The `ArduinoIoTCloudEvent` enumeration class has three possible events:
 - `SYNC` (1) - Data is successfully synced between Board and Arduino Cloud.
 - `DISCONNECT` (2) -  Board has lost connection to Arduino Cloud.
 
-The `CONNECT` and `DISCONNECT` events can occur even though no variable is created inside the Thing. However, `SYNC` requires a variable to be created, as this triggers whenever data is synchronized between the board and cloud.
+The `CONNECT` and `DISCONNECT` events can occur even though no variable is created inside the Thing. However, `SYNC` requires a variable to be created, as this triggers whenever data is synchronized between the board and Cloud.
 
 These events can be subscribed to using the `addCallback()` function, which is documented in the next section.
 

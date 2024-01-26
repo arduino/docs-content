@@ -102,7 +102,7 @@ Then, connect an Ethernet cable to the connector on the shield.
 
 We will now get to the programming part of this tutorial. 
 
-**1.** First, let's make sure we have the drivers installed for the board we are using. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
+**1.** First, let's make sure we have the drivers installed for the board we are using. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
 
 **2.** There is no need to install any additional library, the **Ethernet** library is already installed on both the Offline and Online IDEs. Instead, let's take a look at some of the core functions we will use in the sketch:
 

@@ -1427,9 +1427,9 @@ You can download the example code [here](assets/opta_rtc_example.zip). To learn 
 
 - [Home Automation with Opta™️](https://docs.arduino.cc/tutorials/opta/home-automation-application-note)
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-All Opta™ variants are fully compatible with the [Arduino IoT Cloud](https://cloud.arduino.cc/), simplifying how professional applications are developed and tracked. By using the IoT Cloud, you can, for example, monitor your Opta's input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware OTA.  To learn more about the Arduino Cloud visit our [Getting Started with Arduino Cloud](https://docs.arduino.cc/arduino-cloud/guides/overview)
+All Opta™ variants are fully compatible with the [Arduino Cloud](https://cloud.arduino.cc/), simplifying how professional applications are developed and tracked. By using the IoT Cloud, you can, for example, monitor your Opta's input terminals, control your device's user LEDs and output relays remotely, and update your device's firmware OTA.  To learn more about the Arduino Cloud visit our [Getting Started with Arduino Cloud](https://docs.arduino.cc/arduino-cloud/guides/overview)
 
 In case it is the first time you are using the IoT Cloud:
 
@@ -1454,21 +1454,58 @@ After a while, your Opta™ device should be discovered by the IoT Cloud, as sho
 
 ![IoT Cloud Setup Device pop-up window](assets/user-manual-29.png)
 
-Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device.
+To set up your device, click the **CONFIGURE** button, assign a name to your device, and choose the preferred network connection method. The device supports both **Wi-Fi®** and **Ethernet** as connectivity options; thus, it can be configured for either connection type.
 
-***To learn how to configure Opta in the Arduino Cloud using the two connectivity setup options, check out our tutorials for [Ethernet](https://docs.arduino.cc/arduino-cloud/hardware/ethernet) and [Wi-Fi](https://docs.arduino.cc/arduino-cloud/hardware/wifi)***
+Based on the chosen connection type, the device will be configured accordingly. The user manual will show the configuration process for both Wi-Fi® and Ethernet connections.
 
-Your Opta™ will be configured to communicate securely with the IoT Cloud; this process can take a while.
+### Via Ethernet Connection
+
+To configure Opta™ with an Ethernet connection, after clicking **CONFIGURE**, please choose the **Ethernet** option.
+
+![IoT Cloud Device Setup - Ethernet Connection](assets/user-manual-29-eth.png)
+
+This will configure your Opta™ for secure Ethernet communication with the IoT Cloud, which may require some time to complete.
+
+### Via Wi-Fi® Connection
+
+To configure using the Wi-Fi® connection for the device, please choose the **WiFi** option after clicking the **CONFIGURE** button.
+
+![IoT Cloud Device Setup - Wi-Fi® Connection](assets/user-manual-29-alt.png)
+
+***To learn how to configure Opta™ in the Arduino Cloud using the two connectivity setup options, check out our tutorials for [Ethernet](https://docs.arduino.cc/arduino-cloud/hardware/ethernet) and [Wi-Fi](https://docs.arduino.cc/arduino-cloud/hardware/wifi)***
+
+Your Opta™ will be configured to communicate securely with the IoT Cloud via a Wi-Fi® connection; this process can take a while.
 
 ![IoT Cloud Setup Device pop-up window](assets/user-manual-30.png)
 
-Once your Opta™ has been configured, let's create a "Thing" to test the connection between your board and the IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name.
+After configuring Opta™ with your choice of connection, the next step is creating a **"Thing"** to test the connection between your device and the IoT Cloud. Go to **Things** and click on **CREATE THING**, then name your thing.
 
 ![IoT Cloud "Thing" setup](assets/user-manual-31.png)
 
-Navigate into **Associate Device** and click the **Select Device** button. Select your Opta™ device and associate it with your "Thing." Then, navigate into **Network** and click the **Configure** button; enter your network credentials.
+Navigate into **Associate Device** and click the **Select Device** button. Select your Opta™ device and associate it with your "Thing".
 
-The project is ready to add variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button.
+If Opta™ has been configured to use the **Ethernet connection**, no additional steps are required as DHCP is used to configure the Ethernet interface automatically.
+
+![IoT Cloud "Thing" - Ethernet Connection](assets/user-manual-31-eth.png)
+
+If you need to use specific Ethernet interface settings, turn off the default settings in **Network** by clicking on **Change** to input custom parameters.
+
+![IoT Cloud "Thing" - Ethernet Connection](assets/user-manual-31-eth-alt.png)
+
+The required network credentials are:
+
+- IP address
+- Netmask
+- Gateway
+- DNS
+
+To make the changes take effect with custom network credentials, please navigate to the **Sketch** tab and upload the sketch to load the credentials on the device. The sketch upload will be shown later in the process.
+
+If Opta™ has been configured to use the **Wi-Fi® connection**, navigate to **Network**, click the **Configure** button, and enter your network credentials.
+
+![IoT Cloud "Thing" - Wi-Fi® Connection](assets/user-manual-31-alt.png)
+
+The project is ready to add variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD** button.
 
 ![Add variable button](assets/user-manual-32.png)
 
@@ -1481,7 +1518,7 @@ Add one variable with the following characteristics:
 
 ![IoT Cloud "Thing" variable setup](assets/user-manual-33.png)
 
-You should see the `led` variable in the Cloud Variables section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; this will create a new dashboard and give your dashboard a name.
+You should see the `led` variable in the Cloud Variables section. Navigate into **Dashboards** and select the **CREATE DASHBOARD** button; this will create a new dashboard and give your dashboard a name.
 
 ![IoT Cloud Dashboards page](assets/user-manual-34.png)
 
@@ -1511,7 +1548,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
   /*
@@ -1526,7 +1563,7 @@ void setup() {
 }
 ```
 
-In the `onLedChange()` function, which was generated automatically by the Arduino IoT Cloud when the variable `led` was created, you must associate the onboard green LED state with the `led` variable:
+In the `onLedChange()` function, which was generated automatically by the Arduino Cloud when the variable `led` was created, you must associate the onboard green LED state with the `led` variable:
 
 ```arduino
 /*
@@ -1542,9 +1579,9 @@ The complete example code can be found below:
 
 ```arduino
 /*
-  Sketch generated by the Arduino IoT Cloud
+  Sketch generated by the Arduino Cloud
 
-  Arduino IoT Cloud Variables description
+  Arduino Cloud Variables description
 
   The following variables are automatically generated and updated when changes are made to the Thing
 
@@ -1569,7 +1606,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
   /*
@@ -1601,7 +1638,59 @@ To upload the code to the Opta™ from the online editor, click the green **Veri
 
 ![Uploading a sketch to the Opta™ in the Arduino IoT Cloud](assets/user-manual-36.png)
 
-Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's STATUS LED 1 (`LED_D0`) should light on or off when the position of the switch changes.
+The code uses the `thingProperties.h` header, which contains essential network interface settings and definitions required for the above example code.
+
+The Arduino Cloud creates This header file automatically, customized to the specific network interface settings and variables defined. It is advisable not to modify this file manually. Instead, any changes to variables should be made within the Arduino Cloud environment.
+
+If Opta™ is set up with Wi-Fi® as the network interface, the `thingProperties.h` file will include settings such as the network SSID and password. The example code for this configuration is shown below:
+
+```arduino
+//code generated by Arduino IoT Cloud, DO NOT EDIT.
+
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+
+const char SSID[]     = SECRET_SSID;    // Network SSID (name)
+const char PASS[]     = SECRET_OPTIONAL_PASS;    // Network password (use for WPA, or use as key for WEP)
+
+void onLedChange();
+
+bool led;
+
+void initProperties(){
+
+  ArduinoCloud.addProperty(led, READWRITE, ON_CHANGE, onLedChange);
+
+}
+
+WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
+```
+
+Alternatively, if Opta™ is configured to use an Ethernet connection, the `thingProperties.h` file will include different settings such as _IP_, _DNS_, _Gateway_, and _Netmask_. The corresponding code for this configuration would be as follows:
+
+```arduino
+#include <ArduinoIoTCloud.h>
+#include <Arduino_ConnectionHandler.h>
+
+const char IP[]      = SECRET_OPTIONAL_IP;
+const char DNS[]     = SECRET_OPTIONAL_DNS;
+const char GATEWAY[] = SECRET_OPTIONAL_GATEWAY;
+const char NETMASK[] = SECRET_OPTIONAL_NETMASK;
+
+void onLedChange();
+
+bool led;
+
+void initProperties(){
+
+  ArduinoCloud.addProperty(led, READWRITE, ON_CHANGE, onLedChange);
+
+}
+
+EthernetConnectionHandler ArduinoIoTPreferredConnection(IP, DNS, GATEWAY, NETMASK);
+```
+
+Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network or via Ethernet interface you configured before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's STATUS LED 1 (`LED_D0`) should light on or off when the position of the switch changes.
 
 To learn more about Opta™ and the Arduino IoT Cloud, check out the following resources that can help you learning about the Arduino IoT Cloud and Opta™:
 

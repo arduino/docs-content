@@ -38,10 +38,10 @@ Networking code and data synchronizing is **automatically done**, so just focus 
 
 ## Compatible Boards
 
-***Throughout the documentation, we will often refer to a "board" as a "device". A board is your physical hardware or virtual setup (Python/JS), and a "device" is how it is configured in the cloud.***
+***Throughout the documentation, we will often refer to a "board" as a "device". A board is your physical hardware or virtual setup (Python/JS), and a "device" is how it is configured in the Cloud.***
 
 Compatibility with the Arduino Cloud is divided into two categories: 
-- **Cloud Editor Support** - you can program **any** official Arduino board in the cloud editor. The editor also supports a large amount of third party boards.
+- **Cloud Editor Support** - you can program **any** official Arduino board in the Cloud editor. The editor also supports a large amount of third party boards.
 - **IoT Support** - board with a radio module (e.g. Wi-Fi®) are supported. ESP32 based boards are also supported. 
 
 For more information and list of supported boards, see the links below:
@@ -96,7 +96,7 @@ After configuring a device, we can create a Thing, which is the **virtual twin**
 
 ![Things in the Arduino Cloud.](assets/thing.png)
 
-Variables we create will be used in the sketch, and will keep synchronizing as long as the board is connected to the cloud. 
+Variables we create will be used in the sketch, and will keep synchronizing as long as the board is connected to the Cloud. 
 
 When working with your IoT projects, consider this the "main space" for configurations, as you can access your sketches from here as well. 
 
@@ -104,7 +104,7 @@ When working with your IoT projects, consider this the "main space" for configur
 
 ### 4. Write a Sketch
 
-Once you have done the above configurations, you can move on to **create a program/sketch**. This is where *you* decide what you want to create, and what data you want sent to the cloud.
+Once you have done the above configurations, you can move on to **create a program/sketch**. This is where *you* decide what you want to create, and what data you want sent to the Cloud.
 
 ![A sketch in the Arduino Cloud.](assets/editor.png)
 

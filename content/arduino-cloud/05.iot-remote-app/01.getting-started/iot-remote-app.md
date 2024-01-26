@@ -7,7 +7,7 @@ tags: [Arduino Cloud, Remote App, Phone Data]
 
 The **Arduino IoT Remote** phone application lets you control and monitor all of your dashboards in the [Arduino Cloud](https://app.arduino.cc/). With the app, you can also access your phone's internal sensors such as GPS data, light sensor, IMU and more (depending on what phone you have).
 
-The phone's sensor data is automatically stored in cloud variables, which you can also synchronize with other Things. This means your phone can become a part of your IoT system, acting as another node in your network.
+The phone's sensor data is automatically stored in Cloud variables, which you can also synchronize with other Things. This means your phone can become a part of your IoT system, acting as another node in your network.
 
 ***The Arduino IoT Remote app now supports data collection in background mode. This can be enabled inside the app. Please note that your microphone is NEVER used in background mode, only when the app is being used directly. See more in the [Background Mode](#background-mode) section***
 
@@ -59,7 +59,7 @@ For a more in depth guide on how to set this up, and how to use it to control yo
 
 ### Background Mode
 
-Now that you've got access to your phone's data, you can also enable the **background mode**. This will allow your phone to continue streaming data to the cloud, even though the app is not being used.
+Now that you've got access to your phone's data, you can also enable the **background mode**. This will allow your phone to continue streaming data to the Cloud, even though the app is not being used.
 
 The exception is your microphone, this one is always disabled in background mode, for data privacy reasons.
 

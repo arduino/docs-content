@@ -50,7 +50,7 @@ To use the advanced widget, you will need to set up a Thing and some variables t
 
 ![Advanced chart widget configuration.](assets/widget-config.png)
 
-**5.** Click on **"Done"** when finished selecting the variables. If your board is connected and is sending data to the cloud, you will see the widget's data update frequently.
+**5.** Click on **"Done"** when finished selecting the variables. If your board is connected and is sending data to the Cloud, you will see the widget's data update frequently.
 
 ## Example Code
 

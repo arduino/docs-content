@@ -14,11 +14,11 @@ author: 'Arduino Security Team'
 In order to provide secure digital services to customers, we at Arduino are committed to regularly monitor and update our services, applications, and infrastructure. 
 In general, the approach  to Security is aligned with Cybersecurity standards such as ISO27001.
 To ensure the highest level of confidentiality, integrity and availability, Arduino operates under a shared security responsibility model. The shared security responsibility model identifies the distinct security responsibilities of the customer and Arduino. In this model:
-* **Arduino** is responsible for the security of the cloud infrastructure services provided to customers and the confidentiality of sensitive data. We provide such security via a number of best practices that all employee in Arduino follow and that are described in the following sections of this document; for example, but not limited to the following:
+* **Arduino** is responsible for the security of the Cloud infrastructure services provided to customers and the confidentiality of sensitive data. We provide such security via a number of best practices that all employee in Arduino follow and that are described in the following sections of this document; for example, but not limited to the following:
    * We limit as much as possible the level of access that Arduino employees have on customers data.
    * Security and privacy training are conducted regularly to ensure the highest possible level of awareness to Arduino employees.
    * Regular penetration and vulnerability security tests are performed to our infrastructure and services to assess that security practices in place are working as intended. 
-* **Customers** are responsible for the security of their account, personal access credentials, and for the information they decide to store in the cloud. Arduino recommends to pay particular attention to the following best practices:
+* **Customers** are responsible for the security of their account, personal access credentials, and for the information they decide to store in the Cloud. Arduino recommends to pay particular attention to the following best practices:
    * **Strong authentication:** taking advantage of strong authentication can significantly help to improve the security of your Arduino account. Options offered by Arduino Cloud are:
      * **Two-step verification:** a second step to verify your identity during login adds an extra layer of protection to your account. Once enabled, you will be asked to provide your regular password and a digit code when logging in. It will be your responsibility to make sure that all relevant data to enter your account when two-step verification is enabled are properly backed up.
      * **Social login:** managing multiple accounts with multiple passwords might become problematic, which is why you can choose to login to your Arduino account using a social login that you already own. Via social login you can authenticate to your Arduino account by using your favorite social account without sharing any sensitive login information with Arduino.
@@ -47,7 +47,7 @@ Security measures are applied to ensure confidentiality and integrity of data:
    * Users’ credentials are hashed using state of the art hashing algorithms.
 * **Protection in transit**: 
    * Any Browser-based or API-based communication uses HTTPS protocol secured with TLS.
-   * IoT devices are sending data to our cloud using MQTT protocol secured with TLS.
+   * IoT devices are sending data to our Cloud using MQTT protocol secured with TLS.
 
 
 ### Secure Software Development Practices

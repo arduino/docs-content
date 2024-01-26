@@ -19,7 +19,7 @@ The options to connect via Ethernet are the following:
 - Connect with the [Opta](https://store.arduino.cc/products/opta-wifi).
 
 To connect with the **Portenta H7** board, you will need one of the following shields/carriers:
-- [Portenta Vision Shield Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
+- [Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
 - [Portenta Machine Control](https://store.arduino.cc/portenta-machine-control)
 
 ***Please note that older hardware such as the [Ethernet Shield Rev2](https://store.arduino.cc/products/arduino-ethernet-shield-2) and [MKR ETH Shield](https://store.arduino.cc/products/arduino-mkr-eth-shield) are currently not supported by the Arduino Cloud.***

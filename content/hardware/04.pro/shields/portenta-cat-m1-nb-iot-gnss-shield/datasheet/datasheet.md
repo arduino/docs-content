@@ -14,7 +14,7 @@ Unleash the global connectivity and positioning capabilities of your Portenta or
 Internet of Things, outdoor asset tracking, positioning, cellular connectivity, fleet management
 
 # Features
-***Note: This board requires a compatible MKR or Portenta board to function. Use together with the Arduino® Vision Shield is not supported.***
+***Note: This board requires a compatible MKR or Portenta board to function. Use together with the Arduino Portenta Vision Shield is not supported.***
 
 - Cinterion TX62 wireless module
   - Cellular connectivity and positioning support

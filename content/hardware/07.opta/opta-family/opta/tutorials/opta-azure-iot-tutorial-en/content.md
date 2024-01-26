@@ -1,6 +1,6 @@
 ---
 title: 'Opta™ with Azure IoT'
-description: "Learn to connect your Opta™ to the Microsoft Azure cloud"
+description: "Learn to connect your Opta™ to the Microsoft Azure Cloud"
 author: 'Mirko Pacioni'
 libraries:
   - name: 'Azure SDK for C'
@@ -39,17 +39,17 @@ This tutorial demonstrates the integration of Opta™ with Azure IoT. You will p
 
 ## Azure IoT
 
-[Azure IoT](https://portal.azure.com) is a set of advanced cloud services provided by the Microsoft Azure platform, designed to facilitate the development, management, and connectivity of IoT solutions. The goal of Azure IoT is to enable developers to build scalable, secure, and reliable IoT applications, transforming device data into meaningful insights and intelligent actions.
+[Azure IoT](https://portal.azure.com) is a set of advanced Cloud services provided by the Microsoft Azure platform, designed to facilitate the development, management, and connectivity of IoT solutions. The goal of Azure IoT is to enable developers to build scalable, secure, and reliable IoT applications, transforming device data into meaningful insights and intelligent actions.
 
-One of the key components of Azure IoT is IoT Hub, which plays a crucial role in managing connectivity between IoT devices and cloud applications. The core features of IoT Hub include:
+One of the key components of Azure IoT is IoT Hub, which plays a crucial role in managing connectivity between IoT devices and Cloud applications. The core features of IoT Hub include:
 
-- **Connection Management:** IoT Hub facilitates secure and bidirectional connection management between IoT devices and the cloud. It supports various communication protocols to adapt to the diverse needs of devices.
+- **Connection Management:** IoT Hub facilitates secure and bidirectional connection management between IoT devices and the Cloud. It supports various communication protocols to adapt to the diverse needs of devices.
 
 - **Automatic Scaling:** IoT Hub can easily handle a large number of devices dynamically and automatically, ensuring reliable connectivity even with a vast network of devices.
 
 - **Advanced Security:** It provides robust security mechanisms, including end-to-end encryption, device authentication, and key management, to protect data transmitted between devices and Azure.
 
-- **Remote Control:** Enables cloud applications to send commands to devices and receive responses, facilitating remote control and automation of connected devices.
+- **Remote Control:** Enables Cloud applications to send commands to devices and receive responses, facilitating remote control and automation of connected devices.
 
 - **Device Management:** Provides device management functionalities such as registration, state monitoring, and lifecycle management, simplifying the operational management of IoT devices.
 
@@ -164,7 +164,7 @@ The example modified for Opta™ is available [here](assets/opta-azure-iot-tutor
 
 ### Sketch Configuration for Connection
 
-To establish a connection to Azure IoT, you don't need to make any changes to your sketch. All the configurations necessary to make the transmission of data from Opta™ to the Microsoft cloud work are enclosed in a few lines of code.
+To establish a connection to Azure IoT, you don't need to make any changes to your sketch. All the configurations necessary to make the transmission of data from Opta™ to the Microsoft Cloud work are enclosed in a few lines of code.
 
 In particular, the information to be customized for the connection is represented by various **#define** in the **iot_configs.h** file.
 

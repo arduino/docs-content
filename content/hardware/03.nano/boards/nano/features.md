@@ -10,9 +10,10 @@ The classic Nano is the oldest member of the Arduino Nano family boards. It is s
 <Feature title="I2C Protocol" image="communication">
 
   A communication protocol that can be used to set up communication between two boards.
-
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="https://www.arduino.cc/reference/en/language/functions/communication/wire/"/>
   <FeatureLink variant="secondary" title="library" url="https://github.com/arduino/ArduinoCore-avr/tree/master/libraries/Wire"/>
+</FeatureWrapper>
 </Feature>
 
 <Feature title="Tiny footprint" image="nano-form-factor">

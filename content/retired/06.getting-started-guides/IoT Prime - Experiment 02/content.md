@@ -3,15 +3,15 @@ title: "IoT Prime - Experiment 02"
 source: "https://arduino.cc/en/IoT-Prime/Experiment02"
 ---
 
-## IoT\-Prime Experiment 2: 
+## IoT\-Prime Experiment 2:
 
 ## Ways of graphing your data
 
 ### Introduction
 
-While sending data to the terminal is a good way of seeing what is happening on the board, there are other ways to see data that will help making sense of the information. Graphing data is a very powerful way to reaching a better understanding of what is going on with the data. While developing this project, you will be introduced to two different techniques for graphic real-life data coming from your board. 
+While sending data to the terminal is a good way of seeing what is happening on the board, there are other ways to see data that will help making sense of the information. Graphing data is a very powerful way to reaching a better understanding of what is going on with the data. While developing this project, you will be introduced to two different techniques for graphic real-life data coming from your board.
 
-The first technique will involve the use of the classic Arduino editor, which includes a simple tool to draw graphs out of data as it arrives over the serial port. The second technique will use an external program to store the data into a CSV (comma-separated values) file that you will be able to import into a spreadsheet program like Libreoffice Calc, Microsoft Excel, or Google Sheets. 
+The first technique will involve the use of the classic Arduino editor, which includes a simple tool to draw graphs out of data as it arrives over the serial port. The second technique will use an external program to store the data into a CSV (comma-separated values) file that you will be able to import into a spreadsheet program like Libreoffice Calc, Microsoft Excel, or Google Sheets.
 
 ### Learning Objectives
 
@@ -38,7 +38,7 @@ The *Arduino MKR1010* (read “maker ten ten”) is a microcontroller board feat
 
 ##### Start Using your Board
 
-You can see how to connect this board to your computer by checking this [Getting Started Guide](https://www.arduino.cc/en/Guide/MKRWiFi1010). You can use that guide to install the offline Arduino IDE that will run from your computer, and to learn how to troubleshoot any potential issues you might have when writing your first programs. You can also start using the online version of Arduino’s code editor that you will find at: <https://create.arduino.cc> Please note that you have to become a registered Arduino user to use the online editor.
+You can see how to connect this board to your computer by checking this [Getting Started Guide](https://www.arduino.cc/en/Guide/MKRWiFi1010). You can use that guide to install the offline Arduino IDE that will run from your computer, and to learn how to troubleshoot any potential issues you might have when writing your first programs. You can also start using the online version of Arduino’s code editor that you will find at: [https://create.arduino.cc](https://create.arduino.cc) Please note that you have to become a registered Arduino user to use the online editor.
 
 #### MKR ENV Shield
 
@@ -60,7 +60,7 @@ These new features come with associated software you will need to install. The s
 
 #### MKR Relay Proto Shield
 
-The MKR Relay Proto Shield is a board providing your MKR1010 board with two relays, which are electromechanical switches, that can be used to control any kind of electrical devices that could be activated with an on-off switch: lamps, fans, water pumps, electrical motors, heaters, etc. Activating the relays is as simple as activating one of the pins that control them, this will allow for electricity to flow. 
+The MKR Relay Proto Shield is a board providing your MKR1010 board with two relays, which are electromechanical switches, that can be used to control any kind of electrical devices that could be activated with an on-off switch: lamps, fans, water pumps, electrical motors, heaters, etc. Activating the relays is as simple as activating one of the pins that control them, this will allow for electricity to flow.
 
 The shield has a prototyping area that could be used to solder your own components and, in that way, make a more final installation using it. This is something we will not see throughout this course, but you should be aware of the possibility.
 
@@ -78,9 +78,9 @@ In this exercise we are going to work with two sensors at once. Together with th
 
 The ENV Shield has a temperature and humidity sensor called HTS221. It is a sensor manufactured by *ST microelectronics*. You can see its [datasheet here](https://content.arduino.cc/assets/Iot-Prime/LPS22HB.pdf). The library exposes the sensor with the methods `readTemperature()` and `readHumidity()`. You can call this method through the object named ENV that is built and exposed when instantiating the library. In other words, all of the sensors on the shield can be accessed by calling the command line `ENV.readSensor()` where `readSensor` has to correspond with the actual sensor being checked. In our case, it is the temperature and humidity, thus the methods are called `readTemperature()` and `readHumidity()`.
 
-Read more about the specifics of the temperature sensor in the previous exercise. The humidity sensor, on the other hand, returns the relative humidity, a scientific unit expressed in percent that, given a volume of air, accounts for the amount of water in a gaseous state compared to the total amount the volume of air could hold. The measure of humidity made this way is a result of water pressure and temperature. 
+Read more about the specifics of the temperature sensor in the previous exercise. The humidity sensor, on the other hand, returns the relative humidity, a scientific unit expressed in percent that, given a volume of air, accounts for the amount of water in a gaseous state compared to the total amount the volume of air could hold. The measure of humidity made this way is a result of water pressure and temperature.
 
-The sensor’s range and accuracy makes is suitable for a lot of interesting experimental settings. The humidity range goes between ± 3.5% rH, at 20 (°C) to +80% rH. The rH sensitivity is of 0.004% rH. 
+The sensor’s range and accuracy makes is suitable for a lot of interesting experimental settings. The humidity range goes between ± 3.5% rH, at 20 (°C) to +80% rH. The rH sensitivity is of 0.004% rH.
 
 ### How Data is Consumed Directly from the Serial Port
 
@@ -92,7 +92,7 @@ The same script that was before printing text on the terminal, will now produce 
 
 ![Figure 4: Serial Plotter from the offline Arduino IDE](assets/image0204.png)
 
-This technique is giving you a way to graph data as it arrives, but it is lost over time. We are interested in analysing historical data from your sensors, what requires storing it into files, or alternatively, onto the cloud. In the second part of this exercise, you are going to be storing the data into a file and later opening it in a spreadsheet software.
+This technique is giving you a way to graph data as it arrives, but it is lost over time. We are interested in analysing historical data from your sensors, what requires storing it into files, or alternatively, onto the Cloud. In the second part of this exercise, you are going to be storing the data into a file and later opening it in a spreadsheet software.
 
 ### How Data can be Stored in Files from the Serial Port
 
@@ -183,25 +183,25 @@ void loop() {
 
 [\[Get Code\]](//www.arduino.cc/en/IoT-Prime/Experiment02?action=sourceblock&num=1)
 
-*Figure 10: Code listing for the 01\_two\_sensors\_reader\_v0001 sketch* 
+*Figure 10: Code listing for the 01\_two\_sensors\_reader\_v0001 sketch*
 
-To use of the ENV Shield library call: `#include <Arduino_MKRENV.h>` 
+To use of the ENV Shield library call: `#include <Arduino_MKRENV.h>`
 
 #### Using the serial port
 
 You can see how the serial port is initialised on the board by the call to `Serial.begin(9600)`, at the same time, the following line `while (!Serial)` is telling the program not to proceed unless the terminal has been opened in the computer. This is important as we will be storing the data in a file, and the file will not be initialized until the serial terminal software is not put to work.
 
-The call to `ENV.begin()` is both initialising the sensors on the board, and checking that there is a shield connected to the MKR1010 board and that the sensors are operating properly. 
+The call to `ENV.begin()` is both initialising the sensors on the board, and checking that there is a shield connected to the MKR1010 board and that the sensors are operating properly.
 
 #### Getting the sensor data
 
-The readings for all of the values of the sensors are of float type, therefore the variable declarations read `float temperature = 0` and `float humidity = 0` 
+The readings for all of the values of the sensors are of float type, therefore the variable declarations read `float temperature = 0` and `float humidity = 0`
 
 When calling `temperature = ENV.readTemperature()` and `humidity = ENV.readHumidity()` the program will be requesting the information about those sensors from the shield and storing them in their respective variables. The key aspect is going to be how to package that information to send it back to the computer that will retrieve it and put it in a file.
 
 As you saw in the example CSV file, the information is separated by commas (you could use other separators instead) and each record is stored in separate lines. An important feature is that you can use the first line of the CSV file as indicators of the type of data to be stored. In that way, if you were to store the temperature first and humidity second, you could simply make sure that the first line of the data sent to the computer includes the string: **"temperature,humidity"** (if you needed to use blank spaces in the strings, you should use yet another separator). This first line should be included just once, for that you should add `Serial.println("temperature,humidity")` directly at the program’s setup, once the serial port has been made available.
 
-In the loop, after requesting the data from the sensors, you will have to sequentially print each one of the pieces of the data to the serial port, including a comma between the information of each sensor: `Serial.print(temperature); Serial.print(","); Serial.println(humidity);` Note how the program finally calls to `Serial.println()` to include an end of line after printing the data. 
+In the loop, after requesting the data from the sensors, you will have to sequentially print each one of the pieces of the data to the serial port, including a comma between the information of each sensor: `Serial.print(temperature); Serial.print(","); Serial.println(humidity);` Note how the program finally calls to `Serial.println()` to include an end of line after printing the data.
 
 ### Data Displayed
 
@@ -209,7 +209,7 @@ Besides the graphing we made using the plotter included in the Arduino editor, g
 
 #### Create the File
 
-When calling the option of using a file in CoolTerm, it will give you the option of choosing where to record the file in your computer and how to name it. Just to make it easy, store the file on your desktop and name it *datalog.csv* 
+When calling the option of using a file in CoolTerm, it will give you the option of choosing where to record the file in your computer and how to name it. Just to make it easy, store the file on your desktop and name it *datalog.csv*
 
 ![Figure 11: CollTerm menu and option selection](assets/image0211.png)
 
@@ -262,7 +262,7 @@ We have two different streams of data: temperature and humidity, next we will ma
 **4.** Confirm the range of data you will be representing
 **5.** Confirm that the first row is the name of the data
 **6.** Enjoy your graph
-      
+
 
 <iframe width="640" height="360" src="https://youtu.be/MSCdl0H5O0k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -287,4 +287,4 @@ In this project you have learned how to get data from sensors, send it to a comp
 
 These steps are basic if you want to use your board into any kind of scientific project of sorts where you need to collect data, and make graphs in order to come to conclusions about what happens with the data. We gave you the challenge of adding a timestamp to your data. You can both use relative and absolute timestamps. It is possible to get the date and time from the Internet, since the MKR1010 has wireless connectivity and can connect to other systems to collect that information. The more simple solution of using the internal time counter is also possible, and can work even if there is no Internet available.
 
-[Learn more at Experiment 03](./../Experiment03/content.md) 
+[Learn more at Experiment 03](./../Experiment03/content.md)

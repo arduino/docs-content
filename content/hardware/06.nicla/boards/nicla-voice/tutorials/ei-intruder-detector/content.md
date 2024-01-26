@@ -1,6 +1,6 @@
 ---
 title: 'Door Intruder Detector Using ML with the Nicla Voice'
-description: "This application note describes how to identify when intruders are trying to force an entrance door by analyzing surroundings sounds using a Nicla Voice, Machine Learning Tools, and the Arduino IoT Cloud."
+description: "This application note describes how to identify when intruders are trying to force an entrance door by analyzing surroundings sounds using a Nicla Voice, Machine Learning Tools, and the Arduino Cloud."
 difficulty: intermediate
 tags:
   - Intruder detector
@@ -9,7 +9,7 @@ tags:
   - BLE
   - Machine Learning Tools
   - Sound recognition
-  - Arduino IoT Cloud
+  - Arduino Cloud
   - Application Note
 author: 'Christopher Mendez'
 libraries:
@@ -41,12 +41,12 @@ In such a connected world, where we have a lot of information in the palm of our
 
 ## Goals
 
-The goal of this application note is to showcase an intruder detection and monitoring system for the front door of the house using a combination of Nicla Voice and Portenta H7 as a host, and the Arduino IoT Cloud. The project's objectives are the following:
+The goal of this application note is to showcase an intruder detection and monitoring system for the front door of the house using a combination of Nicla Voice and Portenta H7 as a host, and the Arduino Cloud. The project's objectives are the following:
 
 - Analyze the surrounding sounds with the onboard microphone of the Nicla Voice and run artificial intelligence algorithms at the edge.
 - Correctly identify if a door has been opened in an ordinary manner or suffered a forced attempt.
 - Report opening and intruder detection events through Bluetooth® Low Energy to a Host.
-- The host must forward the data from the Nicla Voice to the Arduino IoT cloud using an Internet connection (Wi-Fi® in this case).
+- The host must forward the data from the Nicla Voice to the Arduino Cloud using an Internet connection (Wi-Fi® in this case).
 - Create an Arduino Cloud dashboard that syncs in real time to inform and alert the user.
 - Gather real-world data to train a Machine Learning model.
 
@@ -131,7 +131,7 @@ The Nicla Voice will be attached to the guarded door and near the lock, the Port
 
 ![Nicla Voice and Portenta H7 deployment spots](assets/project_deploy.png)
 
-The Nicla will communicate with the Portenta H7 through Bluetooth® Low Energy advertising any event to the host that will receive and forward the notification to the Arduino IoT cloud using Wi-Fi®.
+The Nicla will communicate with the Portenta H7 through Bluetooth® Low Energy advertising any event to the host that will receive and forward the notification to the Arduino Cloud using Wi-Fi®.
 
 The Nicla Voice is powered by a LiPo battery inside its enclosure. The Portenta H7 will be powered by a 5 VDC USB adapter. Although the Portenta H7 can work for long periods without needing external cooling, it is always recommended to keep the devices that are working 24/7 as cool as possible, having the Portenta H7 enclosure a cooling fan connected.
 
@@ -260,8 +260,8 @@ In the global parameters, we have two variables that will store the local status
 byte BatteryValue = 0;  // last battery level received.
 byte AlertValue = 0;    // last alert value received.
 ```
-In the `thingProperties.h` file we encounter the definition of several important variables to properly connect our project to the internet and the Arduino IoT Cloud.
-- We must update the `THING_ID` variable with our Arduino IoT Cloud Thing ID.
+In the `thingProperties.h` file we encounter the definition of several important variables to properly connect our project to the internet and the Arduino Cloud.
+- We must update the `THING_ID` variable with our Arduino Cloud Thing ID.
 - For a successful internet connection, we must update the `SSID` and `PASS` variables with our Wi-Fi® credentials.
 
 In the `initProperties()` function we have listed the variables that will be monitored in the IoT Cloud and their update method, in this case, is `ON_CHANGE` which means that the Portenta H7 will only send the value of any variable to the Cloud if it's changes compared to the previous value.
@@ -289,7 +289,7 @@ void initProperties(){
 
 WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
 ```
-The main responsibility of the Portenta H7 code is to connect to the Nicla Voice and be aware of new notifications to forward them to the Cloud. To achieve this, the first thing done by the Portenta is to initialize the Bluetooth® Low Energy communication, then initialize the Arduino IoT Cloud service and start scanning for peripherals.
+The main responsibility of the Portenta H7 code is to connect to the Nicla Voice and be aware of new notifications to forward them to the Cloud. To achieve this, the first thing done by the Portenta is to initialize the Bluetooth® Low Energy communication, then initialize the Arduino Cloud service and start scanning for peripherals.
 
 ```arduino
   // Initialize BLE
@@ -302,7 +302,7 @@ The main responsibility of the Portenta H7 code is to connect to the Nicla Voice
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   if (!ArduinoCloud.begin(ArduinoIoTPreferredConnection)) {
     Serial.println("ArduinoCloud.begin FAILED!");
   }

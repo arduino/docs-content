@@ -41,7 +41,6 @@ In this guide you will discover:
 The M4 processor can access most of the peripherals that the M7 can access, with some exceptions.
 
 The M4 supports:
-- Wi-Fi®
 - I2C
 - SPI
 - UART
@@ -51,6 +50,7 @@ The M4 supports:
 - Bluetooth® Low Energy (via [ArduinoBLE Library](https://www.arduino.cc/reference/en/libraries/arduinoble/))
 
 The M4 does **not** support:
+- Wi-Fi®
 - Serial communication\*
 - [Arduino Cloud](https://app.arduino.cc) sketches.
 

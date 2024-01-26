@@ -75,4 +75,4 @@ arduino-cli compile -b arduino:mbed_portenta:envie_m7 --board-options security=s
 ```
 
 ## Learn More
-If you want to implement secure boot for your platform, have a look at [this article] (https://arduino.github.io/arduino-cli/latest/guides/secure-boot/).
+If you want to implement secure boot for your platform, have a look at [this article](https://arduino.github.io/arduino-cli/latest/guides/secure-boot/).

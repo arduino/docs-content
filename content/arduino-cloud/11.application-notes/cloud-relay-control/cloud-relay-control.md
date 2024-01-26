@@ -58,7 +58,7 @@ To configure a device, navigate to the [app.arduino.cc/devices](https://app.ardu
 
 ### Create Variables
 
-Next step is to create some cloud variables, which we will later sync with our Arduino MKR WiFi 1010 board.
+Next step is to create some Cloud variables, which we will later sync with our Arduino MKR WiFi 1010 board.
 
 While in Thing configuration, click on **"Add Variable"** which will open a new window. Add the following variables with the specified configurations:
 
@@ -71,7 +71,7 @@ Your Thing interface should now look something like this:
 
 ![Thing Interface](assets/thing.png)
 
-***Need help understanding cloud variables? Check out the [Variables](/arduino-cloud/cloud-interface/variables) section.***
+***Need help understanding Cloud variables? Check out the [Variables](/arduino-cloud/cloud-interface/variables) section.***
 
 ### Create Sketch
 
@@ -153,7 +153,7 @@ You can also access your dashboard via the [Arduino IoT Remote app](/arduino-clo
 
 ***Note: Working with higher voltage components should be done with extreme caution. Do not alter the circuit while it is connected to a higher power source, and do not connect any high voltage components directly to the Arduino.*** 
 
-We've now set up the cloud to control the relays, but there's nothing connected to the relays. The relays on the MKR Relay Shield are designed to typically handle anything from 5-24V, where you will need to connect an external power supply and a higher power component that can be controlled through the relays.
+We've now set up the Cloud to control the relays, but there's nothing connected to the relays. The relays on the MKR Relay Shield are designed to typically handle anything from 5-24V, where you will need to connect an external power supply and a higher power component that can be controlled through the relays.
 
 There are six **high power pins** for both relays on the shield, with three different type of connections: NO, COM and NC. 
 

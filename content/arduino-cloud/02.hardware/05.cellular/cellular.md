@@ -1,21 +1,21 @@
 ---
-title: NB-IoT / GSM
-description: Learn how to configure an NB-IoT / GSM devices in the Arduino Cloud.
-tags: [NB-IoT, GSM, Arduino Cloud, IoT]
+title: Cellular
+description: Learn how to configure an cellular devices in the Arduino Cloud.
+tags: [LTE-M, Cat-M1, GSM, Arduino Cloud, IoT]
 author: Karl Söderby
 hardware:
   - hardware/01.mkr/01.boards/mkr-gsm-1400
   - hardware/01.mkr/01.boards/mkr-nb-1500
 ---
 
-A number of Arduino boards are able to connect to the Arduino Cloud using a sim card, using either the GSM or NB-IoT technologies.
+A number of Arduino boards are able to connect to the Arduino Cloud using a sim card, using either the GSM or LTE-M (Cat-M1) technologies.
 
 ## Supported Boards
 
 - [MKR GSM 1400](https://store.arduino.cc/arduino-mkr-gsm-1400)
 - [MKR NB 1500](https://store.arduino.cc/arduino-mkr-nb-1500-1413)
 
-Connection through mobile networks can be considered in remote areas where there's no Wi-Fi, or in mobile projects (such as cargo tracking).  
+Connection through cellular networks can be considered in remote areas where there's no Wi-Fi, or in mobile projects (such as cargo tracking).
 
 ***For more information, visit the [Arduino SIM page](https://store.arduino.cc/digital/sim).***
 
@@ -23,7 +23,7 @@ Connection through mobile networks can be considered in remote areas where there
 
 ## Setup
 
-To configure a NB-IoT / GSM board, follow the steps below:
+To configure a cellular board, follow the steps below:
 
 **1.** Connect your board to your computer.
 

@@ -22,11 +22,11 @@ This application note explores the implementation of a simple yet useful energy 
 
 Non-invasive current transformers offer several advantages, including electrical safety, easy installation, and the ability to measure current in existing electrical circuits without interrupting the flow of current. These characteristics make them well-suited for applications such as energy metering, power monitoring, and load management.
 
-The Portenta C33 features a powerful microcontroller and onboard wireless connectivity, making it an ideal choice for energy monitoring applications. The Portenta C33's onboard Wi-Fi® module enables seamless integration with wireless networks and facilitates communication with the [Arduino IoT Cloud platform](https://create.arduino.cc/iot/).
+The Portenta C33 features a powerful microcontroller and onboard wireless connectivity, making it an ideal choice for energy monitoring applications. The Portenta C33's onboard Wi-Fi® module enables seamless integration with wireless networks and facilitates communication with the [Arduino Cloud platform](https://create.arduino.cc/iot/).
 
 ![Portenta C33 with a non-invasive current transformer](assets/C33_application_1.png)
 
-By combining the Portenta C33 and the SCT013-000 current transformer, you can quickly build an energy meter that can measure Root Means Square (RMS) current, power consumption, and communicates the data to the Arduino IoT Cloud platform for further analysis and visualization.
+By combining the Portenta C33 and the SCT013-000 current transformer, you can quickly build an energy meter that can measure Root Means Square (RMS) current, power consumption, and communicates the data to the Arduino Cloud platform for further analysis and visualization.
 
 ## Goals
 
@@ -36,7 +36,7 @@ The main goals of this application note are as follows:
 - Showcase the integration of the Portenta C33 board with a non-invasive current transformer to measure AC current.
 - Calculate the RMS (Root Mean Square) value of a current waveform, providing an accurate representation of the actual current flowing through the circuit.
 - Use the measured RMS current and a known AC voltage to calculate power consumption in Watts.
-- Establish a connection between the Portenta C33 and the Arduino IoT Cloud to send the measured RMS current data for further analysis, visualization, and remote monitoring.
+- Establish a connection between the Portenta C33 and the Arduino Cloud to send the measured RMS current data for further analysis, visualization, and remote monitoring.
 
 ## Hardware and Software Requirements
 
@@ -51,7 +51,7 @@ The main goals of this application note are as follows:
 ### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
-- For the Wi-Fi® connectivity feature of Portenta C33, we will use [Arduino IoT Cloud](https://create.arduino.cc/iot/things). In case you do not have an account, create one for free [here](https://cloud.arduino.cc/).
+- For the Wi-Fi® connectivity feature of Portenta C33, we will use [Arduino Cloud](https://create.arduino.cc/iot/things). In case you do not have an account, create one for free [here](https://cloud.arduino.cc/).
 - The [energy meter example sketch](assets/current_transformer.zip)
 
 ## Hardware Setup Overview
@@ -118,7 +118,7 @@ The non-invasive current transformer sketch has a simple structure which is expl
   @version 1.0 20/06/23
 */
 
-// Import the properties and definitions for the Arduino IoT Cloud integration
+// Import the properties and definitions for the Arduino Cloud integration
 #include "thingProperties.h"
 
 // Define a floating-point conversion factor for the SCT013-000 current transformer configuration
@@ -147,7 +147,7 @@ void setup() {
   analogReadResolution(12);
   delay(1000); 
 
-  // Call the function to setup the Arduino IoT Cloud
+  // Call the function to setup the Arduino Cloud
   iot_cloud_setup();
 }
 
@@ -172,7 +172,7 @@ void loop() {
     Serial.println(F("- Energy measurement has been paused!"));
   }
   
-  // Update the RMS current and apparent power in the Arduino IoT Cloud
+  // Update the RMS current and apparent power in the Arduino Cloud
   cloud_Current = Irms;
   cloud_ApparentPower = AP;
   
@@ -181,7 +181,7 @@ void loop() {
 }
 
 /**
-  This function is executed every time a new value is received from the Arduino IoT Cloud
+  This function is executed every time a new value is received from the Arduino Cloud
   
   @param none
   @return none
@@ -230,7 +230,7 @@ float getCurrent() {
 }
 
 /**
-  Sets up the connection to the Arduino IoT Cloud
+  Sets up the connection to the Arduino Cloud
   
   @param none
   @return none
@@ -239,7 +239,7 @@ void iot_cloud_setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
@@ -258,7 +258,7 @@ void iot_cloud_setup() {
 }
 
 /**
-  This function is executed every time a new value from sct_ratio is received from the Arduino IoT Cloud
+  This function is executed every time a new value from sct_ratio is received from the Arduino Cloud
   
   @param none
   @return none
@@ -268,14 +268,14 @@ void onSctRatioChange()  {
 }
 
 /*
-  This function is executed every time a new value from system_Voltage is received from the Arduino IoT Cloud
+  This function is executed every time a new value from system_Voltage is received from the Arduino Cloud
 */
 void onSystemVoltageChange()  {
   Region_Voltage = system_Voltage;
 }
 
 *
-  This function is executed every time a new value from sample_Control is received from the Arduino IoT Cloud
+  This function is executed every time a new value from sample_Control is received from the Arduino Cloud
 */
 void onSampleControlChange()  {
   Sample_Switch = sample_Control;
@@ -320,7 +320,7 @@ bool Sample_Switch = true;
 
 ### Initialization Function
 
-The `setup()` function helps set up the communication with the Arduino IoT Cloud, as well as the communication settings of the board itself:
+The `setup()` function helps set up the communication with the Arduino Cloud, as well as the communication settings of the board itself:
 
 ```arduino
 void setup() {
@@ -334,7 +334,7 @@ void setup() {
   analogReadResolution(12);
   delay(1000); 
 
-  // Call the function to setup the Arduino IoT Cloud
+  // Call the function to setup the Arduino Cloud
   iot_cloud_setup();
 }
 ```
@@ -344,7 +344,7 @@ This function runs once when the Portenta C33 starts:
 * It initializes the serial communication.
 * Sets the pin mode of the current transformer input pin to input. 
 * Sets the ADC resolution to 12 bits and waits for a second for the system to stabilize.
-* Finally calls the `iot_cloud_setup()` function to set up the Arduino IoT Cloud connection.
+* Finally calls the `iot_cloud_setup()` function to set up the Arduino Cloud connection.
 
 ### The Main Loop
 
@@ -372,7 +372,7 @@ void loop() {
     Serial.println(F("- Energy measurement has been paused!"));
   }
   
-  // Update the RMS current and apparent power in the Arduino IoT Cloud
+  // Update the RMS current and apparent power in the Arduino Cloud
   cloud_Current = Irms;
   cloud_ApparentPower = AP;
   
@@ -383,7 +383,7 @@ void loop() {
 
 The main `loop()` function executes continuously. At each iteration:
 
-* It first updates the Arduino IoT Cloud connection. 
+* It first updates the Arduino Cloud connection. 
 * If the `Sample_Switch` is true, it measures current, calculates apparent power, and prints them to the IDE's Serial Monitor. 
 * If `Sample_Switch` is false, it simply prints that the energy measurement is paused.
 * It then updates the `cloud_Current` and `cloud_ApparentPower` variables with the local values of current and apparent power, then waits for a second before the next iteration.
@@ -397,7 +397,7 @@ void iot_cloud_setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
@@ -416,12 +416,12 @@ void iot_cloud_setup() {
 }
 ```
 
-This function is responsible for setting up the connection with the Arduino IoT Cloud: 
-* It initiates the properties of the cloud connection. 
-* Begins the cloud connection with the preferred connection method. 
+This function is responsible for setting up the connection with the Arduino Cloud: 
+* It initiates the properties of the Cloud connection. 
+* Begins the Cloud connection with the preferred connection method. 
 * Sets the debug message level to 2 for detailed debugging, and prints the debug information.
 
-The variables `sct_ratio`, `system_Voltage`, and `sample_Control` are used to synchronize the local values with the Arduino IoT Cloud.
+The variables `sct_ratio`, `system_Voltage`, and `sample_Control` are used to synchronize the local values with the Arduino Cloud.
 
 Now, let's talk about the `getCurrent()` function:
 
@@ -461,11 +461,11 @@ float getCurrent() {
 
 The `getCurrent()` function calculates the RMS current from the sensor reading. It reads the sensor value, converts it to voltage, then calculates the current. The square of the current is summed over 0.5 seconds (approximately 30 cycles at 60 Hz). This sum is compensated for the negative semi-cycle quadratics and then used to calculate the RMS current. This value is returned to the user.
 
-Finally, `onSctRatioChange()`, `onSystemVoltageChange()`, and `onSampleControlChange()` functions: These functions get executed every time the corresponding value is changed from the Arduino IoT Cloud. For example, if `onSctRatioChange()` is executed, the `Sensor_Factor` will be updated with the new value received from the cloud, and similarly for the others.
+Finally, `onSctRatioChange()`, `onSystemVoltageChange()`, and `onSampleControlChange()` functions: These functions get executed every time the corresponding value is changed from the Arduino Cloud. For example, if `onSctRatioChange()` is executed, the `Sensor_Factor` will be updated with the new value received from the Cloud, and similarly for the others.
 
 ### Full Example Code
 
-The complete example code can be downloaded [here](assets/current_transformer.zip). The `thingProperties.h` header is already included for your reference, and it is based on the variables of the example code. The header is generated automatically with Arduino IoT Cloud. If you desire to modify the requirements of the application environment, it is recommended to make changes within the Arduino Cloud environment.
+The complete example code can be downloaded [here](assets/current_transformer.zip). The `thingProperties.h` header is already included for your reference, and it is based on the variables of the example code. The header is generated automatically with Arduino Cloud. If you desire to modify the requirements of the application environment, it is recommended to make changes within the Arduino Cloud environment.
 
 ### Arduino Cloud Dashboard
 
@@ -483,9 +483,9 @@ On a mobile phone, the Arduino Cloud dashboard displays the information as the p
 
 ## Conclusions
 
-In this application note, we delved into the interaction between a Portenta C33 board and the SCT013-000 current transformer. We examined how the Arduino IoT Cloud enables us to visualize and analyze real-time and historical sensor data intuitively.
+In this application note, we delved into the interaction between a Portenta C33 board and the SCT013-000 current transformer. We examined how the Arduino Cloud enables us to visualize and analyze real-time and historical sensor data intuitively.
 
-By using the Portenta C33 board and the Arduino IoT Cloud, you can transform raw sensor data into meaningful insights. Whether it is reading the RMS current and apparent power information, altering the current transformer configurations in real-time, or adapting to unique site requirements, this application note offers a robust and versatile system for handling these tasks.
+By using the Portenta C33 board and the Arduino Cloud, you can transform raw sensor data into meaningful insights. Whether it is reading the RMS current and apparent power information, altering the current transformer configurations in real-time, or adapting to unique site requirements, this application note offers a robust and versatile system for handling these tasks.
 
 One of the key takeaways from this application note is its potential for this application in various real-world scenarios. By integrating IoT and Cloud capabilities, we can effectively monitor and manage energy usage, leading to more efficient power consumption and contributing to a sustainable future.
 

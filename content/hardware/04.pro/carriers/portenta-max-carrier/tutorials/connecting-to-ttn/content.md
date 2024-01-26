@@ -18,7 +18,7 @@ software:
 
 ## Overview
 
-This tutorial explains how to connect your [Arduino® Max Carrier](http://store.arduino.cc/portenta-max-carrier), with an [Arduino® Portena H7](https://store.arduino.cc/products/portenta-h7) to The Things Network (TTN) using its onboard LoRaWAN® module. The article will focus on achieving communication between the Max Carrier and an application on TTN. 
+This tutorial explains how to connect your [Arduino® Max Carrier](http://store.arduino.cc/portenta-max-carrier), with an [Arduino® Portenta H7](https://store.arduino.cc/products/portenta-h7) to The Things Network (TTN) using its onboard LoRaWAN® module. The article will focus on achieving communication between the Max Carrier and an application on TTN. 
 
 ## Goals
 
@@ -28,7 +28,7 @@ This tutorial explains how to connect your [Arduino® Max Carrier](http://store.
 
 ### Required Hardware and Software
 
-- [Portena H7](https://store.arduino.cc/products/portenta-h7).
+- [Portenta H7](https://store.arduino.cc/products/portenta-h7).
 - [Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier).
 - 868-915 MHz antenna with SMA connector.
 - USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®).

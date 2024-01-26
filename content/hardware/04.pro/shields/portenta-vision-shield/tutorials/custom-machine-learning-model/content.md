@@ -25,7 +25,7 @@ This tutorial teaches you how to train a custom machine learning model with Edge
 ## Required Hardware and Software
 
 - [Portenta H7 board](https://store.arduino.cc/portenta-h7)
-- [Portenta Vision Shield - LoRa®](https://store.arduino.cc/portenta-vision-shield-lora) or [Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora®)
+- [Portenta Vision Shield - LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
 - USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
 - An [Edge Impulse®](https://studio.edgeimpulse.com/) account for training the ML model
 - Fruits (or other objects) to create the classification model 🍏🍌🍐
@@ -48,7 +48,7 @@ To train a ML model to classify an image we need to feed it with image data of t
 
 The first step is to create a representative dataset of objects the ML model is supposed to identify. The key is to have as much diversity in the models as possible. If you show for example only one specific apple that has a certain size, shape and peel, then it will not be very good at recognizing other apples that look different. This is referred to as a bias and should be avoided as much as possible. In addition, you need to teach the model what an apple is not. For that purpose, you feed it random image data of things that are not an apple. You could name that class of image data "unknown". If you do not have such a class and the model has only seen an apple, it will not know what to do if there is no apple in the image.
 
-Creating data sets in OpenMV is simple as there is a built-in function to create them. Before you proceed, connect your Portenta H7 board with the Vision Shield mounted. Click on the connect button in the OpenMV IDE. If you haven't set up your board with OpenMV yet, please consult the [getting started tutorial](https://docs.arduino.cc/tutorials/portenta-h7/getting-started-openmv-micropython).
+Creating data sets in OpenMV is simple as there is a built-in function to create them. Before you proceed, connect your Portenta H7 board with the Portenta Vision Shield mounted. Click on the connect button in the OpenMV IDE. If you haven't set up your board with OpenMV yet, please consult the [getting started tutorial](https://docs.arduino.cc/tutorials/portenta-h7/getting-started-openmv-micropython).
 
 Create a new dataset by using the menu command **Tools > Dataset Editor > New Dataset** and name it `Dataset-Fruits`.
 

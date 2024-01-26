@@ -209,30 +209,30 @@ The reference voltage of all digital pins is 5 V.
 The UNO R4 Minima has a total of four LEDs, three of which are programmable:
 - **ON** - power LED, cannot be programmed.
 - `LED_BUILTIN` - classic "built-in LED", attached to pin 13.
-- `RX_LED` - LED labelled "RX" on the board.
-- `TX_LED` - LED labelled "TX" on the board.
+- `LED_RX` - LED labelled "RX" on the board.
+- `LED_TX` - LED labelled "TX" on the board.
 
-To control these, define them as outputs and write desired state. The below example blinks each LED every second.
+To control these, define them as outputs and write the desired state. The below example blinks each LED every second.
 
 ```arduino
 void setup(){
   //define pins as output
   pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(RX_LED, OUTPUT);
-  pinMode(TX_LED, OUTPUT);
+  pinMode(LED_RX, OUTPUT);
+  pinMode(LED_TX, OUTPUT);
 }
 
 void loop(){
   //turn on all LEDs
   digitalWrite(LED_BUILTIN, HIGH);
-  digitalWrite(LED_RX, HIGH);
-  digitalWrite(LED_TX, HIGH);
+  digitalWrite(LED_RX, LOW);
+  digitalWrite(LED_TX, LOW);
   delay(1000);
 
   //turn off all LEDs
   digitalWrite(LED_BUILTIN, LOW);
-  digitalWrite(LED_RX, LOW);
-  digitalWrite(LED_TX, LOW);
+  digitalWrite(LED_RX, HIGH);
+  digitalWrite(LED_TX, HIGH);
   delay(1000);
 }
 ```
