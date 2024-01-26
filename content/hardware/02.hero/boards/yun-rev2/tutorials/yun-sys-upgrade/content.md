@@ -8,9 +8,9 @@ tags: [Yún]
 ***Note: this procedure is applicable only on the Yún; if you have anything different, you may still be able to upgrade it to the current image, but using a different process that we do not encourage nor suggest. It has dangers and difficulties and you could easily brick your board. The warranty of our boards that go through this process is void. If you still want to try it, you need to  to upgrade the bootloader following the [bootloader update](https://www.arduino.cc/en/Tutorial/YunUBootReflash) procedure and then proceed with the kernel and rootfs as explained on the same page.***
 
 **Yún Shield owners only**
-The [Yún Shield](https://www.arduino.cc/en/Main/ArduinoYunShield) is shipped with a different OpenWRT Linux image which is incompatible with the v1.5.3 Yún update you can find on the main [download page](https://www.arduino.cc/en/Main/Software). The stock OpenWRT Linux image of the Yún Shield has the version number 1.6.2 and there aren't yet available updates. However the sysupgrade image is available for download [here](http://downloads.arduino.cc/openwrtyun/1.6.2/YunSysupgradeImage_v1.6.2.zip).
+The [Yún Shield](https://www.arduino.cc/en/Main/ArduinoYunShield) is shipped with a different OpenWRT Linux image which is incompatible with the v1.5.3 Yún update you can find on the main [download page](https://www.arduino.cc/en/Main/Software). The stock OpenWRT Linux image of the Yún Shield has the version number 1.6.2 and there aren't yet available updates. However the sysupgrade image is available for download [here](https://downloads.arduino.cc/openwrtyun/1.6.2/YunSysupgradeImage_v1.6.2.zip).
 
-The list of available packages for the Yún is available [here](http://downloads.arduino.cc/openwrtyun/1.6.2/packages/index.html).
+The list of available packages for the Yún is available [here](https://downloads.arduino.cc/openwrtyun/1.6.2/packages/index.html).
 See the list of [changes](https://github.com/arduino/openwrt-yun-1505/blob/15.05-openwrt-patched/CHANGELOG).
 
 **If you erroneously upgraded a Yún board with the image for the Yún Shield (1.6.2) the device won't boot because it has an incompatible bootloader. You can still recover your device following this [Image Restore procedure](https://www.arduino.cc/en/Tutorial/YunSysRestore) and keep your original warranty status.**
