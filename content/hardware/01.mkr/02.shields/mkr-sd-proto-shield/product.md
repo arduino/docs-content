@@ -4,6 +4,7 @@ url_shop: https://store.arduino.cc/mkr-sd-proto-shield
 url_guide: /tutorials/mkr-sd-proto-shield/mkr-sd-proto-shield-data-logger
 primary_button_url: /tutorials/mkr-sd-proto-shield/mkr-sd-proto-shield-data-logger
 primary_button_title: Get Started
+forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
 certifications: [CE, UKCA]
 ---
 
