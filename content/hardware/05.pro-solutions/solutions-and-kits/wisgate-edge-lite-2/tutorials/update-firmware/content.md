@@ -36,9 +36,7 @@ You can check out the needed steps on the [Getting Started tutorial](./getting-s
 
 ### Download the Latest Firmware Version
 
-Go to your gateway's ([WisGate Edge Lite 2](../../hardware/wisgate-edge-lite-2#essentials) or [WisGate Edge Pro](../../hardware/wisgate-edge-pro#essentials)) Arduino Docs Product Page. On the page go to the Essentials section and click the **Latest Firmware Version** link.
-
-![Product Page Essentials section](assets/wisgate-essentials.png)
+To update the firmware of your product click here to download the [**Latest Firmware Version**](https://content.arduino.cc/assets/WisGateOS_2.1.4_ARDUINO_RAK.zip).
 
 You will get a zip file called `WisGateOS_<version>_ARDUINO_RAK.zip`. Unzip it and you will have the required firmware files.
 
