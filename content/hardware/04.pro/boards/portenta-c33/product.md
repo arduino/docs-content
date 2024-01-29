@@ -5,7 +5,7 @@ url_guide: /tutorials/portenta-c33/user-manual
 primary_button_url: /tutorials/portenta-c33/user-manual
 primary_button_title: User Manual
 core: arduino:mbed_portenta
-certifications: [CE, UKCA, RoHS, MIC, FCC, RCM]
+certifications: [CE, UKCA, RoHS, MIC, FCC, RCM, IC]
 #forumCategorySlug: '/hardware/portenta/91'
 #productCode: '041'
 ---
