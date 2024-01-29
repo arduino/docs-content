@@ -554,9 +554,9 @@ This sub-section introduces the essential hardware connection points and interfa
 
 The Portenta X8, H7, and C33 enhance functionality through High-Density connectors. For a comprehensive understanding of these connectors, please refer to the complete pinout documentation for each Portenta model.
 
-- [Complete Portenta X8 pinout information](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
-- [Complete Portenta H7 pinout information](https://docs.arduino.cc/static/2d38006e78d2abc588a80f12bb9c0c70/ABX00042-full-pinout.pdf)
-- [Complete Portenta C33 pinout information](https://docs.arduino.cc/static/903c16295f3bf076c2ed23eb1b38791c/ABX00074-full-pinout.pdf)
+- [Complete Portenta X8 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00049-full-pinout.pdf)
+- [Complete Portenta H7 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00042-full-pinout.pdf)
+- [Complete Portenta C33 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf)
 
 ### USB Interface
 
