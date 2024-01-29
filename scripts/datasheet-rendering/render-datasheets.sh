@@ -9,7 +9,6 @@ if [ -n "$CI" ]; then
 
     apt-get install -y language-pack-zh*
 
-    fc-list :lang=zh
 
     mkdir /usr/share/fonts/truetype/open-sans
     mkdir /usr/share/fonts/truetype/roboto-mono
