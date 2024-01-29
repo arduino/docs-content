@@ -158,7 +158,7 @@ void printMacAddress(byte mac[]) {
 }
 ```
 
-### Wi-Fi RTC Example
+### RTC / UDP / NTP Example
 
 ```arduino
 /*
@@ -346,7 +346,7 @@ void printWifiStatus()
 }
 ```
 
-### Wi-Fi RTC Example with Timezone Adjustment
+### RTC / UDP / NTP Example (Timezone)
 
 This example provides an option to set the timezone. As the received epoch is based on GMT time, you can input e.g. `-1` or `5` which represents the hours. The `timezone` variable is changed at the top of the example.
 
