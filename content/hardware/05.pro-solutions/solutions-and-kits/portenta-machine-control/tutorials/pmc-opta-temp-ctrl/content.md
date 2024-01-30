@@ -153,7 +153,7 @@ Inside the `Project` window, double-click on the `Main` program located under `T
 
 In the code section, you have to write the following code:
 
-```
+```cpp
 temp0 := sysTempProbes[0].temperature;
 temp_send := temp0 * 100.00;
 ```
@@ -262,7 +262,7 @@ Now that we have created the global variable where we are going to store the tem
 
 In the code window, paste the next code:
 
-```
+```cpp
 //Set the temperature threshold to trigger on the relay
 
 threshold := 30.00;

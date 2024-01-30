@@ -405,7 +405,7 @@ The PLC program will do the following processes:
 
 The following code delivers the previous tasks:
 
-```
+```cpp
 cnt := cnt + 1;
 out_counter := cnt;
 
