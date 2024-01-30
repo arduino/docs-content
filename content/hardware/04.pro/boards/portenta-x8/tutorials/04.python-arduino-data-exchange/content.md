@@ -98,7 +98,7 @@ temperature = rpc_client.call('temperature')
 
 The complete Python® application files are in the same package as the Arduino sketch (see above). Like in the previous step, upload the `python-sensor-rpc` folder to the X8 via `adb push <local directory path>/python-sensor-rpc /home/fio`. Log into the X8 via `adb shell`. Then navigate into the `python-sensor-rpc` folder and execute `sudo docker build . -t python-sensor-rpc`. When it is finished, you can run the container with `sudo docker-compose up`. After a few seconds, you should see the output from the Python application featuring the sensor readings on the M4 that exchanges through the RPC mechanism. The output should look similar to the following:
 
-```
+```bash
 python-sensor-rpc_1  | ============================================
 python-sensor-rpc_1  | ==       Portenta X8 Sensor reading       ==
 python-sensor-rpc_1  | ============================================
@@ -112,10 +112,12 @@ python-sensor-rpc_1  | Altitude:  311.0769348144531
 
 Whenever you change anything in the Python® script on your computer, you will have to sync it back to the X8 and re-build the container. Following command sequence will help you to do this process:
 
-```
+```bash
 # On your computer
 adb push python-sensor-rpc /home/fio
+```
 
+```bash
 # On X8
 sudo docker-compose down
 sudo docker build . -t python-sensor-rpc

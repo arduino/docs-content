@@ -3022,7 +3022,7 @@ sudo systemctl reboot
 
 Following section configures a service named `my_spi_service` to use the SPI device available at `/dev/spidev0.0`.
 
-```yml
+```yaml
 services:
     my_spi_service:
        devices:
@@ -3153,7 +3153,7 @@ sudo systemctl reboot
 
 Following section configures a service named `my_i2c_service` to use the I2C device available at `/dev/i2c-3`.
 
-```yml
+```yaml
 services:
     my_i2c_service:
        devices:

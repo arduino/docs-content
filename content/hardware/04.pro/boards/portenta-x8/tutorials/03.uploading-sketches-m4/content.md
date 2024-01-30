@@ -66,7 +66,7 @@ To upload the firmware, you can use the ADB tool that has been installed as part
 
 From that directory, you can use the `adb` tool. To upload your compiled sketch, you will need to use the following command:
 
-```
+```bash
 adb push <sketchBinaryPath> /tmp/arduino/m4-user-sketch.elf
 ```
 
