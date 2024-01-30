@@ -539,6 +539,15 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 <div style="page-break-after: always;"></div>
 
+## Mean Time Between Failure (MTBF)
+
+MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device. **Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_. The MTBF figure (in hours) for each Arduino Opta® variant can be found in the following table: 
+
+|      **Standard**      |   **Opta® Lite**   |   **Opta® RS485**  |    **Opta® WiFi**    |         **Environmental Conditions**         |
+|:----------------------:|:------------------:|:------------------:|:--------------------:|:--------------------------------------------:|
+| **MTBF MIL HDBK 217F** | 766205h<br>668766h | 766205h<br>668766h | 1526239h<br>1332146h | 25 ºC, Ground Benign<br>40 ºC, Ground Benign |
+
+
 ## Mechanical Information
 ### Product Dimensions
 ![Arduino Opta® Outline. Dimensions are in mm](assets/opta_mechanical.svg)
