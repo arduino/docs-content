@@ -28,7 +28,7 @@ software:
 
 ## Overview
 
-This user manual offers a detailed guide on the Portenta Max Carrier, consolidating all its features for easy reference. It will show how to set up, adjust, and assess its main functionalities. This manual will guide as a key to proficiently operating the Portenta Max Carrier, making it suitable for project developments related to industrial automation, manufacturing automation, robotics, and prototyping.
+This user manual offers a detailed guide on the Portenta Max Carrier, consolidating all its features for easy reference. It will show how to set up, adjust, and assess its main functionalities. This document will enable any user to proficiently operate the Portenta Max Carrier, making it suitable for project developments related to industrial automation, manufacturing automation, robotics, and prototyping.
 
 ![Portenta Max Carrier Overview](assets/overview-colors.jpg)
 
@@ -49,14 +49,14 @@ This user manual offers a detailed guide on the Portenta Max Carrier, consolidat
 
 ## Product Overview
 
-Max Carrier transforms Portenta modules into single-board computers that enable edge AI for high-performance industrial, building automation and robotics applications.
-Thanks to dedicated high-density connectors, it can be paired with Portenta X8, H7 or C33, allowing you to easily prototype and deploy your industrial projects.
+Max Carrier transforms Portenta modules into single-board computers with edge AI capabilities for high-performance industrial, building automation and robotics applications.
+Thanks to its dedicated high-density connectors, Portenta Max Carrier can be paired with Portenta X8, H7, or C33, allowing any user to easily prototype and deploy multiple industrial projects.
 
 This Arduino Pro carrier further augments Portenta connectivity options with Fieldbus, LoRa®, Cat-M1 and NB-IoT.
-Among the many available plug-and-play connectors there are Gigabit Ethernet, USB-A, audio jacks, microSD, mini-PCIe, MIPI camera, FD-CAN and Serial RS-232/422/485.
+Among the many available plug-and-play connectors, there are Gigabit Ethernet, USB-A, audio jacks, microSD, mini-PCIe, MIPI camera, FD-CAN, and Serial RS-232/422/485.
 Max Carrier can be powered via external supply (6-36V) or battery via the onboard 18650 Li-ion battery connector.
 
-![Portenta X8 Coupling](assets/portenta-x8.gif)
+![Portenta X8 Coupling](assets/x8-exploded.png)
 
 ### Carrier Architecture Overview
 
@@ -66,36 +66,34 @@ Here is an overview of the board's architecture's main components shown in the i
 
 - **Compatible core**: The board is compatible with Portenta X8 (ABX00049), Portenta H7 (ABX00042/ABX00045/ABX00046), and Portenta C33 (ABX00074). The Portenta H7 and C33 are limited in camera support and the Ethernet speed to 100 Mbit.
   
-- **Power management**: The Portenta Max Carrier can either be powered through the power jack (6 ~ 36V DC) or an 18650 Li-ion/LiPo battery (3.7V) that can be used as backup power source if the external power supply fails.
+- **Power management**: The Portenta Max Carrier can either be powered through the power jack (6 ~ 36V DC) or an 18650 Li-ion/LiPo battery (3.7V), which can be used as a backup power source if the external power supply fails. The battery is charged when the minimum input voltage to the power jack is met.
 
-The battery is charged while the minimum input voltage to the power jack is met.
+- **USB connectivity**: The Portenta Max Carrier also includes a USB 2.0 High-Speed Hub controller based on the USB2514B/M2 that manages the 2 USB devices of the USB type A connector plus the LoRa® and PCIe modules. J15 is protected by an NCP383LMUAJAATXG power switch and current limiter.
 
-- **USB connectivity**: The Portenta Max Carrier also includes a USB 2.0 Hi-Speed Hub controller based on the USB2514B/M2 that manages the 2 USB devices from the USB type A connector plus the LoRa® and PCIe modules. J15 is protected by an NCP383LMUAJAATXG power switch and current limiter.
-
-  A USB-A female connector is used for data logging and the connection of external peripherals like keyboards, mice, hubs, and similar devices.
+  A USB-A female connector can be used for data logging and the connection of external peripherals like keyboards, mice, hubs, and similar devices.
   
-- **Ethernet connectivity**: The Gigabit Ethernet physical interface (J17) is directly connected to the high density connector to the Portenta board. The connector includes an activity LED indication (orange) and speed indication (green). __Note:__ Gigabit Ethernet functionality is only supported on the Portenta X8.
+- **Ethernet connectivity**: The Gigabit Ethernet physical interface (J17) is directly connected to the high density connector to the Portenta board. The connector includes an activity LED indication (orange) and speed indication (green). __Note:__ Gigabit Ethernet functionality is only supported on the Portenta X8. Portenta H7 and Portenta C33 just support 100 Mbit Ethernet speed.
 
 - **Serial Transceiver**: The Portenta Max Carrier includes a multi-protocol transceiver supporting RS-232, RS-485, and RS-422 serial standards (configurable) based on the SP335 IC. It is connected to a 6P6C Connector (RJ11, RJ12, RJ14, RJ25).
 
 - **CAN Transceiver**: The Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1049T/3J IC. It is connected to a 4P4C connector (RJ9, RJ10, RJ22).
 
 - **Mini PCIe**: The Portenta Max Carrier includes one female mini PCI Express card slot. The connector is right angled and the board includes 2 removable standoffs for external module support. The Max Carrier supports two different Mini PCIe sizes. Pins 8, 10, 12 and 14 are reserved for UIM (in this case SIM).
-__Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8. Full PCIe functionality is not provided at this time.
+__Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 
-- **Cell Modem**: The SARA-R412M-02B is a multi-region modem capable of connecting to 2G/Cat-M1/NB-IoT networks worldwide. A dedicated SMA connector allows for an external antenna. The chip operates over the 1V8 power line. A microSIM slot is available, the corresponding SIM card slot for the cell modem is on the top side of the board, directly adjacent to the module.
+- **Cellular Modem**: The SARA-R412M-02B is a multi-region modem capable of connecting to 2G/Cat-M1/NB-IoT networks worldwide. A dedicated SMA connector is provided for connecting an external antenna. The chip operates over the 1V8 power line. A microSIM slot is available, the corresponding SIM card slot for the cell modem is on the top side of the board, directly adjacent to the module.
 
 - **Audio**: The Portenta Max Carrier enables connections to analog audio channels. This is done through the low power CS42L52 stereo CODEC providing ADC/DAC between analog signals and the I2S protocol. An internal Class D amplifier eliminates the need for external audio amplification circuitry. 
 
-- **LoRa® Module**: The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the onboard Murata CMWX1ZZABZ-078 LoRa® transceiver module. This module operates on 3V3. A dedicated SMA connector allows for an external antenna. 
+- **LoRa® Module**: The Portenta Max Carrier provides long range wireless connectivity for low bandwidth applications with the onboard Murata CMWX1ZZABZ-078 LoRa® transceiver module. This module operates at 3V3. A dedicated SMA connector is provided for connecting an external antenna.
 
 - **MIPI Camera**: The Portenta Max Carrier, when combined with a Portenta X8, supports MIPI cameras. The latter can be plugged into the onboard camera connector (J4) via a flexible flat cable. The camera support is perfect for machine/computer vision applications such as product line inspection, object detection, image classification and robotics.
 
-- **Storage**: The board has a MicroSD card slot for data logging operation and bootloading operation from external memory.
+- **Storage**: The board has a MicroSD card slot for data logging operation.
 
-- **Debug interface**: Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via micro USB. The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller. In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines. The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD
+- **Debug interface**: Debugging capabilities are integrated directly into the Portenta Max Carrier and are accessible via micro USB. The J-link debugger is compatible with the Segger® J-Link OB and Blackmagic probes, driven by the STM32F405RGT6 controller. In addition to providing access to the Portenta board JTAG ports, different sniffer channels for I2C, CAN and UART lines are available. The debugger firmware can be updated via SWD on CN3. Additionally, headers for debugging the LoRa® are accessible via CN2 with SWD.
    
-- **DIP switch**: The carrier has a DIP switch with two positions and allows different profiles depending on the paired Portenta board. See the [DIP Switches section](#dip-switch-configuration) for more details.
+- **DIP switch**: The carrier has a DIP switch with two positions and enables different profiles depending on the paired Portenta board. See the [DIP Switches section](#dip-switch-configuration) for more details.
   
 
 ### Carrier Topology
@@ -154,12 +152,18 @@ The full __STEP__ files are available and downloadable from the link below:
 
 * [Portenta Max Carrier STEP files](assets/ABX00043-step.zip)
 
+### Altium Files
+
+The full __Altium__ files are available and downloadable from the link below:
+
+* [Portenta Max Carrier Altium files](https://docs.arduino.cc/static/0470b68c0b66e0f16c8db927b68d13de/ABX00043-altium-files.zip)
+
 ## First Use Of Your Portenta Max Carrier
 ### Stack The Carrier
 
-The Portenta Max Carrier design allows you to stack the Portenta board with ease. The following figure shows how the Portenta boards pair via the High-Density connectors.
+The Portenta Max Carrier design enables an easy stack of the preferred Portenta board. The following figure shows how the Portenta boards pair via the High-Density connectors.
 
-![Portenta board stack](assets/x8-mount.png)
+![Portenta board stack](assets/x8-mount-new.png)
 
 With the Portenta mounted to the carrier, you can proceed to power the carrier and begin prototyping.
 
@@ -177,26 +181,26 @@ The Portenta Max Carrier can be powered using the following methods:
 
 ### Carrier Characteristics Highlight
 
-The Portenta Max Carrier provides its platform to the Portenta X8, H7, and C33 with different capabilities. The following table summarizes the carrier's features depending on the combination of the paired Portenta.
+The Portenta Max Carrier extends the features of the Portenta X8, H7, and C33. The following table summarizes the carrier's characteristics depending on the paired Portenta.
 
-| Function                 | Portenta H7/C33 Support | Portenta X8 Support | Notes                                                                   |
-| ------------------------ | ------------------- | ------------------- | ----------------------------------------------------------------------- |
-| USB Host                 | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps                        |
-| Ethernet                 | Fast Ethernet       | 1 Gbps              | Fast Ethernet - 100 Mbps                                                |
-| CAN                      | Yes                 | Yes                 |    Portenta H7 is not supported                                                                     |
-| Mini PCIe (USB)          | USB 1.0             | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps                        |
-| Mini PCIe (PCIe)         | No                  | PCIe 2.0            | Portenta H7 only supports USB based PCIe cards                          |
-| Battery Charger          | Yes                 | Yes                 |                                                                         |
-| LoRa®                    | Yes                 | Yes                 |                                                                         |
-| NBIoT/CatM1/2G           | Yes                  | Yes                 |                     |
-| Camera                   | No                  | MIPI up to 4 lanes  | No MIPI camera support on H7                                            |
-| Audio                    | Limited             | Yes                 | No firmware support for the H7                                          |
-| RS232/422/485            | Yes                 | Yes                 |                                                                         |
-| on board JTAG  debugging | Yes                 | No                  |                                                                         |
-| on board console to USB  | Yes                 | Yes                 |                                                                         |
-| on board bus sniffing    | Limited             | Limited             | Only hardware support                                                   |
+| Function                 | Portenta H7/C33 Support | Portenta X8 Support | Notes                                            |
+|--------------------------|-------------------------|---------------------|--------------------------------------------------|
+| USB Host                 | USB 1.0                 | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
+| Ethernet                 | 100 Mbps                | 1 Gbps              |                                                  |
+| CAN                      | Portenta C33 only       | Yes                 |                                                  |
+| Mini PCIe (USB)          | USB 1.0                 | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
+| Mini PCIe (PCIe)         | No                      | PCIe 2.0            | Portenta H7 only supports USB based PCIe cards   |
+| Battery Charger          | Yes                     | Yes                 |                                                  |
+| LoRa®                    | Yes                     | Yes                 |                                                  |
+| NBIoT/CatM1/2G           | Yes                     | Yes                 |                                                  |
+| Camera                   | No                      | MIPI up to 4 lanes  | No MIPI camera support on H7/C33                 |
+| Audio                    | Limited                 | Yes                 | No firmware support for the H7                   |
+| RS232/422/485            | Yes                     | Yes                 |                                                  |
+| on board JTAG  debugging | Yes                     | No                  |                                                  |
+| on board console to USB  | Yes                     | Yes                 |                                                  |
+| on board bus sniffing    | Limited                 | Limited             | Only hardware support                            |
 
-This provides a general idea of how the Portenta Max Carrier will perform depending on the paired Portenta board. Each feature is explained in the following section after a quick guide covering how to properly interface the Portenta boards.
+The table above provides a general idea of how the Portenta Max Carrier performs depending on the paired Portenta board. Each feature is explained in the following section after a quick guide covering how to properly interface the Portenta boards.
 
 ## Hello World Carrier
 ### Hello World Using Linux
@@ -214,7 +218,7 @@ The Portenta X8, H7, and C33 enhance functionality through High-Density connecto
 
 ## Configuration and Control
 
-Configuration and control features allow customizing the device's behavior to their specific needs. Whether it's setting up network connectivity or adjusting switch configurations, this sub-section will guide you through the carrier connectivity and profile setup processes.
+Configuration and control features enable the customization of the device's behavior to its specific needs. Whether you would like to set up network connectivity or adjust switch configurations, this sub-section will guide you through the carrier connectivity and profile setup processes.
 
 ### DIP Switch Configuration
 
@@ -222,29 +226,20 @@ The Portenta Max Carrier incorporates two DIP switches, giving users the ability
 
 ![Portenta Max Carrier DIP switches](assets/dip-switch-v2.png)
 
-For configurations when the Portenta Max Carrier is combined with the __Portenta X8__, the DIP switch governs these settings:
+For configurations when the Portenta Max Carrier is combined with the Portenta boards, the DIP switch governs these settings:
 
-| **Ethernet DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
-|:-----------------------------------:|:-------------------------:|:----------------------:|
-| 1 - 2                               | Ethernet Disabled         | Ethernet Enabled       |
+| **Ethernet DIP Switch Designation** | **Position: ON**  | **Position: OFF** |
+|:-----------------------------------:|:-----------------:|:-----------------:|
+|                1 - 2                | Ethernet Disabled for X8 / Enabled for H7/C33 | Ethernet Enabled for X8 / Enabled for H7/C33  |
 
-| **Boot DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
-|:-------------------------------:|:-------------------------:|:----------------------:|
-| BOOT SEL                        | Reserved for future applications | Reserved for future applications|
-| BOOT                            | Boot from SD card Memory  | Boot from MMC Memory   |
-
-When the Portenta Max Carrier is combined with either the __Portenta H7 or C33__, the DIP switch adjustments are as follows:
-
-| **Ethernet DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
-|:-----------------------------------:|:-------------------------:|:----------------------:|
-| 1 - 2                               | Ethernet Enabled          | Ethernet Disabled      |
-
-| **Boot DIP Switch Designation** |      **Position: ON**     |    **Position: OFF**   |
-|:-------------------------------:|:-------------------------:|:----------------------:|
-| BOOT SEL                        | Not used                  | Not used               |
-| BOOT                            | Enter Boot mode           | Normal Boot (Run)      |
+| **Boot DIP Switch Designation** |     **Position: ON**     |            **Position: OFF**             |
+|:-------------------------------:|:------------------------:|:----------------------------------------:|
+|            BOOT SEL             |     Enter Boot Mode for X8 / Not used for H7/C33     | Normal boot from Portenta onboard memory for X8 / Not used for H7/C33 |
+|              BOOT               | Not officially supported for X8 / Enter Boot mode for H7/C33 |           Boot from MMC Memory for X8 / Normal Boot (Run) for H7/C33         |
 
 This flexibility ensures that the Portenta Max Carrier remains adaptable to the unique needs of each paired Portenta board.
+
+Learn more about how the different DIP Switches configurations work and help you to flash images to the **Portenta X8** following this [guide](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/).
 
 ## Network Connectivity
 
@@ -258,7 +253,7 @@ Ethernet performance differs based on the associated Portenta board:
 - With the Portenta X8: The system supports 1 Gbit Ethernet.
 - When combined with the Portenta H7 or C33: The performance is limited to 100 Mbit Ethernet.
 
-To configure the Ethernet settings, depending on the paired Portenta board, one must use the provided DIP switch located on the Portenta Max Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
+To configure the Ethernet settings, depending on the paired Portenta board, you must properly set the provided DIP switch located on the Portenta Max Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 
 #### Using Linux
 
@@ -315,7 +310,7 @@ iperf3.exe -c <Server IP Address> # run this on your PC (Windows) and use the Po
 
 #### Using Arduino IDE
 
-To test the Ethernet connection using a __Portenta H7__ we are going to use an example sketch that will retrieve your City information from the internet and show it through the Serial Monitor.
+To test the Ethernet connection using a __Portenta H7__ or a __Portenta C33__ we are going to use an example sketch that will retrieve your City information from the internet and show it through the Serial Monitor.
 
 ```arduino
 /**
@@ -324,8 +319,12 @@ To test the Ethernet connection using a __Portenta H7__ we are going to use an e
 **/
 
 // Include the necessary libraries.
-#include <PortentaEthernet.h> // for Portenta H7 
-//#include <EthernetC33.h>  // for Portenta C33
+#if defined(ARDUINO_PORTENTA_H7_M7)
+  #include <PortentaEthernet.h> // for Portenta H7 
+#elif defined(ARDUINO_PORTENTA_C33)
+  #include <EthernetC33.h>  // for Portenta C33
+#endif
+
 #include <Arduino_JSON.h>
 
 // Server address for ip-api.com.
@@ -445,7 +444,7 @@ For a comprehensive understanding of these connectivity options, kindly refer to
 
 To ensure connectivity in a wide variety of possible scenarios, the Max Carrier features cellular connectivity powered by the SARA-R412M-02B multi-band module. 
 
-You can easily connect your projects to the cloud leveraging the more suitable communication protocol, from LTE, NB-IoT, Cat.M1 and more.
+You can easily connect your solution to the internet leveraging the more suitable communication protocol, from LTE, NB-IoT, Cat.M1 and more.
 
 ![Portenta Max Carrier with Cellular Antenna](assets/cellular-antenna.png)
 
@@ -459,11 +458,11 @@ To quickly find out if the setup successfully connects to mobile networks, we ar
 
 Go to the __arduino_secrets.h__ tab that opens with the example and enter the PIN of the SIM card you are using into the `SECRET_PINNUMBER` variable.
 
-***Note: A standard pre-paid SIM card typically has 0000 or 1234 as a pin code. This varies from operator to operator, it is important to find out your pin before uploading the code. Otherwise, too many unsuccessful attempts may block the SIM card.***
+***Note: A standard pre-paid SIM card typically has 0000 or 1234 as a PIN code. This varies from operator to operator, it is important to find out your PIN before uploading the code. Otherwise, too many unsuccessful attempts may block the SIM card.***
 
 Upload the code to your Portenta H7 and open the Serial Monitor to follow the connection process.
 
-If the connection is successful, you should see the HTML content of the server printed in the Serial Monitor. The server is set as `example.com` as default. Feel free to change this and take a look at how it prints different webpages. 
+If the connection is successful, you should see the HTML content of the server printed in the Serial Monitor. The server is set as `example.com` as default. Feel free to change this and take a look at how it prints different web pages. 
 
 Below you can see what will be printed in the Serial Monitor when connecting to example.com.
 
@@ -471,9 +470,9 @@ Below you can see what will be printed in the Serial Monitor when connecting to 
 
 ### LoRa®
 
-One feature that boosts Portenta's Max Carrier possibilities is its onboard LoRa® module, the CMWX1ZZABZ-078 from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) protocol designed to connect low-power devices to the Internet. It was developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low power consumption and low data throughput.
+One feature that boosts Portenta Max Carrier possibilities is its onboard LoRa® module, the CMWX1ZZABZ-078 from Murata®. LoRaWAN® is a Low Power Wide Area Network (LPWAN) protocol designed to connect low-power devices to the Internet. It has been developed to meet and fulfill Internet of Things (IoT) devices' requirements, such as low power consumption and low data throughput.
 
-A dedicated SMA connector (J9) allows for an external antenna.
+A dedicated SMA connector (J9) is available for connecting an external antenna.
 
 ![Portenta Max Carrier with LoRa® Antenna](assets/LoRaAntenna.png)
 
@@ -481,7 +480,7 @@ A dedicated SMA connector (J9) allows for an external antenna.
 
 #### Using Linux
 
-Empower your Portenta X8 connectivity with LoRa®, to achieve this follow this detailed guide on [How to set up a multi-protocol gateway using the Portenta X8 and the Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway)
+Empower your Portenta X8 connectivity with LoRa® by following this detailed guide on [How to set up a multi-protocol gateway using the Portenta X8 and the Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway)
 
 #### Using Arduino IDE
 
@@ -501,11 +500,11 @@ In the following example, we are going to record audio using an external microph
 
 ![Sound recording setup | Mic + micro SD](assets/rec-wiring.png)
 
-Before, let's connect to the internet so you we download the tools and run the needed dockers. 
+First of all, let's connect to the internet to download the tools and run the needed Docker containers. 
 
 ***Use `nmcli device wifi connect <SSID> password <PASSWORD>` to easily connect to a WiFi network.***
 
-First, after inserting the micro SD to the Max Carrier slot, mount it with the following command.
+After inserting the micro SD in the Max Carrier slot, mount it with the following command.
 
 ```bash
 sudo mount -t vfat /dev/mmcblk1p1 /mnt
@@ -516,7 +515,7 @@ Run the docker image `debian:stable-slim` and set the peripherals to be used wit
 sudo docker run -it -u '0' --device '/dev/snd:/dev/snd' -v '/mnt:/sdcard' --tmpfs /tmp --name "alsa-utils" debian:stable-slim bash
 ```
 
-Install the audio management tools. This will take a while to install everything.
+Install the audio management tools. This procedure will take a while.
 
 ```bash
 apt-get update && apt-get install alsa-utils ffmpeg -y
@@ -529,7 +528,7 @@ amixer -c 1 sset 'ADC Left Mux' 'Input3A' # Mic Input
 amixer -c 1 sset 'ADC Right Mux' 'Input3B' # Mic Input
 amixer -c 1 sset 'ADC' 100% # Mic volume
 ```
-Now, we are ready for the audio recording. Use `fmpeg` command alongside the settings of your preference.
+Now, we are ready for the audio recording. Use `ffmpeg` command alongside the settings of your preference.
 
 The following command will record audio for 30 seconds at 44100 Hz and save it on `/sdcard/` as `out.wav`.
 
@@ -564,7 +563,7 @@ amixer -c 1 sset 'Headphone' 0dB # 0dB = 100%
 # This sets the speaker output volume 
 amixer -c 1 sset 'Speaker' 100% # 100% = 0dB
 ```
-By default, the Class D amplifier outputs are turned off, to be able to play audio on the external speakers you must turn them on with the following commands.
+By default, the Class D amplifier outputs are turned off. To play audio on the external speakers, you must turn them on with the following commands.
 
 ```bash
 amixer -c 1 sset 'SPK Right Amp' on # turn on the right channel speaker
@@ -672,7 +671,7 @@ To unmount the USB drive use the following command from outside the USB folder:
 umount /dev/sda1 /mnt/USBmount
 ```
 
-Now that you know how to locate, mount, write and read information from an external USB stick or hard drive you can expand the possibilities of your solution with the additional storage connected to the Portenta Max Carrier.
+Now that you know how to locate, mount, write and read information from an external USB stick or hard drive, you can expand the possibilities of your solution with the additional storage connected to the Portenta Max Carrier.
 
 ### Using Arduino IDE
 
@@ -991,7 +990,7 @@ The example code from above will read the USB drive connected and print all its 
 
 ## MicroSD Storage
 
-The available microSD card slot offers the advantage of expanded storage. This is especially beneficial for processing large volumes of log data, whether from sensors or the onboard computer registry. For the Portenta X8, the microSD can also serve as an external boot source.
+The available microSD card slot offers the advantage of expanded storage. This is especially beneficial for processing large volumes of log data, whether from sensors or the onboard computer registry.
 
 ![MicroSD card slot](assets/microSD.png)
 
@@ -1441,19 +1440,19 @@ The Portenta Max Carrier is equipped with CAN bus communication capabilities, po
 
 #### Using Linux
 
-As a practical example, we are going to communicate the __Max Carrier__ using a Portenta X8 with a __Portenta Machine Control__ using CAN.
+As a practical example, we are going to implement a communication between the __Max Carrier__ using a Portenta X8 and a __Portenta Machine Control__ using CAN.
 
 ![Both devices CAN bus wiring diagram](assets/CAN-bus-wiring-x8.png)
 
 ***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines.***
 
-For the Portenta X8, when you have admin (root) access, you can execute the following commands within the shell to control the CAN bus protocol. The CAN transceiver can be enabled using the following command
+For the Portenta X8, when you have admin (root) access, you can execute the following lines of code within the shell to control the CAN bus protocol. The CAN transceiver can be enabled using the following command:
 
 `echo 186 > /sys/class/gpio/export && echo out > /sys/class/gpio/gpio186/direction && echo 0 > /sys/class/gpio/gpio186/value`
 
 This command sequence activates the CAN transceiver. It does so by exporting GPIO 186 (`pwm3`), setting its direction to "`out`", and then writing a value of "`0`" to it. Writing 0 as a value to GPIO 186 means that it will set the GPIO to a LOW state.
 
-For Portenta X8, it is possible to use the following commands:
+It is possible to use the following commands:
 
 ```bash
 sudo modprobe can-dev
@@ -1465,7 +1464,7 @@ The necessary modules for __CAN__ (Controller Area Network) support on the Porte
 echo "can-dev" | sudo tee > /etc/modules-load.d/can-dev.conf
 sudo systemctl reboot
 ```
-Within the Portenta X8's shell, Docker containers offer a streamlined environment for specific tasks, such as command-based CAN bus operations. The `cansend` command is one such utility that facilitates sending CAN frames. 
+Within the Portenta X8's shell, Docker containers offer a streamlined environment for specific tasks, such as command-based CAN bus operations. The `cansend` command facilitates sending CAN frames. 
 
 To use the `cansend` command, it is crucial to set up the appropriate environment. First, clone the following container repository.
 
@@ -1492,7 +1491,7 @@ As an example, the command can be structured as follows for a 500 kbit/s communi
 ```bash
 sudo ./docker-run.sh can0 500000
 ```
-Now, you are able to send CAN messages using the `cansend` command as follows:
+Now, you can send CAN messages using the `cansend` command as shown below:
 
 ```bash
 cansend can0 123#CA
@@ -1550,7 +1549,7 @@ void loop() {
 
 ![X8 + Max Carrier sending a CAN message to Machine Control](assets/can-linux.png)
 
-Moreover, if your goal is to monitor and dump all received CAN frames, a slightly different procedure is to be followed. Having the container repository ready with its components, navigate to the _candump_ directory:
+Moreover, if your goal is to monitor and dump all received CAN frames, a slightly different procedure has to be followed. When the container repository is ready with its components, navigate to the _candump_ directory:
 
 ```bash
 cd pika-spark-containers/candump
@@ -1695,7 +1694,7 @@ void loop()
 }
 ```
 
-As a practical example, we are going to communicate the __Max Carrier__ using a Portenta C33 with a __Portenta Machine Control__ using CAN.
+As a practical example, we are going to implement the communication between the __Max Carrier__ with a Portenta C33 and a __Portenta Machine Control__ using CAN.
 
 ![Both devices CAN bus wiring diagram](assets/CAN-bus-wiring.png)
 
@@ -1785,7 +1784,7 @@ stty -F /dev/ttyX0 115200 -parity cs8 -cstopb
 
 The serial transceiver default configuration is set to __RS-232__, so we are going to use this protocol for the Linux example. Make sure to follow the respective wiring shown above. 
 
-We configured the __Portenta Machine Control__ used for this example using the code included with the `Arduino_MachineControl` library called `RS232` which can be found on **File > Examples > Arduino_MachineControl**. This sketch will continuously send a message and wait to receive one using RS-232.
+We configured the __Portenta Machine Control__ used for this example leveraging the code included with the `Arduino_MachineControl` library called `RS232` which can be found on **File > Examples > Arduino_MachineControl**. This sketch will continuously send a message and wait to receive one using RS-232.
 
 After setting up the serial communication parameters, we can start receiving from the Machine Control with the following command:
 
@@ -1825,7 +1824,7 @@ For users working with the Portenta H7 or Portenta C33, the following simple exa
 
 To use these protocols some libraries are needed and you can install them by searching for `ArduinoRS485` and `Arduino_MachineControl` on the library manager and clicking on install.
 
-Here is the example code for the Max Carrier, it will continuously send a message and wait for one, if a message arrives, will be printed in the Serial Monitor.
+Here is the example code for the Max Carrier, it will continuously send a message and wait for one. If a message arrives, it will be printed in the Serial Monitor.
 
 __RS-485 Example Code__
 
