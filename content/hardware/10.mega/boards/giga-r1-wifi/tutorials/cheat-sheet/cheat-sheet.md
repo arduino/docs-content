@@ -572,14 +572,13 @@ void printWifiStatus()
     Serial.println(" dBm");
 }
 ```
-
 ### RTC / UDP / NTP Example (Timezone)
 
 This example provides an option to set the timezone. As the received epoch is based on GMT time, you can input e.g. `-1` or `5` which represents the hours. The `timezone` variable is changed at the top of the example.
 
 ```arduino
 /*
- Udp NTP Client
+ Udp NTP Client with Timezone Adjustment
 
  Get the time from a Network Time Protocol (NTP) time server
  Demonstrates use of UDP sendPacket and ReceivePacket
@@ -703,7 +702,7 @@ unsigned long parseNtpPacket() {
   constexpr unsigned long seventyYears = 2208988800UL;
   const unsigned long epoch = secsSince1900 - seventyYears;
   
-  new_epoch = epoch + (3600 * timezone); //multiply the timezone with 3600 (1 hour)
+  const unsigned long new_epoch = epoch + (3600 * timezone); //multiply the timezone with 3600 (1 hour)
 
   set_time(new_epoch);
 

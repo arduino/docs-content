@@ -352,7 +352,7 @@ This example provides an option to set the timezone. As the received epoch is ba
 
 ```arduino
 /*
- Udp NTP Client
+ Udp NTP Client with Timezone Adjustment
 
  Get the time from a Network Time Protocol (NTP) time server
  Demonstrates use of UDP sendPacket and ReceivePacket
@@ -365,6 +365,8 @@ This example provides an option to set the timezone. As the received epoch is ba
  by Tom Igoe
  modified 28 Dec 2022
  by Giampaolo Mancini
+ modified 29 Jan 2024
+ by Karl Söderby
 
 This code is in the public domain.
  */
@@ -474,7 +476,7 @@ unsigned long parseNtpPacket() {
   constexpr unsigned long seventyYears = 2208988800UL;
   const unsigned long epoch = secsSince1900 - seventyYears;
   
-  new_epoch = epoch + (3600 * timezone); //multiply the timezone with 3600 (1 hour)
+  const unsigned long new_epoch = epoch + (3600 * timezone); //multiply the timezone with 3600 (1 hour)
 
   set_time(new_epoch);
 
