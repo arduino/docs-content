@@ -1453,7 +1453,7 @@ As a practical example, we are going to implement a communication between the __
 
 ***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines.***
 
-For the Portenta X8, when you have admin (root) access, you can execute the following lines of code within the shell to control the CAN bus protocol. The CAN transceiver can be enabled using the following command:
+For the Portenta X8, when you have admin (root) access, you can execute the following lines of code within the shell to control the CAN bus interface. The CAN transceiver can be enabled using the following command:
 
 `echo 186 > /sys/class/gpio/export && echo out > /sys/class/gpio/gpio186/direction && echo 0 > /sys/class/gpio/gpio186/value`
 
@@ -1513,15 +1513,10 @@ The command follows the format:
 
 This is how the communication is done between the Max Carrier with the Portenta X8 and the Machine Control.
 
-For the __Portenta Machine Control__: Install the `Arduino_PortentaMachineControl` library from the Library Manager and use the following example sketch that can also be found on ::
+For the __Portenta Machine Control__: Install the `Arduino_PortentaMachineControl` library from the Library Manager and use the following example sketch that can also be found on **File > Examples > Arduino_PortentaMachineControl > CAN > ReadCan**.
 
 ```arduino
-#include <Arduino_MachineControl.h>
-#include <CAN.h>
-
-using namespace machinecontrol;
-
-#define DATARATE_500KB   500000
+#include <Arduino_PortentaMachineControl.h>
 
 void setup() {
   Serial.begin(9600);
@@ -1529,32 +1524,27 @@ void setup() {
     ; // wait for serial port to connect.
   }
 
-  Serial.println("Start CAN initialization");
-  comm_protocols.enableCAN();
-  comm_protocols.can.frequency(DATARATE_500KB);
-  Serial.println("Initialization done");
+  if (!MachineControl_CANComm.begin(CanBitRate::BR_500k)) {
+    Serial.println("CAN init failed.");
+    while(1) ;
+  }
 }
 
-
 void loop() {
-  mbed::CANMessage msg;
-  if (comm_protocols.can.read(msg)) {
-
+  if (MachineControl_CANComm.available()) {
+    CanMsg const msg = MachineControl_CANComm.read();
     // Print the sender ID
     Serial.print("ID: ");
     Serial.println(msg.id, HEX);
 
     // Print the first Payload Byte
-    Serial.print("Message received:");
+    Serial.print("Message received: ");
     Serial.println(msg.data[0], HEX);
-
   }
-
-  delay(100);
 }
 ```
 
-![X8 + Max Carrier sending a CAN message to Machine Control](assets/can-linux.png)
+![X8 + Max Carrier sending a CAN message to Machine Control](assets/can-linux-new.png)
 
 Moreover, if your goal is to monitor and dump all received CAN frames, a slightly different procedure has to be followed. When the container repository is ready with its components, navigate to the _candump_ directory:
 
@@ -1574,7 +1564,7 @@ sudo ./docker-run.sh can0 500000 # last parameter is the bitrate
 ```
 This is how the communication is done between the Max Carrier with the Portenta X8 and the Machine Control.
 
-For the __Portenta Machine Control__: Install the `Arduino_PortentaMachineControl` library from the Library Manager and use the following example sketch that can also be found on :
+For the __Portenta Machine Control__: Install the `Arduino_PortentaMachineControl` library from the Library Manager and use the following example sketch that can also be found on **File > Examples > Arduino_PortentaMachineControl > CAN > WriteCan**.
 
 ```arduino
 #include <Arduino_MachineControl.h>
@@ -1614,11 +1604,11 @@ void loop() {
 }
 ```
 
-![X8 on Max Carrier CAN receiving from a Machine Control](assets/can-rx-linux.png)
+![X8 on Max Carrier CAN receiving from a Machine Control](assets/can-rx-linux-new.png)
 
 #### Using Arduino IDE
 
-For users working with the Portenta C33, the following simple examples can be used to test the CAN bus protocol's capabilities.
+For users working with the **Portenta C33**, the following simple examples can be used to test the CAN bus protocol's capabilities.
 
 ***CAN communication is not supported for the Portenta H7 on the Max Carrier.***
 
@@ -1711,30 +1701,23 @@ As a practical example, we are going to implement the communication between the 
 - __For the Portenta Machine Control:__ Install the `Arduino_PortentaMachineControl.h` library from the Library Manager and use the following example sketch:
 
 ```arduino
-#include <Arduino_MachineControl.h>
-#include <CAN.h>
-
-using namespace machinecontrol;
-
-#define DATARATE_500KB 500000
+#include <Arduino_PortentaMachineControl.h>
 
 void setup() {
   Serial.begin(9600);
   while (!Serial) {
-    ;  // wait for serial port to connect.
+    ; // wait for serial port to connect.
   }
 
-  Serial.println("Start CAN initialization");
-  comm_protocols.enableCAN();
-  comm_protocols.can.frequency(DATARATE_500KB);
-  Serial.println("Initialization done");
+  if (!MachineControl_CANComm.begin(CanBitRate::BR_500k)) {
+    Serial.println("CAN init failed.");
+    while(1) ;
+  }
 }
 
-
 void loop() {
-  mbed::CANMessage msg;
-  if (comm_protocols.can.read(msg)) {
-
+  if (MachineControl_CANComm.available()) {
+    CanMsg const msg = MachineControl_CANComm.read();
     // Print the sender ID
     Serial.print("ID: ");
     Serial.println(msg.id, HEX);
@@ -1748,16 +1731,13 @@ void loop() {
     }
     Serial.println();
   }
-
-  delay(100);
 }
-
 ```
 Remember that the Portenta Machine Control must be programmed by selecting the `Portenta H7` as the target in the Arduino IDE.
 
 After uploading the code to the Max Carrier and the Machine Control, open both Serial Monitors and you will see the CAN messages exchange.
 
-![CAN bus communication between both devices](assets/CAN-bus.png)
+![CAN bus communication between both devices](assets/CAN-bus-new.png)
 
 ### Serial RS-232/RS-485
 
@@ -1781,7 +1761,7 @@ We are going to implement the communication between the Portenta Max Carrier and
 
 #### Using Linux
 
-In the Portenta Max Carrier, the UART used for the RS-232/485 transceiver is the `UART0` and its designation on the Portenta X8 is `ttyX0`.
+In the Portenta Max Carrier, the UART used for the RS-232/485 transceiver is the `UART0` and its designation on the **Portenta X8** is `ttyX0`.
 
 To set up the serial communication so it matches the link requirements, we can configure the port baud rate, parity and stop bit as desired.
 
