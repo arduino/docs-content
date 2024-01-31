@@ -46,7 +46,7 @@ There are two ways to get the container, either through `foundriesFactories` or 
 
 If you use [Foundries.io](https://www.foundries.io), you can switch the current `target` of your device to `x-kiosk-imx8-webgl` by switching the app from a terminal on your computer:
 
-```
+```bash
 //Change the app to an existing one
 fioctl devices config updates --apps "x-kiosk-imx8-webgl" <deviceName> -f <yourFactoryName>
 
@@ -71,7 +71,7 @@ If you downloaded the [portenta-containers repository](https://github.com/arduin
 
 Check the available Wi-Fi® access points by using the `nmcli de wifi` command. You will be able to see an output laying out `BSSID`, `SSID`, and its other elements.
 
-```
+```bash
 nmcli de wifi
 
 //Output
@@ -81,7 +81,7 @@ IN-USE  BSSID              SSID             MODE   CHAN  RATE        SIGNAL  BAR
 
 The Wi-Fi® details can be saved using the following commands in sequence:
 
-```
+```bash
 nmcli c add type wifi con-name <customName> ifname wlan0 ssid <SSID>
 nmcli con modify <customName> wifi-sec.key-mgmt wpa-psk
 nmcli con modify <customName> wifi-sec.psk <PASSWORD>
@@ -96,7 +96,7 @@ nmcli c delete <customName>
 
 If the LED is illuminating Green, then we know it has been correctly connected. If you want to check it in your terminal, you can use the following commands:
 
-```
+```bash
 nmcli de
 
 //Output
@@ -113,7 +113,7 @@ The output table will display information regarding active connections as well a
 
 The IP information of the board can be obtained using `ifconfig wlan0` command. It will show different IP information composed of `inet`, `netmask`, and `broadcastIP`.
 
-```
+```bash
 ifconfig wlan0
 
 //Output
@@ -123,17 +123,17 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 Test your IP connection by exiting the `adb shell`, you can use **CTRL+Z** or type `exit`, then try to connect through **SSH** using following command:
 
-```
+```bash
 ssh fio@<localIP>
 ```
 
 ***To connect through SSH it will request the user's password, which is "fio". If you have trouble connecting with the SSH, please check the troubleshooting section at the end of this tutorial.***
 
-### Copy/Push the Container
+### Copy/Push the Docker-Compose.yml
 
-You can push the container from your computer using a terminal on the container's directory. The following command is used to send the container to the Portenta X8:
+You can push the **docker-compose.yml**, a file that describes the app in ASCII format, from your computer using a terminal on the file's directory. The following command is used to send the composer to the Portenta X8:
 
-```
+```bash
 scp <folderName> fio@<portentaX8-IP>:<desiredPath>
 ```
 
@@ -159,7 +159,7 @@ To get started in modifying the resolution of your display, connect to your Port
 
 At this point, you are ready to modify the `/etc/xdg/weston/weston.ini` file with `Vim` command as follows: 
 
-```arduino
+```bash
 sudo vim /etc/xdg/weston/weston.ini
 ```
 
@@ -172,36 +172,36 @@ mode=98.00  1600 1680 1840 2080  758 761 771 787 -hsync +vsync
 ```
 Save the file and exit. To see the changes in place, you have to reboot your Portenta X8 by using the command `sudo systemctl reboot`. When the board gets started again, you will be able to see your display with the right resolution. 
 
-### Running The Container
+### Running The Image
 
-If you obtained the container from **Foundries.io**, it will run automatically after a few seconds.
+If you obtained the app descriptor, structured through *docker-compose.yml*, from **Foundries.io**, it will run automatically after a few seconds.
 
 On the other hand, if you copied from the repository, you will need to initialize with **docker** by accessing your Portenta X8 through SSH, going to the directory where you have copied it, and running it from that directory using following commands:
 
-```
+```bash
 //Connect to your device
 ssh fio@<portentaX8-IP>
 
 //Change directory
-cd <containerPath>
+cd <composerPath>
 
 //Compose with docker
-docker-compose up --detach
+docker compose up --detach
 
 //Stop the docker-compose
-docker-compose stop
+docker compose stop
 ```
 
 ### Edit The Output
 
 It is possible to change the web output URL by editing the `docker-compose.yml` file, using the following commands:
 
-```
+```bash
 //Connect to your device
 ssh fio@<portentaX8-IP>
 
 //Change directory
-cd <containerPath>
+cd <composerPath>
 
 //Edit the file with VIM
 vim docker-compose.yml
@@ -226,6 +226,6 @@ In this tutorial, we went through how to connect the board and display something
 
 - If you tried to connect with `ssh` and you get a **fingerprint** issue, you will need to remove the IP and fingerprint on your `.ssh` file. On Windows, the file is located at `C:\Users\<yourUsername>\.ssh\known_hosts` and try again with the **ssh** connection. An example is as follows:
 
-```
+```bash
 $portenta-x8: ssh-keygen -R <name or IP address of the host>
 ```
