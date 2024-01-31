@@ -189,7 +189,7 @@ The Portenta Max Carrier extends the features of the Portenta X8, H7, and C33. T
 | Ethernet                 | 100 Mbps                | 1 Gbps              |                                                  |
 | CAN                      | Portenta C33 only       | Yes                 |                                                  |
 | Mini PCIe (USB)          | USB 1.0                 | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
-| Mini PCIe (PCIe)         | No                      | PCIe 2.0            | Portenta H7 only supports USB based PCIe cards   |
+| Mini PCIe (PCIe)         | No                      | PCIe 2.0            |    |
 | Battery Charger          | Yes                     | Yes                 |                                                  |
 | LoRa®                    | Yes                     | Yes                 |                                                  |
 | NBIoT/CatM1/2G           | Yes                     | Yes                 |                                                  |
@@ -267,7 +267,14 @@ First, you need an internet connection to download the tool. You can establish o
 
 ```bash
 nmcli connection show  # To find the ethernet device name ("eth0" in this case)
+```
+If your _ethernet_ connection is up and running you should see something similar to this:
 
+![Ethernet connection up](assets/eth-ensure-new.png)
+
+If not, you can create a DHCP network with a custom name and interface with the following commands:
+
+```bash
 nmcli conn add con-name <NtwrkName> type ethernet ifname <DevName> ipv4.method auto # Create a DHCP network. <NtwrkName> will be the custom network alias and <DevName> must be the device name found with the past command.
 
 nmcli conn up <NtwrkName> # Initiate the connection
@@ -276,13 +283,13 @@ nmcli conn up <NtwrkName> # Initiate the connection
 To test if we are successfully connected, let's make a `ping` using:
 
 ```bash
-ping -c 4 arduino.cc  # ping 4 times to Arduino's webpage
+ping -I eth0 -c 4 arduino.cc  # ping 4 times to Arduino's webpage using ethernet
 ```
-If you have a working internet connection, the ping should shows the latency as follows:
+If you have a working internet connection, the ping should show the latency as follows:
 
-![Successful Internet Test Using Ping](assets/ping.png)
+![Successful Internet Test Using Ping](assets/ping-new.png)
 
-To install the `iperf3` tool, we can use the following commands:
+Now we know we are connected through ethernet, let's do the speed test. To install the `iperf3` tool, we can use the following commands:
 
 ```bash
 mkdir -p ~/bin && source ~/.profile
@@ -302,7 +309,7 @@ Once installed on both devices, we should set one as a `server` and the other on
 ~/bin/iperf3 -s # run this on the Portenta X8 (Server)
 ```
 ```bash
-iperf3.exe -c <Server IP Address> # run this on your PC (Windows) and use the Portenta X8 IP address.
+iperf3.exe -c <Server IP Address> # run this on your PC (Windows) from the iperf3 download directory and use the Portenta X8 IP address.
 ```
 ![1Gbit speed test between PC and Portenta X8](assets/speed-test.png)
 
@@ -1506,7 +1513,7 @@ The command follows the format:
 
 This is how the communication is done between the Max Carrier with the Portenta X8 and the Machine Control.
 
-For the __Portenta Machine Control__ this Arduino sketch was used:
+For the __Portenta Machine Control__: Install the `Arduino_PortentaMachineControl` library from the Library Manager and use the following example sketch that can also be found on ::
 
 ```arduino
 #include <Arduino_MachineControl.h>
@@ -1567,7 +1574,7 @@ sudo ./docker-run.sh can0 500000 # last parameter is the bitrate
 ```
 This is how the communication is done between the Max Carrier with the Portenta X8 and the Machine Control.
 
-For the __Portenta Machine Control__ this Arduino sketch was used:
+For the __Portenta Machine Control__: Install the `Arduino_PortentaMachineControl` library from the Library Manager and use the following example sketch that can also be found on :
 
 ```arduino
 #include <Arduino_MachineControl.h>
@@ -1701,7 +1708,7 @@ As a practical example, we are going to implement the communication between the 
 ***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines.***
 
 - __For the Portenta C33:__ Use the writing example from above.
-- __For the Portenta Machine Control:__ Install the `Arduino_MachineControl.h` library from the Library Manager and use the following example sketch:
+- __For the Portenta Machine Control:__ Install the `Arduino_PortentaMachineControl.h` library from the Library Manager and use the following example sketch:
 
 ```arduino
 #include <Arduino_MachineControl.h>
@@ -1766,7 +1773,7 @@ Here is the connector pinout for reference:
 
 ![6P6C RS-232/485 Connector Pinout](assets/rs-connector.png)
 
-We are going to communicate the Portenta Max Carrier with the Machine Control using two different protocols, `RS-485` and `RS-232`. Use the following wiring respectively.
+We are going to implement the communication between the Portenta Max Carrier and the Machine Control leveraging two different protocols, `RS-485` and `RS-232`. Use the following wiring respectively.
 
 ![Full duplex RS-485 connection](assets/RS-485-full-new.png)
 
@@ -1784,7 +1791,7 @@ stty -F /dev/ttyX0 115200 -parity cs8 -cstopb
 
 The serial transceiver default configuration is set to __RS-232__, so we are going to use this protocol for the Linux example. Make sure to follow the respective wiring shown above. 
 
-We configured the __Portenta Machine Control__ used for this example leveraging the code included with the `Arduino_MachineControl` library called `RS232` which can be found on **File > Examples > Arduino_MachineControl**. This sketch will continuously send a message and wait to receive one using RS-232.
+We configured the __Portenta Machine Control__ used for this example leveraging the code included with the `Arduino_PortentaMachineControl` library called `RS232` which can be found on **File > Examples > Arduino_PortentaMachineControl**. This sketch will continuously send a message and wait to receive one using RS-232.
 
 After setting up the serial communication parameters, we can start receiving from the Machine Control with the following command:
 
@@ -1815,14 +1822,14 @@ apt-get update && apt-get install minicom -y
 ```
 Once installed, run it with `minicom -s`, configure the serial port to `ttyX0` and verify the baud rate is set to `115200`.
 
-Now, you should be able to send and receive through the RS-232 serial transceiver using the Portenta X8 and the Max Carrier to the Machine Control.
+Now, you should be able to send and receive data through the RS-232 serial transceiver using the Portenta X8, the Max Carrier and the Machine Control.
 
 
 #### Using Arduino IDE
 
 For users working with the Portenta H7 or Portenta C33, the following simple examples can be used to test the RS-232/485 communication.
 
-To use these protocols some libraries are needed and you can install them by searching for `ArduinoRS485` and `Arduino_MachineControl` on the library manager and clicking on install.
+To use these protocols some libraries are needed and you can install them by searching for `ArduinoRS485` and `Arduino_PortentaMachineControl` on the library manager and clicking on install.
 
 Here is the example code for the Max Carrier, it will continuously send a message and wait for one. If a message arrives, it will be printed in the Serial Monitor.
 
@@ -1923,7 +1930,7 @@ void rs485FullDuplex(bool enable) {
   }
 }
 ```
-For the __Portenta Machine Control__, use the library's built-in example code. You can find it on **File > Examples > Arduino_MachineControl > RS485_fullduplex**.
+For the __Portenta Machine Control__, use the library's built-in example code. You can find it on **File > Examples > Arduino_PortentaMachineControl > RS485_fullduplex**.
 
 Remember that the Portenta Machine Control must be programmed by selecting the `Portenta H7` as the target in the Arduino IDE.
 
@@ -2035,7 +2042,7 @@ void rs485FullDuplex(bool enable) {
 }
 ```
 
-For the __Portenta Machine Control__, use the library's built-in example code. You can find it on **File > Examples > Arduino_MachineControl > RS232**.
+For the __Portenta Machine Control__, use the library's built-in example code. You can find it on **File > Examples > Arduino_PortentaMachineControl > RS232**.
 
 Remember that the Portenta Machine Control must be programmed by selecting the `Portenta H7` as the target in the Arduino IDE.
 
