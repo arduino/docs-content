@@ -60,7 +60,7 @@ Max Carrier can be powered via external supply (6-36V) or battery via the onboar
 
 ### Carrier Architecture Overview
 
-![Portenta Max Carrier board overview](assets/architecture-v4.png)
+![Portenta Max Carrier board overview](assets/architecture-new.png)
 
 Here is an overview of the board's architecture's main components shown in the image above:
 
@@ -98,7 +98,7 @@ __Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 
 ### Carrier Topology
 
-![Portenta Max Carrier Topology](assets/Top.png)
+![Portenta Max Carrier Topology](assets/Top-new.png)
 
 | **Ref.** | **Description**                                        | **Ref.**       | **Description**                                           |
 | -------- | ------------------------------------------------------ | -------------- | --------------------------------------------------------- |
@@ -224,7 +224,7 @@ Configuration and control features enable the customization of the device's beha
 
 The Portenta Max Carrier incorporates two DIP switches, giving users the ability to manage the behavior of the board. The configuration parameters of these switches differ based on which Portenta board it is paired with.
 
-![Portenta Max Carrier DIP switches](assets/dip-switch-v2.png)
+![Portenta Max Carrier DIP switches](assets/dip-switch-new.png)
 
 For configurations when the Portenta Max Carrier is combined with the Portenta boards, the DIP switch governs these settings:
 
@@ -246,7 +246,7 @@ Learn more about how the different DIP Switches configurations work and help you
 ### Ethernet
 The Portenta Max Carrier is equipped with an Ethernet interface, specifically an RJ45 connector supporting 1000 Base-T.
 
-![Portenta Max Carrier Ethernet Port](assets/ethernet.png)
+![Portenta Max Carrier Ethernet Port](assets/ethernet-new.png)
 
 Ethernet performance differs based on the associated Portenta board:
 
@@ -498,7 +498,7 @@ The audio recording couldn't be simpler thanks to its variety of audio inputs, l
 
 In the following example, we are going to record audio using an external microphone and store it on a micro SD card.
 
-![Sound recording setup | Mic + micro SD](assets/rec-wiring.png)
+![Sound recording setup | Mic + micro SD](assets/rec-wiring-new.png)
 
 First of all, let's connect to the internet to download the tools and run the needed Docker containers. 
 
@@ -551,7 +551,7 @@ You can open the audio file on your computer by copying it with the following co
 
 In the following example, we are going to playback the previously recorded audio file and learn how to test the Max Carrier audio outputs.
 
-![Sound playback setup | Speakers/Headsets + micro SD](assets/play-wiring.png)
+![Sound playback setup | Speakers/Headsets + micro SD](assets/play-wiring-new.png)
 
 First, it is important to know some commands to control the audio volume.
 
@@ -593,7 +593,7 @@ aplay -c 2 -D hw:cs42l52audio -t wav /sdcard/out2.wav
 
 The Portenta Max Carrier features a USB interface suitable for data logging and connecting external devices.
 
-![Portenta Max Carrier USB-A Port](assets/usb-a.png)
+![Portenta Max Carrier USB-A Port](assets/usb-a-new.png)
 
 If you are interested in the USB-A port pinout, the following table may serve to understand its connection distribution:
 
@@ -992,7 +992,7 @@ The example code from above will read the USB drive connected and print all its 
 
 The available microSD card slot offers the advantage of expanded storage. This is especially beneficial for processing large volumes of log data, whether from sensors or the onboard computer registry.
 
-![MicroSD card slot](assets/microSD.png)
+![MicroSD card slot](assets/microSD-new.png)
 
 ### Using Linux
 
@@ -1442,7 +1442,7 @@ The Portenta Max Carrier is equipped with CAN bus communication capabilities, po
 
 As a practical example, we are going to implement a communication between the __Max Carrier__ using a Portenta X8 and a __Portenta Machine Control__ using CAN.
 
-![Both devices CAN bus wiring diagram](assets/CAN-bus-wiring-x8.png)
+![Both devices CAN bus wiring diagram](assets/CAN-bus-wiring-x8-new.png)
 
 ***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines.***
 
@@ -1696,7 +1696,7 @@ void loop()
 
 As a practical example, we are going to implement the communication between the __Max Carrier__ with a Portenta C33 and a __Portenta Machine Control__ using CAN.
 
-![Both devices CAN bus wiring diagram](assets/CAN-bus-wiring.png)
+![Both devices CAN bus wiring diagram](assets/CAN-bus-wiring-c33-new.png)
 
 ***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines.***
 
@@ -1768,9 +1768,9 @@ Here is the connector pinout for reference:
 
 We are going to communicate the Portenta Max Carrier with the Machine Control using two different protocols, `RS-485` and `RS-232`. Use the following wiring respectively.
 
-![Full duplex RS-485 connection](assets/RS-485-full.png)
+![Full duplex RS-485 connection](assets/RS-485-full-new.png)
 
-![RS-232 connection](assets/RS-232.png)
+![RS-232 connection](assets/RS-232-new.png)
 
 #### Using Linux
 
