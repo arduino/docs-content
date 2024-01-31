@@ -449,9 +449,9 @@ MTBF, which stands for Mean Time Between Failure, is calculated according to sta
 
 The MTBF figure (in hours) for the Portenta Machine Control can be found in the table below. The MTBF figure was calculated according to the MIL217F part count method.
 
-|      **Standard**      | **Portenta Machine Control** |         **Environmental Conditions**         |
-|:----------------------:|:----------------------------:|:--------------------------------------------:|
-| **MTBF MIL HDBK 217F** |      513550h<br>448242h      | 25 ºC, Ground Benign<br>40 ºC, Ground Benign |
+| **Portenta Machine Control** | **Environmental Conditions** |
+|:----------------------------:|:----------------------------:|
+|            513550h           |     25 ºC, Ground Benign     |
 
 ## Mechanical Information
 ### Board Outline
