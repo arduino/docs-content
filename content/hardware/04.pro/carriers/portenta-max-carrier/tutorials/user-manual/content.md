@@ -56,7 +56,7 @@ This Arduino Pro carrier further augments Portenta connectivity options with Fie
 Among the many available plug-and-play connectors, there are Gigabit Ethernet, USB-A, audio jacks, microSD, mini-PCIe, MIPI camera, FD-CAN, and Serial RS-232/422/485.
 Max Carrier can be powered via external supply (6-36V) or battery via the onboard 18650 Li-ion battery connector.
 
-![Portenta X8 Coupling](assets/x8-exploded.png)
+![Portenta X8 Coupling](assets/x8-exploded-new.png)
 
 ### Carrier Architecture Overview
 
@@ -163,7 +163,7 @@ The full __Altium__ files are available and downloadable from the link below:
 
 The Portenta Max Carrier design enables an easy stack of the preferred Portenta board. The following figure shows how the Portenta boards pair via the High-Density connectors.
 
-![Portenta board stack](assets/x8-mount-new.png)
+![Portenta board stack](assets/x8-mount-new-2.png)
 
 With the Portenta mounted to the carrier, you can proceed to power the carrier and begin prototyping.
 
@@ -175,7 +175,7 @@ The Portenta Max Carrier can be powered using the following methods:
 - Using a **3.7V 18650 Li-ion battery** inserted in the on-board battery socket.
 - Using a USB-C® cable connected to the Portenta core board of your choice. (This option does not power the Modem and Mini PCIe connector).
 
-![Portenta Max Carrier power options](assets/power-options-v2.png)
+![Portenta Max Carrier power options](assets/power-options-new.png)
 
 ***Please ensure to connect the battery with the right polarity, not doing so may damage the board.***
 
