@@ -247,7 +247,7 @@ The complete script is as follows.
 static char const SSID[] = SSID_NAME;  /* your network SSID (name) */
 static char const PASS[] = SSID_PASS;  /* your network password (use for WPA, or use as key for WEP) */
 
-static char const OTA_FILE_LOCATION[] = "http://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota";
+static char const OTA_FILE_LOCATION[] = "https://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota";
 
 void setup()
 {
@@ -345,7 +345,7 @@ void loop()
 static char const SSID[] = SSID_NAME;  /* your network SSID (name) */
 static char const PASS[] = SSID_PASS;  /* your network password (use for WPA, or use as key for WEP) */
 
-static char const OTA_FILE_LOCATION[] = "http://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota";
+static char const OTA_FILE_LOCATION[] = "https://downloads.arduino.cc/ota/OTA_Usage_Portenta.ino.PORTENTA_H7_M7.ota";
 
 void setup()
 {
