@@ -232,7 +232,7 @@ In this tutorial, you have learned how to build a "builder" Docker image, get it
 
 ## Next Steps
 
-Please follow the [Flashing tutorial](image-flashing) to flash your device with your custom image. You can use the files provided from this build to flash the Portenta X8 following the tutorial's steps.
+Please follow the [Flashing tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/) to flash your device with your custom image. You can use the files provided from this build to flash the Portenta X8 following the tutorial's steps.
 
 ## Troubleshooting
 

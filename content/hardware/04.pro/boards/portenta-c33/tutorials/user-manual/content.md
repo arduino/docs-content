@@ -72,7 +72,7 @@ The **Arduino Renesas Boards** core contains the libraries and examples to work 
 
 The complete pinout is available and downloadable as PDF from the link below:
 
-- [Portenta C33 pinout](https://docs.arduino.cc/static/903c16295f3bf076c2ed23eb1b38791c/ABX00074-full-pinout.pdf)
+- [Portenta C33 pinout](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf)
 
 ### Datasheet
 

@@ -1,6 +1,7 @@
 ---
 title: 'Arduino® Portenta Cat. M1/NB IoT GNSS Shield Cheat Sheet'
 description: 'Learn how to set up the Portenta Cat. M1/NB IoT GNSS Shield and get a quick overview of its functionality. Obtain information regarding pins and how to use the different communication technologies.'
+difficulty: beginner
 tags:
   - Installation
   - Cat. M1
