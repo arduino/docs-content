@@ -84,15 +84,19 @@ You can import your Sketchbook via a .zip file. The Cloud Editor is part of Ardu
 
 ### Devices 
 
+Setting up an IoT projects can be time consuming and complex especially. With the Cloud platform, you can bring your IoT project ideas to life within in four steps. Before starting with a project we recommend you to familiarize yourself with the necessary tools that you will use during your building process.
+
+![IoT projects setup](assets/iot-projects-setup.png)
+
 The Arduino Cloud supports a range of official and third-party boards which are handled in the **"Devices"** tab. Devices are considered to be the digital replicas of your physical boards.
 
-![Devices overview](assets/device-list.png)
+![Device tab in the Cloud homepage](assets/device-list.png)
 
 The Arduino Cloud currently supports devices connected via Wi-Fi®, Ethernet, LoRaWAN® (via The Things Network), and cellular connectivity. You can check the [full list of compatible hardware here](https://support.arduino.cc/hc/en-us/articles/360016077320-What-devices-can-be-used-with-Arduino-IoT-Cloud-).
 
 ### Things 
 
-To use a device in Arduino Cloud, you need to [create a Thing](https://app.arduino.cc/things), or associate it to an existing Thing. A Thing is the digital twin of your device, like a reference to the actual hardware used to implement them. 
+[Things](https://app.arduino.cc/things) are basically a representation of how your Arduino device, sensors, actuators and network is mapped and linked together.
 
 ![A Thing Overview](assets/thing-interface.png)
 
@@ -101,7 +105,7 @@ Each Thing is represented by a collection of properties, such as
 - **Variables** - they are very similar to the variables we create in a regular sketch where they are used to retrieve and store information. 
 - **Associated device** - The device that is used to collect data from the real world. 
 - **Network Credentials** - Contains information about Wi-Fi® name and password 
-- **Sketch** - A **lite version of the Web Editor** which is actually a preview of a sketch saved on the Web Editor.
+- **Sketch** - A lite version of the Web Editor which is actually a preview of a sketch saved on the Web Editor.
 - **Metadata** - such as tags, timezone and Thing ID.
 
 Read more about Things [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things).
