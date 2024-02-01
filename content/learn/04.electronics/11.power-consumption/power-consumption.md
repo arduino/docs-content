@@ -1,21 +1,21 @@
 ---
-title: 'Power Consumption on Arduino Boards'
-description: 'Learn about measuring power consumption on an Arduino board.'
+title: "Power Consumption on Arduino Boards"
+description: "Learn about measuring power consumption on an Arduino board."
 tags: [Power Consumption]
-author: 'Karl Söderby'
+author: "Karl Söderby"
 ---
 
-All electronic devices, including Arduino boards, consume power. The power consumption is measured in ampere hours (Ah), and with low voltage devices, it is typically measured in mAh.
+All electronic devices, including Arduino boards, consume power. The power consumption is measured in ampere-hours (Ah), and with low-voltage devices, it is typically measured in mAh.
 
-When creating projects that run on a battery or is power-constrained, taking power consumption into account can be critical. It will among other things help you decide which kind of battery you need to use.
+When creating projects that run on a battery or are power-constrained, taking power consumption into account can be critical. It will among other things help you decide which kind of battery you need to use.
 
-In this article, we will demonstrate how you can perform power consumption tests, using a **power profiler**. A power profiler is used to measure consumption over a specific time period, where we record several thousands samples. You will find instructions for both the hardware setup, the software setup, and the actual power consumption tests in this article.
+In this article, we will demonstrate how you can perform power consumption tests, using a **power profiler**. A power profiler is used to measure consumption over a specific time, where we record several thousand samples. You will find instructions for both the hardware setup, the software setup, and the actual power consumption tests in this article.
 
-***Note that in this article, third party products are being used.***
+**_Note that in this article, third-party products are being used._**
 
 ## Hardware & Software Needed
 
-For power consumption tests in this article, we used the following hardware & software. Note that there are many alternatives on the market.
+For the power consumption tests in this article, we used the following hardware & software. Note that there are many alternatives on the market.
 
 - [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop/Download)
 - [Power Profiler Kit II](https://www.nordicsemi.com/Products/Development-hardware/Power-Profiler-Kit-2)
@@ -24,35 +24,39 @@ For power consumption tests in this article, we used the following hardware & so
 
 ## Measuring Power Consumption
 
-Power consumption measurements are done by connecting a power profiler between your Arduino and computer. The power profiler is connected to the computer via USB, and then to the Arduino via jumper wires. For power consumption measurements, we simply use two wires: **power** and **ground**. The power cable is connected to your Arduino's power pins, and ground goes to one of the GND pins on the board.
+Power consumption measurements are done by connecting a power profiler between your Arduino and computer. The power profiler is connected to the computer via USB, and then to the Arduino via jumper wires. For power consumption measurements, we simply use two wires: **power** and **ground**. The power cable is connected to your Arduino's power pins, and the ground cable goes to one of the GND pins on the board.
 
-When it is connected, the power profiler can measure the power consumption of your board with a high accuracy. Any power that your board consumes can now be detected, and with a software tool (such as the [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop/Download)), we can record power consumption over time.
+When connected, the power profiler can measure the power consumption of your board with high accuracy. Any power that your board consumes can now be detected, and with a software tool (such as the [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop/Download)), we can record power consumption over time.
 
 So what is it that we are measuring? In very simple terms, all electronic devices draw current, whether it is small or big. A small LED can for example draw 10 mA (0.01 A), while a servo motor can draw up towards 1000 mA (1 A). If you have an LED on for an hour that draws 10 mA, we can express it as **mAh**, which means **milli-ampers consumed per hour**.
 
 ### Power Consumption Example
 
-To provide a practical example, let's take the [Nano ESP32](). We ran a simple sketch on the board, which continuously runs the `analogRead()` function. The test ran for 60 seconds, and recorded 100'000 samples. The result was an average of **31.05 mA**. 
+To provide a practical example, let's take the [Nano ESP32](https://store.arduino.cc/products/nano-esp32) and run a simple sketch on the board, which continuously runs the `analogRead()` function. Running the test for 60 seconds recording 100'000 samples, results in an average consumption of **31.05 mA**.
 
-Now, if we wanted to power this application using a battery, we know that the power consumption is 31.05 mA. If we intend to run the application with a fully re-charged 300 mAh battery, we would be able to run for approximately 9 hours, as we would be consuming **31.05 * 9 = 279.45**, according to the formula below:
+Now, if we wanted to power this application using a 300 mAh battery we need to calculate the time with the following formula:
 
-- **milli-ampere hours (mAh) = power consumption * hours**
+![Formular](./assets/formula.png)
 
 With that information, we can make an educated guess of what type of battery we should get. For example, a battery with more capacity, let's say 600 mAh, would in theory last for twice the period.
 
-***Note that there are other factors at play, such as the battery's discharge rate and the general quality of the battery. The above formulas and measurements are to be considered guidelines.***
-
+**_Note that there are other factors at play, such as the battery's discharge rate and the general quality of the battery. The above formulas and measurements are to be considered guidelines._**
 
 ## Software Setup
 
-The software setup involves two steps: **upload a sketch** and **insatlling nRF Connect for Desktop**. 
+The software setup involves two steps: **uploading a sketch** and **installing nRF Connect for Desktop**.
 
 ### Upload Sketch
 
-This step is rather straightforward. Upload the sketch that you want to measure the power consumption of. Below is a minimal sketch that reads an analog pin continuously. 
+This step is rather straightforward. Upload the sketch that you want to measure the power consumption of. Below is a minimal sketch that reads an analog pin continuously.
 
 ```arduino
+void setup() {}
 
+void loop() {
+  int analog_value = analogRead(A0);
+  delay(1);
+}
 ```
 
 ### Install Desktop App
@@ -63,12 +67,12 @@ To measure the power consumption, we are going to use the [nRF Connect for Deskt
 
 The profiler we used is the [Power Profiler Kit II](https://www.nordicsemi.com/Products/Development-hardware/Power-Profiler-Kit-2).
 
-1. First disconnect the USB cable from your board. You will be powering the board directly from the power profiler, so there's no need for the USB cable at this point.
+1. First, disconnect the USB cable from your board. You will be powering the board directly from the power profiler, so there's no need for the USB cable at this point.
 2. Use the provided cable from the kit, and connect it to your board's GND and power pin, following the illustration below:
 
-![Connect the power profiler to the board.]()
+![Connect the power profiler to the board.](./assets/circuit.png)
 
-***Important note! In the software setup you enable the "Power Output" of the power profiler. Make sure that the voltage (3.3 V or 5 V) matches the voltage on the power pin of the board. Applying 5 V to a 3.3 V pin will damage your board.***
+**_Important note! In the software setup, you enable the "Power Output" of the power profiler. Make sure that the voltage (3.3 V or 5 V) matches the voltage on the power pin of the board. Applying 5 V to a 3.3 V pin will damage your board._**
 
 ## Power Consumption Test
 
@@ -77,17 +81,17 @@ With the hardware and software set up, let's take a look at how to record the po
 1. Open the **nRF Desktop App**
 2. instructions for setting up the PP
 3. Enable the power output, by clicking the "Enable Power Output" option.
-    
-    ![Enable power output.]()
+
+   ![Enable power output.](./assets/powerOutput.png)
 
 4. Select sample period (60 seconds) and number of samples (100k).
-5. Click on the "Begin Sampling" to start the power consumption test.
-    
-    ![Start sampling.]()
+5. Click on "Begin Sampling" to start the power consumption test.
 
-6. During the test, you can see the power consumption in real-time. After 60 seconds (or when specified sample period ends), you will have the data, which includes the **max** and **avg** consumption. You can also zoom in to view the data.
-    
-    ![Power consumption data.]()
+   ![Start sampling.](./assets/startSampling.png)
+
+6. During the test, you can see the power consumption in real-time. After 60 seconds (or when the specified sample period ends), you will have the data, which includes the **max** and **avg** consumption. You can also zoom in to view the data.
+
+   ![Power consumption data.](./assets/consumption.png)
 
 You have now recorded the power consumption of your device. You can note down the results, export it as a `.csv` or take a screenshot for future reference.
 
@@ -100,9 +104,7 @@ In this section, you will find a number of tests we ran on a set of Arduino boar
 The simple analog read sketch continuously reads an analog pin.
 
 ```arduino
-void setup() {
-
-}
+void setup() {}
 
 void loop() {
   int analog_value = analogRead(A0);
@@ -118,13 +120,64 @@ In the table below, you can see the results of each board tested with the sketch
 | GIGA R1 WiFi | 51.02 mA | 94.08 mA  | 58.05 mA |
 | Nano ESP32   | 29.18 mA | 46.58 mA  | 31.05 mA |
 
-
-
 ### Arduino Cloud Basic
 
 The **Arduino Cloud Basic** sketch sends sensor data to the Arduino Cloud, and turns on the built-in LED whenever activated from a dashboard.
 
 ```arduino
+/*
+  Sketch generated by the Arduino IoT Cloud Thing "Cloud Blink"
+
+  Arduino IoT Cloud Variables description
+
+  The following variables are automatically generated and updated when changes are made to the Thing
+
+  bool led;
+
+  Variables which are marked as READ/WRITE in the Cloud Thing will also have functions
+  which are called when their values are changed from the Dashboard.
+  These functions are generated with the Thing and added at the end of this sketch.
+*/
+
+#include "thingProperties.h"
+
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
+  delay(1500);
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+
+  /*
+     The following function allows you to obtain more information
+     related to the state of network and IoT Cloud connection and errors
+     the higher number the more granular information you’ll get.
+     The default is 0 (only errors).
+     Maximum is 4
+ */
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  ArduinoCloud.update();
+  digitalWrite(LED_BUILTIN, led);
+}
+
+/*
+  Since Led is READ_WRITE variable, onLedChange() is
+  executed every time a new value is received from IoT Cloud.
+*/
+void onLedChange()  {
+  Serial.print("Led status changed:");
+  Serial.println(led);
+}
 
 ```
 
@@ -138,5 +191,4 @@ In the table below, you can see the results of each board tested with the sketch
 
 ## Summary
 
-In this guide we have learned how to use a power profiler to record power consumption data. This is an incredibly good utility, as it helps you identify the power needs of your application, which can aid your decision in selecting the right power source.
-
+In this guide, we have learned how to use a power profiler to record power consumption data. This is an incredibly good utility, as it helps you identify the power needs of your application, which can aid your decision in selecting the right power source.
