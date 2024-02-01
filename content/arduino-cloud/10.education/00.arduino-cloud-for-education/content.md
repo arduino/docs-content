@@ -42,7 +42,7 @@ Arduino Cloud makes the creation of connected objects quick, simple, and secure.
 
 We understand that it could be a daunting task to find a starting point especially when you are new to Arduino and running out of time to put together a lesson / project with new tools. **Cloud Courses** offer you over 30 different **lessons** and **projects** across various age groups and grades. 
 
-#### **Organize, manage and track student progress** 
+**Organize, manage and track student progress** 
 
 Manage your classroom with ease and make collaboration easier through the use of shared spaces. Through a shared space you can keep tabs on students projects, create assignments through Google Classroom and share learning materials with your students.
 
