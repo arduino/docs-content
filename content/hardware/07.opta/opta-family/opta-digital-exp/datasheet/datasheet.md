@@ -144,11 +144,11 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input resolution</td>
-            <td>12...16 bits - User configurable</td>
+            <td>10 bits - User configurable</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input LSB value</td>
-            <td>166 µV</td>
+            <td>TBD µV</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Accuracy</td>
@@ -381,30 +381,25 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 **Note:** The LED above the *User Programmable button* (Ref: 3D) is only available on Arduino Opta® WiFi (AFX00002).
 
-### Microcontroller
-The microcontroller is a dual-core *STM32H747XI*. The main processor is a *Cortex®-M7* running at up to 480 MHz and the second one is a Cortex®-M4 running at up to 240 MHz.
-
-Arduino Opta® can be programmed using the libraries developed for it as part of the standard Arduino Core library.
-
 ### Relay Outputs
-Arduino Opta® has four *Normally Open* (NO) powerful 10A relays which are capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC.
+Arduino Opta® Digital Expansions has eight *Normally Open* (NO) relays. For the **EMR** variant, eight powerful 6A electromechanical relays which are capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC, and for the **SSR** variant, eight fast 2A solid state relays which are capable of actuating on DC loads at a rated voltage of 24 VDC. 
 
 The relay *Maximum Peak Current* is defined as the highest value of inrush current that the relay can endure without undergoing any permanent degradation of its characteristics due to the generated heat. The relay has to be able to hold up that maximum using a duty cycle of less or equal to 10% and for a time equal to or less than 0.5 s.
 
-In the case of Arduino Opta®, relays have a *Maximum Peak Current* of 15A.
+In the case of Arduino Opta® Digital Expansions, the EMR and SSR variants have a *Maximum Peak Current* of 10A and 50A respectively.
 
 The *Rated Load* is the maximum resistive load that a contact can make, carry and break repeatedly. 
-- For resistive or slightly inductive loads (AC1 classification), Arduino Opta's *Rated Load* is 2500 VA.
-- For small electromagnetic loads (> 72 VA) (AC15 classification) like power contactors, magnetic solenoid valves, electromagnets and AC single-phase supplies, Arduino Opta's *Rated Load* is 500 VA. This value assumes a peak inrush current of approximately 10 times the rated current and keeping it within the maximum peak current.
+- For resistive or slightly inductive loads (AC1 classification), **EMR variant's** *Rated Load* is 1500 VA.
+- For small electromagnetic loads (> 72 VA) (AC15 classification) like power contactors, magnetic solenoid valves, electromagnets and AC single-phase supplies, **EMR variant's** *Rated Load* is 300 VA. This value assumes a peak inrush current of approximately 10 times the rated current and keeping it within the maximum peak current.
 
-For controlling DC loads (DC1 classification), the *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 10/4/0.3/0.12A for respectively 24/30/110/220V.
+For controlling DC loads (DC1 classification), the **EMR variant's** *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 6/0.2/0.12A for respectively 24/110/220 V.
 
-In the case of the minimum switching load parameters, the minimum values of power, voltage and current that the relays can reliably switch, are 300 mW/ 5V / 5mA. This implies that with 5V the current must be at least 60mA, with 24V, it must be at least 12.5mA, and with 5mA the voltage must be at least 60V.
+In the case of the minimum switching load parameters, the minimum values of power, voltage and current that the **EMR variant** relays can reliably switch, are 500 mW/ 12V / 10mA. This implies that with 12V the current must be at least 42mA, with 24V, it must be at least 21mA, and with 10mA the voltage must be at least 50V.
 
-The relays on Arduino Opta® provide a very fast response time of 6/4 ms to change state for closing/reopening, and a bounce time NO/NC of 3/6 ms.
+The **EMR variant** relays on Arduino Opta® Digital Expansions provide a very fast response time of 6/4 ms to change state for closing/reopening. The **SSR variant** provides an even faster response of 0.02/0.2 ms to change state for closing/reopening.
 
 ### Expansion Port
-The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. Reserved for future functionality.
+The expansion port can be used to daisy-chain several the Arduino Opta® Expansions and additional modules.
 
 ## Device Operation
 ### Getting Started - IDE
