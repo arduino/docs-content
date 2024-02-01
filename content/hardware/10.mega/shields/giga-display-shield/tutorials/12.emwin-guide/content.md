@@ -118,7 +118,7 @@ Using the window manager method is more complex and require more lines of code, 
 
 ### Creating a Grid Layout
 
-To create different windows inside our display, use the `WM_CreateWindowAsChild()` function. Here is the function with the paramaters that should be given:
+To create different windows inside our display, use the `WM_CreateWindowAsChild()` function. Here is the function with the parameters that should be given:
 
 ```arduino
 WM_CreateWindowAsChild(X-position, Y-position, Height, Width, Parent Window, VisibilityFlag, WindowsCallback, AdditionalBytes);
@@ -202,7 +202,7 @@ static void _cbChildWinImg(WM_MESSAGE * pMsg) {
 
 ### Text
 
-Most widgets have label functions attached to them. However if you want to print something independetent of a widget you can use the `GUI_DispString("");` function. This will display any text put in as a paramater.
+Most widgets have label functions attached to them. However if you want to print something independetent of a widget you can use the `GUI_DispString("");` function. This will display any text put in as a parameter.
 
 Calling `GUI_SetColor()` before the text print will allow you to change the color of the text that is then printed. [Here](https://wiki.segger.com/CHOOSECOLOR_(Sample)) you can find the colors available.
 
@@ -413,7 +413,7 @@ PROGBAR_Handle hProg;
 hProg = PROGBAR_CreateEx(X-position, Y-position, Height, Width, pMsg->hWin, WM_CF_SHOW, PROGBAR_CF_HORIZONTAL, GUI_ID_PROGBAR0);
 ```
 
-The progress bar needs a callback function that will handle the caclulation and animation of the progress that is being displayed. The progress bar and callback function that should be linked are defined in the `WM_SetCallback()` function, like so:
+The progress bar needs a callback function that will handle the calculation and animation of the progress that is being displayed. The progress bar and callback function that should be linked are defined in the `WM_SetCallback()` function, like so:
 
 ```arduino
 WM_SetCallback(hProg, _cbProgbar);
@@ -626,7 +626,7 @@ static void _cbChildWinChkBtn(WM_MESSAGE * pMsg) {
 
 This guide went through the building blocks of the different components that can be implemented with emWin. To see these examples in a full running example sketch go to **File > Examples > Arduino_H7_Video > emWinDemo**.
 
-![Example in the IDE]()
+[Example in the IDE]()
 
 This example sketch will show the different components using a screen manager in a 2x2 grid.
 
