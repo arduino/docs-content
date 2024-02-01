@@ -134,7 +134,7 @@ For starters we have courses like [Explore Physics](https://courses.arduino.cc/e
 
 Every course contains a couple of Lessons and Projects (Activities in some cases) that distinguishes technical activities from pedagogical ones. 
 
-![Explore IoT Course](assets/homepage-explore.png)
+![Explore IoT Course](assets/homepage-greenhouse.png)
 
 Lessons help students to understand how to connect a component to Arduino and focuses on core programming skills, connecting electronics and troubleshooting. 
 
