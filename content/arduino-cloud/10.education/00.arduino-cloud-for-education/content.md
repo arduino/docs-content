@@ -26,19 +26,19 @@ The [Arduino Cloud](https://cloud.arduino.cc/schools/) helps teachers to effecti
 
 Arduino Cloud can be used to meet some of the basic needs of a teacher who wants to implement hands-on learning in the classroom using Arduino Educational kits or hardware. 
 
-#### **Easy-to-use platform**
+**Easy-to-use platform**
 
 The **Arduino Cloud Home** has been designed with the goal of offering a simple and straightforward experience for absolute beginners in order to be efficient in creating Arduino projects with the use of **Quick Actions** and **Sidebar**. 
 
-#### **Code online using the Web-Editor** 
+**Code online using the Web-Editor** 
 
 Low code entry using the **Cloud Editor** gets students started quickly. Instant results motivate students to go further and progress through limitless active learning pathways.
 
-#### **Get started with IoT Projects quickly** 
+**Get started with IoT Projects quickly** 
 
 Arduino Cloud makes the creation of connected objects quick, simple, and secure. You can connect multiple **devices**, allow them to exchange real-time data very easily and visualize data through interactive **dashboards**. Our extensive collection of pre-built **IoT Templates** gets your project up and running in two minutes. 
 
-#### **Access rich and deep learning content** 
+**Access rich and deep learning content** 
 
 We understand that it could be a daunting task to find a starting point especially when you are new to Arduino and running out of time to put together a lesson / project with new tools. **Cloud Courses** offer you over 30 different **lessons** and **projects** across various age groups and grades. 
 
@@ -106,7 +106,7 @@ Each Thing is represented by a collection of properties, such as
 - **Sketch** - A **lite version of the Web Editor** which is actually a preview of a sketch saved on the Web Editor.
 - **Metadata** - such as tags, timezone and Thing ID.
 
-Read more about it [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things).
+Read more about Things [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things).
 
 ### Dashboards 
 
@@ -120,7 +120,7 @@ Typically a dashboard consists of easily configurable Widgets. Widgets are the â
 
 If you want to quickly setup an IoT project, you don't have to start from scratch. [Templates](https://app.arduino.cc/templates) are ready-made projects that will automatically configure your hardware and set it up with our Cloud Environment.
 
-It's the easiest way to proceed with a beginner class and you can check that section to get inspiration for your own class project.
+It's the easiest way to proceed with a beginner class and you can checkout the collection of Templates to get inspiration for your own class project.
 
 ## Cloud Courses
 
@@ -136,7 +136,7 @@ Every course contains a couple of Lessons and Projects (Activities in some cases
 
 ![Explore IoT Course](assets/homepage-greenhouse.png)
 
-Lessons help students to understand how to connect a component to Arduino and focuses on core programming skills, connecting electronics and troubleshooting. 
+Lessons help students to understand how to connect sensors and actuators to an Arduino board and focuses on core programming skills, connecting electronics and troubleshooting. 
 
 ![Lesson example](assets/lesson.png)
 
@@ -156,7 +156,7 @@ Foster collaboration in your classroom through the use of Shared Spaces. A **sha
 
 ![Invite members to collaborate](assets/invite-members.png)
 
-Now that you have logged in and have your own private space let's get you started with setting up a space for your classroom. In order to create a shared space go to [this link](https://app.arduino.cc/space?spaceType="edu").
+Now that you have logged in and have your own private space let's get you started with setting up a space for your classroom. In order to create a shared space go to [this link](https://docs.arduino.cc/arduino-cloud/education/shared-spaces).
 
 ### Share learning materials 
 
