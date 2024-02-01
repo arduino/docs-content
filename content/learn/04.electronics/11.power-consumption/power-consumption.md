@@ -24,7 +24,7 @@ For the power consumption tests in this article, we used the following hardware 
 
 ## Measuring Power Consumption
 
-Power consumption measurements are done by connecting a power profiler between your Arduino and computer. The power profiler is connected to the computer via USB, and then to the Arduino via jumper wires. For power consumption measurements, we simply use two wires: **power** and **ground**. The power cable is connected to your Arduino's power pins, and the ground cable goes to one of the GND pins on the board.
+Power consumption measurements are done by connecting a power profiler between your Arduino board and computer. The power profiler is connected to the computer via USB, and then to the Arduino board via jumper wires. For power consumption measurements, we simply use two wires: **power** and **ground**. The power cable is connected to your Arduino board's power pins, and the ground cable goes to one of the GND pins on the board.
 
 When connected, the power profiler can measure the power consumption of your board with high accuracy. Any power that your board consumes can now be detected, and with a software tool (such as the [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop/Download)), we can record power consumption over time.
 
@@ -122,7 +122,7 @@ In the table below, you can see the results of each board tested with the sketch
 
 ### Arduino Cloud Basic
 
-The **Arduino Cloud Basic** sketch sends sensor data to the Arduino Cloud, and turns on the built-in LED whenever activated from a dashboard.
+The **Arduino Cloud Basic** sketch sends sensor data to the Arduino Cloud and turns on the built-in LED whenever activated from a dashboard.
 
 ```arduino
 /*
