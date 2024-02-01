@@ -1,6 +1,7 @@
 ---
 title: 'Over-The-Air (OTA) Updates with the Arduino Portenta H7'
 description: 'Learn how to perform an OTA update of the firmware on the Arduino Portenta H7'
+difficulty: intermediate
 tags: 
   - OTA
   - Over-The-Air 
@@ -25,7 +26,7 @@ software:
 ## Overview
 In this tutorial, you will learn how to use and allow firmware updates via **OTA (Over-The-Air)** feature with the **Arduino Portenta H7**. With this tutorial, you will be able to create a binary file to be used with the OTA feature and use the internal **QSPI** or a external **SD card** to accomplish the OTA (Over-The-Air) process. 
 
-***To proceed with OTA using a SD Card, you will need to use a carrier or shield with a SD card slot, e.g Portenta Breakout, Portenta Max Carrier, Portenta Vision shield.***
+***To proceed with OTA using a SD Card, you will need to use a carrier or shield with a SD card slot, e.g Portenta Breakout, Portenta Max Carrier, Portenta Vision Shield.***
 
 ## Goals
 The goals of this tutorial are: 
@@ -105,7 +106,7 @@ To continue, macOS or Linux environment is required. For Windows environment, it
 
 Once you're comfortable with an environment, you will need a tool which can be found at the following link.
 
-***Arduino IoT Cloud Library - Over-The-Air Tools: https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/extras/tools***
+***[Arduino IoT Cloud Library - Over-The-Air Tools](https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/extras/tools)***
 
 You will have to extract the library at a preferred location to be able to use the tools. Then, you will need to run on the terminal the following commands in sequence to be able to create the OTA file. 
 
@@ -205,7 +206,7 @@ Then prepare the OTA storage, download the .ota file from the internet, decompre
 #### Setting Up
 To use the **SD card** as the preferred OTA (Over-The-Air) storage device, you can use the Arduino Portenta Vision Shield and Portenta H7 connected via **HD (High-Density)** Connectors.  
 
-![Arduino Portenta H7 with Vision Shield (Ethernet)](assets/portenta_h7_plus_vision_shield.svg)
+![Arduino Portenta H7 with Portenta Vision Shield - Ethernet](assets/portenta_h7_plus_vision_shield.svg)
 
 With this, you will need the Arduino Portenta H7 board connected to the computer with the Arduino IDE. You will need to have selected the **Arduino Portenta H7 (M7 Core)** with the Flash split of **1MB M7 + 1 MB M4** for the purpose of this tutorial and the corresponding port.
 

@@ -1,6 +1,7 @@
 ---
 title: 'Secure Boot on Portenta H7'
 description: 'Learn how to use secure boot on the Arduino Portenta H7.'
+difficulty: beginner
 tags: 
   - Secure Boot
 author: 'Umberto Baldi'

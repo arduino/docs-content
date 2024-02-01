@@ -1,6 +1,7 @@
 ---
 title: '12. Multi-Protocol Gateway With Portenta X8 & Max Carrier'
 description: 'This tutorial shows how to setup a multi-protocol gateway environment on Portenta X8 using Max Carrier'
+difficulty: intermediate
 tags:
   - Containers
   - Docker
@@ -522,13 +523,13 @@ You will be able to see the following results when the image is built successful
 After a successful container build, you will run the image. To do that, you can use the following command. This command will immediately give an output in your terminal, telling you how the Python® script is running. If you wish to have it running in the background, please add the `-d` flag at the end of the command.
 
 ```bash
-sudo docker-compose up
+sudo docker compose up
 ```
 
 Finally, you will have the multi-protocol gateway running, which uses Wi-Fi® and LoRa® connectivity. Also, RPC for exchanging data between its layers. However, there are cases where you would wish to make changes by adding more functionalities, such as including Cat. M1 or NB-IoT to expand its communication spectrum. For this, you will need to stop the image. To stop the image from running, you can use the following command.
 
 ```bash
-sudo docker-compose down
+sudo docker compose down
 ```
 
 Getting to know the status of the image is also crucial as it is the indicator of the state of operation. The following command brings up **active** containers and shows the status if the container restarted or stopped due to certain reasons. The second command lists built images and it will show you the components that go with the main image that you're building.
