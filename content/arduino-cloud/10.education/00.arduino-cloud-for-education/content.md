@@ -64,7 +64,7 @@ The **Sidebar**  on the left provides you quick access to all the important tool
 
 - **Sketches** - These are the programs you or your students will create. Here you can access all sketches that you have created in the past or wish to create. Your Sketchbook will be stored in the Cloud and accessible from any device. 
 - **IoT Tools** - One of the core functionalities of the Cloud Platform is to enable you to build IoT projects that allows you to collect, analyze and monitor data from the environment. 
-- **Resources, Courses** **& Templates** - These are learning materials and ready-made IoT projects to get you started with your educational kits or other Arduino hardware. 
+- **Resources, Courses & Templates** - These are learning materials and ready-made IoT projects to get you started with your educational kits or other Arduino hardware. 
 - **Integrations** - Integrate with third-party APIs and extend your projects functionality. 
 - **Plans** - Here you can track the usage of your free plans. You can always upgrade to a School Plan whenever you want. If you are curious, take a look at our [School Plans options](https://cloud.arduino.cc/#schools).
 
