@@ -545,9 +545,9 @@ MTBF, which stands for Mean Time Between Failure, is calculated according to sta
 
 The MTBF figure (in hours) for each Arduino Opta® variant can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F parts count method.
 
-|   **Opta® Lite**   |   **Opta® RS485**  |    **Opta® WiFi**    |         **Environmental Conditions**         |
-|:------------------:|:------------------:|:--------------------:|:--------------------------------------------:|
-| 766205h<br>668766h | 766205h<br>668766h | 1526239h<br>1332146h | 25 ºC, Ground Benign<br>40 ºC, Ground Benign |
+| **Opta® Lite** | **Opta® RS485** | **Opta® WiFi** | **Environmental Conditions** |
+|:--------------:|:---------------:|:--------------:|:----------------------------:|
+|     766205h    |     766205h     |    1526239h    |     25 ºC, Ground Benign     |
 
 
 ## Mechanical Information
