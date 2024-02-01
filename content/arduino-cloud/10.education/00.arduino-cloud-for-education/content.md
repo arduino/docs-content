@@ -44,13 +44,13 @@ We understand that it could be a daunting task to find a starting point especial
 
 #### **Organize, manage and track student progress** 
 
-Integrate your google classroom You can also organize, monitor, review STEAM projects of your students from a single place.
+Manage your classroom with ease and make collaboration easier through the use of shared spaces. Through a shared space you can keep tabs on students projects, create assignments through Google Classroom and share learning materials with your students.
 
 ## Cloud Home 
 
 The home page is more or less like a control panel where you can access all the important functionalities. From this interface you can create, monitor and navigate to different areas of the platform based on your application. 
 
-![Cloud homepage overview](assets/cloud-home-u.png)
+![Cloud Sidebar Menu](assets/side-bar.png)
 
 ### Quick Actions
 
@@ -60,15 +60,13 @@ The home page is more or less like a control panel where you can access all the 
 
 ### Sidebar 
 
-![Cloud Sidebar Menu](assets/side-bar.png)
-
-The **Sidebar**  on the left provides you quick access to all the important tools such as the Editor (through Sektches), IoT Cloud (through Devices, Things and Dashboards), Templates and even learning materials such as **Courses** and **Resources**. Let's take a closer look at these components and what they are.
+The **Sidebar**  on the left provides you quick access to all the important tools such as the Editor (through Sketches), IoT Cloud (through Devices, Things and Dashboards), Templates and even learning materials such as **Courses** and **Resources**. Let's take a closer look at these components and what they are.
 
 - **Sketches** - These are the programs you or your students will create. Here you can access all sketches that you have created in the past or wish to create. Your Sketchbook will be stored in the Cloud and accessible from any device. 
 - **IoT Tools** - One of the core functionalities of the Cloud Platform is to enable you to build IoT projects that allows you to collect, analyze and monitor data from the environment. 
 - **Resources, Courses** **& Templates** - These are learning materials and ready-made IoT projects to get you started with your educational kits or other Arduino hardware. 
 - **Integrations** - Integrate with third-party APIs and extend your projects functionality. 
-- **Plans** - Here you can track the usage of your free plans. You can always upgrade to a School Plan whenever you want. If you are curious, take a look at our [School Plans options ](https://cloud.arduino.cc/#schools).
+- **Plans** - Here you can track the usage of your free plans. You can always upgrade to a School Plan whenever you want. If you are curious, take a look at our [School Plans options](https://cloud.arduino.cc/#schools).
 
 ***If you are new to the platform, make sure you try out the interactive walkthrough for a faster onboarding experience.***
 
