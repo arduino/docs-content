@@ -1729,10 +1729,10 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
 
 - The code begins by importing all the necessary modules and defining the Bluetooth® Low Energy service and characteristics for an environment-sensing application.
 
-  |         **Description**        |       **ID**       |
-  |:------------------------------:|:------------------:|
-  | Environmental Sensing Service  |        181A        |
-  | Temperature Characteristic     |        2A6E        |
+|        **Description**        | **ID** |
+|:-----------------------------:|:------:|
+| Environmental Sensing Service |  181A  |
+|  Temperature Characteristic   |  2A6E  |
 
 - Then sets up the Bluetooth® Low Energy service and characteristics; and begins advertising the defined Bluetooth® Low Energy service.
 
@@ -1856,11 +1856,10 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
 
 - The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristics for an environment sensing application.
 
-
-  |         **Description**        |       **ID**       |
-  |:------------------------------:|:------------------:|
-  | Environmental Sensing Service  |        181A        |
-  | Temperature Characteristic     |        2A6E        |
+|         **Description**        |       **ID**       |
+|:------------------------------:|:------------------:|
+| Environmental Sensing Service  |        181A        |
+| Temperature Characteristic     |        2A6E        |
 
 - In the `setup()` function, the code initializes the Nicla Vision board and sets up the Bluetooth® Low Energy service and characteristics; then, it begins advertising the defined Bluetooth® Low Energy service.
 
