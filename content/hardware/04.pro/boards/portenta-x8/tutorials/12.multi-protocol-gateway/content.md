@@ -173,7 +173,7 @@ You can access the files [here](assets/Multi_Protocol_Gateway_X8.zip). Meanwhile
 
 The `docker-compose.yml` file is where you define permissions and settings for the involved container. This helps to define service dependencies and provide an easy configuration. It will allow to deploy and configure for multiple containers within its defined instructions.
 
-```
+```yaml
 version: '3.6'
 
 services:
@@ -196,7 +196,7 @@ In this scenario, we are granting the Portenta a major permission if it needs to
 
 Here you will define which additional components are required to run the script built inside the container. If you decide to develop further with a different protocol, you will have to add the package to be able to use them for development.
 
-```
+```cpp
 msgpack-rpc-python
 pyserial==3.4
 python-periphery==2.3.0
@@ -511,7 +511,7 @@ You will now build the container using the following commands. The following com
 
 ```bash
 cd ../home/fio/Multi_Protocol_Gateway_X8
-Multi_Protocol_Gateway_X8 sudo docker build . -t multi_gateway
+sudo docker build . -t multi_gateway
 ```
 
 You will be able to see the following results when the image is built successfully.
@@ -523,19 +523,22 @@ You will be able to see the following results when the image is built successful
 After a successful container build, you will run the image. To do that, you can use the following command. This command will immediately give an output in your terminal, telling you how the Python® script is running. If you wish to have it running in the background, please add the `-d` flag at the end of the command.
 
 ```bash
-Multi_Protocol_Gateway_X8 sudo docker-compose up
+sudo docker compose up
 ```
 
 Finally, you will have the multi-protocol gateway running, which uses Wi-Fi® and LoRa® connectivity. Also, RPC for exchanging data between its layers. However, there are cases where you would wish to make changes by adding more functionalities, such as including Cat. M1 or NB-IoT to expand its communication spectrum. For this, you will need to stop the image. To stop the image from running, you can use the following command.
 
 ```bash
-Multi_Protocol_Gateway_X8 sudo docker-compose down
+sudo docker compose down
 ```
 
 Getting to know the status of the image is also crucial as it is the indicator of the state of operation. The following command brings up **active** containers and shows the status if the container restarted or stopped due to certain reasons. The second command lists built images and it will show you the components that go with the main image that you're building.
 
 ```bash
 docker ps -a
+```
+
+```bash
 docker images
 ```
 

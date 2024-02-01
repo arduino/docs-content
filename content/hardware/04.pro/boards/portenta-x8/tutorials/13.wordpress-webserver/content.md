@@ -44,7 +44,7 @@ This container can run on the Portenta X8's architecture. To start using these c
 
 In this section, you can find the complete **docker-compose.yml** file that we will be using for this tutorial.
 
-```
+```yaml
 version: "3.9"
     
 services:
@@ -90,13 +90,13 @@ First, we create a directory where we want to add our **docker-compose.yml** fil
 
 To create the file, we can use `cat > docker-compose.yml`, this will create the file, so you can copy the content of the file from above and paste it. Push enter once to go to a new line and press `ctrl C` to exit the file editor. To copy the file from your computer onto the device use:
 
-```
+```bash
 adb push <path to docker-compose.yml file> /home/fio/wordpress-test
 ```
 
 Alternatively, you could place the `docker-compose.yml` file inside the `wordpress-test` directory and push the file using the following command:
 
-```
+```bash
 adb push .\wordpress-test\ /home/fio
 ```
 
@@ -120,7 +120,7 @@ When the command is executed it will start installing the **WordPress** and **Ma
 
 To connect to the WordPress setup site, you simply need to access it with your Portenta X8's unique id and port. So we can use the following address format:
 
-```
+```bash
 http://portenta-x8-<uuid>.local:<port>
 ```
 
@@ -142,13 +142,13 @@ If you want to remove the container, you have to go to ```/home/fio/wordpress-te
 
 Remove the container but preserves your WordPress database:
 
-```
+```bash
 docker compose down
 ```
 
 Remove the container and the database:
 
-```
+```bash
 docker compose down --volumes
 ```
 

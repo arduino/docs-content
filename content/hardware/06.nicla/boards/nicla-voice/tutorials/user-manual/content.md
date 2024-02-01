@@ -135,21 +135,21 @@ It is recommended to update the NDP120 processor firmware and the built-in speec
 3. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, and the updated NDP120 processor firmware and speech recognition model, in a known location on your computer. 
 4. Open a new terminal in the location where the .zip file was extracted and execute the following command:
 
-    ```
+    ```bash
     syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
     ```
 
     Replace `portName` and `filename` with the relevant information. Three different files must be uploaded to the board by executing the following three commands, for example in Windows the commands are the following:
 
-    ```
+    ```bash
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 mcu_fw_120_v91.synpkg
     ```
 
-    ```
+    ```bash
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 dsp_firmware_v91.synpkg
     ```
 
-    ```
+    ```bash
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 model_name.synpkg
     ```
 

@@ -91,19 +91,19 @@ You must connect one USB-C® end to the Portenta X8 and the other (USB-C® or US
 
 If *Portenta Breakout* or *Portenta Max Carrier* is unavailable, the Portenta X8 can be configured for programming mode using a few command lines inside the Portenta X8's terminal via ADB. Please use the following commands in exact sequence while in the root environment with root permission.
 
-```arduino
+```bash
 echo 0 > /sys/block/mmcblk2boot0/force_ro
 ```
 
-```arduino
+```bash
 dd if=/dev/zero of=/dev/mmcblk2boot0 bs=1024 count=4096 && sync
 ```
 
-```arduino
+```bash
 echo 0 > /sys/block/mmcblk2boot1/force_ro
 ```
 
-```arduino
+```bash
 dd if=/dev/zero of=/dev/mmcblk2boot1 bs=1024 count=4096 && sync
 ```
 
@@ -113,7 +113,7 @@ This sequence of commands will allow you to reset Portenta X8's bootloader secto
 
 To flash the Portenta X8, you need to begin by opening a terminal. Within the terminal, you need to change the directory to where the `mfgtool-files-portenta-x8` file is located using the `cd` command. Once it is inside the directory where the previous file is included, the following command is used:
 
-```
+```bash
 uuu full_image.uuu
 ```
 

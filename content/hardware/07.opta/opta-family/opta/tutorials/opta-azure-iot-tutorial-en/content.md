@@ -172,7 +172,7 @@ In particular, the information to be customized for the connection is represente
 
 You will need some of the information present on the device configuration page on Azure. As mentioned earlier, you can copy the necessary information and modify the code accordingly:
 
-``` arduino
+```arduino
 // Wifi
 #define IOT_CONFIG_WIFI_SSID "MyWifi" // Change it to your Wi-Fi network name
 #define IOT_CONFIG_WIFI_PASSWORD "12345678" // Change it to your Wi-Fi network password
@@ -202,7 +202,7 @@ In the code, it is set to 300,000 milliseconds or 5 minutes:
 
 ![Opta™ Azure IoT Tutorial Sketch - Telemetry frequency](assets/opta-azure-iot-tutorial-202105.png)
 
-``` arduino
+```arduino
 // Publish 1 message every 5 minutes
 #define IOT_CONFIG_TELEMETRY_FREQUENCY_MS 300000
 ```
@@ -213,7 +213,7 @@ In the **Azure_IoT_Hub_Opta.ino** file, you find a portion of code represented b
 ![Opta™ Azure IoT Tutorial Sketch - Telemetry payload](assets/opta-azure-iot-tutorial-202627.png)
 
 
-``` arduino
+```arduino
 /*
  * generateTelemetry:
  * Simulated telemetry.  
@@ -233,7 +233,7 @@ You can modify this function by changing the value of **telemetryPayload** and s
 
 You can modify this function to send a different message, for example, a classic "Hello, World":
 
-``` arduino
+```arduino
 static char* generateTelemetry() 
 {
   telemetryPayload =  String("Hello, World!");
