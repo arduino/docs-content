@@ -136,7 +136,7 @@ For starters we have courses like [Explore Physics](https://courses.arduino.cc/e
 
 Every course contains a couple of Lessons and Projects (Activities in some cases) that distinguishes technical activities from pedagogical ones. 
 
-![Greenh Course](assets/homepage-greenhouse.png)
+![Greenhouse Course](assets/homepage-greenhouse.png)
 
 Lessons help students to understand how to connect sensors and actuators to an Arduino board and focuses on core programming skills, connecting electronics and troubleshooting. 
 
