@@ -519,7 +519,7 @@ sudo mount -t vfat /dev/mmcblk1p1 /mnt
 Run the docker image `debian:stable-slim` and set the peripherals to be used with the following command.
 
 ```bash
-sudo docker run -it -u '0' --device '/dev/snd:/dev/snd' -v '/mnt:/sdcard' --tmpfs /tmp --name "alsa-utils" debian:stable-slim bash
+docker run -it -u '0' --device '/dev/snd:/dev/snd' -v '/mnt:/sdcard' --tmpfs /tmp --name "alsa-utils" debian:stable-slim bash
 ```
 
 Install the audio management tools. This procedure will take a while.
@@ -1800,18 +1800,18 @@ Install __Minicom__:
 ```bash
 apt-get update && apt-get install minicom -y
 ```
-Once installed, run it with `minicom -s`, configure the serial port to `ttyX0` and verify the baud rate is set to `115200`.
+Once installed, run it with `minicom -s`, configure the serial port to `/dev/ttyX0` and verify the baud rate is set to `115200`.
 
 Now, you should be able to send and receive data through the RS-232 serial transceiver using the Portenta X8, the Max Carrier and the Machine Control.
 
 
 #### Using Arduino IDE
 
-For users working with the Portenta H7 or Portenta C33, the following simple examples can be used to test the RS-232/485 communication.
+For users working with the **Portenta H7** or **Portenta C33**, the following simple examples can be used to test the RS-232/485 communication.
 
 To use these protocols some libraries are needed and you can install them by searching for `ArduinoRS485` and `Arduino_PortentaMachineControl` on the library manager and clicking on install.
 
-Here is the example code for the Max Carrier, it will continuously send a message and wait for one. If a message arrives, it will be printed in the Serial Monitor.
+Here is the example code for the **Max Carrier** with the **Portenta H7**, it will continuously send a message and wait for one. If a message arrives, it will be printed in the Serial Monitor.
 
 __RS-485 Example Code__
 
@@ -1916,7 +1916,7 @@ Remember that the Portenta Machine Control must be programmed by selecting the `
 
 After uploading the code to the Max Carrier and the Machine Control, open both Serial Monitors and you will see the message exchange with a counter.
 
-![RS-485 communication | Max Carrier - Machine Control](assets/gif-rs485.gif)
+![RS-485 communication | Max Carrier - Machine Control](assets/Rs-485-new.gif)
 
 
 __RS-232 Example Code__
@@ -2028,7 +2028,7 @@ Remember that the Portenta Machine Control must be programmed by selecting the `
 
 After uploading the code to the Max Carrier and the Machine Control, open both Serial Monitors and you will see the message exchange with a counter and a time stamp.
 
-![RS-232 communication | Max Carrier - Machine Control](assets/gif-rs232.gif)
+![RS-232 communication | Max Carrier - Machine Control](assets/Rs-232-new.gif)
 
 ## Support
 
