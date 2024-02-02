@@ -365,21 +365,21 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 ## Functional Overview
 ### Product View
-![Arduino Opta® Product View](assets/opta_panel.svg)
+![Arduino Opta® Expansion EMR Product View](assets/AFX0005.png)
+![Arduino Opta® Expansion SSR Product View](assets/AFX0006.png)
 
 <div style="page-break-after:always;"></div>
 
-| Item | Feature                                                             | Item | Feature                                                             |
-|------|---------------------------------------------------------------------|------|---------------------------------------------------------------------|
-| 3A   | Power Supply Terminals 12...24 VDC                                  | 3H   | Ethernet Port Status LEDs                                           |
-| 3B   | I1...I8 digital/analog input terminals (0-10V) configurable via IDE | 3I   | Label Holder                                                        |
-| 3C   | Reset Button                                                        | 3J   | RS-485 terminal block (for Modbus RTU or proprietary communication) |
-| 3D   | User Programmable button                                            | 3K   | USB-C® for programming and data logging                                |
-| 3E   | Status LEDs 1...4 (User Programmable)                               | 3M   | Ethernet port                                                       |
-| 3F   | Relay Output Terminals 1...4, NO contact (SPST) 10A 250 VAC         | 3N   | Port for communication and connection of auxiliary modules          |
-| 3G   | Functional Earth                                                    |      |                                                                     |
+| Item | Feature                                                              |
+|------|----------------------------------------------------------------------|
+| 3A   | Power Supply Terminals 12...24 VDC                                   |
+| 3B   | I1...I16 digital/analog input terminals (0-10V) configurable via IDE |
+| 3C   | Power Status LED                                                     |
+| 3D   | Port for communication and connection of auxiliary modules           |
+| 3E   | Status LEDs 1...8 (User Programmable?)                               |
+| 3F   | Relay Output Terminals 1...8, NO contact (SPST) 6A 250 VAC           |
+| 3G   | Label Holder                                                         |
 
-**Note:** The LED above the *User Programmable button* (Ref: 3D) is only available on Arduino Opta® WiFi (AFX00002).
 
 ### Relay Outputs
 Arduino Opta® Digital Expansions has eight *Normally Open* (NO) relays. For the **EMR** variant, eight powerful 6A electromechanical relays which are capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC, and for the **SSR** variant, eight fast 2A solid state relays which are capable of actuating on DC loads at a rated voltage of 24 VDC. 
@@ -426,7 +426,7 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 ## Mechanical Information
 ### Product Dimensions
-![Arduino Opta® Expansion Outline. Dimensions are in mm](assets/opta_mechanical.svg)
+![Arduino Opta® Expansion Outline. Dimensions are in mm](assets/dimensions.png)
 
 ***Note: Terminals can be used with both solid and stranded core wire (min: 0.5 mm<sup>2</sup> / 20 AWG).***
 
