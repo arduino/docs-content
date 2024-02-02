@@ -9,7 +9,7 @@ The feature packed **Arduino Nano RP2040 Connect** brings the new **Raspberry Pi
 <Feature title="Arduino Cloud" image="wifi">
 The Nano RP2040 Connect is compatible with the Arduino Cloud platform. Build IoT projects in just minutes!
 <FeatureWrapper>
-  <FeatureLink title="Go to Platform" url="https://create.arduino.cc/iot/"/>
+  <FeatureLink title="Go to Platform" url="https://app.arduino.cc/"/>
 </FeatureWrapper>
 </Feature>
 
