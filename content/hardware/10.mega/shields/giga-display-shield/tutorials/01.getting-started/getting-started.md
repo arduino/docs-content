@@ -313,3 +313,23 @@ void loop() {
   delay(1000);
 }
 ```
+
+## Power Consumption
+
+The following test results were recorded with some sample sketches. The setup consist of a GIGA R1 WiFi and a GIGA Display Shield mounted, using the following equipment & software:
+- [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop/Download)
+- [Power Profiler Kit II](https://www.nordicsemi.com/Products/Development-hardware/Power-Profiler-Kit-2)
+
+| Sketch | Min       | Max       | Average   |
+| ------ | --------- | --------- | --------- |
+| GFX    | 327.20 mA | 382.15 mA | 363.50 mA |
+| LVGL   | 294.90 mA | 412.49 mA | 347.97 mA |
+
+Links to the sketches used for these tests are found below: 
+
+- [GFX Hello World](https://github.com/arduino-libraries/Arduino_GigaDisplay/blob/main/examples/gfx/hello-world/hello-world.ino)
+- [LVGL Demo](https://github.com/arduino/ArduinoCore-mbed/blob/main/libraries/Arduino_H7_Video/examples/LVGLDemo/LVGLDemo.ino)
+
+When selecting an appropriate power source (battery), use the measurements above as guidelines. For example, running one of the above sketches with a 1000 mAh battery will only last approx. 2 hours.
+
+***Note that there are other factors at play, such as the battery's discharge rate and the general quality of the battery. The above formulas and measurements are to be considered guidelines, please consult the technical information of your battery for more accurate results.***
