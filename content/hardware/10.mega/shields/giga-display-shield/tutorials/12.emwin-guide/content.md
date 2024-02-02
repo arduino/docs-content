@@ -228,7 +228,7 @@ void loop() {
 
 ### Text
 
-Most widgets have label functions attached to them. However if you want to print something independetent of a widget you can use the `GUI_DispString("");` function. This will display any text put in as a parameter.
+Most widgets have label functions attached to them. However if you want to print something independent of a widget you can use the `GUI_DispString("")` function. This will display any text put in as a parameter.
 
 Calling `GUI_SetColor()` before the text print will allow you to change the color of the text that is then printed. [Here](https://wiki.segger.com/CHOOSECOLOR_(Sample)) you can find the colors available.
 
