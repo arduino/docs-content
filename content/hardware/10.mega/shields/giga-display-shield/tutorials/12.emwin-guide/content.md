@@ -160,7 +160,7 @@ static void _cbWin(WM_MESSAGE * pMsg) {
 
 ### Update Loop
 
-In the loop of any emWin sketch, the bare minimum that needs to be called is `GUI_Exec();`. This will keep the engine alive, handle touch events for the rest of the sketch among other things. It is a simple implementation that looks like this:
+In the loop of any emWin sketch, the bare minimum that needs to be called is `GUI_Exec()`. This will keep the engine alive, handle touch events for the rest of the sketch among other things.
 
 ```arduino
 void loop(){
