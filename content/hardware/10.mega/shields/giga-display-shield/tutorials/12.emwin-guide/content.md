@@ -7,7 +7,7 @@ tags: [Display, emWin, GUI]
 
 ## Introduction
 
-Seggers emWin is a graphical framework for building powerful UIs, and is fully compatible with the GIGA Display Shield. It allows you to build UIs, using pre-made widgets like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. In this guide, we will go through some of the different components, so you can learn how to best implement it in your projects.
+Segger's emWin is a graphical framework for building powerful UIs, and is fully compatible with the GIGA Display Shield. It allows you to build UIs, using pre-made widgets like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. In this guide, we will go through some of the different components, so you can learn how to best implement it in your projects.
 
 ## Hardware & Software Needed
 
@@ -44,7 +44,7 @@ In this section, we will go through the fundamental elements of an emWin sketch:
 
 When creating elements, information about the screen and placement needs to be provided. Let's create a pointer variable that can be used whenever the screenspace needs to be used.
 
-### Full Example
+**Full Example:**
 
 ```arduino
 void setup() {
@@ -126,6 +126,7 @@ WM_CreateWindowAsChild(X-position, Y-position, Height, Width, Parent Window, Vis
 
 This is how it would look to use emWin to create a 2x2 grid layout:
 
+**Full Example**
 ```arduino
 static void _cbWin(WM_MESSAGE * pMsg) {
   switch (pMsg->MsgId) {
@@ -180,10 +181,13 @@ GUI_DrawBitmap(&bmarduinologo, X-position, Y-position);
 ```
 
 **Full Example:**
+**Remember that the image file needs to be in the same folder as the sketch, use the image that comes with the full demo (File > Examples > Arduino_H7_Video > emWinDemo)**
 ```arduino
+#include "DIALOG.h"
+
 extern GUI_CONST_STORAGE GUI_BITMAP bmarduinologo; /* Image bitmap structure (see img_arduinologo_emwin.c in attach) */
 
-static void _cbChildWinImg(WM_MESSAGE * pMsg) {
+static void _cbWin(WM_MESSAGE * pMsg) {
   switch (pMsg->MsgId) {
     case WM_CREATE:
       break;
@@ -197,6 +201,22 @@ static void _cbChildWinImg(WM_MESSAGE * pMsg) {
       WM_DefaultProc(pMsg);
       break;
   }
+}
+
+void setup() {
+  /* Init SEGGER emWin library. It also init display and touch controller */
+  GUI_Init();
+
+  LCD_ROTATE_SetSel(1); /* Set landscape mode */
+  WM_MULTIBUF_Enable(1); /* Enable multi buffering mode for Windows manager */
+
+  /* Create the main window.*/
+  WM_CreateWindowAsChild(0, 0, LCD_GetXSize(), LCD_GetYSize(), WM_HBKWIN, WM_CF_SHOW, _cbWin, 0);
+}
+
+void loop() {
+  /* Keep emWin alive, handle touch and other stuff */
+  GUI_Exec();  
 }
 ```
 
@@ -267,16 +287,20 @@ Then for the state of the checkbox the number of states and where it should star
 **Full Example:**
 
 ```arduino
-static void _cbChildWinChkBtn(WM_MESSAGE * pMsg) {
+#include "DIALOG.h"
+
+static void _cbChildWinCheck(WM_MESSAGE * pMsg) {
   static WM_HWIN  hBox;
+  BUTTON_Handle   hButton;
   int             NCode, Id;
   char            acBuffer[32];
   int             State;
+  static int      Clicked, Released;
 
   switch(pMsg->MsgId) {
     case WM_CREATE:
       /* Create CHECKBOX widget */
-      hBox = CHECKBOX_CreateEx(10, 30, 80, 20, pMsg->hWin, WM_CF_SHOW, 0, GUI_ID_CHECK0);
+      hBox = CHECKBOX_CreateEx((LCD_GetXSize()/2), (LCD_GetYSize()/2), 80, 40, pMsg->hWin, WM_CF_SHOW, 0, GUI_ID_CHECK0);
       /* Edit widget properties */
       CHECKBOX_SetText(hBox, "Check");
       CHECKBOX_SetTextColor(hBox, GUI_BLACK);
@@ -285,11 +309,16 @@ static void _cbChildWinChkBtn(WM_MESSAGE * pMsg) {
       CHECKBOX_SetNumStates(hBox, 3);
       /* Manually set the state */
       CHECKBOX_SetState(hBox, 1);
+      break;
+    case WM_PAINT:
+      GUI_SetBkColor(GUI_WHITE);
+      GUI_Clear();
 
       /* Display current CHECKBOX state */
       State = CHECKBOX_GetState(hBox);
       sprintf(acBuffer, "State of checkbox: %d", State);
       GUI_DispStringAt(acBuffer, 10, 60);
+      break;
 
     case WM_NOTIFY_PARENT:
     /* Get Id of sender window and notification code */
@@ -305,11 +334,27 @@ static void _cbChildWinChkBtn(WM_MESSAGE * pMsg) {
               break;
           }  
           break;
-      } 
-    break;
+      }
+      break;
   default:
     WM_DefaultProc(pMsg);
   }
+}
+
+void setup() {
+  /* Init SEGGER emWin library. It also init display and touch controller */
+  GUI_Init();
+
+  LCD_ROTATE_SetSel(1); /* Set landscape mode */
+  WM_MULTIBUF_Enable(1); /* Enable multi buffering mode for Windows manager */
+
+  /* Create the main window. It will include all the sub-windows */
+  WM_CreateWindowAsChild(0, 0, LCD_GetXSize(), LCD_GetYSize(), WM_HBKWIN, WM_CF_SHOW, _cbChildWinCheck, 0);
+}
+
+void loop() {
+  /* Keep emWin alive, handle touch and other stuff */
+  GUI_Exec();  
 }
 ```
 
@@ -353,6 +398,8 @@ The GUI will also have to be re-drawn when the value changes so the display stay
 **Full Example:**
 
 ```arduino
+#include "DIALOG.h"
+
 static void _cbChildWinSlider(WM_MESSAGE * pMsg) {
   static WM_HWIN hSlider;
   int            NCode, Id;
@@ -362,7 +409,7 @@ static void _cbChildWinSlider(WM_MESSAGE * pMsg) {
   switch(pMsg->MsgId) {
     case WM_CREATE:
       /* Create horizonzal slider */
-      hSlider = SLIDER_CreateEx(110, 90, 150, 30, pMsg->hWin, WM_CF_SHOW, SLIDER_CF_HORIZONTAL, GUI_ID_SLIDER0);
+      hSlider = SLIDER_CreateEx(300, 180, 200, 50, pMsg->hWin, WM_CF_SHOW, SLIDER_CF_HORIZONTAL, GUI_ID_SLIDER0);
       /* Set range of slider */
       SLIDER_SetRange(hSlider, 0, 100);
       /* Set number of tick marks */
@@ -375,13 +422,13 @@ static void _cbChildWinSlider(WM_MESSAGE * pMsg) {
     case WM_PAINT:
       GUI_SetBkColor(GUI_WHITE);
       GUI_Clear();
-      GUI_SetFont(&GUI_Font13B_1);
+      GUI_SetFont(&GUI_Font16B_1);
       GUI_SetColor(GUI_BLACK);
 
       /* Display slider value */
       Value = SLIDER_GetValue(hSlider);
       sprintf(acBuffer, "Value: %d", Value);
-      GUI_DispStringAt(acBuffer, 110, 120);
+      GUI_DispStringAt(acBuffer, 300, 240);
       break;
     case WM_NOTIFY_PARENT:
       Id    = WM_GetId(pMsg->hWinSrc);
@@ -401,6 +448,22 @@ static void _cbChildWinSlider(WM_MESSAGE * pMsg) {
     default:
       WM_DefaultProc(pMsg);
   }
+}
+
+void setup() {
+  /* Init SEGGER emWin library. It also init display and touch controller */
+  GUI_Init();
+
+  LCD_ROTATE_SetSel(1); /* Set landscape mode */
+  WM_MULTIBUF_Enable(1); /* Enable multi buffering mode for Windows manager */
+
+  /* Create the main window. It will include all the sub-windows */
+  WM_CreateWindowAsChild(0, 0, LCD_GetXSize(), LCD_GetYSize(), WM_HBKWIN, WM_CF_SHOW, _cbChildWinSlider, 0);
+}
+
+void loop() {
+  /* Keep emWin alive, handle touch and other stuff */
+  GUI_Exec();  
 }
 ```
 
@@ -452,6 +515,8 @@ In the `void loop()` of the sketch the calculation of time for the animation nee
 **Full Example:**
 
 ```arduino
+#include "DIALOG.h"
+
 PROGBAR_Handle hProg;
 
 static void _cbChildWinPgrBar(WM_MESSAGE * pMsg) {
@@ -462,7 +527,7 @@ static void _cbChildWinPgrBar(WM_MESSAGE * pMsg) {
 
   switch (pMsg->MsgId) {
     case WM_CREATE:
-      hProg = PROGBAR_CreateEx(85, 90, 200, 30, pMsg->hWin, WM_CF_SHOW, PROGBAR_CF_HORIZONTAL, GUI_ID_PROGBAR0);
+      hProg = PROGBAR_CreateEx(250, 150, 200, 30, pMsg->hWin, WM_CF_SHOW, PROGBAR_CF_HORIZONTAL, GUI_ID_PROGBAR0);
       WM_SetCallback(hProg, _cbProgbar);
       break;
     case WM_PAINT:
@@ -514,11 +579,23 @@ static void _cbProgbar(WM_MESSAGE * pMsg) {
       break;
    }
 }
-```
 
-The following code should go in the **loop()** function to keep the progress bar updated:
+int progbarCnt = 0;
+unsigned long previousMillis = 0;
 
-```arduino
+void setup() {
+  /* Init SEGGER emWin library. It also init display and touch controller */
+  GUI_Init();
+
+  LCD_ROTATE_SetSel(1); /* Set landscape mode */
+  WM_MULTIBUF_Enable(1); /* Enable multi buffering mode for Windows manager */
+
+  /* Create the main window. It will include all the sub-windows */
+  WM_CreateWindowAsChild(0, 0, LCD_GetXSize(), LCD_GetYSize(), WM_HBKWIN, WM_CF_SHOW, _cbChildWinPgrBar, 0);
+}
+
+void loop() {
+  /* Update progress bar value */
   if (millis() - previousMillis >= 100) {
     previousMillis = millis();
     progbarCnt++;
@@ -528,6 +605,10 @@ The following code should go in the **loop()** function to keep the progress bar
     PROGBAR_SetValue(hProg, progbarCnt);
     WM_InvalidateWindow(hProg); /* Make sure the entire PROGBAR gets redrawn */
   }
+
+  /* Keep emWin alive, handle touch and other stuff */
+  GUI_Exec();  
+}
 ```
 
 ### Button
@@ -562,10 +643,12 @@ if(Released) {
 **Full Example:**
 
 ```arduino
+#include "DIALOG.h"
+
 #define ID_BUTTON  1
 
-static void _cbChildWinChkBtn(WM_MESSAGE * pMsg) {
-
+static void _cbChildWinBtn(WM_MESSAGE * pMsg) {
+  static WM_HWIN  hBox;
   BUTTON_Handle   hButton;
   int             NCode, Id;
   char            acBuffer[32];
@@ -574,9 +657,8 @@ static void _cbChildWinChkBtn(WM_MESSAGE * pMsg) {
 
   switch(pMsg->MsgId) {
     case WM_CREATE:
-
       /* Create a button */
-      hButton = BUTTON_CreateEx(10, 100, 80, 20, pMsg->hWin, WM_CF_SHOW, 0, ID_BUTTON);
+      hButton = BUTTON_CreateEx(300, 150, 120, 80, pMsg->hWin, WM_CF_SHOW, 0, ID_BUTTON);
       BUTTON_SetText(hButton, "Click me");
       break;
     case WM_PAINT:
@@ -588,11 +670,11 @@ static void _cbChildWinChkBtn(WM_MESSAGE * pMsg) {
       /* Check button state and print info on labels */
       if(Clicked) {
         sprintf(acBuffer, "Button was clicked at: %d.", Clicked);
-        GUI_DispStringAt(acBuffer, 10, 130);
+        GUI_DispStringAt(acBuffer, 300, 240);
       }
       if(Released) {
         sprintf(acBuffer, "Button was released at: %d.", Released);
-        GUI_DispStringAt(acBuffer, 10, 150);
+        GUI_DispStringAt(acBuffer, 300, 260);
       }
       break;
     case WM_NOTIFY_PARENT:
@@ -620,6 +702,22 @@ static void _cbChildWinChkBtn(WM_MESSAGE * pMsg) {
     WM_DefaultProc(pMsg);
   }
 }
+
+void setup() {
+  /* Init SEGGER emWin library. It also init display and touch controller */
+  GUI_Init();
+
+  LCD_ROTATE_SetSel(1); /* Set landscape mode */
+  WM_MULTIBUF_Enable(1); /* Enable multi buffering mode for Windows manager */
+
+  /* Create the main window. It will include all the sub-windows */
+  WM_CreateWindowAsChild(0, 0, LCD_GetXSize(), LCD_GetYSize(), WM_HBKWIN, WM_CF_SHOW, _cbChildWinBtn, 0);
+}
+
+void loop() {
+ /* Keep emWin alive, handle touch and other stuff */
+  GUI_Exec();  
+}
 ```
 
 ## Conclusion
@@ -628,7 +726,7 @@ This guide went through the building blocks of the different components that can
 
 [Example in the IDE]()
 
-This example sketch will show the different components using a screen manager in a 2x2 grid.
+This demo sketch will show the different components using a screen manager in a 2x2 grid.
 
 ## Next Step
-emWin is a comprehensive library and GUI framework that has a lot of customizability, if you are interested in playing around more with it, you can find many different examples and widgets on the official website for [Segger emWin](https://wiki.segger.com/Main_Page). The code on the website can easily be adapted into a sketch for the GIGA Display Shield.
+emWin is a comprehensive library and GUI framework that has a lot of customizability, if you are interested in playing around more with it, you can find many different examples and widgets on the official website for [Segger® emWin](https://wiki.segger.com/Main_Page). The code on the website can easily be adapted into a sketch for the GIGA Display Shield.
