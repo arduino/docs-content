@@ -438,9 +438,8 @@ Now that you have gone through the basics of what you can do with the device, yo
    <thead>
       <tr>
          <th style="width: 16%;vertical-align: middle;text-align: center;"><strong>Cert</strong></th>
-         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>Arduino Opta® RS485 (AFX00001)</strong></th>
-         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>Arduino Opta® WiFi (AFX00002)</strong></th>
-         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>Arduino Opta® Lite (AFX00003) </strong></th>
+         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>Arduino Opta® Digital Expansion EMR (AFX00005)</strong></th>
+         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>Arduino Opta® Digital Expansion SSR (AFX00006) </strong></th>
       </tr>
       <tr></tr>
    </thead>
@@ -452,14 +451,6 @@ Now that you have gone through the basics of what you can do with the device, yo
             <p>EN IEC 61010 (LVD)</p>
         </td>
          <td style="vertical-align: middle;text-align: center;">
-            <p>EN IEC 62311:2020</p>
-            <p>EN IEC 61010 (LVD)</p>
-            <p>EN 301 489-1 V2.2.3</p>
-            <p>EN 301 489-17 V3.2.4</p>
-            <p>IEC 61326-1:2021</p>
-            <p>EN 300 328 V2.2.2:2019-07</p>
-         </td>
-         <td style="vertical-align: middle;text-align: center;">
             <p>EN IEC 61326-1:2021</p>
             <p>EN IEC 61010 (LVD)</p>
          </td>
@@ -468,11 +459,9 @@ Now that you have gone through the basics of what you can do with the device, yo
          <td style="vertical-align: middle;text-align: center;"><strong>CB (EU)</strong></td>
          <td style="vertical-align: middle;text-align: center;">Yes</td>
          <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
       </tr>
       <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>WEEE (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
          <td style="vertical-align: middle;text-align: center;">Yes</td>
          <td style="vertical-align: middle;text-align: center;">Yes</td>
       </tr>
@@ -484,27 +473,15 @@ Now that you have gone through the basics of what you can do with the device, yo
          <td style="vertical-align: middle;text-align: center;">
             <p>Yes</p>
          </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>Yes</p>
-         </td>
       </tr>
       <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>REACH (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
          <td style="vertical-align: middle;text-align: center;">Yes</td>
          <td style="vertical-align: middle;text-align: center;">Yes</td>
       </tr>
       <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>UKCA (UK)</strong></td>
          <td style="vertical-align: middle;text-align: center;">EN IEC 61326-1:2021</td>
-         <td style="vertical-align: middle;text-align: center;">
-         <p>EN IEC 62311:2020</p>
-         <p>EN 300 328 V2.2.2:2019-07</p>
-         <p>EN 301 489-1 V2.2.3</p>
-         <p>EN 301 489-17 V3.2.4</p>
-         <p>IEC 61326-1:2021</p>
-         <p>EN 300 328 V2.2.2:2019-07</p>
-         </td>
          <td style="vertical-align: middle;text-align: center;">EN IEC 61326-1:2021</td>
       </tr>
       <tr>
@@ -515,15 +492,9 @@ Now that you have gone through the basics of what you can do with the device, yo
          <td style="vertical-align: middle;text-align: center;">
             <p>Yes</p>
          </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>Yes</p>
-         </td>
       </tr>
       <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>cULus</strong></td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>UL 61010-2-201</p>
-         </td>
          <td style="vertical-align: middle;text-align: center;">
             <p>UL 61010-2-201</p>
          </td>
