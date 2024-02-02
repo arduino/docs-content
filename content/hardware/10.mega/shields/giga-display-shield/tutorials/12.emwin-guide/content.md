@@ -9,6 +9,8 @@ tags: [Display, emWin, GUI]
 
 Segger's emWin is a graphical framework for building powerful UIs, and is fully compatible with the GIGA Display Shield. It allows you to build UIs, using pre-made widgets like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. In this guide, we will go through some of the different components, so you can learn how to best implement it in your projects.
 
+[emWin full demo running on the GIGA Display Shield]()
+
 ## Hardware & Software Needed
 
 - [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
@@ -21,15 +23,15 @@ The GIGA R1 core includes the [Arduino_H7_Video](https://github.com/arduino/Ardu
 
 In this guide, we will be using three different libraries:
 - [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video), this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed) installed.
-- [Arduino_GigaDisplayTouch](https://www.arduino.cc/reference/en/libraries/arduino_gigadisplaytouch/)
-- [DIALOG.h](), the emWin library
+- [Arduino_GigaDisplayTouch](https://www.arduino.cc/reference/en/libraries/arduino_gigadisplaytouch/), handles touch on the GIGA Display Shield
+- [DIALOG.h](https://github.com/SEGGERMicro/emWin-Arduino-Library), the emWin library
 
-To install them, open the library manager and install the latest version by searching for **"emWin"**.
+To install them, open the library manager and install the latest version by searching for **"emWin"** and **"Arduino_GigaDisplayTouch"**.
 
 In the sketch include the library like this:
 
 ```arduino
-#include "DIALOG.h" /* emWin library includes Arduino_H7_Video and Arduino_GigaDisplayTouch library */
+#include "DIALOG.h"
 ```
 
 ## General Set Up
@@ -124,6 +126,8 @@ To create different windows inside our display, use the `WM_CreateWindowAsChild(
 WM_CreateWindowAsChild(X-position, Y-position, Height, Width, Parent Window, VisibilityFlag, WindowsCallback, AdditionalBytes);
 ```
 
+[Grid layout infographic]()
+
 This is how it would look to use emWin to create a 2x2 grid layout:
 
 **Full Example**
@@ -180,6 +184,8 @@ Now the image can be drawn by specifying the image file along with the x and y p
 GUI_DrawBitmap(&bmarduinologo, X-position, Y-position);
 ```
 
+[Displaying an image with emWin]()
+
 **Full Example:**
 **Remember that the image file needs to be in the same folder as the sketch, use the image that comes with the full demo (File > Examples > Arduino_H7_Video > emWinDemo)**
 ```arduino
@@ -227,6 +233,8 @@ Most widgets have label functions attached to them. However if you want to print
 Calling `GUI_SetColor()` before the text print will allow you to change the color of the text that is then printed. [Here](https://wiki.segger.com/CHOOSECOLOR_(Sample)) you can find the colors available.
 
 For changing the font size, use `GUI_SetFont(&GUI_Font16_1);`, this call will set the font size to 16.
+
+[Displaying text with emWin]()
 
 **Full Example:**
 
@@ -283,6 +291,8 @@ Then for the state of the checkbox the number of states and where it should star
   CHECKBOX_SetNumStates(hBox, 3);
   CHECKBOX_SetState(hBox, 1);
 ```
+
+[emWin checkbox]()
 
 **Full Example:**
 
@@ -394,6 +404,8 @@ The GUI will also have to be re-drawn when the value changes so the display stay
     }
     break;
 ```
+
+[emWin slider]()
 
 **Full Example:**
 
@@ -511,6 +523,8 @@ In the `void loop()` of the sketch the calculation of time for the animation nee
     WM_InvalidateWindow(hProg); /* Make sure the entire PROGBAR gets redrawn */
   }
 ```
+
+[emWin progress bar]()
 
 **Full Example:**
 
@@ -639,6 +653,8 @@ if(Released) {
   GUI_DispStringAt(acBuffer, 10, 150);
 }
 ```
+
+[emWin button]()
 
 **Full Example:**
 
