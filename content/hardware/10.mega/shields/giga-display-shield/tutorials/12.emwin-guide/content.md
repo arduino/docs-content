@@ -639,7 +639,7 @@ And to set the text on the button, use:
 BUTTON_SetText(hButton, "Click me");
 ```
 
-To check for the button being pressed, you can use two ints. Then simply put these in `if()` statements to make them trigger when the button is pressed or released.
+To check for the button being pressed, you can use two integers, `Clicked` and `Released`. Then simply put these inside the `if()` statements to make them trigger whenever the button is pressed or released.
 
 ```arduino
 static int      Clicked, Released;
