@@ -113,7 +113,7 @@ void loop() {
 }
 ```
 
-Using the window manager method is more complex and require more lines of code, but this method helps with keeping your GUI structured as it gets more elements and widgets to display. For example with the window manager it is impossible to overwrite areas outside a windows designated area. For a simple application not using a window manager might be good enough. Keep this in mind when developing your own emWin solutions! For more information, navigate over to the [emWin on Arduino documentation.](https://wiki.segger.com/emWin_on_Arduino#:~:text=Without%20the%20Window%20Manager%3A)
+Using the window manager method is more complex and require more lines of code, but this method helps with keeping your GUI structured as it gets more elements and widgets to display. For example with the window manager it is impossible to overwrite areas outside a windows designated area. For a simple application not using a window manager might be good enough. Keep this in mind when developing your own emWin solutions! For more information, navigate over to the [emWin on Arduino documentation](https://wiki.segger.com/emWin_on_Arduino#:~:text=Without%20the%20Window%20Manager%3A).
 
 
 ### Creating a Grid Layout
