@@ -429,11 +429,11 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 ## Ratings
 ### Recommended Operating Conditions
 
-| Description                                       | Value                     |
-|---------------------------------------------------|---------------------------|
-| Temperature Operating Range                       | -20...50 °C                |
-| Protection degree rating                          | IP20                      |
-| Pollution degree                                  | 2 conforming to IEC 61010 |
+| Description                 | Value                     |
+| --------------------------- | ------------------------- |
+| Temperature Operating Range | -20...50 °C               |
+| Protection degree rating    | IP20                      |
+| Pollution degree            | 2 conforming to IEC 61010 |
 
 ### Power Specification
 
@@ -457,7 +457,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 | 3A   | Power Supply Terminals 12...24 VDC                                  | 3H   | Ethernet Port Status LEDs                                           |
 | 3B   | I1...I8 digital/analog input terminals (0-10V) configurable via IDE | 3I   | Label Holder                                                        |
 | 3C   | Reset Button                                                        | 3J   | RS-485 terminal block (for Modbus RTU or proprietary communication) |
-| 3D   | User Programmable button                                            | 3K   | USB-C® for programming and data logging                                |
+| 3D   | User Programmable button                                            | 3K   | USB-C® for programming and data logging                             |
 | 3E   | Status LEDs 1...4 (User Programmable)                               | 3M   | Ethernet port                                                       |
 | 3F   | Relay Output Terminals 1...4, NO contact (SPST) 10A 250 VAC         | 3N   | Port for communication and connection of auxiliary modules          |
 | 3G   | Functional Earth                                                    |      |                                                                     |
@@ -541,14 +541,15 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 ## Mean Time Between Failure (MTBF)
 
-MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device. **Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_. 
+MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
 
 The MTBF figure (in hours) for each Arduino Opta® variant can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F parts count method.
 
-| **Opta® Lite** | **Opta® RS485** | **Opta® WiFi** | **Environmental Conditions** |
-|:--------------:|:---------------:|:--------------:|:----------------------------:|
-|     766205h    |     766205h     |    1526239h    |     25 ºC, Ground Benign     |
+| **Standard**  | **Opta® Lite** | **Opta® RS485** | **Opta® WiFi** | **Environmental Conditions** |
+| :-----------: | :------------: | :-------------: | :------------: | :--------------------------: |
+| MIL-HDBK-217F |    766205 h    |    766205 h     |   1526239 h    |     25 ºC, Ground Benign     |
 
+**Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_.
 
 ## Mechanical Information
 ### Product Dimensions
