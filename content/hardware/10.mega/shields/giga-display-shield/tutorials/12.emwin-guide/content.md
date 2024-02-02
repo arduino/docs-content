@@ -123,7 +123,7 @@ Using the window manager method is more complex and require more lines of code, 
 To create different windows inside our display, use the `WM_CreateWindowAsChild()` function. Here is the function with the parameters that should be given:
 
 ```arduino
-WM_CreateWindowAsChild(X-position, Y-position, Height, Width, Parent Window, VisibilityFlag, WindowsCallback, AdditionalBytes);
+WM_CreateWindowAsChild(X-position, Y-position, Height, Width, ParentWindow, VisibilityFlag, WindowsCallback, AdditionalBytes);
 ```
 
 [Grid layout infographic]()
