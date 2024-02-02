@@ -445,13 +445,15 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ## Mean Time Between Failure (MTBF)
 
-MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device. **Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_. 
+MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
 
-The MTBF figure (in hours) for the Portenta Machine Control can be found in the table below. The MTBF figure was calculated according to the MIL217F part count method.
+The MTBF figure (in hours) for the Portenta Machine Control can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F part count method.
 
-| **Portenta Machine Control** | **Environmental Conditions** |
-|:----------------------------:|:----------------------------:|
-|            513550h           |     25 ºC, Ground Benign     |
+|  **Standard** | **Portenta Machine Control** | **Environmental Conditions** |
+|:-------------:|:----------------------------:|:----------------------------:|
+| MIL-HDBK-217F |           513550 h           |     25 ºC, Ground Benign     |
+
+**Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_. 
 
 ## Mechanical Information
 ### Board Outline
