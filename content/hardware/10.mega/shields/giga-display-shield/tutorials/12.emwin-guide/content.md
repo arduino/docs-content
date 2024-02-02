@@ -34,7 +34,7 @@ In the sketch include the library like this:
 #include "DIALOG.h"
 ```
 
-## General Set Up
+## emWin Library Setup
 
 In this section, we will go through the fundamental elements of an emWin sketch:
 - How to define & configure the display,
