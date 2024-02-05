@@ -107,6 +107,52 @@ In addition to the normal bootloader-mode, the Arduino Nano ESP32 lets you enter
 
 If you need to reflash the bootloader, you can follow the steps of this [Help Center article](https://support.arduino.cc/hc/en-us/articles/9810414060188-Reset-the-Arduino-bootloader-on-the-Nano-ESP32)
 
+### Default Sketch
+
+The default sketch loaded on the Nano ESP32 board is found in the code snippet below:
+
+```arduino
+#define LEDR 46
+#define LEDG 45
+#define LEDB 0
+#ifdef LED_BUILTIN
+#undef LED_BUILTIN
+#define LED_BUILTIN 48
+#endif
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(LEDR, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+  pinMode(LEDB, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LEDR, LOW);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, HIGH);
+
+  delay(1000);
+
+  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, LOW);
+  digitalWrite(LEDB, HIGH);
+
+  delay(1000);
+
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, LOW);
+
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+}
+```
+
 ## MicroPython
 
 The Nano ESP32 has support for MicroPython, a micro-implementation of Python® that can easily be installed on your board.
