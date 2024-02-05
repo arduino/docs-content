@@ -202,10 +202,164 @@ The Portenta Max Carrier extends the features of the Portenta X8, H7, and C33. T
 
 The table above provides a general idea of how the Portenta Max Carrier performs depending on the paired Portenta board. Each feature is explained in the following section after a quick guide covering how to properly interface the Portenta boards.
 
-## Hello World Carrier
-### Hello World Using Linux
+## Hello World 
 
-### Hello World Using Arduino
+Let's test the Portenta Max Carrier with the classic `Hello World` example used in the Arduino ecosystem. As the Max Carrier doesn't have built-in LEDs we can not use a `Blink`, instead, we are going to leverage the Ethernet connectivity for a quick test. We will use this example to verify the board is working as expected with the different Portenta boards.
+
+To configure the Ethernet settings, depending on the paired Portenta board, you must properly set the provided DIP switch located on the Portenta Max Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
+
+### Using Linux
+
+For the Portenta X8, be sure the ethernet DIP switches are both set to _OFF_. Then connect the board using a __LAN cable__ to the network.
+
+Enter to your Portenta X8 using `adb shell` and access to root (admin) by typing `sudo su -`, the password is `fio` by default.
+
+First, you need an internet connection to download the tool. You can establish one using the following commands:
+
+```bash
+nmcli connection show  # To find the ethernet device name ("eth0" in this case)
+```
+If your _ethernet_ connection is up and running you should see something similar to this:
+
+![Ethernet connection up](assets/eth-ensure-new.png)
+
+If not, you can create a DHCP network with a custom name and interface with the following commands:
+
+```bash
+nmcli conn add con-name <NtwrkName> type ethernet ifname <DevName> ipv4.method auto # Create a DHCP network. <NtwrkName> will be the custom network alias and <DevName> must be the device name found with the past command.
+
+nmcli conn up <NtwrkName> # Initiate the connection
+```
+
+To test if we are successfully connected, let's make a `ping` using:
+
+```bash
+ping -I eth0 -c 4 arduino.cc  # ping 4 times to Arduino's webpage using ethernet
+```
+If you have a working ethernet connection to the internet, the ping should show the latency as follows:
+
+![Successful Internet Test Using Ping](assets/ping-new.png)
+
+### Using Arduino IDE
+
+To test the Ethernet connection using a __Portenta H7__ or a __Portenta C33__ we are going to use an example sketch that will retrieve your City information from the internet and show it through the Serial Monitor.
+
+```arduino
+/**
+  Purpose: This sketch connects a device to ip-api.com via Ethernet
+  and fetches IP details for the device.
+**/
+
+// Include the necessary libraries.
+#if defined(ARDUINO_PORTENTA_H7_M7)
+  #include <PortentaEthernet.h> // for Portenta H7 
+#elif defined(ARDUINO_PORTENTA_C33)
+  #include <EthernetC33.h>  // for Portenta C33
+#endif
+
+#include <Arduino_JSON.h>
+
+// Server address for ip-api.com.
+const char* server = "ip-api.com";
+
+// API endpoint path to get IP details in JSON format.
+String path = "/json/";
+
+// Ethernet client instance for the communication.
+EthernetClient client;
+
+// JSON variable to store and process the fetched data.
+JSONVar doc;
+
+// Variable to ensure we fetch data only once.
+bool dataFetched = false;
+
+void setup() {
+  // Begin serial communication at a baud rate of 115200.
+  Serial.begin(115200);
+
+  // Wait for the serial port to connect,
+  // This is necessary for boards that have native USB.
+  while (!Serial);
+
+  // Attempt to start Ethernet connection via DHCP,
+  // If DHCP failed, print a diagnostic message.
+  if (Ethernet.begin() == 0) {
+    Serial.println("- Failed to configure Ethernet using DHCP!");
+
+  }
+  printIPAddress();
+  delay(2000);
+}
+
+void loop() {
+  // Ensure we haven't fetched data already,
+  // ensure the Ethernet link is active,
+  // establish a connection to the server,
+  // compose and send the HTTP GET request.
+  if (!dataFetched) {
+    if (Ethernet.linkStatus() == LinkON) {
+      if (client.connect(server, 80)) {
+        client.print("GET ");
+        client.print(path);
+        client.println(" HTTP/1.1");
+        client.print("Host: ");
+        client.println(server);
+        client.println("Connection: close");
+        client.println();
+
+        // Wait and skip the HTTP headers to get to the JSON data.
+        char endOfHeaders[] = "\r\n\r\n";
+        client.find(endOfHeaders);
+
+        // Read and parse the JSON response.
+        String payload = client.readString();
+        doc = JSON.parse(payload);
+
+        // Check if the parsing was successful.
+        if (JSON.typeof(doc) == "undefined") {
+          Serial.println("- Parsing failed!");
+          return;
+        }
+
+        // Extract and print the IP details.
+        Serial.println("*** IP Details:");
+        Serial.print("- IP Address: ");
+        Serial.println((const char*)doc["query"]);
+        Serial.print("- City: ");
+        Serial.println((const char*)doc["city"]);
+        Serial.print("- Region: ");
+        Serial.println((const char*)doc["regionName"]);
+        Serial.print("- Country: ");
+        Serial.println((const char*)doc["country"]);
+        Serial.println("");
+
+        // Mark data as fetched.
+        dataFetched = true;
+      }
+      // Close the client connection once done.
+      client.stop();
+    } else {
+      Serial.println("- Ethernet link disconnected!");
+    }
+  }
+}
+
+void printIPAddress()
+{
+  Serial.print("Connected to: ");
+  for (byte thisByte = 0; thisByte < 4; thisByte++) {
+    // print the value of each byte of the IP address:
+    Serial.print(Ethernet.localIP()[thisByte], DEC);
+    Serial.print(".");
+  }
+
+  Serial.println();
+}
+```
+If the connection is successful, you should see your IP address and location information printed out in the Arduino IDE Serial Monitor.
+
+![Portenta H7/C33 Ethernet Test](assets/ethernet-h7.png)
 
 ## High-Density Connectors
 
