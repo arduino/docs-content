@@ -205,4 +205,4 @@ In this Python crash course, we've covered some of the very fundamental aspects 
 
 In this course, we are focused on MicroPython, which is a micro-implementation of the language. This means that most core functionalities of the language is available, such as **operators, statements, loops and functions**.
 
-- [Next Chapter: Digital Signals](/micropython-course/course/digital)
+- [Next Chapter: Digital Signals](/micropython/micropython-course/course/digital)
