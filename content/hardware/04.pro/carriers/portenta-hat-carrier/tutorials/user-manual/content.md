@@ -253,7 +253,7 @@ This provides a general idea of how the Portenta Hat Carrier will perform depend
 
 #### Using Portenta X8 with Linux
 
-<br></br>
+
 
 To use the Portenta Hat Carrier with the Portenta X8, you will have to align the High-Density connectors along with the USB-C® port. The following diagram shows how the board stacks on the carrier.
 
@@ -265,7 +265,7 @@ To use the Portenta Hat Carrier with the Portenta X8, you will have to align the
 
 #### Hello World With Portenta X8 Shell
 
-<br></br>
+
 
 A series of _Hello World_ examples will be used to ensure the Portenta Hat Carrier is correctly operating with the paired Portenta X8. These examples, using Linux commands, Python® scripts, and the Arduino IDE, aim to trigger the user-programmable LED connected to GPIO3 leveraging different methods and platforms.
 
@@ -356,7 +356,7 @@ This step helps you to prevent unintentional modifications to the element config
 
 #### Hello World Using Linux and Python® Scripts
 
-<br></br>
+
 
 Previously, we manually toggled the LED linked to _GPIO3_ on the Portenta X8 via the command line. However, to automate this process and potentially extend our control logic, we can employ a Python® script for this purpose.
 
@@ -457,7 +457,7 @@ The Portenta X8 has the capability to operate in a Linux environment and it is b
 
 #### Using Portenta X8 / H7 / C33 with Arduino
 
-<br></br>
+
 
 The Portenta X8 is also capable of operating within the Arduino environment and retains the same hardware setup as explained [here](#using-portenta-x8-with-linux).
 
@@ -479,7 +479,7 @@ The diagrams below show how the Portenta H7 and C33 stack on the carrier:
 
 #### Hello World With Arduino
 
-<br></br>
+
 
 In this section, you will learn how to use the Portenta X8, Portenta H7, or Portenta C33 with the Portenta Hat Carrier. You will interact with the user-configurable LED connected to GPIO3, but this time within the Arduino environment.
 
@@ -576,7 +576,7 @@ Devices with a USB-A interface, such as storage drives, can be used for logging 
 
 #### Using Linux
 
-<br></br>
+
 
 As an example, the following command on Portenta X8's shell can be used to test a write command with a USB memory drive. To write a file, the following sequence of commands can help you to accomplish such task.
 
@@ -636,7 +636,7 @@ Now that you know how to locate, mount, write and read information from an exter
 
 #### Using Arduino IDE
 
-<br></br>
+
 
 The following example demonstrates how to use the USB interface of the Portenta Hat Carrier with the Portenta C33 to mount a Mass Storage Device (MSD).
 
@@ -964,7 +964,7 @@ Please, refer to the [board pinout section](#pinout) of the user manual to find 
 
 #### Using Linux
 
-<br></br>
+
 
 Using the Portenta X8, you can obtain a voltage reading that falls within a _0 - 65535_ range. This reading corresponds to a voltage between 0 and 3.3 V. To fetch this reading, use the command:
 
@@ -1003,7 +1003,7 @@ if __name__ == "__main__":
 
 #### Using Arduino IDE
 
-<br></br>
+
 
 The following example snippet, compatible with Portenta H7, shows how to read the voltage value from a potentiometer on `A0`. It will then display the readings on the Arduino IDE Serial Monitor.
 
@@ -1116,7 +1116,7 @@ As mentioned before, the Portenta Hat Carrier supports the MIPI camera if paired
 
 #### Using Linux
 
-<br></br>
+
 
 The following commands, using the Portenta X8 environment, allow you to capture a single frame and stream video at 30 FPS (Frames per Second) for 10 seconds from the Raspberry Pi Camera v1.3, which is based on the **OV5647 CMOS** sensor.
 
@@ -1185,7 +1185,7 @@ The fan can be connected via PWM pins available on the Portenta Hat Carrier. The
 
 #### Using Linux
 
-<br></br>
+
 
 The fan's speed can be controlled using the following code sequence when you are using the Portenta X8 within the Linux environment.
 
@@ -1342,7 +1342,7 @@ The following table shows an in-depth connector designation:
 
 #### Using Linux
 
-<br></br>
+
 
 To begin using a microSD card with Portenta X8, please use the following command to pull a Docker container that assists in setting up the necessary elements for interacting with the microSD card:
 
@@ -1414,7 +1414,7 @@ mkfs.ext4 /dev/mmcblk1p1
 
 #### Using Arduino IDE
 
-<br></br>
+
 
 To learn how to use the microSD card slot for enhanced storage with the Arduino IDE, please follow this [guide](https://docs.arduino.cc/learn/programming/sd-guide).
 
@@ -1778,7 +1778,7 @@ The Portenta Hat Carrier significantly augments the networking functionalities o
 Thus, when conceptualizing and executing project developments, the user can proficiently exploit both the wired and wireless communication capabilities. The inherent wireless attributes of the Portenta devices, combined with the carrier's sophisticated onboard components and adaptable protocol choices, enable a comprehensive suite of communication solutions ideal for a wide range of applications.
 
 #### Ethernet
-<br></br>
+
 
 The Portenta HAT Carrier features a gigabit Ethernet port with an RJ45 connector model _TRJG16414AENL_ with integrated magnetics. These magnetics are crucial for voltage isolation, noise suppression, signal quality maintenance, and rejecting common mode noise, ensuring adherence to waveform standards.
 
@@ -1824,7 +1824,7 @@ It is advisable to connect the Portenta X8 through the Portenta HAT Carrier to a
 In case you want to assign a manual IP to your device, or even create a direct network between your computer and your board, you can follow the multiple procedures available depending on your network devices and operating system.
 
 #### Ethernet Interface With Linux
-<br></br>
+
 
 Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed between your device and your computer in your network. First, ensure that the Portenta X8 is mounted on the Hat Carrier, and then connect them using an RJ45 LAN cable to your local network. Be sure that your computer and your devices are connected to the same network and are on the same IP range, been capable of seeing each other.
 
@@ -2035,7 +2035,7 @@ The client runs on the main thread. Using `server_thread.join()`, the main scrip
 
 #### Ethernet Interface With Arduino IDE
 
-<br></br>
+
 
 Below is a 'WebClient' example that can be used to test Ethernet connectivity with Portenta H7.
 
@@ -2260,7 +2260,7 @@ void loop() {
 
 #### Wi-Fi® & Bluetooth®
 
-<br></br>
+
 
 The Portenta Hat Carrier is designed to work flawlessly with wireless features. Among its numerous advantages is its capacity to use Wi-Fi® and Bluetooth® technologies present in the Portenta models like X8, H7, or C33. When these wireless options are activated, they can be effectively combined with the intrinsic capabilities and features that the carrier offers. This combination makes this solution more versatile and powerful for many different projects.
 
@@ -2348,117 +2348,11 @@ It is characterized as follows:
 
 ### GPIO Pins
 
-Understanding and managing your device's General-Purpose Input/Output (GPIO) pins can be crucial for many applications. The following script is designed to display all the GPIOs available on the 40-pin connector of the Portenta Hat Carrier paired with Portenta X8.
+Understanding and managing your device's General-Purpose Input/Output (GPIO) pins can be crucial for many applications. Depending on the Portenta SOM used and its software environment the way each pin works and its designator can change.
 
-Within the 40-pin connector, certain GPIOs are specifically related to different functionalities:
-
-- __GPIO pins - 15, 16, and 18:__ are associated with the _Serial Audio Interface (SAI)_. These pins are exclusively designated for __OUTPUT__ purposes. As such, these three GPIO pins are not configurable as inputs and are solely used as __OUTPUTS__.
-
-- __GPIO pins - 19, 21, 23, 24, and 26:__ are allocated for the _Serial Peripheral Interface (SPI)_. By implementing a specific Device Tree Blob (DTB) layer, these pins can be activated as GPIOs. The relevant DTB layers for this purpose are __`ov_som_lbee5kl1dx`__ and __`ov_som_x8h7`__.
-  
-  For more information regarding the DTB layer, please refer to the [Device Tree Blob (DTB) Overlays](#understanding-device-tree-blobs-dtb-overlays) section.
-
-The __Portenta.GPIO__ library, officially supported and compatible with the Portenta Hat Carrier and Portenta X8, can be found [here](https://github.com/SuMere/portenta-gpio).
-
-The GPIO configuration register for the STM32 microcontroller is structured with various fields that control different aspects of GPIO functionality:
-
-| 8  |  7  |  6  |  5  | 4 3  | 2 1 0 |
-|:--:|:---:|:---:|:---:|:----:|:-----:|
-| PE | HYS | PUE | ODE | FSEL |  DSE  |
-
-- __PE (Pull Resistors Enable)__: Controls the use of pull resistors. 0 disables them, while 1 enables them.
-- __HYS (Hysteresis Enable Field)__: Sets the input type. 0 selects CMOS input, and 1 selects Schmitt input.
-- __PUE (Control IO ports PS)__: Determines the type of pull resistors used. 0 selects pull-down resistors, and 1 selects pull-up resistors.
-- __ODE (Open Drain Enable Field)__: Configures the pin for open-drain mode. 0 turns off, 1 enables.
-- __FSEL (Slew Rate Field)__: Controls the slew rate. 0X is slow, 1X is fast.
-- __DSE (Drive Strength Field)__: Adjusts the drive strength. Options range from X1 to X6, with varying levels of strength.
-
-To control a desired GPIO within the Linux environment of the Portenta X8, the following GPIO chip formula can help get the required number designation:
-
-```
-[(<GPIO group> -1) * 32] + <GPIO number>
-```
-
-For example, __PA0__ is one available GPIO pin from __Port A__ within i.MX8M Mini found with the Portenta X8. Its GPIO designation is defined as `GPIO1_IO07`. Such port relationship can be found within the provided [schematics of the Portenta X8](https://docs.arduino.cc/resources/schematics/ABX00049-schematics.pdf), that can be exposed to be used with the Portenta Hat Carrier.
-
-Applying the formula to the GPIO designation, the formula field is seen as follows:
-
-```
-# Illustrative form
-[(GPIO1 - 1) * 32] + IO07
-
-# Numeric form
-[(1 - 1) * 32] + 7 = 7
-```
-
-With this, it is possible to recognize that __PA0__, known as `GPIO1_IO07`, can be accessed as __`7`__, representing a numeric designation for this specific GPIO.
-
-Each GPIO chip manages a specific range of GPIO numbers, facilitating organized and efficient access to the GPIO functionality of the STM32 microcontroller. The GPIO groups for the Portenta X8 are segmented in the following manner:
-
-| **GPIO Chip** | **Corresponding GPIO Number** |
-|---------------|-------------------------------|
-| _gpiochip0_   | GPIOs 0-31                    |
-| _gpiochip1_   | GPIOs 32-63                   |
-| _gpiochip2_   | GPIOs 64-95                   |
-| _gpiochip3_   | GPIOs 96-127                  |
-| _gpiochip4_   | GPIOs 128-159                 |
-| _gpiochip5_   | GPIOs 160-193 (H7 GPIOs)      |
-
-The STM32 microcontroller includes various GPIO ports, each with a specific set of pins. The enumeration of these GPIO ports is as follows:
-
-- __Port A__: PA6, PA8, PA9, PA10, PA11, PA12
-- __Port B__: PB1, PB5, PB6, PB10
-- __Port C__: PC4, PC6, PC7, PC8
-- __Port D__: PD0, PD1, PD3, PD4, PD5, PD6, PD15
-- __Port E__: PE10, PE11
-- __Port F__: PF3, PF4, PF5, PF6, PF7, PF8, PF9, PF11, PF12, PF13
-
-Each pin is identified by its port and a unique port number. The following table shows the numeric designations of the GPIOs handled by the STM32 microcontroller.
-
-| **Port** | **Port Number** | **Port Name** | **Function / Role** |
-|----------|-----------------|---------------|---------------------|
-| _Port A_ |                 |               |                     |
-|          | 168             | PA6           | ADC_CH1 (A1)        |
-|          | 189             | PA8           | PWM_6               |
-|          | 184             | PA9           | PWM_1               |
-|          | 185             | PA10          | PWM_2               |
-|          | 187             | PA11          | PWM_4               |
-|          | 191             | PA12          | PWM_8               |
-| _Port B_ |                 |               |                     |
-|          | 170             | PB1           | ADC_CH3 (A3)        |
-|          | 178             | PB5           | FDCAN2_RX           |
-|          | 177             | PB6           | FDCAN2_TX           |
-|          | 186             | PB10          | PWM_3               |
-| _Port C_ |                 |               |                     |
-|          | 171             | PC4           | ADC_CH4 (A4)        |
-|          | 190             | PC6           | PWM_7               |
-|          | 183             | PC7           | PWM_0               |
-|          | 192             | PC8           | PWM_9               |
-| _Port D_ |                 |               |                     |
-|          | 176             | PD0           | FDCAN1_RX           |
-|          | 175             | PD1           | FDCAN1_TX           |
-|          | 182             | PD3           | USART2_CTS          |
-|          | 181             | PD4           | USART2_RTS          |
-|          | 189             | PD5           | USART2_TX           |
-|          | 180             | PD6           | USART2_RX           |
-|          | 188             | PD15          |                     |
-| _Port E_ |                 |               |                     |
-|          | 165             | PE10          | GPIO_5              |
-|          | 166             | PE11          | GPIO_6              |
-| _Port F_ |                 |               |                     |
-|          | 162             | PF3           | GPIO_2              |
-|          | 163             | PF4           | GPIO_3              |
-|          | 174             | PF5           | ADC_CH7 (A7)        |
-|          | 161             | PF6           | GPIO_1              |
-|          | 172             | PF7           | ADC_CH5 (A5)        |
-|          | 160             | PF8           | GPIO_0              |
-|          | 173             | PF9           | ADC_CH6 (A6)        |
-|          | 167             | PF11          | ADC_CH0 (A0)        |
-|          | 164             | PF12          | GPIO_4              |
-|          | 169             | PF13          | ADC_CH2 (A2)        |
+In the following sections you can find a table with all the pins that can be controlled as a GPIO and its designator name for each Portenta SOM and software platform. In case you want to know more additional technical details about how these pins works internally, especially regarding the Linux environment, please refer to section // TODO name of the section .
 
 #### GPIO Global Map
-<br></br>
 
 For easy access to the available GPIOs on the Portenta Hat Carrier, the table below lists each designation that allows direct access to each GPIO when using a board from the Portenta family.
 
@@ -2545,8 +2439,19 @@ To effectively understand and use the GPIO (General Purpose Input/Output) design
   
   For more information, refer to this user manual's [Hello World Using Arduino](#hello-world-using-arduino) section.
 
+
 #### Using Linux With Shell
-<br></br>
+
+// TODO Move this section to the library or LINUX Ones // TODO still not sure is the right place
+Within the 40-pin connector, certain GPIOs are specifically related to different functionalities:
+
+- __GPIO pins - 15, 16, and 18:__ are associated with the _Serial Audio Interface (SAI)_. These pins are exclusively designated for __OUTPUT__ purposes. As such, these three GPIO pins are not configurable as inputs and are solely used as __OUTPUTS__.
+
+- __GPIO pins - 19, 21, 23, 24, and 26:__ are allocated for the _Serial Peripheral Interface (SPI)_. By implementing a specific Device Tree Blob (DTB) layer, these pins can be activated as GPIOs. The relevant DTB layers for this purpose are __`ov_som_lbee5kl1dx`__ and __`ov_som_x8h7`__.
+  
+  For more information regarding the DTB layer, please refer to the [Device Tree Blob (DTB) Overlays](#understanding-device-tree-blobs-dtb-overlays) section.
+// TODO END 
+
 
 The GPIOs of the Portenta X8 can be controlled via the ADB shell. The initial procedure involves accessing elevated access to the Portenta X8's shell, a necessary step to adjust system settings protected by administrative privileges.
 
@@ -2615,7 +2520,6 @@ ls /sys/class/gpio
 This measure is crucial for preventing unintentional modifications to the configuration of the GPIO. By adhering to these guidelines, one can effectively and securely manage the GPIO settings on the Portenta X8, from obtaining administrative privileges to the eventual safe unexporting of the GPIO.
 
 #### Using Linux With Library
-<br></br>
 
 The General-Purpose Input/Output (GPIO) features of the Portenta X8 can also be efficiently managed using the [__Portenta.GPIO__ library](https://pypi.org/project/Portenta.GPIO/). This library facilitates an accessible means to control the GPIOs, an aspect that is particularly advantageous when integrating GPIO management within Python® scripts.
 
@@ -2701,8 +2605,6 @@ cat /sys/kernel/debug/gpio
 
 #### Using Arduino IDE
 
-<br></br>
-
 If Portenta Hat Carrier is paired with Portenta H7 or Portenta C33, consider using the following example:
 
 ```arduino
@@ -2755,6 +2657,111 @@ void loop() {
 }
 ```
 
+#### GPIO Internal Register and Linux Environment Configuration
+
+In this section we will explain more deeply how the GPIO pins are set and controlled internally from the STM32 controller along with the way the different GPIO numbers and their designators were calculated to obtain the table that lists all off them in the section [GPIO Global Map](#gpio-global-map).
+
+The GPIO configuration register for the STM32 microcontroller is structured with various fields that control different aspects of the GPIO functionality:
+
+| GPIO STM32 Register Configuration |     |     |     |     |      |       |
+| :-------------------------------: | :-: | :-: | :-: | :-: | :--: | :---: |
+|                                   | MSB |     |     |     |      |  LSB  |
+|                Bit                |  8  |  7  |  6  |  5  | 4 3  | 2 1 0 |
+|             Function              | PE  | HYS | PUE | ODE | FSEL |  DSE  |
+
+- __PE (Pull Resistors Enable)__: Controls the use of internal pull resistors: 0 disables them, while 1 enables them.
+- __HYS (Hysteresis Enable Field)__: Sets the input type: 0 selects CMOS input, and 1 selects Schmitt input.
+- __PUE (Control IO ports PS)__: Determines the type of internal pull resistors used: 0 selects pull-down resistors, and 1 selects pull-up resistors.
+- __ODE (Open Drain Enable Field)__: Configures the pin for open-drain mode: 0 turns it off while 1 enables it.
+- __FSEL (Slew Rate Field)__: Controls the slew rate: 0X is slow, 1X is fast.
+- __DSE (Drive Strength Field)__: Adjusts the drive strength: Options range from X1 to X6, with varying levels of strength.
+
+To control a desired GPIO within the Linux environment of the Portenta X8, the following GPIO chip formula can help get the required number designation:
+
+```
+[(<GPIO group> -1) * 32] + <GPIO number>
+```
+
+For example, __PA0__ is one available GPIO pin from __Port A__ within i.MX8M Mini found with the Portenta X8. Its GPIO designation is defined as `GPIO1_IO07`. Such port relationship can be found within the provided [schematics of the Portenta [X8](https://docs.arduino.cc/resources/schematics/ABX00049-schematics.pdf), which can be exposed to be used with the Portenta Hat Carrier.
+
+Applying the formula to the GPIO designation, the formula field is seen as follows:
+
+```
+# Illustrative form
+[(GPIO1 - 1) * 32] + IO07
+
+# Numeric form
+[(1 - 1) * 32] + 7 = 7
+```
+
+With this, it is possible to recognize that __PA0__, known as `GPIO1_IO07`, can be accessed as __`7`__, representing a numeric designation for this specific GPIO.
+
+Each GPIO chip manages a specific range of GPIO numbers, facilitating organized and efficient access to the GPIO functionality of the STM32 microcontroller. The GPIO groups for the Portenta X8 are segmented in the following manner:
+
+| **GPIO Chip** | **Corresponding GPIO Number** |
+|---------------|-------------------------------|
+| _gpiochip0_   | GPIOs 0-31                    |
+| _gpiochip1_   | GPIOs 32-63                   |
+| _gpiochip2_   | GPIOs 64-95                   |
+| _gpiochip3_   | GPIOs 96-127                  |
+| _gpiochip4_   | GPIOs 128-159                 |
+| _gpiochip5_   | GPIOs 160-193 (H7 GPIOs)      |
+
+The STM32 microcontroller includes various GPIO ports, each with a specific set of pins. The enumeration of these GPIO ports is as follows:
+
+- __Port A__: PA6, PA8, PA9, PA10, PA11, PA12
+- __Port B__: PB1, PB5, PB6, PB10
+- __Port C__: PC4, PC6, PC7, PC8
+- __Port D__: PD0, PD1, PD3, PD4, PD5, PD6, PD15
+- __Port E__: PE10, PE11
+- __Port F__: PF3, PF4, PF5, PF6, PF7, PF8, PF9, PF11, PF12, PF13
+
+Each pin is identified by its port number and a unique port name. The following table shows the numeric designations of the GPIOs handled by the STM32 microcontroller.
+
+| **Port** | **Port Number** | **Port Name** | **Function / Role** |
+|----------|-----------------|---------------|---------------------|
+| _Port A_ |                 |               |                     |
+|          | 168             | PA6           | ADC_CH1 (A1)        |
+|          | 189             | PA8           | PWM_6               |
+|          | 184             | PA9           | PWM_1               |
+|          | 185             | PA10          | PWM_2               |
+|          | 187             | PA11          | PWM_4               |
+|          | 191             | PA12          | PWM_8               |
+| _Port B_ |                 |               |                     |
+|          | 170             | PB1           | ADC_CH3 (A3)        |
+|          | 178             | PB5           | FDCAN2_RX           |
+|          | 177             | PB6           | FDCAN2_TX           |
+|          | 186             | PB10          | PWM_3               |
+| _Port C_ |                 |               |                     |
+|          | 171             | PC4           | ADC_CH4 (A4)        |
+|          | 190             | PC6           | PWM_7               |
+|          | 183             | PC7           | PWM_0               |
+|          | 192             | PC8           | PWM_9               |
+| _Port D_ |                 |               |                     |
+|          | 176             | PD0           | FDCAN1_RX           |
+|          | 175             | PD1           | FDCAN1_TX           |
+|          | 182             | PD3           | USART2_CTS          |
+|          | 181             | PD4           | USART2_RTS          |
+|          | 189             | PD5           | USART2_TX           |
+|          | 180             | PD6           | USART2_RX           |
+|          | 188             | PD15          |                     |
+| _Port E_ |                 |               |                     |
+|          | 165             | PE10          | GPIO_5              |
+|          | 166             | PE11          | GPIO_6              |
+| _Port F_ |                 |               |                     |
+|          | 162             | PF3           | GPIO_2              |
+|          | 163             | PF4           | GPIO_3              |
+|          | 174             | PF5           | ADC_CH7 (A7)        |
+|          | 161             | PF6           | GPIO_1              |
+|          | 172             | PF7           | ADC_CH5 (A5)        |
+|          | 160             | PF8           | GPIO_0              |
+|          | 173             | PF9           | ADC_CH6 (A6)        |
+|          | 167             | PF11          | ADC_CH0 (A0)        |
+|          | 164             | PF12          | GPIO_4              |
+|          | 169             | PF13          | ADC_CH2 (A2)        |
+
+With this information, it is possible to define the differnt pins and their behaviour to be controlled by the Arduino Portenta Cores // TODO , the Portenta X8 Enviroment // TODO link to the firmware, or the Python GPIO library // TODO link to that library.
+
 ### PWM Pins
 
 The Portenta Hat Carrier has 10 digital pins with PWM functionality, mapped as follows:
@@ -2777,8 +2784,6 @@ The Portenta Hat Carrier has 10 digital pins with PWM functionality, mapped as f
 Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. All these pins must be configured on the corresponding Portenta.
 
 #### Using Linux
-
-<br></br>
 
 The following Python® script is designed to control the brightness of a device, such as an LED, by varying the duty cycle of a PWM signal in a Linux environment on Portenta X8.
 
@@ -2826,7 +2831,7 @@ if __name__ == "__main__":
 
 #### Using Arduino IDE
 
-<br></br>
+
 
 The [`analogWrite()` [function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite) included in the Arduino programming language can be used to access the PWM pins.
 
@@ -2951,7 +2956,7 @@ When no known carrier is detected and the Portenta X8 is mounted as the main boa
 
 #### Distinction Between System And Hardware Configuration
 
-<br></br>
+
 
 The distinction between system and hardware configuration is crucial. System configuration includes settings such as user creation and Wi-Fi® passwords, whereas hardware configuration is explicitly defined through the device tree.
 
@@ -3277,7 +3282,7 @@ Please, refer to the [board pinout section](#pinout) of the user manual to find 
 
 #### Using Linux
 
-<br></br>
+
 
 With admin (root) access, you can use the following commands within the shell for the Portenta X8:
 
@@ -3303,7 +3308,7 @@ Following section configures a service named `my_spi_service` to use the SPI dev
 
 #### Using Arduino IDE
 
-<br></br>
+
 
 Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. This can be used with Portenta H7 or C33. The SPI library provides functions for SPI communication:
 
@@ -3410,7 +3415,7 @@ Please, refer to the [pinout section](#pinout) of the user manual to find them o
 
 #### Using Linux
 
-<br></br>
+
 
 For the Portenta X8, it is possible to use the following commands within the shell when you have admin (root) access:
 
@@ -3515,7 +3520,7 @@ i2c.close()
 
 #### Using Arduino IDE
 
-<br></br>
+
 
 To use I2C communication, include the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) at the top of your sketch. This can be used with Portenta H7 or C33. The `Wire` library provides functions for I2C communication:
 
@@ -3596,7 +3601,7 @@ Since the CAN bus pins are integrated within the High-Density connectors, they a
 
 #### Using Linux
 
-<br></br>
+
 
 For the Portenta X8, when you have admin (root) access, you can execute the following commands within the shell to control the CAN bus protocol. The CAN transceiver can be enabled using the following command
 
@@ -3911,7 +3916,7 @@ Please, refer to the board pinout section of the user manual to find them on the
 
 #### Using Linux
 
-<br></br>
+
 
 For the Portenta X8, when you have admin (root) access, you can execute the command `ls /dev/ttyUSB* /dev/ttyACM* /dev/ttymxc*` within the shell to list available serial ports in Linux. Typically, USB serial devices could appear as _/dev/ttyUSBx_, _/dev/ttyACMx_, or _/dev/ttymxcx_.
 
@@ -3962,7 +3967,7 @@ The `time.sleep(0.002)` line adds a slight delay, ensuring data has enough time 
 
 #### Using Arduino IDE
 
-<br></br>
+
 
 For Portenta H7 or C33, the following examples can be used to test UART communication. For a proper UART communication, the baud rate (bits per second) must be set within the `setup()` function.
 
