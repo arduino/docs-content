@@ -31,15 +31,6 @@ Get started with machine learning using TinyML, TensorFlow Lite or Edge Impulse 
 </FeatureWrapper>
 </Feature>
 
-<Feature title="WiFi" image="wifi">
-
-The first and only RP2040 board with native WiFi connectivity and Arduino Cloud compatibility. Control your peripherals wirelessly and start implementing IoT and WiFi applications in your projects.
-<FeatureWrapper>
-<FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-rp2040-connect/rp2040-ap-web-server-rgb"/>
-<FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>
-</FeatureWrapper>
-</Feature>
-
 <Feature title="Omnidirectional Microphone" image="microphone">
 
 The Nano RP2040 connect comes with the MP34DT06JTR microphone. It allows you to capture and analyze sound in real time and can be used to create a voice interface to control your peripherals through sound.

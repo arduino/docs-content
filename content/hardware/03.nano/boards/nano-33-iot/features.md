@@ -11,15 +11,6 @@ The Nano 33 IoT is compatible with the Arduino Cloud platform. Build IoT project
 </FeatureWrapper>
 </Feature>
 
-<Feature title="Wi-Fi®" image="wifi">
-
-The board comes with Wi-Fi® connectivity and Arduino Cloud compatibility. This allows you to create IoT applications in your own projects.
-<FeatureWrapper>
-<FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-iot/wifi-connection"/>
-<FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>
-</FeatureWrapper>
-</Feature>
-
 <Feature title="Bluetooth®" image="bluetooth">
 
 The Nano 33 IoT is Bluetooth® enabled allowing you to control peripheral devices via bluetooth and start implementing Bluetooth® Low Energy applications.

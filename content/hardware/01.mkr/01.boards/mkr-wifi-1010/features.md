@@ -22,13 +22,4 @@ Enables Bluetooth® allowing you to implement Bluetooth® in your projects.
 </FeatureWrapper>
 </Feature>
 
-<Feature title="WiFi" image="wifi">
-
-Enables WiFi allowing you to connect wirelessly to your peripherals.
-<FeatureWrapper>
-<FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-wifi-1010/hosting-a-webserver"/>
-<FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>
-</FeatureWrapper>
-</Feature>
-
 </FeatureList>
