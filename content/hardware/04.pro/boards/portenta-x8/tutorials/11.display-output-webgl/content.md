@@ -129,9 +129,9 @@ ssh fio@<localIP>
 
 ***To connect through SSH it will request the user's password, which is "fio". If you have trouble connecting with the SSH, please check the troubleshooting section at the end of this tutorial.***
 
-### Copy/Push the Container
+### Copy/Push the Docker-Compose.yml
 
-You can push the container from your computer using a terminal on the container's directory. The following command is used to send the container to the Portenta X8:
+You can push the **docker-compose.yml**, a file that describes the app in ASCII format, from your computer using a terminal on the file's directory. The following command is used to send the composer to the Portenta X8:
 
 ```bash
 scp <folderName> fio@<portentaX8-IP>:<desiredPath>
@@ -172,9 +172,9 @@ mode=98.00  1600 1680 1840 2080  758 761 771 787 -hsync +vsync
 ```
 Save the file and exit. To see the changes in place, you have to reboot your Portenta X8 by using the command `sudo systemctl reboot`. When the board gets started again, you will be able to see your display with the right resolution. 
 
-### Running The Container
+### Running The Image
 
-If you obtained the container from **Foundries.io**, it will run automatically after a few seconds.
+If you obtained the app descriptor, structured through *docker-compose.yml*, from **Foundries.io**, it will run automatically after a few seconds.
 
 On the other hand, if you copied from the repository, you will need to initialize with **docker** by accessing your Portenta X8 through SSH, going to the directory where you have copied it, and running it from that directory using following commands:
 
@@ -183,13 +183,13 @@ On the other hand, if you copied from the repository, you will need to initializ
 ssh fio@<portentaX8-IP>
 
 //Change directory
-cd <containerPath>
+cd <composerPath>
 
 //Compose with docker
-docker-compose up --detach
+docker compose up --detach
 
 //Stop the docker-compose
-docker-compose stop
+docker compose stop
 ```
 
 ### Edit The Output
@@ -201,7 +201,7 @@ It is possible to change the web output URL by editing the `docker-compose.yml` 
 ssh fio@<portentaX8-IP>
 
 //Change directory
-cd <containerPath>
+cd <composerPath>
 
 //Edit the file with VIM
 vim docker-compose.yml
