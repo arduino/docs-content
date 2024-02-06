@@ -46,7 +46,7 @@ In this section, we will go through the fundamental elements of an emWin sketch:
 
 ### emWin Screen Configuration
 
-When creating elements, information about the screen and placement needs to be provided. Let's create a pointer variable that can be used whenever the screenspace needs to be used.
+When creating elements, information about the screen and placement needs to be provided. The provided code initializes the emWin library, configuring display and touch controller settings. It sets the display to landscape mode, enables multi-buffering for the Windows manager, and creates a main window for content rendering.
 
 **Full Example:**
 
