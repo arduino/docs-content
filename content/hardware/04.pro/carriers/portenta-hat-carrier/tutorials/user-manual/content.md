@@ -2760,7 +2760,7 @@ Each pin is identified by its port number and a unique port name. The following 
 |          | 164             | PF12          | GPIO_4              |
 |          | 169             | PF13          | ADC_CH2 (A2)        |
 
-With this information, it is possible to define the differnt pins and their behaviour to be controlled by the [Arduino Portenta Cores](https://github.com/arduino/ArduinoCore-mbed/releases) // TODO , the Portenta X8 Enviroment (latest firmware available [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz)) // TODO link to the firmware, or the official [Python.GPIO library](https://github.com/SuMere/portenta-gpio) // TODO link to that library.
+With this information, it is possible to define the different pins and their behaviour to be controlled by the [Arduino Portenta Cores](https://github.com/arduino/ArduinoCore-mbed/releases) // TODO , the Portenta X8 Environment (latest firmware available [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz)) // TODO link to the firmware, or the official [Python.GPIO library](https://github.com/SuMere/portenta-gpio) // TODO link to that library.
 
 ### PWM Pins
 
