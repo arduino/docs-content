@@ -19,12 +19,12 @@
     </EssentialElement>
 </EssentialsColumn>
 
-<EssentialsColumn title="Portenta H7 & C33">
-    <EssentialElement title="Portenta H7 Documentation" type="getting-started" link="/hardware/portenta-h7">
-        Official documentation of the Portenta H7
+<EssentialsColumn title="Suggested Resources">
+    <EssentialElement title="Latest Portenta X8 Firmware" type="library" link="https://downloads.arduino.cc/portentax8image/image-latest.tar.gz">
+        Latest Portenta X8 Firmware for stable operation
     </EssentialElement>
-    <EssentialElement title="Portenta C33 Documentation" type="getting-started" link="/hardware/portenta-c33">
-        Official documentation of the Portenta C33
+    <EssentialElement title="Python.GPIO Library" type="library" link="https://github.com/SuMere/portenta-gpio">
+        Official Python.GPIO Library
     </EssentialElement>
 </EssentialsColumn>
 
