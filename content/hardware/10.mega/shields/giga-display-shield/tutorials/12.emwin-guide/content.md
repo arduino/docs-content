@@ -180,6 +180,8 @@ To be able to display an image it first needs to be defined. **bmarduinologo** i
 extern GUI_CONST_STORAGE GUI_BITMAP bmarduinologo; /* Image bitmap structure (see img_arduinologo_emwin.c in attach) */
 ```
 
+To convert images into the emWin format, you can use the [emWin Bitmap Converter](https://www.segger.com/products/user-interface/emwin/tools/tools-overview/#:~:text=Download%20AppWizard%20Trial-,Bitmap%20Converter,-The%20Bitmap%20Converter) tool.
+
 Now the image can be drawn by specifying the image file along with the x and y position. Like this:
 
 ```arduino
