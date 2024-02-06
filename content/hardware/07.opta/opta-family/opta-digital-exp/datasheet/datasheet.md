@@ -59,9 +59,11 @@ There are two variants of the Arduino Opta® Digital Expansion created to fit th
 ## Application Examples
 Arduino Opta® Expansion is designed for industrial standard machinery control alongside the Opta® micro PLC. It is readily integrated into the Arduino hardware and software ecosystem.
 
-- Something 1:
-- Something 2:
-- Something 3;
+- **Automated Production Line:** Arduino Opta® can manage the overall flow of goods in manufacturing. For example, by integrating a load cell or a vision system, it can ensure each phase of a packing process is performed correctly, automatically discard faulty parts, ensure the appropriate amount of goods is present within each box and interact with production line printers, also adding timestamp information synchronized via Network Time Protocol (NTP)
+
+- **Real-time Monitoring in Manufacturing:** Production data can be visualized locally via an HMI or even by connecting to the Arduino Opta® via Bluetooth® Low Energy. The simplicity of Arduino Cloud allows to remotely display custom dashboards; this product is also compatible with other major Cloud providers.
+
+- **Automated Anomaly Detection:** Its computing power allows the Arduino Opta® to deploy Machine Learning algorithms that are capable to learn when a process is drifting from its usual behavior on the production line and activating/deactivating processes to prevent equipment damage.
 
 ## Features
 ### General Specifications Overview
