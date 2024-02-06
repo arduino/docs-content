@@ -128,7 +128,7 @@ WM_CreateWindowAsChild(X-position, Y-position, Height, Width, ParentWindow, Visi
 
 [Grid layout infographic]()
 
-This is how it would look to use emWin to create a 2x2 grid layout:
+This is how it would look to use emWin to create a 2x2 grid layout inside the main window:
 
 **Full Example**
 ```arduino
