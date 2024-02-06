@@ -67,7 +67,7 @@ void setup() {
 
 The examples in this tutorial will be using the window manager method. This makes it easier to manage the screen elements and widgets. However, it is also possible to create emWin sketches without the window manager, which will be shown in this section.
 
-Here is an example that will make the screens background color red and print the text "Hello world" on the screen. Lets first take a look at how this would look without the window manager:
+Here is an example that sets the screen background color to green and prints the text "Hello world" in red on the screen. Lets first take a look at how this would look without the window manager:
 
 ```arduino
 #include <DIALOG.h>
