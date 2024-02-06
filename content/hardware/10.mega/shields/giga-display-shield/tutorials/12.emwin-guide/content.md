@@ -34,6 +34,8 @@ In the sketch include the emWin library like this:
 #include "DIALOG.h"
 ```
 
+There is no need to include the **"Arduino_GigaDisplayTouch"** library separately, as it is already incorporated within the emWin library.
+
 ## emWin Library Setup
 
 In this section, we will go through the fundamental elements of an emWin sketch:
