@@ -2350,7 +2350,7 @@ It is characterized as follows:
 
 Understanding and managing your device's General-Purpose Input/Output (GPIO) pins can be crucial for many applications. Depending on the Portenta SOM used and its software environment the way each pin works and its designator can change.
 
-In the following sections you can find a table with all the pins that can be controlled as a GPIO and its designator name for each Portenta SOM and software platform. In case you want to know more additional technical details about how these pins works internally, especially regarding the Linux environment, please refer to section // TODO name of the section .
+In the following sections you can find a table with all the pins that can be controlled as a GPIO and its designator name for each Portenta SOM and software platform. In case you want to know more additional technical details about how these pins works internally, especially regarding the Linux environment, please refer to [Using Linux With Shell](#using-linux-with-shell) or [Using Linux With Library](#using-linux-with-library) section // TODO name of the section .
 
 #### GPIO Global Map
 
@@ -2760,7 +2760,7 @@ Each pin is identified by its port number and a unique port name. The following 
 |          | 164             | PF12          | GPIO_4              |
 |          | 169             | PF13          | ADC_CH2 (A2)        |
 
-With this information, it is possible to define the differnt pins and their behaviour to be controlled by the Arduino Portenta Cores // TODO , the Portenta X8 Enviroment // TODO link to the firmware, or the Python GPIO library // TODO link to that library.
+With this information, it is possible to define the differnt pins and their behaviour to be controlled by the [Arduino Portenta Cores](https://github.com/arduino/ArduinoCore-mbed/releases) // TODO , the Portenta X8 Enviroment (latest firmware available [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz)) // TODO link to the firmware, or the official [Python.GPIO library](https://github.com/SuMere/portenta-gpio) // TODO link to that library.
 
 ### PWM Pins
 
