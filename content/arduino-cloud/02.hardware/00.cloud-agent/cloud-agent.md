@@ -26,3 +26,8 @@ Once installed, you can navigate back to the Cloud Editor, and you should be abl
 ## Source Code
 
 The source code for the Cloud Agent lives [in this GitHub repository](https://github.com/arduino/arduino-create-agent). To report issues or improvements, please do so inside in this repository.
+
+## Troubleshooting
+
+If you are having issues with the Cloud Agent, you can visit the link below:
+- [Arduino Help Center - Create Agent](https://support.arduino.cc/hc/en-us/articles/360014869820-Install-the-Arduino-Create-Agent)
