@@ -90,7 +90,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Inputs Resolution</td>
-            <td>10 bits</td>
+            <td>10...12 bits - User configurable</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Degree of Protection</td>
@@ -146,7 +146,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input resolution</td>
-            <td>10 bits - User configurable</td>
+            <td>10...12 bits - User configurable</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input LSB value</td>
@@ -155,6 +155,10 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         <tr>
             <td style="vertical-align: top;">Accuracy</td>
             <td>+/- 5%, repeatability +/- 2%</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Cycle time for analog input acquisition</td>
+            <td>10 µs</td>
         </tr>
     </tbody>
 </table>
@@ -174,7 +178,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input voltage logic level</td>
-            <td>VIL Max: 4.46 VDC. VHL Min: 6.6 VDC</td>
+            <td>VIL Max: 4 VDC. VHL Min: 5.9 VDC</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input current</td>
@@ -183,10 +187,6 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         <tr>
             <td style="vertical-align: top;">Digital Input frequency</td>
             <td>4.5 kHz</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Cycle time for analog input acquisition</td>
-            <td>10 µs</td>
         </tr>
     </tbody>
 </table>
@@ -250,27 +250,27 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Relay response time from state 0 to state 1</td>
-            <td>6 ms for relay output</td>
+            <td>5 ms for relay output</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Relay response time from state 1 to state 0</td>
-            <td>4 ms for relay output</td>
+            <td>3 ms for relay output</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Bounce time NO</td>
-            <td>- ms</td>
+            <td>1 ms</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Bounce time NC</td>
-            <td>- ms</td>
+            <td>6 ms</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Relay mechanical durability</td>
-            <td>- million cycles</td>
+            <td>10 million cycles (DC)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Relay electrical durability</td>
-            <td>- thousand cycles with a resistive load of 10A</td>
+            <td>60 thousand cycles with a resistive load (AC1)</td>
         </tr>
     </tbody>
 </table>
@@ -294,7 +294,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>50A</td>
+            <td>50A (10 ms)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Continuous current per terminal</td>
@@ -326,7 +326,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Max "OFF-state" leakage current</td>
-            <td>0.1 mA</td>
+            <td>0.001 mA</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max "OFF-state" voltage drop</td>
@@ -339,6 +339,10 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         <tr>
             <td style="vertical-align: top;">Relay response time from state 1 to state 0</td>
             <td>0.2 ms for relay output</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Electrical life at rated load</td>
+            <td>> 10 million cycles</td>
         </tr>
     </tbody>
 </table>
@@ -367,8 +371,8 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 ## Functional Overview
 ### Product View
-![Arduino Opta® Expansion EMR Product View](assets/AFX0005.png)
-![Arduino Opta® Expansion SSR Product View](assets/AFX0006.png)
+![Arduino Opta® Expansion EMR and SSR variants](assets/AFX0005-6.png)
+
 
 <div style="page-break-after:always;"></div>
 
