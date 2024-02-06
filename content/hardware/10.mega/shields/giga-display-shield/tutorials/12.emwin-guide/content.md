@@ -28,7 +28,7 @@ In this guide, we will be using three different libraries:
 
 To install them, open the library manager and install the latest version by searching for **"emWin"** and **"Arduino_GigaDisplayTouch"**.
 
-In the sketch include the library like this:
+In the sketch include the emWin library like this:
 
 ```arduino
 #include "DIALOG.h"
