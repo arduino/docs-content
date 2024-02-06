@@ -24,7 +24,7 @@ The GIGA R1 core includes the [Arduino_H7_Video](https://github.com/arduino/Ardu
 In this guide, we will be using three different libraries:
 - [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video), this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed) installed.
 - [Arduino_GigaDisplayTouch](https://www.arduino.cc/reference/en/libraries/arduino_gigadisplaytouch/), handles touch on the GIGA Display Shield
-- [DIALOG.h](https://github.com/SEGGERMicro/emWin-Arduino-Library), the emWin library
+- [emWin-Arduino-Library](https://github.com/SEGGERMicro/emWin-Arduino-Library)
 
 To install them, open the library manager and install the latest version by searching for **"emWin"** and **"Arduino_GigaDisplayTouch"**.
 
