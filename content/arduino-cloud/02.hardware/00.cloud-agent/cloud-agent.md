@@ -11,11 +11,13 @@ The Cloud Agent is a requirement to program your devices in the Arduino Cloud, a
 
 ## Installation
 
-When you configure a device or use the Cloud Editor, you will automatically receive a prompt to install the Cloud Agent. The link to this download is also available at [this link](https://create.arduino.cc/getting-started/plugin/welcome). It should look like this:
+When you configure a device or use the Cloud Editor, you will automatically receive a prompt to install the Cloud Agent. 
+
+You can also access the download page through [this link](https://create.arduino.cc/getting-started/plugin/welcome). It should look like this:
 
 ![Download Cloud Agent.](assets/install-agent.png)
 
-Upon clicking the link, you will download an installation file. To install it, run the file and follow the instructions for your operating system.
+Follow the installation guide in the page, where you will download an installation file. To install it, run the file and follow the instructions for your operating system.
 
 Once installed, you can navigate back to the Cloud Editor, and you should be able to recognize the board connected to your computer.
 
