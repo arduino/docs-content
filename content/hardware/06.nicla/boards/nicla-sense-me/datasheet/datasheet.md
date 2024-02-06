@@ -45,10 +45,10 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
 - **Bosch® BMP390** High-performance pressure sensor
   - Operation range: 300-1250 hPa
   - Absolute accuracy pressure (typ.): ± 0.5 hPa
-  - Relative accuracy pressure (typ.): ± 3.33 hPa (equivalent to ±25 cm)
+  - Relative accuracy pressure (typ.): ± 0.03 hPa (equivalent to ±25 cm)
   - RMS noise in pressure @ highest resolution: 0.02 Pa
   - Temperature coefficient offset: ± 0.6 Pa/K
-  - Long-term stability (12 months): ± 0.016 hPa
+  - Long-term stability (12 months): ± 0.16 hPa
   - Max sampling rate: 200 Hz
   - Integrated 512 byte FIFO buffer
 - **Bosch® BMM150** 3-axis Magnetometer
