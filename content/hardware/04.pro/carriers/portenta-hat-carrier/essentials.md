@@ -11,9 +11,6 @@
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Repositories">
-    <EssentialElement link="https://hub.docker.com/u/arduino" title="Portenta X8 Docker Hub Containers" type="article">
-        Docker Hub Containers for the Portenta X8.
-    </EssentialElement>
     <EssentialElement link="https://github.com/arduino/portenta-containers" title="Portenta X8 containers" type="article">
         Some containers examples of Portenta X8. These containers are accessible through your Foundries.io factory.
     </EssentialElement>
