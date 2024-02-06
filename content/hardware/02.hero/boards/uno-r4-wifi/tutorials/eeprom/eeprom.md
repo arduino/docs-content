@@ -21,7 +21,7 @@ The goals of this tutorials are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
-- [Arduino R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
+- [Arduino UNO R4 WiFi](https://store.arduino.cc/uno-r4-wifi)
 - [UNO R4 Board Package](/tutorials/uno-r4-wifi/r4-wifi-getting-started)
 
 ## EEPROM
