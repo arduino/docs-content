@@ -447,11 +447,11 @@ Now that you have gone through the basics of what you can do with the board you 
 
 MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
 
-The MTBF figure (in hours) for the Portenta Machine Control can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F part count method.
+The MTBF figure (in hours/years) for the Portenta Machine Control can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F part count method.
 
 |  **Standard** | **Portenta Machine Control** | **Environmental Conditions** |
 |:-------------:|:----------------------------:|:----------------------------:|
-| MIL-HDBK-217F |           513550 h           |     25 ºC, Ground Benign     |
+| MIL-HDBK-217F |       513550 h/58 years      |             25 ºC            |
 
 **Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_. 
 
@@ -559,11 +559,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**    | **Revision** | **Changes**                           |
-| ----------- | ------------ | ------------------------------------- |
-| 08/05/2023 | 6            | RTD and Thermocouples new information |
-| 11/04//2023 | 5            | Updates and table improvements        |
-| 13/10/2022  | 4            | Big improvements & Fixes |
-| 26/09/2022 | 3            | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side)                              |
-| 09/05/2022 | 2            | Remove PT1000, not compatible         |
-| 13/04/2021  | 1            | First Release                         |
+| **Date** | **Revision** | **Changes** |
+|---|:---:|---|
+| 06/02/2024 | 7 | MTBF information |
+| 08/05/2023 | 6 | RTD and thermocouples new information |
+| 11/04//2023 | 5 | Updates and table improvements |
+| 13/10/2022 | 4 | Big improvements and fixes |
+| 26/09/2022 | 3 | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
+| 09/05/2022 | 2 | Remove PT1000, not compatible |
+| 13/04/2021 | 1 | First release |
