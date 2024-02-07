@@ -23,7 +23,7 @@
     <EssentialElement title="Python.GPIO Library" type="library" link="https://github.com/SuMere/portenta-gpio">
         The official library for managing GPIO pins within the Python® programming environment.
     </EssentialElement>
-    <EssentialElement title="Docker Hub for the Portenta X8" type="article" link="https://hub.docker.com/u/arduino">
+    <EssentialElement title="Docker Hub for the Portenta X8" type="library" link="https://hub.docker.com/u/arduino">
         Docker Hub to access collection of containers for the Portenta X8.
     </EssentialElement>
 </EssentialsColumn>
