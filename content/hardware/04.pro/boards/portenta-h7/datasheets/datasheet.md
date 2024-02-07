@@ -917,7 +917,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 
 | Date       | **Revision** | **Changes**                         |
-| ---------- | ------------ | ----------------------------------- |
+|------------|--------------|-------------------------------------|
+| 06/02/2024 | 6            | MTBF information                    |
 | 05/12/2023 | 5            | Accessories section updated         |
 | 17/10/2023 | 4            | I2C ports information section added |
 | 27/01/2023 | 3            | Add power consumption information   |
