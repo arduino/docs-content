@@ -1,7 +1,6 @@
 ---
 title: "Arduino UNO"
 source: "https://web.archive.org/web/20111030034541/http://www.arduino.cc:80/en/Main/arduinoBoardUno"
-source: "https://forum.arduino.cc/t/uno-r2-schematic-and-board/66809/3"
 ---
 
 ## Overview
