@@ -682,9 +682,9 @@ MTBF, which stands for Mean Time Between Failure, is calculated according to sta
 
 The MTBF figure (in hours/years) for the Portenta H7 (all variants) can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F part count method.  
 
-| **Standard** | **Portenta H7** | **Portenta H7 Lite** | **Portenta H7 Lite Connected** | **Environmental Conditions** |
-|:---:|:---:|:---:|:---:|:---:|
-| MIL-HDBK-217F | XXXX h/XX years | XXXX h/XX years | XXXX h/XX years | 25 ºC |
+| **Standard** | **Portenta H7** | **Environmental Conditions** |
+|:---:|:---:|:---:|
+| MIL-HDBK-217F | 639717 h/73 years | 25 ºC |
 
 **Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_. 
 
