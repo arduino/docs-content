@@ -1197,7 +1197,7 @@ The many nodes connected in a Modbus network, whether RTU or TCP, allow high fle
 
 To use the Modbus protocol with your Portenta Machine Control, you will need the [`ArduinoRS485`](https://github.com/arduino-libraries/ArduinoRS485) and [`ArduinoModbus`](https://github.com/arduino-libraries/ArduinoModbus) libraries. You can install them via the Library Manager of the Arduino IDE.
 
-The example below shows how to communicate a Portenta Machine Control with an Opta™ device via Modbus TCP. For wiring both devices, we have two options:
+The example below shows how to enable Modbus TCP communication between Portenta Machine Control and Arduino Opta™. For wiring both devices, we have two options:
 
 1. A direct connection between the Portenta Machine Control and the Opta™ device through an Ethernet cable.
 2. Individually connect each device to an internet router via Ethernet cables.
