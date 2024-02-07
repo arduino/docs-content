@@ -543,11 +543,11 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
 
-The MTBF figure (in hours) for each Arduino Opta® variant can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F parts count method.
+The MTBF figure (in hours/years) for each Arduino Opta® variant can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F parts count method.
 
-| **Standard**  | **Opta® Lite** | **Opta® RS485** | **Opta® WiFi** | **Environmental Conditions** |
-| :-----------: | :------------: | :-------------: | :------------: | :--------------------------: |
-| MIL-HDBK-217F |    766205 h    |    766205 h     |   1526239 h    |     25 ºC, Ground Benign     |
+|  **Standard** | **All Opta® Variants** | **Environmental Conditions** |
+|:-------------:|:----------------------:|:----------------------------:|
+| MIL-HDBK-217F |    766205 h/87 years   |             25 ºC            |
 
 **Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_.
 
@@ -762,8 +762,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**        |
-|------------|--------------|------------------- |
-| 16/05/2023 | 3            | Legal updates      |
-| 13/04/2023 | 2            | Tech Specs Updates |
-| 02/03/2023 | 1            | First Release      |
+| Date       | **Revision** |     **Changes**    |
+|------------|:------------:|:------------------:|
+| 07/02/2023 |       4      |  MTBF information  |
+| 16/05/2023 |       3      |    Legal updates   |
+| 13/04/2023 |       2      | Tech Specs Updates |
+| 02/03/2023 |       1      |    First Release   |
