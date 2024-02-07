@@ -745,7 +745,7 @@ Replace `YOUR_SSID` with the name of your Wi-Fi® network and `YOUR_PASS` with t
 
 // Wi-Fi network details.
 char ssid[]     = SECRET_SSID;
-char password[] = SECRET_PASS;º
+char password[] = SECRET_PASS;
 
 // Server address for ip-api.com.
 const char* server = "ip-api.com";
