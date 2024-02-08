@@ -9,7 +9,7 @@ tags: [Display, emWin, GUI]
 
 Segger's emWin is a graphical framework for building powerful UIs, and is fully compatible with the GIGA Display Shield. It allows you to build UIs, using pre-made widgets like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. In this guide, we will go through some of the different components, so you can learn how to best implement it in your projects.
 
-[emWin full demo running on the GIGA Display Shield]()
+![emWin full demo running on the GIGA Display Shield](assets/emwin-example.png)
 
 ## Hardware & Software Needed
 
@@ -128,7 +128,7 @@ To create different windows inside our display, use the `WM_CreateWindowAsChild(
 WM_CreateWindowAsChild(X-position, Y-position, Height, Width, ParentWindow, VisibilityFlag, WindowsCallback, AdditionalBytes);
 ```
 
-[Grid layout infographic]()
+![Grid layout infographic](assets/gridemwin.png)
 
 This is how it would look to use emWin to create a 2x2 grid layout inside the main window:
 
@@ -188,7 +188,7 @@ Now the image can be drawn by specifying the image file along with the x and y p
 GUI_DrawBitmap(&bmarduinologo, X-position, Y-position);
 ```
 
-[Displaying an image with emWin]()
+![Displaying an image with emWin](assets/emwin-image.png)
 
 **Full Example:**
 **Remember that the image file needs to be in the same folder as the sketch, use the image that comes with the full demo (File > Examples > Arduino_H7_Video > emWinDemo)**
@@ -237,8 +237,6 @@ Most widgets have label functions attached to them. However if you want to print
 Calling `GUI_SetColor()` before the text print will allow you to change the color of the text that is then printed. [Here](https://wiki.segger.com/CHOOSECOLOR_(Sample)) you can find the colors available.
 
 For changing the font size, use `GUI_SetFont(&GUI_Font16_1);`, this call will set the font size to 16.
-
-[Displaying text with emWin]()
 
 **Full Example:**
 
@@ -296,7 +294,9 @@ Then for the state of the checkbox the number of states and where it should star
   CHECKBOX_SetState(hBox, 1);
 ```
 
-[emWin checkbox]()
+![emWin checkbox checked](assets/emwin-checkbox.png)
+
+![emWin checkbox unchecked](assets/emwin-checkbox-unchecked.png)
 
 **Full Example:**
 
@@ -409,7 +409,7 @@ The GUI will also have to be re-drawn when the value changes so the display stay
     break;
 ```
 
-[emWin slider]()
+![emWin slider](assets/emwin-slider.png)
 
 **Full Example:**
 
@@ -658,7 +658,7 @@ if(Released) {
 }
 ```
 
-[emWin button]()
+![emWin button](assets/emwin-button.png)
 
 **Full Example:**
 
@@ -744,7 +744,7 @@ void loop() {
 
 This guide went through the building blocks of the different components that can be implemented with emWin. To see these examples in a full running example sketch go to **File > Examples > Arduino_H7_Video > emWinDemo**.
 
-[Example in the IDE]()
+![Example in the IDE](assets/example-in-ide.png)
 
 This demo sketch will show the different components using a screen manager in a 2x2 grid.
 
