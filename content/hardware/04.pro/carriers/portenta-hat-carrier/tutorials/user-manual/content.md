@@ -253,8 +253,6 @@ This provides a general idea of how the Portenta Hat Carrier will perform depend
 
 #### Using Portenta X8 with Linux
 
-
-
 To use the Portenta Hat Carrier with the Portenta X8, you will have to align the High-Density connectors along with the USB-C® port. The following diagram shows how the board stacks on the carrier.
 
 ![Portenta Hat Carrier with X8](assets/portentaHATcarrier_x8.png)
@@ -264,8 +262,6 @@ To use the Portenta Hat Carrier with the Portenta X8, you will have to align the
 **\_For the stable functionality of the Portenta Hat Carrier when used with Portenta X8, it is crucial to have at least version **746** of the Linux image on the Portenta X8. Access and download the latest version directly through this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).\_**
 
 #### Hello World With Portenta X8 Shell
-
-
 
 A series of _Hello World_ examples will be used to ensure the Portenta Hat Carrier is correctly operating with the paired Portenta X8. These examples, using Linux commands, Python® scripts, and the Arduino IDE, aim to trigger the user-programmable LED connected to GPIO3 leveraging different methods and platforms.
 
@@ -355,8 +351,6 @@ ls /sys/class/gpio
 This step helps you to prevent unintentional modifications to the element configuration.
 
 #### Hello World Using Linux and Python® Scripts
-
-
 
 Previously, we manually toggled the LED linked to _GPIO3_ on the Portenta X8 via the command line. However, to automate this process and potentially extend our control logic, we can employ a Python® script for this purpose.
 
@@ -457,8 +451,6 @@ The Portenta X8 has the capability to operate in a Linux environment and it is b
 
 #### Using Portenta X8 / H7 / C33 with Arduino
 
-
-
 The Portenta X8 is also capable of operating within the Arduino environment and retains the same hardware setup as explained [here](#using-portenta-x8-with-linux).
 
 The Portenta H7 and C33 boards have hardware setups similar to the Portenta X8. To mount them on the Hat Carrier, please align the High-Density connectors along with USB-C® port orientation.
@@ -478,8 +470,6 @@ The diagrams below show how the Portenta H7 and C33 stack on the carrier:
 ![Portenta Hat Carrier with C33](assets/portentaHATcarrier_c33_stack.png)
 
 #### Hello World With Arduino
-
-
 
 In this section, you will learn how to use the Portenta X8, Portenta H7, or Portenta C33 with the Portenta Hat Carrier. You will interact with the user-configurable LED connected to GPIO3, but this time within the Arduino environment.
 
@@ -576,8 +566,6 @@ Devices with a USB-A interface, such as storage drives, can be used for logging 
 
 #### Using Linux
 
-
-
 As an example, the following command on Portenta X8's shell can be used to test a write command with a USB memory drive. To write a file, the following sequence of commands can help you to accomplish such task.
 
 ```bash
@@ -635,8 +623,6 @@ This command `cat` prompts in the terminal the content of a file, in this case t
 Now that you know how to locate, mount, write and read information from an external USB stick or hard drive you can expand the possibilities of your solution with the additional storage connected to the Portenta Hat Carrier.
 
 #### Using Arduino IDE
-
-
 
 The following example demonstrates how to use the USB interface of the Portenta Hat Carrier with the Portenta C33 to mount a Mass Storage Device (MSD).
 
@@ -964,8 +950,6 @@ Please, refer to the [board pinout section](#pinout) of the user manual to find 
 
 #### Using Linux
 
-
-
 Using the Portenta X8, you can obtain a voltage reading that falls within a _0 - 65535_ range. This reading corresponds to a voltage between 0 and 3.3 V. To fetch this reading, use the command:
 
 ```
@@ -1002,8 +986,6 @@ if __name__ == "__main__":
 ```
 
 #### Using Arduino IDE
-
-
 
 The following example snippet, compatible with Portenta H7, shows how to read the voltage value from a potentiometer on `A0`. It will then display the readings on the Arduino IDE Serial Monitor.
 
@@ -1185,8 +1167,6 @@ The fan can be connected via PWM pins available on the Portenta Hat Carrier. The
 
 #### Using Linux
 
-
-
 The fan's speed can be controlled using the following code sequence when you are using the Portenta X8 within the Linux environment.
 
 Export the PWM channel:
@@ -1342,8 +1322,6 @@ The following table shows an in-depth connector designation:
 
 #### Using Linux
 
-
-
 To begin using a microSD card with Portenta X8, please use the following command to pull a Docker container that assists in setting up the necessary elements for interacting with the microSD card:
 
 ```bash
@@ -1413,8 +1391,6 @@ mkfs.ext4 /dev/mmcblk1p1
 ```
 
 #### Using Arduino IDE
-
-
 
 To learn how to use the microSD card slot for enhanced storage with the Arduino IDE, please follow this [guide](https://docs.arduino.cc/learn/programming/sd-guide).
 
@@ -1779,7 +1755,6 @@ Thus, when conceptualizing and executing project developments, the user can prof
 
 #### Ethernet
 
-
 The Portenta HAT Carrier features a gigabit Ethernet port with an RJ45 connector model _TRJG16414AENL_ with integrated magnetics. These magnetics are crucial for voltage isolation, noise suppression, signal quality maintenance, and rejecting common mode noise, ensuring adherence to waveform standards.
 
 The connector supports the _1000BASE-T_ standard, complying with _IEEE 802.3ab_, guaranteeing high-speed, reliable network connections for data-intensive industrial applications.
@@ -1824,7 +1799,6 @@ It is advisable to connect the Portenta X8 through the Portenta HAT Carrier to a
 In case you want to assign a manual IP to your device, or even create a direct network between your computer and your board, you can follow the multiple procedures available depending on your network devices and operating system.
 
 #### Ethernet Interface With Linux
-
 
 Using the Portenta X8 in combination with the Hat Carrier allows you to evaluate the Ethernet speed between your device and your computer in your network. First, ensure that the Portenta X8 is mounted on the Hat Carrier, and then connect them using an RJ45 LAN cable to your local network. Be sure that your computer and your devices are connected to the same network and are on the same IP range, been capable of seeing each other.
 
@@ -2034,8 +2008,6 @@ The script makes the server start in a separate thread, adding a brief pause usi
 The client runs on the main thread. Using `server_thread.join()`, the main script waits for the server thread to finish its tasks before exiting.
 
 #### Ethernet Interface With Arduino IDE
-
-
 
 Below is a 'WebClient' example that can be used to test Ethernet connectivity with Portenta H7.
 
@@ -2260,8 +2232,6 @@ void loop() {
 
 #### Wi-Fi® & Bluetooth®
 
-
-
 The Portenta Hat Carrier is designed to work flawlessly with wireless features. Among its numerous advantages is its capacity to use Wi-Fi® and Bluetooth® technologies present in the Portenta models like X8, H7, or C33. When these wireless options are activated, they can be effectively combined with the intrinsic capabilities and features that the carrier offers. This combination makes this solution more versatile and powerful for many different projects.
 
 This integration not only broadens the spectrum of use cases for the Portenta Hat Carrier but also ensures that developers can use robust wireless communications in their applications. The effectiveness of onboard capabilities with these wireless features makes the Portenta Hat Carrier an indispensable tool for developers looking for versatile and powerful connectivity solutions.
@@ -2438,7 +2408,6 @@ To effectively understand and use the GPIO (General Purpose Input/Output) design
 - The __Arduino__ GPIO designations for the Portenta X8 are applicable if desired in the Arduino IDE. The GPIO definitions for the Portenta H7, including its H7 Lite and H7 Lite Connected variants and the C33, are directly usable in the Arduino IDE.
   
   For more information, refer to this user manual's [Hello World Using Arduino](#hello-world-using-arduino) section.
-
 
 #### Using Linux With Shell
 
@@ -2831,8 +2800,6 @@ if __name__ == "__main__":
 
 #### Using Arduino IDE
 
-
-
 The [`analogWrite()` [function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite) included in the Arduino programming language can be used to access the PWM pins.
 
 The example code shown below grabs a pin compatible with PWM functionality to control the brightness of an LED connected to it:
@@ -2955,8 +2922,6 @@ There are some overlays which add specific functionalities. For example:
 When no known carrier is detected and the Portenta X8 is mounted as the main board, the first two overlays mentioned above are applied by default.
 
 #### Distinction Between System And Hardware Configuration
-
-
 
 The distinction between system and hardware configuration is crucial. System configuration includes settings such as user creation and Wi-Fi® passwords, whereas hardware configuration is explicitly defined through the device tree.
 
@@ -3282,8 +3247,6 @@ Please, refer to the [board pinout section](#pinout) of the user manual to find 
 
 #### Using Linux
 
-
-
 With admin (root) access, you can use the following commands within the shell for the Portenta X8:
 
 ```
@@ -3307,8 +3270,6 @@ services:
 Following section configures a service named `my_spi_service` to use the SPI device available at `/dev/spi-1`.
 
 #### Using Arduino IDE
-
-
 
 Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. This can be used with Portenta H7 or C33. The SPI library provides functions for SPI communication:
 
@@ -3415,8 +3376,6 @@ Please, refer to the [pinout section](#pinout) of the user manual to find them o
 
 #### Using Linux
 
-
-
 For the Portenta X8, it is possible to use the following commands within the shell when you have admin (root) access:
 
 ```
@@ -3520,8 +3479,6 @@ i2c.close()
 
 #### Using Arduino IDE
 
-
-
 To use I2C communication, include the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) at the top of your sketch. This can be used with Portenta H7 or C33. The `Wire` library provides functions for I2C communication:
 
 ```arduino
@@ -3600,8 +3557,6 @@ Since the CAN bus pins are integrated within the High-Density connectors, they a
 **_For stable CAN bus communication, it is recommended to install a 120 Ω termination resistor between CANH and CANL lines._**
 
 #### Using Linux
-
-
 
 For the Portenta X8, when you have admin (root) access, you can execute the following commands within the shell to control the CAN bus protocol. The CAN transceiver can be enabled using the following command
 
@@ -3916,8 +3871,6 @@ Please, refer to the board pinout section of the user manual to find them on the
 
 #### Using Linux
 
-
-
 For the Portenta X8, when you have admin (root) access, you can execute the command `ls /dev/ttyUSB* /dev/ttyACM* /dev/ttymxc*` within the shell to list available serial ports in Linux. Typically, USB serial devices could appear as _/dev/ttyUSBx_, _/dev/ttyACMx_, or _/dev/ttymxcx_.
 
 ```
@@ -3966,8 +3919,6 @@ The script sets up a serial connection on port _/dev/ttymxc2_ at a baud rate of 
 The `time.sleep(0.002)` line adds a slight delay, ensuring data has enough time to buffer, similar to using `delay(2);` in Arduino.
 
 #### Using Arduino IDE
-
-
 
 For Portenta H7 or C33, the following examples can be used to test UART communication. For a proper UART communication, the baud rate (bits per second) must be set within the `setup()` function.
 
