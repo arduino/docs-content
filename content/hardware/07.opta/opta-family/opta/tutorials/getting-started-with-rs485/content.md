@@ -49,7 +49,7 @@ The RS-485 does not define a data communication protocol since it does not know 
 
 ### Setting up the Arduino IDE
 
-This tutorial will need the latest version of the Arduino IDE. You can download the Arduino IDE [here](https://www.arduino.cc/en/software). Please check the [getting started with the Opta™ tutorial](/tutorials/opta/getting-started) if it is your first time setting up the Opta™ with the Arduino IDE.
+This tutorial will need the latest version of the Arduino IDE. You can download the Arduino IDE [here](https://www.arduino.cc/en/software). Please check the [the Opta™ User Manual](/tutorials/opta/user-manual) if it is your first time setting up the Opta™ with the Arduino IDE.
 
 The [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/) will be used to simplify the use of RS-485 communication interface on Opta™. This library can be installed via Arduino IDE Library Manager; make sure to install the latest version of the library.
 
@@ -224,7 +224,7 @@ In this tutorial, we established an RS-485 connection between two Opta™ device
 
 Now that you are familiar with the RS-485 communication interface on the Opta™, take a look at the following documentation to learn more:
 
-* Take a look at [getting started tutorial](/tutorials/opta/getting-started) to get a better overview of the features of Opta™
+* Take a look at the [Opta™ User Manual](/tutorials/opta/user-manual) to get a better overview of the features of Opta™
 
 * If you wish to incorporate Wi-Fi®/Bluetooth® Low Energy in your Opta™ solutions, have a look at [connectivity tutorial](/tutorials/opta/getting-started-connectivity)
 
