@@ -68,7 +68,7 @@ Now that you have a better knowledge about interrupts, let's see how to use inte
 
 ### Setting up the Arduino IDE
 
-This tutorial will need the latest version of the Arduino IDE. You can download the Arduino IDE [here](https://www.arduino.cc/en/software). Please check the [getting started with the Opta™ tutorial](/tutorials/opta/getting-started) if it is your first time setting up the Opta™ with the Arduino IDE.
+This tutorial will need the latest version of the Arduino IDE. You can download the Arduino IDE [here](https://www.arduino.cc/en/software). Please check the [Opta™ User Manual](/tutorials/opta/user-manual) if it is your first time setting up the Opta™ with the Arduino IDE.
 
 ### Example Setup
 
@@ -284,6 +284,6 @@ In this tutorial, you have learned to enable and use interrupts on Opta™. On t
 
 Now that you are familiar with interrupts on the Opta™, take a look at the following documentation to learn more:
 
-* Take a look at [getting started tutorial](/tutorials/opta/getting-started) to get a better overview of the features of Opta™
+* Take a look at the [Opta™ User Manual](/tutorials/opta/user-manual) to get a better overview of the features of Opta™
 
 * If you wish to incorporate Wi-Fi®/Bluetooth® Low Energy in your Opta™ solutions, have a look at [connectivity tutorial](/tutorials/opta/getting-started-connectivity)
