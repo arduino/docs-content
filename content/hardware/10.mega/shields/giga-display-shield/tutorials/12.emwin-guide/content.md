@@ -528,7 +528,7 @@ In the `void loop()` of the sketch the calculation of time for the animation nee
   }
 ```
 
-[emWin progress bar]()
+![emWin progress bar](assets/emwin_progbar.gif)
 
 **Full Example:**
 
