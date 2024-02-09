@@ -126,6 +126,29 @@ __Note:__ USB, I2C and SIM functionality over PCIe is available only for the X8.
 | SW1      | 218-2LPST Boot Select Switch                           | SW2            | 218-2LPST Switch *(2)*                                    |
 | PB1      | PTS820J25KSMTRLFS Power On Button                      | PB2            | PTS820J25KSMTRLFS Reset Button                            |
 
+### Carrier Characteristics Highlight
+
+The Portenta Max Carrier extends the features of the Portenta X8, H7, and C33. The following table summarizes the carrier's characteristics depending on the paired Portenta.
+
+| Function                 | Portenta H7/C33 Support | Portenta X8 Support | Notes                                            |
+|--------------------------|-------------------------|---------------------|--------------------------------------------------|
+| USB Host                 | USB 1.0                 | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
+| Ethernet                 | 100 Mbps                | 1 Gbps              |                                                  |
+| CAN                      | Portenta C33 only       | Yes                 |                                                  |
+| Mini PCIe (USB)          | USB 1.0                 | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
+| Mini PCIe (PCIe)         | No                      | PCIe 2.0            |    |
+| Battery Charger          | Yes                     | Yes                 |                                                  |
+| LoRa®                    | Yes                     | Yes                 |                                                  |
+| NBIoT/CatM1/2G           | Yes                     | Yes                 |                                                  |
+| Camera                   | No                      | MIPI up to 4 lanes  | No MIPI camera support on H7/C33                 |
+| Audio                    | Limited                 | Yes                 | No firmware support for the H7                   |
+| RS232/422/485            | Yes                     | Yes                 |                                                  |
+| on board JTAG  debugging | Yes                     | No                  |                                                  |
+| on board console to USB  | Yes                     | Yes                 |                                                  |
+| on board bus sniffing    | Limited                 | Limited             | Only hardware support                            |
+
+The table above provides a general idea of how the Portenta Max Carrier performs depending on the paired Portenta board. Each feature is explained in the following section after a quick guide covering how to properly interface the Portenta boards.
+
 ### Pinout
 
 * ![Portenta Max Carrier Pinout](assets/Pinout_MaxCarrier.png)
@@ -158,7 +181,7 @@ The full __Altium__ files are available and downloadable from the link below:
 
 * [Portenta Max Carrier Altium files](https://docs.arduino.cc/static/0470b68c0b66e0f16c8db927b68d13de/ABX00043-altium-files.zip)
 
-## First Use Of Your Portenta Max Carrier
+## First Use
 ### Stack The Carrier
 
 The Portenta Max Carrier design enables an easy stack of the preferred Portenta board. The following figure shows how the Portenta boards pair via the High-Density connectors.
@@ -179,34 +202,23 @@ The Portenta Max Carrier can be powered using the following methods:
 
 ***Please ensure to connect the battery with the right polarity, not doing so may damage the board.***
 
-### Carrier Characteristics Highlight
-
-The Portenta Max Carrier extends the features of the Portenta X8, H7, and C33. The following table summarizes the carrier's characteristics depending on the paired Portenta.
-
-| Function                 | Portenta H7/C33 Support | Portenta X8 Support | Notes                                            |
-|--------------------------|-------------------------|---------------------|--------------------------------------------------|
-| USB Host                 | USB 1.0                 | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
-| Ethernet                 | 100 Mbps                | 1 Gbps              |                                                  |
-| CAN                      | Portenta C33 only       | Yes                 |                                                  |
-| Mini PCIe (USB)          | USB 1.0                 | USB 2.0             | Max Speed: USB 1.0 - 12 Mbps, USB 2.0 - 480 Mbps |
-| Mini PCIe (PCIe)         | No                      | PCIe 2.0            |    |
-| Battery Charger          | Yes                     | Yes                 |                                                  |
-| LoRa®                    | Yes                     | Yes                 |                                                  |
-| NBIoT/CatM1/2G           | Yes                     | Yes                 |                                                  |
-| Camera                   | No                      | MIPI up to 4 lanes  | No MIPI camera support on H7/C33                 |
-| Audio                    | Limited                 | Yes                 | No firmware support for the H7                   |
-| RS232/422/485            | Yes                     | Yes                 |                                                  |
-| on board JTAG  debugging | Yes                     | No                  |                                                  |
-| on board console to USB  | Yes                     | Yes                 |                                                  |
-| on board bus sniffing    | Limited                 | Limited             | Only hardware support                            |
-
-The table above provides a general idea of how the Portenta Max Carrier performs depending on the paired Portenta board. Each feature is explained in the following section after a quick guide covering how to properly interface the Portenta boards.
-
 ## Hello World 
 
-Let's test the Portenta Max Carrier with the classic `Hello World` example used in the Arduino ecosystem. As the Max Carrier doesn't have built-in LEDs we can not use a `Blink`, instead, we are going to leverage the Ethernet connectivity for a quick test. We will use this example to verify the board is working as expected with the different Portenta boards.
+Let's test the Portenta Max Carrier with the classic `Hello World` example used in the Arduino ecosystem. As the Max Carrier was designed to avoid having built-in LEDs for IoT purposes, we can not use a `Blink`. Instead, we are going to leverage the Ethernet connectivity for a quick test. We will use this example to verify the board is working as expected with the different Portenta boards.
 
-To configure the Ethernet settings, depending on the paired Portenta board, you must properly set the provided DIP switch located on the Portenta Max Carrier. For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
+To configure the Ethernet settings, depending on the paired Portenta board, you must properly set the provided DIP switch located on the Portenta Max Carrier.
+
+The Portenta Max Carrier incorporates two DIP switches, giving users the ability to manage the behavior of the board. The configuration parameters of these switches differ based on which Portenta board it is paired with.
+
+![Portenta Max Carrier DIP switches](assets/dip-switch-new.png)
+
+For configurations when the Portenta Max Carrier is combined with the Portenta boards, the DIP switch governs these settings:
+
+| **Ethernet DIP Switch Designation** | **Position: ON**  | **Position: OFF** |
+|:-----------------------------------:|:-----------------:|:-----------------:|
+|                1 - 2                | Ethernet Disabled for X8 / Enabled for H7/C33 | Ethernet Enabled for X8 / Disabled for H7/C33  |
+
+For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 
 ### Using Linux
 
@@ -243,6 +255,8 @@ If you have a working ethernet connection to the internet, the ping should show 
 ### Using Arduino IDE
 
 To test the Ethernet connection using a __Portenta H7__ or a __Portenta C33__ we are going to use an example sketch that will retrieve your City information from the internet and show it through the Serial Monitor.
+
+When using the Portenta H7 or the Portenta C33, be sure the ethernet DIP switches are both set to _ON_. Then connect the board using a __LAN cable__ to the network.
 
 ```arduino
 /**
