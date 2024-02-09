@@ -528,7 +528,9 @@ In the `void loop()` of the sketch the calculation of time for the animation nee
   }
 ```
 
-![emWin progress bar](assets/emwin_progbar.gif)
+<video width="100%" loop autoplay>
+<source src="assets/emwin_progbar.mp4" type="video/mp4" />
+</video>
 
 **Full Example:**
 
