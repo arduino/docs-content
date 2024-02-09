@@ -660,6 +660,8 @@ if(Released) {
 
 ![emWin button](assets/emwin-button.png)
 
+![emWin button clicked](assets/emwin-button-pressed.png)
+
 **Full Example:**
 
 ```arduino
