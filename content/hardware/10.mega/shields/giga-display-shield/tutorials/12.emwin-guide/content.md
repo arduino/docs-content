@@ -132,7 +132,7 @@ WM_CreateWindowAsChild(X-position, Y-position, Height, Width, ParentWindow, Visi
 
 This is how it would look to use emWin to create a 2x2 grid layout inside the main window:
 
-**Full Example**
+**Full Example:**
 ```arduino
 static void _cbWin(WM_MESSAGE * pMsg) {
   switch (pMsg->MsgId) {
@@ -191,7 +191,9 @@ GUI_DrawBitmap(&bmarduinologo, X-position, Y-position);
 ![Displaying an image with emWin](assets/emwin-image.png)
 
 **Full Example:**
-**Remember that the image file needs to be in the same folder as the sketch, use the image that comes with the full demo (File > Examples > Arduino_H7_Video > emWinDemo)**
+
+**Remember that the image file needs to be in the same folder as the sketch, use the image that comes with the full demo (File > Examples > Arduino_H7_Video > emWinDemo).**
+
 ```arduino
 #include "DIALOG.h"
 
@@ -531,6 +533,8 @@ In the `void loop()` of the sketch the calculation of time for the animation nee
 <video width="100%" loop autoplay>
 <source src="assets/emwin_progbar.mp4" type="video/mp4" />
 </video>
+
+<br>
 
 **Full Example:**
 
