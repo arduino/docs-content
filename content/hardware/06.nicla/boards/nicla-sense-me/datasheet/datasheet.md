@@ -103,7 +103,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 ### Assembly Overview
 ![Example of a typical solution for remote environmental sensing including an Arduino® Nicla Sense ME, Portenta H7 and battery. Notice the orientation of the battery's cable in the board's connector. ](assets/niclaSenseMEBattery.png)
 
-**Note** : The NTC pin on the battery connector is optional. This feature allows safer use and thermal shutoff of the PMIC. 
+**Note**: The NTC pin on the battery connector is optional. This feature allows safer use and thermal shutoff. 
 
 
 ## Ratings
@@ -213,8 +213,6 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### Board Recovery
 All Arduino® boards have a built-in bootloader that allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
-
-<div style="page-break-after: always;"></div>
 
 ## Connector Pinouts
 **Note:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
@@ -494,13 +492,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**                        |
-|------------|--------------|------------------------------------|
-| 03/07/2023 | 5           | Certification Summary Table Updated |
-| 22/12/2022 | 4           | Add NTC Image & addition pins info |
-| 13/12/2022 | 3           | Change Solution Overview Image     |
-| 20/07/2021 | 2           | Technical Revisions                |
-| 27/05/2021 | 1           | Initial Version                    |
+| **Date**   | **Revision** | **Changes**                                          |
+| ---------- | ------------ | ---------------------------------------------------- |
+| 09/01/2024 | 6            | High-Performance Pressure Sensor information updated |
+| 03/07/2023 | 5            | Certification Summary Table Updated                  |
+| 22/12/2022 | 4            | Add NTC Image & addition pins info                   |
+| 13/12/2022 | 3            | Change Solution Overview Image                       |
+| 20/07/2021 | 2            | Technical Revisions                                  |
+| 27/05/2021 | 1            | Initial Version                                      |
 
 ## Product Warnings and Disclaimers
 
