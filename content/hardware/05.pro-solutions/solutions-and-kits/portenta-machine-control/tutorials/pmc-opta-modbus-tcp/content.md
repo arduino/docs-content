@@ -23,7 +23,7 @@ In this tutorial, a Portenta Machine Control and an Opta™ micro PLC will be us
 
 We have prepared a detailed guide in video format in case you are a visual learner.
 
-<iframe width="100%" height="480" src="https://www.youtube.com/embed/reBrbCq86uQ?si=q0EkR-B8bR0MeF5p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="480" src="https://www.youtube.com/embed/mXZWJo_s6j8?si=Q2RJarWyFcRH5ude" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 If you prefer to follow the tutorial in a written format, or need to review the steps and code done in the video tutorial, in the following sections you will find a step-by-step guide explaining how the temperature measurement and Modbus communication between both devices were done.
 
