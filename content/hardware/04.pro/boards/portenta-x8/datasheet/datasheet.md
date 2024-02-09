@@ -338,10 +338,6 @@ The MTBF figure (in hours/years) for the Portenta X8 can be found in the table b
 
 **Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_.
 
-#### Survival Probability After N Working Hours
-
-![Survival Probability After n Working Hours](assets/Frame-4.png)
-
 ## Functional Overview
 
 ### Block Diagram
