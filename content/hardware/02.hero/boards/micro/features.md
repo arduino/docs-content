@@ -9,9 +9,10 @@ The Micro is a microcontroller board based on the ATmega32U4, developed in conju
 <Feature title="Built-in USB communication" image="usb">
 
 The ATmega32U4 has built-in USB communication that allows the Micro to appear as a mouse/keyboard on your machine.
-
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/micro/keyboard-press"/>
   <FeatureLink variant="secondary" title="Library" url="https://www.arduino.cc/reference/en/language/functions/usb/keyboard/"/>
+</FeatureWrapper>
 </Feature>
 
 </FeatureList>

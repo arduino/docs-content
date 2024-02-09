@@ -1,4 +1,4 @@
 ---
 title: Genuino Starter Kit
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

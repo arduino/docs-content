@@ -8,7 +8,7 @@ author: Ali Jahangiri
 ![Nicla Sense ME](assets/featured.png)
 
 # Description 
-The **Arduino® Nicla Sense ME** is our smallest form factor yet, with a range of industrial-grade sensors packed into a tiny footprint. Measure process parameters such as temperature, humidity and movement. Dive into edge computing with powerful data fusion capabilities. Make your own industrial-grade wireless sensing network with the onboard BHI260AP, BMP390, BMM150 and BME688 Bosch sensors.
+The **Arduino® Nicla Sense ME** is our smallest form factor yet, with a range of industrial-grade sensors packed into a tiny footprint. Measure process parameters such as temperature, humidity and movement. Dive into edge computing with powerful data fusion capabilities. Make your own industrial-grade wireless sensing network with the onboard BHI260AP, BMP390, BMM150 and BME688 Bosch® sensors.
 
 # Target areas:
 wireless sensor networks, data fusion, artificial intelligence, gas detection
@@ -16,7 +16,7 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
 # Features
 - **ANNA-B112** Bluetooth®  Module
   - **nRF52832** System-on-chip
-    - 64 MHz ARM® Cortex-M4F microcontroller 
+    - 64 MHz Arm® Cortex®-M4F microcontroller 
     - 64 KB SRAM
     - 512 KB Flash
     - RAM mapped FIFOs using EasyDMA
@@ -27,7 +27,7 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
   - Internal antenna
   - Internal 32 MHz oscillator
   - 1.8V Operating Voltage
-- **Bosch BHI260AP** - AI smart sensor hub with integrated IMU
+- **Bosch® BHI260AP** - AI smart sensor hub with integrated IMU
   - Fuser 2 CPU Core
     - 32 Bit Synopsys DesignWare ARC™ EM4™ CPU
     - floating point RISC Processor
@@ -42,22 +42,22 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
     - Relative and absolute orientation
   - External 2MB FLASH connected via QSPI
   
-- **Bosch BMP390** High-performance pressure sensor
+- **Bosch® BMP390** High-performance pressure sensor
   - Operation range: 300-1250 hPa
   - Absolute accuracy pressure (typ.): ± 0.5 hPa
-  - Relative accuracy pressure (typ.): ± 3.33 hPa (equivalent to ±25 cm)
+  - Relative accuracy pressure (typ.): ± 0.03 hPa (equivalent to ±25 cm)
   - RMS noise in pressure @ highest resolution: 0.02 Pa
   - Temperature coefficient offset: ± 0.6 Pa/K
-  - Long-term stability (12 months): ± 0.016 hPa
+  - Long-term stability (12 months): ± 0.16 hPa
   - Max sampling rate: 200 Hz
   - Integrated 512 byte FIFO buffer
-- **Bosch BMM150** 3-axis Magnetometer
+- **Bosch® BMM150** 3-axis Magnetometer
   - Magnetic range typ.
     - X,Y axis: ±1300μT
     - Z axis: ±2500μT
   - Resolution: 0.3μT
   - Non-linearity: <1% FS
-- **Bosch BME688** Environmental sensing with Artificial Intelligence
+- **Bosch® BME688** Environmental sensing with Artificial Intelligence
   - Operating range
     - Pressure: 300-1100 hPa
     - Humidity: 0-100%
@@ -103,7 +103,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 ### Assembly Overview
 ![Example of a typical solution for remote environmental sensing including an Arduino® Nicla Sense ME, Portenta H7 and battery. Notice the orientation of the battery's cable in the board's connector. ](assets/niclaSenseMEBattery.png)
 
-**Note** : The NTC pin on the battery connector is optional. This feature allows safer use and thermal shutoff of the PMIC. 
+**Note**: The NTC pin on the battery connector is optional. This feature allows safer use and thermal shutoff. 
 
 
 ## Ratings
@@ -117,7 +117,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | V<sub>IL</sub>       | Input low-level voltage          | 0                                   |     | 0.3V<sub>DDIO_EXT</sub><sup>2</sup> | V    |
 | T<sub>OP</sub>       | Operating Temperature            | -40                                 | 25  | 85                                  | °C   |
 
-**Note** : V<sub>DDIO_EXT</sub> is software programmable.  While the ADC inputs can accept up to 3.3V, the maximum value is at the ANNA B112 operating voltage.
+**Note**: V<sub>DDIO_EXT</sub> is software programmable.  While the ADC inputs can accept up to 3.3V, the maximum value is at the ANNA B112 operating voltage.
 
 **<sup>1</sup>** : All I/O pins operate at V<sub>DDIO_EXT</sub> apart from the following:
 - ADC1 and ADC2 - 1V8
@@ -126,6 +126,8 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 - JTAG_BHI - 1V8
 
 **<sup>2</sup>** : If the internal V<sub>DDIO_EXT</sub> is disabled, it is possible to supply it externally.
+
+<div style="break-after:page"></div>
 
 ## Functional Overview
 
@@ -164,15 +166,15 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | J5       | SM05B-SRSS-TB(LF)(SN) 5-pin Eslov connector | J7       | microUSB connector                                     |
 
 ### Microcontroller
-The Arduino® Nicla Sense ME is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an ARM® Cortex-M4 microcontroller with a floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as an SPI host for the data logging 2MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. 
-### Bosch BHI260 Smart Sensor System with Built-in 6-Axis IMU
-The Bosch BHI260 is an ultra-low power programmable sensor, combining a Fuser2 core processor, 6-axis IMU (gyroscope and accelerometer) together with a sensor fusion software framework. The BHI260 is a smart sensor core (hosting a programmable recognition system), that handles communication with other sensors on the **Arduino Nicla Sense ME** via I2C and SPI connections. There is also a dedicated 2MB Flash (U2) used to store execute-in-place (XiP) code as well as data storage, such as Bosch sensor fusion algorithm (BSX) calibration data. The BHI 260 is capable of loading custom algorithms that can be trained on a PC. The generated smart algorithm then operates on this chip.
-### Bosch BME688 Environmental Sensor
-The **Arduino Nicla Sense ME** is able to perform environmental monitoring via the Bosch BME688 sensor (U6). This provides capabilities for pressure, humidity, temperature as well as Volatile Organic Compound (VOC) detection. The Bosch BME688 performs gas detection via an eNose metal oxide semiconductor array with a typical gas scan cycle of 10.8 seconds.
-### Bosch BMP390 Pressure Sensor
-Industrial grade accuracy and stability in pressure measurements are provided by the BMP390 (U3) designed for prolonged use, with a relative accuracy of ±0.03 hPa and an RMS of 0.02 Pa in high-resolution mode. The Bosch BMP390 is suitable for rapid measurements with a sampling rate of 200 Hz, or for low-power use with a sampling rate of 1 Hz, consuming less than 3.2 µA. U3 is controlled via an SPI interface to the BHI260 (U2), on the same bus as the BME688 (U6).
-### Bosch BMM150 3-Axis Magnetometer
-The Bosch BMM150 (U4) provides accurate 3-axis measurements of the magnetic field with compass-level accuracy. Combined with the BHI260 IMU (U2), Bosch sensor fusion can be used to obtain high-accuracy spatial orientation and motion vectors for the detection of heading in autonomous robots as well as predictive maintenance. There is a dedicated I2C connection to the BHI260 (U2), acting as the host.
+The Arduino® Nicla Sense ME is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an Arm® Cortex®-M4 microcontroller with a floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as an SPI host for the data logging 2MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. 
+### Bosch® BHI260 Smart Sensor System with Built-in 6-Axis IMU
+The Bosch® BHI260 is an ultra-low power programmable sensor, combining a Fuser2 core processor, 6-axis IMU (gyroscope and accelerometer) together with a sensor fusion software framework. The BHI260 is a smart sensor core (hosting a programmable recognition system), that handles communication with other sensors on the **Arduino Nicla Sense ME** via I2C and SPI connections. There is also a dedicated 2MB Flash (U2) used to store execute-in-place (XiP) code as well as data storage, such as Bosch® sensor fusion algorithm (BSX) calibration data. The BHI 260 is capable of loading custom algorithms that can be trained on a PC. The generated smart algorithm then operates on this chip.
+### Bosch® BME688 Environmental Sensor
+The **Arduino Nicla Sense ME** is able to perform environmental monitoring via the Bosch® BME688 sensor (U6). This provides capabilities for pressure, humidity, temperature as well as Volatile Organic Compound (VOC) detection. The Bosch® BME688 performs gas detection via an eNose metal oxide semiconductor array with a typical gas scan cycle of 10.8 seconds.
+### Bosch® BMP390 Pressure Sensor
+Industrial grade accuracy and stability in pressure measurements are provided by the BMP390 (U3) designed for prolonged use, with a relative accuracy of ±0.03 hPa and an RMS of 0.02 Pa in high-resolution mode. The Bosch® BMP390 is suitable for rapid measurements with a sampling rate of 200 Hz, or for low-power use with a sampling rate of 1 Hz, consuming less than 3.2 µA. U3 is controlled via an SPI interface to the BHI260 (U2), on the same bus as the BME688 (U6).
+### Bosch® BMM150 3-Axis Magnetometer
+The Bosch® BMM150 (U4) provides accurate 3-axis measurements of the magnetic field with compass-level accuracy. Combined with the BHI260 IMU (U2), Bosch® sensor fusion can be used to obtain high-accuracy spatial orientation and motion vectors for the detection of heading in autonomous robots as well as predictive maintenance. There is a dedicated I2C connection to the BHI260 (U2), acting as the host.
 ### RGB LED
 An I2C LED driver (U8) drives the RGB LED (DL1) and is capable of a maximum output of 40 mA. It is driven by the ANN-B112 (U5) microcontroller. 
 
@@ -182,13 +184,13 @@ The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as we
 ### Power Tree
 ![Nicla Sense ME Back View](assets/niclaSenseMEPowerTree.svg)
 
-The **Arduino Nicla Sense ME** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the micro USB, a linear 3.3V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB LEDs (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-direction voltage translator running at V<sub>DDIO_EXT</sub>. 
+The **Arduino Nicla Sense ME** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the micro USB, a linear 3.3V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB LEDs (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-directional voltage translator running at V<sub>DDIO_EXT</sub>. 
 
 Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing the use of the board as a wireless sensor network. The battery charging current is set to 40mA with a termination current of 4mA (10%).
 
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your Arduino® Nicla Sense ME while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Nicla Sense ME to your computer, you’ll need a micro USB cable. This also provides power to the board, as indicated by the LED. The Arduino core is operated on the ANNA-B112 while the Bosch Smart Sensor framework operates on the BHI260.
+If you want to program your Arduino® Nicla Sense ME while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Nicla Sense ME to your computer, you’ll need a micro USB cable. This also provides power to the board, as indicated by the LED. The Arduino core is operated on the ANNA-B112 while the Bosch® Smart Sensor framework operates on the BHI260.
 
 ### Getting Started - Arduino Web Editor
 All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin. 
@@ -211,8 +213,6 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### Board Recovery
 All Arduino® boards have a built-in bootloader that allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
-
-<div style="page-break-after: always;"></div>
 
 ## Connector Pinouts
 **Note:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
@@ -411,7 +411,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Hexavalent Chromium (Cr6+)             | 1000                    |
 | Poly Brominated Biphenyls (PBB)        | 1000                    |
 | Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
-| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
 | Benzyl butyl phthalate (BBP)           | 1000                    |
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
@@ -421,6 +421,7 @@ Exemptions: No exemptions are claimed.
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ### Conflict Minerals Declaration 
+
 As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas. 
 
 ## FCC Caution
@@ -491,13 +492,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**                        |
-|------------|--------------|------------------------------------|
-| 03/07/2023 | 5           | Certification Summary Table Updated |
-| 22/12/2022 | 4           | Add NTC Image & addition pins info |
-| 13/12/2022 | 3           | Change Solution Overview Image     |
-| 20/07/2021 | 2           | Technical Revisions                |
-| 27/05/2021 | 1           | Initial Version                    |
+| **Date**   | **Revision** | **Changes**                                          |
+| ---------- | ------------ | ---------------------------------------------------- |
+| 09/01/2024 | 6            | High-Performance Pressure Sensor information updated |
+| 03/07/2023 | 5            | Certification Summary Table Updated                  |
+| 22/12/2022 | 4            | Add NTC Image & addition pins info                   |
+| 13/12/2022 | 3            | Change Solution Overview Image                       |
+| 20/07/2021 | 2            | Technical Revisions                                  |
+| 27/05/2021 | 1            | Initial Version                                      |
 
 ## Product Warnings and Disclaimers
 

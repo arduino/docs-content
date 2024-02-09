@@ -1,6 +1,5 @@
 software:
   - arduino-ide
-  - iot-cloud
   - arduino-cli
   - web-editor
 hardware:

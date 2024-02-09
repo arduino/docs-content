@@ -13,3 +13,4 @@ complies
 ro
 som
 ser
+Manuel

@@ -6,7 +6,7 @@
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
-<EssentialElement title="LoRa" type="library" link="https://github.com/sandeepmistry/arduino-LoRa">
+<EssentialElement title="LoRa®" type="library" link="https://github.com/sandeepmistry/arduino-LoRa">
     A library for sending and receiving data using LoRa® radios.
   </EssentialElement>
 

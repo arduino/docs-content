@@ -1,4 +1,4 @@
 ---
 title: Proto Shield Rev3
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

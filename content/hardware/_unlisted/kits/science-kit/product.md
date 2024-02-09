@@ -1,4 +1,4 @@
 ---
 title: Science Kit Physics Lab
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

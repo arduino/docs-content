@@ -1,4 +1,4 @@
 ---
 title: Education Shield
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

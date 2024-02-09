@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-**Arduino® Nano** is an intelligent development board designed for building faster prototypes with the smallest dimension. Arduino Nano being the oldest member of the Nano family, provides enough interfaces for your breadboard-friendly applications. At the heart of the board is **ATmega328 microcontroller** clocked at a frequency of 16 MHz featuring more or less the same functionalities as the Arduino Duemilanove. The board offers 22 digital input/output pins, 8 analog pins, and a mini-USB port.
+**Arduino® Nano** is an intelligent development board designed for building faster prototypes with the smallest dimension. Arduino Nano being the oldest member of the Nano family, provides enough interfaces for your breadboard-friendly applications. At the heart of the board is **ATmega328 microcontroller** clocked at a frequency of 16 MHz featuring more or less the same functionalities as the Arduino Duemilanove. The board offers 20 digital input/output pins, 8 analog pins, and a mini-USB port.
 
 # Target Areas 
 Maker, Security, Environmental, Robotics and Control Systems
@@ -27,7 +27,7 @@ Maker, Security, Environmental, Robotics and Control Systems
   - Master/Slave SPI Serial Interface
 - **Power**
   - Mini-B USB connection
-  - 6-20V unregulated external power supply (pin 30)
+  - 7-15V unregulated external power supply (pin 30)
   - 5V regulated external power supply (pin 27)
 - **Sleep Modes**
   - Idle
@@ -37,7 +37,7 @@ Maker, Security, Environmental, Robotics and Control Systems
   - Standby
   - Extended Standby
 - **I/O**
-  - 22 Digital
+  - 20 Digital
   - 8 Analog
   - 6 PWM Output
 

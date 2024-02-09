@@ -23,7 +23,7 @@ There are four different content types you can contribute with. These are **tuto
 |Tutorial|Learn how to do something.|[Control Built-in RGB LED over Wi-Fi with Nano RP2040 Connect](https://docs.arduino.cc/tutorials/nano-rp2040-connect/rp2040-web-server-rgb)|
 |Article|Learn about a specific topic.|[Multimeter Basics](https://docs.arduino.cc/learn/electronics/multimeter-basics)|
 |How To|Smaller tutorial with less information and more straight to the example.|[Analog Read Serial](https://docs.arduino.cc/built-in-examples/basics/AnalogReadSerial)|
-|Project|Learn how to build something.|[DIY Photoshop Editing Console using Arduino Nano RP2040 Connect](https://create.arduino.cc/projecthub/jithinsanal1610/diy-photoshop-editing-console-using-arduino-nano-rp-2040-a43e97?ref=search&ref_id=nano%20rp2040%20connect&offset=0)|
+|Project|Learn how to build something.|[Plant Communicator with MKR WiFi 1010](https://projecthub.arduino.cc/Arduino_Genuino/plant-communicator-with-mkr-wifi-1010-081cf5)|
 
 ## Fixing Bugs and Typos
 
@@ -83,6 +83,7 @@ symbolic link created for AnalogInput <<===>> ..\..\..\..\..\built-in-examples\0
 ### Including Code Snippets
 
 Code snippets can be included by using the triple backticks syntax e.g. ` ```arduino` followed by the code and three closing backticks. The following syntaxes are supported:
+
 ```
 arduino, bash, markup, clike, c, cpp, css, css-extras, javascript, jsx, js-extras, coffeescript, diff, git, go, graphql, handlebars, json, less, makefile, markdown, objectivec, ocaml, python, reason, sass, scss, sql, stylus, tsx, typescript, wasm, yaml
 ```
@@ -94,8 +95,17 @@ Using this component, the code block will be fetched directly from Github pages.
 
 Syntax:
 ` <CodeBlock url=”https://github.com/example” className="{language}"/>`
- 
+
 Broken URL will show error alert. URL must be in Github domain and must be public.
+
+### Use Custom content con various component
+
+- **Details** pages: on every `product.md` file you have to create 4 variables, related to the hero buttons component in every details page:
+  - primary_button_url: (string)
+  - primary_button_title: (string)
+  - secondary_button_url: (string)
+  - secondary_button_title: (string)
+- **Video**: You can manage the content in the video components (Actually in Learn, Arduino-cloud and MycroPython page), just compiling the file `videoInfo.md` in the main directory of the relative section.
 
 ## Previewing Changes
 
@@ -103,7 +113,6 @@ Whenever you create a Pull Request (PR) GatsbyCloud will create a preview deploy
 
 ## License
 
-![](https://i.creativecommons.org/l/by-sa/3.0/88x31.png) 
+![](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)
 
 Please note that your contribution to the Arduino Documentation is licensed under a Creative Commons Attribution-Share Alike 4.0 License. see https://creativecommons.org/licenses/by-sa/4.0/
-

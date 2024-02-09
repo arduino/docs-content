@@ -81,7 +81,7 @@ For **8 channel gateways**, TTN in Australia uses **sub-band 2 plus channel 65 o
 
 ### Channel Masking on the MKR WAN 1310 Board
 
-First, let's make sure our board drivers are installed. If we are using the online IDE, we do not need to install anything. If we are using the offline IDE, we need to go to **Tools > Board > Board Manager...**. Here we need to look for **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install the latest version. After installing the drivers remember to select the board and the port, to which it is connected, in the **Tools** menu. 
+First, let's make sure our board drivers are installed. If we are using the online IDE, we do not need to install anything. If we are using the offline IDE, we need to go to **Tools > Board > Board Manager...**. Here we need to look for **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install the latest version. After installing the drivers remember to select the board and the port, to which it is connected, in the **Tools** menu. 
 
 After installing our board drivers, we need to install also the MKRWAN library. If we are using the online IDE, there is no need to install anything. If we are using the offline IDE, we need to go to **Tools > Manage Libraries...**. Here we need to search for **MKRWAN** and install the latest version.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Smart Farm Irrigation System Using Arduino® Edge Control'
-description: "This application note describes how to control a four zones irrigation system using the Edge Control and the Arduino IoT Cloud."
+description: "This application note describes how to control a four zones irrigation system using the Edge Control and the Arduino Cloud."
 difficulty: intermediate
 tags:
   - Irrigation System
@@ -8,7 +8,7 @@ tags:
   - Arduino MKR WiFi 1010
   - Motorized Valve
   - 4-20 mA Sensors
-  - Arduino IoT Cloud
+  - Arduino Cloud
   - Application Note
 author: 'Christopher Mendez'
 libraries:
@@ -42,20 +42,20 @@ Agriculture has always been a key part of human development. Humanity is constan
 
 ![Application Note Overview. Each pot represents one individual irrigation zone capable of watering a crop field](assets/Thumbnail-green.png)
 
-Smart farming is one of the most important actors in this revolution and is more accessible today than ever by using the Arduino Pro solutions. Taking advantage of the control capabilities, sensor data analysis and cloud connectivity, Arduino Edge Control is perfect for managing agriculture applications.
+Smart farming is one of the most important actors in this revolution and is more accessible today than ever by using the Arduino Pro solutions. Taking advantage of the control capabilities, sensor data analysis and Cloud connectivity, Arduino Edge Control is perfect for managing agriculture applications.
 
 The shown application note is intended to replicate a scaled smart farming application, that can be implemented on real agriculture fields using the same hardware and firmware.
 
 ## Goals
 
-The goal of this application note is to showcase a smart farming irrigation system using a combination of an Edge Control, an MKR WiFi 1010, and the Arduino IoT Cloud. The project's objectives are the following:
+The goal of this application note is to showcase a smart farming irrigation system using a combination of an Edge Control, an MKR WiFi 1010, and the Arduino Cloud. The project's objectives are the following:
 
 - Independently control four irrigation zones using motorized ball valves.
 - Get water from a smart tank with water level monitoring.
-- Program irrigation timers from remote through Arduino IoT Cloud by using Wi-Fi® connectivity.
-- Manually activate irrigation from Arduino IoT Cloud through dedicated widgets.
-- Monitor average irrigation time and water consumption on dedicated charts on Arduino IoT Cloud.
-- Plan irrigation according to the weather forecast, by including an API-based weather station in Arduino IoT Cloud.
+- Program irrigation timers from remote through Arduino Cloud by using Wi-Fi® connectivity.
+- Manually activate irrigation from Arduino Cloud through dedicated widgets.
+- Monitor average irrigation time and water consumption on dedicated charts on Arduino Cloud.
+- Plan irrigation according to the weather forecast, by including an API-based weather station in Arduino Cloud.
 
 ## Hardware and Software Requirements
 
@@ -87,7 +87,7 @@ The goal of this application note is to showcase a smart farming irrigation syst
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor).
 - If you are going to use an offline Arduino IDE, you must install the following libraries: `Arduino_EdgeControl`, `ArduinoIoTCloud`, `Arduino_JSON`, `ArduinoJson`, `ArduinoHttpClient` and `Arduino_ConnectionsHandler`. You can install them through the Arduino IDE Library Manager.
 - The [Smart Irrigation System Arduino Sketches](assets/Edge-Control_MKR_Codes.zip).
-- [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to provision the MKR WiFi 1010 on the Arduino IoT Cloud.
+- [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to provision the MKR WiFi 1010 on the Arduino Cloud.
 
 ## Smart Irrigation System Setup
 
@@ -116,17 +116,17 @@ The Edge Control is responsible for keeping track of the time with its integrate
 -  Measure the level of the tank water with a 4-20 mA liquid level transmitter to calculate its consumption
 - Control an LCD screen where the status of the valves and timers are shown. In addition, the LCD push button can be used to manually activate the valves.
 
-Moreover, the MKR WiFi 1010 is used to implement the communication between the setup and the cloud. It notifies the Edge Control of any changes in the cloud to activate, deactivate or configure a timer to control the valves. In addition, it reports the values of the Edge Control sensors on the cloud. The communication between both devices is done leveraging the I2C communication protocol.
+Moreover, the MKR WiFi 1010 is used to implement the communication between the setup and the Cloud. It notifies the Edge Control of any changes in the Cloud to activate, deactivate or configure a timer to control the valves. In addition, it reports the values of the Edge Control sensors on the Cloud. The communication between both devices is done leveraging the I2C communication protocol.
 
 ![Smart irrigation system with Edge Control](assets/project-setup.png)
 
 ### Valves Control
 
-If a valve is activated from the cloud, the message "opening valve" will appear on the LCD screen when the valve gets opened. If the valve is activated by a cloud timer, the display will show the same message, including a countdown of the remaining irrigation time. The working time of the valves is monitored and reported on the cloud to enable an efficient visualization of the average daily use.
+If a valve is activated from the Cloud, the message "opening valve" will appear on the LCD screen when the valve gets opened. If the valve is activated by a Cloud timer, the display will show the same message, including a countdown of the remaining irrigation time. The working time of the valves is monitored and reported on the Cloud to enable an efficient visualization of the average daily use.
 
 ### Water Usage
 
-At every system startup, the current amount of water is measured and saved. In this way, any decrease in it is counted as consumed water. The water use is reset daily to be able to monitor the average daily use on a dedicated  Arduino IoT Cloud chart.
+At every system startup, the current amount of water is measured and saved. In this way, any decrease in it is counted as consumed water. The water use is reset daily to be able to monitor the average daily use on a dedicated  Arduino Cloud chart.
 
 ### Weather Forecast Consideration
 
@@ -236,7 +236,7 @@ void setup() {
 
 The Edge Control will check the number of button taps for the valve's manual control and handle the right action to do through the use of a switch case statement.
 
-The `updateSensors()` function handles the update of system variables, including the valves' states. It uploads the local sensor values to the cloud and retrieves online changes to maintain synchrony.
+The `updateSensors()` function handles the update of system variables, including the valves' states. It uploads the local sensor values to the Cloud and retrieves online changes to maintain synchrony.
 
 To measure the water level, a 4-20 mA (0 to 1 meter) sensor can be used, but you need to express that current information in centimeters first. The Edge Control converts the current from the sensor loop into a voltage by using an internal 220 ohms resistor, which is read by the internal ADC. To convert this voltage back to a current value, the following equation from a 4-20 mA sensor can be used:
 
@@ -251,7 +251,7 @@ This is a brief explanation of the mathematical expression used inside the sketc
 
 `float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25;`
 
-In order to monitor the daily trend of the valve's active time on Arduino IoT Cloud, the accumulated time is reset each day at midnight.
+In order to monitor the daily trend of the valve's active time on Arduino Cloud, the accumulated time is reset each day at midnight.
 
 The `valvesHandler()` function activates, deactivates and keeps track of the active time of each zone valve.
 
@@ -333,7 +333,7 @@ void loop() {
 
     //Serial.println(getLocalhour());
 
-    // send local sensors values and retrieve cloud variables status back and forth
+    // send local sensors values and retrieve Cloud variables status back and forth
     updateSensors();
   }
 
@@ -347,7 +347,7 @@ void loop() {
 
 The MKR WiFi 1010 needs the following libraries:
 
-- `ArduinoIoTCloud.h` handles the Arduino IoT Cloud connection and project variables publishing. It can be installed directly from the Arduino Library Manager.
+- `ArduinoIoTCloud.h` handles the Arduino Cloud connection and project variables publishing. It can be installed directly from the Arduino Library Manager.
 - `Arduino_ConnectionHandler.h` manages the Wi-Fi® connection and can be installed directly from the Arduino Library Manager.
 - `ArduinoJson.h` and `Arduino_JSON` parse and create JSON structures for the HTTP requests. They can be installed directly from the Arduino Library Manager.
 - `ArduinoHttpClient.h` requests weather data from the Open Weather API. It can be installed directly from the Arduino Library Manager.
@@ -356,7 +356,7 @@ The MKR WiFi 1010 needs the following libraries:
 
 There are two headers included in the project code that handles some helper functions and structures:
 
-- `thingProperties.h` is automatically generated by the Arduino IoT Cloud. However, if you are using an offline IDE, verify it is in the same directory as your sketch and includes all the Arduino IoT Cloud variables.
+- `thingProperties.h` is automatically generated by the Arduino Cloud. However, if you are using an offline IDE, verify it is in the same directory as your sketch and includes all the Arduino Cloud variables.
 - `SensorValues.hpp` handles the shared variables between the Edge Control and the MKR WiFi 1010 through I2C.
 
 In the global variables, the MKR board I2C address is defined. It must be the same as defined in the Edge Control code. In addition, the water tank dimensions are also set up.
@@ -395,7 +395,7 @@ String city = "Santiago de los Caballeros";
 String countryCode = "DO";
 ```
 
-The MKR WiFi 1010 communicates with the Arduino IoT Cloud and checks for changes on every variable, from the valves' switches to the scheduled activated timers. The board turns its LED blue when it is successfully connected to the cloud. Also, it asks for a weather forecast every 10 minutes to update the temperature, humidity and rain probability in the Arduino IoT Cloud dashboard.
+The MKR WiFi 1010 communicates with the Arduino Cloud and checks for changes on every variable, from the valves' switches to the scheduled activated timers. The board turns its LED blue when it is successfully connected to the Cloud. Also, it asks for a weather forecast every 10 minutes to update the temperature, humidity and rain probability in the Arduino Cloud dashboard.
 
 ```arduino
 void loop() {
@@ -437,7 +437,7 @@ void loop() {
 }
 ```
 
-The system needs to be as fast as possible when a valve activation is requested. For this reason, each valve has its own function that is called once the valve status changes on the Arduino IoT Cloud.
+The system needs to be as fast as possible when a valve activation is requested. For this reason, each valve has its own function that is called once the valve status changes on the Arduino Cloud.
 
 ```arduino
 /*
@@ -453,7 +453,7 @@ void onZ1Change() {
 }
 ```
 
-The `uploadValues(SensorValues_t *vals)` is executed every time the Edge Control requests data to the MKR through I2C communication. It updates all the local and cloud-shared variables to be sent and converts the water level variable to water volume applying the cylinder volume formula:
+The `uploadValues(SensorValues_t *vals)` is executed every time the Edge Control requests data to the MKR through I2C communication. It updates all the local and Cloud-shared variables to be sent and converts the water level variable to water volume applying the cylinder volume formula:
  
 `v = πr²h`
  
@@ -492,13 +492,13 @@ To evaluate water consumption, the initial water level is stored as a reference 
   }
 ```
 
-### The Arduino IoT Cloud Dashboard
+### The Arduino Cloud Dashboard
 
-Taking advantage of the Arduino IoT Cloud, it is possible to seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system from remote, resulting in a professional Human-Computer Interaction (HCI) as shown below:
+Taking advantage of the Arduino Cloud, it is possible to seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system from remote, resulting in a professional Human-Computer Interaction (HCI) as shown below:
 
 ![Arduino Cloud project dashboard ](assets/dashboard_16-9.png)
 
-Within the Arduino IoT Cloud's dashboard, the system variables can be monitored and controlled as follow:
+Within the Arduino Cloud's dashboard, the system variables can be monitored and controlled as follow:
 - Temperature, humidity and rain probability are displayed in gauges, showing the current weather status and forecast.
 - Each motorized valve can be toggled through a dedicated switch accompanied by a scheduler widget to set automatic irrigation routines.
 - Each valve activated time is shown in a time series chart. 
@@ -530,7 +530,7 @@ In this application note, you have learned how to build a smart irrigation syste
 
 Arduino Edge Control allows you to easily implement this kind of agriculture systems ready for field deployment. However, if Wi-Fi® access is limited in your area, the connectivity can be extended using alternative boards, like the [Arduino MKR WAN 1310](https://docs.arduino.cc/hardware/mkr-wan-1310).  
 
-Thanks to the Edge Control capabilities to connect to the cloud and be remotely controlled, it is a great choice for developing robust and agriculture environment-proof solutions.
+Thanks to the Edge Control capabilities to connect to the Cloud and be remotely controlled, it is a great choice for developing robust and agriculture environment-proof solutions.
 
 ### Next Steps
 

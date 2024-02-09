@@ -19,7 +19,7 @@ In this tutorial, we will take a quick look on how to enable this feature (works
 ## Requirements
 
 - [Arduino IDE 2 installed](https://www.arduino.cc/en/software).
-- [Core installed](/software/ide-v2/tutorials/ide-v2-board-manager) for the board used.
+- [Board package installed](/software/ide-v2/tutorials/ide-v2-board-manager) for the board used.
 - Arduino board.
 - Potentiometer (optional).
 

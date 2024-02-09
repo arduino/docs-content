@@ -1,4 +1,4 @@
 ---
 title: Workshop Kit
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

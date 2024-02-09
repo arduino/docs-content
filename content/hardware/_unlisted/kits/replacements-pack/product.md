@@ -1,4 +1,4 @@
 ---
 title: Replacements Pack
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

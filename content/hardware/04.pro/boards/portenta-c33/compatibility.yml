@@ -15,3 +15,4 @@ hardware:
   carriers:
     - portenta-breakout
     - portenta-max-carrier
+    - portenta-hat-carrier

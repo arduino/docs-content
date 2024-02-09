@@ -24,7 +24,7 @@ software:
 
 In this tutorial, you will learn how to access the machine learning core features provided by the LSM6DSOX Inertial Measurement Unit (IMU) module on the Nano RP2040 Connect. For this, we will use the [STM32duino X-NUCLEO-IKS01A3](https://github.com/stm32duino/X-NUCLEO-IKS01A3) library. 
 
->**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nano).
+>**Note:** if you need help setting up your environment to use your Arduino Nano RP2040 board, please refer to [this installation guide](/software/ide-v2/tutorials/ide-v2-board-manager).
 
 ## Goals
 

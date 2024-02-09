@@ -44,7 +44,7 @@ You will create a Docker image that has the dependencies needed to build your de
 
 First, clone the lmp-manifest repository with the following command:
 
-```
+```bash
 git clone https://github.com/arduino/lmp-manifest.git
 ```
 
@@ -52,8 +52,11 @@ git clone https://github.com/arduino/lmp-manifest.git
 
 After cloning the lmp-manifest repository successfully, we will proceed to build the Docker Image using following command sequence:
 
-```
+```bash
 cd lmp-manifest
+```
+
+```bash
 docker build -t yocto-build ./lmp-manifest
 ```
 
@@ -69,13 +72,13 @@ Once the *Docker Image* is ready, we will run the image with the `-v` argument t
 
 Run the `yocto-build` builder image with following command:
 
-```
+```bash
 docker run -v <source>:/dockerVolume -it yocto-build bash
 ```
 
 We need to switch to the `builder` user with the following command after the previous process, and the password is **builder**:
 
-```
+```bash
 su builder
 ```
 
@@ -89,7 +92,7 @@ Now that you are running inside the Docker Image, you can use tools like **git-r
 
 First, configure git with your credentials. They don't need to be the real ones but are required by `git-repo` to pull. The following commands can be used for this example:
 
-```
+```bash
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
@@ -98,8 +101,8 @@ git config --global user.name "Your Name"
 
 Change to the home directory, and initialize the repository using **repo**:
 
-```
-cd ~
+```bash
+cd /dockerVolume
 repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b release
 ```
 
@@ -107,7 +110,7 @@ repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b relea
 
 Then pull the needed files with:
 
-```
+```bash
 repo sync
 ```
 
@@ -149,7 +152,7 @@ You will be able to see similar output as following after the previous steps:
 
 To start building the image, following command is used:
 
-```
+```bash
 bitbake lmp-partner-arduino-image
 ```
 
@@ -174,7 +177,7 @@ If possible, it is a good practice to understand the available threads of your c
 
 To flash your board, you will need to compile **lmp-mfgtool distro** to get additional tools. First, go into your home folder and change `DISTRO` following the command sequence:
 
-```
+```bash
 cd ..
 DISTRO=lmp-mfgtool MACHINE=portenta-x8 . setup-environment
 echo "ACCEPT_FSL_EULA = \"1\"" >> conf/local.conf
@@ -189,7 +192,7 @@ You should be able to see similar results as following image when successful:
 
 To compile and get the tools required, we will use following command:
 
-```
+```bash
 bitbake mfgtool-files
 ```
 
@@ -205,7 +208,7 @@ After completion:
 
 After a successful build, save the needed files to the host volume you mounted with `docker run`. Use the following commands to copy the files to your storage unit:
 
-```
+```bash
 cd ..
 mkdir ../../dockerVolume/flashing
 DEPLOY_FOLDER=../../dockerVolume/flashing
@@ -232,7 +235,7 @@ In this tutorial, you have learned how to build a "builder" Docker image, get it
 
 ## Next Steps
 
-Please follow the [Flashing tutorial](image-flashing) to flash your device with your custom image. You can use the files provided from this build to flash the Portenta X8 following the tutorial's steps.
+Please follow the [Flashing tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing/) to flash your device with your custom image. You can use the files provided from this build to flash the Portenta X8 following the tutorial's steps.
 
 ## Troubleshooting
 

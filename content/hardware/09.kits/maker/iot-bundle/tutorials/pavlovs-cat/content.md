@@ -15,12 +15,12 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/pavlov-s-cat-with-
 
 ## Apps and Online Services
 
-- [Arduino IoT Cloud](https://cloud.arduino.cc)
+- [Arduino Cloud](https://cloud.arduino.cc)
 - [Arduino IoT Cloud Remote app](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US)
 
 ## About This Project
 
-**Train your cat with the help of the Arduino IoT Cloud!**
+**Train your cat with the help of the Arduino Cloud!**
 
 If you ever tried to train a cat, you know how hard it is. Cats are their own masters, but now you have the chance to let the cats do your bidding using this IoT-enabled device.
 
@@ -38,7 +38,7 @@ Another melody does nothing. See how this will work? You will be able to monitor
 
 You will be able to build your own food dispenser by following these simple step-by-step instructions. The dispenser is basically just some cardboard and a servo motor with some added Arduino magic.
 
-Using the Arduino IoT Cloud Dashboard, you can set the amount of food to be dispensed and trigger the melodies played with the buzzer.
+Using the Arduino Cloud Dashboard, you can set the amount of food to be dispensed and trigger the melodies played with the buzzer.
 
 A light sensor is used to detect if the cat reacted to the melody and got to the food.
 
@@ -57,11 +57,11 @@ A light sensor is used to detect if the cat reacted to the melody and got to the
 
 In this experiment you will learn how to:
 
-* Introducing the Arduino IoT Cloud
+* Introducing the Arduino Cloud
 * Introducing the Arduino IoT Remote app
 * Play a melody using your Arduino
 * Include additional tabs in your code
-* Creating an Arduino IoT Cloud Dashboard
+* Creating an Arduino Cloud Dashboard
 
 ### Want to Know More?
 
@@ -72,19 +72,19 @@ This tutorial is part of a series of experiments that familiarize you with the A
 * [Plant Communicator with the Arduino IoT Bundle ](/tutorials/iot-bundle/plant-communicator)
 * [The Nerd with the Arduino IoT Bundle](/tutorials/iot-bundle/the-nerd)
 
-### Setting up the Arduino IoT Cloud
+### Setting up the Arduino Cloud
 
-If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
+If you are new to the Arduino Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
 ### Template
 
-To connect your board to the Arduino IoT Cloud, we will use the [Pavlov's Cat Template](https://create.arduino.cc/iot/templates/pavlovs-cat). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
+To connect your board to the Arduino Cloud, we will use the [Pavlov's Cat Template](https://create.arduino.cc/iot/templates/pavlovs-cat). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
 
 See the image below to understand how to set it up.
 
 ![Thing overview](assets/template_overview.png)
 
-**We will start by setting up the Arduino IoT Cloud by following the steps below:**
+**We will start by setting up the Arduino Cloud by following the steps below:**
 
 * **Login** to your Arduino Create account
 * Creating a **Thing**
@@ -248,7 +248,7 @@ void setup() {
   pinMode(buzzerPin, OUTPUT);
   /* Defined in thingProperties.h */
   initProperties();
-  /* Connect to Arduino IoT Cloud */
+  /* Connect to Arduino Cloud */
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
 /*
@@ -340,7 +340,7 @@ void setup() {
   /* Defined in thingProperties.h */
   initProperties();
   
-  /* Connect to Arduino IoT Cloud */
+  /* Connect to Arduino Cloud */
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 /*
 The following function allows you to obtain more information
@@ -419,7 +419,7 @@ Note that we use themillis()function to set a timer. `millis()` gives us the tim
 
 > **Note:** for the servo motor you will need a 9V battery which is not included in the IoT Bundle! Alternatively you can use another external power supply such as a phone charger with open ended cables.
 
-The servo is used to open the box and deliver food. Note that we will use the portion variable to set the amount of time the servo has to remain turned 90 degrees. We will be able to change the portion value through the Arduino IoT Cloud Dashboard.
+The servo is used to open the box and deliver food. Note that we will use the portion variable to set the amount of time the servo has to remain turned 90 degrees. We will be able to change the portion value through the Arduino Cloud Dashboard.
 
 ![Arduino IoT Bundle](assets/servo_motor_rp2040_PAcv0Yejb2.png)
 
@@ -451,7 +451,7 @@ void setup() {
   /* Defined in thingProperties.h */
   initProperties();
   
-  /* Connect to Arduino IoT Cloud */
+  /* Connect to Arduino Cloud */
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 /*
 The following function allows you to obtain more information

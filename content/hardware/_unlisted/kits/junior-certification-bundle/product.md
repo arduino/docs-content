@@ -1,4 +1,4 @@
 ---
 title: Junior Certification Bundle
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

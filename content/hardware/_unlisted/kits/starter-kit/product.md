@@ -1,4 +1,4 @@
 ---
 title: Starter Kit
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

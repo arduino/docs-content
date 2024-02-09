@@ -1,4 +1,4 @@
 ---
 title: Sensor Kit
-certifications: [CE]
+certifications: [CE, UKCA]
 ---

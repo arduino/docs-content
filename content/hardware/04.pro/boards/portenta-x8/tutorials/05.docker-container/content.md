@@ -43,7 +43,7 @@ In this tutorial, we will go through the steps of how to install, run and remove
 
 The Portenta X8 provides Docker CLI by default. The following command will help you verify if it is installed correctly:
 
-```
+```bash
 docker -v
 ```
 
@@ -53,7 +53,7 @@ You can check Docker's reference documentation, which covers all the features of
 
 The following steps will show how to install, run and uninstall the "Hello World" container.
 
-To avoid a lack of permissions while running the Docker's commands, you may need to run the next command to gain admin (root) access: ```sudo su -``` , which default password is ```fio```
+To avoid a lack of permissions while launching ```adb shell```, you may type the following: ```newgrp - docker```.
 
 The previous command and other important info about Linux on your Portenta are described in the [Portenta X8 User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#working-with-linux).
 
@@ -63,7 +63,7 @@ First, you will need to search for ["Hello World" container image](https://hub.d
 
 The following command must be used to pull the `hello-world` image. The Docker hub page for images has the instructions to pull the image and deploy the container.
 
-```
+```bash
 docker pull hello-world
 ```
 
@@ -73,7 +73,7 @@ docker pull hello-world
 
 This is the command to begin the container instance.
 
-```
+```bash
 docker run hello-world
 ```
 
@@ -85,7 +85,7 @@ docker run hello-world
 
 The following command will display the active containers and will show the `hello-world` container if it was able to run successfully. The `STATUS` message will let you know if the container is active or has finished operation depending on its purpose.
 
-``` 
+```bash 
 docker ps -a
 ```
 
@@ -93,7 +93,7 @@ docker ps -a
 
 The list of available images, including installed `hello-world` image, can be verified using the following command:
 
-```
+```bash
 docker images
 ```
 
@@ -103,7 +103,7 @@ docker images
 
 You will need to obtain an assigned `CONTAINER ID` to be able to remove a container of your choice. The list of active containers provides this information. The remove (`rm`) command is then used with the desired container identifier to proceed with the removal process.
 
-```
+```bash
 docker container rm <CONTAINER ID>
 ```
 
@@ -111,7 +111,7 @@ For this example, the command `docker ps -a` will show the `CONTAINER ID` of the
 
 Granted that this is the case, you will need to stop the container and verify with `STATUS` message that it has exited successfully. To do this, the following command is used:
 
-```
+```bash
 docker stop <CONTAINER ID>
 ```
 
@@ -123,7 +123,7 @@ Using the `docker ps -a` after container removal, the `hello-world` container sh
 
 The same goes for the images if you would like to free some space. The removal command will now be as follows using `IMAGE ID` found within the image table:
 
-```
+```bash
 docker rmi <IMAGE ID>
 ```
 

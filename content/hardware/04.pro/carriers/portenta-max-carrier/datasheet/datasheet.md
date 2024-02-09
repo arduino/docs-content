@@ -44,13 +44,15 @@ Industry 4.0, prototyping, robotics, data logging
 ### Application Examples
 The Portenta Max Carrier provides the user with almost limitless possibilities to create edge computing applications. Together with the Portenta X8, there is a wide range of application options.
 
-**Industrial IoT:** The Portenta Max Carrier enables connectivity between the Portenta boards and Fieldbus (MODBUS/CAN bus). Join the Industry 4.0 bandwagon with edge computing and a range of connectivity options to increase the revenue on your specific application. Remotely control machinery through the Arduino IoT Cloud or your own choice of third-party services without concern for vendor lock-in and identify process bottlenecks with continuous flow monitoring. The low power consumption and integrated Li-ion battery power management ensure reliable operation even in the face of external power failures.
+**Industrial IoT:** The Portenta Max Carrier enables connectivity between the Portenta boards and Fieldbus (MODBUS/CAN bus). Join the Industry 4.0 bandwagon with edge computing and a range of connectivity options to increase the revenue on your specific application. Remotely control machinery through the Arduino Cloud or your own choice of third-party services without concern for vendor lock-in and identify process bottlenecks with continuous flow monitoring. The low power consumption and integrated Li-ion battery power management ensure reliable operation even in the face of external power failures.
 
 **Digital Smart Kiosk:** Develop fully-fledged Information Kiosks, Point of Sales devices or other HMI solutions with the Portenta Max Carrier. Increase the productivity and satisfaction of your personnel and customers with real time information. The Portenta Max Carrier can be part of your solution for real time assessment of production environments, just-in-time management of warehouses, patient centric healthcare experiences and mobility management with a streamlined development process
 
 **Reference Design:** The Portenta Max Carrier is a great reference design for developing your own custom products around the Portenta ecosystem that conforms to the industry standard specifications. Arduino Pro also provides full development, production and operation support to develop solutions tailored to your business needs.
 
 ### Accessories (Not Included)
+*   LoRa® antenna (e.g. ANT-8/9-IPW1-SMA)
+*   Cellular LTE / CAT.M1 / NB-IoT antenna (e.g. ANT-5GW-SPS1-2)
 *   Mini PCIe expansion boards
 *   SIM card
 *   3.7V 18650 Li-ion battery
@@ -71,6 +73,8 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 
 >  (1) RF performance of the SARA-R4 modem above 65°C may be affected, although module is fully functional
 
+<div style="break-after:page"></div>
+
 ## Functional Overview
 
 ### Block Diagram
@@ -88,7 +92,7 @@ The Portenta Max Carrier provides the user with almost limitless possibilities t
 | U9       | DSC6111HI2B 12MHz MEMS Oscillator IC                   | U10            | SN74LVC1G125 Single Bus Buffer Gate IC                    |
 | U11      | BQ24195RGET 4.5A Single Cell Charger IC                | U12            | AP7311 1.8V 150mA LDO Linear Regulator IC                 |
 | U13      | TPS54620 6A Buck Regulator IC                          | U14            | AP2112K-3.3TRG1 3.3V 600mA LDO Regulator IC               |
-| U15      | STM32F405RG 168MHz 32 bit ARM Cortex-M4 MCU IC         | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC                  |
+| U15      | STM32F405RG 168MHz 32 bit Arm® Cortex®-M4 MCU IC         | U16-U19        | 74LVC1G157 Single 2-input multiplexer IC                  |
 | U23      | CMWX1ZZABZ-078 Murrata LoRa® module                    | U24, U25       | LM73100 Ideal Diode with Reverse Polarity Protection      |
 | J1, J2   | DF40HC(3.5)-80DS-0.4V(51) High Density Connectors      | J3             | Right-Angle SMA Connector for Modem                       |
 | J4       | 2-1734248-0 FPC Connector                              | J5             | FW-20-05-G-D-254-150 Signal Break                         |
@@ -156,7 +160,7 @@ The Portenta Max Carrier includes a high speed CAN transceiver based on the TJA1
 ### Micro SD Card Slot
 The on board Micro SD card can be used for data logging operations.
 
-### FEATURES SUPPORTED BY PORTENTA BOARDS
+### Features Supported By Portenta Boards
 The supported features depend upon your choice of Portenta board used together with the Portenta Max Carrier.
 
 | Function                 | Portenta H7 Support | Portenta X8 Support | Notes                                                                   |
@@ -297,7 +301,7 @@ Voltage range and max current are provided as a general guideline only. Consult 
 | 39  | PWM3         | Digital  | PWM Output 3                      |
 | 40  | CAN1_RX      | Digital  | CAN Receive Line                  |
 
-### microSD Module
+### MicroSD Module
 | Pin | **Function** | **Type** | **Description**                             |
 | --- | ------------ | -------- | ------------------------------------------- |
 | 1   | DATA2        | Digital  | Data bit 2                                  |
@@ -391,6 +395,8 @@ Note: Functions of pins 2-5 are dependent upon the configured protocol for the S
 | 50  | GND          | Power        | Ground                                  |
 | 51  | NC           | NC           | Not Connected                           |
 | 52  | +3V3_PCIE    | Power        | +3V3 Power Rail                         |
+
+<div style="break-after:page"></div>
 
 ## Mechanical Information
 ### Board Outline
@@ -494,4 +500,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 | Date       | **Revision** | **Changes**   |
 | ---------- | ------------ | ------------- |
+| 11/20/2023 | 2            | Recommended antennas added |
 | 10/05/2022 | 1            | First Release |

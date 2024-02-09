@@ -2,6 +2,12 @@
 title: Guide to GIGA R1 Advanced ADC/DAC and Audio Features
 description: 'Learn how to use the ADC/DAC features, along with useful examples on how to generate waveforms and play audio from a file.'
 author: José Bagur, Taddy Chung & Karl Söderby
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
+software:
+  - ide-v1
+  - ide-v2
+  - web-editor
 tags: [ADC, DAC, Audio, USB]
 ---
 
@@ -189,7 +195,7 @@ The following example shows how to output an 8kHz square wave on `DAC0`:
 // This example outputs an 8KHz square wave on A12/DAC0.
 #include <Arduino_AdvancedAnalog.h>
 
-AdvancedDAC dac1(A12);
+AdvancedDAC dac0(A12);
 
 void setup() {
     Serial.begin(9600);
@@ -198,8 +204,8 @@ void setup() {
 
     }
 
-    if (!dac1.begin(AN_RESOLUTION_12, 8000, 32, 64)) {
-        Serial.println("Failed to start DAC1 !");
+    if (!dac0.begin(AN_RESOLUTION_12, 8000, 32, 64)) {
+        Serial.println("Failed to start DAC0 !");
         while (1);
     }
 }
@@ -221,7 +227,7 @@ void dac_output_sq(AdvancedDAC &dac_out) {
 }
 
 void loop() {
-    dac_output_sq(dac1);
+    dac_output_sq(dac0);
 }
 ```
 
@@ -233,8 +239,8 @@ It is also possible to simultaneously output at both DAC channels, `DAC0` and `D
 // This example outputs an 8KHz square wave on A12/DAC0 and 16KHz square wave on ADC13/DAC1.
 #include <Arduino_AdvancedAnalog.h>
 
-AdvancedDAC dac1(A12);
-AdvancedDAC dac2(A13);
+AdvancedDAC dac0(A12);
+AdvancedDAC dac1(A13);
 
 void setup() {
     Serial.begin(9600);
@@ -243,13 +249,13 @@ void setup() {
 
     }
 
-    if (!dac1.begin(AN_RESOLUTION_12, 8000, 32, 64)) {
-        Serial.println("Failed to start DAC1 !");
+    if (!dac0.begin(AN_RESOLUTION_12, 8000, 32, 64)) {
+        Serial.println("Failed to start DAC0 !");
         while (1);
     }
 
-    if (!dac2.begin(AN_RESOLUTION_12, 16000, 32, 64)) {
-        Serial.println("Failed to start DAC2 !");
+    if (!dac1.begin(AN_RESOLUTION_12, 16000, 32, 64)) {
+        Serial.println("Failed to start DAC1 !");
         while (1);
     }
 }
@@ -271,8 +277,8 @@ void dac_output_sq(AdvancedDAC &dac_out) {
 }
 
 void loop() {
+  dac_output_sq(dac0);
   dac_output_sq(dac1);
-  dac_output_sq(dac2);
 }
 ```
 
@@ -284,7 +290,7 @@ A 32kHz sine wave output on `DAC0` can be generated using the following example:
 // This example outputs a 32KHz sine wave on A12/DAC1.
 #include <Arduino_AdvancedAnalog.h>
 
-AdvancedDAC dac1(A12);
+AdvancedDAC dac0(A12);
 
 uint16_t lut[] = {
     0x0800,0x08c8,0x098f,0x0a52,0x0b0f,0x0bc5,0x0c71,0x0d12,0x0da7,0x0e2e,0x0ea6,0x0f0d,0x0f63,0x0fa7,0x0fd8,0x0ff5,
@@ -297,7 +303,7 @@ static size_t lut_size = sizeof(lut) / sizeof(lut[0]);
 
 void setup() {
     Serial.begin(9600);
-    if (!dac1.begin(AN_RESOLUTION_12, 32000 * lut_size, 64, 128)) {
+    if (!dac0.begin(AN_RESOLUTION_12, 32000 * lut_size, 64, 128)) {
         Serial.println("Failed to start DAC1 !");
         while (1);
     }
@@ -306,9 +312,9 @@ void setup() {
 void loop() {
     static size_t lut_offs = 0;
 
-    if (dac1.available()) {
+    if (dac0.available()) {
         // Get a free buffer for writing.
-        SampleBuffer buf = dac1.dequeue();
+        SampleBuffer buf = dac0.dequeue();
 
         // Write data to buffer.
         for (size_t i=0; i<buf.size(); i++, lut_offs++) {
@@ -316,7 +322,7 @@ void loop() {
         }
 
         // Write the buffer to DAC.
-        dac1.write(buf);
+        dac0.write(buf);
     }
 }
 ```
@@ -340,7 +346,7 @@ The following example allows you to switch between several waveforms via a seria
 #define N_SAMPLES           (256)
 #define DEFAULT_FREQUENCY   (16000)
 
-AdvancedDAC dac1(A12);
+AdvancedDAC dac0(A12);
 uint8_t SAMPLES_BUFFER[N_SAMPLES];
 size_t dac_frequency = DEFAULT_FREQUENCY;
 
@@ -391,9 +397,9 @@ void generate_waveform(int cmd)
               break;
             }
             
-            dac1.stop();
+            dac0.stop();
             delay(500);
-            if (!dac1.begin(AN_RESOLUTION_8, dac_frequency * N_SAMPLES, N_SAMPLES, 32)) {
+            if (!dac0.begin(AN_RESOLUTION_8, dac_frequency * N_SAMPLES, N_SAMPLES, 32)) {
               Serial.println("Failed to start DAC1 !");
             }
             delay(500);
@@ -428,7 +434,7 @@ void setup() {
     generate_waveform('s');
     
     // DAC initialization
-    if (!dac1.begin(AN_RESOLUTION_8, DEFAULT_FREQUENCY * N_SAMPLES, N_SAMPLES, 32)) {
+    if (!dac0.begin(AN_RESOLUTION_8, DEFAULT_FREQUENCY * N_SAMPLES, N_SAMPLES, 32)) {
         Serial.println("Failed to start DAC1 !");
         while (1);
     }
@@ -442,16 +448,16 @@ void loop() {
         }
     } 
     
-    if (dac1.available()) {
+    if (dac0.available()) {
         // Get a free buffer for writing.
-        SampleBuffer buf = dac1.dequeue();
+        SampleBuffer buf = dac0.dequeue();
 
         // Write data to buffer.
         for (size_t i=0; i<buf.size(); i++) {
             buf[i] =  SAMPLES_BUFFER[i];
         }
 
-        dac1.write(buf);
+        dac0.write(buf);
     }
 }
 ```
@@ -463,7 +469,7 @@ The GIGA R1 12-bit DAC channels can also be used to read `.wav` files from a USB
 For this example, you will need:
 - A speaker, that has a built in amplifier.
 - A USB mass storage device (USB stick).\*
-- [USBHostMbed5](https://github.com/facchinm/USBHostMbed5) library installed.
+- [Arduino_USBHostMbed5](https://github.com/arduino-libraries/Arduino_USBHostMbed5) library installed.
 
 ***\*USB mass storage devices connected needs to be formatted with the FAT32 as a file system, using the MBR partitioning scheme. Read more in the [USB Mass Storage](/tutorials/giga-r1-wifi/giga-usb/#usb-mass-storage) section.***
 
@@ -471,7 +477,7 @@ For this example, you will need:
 
 The **Arduino_AdvancedAnalog** library contains the necessary functions that enable us to use the advanced capabilities of the GIGA R1 DACs. 
 
-To read `.wav` files from the USB stick we are using the **USBHostMbed5** library. It is important that the USB stick is formatted properly, and that we define its name in the sketch. In this case, we name it `USB_DRIVE`, and is defined like this: 
+To read `.wav` files from the USB stick we are using the **Arduino_USBHostMbed5** library. It is important that the USB stick is formatted properly, and that we define its name in the sketch. In this case, we name it `USB_DRIVE`, and is defined like this: 
 
 ```arduino 
 mbed::FATFileSystem usb("USB_DRIVE");
@@ -501,10 +507,10 @@ Note that to start the sketch, you need to open Serial Monitor due to the `while
 
 #include <Arduino_AdvancedAnalog.h>
 #include <DigitalOut.h>
-#include <USBHostMbed5.h>
+#include <Arduino_USBHostMbed5.h>
 #include <FATFileSystem.h>
 
-AdvancedDAC dac1(A12);
+AdvancedDAC dac0(A12);
 
 USBHostMSD msd;
 mbed::FATFileSystem usb("USB_DRIVE");
@@ -619,7 +625,7 @@ void setup()
   snprintf(msg, sizeof(msg), "Samples count = %i", samples_count); Serial.println(msg);
 
   /* Configure the advanced DAC. */
-  if (!dac1.begin(AN_RESOLUTION_12, header.sampleRate, 256, 16))
+  if (!dac0.begin(AN_RESOLUTION_12, header.sampleRate * 2, 256, 16))
   {
     Serial.println("Failed to start DAC1 !");
     return;
@@ -628,14 +634,14 @@ void setup()
 
 void loop()
 {
-  if (dac1.available() && !feof(file))
+  if (dac0.available() && !feof(file))
   {
     /* Read data from file. */
     uint16_t sample_data[256] = {0};
     fread(sample_data, sample_size, 256, file);
 
     /* Get a free buffer for writing. */
-    SampleBuffer buf = dac1.dequeue();
+    SampleBuffer buf = dac0.dequeue();
 
     /* Write data to buffer. */
     for (size_t i = 0; i < buf.size(); i++)
@@ -646,7 +652,7 @@ void loop()
     }
 
     /* Write the buffer to DAC. */
-    dac1.write(buf);
+    dac0.write(buf);
   }
 }
 ```
@@ -675,10 +681,10 @@ You can download them from [this link](/resources/misc/giga_audio_examples.zip).
 
 #include <Arduino_AdvancedAnalog.h>
 #include <DigitalOut.h>
-#include <USBHostMbed5.h>
+#include <Arduino_USBHostMbed5.h>
 #include <FATFileSystem.h>
 
-AdvancedDAC dac1(A12);
+AdvancedDAC dac0(A12);
 
 USBHostMSD msd;
 mbed::FATFileSystem usb("usb");
@@ -713,13 +719,13 @@ void setup() {
 }
 
 void loop() {
-  if (dac1.available() && !feof(file)) {
+  if (dac0.available() && !feof(file)) {
     /* Read data from file. */
     uint16_t sample_data[256] = { 0 };
     fread(sample_data, sample_size, 256, file);
 
     /* Get a free buffer for writing. */
-    SampleBuffer buf = dac1.dequeue();
+    SampleBuffer buf = dac0.dequeue();
 
     /* Write data to buffer. */
     for (size_t i = 0; i < buf.size(); i++) {
@@ -729,7 +735,7 @@ void loop() {
     }
 
     /* Write the buffer to DAC. */
-    dac1.write(buf);
+    dac0.write(buf);
 
     if(feof(file)){
       fclose(file);
@@ -845,7 +851,7 @@ void configFile() {
   Serial.println(msg);
 
   /* Configure the advanced DAC. */
-  if (!dac1.begin(AN_RESOLUTION_12, header.sampleRate, 256, 16)) {
+  if (!dac0.begin(AN_RESOLUTION_12, header.sampleRate, 256, 16)) {
     Serial.println("Failed to start DAC1 !");
     return;
   }
