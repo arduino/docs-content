@@ -328,7 +328,15 @@ The ✅ and ❌ symbols in the horizontal axis of the charts represent the Porte
 
 #### Mean Time Between Failure (MTBF)
 
-![MTBF Chart](assets/Frame-3.svg)
+MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
+
+The MTBF figure (in hours/years) for the Portenta X8 can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F parts count method.
+
+|  **Standard** | **Portenta X8** | **Environmental Conditions** |
+|:-------------:|:----------------------:|:----------------------------:|
+| MIL-HDBK-217F |    551640 h/62 years   |             25 ºC            |
+
+**Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_.
 
 #### Survival Probability After N Working Hours
 
@@ -580,7 +588,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                            |
 |------------|--------------|----------------------------------------|
-| 17/01/2024 | 5            | Add Temperature and MTBF Tables        |
+| 17/01/2024 | 6            | Add Temperature and MTBF Tables        |
 | 11/12/2023 | 5            | Add Portenta Hat Carrier compatibility |
 | 07/11/2023 | 4            | Add missing board dimensions           |
 | 26/01/2023 | 3            | Clarify open-source nature of M7 core  |
