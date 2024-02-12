@@ -45,17 +45,17 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 - [Download the Nano ESP32 datasheet](/resources/datasheets/ABX00083-datasheet.pdf)
 
-## Arduino ESP32 Core
+## Arduino ESP32 Board Package
 
-This board is based on the [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32), that is derived from the original ESP32 core. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
+This board is based on the [Arduino ESP32 Board Package](https://github.com/arduino/arduino-esp32), that is derived from the original ESP32 Board Package. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
 
 ![ESP32 examples in the IDE.](assets/esp32-examples.png)
 
-To install the core, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the core, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
+To install the Board Package, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the Board Package, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
 
 ## ESP32 Pin Map
 
-The Nano ESP32's default pins are designed to match the **Nano form factor**. This pin mapping is done in the official Arduino ESP32 core (see just above). See below the pin map to understand how the physical pins correlate to the ESP32: 
+The Nano ESP32's default pins are designed to match the **Nano form factor**. This pin mapping is done in the official Arduino ESP32 Board Package (see just above). See below the pin map to understand how the physical pins correlate to the ESP32: 
 
 | Nano  | ESP32  |
 | ----- | ------ |
@@ -107,6 +107,52 @@ In addition to the normal bootloader-mode, the Arduino Nano ESP32 lets you enter
 
 If you need to reflash the bootloader, you can follow the steps of this [Help Center article](https://support.arduino.cc/hc/en-us/articles/9810414060188-Reset-the-Arduino-bootloader-on-the-Nano-ESP32)
 
+### Default Sketch
+
+The default sketch loaded on the Nano ESP32 board is found in the code snippet below:
+
+```arduino
+#define LEDR 46
+#define LEDG 45
+#define LEDB 0
+#ifdef LED_BUILTIN
+#undef LED_BUILTIN
+#define LED_BUILTIN 48
+#endif
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(LEDR, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+  pinMode(LEDB, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LEDR, LOW);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, HIGH);
+
+  delay(1000);
+
+  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, LOW);
+  digitalWrite(LEDB, HIGH);
+
+  delay(1000);
+
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, LOW);
+
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+}
+```
+
 ## MicroPython
 
 The Nano ESP32 has support for MicroPython, a micro-implementation of Python® that can easily be installed on your board.
@@ -119,12 +165,12 @@ In this course, you will fundamental knowledge to get started, as well as a larg
 
 If you have installed MicroPython but wish to go back to classic Arduino / C++ programming, it is easy to do so. Simply **double tap** the **RESET** button on the board (there's only one button). The board will enter boot mode (you should see a pulsing green light), and will be visible in the Arduino IDE. 
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-Nano ESP32 is supported in the [Arduino IoT Cloud](https://create.arduino.cc/iot/) platform. You can connect to the cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
+Nano ESP32 is supported in the [Arduino Cloud](https://create.arduino.cc/iot/) platform. You can connect to the Cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
 
-- [Getting Started with Arduino IoT Cloud (classic)](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
-- [MicroPython with Arduino IoT Cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-micropython)
+- [Getting Started with Arduino Cloud (classic)](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
+- [MicroPython with Arduino Cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-micropython)
 
 
 ## API
@@ -156,11 +202,15 @@ To power the Nano ESP32 you may either use a USB-C® cable, or the VIN pin. When
 - If you're using the USB-C® connector you must power it with 5 V.
 - The recommended input voltage on the VIN pin is 6-21 V.
 
+If you flip the board to view its underside, you'll find a solder jumper labelled "**3.3V**". If you cut the small trace between the two pads, you disconnect the step-down converter from the board, and your board will no longer turn on when plugged in to the USB port, or when its powered through the VIN pin. Instead you must provide **exactly** 3.3 V directly to the 3.3 V pin of your board. This can, depending on your power source, be a more energy efficient method of powering your board than powering through the VIN pin or the USB port.
+
+![3.3 V Solder Jumper](./assets/nano-3v3-sj.png)
+
 ### Operating Voltage
 
 The internal operating voltage of the ESP32-S3 SoC is 3.3 V, and you should not apply voltages higher than that to the GPIO pins.
 
-### 5V Pin / VUSB
+### 5V Pin / VBUS
 
 The Nano ESP32 is the first board to not feature a **5V** pin. It has instead been replaced with VBUS, which is a more accurate description of the pin's capabilities.
 
@@ -307,8 +357,8 @@ The Nano ESP32's SPI pins are listed below:
 | Pin   | Function | Description                   |
 | ----- | -------- | ----------------------------- |
 | D10\* | CS       | Chip Select                   |
-| D11   | COPI     | Controller In, Peripheral Out |
-| D12   | CIPO     | Controller Out, Peripheral In |
+| D11   | COPI     | Controller Out, Peripheral In |
+| D12   | CIPO     | Controller In, Peripheral Out |
 | D13   | SCK      | Serial Clock                  |
 
 \*Any GPIO can be used for chip select.
@@ -443,14 +493,133 @@ To read data, use the `read()` method, which will return the last sample.
 I2S.read()
 ```
 
-Examples for different modes & different audio devices are available in the core under **Examples > I2S**.
+Examples for different modes & different audio devices are available in the Board Package under **Examples > I2S**.
 
 
 Further reading:
 - [I2S API docs (Espressif)](https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/api/i2s.html)
 - [I2S Reference (Espressif)](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/i2s.html)
 
+## Dual Core
 
+The ESP32-S3 is based on the dual-core XTensa LX7, which can run code separately on two cores. This is enabled through FreeRTOS, by setting up tasks that run on each core (similarly to how `void loop()` is implemented). The cores available are `0` and `1`.
+
+The example below is a modified version of the [BasicMultiThreading](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading) example found in the Arduino ESP32 Board Package, and demonstrates how to use two common operations simultaneously:
+- Blink an LED using one task on a specific core (0),
+- Read an analog pin using a second task on a specific core (1).
+
+```arduino
+/* Basic Multi Threading Arduino Example
+   
+   Modified 16th October 2023 by Karl Söderby
+
+   Set up two tasks that run on each core of a Nano ESP32 (ESP32-S3 XTensa LX7 MCU),
+   one that blinks an LED, one that reads an analog signal.
+
+   These tasks will execute infinitely.
+
+   This example code is in the Public Domain (or CC0 licensed, at your option.)
+   Unless required by applicable law or agreed to in writing, this
+   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+   CONDITIONS OF ANY KIND, either express or implied.
+*/
+
+// Define the cores
+#define CORE_0 0
+#define CORE_1 1
+
+#define ANALOG_INPUT_PIN A0 //Specify analog pin
+#define LED_BUILTIN 13  // Specify the on which is your LED
+
+
+int counter = 0;
+// Define two tasks for Blink & AnalogRead.
+void TaskBlink(void *pvParameters);
+void TaskAnalogRead(void *pvParameters);
+TaskHandle_t analog_read_task_handle;  // You can (don't have to) use this to be able to manipulate a task from somewhere else.
+
+void setup() {
+  Serial.begin(115200);
+  uint32_t blink_delay = 1000;  // Delay between changing state on LED pin
+
+  //create task for blinking an LED
+  xTaskCreatePinnedToCore(
+    TaskBlink, "Task Blink"  // A name just for humans
+    ,
+    2048  // The stack size can be checked by calling `uxHighWaterMark = uxTaskGetStackHighWaterMark(NULL);`
+    ,
+    (void *)&blink_delay  // Task parameter which can modify the task behavior. This must be passed as pointer to void.
+    ,
+    2  // Priority
+    ,
+    NULL  // Task handle is not used here - simply pass NULL
+    ,
+    CORE_0  // Core on which the task will run
+  );
+
+  //create a task for reading analog signals
+  xTaskCreatePinnedToCore(
+    TaskAnalogRead, "Analog Read", 2048  // Stack size
+    ,
+    NULL  // When no parameter is used, simply pass NULL
+    ,
+    1  // Priority
+    ,
+    &analog_read_task_handle  // With task handle we will be able to manipulate with this task.
+    ,
+    CORE_1  // Core on which the task will run
+  );
+}
+
+void loop() {
+  //loop is empty, the tasks are instead looped infinitely
+}
+
+void TaskBlink(void *pvParameters) {  // This is a task.
+  uint32_t blink_delay = *((uint32_t *)pvParameters);
+
+  pinMode(LED_BUILTIN, OUTPUT);
+
+  for (;;) {  // A Task shall never return or exit.
+    counter++;
+    digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
+
+    delay(1000);
+    digitalWrite(LED_BUILTIN, LOW);  // turn the LED off by making the voltage LOW
+
+    delay(1000);
+    Serial.print("Core ");
+    Serial.print(CORE_0);
+    Serial.print(": Blink task complete. Times run: ");
+    Serial.println(counter);
+  }
+}
+
+void TaskAnalogRead(void *pvParameters) {  // This is a task.
+  (void)pvParameters;
+
+  for (;;) {
+    // read the input on analog pin:
+    int sensorValue = analogRead(ANALOG_INPUT_PIN);
+    // print out the value you read:
+    Serial.print("Core ");
+    Serial.print(CORE_1);
+    Serial.print(": Analog reading task, value is: ");
+    Serial.println(sensorValue);
+    delay(500);  // 100ms delay
+  }
+}
+```
+
+When running this example, open the Serial Monitor tool and you will see what happens on each core. 
+
+![Dual core example.](assets/nano-esp32-dualcore.png)
+
+- The task is created in the `xTaskCreatePinnedToCore()`,
+- inside `xTaskCreatePinnedToCore()` we specify a number of parameters, most importantly what **core** and what **function** to run,
+- code inside task functions are placed inside the `for (;;){}` statement, that will loop infinitely.
+
+***More information about dual-core on the ESP32 along with a detailed explanation of the example is available at [Basic Multi Threading Example](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading).***
 
 ## IO Mux & GPIO Matrix
 
@@ -478,7 +647,7 @@ You can also read Espressifs technical reference manual here:
 
 The Nano ESP32 has a NORA-W106 module which has the ESP32-S3 SoC embedded. This module supports Wi-Fi® communication over the 2.4 GHz band.
 
-There are several examples provided bundled with the core that showcase how to make HTTP requests, host web servers, send data over MQTT etc.
+There are several examples provided bundled with the Board Package that showcase how to make HTTP requests, host web servers, send data over MQTT etc.
 
 ## RGB
 
@@ -544,6 +713,6 @@ void loop() {
 }
 ```
 
-Several ready to use examples are also available in the core at **Examples > USB**.
+Several ready to use examples are also available in the Board Package at **Examples > USB**.
 
 Remember that if the board stops being recognised in the IDE, you can put it in [Arduino Bootloader Mode](#arduino-bootloader-mode) to recover it.

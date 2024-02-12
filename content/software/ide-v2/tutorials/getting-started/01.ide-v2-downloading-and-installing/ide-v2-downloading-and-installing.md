@@ -1,7 +1,7 @@
 ---
 title: 'Downloading and installing the Arduino IDE 2'
 difficulty: beginner
-description: 'A quick guide on how to install the IDE 2 on your operative system.'
+description: 'A quick guide on how to install the IDE 2 on your operating system.'
 tags:
  - Installation
 author: 'Karl Söderby'

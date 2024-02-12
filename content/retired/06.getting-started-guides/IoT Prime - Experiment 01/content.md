@@ -3,7 +3,7 @@ title: "IoT Prime - Experiment 01"
 source: "https://arduino.cc/en/IoT-Prime/Experiment01"
 ---
 
-## IoT\-Prime Experiment 1: 
+## IoT\-Prime Experiment 1:
 
 ## Get to know the kit
 
@@ -36,7 +36,7 @@ The *Arduino MKR1010* (read “maker ten ten”) is a microcontroller board feat
 
 ##### Start Using your Board
 
-You can see how to connect this board to your computer by checking this [Getting Started Guide](https://www.arduino.cc/en/Guide/MKRWiFi1010). You can use that guide to install the offline Arduino IDE that will run from your computer, and to learn how to troubleshoot any potential issues you might have when writing your first programs. You can also start using the online version of Arduino’s code editor that you will find at: <https://create.arduino.cc> Please note that you have to become a registered Arduino user to use the online editor.
+You can see how to connect this board to your computer by checking this [Getting Started Guide](https://www.arduino.cc/en/Guide/MKRWiFi1010). You can use that guide to install the offline Arduino IDE that will run from your computer, and to learn how to troubleshoot any potential issues you might have when writing your first programs. You can also start using the online version of Arduino’s code editor that you will find at: [https://create.arduino.cc](https://create.arduino.cc) Please note that you have to become a registered Arduino user to use the online editor.
 
 #### MKR ENV Shield
 
@@ -58,7 +58,7 @@ These new features come with associated software you will need to install. The s
 
 #### MKR Relay Proto Shield
 
-The MKR Relay Proto Shield is a board providing your MKR1010 board with two relays, which are electromechanical switches, that can be used to control any kind of electrical devices that could be activated with an on-off switch: lamps, fans, water pumps, electrical motors, heaters, etc. Activating the relays is as simple as activating one of the pins that control them, this will allow for electricity to flow. 
+The MKR Relay Proto Shield is a board providing your MKR1010 board with two relays, which are electromechanical switches, that can be used to control any kind of electrical devices that could be activated with an on-off switch: lamps, fans, water pumps, electrical motors, heaters, etc. Activating the relays is as simple as activating one of the pins that control them, this will allow for electricity to flow.
 
 The shield has a prototyping area that could be used to solder your own components and, in that way, make a more final installation using it. This is something we will not see throughout this course, but you should be aware of the possibility.
 
@@ -105,7 +105,7 @@ In this project, the schematic is uber-simple, as the sensor we are going to use
 
 ### Picture of the Construction
 
-![Figure 6: MKR1010 and shield connected together](assets/img0101.jpg) 
+![Figure 6: MKR1010 and shield connected together](assets/img0101.jpg)
 
 ### Gradually Built Code
 
@@ -157,9 +157,9 @@ void loop() {
 
 [\[Get Code\]](//www.arduino.cc/en/IoT-Prime/Experiment01?action=sourceblock&num=1)
 
-*Figure 7: code listing for the example* 
+*Figure 7: code listing for the example*
 
-This first example is reflecting the use of the ENV Shield library by the call to: `#include <Arduino_MKRENV.h>` 
+This first example is reflecting the use of the ENV Shield library by the call to: `#include <Arduino_MKRENV.h>`
 
 #### Using the serial port
 
@@ -169,7 +169,7 @@ The call to `ENV.begin()` is both initialising the sensors on the board, and che
 
 #### Getting the sensor data
 
-The readings for all of the values of the sensors are of float type, therefore the temperature variable is of that type `float temperature = 0` 
+The readings for all of the values of the sensors are of float type, therefore the temperature variable is of that type `float temperature = 0`
 
 When calling `temperature = ENV.readTemperature()` the program will be requesting the information about temperature in Celsius degrees from the shield and storing it in the temperature variable. You can then use the value from the variable anyway you want to into your program, we will simply print out the value to the terminal with `Serial.print(temperature)`, note how we print some text before and after the value to provide some context when looking at the data on the terminal. If you are working with just one sensor, this might not be that relevant, but once you start using all of the sensors on the shield, giving context makes a lot more sense.
 
@@ -194,10 +194,10 @@ The hardware view of this project could look like follows:
 
 ### Wrapping Up
 
-In this lesson you have been introduced to the components of Arduino’s official IoT Prime Bundle. This kit includes components that can be used to create connected devices like weather stations, or electronic control systems, and build any kind of automation in your work, or as a hobby project. 
+In this lesson you have been introduced to the components of Arduino’s official IoT Prime Bundle. This kit includes components that can be used to create connected devices like weather stations, or electronic control systems, and build any kind of automation in your work, or as a hobby project.
 
-You saw how to install the software needed for programming your board, which are the three main parts of the kit: MKR1010, MKR ENV Shield, and MKR Relay Shield, and how to make a simple example where you captured the temperature and displayed it over the serial port. 
+You saw how to install the software needed for programming your board, which are the three main parts of the kit: MKR1010, MKR ENV Shield, and MKR Relay Shield, and how to make a simple example where you captured the temperature and displayed it over the serial port.
 
 We gave you challenge for building a visual cue to your board, and offered you a possible solution. In the next chapter we will see how to read even more information from the ENV Shield and how to display it and export it to files for using it later with other software packages.
 
-[Learn more at Experiment 02](./../Experiment02/content.md) 
+[Learn more at Experiment 02](./../Experiment02/content.md)

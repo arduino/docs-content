@@ -17,12 +17,12 @@ tags: [Display, LVGL]
 - [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
-## Downloading the Library and Core
+## Downloading the Library and Board Package
 
-The GIGA R1 core includes the [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library that handles the display.
+The GIGA R1 Board Package includes the [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library that handles the display.
 
 In this guide, we will be using three different libraries:
-- [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video), this one is bundled with the core, so make sure you have the latest version of the [Mbed core](https://github.com/arduino/ArduinoCore-mbed) installed.
+- [Arduino_H7_Video](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video), this one is bundled with the Board Package, so make sure you have the latest version of the [GIGA Board Package](https://github.com/arduino/ArduinoCore-mbed) installed.
 - [Arduino_GigaDisplayTouch](https://www.arduino.cc/reference/en/libraries/arduino_gigadisplaytouch/)
 - [lvgl](https://github.com/lvgl/lvgl)
 
@@ -133,7 +133,7 @@ Take a look at this graphic to understand it better:
 
 ### Update Loop
 
-Include this in the loop of your sketch to make sure the LVGL engine is running and updating the screen.
+Include this in the loop of your sketch to make sure the LVGL engine is running and updating the screen. The `lv_timer_handler()` function should be called at max every 5 milliseconds. If it would be called more frequently than that please use a non-blocking method to delay it.
 
 ```arduino
 void loop() { 
@@ -272,6 +272,30 @@ void loop() {
   lv_timer_handler();
 }
 ```
+
+### Text
+
+Displaying text is usually done with labels. These are used in most of the other examples to put text on buttons and switches. Like any other element you first have to create the object with:
+
+```arduino
+lv_obj_t * label;
+```
+
+Then the labels text can be set with:
+```arduino
+lv_label_set_text(label, "Label!"); 
+```
+
+If you want to insert a variable that is not a string, use:
+
+```arduino
+//This will make the label show the number 13
+lv_label_set_text_fmt(label, "%d", 13)
+```
+
+To use bigger font sizes it has to be enabled in the `lv_conf.h` file. This file can be found in the **mbed_giga/libraries/Arduino_H7_Video/src** folder. Find the **FONT USAGE** section, here you can see all the font sizes. If you want to enable any size simply change the `0` next to any of the font sizes into a `1`. Like this:
+
+![lv_config font section](assets/lv_config.svg)
 
 ## Functional Elements
 

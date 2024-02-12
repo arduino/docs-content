@@ -18,9 +18,9 @@ This is a great tutorial for getting started with your shield and exploring what
 - [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
-## Downloading the Library and Core
+## Downloading the Library and Board Package
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the core and is needed for the examples to work. Now you have to install the library needed for the graphical display features. To do this, go to **Tools > Manage libraries..**, search for **ArduinoGraphics**, and install it.
+Make sure the latest GIGA Board Package is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the Board Package and is needed for the examples to work. Now you have to install the library needed for the graphical display features. To do this, go to **Tools > Manage libraries..**, search for **ArduinoGraphics**, and install it.
 
 For more information about libraries and how to install them with the IDE, visit our [libraries tutorial](/software/ide-v2/tutorials/ide-v2-installing-a-library).
 
@@ -143,7 +143,7 @@ We will be using the example sketch "ArduinoLogo" as the basis for the sketch th
 
 Running the example sketch as is will display the Arduino logo on the screen, like in the image below:
 
-![Arduino Logo on the GIGA Display Shield](assets/logo-img.svg)
+![Arduino Logo on the GIGA Display Shield](assets/logo-img.png)
 
 Now to use the image that we converted in the last step. Use the macro inside the example sketch. This makes use of the `incbin.h` translation library. The necessary files are located in the folder for the example sketch.
 
@@ -165,7 +165,7 @@ By default the image we import will be called `test`. The line `Image img_arduin
 
 To run this sketch you will need to have the image file that is used in the code in the correct location. In the example from the library, the image is in the same folder as the sketch, as shown in the image below. Please make sure the image you want to use matches the location indicated in the code.
 
-![Folder structure for the sketch](assets/file-structure.svg)
+![Folder structure for the sketch](assets/file-structure.png)
 
 ```arduino
 /*

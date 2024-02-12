@@ -2,6 +2,8 @@
 title: Nano 33 BLE Sense
 url_shop: https://store.arduino.cc/arduino-nano-33-ble-sense
 url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#mbed-os-nano
+primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#mbed-os-nano
+primary_button_title: Get Started
 core: arduino:mbed_nano
 forumCategorySlug: '/hardware/nano-family/nano-33-ble-sense/160'
 certifications: [FCC, IC, REACH, CE, RoHS, WEEE, RCM, UKCA, MIC]

@@ -9,15 +9,18 @@ The Yún Rev2 has the power of a Linux based system that enables advanced networ
 <Feature title="Linux based system" image="core">
 
 The Yún Rev2 is based on a Linux system that enables network connections and applications.
-
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/yun-rev2/yun-download-os"/>
+</FeatureWrapper>
+
 </Feature>
 
 <Feature title="Internet connection" image="connection">
 
 The Yún Rev2 board allows you to connect to the internet using the onboard WiFi or Ethernet connection.
-
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/yun-rev2/wifi-status"/>
+</FeatureWrapper>
 </Feature>
 
 </FeatureList>

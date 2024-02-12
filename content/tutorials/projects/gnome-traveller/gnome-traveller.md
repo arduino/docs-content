@@ -30,7 +30,7 @@ This project is based on the [Arduino Nano Every](https://store.arduino.cc/nano-
 
 ## The Gnome
 
-The requirements for this design are related to our idea of enclosing everything in our 3D-printed Gnome, therefore space is an asset with which we have to deal. The Gnome model is a derivative of the one you can find on [Thingiverse](https://www.thingiverse.com/thing:140611), done by Tony Buser. 
+The requirements for this design are related to our idea of enclosing everything in our 3D-printed Gnome, therefore space is an asset with which we have to deal. The Gnome model is a derivative of the one you can find on [Thingiverse](https://www.thingiverse.com/thing:140611), done by Tony Buser.
 
 ![The original Gnome by Tony Buser](assets/pimpin_gnome_u9ls17mcmh.jpg)
 
@@ -81,7 +81,7 @@ As for the GPS, also the SD and microSD are 3.3V electronics and a level shifter
 ![The two devices are connected through two level shifter to the Arduino Nano Every](assets/gps_sd_a5ucrgmjyN.jpg)
 
 
-The last bit of the circuit is related to the power supply: we want to carry around our Gnome and a rechargeable battery is needed. We chose a 1900mAh Li-Ion rugged battery that should feed our circuit for many hours: the power consumption at 5V averages 70 mA that means over 27 hours of continuous logging. 
+The last bit of the circuit is related to the power supply: we want to carry around our Gnome and a rechargeable battery is needed. We chose a 1900mAh Li-Ion rugged battery that should feed our circuit for many hours: the power consumption at 5V averages 70 mA that means over 27 hours of continuous logging.
 
 ![We measured the current drawn by the circuit with a USB power monitor](assets/power_consumption_1djY4jinsV.jpg)
 
@@ -94,7 +94,7 @@ As you can see from the picture of the whole project, the 5V and 3.3V are fed to
 ![All the parts are wired together trying to keep the thickness at minimum to allow easy packing inside the Gnome](assets/complete_gnome_OFaUfEs4vM.jpg)
 
 
-Everything folds into the 3D-printed Gnome lower half and the battery charger and 5V supply is the only piece that is left floating and will go in the upper part. 
+Everything folds into the 3D-printed Gnome lower half and the battery charger and 5V supply is the only piece that is left floating and will go in the upper part.
 
 ![The switch, soldered directly to the output of the powerbank.](assets/inside_gnome_SqDVg4xcIB.jpg)
 
@@ -125,7 +125,7 @@ This part echoes the information on the Serial Console, then the DEBUG variable 
 
 The loop contains the code necessary to read the data from Serial1, parse it and write the formatted latitude, longitude, elevation, date and time to the log file. If Debug is “1” then the same data is sent to the Serial Console.
 
-### Code 
+### Code
 
 Load this sketch and compile it after you have downloaded TinyGPSPlus library from http://arduiniana.org/libraries/tinygpsplus/
 
@@ -203,7 +203,7 @@ void loop() {
       logfile.print(gps.location.lng(), 6);
       logfile.print(", ");
       logfile.print(gps.altitude.meters(), 0);
-      logfile.print(", ");  
+      logfile.print(", ");
       logfile.print(gps.date.day());
       logfile.print(F("/"));
       logfile.print(gps.date.month());
@@ -255,7 +255,7 @@ Please note that on Google Maps you can import the logged data to get every line
 ![This is the result of a trip in the surroundings of Jumeirah Lake Towers with our Gnome](assets/googlemaps_8nJagPTFWD.jpg)
 
 
-If you want to see the correct position in the 3D space, with elevation, you need to create a **KML** file from the CSV and among the various solutions available online we have found that **ATSB KML Creator** does this conversion perfectly. The ATSB KML Creator utilizes spreadsheets containing recorded GPS parameters (latitude, longitude and altitude) to create a flight path in KML format, viewable using Google Earth. The ATSB KML Creator also incorporates the display of user selected parameters in conjunction with the flight path using the 'Elevation Profile' feature in Google Earth. You can find it here: <https://www.atsb.gov.au/atsb-kml-creator>
+If you want to see the correct position in the 3D space, with elevation, you need to create a **KML** file from the CSV and among the various solutions available online we have found that **ATSB KML Creator** does this conversion perfectly. The ATSB KML Creator utilizes spreadsheets containing recorded GPS parameters (latitude, longitude and altitude) to create a flight path in KML format, viewable using Google Earth. The ATSB KML Creator also incorporates the display of user selected parameters in conjunction with the flight path using the 'Elevation Profile' feature in Google Earth. You can find it here: [https://www.atsb.gov.au/atsb-kml-creator](https://www.atsb.gov.au/atsb-kml-creator)
 
 ![We put our gnome on a balcony at the 86th floor and the yellow path is what was logged. Some jitter in the position is part of the approximation of the GPS reception](assets/gnome_earth2_nIKi4yVsT2.jpg)
 

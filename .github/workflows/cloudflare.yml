@@ -1,0 +1,62 @@
+name: Cloudflare Pages
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+      APP_ENV: prod
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
+          cache-dependency-path: "**/package-lock.json"
+
+      - name: Render Datasheets
+        run: cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering;./render-datasheets.sh
+
+      - name: Copy Static Files
+        run: |
+          mkdir -p static/resources/datasheets static/resources/schematics static/resources/pinouts
+          find ./content/hardware -type f -name "*-schematics.pdf" -exec cp {} ./static/resources/schematics/ \;
+          find ./content/hardware -type f -name "*-datasheet.pdf" -exec cp {} ./static/resources/datasheets/ \;
+          find ./content/hardware -type f -name "*-full-pinout.pdf" -exec cp {} ./static/resources/pinouts/ \;
+          find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
+
+      - name: Gatsby main cache
+        uses: actions/cache@v3
+        id: gatsby-cache-folder
+        with:
+          path: .cache
+          key: ${{ runner.os }}-cache-gatsbyV2-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-cache-gatsbyV2-
+
+      - name: Gatsby Public Folder
+        uses: actions/cache@v3
+        id: gatsby-public-folder
+        with:
+          path: public/
+          key: ${{ runner.os }}-public-gatsbyV2-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-public-gatsbyV2-
+
+      - run: npm install
+      - run: npm run build
+
+      - name: Docs
+        uses: ./.github/actions/cloudflare-upload
+        with:
+          upload-dir: public
+          project-name: docs-content
+          cloudflare-api-token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          cloudflare-account: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

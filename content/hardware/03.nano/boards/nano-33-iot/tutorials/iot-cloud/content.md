@@ -1,13 +1,13 @@
 ---
-title: 'Nano 33 IoT Alarm with the Arduino IoT Cloud'
+title: 'Nano 33 IoT Alarm with the Arduino Cloud'
 difficulty: intermediate
 compatible-products: [nano-33-iot]
-description: "Learn how to create an alarm with the Nano 33 IoT controlled by the Arduino IoT Cloud"
+description: "Learn how to create an alarm with the Nano 33 IoT controlled by the Arduino Cloud"
 tags:
   - Wi-Fi
   - RTC
   - IoT
-  - Arduino IoT Cloud
+  - Arduino Cloud
 author: 'Fabricio Troya'
 libraries: 
   - name: Arduino RTCZero
@@ -18,7 +18,7 @@ software:
   - iot-cloud
 ---
 
-In this tutorial we will use an Arduino Nano 33 IoT, to set an alarm that will turn on an LED controlled by the Arduino IoT Cloud, using the `RTCZero` library.
+In this tutorial we will use an Arduino Nano 33 IoT, to set an alarm that will turn on an LED controlled by the Arduino Cloud, using the `RTCZero` library.
 
 ## Goals
 
@@ -26,16 +26,16 @@ The goals of this project are:
  - Learn what IoT is.
  - Learn about RTC (real-time clock).
  - Use the Arduino RTCZero library.
- - Learn how to create a new thing in the Arduino IoT Cloud.
+ - Learn how to create a new thing in the Arduino Cloud.
  - Learn how to set an alarm from the IoT Cloud.
 
 
 ## Hardware & Software Needed
 * This project uses no external sensors or components.
-* In this tutorial we will use the [Arduino IoT Cloud](https://create.arduino.cc/iot) to program the board.
+* In this tutorial we will use the [Arduino Cloud](https://create.arduino.cc/iot) to program the board.
 
 
-## Internet of Things and Arduino IoT Cloud
+## Internet of Things and Arduino Cloud
 
 ![The NINA-W102 module.](./assets/nano33IOT_05_create_thing.png)
 
@@ -43,7 +43,7 @@ Internet of Things, or IoT, is referring to a giant network of connected devices
 
 This vision of a connected world, brings a new computing paradigm where computation happens in a distributed manner, but data is later shared and processed at different centralized pieces of infrastructure. This network of interconnected entities includes lamps, cellphones, smart watches, washing machines, cars, houses, buildings and people amongst other. All of these interconnected entities “talk” to each other using various technologies and protocols and exchange information over the internet. The nature of applications vary from a simple phone-controlled light bulb, to a complex garbage-management system.
 
-Arduino IoT Cloud is an easy-to-use Internet of Things application platform. Arduino IoT Cloud makes the creation of connected objects quick, simple, and secure. You can connect multiple devices and allow them to exchange real-time data. You can also monitor them from anywhere using a simple user interface.
+Arduino Cloud is an easy-to-use Internet of Things application platform. Arduino Cloud makes the creation of connected objects quick, simple, and secure. You can connect multiple devices and allow them to exchange real-time data. You can also monitor them from anywhere using a simple user interface.
 
 ## RTC - Real Time Clock
 
@@ -72,11 +72,11 @@ disableAlarm()
 ```
 If you want to read more about the RTCZero library see <a href="https://www.arduino.cc/reference/en/libraries/rtczero/" target="_blank">here</a>.
 
-## Setting up the Arduino IoT Cloud
+## Setting up the Arduino Cloud
 
 **1. Creating the thing**
 
-Let's start by opening the [Arduino IoT Cloud](https://create.arduino.cc/iot). Once we are in the Arduino IoT Cloud, we will see the **Things** where we need to click the **Create Thing** button and rename it as **Nano Alarm**.
+Let's start by opening the [Arduino Cloud](https://create.arduino.cc/iot). Once we are in the Arduino Cloud, we will see the **Things** where we need to click the **Create Thing** button and rename it as **Nano Alarm**.
 
 ![Create a Thing.](./assets/nano33IOT_05_create_thing-1.png)
 
@@ -93,13 +93,13 @@ This will initiate a configuration sequence. If nothing goes wrong, we will see 
 
 ![Setup was successful.](./assets/nano33IOT_05_device_connected.png)
 
->**Note:** When we configure the board the first time, in order to provide users with the best performance, the cloud checks if the core version of the Wi-Fi module of our Arduino Nano 33 IoT board is the last one. If the core version is not the latest you can upload it following [these instructions](https://support.arduino.cc/hc/en-us/articles/360018104880)
+>**Note:** When we configure the board the first time, in order to provide users with the best performance, the Cloud checks if the core version of the Wi-Fi module of our Arduino Nano 33 IoT board is the last one. If the core version is not the latest you can upload it following [these instructions](https://support.arduino.cc/hc/en-us/articles/360018104880)
 
 **3.Creating variables**
 
 Let's begin by clicking on the **Add variable** button. This will open up a new window, where we can choose the **name**, **data type**, **permission setting** and **update setting**.
 
-Next, we need to set up the following variables in the cloud. All of them should be configured as **On change** following the next specifications:
+Next, we need to set up the following variables in the Cloud. All of them should be configured as **On change** following the next specifications:
 
 | Name               | Data type | Variable permission | Function                                              |
 | ------------------ | --------- | ------------------- | ----------------------------------------------------- |
@@ -113,7 +113,7 @@ Remember, we will also need to make sure that we enter our network credentials. 
 
 **4. Creating the dashboard**
 
-Let's head over to the **Dashboard** tab in the Arduino IoT Cloud, and create a new dashboard by clicking on the **Build Dashboard** button. It is time to rename out "Untitled" dashboard as **Nano Alarm** and start adding the different widgets that we will need. We can do this by clicking on the **Add** button. Once we select each one of the widgets, we will need to link them to the variables we created in the previous step, check the table below to know the matchings between widgets and variables. 
+Let's head over to the **Dashboard** tab in the Arduino Cloud, and create a new dashboard by clicking on the **Build Dashboard** button. It is time to rename out "Untitled" dashboard as **Nano Alarm** and start adding the different widgets that we will need. We can do this by clicking on the **Add** button. Once we select each one of the widgets, we will need to link them to the variables we created in the previous step, check the table below to know the matchings between widgets and variables. 
 
 The dashboard needs five widgets in total, each of them is described in the table below.
 
@@ -179,7 +179,7 @@ void loop() {
 }
 ```
 
-Now, we will see that after the `loop()` there are some empty functions. These functions have been created automatically from the cloud and shouldn't be deleted or the sketch won't compile. These functions are created when we add a new variable with **Read & Write** permission, and are called each time we change the value of the variable from the Cloud. So, in order to set a new alarm time each time we change the value from the cloud, we need to add a `.setAlarmTime()` function inside the following empty functions.
+Now, we will see that after the `loop()` there are some empty functions. These functions have been created automatically from the Cloud and shouldn't be deleted or the sketch won't compile. These functions are created when we add a new variable with **Read & Write** permission, and are called each time we change the value of the variable from the Cloud. So, in order to set a new alarm time each time we change the value from the Cloud, we need to add a `.setAlarmTime()` function inside the following empty functions.
 
 ```arduino
 void onHoursAlarmChange() {
@@ -195,7 +195,7 @@ void onSecondsAlarmChange() {
 }
 ```
 
-The `onAlarmStateChange()` function will be called each time we press the switch button from the cloud. We want to activate the alarm when the switch is on (`true`) and deactivate it when the switch is off (`false`). To do this, we need to add an `if else` statement to check if the switch value is true or false. If the switch value is `true`, we will use the `.setAlarmTime()`, `.enableAlarm()` and `.attachInterrupt()` functions to activate the alarm. Inside the `.attachInterrupt()` function we will add a new function called `alarmMatch` that will control what happens when the alarm match. If the switch value is `false` we will use a `.disableAlarm()` function to deactivate the alarm and we will change the led value to `false`.
+The `onAlarmStateChange()` function will be called each time we press the switch button from the Cloud. We want to activate the alarm when the switch is on (`true`) and deactivate it when the switch is off (`false`). To do this, we need to add an `if else` statement to check if the switch value is true or false. If the switch value is `true`, we will use the `.setAlarmTime()`, `.enableAlarm()` and `.attachInterrupt()` functions to activate the alarm. Inside the `.attachInterrupt()` function we will add a new function called `alarmMatch` that will control what happens when the alarm match. If the switch value is `false` we will use a `.disableAlarm()` function to deactivate the alarm and we will change the led value to `false`.
 
 ```arduino
 void onAlarmStateChange() {
@@ -225,8 +225,8 @@ Now the code is complete!
 
 ```arduino
 /*
-  Sketch generated by the Arduino IoT Cloud Thing "Nano_Alarm"
-  Arduino IoT Cloud Variables description
+  Sketch generated by the Arduino Cloud Thing "Nano_Alarm"
+  Arduino Cloud Variables description
   The following variables are automatically generated and updated when changes are made to the Thing
   int hours_alarm;
   int seconds_alarm;
@@ -253,7 +253,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
   /*
@@ -318,7 +318,7 @@ Once we are finished with the coding, we can upload the sketch to the board. Whe
 
 ![Printing the time in the Serial Monitor.](./assets/nano33IOT_05_printing_values.png)
 
-We can now go to the **Dashboard** tab in the Arduino IoT Cloud to the **Nano Alarm** dashboard we created before. There we can set time for the alarm and activate the alarm with the switch. If the switch is on and the alarm match we will see the LED turn on.
+We can now go to the **Dashboard** tab in the Arduino Cloud to the **Nano Alarm** dashboard we created before. There we can set time for the alarm and activate the alarm with the switch. If the switch is on and the alarm match we will see the LED turn on.
 
 ![Setting an alarm through the dashboard.](./assets/nano33IOT_05_dashboard_on.png)
 
@@ -333,4 +333,4 @@ Sometimes errors occur, if the code is not working there are some common issues 
 
 ## Conclusion
 
-In this tutorial we have created a basic alarm that turns on a LED through the Arduino IoT Cloud. We learned how to use the Arduino IoT Cloud, how to create a new Thing, create Variables and add widgets to the Dashboard. Lastly, we learned how to use the `RTCZero` library to utilize the RTC peripheral and activate an action at a certain moment.
+In this tutorial we have created a basic alarm that turns on a LED through the Arduino Cloud. We learned how to use the Arduino Cloud, how to create a new Thing, create Variables and add widgets to the Dashboard. Lastly, we learned how to use the `RTCZero` library to utilize the RTC peripheral and activate an action at a certain moment.

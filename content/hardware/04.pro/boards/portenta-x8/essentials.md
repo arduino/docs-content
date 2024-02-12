@@ -26,5 +26,9 @@
         Download the latest firmware for Portenta X8 (Recommended).
     </EssentialElement>
 
+<EssentialElement link="/tutorials/portenta-x8/x8-firmware-release-notes" title="Firmware Release Notes" type="library">
+        All available Portenta X8 firmware release notes.
+    </EssentialElement>
+
 
 </EssentialsColumn>

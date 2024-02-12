@@ -162,7 +162,7 @@ In this tutorial you learned how to use the OpenMV IDE with your Portenta board.
 ### Next Steps
 
 -   Experiment with MicroPythons capabilities. If you want some examples of what to do, take a look at the examples included in the OpenMV IDE. Go to: **File > Examples > Arduino > Portenta H7** in the OpenMV IDE.
--   Take a look at the other Portenta H7 tutorials which showcase its many uses. You can find them [here](https://docs.arduino.cc/hardware/portenta-h7#tutorials).
+-   Take a look at the other Portenta H7 tutorials which showcase its many uses. You can find them [here](https://docs.arduino.cc/hardware/portenta-h7/#tutorials).
 
 ## Troubleshooting
 

@@ -83,6 +83,7 @@ symbolic link created for AnalogInput <<===>> ..\..\..\..\..\built-in-examples\0
 ### Including Code Snippets
 
 Code snippets can be included by using the triple backticks syntax e.g. ` ```arduino` followed by the code and three closing backticks. The following syntaxes are supported:
+
 ```
 arduino, bash, markup, clike, c, cpp, css, css-extras, javascript, jsx, js-extras, coffeescript, diff, git, go, graphql, handlebars, json, less, makefile, markdown, objectivec, ocaml, python, reason, sass, scss, sql, stylus, tsx, typescript, wasm, yaml
 ```
@@ -94,8 +95,17 @@ Using this component, the code block will be fetched directly from Github pages.
 
 Syntax:
 ` <CodeBlock url=”https://github.com/example” className="{language}"/>`
- 
+
 Broken URL will show error alert. URL must be in Github domain and must be public.
+
+### Use Custom content con various component
+
+- **Details** pages: on every `product.md` file you have to create 4 variables, related to the hero buttons component in every details page:
+  - primary_button_url: (string)
+  - primary_button_title: (string)
+  - secondary_button_url: (string)
+  - secondary_button_title: (string)
+- **Video**: You can manage the content in the video components (Actually in Learn, Arduino-cloud and MycroPython page), just compiling the file `videoInfo.md` in the main directory of the relative section.
 
 ## Previewing Changes
 
@@ -103,7 +113,6 @@ Whenever you create a Pull Request (PR) GatsbyCloud will create a preview deploy
 
 ## License
 
-![](https://i.creativecommons.org/l/by-sa/3.0/88x31.png) 
+![](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)
 
 Please note that your contribution to the Arduino Documentation is licensed under a Creative Commons Attribution-Share Alike 4.0 License. see https://creativecommons.org/licenses/by-sa/4.0/
-

@@ -1,6 +1,6 @@
 ---
 title: 'Door Intruder Detector Using ML with the Nicla Voice'
-description: "This application note describes how to identify when intruders are trying to force an entrance door by analyzing surroundings sounds using a Nicla Voice, Machine Learning Tools, and the Arduino IoT Cloud."
+description: "This application note describes how to identify when intruders are trying to force an entrance door by analyzing surroundings sounds using a Nicla Voice, Machine Learning Tools, and the Arduino Cloud."
 difficulty: intermediate
 tags:
   - Intruder detector
@@ -9,7 +9,7 @@ tags:
   - BLE
   - Machine Learning Tools
   - Sound recognition
-  - Arduino IoT Cloud
+  - Arduino Cloud
   - Application Note
 author: 'Christopher Mendez'
 libraries:
@@ -41,12 +41,12 @@ In such a connected world, where we have a lot of information in the palm of our
 
 ## Goals
 
-The goal of this application note is to showcase an intruder detection and monitoring system for the front door of the house using a combination of Nicla Voice and Portenta H7 as a host, and the Arduino IoT Cloud. The project's objectives are the following:
+The goal of this application note is to showcase an intruder detection and monitoring system for the front door of the house using a combination of Nicla Voice and Portenta H7 as a host, and the Arduino Cloud. The project's objectives are the following:
 
 - Analyze the surrounding sounds with the onboard microphone of the Nicla Voice and run artificial intelligence algorithms at the edge.
 - Correctly identify if a door has been opened in an ordinary manner or suffered a forced attempt.
 - Report opening and intruder detection events through Bluetooth® Low Energy to a Host.
-- The host must forward the data from the Nicla Voice to the Arduino IoT cloud using an Internet connection (Wi-Fi® in this case).
+- The host must forward the data from the Nicla Voice to the Arduino Cloud using an Internet connection (Wi-Fi® in this case).
 - Create an Arduino Cloud dashboard that syncs in real time to inform and alert the user.
 - Gather real-world data to train a Machine Learning model.
 
@@ -131,7 +131,7 @@ The Nicla Voice will be attached to the guarded door and near the lock, the Port
 
 ![Nicla Voice and Portenta H7 deployment spots](assets/project_deploy.png)
 
-The Nicla will communicate with the Portenta H7 through Bluetooth® Low Energy advertising any event to the host that will receive and forward the notification to the Arduino IoT cloud using Wi-Fi®.
+The Nicla will communicate with the Portenta H7 through Bluetooth® Low Energy advertising any event to the host that will receive and forward the notification to the Arduino Cloud using Wi-Fi®.
 
 The Nicla Voice is powered by a LiPo battery inside its enclosure. The Portenta H7 will be powered by a 5 VDC USB adapter. Although the Portenta H7 can work for long periods without needing external cooling, it is always recommended to keep the devices that are working 24/7 as cool as possible, having the Portenta H7 enclosure a cooling fan connected.
 
@@ -151,7 +151,7 @@ We will go through some important code sections to make this application fully o
 - Including `NDP.h` will enable and run the Neural Decision Processor (NDP120), it's included in the BSP of the Nicla Voice.
 - Including `ArduinoBLE.h` will enable the Bluetooth® Low Energy communication, install it by searching for it on the Library Manager.
 
-The Bluetooth® Low Energy services and characteristics are standardized for the specific use of this application's features. The service is defined as "Immediate alert" which makes it ideal for the use that we will give of notifying on a door opening or forcing event. In addition to this, we defined two characteristics, one for the "Alert Level" that will advertise between both events and a "Battery Level" one to advertise the Nicla Voice battery level to the host. Notice that they have specific and standardized Bluetooth® Low Energy UUIDs.
+The Bluetooth® Low Energy services and characteristics are standardized for the specific use of this application's features. The service is defined as `Immediate alert` which makes it ideal for the use that we will give of notifying on a door opening or forcing event. In addition to this, we defined two characteristics, one for the `Alert Level` that will advertise between both events and a `Battery Level` one to advertise the Nicla Voice battery level to the host. Notice that they have specific and standardized Bluetooth® Low Energy UUIDs.
 
 ```arduino
 #include "NDP.h"
@@ -173,7 +173,13 @@ The Nicla Voice's integrated NDP needs some files stored in the external flash o
 - dsp_firmware_v91.synpkg
 - ei_model.synpkg
 
-***The files must be named exactly as shown above. To store them in the Nicla Voice memory you must use the [Syntiant Uploader](assets/Syntiant_Uploader.zip), these files won't be overwritten after any sketch update.***
+***The files must be named exactly as shown above.***
+
+[Here](assets/Syntiant_Uploader.zip) you can download these files including the Machine Learning model already trained and the uploading tools.
+
+After downloading the required files, to store them in the Nicla Voice memory you must follow the steps detailed on this [guide section](https://docs.arduino.cc/tutorials/nicla-voice/user-manual#ndp120-processor-firmware-update).
+
+***These files won't be overwritten after any sketch update.***
 
 ```arduino
   // Neural Decision Processor firmware and ML model files loading
@@ -185,9 +191,11 @@ The Nicla Voice's integrated NDP needs some files stored in the external flash o
   Serial.println("Configure mic");
   NDP.turnOnMicrophone();
 ```
-The main responsibility of the Nicla Voice code is to listen to and identify the trained sounds. The below code section is in charge of comparing the inferred category and taking a certain action between them. In the case the Nicla detects the door opening, the label parameter will turn to "NN0:opened", this will trigger a Bluetooth® Low Energy alert sending command followed by a listening pause to avoid duplicated alerts and a green LED blinking to visually indicate the event. The same for the "NN0:forcing" label, with the difference that in this case the LED flashes red and the alert message changes.
+The main responsibility of the Nicla Voice code is to listen to and identify the trained sounds. The below code section is in charge of comparing the inferred category and taking a certain action between them. 
 
-```arduino
+In the case the Nicla detects the door opening, the label parameter will turn to `NN0:opened`, this will trigger a Bluetooth® Low Energy alert sending command followed by a listening pause to avoid duplicated alerts and a green LED blinking to visually indicate the event. The same for the `NN0:forcing` label, with the difference that in this case the LED flashes red and the alert message changes.
+
+```cpp
 /**
   Inference Interruption Callback to be executed with every triggered inference,
   it controls the built-in LED's and send the alerts through BLE.
@@ -252,8 +260,8 @@ In the global parameters, we have two variables that will store the local status
 byte BatteryValue = 0;  // last battery level received.
 byte AlertValue = 0;    // last alert value received.
 ```
-In the `thingProperties.h` file we encounter the definition of several important variables to properly connect our project to the internet and the Arduino IoT Cloud.
-- We must update the `THING_ID` variable with our Arduino IoT Cloud Thing ID.
+In the `thingProperties.h` file we encounter the definition of several important variables to properly connect our project to the internet and the Arduino Cloud.
+- We must update the `THING_ID` variable with our Arduino Cloud Thing ID.
 - For a successful internet connection, we must update the `SSID` and `PASS` variables with our Wi-Fi® credentials.
 
 In the `initProperties()` function we have listed the variables that will be monitored in the IoT Cloud and their update method, in this case, is `ON_CHANGE` which means that the Portenta H7 will only send the value of any variable to the Cloud if it's changes compared to the previous value.
@@ -281,7 +289,7 @@ void initProperties(){
 
 WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
 ```
-The main responsibility of the Portenta H7 code is to connect to the Nicla Voice and be aware of new notifications to forward them to the Cloud. To achieve this, the first thing done by the Portenta is to initialize the Bluetooth® Low Energy communication, then initialize the Arduino IoT Cloud service and start scanning for peripherals.
+The main responsibility of the Portenta H7 code is to connect to the Nicla Voice and be aware of new notifications to forward them to the Cloud. To achieve this, the first thing done by the Portenta is to initialize the Bluetooth® Low Energy communication, then initialize the Arduino Cloud service and start scanning for peripherals.
 
 ```arduino
   // Initialize BLE
@@ -294,7 +302,7 @@ The main responsibility of the Portenta H7 code is to connect to the Nicla Voice
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   if (!ArduinoCloud.begin(ArduinoIoTPreferredConnection)) {
     Serial.println("ArduinoCloud.begin FAILED!");
   }
@@ -351,7 +359,7 @@ void loop() {
 
 In order to just get connected with the Nicla Voice, the Portenta searches for the specific "Alert Service" using its UUID `1802` and for the necessary characteristics, the "Battery Level" using the `2A19` UUID  and the "Alert Level" using the `2A06` UUID.
 
-```arduino
+```cpp
   // discover peripheral attributes
   Serial.println("Searching for service 1802 ...");
 
@@ -390,7 +398,7 @@ In order to just get connected with the Nicla Voice, the Portenta searches for t
 ```
 Finally, the Portenta verifies continuously if a characteristic is updated to upload it to the Cloud:
 
-```arduino
+```cpp
 // while the peripheral is connected
   while (peripheral.connected()) {
     
@@ -457,17 +465,16 @@ Within the Arduino Cloud's dashboard, the system variables can be monitored. We 
 
 We can easily access this dashboard from a PC, mobile phone or tablet from anywhere, receiving an instantaneous update wherever we are. In addition, we can set different integrations to complement our project, for example, setting up an IFTTT automation to receive an email, a cellphone notification, or even triggering some automation like turning on all the lights at home whenever an alert is fired.
 
-![Door opening event](assets/opened_door.png)
+![Door opening and intruder detection events](assets/realGif2.gif)
 
-![Intruder detected event](assets/forced_door.png)
 
 ## Full Intruder Detector Example
 
 All the necessary files to replicate this application notes can be found below:
 
-* The complete code can be downloaded [here](assets/Nicla_Portenta_Codes.zip)
-* The enclosure 3D printed models can be downloaded [here](assets/Intruder_Detector_3D_Files.zip). 
-* The Machine Learning Tools project is public [here](https://mltools.arduino.cc/public/204744/latest) so you can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
+* The complete code can be downloaded [**here**](assets/Nicla_Portenta_Codes.zip)
+* The enclosure 3D printed models can be downloaded [**here**](assets/Intruder_Detector_3D_Files.zip). 
+* The Machine Learning Tools project is public [**here**](https://mltools.arduino.cc/public/204744/latest) so you can clone it and modify it to adapt it to your needs by improving the dataset or model architecture for a custom deployment.
 
 ## Conclusion
 

@@ -18,7 +18,7 @@ software:
 
 ## Overview
 
-This tutorial explains how to connect your [Arduino® Max Carrier](http://store.arduino.cc/portenta-max-carrier), with an [Arduino® Portena H7](https://store.arduino.cc/products/portenta-h7) to The Things Network (TTN) using its onboard LoRaWAN® module. The article will focus on achieving communication between the Max Carrier and an application on TTN. 
+This tutorial explains how to connect your [Arduino® Max Carrier](http://store.arduino.cc/portenta-max-carrier), with an [Arduino® Portenta H7](https://store.arduino.cc/products/portenta-h7) to The Things Network (TTN) using its onboard LoRaWAN® module. The article will focus on achieving communication between the Max Carrier and an application on TTN. 
 
 ## Goals
 
@@ -28,7 +28,7 @@ This tutorial explains how to connect your [Arduino® Max Carrier](http://store.
 
 ### Required Hardware and Software
 
-- [Portena H7](https://store.arduino.cc/products/portenta-h7).
+- [Portenta H7](https://store.arduino.cc/products/portenta-h7).
 - [Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier).
 - 868-915 MHz antenna with SMA connector.
 - USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®).
@@ -106,7 +106,7 @@ Upload the sketch, open the Serial Monitor and wait for the firmware update to f
 
 Device provisioning is a process comparable to bank card numbering. Let's think about bank cards; bank cards numbers start with a six-digit vendor ID number that indicates who allocated and controls the card's security; the remaining digits are unique numbers associated with a specific card. Devices with LoRa® and LoRaWAN® capabilities have a similar system; the **Join Server Unique Identifier** (usually referred to as `JoinEUI`) is a number that manages the security and authorizes the device in a network, while the **Device Unique Identifier** (usually referred to as `DevEUI`) is a unique number that identifies the device. The `JoinEUI` and `DevEUI` are required to send information to TTN; the `JoinEUI` number is provided by the network (in this case TTN) while the `DevEUI` is provided by the manufacturer of the device's LoRa® module. 
 
-The following sketch let's you find out what is the `DevEUI` of your Portenta Max Carrier: 
+The following sketch lets you find out what is the `DevEUI` of your Portenta Max Carrier: 
 
 ```arduino
 #define PORTENTA_CARRIER
@@ -114,11 +114,11 @@ The following sketch let's you find out what is the `DevEUI` of your Portenta Ma
 
 auto region = US915;
 
-LoRaModem modem(Serial1);
+LoRaModem modem(SerialLoRa);
 
 void setup() {
   Serial.begin(115200);
-  while(!Serial1);
+  while(!Serial);
 
   if(!modem.begin(region)) {
     Serial.println("Failed to start the module...");
@@ -199,7 +199,7 @@ Now, let's start sending information to TTN. The following sketch enables you to
 
 auto region = US915;
 
-LoRaModem modem(Serial1);
+LoRaModem modem(SerialLoRa);
 
 void setup() {
   Serial.begin(115200);

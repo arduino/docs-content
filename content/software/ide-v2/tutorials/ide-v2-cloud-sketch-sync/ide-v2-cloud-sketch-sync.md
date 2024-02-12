@@ -8,20 +8,20 @@ tags:
 author: 'Karl Söderby'
 ---
 
-The new **Remote Sketchbook integration**, released in July 2021 is a ground-breaking feature that allows you to synchronise your **Arduino Cloud Sketchbook** to your **local computer**. This is a great milestone for people who work on multiple computers or want to store their Sketches securely in the cloud.
+The new **Remote Sketchbook integration**, released in July 2021 is a ground-breaking feature that allows you to synchronise your **Arduino Cloud Sketchbook** to your **local computer**. This is a great milestone for people who work on multiple computers or want to store their Sketches securely in the Cloud.
 
 In this tutorial, we will describe the benefits of this new feature, go through the steps necessary to set it up, how to use it, what limitations there are, and what scenarios this feature is most useful in.
 
 ## Benefits
 
 - **Code anywhere**:
-Write your Arduino sketches on one computer and access them on another, with a single click! Do not worry about synchronisation or USB drives: the Arduino IDE 2 provides the Remote Sketches feature which allows you to store your sketches in the Arduino secure cloud and retrieve them easily on any other workstation.
+Write your Arduino sketches on one computer and access them on another, with a single click! Do not worry about synchronisation or USB drives: the Arduino IDE 2 provides the Remote Sketches feature which allows you to store your sketches in the Arduino secure Cloud and retrieve them easily on any other workstation.
 
 - **Code from your browser**:
 If you want to work on a computer that doesn’t have the Arduino IDE installed, just open the Arduino Web Editor: you’ll get an online IDE with all your sketches just there, plus all the libraries.
 
 - **Backup your code**:
-Your sketches are too important to risk losing them! And life is too short to make copies manually. With Remote Sketches you only need one click and they will be saved in the Arduino secure cloud.
+Your sketches are too important to risk losing them! And life is too short to make copies manually. With Remote Sketches you only need one click and they will be saved in the Arduino secure Cloud.
 
 - **No connection? Work offline, sync later**:
 You don’t need to be always online to work on your remotely stored sketches: you work on a local copy, then as soon as you get back online you click on “Push” and your changes will be uploaded.
@@ -40,7 +40,7 @@ Security is our priority. The Arduino Cloud infrastructure is based on multiple 
 - Your sketches are configured as “Private” by default: you decide what you want to share with other people.
 
 ## Pricing
-This feature is provided **free of charge**! You can use it without any restrictions. The limitations of your [Arduino cloud plan](https://store.arduino.cc/digital/create) apply.
+This feature is provided **free of charge**! You can use it without any restrictions. The limitations of your [Arduino Cloud plan](https://store.arduino.cc/digital/create) apply.
 
 ## Overview
 
@@ -49,7 +49,7 @@ In a nutshell, the steps required to make this integration are the following:
 - Create an Arduino Sketch in the Arduino Cloud.
 - Authenticate your local editor with your Arduino account.
 - Pull a Sketch you want to edit.
-- When you have finished editing, push it back to the cloud. 
+- When you have finished editing, push it back to the Cloud. 
 
 ### Requirements
 
@@ -66,7 +66,7 @@ A) You have an offline editor, and then you have a local Sketchbook, which can f
 
 ![The classic local Sketchbook.](assets/cloud-sketch-sync-img01.png)
 
-B) You are using the Arduino Cloud platform, where Sketches are stored in the cloud and not on your computer. When Sketches are edited they get automatically saved in the cloud, which is not only a great way of keeping track of your Sketches, it is also a more secure option.
+B) You are using the Arduino Cloud platform, where Sketches are stored in the Cloud and not on your computer. When Sketches are edited they get automatically saved in the Cloud, which is not only a great way of keeping track of your Sketches, it is also a more secure option.
 
 ![The online Sketchbook.](assets/cloud-sketch-sync-img02.png)
 
@@ -172,15 +172,15 @@ void loop() {
 
 When we are finished editing, we need to **push it** back to the Arduino Cloud. This is done by clicking the **cloud with an arrow pointing up** icon.
 
-![Click on the cloud icon.](assets/cloud-sketch-sync-img13.png)
+![Click on the Cloud icon.](assets/cloud-sketch-sync-img13.png)
 
 This will open up a modal window, asking for confirmation. Click on **"Push"**.
 
 ![Push the changes.](assets/cloud-sketch-sync-img14.png)
 
-You have now pushed your changes to the cloud. You can easily check if it has been successful by refreshing the online Sketchbook (at Arduino Cloud). The changes should now be visible.
+You have now pushed your changes to the Cloud. You can easily check if it has been successful by refreshing the online Sketchbook (at Arduino Cloud). The changes should now be visible.
 
-![Changes visible in the cloud.](assets/cloud-sketch-sync-img15.png)
+![Changes visible in the Cloud.](assets/cloud-sketch-sync-img15.png)
 
 ## New Cloud Sketches
 
