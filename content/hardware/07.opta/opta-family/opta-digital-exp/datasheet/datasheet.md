@@ -38,10 +38,10 @@ There are two variants of the Arduino Opta® Digital Expansion created to fit th
       <tr>
          <td style="vertical-align: middle;text-align: center;">Inputs</td>
          <td style="vertical-align: middle;text-align: center;">
-            <p>16 x programmable <br> (0-24 V digital | 0-10 V analog)</p>
+            <p>16 x programmable <br>(0-24 V digital | 0-10 V analog)</p>
          </td>
          <td style="text-align: center;">
-            <p>16 x programmable <br> (0-24 V digital | 0-10 V analog)</p>
+            <p>16 x programmable <br>(0-24 V digital | 0-10 V analog)</p>
          </td>
       </tr>
       <tr>
