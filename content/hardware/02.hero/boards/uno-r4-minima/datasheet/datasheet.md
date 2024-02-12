@@ -88,7 +88,7 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 ## Block Diagram
 
-![Arduino R4 Minima Block Diagram](assets/UNO_R4_Minima_Block_Diagram.png)
+![Arduino UNO R4 Minima Block Diagram](assets/UNO_R4_Minima_Block_Diagram.png)
 
 ## Board Topology
 
@@ -111,7 +111,7 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 ### Back View
 
-![Back View of Arduino R4 Minima](assets/backViewMinima.svg)
+![Back View of Arduino UNO R4 Minima](assets/backViewMinima.svg)
 
 ## Microcontroller (R7FA4M1AB3CFM#AA0)
 

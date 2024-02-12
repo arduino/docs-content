@@ -45,10 +45,10 @@ wireless sensor networks, data fusion, artificial intelligence, gas detection
 - **Bosch® BMP390** High-performance pressure sensor
   - Operation range: 300-1250 hPa
   - Absolute accuracy pressure (typ.): ± 0.5 hPa
-  - Relative accuracy pressure (typ.): ± 3.33 hPa (equivalent to ±25 cm)
+  - Relative accuracy pressure (typ.): ± 0.03 hPa (equivalent to ±25 cm)
   - RMS noise in pressure @ highest resolution: 0.02 Pa
   - Temperature coefficient offset: ± 0.6 Pa/K
-  - Long-term stability (12 months): ± 0.016 hPa
+  - Long-term stability (12 months): ± 0.16 hPa
   - Max sampling rate: 200 Hz
   - Integrated 512 byte FIFO buffer
 - **Bosch® BMM150** 3-axis Magnetometer
@@ -103,7 +103,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 ### Assembly Overview
 ![Example of a typical solution for remote environmental sensing including an Arduino® Nicla Sense ME, Portenta H7 and battery. Notice the orientation of the battery's cable in the board's connector. ](assets/niclaSenseMEBattery.png)
 
-**Note** : The NTC pin on the battery connector is optional. This feature allows safer use and thermal shutoff of the PMIC. 
+**Note**: The NTC pin on the battery connector is optional. This feature allows safer use and thermal shutoff. 
 
 
 ## Ratings
@@ -117,7 +117,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | V<sub>IL</sub>       | Input low-level voltage          | 0                                   |     | 0.3V<sub>DDIO_EXT</sub><sup>2</sup> | V    |
 | T<sub>OP</sub>       | Operating Temperature            | -40                                 | 25  | 85                                  | °C   |
 
-**Note** : V<sub>DDIO_EXT</sub> is software programmable.  While the ADC inputs can accept up to 3.3V, the maximum value is at the ANNA B112 operating voltage.
+**Note**: V<sub>DDIO_EXT</sub> is software programmable.  While the ADC inputs can accept up to 3.3V, the maximum value is at the ANNA B112 operating voltage.
 
 **<sup>1</sup>** : All I/O pins operate at V<sub>DDIO_EXT</sub> apart from the following:
 - ADC1 and ADC2 - 1V8
@@ -184,7 +184,7 @@ The SAMD11 microcontroller (U1) is dedicated to act as both the USB bridge as we
 ### Power Tree
 ![Nicla Sense ME Back View](assets/niclaSenseMEPowerTree.svg)
 
-The **Arduino Nicla Sense ME** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the micro USB, a linear 3.3V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB LEDs (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-direction voltage translator running at V<sub>DDIO_EXT</sub>. 
+The **Arduino Nicla Sense ME** can be powered via micro USB (J7), ESLOV (J5) or VIN. This is converted into the relevant voltages via the BQ2512BAYFPR IC (U9). A Schottky diode provides reverse polarity protection to the USB and ESLOV voltages. When voltage is supplied via the micro USB, a linear 3.3V regulator also provides power to the SAMD11 microcontroller used for programming the board as well as for JTAG and SWD. The LED driver (U8) and RGB LEDs (DL1) are driven by a boost voltage of 5V. All other components operate off the 1.8V rail regulated by a buck converter. PMID acts as an OR switch between VIN and BATT and operates the LED driver. All I/O broken out to the pins are fed through a bi-directional voltage translator running at V<sub>DDIO_EXT</sub>. 
 
 Additionally, the BQ25120AYFPR (U9) also provides support for a single cell 3.7V LiPo/Li-ion battery pack connected to J4, allowing the use of the board as a wireless sensor network. The battery charging current is set to 40mA with a termination current of 4mA (10%).
 
@@ -213,8 +213,6 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### Board Recovery
 All Arduino® boards have a built-in bootloader that allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
-
-<div style="page-break-after: always;"></div>
 
 ## Connector Pinouts
 **Note:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
@@ -494,13 +492,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**                        |
-|------------|--------------|------------------------------------|
-| 03/07/2023 | 5           | Certification Summary Table Updated |
-| 22/12/2022 | 4           | Add NTC Image & addition pins info |
-| 13/12/2022 | 3           | Change Solution Overview Image     |
-| 20/07/2021 | 2           | Technical Revisions                |
-| 27/05/2021 | 1           | Initial Version                    |
+| **Date**   | **Revision** | **Changes**                                          |
+| ---------- | ------------ | ---------------------------------------------------- |
+| 09/01/2024 | 6            | High-Performance Pressure Sensor information updated |
+| 03/07/2023 | 5            | Certification Summary Table Updated                  |
+| 22/12/2022 | 4            | Add NTC Image & addition pins info                   |
+| 13/12/2022 | 3            | Change Solution Overview Image                       |
+| 20/07/2021 | 2            | Technical Revisions                                  |
+| 27/05/2021 | 1            | Initial Version                                      |
 
 ## Product Warnings and Disclaimers
 

@@ -79,7 +79,7 @@ We will assign to the **Digital Output pin 2** the name **`digitalOut01`**
 
 To interact with the digital output pin you can use this code:
 
-```
+```cpp
 // Set the Digital Output 01 to HIGH
 
 digitalOut01 := 1;
@@ -102,7 +102,7 @@ Now on the popup menu, you can set the name of the variable, then select the typ
 
 As it is an array you will be able to access its pin in a **For loop** like the following:
 
-```
+```cpp
 // Set all the Digital Outputs to HIGH
 
 FOR pinNumber := 0 TO 7 DO

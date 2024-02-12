@@ -275,7 +275,7 @@ The following commands will help you set and control the GPIO3, which connects t
 
 Let us begin with the commands to access the Portenta X8's shell:
 
-```
+```bash
 adb shell
 sudo su -
 ```
@@ -290,37 +290,37 @@ The aforementioned commands allow you to access the Portenta X8's shell with ele
 
 Subsequently, use the following command to export the gpio device located under `/sys/class/`. In this context, _GPIO3_ corresponds to _GPIO 163_, which is associated with the user-programmable LED we aim to access.
 
-```
+```bash
 echo 163 > /sys/class/gpio/export
 ```
 
 Using the following commands will help you verify the available GPIO elements.
 
-```
+```bash
 ls /sys/class/gpio
 ```
 
 It lists all the GPIOs previously initialized by the system. Meanwhile, the following command lists the details of _GPIO 163_, corresponding to _GPIO3_, which was previously imported:
 
-```
+```bash
 ls /sys/class/gpio/gpio163
 ```
 
 The GPIO can now be configured verifying that GPIO3 elements were successfully exported. The following command with the `I/O` field will set the I/O state of the pin. The pin can be set either as Input using `in` or Output using `out` value.
 
-```
+```bash
 echo <I/O> >/sys/class/gpio/gpio163/direction
 ```
 
 For this example, we will replace the `<I/O>` field with `out` value within the following command:
 
-```
+```bash
 echo out >/sys/class/gpio/gpio163/direction
 ```
 
 To verify the pin setting, use the `cat` command. If correctly configured, this command will display the set value:
 
-```
+```bash
 cat /sys/class/gpio/gpio163/direction
 ```
 
@@ -330,26 +330,25 @@ To set the pin High, you need to assign the value `1`, or `0` to set the pin `HI
 
 To set the pin to `HIGH`:
 
-```
+```bash
 echo 1 >/sys/class/gpio/gpio163/value
-echo 0 >/sys/class/gpio/gpio163/value
 ```
 
 To set the pin to `LOW`:
 
-```
+```bash
 echo 0 >/sys/class/gpio/gpio163/value
 ```
 
 If you have finished controlling the GPIO, you can use the following command to _unexport_ it, ensuring it no longer appears in the userspace:
 
-```
+```bash
 echo 163 >/sys/class/gpio/unexport
 ```
 
 To confirm that the specified GPIO has been properly unexported, you can use the following command:
 
-```
+```bash
 ls /sys/class/gpio
 ```
 
@@ -554,9 +553,9 @@ This sub-section introduces the essential hardware connection points and interfa
 
 The Portenta X8, H7, and C33 enhance functionality through High-Density connectors. For a comprehensive understanding of these connectors, please refer to the complete pinout documentation for each Portenta model.
 
-- [Complete Portenta X8 pinout information](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
-- [Complete Portenta H7 pinout information](https://docs.arduino.cc/static/2d38006e78d2abc588a80f12bb9c0c70/ABX00042-full-pinout.pdf)
-- [Complete Portenta C33 pinout information](https://docs.arduino.cc/static/903c16295f3bf076c2ed23eb1b38791c/ABX00074-full-pinout.pdf)
+- [Complete Portenta X8 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00049-full-pinout.pdf)
+- [Complete Portenta H7 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00042-full-pinout.pdf)
+- [Complete Portenta C33 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf)
 
 ### USB Interface
 
@@ -969,13 +968,13 @@ Please, refer to the [board pinout section](#pinout) of the user manual to find 
 
 Using the Portenta X8, you can obtain a voltage reading that falls within a _0 - 65535_ range. This reading corresponds to a voltage between 0 and 3.3 V. To fetch this reading, use the command:
 
-```
+```bash
 cat /sys/bus/iio/devices/iio\:device0/in_voltage<adc_pin>_raw
 ```
 
 Where `<adc_pin>` is the number of the analog pin to read. For example, in the case of `A0`:
 
-```
+```bash
 cat /sys/bus/iio/devices/iio\:device0/in_voltage0_raw
 ```
 
@@ -1123,14 +1122,14 @@ The following commands, using the Portenta X8 environment, allow you to capture 
 
 First, we need to set environment variables and specify the overlays for our camera and board setup:
 
-```
+```bash
 fw_setenv carrier_custom 1
 fw_setenv overlays ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_rasptenta_base ov_carrier_rasptenta_ov5647_camera_mipi
 ```
 
 The U-Boot environment variables are modified with the above commands and `fw_setenv` sets the changes which are already persistent. The following command sequences can be used on the U-boot shell.
 
-```
+```bash
 setenv carrier_custom 1
 setenv overlays ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_rasptenta_base ov_carrier_rasptenta_ov5647_camera_mipi
 saveenv
@@ -1138,28 +1137,28 @@ saveenv
 
 Define the runtime directory for `Wayland` and load the necessary module for the OV5647 camera:
 
-```
+```bash
 export XDG_RUNTIME_DIR=/run # location of wayland-0 socket
 modprobe ov5647_mipi
 ```
 
 Before capturing or streaming, we need to check the supported formats and controls of the connected video device:
 
-```
+```bash
 v4l2-ctl --list-formats-ext --device /dev/video0
 v4l2-ctl -d /dev/video0 --list-ctrls
 ```
 
 Using `GStreamer`, capture a single frame in `JPEG` format:
 
-```
+```bash
 export GST_DEBUG=3
 gst-top-1.0 gst-launch-1.0 -v v4l2src device=/dev/video0 num-buffers=1 ! "video/x-bayer, format=bggr, width=640, height=480, bpp=8, framerate=30/1"  ! bayer2rgbneon reduce-bpp=t ! jpegenc ! filesink location=/tmp/test.jpg
 ```
 
 This command allows the user to capture one frame and save it as `/tmp/test.jpg`. The following command is used to stream video at 30FPS for approximately 10 seconds using `GStreamer`:
 
-```
+```bash
 gst-top-1.0 gst-launch-1.0 -v v4l2src device=/dev/video0 num-buffers=300 ! "video/x-bayer, format=bggr, width=640, height=480, bpp=8, framerate=30/1"  ! bayer2rgbneon reduce-bpp=t ! queue ! waylandsink
 ```
 
@@ -1192,31 +1191,31 @@ The fan's speed can be controlled using the following code sequence when you are
 
 Export the PWM channel:
 
-```
+```bash
 echo 9 > /sys/class/pwm/pwmchip0/export
 ```
 
 Set the PWM period. By defining the period, you determine the duration of one PWM "cycle". Here, we set it to 100,000, representing 100,000 nanoseconds or 100 microseconds:
 
-```
+```bash
 echo 100000 > /sys/class/pwm/pwmchip0/pwm9/period
 ```
 
 The following command sets the "ON" duration within the given period. A 50% duty cycle, for instance, means the signal is on for half the period and off for the other half:
 
-```
+```bash
 echo 50000 > /sys/class/pwm/pwmchip0/pwm9/duty_cycle #50% duty
 ```
 
 We will then enable the PWM channel exported previously:
 
-```
+```bash
 echo 1 > /sys/class/pwm/pwmchip0/pwm9/enable
 ```
 
 You can use the following command if you want to monitor the temperature of the device or environment (optional step):
 
-```
+```bash
 cat /sys/devices/virtual/thermal/thermal_zone0/temp
 ```
 
@@ -1258,25 +1257,25 @@ if __name__ == "__main__":
 
 If you are logged in with normal privileges, the speed of the fan can be controlled using the following instruction sequence. Export the PWM channel using the command below:
 
-```
+```bash
 echo 9 | sudo tee /sys/class/pwm/pwmchip0/export
 ```
 
 Set the PWM period:
 
-```
+```bash
 echo 100000 | sudo tee /sys/class/pwm/pwmchip0/pwm9/period
 ```
 
 Determine the duty cycle at 50%:
 
-```
+```bash
 echo 50000 | sudo tee /sys/class/pwm/pwmchip0/pwm9/duty_cycle #50% duty
 ```
 
 And activate the PWM channel:
 
-```
+```bash
 echo 1 | sudo tee /sys/class/pwm/pwmchip0/pwm9/enable
 ```
 
@@ -1856,13 +1855,13 @@ chmod 700 ~/bin/iperf3
 
 Once installed, _iperf3_ will be ready on your device. To ensure it operates without issues, run:
 
-```
+```bash
 chmod +x iperf3
 ```
 
 By following the provided instructions, the tool should be located in the Linux shell at:
 
-```
+```bash
 # ~bin/
 ```
 
@@ -3010,20 +3009,20 @@ Please, refer to the [board pinout section](#pinout) of the user manual to find 
 
 With admin (root) access, you can use the following commands within the shell for the Portenta X8:
 
-```
+```bash
 sudo modprobe spidev
 ```
 
 Present sequence of commands is used to enable the SPI device interface on the Portenta X8. After adding the `spidev` module to the system's configuration, the system is rebooted to apply the changes.
 
-```
+```bash
 echo "spidev" | sudo tee > /etc/modules-load.d/spidev.conf
 sudo systemctl reboot
 ```
 
 Following section configures a service named `my_spi_service` to use the SPI device available at `/dev/spidev0.0`.
 
-```
+```yaml
 services:
     my_spi_service:
        devices:
@@ -3141,20 +3140,20 @@ Please, refer to the [pinout section](#pinout) of the user manual to find them o
 
 For the Portenta X8, it is possible to use the following commands within the shell when you have admin (root) access:
 
-```
+```bash
 sudo modprobe i2c-dev
 ```
 
 Present sequence of commands is used to enable the I2C device interface on the Portenta X8. After adding the `i2c-dev` module to the system's configuration, the system is rebooted to apply the changes.
 
-```
+```bash
 echo "i2c-dev" | sudo tee > /etc/modules-load.d/i2c-dev.conf
 sudo systemctl reboot
 ```
 
 Following section configures a service named `my_i2c_service` to use the I2C device available at `/dev/i2c-3`.
 
-```
+```yaml
 services:
     my_i2c_service:
        devices:
@@ -3327,7 +3326,7 @@ Since the CAN bus pins are integrated within the High-Density connectors, they a
 
 For the Portenta X8, when you have admin (root) access, you can execute the following commands within the shell to control the CAN bus protocol. The CAN transceiver can be enabled using the following command
 
-```
+```bash
 echo 164 > /sys/class/gpio/export && echo out > /sys/class/gpio/gpio164/direction && echo 0 > /sys/class/gpio/gpio164/value
 ```
 
@@ -3335,13 +3334,13 @@ This command sequence activates the CAN transceiver. It does so by exporting _GP
 
 For Portenta X8, it is possible to use the following commands:
 
-```
+```bash
 sudo modprobe can-dev
 ```
 
 The necessary modules for CAN (Controller Area Network) support on the Portenta X8 are loaded. The `can-dev` module is added to the system configuration, after which the system is rebooted to apply the changes.
 
-```
+```bash
 echo "can-dev" | sudo tee > /etc/modules-load.d/can-dev.conf
 sudo systemctl reboot
 ```
@@ -3642,8 +3641,11 @@ Please, refer to the board pinout section of the user manual to find them on the
 
 For the Portenta X8, when you have admin (root) access, you can execute the command `ls /dev/ttyUSB* /dev/ttyACM* /dev/ttymxc*` within the shell to list available serial ports in Linux. Typically, USB serial devices could appear as _/dev/ttyUSBx_, _/dev/ttyACMx_, or _/dev/ttymxcx_.
 
-```
+```bash
 ls /dev/ttyUSB* /dev/ttyACM* /dev/ttymxc*
+```
+
+```bash
 /dev/ttymxc2   // Something similar
 ```
 

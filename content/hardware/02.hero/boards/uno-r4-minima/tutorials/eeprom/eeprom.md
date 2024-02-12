@@ -19,7 +19,7 @@ The goals of this tutorials are:
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)) 
 - USB-C cable 
-- [Arduino R4 Minima](/hardware/uno-r4-minima)
+- [Arduino UNO R4 Minima](/hardware/uno-r4-minima)
 - [UNO R4 Board Package](/tutorials/uno-r4-minima/minima-getting-started)
 
 ## EEPROM

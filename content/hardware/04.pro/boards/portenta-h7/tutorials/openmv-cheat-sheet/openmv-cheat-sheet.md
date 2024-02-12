@@ -1,6 +1,7 @@
 ---
 title: 'Arduino Portenta H7 MicroPython Cheat Sheet'
 description: 'Learn how to set up the Arduino Portenta H7 for OpenMV. Obtain information regarding pins and how to use OpenMV and MicroPython.'
+difficulty: beginner
 tags:
   - Installation
   - MicroPython

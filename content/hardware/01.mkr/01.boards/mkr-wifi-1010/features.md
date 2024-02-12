@@ -6,21 +6,19 @@ The MKR WiFi 1010 is a great choice for any beginner, maker or professional to g
 
 <FeatureList>
 
+<Feature title="Arduino Cloud" image="wifi">
+The MKR WiFi 1010 is compatible with the Arduino Cloud platform. Build IoT projects in just minutes!
+<FeatureWrapper>
+  <FeatureLink title="Go to Platform" url="https://app.arduino.cc/"/>
+</FeatureWrapper>
+</Feature>
+
 <Feature title="Bluetooth®" image="bluetooth">
 
 Enables Bluetooth® allowing you to implement Bluetooth® in your projects.
 <FeatureWrapper>
-  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-wifi-1010/enabling-ble"/>
-  <FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/arduinoble/"/>
-</FeatureWrapper>
-</Feature>
-
-<Feature title="WiFi" image="wifi">
-
-Enables WiFi allowing you to connect wirelessly to your peripherals.
-<FeatureWrapper>
-  <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-wifi-1010/hosting-a-webserver"/>
-  <FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/wifinina/"/>
+<FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-wifi-1010/enabling-ble"/>
+<FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/arduinoble/"/>
 </FeatureWrapper>
 </Feature>
 

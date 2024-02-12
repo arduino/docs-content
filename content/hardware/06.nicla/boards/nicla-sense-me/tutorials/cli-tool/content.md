@@ -99,27 +99,37 @@ You can set the rate and the latency of each sensor, please check the [Nicla Sen
 
 The syntax for configuring a sensor is:
 
-`bhy sensor config -p <YourCOMPort> -sensor <SENSORID> -rate <RATE> -latency <LATENCY>`
+```bash
+bhy sensor config -p <YourCOMPort> -sensor <SENSORID> -rate <RATE> -latency <LATENCY>
+```
 
 For example, if you want to configure the **Gyroscope passthrough** which has the sensor ID #**10** connected on the port `COM01` with a rate of 1Hz and a latency of 0ms, you will enter:
 
-`bhy sensor config -p /dev/ttyACM2 -sensor 10 -rate 1 -latency 0`
+```bash
+bhy sensor config -p /dev/ttyACM2 -sensor 10 -rate 1 -latency 0
+```
 
 Now it is configured to output the reading every second (1Hz).
 
 ### Disable
 If you set the latency and rate to **0**, the sensor will be disabled and it will not output any data.
 
-`bhy sensor config -p <YourCOMPort> -sensor <SENSORID> -rate 0 -latency 0`
+```bash
+bhy sensor config -p <YourCOMPort> -sensor <SENSORID> -rate 0 -latency 0
+```
 
 ### Read Data From a Sensor
 If you want to read data from a sensor and print it once, you can use:
 
-`bhy sensor read -p <YourCOMPort>`
+```bash
+bhy sensor read -p <YourCOMPort>
+```
 
 To do it continuously, you can add the parameter `-live`
 
-`bhy sensor read -live -p <YourCOMPort>`
+```bash
+bhy sensor read -live -p <YourCOMPort>
+```
 
 ## Using a Passthrough Board with CLI
 When you have a firmware for the BHI module or a sketch for the MCU already compiled in a **.bin** file, you can upload them through a MKR or Portenta board directly using the terminal. You need to upload a passthrough sketch to the MKR or Portenta board, allowing the Nicla to communicate with the computer through the host board. The sketch can be found at **Examples > Arduino_BHY_HOST > Passthrough.ino**.
@@ -129,12 +139,16 @@ You then need to connect the Nicla board to the desired passthrough board either
 ### Upload a Sketch
 Syntax for uploading a sketch:
 
-`bhy dfu -t nicla -bin <CompiledSketch.bin> -p <MKRBoardCOMPort>`
+```bash
+bhy dfu -t nicla -bin <CompiledSketch.bin> -p <MKRBoardCOMPort>
+```
 
 ### Updating the Firmware
 Syntax for uploading the firmware:
 
-`bhy dfu -t bhi -bin <CompiledFirmware.bin> -p <MKRBoardCOMPort>`
+```bash
+bhy dfu -t bhi -bin <CompiledFirmware.bin> -p <MKRBoardCOMPort>
+```
 
 
 ## Conclusion

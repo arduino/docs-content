@@ -1,6 +1,7 @@
 ---
 title: 'Secure Boot on Portenta H7'
 description: 'Learn how to use secure boot on the Arduino Portenta H7.'
+difficulty: beginner
 tags: 
   - Secure Boot
 author: 'Umberto Baldi'
@@ -46,7 +47,8 @@ This can be done with **imgtool**. You can download and install it directly from
 ***`imgtool` is already installed by the mbed platform and can be found in the `%LOCALAPPDATA%\Arduino15\packages\arduino\tools\imgtool` directory on Windows, in `~/.arduino15/packages/arduino/tools/imgtool` on Linux and in `~/Library/Arduino15/packages/arduino/tools/imgtool` on macOS.***
 
 To generate the new keys you can use this command line:
-```
+
+```bash
 imgtool keygen --key my-sign-keyfile.pem -t ecdsa-p256
 imgtool keygen --key my-encrypt-keyfile.pem -t ecdsa-p256
 ```
@@ -56,7 +58,8 @@ Remember to **save the keys and keep them in a secure location** and not to lose
 
 ### 2. Upload the Custom Keys to the Board
 Once the keys have been generated, they have to be uploaded to the Portenta H7. This procedure has to be done only once, because it is persistent. To extract the public\private key and encode it in to a "C" byte array inside a `.h` header file you can use:
-```
+
+```bash
 imgtool getpriv -k my-encrypt-keyfile.pem > ecsda-p256-encrypt-priv-key.h 
 imgtool getpub -k my-sign-keyfile.pem > ecsda-p256-signing-pub-key.h
 ```
@@ -70,7 +73,8 @@ To do so, just save the sketch to another location and replace the `ecsda-p256-e
 Since the default keys have been changed in favour of custom generated ones, the new ones have to be used when compiling and uploading a sketch, because the compiled sketch is signed and encrypted using such keys.
 
 To override the security keys used during the compile, you have to use the Arduino CLI and specify the keys with:
-```
+
+```bash
 arduino-cli compile -b arduino:mbed_portenta:envie_m7 --board-options security=sien --keys-keychain <path-to-your-keys> --sign-key ecdsa-p256-signing-priv-key.pem --encrypt-key ecdsa-p256-encrypt-pub-key.pem /home/user/Arduino/MySketch
 ```
 

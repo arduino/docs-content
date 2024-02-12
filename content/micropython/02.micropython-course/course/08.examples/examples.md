@@ -46,13 +46,13 @@ mip.install(URL)
 
 Running this script will install the module on your board, inside a folder called `lib`. You can check this out under **"Files"** while your board is connected via your MicroPython editor.
 
-***How to install modules are explained in more detail in the [Introduction to MicroPython](/micropython-course/course/introduction-python) chapter.***
+***How to install modules are explained in more detail in the [Introduction to MicroPython](/micropython/micropython-course/course/introduction-python) chapter.***
 
 ### Removing Modules
 
 If you install too many modules, you will run out of space. You can remove a module directly in the editor, by selecting the file and clicking on the **"Delete"** icon.
 
-***For more detailed instructions, see the [Removing Modules](/micropython-course/course/introduction-python#removing-modules) section in the second chapter.***
+***For more detailed instructions, see the [Removing Modules](/micropython/micropython-course/course/introduction-python#removing-modules) section in the second chapter.***
 
 ## Button
 

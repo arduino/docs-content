@@ -147,7 +147,7 @@ To pull or push repositories, you have to generate an API key. This is done by g
 
 Use the following command in git on your machine. To get the repository on your machine, replace "YOUR_FACTORY" with the name of your Factory. The "-b" parameter specifies a branch to checkout after cloning the repository. Running this command will get the container repository, where we will put our folder.
 
-```
+```bash
 git clone https://source.foundries.io/factories/YOUR_FACTORY/containers.git -b devel
 ```
 
@@ -157,13 +157,13 @@ Put the "x8-custom-test" folder in the repository and push it with git. When you
 
 After the build finishes, it can take up to 10 minutes for your device to update over-the-air to this new version. You can inspect it via the "Devices" tab of your FoundriesFactory. After your device takes the update, navigate into the "x8-custom-test" folder, which should be located on your board now. This allows us to build our container with a simple command. Using ```docker build``` with a ```--tag``` will let us give the container a tag so we can easily keep track of what version of the build this is.
 
-```python
+```bash
 docker build --tag "x8-custom-test:latest" .
 ```
 
 Now that it is built, we can run it with ```docker run```, finding it with the tag that we chose to give to the build we want to run. Here we need to enter the user information into the --user tag. This information is found inside the "docker-compose.yml" file.
 
-```python
+```bash
 docker run -it --rm --user "63" x8-custom-test:latest
 ```
 
@@ -171,19 +171,19 @@ docker run -it --rm --user "63" x8-custom-test:latest
 
 An option for testing an app or container is to use "docker-compose". It is helpful when we have a lot of settings in our "docker-compose.yml" file since we don't have to use those settings in the run argument with this method. First, navigate into the container folder.
 
-```python
+```bash
 cd /home/fio/x8-custom-test
 ```
 
 This docker-compose command will start your application and register it as a systemd service that will persist even when a reboot occurs. So at the next boot, your docker-compose app will run automatically.
 
-```python
+```bash
 docker-compose up --detach
 ```
 
 To stop the docker-compose app from running, use the following command:
 
-```python
+```bash
 docker-compose stop
 ```
 
@@ -191,14 +191,17 @@ docker-compose stop
 
 An alternative method to deploy the custom container is by using the Docker Hub platform. For this, it needs a [Docker Hub account](https://hub.docker.com/) to have your own repository to have the custom container uploaded. When you have the repository ready, the following command will let you upload the custom container image.
 
-```
+```bash
 docker push HUB_USERNAME/x8-custom-test
 ```
 
 The custom container image can now be found within `HUB_USERNAME` Docker Hub repository. The image can be accessed whenever any connectivity type grants access to the container image. To pull the image and deploy the container, you will need to connect the Portenta X8 via ADB and use following commands in sequence:
 
-```
+```bash
 adb shell
+```
+
+```bash
 docker pull x8-custom-test
 ```
 

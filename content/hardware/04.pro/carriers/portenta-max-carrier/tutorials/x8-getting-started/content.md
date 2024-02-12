@@ -62,7 +62,8 @@ To make use of the Portenta Max Carrier you will need to power it through either
 The Portenta Max Carrier equips two different memory units onboard, a flash memory and a mini SD card slot. The Flash memory onboard the Portenta Max Carrier has 2 MB of storage via QSPI. The Mini SD card interface makes it possible to extend the storage size. It can be used to process log data, from sensors or programmed on-board computer registry.
 
 If you have an SD card connected to the Max Carrier you can create a directory on the SD card by using the following command:
-```python
+
+```bash
 mkdir -p /tmp/sdcard
 ```
 
@@ -73,7 +74,8 @@ The Portenta Max Carrier features the CS42L52 from Cirrus Logic®, a stereo CODE
 ![Audio connections on the Portenta Max Carrier](assets/audio-interface-max-carrier.svg)
 
 To use this feature with Linux, you could use something like the [alsa-lib](https://github.com/alsa-project/alsa-lib). You can run it with this command:
-```python
+
+```bash
 apk update && apk add alsa-utils alsa-utils-doc alsa-lib alsaconf alsa-ucm-conf && speaker-test -t sine -f 440 -c 2 -r 48000 -D hw:0,0
 ```
 
@@ -100,7 +102,8 @@ For more in-depth information about LoRa® and LoRaWAN®, please read [The Ardui
 The Gigabit Ethernet physical interface is directly connected to the high-density connector to the Portenta X8 board. The connector includes an LED for indicating activity using the color orange, there is also a LED using the color green to indicate speed.
 
 To access the 1 Gbps connection Ethernet peripheral on the Max Carrier you can use the following command:
-```python
+
+```bash
 ETH_1G=`dmesg | grep "fec 30be0000.ethernet eth0: Link is Up - 1Gbps/Full"`
 ```
 

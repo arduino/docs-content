@@ -20,7 +20,7 @@ The goals of this project are:
 ## Hardware & Software Needed
 
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software))
-- [Arduino R4 Minima](https://store.arduino.cc/uno-r4-minima)
+- [Arduino UNO R4 Minima](https://store.arduino.cc/uno-r4-minima)
 - [UNO R4 Board Package](/tutorials/uno-r4-minima/minima-getting-started)
 
 ## Real-Time Clock (RTC)
