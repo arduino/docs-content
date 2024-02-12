@@ -620,4 +620,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**        |
 |------------|--------------|------------------- |
-| 29/01/2024 | 1            | First Release      |
+| 12/02/2024 | 1            | First Release      |
