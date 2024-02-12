@@ -126,7 +126,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Input impedance</td>
-            <td>TBD kΩ</td>
+            <td>1.15 kΩ</td>
         </tr>
     </tbody>
 </table>
@@ -150,7 +150,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input LSB value</td>
-            <td>TBD µV</td>
+            <td>2.44 mV</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Accuracy</td>
@@ -302,7 +302,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Short-circuit protection</td>
-            <td>TBD</td>
+            <td>No, external fuse required</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Relay rated voltage</td>
