@@ -114,4 +114,4 @@ Congratulations, you can now check what is going on with two boards simultaneous
 
 ### More Tutorials
 
-You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide-v2/).
+You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide/#ide-v2).
