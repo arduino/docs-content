@@ -63,7 +63,7 @@ void setup() {
 }
 ```
 
-### Window Manager 
+### Window Manager
 
 The examples in this tutorial will be using the window manager method. This makes it easier to manage the screen elements and widgets. However, it is also possible to create emWin sketches without the window manager, which will be shown in this section.
 
@@ -228,7 +228,7 @@ void setup() {
 
 void loop() {
   /* Keep emWin alive, handle touch and other stuff */
-  GUI_Exec();  
+  GUI_Exec();
 }
 ```
 
@@ -340,7 +340,7 @@ static void _cbChildWinCheck(WM_MESSAGE * pMsg) {
     /* Get Id of sender window and notification code */
       Id    = WM_GetId(pMsg->hWinSrc);
       NCode = pMsg->Data.v;
-      
+
       switch (Id) {
         case GUI_ID_CHECK0:
           switch(NCode) {
@@ -348,7 +348,7 @@ static void _cbChildWinCheck(WM_MESSAGE * pMsg) {
               /* When the value of the checkbox changed, redraw parent window to update the display of the state */
               WM_InvalidateWindow(pMsg->hWin);
               break;
-          }  
+          }
           break;
       }
       break;
@@ -370,7 +370,7 @@ void setup() {
 
 void loop() {
   /* Keep emWin alive, handle touch and other stuff */
-  GUI_Exec();  
+  GUI_Exec();
 }
 ```
 
@@ -481,7 +481,7 @@ void setup() {
 
 void loop() {
   /* Keep emWin alive, handle touch and other stuff */
-  GUI_Exec();  
+  GUI_Exec();
 }
 ```
 
@@ -534,7 +534,7 @@ In the `void loop()` of the sketch the calculation of time for the animation nee
 <source src="assets/emwin_progbar.mp4" type="video/mp4" />
 </video>
 
-<br>
+<br />
 
 **Full Example:**
 
@@ -631,7 +631,7 @@ void loop() {
   }
 
   /* Keep emWin alive, handle touch and other stuff */
-  GUI_Exec();  
+  GUI_Exec();
 }
 ```
 
@@ -709,7 +709,7 @@ static void _cbChildWinBtn(WM_MESSAGE * pMsg) {
     /* Get Id of sender window and notification code */
       Id    = WM_GetId(pMsg->hWinSrc);
       NCode = pMsg->Data.v;
-      
+
       switch (Id) {
         case ID_BUTTON:
           switch(NCode) {
@@ -744,7 +744,7 @@ void setup() {
 
 void loop() {
  /* Keep emWin alive, handle touch and other stuff */
-  GUI_Exec();  
+  GUI_Exec();
 }
 ```
 
