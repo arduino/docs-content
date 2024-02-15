@@ -92,7 +92,7 @@ while True:
 
 An example of the analog pin is the ADC class, which supplies an interface to analog-to-digital converters, and figures a single endpoint that can sample a continuous voltage and convert it to a discretized value.
 
-There are four methods to use inside the ADC class: `ADC.init`, `ADC.block()`, `ADC.read_16()` and `ADC.read_uv()`.
+There is (only) one method to use inside the ADC class: `ADC.read_u16()`.
 
 ### Analog Read
 
