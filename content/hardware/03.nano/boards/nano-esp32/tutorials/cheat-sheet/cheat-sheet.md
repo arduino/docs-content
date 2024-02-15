@@ -412,7 +412,7 @@ void setup() {
 
 ## USB Serial & UART
 
-The Nano ESP32 board features 3 hardware serial ports, as well as a port exposed via the USB port.
+The Nano ESP32 board features 3 hardware serial ports, as well as a port exposed via USB.
 
 - `Serial` refers to the USB port.
 - `Serial0` refers to the hardware serial port (UART), accessible via the board's RX/TX pins (D0, D1)
@@ -479,7 +479,7 @@ Serial1.write("Hello world!");
 Serial2.write("Hello world!");
 ```
 
-- Replace `RXPIN` and `TXPIN` with the GPIOs you want to assign.
+- Replace `RXPIN` and `TXPIN` with the GPIOs you want to assign (e.g. `D4`, `D5`).
 - You can then use commands such as `Serial1.write()` and `Serial1.read()`.
 
 The `SERIAL_8N1` parameter is the configuration for serial communication.
