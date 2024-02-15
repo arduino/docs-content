@@ -322,21 +322,9 @@ The use of a USB 3.0 compatible port will ensure that the current requirements f
 
 The following charts represent the thermal behavior of the Portenta X8 in different cooling scenarios.
 
-![](assets/thermal.svg)
+![](assets/thermal-2.svg)
 
 The ✅ and ❌ symbols in the horizontal axis of the charts represent the Portenta X8 working state respectively.
-
-#### Mean Time Between Failure (MTBF)
-
-MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
-
-The MTBF figure (in hours/years) for the Portenta X8 can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F parts count method.
-
-|  **Standard** | **Portenta X8** | **Environmental Conditions** |
-|:-------------:|:----------------------:|:----------------------------:|
-| MIL-HDBK-217F |    551640 h/62 years   |             25 ºC            |
-
-**Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_.
 
 ## Functional Overview
 
@@ -389,6 +377,18 @@ The MIMX8MM6CVTKZAA iMX8M (U2) features a quad-core Arm® Cortex® A53 running a
 ### STM32 Dual Core Microprocessor
 
 The X8 includes an embedded H7 in the form of a STM32H747AII6 IC (U20) with a dual-core Arm® Cortex® M7 and Arm® Cortex® M4. This IC is used as an I/O expander for the NXP® i.MX 8M Mini (U2). Peripherals are automatically controlled via the M7 core. Additionally, the M4 core is available for real-time control of motors and other time-critical machinery at a barebones level. The M7 core acts as a mediator between the peripherals and the i.MX 8M Mini. It achieves this by running a custom firmware [https://github.com/arduino/portentax8-stm32h7-fw](https://github.com/arduino/portentax8-stm32h7-fw) normally invisible to the User, which maps all its peripherals as Linux devices. Advanced users can customize the M7 firmware to fit their needs but this could break the seamless Linux integration. Users are instead encouraged to write custom Arduino programs (sketches) running on the M4, which can access all the peripherals supported by the M7. The STM32H7 is not exposed to networking and should be programmed via the i.MX 8M Mini (U2).
+
+## Mean Time Between Failure (MTBF)
+
+MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
+
+The MTBF figure (in hours/years) for the Portenta X8 can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F parts count method.
+
+|  **Standard** | **Portenta X8** | **Environmental Conditions** |
+|:-------------:|:----------------------:|:----------------------------:|
+| MIL-HDBK-217F |    551640 h/62 years   |             25 ºC            |
+
+**Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_.
 
 ## Wi-Fi®/Bluetooth® Connectivity
 
