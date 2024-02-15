@@ -27,7 +27,7 @@ In this tutorial we will learn how attaching an external relay to the Arduino Na
 
 ## Hardware & Software Needed
 * [Arduino Cloud](https://cloud.arduino.cc)
-* [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit)
+* [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit) *(currently out of stock)*
 * [3D-printed enclosure](https://www.printables.com/model/379111-plant-watering-kit-parts) (optional)
 * USB - wall adapter (not included in the kit)
 
@@ -74,7 +74,7 @@ Now let's wire up the submersible pump. This pump runs on 5V, and draws more cur
 
 ![Pump connected](./assets/step3.png)
 
-***Note: These types of subermisible pumps can easily break if they're run without being submersed in water. In this project, a faulty pump might have a short circuit, causing the board to reset as soon as the pump is engaged.***
+***Note: These types of submersible pumps can easily break if they're run without being submersed in water. In this project, a faulty pump might have a short circuit, causing the board to reset as soon as the pump is engaged.***
 
 Now find the LED Grove button and a Grove cable. This cable also needs to be cut to expose the copper wire inside. The wires from the Grove cable should be connected as follows:
 
