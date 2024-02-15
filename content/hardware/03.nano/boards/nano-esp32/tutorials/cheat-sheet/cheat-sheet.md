@@ -415,9 +415,9 @@ void setup() {
 The Nano ESP32 board features 3 hardware serial ports, as well as a port exposed via USB.
 
 - `Serial` refers to the USB port.
-- `Serial0` refers to the hardware serial port (UART), accessible via the board's RX/TX pins (D0, D1)
-- `Serial1` is the second UART port, which can be assigned to any free GPIO.
-- `Serial2` is the third UART port, which can also be assigned to any free GPIO.
+- `Serial0` refers to the first hardware serial port (UART), accessible via the board's RX/TX pins (D0, D1).
+- `Serial1` is the second UART port, which can be assigned to any free GPIOs.
+- `Serial2` is the third UART port, which can also be assigned to any free GPIOs.
 
 ### Native USB
 
