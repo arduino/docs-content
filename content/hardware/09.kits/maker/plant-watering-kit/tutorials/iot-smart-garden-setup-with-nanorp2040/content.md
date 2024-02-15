@@ -27,7 +27,7 @@ In this tutorial we will learn how attaching an external relay to the Arduino Na
 
 ## Hardware & Software Needed
 * [Arduino Cloud](https://cloud.arduino.cc)
-* [Arduino Plant Watering Kit](https://store.arduino.cc/plant-watering-kit) *(currently out of stock)*
+* Arduino Plant Watering Kit
 * [3D-printed enclosure](https://www.printables.com/model/379111-plant-watering-kit-parts) (optional)
 * USB - wall adapter (not included in the kit)
 
