@@ -412,10 +412,12 @@ void setup() {
 
 ## USB Serial & UART
 
-The Nano ESP32 board features 2 separate hardware serial ports.
+The Nano ESP32 board features 3 hardware serial ports, as well as a port exposed via the USB port.
 
-One port is exposed via USB-C®, and
-One is exposed via RX/TX pins.
+- `Serial` refers to the USB port.
+- `Serial0` refers to the hardware serial port (UART), accessible via the board's RX/TX pins (D0, D1)
+- `Serial1` is the second UART port, which can be assigned to any free GPIO.
+- `Serial2` is the third UART port, which can also be assigned to any free GPIO.
 
 ### Native USB
 
@@ -430,7 +432,7 @@ To send and receive data through UART, we will first need to set the baud rate i
 
 ### UART
 
-The pins used for UART on the Nano ESP32 are the following:
+The default pins for UART communication on the Nano ESP32 are the following:
 
 | Pin | Function | Description          |
 | --- | -------- | -------------------- |
@@ -460,6 +462,30 @@ And to write something, we can use the following command:
 ```arduino
 Serial0.write("Hello world!");
 ```
+
+### Serial1 & Serial2
+
+The Nano ESP32 features additional hardware serial ports, but these needs to be manually assigned.
+
+To use `Serial1` and `Serial2`, you need to initialize them in your program's `setup()` function:
+
+```arduino
+//initialization
+Serial1.begin(9600, SERIAL_8N1, RX1PIN, TX1PIN);
+Serial2.begin(9600, SERIAL_8N1, RX2PIN, TX2PIN);
+
+//usage
+Serial1.write("Hello world!");
+Serial2.write("Hello world!");
+```
+
+- Replace `RXPIN` and `TXPIN` with the GPIOs you want to assign.
+- You can then use commands such as `Serial1.write()` and `Serial1.read()`.
+
+The `SERIAL_8N1` parameter is the configuration for serial communication.
+- `8` = data word length (8-bit). Can be changed to 5,6,7-bits.
+- `N` = parity, in this case "none". Can be changed to "even" (E) or "odd" (O).
+- `1` = stop bit, other option available is 2.
 
 ## I2S
 
