@@ -419,7 +419,7 @@ The Nano ESP32 board features 3 hardware serial ports, as well as a port exposed
 - `Serial1` is the second UART port, which can be assigned to any free GPIOs.
 - `Serial2` is the third UART port, which can also be assigned to any free GPIOs.
 
-### Native USB
+### Serial (Native USB)
 
 Sending serial data to your computer is done using the standard `Serial` object.
 
@@ -430,7 +430,9 @@ Serial.print("hello world");
 
 To send and receive data through UART, we will first need to set the baud rate inside `void setup()`.
 
-### UART
+### Serial0 (UART)
+
+***Please note: `Serial0` is shared with the bootloader/kernel, which prints a few messages at boot/reset, and in the event of a crash, the crash dumps is printed via FreeRTOS on this serial port. For these reasons, you may want to use the `Serial1` or `Serial2` ports to avoid any interference ([read more](#serial1--serial2-uart)).***
 
 The default pins for UART communication on the Nano ESP32 are the following:
 
@@ -463,7 +465,7 @@ And to write something, we can use the following command:
 Serial0.write("Hello world!");
 ```
 
-### Serial1 & Serial2
+### Serial1 & Serial2 (UART)
 
 The Nano ESP32 features 2 additional hardware serial ports that have no pre-defined pins, and can be connected to any free GPIO. Therefore, to use them, their TX and RX pins need to be manually assigned.
 
