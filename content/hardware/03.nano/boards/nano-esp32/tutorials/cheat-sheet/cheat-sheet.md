@@ -465,7 +465,7 @@ Serial0.write("Hello world!");
 
 ### Serial1 & Serial2
 
-The Nano ESP32 features additional hardware serial ports, but these needs to be manually assigned.
+The Nano ESP32 features 2 additional hardware serial ports that have no pre-defined pins, and can be connected to any free GPIO. Therefore, to use them, their TX and RX pins need to be manually assigned.
 
 To use `Serial1` and `Serial2`, you need to initialize them in your program's `setup()` function:
 
