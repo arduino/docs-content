@@ -369,6 +369,10 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 <div style="page-break-after:always;"></div>
 
+### Block Diagram
+
+![Block diagram](assets/Opta_Digital_EXP_Block_Diagram.svg)
+
 ## Functional Overview
 ### Product View
 ![Arduino Opta® Expansion EMR and SSR variants](assets/AFX0005-6.png)
