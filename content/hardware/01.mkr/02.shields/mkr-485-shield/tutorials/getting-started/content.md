@@ -1,7 +1,6 @@
 ---
-slug: '/en/Guide/MKR485Shield'
-date: 'February 05, 2018, at 08:43 PM'
 title: 'Getting Started with the MKR 485 Shield'
+description: 'Get started easily with the MKR 485 Shield.'
 tags:
     - RS485
 author: 'Arduino'
