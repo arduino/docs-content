@@ -26,13 +26,11 @@ Most of these configurations are physical and the 3 ways dip switch allows you t
 
 ![The MKR 485 Shield](assets/MKR485_featured.jpg)
 
-### Tutorials
+## Use Cases
 
-Now that you have a basic knowledge of the shield, you may find inspiration in our [Project Hub](https://projecthub.arduino.cc/) tutorial platform.
+With the MKR 485 Shield you can interface with devices supporting the 485 standard. In the tutorial in the link below, you can learn how to interface with an **energy meter** using the Modbus protocol, and send the data to the Arduino Cloud.
 
-<iframe frameborder='0' height='410' scrolling='no' src='https://create.arduino.cc/projecthub/123325/monitor-your-energy-bill-via-modbus-mkr-wifi-1010-and-rs485-814e5e/embed?use_route=project' width='354' style='margin-top:30px'></iframe>
-
-This shield may be used with the libraries already available for 485 communication.
+- [Modbus Energy Meter and Arduino Cloud](https://docs.arduino.cc/arduino-cloud/application-notes/modbus-energy-meter/)
 
 ### PIN Usage
 
