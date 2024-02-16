@@ -1863,7 +1863,7 @@ Your dashboard should look like the following:
 
 Go back to your **Things** and open the "Thing" you created. In the "Thing" setup page, navigate into Sketch, where you should see the online editor.
 
-In the generated sketch, initialize digital output at channel `0` in the `setup()` function:
+In the generated sketch, include the `Arduino_PortentaMachineControl.h` library and initialize digital output at channel `0` in the `setup()` function:
 
 ```arduino
 void setup() {
