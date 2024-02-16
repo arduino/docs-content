@@ -1964,7 +1964,8 @@ void loop() {
   executed every time a new value is received from Cloud.
 */
 void onLedChange()  {
-  MachineControl_DigitalOutputs.write(0, !led);
+  // Change digital output state of channel 0 according to led variable state (true-HIGH, false-LOW)
+  MachineControl_DigitalOutputs.write(0, led ? HIGH : LOW);
 }
 ```
 
