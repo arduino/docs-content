@@ -1600,7 +1600,7 @@ unsigned long lastTime = 0;
 void setup() {
   // Initialize serial communication
   Serial.begin(9600);
-  while (!Serial);
+  for (const auto timeout = millis() + 2500; !Serial && millis() < timeout; delay(250)); // Wait 2.5 seconds for the serial port availability than start the transmission
   delay(5000);
 
   // Attempt Wi-Fi connection
