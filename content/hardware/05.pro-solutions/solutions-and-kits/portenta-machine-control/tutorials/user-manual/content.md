@@ -62,7 +62,7 @@ Here is an overview of the controller's main components shown in the image above
 - 2 MB of Flash Memory
 - 1 MB of RAM
 - Additional onboard memory of 8 MB SDRAM
-- 16 MB Flash QSPI.
+- 16 MB Flash QSPI
 
 **Security**: The controller features an onboard ready-to-use secure element from NXP®, the SE0502. This secure element, specifically designed for Internet of Things (IoT) devices, provides advanced security features, perfect for Industrial IoT (IIoT) environments where security is critical.
 
