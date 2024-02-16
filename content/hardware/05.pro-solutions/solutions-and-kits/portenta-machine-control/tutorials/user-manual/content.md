@@ -159,6 +159,8 @@ Portenta Machine Control can be powered in different ways:
 
 Let's program the Portenta Machine Control with a modified version of the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the controller's connection to the Arduino IDE and that its core functionalities and the `Arduino_PortentaMachineControl` library are working as expected.
 
+***Remember to install first the `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` library; please refer to this section of the User Manual if you have not done it.***
+
 Copy and paste the code below into a new sketch in the Arduino IDE.
 
 ```arduino
