@@ -1747,7 +1747,7 @@ The Portenta Machine Control has two independent `ABZ` encoder channels, `0` and
 
 ![Portenta Machine Control encoder channels](assets/user-manual-25.png)
 
-Some of the key capabilities of Portenta's Machine Control encoders channels are the following:
+Some of the key capabilities of Portenta's Machine Control encoder channels are the following:
 
 - **Independent operation**: Each `ABZ` encoder channel functions independently, providing motion measurement and control versatility.
 - **Pull-up resistance**: The channels are equipped with 10 kΩ pull-up resistors connected to the board's 24 VDC supply, ensuring stable signal integrity and reduced noise interference.
