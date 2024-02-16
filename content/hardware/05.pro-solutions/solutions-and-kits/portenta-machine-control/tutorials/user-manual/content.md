@@ -1346,9 +1346,10 @@ const int ledPin = LED_BUILTIN;
 void setup() {
   // Initialize serial communication and Ethernet connection
   Serial.begin(9600);
-  // Wait for the serial port to connect
+  
+  // Wait 2.5 seconds for the serial port availability, then start the transmission
   // Initialize Ethernet with the specified IP address
- for (const auto timeout = millis() + 2500; !Serial && millis() < timeout; delay(250));
+  for (const auto timeout = millis() + 2500; !Serial && millis() < timeout; delay(250));
   Ethernet.begin(NULL, ip); 
 
   // Check Ethernet hardware and cable connections
