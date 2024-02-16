@@ -8,7 +8,7 @@ The Make Your UNO Kit includes all components for you to make your own UNO, such
 <FeatureList>
 <Feature title="Beginner Friendly" image="led">
 
-This kit includes instructions for you who have never soldered before! But don't worry if you're an expert. You can also cut right to the chase!
+This kit includes instructions for you who have never soldered before! But don't worry if you're an expert. You can also cut right to the chase! Click [here](https://makeyouruno.arduino.cc/) for instructions.
 
 </Feature>
 
