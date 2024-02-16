@@ -1673,13 +1673,6 @@ The Portenta Machine Control is equipped with three independent temperature meas
 
 ![Portenta Machine Control temperature probes terminals](assets/user-manual-26.png)
 
-Some of the key capabilities of Portenta's Machine Control temperature channels are the following:
-
-- **Independent channels**: Each of the three channels can measure temperature independently, offering flexibility in data collection and monitoring.
-- **Sensor compatibility**: The channels are designed to measure temperature using either non-grounded thermocouples or PT100 sensors, but not simultaneously. This allows for versatile use with different types of temperature sensors.
-
-***It is crucial not to connect both a thermocouple and a PT100 sensor to the same channel at the same time. Only one sensor type can be read per channel, based on the position of an analog switch.***
-
 The Portenta Machine Control includes two onboard specialized front ends:
 
 - **MAX31855**: This front end is dedicated to **thermocouples**, providing accurate temperature measurements for a wide range of thermocouple types.
