@@ -1209,7 +1209,7 @@ The example below shows how to enable Modbus TCP communication between Portenta 
 1. A direct connection between the Portenta Machine Control and the Opta™ device through an Ethernet cable.
 2. Individually connect each device to an internet router via Ethernet cables.
 
-We will use the second option since it will allow us to escalate the application by adding more devices to the network.
+We will use the second option since it will allow us to scale the application by adding more devices to the network.
 
 ![Modbus TCP Ethernet Wiring](assets/modbus-tcp.png)
 
