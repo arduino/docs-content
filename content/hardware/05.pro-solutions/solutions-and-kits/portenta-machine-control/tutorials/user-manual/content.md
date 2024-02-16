@@ -34,8 +34,6 @@ This user manual provides a comprehensive overview of the Portenta Machine Contr
 ### Software Requirements
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
-- [Arduino PLC IDE 1.0.3+](https://www.arduino.cc/en/software) (for IEC 61131-3 PLC programming languages)
-- [Arduino PLC IDE 1.0.3+ Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
 - [Arduino_PortentaMachineControl](https://github.com/arduino-libraries/Arduino_PortentaMachineControl) library
 
 ***This User Manuals shows how to use the Portenta Machine Control using the Arduino IDE environment. To learn more about how to use it with IEC-61131-3 languages and the PLC IDE, check out our tutorials [here](https://docs.arduino.cc/software/plc-ide).***
@@ -86,6 +84,8 @@ Here is an overview of the controller's main components shown in the image above
 - RS-422
 - RS-485
 - I2C interface (accessible via a Grove connector)
+- Modbus RTU (over RS-485)
+- Modbus TCP (over Ethernet)
 
 **Ethernet and USB**: The Portenta Machine Control features onboard Ethernet connectivity and full-speed USB-A and half-speed micro-USB Type B connectors for wired communication.
 
