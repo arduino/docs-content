@@ -1453,7 +1453,9 @@ static uint32_t msg_cnt = 0;
 void setup() {
     // Begin serial communication at 9600 baud
     Serial.begin(9600);
-    for (const auto timeout = millis() + 2500; !Serial && millis() < timeout; delay(250)); // Wait 2.5 seconds for the serial port availability than start the transmission
+
+    // Wait 2.5 seconds for the serial port availability, then start the transmission
+    for (const auto timeout = millis() + 2500; !Serial && millis() < timeout; delay(250));
 
     // Initialize the CAN interface with a bit rate of 500 kbps
     if (!MachineControl_CANComm.begin(CanBitRate::BR_500k)) {
