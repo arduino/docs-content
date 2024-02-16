@@ -58,7 +58,7 @@ Here is an overview of the controller's main components shown in the image above
 
 **Microcontroller**: At the heart of the Portenta Machine Control is the STM32H747XI, a powerful, robust, and high-performance dual-core microcontroller from STMicroelectronics®. This microcontroller is built around an Arm® Cortex®-M7 and an Arm® Cortex®-M4 32-bit RISC cores. The Arm® Cortex®-M7 core operates at up to 480 MHz, while the Arm® Cortex®-M4 core operates at up to 240 MHz.
 
-**Memory and storage**: The Portenta Machine Control houses:
+**Memory and storage**:
 - 2 MB of Flash Memory
 - 1 MB of RAM
 - Additional onboard memory of 8 MB SDRAM
