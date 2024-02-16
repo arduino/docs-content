@@ -14,7 +14,7 @@ This kit includes instructions for you who have never soldered before! But don't
 
 <Feature title="The Classic UNO" image="uno-form-factor">
 
-Includes all electronic components needed to build the popular Arduino UNO board from scratch!
+Includes all electronic components needed to build the popular Arduino UNO board from scratch! Click [here](https://docs.arduino.cc/resources/datasheets/AKX00037-datasheet.pdf) for component list(page 10)
 
 </Feature>
 
