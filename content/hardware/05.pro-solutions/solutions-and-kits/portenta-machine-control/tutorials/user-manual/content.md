@@ -1866,6 +1866,9 @@ Go back to your **Things** and open the "Thing" you created. In the "Thing" setu
 In the generated sketch, include the `Arduino_PortentaMachineControl.h` library and initialize digital output at channel `0` in the `setup()` function:
 
 ```arduino
+#include <Arduino_PortentaMachineControl.h>
+#include "thingProperties.h"
+
 void setup() {
   // Initialize serial and wait for port to open:
   Serial.begin(9600);
