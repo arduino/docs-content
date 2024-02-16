@@ -17,7 +17,8 @@ The Arduino MKR 485 Shield allows the Arduino MKR family of boards to communicat
 
 Most of these configurations are physical and the 3 ways dip switch allows you to set up the connection properly.
 
-| Switch No. | ON                   | OFf            |
+| Switch No. | ON                   | OFF            |
+
 | ---------- | -------------------- | -------------- |
 | 1          | Termination on A-B\* | NO termination |
 | 2          | FULL Duplex\*        | HALF Duplex    |
