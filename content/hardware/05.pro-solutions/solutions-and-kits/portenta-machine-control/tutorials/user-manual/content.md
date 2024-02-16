@@ -1536,7 +1536,7 @@ The Portenta Machine Control will send messages continuously to the Portenta Max
 
 ![Communication between the Portenta Machine Control and Portenta Max Carrier](assets/can.gif)
 
-**Note**: To receive and show the messages on your computer, you can use a USB to CAN bus converter, as an [example](https://www.waveshare.com/usb-can-a.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
+***To receive and show the messages on your computer, you can use a USB to CAN bus converter, as an [example](https://www.waveshare.com/usb-can-a.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.***
 
 ## Real-Time Clock
 
