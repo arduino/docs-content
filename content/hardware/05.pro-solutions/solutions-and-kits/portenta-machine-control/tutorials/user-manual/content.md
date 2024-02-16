@@ -970,7 +970,7 @@ The example sketch uses the `MachineControl_RS485Comm.begin()`, `MachineControl_
 - `MachineControl_RS485Comm.available()`: Checks if data can be read.
 - `MachineControl_RS485Comm.read()`: Reads incoming data.
 
-**Note**: To receive and show the messages on your computer, you can use a USB to RS-485 converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.
+***To receive and show the messages on your computer, you can use a USB to RS-485 converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.***
 
 As a practical example, we will **establish a full duplex communication between the Portenta Machine Control and a Portenta Max Carrier paired with a Portenta H7 board**. Follow the wiring below for the RS-485 full-duplex communication.
 
