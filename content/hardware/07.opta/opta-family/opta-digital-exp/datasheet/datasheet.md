@@ -80,6 +80,14 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
             <td>12...24 VDC</td>
         </tr>
         <tr>
+            <td style="vertical-align: top;">Antipolarity protection</td>
+            <td>yes</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Overvoltage protection</td>
+            <td>yes (+20%)</td>
+        </tr>
+        <tr>
             <td style="vertical-align: top;">Inputs</td>
             <td>16x Digital (0-24 V) / Analog (0-10 V) inputs</td>
         </tr>
@@ -118,11 +126,11 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Inputs overvoltage protection</td>
-            <td>no</td>
+            <td>yes</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Antipolarity protection</td>
-            <td>no</td>
+            <td>yes</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Input impedance</td>
@@ -154,7 +162,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Accuracy</td>
-            <td>+/- 5%, repeatability +/- 2%</td>
+            <td>+/- 0.16%, repeatability +/- 2%</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Cycle time for analog input acquisition</td>
@@ -182,7 +190,8 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input current</td>
-            <td>1.12mA at 10V</td>
+            <td>4.12mA at 24V</td>
+            <td>2.05mA at 12V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input frequency</td>
@@ -364,8 +373,8 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 |-------------------------|------|-----|------|------|
 | Supply voltage          | 12   | -   | 24   | V    |
 | Permissible range       | 10.2 | -   | 27.6 | V    |
-| Power consumption (12V) | -    | -   | < 1  | W    |
-| Power consumption (24V) | -    | -   | < 1  | W    |
+| Power consumption (12V) | -    | 106 | -    | mW   |
+| Power consumption (24V) | -    | 110 | -    | mW   |
 
 <div style="page-break-after:always;"></div>
 
