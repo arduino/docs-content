@@ -10,7 +10,8 @@ The [MKR 485 shield](https://store.arduino.cc/arduino-mkr-485-shield) allows a M
 
 This board may be used with the [Arduino RS485](/en/Reference/ArduinoRS485) and the [Arduino Modbus](/en/ArduinoModbus/ArduinoModbus) libraries, available from the Library Manager.
 
-### Usage Notes
+## Usage Notes
+
 
 The Arduino MKR 485 Shield allows the Arduino MKR family of boards to communicate with industrial automation systems or to extend the serial wired communication over much longer range. This shield supports half and full duplex with or without biasing and termination, master slave configuration.
 
