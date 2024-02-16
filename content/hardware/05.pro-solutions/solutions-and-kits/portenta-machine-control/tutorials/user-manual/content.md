@@ -883,7 +883,14 @@ Some of the key capabilities of Portenta's Machine Control onboard RS-485 transc
 
 RS-485 data lines in the Portenta Machine Control are labeled as described in the following table:
 
-***RS-485 data line labels differ between manufacturers. Most manufacturers will use + and – to label the data lines or variations such as D+ and D-. Some manufacturers will label inputs as A and B but get the polarity backward, so A is positive and B negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the - line should be connected to the A terminal. The + line should be connected to the B terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
+| **Pin Name** | **RS-485 Full-duplex** | **RS-485 Haf-duplex** |
+|:------------:|:----------------------:|:---------------------:|
+|  RS485 TX P  |          `TX+`         |        `Data+`        |
+|  RS485 TX N  |          `TX-`         |        `Data-`        |
+|  RS485 RX P  |          `RX+`         |           -           |
+|  RS485 RX N  |          `RX-`         |           -           |
+
+***RS-485 data line labels differ between manufacturers. Most manufacturers will use `+` and `–` to label the data lines or variations such as `D+` and `D-`. Some manufacturers will label inputs as `A` and `B` but get the polarity backward, so `A` is positive and `B` negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the `-` line should be connected to the `A` terminal. The `+` line should be connected to the `B` terminal. Reversing the polarity will not damage an RS-485 device but will not communicate.***
 
 The example sketch below shows how to use the RS-485 interface of the Portenta Machine Control for half-duplex communication.
 
