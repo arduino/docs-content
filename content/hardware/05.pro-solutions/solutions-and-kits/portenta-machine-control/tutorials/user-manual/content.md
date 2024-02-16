@@ -1348,7 +1348,7 @@ void setup() {
   Serial.begin(9600);
   // Wait for the serial port to connect
   // Initialize Ethernet with the specified IP address
-  while (!Serial);
+ for (const auto timeout = millis() + 2500; !Serial && millis() < timeout; delay(250));
   Ethernet.begin(NULL, ip); 
 
   // Check Ethernet hardware and cable connections
