@@ -1267,7 +1267,7 @@ void setup() {
 
     // Check Ethernet hardware presence
     if (Ethernet.hardwareStatus() == EthernetNoHardware) {
-        Serial.println("- Ethernet shield was not found!");
+        Serial.println("- Ethernet interface was not found!");
         while (true);
     }
 
