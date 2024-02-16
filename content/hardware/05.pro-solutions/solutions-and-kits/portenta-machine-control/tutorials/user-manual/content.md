@@ -1809,7 +1809,7 @@ The Portenta Machine Control is fully compatible with [Arduino Cloud](https://cl
 In case it is the first time you are using Arduino Cloud:
 
 - To use it, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
-- To use the Arduino Web Editor, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent here.
+- To use the Arduino Web Editor, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent downloading it [here](https://create.arduino.cc/getting-started/plugin/welcome).
 
 Let's walk through a step-by-step demonstration of how to use a Portenta Machine Control device with Arduino Cloud.
 
