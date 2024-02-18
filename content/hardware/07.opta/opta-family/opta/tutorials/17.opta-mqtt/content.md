@@ -145,23 +145,23 @@ Briefly analyzing the code, at the beginning of the .ino file, there are the nec
 
 ```cpp
 #include <ArduinoMqttClient.h>   // Include the ArduinoMqttClient library to handle MQTT connection
-#include <WiFi.h>                // Include the WiFi library to handle Wi-Fi connection
+#include <WiFi.h>                // Include the WiFi library to handle WiFi connection
 
-#include "arduino_secrets.h"     // Include the arduino_secrets.h file containing Wi-Fi and MQTT connection credentials
+#include "arduino_secrets.h"     // Include the arduino_secrets.h file containing WiFi and MQTT connection credentials
 ```
 
 Then, two objects are created to handle the MQTT service connection.
 
 ```cpp
-WiFiClient wifiClient;           // Create a wifiClient object of type WiFiClient to handle Wi-Fi connection
+WiFiClient wifiClient;           // Create a wifiClient object of type WiFiClient to handle WiFi connection
 MqttClient mqttClient(wifiClient);  // Create an mqttClient object of type MqttClient using wifiClient to handle MQTT connection
 ```
 
-The **setup()** function is responsible for establishing the Wi-Fi connection and connecting to the MQTT broker.
+The **setup()** function is responsible for establishing the WiFi connection and connecting to the MQTT broker.
 
 ```cpp
 void setup() {
-  // Start Wi-Fi connection using provided credentials
+  // Start WiFi connection using provided credentials
   while (WiFi.begin(SECRET_SSID, SECRET_PASS) != WL_CONNECTED) { // Keep attempting connection until connected
     Serial.print(".");  // Print a dot on serial to indicate connection attempt
     delay(5000);        // Wait 5 seconds between connection attempts
@@ -206,8 +206,8 @@ In the attached sketch to this tutorial, you will find a support file called **a
 In this file, we can replace the data according to the information generated on CloudMQTT:
 
 ```cpp
-#define SECRET_SSID "Your Network"               // Wi-Fi network SSID (name)
-#define SECRET_PASS "Your Network password"      // Wi-Fi network password
+#define SECRET_SSID "Your Network"               // WiFi network SSID (name)
+#define SECRET_PASS "Your Network password"      // WiFi network password
 #define MQTT_BROKER "hairdresser.cloudmqtt.com"  // MQTT broker address
 #define MQTT_PORT 18486                           // MQTT broker port
 #define MQTT_TOPIC "arduino/topic"                // MQTT topic to publish messages to
@@ -266,17 +266,17 @@ The complete code might look like this:
 
 ```cpp
 #include <ArduinoMqttClient.h>  // Include the ArduinoMqttClient library to handle MQTT connection
-#include <WiFi.h>               // Include the WiFi library to handle Wi-Fi connection
+#include <WiFi.h>               // Include the WiFi library to handle WiFi connection
 
-#include "arduino_secrets.h"   // Include the arduino_secrets.h file containing Wi-Fi and MQTT connection credentials
+#include "arduino_secrets.h"   // Include the arduino_secrets.h file containing WiFi and MQTT connection credentials
 
-WiFiClient wifiClient;              // Create a wifiClient object of type WiFiClient to handle Wi-Fi connection
+WiFiClient wifiClient;              // Create a wifiClient object of type WiFiClient to handle WiFi connection
 MqttClient mqttClient(wifiClient);  // Create an mqttClient object of type MqttClient using wifiClient to handle MQTT connection
 
 unsigned long current_time, previous_time = millis();  // Variables for time control
 
 void setup() {
-  // Start Wi-Fi connection using provided credentials
+  // Start WiFi connection using provided credentials
   while (WiFi.begin(SECRET_SSID, SECRET_PASS) != WL_CONNECTED) {  // Keep attempting connection until connected
     Serial.print(".");                                            // Print a dot on serial to indicate connection attempt
     delay(5000);                                                  // Wait 5 seconds between connection attempts
@@ -352,11 +352,11 @@ Your complete code might look like this:
 
 ```cpp
 #include <ArduinoMqttClient.h>  // Include the ArduinoMqttClient library to handle MQTT connection
-#include <WiFi.h>               // Include the WiFi library to handle Wi-Fi connection
+#include <WiFi.h>               // Include the WiFi library to handle WiFi connection
 
-#include "arduino_secrets.h"  // Include the arduino_secrets.h file containing Wi-Fi and MQTT connection credentials
+#include "arduino_secrets.h"  // Include the arduino_secrets.h file containing WiFi and MQTT connection credentials
 
-WiFiClient wifiClient;              // Create a wifiClient object of type WiFiClient to handle Wi-Fi connection
+WiFiClient wifiClient;              // Create a wifiClient object of type WiFiClient to handle WiFi connection
 MqttClient mqttClient(wifiClient);  // Create an mqttClient object of type MqttClient using wifiClient to handle MQTT connection
 
 unsigned long current_time, previous_time = millis();  // Variables for time control
@@ -367,7 +367,7 @@ void setup() {
 
   pinMode(LEDR, OUTPUT);  // Set LEDR to OUTPUT
 
-  // Start Wi-Fi connection using provided credentials
+  // Start WiFi connection using provided credentials
   while (WiFi.begin(SECRET_SSID, SECRET_PASS) != WL_CONNECTED) {  // Keep attempting connection until connected
     Serial.print(".");                                            // Print a dot on serial to indicate connection attempt
     delay(5000);                                                  // Wait 5 seconds between connection attempts
@@ -440,9 +440,9 @@ Similarly, by sending the "off" message, the LED should turn off.
 
 ### Using Ethernet for MQTT
 
-Opta™ allows you to connect to cloud services using Ethernet connection, leveraging a more stable and efficient connection compared to Wi-Fi.
+Opta™ allows you to connect to cloud services using Ethernet connection, leveraging a more stable and efficient connection compared to WiFi.
 
-You can replace the portion of code related to Wi-Fi connectivity with the necessary methods for Ethernet.
+You can replace the portion of code related to WiFi connectivity with the necessary methods for Ethernet.
 
 Add the **Ethernet.h** library:
 
@@ -472,7 +472,7 @@ Your code could be modified like this:
 #include <ArduinoMqttClient.h>  // Include the ArduinoMqttClient library to handle MQTT connection
 #include <Ethernet.h> // Include Ethernet library
 
-#include "arduino_secrets.h"  // Include the arduino_secrets.h file containing Wi-Fi and MQTT connection credentials
+#include "arduino_secrets.h"  // Include the arduino_secrets.h file containing WiFi and MQTT connection credentials
 
 EthernetClient client; // Create an Ethernet Client
 MqttClient mqttClient(client);  // Create an mqttClient object of type MqttClient using wifiClient to handle MQTT connection
@@ -540,7 +540,7 @@ void loop() {
 }
 ```
 
-By uploading the modified code and ensuring that Opta™ is properly connected to the Ethernet network, you should see your device generating activity on your MQTT broker similar to what was happening with Wi-Fi.
+By uploading the modified code and ensuring that Opta™ is properly connected to the Ethernet network, you should see your device generating activity on your MQTT broker similar to what was happening with WiFi.
 
 ### Conclusion
 
