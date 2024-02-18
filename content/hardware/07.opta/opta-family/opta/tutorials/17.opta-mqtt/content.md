@@ -313,7 +313,7 @@ This code will produce the same transmission effect already observed previously 
 
 Of course, the "hello" message was used for example purposes; you can customize this message by sending the value of a sensor or other information based on your needs.
 
-### Receiving Messages from the MQTT Broker
+### Receiving Message
 
 Previously, we saw that to send messages to the MQTT Broker, a topic is specified. This topic can also be used to listen for messages coming from that topic and receive them on Opta™.
 
