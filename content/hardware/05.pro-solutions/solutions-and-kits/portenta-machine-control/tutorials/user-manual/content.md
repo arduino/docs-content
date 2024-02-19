@@ -709,7 +709,7 @@ You should see the following output in the Arduino IDE's Serial Monitor:
 
 ### Wi-Fi®
 
-The Portenta Machine Control features an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing it to connect to Wi-Fi® networks and interact with other devices over-the-air (OTA).
+The Portenta Machine Control features an onboard Wi-Fi® module that provides seamless wireless connectivity, allowing it to connect to Wi-Fi® networks and interact with other devices Over-The-Air (OTA).
 
 ![Onboard SMA antenna connector of the Portenta Machine Control](assets/user-manual-17.png)
 
