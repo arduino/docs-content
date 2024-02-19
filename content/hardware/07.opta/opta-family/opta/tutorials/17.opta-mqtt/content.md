@@ -157,7 +157,7 @@ WiFiClient wifiClient;           // Create a wifiClient object of type WiFiClien
 MqttClient mqttClient(wifiClient);  // Create an mqttClient object of type MqttClient using wifiClient to handle MQTT connection
 ```
 
-The **setup()** function is responsible for establishing the WiFi connection and connecting to the MQTT broker.
+The **setup()** function is responsible for establishing the Wi-Fi® connection and connecting to the MQTT broker.
 
 ```cpp
 void setup() {
