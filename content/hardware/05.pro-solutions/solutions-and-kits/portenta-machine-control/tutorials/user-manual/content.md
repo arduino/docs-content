@@ -106,7 +106,7 @@ The `Arduino_PortentaMachineControl` library enables efficient management of the
 2. In the Library Manager tab, search for `portentamachinecontrol` and install the latest `Arduino_PortentaMachineControl` library version. 
 3. In case the IDE asks you to install additional libraries that are dependent, install all of them.
 
-![Installing the Arduino_PortentaMachineControl libary in the Arduino IDE](assets/user-manual-4.png)
+![Installing the Arduino_PortentaMachineControl library in the Arduino IDE](assets/user-manual-4.png)
 
 ### Arduino PLC IDE
 
