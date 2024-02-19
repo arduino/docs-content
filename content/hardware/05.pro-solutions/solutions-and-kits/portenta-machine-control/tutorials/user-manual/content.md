@@ -478,7 +478,7 @@ The Portenta Machine Control has up to 12 programmable digital input/output chan
 
 The programmable digital input/output channels are powered via three quad-channel high-side switches (TPS4H160AQPWPRQ1). Each channel comes with a nominal current value of 0.6 A. However, due to internal circuit tolerances of the high-side switches, this value can spike up to 0.9 A.
 
-***The programmable digital input/output channels must be connected to an external +24 VDC power supply through pin `24V IN`; this power supply can be shared with the controller's +24 VDC power supply. Moreover, pin `24V IN` is not galvanically isolated, meaning the input power supply voltage must share the same `GND` as the controller.***
+***The programmable digital input/output channels must be connected to an external +24 VDC power supply through pin `24V IN`. This power supply can be shared with the controller's +24 VDC power supply. Moreover, pin `24V IN` is not galvanically isolated, meaning the input power supply voltage must share the same `GND` as the controller.***
 
 There are two modes of overcurrent protection in the programmable digital input/output channels:
 
