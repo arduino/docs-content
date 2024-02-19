@@ -354,7 +354,7 @@ Your complete code might look like this:
 #include <ArduinoMqttClient.h>  // Include the ArduinoMqttClient library to handle MQTT connection
 #include <WiFi.h>               // Include the WiFi library to handle WiFi connection
 
-#include "arduino_secrets.h"  // Include the arduino_secrets.h file containing WiFi and MQTT connection credentials
+#include "arduino_secrets.h"  // Include the arduino_secrets.h file containing Wi-Fi and MQTT connection credentials
 
 WiFiClient wifiClient;              // Create a wifiClient object of type WiFiClient to handle Wi-Fi connection
 MqttClient mqttClient(wifiClient);  // Create an mqttClient object of type MqttClient using wifiClient to handle MQTT connection
