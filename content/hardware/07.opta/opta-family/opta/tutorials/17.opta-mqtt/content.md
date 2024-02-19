@@ -440,9 +440,9 @@ Similarly, by sending the "off" message, the LED should turn off.
 
 ### Using Ethernet for MQTT
 
-Opta™ allows you to connect to cloud services using Ethernet connection, leveraging a more stable and efficient connection compared to WiFi.
+Opta™ allows you to connect to cloud services using Ethernet connection, leveraging a more stable and efficient connection compared to Wi-Fi®.
 
-You can replace the portion of code related to WiFi connectivity with the necessary methods for Ethernet.
+You can replace the portion of code related to Wi-Fi® connectivity with the necessary methods for Ethernet.
 
 Add the **Ethernet.h** library:
 
