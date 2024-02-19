@@ -168,7 +168,7 @@ The example modified for Opta™ is available [here](assets/opta-azure-iot-tutor
 
 To establish a connection to Azure IoT, you don't need to make any changes to your sketch. All the configurations necessary to make the transmission of data from Opta™ to the Microsoft Cloud work are enclosed in a few lines of code.
 
-In the file `Azure_IoT_Hub_Opta.ino`, at lines 6 and 7, you have the option to set the connection as Wi-Fi or Ethernet based on the uncommented definition.
+In the file `Azure_IoT_Hub_Opta.ino`, at lines 6 and 7, you have the option to set the connection as Wi-Fi® or Ethernet based on the uncommented definition.
 
 If you are using Ethernet, the code should be set up like this:
 
