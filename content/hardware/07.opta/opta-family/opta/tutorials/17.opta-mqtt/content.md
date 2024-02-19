@@ -161,7 +161,7 @@ The **setup()** function is responsible for establishing the WiFi connection and
 
 ```cpp
 void setup() {
-  // Start WiFi connection using provided credentials
+  // Start Wi-Fi connection using provided credentials
   while (WiFi.begin(SECRET_SSID, SECRET_PASS) != WL_CONNECTED) { // Keep attempting connection until connected
     Serial.print(".");  // Print a dot on serial to indicate connection attempt
     delay(5000);        // Wait 5 seconds between connection attempts
