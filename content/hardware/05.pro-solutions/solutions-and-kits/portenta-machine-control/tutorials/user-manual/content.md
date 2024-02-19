@@ -1760,7 +1760,7 @@ Some of the key capabilities of Portenta's Machine Control encoder channels are 
 - **Pull-up resistance**: The channels are equipped with 10 kΩ pull-up resistors connected to the board's 24 VDC supply, ensuring stable signal integrity and reduced noise interference.
 - **24 VDC compatibility**: The connection to the 24 VDC supply makes these encoders suitable for industrial systems and applications that operate at this voltage level.
 
-The `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` have with built-in libraries and functions that enable you to utilize the Portenta's Machine Control encoders. In the following example, we will explore this capability.
+The `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` have built-in libraries and functions that enable you to utilize the Portenta's Machine Control encoders. The following example shows how to use this capability:
 
 ```arduino
 /*
