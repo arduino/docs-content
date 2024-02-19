@@ -284,6 +284,6 @@ In conclusion to this tutorial, we have explored and customized a sample sketch 
 - **Azure IoT Configuration:** We explained how to obtain the necessary information from the device configuration on Azure IoT, including the hostname of your hub and the device key.
 - **Integration with Azure IoT Hub:** We illustrated the process of configuring the definitions in the `iot_configs.h` file, which manages Wi-Fi connection and communication with Azure IoT Hub.
 - **Code Customizations:** We provided guidance on further customizing the code, including adjusting the telemetry message sending interval and modifying the simulated data sent to Azure IoT.
-- **Ethernet and Wi-Fi Connectivity:** Now you can easily choose between Ethernet and Wi-Fi connection by uncommenting the appropriate definition in the code. You've learned how to customize the sketch to fit your IoT needs quickly and effortlessly.
+- **Ethernet and Wi-Fi® Connectivity:** Now you can easily choose between Ethernet and Wi-Fi® connection by uncommenting the appropriate definition in the code. You've learned how to customize the sketch to fit your IoT needs quickly and effortlessly.
 
 The tutorial provides a detailed guide to connect Opta™ to Azure IoT, allowing the secure and reliable transmission of data. This is just a starting point, and further customizations can be made based on the specific needs of the project. In case you want to dig deeper into the Azure IoT technology, check the [Azure IoT official documentation](https://learn.microsoft.com/en-us/azure/iot/).fSA
