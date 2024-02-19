@@ -153,7 +153,7 @@ Briefly analyzing the code, at the beginning of the .ino file, there are the nec
 Then, two objects are created to handle the MQTT service connection.
 
 ```cpp
-WiFiClient wifiClient;           // Create a wifiClient object of type WiFiClient to handle WiFi connection
+WiFiClient wifiClient;           // Create a wifiClient object of type WiFiClient to handle Wi-Fi connection
 MqttClient mqttClient(wifiClient);  // Create an mqttClient object of type MqttClient using wifiClient to handle MQTT connection
 ```
 
