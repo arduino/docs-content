@@ -383,7 +383,7 @@ Note that the example sketch uses a loop to individually read each digital input
 
 ## Analog Inputs
 
-The Portenta Machine Control has up to three independent analog input channels, as shown in the image below. Each channel can have a range resolution varying from 12 to 16 bits, producing decimal values ranging from 0 to 65,535, which is configurable through software.
+The Portenta Machine Control has up to three independent analog input channels named as `AI0`, `AI1`, `AI2`, as shown in the image below. Each channel can have a range resolution varying from 12 to 16 bits, producing decimal values ranging from 0 to 65535, which is configurable through software.
 
 ![Portenta Machine Control analog input channels](assets/user-manual-13.png)
 
