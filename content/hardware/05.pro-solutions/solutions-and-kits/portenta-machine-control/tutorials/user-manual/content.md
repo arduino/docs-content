@@ -265,7 +265,7 @@ Some of the key features of the analog output channels of the Portenta Machine C
 - Analog outputs can be configured with specific PWM periods, affecting the frequency and resolution of the voltage output.
 - Each channel supports voltage outputs ranging from 0 VDC to 10.5 VDC and can source up to 20 mA.
 
-Each analog output channel is designed with a double low-pass filter and a high-current operational amplifier (OPA2990IDSGR) set up in a non-inverting topology with a gain factor of 3.3. This design allows for an effective filtering and amplification of the signal provided.
+Each analog output channel is designed with a double low-pass filter and a high-current operational amplifier (OPA2990IDSGR) set up in a non-inverting topology with a gain factor of 3.3. This design allows for an effective filtering and amplification of the signal provided resulting in a high-quality/low-noise analog output signal.
 
 ***The output signal of the analog output channels of the Portenta Machine Control is a DC voltage whose amplitude is a function of the defined PWM duty cycle.***
 
