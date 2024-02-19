@@ -324,11 +324,11 @@ Notice that the sketch shown above utilizes the following functions from the `Ar
 
 - `MachineControl_AnalogOut.begin()`: This function initializes the analog output channels, preparing them for voltage output.
 - `MachineControl_AnalogOut.setPeriod(channel, period)`: This function configures the PWM period for the specified analog output channel. In the example shown above, it is set to 4 ms or 250 Hz.
-- `MachineControl_AnalogOut.write(channel, voltage)`: This function controls the voltage output for the specified channel. In the example above, a sine wave is generated for channel `0` ranging from 0 to 10 VDC.
+- `MachineControl_AnalogOut.write(channel, voltage)`: This function controls the voltage output for the specified channel. In the example above, a sine wave is generated for channel `AO0` ranging from 0 to 10 VDC.
 
-The expected result of the generated sine wave measured with an oscilloscope in the analog output channel `0` is shown in the image below.
+The expected result of the generated sine wave measured with an oscilloscope in the analog output channel `AO0` is shown in the image below.
 
-![Generated sine wave using analog output channel 0 o the Portenta Machine Control](assets/user-manual-11.png)
+![Generated sine wave using analog output channel AO0 of the Portenta Machine Control](assets/user-manual-11.png)
 
 ## Digital Inputs
 
