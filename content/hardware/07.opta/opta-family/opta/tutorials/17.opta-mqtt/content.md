@@ -311,7 +311,7 @@ void loop() {
 
 This code will produce the same transmission effect already observed previously but with the advantage of keeping the **loop()** function free for other operations and avoiding interference with the synchronization necessary for connecting to the MQTT cloud.
 
-Of course, the "hello" message was used for example purposes; you can customize this message by sending the value of a sensor or other information based on your needs.
+The "hello" message was used for example purposes; you can customize this message by sending the value of a sensor or other information based on your needs.
 
 ### Receiving Message
 
