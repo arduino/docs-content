@@ -60,7 +60,7 @@ This comprehensive tutorial will guide you through the process of integrating Op
 
 If you haven't already installed the Arduino IDE, you can install it from [this page](https://www.arduino.cc/en/software).
 
-Open the Library Manager from the menu **Sketch->Include Library->Manage Libraries**.
+Open the Library Manager from the menu **Sketch > Include Library >Manage Libraries**.
 
 Search for the "ArduinoMqttClient" library using the Library Manager's search feature.
 
