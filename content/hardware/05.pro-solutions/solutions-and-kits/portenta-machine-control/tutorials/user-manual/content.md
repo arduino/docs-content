@@ -101,7 +101,12 @@ The `Arduino Mbed OS Portenta Boards` core contains the libraries and examples t
 
 ![Installing the Arduino Mbed OS Portenta Boards core in the Arduino IDE](assets/user-manual-3.png)
 
-The `Arduino_PortentaMachineControl` library enables efficient management of the features of the Portenta Machine Control. To install the library, navigate to **Tools > Manage Libraries...** or click the **Library Manager** icon in the left tab of the IDE. In the Library Manager tab, search for `machinecontrol` and install the latest `Arduino_PortentaMachineControl` library version.
+The `Arduino_PortentaMachineControl` library enables efficient management of the features of the Portenta Machine Control. To install the library:
+1. Navigate to **Tools > Manage Libraries...** or click the **Library Manager** icon in the left tab of the IDE.
+2. In the Library Manager tab, search for `portentamachinecontrol` and install the latest `Arduino_PortentaMachineControl` library version. 
+3. In case the IDE asks you to install additional libraries that are dependent, install all of them.
+
+![Installing the Arduino_PortentaMachineControl libary in the Arduino IDE](assets/user-manual-4.png)
 
 ### Arduino PLC IDE
 
