@@ -600,7 +600,7 @@ The example sketch uses the following [Arduino_PortentaMachineControl](https://g
 - `MachineControl_DigitalProgrammables.readAll()`: Used to read the states of all available channels collectively.
 - `MachineControl_DigitalProgrammables.toggle()`: Used to invert the states of all the channels.
 
-The sketch will showcase the reading and state control process of the I/Os of the channels.
+Open the Serial Monitor to watch the I/Os states. The sketch will showcase the reading and state control process of the I/Os of the channels.
 
 ![Programmable Digital I/O demo running](assets/prog-io-ani.gif)
 
@@ -1013,7 +1013,7 @@ As a practical example, we will **establish a full duplex communication between 
 
 ![Full-duplex RS-485 wiring](assets/RS-485-full.png)
 
-For the Portenta Machine Control, use the example sketch shown below; it can also be found on the Arduino IDE by navigating to **File > Examples > Arduino_PortentaMachineControl > RS485_fullduplex**.
+For the **Portenta Machine Control**, use the example sketch shown below; it can also be found on the Arduino IDE by navigating to **File > Examples > Arduino_PortentaMachineControl > RS485_fullduplex**.
 
 ```arduino
 /*
@@ -1083,7 +1083,7 @@ void loop() {
 }
 ```
 
-For the Portenta H7 board paired with the Portenta Max Carrier, use the following example sketch:
+For the **Portenta H7** board paired with the Portenta Max Carrier, use the following example sketch:
 
 ```arduino
  /*
