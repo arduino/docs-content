@@ -920,7 +920,7 @@ Some of the key capabilities of Portenta's Machine Control onboard RS-485 transc
 
 RS-485 data lines in the Portenta Machine Control are labeled as described in the following table:
 
-| **Pin Name** | **RS-485 Full-duplex** | **RS-485 Haf-duplex** |
+| **Pin Name** | **RS-485 Full-duplex** | **RS-485 Half-duplex** |
 |:------------:|:----------------------:|:---------------------:|
 |  RS485 TX P  |          `TX+`         |        `Data+`        |
 |  RS485 TX N  |          `TX-`         |        `Data-`        |
@@ -1789,6 +1789,8 @@ Some of the key capabilities of Portenta's Machine Control encoder channels are 
 - **Independent operation**: Each `ABZ` encoder channel functions independently, providing motion measurement and control versatility.
 - **Pull-up resistance**: The channels are equipped with 10 kΩ pull-up resistors connected to the board's 24 VDC supply, ensuring stable signal integrity and reduced noise interference.
 - **24 VDC compatibility**: The connection to the 24 VDC supply makes these encoders suitable for industrial systems and applications that operate at this voltage level.
+
+![Wiring of an ABZ encoder connected to channel 0](assets/encoders.png)
 
 The `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` have built-in libraries and functions that enable you to utilize the Portenta's Machine Control encoders. The following example shows how to use this capability:
 
