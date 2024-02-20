@@ -217,6 +217,8 @@ Some of the key features of the digital output channels of the Portenta Machine 
 
 ***The digital output channels must be connected to an external +24 VDC power supply through pin `24V IN`; this power supply can be shared with the controller's +24 VDC power supply. Moreover, pin `24V IN` is not galvanically isolated, meaning the input power supply voltage must share the same `GND` as the controller.***
 
+![Digital Outputs channels power option](assets/dig-out-power.png)
+
 There are two modes of overcurrent protection in the digital output channels:
 
 1. **Latch mode**: When overcurrent is detected, the digital output channel remains open and can only be closed manually via software. 
