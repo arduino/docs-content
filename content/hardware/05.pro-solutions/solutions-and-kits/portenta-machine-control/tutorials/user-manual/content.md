@@ -202,6 +202,8 @@ To upload the code to your Portenta Machine Control, click the **Verify** button
 
 Upon successful upload, observe the red LED on your controller's digital output labeled as `00`. It should turn on for one second, then off for one second, repeatedly.
 
+![Hello World example running](assets/blink.gif)
+
 ## Digital Outputs
 
 The Portenta Machine Control has up to eight digital output channels, as shown in the image below.
