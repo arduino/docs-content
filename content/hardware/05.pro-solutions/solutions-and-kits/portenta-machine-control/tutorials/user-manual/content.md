@@ -486,6 +486,8 @@ The programmable digital input/output channels are powered via three quad-channe
 
 ***The programmable digital input/output channels must be connected to an external +24 VDC power supply through pin `24V IN`. This power supply can be shared with the controller's +24 VDC power supply. Moreover, pin `24V IN` is not galvanically isolated, meaning the input power supply voltage must share the same `GND` as the controller.***
 
+![Programmable Digital I/O channels power option](assets/prog-out-power.png)
+
 There are two modes of overcurrent protection in the programmable digital input/output channels:
 
 1. **Latch mode**: The channel is deactivated once the current limit is hit. The respective channel enable pin must be toggled to reactivate the channel.
