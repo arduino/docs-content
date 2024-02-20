@@ -6,7 +6,7 @@ sku: "AKX00004"
 source: "https://store.arduino.cc/arduino-engineering-kit"
 ---
 
-***Note: This page refers to a product that is retired. It has been replaced by the [**Arduino Engineering Kit Rev2**](https://store.arduino.cc/engineering-kit-r2).***
+***Note: This product has been replaced by by the [**Arduino Engineering Kit Rev2**](https://store.arduino.cc/engineering-kit-r2).***
 
 ![The Arduino Engineering Kit](./assets/engineering_kit_featured_1.jpg)
 
