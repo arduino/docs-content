@@ -162,6 +162,12 @@ Portenta Machine Control can be powered in different ways:
 
 ![Different ways to power a Portenta Machine Control](assets/user-manual-7.png)
 
+- If the board is powered using a **micro-USB cable**, the **3V3 LED** will be turned on.
+
+- If the board is powered using an **external +24 VDC power supply**, the **12V LED** and the **24V LED** will be turned on.
+
+![Power rails LED feedback](assets/power-leds.gif)
+
 ### Hello World Example
 
 Let's program the Portenta Machine Control with a modified version of the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the controller's connection to the Arduino IDE and that its core functionalities and the `Arduino_PortentaMachineControl` library are working as expected.
@@ -255,6 +261,10 @@ Note that the sketch shown above uses the following functions from the `Arduino_
 - `MachineControl_DigitalOutputs.begin(true)`: This function initializes the digital outputs channels with overcurrent behavior set to latch mode, meaning that upon overcurrent detection, channels remain open until manually toggled in software.
 - `MachineControl_DigitalOutputs.writeAll(0)`: This function initially sets all digital output channels to an open state (off).
 - `MachineControl_DigitalOutputs.write(channel, HIGH/LOW)`: This function controls individual channel states, turning them either on (`HIGH`) or off (`LOW`). In the example sketch, this function creates the "scanning" effect by activating one channel at a time.
+
+This is the expected behavior of the LEDs of the digital output channels:
+
+![Digital Outputs sequence demo](assets/sequence.gif)
 
 ## Analog Outputs
 
