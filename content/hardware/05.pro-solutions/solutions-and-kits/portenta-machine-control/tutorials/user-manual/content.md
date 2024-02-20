@@ -534,6 +534,10 @@ void setup() {
   // Initialize I2C communication
   Wire.begin();
   
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+
   // Attempt to initialize the programmable digital input/output channels
   if (!MachineControl_DigitalProgrammables.begin()) {
     Serial.println("- Failed to initialize the programmable digital I/Os");
@@ -595,6 +599,10 @@ The example sketch uses the following [Arduino_PortentaMachineControl](https://g
 - `MachineControl_DigitalProgrammables.writeAll(state)`: Used to configure the state (ON/OFF) for all available pins or channels simultaneously.
 - `MachineControl_DigitalProgrammables.readAll()`: Used to read the states of all available channels collectively.
 - `MachineControl_DigitalProgrammables.toggle()`: Used to invert the states of all the channels.
+
+The sketch will showcase the reading and state control process of the I/Os of the channels.
+
+![Programmable Digital I/O demo running](assets/prog-io-ani.gif)
 
 ## Communication
 
