@@ -166,7 +166,7 @@ Portenta Machine Control can be powered in different ways:
 
 Let's program the Portenta Machine Control with a modified version of the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the controller's connection to the Arduino IDE and that its core functionalities and the `Arduino_PortentaMachineControl` library are working as expected.
 
-***Remember to install first the `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` library; please refer to this section of the User Manual if you have not done it.***
+***Remember to install the `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` library; please refer to this section of the User Manual if you still need to.***
 
 Copy and paste the code below into a new sketch in the Arduino IDE.
 
@@ -473,6 +473,8 @@ float readVoltage(int channel) {
 ```
 
 Note that the example sketch uses the `MachineControl_AnalogIn.read(channel)` function to acquire the raw voltage values from each channel. These raw values are then converted to the actual voltage values using the provided `RES_DIVIDER` and `REFERENCE` constants.
+
+***For each analog input channel, there is a resistor divider made by a 100K and 39K resistors, meaning that the input voltage is divided by a ratio of 0.28 approximately (`RES_DIVIDER` constant); the analog input channels voltage reference (`REFERENCE` constant) is 3V.*** 
 
 ## Programmable Digital I/O
 
