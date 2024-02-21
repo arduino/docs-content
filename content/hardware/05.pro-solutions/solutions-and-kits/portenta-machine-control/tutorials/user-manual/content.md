@@ -19,7 +19,7 @@ software:
   - cloud
 ---
 
-![](assets/hero-banner.png)
+[User Manual banner](assets/hero-banner.png)
 
 This user manual provides a comprehensive overview of the Portenta Machine Control, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure, and use all the main features of the Portenta Machine Control.
 
