@@ -1090,21 +1090,177 @@ Both devices will send and receive messages respectively through the RS-485 inte
 
 ![Full-duplex RS-485 communication example](assets/rs845taddy.gif)
 
-### Modbus (RTU/TCP)
+### Modbus 
 
 The Portenta Machine Control incorporates a built-in Modbus interface, enabling the implementation of robust and reliable data transmission systems. Modbus, in its RTU version that operates RS-485 serial transmission or in its TCP version that works over Ethernet, remains one of the most widely used protocols for industrial automation applications, building management systems, and process control, among others.
-
-Modbus RTU, generally operating in half-duplex mode, with its capability to handle noisy and long-distance transmission lines, makes it an excellent choice for industrial environments. Modbus RTU communication is supported using Portenta's Machine Control RS-485 physical interface.
-
-***The Portenta Machine Control has onboard termination resistors; its RS-485 interface can be configured as a half or full duplex.***
-
-Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration with existing computer networks and facilitates data communication over long distances using the existing network infrastructure. It operates in full-duplex mode, allowing simultaneous sending and receiving of data.
 
 ![Portenta Machine Control RS-485 interface terminals and onboard RJ45 Ethernet connector](assets/user-manual-24.png)
 
 The many nodes connected in a Modbus network, whether RTU or TCP, allow high flexibility and scalability in constructing automation and control systems.
 
 To use the Modbus protocol with your Portenta Machine Control, you will need the [`ArduinoRS485`](https://github.com/arduino-libraries/ArduinoRS485) and [`ArduinoModbus`](https://github.com/arduino-libraries/ArduinoModbus) libraries. You can install them via the Library Manager of the Arduino IDE.
+
+#### RTU
+
+Modbus RTU, generally operating in half-duplex mode, with its capability to handle noisy and long-distance transmission lines, makes it an excellent choice for industrial environments. Modbus RTU communication is supported using Portenta's Machine Control RS-485 physical interface.
+
+***The Portenta Machine Control has onboard termination resistors; its RS-485 interface can be configured as a half or full duplex.***
+
+The example below shows how to enable Modbus TCP communication between Portenta Machine Control and Arduino Opta™. For wiring both devices, see the diagram below:
+
+![Modbus RTU RS-485 Wiring](assets/modbus-rtu.png)
+
+The following example code will let the Portenta Machine Control toggle the four Opta™ LEDs through the Modbus RTU protocol. The Portenta Machine Control will be the **client**, and the Opta™ device will be the **server**.
+
+For the **Portenta Machine Control** defined as the client, use the example sketch shown below:
+
+```arduino
+#include <Arduino_PortentaMachineControl.h>
+#include <ArduinoRS485.h>
+#include <ArduinoModbus.h>
+
+constexpr auto baudrate { 38400 };
+
+constexpr auto bitduration { 1.f / baudrate };
+constexpr auto preDelay { bitduration * 9.6f * 3.5f * 1e6 };
+constexpr auto postDelay { bitduration * 9.6f * 3.5f * 1e6 };
+
+int counter = 0;
+
+void setup() {
+  Serial.begin(9600);
+  //while (!Serial);
+
+  MachineControl_RS485Comm.begin(baudrate, preDelay, postDelay);
+
+  delay(2500);
+
+  Serial.println("Modbus RTU Coils control");
+  // start the Modbus RTU client
+  if (!ModbusRTUClient.begin(MachineControl_RS485Comm, baudrate, SERIAL_8N1)) {
+    Serial.println("Failed to start Modbus RTU Client!");
+    while (1);
+  }
+}
+
+void loop() {
+
+  counter++;
+
+  // set the coils to 1 when counter is odd
+  byte coilValue = ((counter % 2) == 0) ? 0x00 : 0x01;
+
+  Serial.print("Writing Coil values ... ");
+
+  // write 4 Coil values to (slave) id 1, address 0x00
+  ModbusRTUClient.beginTransmission(1, COILS, 0x00, 4);
+  for (int i = 0; i < 4; i++) {
+    ModbusRTUClient.write(coilValue);
+  }
+  
+  if (!ModbusRTUClient.endTransmission()) {
+    Serial.print("failed! ");
+    Serial.println(ModbusRTUClient.lastError());
+  } else {
+    Serial.println("success");
+  }
+
+  // Alternatively, to write a single Coil value use:
+  // ModbusRTUClient.coilWrite(...)
+
+  delay(1000);
+}
+```
+
+For the **Opta™** device defined as the server, use the example sketch shown below:
+
+```arduino
+#include <ArduinoRS485.h>  // ArduinoModbus depends on the ArduinoRS485 library
+#include <ArduinoModbus.h>
+
+constexpr auto baudrate{ 38400 };
+
+const int numCoils = 4;
+
+// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+// MODBUS over serial line specification and implementation guide V1.02
+// Paragraph 2.5.1.1 MODBUS Message RTU Framing
+// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
+
+constexpr auto bitduration{ 1.f / baudrate };
+constexpr auto preDelayBR{ bitduration * 9.6f * 3.5f * 1e6 };
+constexpr auto postDelayBR{ bitduration * 9.6f * 3.5f * 1e6 };
+
+void setup() {
+  Serial.begin(9600);
+
+  //while (!Serial);
+
+  Serial.println("Modbus RTU Server LED");
+
+  RS485.setDelays(preDelayBR, postDelayBR);
+
+  // start the Modbus RTU server, with (slave) id 1
+  if (!ModbusRTUServer.begin(1, baudrate, SERIAL_8N1)) {
+    Serial.println("Failed to start Modbus RTU Server!");
+    while (1)
+      ;
+  }
+
+  pinMode(LED_D0, OUTPUT);
+  pinMode(LED_D1, OUTPUT);
+  pinMode(LED_D2, OUTPUT);
+  pinMode(LED_D3, OUTPUT);
+
+  // configure a single coil at address 0x00
+  ModbusRTUServer.configureCoils(0x00, 4);
+}
+
+void loop() {
+  // poll for Modbus RTU requests
+  int packetReceived = ModbusRTUServer.poll();
+
+  if (packetReceived) {
+
+    // Map the coil values to the discrete input values
+    for (int i = 0; i < numCoils; i++) {
+      int coilValue = ModbusRTUServer.coilRead(i);
+
+      ModbusRTUServer.discreteInputWrite(i, coilValue);
+
+      Serial.print("LED ");
+      Serial.print(i);
+      Serial.print(" = ");
+      Serial.println(coilValue);
+
+      switch (i) {
+        case 0:
+          digitalWrite(LED_D0, coilValue);
+          break;
+        case 1:
+          digitalWrite(LED_D1, coilValue);
+          break;
+        case 2:
+          digitalWrite(LED_D2, coilValue);
+          break;
+        case 3:
+          digitalWrite(LED_D3, coilValue);
+          Serial.println();
+          break;
+        default:
+          Serial.println("Output out of scope");
+          break;
+      }
+    }
+  }
+}
+```
+You should see the Opta™ four outputs LEDs turning on and off as shown below:
+
+![Opta™ device LED controlled by a Portenta Machine Control via Modbus TCP](assets/rtu-blink.gif)
+
+#### TCP
+Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration with existing computer networks and facilitates data communication over long distances using the existing network infrastructure. It operates in full-duplex mode, allowing simultaneous sending and receiving of data.
 
 The example below shows how to enable Modbus TCP communication between Portenta Machine Control and Arduino Opta™. For wiring both devices, we have two options:
 
