@@ -1435,7 +1435,7 @@ For one of the Portenta Machine Controls use the CAN writing example, and for th
 
 The Portenta Machine Control will send messages continuously to the other Machine Control through CAN bus; you can see the received message using the Arduino's IDE Serial Monitor. 
 
-![Communication between the Portenta Machine Controls](assets/can.gif)
+![Communication between the Portenta Machine Controls]()
 
 ***To receive and show the messages on your computer, you can use a USB to CAN bus converter, as an [example](https://www.waveshare.com/usb-can-a.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.***
 
