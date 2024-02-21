@@ -2,7 +2,7 @@
 identifier: ABX00049
 title: Arduino® Portenta X8
 type: pro
-author: Ali Jahangiri
+author: Ali Jahangiri and Christopher Mendez
 ---
 
 ![](assets/featured.png)
@@ -318,6 +318,14 @@ The Arduino® Portenta X8 has been designed for high-performance embedded comput
 
 The use of a USB 3.0 compatible port will ensure that the current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
 
+### Temperature
+
+The following charts represent the thermal behavior of the Portenta X8 in different cooling scenarios.
+
+![](assets/thermal-2.svg)
+
+The ✅ and ❌ symbols in the horizontal axis of the charts represent the Portenta X8 working state respectively.
+
 ## Functional Overview
 
 ### Block Diagram
@@ -364,11 +372,23 @@ The Arduino Portenta X8 makes use of two Arm®-based physical processing units.
 
 ### NXP® i.MX 8M Mini Quad Core Microprocessor
 
-The MIMX8MM6CVTKZAA iMX8M (U2) features a quad-core Arm® Cortex® A53 running at up to 1.8 GHz for high-performance applications alongside an Arm® Cortex® M4 running at up to 400 MHz. The Arm® Cortex® A53 is capable of running a fully-fledged Linux or Android operating system through a Board Support Packages (BSP) in a multithreaded fashion. This can be expanded via the use of specialized software containers via OTA updates. The Arm® Cortex® M4 has lower power consumption allowing for effective sleep management as well as optimal performance in real-time applications and is reserved for future use. Both processors can share all peripherals and resources available on the i.MX 8M Mini, including PCIe, on-chip memory, GPIO, GPU and Audio.
+The MIMX8MM6CVTKZAA iMX8M (U2) features a quad-core Arm® Cortex® A53 running at up to 1.8 GHz for high-performance applications alongside an Arm® Cortex® M4 running at up to 400 MHz. The Arm® Cortex® A53 is capable of running a fully-fledged Linux or Android operating system through a Board Support Packages (BSP) in a multithreaded fashion. This can be expanded via the use of specialized software containers via OTA updates. The Arm® Cortex® M4 has lower power consumption allowing for effective sleep management as well as optimal performance in real-time applications and is not officially supported. Both processors can share all peripherals and resources available on the i.MX 8M Mini, including PCIe, on-chip memory, GPIO, GPU and Audio.
 
 ### STM32 Dual Core Microprocessor
 
 The X8 includes an embedded H7 in the form of a STM32H747AII6 IC (U20) with a dual-core Arm® Cortex® M7 and Arm® Cortex® M4. This IC is used as an I/O expander for the NXP® i.MX 8M Mini (U2). Peripherals are automatically controlled via the M7 core. Additionally, the M4 core is available for real-time control of motors and other time-critical machinery at a barebones level. The M7 core acts as a mediator between the peripherals and the i.MX 8M Mini. It achieves this by running a custom firmware [https://github.com/arduino/portentax8-stm32h7-fw](https://github.com/arduino/portentax8-stm32h7-fw) normally invisible to the User, which maps all its peripherals as Linux devices. Advanced users can customize the M7 firmware to fit their needs but this could break the seamless Linux integration. Users are instead encouraged to write custom Arduino programs (sketches) running on the M4, which can access all the peripherals supported by the M7. The STM32H7 is not exposed to networking and should be programmed via the i.MX 8M Mini (U2).
+
+## Mean Time Between Failure (MTBF)
+
+MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
+
+The MTBF figure (in hours/years) for the Portenta X8 can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F parts count method.
+
+|  **Standard** | **Portenta X8** | **Environmental Conditions** |
+|:-------------:|:----------------------:|:----------------------------:|
+| MIL-HDBK-217F |    551640 h/62 years   |             25 ºC            |
+
+**Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_.
 
 ## Wi-Fi®/Bluetooth® Connectivity
 
@@ -524,12 +544,10 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-<div style="page-break-after: always;"></div>
-
 **IC SAR Warning:**
 
 English
-This equipment should be installed and operated with a minimum distance of 20cm between the radiator and your body.
+This equipment should be installed and operated with a minimum distance of 20cm between the radiator and your body.  
 
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
@@ -564,6 +582,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                            |
 |------------|--------------|----------------------------------------|
+| 17/01/2024 | 6            | Add Temperature and MTBF information   |
 | 11/12/2023 | 5            | Add Portenta Hat Carrier compatibility |
 | 07/11/2023 | 4            | Add missing board dimensions           |
 | 26/01/2023 | 3            | Clarify open-source nature of M7 core  |
