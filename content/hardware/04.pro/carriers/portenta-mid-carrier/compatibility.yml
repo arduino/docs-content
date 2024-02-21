@@ -10,4 +10,5 @@ hardware:
     - portenta-h7-lite
     - portenta-h7-lite-connected
     - portenta-c33
+    - arduino-pro-4g-module
 

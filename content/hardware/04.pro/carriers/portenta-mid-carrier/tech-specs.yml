@@ -22,7 +22,7 @@ Communication Interfaces:
   USB: 1x USB-A 2.0/Hi-Speed
   PDM: 1
   SPDIF: 1
-  PCIe: 1
+  mPCIe: 1
 User Interface:
   Button: 1x Power On Push Button
 Storage:
