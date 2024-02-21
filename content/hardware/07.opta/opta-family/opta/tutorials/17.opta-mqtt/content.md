@@ -266,7 +266,7 @@ The complete code might look like this:
 
 ```cpp
 #include <ArduinoMqttClient.h>  // Include the ArduinoMqttClient library to handle MQTT connection
-#include <WiFi.h>               // Include the WiFi library to handle WiFi connection
+#include <WiFi.h>               // Include the WiFi library to handle Wi-Fi connection
 
 #include "arduino_secrets.h"   // Include the arduino_secrets.h file containing WiFi and MQTT connection credentials
 
