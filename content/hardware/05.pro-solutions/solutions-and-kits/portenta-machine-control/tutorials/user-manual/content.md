@@ -201,9 +201,9 @@ To upload the code to your Portenta Machine Control, click the **Verify** button
 
 ![Uploading a sketch to a Portenta Machine Control in the Arduino IDE](assets/user-manual-8.png)
 
-Upon successful upload, observe the red LED on your controller's digital output labeled as `00`. It should turn on for one second, then off for one second, repeatedly.
+Upon successful upload, observe the red LED on your controller's digital output labeled as `00`. It should turn on for one second, then off for one second, repeatedly. Notice that a **micro-USB cable** can power the Portenta Machine Control for this example.
 
-![Hello World example running](assets/blink.gif)
+![Hello World example running on the Portenta Machine Control](assets/blink.gif)
 
 ## Digital Outputs
 
