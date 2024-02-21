@@ -900,7 +900,7 @@ Since the data is fetched only once, there's no need to send `HTTP GET` requests
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-19.png)
 
-### RS-485
+### RS-485 (Half/Full Duplex)
 
 The Portenta Machine Control has a built-in RS-485 interface that enables the implementation of robust and reliable data transmission systems. RS-485 interface is a protocol widely used in industrial applications. The wide common-mode range enables data transmission over longer cable lengths and in noisy environments such as the floor of a factory. Also, the high input impedance of the receivers allows more devices to be attached to the communication lines.
 
@@ -929,6 +929,8 @@ RS-485 data lines in the Portenta Machine Control are labeled as described in th
 |  RS485 RX N  |          `RX-`         |           -           |
 
 ***RS-485 data line labels differ between manufacturers. Most manufacturers will use `+` and `–` to label the data lines or variations such as `D+` and `D-`. Some manufacturers will label inputs as `A` and `B` but get the polarity backward, so `A` is positive and `B` negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the `-` line should be connected to the `A` terminal. The `+` line should be connected to the `B` terminal. Reversing the polarity will not damage an RS-485 device but the communication will not work as expected.***
+
+
 
 The example sketch below shows how to use the RS-485 interface of the Portenta Machine Control for half-duplex communication.
 
@@ -996,7 +998,7 @@ void loop() {
 }
 ```
 
-In this example sketch, a message is periodically sent over the RS-485 interface Of the Portenta Machine Control. The sketch initializes the RS-485 interface for half-duplex communication and sends a `String` message with a counter. After each transmission, it switches back to receive mode to listen for incoming data.
+In this example sketch, a message is periodically sent over the RS-485 interface of the Portenta Machine Control. The sketch initializes the RS-485 interface for half-duplex communication and sends a `String` message with a counter. After each transmission, it switches back to receive mode to listen for incoming data.
 
 The example sketch uses the following functions from the `Arduino_PortentaMachineControl` library for RS-485 communication. Here is an explanation of the functions:
 
@@ -1010,16 +1012,16 @@ The example sketch uses the following functions from the `Arduino_PortentaMachin
 
 ***To receive and show the messages on your computer, you can use a USB to RS-485 converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.***
 
-As a practical example, we will **establish a full duplex communication between the Portenta Machine Control and a Portenta Max Carrier paired with a Portenta H7 board**. Follow the wiring below for the RS-485 full-duplex communication.
+As a practical example, we will **establish a full duplex communication between two Portenta Machine Controls**. Follow the wiring below for the RS-485 full-duplex communication.
 
 ![Full-duplex RS-485 wiring](assets/RS-485-full.png)
 
-For the **Portenta Machine Control**, use the example sketch shown below; it can also be found on the Arduino IDE by navigating to **File > Examples > Arduino_PortentaMachineControl > RS485_fullduplex**.
+For both **Portenta Machine Controls**, use the example sketch shown below; it can also be found on the Arduino IDE by navigating to **File > Examples > Arduino_PortentaMachineControl > RS485_fullduplex**.
 
 ```arduino
 /*
  * Portenta Machine Control's RS-485 Full Duplex Communication
- * Name: portenta_machine_control_rs485_full_duplex_example.ino
+ * Name: RS485_fullduplex.ino
  * Purpose: Demonstrates full duplex RS-485 communication using
  * the Portenta Machine Control. The sketch shows how to send 
  * and receive data periodically on the RS-485 interface.
@@ -1084,151 +1086,13 @@ void loop() {
 }
 ```
 
-For the **Portenta H7** board paired with the Portenta Max Carrier, use the following example sketch:
+Both devices will send and receive messages respectively through the RS-485 interface and will print them in the IDE's Serial Monitor as shown in the animation below. 
 
-```arduino
- /*
- * Portenta H7 RS-485 Full Duplex Communication
- * Name: portenta_h7_rs485_full_duplex_example.ino
- * Purpose: Demonstrates full duplex RS-485 communication using
- * the Portenta Portenta H7 (on Portenta Max Carrier) and the 
- * Portenta Machine Control. The sketch demonstrates how to send 
- * and receive data periodically on the RS-485 interface.
- *
- * @author Arduino PRO Content Team
- * @version 1.0 01/10/23
- */
-
-// Include the necessary libraries
-#include <ArduinoRS485.h>
-
-// Define the interval for sending messages
-constexpr unsigned long sendInterval{ 1000 };
-unsigned long sendNow{ 0 };
-int counter = 0;
-
-arduino::UART _UART4_{ PA_0, PI_9, NC, NC };
-RS485Class rs485{ _UART4_, PA_0, PI_10, PJ_10 };  // UART4, TX, CTS, RTS
-
-void setup() {
-  // Initialize RS-485 with default settings for the Portenta H7 and the Portenta Max Carrier
-  RS485init();
-  delay(1000);
-
-  // Enable RS-485 interface
-  rs485Enable(true);
-
-  // Enable full duplex mode with A/B and Y/Z 120 Ohm termination resistors
-  rs485FullDuplex(true);
-
-  // Initialize RS-485 communication with specific baudrate and timing
-  rs485.begin(115200, 0, 500);
-
-  // Start in receive mode for communication with the Portenta Machine Control
-  rs485.receive();
-}
-
-void loop() {
-  // Read incoming data from the Portenta Machine Control
-  if (rs485.available()) {
-    Serial.write(rs485.read());
-  }
-
-  // Send data at defined intervals to Portenta Machine Control
-  if (millis() > sendNow) {
-    // Prepare for sending data
-    rs485.noReceive();  
-
-    rs485.beginTransmission();
-    rs485.print("- Hello I'm Max! ");
-    rs485.println(counter++);
-
-    // End of data transmission
-    rs485.endTransmission();
-
-    // Switch back to receive mode and schedule next transmission
-    rs485.receive(); 
-    sendNow = millis() + sendInterval;
-  }
-}
-
-/**
-  Initializes the RS-485 settings for the Portenta H7 and Portenta Max Carrier.
-
-  Sets the initial state of the RS-485 communication interface and configures
-  the communication mode and termination resistors.
-*/
-void RS485init() {
-    rs485Enable(false);
-    rs485ModeRS232(false);
-    rs485FullDuplex(false);
-    rs485YZTerm(false);
-    rs485ABTerm(false);
-}
-
-/**
-  Enables or disables the RS-485 communication interface.
-  Set to true to enable the RS-485 interface, or false to disable it.
-
-  @param enable (bool)
-*/
-void rs485Enable(bool enable) {
-    digitalWrite(PC_7, enable ? HIGH : LOW);
-}
-
-/**
-  Sets the communication mode to RS232 or RS485.
-  Set to true to enable RS232 mode, or false for RS485 mode.
-
-  @param enable (bool)
-*/
-void rs485ModeRS232(bool enable) {
-    digitalWrite(PC_6, enable ? LOW : HIGH);
-}
-
-/**
-  Enables or disables the YZ termination resistors for RS-485 communication.
-  Set to true to enable YZ termination resistors, or false to disable them.
-
-  @param enable (bool)
-*/
-void rs485YZTerm(bool enable) {
-    digitalWrite(PG_3, enable ? HIGH : LOW);
-}
-
-/**
-  Enables or disables the AB termination resistors for RS-485 communication.
-  Set to true to enable AB termination resistors, or false to disable them.
-
-  @param enable (bool)
-*/
-void rs485ABTerm(bool enable) {
-    digitalWrite(PJ_7, enable ? HIGH : LOW);
-}
-
-/**
-  Sets the RS485 communication to full duplex mode.
-  Set to true to enable full duplex mode, or false for half duplex.
-
-  @param enable (bool)
-*/
-void rs485FullDuplex(bool enable) {
-    digitalWrite(PA_8, enable ? LOW : HIGH);
-    if (enable) {
-        // RS485 Full Duplex requires YZ and AB 120 Ohm termination enabled
-        rs485YZTerm(true);
-        rs485ABTerm(true);
-    }
-}
-```
-
-Both, the Portenta Max Carrier and the Portenta Machine Control will send and receive messages respectively through the RS-485 interface and will print them in the IDE's Serial Monitor as shown in the animation below. 
-
-![Full-duplex RS-485 communication example](assets/rs485ani.gif)
+![Full-duplex RS-485 communication example](assets/)
 
 ### Modbus (RTU/TCP)
 
-The Portenta Machine Control incorporate a built-in Modbus interface, enabling the implementation of robust and reliable data transmission systems. Modbus, in its RTU version that operates RS-485 serial transmission or in its TCP version that works over Ethernet, remains one of the most widely used protocols for industrial automation applications, building management systems, and process control, among others.
+The Portenta Machine Control incorporates a built-in Modbus interface, enabling the implementation of robust and reliable data transmission systems. Modbus, in its RTU version that operates RS-485 serial transmission or in its TCP version that works over Ethernet, remains one of the most widely used protocols for industrial automation applications, building management systems, and process control, among others.
 
 Modbus RTU, generally operating in half-duplex mode, with its capability to handle noisy and long-distance transmission lines, makes it an excellent choice for industrial environments. Modbus RTU communication is supported using Portenta's Machine Control RS-485 physical interface.
 
@@ -1265,7 +1129,7 @@ Ethernet.begin(<mac>, <IP>);
 
 ***The client must know the server IP to establish communication between them.***
 
-For the Portenta Machine Control defined as the client, use the example sketch shown below:
+For the **Portenta Machine Control** defined as the client, use the example sketch shown below:
 
 ```arduino
 /*
@@ -1351,7 +1215,7 @@ void loop() {
 }
 ```
 
-For the Opta™ device defined as the server, use the example sketch shown below:
+For the **Opta™** device defined as the server, use the example sketch shown below:
 
 ```arduino
 /*
@@ -1471,12 +1335,12 @@ Some of the key capabilities of the onboard CAN transceiver in the Portenta Mach
 - **Low-current standby mode with wake-up functionality**: The onboard transceiver features a low-power standby mode, which includes efficient wake-up capabilities, crucial for energy-efficient applications.
 - **Compliance with ISO11898 standard**: Adhering to the ISO11898 standard, the TJA1049 ensures reliable communication at data rates up to 5 Mbit/s, making it ideal for HS CAN networks operating in low-power modes.
 
-The example sketch below shows how to use the CAN bus interface of the Portenta Machine Control to transmit data.
+The example sketch below shows how to use the CAN bus interface of the Portenta Machine Control to transmit data. You can also find it in **File > Examples > Arduino_PortentaMachineControl > CAN > WriteCan**.
 
 ```arduino
 /*
   Portenta Machine Control's CAN Bus Communication
-  Name: portenta_machine_control_can_example.ino
+  Name: WriteCan.ino
   Purpose: Demonstrates data transmission using the CAN bus
   interface on the Portenta Machine Control.
 
@@ -1537,42 +1401,42 @@ The example sketch uses the `Arduino_PortentaMachineControl` library for CAN com
 - `MachineControl_CANComm.read()`: Reads incoming data from the CAN bus. This function is used to retrieve data that has been received.
 - `MachineControl_CANComm.end()`: This function can disable the CAN module when it's no longer needed, helping conserve power.
 
-As a practical example, we will establish a CAN communication between the Machine Control and a Portenta Max Carrier with a Portenta C33 board. Follow the wiring shown below for the CAN communication.
-
-![CAN communication wiring](assets/CAN-bus-wiring.png)
-
-***For stable CAN bus communication, it is recommended to install 120 Ω termination resistors between CANH and CANL lines. The Portenta Machine Control has built-in 120 Ω termination resistors.***
-
-For the Portenta Machine Control, use the example explained before to transmit data. For the Portenta C33 board on the Portenta Max Carrier, use the example sketch shown below. Notice that the `Arduino_CAN` library is a built-in library of the the `Arduino Mbed OS Portenta Boards` core that lets you use the onboard CAN interface of the Portenta C33 board. 
+The example sketch below shows how to use the CAN bus interface of the Portenta Machine Control to read data. You can also find it in **File > Examples > Arduino_PortentaMachineControl > CAN > ReadCan**.
 
 ```arduino
-#include <Arduino_CAN.h>
+#include <Arduino_PortentaMachineControl.h>
 
-void setup()
-{
-  Serial.begin(115200);
-  while (!Serial) { }
+void setup() {
+  Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect.
+  }
 
-  if (!CAN.begin(CanBitRate::BR_500k))
-  {
-    Serial.println("CAN.begin(...) failed.");
-    for (;;) {}
+  if (!MachineControl_CANComm.begin(CanBitRate::BR_500k)) {
+    Serial.println("CAN init failed.");
+    while(1) ;
   }
 }
 
-void loop()
-{
-  if (CAN.available())
-  {
-    CanMsg const msg = CAN.read();
+void loop() {
+  if (MachineControl_CANComm.available()) {
+    CanMsg const msg = MachineControl_CANComm.read();
     Serial.println(msg);
   }
 }
 ```
 
-The Portenta Machine Control will send messages continuously to the Portenta Max Carrier through CAN bus, the received message will be received in the Portenta C33 board; you can see the received message using the Arduino's IDE Serial Monitor. 
+As a practical example, we will establish a CAN communication between two Portenta Machine Controls. Follow the wiring shown below for the CAN communication.
 
-![Communication between the Portenta Machine Control and Portenta Max Carrier](assets/can.gif)
+![CAN communication wiring](assets/can-wiring.png)
+
+***The Portenta Machine Control has built-in 120 Ω termination resistors.***
+
+For one of the Portenta Machine Controls use the CAN writing example, and for the other one, use the CAN reading example explained above. 
+
+The Portenta Machine Control will send messages continuously to the other Machine Control through CAN bus; you can see the received message using the Arduino's IDE Serial Monitor. 
+
+![Communication between the Portenta Machine Controls]()
 
 ***To receive and show the messages on your computer, you can use a USB to CAN bus converter, as an [example](https://www.waveshare.com/usb-can-a.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.***
 
