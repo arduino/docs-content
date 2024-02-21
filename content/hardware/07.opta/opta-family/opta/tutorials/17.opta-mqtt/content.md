@@ -270,7 +270,7 @@ The complete code might look like this:
 
 #include "arduino_secrets.h"   // Include the arduino_secrets.h file containing Wi-Fi and MQTT connection credentials
 
-WiFiClient wifiClient;              // Create a wifiClient object of type WiFiClient to handle WiFi connection
+WiFiClient wifiClient;              // Create a wifiClient object of type WiFiClient to handle Wi-Fi connection
 MqttClient mqttClient(wifiClient);  // Create an mqttClient object of type MqttClient using wifiClient to handle MQTT connection
 
 unsigned long current_time, previous_time = millis();  // Variables for time control
