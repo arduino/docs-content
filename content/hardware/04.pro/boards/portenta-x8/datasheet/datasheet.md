@@ -544,8 +544,6 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-<div style="page-break-after: always;"></div>
-
 **IC SAR Warning:**
 
 English
