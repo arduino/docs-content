@@ -1,14 +1,15 @@
 <FeatureDescription>
 
- The carrier grants easy access to an array of peripherals, from mPCIe, to CAN, Ethernet, microSD, USB, camera, displays and analog input and output ports. Its design is further enhanced with dedicated pins for efficient debugging and seve.
+ The carrier grants easy access to an array of peripherals, from mPCIe, to CAN, Ethernet, microSD, USB, camera, displays and analog input and output ports. Its design is further enhanced with dedicated pins for efficient debugging and full access to the SoM interfaces.
+
 </FeatureDescription>
 
 
 <FeatureList>
 
-<Feature title="Raspberry Pi® Mids" image="mega-form-factor">
+<Feature title="Arduino Powered" image="mcu">
 
-  Thanks to its 40-Pin Raspberry like connector the Portenta Mid Carrier is compatible with most of the Raspberry Pi® Mids available on the market.
+  The carrier is also compatible with the Portenta H7, Portenta C33, and the auxiliary core of the Portenta X8, being fully compatible with the Arduino code ecosystem.
 
 </Feature>
 
@@ -18,28 +19,29 @@
 
 </Feature>
 
-<Feature title="Arduino Powered" image="mcu">
 
-  The carrier is also compatible with the Portenta H7, Portenta C33, and the auxiliary core of the Portenta X8, being fully compatible with the Arduino code ecosystem.
+<Feature title="Camera Connector" image="camera">
 
-</Feature>
-
-<Feature title="MIPI Camera Connector" image="camera">
-
-  The Portenta Mid Carrier allows rapid development of machine vision applications thanks to the Portenta X8 and the MIPI CSI camera connector.
+  The Portenta Mid Carrier allows rapid development of machine vision applications thanks to the Portenta X8 and the two camera connectors (MIPI and Arducam).
 
 </Feature>
 
 
 <Feature title="CAN Bus" image="communication">
 
-  The Portenta Mid Carrier provides a high-speed CAN FD transceiver tMid allows CAN bus communication connections.
+  The Portenta Mid Carrier provides a high-speed CAN FD transceiver that allows CAN bus communication connections. Also, it allows access to a second CAN interface available without an onboard transceiver.
 
 </Feature>
 
 <Feature title="Connectivity" image="connection">
 
-  Access a wide range of I/O with the Portenta Mid Carrier headers, including Ethernet, USB, Analog I/O, PWM, I2S, I2C, SPI and a CANBus port.
+  Access a wide range of I/O with the Portenta Mid Carrier headers, including Ethernet, USB, Analog I/O, SPDIF, PDM, SAI, UART, PWM, I2S, I2C, SPI and a CANBus port.
+
+</Feature>
+
+<Feature title="Mini PCIe Connector" image="connection">
+
+  The Portenta X8 potentiates the possibility of adding mPCIe modules leveraging the available USB, I2C and SIM connectivities through this port. A perfect feature for cellular modules among others.
 
 </Feature>
 
