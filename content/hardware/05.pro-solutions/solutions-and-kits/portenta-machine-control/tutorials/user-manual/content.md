@@ -162,9 +162,10 @@ Portenta Machine Control can be powered in different ways:
 
 ![Different ways to power a Portenta Machine Control](assets/user-manual-7.png)
 
-- If the board is powered using a **micro-USB cable**, the **3V3 LED** will be turned on.
+The Portenta Machine Control has several LEDs that indicate how the board is being powered:
 
-- If the board is powered using an **external +24 VDC power supply**, the **12V LED** and the **24V LED** will be turned on.
+- If the board is powered using a **micro-USB cable**, the **3V3 LED** (red) will be turned on.
+- The **12V LED** (yellow) and the **24V LED** (green LED) will be turned on if the board is powered using an **external +24 VDC power supply**. 
 
 ![Power rails LED feedback](assets/power-leds.gif)
 
