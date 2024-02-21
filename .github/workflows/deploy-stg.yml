@@ -53,11 +53,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-public-gatsby-
 
-      - run: git log -1 --pretty=format:%aI content/hardware/02.hero/boards/uno-r4-minima/tutorials/adc-resolution/adc-resolution.md
       - run: npm install
-      - run: git log -1 --pretty=format:%aI content/hardware/02.hero/boards/uno-r4-minima/tutorials/adc-resolution/adc-resolution.md
       - run: npm run build
-      - run: git log -1 --pretty=format:%aI content/hardware/02.hero/boards/uno-r4-minima/tutorials/adc-resolution/adc-resolution.md
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
