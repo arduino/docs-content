@@ -11,8 +11,9 @@ type: maker
 The **Arduino Nano 33 BLE Rev2**\* is a miniature-sized module containing a NINA B306 module, based on Nordic nRF52480 and containing an Arm® Cortex®-M4F. The BMI270 and BMM150 jointly provide a 9-axis IMU. The module can either be mounted as a DIP component (when mounting pin headers) or as a SMT component, directly soldering it via the castellated pads.
 
 \*Nano 33 BLE Rev2 product has two SKUs:
-* Without headers (ABX00071)
-* With headers (ABX00072)
+
+- Without headers (ABX00071)
+- With headers (ABX00072)
 
 # Target Areas
 
@@ -71,18 +72,17 @@ As all Nano form factor boards, Nano 33 BLE Rev2 does not have a battery charger
 
 #### Recommended Operating Conditions
 
-| Symbol | Description                                      | Min             | Max            |
-|--------|--------------------------------------------------|-----------------|----------------|
+| Symbol | Description                                      | Min             | Max             |
+| ------ | ------------------------------------------------ | --------------- | --------------- |
 |        | Conservative thermal limits for the whole board: | -40 °C ( 40 °F) | 85 °C ( 185 °F) |
 
 ### Power Consumption
 
 | Symbol | Description                         | Min | Typ | Max | Unit |
-|--------|-------------------------------------|-----|-----|-----|------|
+| ------ | ----------------------------------- | --- | --- | --- | ---- |
 | PBL    | Power consumption with busy loop    |     | TBC |     | mW   |
 | PLP    | Power consumption in low power mode |     | TBC |     | mW   |
 | PMAX   | Maximum Power Consumption           |     | TBC |     | mW   |
-
 
 <div style="page-break-after: always;"> </div>
 
@@ -94,7 +94,7 @@ Top:
 ![Board topology top](assets/BLE_Rev2_Top.png)
 
 | **Ref.** | **Description**                                   | **Ref.** | **Description**                  |
-|----------|---------------------------------------------------|----------|----------------------------------|
+| -------- | ------------------------------------------------- | -------- | -------------------------------- |
 | U1       | NINA-B306 Module Bluetooth® Low Energy 5.0 Module | U6       | MP2322GQH Step Down Converter    |
 | U2       | BMI270 Sensor IMU                                 | PB1      | IT-1185AP1C-160G-GTR Push button |
 | U7       | BMM150 Magnetometer IC                            | DL1      | Led L                            |
@@ -104,7 +104,7 @@ Bottom:
 ![Board topology bot](assets/BLE_Rev2_Bottom.png)
 
 | **Ref.** | **Description** | **Ref.** | **Description** |
-|----------|-----------------|----------|-----------------|
+| -------- | --------------- | -------- | --------------- |
 | SJ1      | VUSB Jumper     | SJ2      | D7 Jumper       |
 | SJ3      | 3v3 Jumper      | SJ4      | D8 Jumper       |
 
@@ -165,7 +165,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 ### USB
 
 | Pin | **Function** | **Type**     | **Description**                                                                        |
-|-----|--------------|--------------|----------------------------------------------------------------------------------------|
+| --- | ------------ | ------------ | -------------------------------------------------------------------------------------- |
 | 1   | VUSB         | Power        | Power Supply Input. If board is powered via VUSB from header this is an Output **(1)** |
 | 2   | D-           | Differential | USB differential data -                                                                |
 | 3   | D+           | Differential | USB differential data +                                                                |
@@ -177,7 +177,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 The board exposes two 15-pin connectors which can either be assembled with pin headers or soldered through castellated vias.
 
 | Pin | **Function** | **Type**     | **Description**                                                                     |
-|-----|--------------|--------------|-------------------------------------------------------------------------------------|
+| --- | ------------ | ------------ | ----------------------------------------------------------------------------------- |
 | 1   | D13          | Digital      | GPIO                                                                                |
 | 2   | +3V3         | Power Out    | Internally generated power output to external devices                               |
 | 3   | AREF         | Analog       | Analog Reference; can be used as GPIO                                               |
@@ -214,7 +214,7 @@ The board exposes two 15-pin connectors which can either be assembled with pin h
 On the bottom side of the board, under the communication module, debug signals are arranged as 3x2 test pads with 100 mil pitch with pin 4 removed. Pin 1 is depicted in Figure 3 – Connector Positions
 
 | Pin | **Function** | **Type**   | **Description**                                                   |
-|-----|--------------|------------|-------------------------------------------------------------------|
+| --- | ------------ | ---------- | ----------------------------------------------------------------- |
 | 1   | +3V3         | Power Out  | Internally generated power output to be used as voltage reference |
 | 2   | SWD          | Digital    | nRF52480 Single Wire Debug Data                                   |
 | 3   | SWCLK        | Digital In | nRF52480 Single Wire Debug Clock                                  |
@@ -240,7 +240,7 @@ We declare under our sole responsibility that the products above conform with th
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | Substance                              | **Maximum limit (ppm)** |
-|----------------------------------------|-------------------------|
+| -------------------------------------- | ----------------------- |
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -268,7 +268,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 (1) This device may not cause harmful interference
 
- (2) this device must accept any interference received, including interference that may cause undesired operation.
+(2) this device must accept any interference received, including interference that may cause undesired operation.
 
 **FCC RF Radiation Exposure Statement:**
 
@@ -305,30 +305,29 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 Hereby, Arduino S.r.l. declares that this product complies with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
 | Frequency bands | Maximum output power (ERP) |
-|-----------------|----------------------------|
+| --------------- | -------------------------- |
 | 863-870Mhz      | TBD                        |
 
 ## Company Information
 
 | Company name    | Arduino S.r.l                           |
-|-----------------|-----------------------------------------|
+| --------------- | --------------------------------------- |
 | Company Address | Via Andrea Appiani 25 20900 MONZA Italy |
 
 ## Reference Documentation
 
-| Reference                 | **Link**                                                                                                                                                             |
-|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Arduino IDE (Desktop)     | <https://www.arduino.cc/en/software>                                                                                                                                   |
-| Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                                                                                                     |
-| Cloud IDE Getting Started | <https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a>                                                                  |
-| Forum                     | <http://forum.arduino.cc/>                                                                                                                                             |
-| Nina B306                 | <https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf>                                                                                    |                                                                                                               |
-| ProjectHub                | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                                                                                             |
-| Library Reference         | <https://www.arduino.cc/reference/en/>                                                                                                                                 |
+| Reference                 | **Link**                                                                                              |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- | --- |
+| Arduino IDE (Desktop)     | <https://www.arduino.cc/en/software>                                                                  |
+| Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                                    |
+| Cloud IDE Getting Started | <https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a> |
+| Forum                     | <http://forum.arduino.cc/>                                                                            |
+| Nina B306                 | <https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf>                   |     |
+| ProjectHub                | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                            |
+| Library Reference         | <https://www.arduino.cc/reference/en/>                                                                |
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**                           |
-|------------|--------------|---------------------------------------|
-|            |              |                                       |
-
+| **Date**   | **Changes**   |
+| ---------- | ------------- |
+| 2024/02/21 | First Release |
