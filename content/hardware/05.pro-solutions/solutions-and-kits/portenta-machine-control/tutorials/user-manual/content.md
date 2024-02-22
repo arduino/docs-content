@@ -32,6 +32,7 @@ This user manual provides a comprehensive overview of the Portenta Machine Contr
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
 - [Micro-USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 - +24 VDC/0.5 A power supply (x1)
+- 2.4 GHz RP-SMA male antenna (x1) (only required for testing Wi-Fi®/Bluetooth® capabilities)
 
 ### Software Requirements
 
