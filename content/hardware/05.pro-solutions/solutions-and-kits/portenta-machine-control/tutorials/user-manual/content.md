@@ -176,7 +176,7 @@ Let's program the Portenta Machine Control with a modified version of the classi
 
 ***Remember to install the `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` library; please refer to this section of the User Manual if you still need to.***
 
-Copy and paste the code below into a new sketch in the Arduino IDE.
+Copy and paste the sketch below into a new sketch in the Arduino IDE.
 
 ```arduino
 // Include the Arduino_PortentaMachineControl library
@@ -198,7 +198,7 @@ void loop() {
 ```
 The sketch begins by including the `Arduino_PortentaMachineControl` library. The `setup()` function initializes the digital output terminals from this library. The `loop()` function, which continually runs after the `setup()` function is called, toggles a digital output at channel `0`.
 
-To upload the code to your Portenta Machine Control, click the **Verify** button to compile the sketch and check for errors; once verification is successful, click the **Upload** button to program the controller with the sketch.
+To upload the sketch to your Portenta Machine Control, click the **Verify** button to compile the sketch and check for errors; once verification is successful, click the **Upload** button to program the controller with the sketch.
 
 ![Uploading a sketch to a Portenta Machine Control in the Arduino IDE](assets/user-manual-8.png)
 
@@ -617,7 +617,7 @@ The Portenta Machine Control features an onboard low-power 10BASE-T/100BASE-TX E
 
 ![Onboard RJ45 connector of the Portenta Machine Control](assets/user-manual-16.png)
 
-The `Arduino Mbed OS Portenta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box: the [`Ethernet` library](https://www.arduino.cc/reference/en/libraries/ethernet/). Let's use an example code demonstrating some of the transceiver's capabilities.
+The `Arduino Mbed OS Portenta Boards` core has a built-in library that lets you use the onboard Ethernet PHY transceiver right out of the box: the [`Ethernet` library](https://www.arduino.cc/reference/en/libraries/ethernet/). Let's use an example sketch demonstrating some of the transceiver's capabilities.
 
 The sketch below enables a Portenta Machine Control to connect to the Internet via an Ethernet connection. Once connected, it performs a `GET` request to the `ip-api.com` service to fetch details about the device's IP address. It then parses the received JSON object using the [`Arduino_JSON` library](https://github.com/arduino-libraries/Arduino_JSON) to extract key IP details: IP address, city, region, and country. This data is then printed to the Arduino IDE's Serial Monitor.
 
@@ -753,7 +753,7 @@ Some of the key capabilities of Portenta's Machine Control onboard Wi-Fi® modul
 - **Secure communication**: The onboard module incorporates various security protocols such as WEP, WPA, WPA2, and WPA3, ensuring robust data encryption and protection against unauthorized access during wireless communication.
 - **Antenna connector**: Portenta Machine Control devices feature an onboard vertical SMA antenna connector (5-1814832-2) specifically matched for the onboard Wi-Fi® module RF requirements.
 
-The `Arduino Mbed OS Portenta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module right out of the box: the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/). Let's walk through an example code demonstrating some of the module's capabilities.
+The `Arduino Mbed OS Portenta Boards` core has a built-in library that lets you use the onboard Wi-Fi® module right out of the box: the [`WiFi` library](https://www.arduino.cc/reference/en/libraries/wifi/). Let's walk through an example sketch demonstrating some of the module's capabilities.
 
 The sketch below enables a Portenta Machine Control device to connect to the Internet via Wi-Fi® (like the Ethernet example). Once connected, it performs a `GET` request to the [`ip-api.com`](https://ip-api.com/) server to fetch details related to its IP address. It then parses the received JSON object using the [`Arduino_JSON` library](https://github.com/arduino-libraries/Arduino_JSON) to extract key IP details: IP address, city, region, and country. This data is then printed to the Arduino IDE's Serial Monitor.
 
@@ -768,7 +768,7 @@ Put `arduino_secrets.h` as the "Name for new file" and enter the following code 
 #define SECRET_PASS "YOUR_PASS"; // Your network password (use for WPA, or use as key for WEP)
 ```
 
-Replace `YOUR_SSID` with the name of your Wi-Fi® network and `YOUR_PASS` with the password of it and save the project. The example code is as follows: 
+Replace `YOUR_SSID` with the name of your Wi-Fi® network and `YOUR_PASS` with the password of it and save the project. The example sketch is as follows: 
 
 ```arduino
 /**
@@ -1113,7 +1113,7 @@ The example below shows how to enable Modbus TCP communication between a Portent
 
 ![Portenta Machine Control and Opta™ Modbus RTU wiring](assets/modbus-rtu.png)
 
-The following example code will let the Portenta Machine Control device toggle the four onboard Opta™ LEDs via **Modbus RTU**. The Portenta Machine Control will act as the **client**, while the Opta™ device will act as the **server**.
+The following example sketch will let the Portenta Machine Control device toggle the four onboard Opta™ LEDs via **Modbus RTU**. The Portenta Machine Control will act as the **client**, while the Opta™ device will act as the **server**.
 
 For the **Opta™** device, defined as the server, use the example sketch shown below.
 
@@ -1324,7 +1324,7 @@ We will use the second option since it will allow us to scale the application by
 
 ![Modbus TCP Ethernet Wiring](assets/modbus-tcp.png)
 
-The following example code will let PMC control an Opta™ LED through the Modbus TCP protocol. The Portenta Machine Control will be the **client**, and the Opta™ device will be the **server**; as they are both connected to the internet router, IP addresses are the way for them to route their messages. 
+The following example sketch will let PMC control an Opta™ LED through the Modbus TCP protocol. The Portenta Machine Control will be the **client**, and the Opta™ device will be the **server**; as they are both connected to the internet router, IP addresses are the way for them to route their messages. 
 
 We can define a **Static** or **DHCP** IP address to them using the function `Ethernet.begin()` as follows:
 
@@ -1676,7 +1676,7 @@ char ssid[] = "SECRET_SSID"; // Your network SSID (name)
 char password[] = "SECRET_PASS"; // Your network password (use for WPA, or use as key for WEP)
 ```
 
-Replace `SECRET_SSID` with the name of your Wi-Fi® network and `SECRET_PASS` with the password of it and save the project. The example code is as follows:
+Replace `SECRET_SSID` with the name of your Wi-Fi® network and `SECRET_PASS` with the password of it and save the project. The example sketch is as follows:
 
 ```arduino
 /*
@@ -1765,7 +1765,7 @@ void displayRTC() {
 }
 ```
 
-This sketch uses `WiFi.h`, `NTPClient.h`, and `mbed_mktime.h` libraries and methods to connect to a specific Wi-Fi® network using the provided credentials (network name and password). Once the internet connection has been established, the code synchronizes with a NTP server, using the `NTPClient.h` library, to obtain the current Coordinated Universal Time (UTC). This time is then converted to local time and used to set the device's internal RTC, thanks to the functionalities provided by `mbed_mktime.h` methods.
+This sketch uses `WiFi.h`, `NTPClient.h`, and `mbed_mktime.h` libraries and methods to connect to a specific Wi-Fi® network using the provided credentials (network name and password). Once the internet connection has been established, the sketch synchronizes with a NTP server, using the `NTPClient.h` library, to obtain the current Coordinated Universal Time (UTC). This time is then converted to local time and used to set the device's internal RTC, thanks to the functionalities provided by `mbed_mktime.h` methods.
 
 Once the RTC has been synchronized in the setup, the sketch enters an infinite loop. In this loop, every five seconds, it retrieves the current time from the RTC and prints it to the IDE's Serial Monitor in a more readable format, using the tm structure provided by `mbed_mktime.h`. This ensures that even if the internet connection is interrupted or the system restarts, accurate time tracking is maintained as long as the RTC's power supply is not interrupted. You should see the following output in the Arduino IDE's Serial Monitor:
 
@@ -1865,9 +1865,11 @@ Some of the key capabilities of Portenta's Machine Control encoder channels are 
 - **Pull-up resistance**: The channels are equipped with 10 kΩ pull-up resistors connected to the board's 24 VDC supply, ensuring stable signal integrity and reduced noise interference.
 - **24 VDC compatibility**: The connection to the 24 VDC supply makes these encoders suitable for industrial systems and applications that operate at this voltage level.
 
+The `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` have built-in libraries and functions that enable you to utilize the Portenta's Machine Control encoders. The following example shows how to read information from encoder channel 0 of a Portenta Machine Control device; for wiring an ABZ encoder to the Portenta Machine Control follow the diagram below:
+
 ![Wiring of an ABZ encoder connected to channel 0](assets/encoders.png)
 
-The `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` have built-in libraries and functions that enable you to utilize the Portenta's Machine Control encoders. The following example shows how to use this capability:
+The example sketch is shown below.
 
 ```arduino
 /*
@@ -2023,7 +2025,7 @@ void onLedChange()  {
 }
 ```
 
-The complete example code can be found below:
+The complete example sketch can be found below:
 
 ```arduino
 /*
