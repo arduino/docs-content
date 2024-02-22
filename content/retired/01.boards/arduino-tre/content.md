@@ -3,8 +3,6 @@ title: "Arduino Tre"
 source: "https://arduino.cc/en/Main/ArduinoBoardTre"
 ---
 
-***Note: This page refers to a product that is retired.***
-
 ## Arduino TRE (discontinued)
 
 ![](assets/ArduinoTre_LandingPage_No_Badge.jpg)

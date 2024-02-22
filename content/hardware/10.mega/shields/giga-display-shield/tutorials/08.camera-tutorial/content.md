@@ -14,13 +14,13 @@ The GIGA Display Shield comes with an Arducam® camera connector. In this tutori
 - [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 - [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- HM01B0, HM0360 or GC2145 camera
+- HM01B0, HM0360, GC2145 or OV7675 camera
 
-## Downloading the Library and Core
+## Downloading the Library and Board Package
 
-The Arduino Mbed OS Giga Boards core contains most of the libraries you need to work with the shield's camera connector. To install the core for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the core. Now open the library tab on the left, search for [**Arducam_dvp**](https://www.arduino.cc/reference/en/libraries/arducam_dvp/), and install this library.
+The Arduino Mbed OS Giga Boards Board Package contains most of the libraries you need to work with the shield's camera connector. To install the Board Package for GIGA boards, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for giga and install the latest Arduino Mbed OS Giga Boards version, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) library is included in the Board Package. Now open the library tab on the left, search for [**Arducam_dvp**](https://www.arduino.cc/reference/en/libraries/arducam_dvp/), and install this library.
 
-![Library tab in the Arduino IDE](assets/ide-library.svg)
+![Library tab in the Arduino IDE](assets/ide-library.png)
 
 ## Compatible Cameras
 
@@ -29,10 +29,11 @@ The GIGA Display Shield is compatible with the following cameras:
 - [HM01B0](https://www.arducam.com/product/hm01b0-qvga-monochrome-dvp-camera-module-for-arduino-giga-r1-wifi-board/)
 - [HM0360](https://www.arducam.com/product/hm0360-vga-monochrome-dvp-camera-module-for-arduino-giga-r1-wifi-board/)
 - [GC2145](https://www.arducam.com/product/2mp-gc2145-color-dvp-camera-module-for-arduino-giga-r1-wifi-board/)
+- [OV7675](https://store.arduino.cc/products/arducam-camera-module)
 
 Connect the camera to the connector on the front of the display shield as shown in the image below.
 
-![Camera connected to the GIGA Display Shield](assets/camera-connected.svg)
+![Camera connected to the GIGA Display Shield](assets/camera-connected.png)
 
 ***Note the direction of the shield, physically the connector can be plugged in from both directions, but it will only work when facing the same direction as the display.***
 
@@ -40,9 +41,24 @@ Connect the camera to the connector on the front of the display shield as shown 
 
 Open the example sketch by going to **File > Examples > Camera > GigaCameraDisplay** in the Arduino IDE.
 
-![Opening the example sketch in the Arduino IDE](assets/ide-example.svg)
+![Opening the example sketch in the Arduino IDE](assets/ide-example.png)
 
-Whichever of the compatible cameras you are using the sketch will include libraries and definitions for them all, meaning no modification to the sketch is necessary to get it working. The sketch will capture frames into the framebuffer and then print a live camera feed to the display.
+Whichever of the compatible cameras you are using the sketch will include libraries and definitions for them all, meaning only one line needs to be changed depending on what camera you will be using. The line that needs to be changed is this one:
+
+```arduino
+#define ARDUCAM_CAMERA_HM01B0
+```
+
+Depending on what camera you are using it should be changed accordingly:
+
+- HM01B0: `#define ARDUCAM_CAMERA_HM01B0`
+- HM0360: `#define ARDUCAM_CAMERA_HM0360`
+- GC2145: `#define ARDUCAM_CAMERA_GC2145`
+- OV7675: `#define ARDUCAM_CAMERA_OV767x`
+
+The sketch will then capture frames into the framebuffer and print a live camera feed to the display.
+
+***Note: make sure to connect/disconnect the camera when the board is powered off.***
 
 ```arduino
 #include "arducam_dvp.h"
@@ -153,6 +169,8 @@ void loop() {
 }
 ```
 
+***Note: Depending on the camera being used the captured resolution might be smaller than the screen. If this is the case, there will be a black bar displayed next to the captured feed, it will not be automatically centered.*** 
+
 ## Conclusion
 
-This tutorial went through how to connect a compatible camera to the shield and also how to test it out quickly with the example sketch included in the core. Now you should see a live feed from the camera on your GIGA Display Shield!
+This tutorial went through how to connect a compatible camera to the shield and also how to test it out quickly with the example sketch included in the Board Package. Now you should see a live feed from the camera on your GIGA Display Shield!

@@ -1,0 +1,32 @@
+Board:
+  Name: Arduino® Portenta Hat Carrier
+  SKU: ASX00049
+Compatible System-On-Module boards:
+  Portenta X8: Yes
+  Portenta H7: Yes (except MIPI Camera)
+  Portenta C33: Yes (except MIPI Camera)
+Compatibility with Raspberry Pi® Hats: Raspberry Pi like 40-Pin Header connector
+Camera:	
+  MIPI Connector: 1
+  USB-A Connector: 1x (compatible with USB-Cameras)
+Communication Interfaces:
+  Ethernet: 1
+  SPI: 1 
+  I2S: 1
+  I2C: 3
+  CAN: 1x CAN FD (without terminal resistor)
+  UART: 3
+  USB: 1x USB-A 2.0/Hi-Speed
+User Interface:
+  Button: 1x Flash/User-Programmable Push Button
+Storage:
+  MicroSD: 1x MicroSD card slot 
+Hardware debugging interface: JTAG/SWD
+Power:
+  Board operating voltage: 7-32 V
+  Board input voltage (VIN): 5 V
+  Maximum current provided by the board: 1.5 A
+Dimensions:
+  Width: 85 mm
+  Length: 49 mm
+  Weight: 36 g

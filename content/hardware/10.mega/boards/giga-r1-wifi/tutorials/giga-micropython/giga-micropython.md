@@ -2,6 +2,8 @@
 title: MicroPython on the GIGA R1
 description: Get started with MicroPython on the GIGA R1.
 author: Karl Söderby
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
 tags: [MicroPython, dfu-util]
 ---
 

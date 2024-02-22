@@ -67,7 +67,7 @@ In order to obtain a new license, you need to first get the serial number of you
 
 ![Your board's serial number can be displayed in the Arduino IDE using the "Get Board Info" command](assets/por_ard_trace32_board_info.png)
 
-***For Portenta H7 and Nicla Vision only: if you only see a 16-character (64-bit) long serial number, then you need to update your Arduino IDE and your boards' core from the Boards Manager in the IDE. Details on how to do so can be found on the Arduino website. In addition, make sure your board has the [latest bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) installed.***
+***For Portenta H7 and Nicla Vision only: if you only see a 16-character (64-bit) long serial number, then you need to update your Arduino IDE and your Board Package from the Boards Manager in the IDE. Details on how to do so can be found on the Arduino website. In addition, make sure your board has the [latest bootloader](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader) installed.***
 
 - Use the TRACE32 debugger. Check the section "Starting the TRACE32 Debugger" to learn how to get started. Click the menu item "Board S/N and License State". Your board's serial number will be printed in the AREA window and a dialog LICENSE.state will be opened.
 
@@ -204,7 +204,7 @@ Lauterbach also provides hardware-based debug & trace tools. To learn more about
 ### Portenta’s or Nicla's Serial Number Is Not 24 Digits Long
 
 - Update Arduino IDE to the latest version available
-- Update **Arduino mbed-enabled Boards** core from Arduino IDE menu: **Tools > Board > Boards Manager**
+- Update **Arduino Mbed OS** Board Package from Arduino IDE menu: **Tools > Board > Boards Manager**
 - Update the board's bootloader using the instructions available [here](https://docs.arduino.cc/tutorials/portenta-h7/updating-the-bootloader).
 
 ### Error Message in AREA View: 'No More Arguments Expected' 

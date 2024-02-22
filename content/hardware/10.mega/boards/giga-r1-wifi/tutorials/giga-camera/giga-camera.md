@@ -3,6 +3,12 @@ title: GIGA R1 Camera Guide
 description: Learn about the GIGA R1 WiFi's camera connector, and how to use existing examples.
 tags: [ArduCAM, Camera, Processing]
 author: Karl Söderby
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
+software:
+  - ide-v1
+  - ide-v2
+  - web-editor
 ---
 
 The GIGA R1 has a dedicated camera connector that allows certain camera modules to mount directly on the board. This makes it possible to add machine vision to your GIGA R1 board without much effort at all.
@@ -24,7 +30,7 @@ You will also need the following software:
 
 ## Supported Cameras
 
-The GIGA R1 currently supports the following cameras, via the [Camera](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/Camera) library that is bundled with the [Arduino Mbed Core](https://github.com/arduino/ArduinoCore-mbed):
+The GIGA R1 currently supports the following cameras, via the [Camera](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/Camera) library that is bundled with the [Arduino Mbed PS GIGA Board Package](https://github.com/arduino/ArduinoCore-mbed):
 
 - **OV7670** and **OV7675**
 - **GC2145**

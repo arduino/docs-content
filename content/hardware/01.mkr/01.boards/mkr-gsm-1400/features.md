@@ -7,9 +7,10 @@ The MKR GSM 1400 is a great option for GSM / 3G connectivity projects. Using the
 <Feature title="GSM / 3G Connectivity" image="cellular">
 
   Enables GSM / 3G connectivity for the MKR GSM 1400 board.
-
+<FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/mkr-gsm-1400/gsm-receive-sms"/>
   <FeatureLink variant="secondary" title="library" url="https://www.arduino.cc/reference/en/libraries/mkrgsm/"/>
+</FeatureWrapper>
 </Feature>
 
 </FeatureList>
