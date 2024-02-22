@@ -536,13 +536,14 @@ void setup() {
   // Initialize I2C communication
   Wire.begin();
   
+  // wait for serial port to connect. Needed for native USB port only
   while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
+    ; 
   }
 
   // Attempt to initialize the programmable digital input/output channels
   if (!MachineControl_DigitalProgrammables.begin()) {
-    Serial.println("- Failed to initialize the programmable digital I/Os");
+    Serial.println("- Failed to initialize the programmable digital I/Os!");
     return;
   }
   Serial.println("- Programmable digital I/Os initialized successfully!");
@@ -632,52 +633,53 @@ The sketch below enables a Portenta Machine Control to connect to the Internet v
   @version 1.0 01/10/23
 */
 
-// Include the necessary libraries.
+// Include the necessary libraries
 #include <Ethernet.h>
 #include <Arduino_JSON.h>
 
-// Server address for ip-api.com.
+// Server address for ip-api.com
 const char* server = "ip-api.com";
 
-// API endpoint path to get IP details in JSON format.
+// API endpoint path to get IP details in JSON format
 String path = "/json/";
 
-// Static IP configuration for the Portenta Machine Control device.
+// Static IP configuration for the Portenta Machine Control device
+// Used only if DHCP IP configuration fails
 IPAddress ip(10, 130, 22, 84);
 
-// Ethernet client instance for the communication.
+// Ethernet client instance for the communication
 EthernetClient client;
 
-// JSON variable to store and process the fetched data.
+// JSON variable to store and process the fetched data
 JSONVar doc;
 
-// Variable to ensure we fetch data only once.
+// Variable to ensure we fetch data only once
 bool dataFetched = false;
 
 void setup() {
-  // Begin serial communication at a baud rate of 115200.
+  // Begin serial communication at a baud rate of 115200
   Serial.begin(115200);
 
   // Wait for the serial port to connect,
-  // This is necessary for boards that have native USB.
+  // This is necessary for boards that have native USB
   while (!Serial);
 
-  // Attempt to start Ethernet connection via DHCP,
-  // If DHCP failed, print a diagnostic message.
+  // Attempt to start Ethernet connection via DHCP
+  // If DHCP failed, print a diagnostic message
   if (Ethernet.begin() == 0) {
     Serial.println("- Failed to configure Ethernet using DHCP!");
 
-    // Try to configure Ethernet with the predefined static IP address.
+    // Try to configure Ethernet with the predefined static IP address
     Ethernet.begin(ip);
   }
   delay(2000);
 }
 
 void loop() {
-  // Ensure we haven't fetched data already,
-  // ensure the Ethernet link is active,
-  // establish a connection to the server,
-  // compose and send the HTTP GET request.
+  // Ensure we haven't fetched data already
+  // ensure the Ethernet link is active
+  // establish a connection to the server
+  // compose and send the HTTP GET request
   if (!dataFetched) {
     if (Ethernet.linkStatus() == LinkON) {
       if (client.connect(server, 80)) {
@@ -689,21 +691,21 @@ void loop() {
         client.println("Connection: close");
         client.println();
 
-        // Wait and skip the HTTP headers to get to the JSON data.
+        // Wait and skip the HTTP headers to get to the JSON data
         char endOfHeaders[] = "\r\n\r\n";
         client.find(endOfHeaders);
 
-        // Read and parse the JSON response.
+        // Read and parse the JSON response
         String payload = client.readString();
         doc = JSON.parse(payload);
 
-        // Check if the parsing was successful.
+        // Check if the parsing was successful
         if (JSON.typeof(doc) == "undefined") {
           Serial.println("- Parsing failed!");
           return;
         }
 
-        // Extract and print the IP details.
+        // Extract and print the IP details
         Serial.println("*** IP Details:");
         Serial.print("- IP Address: ");
         Serial.println((const char*)doc["query"]);
@@ -715,10 +717,10 @@ void loop() {
         Serial.println((const char*)doc["country"]);
         Serial.println("");
 
-        // Mark data as fetched.
+        // Mark data as fetched
         dataFetched = true;
       }
-      // Close the client connection once done.
+      // Close the client connection once done
       client.stop();
     } else {
       Serial.println("- Ethernet link disconnected!");
@@ -1762,6 +1764,7 @@ void displayRTC() {
   Serial.println(buffer);
 }
 ```
+
 This sketch uses `WiFi.h`, `NTPClient.h`, and `mbed_mktime.h` libraries and methods to connect to a specific Wi-Fi® network using the provided credentials (network name and password). Once the internet connection has been established, the code synchronizes with a NTP server, using the `NTPClient.h` library, to obtain the current Coordinated Universal Time (UTC). This time is then converted to local time and used to set the device's internal RTC, thanks to the functionalities provided by `mbed_mktime.h` methods.
 
 Once the RTC has been synchronized in the setup, the sketch enters an infinite loop. In this loop, every five seconds, it retrieves the current time from the RTC and prints it to the IDE's Serial Monitor in a more readable format, using the tm structure provided by `mbed_mktime.h`. This ensures that even if the internet connection is interrupted or the system restarts, accurate time tracking is maintained as long as the RTC's power supply is not interrupted. You should see the following output in the Arduino IDE's Serial Monitor:
