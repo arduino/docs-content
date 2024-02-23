@@ -81,7 +81,7 @@ Here is an overview of the controller's main components shown in the image above
 - Type J thermocouples
 - PT100 sensors
 
-**Communication interfaces**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers high-speed, software-configurable interfaces such as: 
+**Communication interfaces and protocols**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers high-speed, software-configurable interfaces such as: 
 - CAN bus
 - RS-232
 - RS-422
@@ -168,6 +168,26 @@ The Portenta Machine Control has several LEDs that indicate how the board is bei
 - The **12V LED** (yellow) and the **24V LED** (green LED) will be turned on if the board is powered using an **external +24 VDC power supply**. 
 
 ![Power rails LED feedback](assets/power-leds.gif)
+
+### Portenta Machine Control Terminals Features
+
+Access to the main components and features of the Portenta Machine Control is provided through onboard terminal blocks, specifically from the SPTAF-1 connector series by Phoenix Contact. These connectors are distinguished by their low profile, ability to handle high currents (rated up to 16A), and an intuitive push-in wire termination system. Below are the technical specifications of the Portenta Machine Control terminals:
+
+- **Pitch**: 3.5 mm
+- **Nominal current**: 16 A
+- **Nominal voltage**: 160 V
+- **Connection method**: Push-in spring connection
+- **Connection direction**: 45º
+
+The connection capacity for the Portenta Machine Control terminals is outlined in the table below, indicating supported conductor cross sections and their respective capacities:
+
+|          **Conductor Cross Section**          |                **Capacity**               |
+|:---------------------------------------------:|:-----------------------------------------:|
+|                     Solid                     |  0.2 mm<sup>2</sup> - 1.5 mm<sup>2</sup>  |
+|                    Flexible                   |  0.2 mm<sup>2</sup> - 1.5 mm<sup>2</sup>  |
+| Flexible, with ferrule without plastic sleeve | 0.25 mm<sup>2</sup> - 0.75 mm<sup>2</sup> |
+|   Flexible, with ferrule with plastic sleeve  | 0.25 mm<sup>2</sup> - 0.75 mm<sup>2</sup> |
+|                      AWG                      |                  24 - 16                  |
 
 ### Hello World Example
 
@@ -931,8 +951,6 @@ RS-485 data lines in the Portenta Machine Control are labeled as described in th
 |  RS485 RX N  |          `RX-`         |           -           |
 
 ***RS-485 data line labels differ between manufacturers. Most manufacturers will use `+` and `–` to label the data lines or variations such as `D+` and `D-`. Some manufacturers will label inputs as `A` and `B` but get the polarity backward, so `A` is positive and `B` negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the `-` line should be connected to the `A` terminal. The `+` line should be connected to the `B` terminal. Reversing the polarity will not damage an RS-485 device, but the communication will not work as expected.***
-
-
 
 The example sketch below shows how to use the RS-485 interface of the Portenta Machine Control for half-duplex communication.
 
