@@ -1,90 +1,93 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
-    "type": "object",
-    "properties": {
-      "beta": {
-        "type": "boolean"
-      },
-      "source" : {
-        "type": "string"
-      },
-      "title": {
-        "type": "string",
-        "maxLength": 60
-      },
-      "coverImage": {
-        "type": "string"
-      },
-      "author": {
-        "type": "string"
-      },
-      "tags": {
-        "type": "array",
-        "items": [
-          {
-            "type": "string"
-          }
-        ]
-      },
-      "description": {
-        "type": "string"
-      },
-      "difficulty": {
-        "type": "string",
-        "enum": ["beginner", "intermediate", "advanced"]
-      },
-      "hero_position": {
-        "type": "integer"
-      },
-      "featuredImage": {
-        "type": "string"
-      },
-      "software": {
-        "type": "array",
-        "items": [
-          {
-            "type": "string"
-          }
-        ]
-      },
-      "compatible-products":{
-        "type": "array",
-        "items": [
-          {
-            "type": "string"
-          }
-        ]
-      },
-      "hardware": {
-        "type": "array",
-        "items": [
-          {
-            "type": "string"
-          }
-        ]
-      },
-      "libraries": {
-        "type": "array",
-        "items": [
-          {
-            "type": "object",
-            "properties": {
-              "name" : {
-                "type" : "string"
-              },
-              "url" : {
-                "type" : "string"
-              }
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "beta": {
+      "type": "boolean"
+    },
+    "source": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 60
+    },
+    "coverImage": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["beginner", "intermediate", "advanced"]
+    },
+    "hero_position": {
+      "type": "integer"
+    },
+    "featuredImage": {
+      "type": "string"
+    },
+    "software": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "compatible-products": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "hardware": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "libraries": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "url": {
+              "type": "string"
             }
           }
-        ]
-      }
+        }
+      ]
     },
-    "required": [
-      "title",
-      "tags",
-      "description",
-      "author"
-    ],
-    "additionalProperties" : false
-  }
+    "primary_button_title": {
+      "type": "string",
+      "maxLength": 15
+    },
+    "secondary_button_title": {
+      "type": "string",
+      "maxLength": 15
+    }
+  },
+  "required": ["title", "tags", "description", "author"],
+  "additionalProperties": false
+}
