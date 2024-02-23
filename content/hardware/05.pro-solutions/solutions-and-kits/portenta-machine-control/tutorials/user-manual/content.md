@@ -1920,6 +1920,14 @@ The Portenta Machine Control is equipped with three independent temperature meas
 
 ![Portenta Machine Control temperature probes terminals](assets/user-manual-26.png)
 
+The Portenta Machine Control is compatible with the following temperature probes:
+
+- **Type K Thermocouples**: 
+- **Type J Thermocouples**:
+- **PT100 Probes**:
+
+***Connect only **non-grounded** thermocouples. For more information about how to connect thermocouples to the Portenta Machine Control, please refer to the [complete pinout available here](#pinout).***
+
 The Portenta Machine Control includes two onboard specialized front ends:
 
 - **MAX31855**: This front end is dedicated to **thermocouples**, providing accurate temperature measurements for a wide range of thermocouple types.
@@ -1932,9 +1940,19 @@ The two onboard front ends are connected to the three temperature channels throu
   
 This multiplexing system allows for seamless switching between different sensor types and channels, enabling comprehensive temperature monitoring across multiple points.
 
-***Connect only **non-grounded** thermocouples. For more information about how to connect thermocouples to the Portenta Machine Control, please refer to the [complete pinout available here](#pinout).***
+### Thermocouples
 
-The following example sketch demonstrates how to read temperatures from thermocouples connected to a Portenta Machine Control device. It uses the `Arduino_PortentaMachineControl` library to interface with the thermocouple sensors and prints the temperature values to the Arduino IDE's Serial Monitor every second.
+The Portenta Machine Control is compatible with **non-grounded** Type K and Type J Thermocouples. Connect a thermocouple following the next steps:
+- Connect the thermocouple to one of the three channels named **Temp Probes****.
+- Connect the thermocouple positive pin to TPCH.
+- Connect the thermocouple negative pin to TNCH.
+
+![Non-grounded Thermocouple connection to channel 0](assets/thermocouple-connection.png)
+
+***Depending on the region and normative, thermocouples can have different cables color codes. Please check the meaning of each cable code before connecting them do the device. Do not connect the thermocouple negative pin to GND.***
+
+
+The following example sketch demonstrates how to read temperatures from thermocouples connected to a Portenta Machine Control device. It uses the `Arduino_PortentaMachineControl` library to interface with the thermocouple probes and prints the temperature values to the Arduino IDE's Serial Monitor every second.
 
 ```arduino
 /*
@@ -1987,6 +2005,204 @@ Key functions used in the sketch:
 - `MachineControl_TCTempProbe.begin()`: Initializes the temperature probes.
 - `MachineControl_TCTempProbe.selectChannel(channel)`: Selects the active channel for temperature measurement.
 - `MachineControl_TCTempProbe.readTemperature()`: Reads the temperature from the selected channel.
+
+
+### PT100
+
+The Portenta Machine Control is compatible with two-wire RTD (PT100) and three-wire RTD (PT100) probes
+
+#### Two Wires RTD Connection
+
+The 2-wire RTD configuration is the simplest of the RTD circuit designs but is more prone to errors.
+
+To connect a 2-wire RTD probe to one of the channels, like **channel 0**, connect one pin of the PT100 to the TP0 input, the other pin to TN0, and connect a jumper between TP0 and RTD0 pins as you can see in the following picture:
+
+![PT100 Two Wires Connection to Channel 0](./assets/two-wire-connection.png)
+
+***Do not connect any pin to GND***
+
+#### Three Wires RTD Connection
+
+The 3-wire RTD configuration is the most commonly used RTD circuit design. In this configuration, two wires link the sensing element to the monitoring device on one side of the sensing element, and one links it on the other side.
+
+To connect a 3-wire RTD probe to one of the channels, like **channel 0**, connect one of the positive wires of the PT100 to the TP0 input, the other positive wire to RTD0, and the negative one to TN0 as you can see in the following picture:
+
+![Three Wires Connection to Channel 0](./assets/three-wire-connection.png)
+
+***Do not connect any pin to GND***
+
+#### PT100 Example
+
+The following example sketch demonstrates how to read temperatures from a 3-wire PT100 probe connected to a Portenta Machine Control device. It uses the `Arduino_PortentaMachineControl` library to interface with the PT100 probes and prints the temperature values and some additional PT100 constants of the probe to the Arduino IDE's Serial Monitor every second.
+
+```arduino
+/*
+ * Portenta Machine Control - Temperature Probes RTD Example
+ *
+ * This example provides a method to test the 3-wire RTDs
+ * on the Machine Control Carrier. It is also possible to
+ * acquire 2-wire RTDs by shorting the RTDx pin to the TPx pin.
+ * The Machine Control Carrier features a precise 400 ohm 0.1% reference resistor,
+ * which serves as a reference for the MAX31865.
+ *
+ * Circuit:
+ *  - Portenta H7
+ *  - Portenta Machine Control
+ *  - 3-wire RTD or 2-wire RTD
+ *
+ * This example code is in the public domain. 
+ * Copyright (c) 2024 Arduino
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+#include <Arduino_PortentaMachineControl.h>
+
+// The value of the Rref resistor. Use 430.0 for PT100
+#define RREF 400.0
+// The 'nominal' 0-degrees-C resistance of the sensor
+// 100.0 for PT100
+#define RNOMINAL 100.0
+
+void setup() {
+  // Initialize serial communication
+  Serial.begin(9600);
+  
+  // Wait 2.5 seconds for the serial port availability, then start the transmission
+  for (const auto timeout = millis() + 2500; !Serial && millis() < timeout; delay(250));
+
+  // Initialize temperature probes
+  MachineControl_RTDTempProbe.begin(THREE_WIRE);
+  Serial.println("- Temperature probes initialization done!");
+}
+
+void loop() {
+  MachineControl_RTDTempProbe.selectChannel(0);
+  Serial.println("CHANNEL 0 SELECTED");
+  uint16_t rtd = MachineControl_RTDTempProbe.readRTD();
+  float ratio = rtd;
+  ratio /= 32768;
+
+  // Check and print any faults
+  uint8_t fault = MachineControl_RTDTempProbe.readFault();
+  if (fault) {
+    Serial.print("Fault 0x"); Serial.println(fault, HEX);
+    if (MachineControl_RTDTempProbe.getHighThresholdFault(fault)) {
+      Serial.println("RTD High Threshold");
+    }
+    if (MachineControl_RTDTempProbe.getLowThresholdFault(fault)) {
+      Serial.println("RTD Low Threshold");
+    }
+    if (MachineControl_RTDTempProbe.getLowREFINFault(fault)) {
+      Serial.println("REFIN- > 0.85 x Bias");
+    }
+    if (MachineControl_RTDTempProbe.getHighREFINFault(fault)) {
+      Serial.println("REFIN- < 0.85 x Bias - FORCE- open");
+    }
+    if (MachineControl_RTDTempProbe.getLowRTDINFault(fault)) {
+      Serial.println("RTDIN- < 0.85 x Bias - FORCE- open");
+    }
+    if (MachineControl_RTDTempProbe.getVoltageFault(fault)) {
+      Serial.println("Under/Over voltage");
+    }
+    MachineControl_RTDTempProbe.clearFault();
+  } else {
+    Serial.print("RTD value: "); Serial.println(rtd);
+    Serial.print("Ratio = "); Serial.println(ratio, 8);
+    Serial.print("Resistance = "); Serial.println(RREF * ratio, 8);
+    Serial.print("Temperature = "); Serial.println(MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF));
+  }
+  Serial.println();
+  delay(100);
+
+  MachineControl_RTDTempProbe.selectChannel(1);
+  Serial.println("CHANNEL 1 SELECTED");
+  rtd = MachineControl_RTDTempProbe.readRTD();
+  ratio = rtd;
+  ratio /= 32768;
+
+  // Check and print any faults
+  fault = MachineControl_RTDTempProbe.readFault();
+  if (fault) {
+    Serial.print("Fault 0x"); Serial.println(fault, HEX);
+    if (MachineControl_RTDTempProbe.getHighThresholdFault(fault)) {
+      Serial.println("RTD High Threshold");
+    }
+    if (MachineControl_RTDTempProbe.getLowThresholdFault(fault)) {
+      Serial.println("RTD Low Threshold");
+    }
+    if (MachineControl_RTDTempProbe.getLowREFINFault(fault)) {
+      Serial.println("REFIN- > 0.85 x Bias");
+    }
+    if (MachineControl_RTDTempProbe.getHighREFINFault(fault)) {
+      Serial.println("REFIN- < 0.85 x Bias - FORCE- open");
+    }
+    if (MachineControl_RTDTempProbe.getLowRTDINFault(fault)) {
+      Serial.println("RTDIN- < 0.85 x Bias - FORCE- open");
+    }
+    if (MachineControl_RTDTempProbe.getVoltageFault(fault)) {
+      Serial.println("Under/Over voltage");
+    }
+    MachineControl_RTDTempProbe.clearFault();
+  } else {
+    Serial.print("RTD value: "); Serial.println(rtd);
+    Serial.print("Ratio = "); Serial.println(ratio, 8);
+    Serial.print("Resistance = "); Serial.println(RREF * ratio, 8);
+    Serial.print("Temperature = "); Serial.println(MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF));
+  }
+  Serial.println();
+  delay(100);
+
+  MachineControl_RTDTempProbe.selectChannel(2);
+  Serial.println("CHANNEL 2 SELECTED");
+  rtd = MachineControl_RTDTempProbe.readRTD();
+  ratio = rtd;
+  ratio /= 32768;
+
+  // Check and print any faults
+  fault = MachineControl_RTDTempProbe.readFault();
+  if (fault) {
+    Serial.print("Fault 0x"); Serial.println(fault, HEX);
+    if (MachineControl_RTDTempProbe.getHighThresholdFault(fault)) {
+      Serial.println("RTD High Threshold");
+    }
+    if (MachineControl_RTDTempProbe.getLowThresholdFault(fault)) {
+      Serial.println("RTD Low Threshold");
+    }
+    if (MachineControl_RTDTempProbe.getLowREFINFault(fault)) {
+      Serial.println("REFIN- > 0.85 x Bias");
+    }
+    if (MachineControl_RTDTempProbe.getHighREFINFault(fault)) {
+      Serial.println("REFIN- < 0.85 x Bias - FORCE- open");
+    }
+    if (MachineControl_RTDTempProbe.getLowRTDINFault(fault)) {
+      Serial.println("RTDIN- < 0.85 x Bias - FORCE- open");
+    }
+    if (MachineControl_RTDTempProbe.getVoltageFault(fault)) {
+      Serial.println("Under/Over voltage");
+    }
+    MachineControl_RTDTempProbe.clearFault();
+  } else {
+    Serial.print("RTD value: "); Serial.println(rtd);
+    Serial.print("Ratio = "); Serial.println(ratio, 8);
+    Serial.print("Resistance = "); Serial.println(RREF * ratio, 8);
+    Serial.print("Temperature = "); Serial.println(MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF));
+  }
+  Serial.println();
+  delay(1000);
+}
+```
+
+In case you want to use this example with a 2-wire RTD PT100 probe, change the function `MachineControl_RTDTempProbe.begin(THREE_WIRE);` to `MachineControl_RTDTempProbe.begin(TWO_WIRE);`.
+
+This example sketch reads temperatures from the PT100 connected to its temperature probe inputs. It demonstrates the use of the `Arduino_PortentaMachineControl` library to interface with PT100 probes. The sketch initiates serial communication in the `setup()` function and then enters a loop where it reads and displays the temperature from each channel to the Serial Monitor every second.
+
+Key functions used in the sketch:
+
+- `MachineControl_RTDTempProbe.begin(THREE_WIRE)`: Initializes the temperature probes. In case you want to use this example with a 2-wire RTD PT100 probe, change the constant `THREE_WIRE` to `TWO_WIRE`.
+- `MachineControl_RTDTempProbe.selectChannel(channel)`: Selects the active channel for temperature measurement.
+- `MachineControl_RTDTempProbe.readRTD()`: Reads the raw value from the selected channel to calculate a `ratio`. The value needs to be converted to a valid temperature value in celsius degrees using the function `MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF)`, as it can be seen in the lines that follow the calls of the function.
+- `MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF)`: Converts the values read it from the `MachineControl_RTDTempProbe.readRTD()` function and the `RNOMINAL`` constant to get the PT100 probe temperature reading in celsius degrees.
+
 
 ## Encoders 
 
