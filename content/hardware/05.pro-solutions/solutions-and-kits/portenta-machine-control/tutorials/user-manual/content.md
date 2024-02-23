@@ -1450,16 +1450,16 @@ You should see the four onboard LEDs of the Opta™ device turn on and off, as s
 
 Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration with existing computer networks and facilitates data communication over long distances using the existing network infrastructure. It operates in full-duplex mode, allowing simultaneous sending and receiving of data.
 
-The example below shows how to enable Modbus TCP communication between Portenta Machine Control and Arduino Opta™. For wiring both devices, we have two options:
+The example below shows how to enable Modbus TCP communication between two Portenta Machine Controls. For wiring both devices, we have two options:
 
-1. A direct connection between the Portenta Machine Control and the Opta™ device through an Ethernet cable.
+1. A direct connection between the Portenta Machine Controls through an Ethernet cable.
 2. Individually connect each device to an internet router via Ethernet cables.
 
 We will use the second option since it will allow us to scale the application by adding more devices to the network.
 
-![Modbus TCP Ethernet Wiring](assets/modbus-tcp.png)
+![Modbus TCP Ethernet Wiring](assets/modbus-tcp-pmc-pmc.png)
 
-The following example sketch will let PMC control an Opta™ LED through the Modbus TCP protocol. The Portenta Machine Control will be the **client**, and the Opta™ device will be the **server**; as they are both connected to the internet router, IP addresses are the way for them to route their messages. 
+The following example sketch will let one Portenta Machine Control toggle the digital output LEDs of a second Portenta Machine Control through the Modbus TCP protocol. One Portenta Machine Control will be the **client**, and the other will be the **server**; as they are both connected to the internet router, IP addresses are the way for them to route their messages. 
 
 We can define a **Static** or **DHCP** IP address to them using the function `Ethernet.begin()` as follows:
 
@@ -1505,9 +1505,7 @@ void setup() {
     // Begin serial communication at 9600 baud for debugging
     // Wait for the serial port to connect
     Serial.begin(9600);
-
-    // Wait 2.5 seconds for the serial port availability, then start the transmission
-    for (const auto timeout = millis() + 2500; !Serial && millis() < timeout; delay(250));
+    while (!Serial);
 
     // Initialize Ethernet connection with the specified IP address
     // Using NULL for MAC to auto-assign the device's MAC address
@@ -1515,7 +1513,7 @@ void setup() {
 
     // Check Ethernet hardware presence
     if (Ethernet.hardwareStatus() == EthernetNoHardware) {
-        Serial.println("- Ethernet interface was not found!");
+        Serial.println("- Ethernet shield was not found!");
         while (true);
     }
 
@@ -1559,12 +1557,12 @@ void loop() {
 }
 ```
 
-For the **Opta™** device defined as the server, use the example sketch shown below:
+For the second **Portenta Machine Control** defined as the server, use the example sketch shown below:
 
 ```arduino
 /*
-  Modbus TCP Server Example with Opta
-  Name: opta_modbus_tcp_server.ino
+  Modbus TCP Server Example with PMC
+  Name: pmc_modbus_tcp_server.ino
   Purpose: Demonstrates setting up a Modbus TCP server on an Opta device
   to control an LED using Modbus TCP protocol.
 
@@ -1576,6 +1574,7 @@ For the **Opta™** device defined as the server, use the example sketch shown b
 #include <Ethernet.h>
 #include <ArduinoRS485.h>
 #include <ArduinoModbus.h>
+#include <Arduino_PortentaMachineControl.h>
 
 // Define the IP address for the Modbus TCP server
 IPAddress ip(10, 0, 0, 227);
@@ -1586,16 +1585,12 @@ EthernetServer ethServer(502);
 // Create a Modbus TCP server instance
 ModbusTCPServer modbusTCPServer;
 
-// Define the LED
-const int ledPin = LED_BUILTIN; 
-
 void setup() {
   // Initialize serial communication and Ethernet connection
   Serial.begin(9600);
-  
-  // Wait 2.5 seconds for the serial port availability, then start the transmission
+  // Wait for the serial port to connect
   // Initialize Ethernet with the specified IP address
-  for (const auto timeout = millis() + 2500; !Serial && millis() < timeout; delay(250));
+  while (!Serial);
   Ethernet.begin(NULL, ip); 
 
   // Check Ethernet hardware and cable connections
@@ -1614,13 +1609,15 @@ void setup() {
     while (1);
   }
 
-  // Configure the LED as an output
-  // Ensure LED is off initially
-  pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, LOW);
+  //Set over current behavior of all channels to latch mode (true)
+  MachineControl_DigitalOutputs.begin(true);
+
+  //At startup set all channels to OPEN
+  MachineControl_DigitalOutputs.writeAll(0);
 
   // Configure a single coil at address 0x00 for Modbus communication
   modbusTCPServer.configureCoils(0x00, 1);
+  
 }
 
 void loop() {
@@ -1655,14 +1652,16 @@ void loop() {
 void updateLED() {
   // Read the current value of the coil at address 0x00
   int coilValue = modbusTCPServer.coilRead(0x00);
-
+  
   // Set the LED state: HIGH if coil value is 1, LOW if coil value is 0
-  digitalWrite(ledPin, coilValue ? HIGH : LOW);
+  for (int i = 0; i < 8; i++){
+    MachineControl_DigitalOutputs.write(i, coilValue ? HIGH : LOW);
+  }
 }
 ```
-You should see the Opta™ device LED turn on and off as shown below:
+You should see the server digital output LEDs turning on and off as shown below:
 
-![Onboard LED of an Opta™ device controlled by a Portenta Machine Control device via Modbus TCP](assets/blink-modbus.gif)
+![Onboard LEDs of a server device controlled by a Portenta Machine Control via Modbus TCP](assets/pmc-blink.gif)
 
 ### CAN Bus
 
