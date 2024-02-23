@@ -23,7 +23,7 @@ software:
 
 This user manual provides a comprehensive overview of the Portenta Machine Control, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure, and use all the main features of the Portenta Machine Control.
 
-***This User Manual teaches how to use the Portenta Machine Control with the new `Arduino_PortentaMachineControl` library. If you want to know how to use it with IEC 61131-3 PLC programming languages check the [PLC IDE Tutorials](https://docs.arduino.cc/software/plc-ide). In case you are already using the older version of the `Arduino_MachineControl` library, check the following [tutorial to know the differences and how to migrate your code to the latest version.](https://docs.arduino.cc/tutorials/portenta-machine-control/pmc-arduino-library/)***
+***This User Manual teaches how to use the Portenta Machine Control with the new `Arduino_PortentaMachineControl` library. If you want to know how to use it with IEC 61131-3 PLC programming languages, check the [PLC IDE Tutorials](https://docs.arduino.cc/software/plc-ide). In case you are already using the older version of the `Arduino_MachineControl` library, check the following [tutorial to know the differences and how to migrate your code to the latest version.](https://docs.arduino.cc/tutorials/portenta-machine-control/pmc-arduino-library/)***
 
 ## Hardware and Software Requirements
 
@@ -47,7 +47,7 @@ The Portenta Machine Control is designed for efficiency and adaptability in indu
 
 ![Portenta Machine Control board](assets/user-manual-1.png)
 
-This controller offers many connectivity options, from USB, Ethernet, to Wi-Fi® and Bluetooth® Low Energy, as well as industry-specific protocols like Modbus and Canbus. It can also connect with various external sensors, actuators, and different Human Machine Interfaces (HMI), such as displays and touch panels, showcasing its adaptability. It is designed for harsh industrial operations with features like DIN bar compatible housing, compact size, and an integrated Real-Time Clock (RTC). For real-time control or predictive maintenance tasks, the Portenta Machine Control is a solid choice for businesses aiming to enhance production and equipment management processes.
+This controller offers many connectivity options, from USB and Ethernet to Wi-Fi® and Bluetooth® Low Energy, as well as industry-specific protocols like Modbus and Canbus. It can also connect with various external sensors, actuators, and different Human Machine Interfaces (HMI), such as displays and touch panels, showcasing its adaptability. It is designed for harsh industrial operations with features like DIN bar compatible housing, compact size, and an integrated Real-Time Clock (RTC). For real-time control or predictive maintenance tasks, the Portenta Machine Control is a solid choice for businesses aiming to enhance production and equipment management processes.
 
 ### Portenta Machine Control Main Components
 
@@ -81,7 +81,7 @@ Here is an overview of the controller's main components shown in the image above
 - Type J thermocouples
 - PT100 sensors
 
-**Communication interfaces**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers a high-speed, software-configurable interfaces such as: 
+**Communication interfaces**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers high-speed, software-configurable interfaces such as: 
 - CAN bus
 - RS-232
 - RS-422
@@ -106,8 +106,7 @@ The `Arduino Mbed OS Portenta Boards` core contains the libraries and examples t
 
 The `Arduino_PortentaMachineControl` library enables efficient management of the features of the Portenta Machine Control. To install the library:
 1. Navigate to **Tools > Manage Libraries...** or click the **Library Manager** icon in the left tab of the IDE.
-2. In the Library Manager tab, search for `portentamachinecontrol` and install the latest `Arduino_PortentaMachineControl` library version. 
-3. In case the IDE asks you to install additional libraries that are dependent, install all of them.
+2. In the Library Manager tab, search for `portentamachinecontrol` and install the latest `Arduino_PortentaMachineControl` library version. If the IDE asks you to install additional dependent libraries, install all of them.
 
 ![Installing the Arduino_PortentaMachineControl library in the Arduino IDE](assets/user-manual-4.png)
 
@@ -172,7 +171,7 @@ The Portenta Machine Control has several LEDs that indicate how the board is bei
 
 ### Hello World Example
 
-Let's program the Portenta Machine Control with a modified version of the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the controller's connection to the Arduino IDE and that its core functionalities and the `Arduino_PortentaMachineControl` library are working as expected.
+Let's program the Portenta Machine Control with a modified version of the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. This example will verify that the controller's connection to the Arduino IDE, its core functionalities, and the `Arduino_PortentaMachineControl` library are working as expected.
 
 ***Remember to install the `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` library; please refer to this section of the User Manual if you still need to.***
 
@@ -219,7 +218,7 @@ Some of the key features of the digital output channels of the Portenta Machine 
 
 ***The digital output channels must be connected to an external +24 VDC power supply through pin `24V IN`; this power supply can be shared with the controller's +24 VDC power supply, as shown in the image below. Moreover, pin `24V IN` is not galvanically isolated, meaning the input power supply voltage must share the same `GND` as the controller.***
 
-![Powering the digital outputs channels of the Portenta Machine Control](assets/dig-out-power.png)
+![Powering the digital output channels of the Portenta Machine Control](assets/dig-out-power.png)
 
 There are two modes of overcurrent protection in the digital output channels:
 
@@ -283,7 +282,7 @@ Some of the key features of the analog output channels of the Portenta Machine C
 - Analog outputs can be configured with specific PWM periods, affecting the frequency and resolution of the voltage output.
 - Each channel supports voltage outputs ranging from 0 VDC to 10.5 VDC and can source up to 20 mA.
 
-Each analog output channel is designed with a double low-pass filter and a high-current operational amplifier (OPA2990IDSGR) set up in a non-inverting topology with a gain factor of 3.3. This design allows for an effective filtering and amplification of the signal provided resulting in a high-quality/low-noise analog output signal.
+Each analog output channel is designed with a double low-pass filter and a high-current operational amplifier (OPA2990IDSGR) set up in a non-inverting topology with a gain factor of 3.3. This design allows for an effective filtering and amplification of the signal, resulting in a high-quality/low-noise analog output signal.
 
 ***The output signal of the analog output channels of the Portenta Machine Control is a DC voltage whose amplitude is a function of the defined PWM duty cycle.***
 
@@ -403,7 +402,7 @@ Note that the example sketch uses a loop to individually read each digital input
 
 ## Analog Inputs
 
-The Portenta Machine Control has up to three independent analog input channels named as `AI0`, `AI1`, `AI2`, as shown in the image below. Each channel can have a range resolution varying from 12 to 16 bits, producing decimal values ranging from 0 to 65535, which is configurable through software.
+The Portenta Machine Control has up to three independent analog input channels named `AI0`, `AI1`, and `AI2`, as shown in the image below. Each channel can have a range resolution varying from 12 to 16 bits, producing decimal values ranging from 0 to 65535, which is configurable through software.
 
 ![Portenta Machine Control analog input channels](assets/user-manual-13.png)
 
@@ -490,7 +489,7 @@ float readVoltage(int channel) {
 
 Note that the example sketch uses the `MachineControl_AnalogIn.read(channel)` function to acquire the raw voltage values from each channel. These raw values are then converted to the actual voltage values using the provided `RES_DIVIDER` and `REFERENCE` constants.
 
-***For each analog input channel, there is a resistor divider made by a 100K and 39K resistors, meaning that the input voltage is divided by a ratio of 0.28 approximately (`RES_DIVIDER` constant); the analog input channels voltage reference (`REFERENCE` constant) is 3V.*** 
+***For each analog input channel, there is a resistor divider **made by 100K and** 39K resistors, meaning that the input voltage is divided by a ratio of 0.28 approximately (`RES_DIVIDER` constant); the analog input channels voltage reference (`REFERENCE` constant) is 3V.*** 
 
 ## Programmable Digital I/O
 
@@ -513,7 +512,7 @@ The programmable digital input/output channels integrate an internal mechanism t
 
 ***Ensure each channel does not exceed a maximum current of 500 mA to avoid potential damage or malfunctions in the programmable digital input/output channels.***
 
-The sketch below showcases using the programmable digital input/output channels of the Portenta Machine Control. This example shows how to periodically transmit values on the programmable channels and periodically read them from them.
+The sketch below showcases using the programmable digital input/output channels of the Portenta Machine Control. This example shows how to transmit values on the programmable channels periodically and also read from them regularly.
 
 ```arduino
 /*
@@ -729,7 +728,7 @@ void loop() {
 }
 ```
 
-The sketch includes the `Ethernet` and `Arduino_JSON` libraries, essential for Ethernet and JSON handling functionality. In the `setup()` function, serial communication is initiated for debugging and output. Instead of DHCP, the Ethernet connection uses a predefined static IP address.
+The sketch includes the `Ethernet` and `Arduino_JSON` libraries, which are essential for Ethernet and JSON handling functionality. In the `setup()` function, serial communication is initiated for debugging and output. Instead of DHCP, the Ethernet connection uses a predefined static IP address.
 
 Once the Ethernet connection runs, the sketch connects to the `ip-api.com` service, utilizing the HTTP protocol. Specifically, an `HTTP GET` request is crafted to retrieve details about the device's IP address, including its city, region, and country. If the connection to the server fails, the sketch will output an error message to the Arduino IDE's Serial Monitor for troubleshooting.
 
@@ -931,7 +930,7 @@ RS-485 data lines in the Portenta Machine Control are labeled as described in th
 |  RS485 RX P  |          `RX+`         |           -           |
 |  RS485 RX N  |          `RX-`         |           -           |
 
-***RS-485 data line labels differ between manufacturers. Most manufacturers will use `+` and `–` to label the data lines or variations such as `D+` and `D-`. Some manufacturers will label inputs as `A` and `B` but get the polarity backward, so `A` is positive and `B` negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the `-` line should be connected to the `A` terminal. The `+` line should be connected to the `B` terminal. Reversing the polarity will not damage an RS-485 device but the communication will not work as expected.***
+***RS-485 data line labels differ between manufacturers. Most manufacturers will use `+` and `–` to label the data lines or variations such as `D+` and `D-`. Some manufacturers will label inputs as `A` and `B` but get the polarity backward, so `A` is positive and `B` negative. Although predicting how other manufacturers will mark these lines is impossible, practical experience suggests that the `-` line should be connected to the `A` terminal. The `+` line should be connected to the `B` terminal. Reversing the polarity will not damage an RS-485 device, but the communication will not work as expected.***
 
 
 
@@ -1015,7 +1014,7 @@ The example sketch uses the following functions from the `Arduino_PortentaMachin
 
 ***To receive and show the messages on your computer, you can use a USB to RS-485 converter, such as [the converter used by the Arduino Pro Content Team](https://www.waveshare.com/usb-to-rs485.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.***
 
-As a practical example, we will **establish a full duplex communication between two Portenta Machine Control**. Follow the wiring below for the RS-485 full-duplex communication.
+As a practical example, we will **establish a full duplex communication between two Portenta Machine Control devices**. Follow the wiring below for the RS-485 full-duplex communication.
 
 ![Full-duplex RS-485 wiring](assets/RS-485-full.png)
 
@@ -1307,9 +1306,9 @@ void loop() {
 }
 ```
 
-You should see the four onboard LED's of the Opta™ device turn on and off as shown below.
+You should see the four onboard LEDs of the Opta™ device turn on and off, as shown below.
 
-![Onboard LED's of an Opta™ device controlled by a Portenta Machine Control device via Modbus TCP](assets/rtu-blink.gif)
+![Onboard LEDs of an Opta™ device controlled by a Portenta Machine Control device via Modbus TCP](assets/rtu-blink.gif)
 
 #### Modbus TCP
 
@@ -1635,19 +1634,19 @@ void loop() {
 }
 ```
 
-As a practical example, we will establish a CAN communication between two Portenta Machine Controls. Follow the wiring shown below for the CAN communication.
+As a practical example, we will establish a CAN communication between two Portenta Machine Control devices. Follow the wiring shown below for the CAN communication.
 
 ![CAN communication wiring](assets/can-wiring.png)
 
 ***The Portenta Machine Control has built-in 120 Ω termination resistors.***
 
-For one of the Portenta Machine Controls use the CAN writing example, and for the other one, use the CAN reading example explained above. 
+For one of the devices, use the CAN writing example; for the other one, use the CAN reading example explained above. 
 
-The Portenta Machine Control will send messages continuously to the other Machine Control through CAN bus; you can see the received message using the Arduino's IDE Serial Monitor. 
+The Portenta Machine Control will send messages continuously to the other Machine Control through the CAN bus; you can see the received message using the Arduino's IDE Serial Monitor. 
 
 ![Communication between the Portenta Machine Controls](assets/cantaddy.gif)
 
-***To receive and show the messages on your computer, you can use a USB to CAN bus converter, as an [example](https://www.waveshare.com/usb-can-a.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.***
+***To receive and show the messages on your computer, you can use a USB to CAN bus converter as an [example](https://www.waveshare.com/usb-can-a.htm). You can use the Arduino IDE's Serial Monitor to display the messages received in the converter or another serial terminal such as [CoolTerm](https://freeware.the-meiers.org/), a simple and cross-platform (Windows, Mac, and Linux) serial port terminal application (no terminal emulation) that is geared towards hobbyists and professionals.***
 
 ## Real-Time Clock
 
@@ -1661,7 +1660,7 @@ Some of the key capabilities of Portenta's Machine Control onboard RTC are the f
 - **Internal Power-On Reset (POR)**: Ensures consistent performance and reliable operation.
 - **Open-drain interrupt pin**: Facilitates external notifications and system wake-up.
 
-The `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` are equipped with built-in libraries and functions that enable you to utilize the Portenta's Machine Control onboard Real-Time Clock (RTC), connect to Wi-Fi® networks, and work with time functions using the `mbed_mktime library`. In the following example, we will explore some of these capabilities.
+The `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` are equipped with built-in libraries and functions that enable you to utilize the Portenta's Machine Control onboard Real-Time Clock (RTC), connect to Wi-Fi® networks and work with time functions using the `mbed_mktime library`. In the following example, we will explore some of these capabilities.
 
 The following example sketch demonstrates how to connect a Portenta Machine Control device to a Wi-Fi® network, synchronize its onboard RTC with a Network Time Protocol (NTP) server using the `NTPClient` library, and display the current RTC time on the Arduino IDE's Serial Monitor every five seconds. To get started, you will need to install the `NTPClient` library, which can be easily added using the Arduino IDE's Library Manager.
 
@@ -1765,7 +1764,7 @@ void displayRTC() {
 }
 ```
 
-This sketch uses `WiFi.h`, `NTPClient.h`, and `mbed_mktime.h` libraries and methods to connect to a specific Wi-Fi® network using the provided credentials (network name and password). Once the internet connection has been established, the sketch synchronizes with a NTP server, using the `NTPClient.h` library, to obtain the current Coordinated Universal Time (UTC). This time is then converted to local time and used to set the device's internal RTC, thanks to the functionalities provided by `mbed_mktime.h` methods.
+This sketch uses `WiFi.h`, `NTPClient.h`, and `mbed_mktime.h` libraries and methods to connect to a specific Wi-Fi® network using the provided credentials (network name and password). Once the internet connection has been established, the sketch synchronizes with an NTP server, using the `NTPClient.h` library, to obtain the current Coordinated Universal Time (UTC). This time is then converted to local time and used to set the device's internal RTC, thanks to the functionalities provided by `mbed_mktime.h` methods.
 
 Once the RTC has been synchronized in the setup, the sketch enters an infinite loop. In this loop, every five seconds, it retrieves the current time from the RTC and prints it to the IDE's Serial Monitor in a more readable format, using the tm structure provided by `mbed_mktime.h`. This ensures that even if the internet connection is interrupted or the system restarts, accurate time tracking is maintained as long as the RTC's power supply is not interrupted. You should see the following output in the Arduino IDE's Serial Monitor:
 
@@ -1865,7 +1864,7 @@ Some of the key capabilities of Portenta's Machine Control encoder channels are 
 - **Pull-up resistance**: The channels are equipped with 10 kΩ pull-up resistors connected to the board's 24 VDC supply, ensuring stable signal integrity and reduced noise interference.
 - **24 VDC compatibility**: The connection to the 24 VDC supply makes these encoders suitable for industrial systems and applications that operate at this voltage level.
 
-The `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` have built-in libraries and functions that enable you to utilize the Portenta's Machine Control encoders. The following example shows how to read information from encoder channel 0 of a Portenta Machine Control device; for wiring an ABZ encoder to the Portenta Machine Control follow the diagram below:
+The `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` have built-in libraries and functions that enable you to utilize the Portenta's Machine Control encoders. The following example shows how to read information from encoder channel 0 of a Portenta Machine Control device; for wiring an ABZ encoder to the Portenta Machine Control, follow the diagram below:
 
 ![Wiring of an ABZ encoder connected to channel 0](assets/encoders.png)
 
@@ -1925,11 +1924,9 @@ The Portenta Machine Control is fully compatible with [Arduino Cloud](https://cl
 In case it is the first time you are using Arduino Cloud:
 
 - To use it, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
-- To use the Arduino Web Editor, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent downloading it [here](https://create.arduino.cc/getting-started/plugin/welcome).
+- To use the Arduino Web Editor, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent by downloading it [here](https://create.arduino.cc/getting-started/plugin/welcome).
 
-Let's walk through a step-by-step demonstration of how to use a Portenta Machine Control device with Arduino Cloud.
-
-Log in to your Cloud account; provision your Portenta Machine Control on your Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
+Let's walk through a step-by-step demonstration of how to use a Portenta Machine Control device with Arduino Cloud. Log in to your Cloud account; provision your Portenta Machine Control on your Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
 
 ![Cloud initial page](assets/user-manual-28.png)
 
@@ -2090,7 +2087,7 @@ To upload the code to the Portenta Machine Control from the online editor, click
 
 ![Uploading a sketch to the Portenta Machine Control in the Arduino Cloud](assets/user-manual-33.png)
 
-Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your Portenta's Machine Control digital output at channel `0` should light on or off when the position of the switch changes.
+Navigate into **Dashboards** again; your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor-integrated Serial Monitor). Your Portenta's Machine Control digital output at channel `0` should light on or off when the position of the switch changes.
 
 ## Support
 
