@@ -922,6 +922,124 @@ Since the data is fetched only once, there's no need to send `HTTP GET` requests
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-19.png)
 
+### Bluetooth®
+
+The Portenta Machine Control features an onboard Bluetooth® module that provides seamless wireless connectivity, allowing it to connect to other Bluetooth® devices and networks.
+
+![Onboard SMA antenna connector of the Portenta Machine Control](assets/user-manual-17.png)
+
+To enable Bluetooth® communication on the Portenta Machine Control, you can use the [ArduinoBLE library](https://github.com/arduino-libraries/ArduinoBLE). Let's use an example code demonstrating some of the capabilities of Poternta's Machine Control Bluetooth® module. Here is an example of how to use the `ArduinoBLE` library to create a voltage level monitor application:
+
+```arduino
+/**
+  Portenta Machine Control Bluetooth
+  Name: portenta_machine_control_bluetooth.ino
+  Purpose: Read voltage level from an analog input of the Portenta Machine Control,
+  then maps the voltage reading to a percentage value ranging from 0 to 100.
+  Then exposes the voltage percentage level using a custom Bluetooth service.
+
+  @author Arduino Team
+  @version 1.0 01/10/23
+*/
+
+#include <ArduinoBLE.h>
+#include <Arduino_PortentaMachineControl.h>
+
+// Define the resistor divider ratio for 0-10V input mode
+const float RES_DIVIDER = 0.28057;
+
+// Define the ADC reference voltage
+const float REFERENCE   = 3.0;
+
+// Define the voltage service and its characteristic
+BLEService voltageService("1101");
+BLEUnsignedCharCharacteristic voltageLevelChar("2101", BLERead | BLENotify);
+
+/**
+  Read voltage level from an analog input of the Portenta Machine Control,
+  then maps the voltage reading to a percentage value ranging from 0 to 100.
+
+  @param none
+  @return the voltage level percentage (int).
+*/
+
+int readVoltageLevel() {
+  float raw_voltage_ch0 = MachineControl_AnalogIn.read(0);
+  float voltage_ch0 = (raw_voltage_ch0 * REFERENCE) / 65535 / RES_DIVIDER;
+  int voltageLevel = map(voltage_ch0, 0, 10, 0, 100);
+  return voltageLevel;
+}
+
+void setup() {
+  // Initialize the digital outputs terminals of the Arduino_PortentaMachineControl library
+  MachineControl_DigitalOutputs.begin();
+
+  //Initialize serial port at 9600 bauds
+  Serial.begin(9600);
+
+  // Initialize the analog input channels of the Portenta Machine Control in 0-10V mode
+  MachineControl_AnalogIn.begin(SensorType::V_0_10);
+
+  // Initialize the BLE module
+  if (!BLE.begin()) {
+    Serial.println("- Starting BLE failed!");
+    while (1)
+      ;
+  }
+
+  // Set the local name and advertised service for the BLE module
+  BLE.setLocalName("VoltageMonitor");
+  BLE.setAdvertisedService(voltageService);
+  voltageService.addCharacteristic(voltageLevelChar);
+  BLE.addService(voltageService);
+
+  // Start advertising the BLE service
+  BLE.advertise();
+  Serial.println("- Bluetooth device active, waiting for connections...");
+}
+
+void loop() {
+  // Check for incoming BLE connections
+  BLEDevice central = BLE.central();
+
+  // If a central device is connected
+  if (central) {
+    Serial.print("- Connected to device: ");
+    Serial.println(central.address());
+
+    // Set the LED color to solid blue when connected
+    MachineControl_DigitalOutputs.write(0, HIGH);
+
+    // While the central device is connected
+    while (central.connected()) {
+      // Read the voltage level and update the BLE characteristic with the level value
+      int voltageLevel = readVoltageLevel();
+
+      Serial.print("- Voltage level is: ");
+      Serial.println(voltageLevel);
+      voltageLevelChar.writeValue(voltageLevel);
+
+      delay(200);
+    }
+  }
+
+  // The LED blinks when bluetooth® is not connected to an external device
+  MachineControl_DigitalOutputs.write(0, HIGH);
+  delay(200);
+  MachineControl_DigitalOutputs.write(0, LOW);
+  delay(200);
+
+  Serial.print("- BLE not connected: ");
+  Serial.println(central.address());
+}
+```
+
+The example sketch shown above creates a Bluetooth® Low Energy service and characteristic for transmitting a voltage value read by one of the analog input terminals of the Portenta Machine Control to a central device.
+
+- The sketch begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristics.
+- In the `setup()` function, the code initializes the Portenta Machine Control and sets up the Bluetooth® Low Energy service and characteristics. Then, it begins advertising the defined Bluetooth® Low Energy service.
+- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Portenta Machine Control, channel 0 of its digital output terminals is turned on. The sketch then enters into a loop that constantly reads the voltage level from an analog input terminal and maps it to a percentage value between 0 and 100. The voltage level is printed to the IDE's Serial Monitor and transmitted to the central device over the defined Bluetooth® Low Energy characteristic.
+
 ### RS-485 (Half/Full Duplex)
 
 The Portenta Machine Control has a built-in RS-485 interface that enables the implementation of robust and reliable data transmission systems. RS-485 interface is a protocol widely used in industrial applications. The wide common-mode range enables data transmission over longer cable lengths and in noisy environments such as the floor of a factory. Also, the high input impedance of the receivers allows more devices to be attached to the communication lines.
