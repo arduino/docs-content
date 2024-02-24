@@ -928,15 +928,14 @@ The Portenta Machine Control features an onboard Bluetooth® module that provide
 
 ![Onboard SMA antenna connector of the Portenta Machine Control](assets/user-manual-17.png)
 
-To enable Bluetooth® communication on the Portenta Machine Control, you can use the [ArduinoBLE library](https://github.com/arduino-libraries/ArduinoBLE). Let's use an example code demonstrating some of the capabilities of Poternta's Machine Control Bluetooth® module. Here is an example of how to use the `ArduinoBLE` library to create a voltage level monitor application:
+To enable Bluetooth® communication on the Portenta Machine Control, you can use the [ArduinoBLE library](https://github.com/arduino-libraries/ArduinoBLE). Let's use an example code demonstrating some of the capabilities of Poternta's Machine Control Bluetooth® module. Here is an example of how to use the `ArduinoBLE` library to create a temperature monitor application:
 
 ```arduino
 /**
   Portenta Machine Control Bluetooth
   Name: portenta_machine_control_bluetooth.ino
-  Purpose: Read voltage level from an analog input of the Portenta Machine Control,
-  then maps the voltage reading to a percentage value ranging from 0 to 100.
-  Then exposes the voltage percentage level using a custom Bluetooth service.
+  Purpose: Read temperature from a thermocouple input of the Portenta Machine Control,
+  Then exposes the temperature value using an standardize Bluetooth service.
 
   @author Arduino Team
   @version 1.0 01/10/23
@@ -945,30 +944,11 @@ To enable Bluetooth® communication on the Portenta Machine Control, you can use
 #include <ArduinoBLE.h>
 #include <Arduino_PortentaMachineControl.h>
 
-// Define the resistor divider ratio for 0-10V input mode
-const float RES_DIVIDER = 0.28057;
 
-// Define the ADC reference voltage
-const float REFERENCE   = 3.0;
+// Define the Environment service and its temperature characteristic
+BLEService temperatureService("181A");
+BLEIntCharacteristic temperatureIntChar("2A6E", BLERead | BLENotify);
 
-// Define the voltage service and its characteristic
-BLEService voltageService("1101");
-BLEUnsignedCharCharacteristic voltageLevelChar("2101", BLERead | BLENotify);
-
-/**
-  Read voltage level from an analog input of the Portenta Machine Control,
-  then maps the voltage reading to a percentage value ranging from 0 to 100.
-
-  @param none
-  @return the voltage level percentage (int).
-*/
-
-int readVoltageLevel() {
-  float raw_voltage_ch0 = MachineControl_AnalogIn.read(0);
-  float voltage_ch0 = (raw_voltage_ch0 * REFERENCE) / 65535 / RES_DIVIDER;
-  int voltageLevel = map(voltage_ch0, 0, 10, 0, 100);
-  return voltageLevel;
-}
 
 void setup() {
   // Initialize the digital outputs terminals of the Arduino_PortentaMachineControl library
@@ -977,21 +957,19 @@ void setup() {
   //Initialize serial port at 9600 bauds
   Serial.begin(9600);
 
-  // Initialize the analog input channels of the Portenta Machine Control in 0-10V mode
-  MachineControl_AnalogIn.begin(SensorType::V_0_10);
-
   // Initialize the BLE module
   if (!BLE.begin()) {
     Serial.println("- Starting BLE failed!");
     while (1)
       ;
   }
-
+  // Initialize temperature probes
+  MachineControl_TCTempProbe.begin();
   // Set the local name and advertised service for the BLE module
-  BLE.setLocalName("VoltageMonitor");
-  BLE.setAdvertisedService(voltageService);
-  voltageService.addCharacteristic(voltageLevelChar);
-  BLE.addService(voltageService);
+  BLE.setLocalName("Temperature Sensor");
+  BLE.setAdvertisedService(temperatureService);
+  temperatureService.addCharacteristic(temperatureIntChar);
+  BLE.addService(temperatureService);
 
   // Start advertising the BLE service
   BLE.advertise();
@@ -1012,15 +990,19 @@ void loop() {
 
     // While the central device is connected
     while (central.connected()) {
-      // Read the voltage level and update the BLE characteristic with the level value
-      int voltageLevel = readVoltageLevel();
+      // Read the temperature from a type K Thermocouple and update the BLE characteristic with the temperature value
+      MachineControl_TCTempProbe.selectChannel(0);
 
-      Serial.print("- Voltage level is: ");
-      Serial.println(voltageLevel);
-      voltageLevelChar.writeValue(voltageLevel);
+      float temp_ch0 = MachineControl_TCTempProbe.readTemperature();
 
-      delay(200);
+      Serial.print("- Temperature is: ");
+      Serial.println(temp_ch0);
+      temperatureIntChar.writeValue(temp_ch0 * 100);
+
+      delay(1000);
     }
+    Serial.print("- BLE not connected: ");
+    Serial.println(central.address());
   }
 
   // The LED blinks when bluetooth® is not connected to an external device
@@ -1028,17 +1010,16 @@ void loop() {
   delay(200);
   MachineControl_DigitalOutputs.write(0, LOW);
   delay(200);
-
-  Serial.print("- BLE not connected: ");
-  Serial.println(central.address());
 }
 ```
 
-The example sketch shown above creates a Bluetooth® Low Energy service and characteristic for transmitting a voltage value read by one of the analog input terminals of the Portenta Machine Control to a central device.
+The example sketch shown above uses a standard Bluetooth® Low Energy service and characteristic for transmitting temperature read by one of the thermocouple input terminals of the Portenta Machine Control to a central device.
 
 - The sketch begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristics.
 - In the `setup()` function, the code initializes the Portenta Machine Control and sets up the Bluetooth® Low Energy service and characteristics. Then, it begins advertising the defined Bluetooth® Low Energy service.
-- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Portenta Machine Control, channel 0 of its digital output terminals is turned on. The sketch then enters into a loop that constantly reads the voltage level from an analog input terminal and maps it to a percentage value between 0 and 100. The voltage level is printed to the IDE's Serial Monitor and transmitted to the central device over the defined Bluetooth® Low Energy characteristic.
+- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Portenta Machine Control, channel 0 of its digital output terminals is turned on. The sketch then enters into a loop that constantly reads the temperature from an thermocouple input terminal. The temperature is printed to the IDE's Serial Monitor and transmitted to the central device over the defined Bluetooth® Low Energy characteristic.
+
+![BLE temperature example](assets/temperature-ble.gif)
 
 ### RS-485 (Half/Full Duplex)
 
