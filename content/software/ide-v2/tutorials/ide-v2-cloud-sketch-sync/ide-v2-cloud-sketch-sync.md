@@ -200,7 +200,7 @@ The integration of the Remote Sketchbook in the IDE 2 is an important milestone.
 
 ## Next Steps
 
-You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide-v2/).
+You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide/#ide-v2).
 
 ## FAQ
 

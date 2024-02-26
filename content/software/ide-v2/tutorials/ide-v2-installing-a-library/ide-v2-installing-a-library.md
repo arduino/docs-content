@@ -70,4 +70,4 @@ The chosen example will now open up in a new window, and you can start using it 
 
 ### More Tutorials
 
-You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide-v2/).
+You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide/#ide-v2).
