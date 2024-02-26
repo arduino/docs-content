@@ -85,7 +85,7 @@
     },
     "secondary_button_title": {
       "type": "string",
-      "maxLength": 15
+      "maxLength": 20
     }
   },
   "required": ["title", "tags", "description", "author"],
