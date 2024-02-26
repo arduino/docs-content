@@ -252,7 +252,8 @@ The example sketch below showcases a "scanning" effect using the digital output 
 ```arduino
 /*
   Portenta Machine Control's Digital Outputs 
-  Demonstrates a "scanning" effect using the digital output channels.
+  Name: portenta_machine_control_digital_outputs_example.ino
+  Purpose: Demonstrates a "scanning" effect using the digital output channels.
   @author Arduino PRO Content Team
   @version 1.0 01/10/23
 */
@@ -260,9 +261,12 @@ The example sketch below showcases a "scanning" effect using the digital output 
 #include <Arduino_PortentaMachineControl.h>
 
 void setup() {
+  // Initialize serial communication at 9600 bauds
   Serial.begin(9600);
+
   // Initialize the digital outputs to latch mode (true)
   MachineControl_DigitalOutputs.begin(true);
+
   // Turn all channels off at startup
   MachineControl_DigitalOutputs.writeAll(0);
 }
@@ -271,12 +275,15 @@ void loop() {
   // Sequentially activate each channel from 00 to 07
   for (int i = 0; i < 8; i++) {  
     // Turn on the current channel
+     // Wait to make the effect visible
     MachineControl_DigitalOutputs.write(i, HIGH); 
     Serial.println("- CH" + String(i) + ": ON");
-    delay(200); // Wait to make the effect visible
+    delay(200);
+
     // Turn off the current channel
+    // Wait to smooth the transition
     MachineControl_DigitalOutputs.write(i, LOW);
-    delay(200); // Wait to smooth the transition
+    delay(200); 
   }
 }
 ```
@@ -392,7 +399,7 @@ const int totalChannels = 8;
 const int channelPins[totalChannels] = {DIN_READ_CH_PIN_00, DIN_READ_CH_PIN_01, DIN_READ_CH_PIN_02, DIN_READ_CH_PIN_03, DIN_READ_CH_PIN_04, DIN_READ_CH_PIN_05, DIN_READ_CH_PIN_06, DIN_READ_CH_PIN_07};
 
 void setup() {
-  // Initialize serial communication at 9600 bps
+  // Initialize serial communication at 9600 bauds
   Serial.begin(9600);
   
   // Initialize Wire transmission
@@ -463,7 +470,7 @@ const float RES_DIVIDER = 0.28057;
 const float REFERENCE   = 3.0;
 
 void setup() {
-  // Initialize serial communication at 9600 baud
+  // Initialize serial communication at 9600 bauds
   Serial.begin(9600);
 
   // Initialize the analog input channels of the Portenta Machine Control in 0-10V mode
@@ -491,10 +498,10 @@ void loop() {
 /**
   Reads the raw ADC value from the specified channel, then
   calculates the actual voltage using the predefined resistor 
-  divider ratio and the reference voltage.
+  divider ratio and the reference voltage
  
-  @param channel (int).
-  @return The calculated voltage value in volts.
+  @param channel (int)
+  @return The calculated voltage value in volts
 */
 float readVoltage(int channel) {
   // Read the raw ADC value from the specified channel
@@ -549,13 +556,13 @@ The sketch below showcases using the programmable digital input/output channels 
 #include <Arduino_PortentaMachineControl.h>
 
 void setup() {
-  // Initialize serial communication for debugging and displaying data
+  // Initialize serial communication at 9600 bauds
   Serial.begin(9600);
   
   // Initialize I2C communication
   Wire.begin();
   
-  // wait for serial port to connect. Needed for native USB port only
+  // Wait for serial port to connect, needed for native USB port only
   while (!Serial) {
     ; 
   }
@@ -600,10 +607,11 @@ void loop() {
 }
 
 /**
-  Formats the channel number with leading zeros to achieve a consistent 2-digit format
+  Formats the channel number with leading zeros to 
+  achieve a consistent 2-digit format
 
   @param channel
-  @return A string with the channel number in 2-digit format.
+  @return A string with the channel number in 2-digit format
 */
 String formatChannel(int channel) {
   if(channel < 10) {
@@ -628,7 +636,7 @@ Open the Serial Monitor to watch the I/Os states. The sketch will showcase the r
 
 ## Communication
 
-This user manual section covers the different communication interfaces and protocols the Portenta Machine Control supports, including the Ethernet, Wi-Fi®, Bluetooth®, RS-485, Modbus, and CAN Bus.
+This user manual section covers the different communication interfaces and protocols the Portenta Machine Control supports, including the [Ethernet](#ethernet), [Wi-Fi®](#wi-fi®), [Bluetooth®](#bluetooth®), [RS-485](#rs-485-halffull-duplex), [Modbus](#modbus-rtutcp), and [CAN Bus](#can-bus).
 
 ### Ethernet
 
@@ -642,11 +650,11 @@ The sketch below enables a Portenta Machine Control to connect to the Internet v
 
 ```arduino
 /**
-  Web Client (Ethernet version)
+  Portenta's Machine Control Web Client (Ethernet version)
   Name: portenta_machine_control_ethernet_web_client.ino
   Purpose: This sketch connects a Portenta Machine Control
   to ip-api.com via Ethernet and fetches IP details for 
-  the controller.
+  the controller
 
   @author Arduino PRO Content Team
   @version 1.0 01/10/23
@@ -676,7 +684,7 @@ JSONVar doc;
 bool dataFetched = false;
 
 void setup() {
-  // Begin serial communication at a baud rate of 115200
+  // Initialize serial communication at 115200 bauds
   Serial.begin(115200);
 
   // Wait for the serial port to connect,
@@ -791,10 +799,10 @@ Replace `YOUR_SSID` with the name of your Wi-Fi® network and `YOUR_PASS` with t
 
 ```arduino
 /**
-  WiFi Web Client
+  Portenta's Machine Control Web Client (Wi-Fi version)
   Name: portenta_machine_control_wifi_web_client.ino
-  Purpose: This sketch connects a Portenta Machine Control to ip-api.com via Wi-Fi
-  and fetches IP details.
+  Purpose: This sketch connects a Portenta Machine Control 
+  to ip-api.com via Wi-Fi and fetches IP details
 
   @author Arduino PRO Content Team
   @version 1.0 01/10/23
@@ -803,34 +811,34 @@ Replace `YOUR_SSID` with the name of your Wi-Fi® network and `YOUR_PASS` with t
 #include <WiFi.h>
 #include <Arduino_JSON.h>
 
-// Wi-Fi network details.
+// Wi-Fi network details
 char ssid[] = SECRET_SSID;
 char password[] = SECRET_PASS;
 
-// Server address for ip-api.com.
+// Server address for ip-api.com
 const char* server = "ip-api.com";
 
-// API endpoint path to get IP details in JSON format.
+// API endpoint path to get IP details in JSON format
 String path = "/json";
 
-// Wi-Fi client instance for the communication.
+// Wi-Fi client instance for the communication
 WiFiClient client;
 
-// JSON variable to store and process the fetched data.
+// JSON variable to store and process the fetched data
 JSONVar doc;
 
-// Variable to ensure we fetch data only once.
+// Variable to ensure we fetch data only once
 bool dataFetched = false;
 
 void setup() {
-  // Begin serial communication at a baud rate of 115200.
+  // Initialize serial communication at 115200 bauds
   Serial.begin(115200);
 
   // Wait for the serial port to connect,
-  // This is necessary for boards that have native USB.
+  // this is necessary for boards that have native USB
   while (!Serial);
 
-  // Start the Wi-Fi connection using the provided SSID and password.
+  // Start the Wi-Fi connection using the provided SSID and password
   Serial.print("- Connecting to ");
   Serial.println(ssid);
   WiFi.begin(ssid, password);
@@ -848,9 +856,9 @@ void setup() {
 }
 
 void loop() {
-  // Check if the IP details have been fetched.
-  // If not, call the function to fetch IP details,
-  // Set the flag to true after fetching.
+  // Check if the IP details have been fetched;
+  // if not, call the function to fetch IP details,
+  // set the flag to true after fetching
   if (!dataFetched) {
     fetchIPDetails();
     dataFetched = true;
@@ -865,7 +873,7 @@ void loop() {
 */
 void fetchIPDetails() {
   if (client.connect(server, 80)) {
-    // Compose and send the HTTP GET request.
+    // Compose and send the HTTP GET request
     client.print("GET ");
     client.print(path);
     client.println(" HTTP/1.1");
@@ -874,21 +882,21 @@ void fetchIPDetails() {
     client.println("Connection: close");
     client.println();
 
-    // Wait and skip the HTTP headers to get to the JSON data.
+    // Wait and skip the HTTP headers to get to the JSON data
     char endOfHeaders[] = "\r\n\r\n";
     client.find(endOfHeaders);
 
-    // Read and parse the JSON response.
+    // Read and parse the JSON response
     String payload = client.readStringUntil('\n');
     doc = JSON.parse(payload);
 
-    // Check if the parsing was successful. 
+    // Check if the parsing was successful
     if (JSON.typeof(doc) == "undefined") {
       Serial.println("- Parsing failed!");
       return;
     }
 
-    // Extract and print the IP details.
+    // Extract and print the IP details
     Serial.println("*** IP Details:");
     String query = doc["query"];
     Serial.print("- IP Address: ");
@@ -907,7 +915,7 @@ void fetchIPDetails() {
     Serial.println("- Failed to connect to server!");
   }
 
-  // Close the client connection once done. 
+  // Close the client connection once done
   client.stop();
 }
 ```
@@ -932,12 +940,13 @@ To enable Bluetooth® communication on the Portenta Machine Control, you can use
 
 ```arduino
 /**
-  Portenta Machine Control Bluetooth
+  Portenta's Machine Control Bluetooth
   Name: portenta_machine_control_bluetooth.ino
-  Purpose: Read temperature from a thermocouple input of the Portenta Machine Control,
-  Then exposes the temperature value using an standardize Bluetooth service.
+  Purpose: Read temperature from a thermocouple input of 
+  the Portenta Machine Control, then exposes the temperature 
+  value using a Bluetooth standard service
 
-  @author Arduino Team
+  @author Arduino PRO Content Team
   @version 1.0 01/10/23
 */
 
@@ -945,26 +954,28 @@ To enable Bluetooth® communication on the Portenta Machine Control, you can use
 #include <Arduino_PortentaMachineControl.h>
 
 
-// Define the Environment service and its temperature characteristic
+// Define the environmental sensing service and its temperature characteristic
 BLEService temperatureService("181A");
 BLEIntCharacteristic temperatureIntChar("2A6E", BLERead | BLENotify);
 
 
 void setup() {
-  // Initialize the digital outputs terminals of the Arduino_PortentaMachineControl library
+  // Initialize the digital outputs terminals of the Portenta Machine Control 
   MachineControl_DigitalOutputs.begin();
 
-  //Initialize serial port at 9600 bauds
+  // Initialize serial communication at 9600 bauds
   Serial.begin(9600);
 
-  // Initialize the BLE module
+  // Initialize the Portenta's Machine Control BLE module
   if (!BLE.begin()) {
     Serial.println("- Starting BLE failed!");
     while (1)
       ;
   }
+  
   // Initialize temperature probes
   MachineControl_TCTempProbe.begin();
+  
   // Set the local name and advertised service for the BLE module
   BLE.setLocalName("Temperature Sensor");
   BLE.setAdvertisedService(temperatureService);
@@ -985,14 +996,14 @@ void loop() {
     Serial.print("- Connected to device: ");
     Serial.println(central.address());
 
-    // Set the LED color to solid blue when connected
+    // Turn on a digital output channel of the Portenta Machine Control when connected
     MachineControl_DigitalOutputs.write(0, HIGH);
 
     // While the central device is connected
     while (central.connected()) {
-      // Read the temperature from a type K Thermocouple and update the BLE characteristic with the temperature value
+      // Read the temperature from a type K thermocouple,
+      // update the BLE characteristic with the temperature value
       MachineControl_TCTempProbe.selectChannel(0);
-
       float temp_ch0 = MachineControl_TCTempProbe.readTemperature();
 
       Serial.print("- Temperature is: ");
@@ -1001,11 +1012,13 @@ void loop() {
 
       delay(1000);
     }
+
     Serial.print("- BLE not connected: ");
     Serial.println(central.address());
   }
 
-  // The LED blinks when bluetooth® is not connected to an external device
+  // Digital output channel of the Portenta Machine Control
+  // blinks when Bluetooth® is not connected to an external device
   MachineControl_DigitalOutputs.write(0, HIGH);
   delay(200);
   MachineControl_DigitalOutputs.write(0, LOW);
@@ -1017,7 +1030,7 @@ The example sketch shown above uses a standard Bluetooth® Low Energy service an
 
 - The sketch begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristics.
 - In the `setup()` function, the code initializes the Portenta Machine Control and sets up the Bluetooth® Low Energy service and characteristics. Then, it begins advertising the defined Bluetooth® Low Energy service.
-- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Portenta Machine Control, channel 0 of its digital output terminals is turned on. The sketch then enters into a loop that constantly reads the temperature from an thermocouple input terminal. The temperature is printed to the IDE's Serial Monitor and transmitted to the central device over the defined Bluetooth® Low Energy characteristic.
+- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Portenta Machine Control, channel 0 of its digital output terminals is turned on. The sketch then enters into a loop that constantly reads the temperature from a thermocouple input terminal. The temperature is printed to the IDE's Serial Monitor and transmitted to the central device over the defined Bluetooth® Low Energy characteristic.
 
 ![BLE temperature example](assets/temperature-ble.gif)
 
@@ -1073,17 +1086,17 @@ unsigned long sendNow { 0 };
 unsigned long counter { 0 }; 
 
 void setup() {
-    // Begin serial communication at a baud rate of 9600
+    // Initialize serial communication at 9600 bauds
     Serial.begin(9600);
 
     // Wait for the serial port to connect,
-    // This is necessary for boards that have native USB
+    //tThis is necessary for boards that have native USB
     while (!Serial);
 
     Serial.println("- Initializing RS-485 interface...");
 
-    // Initialize the RS-485 interface with a baud rate of 115200 and specific timings
-    // The timings define the preamble and postamble durations for RS-485 communication
+    // Initialize the RS-485 interface with a baud rate of 115200 and specific timings,
+    // the timings define the preamble and postamble durations for RS-485 communication
     MachineControl_RS485Comm.begin(115200, 0, 500);
 
     // Set the RS-485 interface in receive mode initially
@@ -1135,15 +1148,15 @@ As a practical example, we will **establish a full duplex communication between 
 
 ![Full-duplex RS-485 wiring](assets/RS-485-full.png)
 
-For both **Portenta Machine Controls**, use the example sketch shown below; it can also be found on the Arduino IDE by navigating to **File > Examples > Arduino_PortentaMachineControl > RS485_fullduplex**.
+For both **Portenta Machine Control** devices, use the example sketch shown below; this example sketch can also be found on the Arduino IDE by navigating to **File > Examples > Arduino_PortentaMachineControl > RS485_fullduplex**.
 
 ```arduino
 /*
  * Portenta Machine Control's RS-485 Full Duplex Communication
  * Name: RS485_fullduplex.ino
  * Purpose: Demonstrates full duplex RS-485 communication using
- * the Portenta Machine Control. The sketch shows how to send 
- * and receive data periodically on the RS-485 interface.
+ * the Portenta Machine Control; the sketch shows how to send 
+ * and receive data periodically on the RS-485 interface
  *
  * @author Riccardo Rizzo, modified by Arduino PRO Content Team
  * @version 1.0 01/10/23
@@ -1158,15 +1171,15 @@ unsigned long sendNow { 0 };
 unsigned long counter = 0;
 
 void setup() {
-  // Begin serial communication at a baud rate of 9600
-  Serial.begin(9600);
+  // Initialize serial communication at 9600 bauds
   // Wait for the serial port to connect
+  Serial.begin(9600);
   while (!Serial);
 
   Serial.println("- Start RS485 initialization...");
 
-  // Initialize the RS-485 interface with specific settings
-  // Specify baud rate, preamble and postamble times for RS-485 communication
+  // Initialize the RS-485 interface with specific settings,
+  // specify baud rate, preamble and postamble times for RS-485 communication
   MachineControl_RS485Comm.begin(115200, 0, 500);
 
   // Enable full duplex mode and 120 Ohm termination resistors
@@ -1229,16 +1242,16 @@ The example below shows how to enable Modbus TCP communication between a Portent
 
 ![Portenta Machine Control and Opta™ Modbus RTU wiring](assets/modbus-rtu.png)
 
-The following example sketch will let the Portenta Machine Control device toggle the four onboard Opta™ LEDs via **Modbus RTU**. The Portenta Machine Control will act as the **client**, while the Opta™ device will act as the **server**.
+The following example sketch will let the Portenta Machine Control device toggle the four onboard Opta™ LEDs via **Modbus RTU**. The Portenta Machine Control will be the **client**, while the Opta™ device will be the **server**.
 
-For the **Opta™** device, defined as the server, use the example sketch shown below.
+For the **Opta™** device, defined as the server, use the following example sketch below.
 
 ```arduino
 /*
   Opta's Modbus RTU Server Example
   Name: opta_modbus_rtu_server_led_control.ino
   Purpose: Demonstrates controlling the onboard LEDs of an 
-  Opta device using the Modbus RTU protocol.
+  Opta device using the Modbus RTU protocol
 
   @author Arduino PRO Content Team
   @version 1.0 01/10/23
@@ -1263,7 +1276,7 @@ constexpr auto preDelayBR{ bitduration * 9.6f * 3.5f * 1e6 };
 constexpr auto postDelayBR{ bitduration * 9.6f * 3.5f * 1e6 };
 
 void setup() {
-  // Begin serial communication at a baud rate of 9600 for debug messages
+  // Initialize serial communication at 9600 bauds
   Serial.begin(9600);
 
   // Print a startup message
@@ -1303,9 +1316,9 @@ void loop() {
       ModbusRTUServer.discreteInputWrite(i, coilValue);  
 
       // Debug output to the IDE's serial monitor
-      Serial.print("LED ");
+      Serial.print("- LED ");
       Serial.print(i);
-      Serial.print(" = ");
+      Serial.print(" : ");
       Serial.println(coilValue);
 
       // Control the onboard LEDs based on the coil values
@@ -1334,14 +1347,14 @@ void loop() {
 }
 ```
 
-For the **Portenta Machine Control**, defined as the client, use the example sketch shown below.
+For the **Portenta Machine Control**, defined as the client, use the following example sketch.
 
 ```arduino
 /*
   Portenta's Machine Control Modbus RTU Client Example
   Name: portenta_machine_control_modbus_rtu_client_led_control.ino
   Purpose: Demonstrates controlling Modbus RTU coils using a 
-  Portenta Machine Control device.
+  Portenta Machine Control device
 
   @author Arduino PRO Content Team
   @version 1.0 01/10/23
@@ -1367,11 +1380,8 @@ constexpr auto postDelay{ bitduration * 9.6f * 3.5f * 1e6 };
 int counter = 0;
 
 void setup() {
-  // Begin serial communication at 9600 baud for debug messages
+  // Initialize serial communication at 9600 bauds
   Serial.begin(9600);
-
-  // Wait for serial port to connect (necessary for boards with native USB)
-  //while (!Serial);
 
   // Initialize RS-485 communication with specified baud rate and delays
   MachineControl_RS485Comm.begin(baudrate, preDelay, postDelay);
@@ -1408,9 +1418,8 @@ void loop() {
     ModbusRTUClient.write(coilValue);  
   }
 
-  // Check for successful transmission and report errors if any
-  // Print error code if transmission failed
-  // Or confirm successful coil value writing
+  // Check for successful transmission and report errors if any,
+  // print error code if transmission failed or confirm successful coil value writing
   if (!ModbusRTUClient.endTransmission()) {
     Serial.print("- Failed! Error code: ");
     Serial.println(ModbusRTUClient.lastError());  
@@ -1440,7 +1449,7 @@ We will use the second option since it will allow us to scale the application by
 
 ![Modbus TCP Ethernet Wiring](assets/modbus-tcp-pmc-pmc.png)
 
-The following example sketch will let one Portenta Machine Control toggle the digital output LEDs of a second Portenta Machine Control through the Modbus TCP protocol. One Portenta Machine Control will be the **client**, and the other will be the **server**; as they are both connected to the internet router, IP addresses are the way for them to route their messages. 
+The following example sketch will let one Portenta Machine Control toggle the digital output LEDs of a second Portenta Machine Control through the Modbus TCP protocol. One Portenta Machine Control will be the **client**, and the other will be the **server**; as they are both connected to an internet router, IP addresses are the way for them to route their messages. 
 
 We can define a **Static** or **DHCP** IP address to them using the function `Ethernet.begin()` as follows:
 
@@ -1454,14 +1463,14 @@ Ethernet.begin(<mac>, <IP>);
 
 ***The client must know the server IP to establish communication between them.***
 
-For the **Portenta Machine Control** defined as the client, use the example sketch shown below:
+Use the following example sketch for the **Portenta Machine Control** defined as the client. 
 
 ```arduino
 /*
   Portenta Machine Control's Modbus TCP Communication
   Name: portenta_machine_control_modbus_tcp_example.ino
-  Purpose: Demonstrates controlling an Opta™ device using Modbus TCP protocol
-  on the Portenta Machine Control.
+  Purpose: Demonstrates controlling an Opta™ device using 
+  Modbus TCP protocol on the Portenta Machine Control
 
   @author Arduino PRO Content Team
   @version 1.0 01/10/23
@@ -1483,8 +1492,8 @@ IPAddress ip(10, 0, 0, 157);
 IPAddress server(10, 0, 0, 227);
 
 void setup() {
-    // Begin serial communication at 9600 baud for debugging
-    // Wait for the serial port to connect
+    // Initialize serial communication at 9600 bauds,
+    // wait for the serial port to connect
     Serial.begin(9600);
     while (!Serial);
 
@@ -1494,7 +1503,7 @@ void setup() {
 
     // Check Ethernet hardware presence
     if (Ethernet.hardwareStatus() == EthernetNoHardware) {
-        Serial.println("- Ethernet shield was not found!");
+        Serial.println("- Ethernet interface was not found!");
         while (true);
     }
 
@@ -1516,8 +1525,8 @@ void loop() {
             Serial.println("- Connected to Modbus TCP server!");
         }
     } else {
-        // Modbus TCP client is connected, perform communication
-        // Write a value to a coil at address 0x00
+        // Modbus TCP client is connected, perform communication;
+        // write a value to a coil at address 0x00
         if (!modbusTCPClient.coilWrite(0x00, 0x01)) {
             Serial.print("- Failed to write coil: ");
             Serial.println(modbusTCPClient.lastError());
@@ -1538,14 +1547,14 @@ void loop() {
 }
 ```
 
-For the second **Portenta Machine Control** defined as the server, use the example sketch shown below:
+For the second **Portenta Machine Control** defined as the server, use the following example sketch. 
 
 ```arduino
 /*
-  Modbus TCP Server Example with PMC
+  Portenta Machine Control's Modbus TCP Communication
   Name: pmc_modbus_tcp_server.ino
-  Purpose: Demonstrates setting up a Modbus TCP server on an Opta device
-  to control an LED using Modbus TCP protocol.
+  Purpose: Demonstrates setting up a Modbus TCP server on an 
+  Opta device to control an LED using Modbus TCP protocol
 
   @author Arduino PRO Content Team
   @version 1.0 01/10/23
@@ -1567,16 +1576,16 @@ EthernetServer ethServer(502);
 ModbusTCPServer modbusTCPServer;
 
 void setup() {
-  // Initialize serial communication and Ethernet connection
+  // Initialize serial communication at 9600 bauds,
+  // wait for the serial port to connect,
+  // initialize Ethernet connection with the specified IP address
   Serial.begin(9600);
-  // Wait for the serial port to connect
-  // Initialize Ethernet with the specified IP address
   while (!Serial);
   Ethernet.begin(NULL, ip); 
 
   // Check Ethernet hardware and cable connections
   if (Ethernet.hardwareStatus() == EthernetNoHardware) {
-    Serial.println("- Ethernet shield not found!");
+    Serial.println("- Ethernet interface not found!");
     while (true);
   }
   if (Ethernet.linkStatus() == LinkOFF) {
@@ -1626,7 +1635,7 @@ void loop() {
   * Updates the LED state based on the Modbus coil value.
   * Reads the current value of the coil from the Modbus TCP 
   * server and sets the LED state. If the coil value is high, 
-  * the LED is turned on. If it is low, the LED is turned off.
+  * the LED is turned on. If it is low, the LED is turned off
   *
   * @param None
   */
@@ -1634,7 +1643,7 @@ void updateLED() {
   // Read the current value of the coil at address 0x00
   int coilValue = modbusTCPServer.coilRead(0x00);
   
-  // Set the LED state: HIGH if coil value is 1, LOW if coil value is 0
+  // Set the LED state; HIGH if coil value is 1, LOW if coil value is 0
   for (int i = 0; i < 8; i++){
     MachineControl_DigitalOutputs.write(i, coilValue ? HIGH : LOW);
   }
@@ -1680,7 +1689,7 @@ static uint32_t const CAN_ID = 13ul;
 static uint32_t msg_cnt = 0;
 
 void setup() {
-    // Begin serial communication at 9600 baud
+    // Initialize serial communication at 9600 bauds
     Serial.begin(9600);
 
     // Wait 2.5 seconds for the serial port availability, then start the transmission
@@ -1731,13 +1740,15 @@ The example sketch below shows how to use the CAN bus interface of the Portenta 
 #include <Arduino_PortentaMachineControl.h>
 
 void setup() {
+  // Initialize serial communication at 9600 bauds,
+  // wait for serial port to connect
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect.
+    ; 
   }
 
   if (!MachineControl_CANComm.begin(CanBitRate::BR_500k)) {
-    Serial.println("CAN init failed.");
+    Serial.println("- CAN init failed!");
     while(1) ;
   }
 }
@@ -1824,7 +1835,7 @@ unsigned long interval = 5000UL;
 unsigned long lastTime = 0;
 
 void setup() {
-  // Initialize serial communication
+  // Initialize serial communication at 9600 bauds
   Serial.begin(9600);
   
   // Wait 2.5 seconds for the serial port availability, then start the transmission
@@ -1902,9 +1913,9 @@ The Portenta Machine Control is equipped with three independent temperature meas
 
 The Portenta Machine Control is compatible with the following temperature probes:
 
-- **Type K Thermocouples**: 
-- **Type J Thermocouples**:
-- **PT100 Probes**:
+- **Type K Thermocouples**
+- **Type J Thermocouples**
+- **PT100 probes**
 
 ***Connect only **non-grounded** thermocouples. For more information about how to connect thermocouples to the Portenta Machine Control, please refer to the [complete pinout available here](#pinout).***
 
@@ -1922,15 +1933,15 @@ This multiplexing system allows for seamless switching between different sensor 
 
 ### Thermocouples
 
-The Portenta Machine Control is compatible with **non-grounded** Type K and Type J Thermocouples. Connect a thermocouple following the next steps:
-- Connect the thermocouple to one of the three channels named **Temp Probes****.
-- Connect the thermocouple positive pin to TPCH.
-- Connect the thermocouple negative pin to TNCH.
+The Portenta Machine Control is compatible with **non-grounded Type K and Type J Thermocouples**. Connect a thermocouple following the next steps:
+
+- Connect the thermocouple to one of the three channels named `TEMP PROBES`.
+- Connect the thermocouple positive pin to `TPCH`.
+- Connect the thermocouple negative pin to `TNCH`.
 
 ![Non-grounded Thermocouple connection to channel 0](assets/thermocouple-connection.png)
 
-***Depending on the region and normative, thermocouples can have different cables color codes. Please check the meaning of each cable code before connecting them do the device. Do not connect the thermocouple negative pin to GND.***
-
+***Thermocouples can have different cable color codes depending on the region and normative. Please check the meaning of each cable code before connecting them to the device. Do not connect the thermocouple negative pin to GND.***
 
 The following example sketch demonstrates how to read temperatures from thermocouples connected to a Portenta Machine Control device. It uses the `Arduino_PortentaMachineControl` library to interface with the thermocouple probes and prints the temperature values to the Arduino IDE's Serial Monitor every second.
 
@@ -1980,34 +1991,33 @@ void loop() {
 
 This example sketch reads temperatures from thermocouples connected to its temperature probe inputs. It demonstrates the use of the `Arduino_PortentaMachineControl` library to interface with thermocouple sensors. The sketch initiates serial communication in the `setup()` function and then enters a loop where it reads and displays the temperature from each channel to the Serial Monitor every second.
 
-Key functions used in the sketch:
+Key functions used in the example sketch:
 
 - `MachineControl_TCTempProbe.begin()`: Initializes the temperature probes.
 - `MachineControl_TCTempProbe.selectChannel(channel)`: Selects the active channel for temperature measurement.
 - `MachineControl_TCTempProbe.readTemperature()`: Reads the temperature from the selected channel.
 
-
 ### PT100
 
 The Portenta Machine Control is compatible with two-wire RTD (PT100) and three-wire RTD (PT100) probes
 
-#### Two Wires RTD Connection
+#### Two Wire RTD Connection
 
 The 2-wire RTD configuration is the simplest of the RTD circuit designs but is more prone to errors.
 
-To connect a 2-wire RTD probe to one of the channels, like **channel 0**, connect one pin of the PT100 to the TP0 input, the other pin to TN0, and connect a jumper between TP0 and RTD0 pins as you can see in the following picture:
+To connect a 2-wire RTD probe to one of the channels, like **channel 0**, connect one pin of the PT100 to the `TP0` input, the other pin to `TN0`, and connect a jumper between `TP0` and `RTD0` pins, as you can see in the following picture.
 
-![PT100 Two Wires Connection to Channel 0](./assets/two-wire-connection.png)
+![PT100 2-wire connection to channel 0](./assets/two-wire-connection.png)
 
-***Do not connect any pin to GND***
+***Do not connect any pin of the PT100 to GND***
 
-#### Three Wires RTD Connection
+#### Three Wire RTD Connection
 
-The 3-wire RTD configuration is the most commonly used RTD circuit design. In this configuration, two wires link the sensing element to the monitoring device on one side of the sensing element, and one links it on the other side.
+The 3-wire RTD configuration is the most commonly used RTD circuit. In this configuration, two wires link the sensing element to the monitoring device on one side of the sensing element, and one links it on the other side.
 
-To connect a 3-wire RTD probe to one of the channels, like **channel 0**, connect one of the positive wires of the PT100 to the TP0 input, the other positive wire to RTD0, and the negative one to TN0 as you can see in the following picture:
+To connect a 3-wire RTD probe to one of the channels, like **channel 0**, connect one of the positive wires of the PT100 to the `TP0` input, the other positive wire to `RTD0`, and the negative one to `TN0`, as you can see in the following picture.
 
-![Three Wires Connection to Channel 0](./assets/three-wire-connection.png)
+![3-wire connection to channel 0](./assets/three-wire-connection.png)
 
 ***Do not connect any pin to GND***
 
