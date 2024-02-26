@@ -19,10 +19,9 @@ software:
   - cloud
 ---
 
+![](assets/hero-banner.png)
 
 This user manual provides a comprehensive overview of the Portenta Machine Control, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure, and use all the main features of the Portenta Machine Control.
-
-![The Portenta Machine Control](assets/hero-banner.png)
 
 ***This User Manual teaches how to use the Portenta Machine Control with the new `Arduino_PortentaMachineControl` library. If you want to know how to use it with IEC 61131-3 PLC programming languages, check the [PLC IDE Tutorials](https://docs.arduino.cc/software/plc-ide). In case you are already using the older version of the `Arduino_MachineControl` library, check the following [tutorial to know the differences and how to migrate your code to the latest version.](https://docs.arduino.cc/tutorials/portenta-machine-control/pmc-arduino-library/)***
 
@@ -1041,7 +1040,7 @@ The Portenta Machine Control has a built-in RS-485 interface that enables the im
 
 The onboard RS-485 transceiver is the SP335 from MaxLinear. The SP335 is an advanced multiprotocol transceiver that supports RS-232, RS-485, and RS-422 serial standards. Integrated cable termination and multiple configuration modes allow all three protocols to be used interchangeably over a single cable or connector with no additional switching components.
 
-***The Portenta Machine Control has onboard termination resistors; its RS-485 interface can be configurable to be half duplex or full duplex.***
+***The Portenta Machine Control has onboard termination resistors; its RS-485 interface can be configurable to be half-duplex or full-duplex.***
 
 Some of the key capabilities of Portenta's Machine Control onboard RS-485 transceiver are the following:
 
@@ -2018,7 +2017,7 @@ To connect a 3-wire RTD probe to one of the channels, like **channel 0**, connec
 
 ![3-wire connection to channel 0](./assets/three-wire-connection.png)
 
-***Do not connect any pin to GND***
+***Do not connect any pin of the PT100 to GND***
 
 #### PT100 Example
 
@@ -2189,8 +2188,8 @@ Key functions used in the sketch:
 
 - `MachineControl_RTDTempProbe.begin(THREE_WIRE)`: Initializes the temperature probes. In case you want to use this example with a 2-wire RTD PT100 probe, change the constant `THREE_WIRE` to `TWO_WIRE`.
 - `MachineControl_RTDTempProbe.selectChannel(channel)`: Selects the active channel for temperature measurement.
-- `MachineControl_RTDTempProbe.readRTD()`: Reads the raw value from the selected channel to calculate a `ratio`. The value needs to be converted to a valid temperature value in celsius degrees using the function `MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF)`, as it can be seen in the lines that follow the calls of the function.
-- `MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF)`: Converts the values read it from the `MachineControl_RTDTempProbe.readRTD()` function and the `RNOMINAL`` constant to get the PT100 probe temperature reading in celsius degrees.
+- `MachineControl_RTDTempProbe.readRTD()`: Reads the raw value from the selected channel to calculate a `ratio`. The value needs to be converted to a valid temperature value in Celsius degrees using the function `MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF)`, as it can be seen in the lines that follow the calls of the function.
+- `MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF)`: Converts the values read it from the `MachineControl_RTDTempProbe.readRTD()` function and the `RNOMINAL`` constant to get the PT100 probe temperature reading in Celsius degrees.
 
 
 ## Encoders 
@@ -2279,7 +2278,7 @@ After a while, your Portenta Machine Control should be discovered by Cloud, as s
 
 ![Cloud Setup Device pop-up window](assets/user-manual-32.png)
 
-Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device. Your Portenta Machine Control will be configured to communicate securely with Cloud; this process can take a while.
+Click the **CONFIGURE** button, give your device a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with your device. Your Portenta Machine Control will be configured to communicate securely with the Cloud; this process can take a while.
 
 ![Cloud Setup Device pop-up window](assets/user-manual-29.png)
 
