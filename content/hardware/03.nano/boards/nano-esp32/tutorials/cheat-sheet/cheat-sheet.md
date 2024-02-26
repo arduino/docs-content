@@ -45,17 +45,17 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 - [Download the Nano ESP32 datasheet](/resources/datasheets/ABX00083-datasheet.pdf)
 
-## Arduino ESP32 Core
+## Arduino ESP32 Board Package
 
-This board is based on the [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32), that is derived from the original ESP32 core. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
+This board is based on the [Arduino ESP32 Board Package](https://github.com/arduino/arduino-esp32), that is derived from the original ESP32 Board Package. It provides a rich set of examples to access the various features on your board, which is accessed directly through the IDE.
 
 ![ESP32 examples in the IDE.](assets/esp32-examples.png)
 
-To install the core, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the core, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
+To install the Board Package, go the **board manager** and search for **Nano ESP32**. For more detailed instructions to install the Board Package, please refer to the [Getting Started with Nano ESP32](/tutorials/nano-esp32/getting-started-nano-esp32) article.
 
 ## ESP32 Pin Map
 
-The Nano ESP32's default pins are designed to match the **Nano form factor**. This pin mapping is done in the official Arduino ESP32 core (see just above). See below the pin map to understand how the physical pins correlate to the ESP32: 
+The Nano ESP32's default pins are designed to match the **Nano form factor**. This pin mapping is done in the official Arduino ESP32 Board Package (see just above). See below the pin map to understand how the physical pins correlate to the ESP32: 
 
 | Nano  | ESP32  |
 | ----- | ------ |
@@ -107,6 +107,52 @@ In addition to the normal bootloader-mode, the Arduino Nano ESP32 lets you enter
 
 If you need to reflash the bootloader, you can follow the steps of this [Help Center article](https://support.arduino.cc/hc/en-us/articles/9810414060188-Reset-the-Arduino-bootloader-on-the-Nano-ESP32)
 
+### Default Sketch
+
+The default sketch loaded on the Nano ESP32 board is found in the code snippet below:
+
+```arduino
+#define LEDR 46
+#define LEDG 45
+#define LEDB 0
+#ifdef LED_BUILTIN
+#undef LED_BUILTIN
+#define LED_BUILTIN 48
+#endif
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(LEDR, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+  pinMode(LEDB, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LEDR, LOW);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, HIGH);
+
+  delay(1000);
+
+  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, LOW);
+  digitalWrite(LEDB, HIGH);
+
+  delay(1000);
+
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LEDR, HIGH);
+  digitalWrite(LEDG, HIGH);
+  digitalWrite(LEDB, LOW);
+
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+}
+```
+
 ## MicroPython
 
 The Nano ESP32 has support for MicroPython, a micro-implementation of Python® that can easily be installed on your board.
@@ -119,12 +165,12 @@ In this course, you will fundamental knowledge to get started, as well as a larg
 
 If you have installed MicroPython but wish to go back to classic Arduino / C++ programming, it is easy to do so. Simply **double tap** the **RESET** button on the board (there's only one button). The board will enter boot mode (you should see a pulsing green light), and will be visible in the Arduino IDE. 
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-Nano ESP32 is supported in the [Arduino IoT Cloud](https://create.arduino.cc/iot/) platform. You can connect to the cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
+Nano ESP32 is supported in the [Arduino Cloud](https://create.arduino.cc/iot/) platform. You can connect to the Cloud either through "classic" Arduino, using the C++ library, or via MicroPython:
 
-- [Getting Started with Arduino IoT Cloud (classic)](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
-- [MicroPython with Arduino IoT Cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-micropython)
+- [Getting Started with Arduino Cloud (classic)](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started)
+- [MicroPython with Arduino Cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-micropython)
 
 
 ## API
@@ -155,6 +201,10 @@ To power the Nano ESP32 you may either use a USB-C® cable, or the VIN pin. When
 
 - If you're using the USB-C® connector you must power it with 5 V.
 - The recommended input voltage on the VIN pin is 6-21 V.
+
+If you flip the board to view its underside, you'll find a solder jumper labelled "**3.3V**". If you cut the small trace between the two pads, you disconnect the step-down converter from the board, and your board will no longer turn on when plugged in to the USB port, or when its powered through the VIN pin. Instead you must provide **exactly** 3.3 V directly to the 3.3 V pin of your board. This can, depending on your power source, be a more energy efficient method of powering your board than powering through the VIN pin or the USB port.
+
+![3.3 V Solder Jumper](./assets/nano-3v3-sj.png)
 
 ### Operating Voltage
 
@@ -307,8 +357,8 @@ The Nano ESP32's SPI pins are listed below:
 | Pin   | Function | Description                   |
 | ----- | -------- | ----------------------------- |
 | D10\* | CS       | Chip Select                   |
-| D11   | COPI     | Controller In, Peripheral Out |
-| D12   | CIPO     | Controller Out, Peripheral In |
+| D11   | COPI     | Controller Out, Peripheral In |
+| D12   | CIPO     | Controller In, Peripheral Out |
 | D13   | SCK      | Serial Clock                  |
 
 \*Any GPIO can be used for chip select.
@@ -362,12 +412,14 @@ void setup() {
 
 ## USB Serial & UART
 
-The Nano ESP32 board features 2 separate hardware serial ports.
+The Nano ESP32 board features 3 hardware serial ports, as well as a port exposed via USB.
 
-One port is exposed via USB-C®, and
-One is exposed via RX/TX pins.
+- `Serial` refers to the USB port.
+- `Serial0` refers to the first hardware serial port (UART), accessible via the board's RX/TX pins (D0, D1).
+- `Serial1` is the second UART port, which can be assigned to any free GPIOs.
+- `Serial2` is the third UART port, which can also be assigned to any free GPIOs.
 
-### Native USB
+### Serial (Native USB)
 
 Sending serial data to your computer is done using the standard `Serial` object.
 
@@ -378,9 +430,11 @@ Serial.print("hello world");
 
 To send and receive data through UART, we will first need to set the baud rate inside `void setup()`.
 
-### UART
+### Serial0 (UART)
 
-The pins used for UART on the Nano ESP32 are the following:
+***Please note: `Serial0` is shared with the bootloader/kernel, which prints a few messages at boot/reset, and in the event of a crash, the crash dumps is printed via FreeRTOS on this serial port. For these reasons, you may want to use the `Serial1` or `Serial2` ports to avoid any interference ([read more](#serial1--serial2-uart)).***
+
+The default pins for UART communication on the Nano ESP32 are the following:
 
 | Pin | Function | Description          |
 | --- | -------- | -------------------- |
@@ -410,6 +464,30 @@ And to write something, we can use the following command:
 ```arduino
 Serial0.write("Hello world!");
 ```
+
+### Serial1 & Serial2 (UART)
+
+The Nano ESP32 features 2 additional hardware serial ports that have no pre-defined pins, and can be connected to any free GPIO. Therefore, to use them, their TX and RX pins need to be manually assigned.
+
+To use `Serial1` and `Serial2`, you need to initialize them in your program's `setup()` function:
+
+```arduino
+//initialization
+Serial1.begin(9600, SERIAL_8N1, RX1PIN, TX1PIN);
+Serial2.begin(9600, SERIAL_8N1, RX2PIN, TX2PIN);
+
+//usage
+Serial1.write("Hello world!");
+Serial2.write("Hello world!");
+```
+
+- Replace `RXPIN` and `TXPIN` with the GPIOs you want to assign (e.g. `D4`, `D5`).
+- You can then use commands such as `Serial1.write()` and `Serial1.read()`.
+
+The `SERIAL_8N1` parameter is the configuration for serial communication.
+- `8` = data word length (8-bit). Can be changed to 5,6,7-bits.
+- `N` = parity, in this case "none". Can be changed to "even" (E) or "odd" (O).
+- `1` = stop bit, other option available is 2.
 
 ## I2S
 
@@ -443,7 +521,7 @@ To read data, use the `read()` method, which will return the last sample.
 I2S.read()
 ```
 
-Examples for different modes & different audio devices are available in the core under **Examples > I2S**.
+Examples for different modes & different audio devices are available in the Board Package under **Examples > I2S**.
 
 
 Further reading:
@@ -454,7 +532,7 @@ Further reading:
 
 The ESP32-S3 is based on the dual-core XTensa LX7, which can run code separately on two cores. This is enabled through FreeRTOS, by setting up tasks that run on each core (similarly to how `void loop()` is implemented). The cores available are `0` and `1`.
 
-The example below is a modified version of the [BasicMultiThreading](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading) example found in the Arduino ESP32 core, and demonstrates how to use two common operations simultaneously:
+The example below is a modified version of the [BasicMultiThreading](https://github.com/espressif/arduino-esp32/tree/master/libraries/ESP32/examples/FreeRTOS/BasicMultiThreading) example found in the Arduino ESP32 Board Package, and demonstrates how to use two common operations simultaneously:
 - Blink an LED using one task on a specific core (0),
 - Read an analog pin using a second task on a specific core (1).
 
@@ -597,7 +675,7 @@ You can also read Espressifs technical reference manual here:
 
 The Nano ESP32 has a NORA-W106 module which has the ESP32-S3 SoC embedded. This module supports Wi-Fi® communication over the 2.4 GHz band.
 
-There are several examples provided bundled with the core that showcase how to make HTTP requests, host web servers, send data over MQTT etc.
+There are several examples provided bundled with the Board Package that showcase how to make HTTP requests, host web servers, send data over MQTT etc.
 
 ## RGB
 
@@ -663,6 +741,6 @@ void loop() {
 }
 ```
 
-Several ready to use examples are also available in the core at **Examples > USB**.
+Several ready to use examples are also available in the Board Package at **Examples > USB**.
 
 Remember that if the board stops being recognised in the IDE, you can put it in [Arduino Bootloader Mode](#arduino-bootloader-mode) to recover it.

@@ -56,7 +56,7 @@ In case you are interested in unlocking the full potential of the tool, the tuto
 
 To use the Arduino Speech Recognition Engine, you will need one of the following boards:
 
-- [Arduino Portenta H7 (any variant)](https://store.arduino.cc/portenta-h7) + Portenta Vision Shield ([LoRa](https://store.arduino.cc/portenta-vision-shield-lora) or [Ethernet](https://store.arduino.cc/portenta-vision-shield))
+- [Arduino Portenta H7 (any variant)](https://store.arduino.cc/portenta-h7) + Portenta Vision Shield ([LoRa](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora%C2%AE) or [Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet))
 - [Arduino Nano 33 BLE Sense Rev 1](https://store.arduino.cc/products/arduino-nano-33-ble-sense)
 - [Arduino Nano 33 BLE Sense Rev 2](https://store.arduino.cc/products/nano-33-ble-sense-rev2)
 - [Arduino Nano RP2040](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
@@ -91,7 +91,7 @@ There are three libraries, you will need to install one or another depending on 
 
 Go to the Library Manager, search for the library that you need for your board and install it.
 
-In case you need more instructions about how to install libraries, visit: https://docs.arduino.cc/hacking/software/Libraries
+In case you need more instructions about how to install libraries, read this [guide](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-installing-a-library/).
 
 #### Get The Serial Number
 

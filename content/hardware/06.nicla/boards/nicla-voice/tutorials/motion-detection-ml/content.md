@@ -178,8 +178,8 @@ After unzipping the downloaded file, run the appropriate flashing script for you
 
 With your Nicla Voice board flashed, open a new terminal window and run the following command:
 
-```
-$ edge-impulse-run-impulse
+```bash
+edge-impulse-run-impulse
 ```
 
 This command will sample data from your Nicla's Voice onboard IMU, make inferences, and then classify the movement made on your board. You should see the following output in the terminal window when your Nicla Voice board is moved in horizontal movements, from left to right. 

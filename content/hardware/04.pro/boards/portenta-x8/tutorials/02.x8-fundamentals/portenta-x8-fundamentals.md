@@ -41,9 +41,9 @@ In addition, you have to implement lots of things like cybersecurity functions a
 
 Foundries.io™ created their custom distribution based on Yocto with minimal software installed, by default implementing top-level cybersecurity features like OP-TEE and OSTREE that makes their solution ideal for professional applications.
 
-A custom Over-The-Air (OTA) system update mechanism that is based on a client running on target and a robust cloud server. And they married Docker-compose as a way to deploy a software solution to a target. This is like having an app store for a particular device with the difference that we're not installing an app but a container that may contain a whole distribution or a minimal distribution running only our app or our set of apps.
+A custom Over-The-Air (OTA) system update mechanism that is based on a client running on target and a robust Cloud server. And they married Docker-compose as a way to deploy a software solution to a target. This is like having an app store for a particular device with the difference that we're not installing an app but a container that may contain a whole distribution or a minimal distribution running only our app or our set of apps.
 
-Additionally, they developed the cloud side as well. You can use what's called FoundriesFactory, a cloud DevSecOps subscription service to build, test, deploy, and maintain secure, updatable IoT and Edge products. It provides a unique id and automatic builds of the base system and containers for this system in one place. Let's now take a look at the Foundries.io Factory page.
+Additionally, they developed the Cloud side as well. You can use what's called FoundriesFactory, a Cloud DevSecOps subscription service to build, test, deploy, and maintain secure, updatable IoT and Edge products. It provides a unique id and automatic builds of the base system and containers for this system in one place. Let's now take a look at the Foundries.io Factory page.
 
 ### Foundries.io Factory
 
@@ -78,7 +78,7 @@ With containers, you can make your app work across environments, pass quality as
 
 The container image contents can be compared to an installation of a Linux distribution complete with RPM packages, configuration files, etc. However, a container image distribution is easier to install than setting a whole new copy of the operating system.
 
-A Linux container is a good solution that requires portability, configurability, and isolation. The idea behind Linux containers is to help develop solutions faster to meet business needs as they arise. In certain scenarios, when real-time data streaming is implemented, containers are a dominant solution to provide the scalability that the application needs. Regardless of the infrastructure on-site, in the cloud, or a mix of both.
+A Linux container is a good solution that requires portability, configurability, and isolation. The idea behind Linux containers is to help develop solutions faster to meet business needs as they arise. In certain scenarios, when real-time data streaming is implemented, containers are a dominant solution to provide the scalability that the application needs. Regardless of the infrastructure on-site, in the Cloud, or a mix of both.
 
 ## Conclusion
 

@@ -77,7 +77,7 @@ There are three variants of the Arduino Opta® created to fit the different need
 </table>
 
 ## Application Examples
-Arduino Opta® is designed for industrial standard machinery control as a PLC with advanced features such as AI and connectivity capabilities. It is readily integrated into the Arduino hardware and software ecosystem, including real-time monitoring via the Arduino IoT Cloud.
+Arduino Opta® is designed for industrial standard machinery control as a PLC with advanced features such as AI and connectivity capabilities. It is readily integrated into the Arduino hardware and software ecosystem, including real-time monitoring via the Arduino Cloud.
 
 
 - **Conveyor belt management:** Arduino Opta® offers the possibility to configure its inputs as digital or analog to flexibly collect data from several types of sensors. Thanks to the Wi-Fi®/Bluetooth® Low Energy connectivity, Arduino Opta® can also be smoothly integrated with sensing boards, like the Nicla® ones from the Arduino ecosystem, leveraging Arduino Opta's potential with vision, sound, weight detection, air quality measurement and many other capabilities. 
@@ -86,9 +86,9 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 
     All these features, wrapped in a compact form factor, make Arduino Opta® the ideal solution for product flow management in conveyor belts, automated packing or bottling lines. 
 
-- **Real-time industrial monitoring:** Get instant access to your factory floor data and to the insights of your industrial processes to leverage your manufacturing excellence to continuous improvement. Implement visual management and KPIs monitoring thanks to the Arduino Opta's built-in connectivity features (Ethernet on all the product variants, Fieldbus and WiFi®/Bluetooth® Low Energy upon choice), delivering in a simple, fast and reliable way the data collected through beautiful dashboards in Arduino IoT Cloud.
+- **Real-time industrial monitoring:** Get instant access to your factory floor data and to the insights of your industrial processes to leverage your manufacturing excellence to continuous improvement. Implement visual management and KPIs monitoring thanks to the Arduino Opta's built-in connectivity features (Ethernet on all the product variants, Fieldbus and WiFi®/Bluetooth® Low Energy upon choice), delivering in a simple, fast and reliable way the data collected through beautiful dashboards in Arduino Cloud.
   
-- **Predictive **maintenance**:** Combine the possibility to interact with wireless and wired sensors, given by the multiple connectivity options of Arduino Opta®, with the powerful microcontroller computational capabilities to implement AI algorithms for predictive maintenance. Edge computing and monitoring capabilities, thanks to the Arduino IoT Cloud features, can help to identify small drifts in your processes to address issues before they become a problem, reducing production line downtimes and ensuring quality outcomes.
+- **Predictive **maintenance**:** Combine the possibility to interact with wireless and wired sensors, given by the multiple connectivity options of Arduino Opta®, with the powerful microcontroller computational capabilities to implement AI algorithms for predictive maintenance. Edge computing and monitoring capabilities, thanks to the Arduino Cloud features, can help to identify small drifts in your processes to address issues before they become a problem, reducing production line downtimes and ensuring quality outcomes.
 
 
 ## Features
@@ -429,11 +429,11 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 ## Ratings
 ### Recommended Operating Conditions
 
-| Description                                       | Value                     |
-|---------------------------------------------------|---------------------------|
-| Temperature Operating Range                       | -20...50 °C                |
-| Protection degree rating                          | IP20                      |
-| Pollution degree                                  | 2 conforming to IEC 61010 |
+| Description                 | Value                     |
+| --------------------------- | ------------------------- |
+| Temperature Operating Range | -20...50 °C               |
+| Protection degree rating    | IP20                      |
+| Pollution degree            | 2 conforming to IEC 61010 |
 
 ### Power Specification
 
@@ -457,7 +457,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 | 3A   | Power Supply Terminals 12...24 VDC                                  | 3H   | Ethernet Port Status LEDs                                           |
 | 3B   | I1...I8 digital/analog input terminals (0-10V) configurable via IDE | 3I   | Label Holder                                                        |
 | 3C   | Reset Button                                                        | 3J   | RS-485 terminal block (for Modbus RTU or proprietary communication) |
-| 3D   | User Programmable button                                            | 3K   | USB-C® for programming and data logging                                |
+| 3D   | User Programmable button                                            | 3K   | USB-C® for programming and data logging                             |
 | 3E   | Status LEDs 1...4 (User Programmable)                               | 3M   | Ethernet port                                                       |
 | 3F   | Relay Output Terminals 1...4, NO contact (SPST) 10A 250 VAC         | 3N   | Port for communication and connection of auxiliary modules          |
 | 3G   | Functional Earth                                                    |      |                                                                     |
@@ -528,8 +528,8 @@ The Arduino® Web Editor is hosted online, therefore it will always be up-to-dat
 ### Getting Started - Arduino PLC IDE
 Arduino Opta® can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software and connect your Arduino Opta® to your computer, using a simple USB-C® cable, to start creating your own PLC industrial solutions.
 
-### Getting Started - Arduino IoT Cloud
-All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+### Getting Started - Arduino Cloud
+All Arduino® IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
 Sample sketches for Arduino Opta® can be found either in the “Examples” menu in the Arduino® IDE or the “Arduino Opta® Documentation” section of Arduino® **[5]**.
@@ -538,6 +538,18 @@ Sample sketches for Arduino Opta® can be found either in the “Examples” men
 Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[6]**, the Arduino® Library Reference **[7]** and the online store **[8]** where you will be able to complement your Arduino Opta® product with additional extensions, sensors and actuators.
 
 <div style="page-break-after: always;"></div>
+
+## Mean Time Between Failure (MTBF)
+
+MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
+
+The MTBF figure (in hours/years) for each Arduino Opta® variant can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F parts count method.
+
+|  **Standard** | **All Opta® Variants** | **Environmental Conditions** |
+|:-------------:|:----------------------:|:----------------------------:|
+| MIL-HDBK-217F |    766205 h/87 years   |             25 ºC            |
+
+**Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_.
 
 ## Mechanical Information
 ### Product Dimensions
@@ -750,8 +762,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**        |
-|------------|--------------|------------------- |
-| 16/05/2023 | 3            | Legal updates      |
-| 13/04/2023 | 2            | Tech Specs Updates |
-| 02/03/2023 | 1            | First Release      |
+| Date       | **Revision** |     **Changes**    |
+|------------|:------------:|:------------------:|
+| 07/02/2023 |       4      |  MTBF information  |
+| 16/05/2023 |       3      |    Legal updates   |
+| 13/04/2023 |       2      | Tech Specs Updates |
+| 02/03/2023 |       1      |    First Release   |

@@ -2,6 +2,8 @@
 title: Nano 33 IoT
 url_shop: https://store.arduino.cc/arduino-nano-33-iot
 url_guide: /software/ide-v2/tutorials/ide-v2-board-manager#samd
+primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#samd
+primary_button_title: Get Started
 core: arduino:samd
 forumCategorySlug: '/hardware/nano-family/nano-33-iot/157'
 certifications: [REACH, RoHS, WEEE, UKCA, CE, IC, MIC, RCM, FCC]

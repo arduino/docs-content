@@ -2,6 +2,9 @@
 title: MKR RGB Shield
 url_shop: https://store.arduino.cc/arduino-mkr-rgb-shield
 url_guide: /tutorials/mkr-rgb-shield/mkr-rgb-fade
+primary_button_url: /tutorials/mkr-rgb-shield/mkr-rgb-fade
+primary_button_title: Get Started
+forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
 certifications: [CE, UKCA]
 ---
 

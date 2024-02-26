@@ -202,7 +202,6 @@ Now, let's take a look at the sketch used for this tutorial. First, we need to n
 
 ```arduino
 #include "thingProperties.h"
-#include <RTCZero.h>
 
 bool toggle;
 int LED = 6;
@@ -246,7 +245,7 @@ void onScheduleTestChange()  {
 }
 ```
 
-***If you want to see if your board successfully connects to the cloud, open the Serial Monitor right after the upload finishes. If there's any errors, you will see them there.***
+***If you want to see if your board successfully connects to the Cloud, open the Serial Monitor right after the upload finishes. If there's any errors, you will see them there.***
 
 ### Creating a Dashboard
 

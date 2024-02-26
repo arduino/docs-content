@@ -15,7 +15,7 @@ There are currently two ways of configuring a Wi-Fi® board:
 
 ## Supported Boards
 
-Connection via Wi-Fi® is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the cloud via your home/work/school network router.
+Connection via Wi-Fi® is an easy alternative, and your credentials can safely be entered during the configuration of a project. This type of connection is most suitable for low-range projects, where you connect your board to the Cloud via your home/work/school network router.
 
 ## Configure Wi-Fi® Boards
 

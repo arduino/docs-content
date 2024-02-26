@@ -625,7 +625,7 @@ void setup()
   snprintf(msg, sizeof(msg), "Samples count = %i", samples_count); Serial.println(msg);
 
   /* Configure the advanced DAC. */
-  if (!dac0.begin(AN_RESOLUTION_12, header.sampleRate, 256, 16))
+  if (!dac0.begin(AN_RESOLUTION_12, header.sampleRate * 2, 256, 16))
   {
     Serial.println("Failed to start DAC1 !");
     return;

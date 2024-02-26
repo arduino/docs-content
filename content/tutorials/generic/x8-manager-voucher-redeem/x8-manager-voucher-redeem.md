@@ -8,7 +8,7 @@ tags:
   - X8 Manager
 author: 'Taddy Chung & Christopher Mendez'
 software:
-  - Arduino-Cloud
+  - iot-cloud
 hardware:
   - hardware/04.pro/boards/portenta-x8
 ---

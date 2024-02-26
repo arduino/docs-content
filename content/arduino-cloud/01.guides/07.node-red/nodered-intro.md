@@ -31,7 +31,7 @@ In this tutorial, we will look into the applications of using Node-RED together 
 - [Node.js](https://nodejs.org/en/) and [Node-RED installed](https://nodered.org/)
 - An [Arduino account](http://create.arduino.cc/iot).
 
-For this tutorial, you will need a cloud compatible board. You will find all compatible boards in the link below:
+For this tutorial, you will need a Cloud compatible board. You will find all compatible boards in the link below:
 
 - [Arduino Cloud compatible hardware.](/arduino-cloud/hardware/devices#type-of-devices)
 
@@ -181,7 +181,7 @@ The final step is connecting the **DHT11 humidity sensor** to our Arduino MKR Wi
 
 Use the steps below to use Node-RED with the Arduino Cloud:
 
-**1.** Go to the [API keys section](https://app.arduino.cc/home/api-keys), and create a new API key.
+**1.** Go to the [API keys section](https://app.arduino.cc/api-keys), and create a new API key.
 
 **2.** Save the Client ID and Client Secret in a safe document
 

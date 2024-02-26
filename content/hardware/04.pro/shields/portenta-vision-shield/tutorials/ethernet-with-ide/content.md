@@ -1,10 +1,10 @@
 ---
-title: 'Using the Portenta Vision Shield Ethernet with Arduino IDE'
+title: 'Using the Portenta Vision Shield - Ethernet with Arduino IDE'
 difficulty: intermediate
-description: 'Learn how to connect to the Internet using the Vision Shield Ethernet, Portenta H7 and Arduino IDE'
+description: 'Learn how to connect to the Internet using the Portenta Vision Shield - Ethernet, Portenta H7 and Arduino IDE'
 tags: 
   - Ethernet
-  - Portenta Vision shield
+  - Portenta Vision Shield
   - Portenta H7
   - Arduino IDE
 author: 'Benjamin Dannegård'
@@ -28,7 +28,7 @@ With the Ethernet version of the Portenta Vision Shield it is possible to connec
 
 The goals of this project are:
 
-- Learn how to use the Portenta H7 and Portenta Vision Shield Ethernet with a Ethernet cable
+- Learn how to use the Portenta H7 and Portenta Vision Shield - Ethernet with a Ethernet cable
 
 ### Hardware & Software Needed
 
@@ -52,7 +52,7 @@ Now let's look at how to connect everything we need.
 
 ### Connecting the Board
 
-Connect the Portenta Vision Shield Ethernet to the Portenta H7. Now connect the USB-C® cable to the Portenta H7 and your computer. Lastly connect the Ethernet cable to the Portenta Vision Shield's Ethernet port and your router or modem.
+Connect the Portenta Vision Shield - Ethernet to the Portenta H7. Now connect the USB-C® cable to the Portenta H7 and your computer. Lastly connect the Ethernet cable to the Portenta Vision Shield's Ethernet port and your router or modem.
 
 ### Programming the Board
 
@@ -68,7 +68,7 @@ Next you can look at some of the code in the example sketch.
 
 Now let's take a look at some important parts of the code.
 
-The sketch will make the board connect to a website. This line in the code decides what website it connects to. The example uses "www.google.com", but feel free to change it and experiment with different websites.
+The sketch will make the board connect to a website. This line in the code decides what website it connects to. The example uses `www.google.com`, but feel free to change it and experiment with different websites.
 
 ```arduino
 char server[] = "www.google.com";
@@ -81,7 +81,7 @@ IPAddress ip(192, 168, 2, 177);
 IPAddress myDns(192, 168, 2, 1);
 ```
 
-The sketch will check if the Vision Shield Ethernet is connected to the Portenta H7. It will also check if an Ethernet cable is connected. If any of these are not connected correctly, it will be shown in the serial monitor when the sketch runs.
+The sketch will check if the Portenta Vision Shield - Ethernet is connected to the Portenta H7. It will also check if an Ethernet cable is connected. If any of these are not connected correctly, it will be shown in the serial monitor when the sketch runs.
 
 ```arduino
 if (Ethernet.hardwareStatus() == EthernetNoHardware) {
@@ -123,7 +123,7 @@ First, some connection tests are made and printed in the Serial Monitor. After t
 
 ## Conclusion
 
-This tutorial showed how to connect the Portenta H7 with a Vision Shield Ethernet to the Internet, with an example sketch in the Arduino IDE. The sketch allowed the board to connect to a website and print its content in the Serial Monitor. The Portenta H7 and Vision Shield can also be used with OpenMV, have a look at the [OpenMV Ethernet tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-openmv) if you want to see a similar example with Python®.
+This tutorial showed how to connect the Portenta H7 with a Portenta Vision Shield - Ethernet to the Internet, with an example sketch in the Arduino IDE. The sketch allowed the board to connect to a website and print its content in the Serial Monitor. The Portenta H7 and Portenta Vision Shield can also be used with OpenMV, have a look at the [OpenMV Ethernet tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-openmv) if you want to see a similar example with Python®.
 
 ### Next Steps
 

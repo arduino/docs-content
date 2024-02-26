@@ -73,4 +73,4 @@ In this tutorial we went through how to customize the behavior of the `CTRL + T`
 
 ### More Tutorials
 
-You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide-v2/).
+You can find more tutorials in the [Arduino IDE 2 documentation page](/software/ide/#ide-v2).

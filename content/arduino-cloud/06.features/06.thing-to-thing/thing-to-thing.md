@@ -37,11 +37,11 @@ In this tutorial, we are using no external circuit. You will only need 2x Arduin
 
 To start, we will need to head over to the [Arduino Cloud](https://app.arduino.cc/). This is also accessible through the menu at the top right.
 
-![Navigate to the cloud.](assets/thing-to-thing-img-00.png)
+![Navigate to the Cloud.](assets/thing-to-thing-img-00.png)
 
 ### Step 1: Configuring two devices
 
-To enable Thing to Thing communication, we will first need to configure the two devices. If you have never used the Arduino Cloud before, you can check out [our getting started with the IoT cloud guide](https://www.arduino.cc/en/Tutorial/iot-cloud-getting-started).
+To enable Thing to Thing communication, we will first need to configure the two devices. If you have never used the Arduino Cloud before, you can check out [our getting started with the Arduino Cloud guide](https://www.arduino.cc/en/Tutorial/iot-cloud-getting-started).
 
 Now that we are working with two devices, it is important to separate them from each other, since they will later be linked to two different Things. In this tutorial, we named the devices:
 

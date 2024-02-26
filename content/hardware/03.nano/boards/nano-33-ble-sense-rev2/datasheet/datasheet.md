@@ -143,13 +143,13 @@ The Arduino Nano 33 BLE Sense Rev2 provides IMU capabilities with 9-axis, by com
 
 ### LPS22HB (U9) Barometer and Temperature Sensor
 
-The LPS22HB pressure sensor IC (U9) includes both a piezoresistive absolute pressure sensor together with a temperature sensor integrated into a small chip. The pressure sensor (U9) interfaces with the main microcontroller (U1) via an I2C interface. The sensing element is composed of a micromachined suspended membrane for measuring absolute pressure, and includes a Wheatstone bridge internally for measuring the the piezoresistive elements. The temperature perturbations are compensated via an included temperature sensor on-chip. The absolute pressure can range from 260 to 1260 hPa. Pressure data can be polled via I2C at up to 24-bits, while temperature data can be polled at up to 16-bits. 
-The Arduino_LPS22HB library provides a ready to use implementation of the I2C protocol with this chip. 
+The LPS22HB pressure sensor IC (U9) includes both a piezoresistive absolute pressure sensor together with a temperature sensor integrated into a small chip. The pressure sensor (U9) interfaces with the main microcontroller (U1) via an I2C interface. The sensing element is composed of a micromachined suspended membrane for measuring absolute pressure, and includes a Wheatstone bridge internally for measuring the the piezoresistive elements. The temperature perturbations are compensated via an included temperature sensor on-chip. The absolute pressure can range from 260 to 1260 hPa. Pressure data can be polled via I2C at up to 24-bits, while temperature data can be polled at up to 16-bits.
+The Arduino_LPS22HB library provides a ready to use implementation of the I2C protocol with this chip.
 
 ### HS3003 (U8) Relative Humidity and Temperature Sensor
 
 The HS3003 (U8) is a MEMS sensors, designed to provide accurate readings of relative humidity and temperature in a small package. Temperature-compensation and calibration is performed on-chip, without requiring external circuitry. The HS3003 can measure the relative humidity from 0% to 100%RH with fast response times (under 4 seconds). The included on-chip temperature sensor (used for compensation) is has a temperature accuracy of ±0.1°C.
-U8 communicates via the main microcontroller via an I2C bus. 
+U8 communicates via the main microcontroller via an I2C bus.
 
 #### Gesture Detection
 
@@ -189,9 +189,9 @@ All Arduino boards, including this one, work out-of-the-box on the Arduino Web E
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
+### Getting Started - Arduino Cloud
 
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
 
@@ -301,7 +301,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 
 Exemptions : No exemptions are claimed.
 
-Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (<https://echa.europa.eu/web/guest/candidate-list-table>), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([https://echa.europa.eu/web/guest/candidate-list-table](https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
 ### Conflict Minerals Declaration
 
@@ -365,15 +365,15 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Reference                 | **Link**                                                                                                                                                             |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Arduino IDE (Desktop)     | <https://www.arduino.cc/en/software>                                                                                                                                   |
-| Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                                                                                                     |
-| Cloud IDE Getting Started | <https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a>                                                                  |
-| Forum                     | <http://forum.arduino.cc/>                                                                                                                                             |
-| Nina B306                 | <https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf>                                                                                    |
-| Arduino_LPS22HB Library                   | <https://github.com/arduino-libraries/Arduino_LPS22HB>                                                                                                                                |
-| Arduino_APDS9960 Library          | <https://github.com/arduino-libraries/Arduino_APDS9960>                                                                                                                        |
-| ProjectHub                | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                                                                                             |
-| Library Reference         | <https://www.arduino.cc/reference/en/>                                                                                                                                 |
+| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software)                                                                                                                                  |
+| Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                                                                                                    |
+| Cloud IDE Getting Started | [https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a)                                                                 |
+| Forum                     | [https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a)                                                                                                                                            |
+| Nina B306                 | [https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf](https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf)                                                                                   |
+| Arduino_LPS22HB Library                   | [https://github.com/arduino-libraries/Arduino_LPS22HB](https://github.com/arduino-libraries/Arduino_LPS22HB)                                                                                                                               |
+| Arduino_APDS9960 Library          | [https://github.com/arduino-libraries/Arduino_APDS9960](https://github.com/arduino-libraries/Arduino_APDS9960)                                                                                                                       |
+| ProjectHub                | [https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending)                                                                                            |
+| Library Reference         | [https://www.arduino.cc/reference/en/](https://www.arduino.cc/reference/en/)                                                                                                                                 |
 
 ## Revision History
 

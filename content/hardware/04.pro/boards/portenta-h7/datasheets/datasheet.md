@@ -606,16 +606,16 @@ Laboratory equipment, Computer vision
 
 ![High density connectors pinouts](assets/portentaH7_higDensity_pinOut.png)
 
-| Pin               | **Description**        | **Pin**                                | **Description**        |
-|-------------------|------------------------|----------------------------------------|------------------------|
-| ETH               | High Density Connector | CAN                                    | High Density Connector |
-| USB               | High Density Connector | DSI                                    | High Density Connector |
-| CAM               | High Density Connector | DMIC                                   | High Density Connector |
-| I2C0 I2C1 I2C2I2S | High Density Connector | VSYS VIN V-SDCARDVCC VBUS USB ADC-VREF | Power                  |
-| GND               | Ground                 | PWM                                    | High Density Connector |
-| GPIO              | High Density Connector | SPI1                                   | High Density Connector |
-| SWDIOSWCK SWO     | High Density Connector | ADC                                    | High Density Connector |
-| SDC               | High Density Connector | RESET                                  | Other Pin              |
+| Pin                | **Description**        | **Pin**                                 | **Description**        |
+| ------------------ | ---------------------- | --------------------------------------- | ---------------------- |
+| ETH                | High Density Connector | CAN                                     | High Density Connector |
+| USB                | High Density Connector | DSI                                     | High Density Connector |
+| CAM                | High Density Connector | DMIC                                    | High Density Connector |
+| I2C0 I2C1 I2C2 I2S | High Density Connector | VSYS VIN V-SDCARD VCC VBUS USB ADC-VREF | Power                  |
+| GND                | Ground                 | PWM                                     | High Density Connector |
+| GPIO               | High Density Connector | SPI1                                    | High Density Connector |
+| SWDIOSWCK SWO      | High Density Connector | ADC                                     | High Density Connector |
+| SDC                | High Density Connector | RESET                                   | Other Pin              |
 
 ### I2C Ports 
 
@@ -637,14 +637,17 @@ Laboratory equipment, Computer vision
 
 Due to the dual core processing, the Portenta supports a wide array of applications.  
 
-### Accessories
-* Portenta Vision shield
+### Accessories (Not Included)
+
 * USB 2.0 Cable Type A/B
-* Portenta Breakout Board 
+* Portenta Vision Shield
+* Portenta Breakout Board
+* Portenta Max Carrier
+* Portenta Hat Carrier
 
 ## Functional Overview
 
-### Board Topology 
+### Board Topology
 
 Depending on the variant, some of the components does not apply. The image below originates from the H7 form factor, see what components are applied on your board:
 
@@ -673,6 +676,18 @@ Depending on the variant, some of the components does not apply. The image below
 
 ![Portenta H7 Power Tree](assets/portentaH7powerT.svg)
 
+## Mean Time Between Failure (MTBF)
+
+MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
+
+The MTBF figure (in hours/years) for the Portenta H7 (all variants) can be found in the table below. The MTBF figure was calculated according to the MIL-HDBK-217F part count method.  
+
+| **Standard** | **Portenta H7** | **Environmental Conditions** |
+|:---:|:---:|:---:|
+| MIL-HDBK-217F | 639717 h/73 years | 25 ºC |
+
+**Important note**: MTBF is the statistical representation of the likelihood of a unit failing and _does not necessarily represent a product's life_. 
+
 ## Mechanical Information
 
 ### Board Outline
@@ -685,6 +700,8 @@ Depending on the variant, some of the components does not apply. The image below
 ![Connectors positions top](assets/portentaH7_connectors_top.png)
 
 ![Connectors positions bottom](assets/portentaH7_connectors_bot.png)
+
+<div style="break-after:page"></div>
 
 ## Certifications
 <table>
@@ -899,9 +916,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**                        |
-|------------|--------------|------------------------------------|
-| 17/10/2023 | 4            | I2C ports information section added|
-| 27/01/2023 | 3            | Add power consumption information  |
-| 18/08/2022 | 2            | Add Secure Element specs (SE050C2) |
-| 27/12/2021 | 1            | First Release                      |
+| Date       | **Revision** | **Changes**                         |
+|------------|--------------|-------------------------------------|
+| 06/02/2024 | 6            | MTBF information                    |
+| 05/12/2023 | 5            | Accessories section updated         |
+| 17/10/2023 | 4            | I2C ports information section added |
+| 27/01/2023 | 3            | Add power consumption information   |
+| 18/08/2022 | 2            | Add Secure Element specs (SE050C2)  |
+| 27/12/2021 | 1            | First Release                       |

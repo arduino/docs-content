@@ -1,9 +1,9 @@
 Shield:
   Name: Arduino® Portenta Vision Shield
   SKU (Ethernet): ASX00021
-  SKU (LoRa): ASX00026
+  SKU (LoRa®): ASX00026
 Connectivity:
-  LoRa: 868/915MHz ABZ-093 LoRa® Module with ARM Cortex-M0+
+  LoRa®: 868/915MHz ABZ-093 LoRa® Module with ARM Cortex-M0+
 Sensors:
   Microphone: MP34DT05
   Camera:	Himax HM-01B0 camera module

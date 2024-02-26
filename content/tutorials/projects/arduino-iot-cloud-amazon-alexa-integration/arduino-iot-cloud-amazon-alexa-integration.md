@@ -1,6 +1,6 @@
 ---
-title: "Arduino IoT Cloud Amazon Alexa Integration"
-description: "Learn how to use Arduino IoT Cloud and Amazon Alexa to interact with your sensors."
+title: "Arduino Cloud Amazon Alexa Integration"
+description: "Learn how to use Arduino Cloud and Amazon Alexa to interact with your sensors."
 coverImage: "assets/blob_ognVMF5UTp.png"
 tags: [environmental sensing, home automation, smart appliances]
 author: "Arduino_Genuino, umbertobaldi95, Ubi de Feo, dpajak"
@@ -21,16 +21,16 @@ source: "https://create.arduino.cc/projecthub/303628/arduino-iot-cloud-amazon-al
 ## Apps and Online Services
 
 - [Arduino Web Editor](https://create.arduino.cc/editor)
-- [Arduino IoT Cloud](https://cloud.arduino.cc)
+- [Arduino Cloud](https://cloud.arduino.cc)
 - [Arduino Amazon Alexa Official Arduino Skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H)
 
 ## About This Project
 
 ### Intro: Getting Started
 
-In this tutorial we are going to use Arduino IoT Cloud, if you are new to Arduino IoT Cloud, we advise to first take a look at [this introductory project](https://create.arduino.cc/projecthub/133030/iot-cloud-getting-started-c93255), which will give you an overview and guide you through the process of setting up your supported board, IoT Cloud things and properties and get you onboard.
+In this tutorial we are going to use Arduino Cloud, if you are new to Arduino Cloud, we advise to first take a look at [this introductory project](https://create.arduino.cc/projecthub/133030/iot-cloud-getting-started-c93255), which will give you an overview and guide you through the process of setting up your supported board, IoT Cloud things and properties and get you onboard.
 
-## Part 1: Arduino IoT Cloud
+## Part 1: Arduino Cloud
 
 From the main [IoT Cloud page](https://create.arduino.cc/iot), we'll create a new thing and assign it a meaningful **name.** We'll then select the **board** we are going to use. If you can't see your board you might have skipped adding a new Device following the procedure that starts after clicking the **ADD DEVICE** button, under the **Devices** section.
 
@@ -110,7 +110,7 @@ void onMeetingRoomChange() {
 }
 ```
 
-with the code above we first read the **brightness value** from the cloud and **map** it to a usable value, then we verify if the **light switch** is on, if it is we can turn on the light, using the `brightness` red before. Otherwise we turn off the light
+with the code above we first read the **brightness value** from the Cloud and **map** it to a usable value, then we verify if the **light switch** is on, if it is we can turn on the light, using the `brightness` red before. Otherwise we turn off the light
 
 The working principle is the same for the other callback:
 
@@ -164,7 +164,7 @@ Let's go through the steps necessary to install the Arduino Alexa Skill. We'll f
 
 
 
-![7/9: Our Alexa and Arduino IoT Cloud can now talk to each other :)](assets/06_IwSMLyfW6y.png)
+![7/9: Our Alexa and Arduino Cloud can now talk to each other :)](assets/06_IwSMLyfW6y.png)
 
 
 
@@ -182,7 +182,7 @@ After waiting a little bit, you should see that some devices have been found.
 
 ![Tap choose device.](assets/image_13_L31c4LtBzP.jpg)
 
-After tapping on **Choose Device** you will be presented with the setup page listing all the available devices (They will be named according to how we named our properties in Arduino IoT Cloud).
+After tapping on **Choose Device** you will be presented with the setup page listing all the available devices (They will be named according to how we named our properties in Arduino Cloud).
 
 ![Device setup.](assets/image_14_BZgHyvIG2Z.jpg)
 

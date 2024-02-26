@@ -8,7 +8,7 @@ tags:
   - Arduino Cloud
 author: 'Taddy Chung & Christopher Mendez'
 software:
-  - Arduino-Cloud
+  - iot-cloud
 ---
 
 ## Software Requirements

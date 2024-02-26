@@ -53,7 +53,7 @@ IoT sketches are more complex and are generated automatically when you create a 
 
 ### Sketch File
 
-The sketch file is generated with a set of additional cloud-specific methods included, the essentials being:
+The sketch file is generated with a set of additional Cloud-specific methods included, the essentials being:
 - `initProperties()` - initializes properties/variables from your Thing.
 - `ArduinoCloud.begin()` starts the library with the preferred connection (e.g. Wi-Fi® or LoRaWAN®).
 - `ArduinoCloud.update()` - synchronizes all data between the board and the Arduino Cloud.
@@ -79,7 +79,7 @@ void setup(){
   ArduinoCloud.printDebugInfo();
 }
 void loop() {
-  //sync with cloud  
+  //sync with Cloud  
   ArduinoCloud.update();
 }
 
@@ -104,7 +104,7 @@ The file cannot be edited in the Arduino Cloud as it is in sync with the platfor
 
 The "Secret" File contains your secret credentials, such as Wi-Fi® network SSID/PASS or device secret key.
 
-This file will be visible as a "Secret" tab in the Cloud Editor and is named `arduino_secrets.h`, which is not visible on the cloud platform.
+This file will be visible as a "Secret" tab in the Cloud Editor and is named `arduino_secrets.h`, which is not visible on the Cloud platform.
 
 Note that if you are using the offline IDE / Arduino CLI, you will need to manually create this file. More information is in the **Offline Sketches section** just below.
 
@@ -144,7 +144,7 @@ ArduinoCloud.begin(ArduinoIoTPreferredConnection, false).
 
 ### Alternatives to Delays
 
-The `loop()` function includes the `ArduinoCloud.update();` call, which sends data to the cloud and receives updates. To get the best responsiveness in your cloud-connected projects, the `loop()` function should run as fast as possible. This means that no blocking commands should be used inside, and you should prefer a non-blocking programming approach whenever possible.
+The `loop()` function includes the `ArduinoCloud.update();` call, which sends data to the Cloud and receives updates. To get the best responsiveness in your Cloud-connected projects, the `loop()` function should run as fast as possible. This means that no blocking commands should be used inside, and you should prefer a non-blocking programming approach whenever possible.
 
 A common **blocking pattern** is the use of the `delay()` function which stops the execution of the function for the given time. We strongly advise to **get rid of this function** and achieve the same behavior in a non-blocking way with the `millis()` function as described below.
 
@@ -161,7 +161,7 @@ void loop() {
 }
 ```
 
-This works, but it will cause a delay of at least two seconds between one execution of `ArduinoCloud.update()` and the next one, thus causing bad performance of the cloud communication.
+This works, but it will cause a delay of at least two seconds between one execution of `ArduinoCloud.update()` and the next one, thus causing bad performance of the Cloud communication.
 
 This can be rewritten in a non-blocking way as follows:
 

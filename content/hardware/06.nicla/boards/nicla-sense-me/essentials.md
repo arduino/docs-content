@@ -1,6 +1,6 @@
 <EssentialsColumn title="Guides">
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_nicla">
-    All you need to know to get started with your new Arduino board.
+  <EssentialElement title="User Manual" type="getting-started" link="/tutorials/nicla-sense-me/user-manual">
+    A full guide to the basics of the Nicla Sense ME
   </EssentialElement>
   <EssentialElement title="Cheat Sheet" type="tutorial" link="/tutorials/nicla-sense-me/cheat-sheet">
     A collection of mini-guides and API descriptions that serves as a quick reference to look up information while you work on a project.

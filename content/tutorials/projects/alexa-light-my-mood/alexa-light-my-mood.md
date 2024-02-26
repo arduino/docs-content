@@ -1,6 +1,6 @@
 ---
 title: "Alexa, Light My Mood"
-description: "Learn how to control your MKR RGB Shield using Arduino IoT Cloud and Amazon Alexa."
+description: "Learn how to control your MKR RGB Shield using Arduino Cloud and Amazon Alexa."
 coverImage: "assets/_FhGbSMUC5c.png"
 difficulty: intermediate
 tags: [alexa, home automation, internet of things]
@@ -14,21 +14,21 @@ source: "https://create.arduino.cc/projecthub/315381/alexa-light-my-mood-885534"
 
 ## Apps and Online Services
 
-- [Arduino IoT Cloud](https://cloud.arduino.cc)
+- [Arduino Cloud](https://cloud.arduino.cc)
 - [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino Amazon Alexa Official Arduino Skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H)
 
 ## About This Project
 
-### Intro: Arduino IoT Cloud
+### Intro: Arduino Cloud
 
-[Arduino IoT Cloud ](https://create.arduino.cc/iot/)is a platform that enables anyone to build IoT connected objects with ease. In order to control our MKR RGB Shield using Alexa, we'll also be using the [Official Arduino Alexa Skill.](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H)
+[Arduino Cloud ](https://create.arduino.cc/iot/)is a platform that enables anyone to build IoT connected objects with ease. In order to control our MKR RGB Shield using Alexa, we'll also be using the [Official Arduino Alexa Skill.](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H)
 
-If you are new to Arduino IoT Cloud, we advise to first take a look at [this introductory project,](https://create.arduino.cc/projecthub/133030/iot-cloud-getting-started-c93255) which will give you an overview and guide you through the process of setting up one of the supported boards, IoT Cloud *Things* and *Properties* and get you onboard.
+If you are new to Arduino Cloud, we advise to first take a look at [this introductory project,](https://create.arduino.cc/projecthub/133030/iot-cloud-getting-started-c93255) which will give you an overview and guide you through the process of setting up one of the supported boards, IoT Cloud *Things* and *Properties* and get you onboard.
 
-### Part 1: Arduino IoT Cloud
+### Part 1: Arduino Cloud
 
-From the main [IoT Cloud page,](https://create.arduino.cc/iot/things) we'll create a new thing and assign it a meaningful **name.** We'll then select the **board** we are going to use. If you can't see your board you might have skipped the [getting started procedure:](https://create.arduino.cc/getting-started) look at the section above.
+From the main [Cloud page,](https://create.arduino.cc/iot/things) we'll create a new thing and assign it a meaningful **name.** We'll then select the **board** we are going to use. If you can't see your board you might have skipped the [getting started procedure:](https://create.arduino.cc/getting-started) look at the section above.
 
 Once done, we'll add a **property** to our **thing** that will represent the **RGB shield.** As a type remember to choose **ColoredLight** which lets us control an **RGB** Light, allowing us to change its brightness and colour. Set it as **Read** **and** **Write** because we'll need to control its behaviour through Alexa.
 
@@ -91,7 +91,7 @@ void onMoodLightChange() {
 }
 ```
 
-With the code above we first read the **rgb value** from the cloud and save the representation of the RGB colour in some variables, we then verify if the **light switch** is on; if it is we can turn on the light, using the **colour values** read before. Otherwise we turn off the light.
+With the code above we first read the **rgb value** from the Cloud and save the representation of the RGB colour in some variables, we then verify if the **light switch** is on; if it is we can turn on the light, using the **colour values** read before. Otherwise we turn off the light.
 
 The `beginDraw` and `endDraw` functions are used to alter the state of the matrix, `fill` is used to select the colour to use, rect is a function used to specify the region to fill.
 
@@ -127,7 +127,7 @@ Let's go through the steps necessary to install the Arduino Alexa Skill. We'll f
 
 
 
-![7/9: Our Alexa and Arduino IoT Cloud can now talk to each other :)](assets/06_Jjp2QJHzKk.png)
+![7/9: Our Alexa and Arduino Cloud can now talk to each other :)](assets/06_Jjp2QJHzKk.png)
 
 
 
@@ -162,7 +162,7 @@ Follow the sequence of images below to setup the device:
 ![5/5: We can finally control our light's colour through Alexa!](assets/05_63AzPXg1Rn.png)
 
 
-**Note**: The devices will be named according to how we named our properties in Arduino IoT Cloud. If you have trouble finding the devices, you might have not selected your property from the *"Smart Home"* section.
+**Note**: The devices will be named according to how we named our properties in Arduino Cloud. If you have trouble finding the devices, you might have not selected your property from the *"Smart Home"* section.
 
 We're done, it's now time to voice control our MKR RGB Shield asking things like
 

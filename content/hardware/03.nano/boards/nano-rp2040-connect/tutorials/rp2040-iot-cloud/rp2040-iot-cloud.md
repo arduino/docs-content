@@ -1,8 +1,8 @@
 ---
-title: 'Setting up Nano RP2040 Connect with Arduino IoT Cloud'
+title: 'Setting up Nano RP2040 Connect with Arduino Cloud'
 difficulty: beginner
 compatible-products: [nano-rp2040-connect]
-description: 'Learn how to access the IMU data and control the built-in RGB via the Arduino IoT Cloud.'
+description: 'Learn how to access the IMU data and control the built-in RGB via the Arduino Cloud.'
 tags:
   - IoT Cloud
   - IMU
@@ -21,7 +21,7 @@ software:
 
 ## Introduction
 
-In this tutorial, we will go through the steps needed to connect the [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect) to the [Arduino IoT Cloud](https://create.arduino.cc/iot/). 
+In this tutorial, we will go through the steps needed to connect the [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect) to the [Arduino Cloud](https://create.arduino.cc/iot/). 
 
 We will test the connection out, by viewing real time data of the IMU (Inertial Measurement Unit), and remotely controlling the RGB on the board.
 
@@ -29,13 +29,13 @@ We will test the connection out, by viewing real time data of the IMU (Inertial 
 
 The goals of this project are:
 
-- Set up the Arduino IoT Cloud.
+- Set up the Arduino Cloud.
 - Read IMU sensor data.
 - Control the built-in RGB.
 
 ## Hardware & Software Needed
 
-- [Arduino IoT Cloud](https://create.arduino.cc/iot/).
+- [Arduino Cloud](https://create.arduino.cc/iot/).
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect).
 
 ### Circuit
@@ -44,9 +44,9 @@ Follow the circuit below to connect the buttons and LEDs to your Arduino board.
 
 ![This tutorial requires no additional circuit.](assets/circuit.png)
 
-## The Arduino IoT Cloud
+## The Arduino Cloud
 
-To start, we will need to head over to the [Arduino IoT Cloud](https://create.arduino.cc/iot/). 
+To start, we will need to head over to the [Arduino Cloud](https://create.arduino.cc/iot/). 
 
 ### Step 1: Configure Your Device
 
@@ -86,7 +86,7 @@ Once the variables are created, your Thing overview should look similar to the i
 
 ### Step 3: The Sketch
 
-Now, we need to create the program for our Thing. First, let's head over to the **"Sketch"** tab in the Arduino IoT Cloud. At the top, your board should be available in the dropdown menu by default.
+Now, we need to create the program for our Thing. First, let's head over to the **"Sketch"** tab in the Arduino Cloud. At the top, your board should be available in the dropdown menu by default.
 
 ![Nano RP2040 Connect from board list.](assets/boardfound.png)
 
@@ -138,7 +138,7 @@ void onRgbLightChange()  {
   //create r,g,b variables
   uint8_t r, g, b;
 
-  //retrieve values from the cloud
+  //retrieve values from the Cloud
   rgb_light.getValue().getRGB(r, g, b);
 
   //values on Nano RP2040 Connect are inverted
@@ -165,14 +165,14 @@ Once the code has been uploaded to your board, it will attempt to connect to you
 If all went well, you will see a message like this: 
 
 ```
-***** Arduino IoT Cloud - configuration info *****
+***** Arduino Cloud - configuration info *****
 Device ID: <your-device-id>
 Thing ID: <your-thing-id>
 MQTT Broker: mqtts-sa.iot.arduino.cc:8883
 WiFi.status(): 0
 Current WiFi Firmware: 1.4.4
 Connected to "<your-network>"
-Connected to Arduino IoT Cloud
+Connected to Arduino Cloud
 ```
 
 If it went wrong, you may encounter errors such as:
@@ -212,10 +212,10 @@ If your board successfully connects to the Arduino Cloud, we should be seeing va
 
 ## Conclusion
 
-In this tutorial, we connected a Nano RP2040 Connect board to the [Arduino IoT Cloud](https://create.arduino.cc/iot/things). We created a simple sketch that allows us to display IMU sensor data directly in the Arduino IoT Cloud dashboard, and how to control the built-in RGB on the board.
+In this tutorial, we connected a Nano RP2040 Connect board to the [Arduino Cloud](https://create.arduino.cc/iot/things). We created a simple sketch that allows us to display IMU sensor data directly in the Arduino Cloud dashboard, and how to control the built-in RGB on the board.
 
 ### More Tutorials
 
-For more interesting tutorials around the IoT Cloud, check out the [Arduino IoT Cloud documentation page](/arduino-cloud).
+For more interesting tutorials around the IoT Cloud, check out the [Arduino Cloud documentation page](/arduino-cloud).
 
 To learn more about the Nano RP2040 Connect board, you can check out the [Arduino Nano RP2040 Connect documentation page](/hardware/nano-rp2040-connect).

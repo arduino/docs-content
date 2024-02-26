@@ -73,7 +73,7 @@ Each command has a set of **subcommands** which we will be exploring in this gui
 
 - `arduino-cloud-cli credentials`
 
-***Get your API key from the [Arduino Cloud home page](https://cloud.arduino.cc/home/) (bottom left corner of the page)***
+***Get your API key from the [Arduino Cloud API Keys page](https://app.arduino.cc/api-keys)***
 
 To authenticate with the Arduino Cloud, we will need to first set our credentials, using our `clientId` and `clientSecret` which is obtained from the Arduino Cloud API keys section.
 
@@ -352,11 +352,23 @@ arduino-cloud-cli dashboard delete --id <dashboardID>
 
 ### Create Dashboard
 
-Dashboards can only be created from a template. Supported dashboard template formats are `.json` and `.yaml`. The name parameter is optional. If it is provided, then it overrides the name retrieved from the template. The `--override` flag can be used to override the template `thing_id` placeholder with the actual ID of the thing to be used.
+Dashboards can only be created from a template. Supported dashboard template formats are `.json` and `.yaml`. The `--name` parameter is optional. If it is provided, then it overrides the name retrieved from the template. 
+
+The `--override` flag is used to override the template `thing_id` placeholder with the actual ID of the Thing to be used.
 
 ```
-arduino-cloud-cli dashboard create --name <dashboardName> --template <template.(json|yaml)> --override <thing-0>=<actualThingID>,<thing-1>=<otherActualThingID>
+arduino-cloud-cli dashboard create 
+--name <dashboardName> 
+--template <template.(json|yaml)> 
+--override <thing-0>=<actualThingID-0>,
+<thing-1>=<actualThingID-1>
 ```
+
+Note that the `dashboard create` command requires a Thing ID, which is why we need to use the `--override` option. 
+
+- `<thing-0>` is the **Thing name** you have in a template file that you have obtained using "dashboard extract". Note that in the command provided above, you can create a dashboard from more than one Thing.
+- `<actualThingID-0>` is the **Thing ID**, which is something like `8121w624-9d23-425f-6420-13e46214917b
+`
 
 ## OTA (Over-The-Air)
 
@@ -442,6 +454,6 @@ The Arduino Cloud CLI can also be well combined with the [Arduino CLI](https://a
 To recap, this tool can be used to:
 - Extract templates from your existing Things & dashboards previously created in the Arduino Cloud.
 - Perform the same actions as the Arduino Cloud but from a terminal (like creating/deleting devices, Things and linking them).
-- List all available components from the cloud (like `thing list`).
+- List all available components from the Cloud (like `thing list`).
 - Tag your devices & Things with the `--tags <key0>=<value0>` command.
 
