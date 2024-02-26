@@ -19,9 +19,10 @@ software:
   - cloud
 ---
 
-[User Manual banner](assets/hero-banner.png)
 
 This user manual provides a comprehensive overview of the Portenta Machine Control, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure, and use all the main features of the Portenta Machine Control.
+
+![The Portenta Machine Control](assets/hero-banner.png)
 
 ***This User Manual teaches how to use the Portenta Machine Control with the new `Arduino_PortentaMachineControl` library. If you want to know how to use it with IEC 61131-3 PLC programming languages, check the [PLC IDE Tutorials](https://docs.arduino.cc/software/plc-ide). In case you are already using the older version of the `Arduino_MachineControl` library, check the following [tutorial to know the differences and how to migrate your code to the latest version.](https://docs.arduino.cc/tutorials/portenta-machine-control/pmc-arduino-library/)***
 
@@ -81,7 +82,7 @@ Here is an overview of the controller's main components shown in the image above
 - Type J thermocouples
 - PT100 sensors
 
-**Communication interfaces and protocols**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers high-speed, software-configurable interfaces such as: 
+**Communication interfaces and protocols**: Seamless connectivity is a hallmark of this controller. The Portenta Machine Control offers high-speed, software-configurable communication interfaces and protocols such as:
 - CAN bus
 - RS-232
 - RS-422
@@ -171,15 +172,13 @@ The Portenta Machine Control has several LEDs that indicate how the board is bei
 
 ### Portenta Machine Control Terminals Features
 
-Access to the main components and features of the Portenta Machine Control is provided through onboard terminal blocks, specifically from the SPTAF-1 connector series by Phoenix Contact. These connectors are distinguished by their low profile, ability to handle high currents (rated up to 16A), and an intuitive push-in wire termination system. Below are the technical specifications of the Portenta Machine Control terminals:
+Access to the main components and features of the Portenta Machine Control is provided through onboard terminal blocks, specifically from the SPTAF-1 connector series by Phoenix Contact. These connectors are distinguished by their low profile, ability to handle high currents and an intuitive push-in wire termination system. Below are the technical specifications of the Portenta Machine Control terminals:
 
 - **Pitch**: 3.5 mm
-- **Nominal current**: 16 A
-- **Nominal voltage**: 160 V
 - **Connection method**: Push-in spring connection
 - **Connection direction**: 45º
 
-The connection capacity for the Portenta Machine Control terminals is outlined in the table below, indicating supported conductor cross sections and their respective capacities:
+The connector and wire specifications for the Portenta Machine Control terminals are outlined in the table below, indicating supported conductor cross sections and their respective capacities:
 
 |          **Conductor Cross Section**          |                **Capacity**               |
 |:---------------------------------------------:|:-----------------------------------------:|
@@ -193,7 +192,7 @@ The connection capacity for the Portenta Machine Control terminals is outlined i
 
 Let's program the Portenta Machine Control with a modified version of the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. This example will verify that the controller's connection to the Arduino IDE, its core functionalities, and the `Arduino_PortentaMachineControl` library are working as expected.
 
-***Remember to install the `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` library; please refer to this section of the User Manual if you still need to.***
+***Remember to install the `Arduino Mbed OS Portenta Boards` core and the `Arduino_PortentaMachineControl` library; please refer to [this section of the User Manual](#portenta-machine-control-core-and-libraries) to learn how to do it.***
 
 Copy and paste the sketch below into a new sketch in the Arduino IDE.
 
