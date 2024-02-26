@@ -24,7 +24,7 @@
         The official library for managing GPIO pins within the Python® programming environment.
     </EssentialElement>
     <EssentialElement title="Docker Hub for the Portenta X8" type="library" link="https://hub.docker.com/u/arduino">
-        Docker Hub to access collection of containers for the Portenta X8.
+        Docker Hub to access the collection of containers for the Portenta X8.
     </EssentialElement>
 </EssentialsColumn>
 
