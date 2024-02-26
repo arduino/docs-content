@@ -388,7 +388,7 @@ Below is an example sketch showcasing how to periodically read data from all the
   Name: portenta_machine_control_digital_input_example.ino
   Purpose: This sketch demonstrates how to periodically read 
   from all the digital input channels on the Portenta Machine Control.
-  
+
   Author: Arduino PRO Content Team
   Version: 1.0 01/10/23
 */
@@ -401,10 +401,10 @@ const int channelPins[totalChannels] = {DIN_READ_CH_PIN_00, DIN_READ_CH_PIN_01, 
 void setup() {
   // Initialize serial communication at 9600 bauds
   Serial.begin(9600);
-  
+
   // Initialize Wire transmission
   Wire.begin();
-  
+
   // Initialize the digital input channels
   // If initialization fails, notify via Serial Monitor
   if (!MachineControl_DigitalInputs.begin()) {
