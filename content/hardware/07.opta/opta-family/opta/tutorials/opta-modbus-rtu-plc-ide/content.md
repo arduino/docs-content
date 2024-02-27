@@ -27,7 +27,7 @@ In this tutorial, you will learn how to implement Modbus RTU-based communication
 
 - Learn how to configure the workspace environment to work with Modbus RTU using Arduino PLC IDE.
 - Learn how to configure Modbus RTU for Opta™ using Arduino PLC IDE.
-- Learn how to verify that Opta™ has been correctly set up using an example that uses Modbus RTU communication.
+- Learn how to verify that Opta™ has been correctly set up using a Modbus RTU communication example.
 
 ## Required Hardware and Software
 
@@ -48,17 +48,17 @@ In this tutorial, you will learn how to implement Modbus RTU-based communication
 
 ## Modbus Protocol
 
-Modbus is a client/server architecture-based serial communication protocol that is open and free of licensing restrictions. Particularly in Building Management Systems (BMS) and Industrial Automation Systems (IAS), it is commonly employed in industrial electrical equipment.
+Modbus is a client/server architecture-based serial communication protocol that is open and free of licensing restrictions. It is commonly employed in industrial electrical equipment, particularly in Building Management Systems (BMS) and Industrial Automation Systems (IAS).
 
 It was released by Modicon (now Schneider Electric) in 1979. It has since become the de facto industry standard for industrial electronic devices when communicating with PLCs.
 
-In Supervisory Control and Data Acquisition (SCADA) systems, a Remote Terminal Unit (RTU) and a supervisory device are frequently connected via the Modbus communication protocol. When communicating with electronic equipment, Modbus messages have a straightforward 16-bit format and a Cyclic-Redundant Checksum (CRC).
+In Supervisory Control and Data Acquisition (SCADA) systems, a Remote Terminal Unit (RTU) and a supervisory device are frequently connected via the Modbus communication protocol. Modbus messages have a straightforward 16-bit format and a Cyclic-Redundant Checksum (CRC) when communicating with electronic equipment.
 
 ***For more information regarding the Modbus RTU protocol implementation on an Opta™, it may interest you to check out ["Getting Started with Modbus RTU on Opta™"](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu) tutorial.***
 
 ## Modbus RTU & PLC IDE
 
-In this tutorial, we will guide you through setting up two Opta™ devices with Modbus RTU using the Arduino PLC IDE. The present tutorial will help us understand the overall process of implementation.
+This tutorial will guide you through setting up two Opta™ devices with Modbus RTU using the Arduino PLC IDE. The present tutorial will help us understand the overall process of implementation.
 
 The following diagram illustrates a concise visualization of how Opta™ is configured and deployed with Modbus RTU:
 
@@ -66,9 +66,9 @@ The following diagram illustrates a concise visualization of how Opta™ is conf
 
 The entire procedure is divided into three distinct stages:
 
-* __Modbus RTU Configuration__ is the foundational step where we initialize the Opta™ device with Modbus RTU and other essential properties intrinsic to the device.
+* __Modbus RTU Configuration__ is the foundational step in initializing the Opta™ device with Modbus RTU and other intrinsic properties.
   
-  During this stage, the Modbus RTU role, Client or Server, is designated to the Opta™ device. It includes the 'Baud rate' and 'Serial Mode' configuration, essential for Modbus RTU communication.
+  The Modbus RTU role, Client or Server, is assigned to the Opta™ device during this stage. It includes the 'Baud rate' and 'Serial Mode' configurations, essential for Modbus RTU communication.
   
   Based on the device setting within the Modbus RTU, either the 'Status variables' are delineated, or the Modbus node is defined to determine the communicating devices using this protocol.
 
@@ -82,7 +82,7 @@ The diagram presented shows the uniformity of the Modbus RTU setup across device
 
 In addition, when developing the PLC code, there is no limitation to a single language. The system adheres to the IEC61131-3 standard, allowing one to select from the languages outlined in this standard. It ensures a balance between user convenience and accurate code development.
 
-Having provided an overview of the entire process, we can now delve into the specifics.
+We can now delve into the specifics after providing an overview of the entire process.
 
 ## Instructions
 
@@ -105,7 +105,7 @@ Install the Arduino PLC IDE Tools before the Arduino PLC IDE to avoid potential 
 
 The two Opta™ devices will communicate using Modbus RTU. It is enabled by using the RS-485 interface for both devices. The following image shows the connection diagram to work with two Opta™ devices.
 
-![RS-485 interface between Opta™ devices for Modbus RTU](assets/opta_rtu_plcide_hardware_connection.svg)
+![RS-485 interface between Opta™ devices for Modbus RTU](assets/opta_rtu_plcide_hardware_connection.png)
 
 The Modbus RTU communication network can be scaled up by integrating additional protocol-compatible devices such as Opta™ or Portenta Machine Control.
 
@@ -113,19 +113,17 @@ The Modbus RTU communication network can be scaled up by integrating additional 
 
 ### Workspace Pre-Configuration
 
-For appropriate Modbus RTU operation, some considerations must be considered beforehand to properly enable and use Modbus RTU on Opta™ using PLC IDE. The following subsections will help briefly explain such aspects.
+Some considerations must be considered beforehand to properly enable and use Modbus RTU on Opta™ using PLC IDE for appropriate Modbus RTU operation. The following subsections will help briefly explain such aspects.
 
 ***It is recommendable to check out [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license#3-project-setup) to familiarize with Arduino PLC IDE environment.***
 
 #### Opta™ Basic Configuration
-<br></br>
 
 The Modbus RTU communication for Opta™ does not require special pre-configuration. You will only have to make a manual sketch download with the desired protocol role, its properties, and its onboard elements to be used. These onboard elements can be status LEDs and relays.
 
 Opta™ can be initialized further in the process if additional configuration changes are required.
 
 #### Modbus RTU Client and Server Mode
-<br></br>
 
 The PLC IDE software provides the option to set Opta™ as either a Modbus RTU Client, Server, or none of the previous modes. The option is configurable under `RS485 SerialPort` listed within the `Resources` tab.
 
@@ -140,7 +138,6 @@ On the other hand, Opta™ set as a Modbus RTU Server requires an additional con
 If you decide to disable Modbus RTU for Opta™, you can select the option 'none'. It will hide every Modbus RTU configuration parameter, turning off the protocol mode for Opta™.
 
 #### General Modbus Node Configuration
-<br></br>
 
 The General Modbus Node allows the addition of information regarding the devices compatible with the Modbus messaging service.
 
@@ -157,7 +154,6 @@ It will require you to fill in basic information under the `General` tab and par
 This information will help identify and correctly communicate with the target device.
 
 #### PLC IDE Modbus Custom Editor
-<br></br>
 
 The Modbus Custom Editor allows you to define a Modbus node with pre-defined parameters and variables. It can be later added using the 'Add' option under 'RS485 SerialPort'.
 
@@ -165,24 +161,23 @@ To open the Modbus Custom Editor window, go to `Tools -> Run Modbus Custom Edito
 
 ![Arduino PLC IDE - Modbus Custom Editor Configuration](assets/opta_plcide_customModbus.png)
 
-It is a helpful feature to have frequently deployed device configuration stored that is compatible with Modbus protocol.
+It is a helpful feature to have frequently deployed device configurations stored that are compatible with the Modbus protocol.
 
 ### Project Overview
 
-The example project will be used to test the Modbus RTU connection between two Opta™ devices after you have prepared the necessary prerequisites and the necessary tools.
+The example project will test the Modbus RTU connection between two Opta™ devices after you have prepared the necessary prerequisites and tools.
 
-The example project will modify its default example code slightly to incorporate a counter (`cnt`) variable, creating a live handshake verification procedure between two Opta™ devices and broadcasting the counter data.
+The example project will slightly modify its default example code to incorporate a counter (`cnt`) variable, creating a live handshake verification procedure between two Opta™ devices and broadcasting the counter data.
 
-Based on the counter data it receives from the "Modbus RTU Server Opta™," the "Modbus RTU Client Opta™" will activate the relay and the status LED. You may learn how to configure the Modbus RTU role for each Opta™ device using the role-specific sections.
+Based on the counter data it receives from the "Modbus RTU Server Opta™," the "Modbus RTU Client Opta™" will activate the relay and the status LED. Using the role-specific sections, you may learn how to configure the Modbus RTU role for each Opta™ device.
 
-You may access the entire example project [here](assets/ModbusRTU_Opta_Example.zip) if you would like to test it right away. Every setting and component is ready to be assembled and uploaded to the corresponding Opta™.
+You may access the entire example project [here](assets/ModbusRTU_Opta_Example.zip) if you want to test it immediately. Every setting and component is ready to be assembled and uploaded to the corresponding Opta™.
 
 The following sections will demonstrate how to set up each Opta™ according to its function in a Modbus RTU connection.
 
 #### Modbus RTU Server Opta™
-<br></br>
 
-To set Opta™ as a Modbus RTU Server, navigate to the `RS485 SerialPort` tab located in the `Resources` panel of the PLC IDE. A window named `Modbus Configuration` will open, and we must select the `Modbus RTU Slave` option. For the tutorial example, we will use the following properties for server Opta™:
+To set Opta™ as a Modbus RTU Server, navigate to the `RS485 SerialPort` tab in the PLC IDE's `Resources` panel. A window named `Modbus Configuration` will open, and we must select the `Modbus RTU Slave` option. For the tutorial example, we will use the following properties for server Opta™:
 
 - Baud Rate: 19200 b/s
 - Serial Mode: N,8,1 (No parity, 8 data bits, 1 stop bit)
@@ -229,9 +224,8 @@ The Opta™ server device's task runs a simple counter and resets whenever the c
 Upon completing these steps, you will have successfully configured an Opta™ device as a Modbus RTU Server. The following section will guide you through setting up another Opta™ as a Modbus RTU Client.
 
 #### Modbus RTU Client Opta™
-<br></br>
 
-To set Opta™ as a Modbus RTU Client, navigate to the `RS485 SerialPort` tab located in the `Resources` panel of the PLC IDE. The `Modbus Configuration` panel will open, and we must select the `Modbus RTU Master` option. For the tutorial example, we will use the following properties for client Opta™:
+To set Opta™ as a Modbus RTU Client, navigate to the `RS485 SerialPort` tab in the PLC IDE's `Resources` panel. The `Modbus Configuration` panel will open, and we must select the `Modbus RTU Master` option. For the tutorial example, we will use the following properties for client Opta™:
 
 - Baud Rate: 19200 b/s
 - Serial Mode: N,8,1 (No parity, 8 data bits, 1 stop bit)
@@ -240,7 +234,7 @@ To set Opta™ as a Modbus RTU Client, navigate to the `RS485 SerialPort` tab lo
 
 Alternative values can be used per requirements if needed.
 
-To establish communication with a configured Modbus RTU Server on an Opta™ device, add a Modbus node by right-clicking on the `RS485 SerialPort` tab located in the `Resources` panel. After right-clicking, select the 'Add' option that appears. This action will allow you to introduce a 'Generic Modbus' node into the configuration. For this example, configure the node with the following parameters:
+To establish communication with a configured Modbus RTU Server on an Opta™ device, add a Modbus node by right-clicking the `RS485 SerialPort` tab in the `Resources` panel. After right-clicking, select the 'Add' option that appears. This action will allow you to introduce a 'Generic Modbus' node into the configuration. For this example, configure the node with the following parameters:
 
 * Name: Opta_RTU_1
 * Modbus address: 10
@@ -264,7 +258,7 @@ To retrieve counter information from the server Opta™, select the 'Modbus FC-0
 
 ![Arduino PLC IDE - Opta™ Client Modbus Function of the Node](assets/opta_plcide_client_modbusFunctionConfig.png)
 
-Subsequently, you need to define a variable to store the counter data retrieved from the server Opta™. To do this, navigate to the `Input Reg.` tab within the Modbus function configuration interface. Introduce a variable named `counter_rec` to capture the data transmitted through the protocol.
+Subsequently, you need to define a variable to store the counter data retrieved from the server Opta™. To do this, navigate to the Modbus function configuration interface's `Input Reg.` tab. Introduce a variable named `counter_rec` to capture the data transmitted through the protocol.
 
 The following image shows a visual representation of the anticipated configuration:
 
@@ -339,7 +333,7 @@ Set both Opta™ devices running with the corresponding main PLC code with the h
 * Counter value = `2000`: The status LED #4 and relay #4 will turn on
 * Counter value = `2500`: All status LEDs and relays will turn off
 
-The following short clip shows a briefly expected behavior of the example project.
+The following short clip briefly shows the expected behavior of the example project.
 
 ![Example Project Result](assets/opta_plcide_rtu_example_result.gif)
 
@@ -351,6 +345,6 @@ In this tutorial, you have learned to configure the workspace environment to wor
 
 ### Next Steps
 
-Now that you have learned to implement the Modbus RTU between Opta™ devices using Arduino PLC IDE, try adding additional Modbus RTU compatible devices and create a Modbus RTU communication network.
+Now that you have learned to implement the Modbus RTU between Opta™ devices using Arduino PLC IDE try adding additional Modbus RTU compatible devices and create a Modbus RTU communication network.
 
 Further, explore the possibilities by combining the Opta™ device's onboard features with the Modbus RTU communication network and deploy it as an enhancement solution for industrial management systems.
