@@ -1236,7 +1236,7 @@ Modbus RTU, generally operating in half-duplex mode, with its capability to hand
 
 ***The Portenta Machine Control has onboard termination resistors; its RS-485 interface can be configured as a half or full duplex.***
 
-The example below shows how to enable Modbus TCP communication between a Portenta Machine Control device and an Opta™ device. For wiring both devices, follow the diagram below:
+The example below shows how to enable Modbus RTU communication between a Portenta Machine Control device and an Opta™ device. For wiring both devices, follow the diagram below:
 
 ![Portenta Machine Control and Opta™ Modbus RTU wiring](assets/modbus-rtu.png)
 
