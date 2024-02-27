@@ -7,7 +7,7 @@ tags:
   - Cheat sheet
   - User manual
   - Portenta Machine Control
-author: 'José Bagur'
+author: 'José Bagur, Christopher Mendez, Julián Caro Linares, and Taddy Chung'
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
 software:
@@ -171,7 +171,7 @@ The Portenta Machine Control has several LEDs that indicate how the board is bei
 
 ### Portenta Machine Control Terminals Features
 
-Access to the main components and features of the Portenta Machine Control is provided through onboard terminal blocks, specifically from the SPTAF-1 connector series by Phoenix Contact. These connectors are distinguished by their low profile, ability to handle high currents and an intuitive push-in wire termination system. Below are the technical specifications of the Portenta Machine Control terminals:
+Access to the main components and features of the Portenta Machine Control is provided through onboard terminal blocks, specifically from the SPTAF-1 connector series by Phoenix Contact. These connectors are distinguished by their low profile, ability to handle high currents, and intuitive push-in wire termination system. Below are the technical specifications of the Portenta Machine Control terminals:
 
 - **Pitch**: 3.5 mm
 - **Connection method**: Push-in spring connection
@@ -1040,7 +1040,7 @@ The Portenta Machine Control has a built-in RS-485 interface that enables the im
 
 The onboard RS-485 transceiver is the SP335 from MaxLinear. The SP335 is an advanced multiprotocol transceiver that supports RS-232, RS-485, and RS-422 serial standards. Integrated cable termination and multiple configuration modes allow all three protocols to be used interchangeably over a single cable or connector with no additional switching components.
 
-***The Portenta Machine Control has onboard termination resistors; its RS-485 interface can be configurable to be half-duplex or full-duplex.***
+***The Portenta Machine Control has onboard termination resistors; its RS-485 interface can be configured to be half-duplex or full-duplex.***
 
 Some of the key capabilities of Portenta's Machine Control onboard RS-485 transceiver are the following:
 
@@ -1216,7 +1216,7 @@ void loop() {
 }
 ```
 
-Both devices will send and receive messages respectively through the RS-485 interface and will print them in the IDE's Serial Monitor as shown in the animation below. 
+Both devices will send and receive messages respectively through the RS-485 interface and will print them in the IDE's Serial Monitor, as shown in the animation below. 
 
 ![Full-duplex RS-485 communication example](assets/rs845taddy.gif)
 
@@ -1647,7 +1647,7 @@ void updateLED() {
   }
 }
 ```
-You should see the server digital output LEDs turning on and off as shown below:
+You should see the server digital output LEDs turning on and off, as shown below:
 
 ![Onboard LEDs of a server device controlled by a Portenta Machine Control via Modbus TCP](assets/pmc-blink.gif)
 
@@ -1939,7 +1939,7 @@ The Portenta Machine Control is compatible with **non-grounded Type K and Type J
 
 ![Non-grounded Thermocouple connection to channel 0](assets/thermocouple-connection.png)
 
-***Thermocouples can have different cable color codes depending on the region and normative. Please check the meaning of each cable code before connecting them to the device. Do not connect the thermocouple negative pin to GND.***
+***Thermocouples can have different cable color codes depending on the region and norm. Please check the meaning of each cable code before connecting them to the device. Do not connect the thermocouple negative pin to GND.***
 
 The following example sketch demonstrates how to read temperatures from thermocouples connected to a Portenta Machine Control device. It uses the `Arduino_PortentaMachineControl` library to interface with the thermocouple probes and prints the temperature values to the Arduino IDE's Serial Monitor every second.
 
@@ -2188,9 +2188,8 @@ Key functions used in the sketch:
 
 - `MachineControl_RTDTempProbe.begin(THREE_WIRE)`: Initializes the temperature probes. In case you want to use this example with a 2-wire RTD PT100 probe, change the constant `THREE_WIRE` to `TWO_WIRE`.
 - `MachineControl_RTDTempProbe.selectChannel(channel)`: Selects the active channel for temperature measurement.
-- `MachineControl_RTDTempProbe.readRTD()`: Reads the raw value from the selected channel to calculate a `ratio`. The value needs to be converted to a valid temperature value in Celsius degrees using the function `MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF)`, as it can be seen in the lines that follow the calls of the function.
-- `MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF)`: Converts the values read it from the `MachineControl_RTDTempProbe.readRTD()` function and the `RNOMINAL`` constant to get the PT100 probe temperature reading in Celsius degrees.
-
+- `MachineControl_RTDTempProbe.readRTD()`: Reads the raw value from the selected channel to calculate a `ratio`. The value needs to be converted to a valid temperature value in Celsius degrees using the function `MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF)`, as can be seen in the lines that follow the calls of the function.
+- `MachineControl_RTDTempProbe.readTemperature(RNOMINAL, RREF)`: Converts the values read from the `MachineControl_RTDTempProbe.readRTD()` function and the `RNOMINAL` constant to get the PT100 probe temperature reading in Celsius degrees.
 
 ## Encoders 
 
