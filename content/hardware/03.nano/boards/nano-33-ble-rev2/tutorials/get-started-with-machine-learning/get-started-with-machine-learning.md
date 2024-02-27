@@ -25,13 +25,13 @@ software:
 
 ***Important notice! The [TensorFlow Lite Micro Library](https://github.com/tensorflow/tflite-micro-arduino-examples) is no longer available in the Arduino Library Manager. This library will need to be manually downloaded and included in your IDE.***
 
-[Arduino®](https://www.arduino.cc/) is on a mission to make machine learning simple enough for anyone to use. We’ve been working with the TensorFlow Lite team over the past few months and are excited to show you what we’ve been up to together: bringing TensorFlow Lite Micro to the [Arduino Nano 33 BLE Rev2](/hardware/nano-33-ble-rev2). In this article, we’ll show you how to install and run several new [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are now available in the [Arduino Library Manager](https://www.arduino.cc/en/guide/libraries).
+In this article, we’ll show you how to install and run several [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers/overview) examples that are available in the [Arduino Library Manager](https://www.arduino.cc/en/guide/libraries).
 
-The first tutorial below shows you how to install a neural network on your Arduino board to recognize simple voice commands.
+The tutorial below shows you how to install a neural network on your Arduino board to recognize simple voice commands.
 
 ![Example 1: Running the pre-trained micro_speech inference example](assets/micro.gif)
 
-Next, we’ll introduce a more in-depth tutorial you can use to train your own custom gesture recognition model for Arduino using TensorFlow in Colab. This material is based on a practical workshop held by Sandeep Mistry and Don Coleman, an updated version of which is [now online](https://github.com/arduino/ArduinoTensorFlowLiteTutorials/tree/master/GestureToEmoji). 
+Next, we’ll introduce a more in-depth tutorial you can use to train your own custom gesture recognition model for Arduino using TensorFlow in Colab. This material is based on a practical workshop held by Sandeep Mistry and Don Coleman, an updated version of which is [online here](https://github.com/arduino/ArduinoTensorFlowLiteTutorials/tree/master/GestureToEmoji). 
 
 If you have previous experience with Arduino, you may be able to get these tutorials working within a couple of hours. If you’re entirely new to microcontrollers, it may take a bit longer. 
 
@@ -50,7 +50,7 @@ We’re excited to share some of the first examples and tutorials, and to see wh
 ## Hardware & Software Needed
 - An [Arduino Nano 33 BLE Rev2](/hardware/nano-33-ble-rev2) board
 - A Micro USB cable to connect the Arduino board to your desktop machine
-- To program your board, you can use the [Arduino Web Editor](https://www.arduino.cc/en/main/software) or install the [Arduino IDE](https://www.arduino.cc/en/main/software). We’ll give you more details on how to set these up in the following sections
+- To program your board, you can use the [Arduino Cloud Editor](https://www.arduino.cc/en/main/software) or install the [Arduino IDE](https://www.arduino.cc/en/main/software). We’ll give you more details on how to set these up in the following sections
 
 The Arduino Nano 33 BLE Rev2 has a variety of onboard sensors meaning potential for some cool TinyML applications:
 
@@ -66,7 +66,7 @@ Unlike classic Arduino UNO, the board combines a microcontroller with onboard se
 ## Microcontrollers and TinyML
 Microcontrollers, such as those used on Arduino boards, are low-cost, single-chip, self-contained computer systems. They’re the invisible computers embedded inside billions of everyday gadgets like wearables, drones, 3D printers, toys, rice cookers, smart plugs, e-scooters, and washing machines. The trend to connect these devices is part of what is referred to as the Internet of Things.
 
-Arduino is an open-source platform and community focused on making microcontroller application development accessible to [everyone](https://create.arduino.cc/projecthub). The [board](store.arduino.cc/products/nano-33-ble-rev2) we’re using here has an Arm Cortex-M4 microcontroller running at 64 MHz with 1 MB Flash memory and 256 KB of RAM. This is tiny in comparison to cloud, PC, or mobile but reasonable by microcontroller standards.
+Arduino is an open-source platform and community focused on making microcontroller application development accessible to [everyone](https://create.arduino.cc/projecthub). The [board](store.arduino.cc/products/nano-33-ble-rev2) we’re using here has an Arm® Cortex®-M4 microcontroller running at 64 MHz with 1 MB Flash memory and 256 kB of RAM. This is tiny in comparison to cloud, PC, or mobile but reasonable by microcontroller standards.
 
 ![The Arduino Nano 33 BLE Rev2 board is smaller than a stick of gum.](./assets/nanoblerev2.png)
 
@@ -96,9 +96,9 @@ The inference examples for TensorFlow Lite for Microcontrollers are now packaged
 
 For more background on the examples, you can take a look at the source in the [TensorFlow repository](https://github.com/tensorflow/tflite-micro-arduino-examples). The models in these examples were previously trained. The tutorials below show you how to deploy and run them on an Arduino board. In the next section, we’ll discuss training.
 
-## How to Run the Examples Using Arduino Web Editor
+## How to Run the Examples Using Arduino Cloud Editor
 
-Once you connect your Arduino Nano 33 BLE Rev2 to your desktop machine with a USB cable you will be able to compile and run the following TensorFlow examples on the board by using the [Web Editor](https://create.arduino.cc/editor):
+Once you connect your Arduino Nano 33 BLE Rev2 to your desktop machine with a USB cable you will be able to compile and run the following TensorFlow examples on the board by using the [Cloud Editor](https://create.arduino.cc/editor):
 
 ![Compiling an example from the Arduino_TensorFlowLite library.](assets/create-lib.gif)
 
@@ -108,7 +108,7 @@ Alternatively, you can use the same inference examples used in the Arduino IDE a
 
 First, follow the instructions in the next section Setting up the Arduino IDE.
 
-In the Arduino IDE, you will see the examples available via the **File > Examples > Arduino_TensorFlowLite**  menu in the ArduinoIDE.
+In the Arduino IDE, you will see the examples available via the **File > Examples > Arduino_TensorFlowLite** menu..
 
 Select an example and the sketch will open. To compile, upload and run the examples on the board click the arrow icon:
 
@@ -140,7 +140,7 @@ There are more detailed [Getting Started](/hardware/nano-33-ble-rev2) and [Troub
 
 First, we need to capture some training data. You can capture sensor data logs from the Arduino board over the same USB cable you use to program the board with your laptop or PC.
 
-Arduino boards run small applications (also called sketches) which are compiled from .ino format Arduino source code, and programmed onto the board using the Arduino IDE or Web Editor. 
+Arduino boards run small applications (also called sketches) which are compiled from .ino format Arduino source code, and programmed onto the board using the IDE or Cloud Editor. 
 
 With the sketch we are creating we will do the following:
 
@@ -277,7 +277,7 @@ To capture data as a CSV log to upload to TensorFlow, you can use **Arduino IDE 
 
 ![Data recorded by your movements](assets/trainingData.png)
 
-***Linux tip:*** *If you prefer you can redirect the sensor log output from the Arduino board straight to .csv file on the command line. With the Serial Plotter / Serial MOnitor windows close use: 
+**Linux tip:** If you prefer you can redirect the sensor log output from the Arduino board straight to .csv file on the command line. With the Serial Plotter / Serial Monitor windows close use: 
 ```
  $ cat /dev/cu.usbmodem[nnnnn] > sensorlog.csv
 ```
