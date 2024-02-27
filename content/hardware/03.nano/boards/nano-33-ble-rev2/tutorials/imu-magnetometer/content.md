@@ -13,7 +13,7 @@ libraries:
 hardware:
   - hardware/03.nano/boards/nano-33-ble-rev2
 software:
-  - web-editor
+  - cloud-editor
 ---
 
 
@@ -34,8 +34,8 @@ The goals of this project are to:
 
 
 ## Hardware & Software Needed
-* This project uses no external sensors or components.
-* In this tutorial, we will use the Arduino Web Editor to program the board.
+* This project uses no external sensors or components apart from the Arduino Nano 33 BLE Rev2.
+* In this tutorial, we will use the Arduino Cloud Editor to program the board.
 
 
 
@@ -58,7 +58,7 @@ The [Arduino BMI270_BMM150 library](https://www.arduino.cc/reference/en/librarie
 - **Gyroscope** output data rate is fixed at 104 Hz.
 - **Magnetometer** output data rate is fixed at 20 Hz.
 
-If you want to read more about the sensor modules that make up the IMU system, find the datasheet for the <a href="https://content.arduino.cc/assets/bst-bmi270-ds000.pdf" target="_blank">BMI270</a> and the <a href="https://content.arduino.cc/assets/bst-bmm150-ds001.pdf" target="_blank">BMM150</a> here.
+If you want to read more about the sensor modules that make up the IMU system, find the datasheet for the [BMI270](https://download.mikroe.com/documents/datasheets/bst-bmi270-ds000-2_datasheet.pdf) and the [BMM150](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf) here.
 
 ### Magnetometer
 A magnetometer is a device that measures magnetism, that is the direction, strength, or relative change of a magnetic field at a particular location.
@@ -72,14 +72,14 @@ In this tutorial, we will read the values X, Y and Z and provide visual feedback
 
 **1. Setting up** 
 
-Let's start by opening the [Arduino Web Editor](https://create.arduino.cc/editor) and creating a new sketch, this can be named "magnetometer". Then, navigate to the **Libraries** tab, search for the **BMI270_BMM150** library and click on the **Include** button. 
+Let's start by opening the [Arduino Cloud Editor](https://app.arduino.cc/) and creating a new sketch, this can be named "magnetometer". Then, navigate to the **Libraries** tab, search for the **BMI270_BMM150** library and click on the **Include** button. 
 
-![Finding the library in the Web Editor.](./assets/nano33B_04_include_library.png)
+![Finding the library in the Cloud Editor.](./assets/nano33B_04_include_library.png)
 
 
 **2. Connecting the board**
 
-Next, connect the Nano 33 BLE Rev2 to the computer and make sure that the Web Editor recognizes it. If so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the editor to recognize your board.
+Next, connect the Nano 33 BLE Rev2 to the computer and make sure that the Cloud Editor recognizes it. If so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the editor to recognize your board.
 
 ![Selecting the board.](./assets/nano33B_04_board_port.png)
 

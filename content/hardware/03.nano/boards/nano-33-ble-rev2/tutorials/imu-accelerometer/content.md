@@ -13,7 +13,7 @@ libraries:
 hardware:
   - hardware/03.nano/boards/nano-33-ble-rev2
 software:
-  - web-editor
+  - cloud-editor
   - ide-v1
   - ide-v2
 ---
@@ -32,8 +32,8 @@ The goals of this project are:
 
 
 ## Hardware & Software Needed
-* This project uses no external sensors or components.
-* In this tutorial, we will use the Arduino Web Editor to program the board.
+* This project uses no external sensors or components apart from the Arduino Nano 33 BLE Rev2.
+* In this tutorial, we will use the Arduino Cloud Editor to program the board.
 
 
 ## The IMU System on Nano 33 BLE Rev2
@@ -55,7 +55,7 @@ The Arduino BMI270_BMM150 library allows us to use the Nano 33 BLE Rev2 IMU syst
 - **Gyroscope** Output data rate is fixed at 104 Hz.
 - **Magnetometer** Output data rate is fixed at 20 Hz.
 
-If you want to read more about the sensor modules that make up the IMU system, find the datasheet for the <a href="https://content.arduino.cc/assets/bst-bmi270-ds000.pdf" target="_blank">BMI270</a> and the <a href="https://content.arduino.cc/assets/bst-bmm150-ds001.pdf" target="_blank">BMM150</a> here.
+If you want to read more about the sensor modules that make up the IMU system, find the datasheet for the [BMI270](https://download.mikroe.com/documents/datasheets/bst-bmi270-ds000-2_datasheet.pdf) and the [BMM150](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf) here.
 
 
 ### Accelerometer
@@ -72,13 +72,13 @@ In this example, we will use the accelerometer as a "level" that will provide in
 
 **1. Setting up**
 
-Let's start by opening the Arduino Web Editor, clicking on the **Libraries** tab and searching for the **BMI270_BMM150** library. Then in **> Examples**, open the **SimpleAccelerometer** sketch and once it opens, rename it as **Accelerometer**.
+Let's start by opening the Arduino Cloud Editor, clicking on the **Libraries** tab and searching for the **BMI270_BMM150** library. Then in **> Examples**, open the **SimpleAccelerometer** sketch and once it opens, rename it as **Accelerometer**.
 
-![Finding the library in the Web Editor.](./assets/nano33B_02_include_library.png)
+![Finding the library in the Cloud Editor.](./assets/nano33B_02_include_library.png)
 
 **2. Connecting the board**
 
-Now, connect the Arduino Nano 33 BLE Rev2 to the computer and make sure that the Web Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the editor to recognize your board.
+Now, connect the Arduino Nano 33 BLE Rev2 to the computer and make sure that the Cloud Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the editor to recognize your board.
 
 
 ![Selecting the board.](assets/nano33B_02_board_port.png)

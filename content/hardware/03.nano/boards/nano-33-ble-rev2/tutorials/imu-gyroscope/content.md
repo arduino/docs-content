@@ -13,7 +13,7 @@ libraries:
 hardware:
   - hardware/03.nano/boards/nano-33-ble-rev2
 software:
-  - web-editor
+  - cloud-editor
 ---
 
 This tutorial will focus on the 3-axis gyroscope sensor of the IMU system on the Arduino Nano 33 BLE Rev2, to measure the direction of force on the board to emulate an object's crash. This will be achieved by utilizing the values of the gyroscope's axes and later printing the return values through the Arduino IDE Serial Monitor.
@@ -32,8 +32,8 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 
-* This project uses no external sensors or components.
-* In this tutorial, we will use the Arduino Web Editor to program the board.
+* This project uses no external sensors or components apart from the Arduino Nano 33 BLE Rev2.
+* In this tutorial, we will use the Arduino Cloud Editor to program the board.
 
 
 ## The BMI270 & BMM150 Inertial Modules
@@ -55,7 +55,7 @@ The Arduino BMI270_BMM150 library allows us to use the Nano 33 BLE Rev2 IMU modu
 - **Gyroscope** output data rate is fixed at 104 Hz.
 - **Magnetometer** output data rate is fixed at 20 Hz.
 
-If you want to read more about the sensor modules that make up the IMU system, find the datasheet for the <a href="https://content.arduino.cc/assets/bst-bmi270-ds000.pdf" target="_blank">BMI270</a> and the <a href="https://content.arduino.cc/assets/bst-bmm150-ds001.pdf" target="_blank">BMM150</a> here.
+If you want to read more about the sensor modules that make up the IMU system, find the datasheet for the [BMI270](https://download.mikroe.com/documents/datasheets/bst-bmi270-ds000-2_datasheet.pdf) and the [BMM150](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmm150-ds001.pdf) here.
 
 
 ### Gyroscope
@@ -72,14 +72,14 @@ In this example, we will use the gyroscope as an indicator for the direction of 
 
 **1. Setting up**
 
-Let's start by opening the [Arduino Web Editor](https://create.arduino.cc/editor), clicking on the **Libraries** tab and searching for the **BMI270_BMM150** library. Then in **> Examples**, open the **SimpleGyroscope** sketch and once it opens, rename it as **Gyroscope**.
+Let's start by opening the [Arduino Cloud Editor](app.arduino.cc), clicking on the **Libraries** tab and searching for the **BMI270_BMM150** library. Then in **> Examples**, open the **SimpleGyroscope** sketch and once it opens, rename it as **Gyroscope**.
 
-![Finding the library in the Web Editor.](./assets/nano33B_03_include_library.png)
+![Finding the library in the Cloud Editor.](./assets/nano33B_03_include_library.png)
 
 
 **2. Connecting the board**
 
-Now, connect the Nano 33 BLE Rev2 to the computer and make sure that the Web Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the editor to recognize your board.
+Now, connect the Nano 33 BLE Rev2 to the computer and make sure that the Cloud Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the editor to recognize your board.
 
 
 ![Selecting the board.](assets/nano33B_03_board_port.png)
