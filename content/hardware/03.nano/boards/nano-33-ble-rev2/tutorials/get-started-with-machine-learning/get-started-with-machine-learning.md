@@ -1,5 +1,5 @@
 ---
-title: 'Get Started With Machine Learning on the Arduino Nano 33 BLE Rev2'
+title: 'Get Started With Machine Learning'
 difficulty: intermediate
 compatible-products: [nano-33-ble-rev2]
 description: 'Learn how to train and use machine learning models with the Arduino Nano 33 BLE Rev2'
