@@ -178,6 +178,7 @@ The **Mbed OS Nano Boards** package is based on the **Arduino Mbed Core**, and i
 
 - [Nano RP2040 Connect](/hardware/nano-rp2040-connect)
 - [Nano 33 BLE](/hardware/nano-33-ble)
+- [Nano 33 BLE Rev2](/hardware/nano-33-ble-rev2)
 - [Nano 33 BLE Sense](/hardware/nano-33-ble-sense)
 - [Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2)
 
