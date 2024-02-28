@@ -1,0 +1,6 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - iot-cloud
+  - web-editor
+  - plc-ide

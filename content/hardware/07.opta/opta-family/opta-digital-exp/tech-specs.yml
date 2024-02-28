@@ -1,0 +1,35 @@
+Board:
+  SKUs:
+    Arduino Opta® Digital Expansion EMR: AFX00005
+    Arduino Opta® Digital Expansion SSR: AFX00006
+
+Microcontroller:
+  ID: R7FA4M1AB3CFM ARM® Cortex®
+  Cortex-M4 core: Up to 48 MHz
+Input:
+  Configurable digital / analog input: 16
+  Digital Operational Range: 0-24 V
+  Digital VIL Max: 4 V
+  Digital VIH Min: 5.9 V
+  Analog Operational Range: 0-10 V
+Relays:
+  Nº of relays: 8
+  Type: Normally Open (NO)
+  Relay rated voltage: 250 VAC (EMR) | 24 VDC (SSR)
+  Relay maximum switching voltage: 400 VAC (EMR) | 33 VDC (SSR)
+  Maximum current per relay: 6 A (EMR) | 2 A (SSR)
+  Maximum peak current per relay: 10 A | 50 A (SSR)
+Connectivity:
+  I2C: Yes
+  UART: Yes
+Power:
+  Input voltage: 12-24 VDC
+Dimensions:
+  Weight: 210 g
+  Width: 70 mm
+  Length: 89 mm
+  Height: 62 mm
+IP Protection: IP20
+Programming:
+  Arduino programming language: Via Arduino IDEs, Arduino CLI, Arduino Web Editor
+  IEC-61131-3: Ladder Diagram (LD), Function Block Diagram (FBD), Sequential Function Chart (SFC), Structured Text (ST), Instruction List (IL)
