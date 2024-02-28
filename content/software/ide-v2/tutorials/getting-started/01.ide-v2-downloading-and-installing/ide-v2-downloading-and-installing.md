@@ -17,7 +17,7 @@ You can easily download the editor from the [Arduino Software page](https://www.
 
 - **Windows** - Win 10 and newer, 64 bits
 - **Linux** - 64 bits
-- **Mac OS X** - Version 10.14: "Mojave" or newer, 64 bits
+- **Mac OS X** - Version 10.15: "Catalina" or newer, 64 bits
 
 ### The Arduino IDE 2
 
