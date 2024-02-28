@@ -17,7 +17,7 @@ hardware:
 
 The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage sensitive tasks and capable of handling large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are the kind of process that requires immediate attention at a given moment. Therefore, interrupt management is critical to control and optimize these event classes.
 
-![General Overview of Interrupt on Opta™](assets/opta_interrupt_overview.svg)
+![General overview of Opta's interrupts](assets/opta_interrupt_overview.svg)
 
 The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle time-sensitive and unexpected events based on state changes. This tutorial will help you to implement interrupts on Opta™ using the Arduino programming language and the [Arduino IDE](https://www.arduino.cc/en/software).
 
@@ -30,9 +30,9 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 #### Hardware Requirements
 
-- Opta™ PLC (x1)
+- [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - USB-C® cable (x1)
-- 12-24VDC/1A power supply (x1)
+- +12-24 VDC/0.5 A power supply (x1)
 
 #### Software Requirements
 
@@ -60,9 +60,17 @@ Interrupt signals must be set with appropriate triggers to create interrupt requ
 * **Level-Triggered:** This is when an interrupt has been requested with signals at a particular logic level, which can be either *HIGH* or *LOW*.
 * **Edge-Triggered:** This is when an interrupt has been requested due to a signal at a specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* to interrupt whenever either signal transition has occurred.
 
-![Interrupt Triggers with Opta™](assets/opta_interrupt_signals.svg)
+![Interrupt triggers in Opta™](assets/opta_interrupt_signals.svg)
 
 Now that you have a better knowledge about interrupts, let's see how to use interrupts with an Opta™ device.
+
+## Interrupts on Opta™
+
+**Opta's analog/digital programmable inputs and user-programmable button are interrupt-capable**; you can use them through the built-in functions of the Arduino programming language. To enable interrupts in your Opta's analog/digital programmable inputs and user-programmable button it is important to do the following:
+
+- Add the `attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)`  instruction in your sketch's `setup()` function. Notice that the `pin` parameter can be `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, or `BTN_USER`; the `ISR` parameter is the ISR function to call when the interrupt occurs, and the `mode` parameter defines when the interrupt should be triggered (`LOW`, `CHANGE`, `RISING`, or `FALLING`). 
+
+***Due to Opta's microcontroller interrupt structure, terminals `I1` (`A0`) and `I4` (`A4`) interrupts cannot be used simultaneously to avoid operational issues. It is important to note that, despite this limitation, any other combination of inputs can be used for interrupt detection. However, this means that, at most, seven of the eight available inputs can be used simultaneously for interrupts, as combinations containing `I1` and `I4` are excluded from viable configurations.***
 
 ## Instructions
 
@@ -76,7 +84,7 @@ The example will try to keep the setup as simple as possible while maintaining t
 
 Please refer to the following diagram to have an overview of the inputs and outputs position of the example model.
 
-![Interrupt Example Setup for Opta™](assets/opta_interrupt_model.svg)
+![Interrupt example setup](assets/opta_interrupt_model.svg)
 
 ### Example Overview
 
