@@ -4,7 +4,7 @@ Board:
     Arduino Opta® Digital Expansion SSR: AFX00006
 
 Microcontroller:
-  ID: R7FA4M1AB3CFM ARM® Cortex®
+  ID: Renesas R7FA4M1AB3CFM ARM® Cortex®-M4
   Cortex-M4 core: Up to 48 MHz
 Input:
   Configurable digital / analog input: 16
@@ -15,10 +15,18 @@ Input:
 Relays:
   Nº of relays: 8
   Type: Normally Open (NO)
-  Relay rated voltage: 250 VAC (EMR) | 24 VDC (SSR)
-  Relay maximum switching voltage: 400 VAC (EMR) | 33 VDC (SSR)
-  Maximum current per relay: 6 A (EMR) | 2 A (SSR)
-  Maximum peak current per relay: 10 A | 50 A (SSR)
+  Relay rated voltage: 
+    EMR variant: 250 VAC
+    SSR variant: 24 VDC
+  Relay maximum switching voltage:
+    EMR variant: 400 VAC
+    SSR variant: 33 VDC
+  Maximum current per relay:
+    EMR variant: 6 A
+    SSR variant: 2 A
+  Maximum peak current per relay:
+    EMR variant: 10 A
+    SSR variant: 50 A
 Connectivity:
   I2C: Yes
   UART: Yes

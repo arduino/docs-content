@@ -14,7 +14,7 @@ Arduino Opta® Digital Expansion is available in two variants:
 
 <Feature title="Connectivity" image="connection">
 
-  Up to 5 snap-on modules managed to multiply and mix your set of I/Os with Seamless detection. 
+  Up to 5 snap-on modules managed to multiply and mix your set of I/Os with seamless detection. 
 
 </Feature>
 
