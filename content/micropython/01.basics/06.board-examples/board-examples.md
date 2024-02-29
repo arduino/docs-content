@@ -1869,4 +1869,4 @@ timestamp = rtc.datetime()
 print("- Sensor value at ", timestamp, ":", sensor_value)
 ```
 
-In this example, every sensor reading is accompanied by A timestamp, which can be crucial for data analysis or logging purposes. The RTC's ability to maintain time independently of the main system's power status makes it reliable for time-sensitive applications.
+In this example, every sensor reading is accompanied by a timestamp, which can be crucial for data analysis or logging purposes. The RTC's ability to maintain time independently of the main system's power status makes it reliable for time-sensitive applications.
