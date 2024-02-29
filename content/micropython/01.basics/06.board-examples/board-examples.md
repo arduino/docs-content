@@ -1583,9 +1583,7 @@ The MKR-styled connectors pinout is mapped in MicroPython as follows:
 |          `P402`         |            `P402`           |
 |          `P601`         |            `P601`           |
 
-The complete MicroPython pinout is available and downloadable as PDF from the link below:
-
-- Portenta C33 MicroPython pinout
+The complete MicroPython pinout is available [here](https://github.com/micropython/micropython/blob/master/ports/renesas-ra/boards/ARDUINO_PORTENTA_C33/pins.csv).
 
 ### Input/Output Pins
 
