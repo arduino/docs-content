@@ -10,5 +10,4 @@ core: arduino:mbed_opta
 certifications: [CE, UL, FCC, UKCA]
 ---
 
-
 The **Arduino Opta® Digital Expansion** is a plug-and-play addition to the **Opta micro PLC** that expands its capabilities with more inputs and outputs.
