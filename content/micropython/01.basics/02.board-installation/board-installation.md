@@ -287,7 +287,8 @@ Before installing the MicroPython firmware, **ensure you have installed the late
 
 ![Installing the Arduino Renesas Boards core in the Arduino IDE](./assets/portenta-c33-1.png)
     
-With the latest core installed, open the Arduino Micropython Installer and plug your board into your computer; your board should appear ready to be selected, as shown in the image below. If your board does not appear in the installer, try putting it in bootloader mode by double-tapping your board's reset button.
+With the latest core installed, open the Arduino MicroPython Installer and plug your board into your computer; your board should appear ready to be selected, as shown in the image below. If your board does not appear in the installer, try putting it in bootloader mode by double-tapping your board's reset button.
+
 
 ![Portenta C33 board detected on the Arduino MicroPython Installer](./assets/portenta-c33-2.png)
 
