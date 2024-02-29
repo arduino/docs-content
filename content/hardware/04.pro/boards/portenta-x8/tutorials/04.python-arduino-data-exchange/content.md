@@ -40,9 +40,21 @@ Python® is a modern and powerful scripting language used for a wide range of ap
 
 The Python® script will run on the Linux side and therefore on the iMX8 processor. The Arduino sketch, on the other hand, will run on the STM32H747 microcontroller. It allows for real-time processing on the Arduino side while running a fully-fledged operating system on iMX8.
 
-However, the two processors need a communication mechanism to exchange data with one another. RPC (Remote Procedure Call) is the communication mechanism for this task. To facilitate communication, the M7 core on the STM32H747 microcontroller is used to hand over any data/request to the M4 core. That means your Arduino sketch will solely run on the M4 core. Dual-core processing on the Arduino side is currently not supported.
+However, the two processors need a communication mechanism to exchange data with one another. **RPC (Remote Procedure Call)** is the communication mechanism for this task. To establish communication, the M7 core on the STM32H747 microcontroller is used to hand over any data/request to the M4 core. That means your Arduino sketch will solely run on the M4 core. Dual-core processing on the Arduino side is currently not supported.
 
-On the Linux side, there is a service that takes care of sending data between the two worlds. It's called `m4-proxy`. You can check if the service is running by logging into the X8 via `adb shell` and then executing `sudo journalctl -fu m4-proxy`. If the service has stopped unexpectedly, you can restart it with `sudo systemctl restart m4-proxy`.
+On the Linux side, there is a service that takes care of sending data between the two worlds. It is called **`m4-proxy`**.
+
+You can check if the service is running by logging into the X8 via `adb shell` and then executing the next command:
+
+```bash
+sudo journalctl -fu m4-proxy
+```
+
+If the service has stopped unexpectedly, you can restart it with the following command:
+
+```bash
+sudo systemctl restart m4-proxy
+```
 
 ## The Arduino Sketch
 
@@ -63,25 +75,61 @@ Two additional header files need to be included to enable the RPC mechanism on P
 #include <SerialRPC.h>
 ```
 
-The `RPC.bind()` method makes the data available via the specified name e.g. "temperature". In our example, an anonymous function is created to return the corresponding sensor property whenever requested. Alternatively, you could bind the name to an existing, named function instead. The data can then easily be requested using that name (e.g. "humidity") by querying the `m4-proxy` service. Once data is requested, it is packaged as a message and sent over SPI to the iMX8.
+The `RPC.bind()` method makes the data available via the specified name e.g. "temperature". In our example, an anonymous function is created to return the corresponding sensor property whenever requested.
+
+Alternatively, you could bind the name to an existing, named function instead. The data can then easily be requested using that name (e.g. "humidity") by querying the `m4-proxy` service. Once data is requested, it is packaged as a message and sent over SPI to the iMX8.
 
 ![The iMX8 and the STM32H747 processor communicate via SPI](assets/component-placement.svg)
 
-You can find the sketch in the software package [here](assets/python-sensor-rpc.zip). You may need to change the sketch depending on the choice of the sensor to read from. If you're using an I<sup>2</sup>C sensor, you can connect SCL to **PWM6** and SDA to **PWM8** on the Portenta breakout. That's because the labeled I<sup>2</sup>C pins on the Portenta Breakout are only available on the Linux side. If you're using an analog sensor, you can connect it to any analog pin. Please refer to the pinout diagram on the Portenta Breakout [documentation page](/hardware/portenta-breakout).
+You can find the sketch in the software package [here](assets/python-sensor-rpc.zip). You may need to change the sketch depending on the choice of the sensor to read from. If you're using an I<sup>2</sup>C sensor, you can connect SCL to **PWM6** and SDA to **PWM8** on the Portenta breakout.
+
+That is because the labeled I<sup>2</sup>C pins on the Portenta Breakout are only available on the Linux side. If you are using an analog sensor, you can connect it to any analog pin. Please refer to the pinout diagram on the Portenta Breakout [documentation page](/hardware/portenta-breakout).
 
 ![Wiring diagram of an I2C sensor attached to the X8 via Portenta Breakout](assets/sensor-wiring-breakout.svg)
 
-Make sure you have installed the "Arduino Mbed OS Portenta Boards" core and upload the sketch to the X8 in the Arduino IDE or via Arduino CLI.
+Make sure you have installed the **Arduino Mbed OS Portenta Boards** core and upload the sketch to the X8 in the Arduino IDE or via Arduino CLI.
 
 ### Debugging the Arduino Sketch
 
-To check if the Arduino sketch is working correctly, you may want to read the messages from the `Serial.println` statements. You cannot currently read them directly in the serial monitor of the Arduino IDE. Instead, you can use a simple service called `py-serialrpc`, which listens for those messages and prints them to the console.
+To check if the Arduino sketch is working correctly, you may want to read the messages from the `Serial.println` statements. You cannot currently read them directly in the serial monitor of the Arduino IDE. Instead, you can use a simple service called **`py-serialrpc`**, which listens for those messages and prints them to the console.
 
-This service needs to run on the Linux side of the X8. You can get the files [here](assets/py-serialrpc.zip). From the command prompt of your local machine, navigate to the adb tool folder and upload the files to the X8 with `adb push <local directory path>/py-serialrpc /home/fio`.
+This service needs to run on the Linux side of the X8. You can get the files [here](assets/py-serialrpc.zip). From the command prompt of your local machine, navigate to the adb tool folder and upload the files to the X8 with command:
 
-Log into the X8 shell with `adb shell` and navigate into the `serialrpc` folder. Build the container using `sudo docker build . -t py-serialrpc`. The `-t` flag assigns a tag to the container. Then run the container by executing `cd..` and then `sudo docker-compose up -d`. The `-d` flag detaches the container so it runs in the background. Note that this will run the docker container persistently across reboots by registering it as a systemd service. To stop the container, run `sudo docker-compose stop`. 
+```bash
+adb push <local directory path>/py-serialrpc /home/fio
+```
 
-Check if the container is running by executing `sudo docker ps`. You can then access the log of this service at any time by executing `sudo docker-compose logs -f --tail 20` from the **same directory**. 
+Log into the X8 shell with `adb shell` and navigate into the `serialrpc` folder. Build the container using
+
+```bash
+sudo docker build . -t py-serialrpc`
+```
+
+The `-t` flag assigns a tag to the container. Then run the container by executing `cd..` and then:
+
+```bash
+sudo docker compose up -d
+```
+
+The `-d` flag detaches the container so it runs in the background. Note that this will run the docker compose app and have the container built persistently across reboots by registering it as a systemd service.
+
+To stop the container, run:
+
+```bash
+sudo docker compose stop
+```
+
+Check if the container is running by executing:
+
+```bash
+sudo docker ps
+```
+
+You can then access the log of its service at any time by using following command from the **same directory**:
+
+```bash
+sudo docker-compose logs -f --tail 20
+```
 
 If you do not wish to run the container in the background, skip the `-d` flag, you will get the console output directly in the executing shell. Once the container is running, you will see the messages being sent from the M4.
 
@@ -97,7 +145,25 @@ rpc_client = RpcClient(rpc_address)
 temperature = rpc_client.call('temperature')
 ```
 
-The complete Python® application files are in the same package as the Arduino sketch (see above). Like in the previous step, upload the `python-sensor-rpc` folder to the X8 via `adb push <local directory path>/python-sensor-rpc /home/fio`. Log into the X8 via `adb shell`. Then navigate into the `python-sensor-rpc` folder and execute `sudo docker build . -t python-sensor-rpc`. When it is finished, you can run the container with `sudo docker-compose up`. After a few seconds, you should see the output from the Python application featuring the sensor readings on the M4 that exchanges through the RPC mechanism. The output should look similar to the following:
+The complete Python® application files are in the same package as the Arduino sketch (see above). Like in the previous step, upload the `python-sensor-rpc` folder to the Portenta X8 via:
+
+```bash
+adb push <local directory path>/python-sensor-rpc /home/fio
+```
+
+Log into the X8 via `adb shell`. Then navigate into the `python-sensor-rpc` folder and execute:
+
+```bash
+sudo docker build . -t python-sensor-rpc
+```
+
+When it has finished, you can run the container with:
+
+```bash
+sudo docker-compose up
+```
+
+After a few seconds, you should see the output from the Python application featuring the sensor readings on the M4 that exchanges through the RPC mechanism. The output should look similar to the following:
 
 ```bash
 python-sensor-rpc_1  | ============================================
@@ -111,7 +177,7 @@ python-sensor-rpc_1  | Gas:  136.496
 python-sensor-rpc_1  | Altitude:  311.0769348144531
 ```
 
-Whenever you change anything in the Python® script on your computer, you will have to sync it back to the X8 and re-build the container. Following command sequence will help you to do this process:
+Whenever you change anything in the Python® script on your computer, you will have to resync and push the new script to the Portenta X8 and rebuild the container. Following command sequence will help you to do this process:
 
 ```bash
 # On your computer
@@ -119,13 +185,23 @@ adb push python-sensor-rpc /home/fio
 ```
 
 ```bash
-# On X8
-sudo docker-compose down
-sudo docker build . -t python-sensor-rpc
-sudo docker-compose up
+# On the Portenta X8
+sudo docker compose down
 ```
 
-Alternatively, you could modify the files directly on the X8 using an editor such as VIM, so you don't need to upload the files every time. Re-building the container will be necessary in any case though. If you wonder how to specify the Python® script that is executed when running a container, have a look at the `Dockerfile` file. There you'll find the `ENTRYPOINT` command that takes multiple arguments. In our example: `ENTRYPOINT [ "python3", "m4_to_python.py"]`.
+```bash
+# On the Portenta X8
+sudo docker build . -t python-sensor-rpc
+```
+
+```bash
+# On the Portenta X8
+sudo docker compose up
+```
+
+Alternatively, you could modify the files directly on the X8 using an editor such as *VIM*, so you do not need to upload the files every time. Rebuilding the container will be necessary in any case though.
+
+If you wonder how to specify the Python® script that is executed when running a container, have a look at the `Dockerfile` file. There you will find the `ENTRYPOINT` command that takes multiple arguments. In our example: `ENTRYPOINT [ "python3", "m4_to_python.py"]`.
 
 ## Conclusion
 
