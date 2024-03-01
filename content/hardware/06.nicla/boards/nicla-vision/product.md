@@ -7,7 +7,7 @@ primary_button_title: User Manual
 secondary_button_url: /tutorials/nicla-vision/getting-started
 secondary_button_title: Get Started
 core: arduino:mbed_nicla
-certifications: [CE, UKCA, RoHS, RCM]
+certifications: [CE, UKCA, RoHS, RCM, FCC]
 productCode: '120'
 ---
 
