@@ -297,4 +297,4 @@ To install the MicroPython firmware, press the **INSTALL MICROPYTHON** button an
 ![Firmware successfully uploaded to the Portenta C33 board](./assets/portenta-c33-3.png)
 
 
-Now, you are ready to use MicroPython with your Portenta C33 board.
+Now you are ready to use MicroPython with your Portenta C33 board.
