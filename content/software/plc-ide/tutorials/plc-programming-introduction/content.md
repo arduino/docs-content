@@ -1,5 +1,5 @@
 ---
-title: 'Programming Introduction with Arduino® PLC IDE'
+title: 'Programming Introduction with Arduino PLC IDE'
 difficulty: intermediate
 description: "Create programs with all the IEC-61131-3 languages on the Arduino PLC IDE."
 tags:
@@ -159,7 +159,8 @@ There are 5 languages available:
 ### Structured Text
 
 This language is similar to C, the code to assign a value to a variable is the following:
-```
+
+```cpp
 count := count + addition;
 ```
 
@@ -170,7 +171,8 @@ count := count + addition;
 This programming language is similar to Assembly programming.
 
 The code for a counter script is:
-```
+
+```cpp
 LD count
 ADD addition
 ST count

@@ -6,6 +6,7 @@ primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#avr
 primary_button_title: Get Started
 core: arduino:avr
 certifications: [CE, FCC, GB4943, IC, RCM, REACH, RoHS, UKCA, WEEE]
+forumCategorySlug: '/hardware/12'
 productCode: '001'
 ---
 

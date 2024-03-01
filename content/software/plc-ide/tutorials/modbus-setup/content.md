@@ -1,5 +1,5 @@
 ---
-title: 'Modbus Setup with Arduino® PLC IDE'
+title: 'Modbus Setup with Arduino PLC IDE'
 description: 'This tutorial will show you how to set up the Modbus communication with the Arduino PLC IDE.'
 tags:
   - PLC

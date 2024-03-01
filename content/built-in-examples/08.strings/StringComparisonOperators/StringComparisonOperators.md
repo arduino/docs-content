@@ -3,7 +3,7 @@ title: 'String Comparison Operators'
 compatible-products: [all-boards]
 difficulty: intermediate
 description: 'Learn how to make alphabetic comparisons between Strings. They are useful for sorting and alphabetizing, among other things.'
-tags: 
+tags:
   - Strings
   - Operators
   - Comparison
@@ -24,7 +24,7 @@ is identical to
 if (stringOne ==stringTwo) {
 ```
 
-The ">" (greater than) and "<" (less than) operators evaluate strings in alphabetical order, on the first character where the two differ. So, for example `"a" < "b"` and `"1" < "2"`, but `"999" > "1000"` because 9 comes after 1.
+The `>` (greater than) and `<` (less than) operators evaluate strings in alphabetical order, on the first character where the two differ. So, for example `"a" < "b"` and `"1" < "2"`, but `"999" > "1000"` because 9 comes after 1.
 
 **Caution:**
 String comparison operators can be confusing when you're comparing numeric strings, because the numbers are treated as strings and not as numbers.  If you need to compare numbers, compare them as ints, floats, or longs, and not as Strings.

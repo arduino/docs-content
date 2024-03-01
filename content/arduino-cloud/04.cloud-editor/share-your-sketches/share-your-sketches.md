@@ -63,7 +63,7 @@ In the same Share popup window you can also copy your project’s related iFrame
 
 ## Always Up-To-Date!
 
-Now your code is ready to be shared across a variety of platforms! Do you know what’s cool about this feature? Now that your sketch is on the cloud (literally!) once edited on the Web Editor, it will be also updated across all the places where you have embedded it!
+Now your code is ready to be shared across a variety of platforms! Do you know what’s cool about this feature? Now that your sketch is on the Cloud (literally!) once edited on the Web Editor, it will be also updated across all the places where you have embedded it!
 
 ### More tutorials
 

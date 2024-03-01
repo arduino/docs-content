@@ -4,6 +4,7 @@ url_shop: https://store.arduino.cc/arduino-mkr-imu-shield
 url_guide: /tutorials/mkr-imu-shield/mkr-imu-shield-basics
 primary_button_url: /tutorials/mkr-imu-shield/mkr-imu-shield-basics
 primary_button_title: Get Started
+forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
 certifications: [CE, UKCA]
 ---
 

@@ -85,7 +85,7 @@ We then need to follow the wire diagrams below. The wire from ISO GND is connect
 
 We will now get to the programming part of this tutorial. 
 
-**1.** First, let's make sure we have the drivers installed for the board we are using. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
+**1.** First, let's make sure we have the drivers installed for the board we are using. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
 
 **2.** Now, we need to install the library needed. Head over to the [Arduino-CAN repository](https://github.com/sandeepmistry/arduino-CAN) and download the library by clicking on **Code > Download ZIP**. Head back to the editor, and navigate to **Sketch > Include Library > Add .ZIP Library**. Select the .ZIP file you downloaded (named arduino-CAN-master) and add it. 
 

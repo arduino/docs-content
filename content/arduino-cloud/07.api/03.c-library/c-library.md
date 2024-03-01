@@ -40,7 +40,7 @@ Most of its functions are already pre-configured in your sketch files, so for mo
 
 ## Arduino IDE (Offline)
 
-This library can be used with the offline version of the Arduino IDE (download through the [Arduino Downloads Page](https://www.arduino.cc/en/software/)). You can program your devices offline and monitor them via the cloud, but your Thing configuration is not synchronized if you do so.
+This library can be used with the offline version of the Arduino IDE (download through the [Arduino Downloads Page](https://www.arduino.cc/en/software/)). You can program your devices offline and monitor them via the Cloud, but your Thing configuration is not synchronized if you do so.
 
 To use it offline, you will manually need to install the following libraries in the Arduino IDE:
 - [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud)
@@ -59,7 +59,7 @@ The `ArduinoIoTCloudEvent` enumeration class has three possible events:
 - `SYNC` (1) - Data is successfully synced between Board and Arduino Cloud.
 - `DISCONNECT` (2) -  Board has lost connection to Arduino Cloud.
 
-The `CONNECT` and `DISCONNECT` events can occur even though no variable is created inside the Thing. However, `SYNC` requires a variable to be created, as this triggers whenever data is synchronized between the board and cloud.
+The `CONNECT` and `DISCONNECT` events can occur even though no variable is created inside the Thing. However, `SYNC` requires a variable to be created, as this triggers whenever data is synchronized between the board and Cloud.
 
 These events can be subscribed to using the `addCallback()` function, which is documented in the next section.
 

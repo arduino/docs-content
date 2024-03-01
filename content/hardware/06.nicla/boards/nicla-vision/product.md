@@ -1,11 +1,13 @@
 ---
 title: Nicla Vision
 url_shop: https://store.arduino.cc/products/nicla-vision
-url_guide: /tutorials/nicla-vision/getting-started
-primary_button_url: /tutorials/nicla-vision/getting-started
-primary_button_title: Get Started
+url_guide: /tutorials/nicla-vision/user-manual
+primary_button_url: /tutorials/nicla-vision/user-manual
+primary_button_title: User Manual
+secondary_button_url: /hardware/nicla-vision/#tutorials
+secondary_button_title: All Tutorials
 core: arduino:mbed_nicla
-certifications: [CE, UKCA]
+certifications: [CE, UKCA, RoHS, RCM, FCC]
 productCode: '120'
 ---
 

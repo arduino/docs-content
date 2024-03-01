@@ -153,18 +153,18 @@ Being able to "pack" applications and distribute them in any environment leads t
 
 But let's see in detail some of the advantages of this technology:
 
-* **Simple development, test and deployment:** The decoupling between applications and the environments in which they run allows you to deploy a container everywhere: on a public cloud, in a private data center or on a PC. Whatever the chosen environment, the container will always remain the same. This means that even applications updates can be released easily without involving the operating system hosting the container, or all the other containers in use. In a nutshell, if you have to update an application, it will not be necessary to restart the whole machine.
+* **Simple development, test and deployment:** The decoupling between applications and the environments in which they run allows you to deploy a container everywhere: on a public Cloud, in a private data center or on a PC. Whatever the chosen environment, the container will always remain the same. This means that even applications updates can be released easily without involving the operating system hosting the container, or all the other containers in use. In a nutshell, if you have to update an application, it will not be necessary to restart the whole machine.
 * **Control version:** In the case that the deployment of an update was not successful, thanks to the containers architecture it is easier to roll back and to have the previous version working again in few time.
 * **Isolation and security:** In containers, applications and resources are isolated. This means that if an application has to be deleted, it will be sufficient to remove its container and the operation will delete everything that concerns it, such as temporary or configuration files. At the same time, since containers are isolated, each of them "sees" only their own processes, while the others will remain unknown. Security first!
 * **Granularity:** It is possible to containerize not only an entire application, but also a single component. In this way, resources can be reduced into micro-services, guaranteeing greater control and improved performance.
 
-At this point, it is worth mentioning that Portenta X8 containers are based on [Docker](https://www.docker.com/). Docker is an open-source software platform, developed by the company with the same name, which allows you to create, test and distribute containerized applications. The goal of Docker is therefore to facilitate the creation and management of containers, in order to distribute the resources required for an application in any environment, always keeping the executed code under control. Docker containers can run everywhere, in on-premises data centers or in public and private clouds. Thanks to the virtualization at the operating system level, typical of this technology, Docker allows you to natively create containers in Linux environments.
+At this point, it is worth mentioning that Portenta X8 containers are based on [Docker](https://www.docker.com/). Docker is an open-source software platform, developed by the company with the same name, which allows you to create, test and distribute containerized applications. The goal of Docker is therefore to facilitate the creation and management of containers, in order to distribute the resources required for an application in any environment, always keeping the executed code under control. Docker containers can run everywhere, in on-premises data centers or in public and private Clouds. Thanks to the virtualization at the operating system level, typical of this technology, Docker allows you to natively create containers in Linux environments.
 
 To understand the purpose of a platform like Docker, it is sufficient to focus on the differences between Docker containers and the more generic Linux containers. Docker mainly serves to simplify the construction and management of containers compared to the standard approach. Although it is based on the same technology, i.e. the **LXC (Linux Container)**, Docker guarantees a much more advanced experience than the standard implementation. LXC basically permits a light virtualization, independent from the underlying hardware, but basically cumbersome to implement. In other words, basic LXC presents critical issues in terms of user experience.
 
 Docker specifically facilitates the interface between the container and the end user, for example through a series of automated procedures that guide the user step-by-step during container development, with correct versioning of all the generated images. Docker also simplifies the management of the applications to be run on the different containers, to make the overall orchestration more practical and faster, especially when dealing with applications made of a very large number of components.
 
-The reasons for using Docker are therefore closely connected to the usefulness of the containers themselves, now indispensable tools for developing software based on a microservices architecture. In particular, this applies to the DevOps methodologies used for the development of native cloud applications, which provide for continuous integration / continuous deployment cycles, to guarantee the end user always and only the most up-to-date version.
+The reasons for using Docker are therefore closely connected to the usefulness of the containers themselves, now indispensable tools for developing software based on a microservices architecture. In particular, this applies to the DevOps methodologies used for the development of native Cloud applications, which provide for continuous integration / continuous deployment cycles, to guarantee the end user always and only the most up-to-date version.
 
 The technology behind containers, and therefore of Docker itself, can be extremely summarized in three key terms:
 
@@ -176,7 +176,7 @@ The fundamental advantage of a container is that it makes both the application a
 
 As already mentioned, containers running with Docker are absolutely isolated and independent from each other and it is therefore possible to have complete control over their visibility and management, without any constraints whatsoever. The advantages in terms of IT security are obvious: if a container is corrupted, for example by exploiting a vulnerability of the application it is running, this event does not affect the functioning of the other running containers. Isolation prevents, or at least makes it more difficult, the propagation of the threat within the host system, allowing Docker to terminate the corrupted instance and restart it in completely safe conditions, as well as having traces of what happened in the system logs.
 
-Thus, Docker is able to ensure application security without sacrificing anything in terms of portability, guaranteeing full operation both on-premise and in the cloud, using open and closed APIs to respond optimally to any business need.
+Thus, Docker is able to ensure application security without sacrificing anything in terms of portability, guaranteeing full operation both on-premise and in the Cloud, using open and closed APIs to respond optimally to any business need.
 
 As shown in the image below, Docker needs to be installed in the host operating system and it is composed of three main items:
 
@@ -575,7 +575,7 @@ Sign in to your Arduino Cloud account by adding your credentials, i.e. Username/
 
 ![Arduino Cloud Sign in](assets/web_cloud_signin.png "Arduino Cloud Sign in")
 
-You are now logged into your Arduino Cloud space. Go on by clicking on **API keys** in the bottom left-hand corner.
+You are now logged into your Arduino Cloud space. Go on by clicking on **API keys** found within the account banner located at the top right corner.
 
 ![Arduino Cloud Homepage](assets/web_cloud_homepage.png "Arduino Cloud Homepage")
 
@@ -583,7 +583,7 @@ It is time to generate your API keys. Click on **CREATE API KEY** in the upper r
 
 ![Arduino Cloud New API Key](assets/web_cloud_new_api.png "Arduino Cloud New API Key")
 
-Define a name for your API key, in this case *portenta-x8-test-API*, and click on **CONTINUE**. These API Keys are personal and visible just from your account.
+Define a name for your API key, in this case *portenta-x8-test-API*, and click on **CREATE**. These API Keys are personal and visible just from your account.
 
 ![Arduino Cloud API Key name](assets/web_cloud_API_name.png "Arduino Cloud API Key name")
 
@@ -605,7 +605,8 @@ If you are using an Arduino Cloud for Business account with Shared Spaces, you n
 
 ![Out-of-the-box successful Cloud provisioning](assets/OOTB_cloud_success.png "Out-of-the-box successful Cloud provisioning")
 
-In order to recover the Organization ID of your Shared Space on Arduino Cloud for Business, open your Arduino Cloud homepage and navigate to **Settings > General Settings** in the sidebar on the left.
+In order to recover the Organization ID, known as Space ID, of your Shared Space on Arduino Cloud for Business, open your Arduino Cloud homepage and navigate to **Space Settings > General** in the sidebar on the left.
+
 ![Space ID on Cloud Settings](assets/shared-space-settings.png "Space ID on Cloud Settings")
 
 At this point, you can copy the **Space ID** of your Shared Space and paste it into your Out-of-the-box dashboard together with your API keys.
@@ -641,7 +642,7 @@ Now you can start connecting your Portenta X8 to the Portenta X8 Board Manager. 
 
 Check the Arduino Cloud for business plan with Portenta X8 Manager [here](https://cloud.arduino.cc/plans#business) and create your Arduino Cloud account in a couple of steps (see the dedicated documentation at [this link](https://docs.arduino.cc/arduino-cloud/)).
 
-When your Arduino Cloud for business account is correctly set up, log into it [here](https://cloud.arduino.cc/home/) and click on **Portenta X8 Board Manager**.
+When your Arduino Cloud for business account is correctly set up, log into it [here](https://cloud.arduino.cc/home/) and click on **Portenta X8 Board Manager**. The feature is located within the **Integrations** section of the Cloud.
 
 ![Arduino Cloud homepage with Portenta X8 Manager](assets/web_board_manager_cloud_integration.png "Arduino Cloud homepage with Portenta X8 Manager")
 
@@ -980,7 +981,7 @@ To start using your Portenta X8 with Arduino Cloud, provision your device as des
 
 Once ready, you will have the chance to customize Portenta X8 example Thing and Dashboard. This can be done by writing your own Python script leveraging the [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Check the documentation and the examples inside the library to learn more about how to create your own Python application.
 
-When your Python script is ready, you have to create a dedicated Dockerfile integrating your new script. The Dockefile needs the Out-of-the-box Python container (i.e. `arduino-ootb-python-devel`) to be able to correctly interact with your Arduino IoT Cloud account.
+When your Python script is ready, you have to create a dedicated Dockerfile integrating your new script. The Dockefile needs the Out-of-the-box Python container (i.e. `arduino-ootb-python-devel`) to be able to correctly interact with your Arduino Cloud account.
 
 So, open a terminal window and create a Dockerfile integrating the following code together with your Python script:
 

@@ -37,9 +37,9 @@ This article is a collection of guides, API calls, libraries and tutorials that 
 
 You can also visit the [documentation platform for the Nano 33 BLE Sense](/hardware/nano-33-ble-sense).
 
-## Core
+## Board Package
 
-The Nano 33 BLE Sense uses the [Arduino Mbed OS Nano Boards core](https://github.com/arduino/ArduinoCore-mbed).
+The Nano 33 BLE Sense uses the [Arduino Mbed OS Nano Board Package](https://github.com/arduino/ArduinoCore-mbed).
 
 ## Datasheet
 
@@ -53,7 +53,7 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 The Nano 33 BLE Sense can be programmed through the **Classic Arduino IDE 1.8.X**. To install your board, you can check out the guide below:
 
-- [Installing the Arduino Mbed OS Nano Boards core](/software/ide-v2/tutorials/ide-v2-board-manager)
+- [Installing the Arduino Mbed OS Nano Board Package](/software/ide-v2/tutorials/ide-v2-board-manager)
 
 ### Arduino IDE 2 
 
@@ -67,15 +67,15 @@ The Nano 33 BLE Sense can be programmed through the **Web Editor**. To get start
 
 - [Getting started with the Web Editor](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor)
 
+## MicroPython
+
+This board is supported by MicroPython. Visit the [MicroPython documentation](/micropython) for getting started with installation and usage.
+
 ## Using OpenMV IDE
 
 If you want to use your board with MicroPython and OpenMV. Follow the tutorial below.
 
 - [Getting started with OpenMV with Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/getting-started-omv)
-
-If you want an overlook of the functions and features that MicroPython provides, take a look at the tutorial below.
-
-- [MicroPython functions and syntax guide](/tutorials/nano-33-ble-sense/ble-sense-python-api)
 
 ### Forcing Bootloader
 
@@ -338,7 +338,7 @@ The **MP34DT05** is a compact, low-power omnidirectional digital MEMS microphone
 
 ### PDM Library
 
-To access the data from the MP34DT05, we need to use the [PDM](https://www.arduino.cc/en/Reference/PDM) library that is included in the **Arduino Mbed OS Nano Boards** core. If the core is installed, you will find an example that works by browsing **File > Examples > PDM > PDMSerialPlotter**. 
+To access the data from the MP34DT05, we need to use the [PDM](https://www.arduino.cc/en/Reference/PDM) library that is included in the **Arduino Mbed OS Nano Boards Package**. If the Board Package is installed, you will find an example that works by browsing **File > Examples > PDM > PDMSerialPlotter**. 
 
 ***Please note: The sampling frequency in the PDMSerialPlotter example is set to 16000 Hz. If the microphone appears to not be working (monitor is printing a value of -128), try to change this rate to 20000 Hz. You can change this at the top of the PDMSerialPlotter example sketch.***
 
@@ -520,7 +520,7 @@ BLEDevice central = BLE.central();
 
 ## USB Keyboard
 
-To use the board as a keyboard, you can refer to the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library that can be found inside the core.
+To use the board as a keyboard, you can refer to the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library that can be found inside the Board Package.
 
 You first need to include the libraries and create an object:
 

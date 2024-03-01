@@ -374,7 +374,7 @@ You may notice from the output values that when the maximum value reaches 10V, t
 
 ### Connecting Opta™ to the Cloud
 
-It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the cloud, go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the cloud, check [Getting started with the cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. More helpful tutorials regarding the Arduino Cloud can be found [here](https://docs.arduino.cc/arduino-cloud/) to help you expand its capabilities.
+It is possible to use the Opta™ with the Arduino Cloud. To set up the Opta™ to the Cloud, go to the [Arduino Cloud](https://cloud.arduino.cc/). For help with how to get started with the Cloud, check [Getting started with the Arduino Cloud](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started) tutorial. More helpful tutorials regarding the Arduino Cloud can be found [here](https://docs.arduino.cc/arduino-cloud/) to help you expand its capabilities.
 
 ## Conclusion
 

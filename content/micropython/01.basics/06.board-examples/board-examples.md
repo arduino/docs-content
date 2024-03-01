@@ -574,25 +574,24 @@ while (True):
 
 ### Sensors
 
-#### IMU (LSM9DS1)
+#### IMU (Rev1: LSM9DS1 / Rev2: BMI270 + BMM150)
 
-Access the `accelerometer`, `magnetometer`, and `gyroscope` data from the LSM9DS1 IMU module.
+Access the `accelerometer`, `magnetometer`, and `gyroscope` data from the IMU module.
 
 ```python
 import time
-import lsm9ds1
+import imu
 from machine import Pin, I2C
 
 bus = I2C(1, scl=Pin(15), sda=Pin(14))
-lsm = lsm9ds1.LSM9DS1(bus)
+imu = imu.IMU(bus)
 
 while (True):
-    #for g,a in lsm.iter_accel_gyro(): print(g,a)    # using fifo
-    print('Accelerometer: x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*lsm.read_accel()))
-    print('Magnetometer:  x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*lsm.read_magnet()))
-    print('Gyroscope:     x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*lsm.read_gyro()))
+    print('Accelerometer: x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*imu.accel()))
+    print('Gyroscope:     x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*imu.gyro()))
+    print('Magnetometer:  x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*imu.magnet()))
     print("")
-    time.sleep_ms(500)
+    time.sleep_ms(100)
 ```
 
 ### Wireless

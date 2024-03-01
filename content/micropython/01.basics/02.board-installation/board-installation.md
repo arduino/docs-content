@@ -5,6 +5,7 @@ author: Francesca Sanfilippo, Karl Söderby & Jacob Hylén
 micropython_type: basics
 featured: micropython
 hero_image: "./hero-banner.png"
+hero_position: 1
 ---
 
 So what do you need to start your first project with MicroPython and Arduino? First, you will need a compatible board. In this page, you will find the compatible boards, with instructions on how to install them.
@@ -72,6 +73,7 @@ Now your board should be prepared to be programmed with MicroPython!
 ## Nano 33 BLE & Nano 33 BLE Sense
 
 - [Nano 33 BLE documentation](/hardware/nano-33-ble).
+- [Nano 33 BLE Rev2 documentation.](/hardware/nano-33-ble-rev2)
 - [Nano 33 BLE Sense documentation.](/hardware/nano-33-ble-sense)
 - [Nano 33 BLE Sense Rev2 documentation.](/hardware/nano-33-ble-sense-rev2)
 

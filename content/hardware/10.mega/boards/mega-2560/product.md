@@ -7,6 +7,7 @@ primary_button_title: Get Started
 core: arduino:avr
 productCode: '002'
 certifications: [CE, FCC, UKCA]
+forumCategorySlug: '/hardware/12'
 ---
 
 The 8-bit board with 54 digital pins, 16 analog inputs, and 4 serial ports.

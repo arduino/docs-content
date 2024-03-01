@@ -13,17 +13,17 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/the-nerd-with-ardu
 
 ## Apps and Online Services
 
-- [Arduino IoT Cloud](https://cloud.arduino.cc)
+- [Arduino Cloud](https://cloud.arduino.cc)
 
 ## About This Project
 
-**Create a desktop pet with the help of the Arduino IoT Cloud!**
+**Create a desktop pet with the help of the Arduino Cloud!**
 
 The Nerd is a desktop electronic pet that survives by eating and some sunlight. In order for it to thrive, you must feed it periodically and expose it to sunlight. If it is running out of food, it will communicate an SOS in Morse code using its built-in piezo speaker.
 
 ### In a Nutshell
 
-The Nerd will need food which you can give it by pressing its button. Otherwise it will complain by making noise with the buzzer until you either feed it or put it in sunlight. The nerd will be connected to the Arduino Cloud, where we can visualize the amount of food the Nerd has and the level of light it is in. The cloud will also handle the timing elements needed in the code. If the Nerd runs out of food, it will die dramatically, making a lot of noise.
+The Nerd will need food which you can give it by pressing its button. Otherwise it will complain by making noise with the buzzer until you either feed it or put it in sunlight. The nerd will be connected to the Arduino Cloud, where we can visualize the amount of food the Nerd has and the level of light it is in. The Cloud will also handle the timing elements needed in the code. If the Nerd runs out of food, it will die dramatically, making a lot of noise.
 
 ### Components
 
@@ -36,10 +36,10 @@ The Nerd will need food which you can give it by pressing its button. Otherwise 
 
 ### Learning Goals
 
-* Introducing the Arduino IoT Cloud
-* Introducing the Arduino IoT Remote app
-* Managing sensors with the Arduino IoT Cloud
-* Creating an Arduino IoT Cloud Dashboard
+* Introducing the Arduino Cloud
+* Introducing the Arduino IoT Cloud Remote app
+* Managing sensors with the Arduino Cloud
+* Creating an Arduino Cloud Dashboard
 
 ### Want to Know More?
 
@@ -56,19 +56,19 @@ In this project, we will be using the following circuit. In it we have a 220 ohm
 
 ![Arduino IoT Bundle](assets/the_nerd_rp2040_dqr7egmpao_ESpsLy8iaq.png)
 
-### Setting up the Arduino IoT Cloud
+### Setting up the Arduino Cloud
 
-If you are new to the Arduino IoT Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
+If you are new to the Arduino Cloud, check out our [Getting Started Guide](https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started).
 
 ### Template
 
-To connect your board to the Arduino IoT Cloud, we will use [The Nerd Template](https://create.arduino.cc/iot/templates/the-nerd). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
+To connect your board to the Arduino Cloud, we will use [The Nerd Template](https://create.arduino.cc/iot/templates/the-nerd). This template installs a specific sketch on your board and creates a dashboard that allows you to interact with your board: you don't need to write any code at all! 
 
 See the image below to understand how to set it up.
 
 ![Thing overview](assets/template_overview.png)
 
-Creating a new thing and dashboard is really easy. First go to the Arduino Cloud site [here.](https://create.arduino.cc/iot) Setting up the cloud consists of the following parts:
+Creating a new thing and dashboard is really easy. First go to the Arduino Cloud site [here](https://create.arduino.cc/iot). Setting up the Cloud consists of the following parts:
 
 * Creating a **Thing**
 * Attaching a **Device**
@@ -126,7 +126,7 @@ The Nerd will start with 2 food the first time it wakes up, then this value will
 
 **Checking the light level**
 
-To check so that our Nerd gets enough sunlight we will use a Phototransistor. Keeping track of the light level with the **nerdsLight** cloud variable.
+To check so that our Nerd gets enough sunlight we will use a Phototransistor. Keeping track of the light level with the **nerdsLight** Cloud variable.
 
 ```
 int SensorPin = A2;
@@ -141,7 +141,7 @@ if(nerdsFood < 12 && nerdsLight>150)
 
 **Time tracker with the Arduino Cloud**
 
-The Nerd will get hungry every 10 minutes and eat the food it has been given. To keep track of when the Nerd gets hungry we will use a time variable from the Arduino Cloud. We will use the auto generated functions we get from the Arduino cloud to make the changes to the Nerds food when it eats. This function will be executed after a amount of time has passed. The time is determined in the nerdsTime variable configuration. In this example we set the time to be 10 minutes, this has to be stated in seconds.
+The Nerd will get hungry every 10 minutes and eat the food it has been given. To keep track of when the Nerd gets hungry we will use a time variable from the Arduino Cloud. We will use the auto generated functions we get from the Arduino Cloud to make the changes to the Nerds food when it eats. This function will be executed after a amount of time has passed. The time is determined in the nerdsTime variable configuration. In this example we set the time to be 10 minutes, this has to be stated in seconds.
 
 ### Want to Know More?
 

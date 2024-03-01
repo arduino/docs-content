@@ -44,7 +44,7 @@ Next, navigate to the **Things** tab. Here you will see a list of your Things, a
 
 ![Arduino Cloud Thing Interface](assets/thing-config.png)
 
-A "Thing" is a virtual twin of your hardware, and it is here that we create variables that we want to synchronize between the cloud and board. Any changes we make here will be reflected in an [automatically generated sketch](/arduino-cloud/cloud-interface/sketches#iot-sketches).
+A "Thing" is a virtual twin of your hardware, and it is here that we create variables that we want to synchronize between the Cloud and board. Any changes we make here will be reflected in an [automatically generated sketch](/arduino-cloud/cloud-interface/sketches#iot-sketches).
 
 1. First, let's attach the device we want to use, by clicking the **"Select Device"** button in the **"Associated Devices"** section to the right. 
 2. let's create a new variable, call it `test`, and select it to be a `boolean` type and with a **read/write** permission.
@@ -60,7 +60,7 @@ All the above configurations have now been generated into a set of files that ca
 
 ### Create Sketch
 
-The automatically generated sketch is now available to be edited. This sketch includes all necessities to connect to the cloud, and has a callback function generated for each **read/write** variable.
+The automatically generated sketch is now available to be edited. This sketch includes all necessities to connect to the Cloud, and has a callback function generated for each **read/write** variable.
 
 Below is a sketch generated for a single `boolean` variable called `test`. We modified it to turn on/off the built-in LED of the board anytime the `test` bool is `true`.
 
@@ -97,8 +97,8 @@ void onTestChange()  {
 
 - The sketch is automatically updated whenever you change your Thing (e.g. adding a variable, changing device),
 - **Read/Write** permission variables adds a callback function to the bottom of your code. This function executes whenever the variable changes,
-- the `ArduinoCloud.update()` function synchronises data between the board and cloud.
-- if we update the `test` variable in the sketch, if it is connected to the cloud, we will see the change there as well. 
+- the `ArduinoCloud.update()` function synchronises data between the board and Cloud.
+- if we update the `test` variable in the sketch, if it is connected to the Cloud, we will see the change there as well. 
 
 ### Compile & Upload
 

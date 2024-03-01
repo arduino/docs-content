@@ -55,7 +55,7 @@ Serial Single Sided - This board is designed to be etched and assembled by hand.
 
 ## Looking for an older board?
 
-The [hardware index](content/retired/01.boards/arduino-older-boards) lists all the Arduino boards made and the differences between them.
+The [hardware index](content/retired/04.other/arduino-older-boards) lists all the Arduino boards made and the differences between them.
 
 ## Shields
 

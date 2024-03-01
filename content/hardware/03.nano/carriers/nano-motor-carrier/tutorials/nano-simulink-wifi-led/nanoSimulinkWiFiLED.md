@@ -3,7 +3,7 @@ title: 'Controlling LED over Wi-Fi Using Simulink with Nano 33 IoT'
 difficulty: intermediate
 compatible-products: [nano-33-iot, nano-motor-carrier]
 description: 'Learn how to control the Nano 33 IoT LED over USB and Wi-Fi with Simulink.'
-tags: 
+tags:
   - Simulink
   - Wi-Fi
 author: 'Ali Jahangiri'
@@ -15,7 +15,7 @@ software:
   - Simulink
 ---
 
-## Introduction 
+## Introduction
 
 In this tutorial, we will use Simulink to turn on the board's built-in LED over Wi-FI, made possible by the NINA module embedded on the Nano 33 IoT board and Simulink® Support Package for Arduino® Hardware.
 
@@ -43,14 +43,14 @@ The goals of this project are:
 ***A valid MATLAB® and Simulink® license is needed. Your workplace or education institution may have a subscription. Alternatively, a one-year trial subscription to MATLAB® is included as part of the [Arduino Engineering Kit Rev 2](https://store.arduino.cc/products/arduino-engineering-kit-rev2).***
 
 ## What Is Model-Based Design?
-Intelligent systems are driving society forward through mega-trends such as machine intelligence, digital twins, electrification and self-driving vehicles. As technology progresses, they become more challenging to handle and new approaches need to be explored to engineer them. Take for example a car. In the past, a simple ECU handled very basic functionality of the car. Today's self-driving cars can compose over 250 million lines of code handling an interconnected system of propulsion, navigation, safety and self-diagnostics. 
+Intelligent systems are driving society forward through mega-trends such as machine intelligence, digital twins, electrification and self-driving vehicles. As technology progresses, they become more challenging to handle and new approaches need to be explored to engineer them. Take for example a car. In the past, a simple ECU handled very basic functionality of the car. Today's self-driving cars can compose over 250 million lines of code handling an interconnected system of propulsion, navigation, safety and self-diagnostics.
 
-A key note, is that all of these subsystems need to be aligned in tandem for the successful implementation of the final product. The solution is to apply **Model-Based Design** (MBD) where system models are used to better understand the process. Designing with Model-Based Design allows for fast testing of new ideas, exposure of design problems early in the design process, automation of code generation and acceleration of the design process. Model-Based design is the gateway to agile prototyping and test driven design, helping you deliver potentially shippable products rapidly and easily. 
+A key note, is that all of these subsystems need to be aligned in tandem for the successful implementation of the final product. The solution is to apply **Model-Based Design** (MBD) where system models are used to better understand the process. Designing with Model-Based Design allows for fast testing of new ideas, exposure of design problems early in the design process, automation of code generation and acceleration of the design process. Model-Based design is the gateway to agile prototyping and test driven design, helping you deliver potentially shippable products rapidly and easily.
 
 ## Why Simulink?
-The start of MBD begins with a model. Simulink allows for an easy development of a model encompassing the system specifications, that enables collaboration within engineering subdisciplines, required for the product development. In other words, a wide range of pre-built blocks so you can build your model on the shoulders of academic and industrial giants. 
+The start of MBD begins with a model. Simulink allows for an easy development of a model encompassing the system specifications, that enables collaboration within engineering subdisciplines, required for the product development. In other words, a wide range of pre-built blocks so you can build your model on the shoulders of academic and industrial giants.
 
-As part of the Arduino Engineering Kit Rev2, Arduino has collaborated with Simulink to provide a unique and easy point of entry to advanced model based design building, upon the Nano Motor Carrier and the Nano 33 IoT. You now have access to all functionalities of the Nano Motor Carrier, directly within Simulink, for developing state-of-the art control algorithms leveraging the combined expertise of MathWorks and Arduino! 
+As part of the Arduino Engineering Kit Rev2, Arduino has collaborated with Simulink to provide a unique and easy point of entry to advanced model based design building, upon the Nano Motor Carrier and the Nano 33 IoT. You now have access to all functionalities of the Nano Motor Carrier, directly within Simulink, for developing state-of-the art control algorithms leveraging the combined expertise of MathWorks and Arduino!
 
 A tightly integrated hardware and software solution allows you to design and prototype quickly, identify issues before they rise and seek venues for optimization. Simulink and Arduino work together to provide a powerful model-based design tool, with minimal knowledge requirements yet impressive capabilities. In line with this, various operation modes are provided for communicating between the Arduino board and Simulink as part of Model-Based Design.
 
@@ -59,7 +59,7 @@ A tightly integrated hardware and software solution allows you to design and pro
 ## Operation Modes
 In line with the various stages of Model-Based Design, there are four ways to operate Simulink with Arduino hardware.
 - **Simulate operating condition in Simulink:**  Simulink allows you to run your algorithm in your computer without the hardware. This is very useful when testing out new flows quickly and rapidly using software models. This is also useful for testing without needing physical prototypes.
-- **Use the Arduino as a DAQ extension via Connected I/O:** The Arduino hardware can be used as a data acquisition device or DAQ. The Arduino board only serves to provide input and output interfaces that can be connected to sensors and actuators respectively. The model that you see in Simulink however, is run completely on your computer. 
+- **Use the Arduino as a DAQ extension via Connected I/O:** The Arduino hardware can be used as a data acquisition device or DAQ. The Arduino board only serves to provide input and output interfaces that can be connected to sensors and actuators respectively. The model that you see in Simulink however, is run completely on your computer.
 - **Deploy code for the Arduino model to run standalone:** In this case, in addition to the I/O interface,the Arduino will run the blocks that Simulink has converted into machine readable code.
 - **External mode (monitor and tune):** Simulink provides an option to change the operating parameters on the fly. This is useful for debugging, understanding how your Simulink model works in a real world environment as well as tuning of PID or other control systems.
 
@@ -98,7 +98,7 @@ The LED in the Arduino Nano 33 IoT is connected to Digital Pin 13. By pulling th
 
 ![Scope Block](img/nano-Simulink-WiFi-LED-Add-Scope-Block.png)
 
-**7.** We will now connect the blocks together. Click on the arrow to the right of the **Pulse Generator** block and drag it to the arrow on the left of the **Digital Input** block. 
+**7.** We will now connect the blocks together. Click on the arrow to the right of the **Pulse Generator** block and drag it to the arrow on the left of the **Digital Input** block.
 
 ***You can click and drag any of the blocks to move them around on the canvas. You can also use the scroll wheel to zoom in and out. In order to fit all of the blocks onto the display, hit <kbd>Space</kbd>.***
 
@@ -134,7 +134,7 @@ The LED in the Arduino Nano 33 IoT is connected to Digital Pin 13. By pulling th
 
 ![Connect Lamp Block to Model](img/nano-Simulink-WiFi-LED-Connect-Lamp.png)
 
-**15.** Try running the simulation again. You will notice that the **Lamp** block turns on and off very quickly. By default, the simulation runs as fast as your hardware will allow for. In order to enable a real-time simulation, click on the arrow underneath the Run button and then click on **Simulation Pacing**. In the window that opens up, enable the **Enable pacing to slow down simulation** checkbox. 
+**15.** Try running the simulation again. You will notice that the **Lamp** block turns on and off very quickly. By default, the simulation runs as fast as your hardware will allow for. In order to enable a real-time simulation, click on the arrow underneath the Run button and then click on **Simulation Pacing**. In the window that opens up, enable the **Enable pacing to slow down simulation** checkbox.
 
 **16.** Now click on **Run**. You will notice that a gauge has appeared next to the green play button, signalling that the **Simulation Pacing** has been enabled. The **Lamp** block will turn on and off every 1 second.
 
@@ -152,7 +152,7 @@ The LED in the Arduino Nano 33 IoT is connected to Digital Pin 13. By pulling th
 
 ![Configure for Nano 33 Iot](img/nano-Simulink-WiFi-LED-Select-Nano-33-IoT.png)
 
-**4.** A new **Hardware** ribbon will appear. If configured correctly, under this ribbon, you will see **Arduino Nano 33 IoT** as the **Hardware Board**. In the **Mode** section, click on the downward facing arrow and select **Connected IO**. 
+**4.** A new **Hardware** ribbon will appear. If configured correctly, under this ribbon, you will see **Arduino Nano 33 IoT** as the **Hardware Board**. In the **Mode** section, click on the downward facing arrow and select **Connected IO**.
 
 ![Enable Connected IO in Hardware Ribbon](img/nano-Simulink-WiFi-LED-Enable-ConnectedIO.png)
 
@@ -162,9 +162,9 @@ The LED in the Arduino Nano 33 IoT is connected to Digital Pin 13. By pulling th
 
 **6.** You should notice that the **Lamp** block on the LED of the Nano 33 IoT, both turn on 5 times in near unison with each other. Remember that in the **Connected IO** mode, Simulink is directly controlling Pin 13 on the Nano 33 IoT, and the board cannot operate in a standalone fashion. In the case that we want the program to operate in a standalone fashion, we need to deploy the model to the Nano 33 IoT by converting the model to microcontroller code and uploading it.
 
-<!--- 
-Add a gif/video.
--->
+{/*
+*Add a gif/video.
+*/}
 
 ***Try disconnecting the USB cable. You will see that the LED does not blink anymore.***
 
@@ -182,11 +182,11 @@ Add a gif/video.
 
 **3.** The Simulink model will be converted into microcontroller code, with the help of a MathWorks and Arduino libraries. This will take a few minutes, depending on the speed of your computer to complete.
 
-**4.** The LED on you Nano 33 IoT will constantly blink. However, the **Lamp** block in your computer screen will not flash any more. 
+**4.** The LED on you Nano 33 IoT will constantly blink. However, the **Lamp** block in your computer screen will not flash any more.
 
-<!--- 
+{/*
 Add a gif/video showing the Simulink model and the Nano Motor Carrier.
--->
+*/}
 
 ***Try disconnecting the USB cable. Does the LED continue to blink?***
 
@@ -218,9 +218,9 @@ Add a gif/video showing the Simulink model and the Nano Motor Carrier.
 
 **7.** Go to the **Hardware** ribbon. Make sure that the **Mode** is set to **Run on board** and that the **Stop Time** is set to 10. Click on **Monitor and Tune**. You should see the value on the **Display** block correspond to the voltage of the battery.
 
-<!--- 
+{/*
 Add a gif/video.
--->
+*/}
 
 ## Using Wi-Fi
 
@@ -246,7 +246,7 @@ Add a gif/video.
 
 ![Model with Constant and Manual Switch block added](img/nano-Simulink-WiFi-LED-Constant-Manual-Switch-Block-Added.png)
 
-**5.** Double click on the **Constant** block and change the **Constant value** to `0`. This will mean that when we the hit the **Manual switch** to the **Constant** block, the LED will turn off. 
+**5.** Double click on the **Constant** block and change the **Constant value** to `0`. This will mean that when we the hit the **Manual switch** to the **Constant** block, the LED will turn off.
 
 ![Constant Block Set to 0](img/nano-Simulink-WiFi-LED-Constant-Block-Zero.png)
 
@@ -258,22 +258,22 @@ Add a gif/video.
 
 **8.** Double click on the **Manual switch** block. You will see the state of the LED change from blinking to off.
 
-<!--- 
+{/*
 Add a gif/video.
--->
+*/}
 
 ## Conclusion
 
-Now that you have gone through this tutorial, you now know how to use Simulink to control the Nano Motor Carrier with the help of the Nano 33 IoT. You learnt how to create a model, by connecting together **Blocks** and to then simulate it in your computer. Using **Connected IO** you can control your Arduino board connected by a USB cable. Through external mode, you can run deploy the model to your board to run independently (**Build, Start and Deploy**) or keep the connection established with your computer (**Monitor & Tune**). In addition to USB, you can also control the Arduino Nano Motor Carrier over Wi-Fi thanks to the wireless capabilities of the Nano 33 IoT. 
+Now that you have gone through this tutorial, you now know how to use Simulink to control the Nano Motor Carrier with the help of the Nano 33 IoT. You learnt how to create a model, by connecting together **Blocks** and to then simulate it in your computer. Using **Connected IO** you can control your Arduino board connected by a USB cable. Through external mode, you can run deploy the model to your board to run independently (**Build, Start and Deploy**) or keep the connection established with your computer (**Monitor & Tune**). In addition to USB, you can also control the Arduino Nano Motor Carrier over Wi-Fi thanks to the wireless capabilities of the Nano 33 IoT.
 
-Simulink together with the Arduino platform opens up possibilities for rapid testing of concepts and ideas both in software as well as in hardware. The different operations modes allow you to choose the most suitable approach to your problem. 
+Simulink together with the Arduino platform opens up possibilities for rapid testing of concepts and ideas both in software as well as in hardware. The different operations modes allow you to choose the most suitable approach to your problem.
 
 ## Troubleshooting
-- Make sure to not use blocks in a multirate configuration. 
+- Make sure to not use blocks in a multirate configuration.
 - Connected IO mode has limited compatibility with the Arduino Simulink blocks. Try using External Mode for improved simulation capabilities.
 - Wi-Fi mode only works for External Mode (either **Monitor & Tune** or **Build, Start and Deploy**).
 - Ensure that `XCP on Serial` or `XCP on Wi-Fi` is selected as the Communication Interface. Compared to legacy Serial, XCP provides additional functionality and stability.
-- Make sure that the USB Cable is connected. For the Wi-Fi approach demonstrated in this tutorial, we will need to have the USB connected when the code is being uploaded. 
+- Make sure that the USB Cable is connected. For the Wi-Fi approach demonstrated in this tutorial, we will need to have the USB connected when the code is being uploaded.
 
 ## Further Ideas
 -  Try changing the **Pulse Generator** duty cycle and frequency.

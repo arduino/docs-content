@@ -50,7 +50,7 @@ In this section you will learn how to set up your development environment as wel
   - [A Typical Workflow](#a-typical-workflow)
   - [Arduino IDE 1.8.x](#arduino-ide-18x)
   - [Arduino IDE 2](#arduino-ide-2)
-  - [Arduino IoT Cloud](#arduino-iot-cloud)
+  - [Arduino Cloud](#arduino-iot-cloud)
   - [Web Editor](#web-editor)
   - [Library Manager](#library-manager)
   - [Arduino CLI](#arduino-cli)
@@ -417,15 +417,15 @@ The [Arduino Web Editor](https://create.arduino.cc/editor) is an online IDE, par
 
 ***Learn more by visiting the [Web Editor documentation](/cloud/web-editor).***
 
-### Arduino IoT Cloud
+### Arduino Cloud
 
-![The Arduino IoT Cloud.](assets/iot-cloud.png)
+![The Arduino Cloud.](assets/iot-cloud.png)
 
-The [Arduino IoT Cloud](https://create.arduino.cc/iot/) allows you to configure, program and control/monitor your devices - all in one web based application. With the use of **things**, or your "digital twin", you can control and monitor variables directly from **dashboards**. The service also supports webhooks and integrations with other services, such as **Amazon Alexa.**
+The [Arduino Cloud](https://create.arduino.cc/iot/) allows you to configure, program and control/monitor your devices - all in one web based application. With the use of **things**, or your "digital twin", you can control and monitor variables directly from **dashboards**. The service also supports webhooks and integrations with other services, such as **Amazon Alexa.**
 
-The cloud is made for **anyone** to use, and it does not require much previous experience to get started.
+The Cloud is made for **anyone** to use, and it does not require much previous experience to get started.
 
-***Get started by reading the [Getting Started with the Arduino IoT Cloud](/cloud/iot-cloud/tutorials/iot-cloud-getting-started) guide, or visit the [full documentation](/cloud/iot-cloud).***
+***Get started by reading the [Getting Started with the Arduino Cloud](/cloud/iot-cloud/tutorials/iot-cloud-getting-started) guide, or visit the [full documentation](/cloud/iot-cloud).***
 
 
 ### Library Manager

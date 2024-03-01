@@ -13,9 +13,9 @@ Any modern device with a screen uses sensors to determine the correct orientatio
 - [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
 
-## Downloading the Library and Core
+## Downloading the Library and Board Package
 
-Make sure the latest GIGA Core is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the core. Now you have to install the library needed for the IMU and the library for handling the image. Go to **Tools > Manage libraries..**, search for **Arduino_BMI270_BMM150**, and install it. This library will help us with reading values from the IMU. Now search for **LVGL**, and install it. This library will be used for the image and rotating it.
+Make sure the latest GIGA Board Package is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the Board Package. Now you have to install the library needed for the IMU and the library for handling the image. Go to **Tools > Manage libraries..**, search for **Arduino_BMI270_BMM150**, and install it. This library will help us with reading values from the IMU. Now search for **LVGL**, and install it. This library will be used for the image and rotating it.
 
 ## Using the IMU Readings With the Image
 
