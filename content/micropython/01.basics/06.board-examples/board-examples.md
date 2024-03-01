@@ -1819,7 +1819,8 @@ The `RTC` class in MicroPython provides a way to manage and utilize the Real-Tim
 
 #### Initializing the RTC
 
-To use the RTC, create first an RTC object. This object is then used to set or read the current date and time.
+To use the RTC, first create an RTC object. This object is then used to set or read the current date and time.
+
 
 ```python
 import machine
