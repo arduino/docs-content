@@ -75,9 +75,11 @@ Now go to the folder where the sketch is located. Add a `.json` file in the same
 [
   {
     "configId": "arduino:samd:mkrwifi1010:programmer=jlink",
+    "server": "jlink",
     "servertype": "jlink",
     "device": "ATSAMD21G18",
     "interface": "SWD",
+    "serverPath": "C:/Program Files/SEGGER/JLink/JLinkGDBServerCL",
     "serverpath": "C:/Program Files/SEGGER/JLink/JLinkGDBServerCL"
   }
 ]
