@@ -67,6 +67,8 @@ Now we are ready to start debugging our sketch. Connect the power to the MKR boa
 
 Then create or open the sketch that you want to debug. If you don't already have a sketch in mind, feel free to use the example sketch found at the end of this tutorial.
 
+Select **Tools > Programmer > Segger J-Link** from the Arduino IDE menus.
+
 Now go to the folder where the sketch is located. Add a `.json` file in the same folder as your sketch and name it `debug_custom.json`. The easiest way would be to create a text file and rename it `debug_custom.json`. In the `.json` file, add the following lines:
 
 ```arduino
