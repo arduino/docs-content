@@ -24,9 +24,9 @@ This tutorial is designed to help educators introduce students to the world of I
 
 # Arduino IoT Templates
 
-[Video Karl’s video on templates] 
+<iframe width="100%" height="480" src="https://youtu.be/J5_QleCPc64?si=q3FQeLQefxi_8d_Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-Arduino IoT Templates are pre-configured projects that allow users to quickly set up and deploy IoT applications. Templates help you to quickly configure your Arduino devices for the Arduino Cloud and create a dashboard based on the project in 2 minutes. Through [Dashboards](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets) you can easily monitor and control IoT projects through a Web interface. 
+Arduino IoT Templates are pre-configured projects that allow users to quickly set up and deploy IoT applications. Templates help you to quickly configure your Arduino devices for the Arduino Cloud and create a dashboard based on the project in two minutes. Through [Dashboards](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets) you can easily monitor and control IoT projects through a Web interface. 
 
 For educational purposes, **Dashboards** provide an excellent opportunity for students to learn about IoT concepts, data collection and analyses and interaction with hardware/sensors without having to build an IoT project from scratch. This reduces the time and the learning curve which gives your students a starting point to build their ideas and learning. 
 
