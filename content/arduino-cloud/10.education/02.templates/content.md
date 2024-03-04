@@ -1,5 +1,5 @@
 ---
-title: 'Using IoT Templates for Classroom Projects '
+title: 'Using IoT Templates for Classroom Projects'
 description: 'Ready-made projects that can significantly lower the entry barrier for teaching and learning about IoT applications'
 difficulty: intermediate
 tags:
@@ -36,7 +36,7 @@ For educational purposes, **Dashboards** provide an excellent opportunity for st
 
 Once you have decided which template(s) you would like to use, we suggest you to prepare the essentials to conduct this activity in your class. Before you begin using templates, ensure that you have the following items checked: 
 
-- Hardware - Any choice of [Arduino WiFi Boards ](https://support.arduino.cc/hc/en-us/articles/4407129094546-Boards-and-shields-with-wireless-connectivity)
+- Hardware - Any choice of [Arduino Wi-Fi® boards](https://support.arduino.cc/hc/en-us/articles/4407129094546-Boards-and-shields-with-wireless-connectivity)
 
 - USB Cable - Ensure you have the right one for your board 
 
@@ -68,7 +68,7 @@ The template page will open, where you will find the description of what the pro
 
 ## Importing a Template 
 
-Templates can be imported easily by clicking on the import button from the template description page. The process is similar to that of uploading a sketch to the Arduino board.  Once the device is plugged in the USB port, click on **IMPORT TEMPLATE**  to import the chosen IoT template.  
+Templates can be imported easily by clicking on the import button from the template description page. The process is similar to that of uploading a sketch to the Arduino board. Once the device is plugged in the USB port, click on **IMPORT TEMPLATE** to import the chosen IoT template.  
 
 ![Import template button](assets/import-button.png)
 
@@ -83,7 +83,7 @@ This process involves creating the necessary components and uploading the sketch
 3. Assign the right network credentials to your devices, 
 4. Build a dashboard with the right widgets.
 
-***Note - The process may take up to 5 minutes. Remind students not to unplug the device during this step or close their laptops during the import process.*** 
+***Note: The process may take up to 5 minutes. Remind students not to unplug the device during this step or close their laptops during the import process.*** 
 
 Once connected, the template will become operational. For example, if using the "Cloud Blink" template, you can now control an LED remotely through the Cloud interface.
 
@@ -103,7 +103,7 @@ Once you have added the `Widget`, you can either connect it to the available `va
 
 ![Associated Thing](assets/associated-thing.png)
 
-As mentioned earlier, a template also creates: **variables**, **sketch files**, **device** and **network information** that can be configured based on your preference. All this information can be found inside a **Thing.**
+As mentioned earlier, a template also creates: **variables**, **sketch files**, **device** and **network information** that can be configured based on your preference. All this information can be found inside a **Thing**.
 
 ![Thing information](assets/thing-information.png)
 
@@ -125,8 +125,7 @@ As you can see some templates can be used across various disciplines and it tota
 
 * **Group Projects** - Encourage students to work in groups, fostering collaboration and problem-solving skills. For advanced students, these templates can serve as the basis for capstone projects where they design and implement a complete IoT system to solve a real-world problem.
 
-* **Experimenting** - Discuss how the principles learned through these projects can be applied to real-world scenarios, enhancing their understanding of IoT's impact.
-After mastering the basics, challenge students to modify the templates or come up with their own IoT project ideas.
+* **Experimenting** - Discuss how the principles learned through these projects can be applied to real-world scenarios, enhancing their understanding of IoT's impact. After mastering the basics, challenge students to modify the templates or come up with their own IoT project ideas.
 
 * **Hackathons or Competitions** - Organize a hackathon where students use the templates as a starting point to innovate and create new projects or improvements. This encourages creativity, teamwork, and practical problem-solving skills.
 
