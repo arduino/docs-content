@@ -107,7 +107,7 @@ As mentioned earlier, a template also creates: **variables**, **sketch files**, 
 
 ![Thing information](assets/thing-information.png)
 
-If you have already worked with Arduino IoT projects, you can go ahead and start customizing the templates based on your choice, otherwise you can get started with https://docs.arduino.cc/arduino-cloud/guides/overview/. 
+If you have already worked with Arduino IoT projects, you can go ahead and start customizing the templates based on your choice, otherwise you can [get started reading this tutorial]( https://docs.arduino.cc/arduino-cloud/guides/overview/). 
 
 ### Using Templates for your course
 
