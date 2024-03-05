@@ -52,6 +52,10 @@ Once you have decided which template(s) you would like to use, we suggest you to
 
 For our tutorial, we will use the [Cloud Blink Template](https://app.arduino.cc/templates/cloud-blink) that will illustrate how to control an Arduino Board’s LED through a dashboard in the Arduino Cloud. This is a great template if you want to get started with the Arduino Cloud since it works with all boards. After you have completed the installation, you can modify the sketch and dashboard freely.
 
+For troubleshooting, we recommend to read this article from our Help Center:
+
+* [Configure your network for Arduino Cloud](https://support.arduino.cc/hc/en-us/articles/360017279260-Configure-your-network-for-Arduino-Cloud)
+
 ## Choosing a template 
 
 Once you have logged into your account, Templates can be accessed under the **IoT templates** section from the sidebar. 
@@ -85,9 +89,17 @@ This process involves creating the necessary components and uploading the sketch
 
 ***Note: The process may take up to 5 minutes. Remind students not to unplug the device during this step or close their laptops during the import process.*** 
 
+For troubleshooting, we recommend to read this article from our Help Center:
+
+* [If your device can't be added or won't connect to Arduino Cloud](https://support.arduino.cc/hc/en-us/articles/360019355679-If-your-device-can-t-be-added-or-won-t-connect-to-Arduino-Cloud)
+
 Once connected, the template will become operational. For example, if using the "Cloud Blink" template, you can now control an LED remotely through the Cloud interface.
 
 ![Template Dashboard](assets/template-dashboard.png)
+
+For troubleshooting, we recommend to read this article from our Help Center:
+
+* ['We were not able to upload the template sketch' in Arduino Cloud](https://support.arduino.cc/hc/en-us/articles/4408887422994--We-were-not-able-to-upload-the-template-sketch-in-Arduino-Cloud)
 
 ## Customizing a Template 
 
@@ -113,13 +125,13 @@ If you have already worked with Arduino IoT projects, you can go ahead and start
 
 Integrating Arduino IoT templates into a course curriculum offers a tangible way to teach concepts like sensor data collection, cloud computing, and Internet of Things principles across various disciplines such as physics, chemistry, biology and computer science. Here are some innovative ways a teacher can use these templates in their course.
 
-| Subject / Project     | Physics                                  | Chemistry                           | Biology                        | Comp. Science                               | Arts and Design                                    |
-| --------------------- | ---------------------------------------- | ----------------------------------- | ------------------------------ | ------------------------------------------- | -------------------------------------------------- |
-| Remote LED Control    | Electricity & Circuits  Light and optics |                                     |                                | Basic concepts of IoT                       |                                                    |
-| Greenhouse Monitoring | Thermodynamics                           | Soil properties                     | Photosynthesis and respiration | Application of Data collection and analyses | UI Design of industrial systems                    |
-| Home Automations      |                                          | Monitoring indoor air quality       | Studying indoor plant growth   | Introducing Sensor technology               | Ideation and prototyping easy to use home projects |
-| Weather Stations      | pressure, temperature and light          | Gas Laws and atmospheric properties |                                | Basics of structuring data                  |                                                    |
-| Fun and Games         |                                          |                                     |                                | Loops, Pointers, Arrays and Functions       | Emotional expressions through technology           |
+| Subject / Project                                            | Physics                                                      | Chemistry                                                    | Biology                                                      | Comp. Science                                                | Arts and Design                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Remote LED Control](https://app.arduino.cc/templates/cloud-blink) | Electricity & Circuits  Light and optics                     |                                                              |                                                              | Basic concepts of IoT                                        |                                                              |
+| [Greenhouse Monitoring](https://app.arduino.cc/templates/watering) | [Thermodynamics](https://app.arduino.cc/templates/ventilation) | [Soil properties](https://app.arduino.cc/templates/soil-moist) | [Photosynthesis and respiration](https://app.arduino.cc/templates/photosynthesis) | Application of Data collection and analyses                  | [UI Design of industrial systems](https://app.arduino.cc/templates/smart-garden) |
+| Home Automations                                             |                                                              | [Monitoring indoor air quality](https://app.arduino.cc/templates/thermostat-control) | [Studying indoor plant growth](https://app.arduino.cc/templates/natural-and-artificial-light) | [Introducing Sensor technology](https://app.arduino.cc/templates/remote-controlled-lights) | [Ideation and prototyping easy to use home projects](https://app.arduino.cc/templates/plant-watering-kit) |
+| [Weather Stations](https://app.arduino.cc/templates/personal-weather-station) | [Pressure, temperature and light](https://app.arduino.cc/templates/humidity-and-temperature) | Gas Laws and atmospheric properties                          |                                                              | [Basics of structuring data](https://app.arduino.cc/templates/sparkfun-weather-station) |                                                              |
+| [Fun and Games](https://app.arduino.cc/templates/pavlovs-cat) |                                                              |                                                              |                                                              | [Loops, Pointers, Arrays and Functions](https://app.arduino.cc/templates/puzzle-box) | [Emotional expressions through technology](https://app.arduino.cc/templates/thinking-about-you) |
 
 As you can see some templates can be used across various disciplines and it totally depends on how you interpret them too. Creativity together with your subject matter can open up new avenues for experimentation and fun exploration for your students: 
 
@@ -133,9 +145,5 @@ As you can see some templates can be used across various disciplines and it tota
 
 Arduino IoT Templates offer a practical and engaging way to introduce students to IoT technology. By guiding them through setting up, programming, and deploying IoT projects, educators can provide a hands-on learning experience that emphasizes the importance of IoT in today's technology-driven world. Encourage your students to explore, experiment, and innovate as they embark on their IoT learning journey.
 
-## Do you still need help?
-For more troubleshooting articles, we recommend these from our Help Center:
 
-* [If your device can't be added or won't connect to Arduino Cloud](https://support.arduino.cc/hc/en-us/articles/360019355679-If-your-device-can-t-be-added-or-won-t-connect-to-Arduino-Cloud)
-* [Configure your network for Arduino Cloud](https://support.arduino.cc/hc/en-us/articles/360017279260-Configure-your-network-for-Arduino-Cloud)
-* ['We were not able to upload the template sketch' in Arduino Cloud](https://support.arduino.cc/hc/en-us/articles/4408887422994--We-were-not-able-to-upload-the-template-sketch-in-Arduino-Cloud)
+
