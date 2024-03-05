@@ -8,6 +8,7 @@ core: arduino:samd
 forumCategorySlug: '/hardware/mkr-boards/mkrzero/140'
 productCode: '016'
 certifications: [CE, UKCA]
+sku: [ABX00007]
 ---
 
 The Arduino MKR Zero is a development board for music makers! With an SD card holder and dedicated SPI interfaces (SPI1), you are able to play music files without extra hardware.
