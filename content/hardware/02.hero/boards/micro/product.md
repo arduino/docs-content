@@ -8,6 +8,7 @@ core: arduino:avr
 productCode: '006'
 forumCategorySlug: '/hardware/12'
 certifications: [CE, UKCA]
+sku: [A000053]
 ---
 
 The Micro runs on an ATmega32u4 processor with native USB communication. Configure via software whether the board is recognised as a standard Arduino, a mouse or keyboard.
