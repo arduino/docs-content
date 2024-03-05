@@ -48,7 +48,7 @@ Once you have decided which template(s) you would like to use, we suggest you to
 
 - Sensors and Actuators (optional)
 
-***Note - if you haven't created a shared space check out this [article](https://docs.arduino.cc/arduino-cloud/education/shared-spaces/). Ensure that you students have their individual accounts created and have been added to the shared space that you have created.***  
+***Note: if you haven't created a shared space check out this [article](https://docs.arduino.cc/arduino-cloud/education/shared-spaces/). Ensure that you students have their individual accounts created and have been added to the shared space that you have created.***  
 
 For our tutorial, we will use the [Cloud Blink Template](https://app.arduino.cc/templates/cloud-blink) that will illustrate how to control an Arduino Board’s LED through a dashboard in the Arduino Cloud. This is a great template if you want to get started with the Arduino Cloud since it works with all boards. After you have completed the installation, you can modify the sketch and dashboard freely.
 
