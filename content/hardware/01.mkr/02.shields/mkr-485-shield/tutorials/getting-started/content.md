@@ -8,7 +8,8 @@ author: 'Arduino'
 
 The [MKR 485 shield](https://store.arduino.cc/arduino-mkr-485-shield) allows a MKR board to connect to other 485 devices.
 
-This board may be used with the [Arduino RS485](/en/Reference/ArduinoRS485) and the [Arduino Modbus](/en/ArduinoModbus/ArduinoModbus) libraries, available from the Library Manager.
+This board may be used with the [Arduino RS485](https://www.arduino.cc/reference/en/libraries/arduinors485/) and the [Arduino Modbus](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) libraries, available from the Library Manager.
+
 
 ## Usage Notes
 
