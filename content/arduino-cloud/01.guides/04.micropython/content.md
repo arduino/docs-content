@@ -61,7 +61,7 @@ Next step is to create some Cloud variables, which we will later interact with v
 1. While in Thing configuration, click on **"Add Variable"** which will open a new window.
 2. Name your variable `led` and select it to be of an `boolean` type.
 3. Click on **"Add Variable"** at the bottom of the window.
-4. Create another variable, name it `ledSwitch` and select it to be `int` type.
+4. Create another variable, name it `ledSwitch` and select it to be `boolean` type.
 
 You should now have **two variables**:
 - `led` - boolean 
@@ -153,6 +153,8 @@ led = Pin("LEDB", Pin.OUT) # Configure the desired LED pin as an output.
 def on_switch_changed(client, value):
     # Toggles the hardware LED on or off.
     led.value(not value)
+    # Depending on the board you use you may need to use "led.value(value)" instead
+    # so that the LED's state reflects correctly the boolean value.
     
     # Sets the value of the Cloud variable "led" to the current state of the LED
     # and thus mirrors the hardware state in the Cloud.
