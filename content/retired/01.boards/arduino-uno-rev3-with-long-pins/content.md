@@ -2,7 +2,7 @@
 title: "Arduino UNO Rev3 with Long Pins"
 description: "The Arduino UNO with long pins is the a version of the UNO, Arduinos classic board, with longer pins for you to stack the board on top of any carrier circuit."
 coverImage: "assets/a000099_featured_1.jpg"
-sku: "A000099"
+sku: [A000099]
 tags: [8 bit, AVR, 20 mA, Usb, 5V, Standard (~20), No battery]
 source: "https://store.arduino.cc/arduino-uno-rev3-with-long-pins"
 ---
@@ -31,9 +31,9 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ho
 
 Arduino UNO is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/UNO-TH_Rev3e-reference.zip) 
+[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/UNO-TH_Rev3e-reference.zip)
 
-[SCHEMATICS IN .PDF](https://content.arduino.cc/assets/UNO-TH_Rev3e_sch.pdf) 
+[SCHEMATICS IN .PDF](https://content.arduino.cc/assets/UNO-TH_Rev3e_sch.pdf)
 
 [BOARD SIZE IN .DXF](http://arduino.cc/documents/ArduinoUno.dxf)
 
