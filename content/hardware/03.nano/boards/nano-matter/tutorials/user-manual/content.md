@@ -44,86 +44,88 @@ optimized for the needs of battery and line-powered IoT devices for 2.4 GHz mesh
 
 ![Nano Matter main components](assets/architecture-top.png)
 
-Here is an overview of main components of the board, as shown in the images above:
+Here is an overview of the board's main components, as shown in the images above:
 
 - **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit Arm® Cortex®-M33 processor running at 78 MHz. 
-- **Wireless connectivity**: the board microcontroller also features multi-protocol connectivity to enable Matter IoT protocol and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home networks and communicate wirelessly with other devices and systems.
-
+- **Wireless connectivity**: the Nano Matter microcontroller also features multi-protocol connectivity to enable Matter IoT protocol and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home systems and communicate wirelessly with other devices.
 
 ### Board Core and Libraries
 
-The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples you need to work with the board's components, such as its IMU, magnetometer, and environment sensor. To install the Nicla boards core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nicla Sense ME` and install the latest `Arduino Mbed OS Nicla Boards` version.
+The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its IMU, magnetometer, and environment sensor. To install the Nano Matter core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
 
-![Installing the Arduino Mbed OS Nicla Boards core in the Arduino IDE bootloader](assets/bsp-install.png)
+![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install.png)
 
 ### Pinout
 
-![Nicla Sense ME pinout](assets/simple-pinout.png)
+![Nano Matter pinout](assets/simple-pinout.png)
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [Nicla Sense ME pinout](https://docs.arduino.cc/static/b35956b631d757a0455c286da441641b/ABX00050-full-pinout.pdf)
+- [Nano Matter pinout](https://docs.arduino.cc/static/b35956b631d757a0455c286da441641b/ABX00050-full-pinout.pdf)
 
 ### Datasheet
 
 The complete datasheet is available and downloadable as PDF from the link below:
 
-- [Nicla Sense ME datasheet](https://docs.arduino.cc/resources/datasheets/ABX00050-datasheet.pdf)
+- [Nano Matter datasheet](https://docs.arduino.cc/resources/datasheets/ABX00050-datasheet.pdf)
 
 ### Schematics
 
 The complete schematics are available and downloadable as PDF from the link below:
 
-- [Nicla Sense ME schematics](https://docs.arduino.cc/resources/schematics/ABX00050-schematics.pdf)
+- [Nano Matter schematics](https://docs.arduino.cc/resources/schematics/ABX00050-schematics.pdf)
 
 ### STEP Files
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Nicla Sense ME STEP files](https://docs.arduino.cc/static/10c0953581f489a9a136ff00f2d2fa9d/ABX00050-step.zip)
+- [Nano Matter STEP files](https://docs.arduino.cc/static/10c0953581f489a9a136ff00f2d2fa9d/ABX00050-step.zip)
 
 
 ## First Use
 ### Powering the Board
 
-The Nicla Sense ME can be powered by:
+The Nano Matter can be powered by:
 
-- A Micro USB cable (not included). 
-- An external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#pinout) of the user manual).
-- A **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Sense ME is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
-- The onboard **ESLOV connector**, which has a dedicated 5V power line.
+- A USB-C® cable (not included). 
+- An external **5V power supply** connected to `IN5V` pin (please, refer to the [board pinout section](#pinout) of the user manual).
 
-![Nicla Sense ME battery powered](assets/battery-white.png)
+![Nano Matter externally powered](assets/)
+
+For low-power consumption applications, the following hacks are recommended:
+
+- Cut the power status LED jumper off to save energy.
+- Power the board with an external **3V3 power supply** connected to `3.3V` pin, this will not power the *USB bridge IC*, so more energy will be saved.
+
+![Image showing the LED jumper and external 3.3V power](assets/)
 
 ### Hello World Example
 
-Let's program the Nicla Sense ME with the classic `hello world` example typical of the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the board is correctly connected to the Arduino IDE and that the Nicla Sense ME core and the board itself are working as expected. 
+Let's program the Arduino Nano Matter with the classic `hello world` example typical of the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the board is correctly connected to the Arduino IDE and that the Silicon Labs core and the board itself are working as expected. 
 
 Copy and paste the code below into a new sketch in the Arduino IDE.
 
 ```arduino
-#include "Nicla_System.h"
-
+// the setup function runs once when you press reset or power the board
 void setup() {
-  // Initialize LED_BUILTIN as an output (this will turn on the LED)
+  // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
+// the loop function runs over and over again forever
 void loop() {
-  // Turn the built-in LED off
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(1000);
-  // Turn the built-in LED on
-  digitalWrite(LED_BUILTIN, LOW);
-  delay(1000);
+  digitalWrite(LED_BUILTIN, HIGH);  // turn the LED on (HIGH is the voltage level)
+  delay(1000);                      // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);   // turn the LED off by making the voltage LOW
+  delay(1000);                      // wait for a second
 }
 ```
 
-For the Nicla Sense ME, the `LED_BUILTIN` macro represents **all the LEDs** of the built-in RGB LED of the board, shining in **white**.
+For the Nano Matter, the `LED_BUILTIN` macro represents the **red LED** of the built-in RGB LED of the board.
 
-To upload the code to the Nicla Sense ME, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
+To upload the code to the Nano Matter, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
 
-![Uploading a sketch to the Nicla Sense ME in the Arduino IDE](assets/BOARD.png)
+![Uploading a sketch to the Nicla Sense ME in the Arduino IDE](assets/compile-blink.png)
 
 You should now see all the LEDs of the built-in RGB LED turn on for one second, then off for one second, repeatedly.
 
