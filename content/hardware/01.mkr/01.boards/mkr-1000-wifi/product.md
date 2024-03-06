@@ -9,7 +9,8 @@ forumCategorySlug: '/hardware/mkr-boards/mkr1000/137'
 certifications: [CE, UKCA]
 status: end-of-life
 productCode: '017'
-sku: [ABX00004]
+sku: [ABX00004, ABX00011]
+
 ---
 
 The Arduino MKR 1000 WiFi is the easiest point of entry to basic IoT and pico-network application design. Whether you are looking at setting up a sensor network for your office or building a smart home, the MKR 1000 WiFi will make that journey easy.
