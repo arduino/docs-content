@@ -3,7 +3,7 @@ title: "Arduino Leonardo ETH"
 description: "All the fun of a Leonardo, plus an Ethernet port to extend your project to the IoT world. You can control sensors and actuators via the internet as a client or server."
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoLeonardoETH"
 coverImage: "assets/A000022_ArduinoLeonardoETH_front_2.jpg"
-sku: "A000022"
+sku: [A000022]
 source: "https://store.arduino.cc/arduino-leonardo-eth"
 ---
 
@@ -34,7 +34,7 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ho
 
 The Arduino Leonardo ETH is open-source hardware! You can build your own board using the following files (Please note that the schematics are revision 1):
 
-[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/LeonardoEth_V1.0.zip) 
+[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/LeonardoEth_V1.0.zip)
 
 [SCHEMATICS IN .PDF](https://content.arduino.cc/assets/LeonardoEth_V1.0_sch.pdf)
 

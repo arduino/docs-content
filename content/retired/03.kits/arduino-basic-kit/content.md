@@ -2,7 +2,7 @@
 title: "Arduino Basic Kit"
 description: "Arduino Basic Kit is a great way to get started with Arduino, coding and electronics!"
 coverImage: "assets/store_akx00001_featured.jpg"
-sku: "AKX00001"
+sku: [AKX00001]
 source: "https://store.arduino.cc/arduino-basic-kit"
 ---
 

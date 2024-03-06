@@ -3,14 +3,14 @@ title: "LilyPad Arduino SimpleSnap"
 description: "The LilyPad SimpleSnap is a new, easy way to create e-textiles projects with LilyPad that are modular and can be disassembled or broken down. The SimpleSnap includes a built-in rechargeable Lithium Polymer battery and female snap connectors."
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoLilyPad"
 coverImage: "assets/store_e000059-featured_1.jpg"
-sku: "E000059"
+sku: [E000059]
 source: "https://store.arduino.cc/lilypad-arduino-simplesnap"
 ---
 
 ![The LilyPad Arduino SimpleSnap board](./assets/store_e000059-featured_1.jpg)
 
-The **LilyPad Arduino SimpleSnap** is a microcontroller board designed for wearables and e-textiles. It is similar to the [LilyPad Arduino Simple](https://www.arduino.cc/en/Main/ArduinoBoardLilyPadSimple), except that it has a built in lithium polymer battery, and instead of through-holes, it has conductive snaps. By using matching snaps in your project, you can affix the LilyPad securely but remove it to wash your project or move it to another project. The LilyPad SimpleSnap has 9 pins for input/output. Additionally, it has a built in charging circuit for the battery. The board is based on the [ATmega328](http://www.atmel.com/assets/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf).  
-  
+The **LilyPad Arduino SimpleSnap** is a microcontroller board designed for wearables and e-textiles. It is similar to the [LilyPad Arduino Simple](https://www.arduino.cc/en/Main/ArduinoBoardLilyPadSimple), except that it has a built in lithium polymer battery, and instead of through-holes, it has conductive snaps. By using matching snaps in your project, you can affix the LilyPad securely but remove it to wash your project or move it to another project. The LilyPad SimpleSnap has 9 pins for input/output. Additionally, it has a built in charging circuit for the battery. The board is based on the [ATmega328](http://www.atmel.com/assets/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf).
+
 The LilyPad Arduino SimpleSnap was designed and developed by Leah Buechley and SparkFun Electronics.
 
 You can find your board warranty information [here](https://www.arduino.cc/en/Main/warranty).
@@ -31,7 +31,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoLilyPad)
 
 LilyPad Arduino SimpleSnap is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](http://dlnmh9ip6v2uc.cloudfront.net/datasheets/E-Textiles/Lilypad/LilyPad-SimpleSnap-v13.zip) 
+[EAGLE FILES IN .ZIP](http://dlnmh9ip6v2uc.cloudfront.net/datasheets/E-Textiles/Lilypad/LilyPad-SimpleSnap-v13.zip)
 
 [SCHEMATICS IN .PDF](http://dlnmh9ip6v2uc.cloudfront.net/datasheets/E-Textiles/Lilypad/LilyPad-SimpleSnap-v13.pdf)
 

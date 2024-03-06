@@ -3,7 +3,7 @@ title: "Arduino M0 Pro"
 description: "The Arduino M0 Pro is an Arduino M0 with a step-by-step debugger"
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoM0PRO"
 coverImage: "assets/a000111_featured_1.jpg"
-sku: "A000111"
+sku: [A000111]
 source: "https://store.arduino.cc/m0-pro"
 ---
 
