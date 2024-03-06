@@ -8,6 +8,7 @@ secondary_button_url: /tutorials/wisgate-edge-pro/update-firmware
 secondary_button_title: Update Firmware
 url_datasheet: https://docs.rakwireless.com/Product-Categories/WisGate/RAK7289/Datasheet
 certifications: [CE, UKCA]
+sku: [TPX00095, TPX00096, TPX00097]
 ---
 
 The WisGate Edge Pro gateway for LoRaWAN® embeds RAKWireless<sup>TM</sup> technology and allows to set up professional applications.
