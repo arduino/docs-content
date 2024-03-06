@@ -1,0 +1,53 @@
+Board:
+  Name: Arduino® Nano Matter
+  SKU: A
+Microprocessor: MGM240SD22VNA (32-bit ARM Cortex®-M33 with DSP instruction and FPU)
+Clock speed: 78 MHz
+USB connector: USB-C®
+Pins:
+  Digital I/O Pins: 14
+  Analog input pins: 8
+  PWM pins: 5
+  UART pins: 4
+  I2C pins: 2
+  SPI pins: 4
+Connectivity:
+  Matter: Matter-ready Smart Home Connectivity
+  Wi-Fi®: 802.15.4 (Thread)
+  Bluetooth®: Bluetooth 5.3 & Bluetooth Mesh
+Additional Compatible Protocols: Zigbee® & OpenThread®
+Connectivity Band Frequency: On-board 2.4 GHz
+Secure element: Secure Vault® High
+Analog-to-digital converter (ADC):
+  Channels: 8
+  Resolution: 16 bits
+Digital-to-analog converter (DAC):
+  Channels: 1
+  Resolution: 12 bits 
+Pulse Width Modulation (PWM):
+  Channels: 5
+  Maximum simulataneously operational channel: 5
+Communication:
+  UART: 1
+  I2C: 1
+    SDA: A4
+    SCL: A5
+  SPI: 1
+    COPI: D11
+    CIPO: D12
+    SCK: D13
+    Chip Select (CS): Any GPIO
+Power:
+  Circuit operating voltage: 3.3V
+  Input voltage (VIN): 5V
+  Source Current per I/O Pin: 40 mA
+  Sink Current per I/O Pin: 28 mA
+Memory:
+  RAM: 256 KB
+  Flash: 1536 KB
+Dimensions:
+  Weight: xx g
+  Width: xx mm
+  Length: xx mm
+Environmental temperature: 
+ -40°C to + 85°C (-40 to 185°F)
