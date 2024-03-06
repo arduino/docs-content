@@ -11,6 +11,7 @@ primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#samd
 primary_button_title: Get Started
 secondary_button_url: /tutorials/generic/WiFiNINAFirmwareUpdater
 secondary_button_title: Update Firmware
+sku: [ABX00023]
 ---
 
 <SubTitle>The easiest entry point to basic IoT and pico-network application design.</SubTitle>

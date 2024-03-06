@@ -2,7 +2,7 @@
 title: "Arduino Engineering Kit"
 description: "Challenge engineering students and help them develop engineering skills with the Arduino Engineering Kit"
 coverImage: "assets/engineering_kit_featured_1.jpg"
-sku: "AKX00004"
+sku: [AKX00004]
 source: "https://store.arduino.cc/arduino-engineering-kit"
 ---
 

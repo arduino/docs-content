@@ -2,7 +2,7 @@
 title: "Arduino Ethernet Rev3 with PoE"
 description: "An Arduino Uno incorporating a WizNet W5100 TCP IP Ethernet Controller."
 coverImage: "assets/a000074_featured.jpg"
-sku: "A000074"
+sku: [A000074]
 source: "https://store.arduino.cc/arduino-ethernet-rev3-with-poe"
 ---
 
@@ -43,7 +43,7 @@ This version has the power-over-Ethernet (PoE) module soldered to the board to p
 
 Arduino Ethernet Shield is open-source hardware. However the schematics or eagle files for the POE addon are currently unavailable. You can build your own Ethernet shield using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-R3-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-R3-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-R3-schematic.pdf)
 
@@ -142,7 +142,7 @@ If you want to use a FTDI cable to download your sketches on the Arduino Etherne
 |Input Voltage Plug (limits)                    |6-20V|
 |Input Voltage PoE (limits)                     |36-57V|
 |Digital I/O Pins                               |14 (of which 4 provide PWM output)|
-|Arduino Pins reserved:                         ||   
+|Arduino Pins reserved:                         ||
 |                                               | 10 to 13 used for SPI|
 |                                               |4 used for SD card|
 |                                               |2 W5100 interrupt (when bridged)|

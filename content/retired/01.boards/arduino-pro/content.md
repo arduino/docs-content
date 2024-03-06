@@ -3,7 +3,7 @@ title: "Arduino Pro"
 description: "It is blue! It is skinny! It is the Arduino Pro! This is a 5V (16MHz) or 3.3V (8MHz) Arduino in a super-sleek form factor that will fit easily into your next small project"
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoPro"
 coverImage: "assets/e000023_featured.jpg"
-sku: "E000023"
+sku: [E000023]
 source: "https://store.arduino.cc/arduino-pro"
 ---
 
@@ -29,7 +29,7 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ar
 
 Arduino PRO is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-pro-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-pro-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/Arduino-Pro-schematic.pdf)
 
@@ -60,25 +60,25 @@ Each of the 14 digital pins on the Pro can be used as an input or output, using 
 
 ### Communication
 
-The Arduino Pro has a number of facilities for communicating with a computer, another Arduino, or other microcontrollers. The ATmega328 provides UART TTL serial communication, which is available on digital pins 0 (RX) and 1 (TX). The Arduino software includes a serial monitor which allows simple textual data to be sent to and from the Arduino board via a USB connection.  
+The Arduino Pro has a number of facilities for communicating with a computer, another Arduino, or other microcontrollers. The ATmega328 provides UART TTL serial communication, which is available on digital pins 0 (RX) and 1 (TX). The Arduino software includes a serial monitor which allows simple textual data to be sent to and from the Arduino board via a USB connection.
 
-A [SoftwareSerial library](https://docs.arduino.cc/learn/built-in-libraries/software-serial) allows for serial communication on any of the Pro's digital pins.   
-  
+A [SoftwareSerial library](https://docs.arduino.cc/learn/built-in-libraries/software-serial) allows for serial communication on any of the Pro's digital pins.
+
 The ATmega328 also supports I2C (TWI) and SPI communication. The Arduino software includes a Wire library to simplify use of the I2C bus; see the [reference](https://www.arduino.cc/reference/en/language/functions/communication/wire/) for details. To use the SPI communication, please see the ATmega328 datasheet.
 
 ### Programming
 
-The Arduino Pro can be programmed with the Arduino software [download](https://www.arduino.cc/en/software). For details, see the[reference](https://www.arduino.cc/reference/en/) and [tutorials](https://docs.arduino.cc/tutorials/). The ATmega328 on the Arduino Pro comes preburned with a [bootloader](https://docs.arduino.cc/hacking/software/Bootloader)that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol [reference](http://www.atmel.com/dyn/resources/prod_documents/doc2525.pdf), [C header files](http://www.atmel.com/dyn/resources/prod_documents/avr061.zip).   
+The Arduino Pro can be programmed with the Arduino software [download](https://www.arduino.cc/en/software). For details, see the[reference](https://www.arduino.cc/reference/en/) and [tutorials](https://docs.arduino.cc/tutorials/). The ATmega328 on the Arduino Pro comes preburned with a [bootloader](https://docs.arduino.cc/hacking/software/Bootloader)that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol [reference](http://www.atmel.com/dyn/resources/prod_documents/doc2525.pdf), [C header files](http://www.atmel.com/dyn/resources/prod_documents/avr061.zip).
 
 You can also bypass the bootloader and program or ATmega328 with an external programmer; see[these instructions](https://docs.arduino.cc/hacking/software/Programmer) for details.
 
 ### Automatic (Software) Reset
 
-Rather then requiring a physical press of the reset button before an upload, the Arduino Pro is designed in a way that allows it to be reset by software running on a connected computer. One of the pins on the six-pin header is connected to the reset line of the ATmega328 via a 100 nanofarad capacitor. This pin connects to one of the hardware flow control lines of the USB-to-serial converter connected to the header: RTS when using an FTDI cable, DTR when using the Sparkfun breakout board. When this line is asserted (taken low), the reset line drops long enough to reset the chip.   
+Rather then requiring a physical press of the reset button before an upload, the Arduino Pro is designed in a way that allows it to be reset by software running on a connected computer. One of the pins on the six-pin header is connected to the reset line of the ATmega328 via a 100 nanofarad capacitor. This pin connects to one of the hardware flow control lines of the USB-to-serial converter connected to the header: RTS when using an FTDI cable, DTR when using the Sparkfun breakout board. When this line is asserted (taken low), the reset line drops long enough to reset the chip.
 
-The Arduino software uses this capability to allow you to upload code by simply pressing the upload button in the Arduino environment. This means that the bootloader can have a shorter timeout, as the lowering of the reset line can be well-coordinated with the start of the upload.   
+The Arduino software uses this capability to allow you to upload code by simply pressing the upload button in the Arduino environment. This means that the bootloader can have a shorter timeout, as the lowering of the reset line can be well-coordinated with the start of the upload.
 
-This setup has other implications. When the Pro is connected to either a computer running Mac OS X or Linux, it resets each time a connection is made to it from software (via USB). For the following half-second or so, the bootloader is running on the Pro. While it is programmed to ignore malformed data (i.e. anything besides an upload of new code), it will intercept the first few bytes of data sent to the board after a connection is opened.   
+This setup has other implications. When the Pro is connected to either a computer running Mac OS X or Linux, it resets each time a connection is made to it from software (via USB). For the following half-second or so, the bootloader is running on the Pro. While it is programmed to ignore malformed data (i.e. anything besides an upload of new code), it will intercept the first few bytes of data sent to the board after a connection is opened.
 
 If a sketch running on the board receives one-time configuration or other data when it first starts, make sure that the software with which it communicates waits a second after opening the connection and before sending this data.
 
