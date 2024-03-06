@@ -6,7 +6,8 @@ primary_button_url: /tutorials/nano-screw-terminal-adapter/getting-started-nano-
 primary_button_title: Get Started
 certifications: [CE, FCC, IC, RCM, REACH, RoHS, UKCA, WEEE]
 forumCategorySlug: '/hardware/12'
-sku: [ASX00037]
+sku: [ASX00037, ASX00037-3P]
+
 ---
 
 The Nano Screw Terminal Adapter is a simple design that allows you to create robust designs with your Nano boards.
