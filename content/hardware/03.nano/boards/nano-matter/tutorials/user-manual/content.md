@@ -42,7 +42,7 @@ The Nano Matter merges the well-known Arduino way of making complex technology m
 The Nano Matter features a compact and efficient architecture powered by the MGM240S (32-bit ARM Cortex®-M33) from Silicon Labs, a high-performance wireless module
 optimized for the needs of battery and line-powered IoT devices for 2.4 GHz mesh networks. 
 
-![Nano Matter main components](assets/architecture-top.png)
+![Nano Matter's main components](assets/architecture-top.png)
 
 Here is an overview of the board's main components, as shown in the images above:
 
@@ -99,6 +99,8 @@ For low-power consumption applications, the following hacks are recommended:
 
 ![Image showing the LED jumper and external 3.3V power](assets/)
 
+***To power the board through the VIN pin you need to close the jumper pads with solder. The máximum voltage supported is +5 VDC.***
+
 ### Hello World Example
 
 Let's program the Arduino Nano Matter with the classic `hello world` example typical of the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the board is correctly connected to the Arduino IDE and that the Silicon Labs core and the board itself are working as expected. 
@@ -125,72 +127,11 @@ For the Nano Matter, the `LED_BUILTIN` macro represents the **red LED** of the b
 
 To upload the code to the Nano Matter, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
 
-![Uploading a sketch to the Nicla Sense ME in the Arduino IDE](assets/compile-blink.png)
+![Uploading a sketch to the Nano Matter in the Arduino IDE](assets/compile-blink.png)
 
-You should now see all the LEDs of the built-in RGB LED turn on for one second, then off for one second, repeatedly.
+You should now see the red LED of the built-in RGB LED turning on for one second, then off for one second, repeatedly.
 
-![Hello World example running in the Nicla Sense ME](assets/White-blink.gif)
-
-### Battery Charging 
-
-One of the characteristic features of the Nicla Sense ME is power management, the BQ25120 battery charger IC is configurable by the user, which means that its charging parameters can be customized by software. We listed the main ones below:
-
-- **Enable charging:** If you are powering the board with a rechargeable battery, you may want it to be recharged, the IC lets you enable the charging function by calling `nicla::enableCharging()`.
-
-- **Battery charging current:** A safe default charging current value that works for most common LiPo batteries is 0.5C, which means charging at a rate equal to half of the battery's capacity. For example, a 200mAh battery could be charged at 100mA (0.1A).
-
-  The desired current must be set as the parameter of the enabling function:
-    `nicla::enableCharging(100)`.
-
-  When the function parameter is left blank, the default current is 20mA.
-
-- **Battery NTC:** If your battery has an NTC to measure its temperature, you can enable it by calling this function: `nicla::setBatteryNTCEnabled(true)`, if not, set the argument to *false*. 
-
-- **Battery maximum charging time:** To get an estimation of the charging time, you can use the following formula:
-
-  `Charging time (in hours) = (Battery capacity in mAh) / (0.8 * Charging current in mA)`
-
-  This formula takes into account that the charging process is approximately 80% efficient (hence the 0.8 factor). This is just a rough estimate, and actual charging time may vary depending on factors like the charger, battery quality, and charging conditions.
-
-  To set a charging time of nine hours, define it as follows:
-
-  `nicla::configureChargingSafetyTimer(ChargingSafetyTimerOption::NineHours)`
-
-- **Get the battery voltage:** To monitor the battery voltage you just need to store the returned value of the following function in a *float* variable:
-
-  `float currentVoltage = nicla::getCurrentBatteryVoltage();`
-
-- **Get the power IC operating status:** In order to know if the battery is fully charged, charging, or presents any error, you can check its status using this code block:
-
-```arduino
-auto operatingStatus = nicla::getOperatingStatus();
-
-    switch(operatingStatus) {
-      case OperatingStatus::Charging:
-      nicla::leds.setColor(255,100,0); // Yellow
-        break;
-      case OperatingStatus::ChargingComplete:
-        nicla::leds.setColor(green);
-        
-        // This will stop further charging until enableCharging() is called again.
-        nicla::disableCharging();
-        break;
-      case OperatingStatus::Error:
-        nicla::leds.setColor(red);
-        break;
-      case OperatingStatus::Ready:
-        nicla::leds.setColor(blue);
-        break;
-      default:
-        nicla::leds.setColor(off);
-        break;
-    }
-```
-
-To extend your knowledge on this topic, refer to the board examples by navigating to "**File > Examples > Nicla_Sense_System**", and choose between both examples:
-
-- `NiclaSenseME_BatteryStatus`
-- `NiclaSenseME_BatteryChargingSimple`
+![Hello World example running in the Nano Matter](assets/White-blink.gif)
 
 ## Pins
 ### Analog Pins
