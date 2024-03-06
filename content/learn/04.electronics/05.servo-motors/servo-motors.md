@@ -65,13 +65,13 @@ The signal pin is typically yellow or orange and should be connected to PWM pin 
 
 For the **Knob** example, wire the potentiometer so that its two outer pins are connected to power (+5V) and ground, and its middle pin is connected to `A0` on the board. Then, connect the servo motor as shown in the circuit below.
 
-![The Knob Circuit.](./assets/servo_circuit_knob.png)
+![The Knob Circuit.](./assets/servo_circuit_knob-pot.png)
 
 ### Sweep Circuit
 
 For the **Sweep** example, connect the servo motor as shown in the circuit below.
 
-![The Sweep Circuit.](./assets/servo_circuit_knob-pot.png)
+![The Sweep Circuit.](./assets/servo_circuit_knob.png)
 
 ## Examples
 
