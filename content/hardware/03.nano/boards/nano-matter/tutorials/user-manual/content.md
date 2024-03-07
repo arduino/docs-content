@@ -131,59 +131,81 @@ To upload the code to the Nano Matter, click the **Verify** button to compile th
 
 You should now see the red LED of the built-in RGB LED turning on for one second, then off for one second, repeatedly.
 
-![Hello World example running in the Nano Matter](assets/White-blink.gif)
+![Hello World example running in the Nano Matter](assets/blink.gif)
 
 ## Pins
 ### Analog Pins
 
-The Nicla Sense ME has **two analog input pins**, mapped as follows:
+The Nano Matter has **17 analog input pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|      ADC1/P0_02     |           A0          |
-|      ADC2/P0_30     |           A1          |
+|          PB00           |           A0            |
+|          PB02           |           A1            |
+|          PB05           |           A2            |
+|          PC00           |           A3            |
+|          PA06           |           A4            |
+|          PA07           |           A5            |
+|          PB01           |           A6            |
+|          PB03           |           A7            |
+|          PB04           |           13            |
+|          PA08           |           12            |
+|          PA09           |           11            |
+|          PD03           |            8            |
+|          PD02           |            7            |
+|          PC09           |            6            |
+|          PC08           |            5            |
+|          PC07           |            4            |
+|          PC06           |            3            |
 
-Both pins can be used through the built-in functions of the Arduino programming language. 
+***Digital I/O's can also be used as analog inputs with some exceptions.***
 
-Nicla boards ADC can be configured to 8, 10 or 12 bits defining the argument of the following function respectively (default is 10 bits):
+Analog input pins can be used through the built-in functions of the Arduino programming language. 
+
+Nano Matter ADC resolution is fixed to 12 bits and can not be changed by the user.
+
+The Nano Matter ADC reference voltage is 3.3 V by default, it can be configured using the function `analogReference()` with the following arguments:
+
+
+|   **Argument**   |        **Description**         |
+|:----------------:|:------------------------------:|
+|  AR_INTERNAL1V2  |    Internal 1.2V reference     |
+| AR_EXTERNAL_1V25 |    External 1.25V reference    |
+|      AR_VDD      |   VDD (unbuffered to ground)   |
+|     AR_08VDD     | 0.8 * VDD (buffered to ground) |
+|      AR_MAX      |         Maximum value          |
+
+To set a different analog reference from the default one, see the following example:
 
 ```arduino
-analogReadResolution(12);  // ADC resolution set to 12 bits (0-4095)
+analogReference(AR_INTERNAL1V2); 
 ```
 
-***The Nicla boards ADC reference voltage is fixed to 1.8V, this means that it will map the ADC range from 0 to 1.8 volts.***
-
-The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor. To understand how to properly connect a potentiometer to the Nicla Sense ME pins, take the following image as a reference:
+The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor. To understand how to properly connect a potentiometer to the Nano Matter, take the following image as a reference:
 
 ![ADC input example wiring](assets/ADC-input.svg)
 
 ```arduino
-#include "Nicla_System.h"
-
 int sensorPin = A0;   // select the input pin for the potentiometer
+
 int sensorValue = 0;  // variable to store the value coming from the sensor
 
 void setup() {
-
-  analogReadResolution(12); // ADC bits configuration
-  nicla::begin();           // Nicla peripherals initialization, this enables the VDDIO_EXT 3.3V output.
-  Serial.begin(115200);     // Serial initialization
+  Serial.begin(115200); 
 }
 
 void loop() {
   // read the value from the sensor:
   sensorValue = analogRead(sensorPin);
-  // print the value
+
   Serial.println(sensorValue);
-  delay(1000);
+  delay(100);
 }
 ```
 
-***The ADC inputs support 3.3V even when the ADC reference is 1.8V. In this perspective, the ADC will not sense any change from 1.8V and above.***
-
 ### Digital Pins
 
-The Nicla Sense ME has **twelve digital pins**, mapped as follows:
+The Nano Matter has **twelve digital pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
