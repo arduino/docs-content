@@ -134,29 +134,31 @@ You should now see the red LED of the built-in RGB LED turning on for one second
 ![Hello World example running in the Nano Matter](assets/blink.gif)
 
 ## Pins
-### Analog Pins
+### Analog Input Pins (ADC)
 
-The Nano Matter has **17 analog input pins**, mapped as follows:
+The Nano Matter has **19 analog input pins**, mapped as follows:
 
-| **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|          PB00           |           A0            |
-|          PB02           |           A1            |
-|          PB05           |           A2            |
-|          PC00           |           A3            |
-|          PA06           |           A4            |
-|          PA07           |           A5            |
-|          PB01           |           A6            |
-|          PB03           |           A7            |
-|          PB04           |           13            |
-|          PA08           |           12            |
-|          PA09           |           11            |
-|          PD03           |            8            |
-|          PD02           |            7            |
-|          PC09           |            6            |
-|          PC08           |            5            |
-|          PC07           |            4            |
-|          PC06           |            3            |
+| **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
+|:-----------------------:|:-----------------------:|:---------------------:|
+|          PB00           |           A0            |      GPIO/ADC      |
+|          PB02           |           A1            |      GPIO/ADC      |
+|          PB05           |           A2            |      GPIO/ADC      |
+|          PC00           |           A3            |      GPIO/ADC      |
+|          PA06           |           A4            |    I2C/GPIO/ADC    |
+|          PA07           |           A5            |    I2C/GPIO/ADC    |
+|          PB01           |           A6            |      GPIO/ADC      |
+|          PB03           |           A7            |      GPIO/ADC      |
+|          PB04           |           13            |    SPI/GPIO/ADC    |
+|          PA08           |           12            |    SPI/GPIO/ADC    |
+|          PA09           |           11            |    SPI/GPIO/ADC    |
+|          PD03           |            8            |      GPIO/ADC      |
+|          PD02           |            7            |      GPIO/ADC      |
+|          PC09           |            6            |      GPIO/ADC      |
+|          PC08           |            5            |      GPIO/ADC      |
+|          PC07           |            4            |      GPIO/ADC      |
+|          PC06           |            3            |      GPIO/ADC      |
+|          PA04           |           TX            |   UART/GPIO/ADC    |
+|          PA05           |           RX            |   UART/GPIO/ADC    |
 
 ***Digital I/O's can also be used as analog inputs with some exceptions.***
 
@@ -203,30 +205,100 @@ void loop() {
 }
 ```
 
+### Analog Output Pins (DAC)
+
+The Nano Matter has **one DAC** with two channels, mapped as follows:
+
+| **Microcontroller Pin** | **Arduino Name** | **Board Pin Output** | **Peripheral** |
+|:-----------------------:|:----------------:|:--------------------:|:--------------:|
+|          PB00           |       DAC0       |          A0          |    DAC0_CH0    |
+|          PB01           |       DAC1       |          A6          |    DAC0_CH1    |
+
+The digital-to-analog converters of the Nano Matter can be used as outputs through the built-in functions of the Arduino programming language.
+
+The DAC output resolution can be configured using the `analogWriteResolution()` function as follows:
+
+```arduino
+analogWriteResolution(12);  // enter the desired resolution in bits (8,10,12)
+```
+The DAC voltage reference can be configured using the `analogReferenceDAC()` function. The available setups are listed below:
+
+|     **Argument**      |     **Description**      |
+|:---------------------:|:------------------------:|
+|     DAC_VREF_1V25     | Internal 1.25V reference |
+|     DAC_VREF_2V5      | Internal 2.5V reference  |
+|     DAC_VREF_AVDD     |        Analog VDD        |
+| DAC_VREF_EXTERNAL_PIN |    External AREF pin     |
+
+```arduino
+analogReferenceDAC(DAC_VREF_2V5);  // enter the desired reference as argument
+```
+To output an analog voltage value through a DAC pin, use the `analogWrite()` function with the **DAC channel** as an argument. See the example below:
+
+```arduino
+analogWrite(DAC0, value);   // the value should be in the range of the DAC resolution (e.g. 0-4095 with a 12 bits resolution)
+```
+
+***If a normal GPIO is passed to the analogWrite() function, the output will be a PWM signal.***
+
+The following sketch will create a **sawtooth** wave signal in the `A0` Nano Matter pin:
+
+```arduino
+void setup()
+{
+  Serial.begin(115200);
+  // Set the DAC resolution to 8 bits
+  analogWriteResolution(8);
+  // Select the 2.5V reference voltage (feel free to change it)
+  analogReferenceDAC(DAC_VREF_2V5);
+}
+
+void loop()
+{
+  static int value = 0;
+  analogWrite(DAC0, value);
+  Serial.println(value);
+
+  value++;
+  if (value == 255) {
+    value = 0;
+  }
+}
+```
+
+The DAC output should look like the image below:
+
+![DAC output image]()
+
 ### Digital Pins
 
-The Nano Matter has **twelve digital pins**, mapped as follows:
+The Nano Matter has **19 digital pins**, mapped as follows:
 
-| **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|         P0_10         |           0           |
-|         P0_09         |           1           |
-|         P0_20         |           2           |
-|         P0_23         |           3           |
-|         P0_22         |           4           |
-|         P0_24         |           5           |
-|         P0_29         |           6           |
-|         P0_27         |           7           |
-|         P0_28         |           8           |
-|         P0_11         |           9           |
-|         P0_02         |           A0          |
-|         P0_30         |           A1          |
+| **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
+|:-----------------------:|:-----------------------:|:---------------------:|
+|          PB00           |           A0            |      GPIO/ADC      |
+|          PB02           |           A1            |      GPIO/ADC      |
+|          PB05           |           A2            |      GPIO/ADC      |
+|          PC00           |           A3            |      GPIO/ADC      |
+|          PA06           |           A4            |    I2C/GPIO/ADC    |
+|          PA07           |           A5            |    I2C/GPIO/ADC    |
+|          PB01           |           A6            |      GPIO/ADC      |
+|          PB03           |           A7            |      GPIO/ADC      |
+|          PB04           |           13            |    SPI/GPIO/ADC    |
+|          PA08           |           12            |    SPI/GPIO/ADC    |
+|          PA09           |           11            |    SPI/GPIO/ADC    |
+|          PD03           |            8            |      GPIO/ADC      |
+|          PD02           |            7            |      GPIO/ADC      |
+|          PC09           |            6            |      GPIO/ADC      |
+|          PC08           |            5            |      GPIO/ADC      |
+|          PC07           |            4            |      GPIO/ADC      |
+|          PC06           |            3            |      GPIO/ADC      |
+|          PA04           |           TX            |   UART/GPIO/ADC    |
+|          PA05           |           RX            |   UART/GPIO/ADC    |
 
-Notice that analog pins `A0` and `A1` (`P0_02` and `P0_30`) can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to check their location.
+***Notice that GPIO's as `D2`,`D9` and `D10` are reserved and can not be used as analog or digital.*** 
 
-The digital pins of the Nicla Sense ME can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
-
-***The Nicla Sense ME digital I/O's are low power, so to drive output devices like LEDs, resistive loads, buzzers, etc, it is recommended to use a MOSFET driver or a buffer to guarantee the required current flow. Learn more about the Nicla I/O's considerations [here](https://docs.arduino.cc/learn/hardware/nicla-form-factor).***
+The digital pins of the Nano Matter can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
 
 The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
 
@@ -258,14 +330,14 @@ digitalWrite(pin, HIGH);
 digitalWrite(pin, LOW);    
 ```
 
-The example code shown below uses digital pin `3` to control an LED and reads the state of a button connected to digital pin `2`:
+The example code shown below uses digital pin `5` to control an LED and reads the state of a button connected to digital pin `4`:
 
-![Digital I/O example wiring](assets/digital-io-mosfet.svg)
+![Digital I/O example wiring](assets/)
 
 ```arduino
 // Define button and LED pin
-int buttonPin = 2;
-int ledPin = 3;
+int buttonPin = 4;
+int ledPin = 5;
 
 // Variable to store the button state
 int buttonState = 0;
