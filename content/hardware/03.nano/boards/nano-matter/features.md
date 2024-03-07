@@ -4,9 +4,13 @@ The Nano Matter combines Arduino's user-friendly approach with the powerful MGM2
 
 Using Nano's small form factor, Arduino makes it simpler for Makers to use Silicon Lab's technology, making working with Matter-compatible devices more straightforward than ever. With the Nano Matter:
 
-- Makers can create devices that connect and communicate with other devices that use Matter.
-- Makers can update their existing Nano projects to become smart home devices.
-- Makers can also try out different communication standards like Zigbee® and OpenThread®.
+- Create, connect, and communicate with Matter-compatible devices with a user-friendly coding interface.
+- Upgrade Arduino Nano projects to smart home applications using multiple connectivity options like 802.15.4 Thread® and Bluetooth® Low Energy in a compact form factor.
+- Experiment with multiple communication protocols, including Zigbee® and OpenThread®, making it an ideal prototyping tool for scalable professional applications.
+- Protect your projects against digital threats thanks to enhanced security with the embedded Secure Vault® technology.
+- Benefit from always-on data processing capabilities thanks to low power consumption, ensuring your projects are efficient and responsive.
+- Start debugging easily using the debugging over the USB feature, simplifying the troubleshooting process for a smoother development experience.
+
 
 </FeatureDescription>
 
@@ -16,7 +20,7 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
   </Feature>
 
   <Feature title="Tiny footprint" image="nano-form-factor">
-    With a length of xx mm and a width of xx mm the Nano Matter, it maintains tiny footprint of the well known Nano family, allowing easy upgrade for existing projects.
+    With a length of 45 mm and a width of 18 mm the Nano Matter, it maintains tiny footprint of the well known Nano family, allowing easy upgrade for existing projects.
   </Feature>
 
   <Feature title="Low power consumption" image="power">
@@ -40,9 +44,5 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
     <FeatureWrapper>
     <FeatureLink title="Go to Platform" url="https://app.arduino.cc/"/>
     </FeatureWrapper>
-  </Feature>
-
-  <Feature title="Bluetooth®" image="bluetooth">
-    The Nano Matter is Bluetooth® enabled allowing you to control peripheral devices via bluetooth and start implementing Bluetooth® Low Energy applications.
   </Feature>
 </FeatureList>
