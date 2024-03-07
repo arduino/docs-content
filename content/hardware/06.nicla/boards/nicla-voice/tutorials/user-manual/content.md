@@ -1436,7 +1436,8 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
 - In the `setup()` function, the code initializes the Nicla Voice board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
 - A Bluetooth® Low Energy connection is constantly verified in the `loop()` function, being the build-in LED in red while looking for a connection. When a central device connects to the Nicla Voice, its built-in LED will change its color to blue. The code then enters into a loop that constantly reads the voltage level from an analog input and maps it to a percentage value between 0 and 100. The voltage level is printed to the Serial Monitor and transmitted to the central device over the defined Bluetooth® Low Energy characteristic.
 
-You can use the [nRF Connect for Mobile](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-mobile) app from Nordic Semiconductor® to test the functionality of the example code shown below. nRF Connect is a powerful tool that allows you to scan and explore Bluetooth Low Energy® devices and communicate with them.
+You can use the [nRF Connect for Mobile](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-mobile) app from Nordic Semiconductor to test the functionality of the example code shown below. nRF Connect is a powerful tool that allows you to scan and explore Bluetooth® Low Energy devices and communicate with them.
+
 
 ![Bluetooth® Low Energy service and characteristic information from a Nicla Voice device](assets/user-manual-bt.png)
 
