@@ -27,8 +27,8 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
     Protect your project with the industry-leading suite of state-of-the-art security features that address escalating Internet of Things (IoT) threats from Silicon Labs.
   </Feature>
 
-  <Feature title="Multiprotocol connectivity" image="communication">
-    It enables 802.15.4 (Thread) and Bluetooth® Low Energy connectivity.
+  <Feature title="Multiprotocol connectivity" image="wifi-bluetooth">
+    Leverage dual-mode connectivity, integrating both IEEE 802.15.4 (Thread) for mesh networking and Bluetooth® Low Energy for short-range communication in a highly compact form factor.
   </Feature>
 
   <Feature title="Arduino Cloud" image="wifi">

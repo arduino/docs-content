@@ -13,7 +13,7 @@ Pins:
   SPI pins: 4
 Connectivity:
   Matter: Matter-ready Smart Home Connectivity
-  Wi-Fi®: 802.15.4 (Thread)
+  Wi-Fi®: IEEE 802.15.4 w/ Thread
   Bluetooth®: Bluetooth 5.3 & Bluetooth Mesh
 Additional Compatible Protocols: Zigbee® & OpenThread®
 Connectivity Band Frequency: On-board 2.4 GHz
@@ -27,6 +27,7 @@ Digital-to-analog converter (DAC):
 Pulse Width Modulation (PWM):
   Channels: 5
   Maximum simultaneously operational channel: 5
+External Interrupts: Available within all Digital pins
 Communication:
   UART: 1
   I2C: 1

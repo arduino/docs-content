@@ -8,14 +8,14 @@
 </EssentialsColumn>
     
 <EssentialsColumn title="Suggested Libraries">
+  <EssentialElement title="Silicon Labs Arduino Core" type="library" link="https://github.com/SiliconLabs/arduino">
+    The Silicon Labs Arduino Core enables hardware built with Silicon Labs systems to be used with the Arduino ecosystem.
+  </EssentialElement>
   <EssentialElement title="WiFiNINA" type="library" link="https://www.arduino.cc/en/Reference/WiFiNINA">
     The WiFiNINA library is designed to use the NINA-W102 module, which allows your Arduino to connect to the Internet, either as a server accepting incoming connections or a client making outgoing ones.
   </EssentialElement>
   <EssentialElement title="ArduinoBLE" type="library" link="https://www.arduino.cc/en/Reference/ArduinoBLE">
     The ArduinoBLE library is designed for Arduino boards that have hardware enabled for Bluetooth® Low Energy and Bluetooth® 4.0 and above. 
-  </EssentialElement>
-  <EssentialElement title="ArduinoMqttClient" type="library" link="https://www.arduino.cc/reference/en/libraries/arduinomqttclient/">
-    The ArduinoMqttClient library allows you to send and receive MQTT messages using Arduino. Connect to brokers, publish and subscribe to topics. A great library for devices to communicate over the Internet.
   </EssentialElement>
 </EssentialsColumn>
 
