@@ -1,6 +1,12 @@
 <FeatureDescription>
 
-The Arduino Nano Matter
+The Nano Matter combines Arduino's user-friendly approach with the powerful MGM240S technology from Silicon Labs, making it easier for Makers to work with Matter, a popular standard for connecting IoT devices, in a very compact design.
+
+Using Nano's small form factor, Arduino makes it simpler for Makers to use Silicon Lab's technology, making working with Matter-compatible devices more straightforward than ever. With the Nano Matter:
+
+- Makers can create devices that connect and communicate with other devices that use Matter.
+- Makers can update their existing Nano projects to become smart home devices.
+- Makers can also try out different communication standards like Zigbee® and OpenThread®.
 
 </FeatureDescription>
 
@@ -10,7 +16,7 @@ The Arduino Nano Matter
   </Feature>
 
   <Feature title="Tiny footprint" image="nano-form-factor">
-    With a length of 45 mm and a width of 18 mm the Nano Matter, it maintains tiny footprint of the well known Nano family, allowing easy upgrade for existing projects.
+    With a length of xx mm and a width of xx mm the Nano Matter, it maintains tiny footprint of the well known Nano family, allowing easy upgrade for existing projects.
   </Feature>
 
   <Feature title="Low power consumption" image="power">

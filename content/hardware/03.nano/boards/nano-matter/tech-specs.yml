@@ -1,7 +1,7 @@
 Board:
   Name: Arduino® Nano Matter
-  SKU: A
-Microprocessor: MGM240SD22VNA (32-bit ARM Cortex®-M33 with DSP instruction and FPU)
+  SKU: ABX00112
+Microprocessor: MGM240SD22VNA 32-bit ARM Cortex®-M33 with DSP instruction and FPU
 Clock speed: 78 MHz
 USB connector: USB-C®
 Pins:
@@ -26,7 +26,7 @@ Digital-to-analog converter (DAC):
   Resolution: 12 bits 
 Pulse Width Modulation (PWM):
   Channels: 5
-  Maximum simulataneously operational channel: 5
+  Maximum simultaneously operational channel: 5
 Communication:
   UART: 1
   I2C: 1
