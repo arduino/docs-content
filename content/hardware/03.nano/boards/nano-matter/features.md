@@ -27,6 +27,10 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
     Protect your project with the industry-leading suite of state-of-the-art security features that address escalating Internet of Things (IoT) threats from Silicon Labs.
   </Feature>
 
+  <Feature title="Debugging over USB" image="hw-pin">
+    No external debugging probe needed. Connect the board to the computer over USB and have access to a SWD interface. 
+  </Feature>
+
   <Feature title="Multiprotocol connectivity" image="wifi-bluetooth">
     Leverage dual-mode connectivity, integrating both IEEE 802.15.4 (Thread) for mesh networking and Bluetooth® Low Energy for short-range communication in a highly compact form factor.
   </Feature>
