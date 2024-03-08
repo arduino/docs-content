@@ -499,6 +499,7 @@ The Nano Matter supports SPI communication, which allows data transmission betwe
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
+|      PD05     |       SS or 10      |
 |      PA09     |       MOSI or 11     |
 |      PA08     |       MISO or 12     |
 |      PB04     |       SCK or 13      |
@@ -511,9 +512,10 @@ Include the `SPI` library at the top of your sketch to use the SPI communication
 #include <SPI.h>
 ```
 
-In the `setup()` function, initialize the SPI library, define and configure the chip select (`CS`) pin:
+In the `setup()` function, initialize the SPI library, define and configure the chip select (`SS`) pin:
 
 ```arduino
+
 void setup() {
   // Set the chip select pin as output
   pinMode(SS, OUTPUT); 
@@ -550,18 +552,18 @@ digitalWrite(SS, HIGH);
 
 The example code above should output this:
 
-![SPI logic data output](assets/SPI.png)
+![SPI logic data output](assets/spi-example.png)
 
 ### I2C
 
-The Nicla Sense ME supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Nicla Sense ME for the I2C communication protocol are the following:
+The Nano Matter supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Nano Matter for the I2C communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|         P0_23         |       SCL or 3      |
-|         P0_22         |       SDA or 4      |
+|         PA06         |       I2C_SDA or A4      |
+|         PA07         |       I2C_SCL or A5      |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board. The I2C pins are also available through the Nicla Sense ME ESLOV connector.
+Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
 To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
 
@@ -603,7 +605,7 @@ Wire.endTransmission();
 
 The output data should look like the image below, where we can see the device address data frame:
 
-![I2C output data](assets/i2c.png)
+![I2C output data](assets/i2c-example.png)
 
 
 To read data from an I2C-compatible device, you can use the `requestFrom()` function to request data from the device and the `read()` function to read the received bytes:
@@ -626,12 +628,12 @@ while (Wire.available()) {
 
 ### UART
 
-The pins used in the Nicla Sense ME for the UART communication protocol are the following:
+The pins used in the Nano Matter for the UART communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|         P0_09         |       RX or 1       |
-|         P0_20         |       TX or 2       |
+|         PA05         |       RX       |
+|         PA04         |       TX        |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
@@ -686,6 +688,8 @@ Serial1.print("Hello world!");
 // Transmit the string "Hello world!" followed by a newline character
 Serial1.println("Hello world!");
 ```
+
+![Serial communication example](assets/uart-example.png)
 
 ### Bluetooth® Low Energy
 
@@ -822,167 +826,6 @@ The example code shown above creates a Bluetooth® Low Energy service and charac
 Using the nRF Connect app (available for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=es_419&gl=US) and [iOS](https://apps.apple.com/us/app/nrf-connect-for-mobile/id1054362403?platform=iphone)) you can easily connect to your Nicla Sense ME and monitor the battery level in real time.
 
 ![Battery level monitored from the nRF Connect app](assets/battery-monitor.png)
-
-### ESLOV Connector 
-
-The Nicla Sense ME board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies the interaction between the Nicla Sense ME and various sensors, actuators, and other modules, without soldering or wiring.
-
-![Nicla Sense ME built-in ESLOV connector](assets/eslov.png)
-
-The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
-
-The manufacturer part number of the ESLOV connector is SM05B-SRSS and its matching receptacle manufacturer part number is SHR-05V-S-B. 
-
-The pin layout of the ESLOV connector is the following:
-
-1. VCC_IN (5V input)
-2. INT
-3. SCL
-4. SDA
-5. GND
-
-## Arduino Cloud
-
-The Nicla Sense ME does not have built-in Wi-Fi®, so it can not be directly connected to the internet. For this, we need to use a Wi-Fi® capable Arduino board as a host for the Nicla.
-
-In this example, a Portenta C33 will be used as a gateway to forward Nicla Sense ME sensors data to the Arduino Cloud.
-
-### Nicla Sense ME Setup
-
-The **Nicla Sense ME** will be listening to the Host board to send back the required data. This is all automated via the libraries **Arduino_BHY2** and **Arduino_BHY2Host**.
-
-The code is available inside the examples provided with the Arduino_BHY2 Library. Open it by going to **Examples > Arduino_BHY2 > App.ino**.
-
-```arduino
-#include "Arduino.h"
-#include "Arduino_BHY2.h"
-
-// Set DEBUG to true in order to enable debug print
-#define DEBUG false
-
-void setup()
-{
-#if DEBUG
-  Serial.begin(115200);
-  BHY2.debug(Serial);
-#endif
-
-  BHY2.begin();   // this initialization enables the ESLOV and BLE communication
-}
-
-void loop()
-{
-  // Update and then sleep
-  BHY2.update(100);
-}
-```
-
-Upload the sketch above to the Nicla Sense ME using the Arduino IDE.
-
-### Arduino Cloud Setup
-
-To start using the Arduino Cloud, we first need to [log in or sign up](https://create.arduino.cc/iot/things).
-
-Once in, it is time to configure your Portenta C33. For this, follow this [section](https://docs.arduino.cc/tutorials/portenta-c33/user-manual#arduino-iot-cloud) on the Portenta C33 user manual.
-
-With a Thing already created, add a variable, in this case, "temperature" float type.
-
-![Adding the temperature variable to the Thing](assets/variable.png)
-
-Once the variable is added, let's define the Wi-Fi® credentials for the board, for this, click on your Thing Network setting and add your Wi-Fi® SSID and password:
-
-![Wi-Fi® credentials](assets/wifi.png)
-
-It is time to open the automatically generated sketch and modify the code. It should be replaced by the following:
-
-```arduino
-#include "thingProperties.h"
-#include "Arduino_BHY2Host.h"
-
-Sensor tempSensor(SENSOR_ID_TEMP);  // Temperature sensor ID
-
-void setup() {
-  Serial.begin(9600);
-  delay(1500);
-
-  Serial.print("Configuring the Arduino Cloud");
-  // Defined in thingProperties.h
-  initProperties();
-
-  // Connect to Arduino Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
-
-  Serial.println("Connecting to the Arduino Cloud");
-  while (ArduinoCloud.connected() != 1) {
-    ArduinoCloud.update();
-    delay(500);
-  }
-
-  delay(1500);
-  
-  Serial.println("Initialize the Nicla as a ESLOV connected device");
-  BHY2Host.begin(false, NICLA_VIA_ESLOV);  // use NICLA_VIA_BLE if a wireless connection is desired    
-  
-  tempSensor.configure(1,0);
-  temperature = tempSensor.value();   // take a first sample
-}
-
-void loop() {
-  
-  BHY2Host.update();
-  
-  temperature = tempSensor.value();
- 
-  ArduinoCloud.update();
-  
-  Serial.print("Temperature: ");
-  Serial.println(temperature);
-  
-  delay(2000);
-  
-}
-```
-***If you are interested in using a different sensor from the onboard options of the Nicla Sense ME, check all the sensors IDs on this [list](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-ids)***
-
-### Portenta C33 Setup
-
-Before uploading the code to the Portenta C33 code ready on the Arduino Cloud, let's connect everything together. 
-
-Using the ESLOV cable included with the Nicla Sense ME, connect both boards by their respective connectors as shown below:
-
-![ESLOV connection](assets/eslov-connection.svg)
-
-Upload the code to the Portenta C33 by connecting it to your computer using a USB cable and clicking on the upload button in the IoT Cloud editor.
-
-![Uploading the sketch to the Portenta C33](assets/code_upload.png)
-
-Finally, after searching for and connecting to your Wi-Fi® network, it will gather the temperature information from the Nicla Sense ME. Every 2 seconds it will forward it to the Cloud where we can monitor it from anywhere in the world and from any device.
-
-![Temperature monitor dashboard](assets/Dashboard2.gif)
-
-### Bluetooth® Low Energy Connection
-
-For Bluetooth® communication, substitute the line of code `BHY2Host.begin(false, NICLA_VIA_ESLOV);` with `BHY2Host.begin(false, NICLA_VIA_BLE);` in the host sketch so that the boards will bind wirelessly.
-
-![Bluetooth® Low Energy connection](assets/ble-connection.png)
-
-### Using the Nicla Sense ME as an MKR Shield
-
-Another way to communicate the Nicla Sense ME with a Portenta C33/H7 is by using it as a shield.
-
-To convert the Nicla Sense ME into a Shield, you will have to **solder** 2 rows of headers: one side has 9 pins and the other 8 pins; the long side of the headers needs to be on the **battery connectors side.**
-
-The host (Portenta C33/H7) will communicate through the BHY2Host library with the Nicla Sense ME (both devices communicate over I2C).
-
-To the Nicla Sense ME to communicate with the Arduino Cloud, set the communication method as `NICLA_AS_SHIELD` in the host sketch as follows:
-
-`BHY2Host.begin(false, NICLA_AS_SHIELD);`
-
-![Nicla Sense ME as a shield](assets/AS_SHIELD.png)
-
-***This setup works with the ESLOV cable too. Keep in mind that female headers or raw cables can be used as well, but make sure the connection of the pin matches the MKR pinout (3V3, GND, SCL and SDA).***
-
-***For a more detailed process on how to connect the Nicla Sense ME to the Arduino Cloud, follow this [guide](https://docs.arduino.cc/tutorials/nicla-sense-me/connecting-to-iot-cloud)***
 
 ## Support
 
