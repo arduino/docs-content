@@ -18,7 +18,7 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
     The Nano Matter is ready to interact with Matter-compatible devices with a user-friendly software layer for quick prototyping.
   </Feature>
 
-  <Feature title="MGM240SD22VNA 32-bit ARM Cortex®-M33" image="core">
+  <Feature title="MGM240SD22VNA 32-bit ARM Cortex®-M33" image="mcu">
     The Nano Matter integrates MGM240SD22VNA, boasting a 32-bit ARM Cortex®-M33 processor enhanced with DSP instructions and an FPU, optimizing it for complex calculations and signal processing in power-sensitive IoT applications.
     <FeatureWrapper>
       <FeatureLink title="Datasheet" url="https://www.silabs.com/documents/public/data-sheets/mgm240s-datasheet.pdf" download blank/>
