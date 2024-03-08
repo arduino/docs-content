@@ -16,6 +16,9 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
 <FeatureList>
   <Feature title="Matter Ready" image="core">
     The Nano Matter is ready to interact with Matter-compatible devices with a user-friendly software layer for quick prototyping.
+    <FeatureWrapper>
+      <FeatureLink title="Matter Specification" url="https://csa-iot.org/all-solutions/matter/" download blank/>
+    </FeatureWrapper>
   </Feature>
 
   <Feature title="IoT Ready" image="cellular">
