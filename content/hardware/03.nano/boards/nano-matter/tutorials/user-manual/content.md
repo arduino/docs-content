@@ -42,11 +42,11 @@ The Nano Matter merges the well-known Arduino way of making complex technology m
 The Nano Matter features a compact and efficient architecture powered by the MGM240S (32-bit ARM Cortex®-M33) from Silicon Labs, a high-performance wireless module
 optimized for the needs of battery and line-powered IoT devices for 2.4 GHz mesh networks. 
 
-![Nano Matter's main components](assets/architecture-top.png)
+![Nano Matter's main components](assets/architecture.png)
 
 Here is an overview of the board's main components, as shown in the images above:
 
-- **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit Arm® Cortex®-M33 processor running at 78 MHz. 
+- **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit ARM Cortex®-M33 processor running at 78 MHz. 
 - **Wireless connectivity**: the Nano Matter microcontroller also features multi-protocol connectivity to enable Matter IoT protocol and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home systems and communicate wirelessly with other devices.
 
 ### Board Core and Libraries
@@ -57,7 +57,7 @@ The **Silicon Labs** core contains the libraries and examples you need to work w
 
 ### Pinout
 
-![Nano Matter pinout](assets/simple-pinout.png)
+![Nano Matter pinout](assets/)
 
 The full pinout is available and downloadable as PDF from the link below:
 
@@ -90,14 +90,14 @@ The Nano Matter can be powered by:
 - A USB-C® cable (not included). 
 - An external **5V power supply** connected to `IN5V` pin (please, refer to the [board pinout section](#pinout) of the user manual).
 
-![Nano Matter externally powered](assets/)
+![Nano Matter externally powered](assets/ext-power.png)
 
 For low-power consumption applications, the following hacks are recommended:
 
 - Cut the power status LED jumper off to save energy.
 - Power the board with an external **3V3 power supply** connected to `3.3V` pin, this will not power the *USB bridge IC*, so more energy will be saved.
 
-![Image showing the LED jumper and external 3.3V power](assets/)
+![Image showing the LED jumper and external 3.3V power](assets/lower-power.png)
 
 ***To power the board through the VIN pin you need to close the jumper pads with solder. The máximum voltage supported is +5 VDC.***
 
@@ -140,25 +140,25 @@ The Nano Matter has **19 analog input pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
 |:-----------------------:|:-----------------------:|:---------------------:|
-|          PB00           |           A0            |      GPIO/ADC      |
-|          PB02           |           A1            |      GPIO/ADC      |
-|          PB05           |           A2            |      GPIO/ADC      |
-|          PC00           |           A3            |      GPIO/ADC      |
-|          PA06           |           A4            |    I2C/GPIO/ADC    |
-|          PA07           |           A5            |    I2C/GPIO/ADC    |
-|          PB01           |           A6            |      GPIO/ADC      |
-|          PB03           |           A7            |      GPIO/ADC      |
-|          PB04           |           13            |    SPI/GPIO/ADC    |
-|          PA08           |           12            |    SPI/GPIO/ADC    |
-|          PA09           |           11            |    SPI/GPIO/ADC    |
-|          PD03           |            8            |      GPIO/ADC      |
-|          PD02           |            7            |      GPIO/ADC      |
-|          PC09           |            6            |      GPIO/ADC      |
-|          PC08           |            5            |      GPIO/ADC      |
-|          PC07           |            4            |      GPIO/ADC      |
-|          PC06           |            3            |      GPIO/ADC      |
-|          PA04           |           TX            |   UART/GPIO/ADC    |
-|          PA05           |           RX            |   UART/GPIO/ADC    |
+|          PB00           |           A0            |     GPIO/ADC/DAC      |
+|          PB02           |           A1            |       GPIO/ADC        |
+|          PB05           |           A2            |       GPIO/ADC        |
+|          PC00           |           A3            |       GPIO/ADC        |
+|          PA06           |       A4/I2C_SDA        |     I2C/GPIO/ADC      |
+|          PA07           |       A5/I2C_SCL        |     I2C/GPIO/ADC      |
+|          PB01           |           A6            |     GPIO/ADC/DAC      |
+|          PB03           |           A7            |       GPIO/ADC        |
+|          PB04           |           13            |     SPI/GPIO/ADC      |
+|          PA08           |           12            |     SPI/GPIO/ADC      |
+|          PA09           |           11            |     SPI/GPIO/ADC      |
+|          PD03           |            8            |       GPIO/ADC        |
+|          PD02           |            7            |       GPIO/ADC        |
+|          PC09           |            6            |       GPIO/ADC        |
+|          PC08           |            5            |       GPIO/ADC        |
+|          PC07           |            4            |       GPIO/ADC        |
+|          PC06           |            3            |       GPIO/ADC        |
+|          PA04           |           TX            |     UART/GPIO/ADC     |
+|          PA05           |           RX            |     UART/GPIO/ADC     |
 
 ***Digital I/O's can also be used as analog inputs with some exceptions.***
 
@@ -185,7 +185,7 @@ analogReference(AR_INTERNAL1V2);
 
 The example code shown below reads the analog input value from a potentiometer connected to `A0` and displays it on the IDE Serial Monitor. To understand how to properly connect a potentiometer to the Nano Matter, take the following image as a reference:
 
-![ADC input example wiring](assets/ADC-input.svg)
+![ADC input example wiring](assets/adc-input.png)
 
 ```arduino
 int sensorPin = A0;   // select the input pin for the potentiometer
@@ -268,7 +268,7 @@ void loop()
 
 The DAC output should look like the image below:
 
-![DAC output image]()
+![DAC sawtooth wave output](assets/dac-output.png)
 
 ### Digital Pins
 
@@ -276,25 +276,25 @@ The Nano Matter has **19 digital pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
 |:-----------------------:|:-----------------------:|:---------------------:|
-|          PB00           |           A0            |      GPIO/ADC      |
-|          PB02           |           A1            |      GPIO/ADC      |
-|          PB05           |           A2            |      GPIO/ADC      |
-|          PC00           |           A3            |      GPIO/ADC      |
-|          PA06           |           A4            |    I2C/GPIO/ADC    |
-|          PA07           |           A5            |    I2C/GPIO/ADC    |
-|          PB01           |           A6            |      GPIO/ADC      |
-|          PB03           |           A7            |      GPIO/ADC      |
-|          PB04           |           13            |    SPI/GPIO/ADC    |
-|          PA08           |           12            |    SPI/GPIO/ADC    |
-|          PA09           |           11            |    SPI/GPIO/ADC    |
-|          PD03           |            8            |      GPIO/ADC      |
-|          PD02           |            7            |      GPIO/ADC      |
-|          PC09           |            6            |      GPIO/ADC      |
-|          PC08           |            5            |      GPIO/ADC      |
-|          PC07           |            4            |      GPIO/ADC      |
-|          PC06           |            3            |      GPIO/ADC      |
-|          PA04           |           TX            |   UART/GPIO/ADC    |
-|          PA05           |           RX            |   UART/GPIO/ADC    |
+|          PB00           |           A0            |     GPIO/ADC/DAC      |
+|          PB02           |           A1            |       GPIO/ADC        |
+|          PB05           |           A2            |       GPIO/ADC        |
+|          PC00           |           A3            |       GPIO/ADC        |
+|          PA06           |       A4/I2C_SDA        |     I2C/GPIO/ADC      |
+|          PA07           |       A5/I2C_SCL        |     I2C/GPIO/ADC      |
+|          PB01           |           A6            |     GPIO/ADC/DAC      |
+|          PB03           |           A7            |       GPIO/ADC        |
+|          PB04           |           13            |     SPI/GPIO/ADC      |
+|          PA08           |           12            |     SPI/GPIO/ADC      |
+|          PA09           |           11            |     SPI/GPIO/ADC      |
+|          PD03           |            8            |       GPIO/ADC        |
+|          PD02           |            7            |       GPIO/ADC        |
+|          PC09           |            6            |       GPIO/ADC        |
+|          PC08           |            5            |       GPIO/ADC        |
+|          PC07           |            4            |       GPIO/ADC        |
+|          PC06           |            3            |       GPIO/ADC        |
+|          PA04           |           TX            |     UART/GPIO/ADC     |
+|          PA05           |           RX            |     UART/GPIO/ADC     |
 
 ***Notice that GPIO's as `D2`,`D9` and `D10` are reserved and can not be used as analog or digital.*** 
 
@@ -332,7 +332,7 @@ digitalWrite(pin, LOW);
 
 The example code shown below uses digital pin `5` to control an LED and reads the state of a button connected to digital pin `4`:
 
-![Digital I/O example wiring](assets/)
+![Digital I/O example wiring](assets/gpio-wiring.png)
 
 ```arduino
 // Define button and LED pin
@@ -372,7 +372,7 @@ void loop() {
 
 ### PWM Pins
 
-Most digital and analog pins of the Nicla Sense ME can be used as PWM (Pulse Width Modulation) pins. This functionality can be used with the built-in function `analogWrite()` as shown below:
+Most digital and analog pins of the Nano Matter can be used as PWM (Pulse Width Modulation) pins. This functionality can be used with the built-in function `analogWrite()` as shown below:
 
 ```arduino
 analogWrite(pin, value);  
@@ -383,435 +383,111 @@ By default, the output resolution is 8 bits, so the output value should be betwe
 analogWriteResolution(bits);  
 ```
 
-Using this function has some limitations, for example, the PWM signal frequency is fixed at 500 Hz, and this could not be ideal for every application.
+Using this function has some limitations, for example, the PWM signal frequency is fixed at 1 KHz, and this could not be ideal for every application.
 
-![PWM output signal using analogWrite()](assets/500-Hz.png)
-
-If you need to work with a higher frequency PWM signal, you must do it by working with the PWM peripheral at a lower level as shown in the example code below:
+Here is an example of how to create a **1 KHz** variable duty-cycle PWM signal:
 
 ```arduino
-#include "nrfx_pwm.h"
+const int analogInPin = A0;   // Analog input pin that the potentiometer is attached to
+const int pwmOutPin = 13;  // PWM output pin
 
-static nrfx_pwm_t pwm1 = NRFX_PWM_INSTANCE(0);
-
-static uint16_t /*const*/ seq1_values[] = {0};
-
-static nrf_pwm_sequence_t seq1 = {
-  .values = { .p_common = seq1_values },
-  .length = NRF_PWM_VALUES_LENGTH(seq1_values),
-  .repeats = 0,
-  .end_delay = 0
-};
+int sensorValue = 0;  // value read from the pot
+int outputValue = 0;  // value output to the PWM (analog out)
 
 void setup() {
-
-  nrfx_pwm_config_t config1 = {
-    .output_pins = {
-      32 + 23,  // Nicla Sense ME pin 3  = pin P0_23 in the ANNAB112 MCU
-    },
-    .irq_priority = APP_IRQ_PRIORITY_LOWEST,
-    .base_clock = NRF_PWM_CLK_1MHz,   // 1 us period
-    .count_mode = NRF_PWM_MODE_UP,
-    .top_value = 1000,                //  PWM counter limit, this will set the final output frequency 1MHz / 1000 = 1KHz
-    .load_mode = NRF_PWM_LOAD_COMMON,
-    .step_mode = NRF_PWM_STEP_AUTO,
-  };
-
-  nrfx_pwm_init(&pwm1, &config1, NULL);
-
-  (*seq1_values) = 500;   // this variable sets the signal duty cycle, for a 50% we are using 500. (1000 / 500  = 1/2)
-  (void)nrfx_pwm_simple_playback(&pwm1, &seq1, 1, NRFX_PWM_FLAG_LOOP);
-}
-
-void loop() {
-
-}
-
-```
-
-The code above results in a 1KHz square waveform with a 50% duty cycle as in the image below. The frequency is defined by the `.base_clock` and `.top_value` variables, and the duty cycle by the `seq1_values` variable.
-
-![PWM output signal using the PWM at a lower level](assets/1000-Hz.png)
-
-## Onboard Sensors
-
-The Nicla Sense ME boards come with various onboard sensors that allow you to capture and process environmental and motion data via a 6-axis IMU, a 3-axis magnetometer and a gas, temperature, humidity and pressure sensor. The onboard sensors can be used for developing various applications, such as activity recognition, and environmental monitoring.
-
-To read from any of these sensors you need to install the Arduino_BHY2 and Arduino_BHY2Host libraries. These can be found in the Arduino IDE library manager. To do so in the IDE, select it from the left side menu, now search for Arduino_BHY and click on the install button.
-
-![BHY2 library install](assets/Library-install.png)
-
-### IMU
-
-The Nicla Sense ME features an advanced IMU, which allows the board to sense motion. The IMU on the board is the BHI260AP from Bosch®. It consists of a 3-axis accelerometer and a 3-axis gyroscope. They can provide information about the board's motion, orientation, and rotation in a 3D space. The BHI260AP, apart from being able to do raw movement measurements, is equipped with pre-trained machine-learning models that recognize activities right out of the box.
-
-![Nicla Sense ME onboard IMU](assets/imu.png)
-
-The example code below shows how to get acceleration and angular velocity data from the onboard IMU and stream it to the Arduino IDE Serial Monitor and Serial Plotter.
-
-```arduino
-
-#include "Arduino.h"
-#include "Arduino_BHY2.h"
-
-SensorXYZ accel(SENSOR_ID_ACC);
-SensorXYZ gyro(SENSOR_ID_GYRO);
-
-
-void setup() {
+  // initialize serial communications at 9600 bps:
   Serial.begin(115200);
-  while (!Serial)
-    ;
-
-  BHY2.begin();
-
-  accel.begin();
-  gyro.begin();
+  analogWriteResolution(12);
 }
 
 void loop() {
-  static auto printTime = millis();
+  // read the analog in value:
+  sensorValue = analogRead(analogInPin);
+  // map it to the range of the analog out:
+  outputValue = sensorValue;
+  // change the analog out value:
+  analogWrite(pwmOutPin, outputValue);
 
-  // Update function should be continuously polled
-  BHY2.update();
+  // print the results to the Serial Monitor:
+  Serial.print("sensor = ");
+  Serial.print(sensorValue);
+  Serial.print("\t output = ");
+  Serial.println(outputValue);
 
-  if (millis() - printTime >= 50) {
-    printTime = millis();
-
-    // Accelerometer values
-    Serial.print("acc_X:");
-    Serial.print(accel.x());
-    Serial.print(",");
-    Serial.print("acc_Y:");
-    Serial.print(accel.y());
-    Serial.print(",");
-    Serial.print("acc_Z:");
-    Serial.print(accel.z());
-    Serial.print(",");
-
-    // Gyroscope values
-    Serial.print("gyro_X:");
-    Serial.print(gyro.x());
-    Serial.print(",");
-    Serial.print("gyro_Y:");
-    Serial.print(gyro.y());
-    Serial.print(",");
-    Serial.print("gyro_Z:");
-    Serial.println(gyro.z());
-  }
+  // wait 2 milliseconds before the next loop for the analog-to-digital
+  // converter to settle after the last reading:
+  delay(2);
 }
 ```
 
-![Accelerometer and gyroscope output in the serial plotter](assets/IMU-output.png)
+![PWM output signal using the PWM at a lower level](assets/pwm-out.png)
 
-To take advantage of the IMU pre-trained ML capabilities, we can use the *Activity Recognition* class. The following example code enables your Nicla Sense ME to classify movements from different daily activities:
-
-- Standing still
-- Walking
-- Running
-- On bicycle
-- In vehicle
-- Tilting
-- In vehicle still
-
+If you need to work with a **higher frequency** PWM signal, you can do it with the following PWM class-specific function:
 
 ```arduino
-#include "Nicla_System.h"
-#include "Arduino_BHY2.h"
-
-SensorActivity active(SENSOR_ID_AR);
-
-unsigned long previousMillis = 0;  // will store last time the sensor was updated
-
-const long interval = 1000;
-
-void setup() {
-
-  Serial.begin(115200);
-  nicla::begin();
-  BHY2.begin(NICLA_I2C);
-  active.begin();
-}
-
-void loop() {
-
-  BHY2.update();
-
-  unsigned long currentMillis = millis();
-
-  if (currentMillis - previousMillis >= interval) {
-    
-    previousMillis = currentMillis;
-    Serial.println(String("Activity info: ") + active.toString());
-  
-  }
-
-}
+PWM.frequency_mode(output_pin, frecuency);
 ```
-
-### Magnetometer
-
-The Nicla Sense ME is equipped with an onboard magnetometer, which allows the board to sense orientation and magnetic fields. The BMM150 enables measurements of the magnetic field in three perpendicular axes. Based on Bosch’s proprietary FlipCore technology, the performance and features of BMM150 are carefully tuned to perfectly match the demanding requirements of 3-axis mobile applications such as electronic compass, navigation, or augmented reality.
-
-![Nicla Sense ME onboard magnetometer](assets/magnetometer.png)
-
-In the example code below, the magnetometer is used as a compass measuring the heading orientation in degrees.
+Here is an example of how to create a **10 KHz** fixed duty-cycle PWM signal:
 
 ```arduino
-
-#include "Nicla_System.h"
-#include "Arduino_BHY2.h"
-#include "Math.h"
-
-SensorXYZ magnetometer(SENSOR_ID_MAG);
-
-float heading = 0;
-
-unsigned long previousMillis = 0;  // will store last time the sensor was updated
-
-const long interval = 1000;
+const int analogOutPin = 13;  // PWM output pin to use
 
 void setup() {
-
-  Serial.begin(115200);
-  nicla::begin();
-  BHY2.begin(NICLA_I2C);
-  magnetometer.begin();
-
+  analogWriteResolution(12); 
 }
 
 void loop() {
-  BHY2.update();
-
-  unsigned long currentMillis = millis();
-
-  if (currentMillis - previousMillis >= interval) {
-
-    previousMillis = currentMillis;
-
-    heading = round(atan2(magnetometer.x(), magnetometer.y()) * 180.0 / PI);
-    Serial.println(String(heading) + "º");
-  }
+  PWM.frequency_mode(analogOutPin, 10000);
 }
-
 ```
 
-![Compass orientation](assets/compass.png)
-
-### Environmental Sensor
-
-The Arduino Nicla Sense ME can perform environmental monitoring via the Bosch BME688 sensor. This enables pressure, humidity, temperature as well as gas detection. The gas sensor can detect Volatile Organic Compounds (VOCs), volatile sulfur compounds (VSCs), and other gases, such as carbon monoxide and hydrogen, in the part per billion (ppb) range.
-
-![Nicla Sense ME onboard environmental sensor](assets/environmental.png)
-
-The BME688 lets you measure pressure, humidity, temperature, and gas sensor resistance, thanks to a proprietary solution from Bosch called BSEC. In addition, the system is capable of providing numerous useful outputs such as:
-
-- Index for Air Quality (IAQ)
-- CO<sub>2</sub> equivalents
-- b-VOC equivalents
-- Gas % 
-
-To extract these measurements from the sensor use the below example code:
-
-```arduino
-
-#include "Nicla_System.h"
-#include "Arduino_BHY2.h"
-
-
-unsigned long previousMillis = 0;  // will store last time the sensor was updated
-
-const long interval = 1000;
-
-SensorBSEC bsec(SENSOR_ID_BSEC);    // 4-in-1 sensor.
-
-void setup() {
-
-  Serial.begin(115200);
-  nicla::begin();
-  BHY2.begin(NICLA_I2C);
-  bsec.begin();
-}
-
-void loop() {
-
-  BHY2.update();
-
-  unsigned long currentMillis = millis();
-
-  if (currentMillis - previousMillis >= interval) {
-
-    previousMillis = currentMillis;
-
-    Serial.println(bsec.toString());
-  }
-}
-
-```
-
-***When using the BSEC sensor class, be aware that the system will need several minutes to start providing IAQ and CO<sub>2</sub> measurements due to some mandatory internal calibrations.***
-
-### Pressure Sensor
-
-The Nicla Sense ME can accurately measure pressure thanks to its digital pressure sensor (BMP390). Its operating range is from 300 to 1250 hPa, which makes it perfect for a variety of applications, including:
-
-- Weather forecast
-- Outdoor navigation
-- Vertical velocity indication
-- Portable health care devices
-- Fitness applications
-
-![Nicla Sense ME onboard barometric pressure sensor](assets/pressure.png)
-
-To use this sensor in standalone mode, you can leverage the example code below:
-
-```arduino
-
-#include "Nicla_System.h"
-#include "Arduino_BHY2.h"
-
-
-unsigned long previousMillis = 0;  // will store last time the sensor was updated
-
-const long interval = 1000;
-
-Sensor pressure(SENSOR_ID_BARO);    
-
-void setup() {
-
-  Serial.begin(115200);
-  nicla::begin();
-  BHY2.begin(NICLA_I2C);
-  pressure.begin();
-}
-
-void loop() {
-
-  BHY2.update();
-
-  unsigned long currentMillis = millis();
-
-  if (currentMillis - previousMillis >= interval) {
-
-    previousMillis = currentMillis;
-
-    Serial.println(String(pressure.value()) + " hPa");
-  }
-}
-
-```
-
-***To learn how to work with every sensor class and predefined objects to get all the needed readings, go to our [Nicla Sense ME Cheat Sheet](https://docs.arduino.cc/tutorials/nicla-sense-me/cheat-sheet#sensor-classes).***
-
-
-### On-Board Sensors WebBLE Dashboard
-
-A very interesting way to test the Nicla Sense ME onboard sensors all at once is through the WebBLE dashboard demo.
-
-- Enable your PC Bluetooth connection and go to the [dashboard link](https://arduino.github.io/ArduinoAI/NiclaSenseME-dashboard/), add this [firmware](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) to your sketchbook in the Arduino Cloud or download it to use it locally.
-
-- Upload the code to your Nicla Sense ME and now you are ready to start monitoring the variables through the WebBLE dashboard.
-
-- Click on "CONNECT", search for your board and pair it.
-
-![WebBLE dashboard](assets/WebBLE.gif)
-
-Follow this [dedicated guide](https://docs.arduino.cc/tutorials/nicla-sense-me/web-ble-dashboard) to get more details.
+![PWM output signal using the PWM at a lower level](assets/freq-out.png)
 
 ## Actuators
 
 ### RGB LED
 
-The Nicla Sense ME features a built-in I2C RGB LED that can be a visual feedback indicator for the user. The LED is connected through the boards' I2C port; therefore, specific functions must be used to operate the LED colors. 
+The Nano Matter features a built-in RGB LED that can be a visual feedback indicator for the user. The LED is connected through the board GPIO's; therefore, usual digital pins built-in functions can be used to operate the LED colors. 
+
+| **LED Color Segment** | **Arduino Name** | **Microcontroller Pin** |
+|:---------------------:|:----------------:|:-----------------------:|
+|          Red          |   LED_BUILTIN    |          PC01           |
+|         Green         |  LED_BUILTIN_1   |          PC02           |
+|         Blue          |  LED_BUILTIN_2   |          PC03           |
+
+***The RGB LED colors are activated with zeros, this means that you need to set to LOW the color segment you want to turn on.***
 
 ![Built-in RGB LED](assets/rgb-led.png)
 
-To use the RGB LED, include the `Nicla System` header:
 
-```arduino
-// Include the Nicla System header to access the built-in RGB LED functions
-#include "Nicla_System.h" 
-```
-
-Since the functions are scoped under a class name called `nicla`, you must explicitly write it before each statement. To initialize the board's built-in RGB LED along with the Nicla system inside the void `setup()` function:
+Here you can find a complete example code to blink the built-in RGB LED of the Nano Matter:
 
 ```arduino
 void setup() {
-  // Initialize the Nicla system and the built-in RGB LED
-  nicla::begin();
-  nicla::leds.begin();
-}
-```
-The LED can be set to the desired RGB value using red, green and blue components or by using one of the following predefined colors:
-
-- off
-- red
-- green
-- blue
-- yellow
-- magenta
-- cyan
-
-To set the LED to a predefined color (e.g. green or blue):
-
-```arduino
-// Set the LED color to green, wait for 1000 milliseconds
-nicla::leds.setColor(green);
-delay(1000);
-
-// Set the LED color to blue, wait for 1000 milliseconds
-nicla::leds.setColor(blue);
-delay(1000);  
-```
-
-To turn off the built-in RGB LED:
-
-```arduino
-// Turn off the LED
-nicla::leds.setColor(off);
-```
-
-You can also choose a value between 0 and 255 for each color component (red, green, or blue) to set a custom color:
-
-
-```arduino
-// Define custom color values for red, green, and blue components
-int red = 234;
-int green = 72;
-int blue = 122;
-
-// Set the LED to the custom color, wait for 1000 milliseconds
-nicla::leds.setColor(red, green, blue);
-delay(1000);
-
-// Turn off the LED and wait, wait for 1000 milliseconds
-nicla::leds.setColor(off);
-delay(1000); 
-```
-Here you can find a complete example code to blink the built-in I2C RGB LED of the Nicla Sense ME:
-
-```arduino
-// Include the Nicla System header to access the built-in RGB LED functions
-#include "Nicla_System.h"
-
-void setup() {
-  // Initialize the Nicla system and the built-in RGB LED
-  nicla::begin();
-  nicla::leds.begin();  
+  // initialize LED digital pins as outputs.
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LED_BUILTIN_1, OUTPUT);
+  pinMode(LED_BUILTIN_2, OUTPUT);
 }
 
+// the loop function runs over and over again forever
 void loop() {
-  // Set the LED color to red, wait for 1000 milliseconds
-  nicla::leds.setColor(green);
-  delay(1000);
-
-  // Turn off the LED and wait, wait for 1000 milliseconds
-  nicla::leds.setColor(off);
-  delay(1000); 
+  digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (LOW is the voltage level)
+  digitalWrite(LED_BUILTIN_1, HIGH);  // turn the LED off (HIGH is the voltage level)
+  digitalWrite(LED_BUILTIN_2, HIGH);  // turn the LED off (HIGH is the voltage level)
+  delay(1000);                      // wait for a second
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED off by making the voltage HIGH
+  digitalWrite(LED_BUILTIN_1, LOW);   // turn the LED on by making the voltage LOW
+  digitalWrite(LED_BUILTIN_2, HIGH);   // turn the LED off by making the voltage HIGH
+  delay(1000);                      // wait for a second
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED off by making the voltage HIGH
+  digitalWrite(LED_BUILTIN_1, HIGH);   // turn the LED off by making the voltage HIGH
+  digitalWrite(LED_BUILTIN_2, LOW);   // turn the LED on by making the voltage LOW
+  delay(1000);   
 }
 ```
 
-![Nicla Sense ME built-in LED blink](assets/LED-blink.gif)
+![Nano Matter built-in LED blink](assets/rgb-blink.gif)
 
 ## Communication
 
@@ -819,14 +495,13 @@ This section of the user manual covers the different communication protocols tha
 
 ### SPI
 
-The Nicla Sense ME supports SPI communication, which allows data transmission between the board and other SPI-compatible devices. The pins used in the Nicla Sense ME for the SPI communication protocol are the following:
+The Nano Matter supports SPI communication, which allows data transmission between the board and other SPI-compatible devices. The pins used in the Nano Matter for the SPI communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|       CS/P0_29      |       SS or 6       |
-|      COPI/P0_27     |       MOSI or 7     |
-|      CIPO/P0_28     |       MISO or 9     |
-|      SCLK/P0_11     |       SCK or 8      |
+|      PA09     |       MOSI or 11     |
+|      PA08     |       MISO or 12     |
+|      PB04     |       SCK or 13      |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
