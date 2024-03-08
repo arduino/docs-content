@@ -1,7 +1,7 @@
 Board:
   Name: Arduino® Nano Matter
   SKU: ABX00112
-Microprocessor: MGM240SD22VNA 32-bit ARM Cortex®-M33 with DSP instruction and FPU
+Microprocessor: MGM240SD22VNA 32-bit Arm® Cortex®-M33 with DSP instruction and FPU
 Clock speed: 78 MHz
 USB connector: USB-C®
 Pins:
@@ -13,7 +13,7 @@ Pins:
   SPI pins: 4
 Connectivity:
   Matter: Matter-ready Smart Home Connectivity
-  Wi-Fi®: IEEE 802.15.4 w/ Thread
+  LR-WPANs: IEEE 802.15.4 w/ Thread®
   Bluetooth®: Bluetooth 5.3 & Bluetooth Mesh
 Additional Compatible Protocols: Zigbee® & OpenThread®
 Connectivity Band Frequency: On-board 2.4 GHz
@@ -44,10 +44,9 @@ Power:
   Source Current per I/O Pin: 40 mA
   Sink Current per I/O Pin: 28 mA
 Memory:
-  RAM: 256 KB
-  Flash: 1536 KB
+  RAM: 256 kB
+  Flash: 1536 kB
 Dimensions:
   Width: 18 mm
   Length: 45 mm
-Environmental temperature: 
- -40°C to + 85°C (-40 to 185°F)
+Environmental temperature: -40 °C to + 85 °C (-40 °F to 185 °F)

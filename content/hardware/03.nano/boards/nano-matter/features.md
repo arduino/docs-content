@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-The Nano Matter combines Arduino's ease of use with Silicon Labs's powerful [MGM240S](https://www.silabs.com/documents/public/data-sheets/mgm240s-datasheet.pdf) chip, making the popular IoT connectivity standard, **Matter**, more accessible for various applications, including domotics and building automation. Its versatile connectivity options, including BLE® and Openthread®, make it ideal for projects requiring low-power efficiency and broad connectivity.
+The Nano Matter combines Arduino's ease of use with Silicon Labs's powerful [MGM240S](https://www.silabs.com/documents/public/data-sheets/mgm240s-datasheet.pdf) chip, making the popular IoT connectivity standard, **Matter**, more accessible for various applications, including domotics and building automation. Its versatile connectivity options, including Bluetooth® Low Energy and Openthread®, make it ideal for projects requiring low-power efficiency and broad connectivity.
 
 Using Nano's small form factor, Arduino makes it simpler for Makers to use Silicon Lab's technology, making working with Matter-compatible devices more straightforward than ever through its ample peripherals and I/Os, opening up new possibilities in smart technology for makers and professionals. With the Nano Matter:
 
@@ -43,12 +43,5 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
 
   <Feature title="Multiprotocol connectivity" image="wifi-bluetooth">
     Leverage dual-mode connectivity, integrating both IEEE 802.15.4 (Thread) for mesh networking and Bluetooth® Low Energy for short-range communication in a highly compact form factor.
-  </Feature>
-
-  <Feature title="Arduino Cloud" image="wifi">
-    The Nano Matter is compatible with the Arduino Cloud platform. Build IoT projects in just minutes!
-    <FeatureWrapper>
-    <FeatureLink title="Go to Platform" url="https://app.arduino.cc/"/>
-    </FeatureWrapper>
   </Feature>
 </FeatureList>
