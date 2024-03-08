@@ -40,8 +40,8 @@ The Modbus RTU protocol is one of the protocols available within Opta™. In thi
 - 12VDC/1A DIN rail power supply (x1)
 - USB-C® cable (x1)
 - Wire with either specification for RS-485 connection (x3):
-- STP/UTP 24-18AWG (Unterminated) 100-130Ω rated
-- STP/UTP 22-16AWG (Terminated) 100-130Ω rated
+- STP/UTP 24-18AWG (Unterminated) 100-130 Ω rated
+- STP/UTP 22-16AWG (Terminated) 100-130 Ω rated
 
 ### Software Requirements
 

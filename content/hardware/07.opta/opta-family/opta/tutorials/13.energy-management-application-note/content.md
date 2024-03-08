@@ -49,8 +49,8 @@ Below is a visual representation of the intended application:
 - Solar panel with respective system (Controller, battery, and inverter) or similar power system
 - Domestic appliance or devices of interest
 - RS-485 connection wire as recommended by the standard specification (x3):
-- STP/UTP 24-18AWG (Unterminated) 100-130Ω rated
-- STP/UTP 22-16AWG (Terminated) 100-130Ω rated
+- STP/UTP 24-18AWG (Unterminated) 100-130 Ω rated
+- STP/UTP 22-16AWG (Terminated) 100-130 Ω rated
 
 ### Software Requirements
 
