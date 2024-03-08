@@ -78,7 +78,7 @@ Templates can be imported easily by clicking on the import button from the templ
 
 Below the `Import Button`, you can find information on how many [Things](https://docs.arduino.cc/arduino-cloud/cloud-interface/things), [Variables](https://docs.arduino.cc/arduino-cloud/cloud-interface/variables) and [Dashboards](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets) are associated with this template. The Arduino Cloud platform will handle the creation of these IoT components along with setting up the device and network for the selected template. 
 
-***Note: with a Free Plan a user can only have two Things at same time. When you already have two Things, you won't be able to click on IMPORT TEMPLATE. To avoid this you could choose to upgrade your Cloud plan or manually delete an existing Thing***
+***Note: with a Free Plan a user can only have two Things at same time. When you already have two Things, you won't be able to click on IMPORT TEMPLATE. To avoid this you could choose to upgrade your Cloud plan or manually delete an existing Thing.***
 
 ![Template creation](assets/template-creation.png)
 
