@@ -39,8 +39,8 @@ Communication:
     SCK: D13
     Chip Select (CS): Any GPIO
 Power:
-  Circuit operating voltage: 3.3V
-  Input voltage (VIN): 5V
+  Circuit operating voltage: 3.3 V
+  Input voltage (VIN): 5 V
   Source Current per I/O Pin: 40 mA
   Sink Current per I/O Pin: 28 mA
 Memory:

@@ -9,13 +9,17 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
 - Experiment with multiple communication protocols, including [Zigbee®](https://csa-iot.org/all-solutions/zigbee/) and [OpenThread®](https://openthread.io/), making it an ideal prototyping tool for scalable professional applications.
 - Protect your projects against digital threats thanks to enhanced security with the embedded Secure Vault® technology.
 - Benefit from always-on data processing capabilities thanks to low power consumption, ensuring your projects are efficient and responsive.
-- Start debugging easily using the debugging over the USB feature, simplifying the troubleshooting process for a smoother development experience.
+- Start debugging quickly using the debugging over the USB feature, simplifying the troubleshooting process for a smoother development experience.
 
 </FeatureDescription>
 
 <FeatureList>
   <Feature title="Matter Ready" image="core">
     The Nano Matter is ready to interact with Matter-compatible devices with a user-friendly software layer for quick prototyping.
+  </Feature>
+
+  <Feature title="IoT Ready" image="cellular">
+    The Nano Matter is IoT Ready, equipped with connectivity features to integrate with the Internet of Things, offering smart, interoperable, and secure interaction with other connected devices and systems.
   </Feature>
 
   <Feature title="MGM240SD22VNA 32-bit ARM Cortex®-M33" image="mcu">
