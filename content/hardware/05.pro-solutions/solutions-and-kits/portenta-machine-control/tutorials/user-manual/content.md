@@ -1434,6 +1434,224 @@ You should see the four onboard LEDs of the Opta™ device turn on and off, as s
 
 ![Onboard LEDs of an Opta™ device controlled by a Portenta Machine Control device via Modbus TCP](assets/rtu-blink.gif)
 
+The next example shows how to establish Modbus RTU communication between two Portenta Machine Control devices. Since Portenta Machine Control supports half-duplex and full-duplex mode, each mode requires different wiring setup.
+
+We will begin showing full-duplex mode example following the connection diagram below between two Portenta Machine Control devices:
+
+TODO Update image with two PMC in full-duplex wiring
+
+![Modbus RTU (Full-Duplex) between two Portenta Machine Control](assets/modbus-rtu.png)
+
+The following script defines a Portenta Machine Control as a Client device, which sends 4 coils to the Server Portenta Machine Control. 
+
+```arduino
+/*
+  Portenta's Machine Control Modbus RTU Client Example
+  Name: portenta_machine_control_modbus_rtu_client_led_control.ino
+  Purpose: Demonstrates controlling Modbus RTU coils using a 
+  Portenta Machine Control device.
+  @author Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+// Include the necessary libraries
+#include <Arduino_PortentaMachineControl.h>
+#include <ArduinoRS485.h>
+#include <ArduinoModbus.h>
+
+// Define the baud rate for Modbus communication
+constexpr auto baudrate{ 38400 };
+
+// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+// Modbus over serial line specification and implementation guide V1.02
+// Paragraph 2.5.1.1 Modbus Message RTU Framing
+// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
+constexpr auto bitduration{ 1.f / baudrate };
+constexpr auto preDelay{ bitduration * 9.6f * 3.5f * 1e6 };
+constexpr auto postDelay{ bitduration * 9.6f * 3.5f * 1e6 };
+
+// Counter variable to demonstrate coil control logic
+int counter = 0;
+
+void setup() {
+  // Begin serial communication at 9600 baud for debug messages
+  Serial.begin(9600);
+
+  // Wait for serial port to connect (necessary for boards with native USB)
+  //while (!Serial);
+  // Initialize RS-485 communication with specified baud rate and delays
+  MachineControl_RS485Comm.begin(baudrate, preDelay, postDelay);
+  
+  MachineControl_RS485Comm.setFullDuplex(true);
+
+  // Short delay to ensure RS-485 communication is stable
+  delay(2500);
+
+  // Indicate start of Modbus RTU client operation
+  Serial.println("- Modbus RTU Coils control");
+
+  // Start the Modbus RTU client with the RS-485 communication settings
+  if (!ModbusRTUClient.begin(MachineControl_RS485Comm, baudrate, SERIAL_8N1)) {
+    Serial.println("- Failed to start Modbus RTU Client!");
+    // Halt execution if unable to start
+    while (1)
+      ;  
+  }
+}
+void loop() {
+  // Increment counter to change coil values on each iteration
+  counter++;
+
+  // Determine coil value based on the counter's parity
+  byte coilValue = ((counter % 2) == 0) ? 0x00 : 0x01;
+
+  // Attempt to write coil values to a Modbus RTU server
+  Serial.print("- Writing coil values ... ");
+
+  // Begin transmission to Modbus server (slave ID 1) to write coil values at address 0x00
+  ModbusRTUClient.beginTransmission(1, COILS, 0x00, 4);
+
+  for (int i = 0; i < 4; i++) {
+    // Write the same value to all 4 coils
+    ModbusRTUClient.write(coilValue);  
+  }
+
+  // Check for successful transmission and report errors if any
+  // Print error code if transmission failed
+  // Or confirm successful coil value writing
+  if (!ModbusRTUClient.endTransmission()) {
+    Serial.print("- Failed! Error code: ");
+    Serial.println(ModbusRTUClient.lastError());  
+  } else {
+    Serial.println("- Success!");  
+  }
+
+  // Delay before next operation to simulate periodic control
+  delay(1000);
+}
+```
+
+Because the Portenta Machine Control is operating in Full-Duplex mode, the following line is important to enable Full-Duplex mode:
+
+```arduino
+MachineControl_RS485Comm.setFullDuplex(true);
+```
+
+The Server Portenta Machine Control uses the script below, which translates received coils into corresponding Digital Outputs. It will blink four Digital Outputs accordingly in timely manner.
+
+```arduino
+// Include the necessary libraries 
+#include <ArduinoRS485.h>
+#include <ArduinoModbus.h>
+#include <Arduino_PortentaMachineControl.h>
+
+// Define the number of coils to control LEDs
+const int numCoils = 4;
+
+// Define the baud rate for Modbus communication
+constexpr auto baudrate{ 38400 };
+
+// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+// Modbus over serial line specification and implementation guide V1.02
+// Paragraph 2.5.1.1 Modbus Message RTU Framing
+// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
+constexpr auto bitduration{ 1.f / baudrate };
+constexpr auto preDelay{ bitduration * 9.6f * 3.5f * 1e6 };
+constexpr auto postDelay{ bitduration * 9.6f * 3.5f * 1e6 };
+
+void setup() {
+  // Begin serial communication at a baud rate of 9600 for debug messages
+  Serial.begin(9600);
+
+  // Print a startup message
+  Serial.println("- Modbus RTU Server");
+
+  // Set RS485 transmission delays as per Modbus specification
+  MachineControl_RS485Comm.begin(baudrate, preDelay, postDelay);
+
+  // Enable full duplex mode and 120 Ohm termination resistors
+  MachineControl_RS485Comm.setFullDuplex(true);
+    
+  // Set the RS-485 interface in receive mode initially
+  MachineControl_RS485Comm.receive();
+
+  // Start the Modbus RTU server with a specific slave ID and baud rate
+  // Halt execution if the server fails to start
+  if (!ModbusRTUServer.begin(MachineControl_RS485Comm, 1, baudrate, SERIAL_8N1)) {
+    Serial.println("- Failed to start Modbus RTU Server!");
+    while (1)
+      ;  
+  }
+
+  //Set over current behavior of all channels to latch mode (true)
+  MachineControl_DigitalOutputs.begin(true);
+  
+  //At startup set all channels to OPEN
+  MachineControl_DigitalOutputs.writeAll(0);
+
+  MachineControl_DigitalOutputs.write(7, HIGH);
+
+  // Configure coils for controlling the onboard LEDs
+  ModbusRTUServer.configureCoils(0x00, numCoils);
+}
+
+void loop() {
+  // Poll for Modbus RTU requests and process them
+  int packetReceived = ModbusRTUServer.poll();
+  Serial.println(packetReceived);
+  if (packetReceived) {
+    // Process each coil's state and control LEDs accordingly
+    for (int i = 0; i < numCoils; i++) {
+      // Read coil value
+      // Update discrete input with the coil's state
+      int coilValue = ModbusRTUServer.coilRead(i);       
+      ModbusRTUServer.discreteInputWrite(i, coilValue);  
+
+      // Debug output to the IDE's serial monitor
+      Serial.print("LED ");
+      Serial.print(i);
+      Serial.print(" = ");
+      Serial.println(coilValue);
+
+      // Control the onboard LEDs based on the coil values
+      switch (i) {
+        case 0:
+          MachineControl_DigitalOutputs.write(0, coilValue ? HIGH : LOW);
+          break;
+        case 1:
+          MachineControl_DigitalOutputs.write(1, coilValue ? HIGH : LOW);
+          break;
+        case 2:
+          MachineControl_DigitalOutputs.write(2, coilValue ? HIGH : LOW);
+          break;
+        case 3:
+          MachineControl_DigitalOutputs.write(3, coilValue ? HIGH : LOW);
+          // New line for better readability
+          Serial.println();  
+          break;
+        default:
+          // Error handling for unexpected coil addresses
+          Serial.println("- Output out of scope!"); 
+          break;
+      }
+    }
+  }
+}
+```
+
+To establish communication between two Portenta Machine Control with Modbus RTU in Half-Duplex mode, following wiring setup is required:
+
+TODO Update image with two PMC in half-duplex wiring
+
+![Modbus RTU (Half-Duplex) between two Portenta Machine Control](assets/modbus-rtu.png)
+
+Previous examples can be used in Half-Duplex mode and it requires only one minor change in the following line:
+
+```arduino
+MachineControl_RS485Comm.setFullDuplex(false);
+```
+
+The line can be updated to disable *Full-Duplex* mode or by commenting the line to ignore the corresponding process.
+
 #### Modbus TCP
 
 Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration with existing computer networks and facilitates data communication over long distances using the existing network infrastructure. It operates in full-duplex mode, allowing simultaneous sending and receiving of data.
