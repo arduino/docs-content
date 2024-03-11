@@ -354,20 +354,22 @@ If you want to learn more on how to use the Microphone, please check out the tut
 
 ## RGB
 
-To turn ON the pixels, write a `HIGH` state to the LED:
+The Nano 33 BLE Sense's RGB LEDs are active-LOW, so they are switched in the opposite way to the LED_BUILTIN.
 
-```arduino
-digitalWrite(LEDR, HIGH); //RED
-digitalWrite(LEDG, HIGH); //GREEN
-digitalWrite(LEDB, HIGH); //BLUE
-```
-
-To turn OFF the pixels, write a `LOW` state to the LED:
+To turn ON the pixels, write a `LOW` state to the LED.
 
 ```arduino
 digitalWrite(LEDR, LOW); //RED
 digitalWrite(LEDG, LOW); //GREEN
 digitalWrite(LEDB, LOW); //BLUE
+```
+
+To turn OFF the pixels, write a `HIGH` state to the LED:
+
+```arduino
+digitalWrite(LEDR, HIGH); //RED
+digitalWrite(LEDG, HIGH); //GREEN
+digitalWrite(LEDB, HIGH); //BLUE
 ```
 
 We can also choose a value between 255 - 0 to write to the LED:
