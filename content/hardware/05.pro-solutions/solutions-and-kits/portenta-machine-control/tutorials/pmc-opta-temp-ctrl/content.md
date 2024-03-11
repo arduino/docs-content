@@ -43,7 +43,7 @@ The system will send the temperature values from the Portenta Machine Control to
 ### Hardware Requirements
 
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
-- Opta™ with RS-485: [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
+Opta™ PLC with RS-485 support: [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - [Micro-USB cable](https://store.arduino.cc/products/usb-cable-type-a-male-to-micro-type-b-male) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - PT100 RTD (x1)

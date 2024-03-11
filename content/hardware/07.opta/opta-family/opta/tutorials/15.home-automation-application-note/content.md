@@ -41,12 +41,14 @@ This application note shows a home automation system based on an Opta™️, cap
 
 - [Opta™️ PLC with wireless connectivity support](https://store.arduino.cc/products/opta-wifi) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
-- 12 V/30 RPM DC motor (x1)
+- 12 V / 30 RPM DC motor (x1)
+
 - Full-bridge motor driver (x1)
 - A 3D printed case for the DC motor and its driver (.stl files of the case can be downloaded here)
 - Normally Open (NO) Single Pole Double Throw (SPDT) limit switch (x2)
 - 24AWG twisted-pair cable (for electrical connections)
-- 12 V/2 A DC power supply (x1)
+- 12 V / 2 A DC power supply (x1)
+
 
 ### Software Requirements
 
