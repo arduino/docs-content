@@ -34,7 +34,7 @@ This tutorial will show you how to connect the Portenta Machine Control and Opta
 
 ## Required Hardware and Software
 
-- Board compatible with the Arduino PLC IDE (Portenta Machine Control or Opta™).
+- Board compatible with the Arduino PLC IDE ([Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) or [Opta™](https://store.arduino.cc/collections/pro-family)).
 - Arduino PLC IDE ([Official Website](https://www.arduino.cc/pro/software-plc-ide)).
 - If you have a Portenta Machine Control, you will need a unique PLC IDE License key for your device. Get your license key [here](https://store.arduino.cc/products/plc-key-portenta-machine-control).
 - If you have an Opta™, you do not need any license key to activate your product. Go to section __License Activation With Pre-Licensed Products (Opta™)__ to know more.

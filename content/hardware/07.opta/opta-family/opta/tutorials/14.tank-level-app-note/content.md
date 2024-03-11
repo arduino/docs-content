@@ -46,13 +46,13 @@ The Big Tank has at least twice the capacity of the Small Tank in the experiment
 
 ### Hardware Requirements
 
-- Opta™ PLC with RS-485 support (x2)
-- USB-C® cable (x2)
+- Opta™ PLC with RS-485 support: [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x2)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x2)
 - Vertical float switch (x2)
 - Horizontal float switch (x2)
-- 12VDC NC 2/2-Way direct acting solenoid or motorized ball valve (x1)
-- 12VDC liquid pump (x1)
-- 12VDC DIN rail power supply (x1)
+- 12 VDC NC 2/2-Way direct-acting solenoid or motorized ball valve (x1)
+- 12 VDC liquid pump (x1)
+- 12 VDC DIN rail power supply (x1)
 - Recommended wire specification for RS-485 connection (x3):
 - STP/UTP 24-18AWG (Unterminated) 100-130 Ω rated
 - STP/UTP 22-16AWG (Terminated) 100-130 Ω rated

@@ -43,11 +43,11 @@ Below is a visual representation of the intended application:
 
 ### Hardware Requirements
 
-- Opta™ PLC with RS-485 support (x1)
-- USB-C® cable (x1)
+- Opta™ PLC with RS-485 support: [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - 7M.24 Energy meter (x1)
 - Solar panel with respective system (Controller, battery, and inverter) or similar power system
-- Domestic appliance or devices of interest
+- Domestic appliances or devices of interest
 - RS-485 connection wire as recommended by the standard specification (x3):
 - STP/UTP 24-18AWG (Unterminated) 100-130 Ω rated
 - STP/UTP 22-16AWG (Terminated) 100-130 Ω rated
@@ -87,7 +87,7 @@ The provided code showcases the capabilities of Opta™ as described earlier. It
 
 The code requires the inclusion of specific headers. These headers enable the RS-485 interface, the Modbus RTU protocol, the Arduino Cloud connection, and the scheduler. The scheduler oversees data exchange through the RS-485 interface using the Modbus RTU protocol. Moreover, it includes the parameters essential for stable communication, adhering to Modbus RTU standards.
 
-```arduino
+```arduino 
 #include "stm32h7xx_ll_gpio.h"
 #include "thingProperties.h"
 #include <ArduinoModbus.h>
