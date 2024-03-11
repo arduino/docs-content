@@ -1,4 +1,4 @@
 ---
-title: Learn MicroPython
+title: MicroPython and Courses
 description: Learn MicroPython and Arduino through a series of learning chapters with practical exercises.
 ---
