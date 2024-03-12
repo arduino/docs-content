@@ -57,7 +57,7 @@ The **Silicon Labs** core contains the libraries and examples you need to work w
 
 ### Pinout
 
-![Nano Matter pinout](assets/)
+Place pinout image here
 
 The full pinout is available and downloadable as PDF from the link below:
 
@@ -141,8 +141,6 @@ You should now see the red LED of the built-in RGB LED turning on for one second
 ## Matter
 
 Developing Matter-compatible IoT solutions has never been easier with the Arduino ecosystem. 
-
-![Nano Matter + Matter Logo](assets/)
 
 The Nano Matter can communicate with Matter hubs through a Thread network, so the hubs used must be **Thread border routers**.
 
