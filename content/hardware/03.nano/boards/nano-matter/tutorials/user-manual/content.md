@@ -84,8 +84,9 @@ The complete STEP files are available and downloadable from the link below:
 
 ### Form Factor
 
+This Nano board features castellated pins which are ideal for integrating the board into final solutions. 
 
-
+You can superficially mount the Nano Matter 
 ## First Use
 ### Powering the Board
 
@@ -289,6 +290,13 @@ void handle_button_press()
   button_pressed = true;
 }
 ```
+
+Here is the example sketch main functions explanation:
+
+- In the `setup()` function, Matter is initialized with `Matter.begin()` alongside the initial configurations of the board to handle the different inputs and outputs. The device commissioning is verified with `Matter.isDeviceCommissioned()` to show the user the network pairing credentials if needed and the connection is confirmed with the `Matter.isDeviceConnected()` function. 
+- In the `loop()` function, the RGB LED is controlled on and off with `matter_color_bulb.set_onoff(state)`, the current state is retrieved with `matter_color_bulb.get_onoff()` and the button state is read to control the LED manually.
+- In the `update_led_color()` function, the color defined in the app is retrieved using the function `matter_color_bulb.get_rgb(&r, &g, &b)` that stores the requested color code in RGB format variables.
+
 
 To upload the code to the Nano Matter, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
 
@@ -754,6 +762,54 @@ static void ble_initialize_gatt_db()
 
 ```
 
+## Onboard User Interface
+
+### User Button
+
+### RGB LED
+
+The Nano Matter features a built-in RGB LED that can be a visual feedback indicator for the user. The LED is connected through the board GPIO's; therefore, usual digital pins built-in functions can be used to operate the LED colors. 
+
+| **LED Color Segment** | **Arduino Name** | **Microcontroller Pin** |
+|:---------------------:|:----------------:|:-----------------------:|
+|          Red          |   LEDR or LED_BUILTIN    |          PC01           |
+|         Green         |  LEDG or LED_BUILTIN_1   |          PC02           |
+|         Blue          |  LEDB or LED_BUILTIN_2   |          PC03           |
+
+***The RGB LED colors are activated with zeros, this means that you need to set to LOW the color segment you want to turn on.***
+
+![Built-in RGB LED](assets/rgb-led.png)
+
+
+Here you can find a complete example code to blink the built-in RGB LED of the Nano Matter:
+
+```arduino
+void setup() {
+  // initialize LED digital pins as outputs.
+  pinMode(LEDR, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+  pinMode(LEDB, OUTPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  digitalWrite(LEDR, LOW);  // turn the LED on (LOW is the voltage level)
+  digitalWrite(LEDG, HIGH);  // turn the LED off (HIGH is the voltage level)
+  digitalWrite(LEDB, HIGH);  // turn the LED off (HIGH is the voltage level)
+  delay(1000);                      // wait for a second
+  digitalWrite(LEDR, HIGH);   // turn the LED off by making the voltage HIGH
+  digitalWrite(LEDG, LOW);   // turn the LED on by making the voltage LOW
+  digitalWrite(LEDB, HIGH);   // turn the LED off by making the voltage HIGH
+  delay(1000);                      // wait for a second
+  digitalWrite(LEDR, HIGH);   // turn the LED off by making the voltage HIGH
+  digitalWrite(LEDG, HIGH);   // turn the LED off by making the voltage HIGH
+  digitalWrite(LEDB, LOW);   // turn the LED on by making the voltage LOW
+  delay(1000);   
+}
+```
+
+![Nano Matter built-in LED blink](assets/rgb-blink.gif)
+
 ## Pins
 
 ### Digital Pins
@@ -1066,52 +1122,6 @@ void loop() {
 ```
 
 ![PWM output signal using the PWM at a lower level](assets/freq-out.png)
-
-## Actuators
-
-### RGB LED
-
-The Nano Matter features a built-in RGB LED that can be a visual feedback indicator for the user. The LED is connected through the board GPIO's; therefore, usual digital pins built-in functions can be used to operate the LED colors. 
-
-| **LED Color Segment** | **Arduino Name** | **Microcontroller Pin** |
-|:---------------------:|:----------------:|:-----------------------:|
-|          Red          |   LEDR or LED_BUILTIN    |          PC01           |
-|         Green         |  LEDG or LED_BUILTIN_1   |          PC02           |
-|         Blue          |  LEDB or LED_BUILTIN_2   |          PC03           |
-
-***The RGB LED colors are activated with zeros, this means that you need to set to LOW the color segment you want to turn on.***
-
-![Built-in RGB LED](assets/rgb-led.png)
-
-
-Here you can find a complete example code to blink the built-in RGB LED of the Nano Matter:
-
-```arduino
-void setup() {
-  // initialize LED digital pins as outputs.
-  pinMode(LEDR, OUTPUT);
-  pinMode(LEDG, OUTPUT);
-  pinMode(LEDB, OUTPUT);
-}
-
-// the loop function runs over and over again forever
-void loop() {
-  digitalWrite(LEDR, LOW);  // turn the LED on (LOW is the voltage level)
-  digitalWrite(LEDG, HIGH);  // turn the LED off (HIGH is the voltage level)
-  digitalWrite(LEDB, HIGH);  // turn the LED off (HIGH is the voltage level)
-  delay(1000);                      // wait for a second
-  digitalWrite(LEDR, HIGH);   // turn the LED off by making the voltage HIGH
-  digitalWrite(LEDG, LOW);   // turn the LED on by making the voltage LOW
-  digitalWrite(LEDB, HIGH);   // turn the LED off by making the voltage HIGH
-  delay(1000);                      // wait for a second
-  digitalWrite(LEDR, HIGH);   // turn the LED off by making the voltage HIGH
-  digitalWrite(LEDG, HIGH);   // turn the LED off by making the voltage HIGH
-  digitalWrite(LEDB, LOW);   // turn the LED on by making the voltage LOW
-  delay(1000);   
-}
-```
-
-![Nano Matter built-in LED blink](assets/rgb-blink.gif)
 
 ## Communication
 
