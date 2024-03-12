@@ -82,6 +82,10 @@ The complete STEP files are available and downloadable from the link below:
 - [Nano Matter STEP files](https://docs.arduino.cc/static/10c0953581f489a9a136ff00f2d2fa9d/ABX00050-step.zip)
 
 
+### Form Factor
+
+
+
 ## First Use
 ### Powering the Board
 
@@ -751,6 +755,109 @@ static void ble_initialize_gatt_db()
 ```
 
 ## Pins
+
+### Digital Pins
+
+The Nano Matter has **22 digital pins**, mapped as follows:
+
+| **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
+|:-----------------------:|:-----------------------:|:---------------------:|
+|          PB00           |           A0            |     GPIO/ADC/DAC      |
+|          PB02           |           A1            |       GPIO/ADC        |
+|          PB05           |           A2            |       GPIO/ADC        |
+|          PC00           |           A3            |       GPIO/ADC        |
+|          PA06           |         A4/SDA          |     I2C/GPIO/ADC      |
+|          PA07           |         A5/SCL          |     I2C/GPIO/ADC      |
+|          PB01           |           A6            |     GPIO/ADC/DAC      |
+|          PB03           |           A7            |       GPIO/ADC        |
+|          PB04           |           D13           |     SPI/GPIO/ADC      |
+|          PA08           |           D12           |     SPI/GPIO/ADC      |
+|          PA09           |           D11           |     SPI/GPIO/ADC      |
+|          PD05           |           D10           |       SPI/GPIO        |
+|          PD04           |           D9            |         GPIO          |
+|          PD03           |           D8            |       GPIO/ADC        |
+|          PD02           |           D7            |       GPIO/ADC        |
+|          PC09           |           D6            |       GPIO/ADC        |
+|          PC08           |           D5            |       GPIO/ADC        |
+|          PC07           |           D4            |       GPIO/ADC        |
+|          PC06           |           D3            |       GPIO/ADC        |
+|          PA03           |           D2            |         GPIO          |
+|          PA04           |      PIN_SERIAL_TX      |     UART/GPIO/ADC     |
+|          PA05           |      PIN_SERIAL_RX      |     UART/GPIO/ADC     |
+
+
+The digital pins of the Nano Matter can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
+
+The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
+
+```arduino
+// Pin configured as an input
+pinMode(pin, INPUT);        
+
+// Pin configured as an output
+pinMode(pin, OUTPUT);        
+
+// Pin configured as an input, internal pull-up resistor enabled
+pinMode(pin, INPUT_PULLUP);  
+```
+
+The state of a digital pin, configured as an input, can be read using the built-in function `digitalRead()` as shown below:
+
+```arduino
+// Read pin state, store value in a state variable
+state = digitalRead(pin);
+```
+
+The state of a digital pin, configured as an output, can be changed using the built-in function `digitalWrite()` as shown below:
+
+```arduino
+// Set pin on
+digitalWrite(pin, HIGH);    
+
+// Set pin off
+digitalWrite(pin, LOW);    
+```
+
+The example code shown below uses digital pin `5` to control an LED and reads the state of a button connected to digital pin `4`:
+
+![Digital I/O example wiring](assets/gpio-wiring.png)
+
+```arduino
+// Define button and LED pin
+int buttonPin = 4;
+int ledPin = 5;
+
+// Variable to store the button state
+int buttonState = 0;
+
+void setup() {
+  // Configure button and LED pins
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+
+  // Initialize Serial communication
+  Serial.begin(115200);
+}
+
+void loop() {
+  // Read the state of the button
+  buttonState = digitalRead(buttonPin);
+
+  // If the button is pressed, turn on the LED and print its state to the Serial Monitor
+  if (buttonState == LOW) {
+    digitalWrite(ledPin, HIGH);
+    Serial.println("- Button is pressed. LED is on.");
+  } else {
+    // If the button is not pressed, turn off the LED and print to the Serial Monitor
+    digitalWrite(ledPin, LOW);
+    Serial.println("- Button is not pressed. LED is off.");
+  }
+
+  // Wait for 1000 milliseconds
+  delay(1000);
+}
+```
+
 ### Analog Input Pins (ADC)
 
 The Nano Matter has **19 analog input pins**, mapped as follows:
@@ -886,108 +993,6 @@ void loop()
 The DAC output should look like the image below:
 
 ![DAC sawtooth wave output](assets/dac-output.png)
-
-### Digital Pins
-
-The Nano Matter has **22 digital pins**, mapped as follows:
-
-| **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
-|:-----------------------:|:-----------------------:|:---------------------:|
-|          PB00           |           A0            |     GPIO/ADC/DAC      |
-|          PB02           |           A1            |       GPIO/ADC        |
-|          PB05           |           A2            |       GPIO/ADC        |
-|          PC00           |           A3            |       GPIO/ADC        |
-|          PA06           |         A4/SDA          |     I2C/GPIO/ADC      |
-|          PA07           |         A5/SCL          |     I2C/GPIO/ADC      |
-|          PB01           |           A6            |     GPIO/ADC/DAC      |
-|          PB03           |           A7            |       GPIO/ADC        |
-|          PB04           |           D13           |     SPI/GPIO/ADC      |
-|          PA08           |           D12           |     SPI/GPIO/ADC      |
-|          PA09           |           D11           |     SPI/GPIO/ADC      |
-|          PD05           |           D10           |       SPI/GPIO        |
-|          PD04           |           D9            |         GPIO          |
-|          PD03           |           D8            |       GPIO/ADC        |
-|          PD02           |           D7            |       GPIO/ADC        |
-|          PC09           |           D6            |       GPIO/ADC        |
-|          PC08           |           D5            |       GPIO/ADC        |
-|          PC07           |           D4            |       GPIO/ADC        |
-|          PC06           |           D3            |       GPIO/ADC        |
-|          PA03           |           D2            |         GPIO          |
-|          PA04           |      PIN_SERIAL_TX      |     UART/GPIO/ADC     |
-|          PA05           |      PIN_SERIAL_RX      |     UART/GPIO/ADC     |
-
-
-The digital pins of the Nano Matter can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
-
-The configuration of a digital pin is done in the `setup()` function with the built-in function `pinMode()` as shown below:
-
-```arduino
-// Pin configured as an input
-pinMode(pin, INPUT);        
-
-// Pin configured as an output
-pinMode(pin, OUTPUT);        
-
-// Pin configured as an input, internal pull-up resistor enabled
-pinMode(pin, INPUT_PULLUP);  
-```
-
-The state of a digital pin, configured as an input, can be read using the built-in function `digitalRead()` as shown below:
-
-```arduino
-// Read pin state, store value in a state variable
-state = digitalRead(pin);
-```
-
-The state of a digital pin, configured as an output, can be changed using the built-in function `digitalWrite()` as shown below:
-
-```arduino
-// Set pin on
-digitalWrite(pin, HIGH);    
-
-// Set pin off
-digitalWrite(pin, LOW);    
-```
-
-The example code shown below uses digital pin `5` to control an LED and reads the state of a button connected to digital pin `4`:
-
-![Digital I/O example wiring](assets/gpio-wiring.png)
-
-```arduino
-// Define button and LED pin
-int buttonPin = 4;
-int ledPin = 5;
-
-// Variable to store the button state
-int buttonState = 0;
-
-void setup() {
-  // Configure button and LED pins
-  pinMode(buttonPin, INPUT_PULLUP);
-  pinMode(ledPin, OUTPUT);
-
-  // Initialize Serial communication
-  Serial.begin(115200);
-}
-
-void loop() {
-  // Read the state of the button
-  buttonState = digitalRead(buttonPin);
-
-  // If the button is pressed, turn on the LED and print its state to the Serial Monitor
-  if (buttonState == LOW) {
-    digitalWrite(ledPin, HIGH);
-    Serial.println("- Button is pressed. LED is on.");
-  } else {
-    // If the button is not pressed, turn off the LED and print to the Serial Monitor
-    digitalWrite(ledPin, LOW);
-    Serial.println("- Button is not pressed. LED is off.");
-  }
-
-  // Wait for 1000 milliseconds
-  delay(1000);
-}
-```
 
 ### PWM Pins
 
