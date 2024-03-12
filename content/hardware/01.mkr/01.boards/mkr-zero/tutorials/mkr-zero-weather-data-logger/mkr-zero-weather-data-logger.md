@@ -55,7 +55,7 @@ It is important to keep your electronics dry, so if you are planning to put your
 * Connect the 4k7 pull up resistor between the Power and the Data pin.
 * Plug in the SD card in the MKR Zero board.
 
-![Circuit.](assets/MKRZERO.png)
+![Representation of the circuit.](assets/MKRZERO.png)
 
 ## Code
 
@@ -75,4 +75,4 @@ Voila! Your system is ready for battle. You can see the values also from the ser
 ![Serial Port info](assets/MKRZERO_WeatherDatalogger_serialPort.png)
 
 
-![Enjoy!](assets/Weather_Data_Logger_(4_of_10).jpg)
+![The final project.](assets/Weather_Data_Logger_(4_of_10).jpg)

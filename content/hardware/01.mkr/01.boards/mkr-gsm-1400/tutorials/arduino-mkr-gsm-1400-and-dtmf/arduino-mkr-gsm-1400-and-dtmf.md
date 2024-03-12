@@ -54,7 +54,8 @@ The setup to use this code is very simple. You just have to:
 <iframe src='https://create.arduino.cc/editor/Arduino_Genuino/8e87bd19-988e-4082-a2be-d0525519d369/preview?embed&snippet' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
 
 ### Schematics
-![Schematics.](assets/mkrgsm1400dtmf_l94ODUYXzR.png)
+
+![The schematic.](assets/mkrgsm1400dtmf_l94ODUYXzR.png)
 
 
 

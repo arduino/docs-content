@@ -212,7 +212,7 @@ Once done, is time to run the flow. Press the _Deploy_ button on the top right c
 
 Now you can also open the dashboard; point your browser to:
 
-![http://localhost:1880/ui](http://localhost:1880/ui)
+[http://localhost:1880/ui](http://localhost:1880/ui)
 
 You should see something like this (widgets will be empty until a few data will arrive)
 

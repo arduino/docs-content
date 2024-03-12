@@ -38,11 +38,11 @@ Connect the 3 axis to the MKR FOX 1200 as shown:
 
 ![Connect the accelerometer.](assets/img_0187_ahiTIvQTm8.JPG)
 
-![Done!](assets/img_0188_Bk1ic7SkYi.JPG)
+![Accelerometer connected.](assets/img_0188_Bk1ic7SkYi.JPG)
 
 Connect a jumper between pin 14 and pin 0: 
 
-![](assets/img_0190_OKMcSlGMMp.JPG)
+![Connect jumpers.](assets/img_0190_OKMcSlGMMp.JPG)
 
 Put in a nice box: 
 
