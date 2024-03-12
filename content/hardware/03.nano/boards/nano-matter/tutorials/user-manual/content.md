@@ -761,7 +761,11 @@ The `sl_bt_on_event(sl_bt_msg_t *evt)` function is the main one of the sketch an
 - Handling incoming and outgoing BLE messages.
 
 The `ble_initialize_gatt_db()` function is responsible for:
-- Creating
+- Creating the device name service so we can find the device as "Blinky Example" with the `2A00` UUID.
+- Adding the Generic Access service with the `1800` UUID.
+- Adding the Blinky service with the `de8a5aac-a99b-c315-0c80-60d4cbb51224` UUID.
+- Adding the LED Control characteristic to the Blinky service with the `5b026510-4088-c297-46d8-be6c736a087a` UUID.
+- Adding the Button report characteristic to the Blinky service with the `61a885a4-41c3-60d0-9a53-6d652a70d29c` UUID.
 
 
 ## Onboard User Interface
