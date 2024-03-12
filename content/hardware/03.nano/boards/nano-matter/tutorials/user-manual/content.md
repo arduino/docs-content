@@ -296,7 +296,7 @@ You will find a *Manual pairing code* and a *QR code URL* as follows:
 
 ![Commissioning credentials](assets/qr-code.png)
 
-***open the QR code URL on your favorite browser to generate the QR code.***
+***Open the QR code URL on your favorite browser to generate the QR code.***
 
 To commission your device, open the Google Home app, navigate to devices, click on **add device** and select the **matter-enabled device** option:
 
@@ -960,6 +960,11 @@ Serial1.println("Hello world!");
 
 ### Bluetooth® Low Energy
 
+To enable Bluetooth® Low Energy communication on the Nano Matter, you must enable the BLE protocol stack in the Arduino IDE board configurations. To do so, in the upper menu, navigate to **Tools > Protocol stack** and select **BLE**.
+
+![Enable BLE Protocol Stack](assets/ble-setup.png)
+
+For this BLE application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > ble_blinky**:
 
 ## Support
 
@@ -967,18 +972,18 @@ If you encounter any issues or have questions while working with the Nicla Sense
 
 ### Help Center
 
-Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nicla Sense ME. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nano Matter. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
-- [Nicla Family help center page](https://support.arduino.cc/hc/en-us/sections/4410176504978-Nicla-Family)
+- [Nano Matter help center page](https://support.arduino.cc/hc/en-us/sections/Nano-Matter)
 
 ### Forum
 
-Join our community forum to connect with other Nicla Sense ME users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nicla Sense ME.
+Join our community forum to connect with other Nano Matter users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nano Matter.
 
-- [Nicla Sense ME category in the Arduino Forum](https://forum.arduino.cc/c/hardware/nicla-family/nicla-family/170)
+- [Nano Matter category in the Arduino Forum](https://forum.arduino.cc/c/hardware/nano/nano-matter)
 
 ### Contact Us
 
-Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Nicla Sense ME.
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Nano Matter.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/) 
