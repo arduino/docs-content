@@ -341,7 +341,62 @@ The Amazon Alexa products that can work as a **Matter hub** through **Thread** a
 
 If you have a Matter device configured and working for example with the Google Home ecosystem, and you want to integrate it with Alexa or Apple Home instead; you need to decommission it. 
 
-In simple terms, **decommissioning** refers to unpairing your device from a current service.
+In simple terms, **decommissioning** refers to unpairing your device from a current service to be able to pair it with a new one.
+
+Use the following sketch for decommissioning your Nano Matter:
+
+```arduino
+#include <Matter.h>
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+
+  Matter.begin();
+  pinMode(BTN_BUILTIN, INPUT_PULLUP);
+  pinMode(LEDR, OUTPUT);
+  digitalWrite(LEDR, HIGH);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  decommission_handler();
+}
+
+
+void decommission_handler() {
+  if (digitalRead(BTN_BUILTIN) == LOW) {  //Push button pressed
+    // measures time pressed
+    int startTime = millis();
+    while (digitalRead(BTN_BUILTIN) == LOW) {
+      delay(50);
+
+      int elapsedTime = (millis() - startTime) / 1000.0;
+
+      if (elapsedTime > 10) {
+        Serial.printf("Decommissioning!\n");
+        for (int i = 0; i < 10; i++) {
+          digitalWrite(LEDR, !(digitalRead(LEDR)));
+          delay(100);
+        };
+
+        if (!Matter.isDeviceCommissioned()) {
+          Serial.println("Decommission done!");
+          digitalWrite(LEDR, LOW);
+        } else {
+          Serial.println("Matter device is commissioned-> Starting Decommission process");
+          nvm3_eraseAll(nvm3_defaultHandle);  // Decomission command
+          digitalWrite(LED_BUILTIN, LOW);
+          Serial.println("Decommission done!");
+        }
+        break;
+      }
+    }
+  }
+}
+```
+
+***You can integrate this method in your solutions to leverage the Nano Matter built-in button to handle decommissioning.***
 
 ## Pins
 ### Analog Input Pins (ADC)

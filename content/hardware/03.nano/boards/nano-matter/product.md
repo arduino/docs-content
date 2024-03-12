@@ -1,10 +1,10 @@
 ---
-title: Nano 33 BLE Rev2
-url_shop: https://store.arduino.cc/products/nano-33-ble-rev2
+title: Nano Matter
+url_shop: https://store.arduino.cc/products/nano-matter
 primary_button_url: /software/ide-v2/tutorials/ide-v2-board-manager#mbed-os-nano
 primary_button_title: Get Started
 core: arduino:mbed_nano
-forumCategorySlug: '/hardware/nano-family/nano-33-ble/159'
+forumCategorySlug: '/hardware/nano-family/nano-matter'
 certifications: [CE, UKCA]
 ---
 
