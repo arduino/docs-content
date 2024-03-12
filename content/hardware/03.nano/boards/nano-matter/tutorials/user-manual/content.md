@@ -365,7 +365,7 @@ The Apple Home products that can work as a **Matter hub** through **Thread** are
 
 ### Device Decommissioning 
 
-If you have a Matter device configured and working for example with the Google Home ecosystem, and you want to integrate it with Alexa or Apple Home instead; you need to decommission it. 
+If you have a Matter device configured and working for example with the Google Home ecosystem, and you want to integrate it with Alexa or Apple Home instead; you need to decommission it first from the previous service. 
 
 In simple terms, **decommissioning** refers to unpairing your device from a current service to be able to pair it with a new one.
 
@@ -421,6 +421,8 @@ void decommission_handler() {
   }
 }
 ```
+The sketch above allows you to decommission your board manually after pressing the Nano Matter user button for 10 seconds. You can monitor the status in the Arduino IDE Serial Monitor.
+
 
 ## Bluetooth® Low Energy
 
@@ -430,36 +432,12 @@ In the upper menu, navigate to **Tools > Protocol stack** and select **BLE**.
 
 ![Enable BLE Protocol Stack](assets/ble-setup.png)
 
-For this BLE application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > ble_blinky**:
+For this BLE application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > Silicon Labs >ble_blinky**:
 
 ```arduino
 /*
    BLE blinky example
-
-   The example allows a remote BLE device to control the onboard LED and get state updates from the onboard button.
-
-   On startup the sketch will start a BLE advertisement with the configured name, then
-   it will accept any incoming connection. The device offers a GATT service and characteristic
-   for controlling the onboard LED and reporting the state of an onboard button. The demo will work
-   on boards without a built-in button however the button state reporting feature will be disabled.
-   With the EFR Connect app you can test this functionality by going to the "Demo" tab and selecting "Blinky".
-
-   Find out more on the API usage at: https://docs.silabs.com/bluetooth/6.0.0/bluetooth-stack-api/
-
-   Get the EFR Connect app:
-    - https://play.google.com/store/apps/details?id=com.siliconlabs.bledemo
-    - https://apps.apple.com/us/app/efr-connect-ble-mobile-app/id1030932759
-
-   Compatible boards:
-   - Arduino Nano Matter
-   - SparkFun Thing Plus MGM240P
-   - xG27 DevKit
-   - xG24 Explorer Kit
-   - xG24 Dev Kit
-   - BGM220 Explorer Kit
-
-   Author: Tamas Jozsi (Silicon Labs)
- */
+*/
 
 bool btn_notification_enabled = false;
 bool btn_state_changed = false;
@@ -632,7 +610,7 @@ static void send_button_state_notification()
 static void set_led_on(bool state)
 {
   bool state_out = state;
-  #if defined(ARDUINO_NANO_MATTER_BLE) || defined(ARDUINO_SILABS_WIOMG24_BLE) || defined(ARDUINO_SILABS_XG24DEVKIT)
+  #if defined(ARDUINO_NANO_MATTER) || defined(ARDUINO_SILABS_WIOMG24_BLE) || defined(ARDUINO_SILABS_XG24DEVKIT)
   // These boards have an inverted LED logic, state is negated to account for this
   state_out = !state_out;
   #endif
@@ -775,10 +753,62 @@ static void ble_initialize_gatt_db()
 }
 
 ```
+Here are the main functions explanations of the example sketch:
+
+The `sl_bt_on_event(sl_bt_msg_t *evt)` function is the main one of the sketch and it is responsible for:
+- Initiating the BLE radio, and start advertising the defined services alongside its characteristics.
+- Handling the opening and closing of connections.
+- Handling incoming and outgoing BLE messages.
+
+The `ble_initialize_gatt_db()` function is responsible for:
+- Creating
+
 
 ## Onboard User Interface
 
 ### User Button
+
+The Nano Matter includes an onboard **push button** that can be used as an input by the user. The button is connected to the GPIO `PA0` and can be read using the `BTN_BUILTIN` macro.
+
+![Nano Matter Built-in Push Button](assets/button.png)
+
+The button pulls the input to ground when pressed, so is important to define the **pull-up resistor** to avoid undesired behavior by leaving the input floating.
+
+Here you can find a complete example code to blink the built-in RGB LED of the Nano Matter:
+
+```arduino
+volatile bool button_pressed = false;
+
+void handle_button_press();
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(BTN_BUILTIN, INPUT_PULLUP);
+  attachInterrupt(BTN_BUILTIN, &handle_button_press, FALLING);
+}
+
+void loop() {
+  // If the physical button state changes - update the state
+  if (button_pressed) {
+    button_pressed = false;
+    Serial.println("Button Pressed!");
+  }
+}
+
+void handle_button_press()
+{
+  static uint32_t btn_last_press = 0;
+  if (millis() < btn_last_press + 200) {
+    return;
+  }
+  btn_last_press = millis();
+  button_pressed = true;
+}
+
+```
+
+After pressing the push button, you will see a "Button Pressed!" message in the Serial Monitor.
 
 ### RGB LED
 
