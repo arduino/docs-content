@@ -133,6 +133,216 @@ You should now see the red LED of the built-in RGB LED turning on for one second
 
 ![Hello World example running in the Nano Matter](assets/blink.gif)
 
+## Matter
+
+Developing Matter-compatible IoT solutions has never been easier with the Arduino ecosystem. 
+
+![Nano Matter + Matter Logo](assets/)
+
+The Nano Matter can communicate with Matter hubs through a Thread network, so the hubs used must be **Thread border routers**.
+
+### With Google Home
+
+To create your first IoT device with the Nano Matter and the Google Home ecosystem you first need to have a Matter-compatible hub. The Google Home products that can work as a **Matter hub** through **Thread** are listed below:
+
+- Nest Hub (2nd Gen)
+- Nest Hub Max
+- Nest Wifi Pro (Wi-Fi 6E)
+- Nest Wifi
+
+***Other Google devices are compatible with Matter but not Thread.***
+
+The Silicon Labs core in the Arduino IDE comes with several Matter examples ready to be tested with the Nano Matter and works as a starting point for almost any IoT device we can imagine building.
+
+![Matter examples](assets/matter-examples.png)
+
+In the example below, we are going to use the Nano Matter as a *RGB Lightbulb*. For this, navigate to **File > Examples > Matter** and open the built-in sketch called **nano_matter_lightbulb_color**.
+
+```arduino
+#include <Matter.h>
+#include <MatterLightbulb.h>
+
+#define LED_R LED_BUILTIN
+#define LED_G LED_BUILTIN_1
+#define LED_B LED_BUILTIN_2
+
+MatterColorLightbulb matter_color_bulb;
+
+void update_led_color();
+void led_off();
+void handle_button_press();
+volatile bool button_pressed = false;
+
+void setup()
+{
+  Serial.begin(115200);
+  Matter.begin();
+  matter_color_bulb.begin();
+  matter_color_bulb.boost_saturation(51); // Boost saturation by 20 percent
+
+  // Set up the onboard button
+  pinMode(BTN_BUILTIN, INPUT_PULLUP);
+  attachInterrupt(BTN_BUILTIN, &handle_button_press, FALLING);
+
+  // Turn the LED off
+  led_off();
+
+  Serial.println("Arduino Nano Matter - color lightbulb");
+
+  if (!Matter.isDeviceCommissioned()) {
+    Serial.println("Matter device is not commissioned");
+    Serial.println("Commission it to your Matter hub with the manual pairing code or QR code");
+    Serial.printf("Manual pairing code: %s\n", Matter.getManualPairingCode().c_str());
+    Serial.printf("QR code URL: %s\n", Matter.getOnboardingQRCodeUrl().c_str());
+  }
+  while (!Matter.isDeviceCommissioned()) {
+    delay(200);
+  }
+
+  if (!Matter.isDeviceConnected()) {
+    Serial.println("Waiting for network connection...");
+  }
+  while (!Matter.isDeviceConnected()) {
+    delay(200);
+  }
+  Serial.println("Device connected");
+}
+
+void loop()
+{
+  // If the physical button state changes - update the lightbulb's on/off state
+  if (button_pressed) {
+    button_pressed = false;
+    // Invert the on/off state of the lightbulb
+    bool bulb_state = matter_color_bulb.get_onoff();
+    matter_color_bulb.set_onoff(!bulb_state);
+  }
+
+  // Get the current on/off state of the lightbulb
+  static bool matter_lightbulb_last_state = false;
+  bool matter_lightbulb_current_state = matter_color_bulb.get_onoff();
+
+  // If the current state is ON and the previous was OFF - turn on the LED
+  if (matter_lightbulb_current_state && !matter_lightbulb_last_state) {
+    matter_lightbulb_last_state = matter_lightbulb_current_state;
+    Serial.println("Bulb ON");
+    // Set the LEDs to the last received state
+    update_led_color();
+  }
+
+  // If the current state is OFF and the previous was ON - turn off the LED
+  if (!matter_lightbulb_current_state && matter_lightbulb_last_state) {
+    matter_lightbulb_last_state = matter_lightbulb_current_state;
+    Serial.println("Bulb OFF");
+    led_off();
+  }
+
+  static uint8_t hue_prev = 0;
+  static uint8_t saturation_prev = 0;
+  static uint8_t brightness_prev = 0;
+  uint8_t hue_curr = matter_color_bulb.get_hue();
+  uint8_t saturation_curr = matter_color_bulb.get_saturation_percent();
+  uint8_t brightness_curr = matter_color_bulb.get_brightness_percent();
+
+  // If either the hue, saturation or the brightness changes - update the LED to reflect the latest change
+  if (hue_prev != hue_curr || saturation_prev != saturation_curr || brightness_prev != brightness_curr) {
+    update_led_color();
+    hue_prev = hue_curr;
+    saturation_prev = saturation_curr;
+    brightness_prev = brightness_curr;
+  }
+}
+
+// Updates the color of the RGB LED to match the Matter lightbulb's color
+void update_led_color()
+{
+  if (!matter_color_bulb.get_onoff()) {
+    return;
+  }
+  uint8_t r, g, b;
+  matter_color_bulb.get_rgb(&r, &g, &b);
+  analogWrite(LED_R, 255 - r);
+  analogWrite(LED_G, 255 - g);
+  analogWrite(LED_B, 255 - b);
+  Serial.printf("Setting bulb color to > r: %u  g: %u  b: %u\n", r, g, b);
+}
+
+// Turns the RGB LED off
+void led_off()
+{
+  analogWrite(LED_R, 255);
+  analogWrite(LED_G, 255);
+  analogWrite(LED_B, 255);
+}
+
+void handle_button_press()
+{
+  static uint32_t btn_last_press = 0;
+  if (millis() < btn_last_press + 200) {
+    return;
+  }
+  btn_last_press = millis();
+  button_pressed = true;
+}
+```
+
+To upload the code to the Nano Matter, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
+
+![Upload the Matter RGB example](assets/upload-color.png)
+
+After the code is uploaded, open the Arduino IDE Serial Monitor and reset the board. To commission a Matter device to the network you will need the credentials shown in the terminal.
+
+You will find a *Manual pairing code* and a *QR code URL* as follows:
+
+![Commissioning credentials](assets/qr-code.png)
+
+***open the QR code URL on your favorite browser to generate the QR code.***
+
+To commission your device, open the Google Home app, navigate to devices, click on **add device** and select the **matter-enabled device** option:
+
+![Adding a new Matter device to Google Home](assets/add-device.png)
+
+Then, wait for the device to be commissioned and added to the Google Home app:
+
+![Device added](assets/add-device-2.png)
+
+Finally, you will be able to control the Nano Matter built-in RGB LED as a native smart device. You can turn it on and off and control its color and brightness.
+
+![RGB Lightbulb with Nano Matter](assets/matter-google.gif)
+### With Apple Home
+
+The Apple Home products that can work as a **Matter hub** through **Thread** are listed below:
+
+- Apple TV 4K (3rd generation) Wi-Fi + Ethernet
+- Apple TV 4K (2nd generation)
+- HomePod (2nd generation)
+- HomePod mini
+
+### With Amazon Alexa
+
+The Amazon Alexa products that can work as a **Matter hub** through **Thread** are listed below:
+
+- Echo (4th Gen)
+- Echo Show 10 (3rd Gen)
+- Echo Show 8 (3rd Gen)
+- Echo Hub
+- Echo Studio (2nd Gen)
+- Echo Plus (2nd Gen)
+- eero Pro 6 and 6E
+- eero 6 and 6+
+- eero PoE 6 and gateway
+- eero Pro
+- eero Beacon
+- eero Max 7
+
+***Other Amazon devices are compatible with Matter but not Thread.***
+
+### Device Decommissioning 
+
+If you have a Matter device configured and working for example with the Google Home ecosystem, and you want to integrate it with Alexa or Apple Home instead; you need to decommission it. 
+
+In simple terms, **decommissioning** refers to unpairing your device from a current service.
+
 ## Pins
 ### Analog Input Pins (ADC)
 
@@ -144,23 +354,23 @@ The Nano Matter has **19 analog input pins**, mapped as follows:
 |          PB02           |           A1            |       GPIO/ADC        |
 |          PB05           |           A2            |       GPIO/ADC        |
 |          PC00           |           A3            |       GPIO/ADC        |
-|          PA06           |       A4/I2C_SDA        |     I2C/GPIO/ADC      |
-|          PA07           |       A5/I2C_SCL        |     I2C/GPIO/ADC      |
+|          PA06           |         A4/SDA          |     I2C/GPIO/ADC      |
+|          PA07           |         A5/SCL          |     I2C/GPIO/ADC      |
 |          PB01           |           A6            |     GPIO/ADC/DAC      |
 |          PB03           |           A7            |       GPIO/ADC        |
-|          PB04           |           13            |     SPI/GPIO/ADC      |
-|          PA08           |           12            |     SPI/GPIO/ADC      |
-|          PA09           |           11            |     SPI/GPIO/ADC      |
-|          PD03           |            8            |       GPIO/ADC        |
-|          PD02           |            7            |       GPIO/ADC        |
-|          PC09           |            6            |       GPIO/ADC        |
-|          PC08           |            5            |       GPIO/ADC        |
-|          PC07           |            4            |       GPIO/ADC        |
-|          PC06           |            3            |       GPIO/ADC        |
-|          PA04           |           TX            |     UART/GPIO/ADC     |
-|          PA05           |           RX            |     UART/GPIO/ADC     |
+|          PB04           |           D13           |     SPI/GPIO/ADC      |
+|          PA08           |           D12           |     SPI/GPIO/ADC      |
+|          PA09           |           D11           |     SPI/GPIO/ADC      |
+|          PD03           |           D8            |       GPIO/ADC        |
+|          PD02           |           D7            |       GPIO/ADC        |
+|          PC09           |           D6            |       GPIO/ADC        |
+|          PC08           |           D5            |       GPIO/ADC        |
+|          PC07           |           D4            |       GPIO/ADC        |
+|          PC06           |           D3            |       GPIO/ADC        |
+|          PA04           |      PIN_SERIAL_TX      |     UART/GPIO/ADC     |
+|          PA05           |      PIN_SERIAL_RX      |     UART/GPIO/ADC     |
 
-***Digital I/O's can also be used as analog inputs with some exceptions.***
+***Digital I/O's can also be used as analog inputs with `D10`,`D9` and `D2` as exceptions.***
 
 Analog input pins can be used through the built-in functions of the Arduino programming language. 
 
@@ -272,7 +482,7 @@ The DAC output should look like the image below:
 
 ### Digital Pins
 
-The Nano Matter has **19 digital pins**, mapped as follows:
+The Nano Matter has **22 digital pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
 |:-----------------------:|:-----------------------:|:---------------------:|
@@ -280,23 +490,25 @@ The Nano Matter has **19 digital pins**, mapped as follows:
 |          PB02           |           A1            |       GPIO/ADC        |
 |          PB05           |           A2            |       GPIO/ADC        |
 |          PC00           |           A3            |       GPIO/ADC        |
-|          PA06           |       A4/I2C_SDA        |     I2C/GPIO/ADC      |
-|          PA07           |       A5/I2C_SCL        |     I2C/GPIO/ADC      |
+|          PA06           |         A4/SDA          |     I2C/GPIO/ADC      |
+|          PA07           |         A5/SCL          |     I2C/GPIO/ADC      |
 |          PB01           |           A6            |     GPIO/ADC/DAC      |
 |          PB03           |           A7            |       GPIO/ADC        |
-|          PB04           |           13            |     SPI/GPIO/ADC      |
-|          PA08           |           12            |     SPI/GPIO/ADC      |
-|          PA09           |           11            |     SPI/GPIO/ADC      |
-|          PD03           |            8            |       GPIO/ADC        |
-|          PD02           |            7            |       GPIO/ADC        |
-|          PC09           |            6            |       GPIO/ADC        |
-|          PC08           |            5            |       GPIO/ADC        |
-|          PC07           |            4            |       GPIO/ADC        |
-|          PC06           |            3            |       GPIO/ADC        |
-|          PA04           |           TX            |     UART/GPIO/ADC     |
-|          PA05           |           RX            |     UART/GPIO/ADC     |
+|          PB04           |           D13           |     SPI/GPIO/ADC      |
+|          PA08           |           D12           |     SPI/GPIO/ADC      |
+|          PA09           |           D11           |     SPI/GPIO/ADC      |
+|          PD05           |           D10           |       SPI/GPIO        |
+|          PD04           |           D9            |         GPIO          |
+|          PD03           |           D8            |       GPIO/ADC        |
+|          PD02           |           D7            |       GPIO/ADC        |
+|          PC09           |           D6            |       GPIO/ADC        |
+|          PC08           |           D5            |       GPIO/ADC        |
+|          PC07           |           D4            |       GPIO/ADC        |
+|          PC06           |           D3            |       GPIO/ADC        |
+|          PA03           |           D2            |         GPIO          |
+|          PA04           |      PIN_SERIAL_TX      |     UART/GPIO/ADC     |
+|          PA05           |      PIN_SERIAL_RX      |     UART/GPIO/ADC     |
 
-***Notice that GPIO's as `D2`,`D9` and `D10` are reserved and can not be used as analog or digital.*** 
 
 The digital pins of the Nano Matter can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
 
@@ -451,9 +663,9 @@ The Nano Matter features a built-in RGB LED that can be a visual feedback indica
 
 | **LED Color Segment** | **Arduino Name** | **Microcontroller Pin** |
 |:---------------------:|:----------------:|:-----------------------:|
-|          Red          |   LED_BUILTIN    |          PC01           |
-|         Green         |  LED_BUILTIN_1   |          PC02           |
-|         Blue          |  LED_BUILTIN_2   |          PC03           |
+|          Red          |   LEDR or LED_BUILTIN    |          PC01           |
+|         Green         |  LEDG or LED_BUILTIN_1   |          PC02           |
+|         Blue          |  LEDB or LED_BUILTIN_2   |          PC03           |
 
 ***The RGB LED colors are activated with zeros, this means that you need to set to LOW the color segment you want to turn on.***
 
@@ -465,24 +677,24 @@ Here you can find a complete example code to blink the built-in RGB LED of the N
 ```arduino
 void setup() {
   // initialize LED digital pins as outputs.
-  pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(LED_BUILTIN_1, OUTPUT);
-  pinMode(LED_BUILTIN_2, OUTPUT);
+  pinMode(LEDR, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+  pinMode(LEDB, OUTPUT);
 }
 
 // the loop function runs over and over again forever
 void loop() {
-  digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (LOW is the voltage level)
-  digitalWrite(LED_BUILTIN_1, HIGH);  // turn the LED off (HIGH is the voltage level)
-  digitalWrite(LED_BUILTIN_2, HIGH);  // turn the LED off (HIGH is the voltage level)
+  digitalWrite(LEDR, LOW);  // turn the LED on (LOW is the voltage level)
+  digitalWrite(LEDG, HIGH);  // turn the LED off (HIGH is the voltage level)
+  digitalWrite(LEDB, HIGH);  // turn the LED off (HIGH is the voltage level)
   delay(1000);                      // wait for a second
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED off by making the voltage HIGH
-  digitalWrite(LED_BUILTIN_1, LOW);   // turn the LED on by making the voltage LOW
-  digitalWrite(LED_BUILTIN_2, HIGH);   // turn the LED off by making the voltage HIGH
+  digitalWrite(LEDR, HIGH);   // turn the LED off by making the voltage HIGH
+  digitalWrite(LEDG, LOW);   // turn the LED on by making the voltage LOW
+  digitalWrite(LEDB, HIGH);   // turn the LED off by making the voltage HIGH
   delay(1000);                      // wait for a second
-  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED off by making the voltage HIGH
-  digitalWrite(LED_BUILTIN_1, HIGH);   // turn the LED off by making the voltage HIGH
-  digitalWrite(LED_BUILTIN_2, LOW);   // turn the LED on by making the voltage LOW
+  digitalWrite(LEDR, HIGH);   // turn the LED off by making the voltage HIGH
+  digitalWrite(LEDG, HIGH);   // turn the LED off by making the voltage HIGH
+  digitalWrite(LEDB, LOW);   // turn the LED on by making the voltage LOW
   delay(1000);   
 }
 ```
@@ -499,10 +711,10 @@ The Nano Matter supports SPI communication, which allows data transmission betwe
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|      PD05     |       SS or 10      |
-|      PA09     |       MOSI or 11     |
-|      PA08     |       MISO or 12     |
-|      PB04     |       SCK or 13      |
+|          PD05           |        SS or D10         |
+|          PA09           |       MOSI or D11        |
+|          PA08           |       MISO or D12        |
+|          PB04           |        SCK or D13        |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
@@ -560,8 +772,8 @@ The Nano Matter supports I2C communication, which allows data transmission betwe
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|         PA06         |       I2C_SDA or A4      |
-|         PA07         |       I2C_SCL or A5      |
+|          PA06           |           SDA           |
+|          PA07           |           SCL           |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
@@ -632,8 +844,8 @@ The pins used in the Nano Matter for the UART communication protocol are the fol
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|         PA05         |       RX       |
-|         PA04         |       TX        |
+|          PA05           |      PIN_SERIAL_RX      |
+|          PA04           |      PIN_SERIAL_TX      |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
@@ -693,139 +905,6 @@ Serial1.println("Hello world!");
 
 ### Bluetooth® Low Energy
 
-To enable Bluetooth® Low Energy communication on the Nicla Sense ME, you can use the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/).
-
-For this BLE application example, we are going to monitor the Nicla Sense ME battery level. Here is an example of how to use the ArduinoBLE library to achieve it:
-
-```arduino
-#include "Nicla_System.h"
-#include <ArduinoBLE.h>
-
-// Bluetooth® Low Energy Battery Service
-BLEService batteryService("180F");
-
-// Bluetooth® Low Energy Battery Level Characteristic
-BLEUnsignedCharCharacteristic batteryLevelChar("2A19",                // standard 16-bit characteristic UUID
-                                               BLERead | BLENotify);  // remote clients will be able to get notifications if this characteristic changes
-
-int oldBatteryLevel = 0;  // last battery level reading from analog input
-long previousMillis = 0;  // last time the battery level was checked, in ms
-
-void blePeripheralDisconnectHandler(BLEDevice central) {
-  nicla::leds.setColor(red);
-  Serial.println("Device disconnected.");
-}
-
-void blePeripheralConnectHandler(BLEDevice central) {
-  nicla::leds.setColor(blue);
-  Serial.println("Device connected.");
-}
-
-void setup() {
-  Serial.begin(9600);  // initialize serial communication
-  while (!Serial)
-    ;
-
-  // run this code once when Nicla Sense ME board turns on
-  nicla::begin();       // initialize library
-  nicla::leds.begin();  // initialize LEDs support 
-
-  nicla::setBatteryNTCEnabled(false);  // Set to false if your battery doesn't have an NTC thermistor.
-  nicla::enableCharging(100);  // enable the battery charger and define the charging current in mA
-
-  nicla::leds.setColor(green);
-
-  // begin initialization
-  if (!BLE.begin()) {
-    Serial.println("starting BLE failed!");
-
-    while (1)
-      ;
-  }
-
-  /* Set a local name for the Bluetooth® Low Energy device
-     This name will appear in advertising packets
-     and can be used by remote devices to identify this Bluetooth® Low Energy device
-     The name can be changed but maybe be truncated based on space left in advertisement packet
-  */
-  BLE.setLocalName("BatteryMonitor");
-  BLE.setAdvertisedService(batteryService);            // add the service UUID
-  batteryService.addCharacteristic(batteryLevelChar);  // add the battery level characteristic
-  BLE.addService(batteryService);                      // Add the battery service
-  batteryLevelChar.writeValue(oldBatteryLevel);        // set initial value for this characteristic
-  BLE.setEventHandler(BLEDisconnected, blePeripheralDisconnectHandler);   // handler that fires when BLE is disconnected
-  BLE.setEventHandler(BLEConnected, blePeripheralConnectHandler);         // handler that fires when BLE is disconnected
-
-  /* Start advertising Bluetooth® Low Energy.  It will start continuously transmitting Bluetooth® Low Energy
-     advertising packets and will be visible to remote Bluetooth® Low Energy central devices
-     until it receives a new connection */
-
-  // start advertising
-  BLE.advertise();
-
-  Serial.println("Bluetooth® device active, waiting for connections...");
-}
-
-void loop() {
-  // wait for a Bluetooth® Low Energy central
-  BLEDevice central = BLE.central();
-
-  // if a central is connected to the peripheral:
-  if (central) {
-    Serial.print("Connected to central: ");
-    // print the central's BT address:
-    Serial.println(central.address());
-
-    // check the battery level every 200ms
-    // while the central is connected:
-    while (central.connected()) {
-      long currentMillis = millis();
-      // if 200ms have passed, check the battery level:
-      if (currentMillis - previousMillis >= 200) {
-        previousMillis = currentMillis;
-        updateBatteryLevel();
-      }
-    }
-
-    Serial.print("Disconnected from central: ");
-    Serial.println(central.address());
-  }
-}
-
-void updateBatteryLevel() {
-  /* Read the power management IC registers to retrieve the battery percentage
-  */
-
-  int batteryLevel = nicla::getBatteryVoltagePercentage();  // this command return the battery percentage
-
-  if (batteryLevel != oldBatteryLevel) {       // if the battery level has changed
-    Serial.print("Battery Level % is now: ");  // print it
-    Serial.println(batteryLevel);
-    batteryLevelChar.writeValue(batteryLevel);  // and update the battery level characteristic
-    oldBatteryLevel = batteryLevel;             // save the level for next comparison
-  }
-}
-
-
-```
-
-The example code shown above creates a Bluetooth® Low Energy service and characteristics according to the [BLE standard](https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf) for transmitting a battery percentage value read by Nicla Sense ME power management IC. 
-
-- The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristics for a battery-level application.
-
-
-  |         **Description**        |       **ID**       |
-  |:------------------------------:|:------------------:|
-  |  Battery Service             |       180F       |
-  | Battery Level Characteristic |       2A19       |
-
-- In the `setup()` function, the code initializes the Nicla Sense ME board and sets up the Bluetooth® Low Energy service and characteristics; then, it begins advertising the defined Bluetooth® Low Energy service.
-
-- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Sense ME, its built-in LED is turned on blue. The code then enters into a loop that constantly reads the battery percent. It also prints it to the Serial Monitor and transmits it to the central device over the defined Bluetooth® Low Energy characteristic.
-
-Using the nRF Connect app (available for [Android](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=es_419&gl=US) and [iOS](https://apps.apple.com/us/app/nrf-connect-for-mobile/id1054362403?platform=iphone)) you can easily connect to your Nicla Sense ME and monitor the battery level in real time.
-
-![Battery level monitored from the nRF Connect app](assets/battery-monitor.png)
 
 ## Support
 
