@@ -151,6 +151,10 @@ The Silicon Labs core in the Arduino IDE comes with several Matter examples read
 
 ![Matter examples](assets/matter-examples.png)
 
+First, to start creating *Matter-enabled* solutions, we need to select the Matter protocol in **Tools > Protocol stack > Matter**
+
+![Matter Protocol stack selected](assets/matter-setup.png)
+
 In the example below, we are going to use the Nano Matter as a *RGB Lightbulb*. For this, navigate to **File > Examples > Matter** and open the built-in sketch called **nano_matter_lightbulb_color**.
 
 ```arduino
@@ -761,12 +765,24 @@ The `sl_bt_on_event(sl_bt_msg_t *evt)` function is the main one of the sketch an
 - Handling incoming and outgoing BLE messages.
 
 The `ble_initialize_gatt_db()` function is responsible for:
-- Creating the device name service so we can find the device as "Blinky Example" with the `2A00` UUID.
 - Adding the Generic Access service with the `1800` UUID.
 - Adding the Blinky service with the `de8a5aac-a99b-c315-0c80-60d4cbb51224` UUID.
+- Creating the device name characteristic so we can find the device as "Blinky Example" with the `2A00` UUID.
 - Adding the LED Control characteristic to the Blinky service with the `5b026510-4088-c297-46d8-be6c736a087a` UUID.
 - Adding the Button report characteristic to the Blinky service with the `61a885a4-41c3-60d0-9a53-6d652a70d29c` UUID.
 
+***Note that if you want to implement a different or custom BLE service or characteristic, the UUID arrays have to start with the least significant bit (LSB) from left to right.***
+
+After uploading the sketch to the Nano Matter, it's time to communicate with it through BLE. For this, Silicon Labs has developed a **mobile app** that you can download from here:
+
+- [Android](https://play.google.com/store/apps/details?id=com.siliconlabs.bledemo)
+- [iOS](https://itunes.apple.com/us/app/silicon-labs-blue-gecko-wstk/id1030932759)
+
+Open the *EFR Connect BLE Mobile APP* on your smartphone, in the lower menu, navigate to **Demo** and select **Blinky**:
+
+![Blinky demo controlling the Nano Matter through BLE](assets/BlinkyBLE.gif)
+
+**You can also manage the LED control and button status manually from the Scan tab in the lower menu.**
 
 ## Onboard User Interface
 
@@ -812,7 +828,7 @@ void handle_button_press()
 
 ```
 
-After pressing the push button, you will see a "Button Pressed!" message in the Serial Monitor.
+After pressing the push button, you will see a **"Button Pressed!"** message in the Serial Monitor.
 
 ### RGB LED
 
