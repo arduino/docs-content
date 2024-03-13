@@ -14,7 +14,7 @@ Pins:
 Connectivity:
   Matter: Matter-ready Smart Home Connectivity
   LR-WPANs: IEEE 802.15.4 w/ Thread®
-  Bluetooth®: Bluetooth 5.3 & Bluetooth Mesh
+  Bluetooth®: Bluetooth® 5.3 & Bluetooth® Mesh
 Additional Compatible Protocols: Zigbee® & OpenThread®
 Connectivity Band Frequency: On-board 2.4 GHz
 Secure element: Secure Vault® High
