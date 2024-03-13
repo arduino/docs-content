@@ -37,7 +37,7 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
   </Feature>
 
   <Feature title="Low power consumption" image="power">
-    The Arduino Nano Matter has been designed as an ultra-low power board, being the perfect solution for IoT battery-powered applications.
+    The Nano Matter has been designed as an ultra-low power board, being the perfect solution for IoT battery-powered applications.
   </Feature>
 
   <Feature title="Secure Vault® technology enabled" image="crypto-chip">
