@@ -34,7 +34,9 @@ This user manual will guide you through a practical journey covering the most in
 
 ## Product Overview
 
-The Nano Matter merges the well-known Arduino way of making complex technology more accessible, with the powerful MGM240S from Silicon Labs to bring Matter, one of the most popular IoT connectivity standards for smart home devices, closer to the maker world in one of the smallest form factors in the market. Enables 802.15.4 (Thread) and Bluetooth® Low Energy connectivity to interact with Matter compatible devices with a user-friendly software layer for quick prototyping.
+The Nano Matter merges the well-known Arduino way of making complex technology more accessible, with the powerful MGM240S from Silicon Labs to bring Matter closer to the maker world in one of the smallest form factors in the market. 
+
+It enables 802.15.4 (Thread) and Bluetooth® Low Energy connectivity to interact with Matter-compatible devices with a user-friendly software layer for quick prototyping.
 
 
 ### Board Architecture Overview
@@ -51,13 +53,13 @@ Here is an overview of the board's main components, as shown in the images above
 
 ### Board Core and Libraries
 
-The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its IMU, magnetometer, and environment sensor. To install the Nano Matter core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
+The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, BLE, and I/Os. To install the Nano Matter core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
 
 ![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install.png)
 
 ### Pinout
 
-Place pinout image here
+![Nano Matter Simple pinout](assets/simple-pinout.png)
 
 The full pinout is available and downloadable as PDF from the link below:
 
@@ -88,7 +90,7 @@ This Nano board features castellated pins which are ideal for integrating the bo
 
 You can superficially mount the Nano Matter in your custom PCB thanks to the board doesn't have any bottom-mounted components.
 
-![Nano Matter castellated pins](assets/castellated.png)
+![Nano Matter castellated pins](assets/castellated-small.png)
 
 ## First Use
 ### Powering the Board
@@ -103,7 +105,7 @@ The Nano Matter can be powered by:
 For low-power consumption applications, the following hacks are recommended:
 
 - Cut the power status LED jumper off to save energy.
-- Power the board with an external **3V3 power supply** connected to `3.3V` pin, this will not power the *USB bridge IC*, so more energy will be saved.
+- Power the board with an external **3V3 power supply** connected to **3.3V** pin, this will not power the *USB bridge IC*, so more energy will be saved.
 
 ![Image showing the LED jumper and external 3.3V power](assets/lower-power.png)
 
@@ -141,9 +143,13 @@ You should now see the red LED of the built-in RGB LED turning on for one second
 
 ![Hello World example running in the Nano Matter](assets/blink.gif)
 
+If everything works as expected, you are ready to continue searching and experimenting with this mighty board.
+
 ## Matter
 
 Developing Matter-compatible IoT solutions has never been easier with the Arduino ecosystem. 
+
+![](assets/nano-matter-banner.png)
 
 The Nano Matter can communicate with Matter hubs through a Thread network, so the hubs used must be **Thread border routers**.
 
@@ -151,7 +157,7 @@ The Silicon Labs core in the Arduino IDE comes with several Matter examples read
 
 ![Matter examples](assets/matter-examples.png)
 
-First, to start creating *Matter-enabled* solutions, we need to select the Matter protocol in **Tools > Protocol stack > Matter**
+First, to start creating *Matter-enabled* solutions, we need to select the Matter protocol in **Tools > Protocol stack > Matter**:
 
 ![Matter Protocol stack selected](assets/matter-setup.png)
 
@@ -298,7 +304,7 @@ To upload the code to the Nano Matter, click the **Verify** button to compile th
 
 After the code is uploaded, open the Arduino IDE Serial Monitor and reset the board. To commission a Matter device to the network you will need the credentials shown in the terminal.
 
-You will find a *Manual pairing code* and a *QR code URL* as follows:
+You will find a **Manual pairing code** and a **QR code URL** as follows:
 
 ![Commissioning credentials](assets/qr-code.png)
 
@@ -326,6 +332,8 @@ Then, wait for the device to be commissioned and added to the Google Home app:
 Finally, you will be able to control the Nano Matter built-in RGB LED as a native smart device. You can turn it on and off and control its color and brightness.
 
 ![RGB Lightbulb with Nano Matter](assets/matter-google.gif)
+
+If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
 
 ### With Amazon Alexa
 
@@ -358,6 +366,8 @@ Finally, you will be able to control the Nano Matter built-in RGB LED as a nativ
 
 ![RGB Lightbulb with Nano Matter](assets/matter-alexa.gif)
 
+If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
+
 ### With Apple Home
 
 The Apple Home products that can work as a **Matter hub** through **Thread** are listed below:
@@ -366,6 +376,8 @@ The Apple Home products that can work as a **Matter hub** through **Thread** are
 - Apple TV 4K (2nd generation)
 - HomePod (2nd generation)
 - HomePod mini
+
+If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
 
 ### Device Decommissioning 
 
@@ -425,7 +437,7 @@ void decommission_handler() {
   }
 }
 ```
-The sketch above allows you to decommission your board manually after pressing the Nano Matter user button for 10 seconds. You can monitor the status in the Arduino IDE Serial Monitor.
+The sketch above allows you to decommission your board manually after **pressing** the Nano Matter user button for **10 seconds**. You can monitor the status in the Arduino IDE Serial Monitor.
 
 
 ## Bluetooth® Low Energy
@@ -782,7 +794,7 @@ Open the *EFR Connect BLE Mobile APP* on your smartphone, in the lower menu, nav
 
 ![Blinky demo controlling the Nano Matter through BLE](assets/BlinkyBLE.gif)
 
-**You can also manage the LED control and button status manually from the Scan tab in the lower menu.**
+***You can also manage the LED control and button status manually from the Scan tab in the lower menu.***
 
 ## Onboard User Interface
 
@@ -978,6 +990,79 @@ void loop() {
 }
 ```
 
+### PWM Pins
+
+Most digital and analog pins of the Nano Matter can be used as PWM (Pulse Width Modulation) pins. This functionality can be used with the built-in function `analogWrite()` as shown below:
+
+```arduino
+analogWrite(pin, value);  
+```
+By default, the output resolution is 8 bits, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
+
+```arduino
+analogWriteResolution(bits);  
+```
+
+Using this function has some limitations, for example, the PWM signal frequency is fixed at 1 KHz, and this could not be ideal for every application.
+
+Here is an example of how to create a **1 KHz** variable duty-cycle PWM signal:
+
+```arduino
+const int analogInPin = A0;   // Analog input pin that the potentiometer is attached to
+const int pwmOutPin = 13;  // PWM output pin
+
+int sensorValue = 0;  // value read from the pot
+int outputValue = 0;  // value output to the PWM (analog out)
+
+void setup() {
+  // initialize serial communications at 9600 bps:
+  Serial.begin(115200);
+  analogWriteResolution(12);
+}
+
+void loop() {
+  // read the analog in value:
+  sensorValue = analogRead(analogInPin);
+  // map it to the range of the analog out:
+  outputValue = sensorValue;
+  // change the analog out value:
+  analogWrite(pwmOutPin, outputValue);
+
+  // print the results to the Serial Monitor:
+  Serial.print("sensor = ");
+  Serial.print(sensorValue);
+  Serial.print("\t output = ");
+  Serial.println(outputValue);
+
+  // wait 2 milliseconds before the next loop for the analog-to-digital
+  // converter to settle after the last reading:
+  delay(2);
+}
+```
+
+![PWM output signal using the PWM at a lower level](assets/pwm-out.png)
+
+If you need to work with a **higher frequency** PWM signal, you can do it with the following PWM class-specific function:
+
+```arduino
+PWM.frequency_mode(output_pin, frequency);
+```
+Here is an example of how to create a **10 KHz** fixed duty-cycle PWM signal:
+
+```arduino
+const int analogOutPin = 13;  // PWM output pin to use
+
+void setup() {
+  analogWriteResolution(12); 
+}
+
+void loop() {
+  PWM.frequency_mode(analogOutPin, 10000);
+}
+```
+
+![PWM output signal using the PWM at a lower level](assets/freq-out.png)
+
 ### Analog Input Pins (ADC)
 
 The Nano Matter has **19 analog input pins**, mapped as follows:
@@ -1085,6 +1170,36 @@ analogWrite(DAC0, value);   // the value should be in the range of the DAC resol
 
 ***If a normal GPIO is passed to the analogWrite() function, the output will be a PWM signal.***
 
+
+The following sketch will create a **sine** wave signal in the `A0` Nano Matter pin:
+
+```arduino
+float sample_rate = 9600.0, freq = 60.0;  //samples/second, AC waveform freq.
+int npts = sample_rate / freq;
+
+void setup()
+{
+  Serial.begin(115200);
+  // Set the DAC resolution to 12 bits
+  analogWriteResolution(12);
+  // Select the 1.25V reference voltage (feel free to change it)
+  analogReferenceDAC(DAC_VREF_1V25);
+}
+
+void loop()
+{
+
+  for (int i = 0; i < npts; i++) {
+    int x = 2000 + 1000.0 * sin(2 * PI * (freq / sample_rate) * i);
+    analogWrite(DAC0, x);
+    delayMicroseconds(1.0E6 / sample_rate);  //adjust constant to get correct rate
+  }
+}
+```
+The DAC output should look like the image below:
+
+![DAC sine wave output](assets/sine-output.png)
+
 The following sketch will create a **sawtooth** wave signal in the `A0` Nano Matter pin:
 
 ```arduino
@@ -1109,87 +1224,13 @@ void loop()
   }
 }
 ```
-
 The DAC output should look like the image below:
 
-![DAC sawtooth wave output](assets/dac-output.png)
-
-### PWM Pins
-
-Most digital and analog pins of the Nano Matter can be used as PWM (Pulse Width Modulation) pins. This functionality can be used with the built-in function `analogWrite()` as shown below:
-
-```arduino
-analogWrite(pin, value);  
-```
-By default, the output resolution is 8 bits, so the output value should be between 0 and 255. To set a greater resolution, do it using the built-in function `analogWriteResolution` as shown below:
-
-```arduino
-analogWriteResolution(bits);  
-```
-
-Using this function has some limitations, for example, the PWM signal frequency is fixed at 1 KHz, and this could not be ideal for every application.
-
-Here is an example of how to create a **1 KHz** variable duty-cycle PWM signal:
-
-```arduino
-const int analogInPin = A0;   // Analog input pin that the potentiometer is attached to
-const int pwmOutPin = 13;  // PWM output pin
-
-int sensorValue = 0;  // value read from the pot
-int outputValue = 0;  // value output to the PWM (analog out)
-
-void setup() {
-  // initialize serial communications at 9600 bps:
-  Serial.begin(115200);
-  analogWriteResolution(12);
-}
-
-void loop() {
-  // read the analog in value:
-  sensorValue = analogRead(analogInPin);
-  // map it to the range of the analog out:
-  outputValue = sensorValue;
-  // change the analog out value:
-  analogWrite(pwmOutPin, outputValue);
-
-  // print the results to the Serial Monitor:
-  Serial.print("sensor = ");
-  Serial.print(sensorValue);
-  Serial.print("\t output = ");
-  Serial.println(outputValue);
-
-  // wait 2 milliseconds before the next loop for the analog-to-digital
-  // converter to settle after the last reading:
-  delay(2);
-}
-```
-
-![PWM output signal using the PWM at a lower level](assets/pwm-out.png)
-
-If you need to work with a **higher frequency** PWM signal, you can do it with the following PWM class-specific function:
-
-```arduino
-PWM.frequency_mode(output_pin, frequency);
-```
-Here is an example of how to create a **10 KHz** fixed duty-cycle PWM signal:
-
-```arduino
-const int analogOutPin = 13;  // PWM output pin to use
-
-void setup() {
-  analogWriteResolution(12); 
-}
-
-void loop() {
-  PWM.frequency_mode(analogOutPin, 10000);
-}
-```
-
-![PWM output signal using the PWM at a lower level](assets/freq-out.png)
+![DAC sawtooth wave output](assets/saw-output.png)
 
 ## Communication
 
-This section of the user manual covers the different communication protocols that are supported by the Nicla Sense ME board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C), Universal Asynchronous Receiver-Transmitter (UART), and Bluetooth® Low Energy; communication via the onboard ESLOV connector is also explained in this section. The Nicla Sense ME features dedicated pins for each communication protocol, simplifying the connection and communication with different components, peripherals, and sensors.
+This section of the user manual covers the different communication protocols that are supported by the Nano Matter, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C) and Universal Asynchronous Receiver-Transmitter (UART). The Nano Matter features dedicated pins for each communication protocol, simplifying the connection and communication with different components, peripherals, and sensors.
 
 ### SPI
 
@@ -1391,7 +1432,7 @@ Serial1.println("Hello world!");
 
 ## Support
 
-If you encounter any issues or have questions while working with the Nicla Sense ME, we provide various support resources to help you find answers and solutions.
+If you encounter any issues or have questions while working with the Nano Matter, we provide various support resources to help you find answers and solutions.
 
 ### Help Center
 
