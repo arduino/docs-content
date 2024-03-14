@@ -1487,13 +1487,13 @@ If you encounter any issues or have questions while working with the Nano Matter
 
 Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nano Matter. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
-- [Nano Matter help center page](https://support.arduino.cc/hc/en-us/sections/Nano-Matter)
+- [Nano Matter help center page](https://support.arduino.cc/hc/en-us/sections/360004605400-Nano-Family)
 
 ### Forum
 
 Join our community forum to connect with other Nano Matter users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nano Matter.
 
-- [Nano Matter category in the Arduino Forum](https://forum.arduino.cc/c/hardware/nano/nano-matter)
+- [Nano Matter category in the Arduino Forum](https://forum.arduino.cc/c/hardware/nano-family/87)
 
 ### Contact Us
 
