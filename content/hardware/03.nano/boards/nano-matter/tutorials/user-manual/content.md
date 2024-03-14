@@ -104,7 +104,7 @@ The Nano Matter can be powered by:
 - A USB-C® cable (not included). 
 - An external **5V power supply** connected to `IN5V` pin (please, refer to the [board pinout section](#pinout) of the user manual).
 
-***Running a Matter application it uses up to 16 mA.***
+***Running a Matter application the board uses up to 16 mA (not standardized test).***
 
 ![Nano Matter externally powered](assets/ext-power.png)
 
@@ -113,7 +113,7 @@ For low-power consumption applications, the following hacks are recommended:
 - Cut the power status LED jumper off to save energy.
 - Power the board with an external **3V3 power supply** connected to **3.3V** pin, this will not power the *USB bridge IC*, so more energy will be saved.
 
-***Running a Matter application it uses up to 8 mA.***
+***Running a Matter application the board uses up to 8 mA (not standardized test).***
 
 ![Image showing the LED jumper and external 3.3V power](assets/lower-power.png)
 
