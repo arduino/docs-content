@@ -165,6 +165,8 @@ The Silicon Labs core in the Arduino IDE comes with several Matter examples read
 
 ![Matter examples](assets/matter-examples.png)
 
+***At the moment the "matter_lightbulb" example is the only one certified, so it is normal to get an *"Uncertified device"* message. The remaining example certifications are still in progress.***
+
 First, to start creating *Matter-enabled* solutions, we need to select the Matter protocol in **Tools > Protocol stack > Matter**:
 
 ![Matter Protocol stack selected](assets/matter-setup.png)
@@ -486,7 +488,6 @@ void decommission_handler() {
 }
 ```
 The sketch above allows you to decommission your board manually after **pressing** the Nano Matter user button for **10 seconds**. You can monitor the status in the Arduino IDE Serial Monitor.
-
 
 ## Bluetooth® Low Energy
 
