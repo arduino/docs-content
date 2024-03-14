@@ -53,7 +53,11 @@ Here is an overview of the board's main components, as shown in the images above
 
 ### Board Core and Libraries
 
-The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, BLE, and I/Os. To install the Nano Matter core, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
+The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, BLE, and I/Os. To install the Nano Matter core, navigate to **File > Preferences** and in the **Additional boards manager URLs**, add the following:
+
+`https://siliconlabs.github.io/arduino/package_arduinosilabs_index.json`
+
+Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
 
 ![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install.png)
 
