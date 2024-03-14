@@ -157,7 +157,7 @@ If everything works as expected, you are ready to continue searching and experim
 
 Developing Matter-compatible IoT solutions has never been easier with the Arduino ecosystem. 
 
-![](assets/nano-matter-banner.png)
+![Nano Matter](assets/nano-matter-banner.png)
 
 The Nano Matter can communicate with Matter hubs through a Thread network, so the hubs used must be **Thread border routers**.
 
