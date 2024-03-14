@@ -21,11 +21,6 @@ Home automation, environmental monitoring, and climate control
 <div style="text-align:justify;">
 The Arduino Nano Matter (from now on referred to as Nano Matter) is not just an IoT board; it is a gateway to innovation in various sectors. From streamlining manufacturing processes to creating responsive and comfortable living and working environments. Discover more about the transformative potential of the Nano Matter in the following application examples:
 
-- **Industrial automation**: Unlock the full potential of modern manufacturing with the Nano Matter. Designed for seamless integration into industrial settings, the Nano Matter streamlines operations through:
-  - **Machine-to-Machine interoperability**: Enhance your factory floor with the Nano Matter boards to enable dynamic supervision between machines. Should one machine begin producing defective parts due to a malfunction, adjacent machines are instantly alerted, halting their operations and notifying a human operator, thus reducing waste and downtime.
-  - **Machine status monitoring**: Integrate the Nano Matter into your industrial systems for real-time monitoring of critical conditions such as temperature, pressure, and humidity, ensuring timely maintenance and intervention, preventing costly breakdowns, and maintaining consistent production quality.
-  - **Worker safety optimization**: Elevate safety standards in your facility with the Nano Matter, which provides real-time monitoring of environmental conditions and detects personnel presence in hazardous areas, enhancing worker safety by preventing machine operation when a human is detected in dangerous zones.
-
 - **Smart homes**: Transform residential spaces into intelligent environments with the Nano Matter, capable of:
   - **Voice-controlled smart home**: Integrate the Nano Matter with popular voice assistant platforms like Amazon Alexa or Google Assistant, enabling residents to control smart home devices, such as lights, thermostats, and switches, using simple voice commands, enhancing convenience and accessibility.
   - **Smart lighting**: Automate your home lighting system with the Nano Matter to adjust the brightness based on occupancy, time of day, or ambient light levels, saving energy and ensuring optimal lighting conditions in every room.
@@ -37,7 +32,10 @@ The Arduino Nano Matter (from now on referred to as Nano Matter) is not just an 
   - **Energy management**: Use Nano Matter's connectivity to smart meters and appliances to view a building's energy consumption. Implement energy-saving measures automatically, reducing costs and environmental impact.
   - **Occupancy sensing and space utilization**: With the Nano Matter and Matter-enabled sensors, gain insights into actual building occupancy and use this data to adjust lighting, heating, and cooling systems, ensuring efficient use of space and resources.
 
-![](assets/Nano_Matter_Flying.png)
+- **Industrial automation**: Unlock the full potential of modern manufacturing with the Nano Matter. Designed for seamless integration into industrial settings, the Nano Matter streamlines operations through:
+  - **Machine-to-Machine interoperability**: Enhance your factory floor with the Nano Matter boards to enable dynamic supervision between machines. Should one machine begin producing defective parts due to a malfunction, adjacent machines are instantly alerted, halting their operations and notifying a human operator, thus reducing waste and downtime.
+  - **Machine status monitoring**: Integrate the Nano Matter into your industrial systems for real-time monitoring of critical conditions such as temperature, pressure, and humidity, ensuring timely maintenance and intervention, preventing costly breakdowns, and maintaining consistent production quality.
+  - **Worker safety optimization**: Elevate safety standards in your facility with the Nano Matter, which provides real-time monitoring of environmental conditions and detects personnel presence in hazardous areas, enhancing worker safety by preventing machine operation when a human is detected in dangerous zones.
 
 </div>
 
@@ -47,7 +45,7 @@ The Arduino Nano Matter (from now on referred to as Nano Matter) is not just an 
 ### General Specifications Overview
 
 <p style="text-align: justify;">
-The Nano Matter merges the well-known Arduino way of making complex technology more accessible with the powerful MGM240S from Silicon Labs to bring Matter, one of the most popular IoT connectivity standards, closer to the maker and professional world. The board's main features are highlighted in the table shown below:
+The Nano Matter merges the well-known Arduino way of making complex technology more accessible, bringing Matter, one of the most popular IoT connectivity standards, closer to the hobbyist and professional world. The powerful MGM240S multi-protocol wireless module from Silicon Labs controls the board. The board's main features are highlighted in the table shown below:
 
 <div style="text-align:center;">
 
@@ -116,6 +114,8 @@ The Nano Matter merges the well-known Arduino way of making complex technology m
 - Arduino USB Type-C® Cable 2-in-1 (SKU: TPX00094)
 - Arduino® Nano Motor Carrier (SKU: ABX00041)
 - Arduino® Nano Screw Terminal Adapter (SKU: ASX00037-3P)
+
+<div style="page-break-after: always;"></div>
 
 ## Ratings
 
