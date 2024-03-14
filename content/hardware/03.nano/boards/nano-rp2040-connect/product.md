@@ -8,6 +8,7 @@ core: arduino:mbed_nano
 forumCategorySlug: '/hardware/nano-family/nano-rp2040-connect/165'
 certifications: [REACH, RoHS, UKCA, RCM, CE, FCC, RCM]
 productCode: '044'
+sku: [ABX00053, ABX00052]
 ---
 
 The Arduino Nano RP2040 Connect is the feature packed Arduino Nano board built with Raspberry Pi's new silicon.

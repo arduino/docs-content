@@ -6,6 +6,7 @@ primary_button_url: /tutorials/mkr-485-shield/mkr-485-communication
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
 certifications: [CE, UKCA]
+sku: [ASX00004]
 ---
 
 The MKR 485 Shield makes it possible to communicate with legacy industrial systems that uses the RS-485 protocol. The shield is simply mounted on a MKR family board, easily turning your old local system into a modern IoT system.

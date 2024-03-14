@@ -1,0 +1,14 @@
+software: ~
+hardware:
+  shields: ~
+  carriers: ~
+  boards:
+    - mkr-zero
+    - mkr-1000-wifi
+    - mkr-wifi-1010
+    - mkr-fox-1200
+    - mkr-wan-1300
+    - mkr-wan-1310
+    - mkr-gsm-1400
+    - mkr-nb-1500
+    - mkr-vidor-4000
