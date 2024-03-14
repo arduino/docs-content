@@ -9,7 +9,7 @@ author: José Bagur
 
 # Description 
 
-<p style="text-align: justify;">Expand your home automation and building management projects with the Nano Matter. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter standard for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy (BLE) and OpenThread®. Embrace the simplicity and versatility of the Nano Matter to effortlessly interface with any Matter-compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities.</p>
+<p style="text-align: justify;">Expand your home automation and building management projects with the Arduino Nano Matter. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter standard for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy (BLE) and OpenThread®. Embrace the simplicity and versatility of the Nano Matter to effortlessly interface with any Matter-compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities.</p>
 
 # Target Areas
 
@@ -19,7 +19,7 @@ Home automation, environmental monitoring, and climate control
 ## Application Examples
 
 <div style="text-align:justify;">
-The Nano Matter is not just a board; it's a gateway to innovation in various sectors. From streamlining manufacturing processes to creating responsive and comfortable living and working environments, discover the transformative potential of the Nano Matter in the following application examples:
+The Arduino Nano Matter (from now on referred to as Nano Matter) is not just an IoT board; it is a gateway to innovation in various sectors. From streamlining manufacturing processes to creating responsive and comfortable living and working environments. Discover more about the transformative potential of the Nano Matter in the following application examples:
 
 - **Industrial automation**: Unlock the full potential of modern manufacturing with the Nano Matter. Designed for seamless integration into industrial settings, the Nano Matter streamlines operations through:
   - **Machine-to-Machine interoperability**: Enhance your factory floor with the Nano Matter boards to enable dynamic supervision between machines. Should one machine begin producing defective parts due to a malfunction, adjacent machines are instantly alerted, halting their operations and notifying a human operator, thus reducing waste and downtime.
