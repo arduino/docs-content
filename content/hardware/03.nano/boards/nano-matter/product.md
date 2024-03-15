@@ -1,6 +1,6 @@
 ---
 title: Nano Matter
-url_shop: https://store.arduino.cc/pages/nano-matter
+url_shop: https://arduino.to/nano-matter
 sku: [ABX00112]
 core: arduino:mbed_nano
 ---
