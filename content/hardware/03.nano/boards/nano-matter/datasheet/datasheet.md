@@ -13,7 +13,7 @@ author: José Bagur
 
 # Target Areas
 
-Home automation, environmental monitoring, and climate control
+Internet of Things, home automation, professional automation, environmental monitoring, and climate control
 
 # CONTENTS
 ## Application Examples
@@ -36,7 +36,6 @@ The Arduino Nano Matter (from now on referred to as Nano Matter) is not just an 
   - **Machine-to-Machine interoperability**: Enhance your factory floor with the Nano Matter boards to enable dynamic supervision between machines. Should one machine begin producing defective parts due to a malfunction, adjacent machines are instantly alerted, halting their operations and notifying a human operator, thus reducing waste and downtime.
   - **Machine status monitoring**: Integrate the Nano Matter into your industrial systems for real-time monitoring of critical conditions such as temperature, pressure, and humidity, ensuring timely maintenance and intervention, preventing costly breakdowns, and maintaining consistent production quality.
   - **Worker safety optimization**: Elevate safety standards in your facility with the Nano Matter, which provides real-time monitoring of environmental conditions and detects personnel presence in hazardous areas, enhancing worker safety by preventing machine operation when a human is detected in dangerous zones.
-
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -45,10 +44,12 @@ The Arduino Nano Matter (from now on referred to as Nano Matter) is not just an 
 ### General Specifications Overview
 
 <p style="text-align: justify;">
-The Nano Matter merges the well-known Arduino way of making complex technology more accessible, bringing Matter, one of the most popular IoT connectivity standards, closer to the hobbyist and professional world. The powerful MGM240S multi-protocol wireless module from Silicon Labs controls the board. The board's main features are highlighted in the table shown below:
+The Nano Matter merges the well-known Arduino way of making complex technology more accessible, bringing Matter, one of the most popular IoT connectivity standards, closer to the hobbyist and professional world. The powerful MGM240S multi-protocol wireless module from Silicon Labs controls the board. 
+
+The board's main features are highlighted in the table shown below:
+</p>
 
 <div style="text-align:center;">
-
 <table>
 <thead>
   <tr>
@@ -105,6 +106,8 @@ The Nano Matter merges the well-known Arduino way of making complex technology m
 </table>
 </div>
 
+<div style="page-break-after: always;"></div>
+
 ### Included Accessories
 
 - None
@@ -127,13 +130,15 @@ The table below provides a comprehensive guideline for the optimal use of the Na
 
 <div style="text-align:center;">
 
-|         **Parameter**        |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
-|:----------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
-|   USB Supply Input Voltage   | V<sub>USB</sub> |    -    |   5.0   |    -    |     V    |
-|     Supply Input Voltage     |  V<sub>IN</sub> |    -    |   5.0   |    -    |     V    |
-|     Operating Temperature    |  T<sub>OP</sub> |   TBD   |    -    |   TBD   |    °C    |
+|           **Parameter**          |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
+|:--------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
+|     USB Supply Input Voltage     | V<sub>USB</sub> |    -    |   5.0   |    -    |     V    |
+| Supply Input Voltage<sup>1</sup> |  V<sub>IN</sub> |    -    |   5.0   |   5.5   |     V    |
+|       Operating Temperature      |  T<sub>OP</sub> |   -40   |    -    |    85   |    °C    |
 
 </div>
+
+<sup>1</sup> Nano Matter powered through the IN5V pin (+5 VDC).<br>
 
 ### Current Consumption
 
@@ -155,18 +160,18 @@ The table below summarizes the power consumption of the Nano Matter in different
 </thead>
 <tbody>
   <tr>
-    <td style="text-align: center; vertical-align: middle;">Deep Sleep Mode Current Consumption<sup>1</sup></td>
+    <td style="text-align: center; vertical-align: middle;">Low Power Mode Current Consumption<sup>2</sup></td>
     <td style="text-align: center; vertical-align: middle;">I<sub>DS</sub></td>
     <td style="text-align: center; vertical-align: middle;">-</td>
-    <td style="text-align: center; vertical-align: middle;">TBD</td>
+    <td style="text-align: center; vertical-align: middle;">8</td>
     <td style="text-align: center; vertical-align: middle;">-</td>
-    <td style="text-align: center; vertical-align: middle;">µA</td>
+    <td style="text-align: center; vertical-align: middle;">mA</td>
   </tr>
   <tr>
-    <td style="text-align: center; vertical-align: middle;">Normal Mode Current Consumption<sup>2</sup></td>
+    <td style="text-align: center; vertical-align: middle;">Normal Mode Current Consumption<sup>3</sup></td>
     <td style="text-align: center; vertical-align: middle;">I<sub>NM</sub></td>
     <td style="text-align: center; vertical-align: middle;">-</td>
-    <td style="text-align: center; vertical-align: middle;">TBD</td>
+    <td style="text-align: center; vertical-align: middle;">16</td>
     <td style="text-align: center; vertical-align: middle;">-</td>
     <td style="text-align: center; vertical-align: middle;">mA</td>
   </tr>
@@ -174,17 +179,22 @@ The table below summarizes the power consumption of the Nano Matter in different
 </table>
 </div>
 
+<sup>2</sup> Nano Matter powered through the 3V3 pin (+3.3 VDC), running a Matter color lightbulb example.<br>
+<sup>3</sup> Nano Matter powered through the IN5V pin (+5 VDC), running a Matter color lightbulb example.
+
 <div style="page-break-after: always;"></div>
 
 ## Functional Overview
 
 <p style="text-align: justify;">
-The core of the Nano Matter is the MGM240SD22VNA microcontroller from Silicon Labs. The board also contains several peripherals connected to its microcontroller, such as a user button and an RGB LED. 
+The core of the Nano Matter is the MGM240SD22VNA microcontroller from Silicon Labs. The board also contains several peripherals and actuators connected to its microcontroller, such as a push button and an RGB LED available for the user. 
 </p>
 
 ### Pinout 
 
 The Nano-styled header connectors pinout is shown in the figure below.
+
+![](assets/Nano_Matter_Pinout.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -198,14 +208,27 @@ An overview of the high-level architecture of the Nano Matter is illustrated in 
 
 <div style="text-align:justify;">
 
-The Nano Matter can be powered through one of these interfaces:
+The Nano Matter can be powered through one of the following interfaces:
 
-- Onboard USB-C® port
-- External +5 VDC power supply connected IN5V pin of the Nano-styled header connector
-- External +5 VDC power supply connected VIN pin of the Nano-styled header connector. You must close the VIN jumper pad with a solder to do this.
+- **Onboard USB-C® port**: Provides a convenient way to power the board using standard USB-C® cables and adapters.
+- **External +5 VDC power supply**: This can be connected to the IN5V pin or the VIN pin of the Nano-styled header connector. For the VIN pin, ensure the VIN jumper is shorted to enable the power supply.
 
-The figure below shows the power options available on the Nano Matter and illustrates the main system power architecture.
+A detailed figure below illustrates the power options available on the Nano Matter and the main system power architecture.
+
+![](assets/Nano_Matter_Power_Tree.png)
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<strong>Low-Power Tip:</strong> For power efficiency, safely cut the LED jumper and connect an external +3.3 VDC power supply to the board's 3V3 pin. This configuration does not power the board's USB bridge.
 </div>
+
+</div>
+
+<div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
+<strong>Safety Note:</strong> Disconnect power before board modifications. Avoid short-circuiting. Refer to the full guide for more safety tips.
+</div>
+
+</div>
+
 
 <div style="page-break-after: always;"></div>
 
@@ -240,7 +263,7 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 <p style="text-align: justify;">
 The Nano Matter is a double-sided 18 mm x 45 mm board with a USB-C® port overhanging the top edge and dual
-castellated/through-hole pins around the two long edges. The onboard wireless antenna is located in the center of the bottom edge of the board.
+castellated/through-hole pins around the two long edges; the onboard wireless antenna is located in the center of the bottom edge of the board.
 </p>
 
 ### Board Dimensions
@@ -253,9 +276,19 @@ The Nano Matter has four 1.65 mm drilled mounting holes for mechanical fixing.
 
 ### Board Connectors
 
-Connectors of the Nano Matter are placed on the top and bottom sides of the board; their placement can be seen in the figure below.
+Connectors of the Nano Matter are placed on the top side of the board; their placement is shown in the figure below.
 
 ![](assets/Nano_Matter_Connectors.png)
+
+<p style="text-align: justify;">
+The Nano Matter was designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
+</p>
+
+### Board Peripherals and Actuators 
+
+The Nano Matter has one push button and one RGB LED available for the user; both the push button and the RGB LED are placed on the top side of the board.  Their placement is shown in the figure below.
+
+![](assets/Nano_Matter_PeripheralsActuators.png)
 
 <p style="text-align: justify;">
 The Nano Matter was designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
