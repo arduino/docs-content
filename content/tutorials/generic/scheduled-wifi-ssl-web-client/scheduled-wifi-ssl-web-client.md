@@ -149,7 +149,7 @@ int status = WL_IDLE_STATUS;
 WiFiSSLClient client;
 
 // server address:
-char server[] = "www.arduino.cc";
+char server[] = "www.arduino.tips";
 
 bool sendRequest = true; // used to understand if the http request must be sent
 
@@ -310,7 +310,7 @@ void httpRequest() {
 
     client.println("GET /asciilogo.txt HTTP/1.1");
 
-    client.println("Host: www.arduino.cc");
+    client.println("Host: www.arduino.tips");
 
     client.println("Connection: close");
 
