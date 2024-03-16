@@ -343,6 +343,8 @@ Finally, you will be able to control the Nano Matter built-in RGB LED as a nativ
 
 ![RGB Lightbulb with Nano Matter](assets/matter-google.gif)
 
+You are also able to control your device using voice commands with your personal assistant. 
+
 If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
 
 ### With Amazon Alexa
@@ -376,6 +378,8 @@ Finally, you will be able to control the Nano Matter built-in RGB LED as a nativ
 
 ![RGB Lightbulb with Nano Matter](assets/matter-alexa.gif)
 
+You are also able to control your device using voice commands with your personal assistant.
+
 If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
 
 ### With Apple Home
@@ -386,6 +390,8 @@ The Apple Home products that can work as a **Matter hub** through **Thread** are
 - Apple TV 4K (2nd generation)
 - HomePod (2nd generation)
 - HomePod mini
+
+You are also able to control your device using voice commands with your personal assistant.
 
 If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
 
