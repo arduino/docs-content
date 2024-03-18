@@ -467,7 +467,6 @@ void decommission_handler() {
     // measures time pressed
     int startTime = millis();
     while (digitalRead(BTN_BUILTIN) == LOW) {
-      delay(50);
 
       int elapsedTime = (millis() - startTime) / 1000.0;
 
