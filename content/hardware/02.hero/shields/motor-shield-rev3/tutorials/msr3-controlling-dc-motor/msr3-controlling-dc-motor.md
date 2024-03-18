@@ -44,7 +44,7 @@ There are several ways we can control a DC motor, perhaps the easiest one is jus
 
 But if we want to do a bit more than just making a motor spin full speed in two directions, we need a **motor control circuit.** More specifically, the dual full-bridge driver [L298P](https://www.st.com/resource/en/datasheet/l298.pdf), which we can find on the Motor Shield Rev3. 
 
-With this IC, we can set the work duty (0-100), enable brakes (HIGH, or LOW), and set the direction (HIGH or LOW). Each of these features can be controlled using a different set of pins. As we are going to control a DC motor in this tutorial, let's take a look at the pins that are used:
+With this IC, we can set the work duty (0-255), enable brakes (HIGH, or LOW), and set the direction (HIGH or LOW). Each of these features can be controlled using a different set of pins. As we are going to control a DC motor in this tutorial, let's take a look at the pins that are used:
 
 Channel A:
 - **D12** - Direction
@@ -83,7 +83,7 @@ First, let's take a look at some key commands in the code. We are actually not u
 - `int brakePin = 9;` - assign brake pin.
 - `digitalWrite(directionPin, state)` - sets the direction of the pin by using HIGH or LOW states. 
 - `digitalWrite(brakePin, state)` - release or activate brakes, using HIGH or LOW states.
-- `analogWrite(pwmPin, 30)` - write a value between 0-100 to set the work duty.
+- `analogWrite(pwmPin, 30)` - write a value between 0-255 to set the work duty.
 - `directionState = !directionState` - a boolean that switches every time the loop is run.
 
 The sketch can be found in the snippet below. Upload the sketch to the board.
