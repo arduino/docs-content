@@ -1,8 +1,8 @@
 <FeatureDescription>
 
-The Arduino® Nano Matter combines Arduino's ease of use with Silicon Labs's powerful [MGM240S](https://www.silabs.com/documents/public/data-sheets/mgm240s-datasheet.pdf) chip, making the popular IoT connectivity standard, **Matter®**, more accessible for various applications, including domotics and building automation. Its versatile connectivity options, including Bluetooth® Low Energy and Openthread, make it ideal for projects requiring low-power efficiency and broad connectivity.
+The Nano Matter uses Silicon Labs's powerful [MGM240S](https://www.silabs.com/documents/public/data-sheets/mgm240s-datasheet.pdf) chip, making the popular IoT connectivity standard, **Matter®**, more accessible in Maker and Professional applications. Its versatile connectivity options, including Bluetooth® Low Energy and Openthread, make it ideal for projects requiring low-power efficiency and broad connectivity.
 
-Using Nano's small form factor, Arduino makes it simpler for Makers to use Silicon Lab's technology, making working with Matter-compatible devices more straightforward than ever through its ample peripherals and I/Os, opening up new possibilities in smart technology for makers and professionals. With the Nano Matter:
+Thanks to the Nano Matter and its small form factor you can easily prototype new Matter devices, expanding your home automation and professional IoT implementations to the next level.
 
 </FeatureDescription>
 
@@ -14,8 +14,11 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
     </FeatureWrapper>
   </Feature>
 
-  <Feature title="IoT Ready" image="cellular">
-    The Nano Matter is IoT Ready, equipped with connectivity features to integrate with the Internet of Things, offering smart, interoperable, and secure interaction with other connected devices and systems.
+  <Feature title="OpenThread®" image="communication">
+    Nano Matter uses Thread for IoT mesh networking communication in a highly compact form factor.
+    <FeatureWrapper>
+      <FeatureLink title="OpenThread" url="https://openthread.io/" download blank/>
+    </FeatureWrapper>
   </Feature>
 
   <Feature title="MGM240SD22VNA 32-bit Arm® Cortex®-M33" image="mcu">
@@ -25,13 +28,10 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
     </FeatureWrapper>
   </Feature>
 
-  <Feature title="Multiprotocol connectivity" image="communication">
+  <Feature title="Bluetooth® connectivity" image="bluetooth">
     Leverage dual-mode connectivity, integrating both IEEE 802.15.4 (Thread) for mesh networking and Bluetooth® Low Energy for short-range communication in a highly compact form factor.
     <FeatureWrapper>
-      <FeatureLink title="Open Thread" url="https://openthread.io/" download blank/>
-    </FeatureWrapper>
-    <FeatureWrapper>
-      <FeatureLink title="Bluetooth®" url="https://openthread.io/" download blank/>
+      <FeatureLink title="Bluetooth®" url="https://www.bluetooth.com/" download blank/>
     </FeatureWrapper>
   </Feature>
 
@@ -44,7 +44,7 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
   </Feature>
 
   <Feature title="Tiny footprint" image="nano-form-factor">
-    With a length of 45 mm and a width of 18 mm, the Nano Matter maintains a tiny footprint of the well known Nano family, allowing easy upgrades for existing projects.
+    With a length of 45 mm and a width of 18 mm, the Nano Matter maintains a tiny footprint of the well-known Nano family, allowing easy upgrades for existing projects.
   </Feature>
 
   <Feature title="Secure Vault technology enabled" image="crypto-chip">
