@@ -1434,25 +1434,15 @@ You should see the four onboard LEDs of the Opta™ device turn on and off, as s
 
 ![Onboard LEDs of an Opta™ device controlled by a Portenta Machine Control device via Modbus TCP](assets/rtu-blink.gif)
 
-The following example shows how to establish Modbus RTU communication between two Portenta Machine Control devices. Since Portenta Machine Control supports half-duplex and full-duplex modes, each mode requires a different wiring setup.
+The following example shows how to establish Modbus RTU communication between **two Portenta Machine Control devices**. Since Portenta Machine Control supports half-duplex and full-duplex modes, each mode requires a different wiring setup.
 
 We will begin showing **Full-Duplex mode** example following the connection diagram below between two Portenta Machine Control devices:
 
-TODO Update image with two PMC in full-duplex wiring
+![Modbus RTU (Full-Duplex) between two Portenta Machine Control](assets/modbus-full-rtu-pmcs.png)
 
-![Modbus RTU (Full-Duplex) between two Portenta Machine Control](assets/modbus-rtu.png)
-
-The following script assigns a Portenta Machine Control as a Client device, which sends four coils to the Server Portenta Machine Control.
+The following script assigns a Portenta Machine Control as a Client device, which sends four coil values to the Portenta Machine Control assigned as a Server.
 
 ```arduino
-/*
-  Portenta's Machine Control Modbus RTU Client Example
-  Name: portenta_machine_control_modbus_rtu_client_led_control.ino
-  Purpose: Demonstrates controlling Modbus RTU coils using a 
-  Portenta Machine Control device.
-  @author Arduino PRO Content Team
-  @version 1.0 01/10/23
-*/
 // Include the necessary libraries
 #include <Arduino_PortentaMachineControl.h>
 #include <ArduinoRS485.h>
@@ -1530,13 +1520,13 @@ void loop() {
 }
 ```
 
-Because the Portenta Machine Control is operating in Full-Duplex mode, the following line is essential and must be included within the code to enable Full-Duplex mode:
+Because the Portenta Machine Control is operating in **Full-Duplex mode**, the following line of code is essential and must be included within the code to enable Full-Duplex mode:
 
 ```arduino
 MachineControl_RS485Comm.setFullDuplex(true);
 ```
 
-The Server Portenta Machine Control uses the script below, which translates received coils into corresponding Digital Outputs. It will blink four Digital Outputs accordingly in a timely manner.
+The Server Portenta Machine Control uses the script below, which translates received coil values into corresponding Digital Outputs. It will blink four Digital Outputs accordingly in a timely manner.
 
 ```arduino
 // Include the necessary libraries 
@@ -1642,17 +1632,15 @@ With this, we have two Portenta Machine Control devices, each assigned as a Clie
 
 Alternatively, to establish communication between two Portenta Machine Control with Modbus RTU in **Half-Duplex mode**, the following wiring setup is required:
 
-TODO Update image with two PMC in half-duplex wiring
+![Modbus RTU (Half-Duplex) between two Portenta Machine Control](assets/modbus-half-rtu-pmcs.png)
 
-![Modbus RTU (Half-Duplex) between two Portenta Machine Control](assets/modbus-rtu.png)
-
-Previous examples can be used in half-duplex mode, and it requires only one minor change in the following line:
+Previous examples can be used in half-duplex mode, and it requires only one minor change in the following line of code:
 
 ```arduino
 MachineControl_RS485Comm.setFullDuplex(false);
 ```
 
-The line can be updated to disable *Full-Duplex* mode or to ignore the corresponding process by commenting the line. Thus, with the complementary wiring setup and code changes, two devices will begin communicating with Modbus RTU in half-duplex mode.
+The line can be updated to disable *Full-Duplex* mode or to ignore the corresponding process by commenting the line. Thus, with the complementary wiring setup and minor code changes, two devices will begin communicating with Modbus RTU in half-duplex mode.
 
 #### Modbus TCP
 
