@@ -44,7 +44,9 @@ The Arduino Nano Matter is not just an IoT board; it is a gateway to innovation 
 ### General Specifications Overview
 
 <p style="text-align: justify;">
-The Arduino Nano Matter merges the well-known Arduino way of making complex technology more accessible, bringing Matter, one of the most popular IoT connectivity standards, closer to the hobbyist and professional world. The powerful MGM240S multi-protocol wireless module from Silicon Labs is the main controller of the board. Some of its main features are highlighted in the table shown below.
+The Arduino Nano Matter merges the well-known Arduino way of making complex technology more accessible, bringing Matter, one of the most popular IoT connectivity standards, closer to the hobbyist and professional world. The powerful MGM240S multi-protocol wireless module from Silicon Labs is the main controller of the board.
+
+The main features are highlighted in the table shown below.
 </p>
 
 <div style="text-align:center;">
@@ -112,7 +114,7 @@ The Arduino Nano Matter merges the well-known Arduino way of making complex tech
 
 ### Included Accessories
 
-- Not accessories are included
+- No accessories are included
 
 ### Related Products
 
