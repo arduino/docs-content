@@ -7,9 +7,9 @@ author: José Bagur
 
 ![](assets/Nano_Matter_Top_View.png)
 
-# Description 
+# Description
 
-<p style="text-align: justify;">Expand your home automation and building management projects with the Arduino Nano Matter. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter standard for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy (BLE) and OpenThread®. Embrace the simplicity and versatility of the Nano Matter to effortlessly interface with any Matter-compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities.</p>
+<p style="text-align: justify;">Expand your home automation and building management projects with the Arduino Nano Matter. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter standard for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy (BLE) and OpenThread®. Embrace the simplicity and versatility of the Nano Matter to effortlessly interface with any Matter® compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities.</p>
 
 # Target Areas
 
@@ -19,7 +19,7 @@ Internet of Things, home automation, professional automation, environmental moni
 ## Application Examples
 
 <div style="text-align:justify;">
-The Arduino Nano Matter (from now on referred to as Nano Matter) is not just an IoT board; it is a gateway to innovation in various sectors. From streamlining manufacturing processes to creating responsive and comfortable living and working environments. Discover more about the transformative potential of the Nano Matter in the following application examples:
+The Arduino Nano Matter is not just an IoT board; it is a gateway to innovation in various sectors. From streamlining manufacturing processes to creating responsive and comfortable living and working environments. Discover more about the transformative potential of the Nano Matter in the following application examples:
 
 - **Smart homes**: Transform residential spaces into intelligent environments with the Nano Matter, capable of:
   - **Voice-controlled smart home**: Integrate the Nano Matter with popular voice assistant platforms like Amazon Alexa or Google Assistant, enabling residents to control smart home devices, such as lights, thermostats, and switches, using simple voice commands, enhancing convenience and accessibility.
@@ -44,9 +44,7 @@ The Arduino Nano Matter (from now on referred to as Nano Matter) is not just an 
 ### General Specifications Overview
 
 <p style="text-align: justify;">
-The Nano Matter merges the well-known Arduino way of making complex technology more accessible, bringing Matter, one of the most popular IoT connectivity standards, closer to the hobbyist and professional world. The powerful MGM240S multi-protocol wireless module from Silicon Labs controls the board. 
-
-The board's main features are highlighted in the table shown below:
+The Arduino Nano Matter merges the well-known Arduino way of making complex technology more accessible, bringing Matter, one of the most popular IoT connectivity standards, closer to the hobbyist and professional world. The powerful MGM240S multi-protocol wireless module from Silicon Labs is the main controller of the board. Some of its main features are highlighted in the table shown below.
 </p>
 
 <div style="text-align:center;">
@@ -99,7 +97,11 @@ The board's main features are highlighted in the table shown below:
     <td>18 mm x 45 mm</td>
   </tr>
   <tr>
-    <td>Surface-mount</td>
+  <tr>
+    <td>Weight</td>
+    <td>4 g</td>
+  </tr>
+    <td>Pinout features</td>
     <td>Castellated pins allow the board to be positioned as a surface-mountable module</td>
   </tr>
 </tbody>
@@ -110,7 +112,7 @@ The board's main features are highlighted in the table shown below:
 
 ### Included Accessories
 
-- None
+- Not accessories are included
 
 ### Related Products
 
@@ -160,15 +162,7 @@ The table below summarizes the power consumption of the Nano Matter in different
 </thead>
 <tbody>
   <tr>
-    <td style="text-align: center; vertical-align: middle;">Low Power Mode Current Consumption<sup>2</sup></td>
-    <td style="text-align: center; vertical-align: middle;">I<sub>DS</sub></td>
-    <td style="text-align: center; vertical-align: middle;">-</td>
-    <td style="text-align: center; vertical-align: middle;">8</td>
-    <td style="text-align: center; vertical-align: middle;">-</td>
-    <td style="text-align: center; vertical-align: middle;">mA</td>
-  </tr>
-  <tr>
-    <td style="text-align: center; vertical-align: middle;">Normal Mode Current Consumption<sup>3</sup></td>
+    <td style="text-align: center; vertical-align: middle;">Typical Mode Current Consumption<sup>2</sup></td>
     <td style="text-align: center; vertical-align: middle;">I<sub>NM</sub></td>
     <td style="text-align: center; vertical-align: middle;">-</td>
     <td style="text-align: center; vertical-align: middle;">16</td>
@@ -179,8 +173,7 @@ The table below summarizes the power consumption of the Nano Matter in different
 </table>
 </div>
 
-<sup>2</sup> Nano Matter powered through the 3V3 pin (+3.3 VDC), running a Matter color lightbulb example.<br>
-<sup>3</sup> Nano Matter powered through the IN5V pin (+5 VDC), running a Matter color lightbulb example.
+<sup>2</sup> Nano Matter powered through the IN5V pin (+5 VDC), running a Matter color lightbulb example.
 
 <div style="page-break-after: always;"></div>
 
@@ -190,7 +183,7 @@ The table below summarizes the power consumption of the Nano Matter in different
 The core of the Nano Matter is the MGM240SD22VNA microcontroller from Silicon Labs. The board also contains several peripherals and actuators connected to its microcontroller, such as a push button and an RGB LED available for the user. 
 </p>
 
-### Pinout 
+### Pinout
 
 The Nano-styled header connectors pinout is shown in the figure below.
 
@@ -246,7 +239,7 @@ All Arduino® devices work out of the box on the Arduino® Web Editor **[2]** by
 
 ### Getting Started - Arduino Cloud
 
-All Arduino® IoT-enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business.
+All Arduino® IoT-enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business. Take a look at the official documentation to know more.
 
 ### Sample Sketches
 
@@ -296,22 +289,22 @@ The Nano Matter was designed to be usable as a surface-mount module and presents
 
 <div style="page-break-after: always;"></div>
 
-## Certifications
+## Product Compliance
 
-### Certifications Summary
+### Product Compliance Summary
 
-| **Certification** | **Status** |
-|:-----------------:|:----------:|
-|  CE/RED (Europe)  |     Yes    |
-|     UKCA (UK)     |     Yes    |
-|     FCC (USA)     |     Yes    |
-|    IC (Canada)    |     Yes    |
-| MIC/Telec (Japan) |     Yes    |
-|  RCM (Australia)  |     Yes    |
-|        RoHS       |     Yes    |
-|       REACH       |     Yes    |
-|        WEEE       |     Yes    |
- 
+| **Product Compliance** |
+| :--------------------: |
+|  CE (European Union)   |
+|          RoHS          |
+|         REACH          |
+|          WEEE          |
+|       FCC (USA)        |
+|      IC (Canada)       |
+|       UKCA (UK)        |
+|        Matter®         |
+|       Bluetooth®       |
+
 ### Declaration of Conformity CE DoC (EU)
 
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
@@ -424,6 +417,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |                      **Changes**                       |
-| :--------: | :----------: | :----------------------------------------------------: |
-| 14/03/2023 |      1       |                     First release                      |
+|  **Date**  | **Revision** |        **Changes**        |
+| :--------: | :----------: | :-----------------------: |
+| 21/03/2024 |      1       | Community Preview Release |
