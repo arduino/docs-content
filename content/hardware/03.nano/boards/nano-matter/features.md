@@ -52,3 +52,10 @@ Using Nano's small form factor, Arduino makes it simpler for Makers to use Silic
     Leverage dual-mode connectivity, integrating both IEEE 802.15.4 (Thread) for mesh networking and Bluetooth® Low Energy for short-range communication in a highly compact form factor.
   </Feature>
 </FeatureList>
+
+<FeatureDescription>
+  <br></br>
+
+  **Legal notice**: This product is provided "as is" and we make no express or implied warranties whatsoever with respect to its functionality, operability, or use, including, without limitation, any implied warranties of merchantability, fitness for a particular purpose, or infringement. We expressly disclaim any liability whatsoever for any direct, indirect, consequential, incidental or special damages, including, without limitation, lost revenues, lost profits, losses resulting from business interruption or loss of data, regardless of the form of action or legal theory under which the liability may be asserted, even if advised of the possibility or likelihood of such damages.
+
+</FeatureDescription>
