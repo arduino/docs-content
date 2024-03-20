@@ -88,7 +88,7 @@ The main features are highlighted in the table shown below.
   </tr>
   <tr>
     <td>Digital Peripherals</td>
-    <td>GPIO (x22), I2C (x1), UART (x1), SPI (x1), PWM (x10)</td>
+    <td>GPIO (x22), I2C (x1), UART (x1), SPI (x1), PWM (x22)</td>
   </tr>
   <tr>
     <td>Debugging</td>
@@ -197,6 +197,8 @@ The Nano-styled header connectors pinout is shown in the figure below.
 
 An overview of the high-level architecture of the Nano Matter is illustrated in the figure below.
 
+![](assets/Nano_Matter_Block_Diagram.png)
+
 <div style="page-break-after: always;"></div>
 
 ### Power Supply
@@ -263,7 +265,7 @@ castellated/through-hole pins around the two long edges; the onboard wireless an
 
 ### Board Dimensions
 
-The Nano Matter board outline and mounting holes dimensions are shown in the figure below.
+The Nano Matter board outline and mounting holes dimensions are shown in the figure below; all the dimensions are in mm. 
 
 ![](assets/Nano_Matter_Outline.png)
 
@@ -271,7 +273,7 @@ The Nano Matter has four 1.65 mm drilled mounting holes for mechanical fixing.
 
 ### Board Connectors
 
-Connectors of the Nano Matter are placed on the top side of the board; their placement is shown in the figure below.
+Connectors of the Nano Matter are placed on the top side of the board; their placement is shown in the figure below; all the dimensions are in mm. 
 
 ![](assets/Nano_Matter_Connectors.png)
 
@@ -281,7 +283,9 @@ The Nano Matter was designed to be usable as a surface-mount module and presents
 
 ### Board Peripherals and Actuators 
 
-The Nano Matter has one push button and one RGB LED available for the user; both the push button and the RGB LED are placed on the top side of the board.  Their placement is shown in the figure below.
+<p style="text-align: justify;">
+The Nano Matter has one push button and one RGB LED available for the user; both the push button and the RGB LED are placed on the top side of the board.  Their placement is shown in the figure below; all the dimensions are in mm.
+</p>
 
 ![](assets/Nano_Matter_PeripheralsActuators.png)
 
@@ -309,11 +313,15 @@ The Nano Matter was designed to be usable as a surface-mount module and presents
 
 ### Declaration of Conformity CE DoC (EU)
 
+<p style="text-align: justify;">
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
+</p>
 
 ### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
+<p style="text-align: justify;">
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
+</p>
 
 | **Substance**                          | **Maximum Limit (ppm)** |
 |----------------------------------------|-------------------------|
