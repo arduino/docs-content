@@ -1325,23 +1325,7 @@ Serial1.println("Hello world!");
 
 ### Bluetooth® Low Energy
 
-To enable Bluetooth® Low Energy communication on the Nicla Voice, you can use the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/). The library works with the Nicla Voice with some minor modifications. 
-
-To get started with the ArduinoBLE library and the Nicla Voice, follow these steps:
-
-Include the `Nicla System` header:
-
-```arduino
-#include "Nicla_System.h" 
-```
-
-In the `setup()` function, call `nicla::begin()` to initialize the Nicla Voice board:
-
-```arduino
-void setup() {
-  nicla::begin();
-}
-```
+To enable Bluetooth® Low Energy communication on the Nicla Voice, you can use the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/).
 
 Here is an example of how to use the ArduinoBLE library to create a voltage level monitor application:
 
@@ -1349,97 +1333,121 @@ Here is an example of how to use the ArduinoBLE library to create a voltage leve
 #include "Nicla_System.h"
 #include <ArduinoBLE.h>
 
+
 // Define the voltage service and its characteristic
 BLEService voltageService("1101");
 BLEUnsignedCharCharacteristic voltageLevelChar("2101", BLERead | BLENotify);
 
+
 const int analogPin = A0;
 
-/**
-  Read voltage level from an analog input of the Nicla Voice,
-  then maps the voltage reading to a percentage value ranging from 0 to 100.
 
-  @param none
-  @return the voltage level percentage (int).
+/**
+ Read voltage level from an analog input of the Nicla Voice,
+ then maps the voltage reading to a percentage value ranging from 0 to 100.
+
+
+ @param none
+ @return the voltage level percentage (int).
 */
 int readVoltageLevel() {
-  int voltage = analogRead(analogPin);
-  int voltageLevel = map(voltage, 0, 1023, 0, 100);
-  return voltageLevel;
+ int voltage = analogRead(analogPin);
+ int voltageLevel = map(voltage, 0, 1023, 0, 100);
+ return voltageLevel;
 }
+
 
 void setup() {
-  // Initialize the Nicla system and the built-in RGB LED
-  nicla::begin();
-  nicla::leds.begin();
+ // Initialize the Nicla system and the built-in RGB LED
+ nicla::begin();
+ nicla::leds.begin();
 
-  Serial.begin(9600);
-  // Wait for the serial connection to be established
-  while (!Serial)
-    ;
 
-  // Initialize the BLE module
-  if (!BLE.begin()) {
-    Serial.println("starting BLE failed!");
-    while (1)
-      ;
-  }
+ Serial.begin(9600);
+ // Wait for the serial connection to be established
+ while (!Serial)
+   ;
 
-  // Set the local name and advertised service for the BLE module
-  BLE.setLocalName("VoltageMonitor");
-  BLE.setAdvertisedService(voltageService);
-  voltageService.addCharacteristic(voltageLevelChar);
-  BLE.addService(voltageService);
 
-  // Start advertising the BLE service
-  BLE.advertise();
-  Serial.println("- Bluetooth device active, waiting for connections...");
+ // Initialize the BLE module
+ if (!BLE.begin()) {
+   Serial.println("starting BLE failed!");
+   while (1)
+     ;
+ }
+
+
+ // Set the local name and advertised service for the BLE module
+ BLE.setLocalName("VoltageMonitor");
+ BLE.setAdvertisedService(voltageService);
+ voltageService.addCharacteristic(voltageLevelChar);
+ BLE.addService(voltageService);
+
+
+ // Start advertising the BLE service
+ BLE.advertise();
+ Serial.println("- Bluetooth device active, waiting for connections...");
 }
 
+
 void loop() {
-  // Check for incoming BLE connections
-  BLEDevice central = BLE.central();
+ // Check for incoming BLE connections
+ BLEDevice central = BLE.central();
 
-  // If a central device is connected
-  if (central) {
-    Serial.print("- Connected to central: ");
-    Serial.println(central.address());
 
-    // Set the LED color to red when connected
-    nicla::leds.setColor(red);
+ // If a central device is connected
+ if (central) {
+   Serial.print("- Connected to central: ");
+   Serial.println(central.address());
 
-    // While the central device is connected
-    while (central.connected()) {
-      // Read the voltage level and update the BLE characteristic with the level value
-      int voltageLevel = readVoltageLevel();
 
-      Serial.print("- Voltage level is: ");
-      Serial.println(voltageLevel);
-      voltageLevelChar.writeValue(voltageLevel);
+   // Turn off the LED when disconnected
+   nicla::leds.setColor(blue);
 
-      delay(200);
-    }
-  }
 
-  // Turn off the LED when disconnected
-  nicla::leds.setColor(off);
+   // While the central device is connected
+   while (central.connected()) {
+     // Read the voltage level and update the BLE characteristic with the level value
+     int voltageLevel = readVoltageLevel();
 
-  Serial.print("- Disconnected from central: ");
-  Serial.println(central.address());
+
+     Serial.print("- Voltage level is: ");
+     Serial.println(voltageLevel);
+     voltageLevelChar.writeValue(voltageLevel);
+
+
+     delay(200);
+   }
+ }
+
+
+ // Turn off the LED when disconnected
+ nicla::leds.setColor(red);
+
+
+ Serial.print("- Disconnected from central: ");
+ Serial.println(central.address());
 }
 ```
 
-The example code shown above creates a Bluetooth® Low Energy service and characteristic for transmitting a voltage value read by one of the analog pins of the Nicla Voice to a central device. 
+The example code shown above creates a Bluetooth® Low Energy service and characteristic for transmitting a voltage value read by the analog pin A0 of the Nicla Voice to a central device Bluetooth® device like a smartphone or another microcontroller.
 
-- The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristic.
+- The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristics.
 - In the `setup()` function, the code initializes the Nicla Voice board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
-- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Voice, its built-in LED is turned on (red). The code then enters into a loop that constantly reads the voltage level from an analog input and maps it to a percentage value between 0 and 100. The voltage level is printed to the Serial Monitor and transmitted to the central device over the defined Bluetooth® Low Energy characteristic.
+- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function, being the built-in LED in red while looking for a connection. When a central device connects to the Nicla Voice, its built-in LED will change its color to blue. The code then enters into a loop that constantly reads the voltage level from an analog input and maps it to a percentage value between 0 and 100. The voltage level is printed to the Serial Monitor and transmitted to the central device over the defined Bluetooth® Low Energy characteristic.
+
+You can use the [nRF Connect for Mobile](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-mobile) app from Nordic Semiconductor to test the functionality of the example code shown below. nRF Connect is a powerful tool that allows you to scan and explore Bluetooth® Low Energy devices and communicate with them.
+
+
+![Bluetooth® Low Energy service and characteristic information from a Nicla Voice device](assets/user-manual-bt.png)
+
 
 ### ESLOV Connector 
 
 The Nicla Voice board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Nicla Voice without soldering or wiring.
 
 ![Nicla Voice built-in ESLOV connector](assets/user-manual-8.png)
+
 
  The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
 
