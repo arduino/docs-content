@@ -2,7 +2,7 @@
 
 The Nano Matter uses Silicon Labs's powerful [MGM240S](https://www.silabs.com/documents/public/data-sheets/mgm240s-datasheet.pdf) chip, making the popular IoT connectivity standard, **Matter®**, more accessible in Maker and Professional applications. Its versatile connectivity options, including Bluetooth® Low Energy and Openthread, make it ideal for projects requiring low-power efficiency and broad connectivity.
 
-Thanks to the Nano Matter and its small form factor you can easily prototype new Matter devices, expanding your home automation and professional IoT implementations to the next level.
+Thanks to the Nano Matter and its small form factor, you can easily prototype new Matter devices, expanding your home automation and professional IoT implementations to the next level.
 
 </FeatureDescription>
 
