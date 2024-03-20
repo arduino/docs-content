@@ -13,11 +13,11 @@ Pins:
   SPI pins: 4
 Connectivity:
   Matter: Matter-ready Smart Home Connectivity
-  LR-WPANs: IEEE 802.15.4 w/ Thread®
-  Bluetooth®: Bluetooth 5.3 & Bluetooth Mesh
-Additional Compatible Protocols: Zigbee® & OpenThread®
+  LR-WPANs: IEEE 802.15.4 w/ Thread
+  Bluetooth®: Bluetooth® 5.3 & Bluetooth® Mesh
+Additional Compatible Protocols: OpenThread
 Connectivity Band Frequency: On-board 2.4 GHz
-Secure element: Secure Vault® High
+Secure element: Secure Vault High
 Analog-to-digital converter (ADC):
   Channels: 8
   Resolution: 16 bits
@@ -49,4 +49,4 @@ Memory:
 Dimensions:
   Width: 18 mm
   Length: 45 mm
-Environmental temperature: -40 °C to + 85 °C (-40 °F to 185 °F)
+Environmental temperature: -40 °C to + 85 °C
