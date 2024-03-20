@@ -445,7 +445,7 @@ You can use the Home Assistant web view or mobile app to control your device.
 
 If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
 
-#### Tips 
+#### Home Assistant Tips
 
 - Make sure you are using a **64-bit** Home Assistant OS version.
 - Use the **Thread** add-on to verify your available Thread networks.
@@ -521,7 +521,112 @@ In case it is the first time you are using the Arduino Cloud:
 - To use the Arduino Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
 - See the [Arduino Cloud plans](https://cloud.arduino.cc/plans/) and choose one that features **API** support.
 
-As a practical example, we are going to use the Nano Matter CPU temperature sensor and send the data to Arduino Cloud for monitoring. We will leverage the variety of widgets to create a professional and nice looking user interface.
+As a practical example, we are going to use the Nano Matter CPU temperature sensor and send the data to Arduino Cloud for monitoring. We will leverage the variety of widgets to create a professional and nice-looking user interface.
+
+The application sketch below is based on the `matter_temp_sensor` example that can be also found in **File > Examples > Matter**. This variation includes the [decommission](#device-decommissioning) feature to show it implemented in a real application.
+
+```arduino
+#include <Matter.h>
+#include <MatterTemperature.h>
+
+MatterTemperature matter_temp_sensor;
+
+unsigned long previousMillis = 0;  // will store last time sensor was updated
+const long interval = 2000;  // interval at which to send sensor data
+
+void setup() {
+  Serial.begin(115200);
+  Matter.begin();
+
+  pinMode(BTN_BUILTIN, INPUT_PULLUP);
+  pinMode(LEDR, OUTPUT);
+  digitalWrite(LEDR, HIGH);
+
+  matter_temp_sensor.begin();
+
+  Serial.println("Matter temperature sensor");
+
+  if (!Matter.isDeviceCommissioned()) {
+    Serial.println("Matter device is not commissioned");
+    Serial.println("Commission it to your Matter hub with the manual pairing code or QR code");
+    Serial.printf("Manual pairing code: %s\n", Matter.getManualPairingCode().c_str());
+    Serial.printf("QR code URL: %s\n", Matter.getOnboardingQRCodeUrl().c_str());
+  }
+  while (!Matter.isDeviceCommissioned()) {
+    delay(200);
+  }
+
+  if (!Matter.isDeviceConnected()) {
+    Serial.println("Waiting for network connection...");
+  }
+  while (!Matter.isDeviceConnected()) {
+    delay(200);
+  }
+  Serial.println("Device connected");
+}
+
+void loop() {
+  decommission_handler();  // if the user button is pressed for 10 seconds
+
+  float current_cpu_temp = getCPUTemp();  // reads CPU temperature
+
+  unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+    // save the last time you updated the sensor
+    previousMillis = currentMillis;
+
+    matter_temp_sensor.set_measured_value_celsius(current_cpu_temp);
+    Serial.printf("Current CPU temperature: %.02f C\n", current_cpu_temp);
+  }
+}
+
+void decommission_handler() {
+  if (digitalRead(BTN_BUILTIN) == LOW) {  //Push button pressed
+    // measures time pressed
+    int startTime = millis();
+    while (digitalRead(BTN_BUILTIN) == LOW) {
+      //delay(50);
+
+      int elapsedTime = (millis() - startTime) / 1000.0;
+
+      if (elapsedTime > 10) {
+        Serial.printf("Decommissioning!\n");
+        for (int i = 0; i < 10; i++) {
+          digitalWrite(LEDR, !(digitalRead(LEDR)));
+          delay(100);
+        };
+
+        if (!Matter.isDeviceCommissioned()) {
+          Serial.println("Decommission done!");
+          digitalWrite(LEDR, LOW);
+        } else {
+          Serial.println("Matter device is commissioned-> Starting Decommission process");
+          nvm3_eraseAll(nvm3_defaultHandle);  // Decomission command
+          digitalWrite(LED_BUILTIN, LOW);
+          Serial.println("Decommission done!");
+        }
+        break;
+      }
+    }
+  }
+}
+```
+
+After uploading the code to the Nano Matter, verify it is decommissioned from any other service previously used. For this, open the Serial Monitor and reset the board. 
+
+If it is not decommissioned you will see temperature readings printed in the Serial Monitor. To decommission it follow these steps:
+
+- Press the user button for 10 seconds until the board's built-in LED starts blinking in red. You will also see a message confirming the process in the Serial Monitor.
+
+- Finally, reset the board and you should see the Matter commissioning credentials in the Serial Monitor. 
+
+Now it's time to commission the Nano Matter with Home Assistant, for this follow the steps explained in this [section](#with-home-assistant).
+
+Once you have everything set up and running you will be able to monitor the Nano Matter temperature locally in Home Assistant:
+
+![Nano Matter Temperature in Home Assistant](assets/home-assistant-temp.png)
+
 
 
 
