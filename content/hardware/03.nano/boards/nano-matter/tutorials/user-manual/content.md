@@ -523,6 +523,8 @@ In case it is the first time you are using the Arduino Cloud:
 
 As a practical example, we are going to use the Nano Matter CPU temperature sensor and send the data to Arduino Cloud for monitoring. We will leverage the variety of widgets to create a professional and nice-looking user interface.
 
+### Nano Matter Programming
+
 The application sketch below is based on the `matter_temp_sensor` example that can be also found in **File > Examples > Matter**. This variation includes the [decommission](#device-decommissioning) feature to show it implemented in a real application.
 
 ```arduino
@@ -612,7 +614,6 @@ void decommission_handler() {
   }
 }
 ```
-
 After uploading the code to the Nano Matter, verify it is decommissioned from any other service previously used. For this, open the Serial Monitor and reset the board. 
 
 If it is not decommissioned you will see temperature readings printed in the Serial Monitor. To decommission it follow these steps:
@@ -621,33 +622,21 @@ If it is not decommissioned you will see temperature readings printed in the Ser
 
 - Finally, reset the board and you should see the Matter commissioning credentials in the Serial Monitor. 
 
+### Device Commissioning
+
 Now it's time to commission the Nano Matter with Home Assistant, for this follow the steps explained in this [section](#with-home-assistant).
 
 Once you have everything set up and running you will be able to monitor the Nano Matter temperature locally in Home Assistant:
 
 ![Nano Matter Temperature in Home Assistant](assets/home-assistant-temp.png)
 
+### Arduino Cloud Set-Up
+
 Let's walk through a step-by-step demonstration of how to set up the Arduino Cloud.
 
 Log in to your Arduino Cloud account; you should see the following:
 
 ![Arduino Cloud Initial Page](assets/cloud-login.png)
-
-In the left bar menu, navigate to **Devices** and once in, in the upper right corner, click on **+ Device**:
-
-![Add Device](assets/cloud-add-device.png)
-
-As we are working with a board without Wi-Fi®, we need to select the **Manual DIY** option:
-
-![Manual DIY Device](assets/cloud-add-device-2.png)
-
-Give your device a name:
-
-![Name your device](assets/cloud-add-device-3.png)
-
-Save your device credentials in a safe place, check the **remainder box** and click on **continue**:
-
-![Saving your device's credentials](assets/cloud-add-device-4.png)
 
 Navigate to **Things** in the left bar menu and click on **+ Thing**:
 
@@ -692,19 +681,100 @@ For this, navigate to **API Keys** in the upper left corner drop-down menu and c
 
 You should get a **Client ID** and a **Client Secret**. Save these credentials in a safe place so you will not be able to see them again. 
 
+### Home Assistant Set-Up
+
 Now, let's configure Home Assistant to set the forwarding method to Arduino Cloud.
 
 First, we are going to save and define our project IDs, credentials and Keys in a safe place inside the Home Assistant directory called **secrets.yaml**. Use the _File Editor_ Add-on to easily edit this file, and format the data as follows:
 
-`arduino_organization: <Space ID>`
-`token_get_payload: '{"grant_type":"client_credentials","client_id":"<your client ID>","client_secret":"<your client secret>","audience":"https://api2.arduino.cc/iot"}'`
-`arduino_temp_url: https://api2.arduino.cc/iot/v2/things/<your Thing ID>/properties/<temperature variable ID>/publish`
+```
+arduino_organization: <Space ID>
 
+token_get_payload: '{"grant_type":"client_credentials","client_id":"<your client ID>","client_secret":"<your client secret>","audience":"https://api2.arduino.cc/iot"}'
+
+arduino_temp_url: https://api2.arduino.cc/iot/v2/things/<your Thing ID>/properties/<temperature variable ID>/publish
+```
 This will let us use this data without exposing it later.
 
 ![Secrets.yaml file to store credentials](assets/ha-setup-cloud.png)
 
+Now, let's define the services that will help us do the HTTP requests to Arduino Cloud sending the temperature value to it. Using the **File Editor** navigate to the **configuration.yaml** file and add the following blocks:
 
+```
+rest:
+  - resource: "https://api2.arduino.cc/iot/v1/clients/token"
+    scan_interval: 240 #4 min
+    timeout: 60
+    method: "POST"
+    headers:
+      content_type:  'application/json,application/x-www-form-urlencoded'
+    payload: !secret token_get_payload
+    sensor:  
+      - name: "API_Token_Bearer"
+        value_template: "OK"
+        json_attributes_path: '$..'
+        json_attributes:
+          - 'access_token' 
+```
+The [RESTful integration](https://www.home-assistant.io/integrations/rest/) lets us periodically gather from our Arduino Cloud account a **token** that is mandatory to authenticate our requests. This token expires every 5 minutes, this is why we generate it every 4 minutes. The token is stored in a Sensor attribute called **API_Token_Bearer**. 
+
+```
+rest_command:      
+    send_temperature:
+      method: PUT
+      headers:
+        Authorization: "Bearer {{ state_attr('sensor.api_token_bearer', 'access_token') }}"
+        accept: "application/vnd.arduino.property+json,application/vnd.goa.error+json"
+        content_type:  'application/json,application/x-www-form-urlencoded'
+        X-Organization: !secret arduino_organization
+      url: !secret arduino_temp_url
+      payload: "{\"value\":{{states('sensor.matter_device_temperature')}}}"
+```
+The [RESTful command integration](https://www.home-assistant.io/integrations/rest_command/) lets us define the HTTP request structure to be able to send the Nano Matter temperature sensor data to the Arduino Cloud. We can call this service from an automation.
+
+As you may noticed, the sensitive data we stored in the "secrets.yaml" file is being called here with the **!secret** prefix.
+
+![configuration.yaml file to define services](assets/ha-setup-config.png)
+
+To learn more about the Arduino Cloud API, follow this [guide](https://docs.arduino.cc/arduino-cloud/api/arduino-iot-api/).
+
+For the changes to take effect, navigate to **Developers Tools** and click on **Check Configuration**, if there are no errors, click on **Restart** and restart Home Assistant.
+
+![Restarting Home Assistant](assets/restart-ha.png)
+
+Finally, let's set up the automation that will call the send_temperature service every time the temperature sensor values change. 
+
+For this, navigate to **Settings > Automations & scenes** and click on **Create Automation**.
+
+![Automation setting](assets/automation-create.png)
+
+In the upper right corner, click on the "three dots" menu and select **Edit in YAML**, replace the text here with the following:
+
+```
+alias: Nano Matter Temperature
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.matter_device_temperature
+condition: []
+action:
+  - service: rest_command.send_temperature
+    data: {}
+mode: single
+```
+
+This automation will be triggered if the Nano Matter sensor temperature value changes and will act by calling the **rest_command.send_temperature** service.
+
+![Automation defining](assets/automation-define.png)
+
+***If you used different names for the services or devices, make sure to update them in the YAML code above.***
+
+### Final Results
+
+With this done, Home Assistant should be forwarding the Nano Matter sensor data to Arduino Cloud where you can monitor it with different widgets and charts as follows:
+
+![Arduino Cloud Demo](assets/cloud-demo.gif)
 
 ## Bluetooth® Low Energy
 
