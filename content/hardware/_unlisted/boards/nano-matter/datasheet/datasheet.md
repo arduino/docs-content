@@ -9,7 +9,7 @@ author: José Bagur
 
 # Description
 
-<p style="text-align: justify;">Expand your home automation and building management projects with the Arduino Nano Matter. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter standard for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy (BLE) and OpenThread. Embrace the simplicity and versatility of the Nano Matter to effortlessly interface with any Matter® compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities.</p>
+<p style="text-align: justify;">Expand your home automation and building management projects with the Arduino Nano Matter. This board integrates the high-performance MGM240S microcontroller from Silicon Labs and directly brings the advanced Matter standard for Internet of Things (IoT) connectivity to hobbyists and professionals. The Nano Matter's compact and sturdy build, measuring 18 mm x 45 mm, is perfect for projects that demand energy efficiency and diverse connectivity options, such as Bluetooth® Low Energy and OpenThread. Embrace the simplicity and versatility of the Nano Matter to effortlessly interface with any Matter® compatible devices and leverage the Arduino ecosystem's wide range of peripherals and inputs/outputs to enhance your device connectivity and project capabilities.</p>
 
 # Target Areas
 
@@ -60,7 +60,7 @@ The main features are highlighted in the table shown below.
 <tbody>
   <tr>
     <td>Microcontroller</td>
-    <td>78 MHz, 32-bit ARM Cortex®-M33 core (MGM240SD22VNA)</td>
+    <td>78 MHz, 32-bit Arm® Cortex®-M33 core (MGM240SD22VNA)</td>
   </tr>
   <tr>
     <td>Internal Memory</td>
@@ -119,7 +119,7 @@ The main features are highlighted in the table shown below.
 ### Related Products
 
 - Arduino USB Type-C® Cable 2-in-1 (SKU: TPX00094)
-- Arduino® Nano Screw Terminal Adapter (SKU: ASX00037-3P)
+- Arduino Nano Screw Terminal Adapter (SKU: ASX00037-3P)
 
 <div style="page-break-after: always;"></div>
 
@@ -234,23 +234,23 @@ A detailed figure below illustrates the power options available on the Nano Matt
 
 ### Getting Started - IDE
 
-If you want to program your Nano Matter offline, install the Arduino® Desktop IDE **[1]**. To connect the Nano Matter to your computer, you will need a USB-C® cable.
+If you want to program your Nano Matter offline, install the Arduino Desktop IDE **[1]**. To connect the Nano Matter to your computer, you will need a USB-C® cable.
 
 ### Getting Started - Arduino Web Editor
 
-All Arduino® devices work out of the box on the Arduino® Web Editor **[2]** by installing a simple plugin. The Arduino® Web Editor is hosted online. Therefore, it will always be up-to-date with all the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
+All Arduino devices work out of the box on the Arduino CLoud Editor **[2]** by installing a simple plugin. The Arduino Cloud Editor is hosted online. Therefore, it will always be up-to-date with all the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino Cloud
 
-All Arduino® IoT-enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business. Take a look at the official documentation to know more.
+All Arduino IoT-enabled products are supported on Arduino Cloud, which allows you to log, graph, and analyze sensor data, trigger events, and automate your home or business. Take a look at the official documentation to know more.
 
 ### Sample Sketches
 
-Sample sketches for the Nano Matter can be found either in the “Examples” menu in the Arduino® IDE or the “Nano Matter Documentation” section of Arduino documentation **[4]**.
+Sample sketches for the Nano Matter can be found either in the “Examples” menu in the Arduino IDE or the “Nano Matter Documentation” section of Arduino documentation **[4]**.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]**, and the online store **[7]** where you will be able to complement your Nano Matter board with additional extensions, sensors, and actuators.
+Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]**, and the online store **[7]** where you will be able to complement your Nano Matter board with additional extensions, sensors, and actuators.
 </div>
 
 <div style="page-break-after: always;"></div>
