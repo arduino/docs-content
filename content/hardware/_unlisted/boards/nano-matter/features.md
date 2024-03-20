@@ -14,7 +14,7 @@ Thanks to the Nano Matter and its small form factor, you can easily prototype ne
     </FeatureWrapper>
   </Feature>
 
-  <Feature title="OpenThread®" image="communication">
+  <Feature title="OpenThread" image="communication">
     Nano Matter uses Thread for IoT mesh networking communication in a highly compact form factor.
     <FeatureWrapper>
       <FeatureLink title="OpenThread" url="https://openthread.io/" download blank/>
