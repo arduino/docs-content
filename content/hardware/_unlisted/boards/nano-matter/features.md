@@ -1,5 +1,5 @@
 <FeatureDescription>
-The Nano Matter uses Silicon Labs's powerful [MGM240S](https://www.silabs.com/documents/public/data-sheets/mgm240s-datasheet.pdf) chip, making the popular IoT connectivity standard, **Matter®**, more accessible in Maker and Professional applications. Its versatile connectivity options, including Bluetooth® Low Energy and Openthread, make it ideal for projects requiring low-power efficiency and broad connectivity.
+The Nano Matter uses Silicon Labs's powerful [MGM240S](https://www.silabs.com/documents/public/data-sheets/mgm240s-datasheet.pdf) chip, making the popular IoT connectivity standard, Matter®, more accessible in Maker and Professional applications. Its versatile connectivity options, including Bluetooth® Low Energy and Openthread, make it ideal for projects requiring low-power efficiency and broad connectivity.
 
 Thanks to the Nano Matter and its small form factor, you can easily prototype new Matter devices, expanding your home automation and professional IoT implementations to the next level.
 </FeatureDescription>
@@ -27,7 +27,7 @@ Thanks to the Nano Matter and its small form factor, you can easily prototype ne
   </Feature>
 
   <Feature title="Bluetooth® connectivity" image="bluetooth">
-    Leverage dual-mode connectivity, integrating both IEEE 802.15.4 (Thread) for mesh networking and Bluetooth® Low Energy for short-range communication in a highly compact form factor.
+    Leverage dual-mode connectivity, integrating both IEEE 802.15.4 (Thread) for mesh networking and Bluetooth® Low Energy for short-range communication.
     <FeatureWrapper>
       <FeatureLink title="Bluetooth®" url="https://www.bluetooth.com/" download blank/>
     </FeatureWrapper>
@@ -46,7 +46,7 @@ Thanks to the Nano Matter and its small form factor, you can easily prototype ne
   </Feature>
 
   <Feature title="Secure Vault technology enabled" image="crypto-chip">
-    Protect your project with the industry-leading suite of state-of-the-art security features that address escalating Internet of Things (IoT) threats from Silicon Labs.
+    Protect your project with the industry-leading suite of security features from Silicon Labs escalating Internet of Things (IoT) threats.
   </Feature>
 
 
@@ -55,6 +55,6 @@ Thanks to the Nano Matter and its small form factor, you can easily prototype ne
 <FeatureDescription>
   <br></br>
 
-  **Legal notice**: This product is provided "as is" and we make no express or implied warranties whatsoever with respect to its functionality, operability, or use, including, without limitation, any implied warranties of merchantability, fitness for a particular purpose, or infringement. We expressly disclaim any liability whatsoever for any direct, indirect, consequential, incidental or special damages, including, without limitation, lost revenues, lost profits, losses resulting from business interruption or loss of data, regardless of the form of action or legal theory under which the liability may be asserted, even if advised of the possibility or likelihood of such damages.
+  **Legal notice**: This Community Preview Product is provided "as is" and we make no express or implied warranties whatsoever with respect to its functionality, operability, or use, including, without limitation, any implied warranties of merchantability, fitness for a particular purpose, or infringement. We expressly disclaim any liability whatsoever for any direct, indirect, consequential, incidental or special damages, including, without limitation, lost revenues, lost profits, losses resulting from business interruption or loss of data, regardless of the form of action or legal theory under which the liability may be asserted, even if advised of the possibility or likelihood of such damages.
 
 </FeatureDescription>

@@ -119,7 +119,6 @@ The main features are highlighted in the table shown below.
 ### Related Products
 
 - Arduino USB Type-C® Cable 2-in-1 (SKU: TPX00094)
-- Arduino® Nano Motor Carrier (SKU: ABX00041)
 - Arduino® Nano Screw Terminal Adapter (SKU: ASX00037-3P)
 
 <div style="page-break-after: always;"></div>

@@ -17,7 +17,7 @@ Connectivity:
   Bluetooth®: Bluetooth® 5.3 & Bluetooth® Mesh
 Additional Compatible Protocols: OpenThread
 Connectivity Band Frequency: On-board 2.4 GHz
-Secure element: Secure Vault High
+Secure element: Secure Vault
 Analog-to-digital converter (ADC):
   Channels: 8
   Resolution: 16 bits
@@ -31,13 +31,7 @@ External Interrupts: Available within all Digital pins
 Communication:
   UART: 1
   I2C: 1
-    SDA: A4
-    SCL: A5
   SPI: 1
-    COPI: D11
-    CIPO: D12
-    SCK: D13
-    Chip Select (CS): Any GPIO
 Power:
   Circuit operating voltage: 3.3 V
   Input voltage (VIN): 5 V
