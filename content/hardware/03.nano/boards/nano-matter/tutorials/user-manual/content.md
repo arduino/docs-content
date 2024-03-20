@@ -627,6 +627,82 @@ Once you have everything set up and running you will be able to monitor the Nano
 
 ![Nano Matter Temperature in Home Assistant](assets/home-assistant-temp.png)
 
+Let's walk through a step-by-step demonstration of how to set up the Arduino Cloud.
+
+Log in to your Arduino Cloud account; you should see the following:
+
+![Arduino Cloud Initial Page](assets/cloud-login.png)
+
+In the left bar menu, navigate to **Devices** and once in, in the upper right corner, click on **+ Device**:
+
+![Add Device](assets/cloud-add-device.png)
+
+As we are working with a board without Wi-Fi®, we need to select the **Manual DIY** option:
+
+![Manual DIY Device](assets/cloud-add-device-2.png)
+
+Give your device a name:
+
+![Name your device](assets/cloud-add-device-3.png)
+
+Save your device credentials in a safe place, check the **remainder box** and click on **continue**:
+
+![Saving your device's credentials](assets/cloud-add-device-4.png)
+
+Navigate to **Things** in the left bar menu and click on **+ Thing**:
+
+![Creating a Thing](assets/cloud-thing.png)
+
+Give your Thing a name and click on **ADD** to add the temperature variable:
+
+![Adding a variable](assets/cloud-add-variable.png)
+
+Define the variable with the following settings:
+
+- Name: temperature
+- Type: Floating Point Number
+- Permission: Read & Write
+- Update Policy: On change
+
+![Setting up the variable](assets/cloud-setup-variable.png)
+
+Click on the created variable and copy its **ID**, we will need it later.
+
+![Variable ID](assets/id-gathering-1.png)
+
+Navigate to your Thing metadata and copy the **Thing ID**, we will need it later.
+
+![Thing ID](assets/id-gathering-2.png)
+
+In the left bar menu, navigate to **Space Settings** and copy the **Space ID**, we will need it later.
+
+![Space ID](assets/id-gathering-3.png)
+
+At this point you should have three IDs related to your project:
+
+- Variable ID
+- Thing ID
+- Space ID
+
+To properly authenticate the requests we are going to use to upload the data to Arduino Cloud we need to create **API Keys**.
+ 
+For this, navigate to **API Keys** in the upper left corner drop-down menu and click on **Create API Key**:
+
+![API Keys generation](assets/api-key.png)
+
+You should get a **Client ID** and a **Client Secret**. Save these credentials in a safe place so you will not be able to see them again. 
+
+Now, let's configure Home Assistant to set the forwarding method to Arduino Cloud.
+
+First, we are going to save and define our project IDs, credentials and Keys in a safe place inside the Home Assistant directory called **secrets.yaml**. Use the _File Editor_ Add-on to easily edit this file, and format the data as follows:
+
+`arduino_organization: <Space ID>`
+`token_get_payload: '{"grant_type":"client_credentials","client_id":"<your client ID>","client_secret":"<your client secret>","audience":"https://api2.arduino.cc/iot"}'`
+`arduino_temp_url: https://api2.arduino.cc/iot/v2/things/<your Thing ID>/properties/<temperature variable ID>/publish`
+
+This will let us use this data without exposing it later.
+
+![Secrets.yaml file to store credentials](assets/ha-setup-cloud.png)
 
 
 
