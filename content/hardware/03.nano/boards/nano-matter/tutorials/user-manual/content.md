@@ -510,6 +510,21 @@ void decommission_handler() {
 ```
 The sketch above allows you to decommission your board manually after **pressing** the Nano Matter user button for **10 seconds**. You can monitor the status in the Arduino IDE Serial Monitor.
 
+## Arduino Cloud
+
+The Nano Matter has no built-in Wi-Fi® but can be seamlessly integrated with the Arduino Cloud using its [API](https://www.arduino.cc/reference/en/iot/api/) and Matter. 
+
+We are going to use the [Home Assistant Matter integration](#with-home-assistant) to create automations and scripts that help us forward the Nano Matter data to the Arduino Cloud.
+
+In case it is the first time you are using the Arduino Cloud:
+
+- To use the Arduino Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
+- See the [Arduino Cloud plans](https://cloud.arduino.cc/plans/) and choose one that features **API** support.
+
+As a practical example, we are going to use the Nano Matter CPU temperature sensor and send the data to Arduino Cloud for monitoring. We will leverage the variety of widgets to create a professional and nice looking user interface.
+
+
+
 ## Bluetooth® Low Energy
 
 To enable Bluetooth® Low Energy communication on the Nano Matter, you must enable the BLE protocol stack in the Arduino IDE board configurations. 
