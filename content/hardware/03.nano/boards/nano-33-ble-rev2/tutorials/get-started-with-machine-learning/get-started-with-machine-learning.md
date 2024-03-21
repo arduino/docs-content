@@ -305,10 +305,8 @@ We will be starting a new sketch, you will find the complete code below:
 
 #include <TensorFlowLite.h>
 #include <tensorflow/lite/micro/all_ops_resolver.h>
-#include <tensorflow/lite/micro/micro_error_reporter.h>
 #include <tensorflow/lite/micro/micro_interpreter.h>
 #include <tensorflow/lite/schema/schema_generated.h>
-#include <tensorflow/lite/version.h>
 
 #include "model.h"
 
@@ -371,7 +369,7 @@ void setup() {
   }
 
   // Create an interpreter to run the model
-  tflInterpreter = new tflite::MicroInterpreter(tflModel, tflOpsResolver, tensorArena, tensorArenaSize, &tflErrorReporter);
+  tflInterpreter = new tflite::MicroInterpreter(tflModel, tflOpsResolver, tensorArena, tensorArenaSize);
 
   // Allocate memory for the model's input and output tensors
   tflInterpreter->AllocateTensors();

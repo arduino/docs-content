@@ -2,7 +2,7 @@
 title: "Arduino Lucky Shield"
 description: "You are lucky with Arduino Lucky Shield! A single shield with many sensors."
 coverImage: "assets/A000125_featured_2.jpg"
-sku: "A000125"
+sku: [A000125]
 source: "https://store.arduino.cc/arduino-lucky-shield"
 ---
 
@@ -16,13 +16,13 @@ Arduino Lucky Shield is an easy way to use your Arduino boards, that grants you 
 
 The Arduino Lucky Shield is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/Arduino-Lucky-Shield-Rev2-web.zip) 
+[EAGLE FILES IN .ZIP](https://content.arduino.cc/assets/Arduino-Lucky-Shield-Rev2-web.zip)
 
-[SCHEMATICS IN .PDF](https://content.arduino.cc/assets/Arduino_Lucky_Shield_V2_Schematic.zip) 
+[SCHEMATICS IN .PDF](https://content.arduino.cc/assets/Arduino_Lucky_Shield_V2_Schematic.zip)
 
 ### Power
 
-The shield doesn't need external power. It will be provided by the Arduino base board, through the 5V and 3.3V pins of the base. The shield is compatible with all Arduino board 5V and 3.3V standards. 
+The shield doesn't need external power. It will be provided by the Arduino base board, through the 5V and 3.3V pins of the base. The shield is compatible with all Arduino board 5V and 3.3V standards.
 
 ### Physical Characteristics
 

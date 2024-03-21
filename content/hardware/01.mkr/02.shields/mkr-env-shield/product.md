@@ -6,6 +6,7 @@ primary_button_url: /tutorials/mkr-env-shield/mkr-env-shield-basic
 primary_button_title: Get Started
 forumCategorySlug: '/hardware/mkr-boards/mkr-shields/162'
 certifications: [CE, UKCA]
+sku: [ASX00011]
 ---
 
 The MKR ENV Shield is a perfect addon for the MKR family series, and is capable of reading temperature, humidity, light and pressure. The data is acquired easily through an easy-to-use library, and has an SD card slot for offline data logging.

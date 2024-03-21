@@ -3,7 +3,7 @@ title: "Arduino Esplora"
 description: "The Arduino Esplora is an Arduino Leonardo based board with integrated sensors and actuators"
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoEsplora"
 coverImage: "assets/A000095_featured_2.png"
-sku: "A000095"
+sku: [A000095]
 source: "https://store.arduino.cc/arduino-esplora"
 ---
 
@@ -43,7 +43,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoEsplora)
 
 Arduino Esplora is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-esplora-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-esplora-reference-design.zip)
 
 [SCHEMATICS IN DSN](https://www.arduino.cc/en/uploads/Main/arduino-esplora-schematic.pdf)
 
