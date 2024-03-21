@@ -30,30 +30,30 @@ This user manual will guide you through a practical journey covering the most in
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## Product Overview
 
-The Nano Matter merges the well-known Arduino way of making complex technology more accessible, with the powerful MGM240S from Silicon Labs to bring Matter closer to the maker world in one of the smallest form factors in the market. 
+The Nano Matter merges the well-known Arduino way of making complex technology more accessible, with the powerful MGM240S from Silicon Labs to bring Matter® closer to the maker world in one of the smallest form factors in the market. 
 
 It enables 802.15.4 (Thread) and Bluetooth® Low Energy connectivity to interact with Matter-compatible devices with a user-friendly software layer for quick prototyping.
 
 
 ### Board Architecture Overview
 
-The Nano Matter features a compact and efficient architecture powered by the MGM240S (32-bit ARM Cortex®-M33) from Silicon Labs, a high-performance wireless module
+The Nano Matter features a compact and efficient architecture powered by the MGM240S (32-bit Arm® Cortex®-M33) from Silicon Labs, a high-performance wireless module
 optimized for the needs of battery and line-powered IoT devices for 2.4 GHz mesh networks. 
 
 ![Nano Matter's main components](assets/architecture.png)
 
 Here is an overview of the board's main components, as shown in the images above:
 
-- **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit ARM Cortex®-M33 processor running at 78 MHz. 
+- **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit Arm® Cortex®-M33 processor running at 78 MHz. 
 - **Wireless connectivity**: the Nano Matter microcontroller also features multi-protocol connectivity to enable Matter IoT protocol and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home systems and communicate wirelessly with other devices.
 
 ### Board Core and Libraries
 
-The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, BLE, and I/Os. To install the Nano Matter core, navigate to **File > Preferences** and in the **Additional boards manager URLs**, add the following:
+The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, Bluetooth® Low Energy, and I/Os. To install the Nano Matter core, navigate to **File > Preferences** and in the **Additional boards manager URLs**, add the following:
 
 `https://siliconlabs.github.io/arduino/package_arduinosilabs_index.json`
 
@@ -67,25 +67,25 @@ Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager i
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [Nano Matter pinout](https://docs.arduino.cc/static/b35956b631d757a0455c286da441641b/ABX00050-full-pinout.pdf)
+- [Nano Matter pinout](https://docs.arduino.cc/static/b35956b631d757a0455c286da441641b/ABX00112-full-pinout.pdf)
 
 ### Datasheet
 
 The complete datasheet is available and downloadable as PDF from the link below:
 
-- [Nano Matter datasheet](https://docs.arduino.cc/resources/datasheets/ABX00050-datasheet.pdf)
+- [Nano Matter datasheet](https://docs.arduino.cc/resources/datasheets/ABX00112-datasheet.pdf)
 
 ### Schematics
 
 The complete schematics are available and downloadable as PDF from the link below:
 
-- [Nano Matter schematics](https://docs.arduino.cc/resources/schematics/ABX00050-schematics.pdf)
+- [Nano Matter schematics](https://docs.arduino.cc/resources/schematics/ABX00112-schematics.pdf)
 
 ### STEP Files
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Nano Matter STEP files](https://docs.arduino.cc/static/10c0953581f489a9a136ff00f2d2fa9d/ABX00050-step.zip)
+- [Nano Matter STEP files](https://docs.arduino.cc/static/10c0953581f489a9a136ff00f2d2fa9d/ABX00112-step.zip)
 
 
 ### Form Factor
@@ -102,7 +102,7 @@ You can superficially mount the Nano Matter in your custom PCB thanks to the boa
 The Nano Matter can be powered by:
 
 - A USB-C® cable (not included). 
-- An external **5V power supply** connected to `IN5V` pin (please, refer to the [board pinout section](#pinout) of the user manual).
+- An external **5 V power supply** connected to `IN5V` pin (please, refer to the [board pinout section](#pinout) of the user manual).
 
 ***Running a Matter application the board uses up to 16 mA (not standardized test).***
 
@@ -111,17 +111,17 @@ The Nano Matter can be powered by:
 For low-power consumption applications, the following hacks are recommended:
 
 - Cut the power status LED jumper off to save energy.
-- Power the board with an external **3V3 power supply** connected to **3.3V** pin, this will not power the *USB bridge IC*, so more energy will be saved.
+- Power the board with an external **3.3 V power supply** connected to **3.3V** pin, this will not power the *USB bridge IC*, so more energy will be saved.
 
 ***Running a Matter application the board uses up to 8 mA (not standardized test).***
 
-![Image showing the LED jumper and external 3.3V power](assets/lower-power.png)
+![Image showing the LED jumper and external 3.3 V power](assets/lower-power.png)
 
-***To power the board through the VIN pin you need to close the jumper pads with solder. The máximum voltage supported is +5 VDC.***
+***To power the board through the VIN pin you need to close the jumper pads with solder. The maximum voltage supported is +5 VDC.***
 
 ### Hello World Example
 
-Let's program the Arduino Nano Matter with the classic `hello world` example typical of the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the board is correctly connected to the Arduino IDE and that the Silicon Labs core and the board itself are working as expected. 
+Let's program the Nano Matter with the classic `hello world` example typical of the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the board is correctly connected to the Arduino IDE and that the Silicon Labs core and the board itself are working as expected. 
 
 Copy and paste the code below into a new sketch in the Arduino IDE.
 
@@ -318,9 +318,9 @@ You will find a **Manual pairing code** and a **QR code URL** as follows:
 
 ![Commissioning credentials](assets/qr-code.png)
 
-***Open the QR code URL on your favorite browser to generate the QR code.***
+***Open the QR code URL on your browser to generate the QR code.***
 
-### With Google Home
+### With Google Home™
 
 To create your first IoT device with the Nano Matter and the Google Home ecosystem you first need to have a Matter-compatible hub. The Google Home products that can work as a **Matter hub** through **Thread** are listed below:
 
@@ -778,13 +778,13 @@ With this done, Home Assistant should be forwarding the Nano Matter sensor data 
 
 ## Bluetooth® Low Energy
 
-To enable Bluetooth® Low Energy communication on the Nano Matter, you must enable the BLE protocol stack in the Arduino IDE board configurations. 
+To enable Bluetooth® Low Energy communication on the Nano Matter, you must enable the "BLE" protocol stack in the Arduino IDE board configurations. 
 
 In the upper menu, navigate to **Tools > Protocol stack** and select **BLE**.
 
-![Enable BLE Protocol Stack](assets/ble-setup.png)
+![Enable "BLE" Protocol Stack](assets/ble-setup.png)
 
-For this BLE application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > Silicon Labs >ble_blinky**:
+For this Bluetooth® Low Energy application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > Silicon Labs >ble_blinky**:
 
 ```arduino
 /*
@@ -1108,9 +1108,9 @@ static void ble_initialize_gatt_db()
 Here are the main functions explanations of the example sketch:
 
 The `sl_bt_on_event(sl_bt_msg_t *evt)` function is the main one of the sketch and it is responsible for:
-- Initiating the BLE radio, and start advertising the defined services alongside its characteristics.
+- Initiating the Bluetooth® Low Energy radio, and start advertising the defined services alongside its characteristics.
 - Handling the opening and closing of connections.
-- Handling incoming and outgoing BLE messages.
+- Handling incoming and outgoing Bluetooth® Low Energy messages.
 
 The `ble_initialize_gatt_db()` function is responsible for:
 - Adding the Generic Access service with the `1800` UUID.
@@ -1119,16 +1119,16 @@ The `ble_initialize_gatt_db()` function is responsible for:
 - Adding the LED Control characteristic to the Blinky service with the `5b026510-4088-c297-46d8-be6c736a087a` UUID.
 - Adding the Button report characteristic to the Blinky service with the `61a885a4-41c3-60d0-9a53-6d652a70d29c` UUID.
 
-***Note that if you want to implement a different or custom BLE service or characteristic, the UUID arrays have to start with the least significant bit (LSB) from left to right.***
+***Note that if you want to implement a different or custom Bluetooth® Low Energy service or characteristic, the UUID arrays have to start with the least significant bit (LSB) from left to right.***
 
-After uploading the sketch to the Nano Matter, it's time to communicate with it through BLE. For this, Silicon Labs has developed a **mobile app** that you can download from here:
+After uploading the sketch to the Nano Matter, it's time to communicate with it through Bluetooth® Low Energy. For this, Silicon Labs has developed a **mobile app** that you can download from here:
 
 - [Android](https://play.google.com/store/apps/details?id=com.siliconlabs.bledemo)
 - [iOS](https://itunes.apple.com/us/app/silicon-labs-blue-gecko-wstk/id1030932759)
 
 Open the *EFR Connect BLE Mobile APP* on your smartphone, in the lower menu, navigate to **Demo** and select **Blinky**:
 
-![Blinky demo controlling the Nano Matter through BLE](assets/BlinkyBLE.gif)
+![Blinky demo controlling the Nano Matter through Bluetooth® Low Energy](assets/BlinkyBLE.gif)
 
 ***You can also manage the LED control and button status manually from the Scan tab in the lower menu.***
 
@@ -1343,9 +1343,9 @@ By default, the output resolution is 8 bits, so the output value should be betwe
 analogWriteResolution(bits);  
 ```
 
-Using this function has some limitations, for example, the PWM signal frequency is fixed at 1 KHz, and this could not be ideal for every application.
+Using this function has some limitations, for example, the PWM signal frequency is fixed at 1 kHz, and this could not be ideal for every application.
 
-Here is an example of how to create a **1 KHz** variable duty-cycle PWM signal:
+Here is an example of how to create a **1 kHz** variable duty-cycle PWM signal:
 
 ```arduino
 const int analogInPin = A0;   // Analog input pin that the potentiometer is attached to
@@ -1387,7 +1387,7 @@ If you need to work with a **higher frequency** PWM signal, you can do it with t
 ```arduino
 PWM.frequency_mode(output_pin, frequency);
 ```
-Here is an example of how to create a **10 KHz** fixed duty-cycle PWM signal:
+Here is an example of how to create a **10 kHz** fixed duty-cycle PWM signal:
 
 ```arduino
 const int analogOutPin = 13;  // PWM output pin to use
@@ -1778,7 +1778,7 @@ If you encounter any issues or have questions while working with the Nano Matter
 
 Explore our [Help Center](https://support.arduino.cc/hc/en-us), which offers a comprehensive collection of articles and guides for the Nano Matter. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
-- [Nano Matter help center page](https://support.arduino.cc/hc/en-us/sections/360004605400-Nano-Family)
+- [Nano Matter Help Center page](https://support.arduino.cc/hc/en-us/sections/360004605400-Nano-Family)
 
 ### Forum
 
