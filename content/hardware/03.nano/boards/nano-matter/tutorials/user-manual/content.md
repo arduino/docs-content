@@ -34,10 +34,9 @@ This user manual will guide you through a practical journey covering the most in
 
 ## Product Overview
 
-The Nano Matter merges the well-known Arduino way of making complex technology more accessible, with the powerful MGM240S from Silicon Labs to bring Matter® closer to the maker world in one of the smallest form factors in the market. 
+The Nano Matter merges the well-known Arduino way of making complex technology more accessible with the powerful MGM240S from Silicon Labs, to bring Matter closer to the maker world, in one of the smallest form factors in the market.  
 
-It enables 802.15.4 (Thread) and Bluetooth® Low Energy connectivity to interact with Matter-compatible devices with a user-friendly software layer for quick prototyping.
-
+It enables 802.15.4 (Thread®) and Bluetooth® Low Energy connectivity, to interact with Matter-compatible devices with a user-friendly software layer ready for quick prototyping.
 
 ### Board Architecture Overview
 
@@ -46,7 +45,7 @@ optimized for the needs of battery and line-powered IoT devices for 2.4 GHz mesh
 
 ![Nano Matter's main components](assets/architecture.png)
 
-Here is an overview of the board's main components, as shown in the images above:
+Here is an overview of the board's main components, as shown in the image above:
 
 - **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit Arm® Cortex®-M33 processor running at 78 MHz. 
 - **Wireless connectivity**: the Nano Matter microcontroller also features multi-protocol connectivity to enable Matter IoT protocol and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home systems and communicate wirelessly with other devices.
@@ -90,9 +89,9 @@ The complete STEP files are available and downloadable from the link below:
 
 ### Form Factor
 
-This Nano board features castellated pins which are ideal for integrating the board into final solutions. 
+The Nano Matter board features castellated pins, which are ideal for integrating the board into final solutions. 
 
-You can superficially mount the Nano Matter in your custom PCB thanks to the board doesn't have any bottom-mounted components.
+You can easily solder the Nano Matter in your custom PCB, since the board does not present any bottom-mounted components.
 
 ![Nano Matter castellated pins](assets/castellated-small.png)
 
@@ -104,16 +103,12 @@ The Nano Matter can be powered by:
 - A USB-C® cable (not included). 
 - An external **5 V power supply** connected to `IN5V` pin (please, refer to the [board pinout section](#pinout) of the user manual).
 
-***Running a Matter application the board uses up to 16 mA (not standardized test).***
-
 ![Nano Matter externally powered](assets/ext-power.png)
 
 For low-power consumption applications, the following hacks are recommended:
 
 - Cut the power status LED jumper off to save energy.
-- Power the board with an external **3.3 V power supply** connected to **3.3V** pin, this will not power the *USB bridge IC*, so more energy will be saved.
-
-***Running a Matter application the board uses up to 8 mA (not standardized test).***
+- Power the board with an external **3.3 V power supply** connected to **3.3V** pin. This will not power the *USB bridge IC*, so more energy will be saved.
 
 ![Image showing the LED jumper and external 3.3 V power](assets/lower-power.png)
 
@@ -141,7 +136,7 @@ void loop() {
 }
 ```
 
-For the Nano Matter, the `LED_BUILTIN` macro represents the **red LED** of the built-in RGB LED of the board.
+In the Nano Matter, the `LED_BUILTIN` macro represents the **red LED** of the built-in RGB LED of the board. Please refer to the image below.
 
 To upload the code to the Nano Matter, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
 
@@ -159,13 +154,13 @@ Developing Matter-compatible IoT solutions has never been easier with the Arduin
 
 ![Nano Matter](assets/nano-matter-banner.png)
 
-The Nano Matter can communicate with Matter hubs through a Thread network, so the hubs used must be **Thread border routers**.
+The Nano Matter can communicate with Matter hubs through a Thread® network, so the hubs used must be **Thread® border routers**.
 
 The Silicon Labs core in the Arduino IDE comes with several Matter examples ready to be tested with the Nano Matter and works as a starting point for almost any IoT device we can imagine building.
 
 ![Matter examples](assets/matter-examples.png)
 
-***At the moment the "matter_lightbulb" example is the only one certified, so it is normal to get an "Uncertified device" message. The remaining example certifications are still in progress.***
+***The "matter_lightbulb" example is the only officially Matter-certified profile for the Nano Matter **Community Preview**. Consequently, while running any of the other available profile examples, it is expected to get an "Uncertified device" message in the different Matter-compatible apps. This does not prevent the user from prototyping a solution with different configurations.***
 
 First, to start creating *Matter-enabled* solutions, we need to select the Matter protocol in **Tools > Protocol stack > Matter**:
 
@@ -312,7 +307,9 @@ To upload the code to the Nano Matter, click the **Verify** button to compile th
 
 ![Upload the Matter RGB example](assets/upload-color.png)
 
-After the code is uploaded, open the Arduino IDE Serial Monitor and reset the board. To commission a Matter device to the network you will need the credentials shown in the terminal.
+After the code is uploaded, open the Arduino IDE Serial Monitor and reset the board by clicking on the reset button. To commission a Matter device to the network you will need the credentials shown in the terminal.
+
+![Nano Matter Reset Button](assets/rst-button.png)
 
 You will find a **Manual pairing code** and a **QR code URL** as follows:
 
@@ -322,14 +319,14 @@ You will find a **Manual pairing code** and a **QR code URL** as follows:
 
 ### With Google Home™
 
-To create your first IoT device with the Nano Matter and the Google Home ecosystem you first need to have a Matter-compatible hub. The Google Home products that can work as a **Matter hub** through **Thread** are listed below:
+To create your first IoT device with the Nano Matter and the Google Home ecosystem, you first need to have a Matter-compatible hub. The Google Home products that can work as a **Matter hub** through **Thread®** are listed below:
 
 - Nest Hub (2nd Gen)
 - Nest Hub Max
 - Nest Wifi Pro (Wi-Fi 6E)
 - Nest Wifi
 
-***Other Google devices are compatible with Matter but not Thread.***
+***Other Google devices are compatible with Matter but not Thread®.***
 
 To commission your device, open the Google Home app, navigate to devices, click on **add device** and select the **matter-enabled device** option:
 
@@ -349,7 +346,7 @@ If you want to commission your Nano Matter solution with another service, follow
 
 ### With Amazon Alexa
 
-The Amazon Alexa products that can work as a **Matter hub** through **Thread** are listed below:
+The Amazon Alexa products that can work as a **Matter hub** through **Thread®** are listed below:
 
 - Echo (4th Gen)
 - Echo Show 10 (3rd Gen)
@@ -364,13 +361,13 @@ The Amazon Alexa products that can work as a **Matter hub** through **Thread** a
 - eero Beacon
 - eero Max 7
 
-***Other Amazon devices are compatible with Matter but not Thread.***
+***Other Amazon devices are compatible with Matter but not Thread®.***
 
 To commission your device, open the Amazon Alexa app, click on the upper right **+** symbol, select **device** and select the **Matter** logo option:
 
 ![Adding a new Matter device to Amazon Alexa](assets/add-device-alexa.png)
 
-Read the QR code generated by the Nano Matter sketch, select the **Thread** network available and then wait for the device to be commissioned and added to the Alexa app:
+Read the QR code generated by the Nano Matter sketch, select the **Thread®** network available and then wait for the device to be commissioned and added to the Alexa app:
 
 ![Device added](assets/add-device-alexa-2.png)
 
@@ -384,7 +381,7 @@ If you want to commission your Nano Matter solution with another service, follow
 
 ### With Apple Home
 
-The Apple Home products that can work as a **Matter hub** through **Thread** are listed below:
+The Apple Home products that can work as a **Matter hub** through **Thread®** are listed below:
 
 - Apple TV 4K (3rd generation) Wi-Fi + Ethernet
 - Apple TV 4K (2nd generation)
@@ -413,17 +410,17 @@ If you want to commission your Nano Matter solution with another service, follow
 
 ### With Home Assistant
 
-To use Matter with Home Assistant you will need one of the *Google Home* or *Apple Home* devices that can work as a **Thread Border Router**, listed in the previous sections.
+To use Matter with Home Assistant, you will need one of the *Google Home* or *Apple Home* devices that can work as a **Thread® Border Router**, listed in the previous sections.
 
-To set up Home Assistant so it can manage our Matter devices, first, we need to install the **Matter Server** add-on. For this, navigate to **Settings > Add-Ons > Add-On Store** and search for **Matter server**:
+To set up Home Assistant so that it can manage Matter devices, we need first to install the **Matter Server** add-on. For this, navigate to **Settings > Add-Ons > Add-On Store** and search for **Matter server**:
 
 ![Installing the Matter Server](assets/ha-setup.png)
 
-With the Matter server installed, now navigate to **Settings > Devices % Services > Add Integration** and search for **Matter**:
+When the Matter server is correctly installed, navigate to **Settings > Devices % Services > Add Integration** and search for **Matter**:
 
 ![Installing the Matter integration](assets/ha-setup-2.png)
 
-A prompt will show up asking for a connection method; if you are working with customs containers to run the Matter server, uncheck the box. 
+A prompt will show up asking for a connection method; if you are working with custom containers running the Matter server, uncheck the box. 
 
 In our case, we leave it checked as the Matter server is running in Home Assistant.
 
@@ -448,12 +445,12 @@ If you want to commission your Nano Matter solution with another service, follow
 #### Home Assistant Tips
 
 - Make sure you are using a **64-bit** Home Assistant OS version.
-- Use the **Thread** add-on to verify your available Thread networks.
-- You can just have a Matter device commissioned to one vendor at a time.
+- Use the **Thread®** add-on to verify your available Thread® networks.
+- You can just have a Matter device commissioned to one platform at a time.
 
 ### Device Decommissioning 
 
-If you have a Matter device configured and working for example with the Google Home ecosystem, and you want to integrate it with Alexa or Apple Home instead; you need to decommission it first from the previous service. 
+If you have a Matter device configured and working with a _specific platform_, for example with the Google Home ecosystem, and you want to integrate it with Alexa or Apple Home instead, you need to decommission it first from the previous service. 
 
 In simple terms, **decommissioning** refers to unpairing your device from a current service to be able to pair it with a new one.
 
@@ -624,7 +621,7 @@ If it is not decommissioned you will see temperature readings printed in the Ser
 
 ### Device Commissioning
 
-Now it's time to commission the Nano Matter with Home Assistant, for this follow the steps explained in this [section](#with-home-assistant).
+Now it is time to commission the Nano Matter with Home Assistant, for this follow the steps explained in this [section](#with-home-assistant).
 
 Once you have everything set up and running you will be able to monitor the Nano Matter temperature locally in Home Assistant:
 
@@ -1121,7 +1118,7 @@ The `ble_initialize_gatt_db()` function is responsible for:
 
 ***Note that if you want to implement a different or custom Bluetooth® Low Energy service or characteristic, the UUID arrays have to start with the least significant bit (LSB) from left to right.***
 
-After uploading the sketch to the Nano Matter, it's time to communicate with it through Bluetooth® Low Energy. For this, Silicon Labs has developed a **mobile app** that you can download from here:
+After uploading the sketch to the Nano Matter, it is time to communicate with it through Bluetooth® Low Energy. For this, Silicon Labs has developed a **mobile app** that you can download from here:
 
 - [Android](https://play.google.com/store/apps/details?id=com.siliconlabs.bledemo)
 - [iOS](https://itunes.apple.com/us/app/silicon-labs-blue-gecko-wstk/id1030932759)
@@ -1429,11 +1426,11 @@ The Nano Matter has **19 analog input pins**, mapped as follows:
 |          PA04           |      PIN_SERIAL_TX      |     UART/GPIO/ADC     |
 |          PA05           |      PIN_SERIAL_RX      |     UART/GPIO/ADC     |
 
-***Digital I/O's can also be used as analog inputs with `D10`,`D9` and `D2` as exceptions.***
+***Digital I/O's can also be used as analog inputs with the exception of `D10`,`D9` and `D2`.***
 
 Analog input pins can be used through the built-in functions of the Arduino programming language. 
 
-Nano Matter ADC resolution is fixed to 12 bits and can not be changed by the user.
+Nano Matter ADC resolution is fixed to 12 bits and cannot be changed by the user.
 
 The Nano Matter ADC reference voltage is 3.3 V by default, it can be configured using the function `analogReference()` with the following arguments:
 
@@ -1574,7 +1571,7 @@ This section of the user manual covers the different communication protocols tha
 
 ### SPI
 
-The Nano Matter supports SPI communication, which allows data transmission between the board and other SPI-compatible devices. The pins used in the Nano Matter for the SPI communication protocol are the following:
+The Nano Matter supports SPI communication, which enables data transmission between the board and other SPI-compatible devices. The pins used in the Nano Matter for the SPI communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
@@ -1635,7 +1632,7 @@ The example code above should output this:
 
 ### I2C
 
-The Nano Matter supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Nano Matter for the I2C communication protocol are the following:
+The Nano Matter supports I2C communication, which enables data transmission between the board and other I2C-compatible devices. The pins used in the Nano Matter for the I2C communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
