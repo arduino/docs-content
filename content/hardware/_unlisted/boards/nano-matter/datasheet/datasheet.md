@@ -18,7 +18,6 @@ Internet of Things, home automation, professional automation, environmental moni
 # CONTENTS
 ## Application Examples
 
-<div style="text-align:justify;">
 The Arduino Nano Matter is not just an IoT board, it is a gateway to innovation in various sectors, from streamlining manufacturing processes to creating responsive and comfortable living and working environments. Discover more about the transformative potential of the Nano Matter in the following application examples:
 
 - **Smart homes**: Transform residential spaces into intelligent environments with the Nano Matter, capable of:
@@ -36,7 +35,6 @@ The Arduino Nano Matter is not just an IoT board, it is a gateway to innovation 
   - **Machine-to-Machine interoperability**: Enhance your factory floor with the Nano Matter boards to enable dynamic supervision between machines. Should one machine begin producing defective parts due to a malfunction, adjacent machines are instantly alerted, halting their operations and notifying a human operator, thus reducing waste and downtime.
   - **Machine status monitoring**: Integrate the Nano Matter into your industrial systems for real-time monitoring of critical conditions such as temperature, pressure, and humidity, ensuring timely maintenance and intervention, preventing costly breakdowns, and maintaining consistent production quality.
   - **Worker safety optimization**: Elevate safety standards in your facility with the Nano Matter, which provides real-time monitoring of environmental conditions and detects personnel presence in hazardous areas, enhancing worker safety by preventing machine operation when a human is detected in dangerous zones.
-</div>
 
 <div style="page-break-after: always;"></div>
 
