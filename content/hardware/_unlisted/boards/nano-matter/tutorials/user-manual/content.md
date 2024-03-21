@@ -74,7 +74,7 @@ The full pinout is available and downloadable as PDF from the link below:
 
 The complete datasheet is available and downloadable as PDF from the link below:
 
-- [Nano Matter datasheet](https://docs.arduino.cc/resources/datasheets/ABX00112-datasheet.pdf)
+- [Nano Matter datasheet](https://drive.google.com/file/d/17QHrrHnlqwXoG6JQbeFgGXsB2X9S9Rwt/view?usp=sharing)
 
 ### Schematics
 
