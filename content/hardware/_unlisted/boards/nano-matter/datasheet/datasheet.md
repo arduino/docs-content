@@ -19,7 +19,7 @@ Internet of Things, home automation, professional automation, environmental moni
 ## Application Examples
 
 <div style="text-align:justify;">
-The Arduino Nano Matter is not just an IoT board; it is a gateway to innovation in various sectors. From streamlining manufacturing processes to creating responsive and comfortable living and working environments. Discover more about the transformative potential of the Nano Matter in the following application examples:
+The Arduino Nano Matter is not just an IoT board, it is a gateway to innovation in various sectors, from streamlining manufacturing processes to creating responsive and comfortable living and working environments. Discover more about the transformative potential of the Nano Matter in the following application examples:
 
 - **Smart homes**: Transform residential spaces into intelligent environments with the Nano Matter, capable of:
   - **Voice-controlled smart home**: Integrate the Nano Matter with popular voice assistant platforms like Amazon Alexa or Google Assistant, enabling residents to control smart home devices, such as lights, thermostats, and switches, using simple voice commands, enhancing convenience and accessibility.
@@ -104,7 +104,7 @@ The main features are highlighted in the table shown below.
     <td>4 g</td>
   </tr>
     <td>Pinout features</td>
-    <td>Castellated pins allow the board to be positioned as a surface-mountable module</td>
+    <td>Castellated pins allow the board to be SMD soldered on a custom carrier</td>
   </tr>
 </tbody>
 </table>
@@ -289,7 +289,7 @@ The Nano Matter has one push button and one RGB LED available for the user; both
 ![](assets/Nano_Matter_PeripheralsActuators.png)
 
 <p style="text-align: justify;">
-The Nano Matter was designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
+The Nano Matter is designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
 </p>
 
 <div style="page-break-after: always;"></div>
