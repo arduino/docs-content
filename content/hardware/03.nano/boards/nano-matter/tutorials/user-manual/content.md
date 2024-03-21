@@ -22,6 +22,8 @@ software:
 
 This user manual will guide you through a practical journey covering the most interesting features of the Arduino Nano Matter. With this user manual, you will learn how to set up, configure and use this Arduino board.
 
+![RGB Lightbulb with Nano Matter](assets/matter-google.gif)
+
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
@@ -611,6 +613,13 @@ void decommission_handler() {
   }
 }
 ```
+The main code functions are explained bellow:
+
+- The temperature sensor object is created with the `MatterTemperature matter_temp_sensor;` statement. To initiate it, in the `setup()` function, we used `matter_temp_sensor.begin();`
+- The `decommission_handler()` lets us unpair the device from a previous platform.
+- The microcontroller internal temperature is measured with the function `getCPUTemp();`.
+- The temperature value is advertized using the `matter_temp_sensor.set_measured_value_celsius(current_cpu_temp);` function.
+
 After uploading the code to the Nano Matter, verify it is decommissioned from any other service previously used. For this, open the Serial Monitor and reset the board. 
 
 If it is not decommissioned you will see temperature readings printed in the Serial Monitor. To decommission it follow these steps:
