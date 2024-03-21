@@ -97,10 +97,10 @@ The main features are highlighted in the table shown below.
     <td>18 mm x 45 mm</td>
   </tr>
   <tr>
-  <tr>
     <td>Weight</td>
     <td>4 g</td>
   </tr>
+  <tr>
     <td>Pinout features</td>
     <td>Castellated pins allow the board to be SMD soldered on a custom carrier</td>
   </tr>
@@ -220,9 +220,6 @@ A detailed figure below illustrates the power options available on the Nano Matt
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
 <strong>Safety Note:</strong> Disconnect power before board modifications. Avoid short-circuiting. Refer to the full guide for more safety tips.
 </div>
-
-</div>
-
 
 <div style="page-break-after: always;"></div>
 
