@@ -3,7 +3,7 @@ title: 'Nano Matter User Manual'
 difficulty: beginner
 compatible-products: [nano-matter]
 description: 'Learn about the hardware and software features of the Arduino® Nano Matter.'
-tags: 
+tags:
   - IoT
   - Matter
   - BLE
@@ -91,7 +91,7 @@ The complete STEP files are available and downloadable from the link below:
 
 ### Form Factor
 
-The Nano Matter board features castellated pins, which are ideal for integrating the board into final solutions. 
+The Nano Matter board features castellated pins, which are ideal for integrating the board into final solutions.
 
 You can easily solder the Nano Matter in your custom PCB, since the board does not present any bottom-mounted components.
 
@@ -300,7 +300,7 @@ void handle_button_press()
 
 Here is the example sketch main functions explanation:
 
-- In the `setup()` function, Matter is initialized with `Matter.begin()` alongside the initial configurations of the board to handle the different inputs and outputs. The device commissioning is verified with `Matter.isDeviceCommissioned()` to show the user the network pairing credentials if needed and the connection is confirmed with the `Matter.isDeviceConnected()` function. 
+- In the `setup()` function, Matter is initialized with `Matter.begin()` alongside the initial configurations of the board to handle the different inputs and outputs. The device commissioning is verified with `Matter.isDeviceCommissioned()` to show the user the network pairing credentials if needed and the connection is confirmed with the `Matter.isDeviceConnected()` function.
 - In the `loop()` function, the RGB LED is controlled on and off with `matter_color_bulb.set_onoff(state)`, the current state is retrieved with `matter_color_bulb.get_onoff()` and the button state is read to control the LED manually.
 - In the `update_led_color()` function, the color defined in the app is retrieved using the function `matter_color_bulb.get_rgb(&r, &g, &b)` that stores the requested color code in RGB format variables.
 
@@ -342,7 +342,7 @@ Finally, you will be able to control the Nano Matter built-in RGB LED as a nativ
 
 ![RGB Lightbulb with Nano Matter](assets/matter-google.gif)
 
-You are also able to control your device using voice commands with your personal assistant. 
+You are also able to control your device using voice commands with your personal assistant.
 
 If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
 
@@ -398,7 +398,7 @@ If this is your first Matter device, you may be asked to define the Matter hub t
 
 ![Selecting the Matter hub (Bridge)](assets/add-device-apple-2.png)
 
-Then, follow the steps for adding and naming the Matter Light bulb: 
+Then, follow the steps for adding and naming the Matter Light bulb:
 
 ![Adding the Light bulb](assets/add-device-apple-3.png)
 
@@ -412,7 +412,7 @@ If you want to commission your Nano Matter solution with another service, follow
 
 ### With Home Assistant
 
-To use Matter with Home Assistant, you will need one of the *Google Home* or *Apple Home* devices that can work as a **Thread® Border Router**, listed in the previous sections.
+To use Matter with Home Assistant, you will need one of the *Google Home* or *Apple Home* devices that can work as a **Thread® Border Router**, as listed in the previous sections.
 
 To set up Home Assistant so that it can manage Matter devices, we need first to install the **Matter Server** add-on. For this, navigate to **Settings > Add-Ons > Add-On Store** and search for **Matter server**:
 
@@ -422,7 +422,7 @@ When the Matter server is correctly installed, navigate to **Settings > Devices 
 
 ![Installing the Matter integration](assets/ha-setup-2.png)
 
-A prompt will show up asking for a connection method; if you are working with custom containers running the Matter server, uncheck the box. 
+A prompt will show up asking for a connection method; if you are working with custom containers running the Matter server, uncheck the box.
 
 In our case, we leave it checked as the Matter server is running in Home Assistant.
 
@@ -452,7 +452,7 @@ If you want to commission your Nano Matter solution with another service, follow
 
 ### Device Decommissioning 
 
-If you have a Matter device configured and working with a _specific platform_, for example with the Google Home ecosystem, and you want to integrate it with Alexa or Apple Home instead, you need to decommission it first from the previous service. 
+If you have a Matter device configured and working with a _specific platform_, for example with the Google Home ecosystem, and you want to integrate it with Alexa or Apple Home instead, you need to decommission it first from the previous service.
 
 In simple terms, **decommissioning** refers to unpairing your device from a current service to be able to pair it with a new one.
 
@@ -620,13 +620,13 @@ The main code functions are explained below:
 - The microcontroller's internal temperature is measured with the function `getCPUTemp();`.
 - The temperature value is advertised using the `matter_temp_sensor.set_measured_value_celsius(current_cpu_temp);` function.
 
-After uploading the code to the Nano Matter, verify it is decommissioned from any other service previously used. For this, open the Serial Monitor and reset the board by clicking on the reset button 
+After uploading the code to the Nano Matter, verify it is decommissioned from any other service previously used. For this, open the Serial Monitor and reset the board by clicking on the reset button.
 
 If it is not decommissioned you will see temperature readings printed in the Serial Monitor. To decommission it, follow these steps:
 
 - Press the user button for **10 seconds** until the board's built-in LED starts **blinking in red**. You will also see a message confirming the process in the Serial Monitor.
 
-- Finally, reset the board by clicking on the reset button and you should see the Matter commissioning credentials in the Serial Monitor. 
+- Finally, reset the board by clicking on the reset button and you should see the Matter commissioning credentials in the Serial Monitor.
 
 ### Device Commissioning
 
@@ -687,7 +687,7 @@ For this, navigate to **API Keys** in the upper left corner drop-down menu and c
 
 ![API Keys generation](assets/api-key.png)
 
-You should get a **Client ID** and a **Client Secret**. Save these credentials in a safe place, you will not be able to see them again. 
+You should get a **Client ID** and a **Client Secret**. Save these credentials in a safe place, you will not be able to see them again.
 
 ### Home Assistant Set-Up
 
@@ -750,7 +750,7 @@ For the changes to take effect, navigate to **Developers Tools** and click on **
 
 ![Restarting Home Assistant](assets/restart-ha.png)
 
-Finally, let's set up the automation that will call the **send_temperature** service every time the temperature sensor values change. 
+Finally, let's set up the automation that will call the **send_temperature** service every time the temperature sensor values change.
 
 For this, navigate to **Settings > Automations & scenes** and click on **Create Automation**.
 
@@ -1148,7 +1148,7 @@ The Nano Matter includes an onboard **push button** that can be used as an input
 
 ![Nano Matter Built-in Push Button](assets/button.png)
 
-The button pulls the input to ground when pressed, so is important to define the **pull-up resistor** to avoid undesired behavior by leaving the input floating.
+The button pulls the input to the ground when pressed, so is important to define the **pull-up resistor** to avoid undesired behavior by leaving the input floating.
 
 Here you can find a complete example code to blink the built-in RGB LED of the Nano Matter:
 
@@ -1439,7 +1439,7 @@ The Nano Matter has **19 analog input pins**, mapped as follows:
 
 ***Digital I/O's can also be used as analog inputs with the exception of `D10`,`D9` and `D2`.***
 
-Analog input pins can be used through the built-in functions of the Arduino programming language. 
+Analog input pins can be used through the built-in functions of the Arduino programming language.
 
 Nano Matter ADC resolution is fixed to 12 bits and cannot be changed by the user.
 
