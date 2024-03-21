@@ -620,19 +620,19 @@ The main code functions are explained bellow:
 - The microcontroller internal temperature is measured with the function `getCPUTemp();`.
 - The temperature value is advertized using the `matter_temp_sensor.set_measured_value_celsius(current_cpu_temp);` function.
 
-After uploading the code to the Nano Matter, verify it is decommissioned from any other service previously used. For this, open the Serial Monitor and reset the board. 
+After uploading the code to the Nano Matter, verify it is decommissioned from any other service previously used. For this, open the Serial Monitor and reset the board by clicking on the reset button 
 
-If it is not decommissioned you will see temperature readings printed in the Serial Monitor. To decommission it follow these steps:
+If it is not decommissioned you will see temperature readings printed in the Serial Monitor. To decommission it, follow these steps:
 
-- Press the user button for 10 seconds until the board's built-in LED starts blinking in red. You will also see a message confirming the process in the Serial Monitor.
+- Press the user button for **10 seconds** until the board's built-in LED starts **blinking in red**. You will also see a message confirming the process in the Serial Monitor.
 
-- Finally, reset the board and you should see the Matter commissioning credentials in the Serial Monitor. 
+- Finally, reset the board by clicking on the reset button and you should see the Matter commissioning credentials in the Serial Monitor. 
 
 ### Device Commissioning
 
-Now it is time to commission the Nano Matter with Home Assistant, for this follow the steps explained in this [section](#with-home-assistant).
+Now it is time to commission the Nano Matter with Home Assistant, for this, follow the steps explained in this [section](#with-home-assistant).
 
-Once you have everything set up and running you will be able to monitor the Nano Matter temperature locally in Home Assistant:
+Once you have everything set up and running you will be able to monitor the Nano Matter temperature in Home Assistant:
 
 ![Nano Matter Temperature in Home Assistant](assets/home-assistant-temp.png)
 
@@ -644,7 +644,7 @@ Log in to your Arduino Cloud account; you should see the following:
 
 ![Arduino Cloud Initial Page](assets/cloud-login.png)
 
-Navigate to **Things** in the left bar menu and click on **+ Thing**:
+Navigate to **Things** in the left bar menu and click on **+ Thing** to add a Thing:
 
 ![Creating a Thing](assets/cloud-thing.png)
 
@@ -673,19 +673,21 @@ In the left bar menu, navigate to **Space Settings** and copy the **Space ID**, 
 
 ![Space ID](assets/id-gathering-3.png)
 
+***If you can't see the _Space Settings_ section is because you are using an Arduino Cloud free plan, check the [plans](https://cloud.arduino.cc/plans) with the API feature enabled.***
+
 At this point you should have three IDs related to your project:
 
 - Variable ID
 - Thing ID
 - Space ID
 
-To properly authenticate the requests we are going to use to upload the data to Arduino Cloud we need to create **API Keys**.
+To properly authenticate the requests we are going to use to upload the data to the Arduino Cloud we need to create **API Keys**.
  
 For this, navigate to **API Keys** in the upper left corner drop-down menu and click on **Create API Key**:
 
 ![API Keys generation](assets/api-key.png)
 
-You should get a **Client ID** and a **Client Secret**. Save these credentials in a safe place so you will not be able to see them again. 
+You should get a **Client ID** and a **Client Secret**. Save these credentials in a safe place, you will not be able to see them again. 
 
 ### Home Assistant Set-Up
 
@@ -722,7 +724,7 @@ rest:
         json_attributes:
           - 'access_token' 
 ```
-The [RESTful integration](https://www.home-assistant.io/integrations/rest/) lets us periodically gather from our Arduino Cloud account a **token** that is mandatory to authenticate our requests. This token expires every 5 minutes, this is why we generate it every 4 minutes. The token is stored in a Sensor attribute called **API_Token_Bearer**. 
+The [RESTful integration](https://www.home-assistant.io/integrations/rest/) lets us periodically gather from our Arduino Cloud account a **token** that is mandatory to authenticate our requests. This token expires every 5 minutes, this is why we generate it every 4 minutes. The token is stored in a sensor attribute called **API_Token_Bearer**. 
 
 ```
 rest_command:      
@@ -748,13 +750,13 @@ For the changes to take effect, navigate to **Developers Tools** and click on **
 
 ![Restarting Home Assistant](assets/restart-ha.png)
 
-Finally, let's set up the automation that will call the send_temperature service every time the temperature sensor values change. 
+Finally, let's set up the automation that will call the **send_temperature** service every time the temperature sensor values change. 
 
 For this, navigate to **Settings > Automations & scenes** and click on **Create Automation**.
 
 ![Automation setting](assets/automation-create.png)
 
-In the upper right corner, click on the "three dots" menu and select **Edit in YAML**, replace the text here with the following:
+In the upper right corner, click on the "three dots" menu and select **Edit in YAML**, replace the text there with the following:
 
 ```
 alias: Nano Matter Temperature
