@@ -68,7 +68,7 @@ Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager i
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [Nano Matter pinout](https://docs.arduino.cc/static/b35956b631d757a0455c286da441641b/ABX00112-full-pinout.pdf)
+- [Nano Matter pinout](https://docs.arduino.cc/resources/pinouts/ABX00112-full-pinout.pdf)
 
 ### Datasheet
 
