@@ -179,7 +179,7 @@ The table below summarizes the power consumption of the Nano Matter in different
 ## Functional Overview
 
 <p style="text-align: justify;">
-The core of the Nano Matter is the MGM240SD22VNA microcontroller from Silicon Labs. The board also contains several peripherals and actuators connected to its microcontroller, such as a push button and an RGB LED available for the user. 
+The core of the Nano Matter is the MGM240SD22VNA microcontroller from Silicon Labs. The board also contains several peripherals and actuators connected to its microcontroller, such as a push button and an RGB LED available for the user.
 </p>
 
 ### Pinout
@@ -221,9 +221,6 @@ A detailed figure below illustrates the power options available on the Nano Matt
 <strong>Safety Note:</strong> Disconnect power before board modifications. Avoid short-circuiting. Refer to the full guide for more safety tips.
 </div>
 
-</div>
-
-
 <div style="page-break-after: always;"></div>
 
 ## Device Operation
@@ -262,7 +259,7 @@ castellated/through-hole pins around the two long edges; the onboard wireless an
 
 ### Board Dimensions
 
-The Nano Matter board outline and mounting holes dimensions are shown in the figure below; all the dimensions are in mm. 
+The Nano Matter board outline and mounting holes dimensions are shown in the figure below; all the dimensions are in mm.
 
 ![](assets/Nano_Matter_Outline.png)
 
@@ -270,7 +267,7 @@ The Nano Matter has four 1.65 mm drilled mounting holes for mechanical fixing.
 
 ### Board Connectors
 
-Connectors of the Nano Matter are placed on the top side of the board; their placement is shown in the figure below; all the dimensions are in mm. 
+Connectors of the Nano Matter are placed on the top side of the board; their placement is shown in the figure below; all the dimensions are in mm.
 
 ![](assets/Nano_Matter_Connectors.png)
 
@@ -278,7 +275,7 @@ Connectors of the Nano Matter are placed on the top side of the board; their pla
 The Nano Matter was designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
 </p>
 
-### Board Peripherals and Actuators 
+### Board Peripherals and Actuators
 
 <p style="text-align: justify;">
 The Nano Matter has one push button and one RGB LED available for the user; both the push button and the RGB LED are placed on the top side of the board.  Their placement is shown in the figure below; all the dimensions are in mm.
@@ -420,7 +417,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Project Hub                        | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                    |
 | Library Reference                  | https://www.arduino.cc/reference/en/                                                        |
 | Online Store                       | https://store.arduino.cc/                                                                   |
-         
+
 
 ## Document Revision History
 
