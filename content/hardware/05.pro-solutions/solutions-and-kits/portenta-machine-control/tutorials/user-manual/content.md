@@ -1236,6 +1236,8 @@ Modbus RTU, generally operating in half-duplex mode, with its capability to hand
 
 ***The Portenta Machine Control has onboard termination resistors; its RS-485 interface can be configured as a half or full duplex.***
 
+#### Using a Portenta Machine Control & Opta™
+
 The example below shows how to enable Modbus RTU communication between a Portenta Machine Control device and an Opta™ device. For wiring both devices, follow the diagram below:
 
 ![Portenta Machine Control and Opta™ Modbus RTU wiring](assets/modbus-rtu.png)
@@ -1434,7 +1436,9 @@ You should see the four onboard LEDs of the Opta™ device turn on and off, as s
 
 ![Onboard LEDs of an Opta™ device controlled by a Portenta Machine Control device via Modbus TCP](assets/rtu-blink.gif)
 
-The following example shows how to establish Modbus RTU communication between **two Portenta Machine Control devices**. Since Portenta Machine Control supports half-duplex and full-duplex modes, each mode requires a different wiring setup.
+#### Using two Portenta Machine Controls
+
+The following example shows how to establish Modbus RTU communication between **two Portenta Machine Control devices**. We will replicate a similar behavior of blinking four LEDs on Opta™ using the Digital Output port of the Portenta Machine Control. Since Portenta Machine Control supports half-duplex and full-duplex modes, each mode requires a different wiring setup.
 
 We will begin showing **Full-Duplex mode** example following the connection diagram below between two Portenta Machine Control devices:
 
@@ -1578,6 +1582,7 @@ void setup() {
   //At startup set all channels to OPEN
   MachineControl_DigitalOutputs.writeAll(0);
 
+  // Set 7th Digital Output channel ON to show the port has been correctly configured
   MachineControl_DigitalOutputs.write(7, HIGH);
 
   // Configure coils for controlling the onboard LEDs
@@ -1634,13 +1639,13 @@ Alternatively, to establish communication between two Portenta Machine Control w
 
 ![Modbus RTU (Half-Duplex) between two Portenta Machine Control](assets/modbus-half-rtu-pmcs.png)
 
-Previous examples can be used in half-duplex mode, and it requires only one minor change in the following line of code:
+Previous examples can be used in half-duplex mode, but it wil require one minor change in the following line of code:
 
 ```arduino
 MachineControl_RS485Comm.setFullDuplex(false);
 ```
 
-The line can be updated to disable *Full-Duplex* mode or to ignore the corresponding process by commenting the line. Thus, with the complementary wiring setup and minor code changes, two devices will begin communicating with Modbus RTU in half-duplex mode.
+By modifying this line, *Full-Duplex mode* is deactivated, or the line can be commented out to bypass this setting altogether. This minor code tweak and the appropriate wiring enable the two units to communicate using Modbus RTU in half-duplex mode.
 
 #### Modbus TCP
 
