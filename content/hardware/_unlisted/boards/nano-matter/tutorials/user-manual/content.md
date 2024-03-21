@@ -64,6 +64,7 @@ Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager i
 
 ### Pinout
 
+
 ![Nano Matter Simple pinout](assets/simple-pinout.png)
 
 The full pinout is available and downloadable as PDF from the link below:
