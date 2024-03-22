@@ -141,7 +141,7 @@ The table below provides a comprehensive guideline for the optimal use of the Na
 
 <sup>1</sup> Nano Matter powered through the IN5V pin (+5 VDC).<br>
 
-### Current Consumption
+### Power Consumption
 
 <p style="text-align: justify;">
 The table below summarizes the power consumption of the Nano Matter in different test cases. Notice that the board's operating current will depend greatly on the application.
@@ -173,6 +173,11 @@ The table below summarizes the power consumption of the Nano Matter in different
 </div>
 
 <sup>2</sup> Nano Matter powered through the IN5V pin (+5 VDC), running a Matter color lightbulb example.
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+To use the Nano Matter in <strong>low-power mode</strong>, the board must be powered through the <strong>pin IN5V</strong>.
+</div>
+
 
 <div style="page-break-after: always;"></div>
 

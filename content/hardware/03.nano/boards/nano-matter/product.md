@@ -1,5 +1,5 @@
 ---
-title: Nano Matter
+title: Nano Matter Community Preview
 url_shop: https://arduino.to/nano-matter
 primary_button_url: /tutorials/nano-matter/user-manual
 primary_button_title: User Manual
