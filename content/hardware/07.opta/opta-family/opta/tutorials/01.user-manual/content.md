@@ -1699,6 +1699,19 @@ To learn more about Opta™ and the Arduino IoT Cloud, check out the following r
 - [Opta™ Relay Management template](https://create.arduino.cc/iot/templates/relay-management)
 - [Using PLC IDE With Arduino® IoT Cloud](https://docs.arduino.cc/tutorials/opta/plc-ide-cloud-support)
 
+
+## Opta Digital Expansions
+
+Arduino Opta® Digital Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 16 programmable inputs for connecting your digital sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
+
+![Image here of the two variants]()
+
+The Arduino Opta® Digital Expansion comes in two variants: the EMR (Electromechanical Relay), and the SSR (Solid State Relay).
+
+### Inputs
+
+### Outputs
+
 ## Support
 
 If you encounter any issues or have questions while working with Opta™ devices, we provide various support resources to help you find answers and solutions.
