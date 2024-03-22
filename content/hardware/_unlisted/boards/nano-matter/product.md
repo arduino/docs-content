@@ -1,7 +1,7 @@
 ---
 title: Nano Matter
 url_shop: https://arduino.to/nano-matter
-primary_button_url: /tutorials/nano-matter/user-manual
+primary_button_url: /tutorials/nano-matter/user-manual/
 primary_button_title: User Manual
 sku: [ABX00112]
 core: arduino:mbed_nano
