@@ -19,11 +19,11 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/the-nerd-with-ardu
 
 **Create a desktop pet with the help of the Arduino Cloud!**
 
-The Nerd is a desktop electronic pet that survives by eating and some sunlight. In order for it to thrive, you must feed it periodically and expose it to sunlight. If it is running out of food, it will communicate an SOS in Morse code using its built-in piezo speaker.
+The Nerd is a desktop electronic pet that survives by eating and some sunlight. For it to thrive, you must feed it periodically and expose it to sunlight. If it is running out of food, it will communicate an SOS in Morse code using its built-in piezo speaker.
 
 ### In a Nutshell
 
-The Nerd will need food which you can give it by pressing its button. Otherwise it will complain by making noise with the buzzer until you either feed it or put it in sunlight. The nerd will be connected to the Arduino Cloud, where we can visualize the amount of food the Nerd has and the level of light it is in. The Cloud will also handle the timing elements needed in the code. If the Nerd runs out of food, it will die dramatically, making a lot of noise.
+The Nerd will need food which you can give it by pressing its button. Otherwise, it will complain by making noise with the buzzer until you either feed it or put it in sunlight. The nerd will be connected to the Arduino Cloud, where we can visualize the amount of food the Nerd has and the level of light it is in. The Cloud will also handle the timing elements needed in the code. If the Nerd runs out of food, it will die dramatically, making a lot of noise.
 
 ### Components
 
@@ -52,7 +52,7 @@ This tutorial is part of a series of experiments that familiarise you with the A
 
 ### Circuit
 
-In this project, we will be using the following circuit. In it we have a 220 ohm resistor connected between ground and the A2 pin used for the phototransistor. And a 10k ohm resistor connected between between ground and the push button.
+In this project, we will be using the following circuit. In it, we have a 220 ohm resistor connected between the ground and the A2 pin used for the phototransistor. And a 10k ohm resistor connected between between ground and the push button.
 
 ![Arduino IoT Bundle](assets/the_nerd_rp2040_dqr7egmpao_ESpsLy8iaq.png)
 
@@ -68,7 +68,7 @@ See the image below to understand how to set it up.
 
 ![Thing overview](assets/template_overview.png)
 
-Creating a new thing and dashboard is really easy. First go to the Arduino Cloud site [here](https://create.arduino.cc/iot). Setting up the Cloud consists of the following parts:
+Creating a new thing and dashboard is easy. First, go to the Arduino Cloud site [here](https://create.arduino.cc/iot). Setting up the Cloud consists of the following parts:
 
 * Creating a **Thing**
 * Attaching a **Device**
@@ -81,7 +81,11 @@ Creating a new thing and dashboard is really easy. First go to the Arduino Cloud
 
 We will start by adding three variables:
 
-![Arduino IoT Bundle](assets/screenshot_2022-11-18_175524_4XRWc1dHYc.png)
+- `nerdsFood` - `INT` - `READ & WRITE`
+
+- `nerdsLight` - `INT` - `READ ONLY`
+
+- `nerdsTime` - `TIME` - `READ & WRITE`
 
 ### Dashboard
 
@@ -94,9 +98,9 @@ The next step to deploying our project is adding a control panel using the Ardui
 
 ### Setup Hardware & Sketch
 
-**Keeping track of the Nerds food**
+**Keeping track of the Nerd's food**
 
-To keep track of the Nerds food we will be using an **int** variable. When the Nerd is in enough sunlight and the button is pressed it will be fed. Making a sound so you know that it received the food. The RGB led will change color depending on the Nerds hunger state.
+To keep track of the Nerd's food we will be using an **int** variable. When the Nerd is in enough sunlight and the button is pressed it will be fed. Making a sound so you know that it received the food. The RGB LED will change color depending on the Nerd's hunger state.
 
 ```
 /* Set color status feedback */
@@ -111,7 +115,7 @@ else{
 }
 ```
 
-And we can use the Arduino Cloud dashboard to keep track of the food numerically. We will also use a time variable from the Arduino Cloud to easily manage when the food count should go down. Here we will let it take 10 minutes before the food supply is decreased by one. The max food storage is set to 12, this can be expanded by changing the threshold in the "**if"** operator, and don't forgot to update the tracker on the dashboard as well so you can accurately track the food that the Nerd has.
+And we can use the Arduino Cloud dashboard to keep track of the food numerically. We will also use a time variable from the Arduino Cloud to easily manage when the food count should go down. Here we will let it take 10 minutes before the food supply is decreased by one. The max food storage is set to 12, this can be expanded by changing the threshold in the "**if"** operator, and don't forget to update the tracker on the dashboard as well so you can accurately track the food that the Nerd has.
 
 ```
 void onNerdsFoodChange(){
@@ -129,8 +133,8 @@ The Nerd will start with 2 food the first time it wakes up, then this value will
 To check so that our Nerd gets enough sunlight we will use a Phototransistor. Keeping track of the light level with the **nerdsLight** Cloud variable.
 
 ```
-int SensorPin = A2;
-nerdsLight = analogRead(SensorPin);
+int sensorPin = A2;
+nerdsLight = analogRead(sensorPin);
 ```
 
 When the Nerd first wakes up, this is when the device is started and the Nerd first receives sunlight. It will make a sound and blink its light. Then the variable will be checked every time you try to give the Nerd some food. The threshold of the light level can be changed if you are having trouble feeding the Nerd. You can use the Cloud to check what values you get when the Nerd is in the light, and then change the threshold here in the code:
@@ -141,7 +145,7 @@ if(nerdsFood < 12 && nerdsLight>150)
 
 **Time tracker with the Arduino Cloud**
 
-The Nerd will get hungry every 10 minutes and eat the food it has been given. To keep track of when the Nerd gets hungry we will use a time variable from the Arduino Cloud. We will use the auto generated functions we get from the Arduino Cloud to make the changes to the Nerds food when it eats. This function will be executed after a amount of time has passed. The time is determined in the nerdsTime variable configuration. In this example we set the time to be 10 minutes, this has to be stated in seconds.
+The Nerd will get hungry every 10 minutes and eat the food it has been given. To keep track of when the Nerd gets hungry we will use a time variable from the Arduino Cloud. We will use the auto-generated functions we get from the Arduino Cloud to make the changes to the Nerd's food when it eats. This function will be executed after an amount of time has passed. The time is determined in the nerdsTime variable configuration. In this example we set the time to be 10 minutes, this has to be stated in seconds.
 
 ### Want to Know More?
 
@@ -154,4 +158,133 @@ This tutorial is part of a series of experiments that familiarize you with the A
 
 ## Full Code
 
-<iframe src="https://create.arduino.cc/editor/Arduino_Genuino/68fecf75-d394-4063-8082-8a5a21226ce3/preview?embed" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
+***Note: For the code to work you also need `thingProperties.h` which is automatically generated when creating a Cloud sketch.***
+
+```arduino
+#include <SPI.h>
+#include "thingProperties.h"
+
+// RGB LED pins 
+int redPin = 6; 
+int greenPin = 8; 
+int bluePin = 7; 
+
+int buzzerPin = 9;
+int sensorPin = A2;
+int buttonPin = 2;  // the number of the pushbutton pin
+
+bool hungry=true;
+bool justWokeUp=true;
+int buttonState = 0;
+
+void setup() {
+
+  Serial.begin(115200);
+  delay(2000);
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  pinMode(redPin, OUTPUT); 
+  pinMode(greenPin, OUTPUT); 
+  pinMode(bluePin, OUTPUT); 
+  pinMode(buttonPin, INPUT);
+}
+
+void loop() {
+  
+  nerdsLight = analogRead(sensorPin);
+  buttonState = digitalRead(buttonPin);
+  ArduinoCloud.update();
+    
+  // Awaking notification
+  if(nerdsLight>150 && justWokeUp){
+    Serial.print("woke up");
+    if(nerdsFood == 0){
+      nerdsFood = 2;
+    }
+    justWokeUp=false;
+    setColor(0, 255, 0); // green 
+    tone(buzzerPin, 31, 200); // tone(Pin, Note, Duration);
+    delay(200);
+    setColor(0, 0, 0); // off 
+    noTone(buzzerPin);
+    delay(1000);
+  }
+    
+  if (buttonState == HIGH) {
+    if(nerdsFood < 12 && nerdsLight>150){
+      nerdsFood++;
+      tone(buzzerPin, 40, 300); // tone(Pin, Note, Duration);
+      delay(100);
+      tone(buzzerPin, 40, 300); // tone(Pin, Note, Duration);
+      delay(100);
+      noTone(buzzerPin);
+    }
+    delay(500);
+  }
+  
+  // Set color status feedback
+  if(nerdsFood < 4){ // if starving show red
+    setColor(255, 0, 0); // Red 
+  }
+  else if(nerdsFood >= 4 && nerdsFood < 8){
+    setColor(255, 255, 0); // yellow 
+  }
+  else{ 
+    setColor(0, 255, 0); // green 
+  }
+}
+
+void SOS(){
+  for(int a = 0; a< 3; a++){  
+    setColor(255, 0, 0); // Red 
+    tone(buzzerPin, 31, 100); // tone(Pin, Note, Duration);
+    delay(100);
+    setColor(0, 0, 0); // off 
+    noTone(buzzerPin);
+    delay(50);
+  }
+  
+  delay(1000);
+  for(int a = 0; a< 3; a++){  
+    setColor(255, 0, 0); // Red 
+    tone(buzzerPin, 31, 2000); // tone(Pin, Note, Duration);
+    delay(1000);
+  }
+  
+  for(int a = 0; a< 3; a++){  
+    setColor(255, 0, 0); // Red 
+    tone(buzzerPin, 31, 100); // tone(Pin, Note, Duration);
+    delay(100);
+    setColor(0, 0, 0); // off 
+    noTone(buzzerPin);
+    delay(50);
+  }
+  delay(10000);
+}
+
+// Send RGB values to the LED pins 
+void setColor(int red, int green, int blue){ 
+ analogWrite(redPin, red); 
+ analogWrite(greenPin, green); 
+ analogWrite(bluePin, blue);   
+}
+
+void onNerdsTimeChange(){
+  if(nerdsFood > 0){
+    nerdsFood--;
+    delay(200);
+  }
+}
+
+void onNerdsFoodChange(){
+  if(nerdsFood == 0 && justWokeUp==false){
+    // DIE :(
+    SOS();
+  }
+}
+
+```
