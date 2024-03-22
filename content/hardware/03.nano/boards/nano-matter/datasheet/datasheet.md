@@ -47,66 +47,22 @@ The Arduino Nano Matter merges the well-known Arduino way of making complex tech
 The main features are highlighted in the table shown below.
 </p>
 
-<div style="text-align:center;">
-<table>
-<thead>
-  <tr>
-    <th>Feature</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Microcontroller</td>
-    <td>78 MHz, 32-bit Arm® Cortex®-M33 core (MGM240SD22VNA)</td>
-  </tr>
-  <tr>
-    <td>Internal Memory</td>
-    <td>1536 kB Flash and 256 kB RAM</td>
-  </tr>
-  <tr>
-    <td>Connectivity</td>
-    <td>802.15.4 Thread, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh</td>
-  </tr>
-  <tr>
-    <td>Security</td>
-    <td>Secure Vault® from Silicon Labs</td>
-  </tr>
-  <tr>
-    <td>USB Connectivity</td>
-    <td>USB-C® port for power and data</td>
-  </tr>
-  <tr>
-    <td>Power Supply</td>
-    <td>Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (IN5V, VIN)</td>
-  </tr>
-  <tr>
-    <td>Analog Peripherals</td>
-    <td> 12-bit ADC (x19), up to 12-bit DAC (x2)</td>
-  </tr>
-  <tr>
-    <td>Digital Peripherals</td>
-    <td>GPIO (x22), I2C (x1), UART (x1), SPI (x1), PWM (x22)</td>
-  </tr>
-  <tr>
-    <td>Debugging</td>
-    <td>JTAG/SWD debug port (accessible through the board's test pads)</td>
-  </tr>
-  <tr>
-    <td>Dimensions</td>
-    <td>18 mm x 45 mm</td>
-  </tr>
-  <tr>
-    <td>Weight</td>
-    <td>4 g</td>
-  </tr>
-  <tr>
-    <td>Pinout features</td>
-    <td>Castellated pins allow the board to be SMD soldered on a custom carrier</td>
-  </tr>
-</tbody>
-</table>
-</div>
+
+| Feature             | Description                                                                                                                                                      |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Microcontroller     | 78 MHz, 32-bit Arm® Cortex®-M33 core (MGM240SD22VNA)                                                                                                             |
+| Internal Memory     | 1536 kB Flash and 256 kB RAM                                                                                                                                     |
+| Connectivity        | 802.15.4 Thread, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                  |
+| Security            | Secure Vault® from Silicon Labs                                                                                                                                  |
+| USB Connectivity    | USB-C® port for power and data                                                                                                                                   |
+| Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (IN5V, VIN) |
+| Analog Peripherals  | 12-bit ADC (x19), up to 12-bit DAC (x2)                                                                                                                          |
+| Digital Peripherals | GPIO (x22), I2C (x1), UART (x1), SPI (x1), PWM (x22)                                                                                                             |
+| Debugging           | JTAG/SWD debug port (accessible through the board's test pads)                                                                                                   |
+| Dimensions          | 18 mm x 45 mm                                                                                                                                                    |
+| Weight              | 4 g                                                                                                                                                              |
+| Pinout features     | Castellated pins allow the board to be SMD soldered on a custom carrier                                                                                          |
+
 
 <div style="page-break-after: always;"></div>
 
@@ -147,30 +103,10 @@ The table below provides a comprehensive guideline for the optimal use of the Na
 The table below summarizes the power consumption of the Nano Matter in different test cases. Notice that the board's operating current will depend greatly on the application.
 </p>
 
-<div style="text-align:center;">
-<table>
-<thead>
-  <tr>
-    <th style="text-align: center; vertical-align: middle;">Parameter</th>
-    <th style="text-align: center; vertical-align: middle;">Symbol</th>
-    <th style="text-align: center; vertical-align: middle;">Min</th>
-    <th style="text-align: center; vertical-align: middle;">Typ</th>
-    <th style="text-align: center; vertical-align: middle;">Max</th>
-    <th style="text-align: center; vertical-align: middle;">Unit</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td style="text-align: center; vertical-align: middle;">Typical Mode Current Consumption<sup>2</sup></td>
-    <td style="text-align: center; vertical-align: middle;">I<sub>NM</sub></td>
-    <td style="text-align: center; vertical-align: middle;">-</td>
-    <td style="text-align: center; vertical-align: middle;">16</td>
-    <td style="text-align: center; vertical-align: middle;">-</td>
-    <td style="text-align: center; vertical-align: middle;">mA</td>
-  </tr>
-</tbody>
-</table>
-</div>
+|             Parameter             |     Symbol     | Min | Typ | Max | Unit |
+| :-------------------------------: | :------------: | :-: | :-: | :-: | :--: |
+| Typical Mode Current Consumption² | I<sub>NM</sub> |  -  | 16  |  -  |  mA  |
+
 
 <sup>2</sup> Nano Matter powered through the IN5V pin (+5 VDC), running a Matter color lightbulb example.
 
@@ -408,20 +344,20 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| **Company name** |                **Arduino S.r.l.**               |
-|:----------------:|:--------------------------------------------:|
-|  Company address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
+| **Company name** |              **Arduino S.r.l.**              |
+| :--------------: | :------------------------------------------: |
+| Company address  | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
-|        **Ref**                     | **Link**                                                                                    |
-|:----------------------------------:|---------------------------------------------------------------------------------------------|
-| Arduino IDE (Desktop)              | https://www.arduino.cc/en/Main/Software                                                     |
-| Arduino IDE (Cloud)                | https://create.arduino.cc/editor                                                            |
-| Arduino Cloud - Getting started    | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started             |
-| Nano Matter Documentation         | https://docs.arduino.cc/hardware/nano-matter                                               |
-| Project Hub                        | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                    |
-| Library Reference                  | https://www.arduino.cc/reference/en/                                                        |
-| Online Store                       | https://store.arduino.cc/                                                                   |
+|             **Ref**             | **Link**                                                                        |
+| :-----------------------------: | ------------------------------------------------------------------------------- |
+|      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                         |
+|       Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                |
+| Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
+|    Nano Matter Documentation    | https://docs.arduino.cc/hardware/nano-matter                                    |
+|           Project Hub           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending        |
+|        Library Reference        | https://www.arduino.cc/reference/en/                                            |
+|          Online Store           | https://store.arduino.cc/                                                       |
          
 
 ## Document Revision History
