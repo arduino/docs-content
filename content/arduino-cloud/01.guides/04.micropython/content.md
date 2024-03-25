@@ -134,7 +134,8 @@ For more options on how to install libraries on your board, check out our [Insta
 
 ## Programming the Board
 
-Here is the example code to copy and paste into your program. It connects your device to Arduino IoT Cloud over WiFi.
+Here is the example code to copy and paste into your program. It connects your device to Arduino Cloud over Wi-Fi®.
+
 
 ```python
 from machine import Pin
