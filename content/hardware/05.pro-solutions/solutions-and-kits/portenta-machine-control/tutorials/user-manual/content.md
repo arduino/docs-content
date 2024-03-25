@@ -1436,7 +1436,7 @@ You should see the four onboard LEDs of the Opta™ device turn on and off, as s
 
 ![Onboard LEDs of an Opta™ device controlled by a Portenta Machine Control device via Modbus TCP](assets/rtu-blink.gif)
 
-#### Using two Portenta Machine Controls
+#### Using Two Portenta Machine Controls
 
 The following example shows how to establish Modbus RTU communication between **two Portenta Machine Control devices**. We will replicate a similar behavior of blinking four LEDs on Opta™ using the Digital Output port of the Portenta Machine Control. Since Portenta Machine Control supports half-duplex and full-duplex modes, each mode requires a different wiring setup.
 
