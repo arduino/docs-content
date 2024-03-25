@@ -244,9 +244,9 @@ The sketch below shows how to monitor analog voltages on Opta's input terminals 
 */
 
 // Define constants for voltage, resolution, and divider.
-const float VOLTAGE_MAX   = 3.0;      // Maximum voltage that can be read
+const float VOLTAGE_MAX   = 3.3;      // Maximum voltage that can be read
 const float RESOLUTION    = 4095.0;   // 12-bit resolution
-const float DIVIDER       = 0.3;      // Voltage divider
+const float DIVIDER       = 0.3034;      // Voltage divider
 
 // Array of terminals.
 const int TERMINALS[] = {A0, A1, A2};
