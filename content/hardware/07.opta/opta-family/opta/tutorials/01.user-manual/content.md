@@ -1706,9 +1706,195 @@ Arduino Opta® Digital Expansions are designed to multiply your Opta® micro PLC
 
 ![Image here of the two variants]()
 
-The Arduino Opta® Digital Expansion comes in two variants: the EMR (Electromechanical Relay), and the SSR (Solid State Relay).
+The Opta® Digital Expansion comes in two variants: the EMR (Electromechanical Relay), and the SSR (Solid State Relay).
+
+### Snapping the Expansion
+
+You can snap up to five expansions to your Opta® Base module to multiply and mix your set of I/Os with seamless detection.
+
+Fits the expansions on the right side of your Opta® PLC making sure to correctly align the **Aux connector** as shown in the image below:
+
+![Snapping Opta expansions](assets/snap-exp.png)
+
+### Powering Expansions
+
+The Opta® Digital Expansions must be externally powered to work. See the power specifications in the table below:
+
+| Property                | Min  | Typ | Max  | Unit |
+|-------------------------|------|-----|------|------|
+| Supply voltage          | 12   | -   | 24   | V    |
+| Permissible range       | 10.2 | -   | 27.6 | V    |
+| Power consumption (12V) | -    | 106 | -    | mW   |
+| Power consumption (24V) | -    | 110 | -    | mW   |
+
+In the image below there is an example of the power wiring of the expansions:
+
+![Powering the Opta Digital Expansions](assets/power-expansion.png)
+
+***The expansions must be externally powered to operate and be detected by the Opta® controller.***
 
 ### Inputs
+
+The image below shows Opta™ Expansions have **16 analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
+
+Both variants inputs can be used as **digital** with a 0-24 VDC range or as **analog** inputs with a 0-10 VDC range.
+
+![Opta Digital Expansions Inputs](assets/16-inputs.png)
+
+<table>
+    <thead>
+        <tr style="text-align: middle;">
+            <th width="30%">Characteristics</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;">Digital Input voltage</td>
+            <td>0...24 V</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Digital Input voltage logic level</td>
+            <td>VIL Max: 4 VDC. VHL Min: 5.9 VDC</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Digital Input current</td>
+            <td>4.12 mA at 24 V</td>
+            <td>2.05 mA at 12 V</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Digital Input frequency</td>
+            <td>4.5 kHz</td>
+        </tr>
+    </tbody>
+</table>
+
+```arduino
+#include "OptaBlue.h"
+
+using namespace Opta;
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+/* -------------------------------------------------------------------------- */  
+  if(t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("DIGITAL [Mechanical]");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("DIGITAL [Solid State]");
+  }
+  else if(t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("DIGITAL [!!Invalid!!]");
+  }
+  else if(t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("ANALOG");
+  }
+  else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo(uint8_t index, ExpansionType_t type, uint8_t i2c_address) {
+/* -------------------------------------------------------------------------- */
+  Serial.print("Expansion[" + String(index) + "]:");
+  Serial.print(" type ");
+  printExpansionType(type);
+  Serial.print(", I2C address: ");
+  Serial.println(i2c_address);
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+/* -------------------------------------------------------------------------- */    
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+/* -------------------------------------------------------------------------- */    
+ OptaController.update();
+
+  Serial.println();
+
+  for(int i = 0; i < OPTA_CONTROLLER_MAX_EXPANSION_NUM; i++) {
+    /* ask for a digital expansion 
+     * just one of these will be a valid expansion */
+    DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
+    DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
+    /* always check for the validity of the expansion */
+    if(mechExp) {
+      /* get and print information about expansion */
+      printExpansionInfo(mechExp.getIndex(), mechExp.getType(),
+      mechExp.getI2CAddress());
+      
+      /* this will update the status of all the digital input 
+       * the same can be achieved using digitalRead() function
+       * with the second parameter equal true, however in this
+       * case multiple i2c transaction are performed without
+       * reason */
+      mechExp.updateDigitalInputs();
+
+      for(int k = 0; k < OPTA_DIGITAL_IN_NUM; k++) {
+        /* this will return the pin status of the pin k */
+        PinStatus v = mechExp.digitalRead(k);
+
+        if(v == HIGH) {
+          Serial.print("HH");
+        }
+        else {
+          Serial.print("LL");
+        }
+        Serial.print(' ');
+      }
+      Serial.println();
+    }
+
+  
+    /* always check for the validity of the expansion */
+    if(stsolidExp) {
+      /* get and print information about expansion */
+        printExpansionInfo(stsolidExp.getIndex(), stsolidExp.getType(),
+        stsolidExp.getI2CAddress());
+
+      /* this will update the status of all the digital input 
+       * the same can be achieved using digitalRead() function
+       * with the second parameter equal true, however in this
+       * case multiple i2c transaction are performed without
+       * reason */
+      stsolidExp.updateDigitalInputs();
+
+      for(int k = 0; k < OPTA_DIGITAL_IN_NUM; k++) {
+        /* this will return the pin status of the pin k */
+        PinStatus v = stsolidExp.digitalRead(k);
+
+        if(v == HIGH) {
+          Serial.print("HH");
+        }
+        else {
+          Serial.print("LL");
+        }
+        Serial.print(' ');
+      }
+      Serial.println();
+    }
+  }
+  delay(1000);
+
+}
+```
 
 ### Outputs
 
