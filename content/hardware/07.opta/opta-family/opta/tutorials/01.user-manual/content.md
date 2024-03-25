@@ -1704,9 +1704,17 @@ To learn more about Opta™ and the Arduino IoT Cloud, check out the following r
 
 Arduino Opta® Digital Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 16 programmable inputs for connecting your digital sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
-![Image here of the two variants]()
-
 The Opta® Digital Expansion comes in two variants: the EMR (Electromechanical Relay), and the SSR (Solid State Relay).
+
+![Opta Expansion variants](assets/variants.png)
+
+### Library Installation
+
+To use the Opta™ Digital Expansion with your Opta® PLC, you need to install the `Arduino_OptaBlueprint` library. To do so in the IDE, select the **Library Manager** from the left side menu, now search for Opta Expansions and click on the install button.
+
+![Image of the Library Installation]()
+
+Once installed, you will have access to a variety of usage examples showcasing the expansions capabilities and how to use them.
 
 ### Snapping the Expansion
 
@@ -1733,7 +1741,7 @@ In the image below there is an example of the power wiring of the expansions:
 
 ***The expansions must be externally powered to operate and be detected by the Opta® controller.***
 
-### Inputs
+### Programmable Inputs
 
 The image below shows Opta™ Expansions have **16 analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
 
@@ -1750,24 +1758,52 @@ Both variants inputs can be used as **digital** with a 0-24 VDC range or as **an
     </thead>
     <tbody>
         <tr>
-            <td style="vertical-align: top;">Digital Input voltage</td>
-            <td>0...24 V</td>
+            <td style="vertical-align: top;">Number of inputs</td>
+            <td>16x Analog/Digital inputs</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Digital Input voltage logic level</td>
-            <td>VIL Max: 4 VDC. VHL Min: 5.9 VDC</td>
+            <td style="vertical-align: top;">Inputs overvoltage protection</td>
+            <td>yes</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Digital Input current</td>
-            <td>4.12 mA at 24 V</td>
-            <td>2.05 mA at 12 V</td>
+            <td style="vertical-align: top;">Antipolarity protection</td>
+            <td>yes</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Digital Input frequency</td>
-            <td>4.5 kHz</td>
+            <td style="vertical-align: top;">Input impedance</td>
+            <td>1.15 kΩ</td>
         </tr>
     </tbody>
 </table>
+
+Analog/digital input terminals are mapped as described in the following table:
+
+| **Opta Digital Expansion Terminal** | **Arduino Pin Mapping** |
+|:-----------------------------------:|:-----------------------:|
+|                 I1                  |            0            |
+|                 I2                  |            1            |
+|                 I3                  |            2            |
+|                 I4                  |            3            |
+|                 I5                  |            4            |
+|                 I6                  |            5            |
+|                 I7                  |            6            |
+|                 I8                  |            7            |
+|                 I9                  |            8            |
+|                 I10                 |            9            |
+|                 I11                 |           10            |
+|                 I12                 |           11            |
+|                 I13                 |           12            |
+|                 I14                 |           13            |
+|                 I15                 |           14            |
+|                 I16                 |           15            |
+
+
+The state of an input terminal, configured as digital, can be read using the built-in function `digitalRead()` as shown below:
+
+```arduino
+PinStatus state = <ExpObject>.digitalRead(<pin>);
+```
+The following example will let you read all the digital inputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_OptaBlueprint > getDigital**:
 
 ```arduino
 #include "OptaBlue.h"
@@ -1895,6 +1931,16 @@ void loop() {
 
 }
 ```
+The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
+```arduino
+for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
+  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
+  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
+}
+```
+The above method will check if there is an EMR or SSR expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read state belongs to.
+
 
 ### Outputs
 
