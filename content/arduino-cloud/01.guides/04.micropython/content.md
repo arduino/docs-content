@@ -365,7 +365,6 @@ def set_leds_from_rgb(rgb, common_cathode=True):
     set_led_brightness(led_green, rgb[1])
     set_led_brightness(led_blue, rgb[2])
 
-
 def on_colored_light_changed(client, light):
     # Do nothing if the hue, saturation or brightness is None.
     if light.hue is None or light.sat is None or light.bri is None:
