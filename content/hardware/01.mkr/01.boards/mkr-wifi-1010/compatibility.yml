@@ -3,7 +3,6 @@ software:
   - iot-cloud
   - arduino-cli
   - web-editor
-  - arduino-lab-micropython
 hardware:
   shields:
     - mkr-485-shield
