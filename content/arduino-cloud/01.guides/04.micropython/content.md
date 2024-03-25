@@ -222,13 +222,13 @@ To use variables in Arduino IoT Cloud that are not of a basic type, you can set 
 
 On the programming side, you need to import the corresponding class in MicroPython. For the colored light example, you need to import the `ColoredLight` class:
 
-```py
+```python
 from arduino_iot_cloud import ColoredLight
 ```
 
 The cloud variable needs then to be registered with the client using that type and the name that you gave it ("light" in our example):
 
-```py
+```python
 client.register(ColoredLight("light", swi=True, on_write=on_colored_light_changed))
 ```
 
@@ -241,7 +241,7 @@ In the callback function for this variable ("on_colored_light_changed") you will
 
 Once you receive these values from the Cloud you will need to convert them to RGB so you can set the RGB LEDs accordingly. For reasons of brevity we won't go into the code for the color conversion, it is provided however in the full example code further down. Also we need to make all three RGB LEDs available in the code so their value can be set:
 
-```py
+```python
 led_red = Pin("LEDR", Pin.OUT)
 led_green = Pin("LEDG", Pin.OUT)
 led_blue = Pin("LEDB", Pin.OUT)
@@ -249,7 +249,7 @@ led_blue = Pin("LEDB", Pin.OUT)
 
 Then each of the three LEDs' brightness needs to be set so that the resulting color is as desired. This is done using a technique called [PWM](/learn/microcontrollers/analog-output/):
 
-```py
+```python
 def set_led_brightness(led, brightness):
     """
     Sets the brightness (0 - 255) of an LED using PWM.
@@ -267,7 +267,7 @@ def set_led_brightness(led, brightness):
 
 With that defined we can set the corresponding values of the RGBs:
 
-```py
+```python
 def set_leds_from_rgb(rgb, common_cathode=True):
     # For common cathode RGB LEDs, invert the RGB values
     # since the LED is on when the pin is low.
@@ -280,7 +280,7 @@ def set_leds_from_rgb(rgb, common_cathode=True):
 
 The missing piece is the callback handler for when the cloud variable changes that was defined when registering the variable:
 
-```py
+```python
 def on_colored_light_changed(client, light):
     # Do nothing if the hue, saturation or brightness is None.
     if light.hue is None or light.sat is None or light.bri is None:
@@ -297,7 +297,7 @@ def on_colored_light_changed(client, light):
 
 Here is the complete code to try it out:
 
-```py
+```python
 # This file is part of the Python Arduino IoT Cloud.
 # Any copyright is dedicated to the Public Domain.
 # https://creativecommons.org/publicdomain/zero/1.0/
