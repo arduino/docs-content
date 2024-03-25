@@ -234,10 +234,10 @@ client.register(ColoredLight("light", swi=True, on_write=on_colored_light_change
 
 In the callback function for this variable ("on_colored_light_changed") you will receive an object of the same type with populated properties. Those properties depend on the type. For example the `ColoredLight` class has the following properties:
 
-- swi: The on-value of the light switch (True/False)
-- hue: The hue value of the color
-- sat: The saturation of the color
-- bri: The brightness of the color
+- `swi`: The on-value of the light switch (True/False)
+- `hue`: The hue value of the color
+- `sat`: The saturation of the color
+- `bri`: The brightness of the color
 
 Once you receive these values from the Cloud you will need to convert them to RGB so you can set the RGB LEDs accordingly. For reasons of brevity we won't go into the code for the color conversion, it is provided however in the full example code further down. Also we need to make all three RGB LEDs available in the code so their value can be set:
 
