@@ -415,7 +415,6 @@ if __name__ == "__main__":
     # Alternatively, a username and password can be used to authenticate:
     client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=CLOUD_PASSWORD)
     client.register(ColoredLight("light", swi=True, on_write=on_colored_light_changed))
-    client.register("led", value=None)
 
     # Start the Arduino Cloud client.
 
