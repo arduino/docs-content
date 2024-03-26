@@ -1,0 +1,27 @@
+Board:
+  Name: Arduino® Pro 4G Module
+  SKU:
+    Arduino Pro 4G Module EMEA: TPX00201
+    Arduino Pro 4G GNSS Module Global: TPX00200
+Compatible Carriers:
+  Portenta Max Carrier: Yes
+  Portenta Mid Carrier: Yes
+Region:
+  Arduino Pro 4G Module EMEA: EMEA/ Southeast Asia
+  Arduino Pro 4G GNSS Module Global: Global
+Chipset:
+  Arduino Pro 4G Module EMEA: ASR1803 (Marvell)
+  Arduino Pro 4G GNSS Module Global: MDM9x07 (Qualcomm)
+LTE Connectivity: LTE CAT4 4G with 2G/3G fallback
+Interfaces:
+  USB: Yes
+  UART: Yes
+  PCM/I2C: Yes
+Certifications:
+  Carrier:
+    Arduino Pro 4G Module EMEA: Deutsche Telekom/Vodafone
+    Arduino Pro 4G GNSS Module Global: Deutsche Telekom/Verizon/ AT&T/T-Mobile/Sprint/ U.S. Cellular/Telus/ Rogers
+Dimensions:
+  Width: xx mm
+  Length: xx mm
+  Weight: xx g
