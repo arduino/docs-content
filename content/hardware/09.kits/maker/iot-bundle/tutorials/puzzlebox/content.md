@@ -22,11 +22,11 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/puzzlebox-with-ard
 
 **Create a Puzzle Box with the help of the Arduino Cloud!**
 
-Keeping your valuable items away from prying eyes can be hard sometimes, unless you put it in a big safe or something similar... but who has room for that? Instead, create your own puzzle box using the components from the IoT Bundle and some cardboard! We can't guarantee the safety of your belongings, but at least it will be a fun deterrent for potential thieves. Of course, we advise you to stash your candy in there... not actual valuables.
+Keeping your valuable items away from prying eyes can be hard sometimes unless you put them in a big safe or something similar... but who has room for that? Instead, create your own puzzle box using the components from the IoT Bundle and some cardboard! We can't guarantee the safety of your belongings, but at least it will be a fun deterrent for potential thieves. Of course, we advise you to stash your candy in there... not actual valuables.
 
 ### In a Nutshell
 
-In order to open the box, which is held closed with a servo motor, you will have to turn the potentiometers until you get the right combination. The combination can be set through the dashboard on the Arduino Cloud. An LED will help you guess, giving you colour feedbacks: the closer you are, the warmer the color. When the right combination is guessed, the box will open and a victorious melody will start playing, revealing whatever you have locked inside. In order to create our puzzle box we will need the following components:
+In order to open the box, which is held closed with a servo motor, you will have to turn the potentiometers until you get the right combination. The combination can be set through the dashboard on the Arduino Cloud. An LED will help you guess, giving you color feedback: the closer you are, the warmer the color. When the right combination is guessed, the box will open and a victorious melody will start playing, revealing whatever you have locked inside. To create our puzzle box we will need the following components:
 
 * Buzzer
 * RGB LED
@@ -76,7 +76,13 @@ We will start by setting up the Arduino Cloud by following the steps below:
 
 We will start by adding four variables:
 
-![Arduino IoT Bundle](assets/screenshot_2022-11-23_141306_tsMoI77zJw.png)
+- `display` - `String` - `READ & WRITE`
+
+- `sliderOne` - `INT` - `READ & WRITE`
+
+- `sliderThree` - `TIME` - `READ & WRITE`
+
+- `sliderTwo` - `INT` - `READ & WRITE`
 
 ### Dashboard
 
@@ -376,7 +382,7 @@ void onDisplayChange() {
 
 **RGB LED**
 
-We will use the RGB LED as a feedback to help people guessing the combination, the closer they get to the right value the warmer the colour of the LED, spanning from blue, aqua, yellow and red.
+We will use the RGB LED as feedback to help people guess the combination, the closer they get to the right value the warmer the color of the LED, spanning from blue, aqua, yellow and red.
 
 ![RGB LED](assets/rgbled_s82wjxgcnf_1WXt8cDpSj.png)
 
@@ -499,7 +505,7 @@ void onDisplayChange() {
 
 ### Connect It to the Arduino Cloud
 
-Now we are starting to put things together: we have connected the potentiometers to unlock the box, created two dashboards for setting the combination and seeing your current position, as well as installed a RGB which will tell you how close you are to the right combination.
+Now we are starting to put things together: we have connected the potentiometers to unlock the box, created two dashboards for setting the combination and seeing your current position, as well as installed an RGB which will tell you how close you are to the right combination.
 
 - Note that we will use the function `giveColorFeedback()` to set the color of the RGB LED when the absolute value of each potentiometer is closer than a certain threshold to the correct combination.
 
@@ -509,7 +515,7 @@ void giveColorFeedback(int PotOne, int PotTwo, int PotThree){...}
 
 - Note that the initial value is set to 1, it will change only if you modify the values of the sliders on the Cloud dashboard. If you reset the board the combination will be back to the default value.
 
-A boolean variable **bool start = true;**  is used to detect when the combination has already been guessed, so to avoid reopening the the box at every loop.
+A boolean variable **bool start = true;**  is used to detect when the combination has already been guessed, to avoid reopening the the box at every loop.
 
 Upload this example sketch and turn the potentiometers to see it in action.
 
@@ -661,7 +667,7 @@ We will use the buzzer to play a melody when the box is opened. Connect the buzz
 
 ![Arduino IoT Bundle](assets/piezo_buzzer_part_rp2040_iaPHtGSH0X.png)
 
-Now, navigate into the Arduino Web Editor through **Thing > Sketch tab >  open full editor**. This will open up our automatically generated sketch in the full Arduino Web Editor. Next we need to add an extra tab containing all the necessary notes to play the song. Click the arrow on the right side to add a new tab called `"Melody.h"` and add the code below.
+Now, navigate into the Arduino Web Editor through **Thing > Sketch tab >  open full editor**. This will open up our automatically generated sketch in the full Arduino Web Editor. Next we need to add an extra tab containing all the necessary notes to play the song. Click the arrow on the right side to add a new tab called `"melody.h"` and add the code below.
 
 ```
 #define NOTE_B0 31
@@ -778,13 +784,13 @@ void playMelody() {
 }
 ```
 
-Now, we need to go back to our main sketch to play the melody. In order to use the notes we need to add " **#include "Melody.h"** " at the top of our code and inside **setup()** we need to add our **buzzerPin** as **Output.** To test our melody we can call **playMelody()** inside **loop()** if the combination has been set right.
+Now, we need to go back to our main sketch to play the melody. In order to use the notes we need to add " **#include "melody.h"** " at the top of our code and inside **setup()** we need to add our **buzzerPin** as **Output.** To test our melody we can call **playMelody()** inside **loop()** if the combination has been set right.
 
 ```
 #include "LiquidCrystal.h"
 #include "SPI.h"
 #include "thingProperties.h"
-#include "Melody.h"
+#include "melody.h"
 /* RGB LED pins */
 int redPin = 6;
 int greenPin = 8;
@@ -941,19 +947,19 @@ void onDisplayChange() {
 
 > **Note:** for the servo motor you will need a 9V battery which is not included in the IoT Bundle! Alternatively you can use another external power supply such as a phone charger with open ended cables.
 
-The servo motor is the lock of our box, we will need it to turn 90 degrees when the combination is correct, so that the box will open. Connecting the servo only requires three wires though you will need a 9V battery to power the servo motor. Connect **9V**, **GND** and **pin9** as shown below.
+The servo motor is the lock of our box, we will need it to turn 90 degrees when the combination is correct so that the box will open. Connecting the servo only requires three wires though you will need a 9V battery to power the servo motor. Connect **9V**, **GND** and **pin9** as shown below.
 
 ![Arduino IoT Bundle](assets/servo_motor_part_rp2040_4ZqZ4C9F5w.png)
 
 ![Arduino IoT Bundle](assets/servo_motor_comeplete_rp2040_mXHekbPnRO.png)
 
-To use the servo motor we need to `#include "Servo.h"` at the top of our code as well as set starting position to 0 and include the `Servo myservo` object. Now we can create two functions, one for opening the box and one for closing it.
+To use the servo motor we need to `#include "Servo.h"` at the top of our code as well as set the starting position to 0 and include the `Servo myservo` object. Now we can create two functions, one for opening the box and one for closing it.
 
 ```arduino
 #include "LiquidCrystal.h"
 #include "SPI.h"
 #include "thingProperties.h"
-#include "Melody.h"
+#include "melody.h"
 #include "Servo.h"
 int pos = 0;
 Servo myservo;
@@ -1110,7 +1116,7 @@ void onDisplayChange() {
 }
 ```
 
-Note that in order to turn the servo back and close the box all you'll have to do is to turn all potentiometer to 0.
+Note that in order to turn the servo back and close the box all you'll have to do is to turn all potentiometers to 0.
 
 ### Build Your Puzzle Box
 
@@ -1127,4 +1133,184 @@ This tutorial is part of a series of experiments that familiarize you with the A
 
 ## Full Code
 
-<iframe src="https://create.arduino.cc/editor/Arduino_Genuino/77796ee5-af44-422c-99a8-fde653a8a51b/preview?embed" style="height:510px;width:100%;margin:10px 0" frameborder="0"></iframe>
+```arduino
+#include "LiquidCrystal.h"
+#include "SPI.h"
+#include "thingProperties.h"
+#include "melody.h"
+#include "Servo.h"
+
+int pos = 0;
+Servo myservo;
+ 
+/* RGB LED pins */
+int redPin = 6;
+int greenPin = 8;
+int bluePin = 7;
+
+/* LCD screen pins */
+const int rs = 12,
+          en = 11,
+          d4 = 2,
+          d5 = 3,
+          d6 = 4,
+          d7 = 5;
+
+bool start = true;
+
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+void setup() {
+ pinMode(redPin, OUTPUT);
+ pinMode(greenPin, OUTPUT);
+ pinMode(bluePin, OUTPUT);
+ analogWrite(A3, 0); /* set the brightness of the LCD screen to the maximum value */
+ Serial.begin(9600);
+ delay(1500);
+ initProperties();
+ ArduinoCloud.begin(ArduinoIoTPreferredConnection{{if .Broker}}, false, "{{.Broker}}"{{end}});
+ setDebugMessageLevel(2);
+ ArduinoCloud.printDebugInfo();
+ lcd.begin(16, 2); /* begin LCD screen with 16 columns and 2 rows */
+
+myservo.attach(9);
+myservo.write(pos);
+}
+
+void loop() {
+ ArduinoCloud.update();
+ int PotOne = map(analogRead(A0), 0, 1023, 0, 9);
+ int PotTwo = map(analogRead(A1), 0, 1023, 0, 9);
+ int PotThree = map(analogRead(A2), 0, 1023, 0, 9);
+ lcd.setCursor(0, 0);
+ lcd.print(PotOne);
+ lcd.setCursor(2, 0);
+ lcd.print(PotTwo);
+ lcd.setCursor(4, 0);
+ lcd.print(PotThree);
+
+ String numberOne = String(PotOne);
+ String numberTwo = String(PotTwo);
+ String numberThree = String(PotThree);
+
+ display =String(numberOne + numberTwo + numberThree);
+ 
+ if (start) {
+  giveColorFeedback(PotOne, PotTwo, PotThree);
+  if (PotOne == sliderOne && PotTwo == sliderTwo && PotThree == sliderThree)                        
+  {
+   blinkGreenLed();
+   start = false;
+  open_the_box();
+   playMelody();
+  }
+ }
+ if (!start) {
+  if (PotOne == 0 && PotTwo == 0 && PotThree == 0) {
+   start = true;
+   close_the_box();
+  }
+ }
+}
+
+/* Give feedback based on how close the potentiometer are to the combination value
+The more it's close the warmer is the color of the LED */
+void giveColorFeedback(int PotOne, int PotTwo, int PotThree) {
+ if (abs(PotOne - sliderOne) <= 1 && abs(PotTwo - sliderTwo) <= 1 && abs(PotThree - sliderThree) <= 1 ) {
+  /* Red */
+  setColor(255, 0, 0);
+ }
+ else if (abs(PotOne - sliderOne) <= 3 && abs(PotTwo - sliderTwo) <= 3 && abs(PotThree - sliderThree) <= 3 ) {
+  /* yellow */
+  setColor(255, 255, 0);
+ }
+ else if (abs(PotOne - sliderOne) <= 4 && abs(PotTwo - sliderTwo) <= 4 && abs(PotThree - sliderThree) <= 4 ) {
+  /* aqua */
+  setColor(0, 255, 255);
+ }
+ else {
+  /* blue */
+  setColor(0, 0, 255);
+ }
+}
+
+void blinkGreenLed() {
+ for (int a = 0; a < 2; a++) {
+  for (int b = 0; b <= 255; b += 5) {
+   setColor(0, b, 0);
+   delay(5);
+  }
+  for (int b = 255; b >= 0; b -= 5) {
+   setColor(0, b, 0);
+   delay(5);
+  }
+ }
+ for (int b = 0; b <= 255; b += 5) {
+  setColor(0, b, 0);
+  delay(5);
+ }
+}
+
+void open_the_box() {
+  for (pos = 0; pos <= 90; pos += 1) { /* goes from 0 degrees to 90 degrees */
+    myservo.write(pos);              /* tell servo to go to position in variable 'pos' */
+    delay(15);                       /* waits 15ms for the servo to reach the position */
+  }
+}
+
+void close_the_box() { 
+  for (pos = 90; pos >= 0; pos -= 1) { /* goes from 90 degrees to 0 degrees */
+    myservo.write(pos);              /* tell servo to go to position in variable 'pos' */
+    delay(15);                       /* waits 15ms for the servo to reach the position */
+  }
+}
+
+void initLCD() {
+  Serial.println(">>> begin LCD");
+  lcd.begin(16, 2);
+  lcd.print("  Initialising");
+  
+  delay(100);
+}
+
+void onSliderOneChange()  {
+ /* Add your code here to act upon SliderValue1 change */
+ Serial.print("New combination: ");
+ Serial.print(sliderOne);
+ Serial.print(" ");
+ Serial.print(sliderTwo);
+ Serial.print(" ");
+ Serial.println(sliderThree);
+}
+
+void onSliderTwoChange()  {
+ /* Add your code here to act upon SliderValue2 change */
+ Serial.print("New combination: ");
+ Serial.print(sliderOne);
+ Serial.print(" ");
+ Serial.print(sliderTwo);
+ Serial.print(" ");
+ Serial.println(sliderThree);
+}
+
+void onSliderThreeChange()  {
+ /* Add your code here to act upon SliderValue3 change */
+ Serial.print("New combination: ");
+ Serial.print(sliderOne);
+ Serial.print(" ");
+ Serial.print(sliderTwo);
+ Serial.print(" ");
+ Serial.println(sliderThree);
+}
+
+/* Send RGB values to the LED pins */
+void setColor(int red, int green, int blue) {
+ analogWrite(redPin, red);
+ analogWrite(greenPin, green);
+ analogWrite(bluePin, blue);
+}
+
+void onDisplayChange() {
+/* Add your code here to act upon Display change */
+}
+```
