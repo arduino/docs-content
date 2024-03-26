@@ -406,7 +406,8 @@ if __name__ == "__main__":
     # NOTE: Add networking code here or in boot.py
     wifi_connect()
     
-    # Create a client object to connect to the Arduino IoT cloud.
+    # Create a client object to connect to the Arduino Cloud.
+
     # For MicroPython, the key and cert files must be stored in DER format on the filesystem.
     # Alternatively, a username and password can be used to authenticate:
     client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=CLOUD_PASSWORD)
