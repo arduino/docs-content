@@ -217,7 +217,10 @@ Open Arduino Lab for MicroPython and connect to your board. Pasting the above co
 
 ## Using Advanced Cloud Variables
 
-To use variables in Arduino IoT Cloud that are not of a basic type, you can set them up like you would do with any other variable. For example, to control a colored light such as the on-board RGB led on some Arduino boards, you can create a variable of type `CloudColoredLight`. ![Variable creation in Arduino Cloud](./assets/colored-light-variable.png)
+To use variables in Arduino Cloud that are not of a basic type, you can set them up like you would do with any other variable. For example, to control a colored light such as the on-board RGB led on some Arduino boards, you can create a variable of type `CloudColoredLight`. 
+
+![Variable creation in Arduino Cloud](./assets/colored-light-variable.png)
+
 
 
 On the programming side, you need to import the corresponding class in MicroPython. For the colored light example, you need to import the `ColoredLight` class:
