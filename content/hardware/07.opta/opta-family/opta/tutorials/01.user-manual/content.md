@@ -1797,6 +1797,7 @@ Analog/digital input terminals are mapped as described in the following table:
 |                 I15                 |           14            |
 |                 I16                 |           15            |
 
+#### Digital 
 
 The state of an input terminal, configured as digital, can be read using the built-in function `digitalRead()` as shown below:
 
@@ -1941,6 +1942,16 @@ for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
 ```
 The above method will check if there is an EMR or SSR expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read state belongs to.
 
+After the Opta® controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input state as follows:
+
+```
+Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
+LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL 
+```
+
+![Digital Input wiring example](assets/input-digital-animation.gif)
+
+#### Analog 
 
 ### Outputs
 
