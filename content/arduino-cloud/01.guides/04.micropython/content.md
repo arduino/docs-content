@@ -298,7 +298,10 @@ def on_colored_light_changed(client, light):
         set_leds_from_rgb((0, 0, 0)) # Turn LEDs off
 ```
 
+### Full Code Example
+
 Here is the complete code to try it out:
+
 
 ```python
 # This file is part of the Python Arduino Cloud.
