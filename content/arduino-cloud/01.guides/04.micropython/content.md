@@ -301,7 +301,8 @@ def on_colored_light_changed(client, light):
 Here is the complete code to try it out:
 
 ```python
-# This file is part of the Python Arduino IoT Cloud.
+# This file is part of the Python Arduino Cloud.
+
 # Any copyright is dedicated to the Public Domain.
 # https://creativecommons.org/publicdomain/zero/1.0/
 from machine import Pin, PWM
