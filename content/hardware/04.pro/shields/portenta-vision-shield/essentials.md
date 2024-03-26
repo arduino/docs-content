@@ -1,8 +1,10 @@
 <EssentialsColumn title="First Steps">
-    <EssentialElement link="/tutorials/portenta-vision-shield/getting-started-camera" title="Quickstart Guide" type="getting-started">
-        A quick guide to installing your shield with OpenMV IDE.
+    <EssentialElement link="/tutorials/portenta-vision-shield/user-manual" title="User Manual" type="getting-started">
+        A full guide to the basics of the Vision Shield.
     </EssentialElement>
-
+    <EssentialElement link="/tutorials/portenta-vision-shield/getting-started-camera" title="Quickstart Guide" type="getting-started">
+        A quick guide to testing your shield with Arduino IDE.
+    </EssentialElement>   
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Libraries">
