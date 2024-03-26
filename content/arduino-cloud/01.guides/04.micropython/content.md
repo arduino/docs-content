@@ -414,7 +414,8 @@ if __name__ == "__main__":
     client.register(ColoredLight("light", swi=True, on_write=on_colored_light_changed))
     client.register("led", value=None)
 
-    # Start the Arduino IoT cloud client.
+    # Start the Arduino Cloud client.
+
     client.start()
 ```
 
