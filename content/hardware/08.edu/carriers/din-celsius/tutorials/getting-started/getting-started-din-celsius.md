@@ -2,8 +2,12 @@
 title: 'Getting Started with DIN Celsius'
 difficulty: beginner
 description: 'This short guide helps you connecting the board to a PLC of the Opta® family and test some basic functionality.'
-tags: [Celsius, DIN, Prototyping]
-hardware: - Arduino® DIN Celsius
+tags: 
+  - Celsius
+  - DIN
+  - Prototyping
+hardware: 
+  - hardware/08.edu/carriers/din-celsius
 ---
 
 ![The board.](assets/title.png)
@@ -20,19 +24,19 @@ In this tutorial you'll be guided in connecting the **Arduino® DIN Celsius** to
 - 24 V DC power supply
 
 ### Software
-- Arduino IDE 2.x
+- [Arduino IDE 2](https://www.arduino.cc/en/software)
 
 ## Overview
 
 ![Render front](assets/Celsius-Top-with-Adaptor.png)
 
-The Arduino® DIN Celsius offers you a all-in-one temperature laboratory with two independent heater and a temperature sensors, you'll learn how to connect the board to the PLC to turn on each heater and measure the temperature from the sensor placed in the center of the board.
+The DIN Celsius offers you a all-in-one temperature laboratory with two independent heater and a temperature sensors, you'll learn how to connect the board to the PLC to turn on each heater and measure the temperature from the sensor placed in the center of the board.
 
-If you have any problems using the Arduino Opta® WiFi you can read its [manual](https://docs.arduino.cc/tutorials/opta/user-manual/) before proceeding.
+If you have any problems using the Opta WiFi you can read its [manual](https://docs.arduino.cc/tutorials/opta/user-manual/) before proceeding.
 
 ### Connections
 
-To connect the Celsius board to the PLC you'll need 7 wires. Check the following schematic:
+To connect the DIN Celsius to the PLC you'll need seven wires. Check the following schematic:
 
 ![connections scheme](assets/celsius_schematic.png)
 
@@ -49,7 +53,7 @@ Connections are super important in an industrial project, first of all **disconn
 
 ### Upload test code
 
-First of all let's write a code to check the connection. We will the USER BUTTON of the Opta, the I8 and two relay, the 3 and 4. Let's define them at the beginning of the code:
+First of all let's write a code to check the connection. We will the USER BUTTON of the Opta WiFi, the I8 and two relay, the 3 and 4. Let's define them at the beginning of the code:
 
 ```arduino
 #define BTN         BTN_USER
@@ -58,7 +62,7 @@ First of all let's write a code to check the connection. We will the USER BUTTON
 #define TEMP_SENS   A7
 ```
 
-You can find the pin number used in the Opta in its [user manual](https://docs.arduino.cc/tutorials/opta/user-manual/), let's have a look at the pinout image taken from there:
+You can find the pin number used in the Opta WiFi in its [user manual](https://docs.arduino.cc/tutorials/opta/user-manual/), let's have a look at the pinout image taken from there:
 
 ![pinout opta](assets/opta_pinout.png)
 
@@ -67,7 +71,7 @@ As you can see the USER BUTTON is called `BTN_USER` we will refer to it as BTN. 
 
 Now we can write a simple sketch that will turn ON and OFF both the heating circuits:
 
-```Arduino
+```arduino
 #define BTN         BTN_USER
 #define HEAT_LEFT   2
 #define HEAT_RIGHT  3
@@ -109,7 +113,7 @@ To stop the LED from blinking try modifying the upper sketch, you can remove or 
 
 To read what's arriving on the I8 port, called `TEMP_SENS` in our sketch, we can use the [analogRead](https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/) function, and print the result on the [Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/). We can do it in one line of code putting the `analogRead()` directly inside the `Serial.println()` command. Here the code:
 
-```Arduino
+```arduino
 #define BTN BTN_USER
 #define HEAT_LEFT 2
 #define HEAT_RIGHT 3
@@ -169,11 +173,11 @@ The number you're seeing is proportional to the voltage arriving from the temper
 |          80             |           9,6           |           983           |
 |          85             |           10,0          |           1024          | 
 
-We're reading around 377, that is just below 20°C. From the [datasheet](assets/tmp236-datasheet.pdf) of the temperature sensor you can see that this sensor have an accuracy of +/- 2.5 °C, so you don't need to be super precise in doing the math.
+We're reading around 377, that is just below 20 °C. From the [datasheet](assets/tmp236-datasheet.pdf) of the temperature sensor you can see that this sensor have an accuracy of +/- 2.5 °C, so you don't need to be super precise in doing the math.
 
 ### Heating while reading temperature
 
-Now you can combine the two upper sketches and read the temperature while switching the heating circuits. To have more control, instead of blinking them, you can use the user button on the OPTA PLC to turn ON one, or both the heater, like this:
+Now you can combine the two upper sketches and read the temperature while switching the heating circuits. To have more control, instead of blinking them, you can use the user button on the Opta WiFi to turn ON one, or both the heater, like this:
 
 ![heat left](assets/led_left.png)
 
@@ -183,7 +187,7 @@ Now you can combine the two upper sketches and read the temperature while switch
 
 Here's the full code:
 
-```Arduino
+```arduino
 #define BTN BTN_USER
 #define HEAT_LEFT 2
 #define HEAT_RIGHT 3
@@ -265,5 +269,5 @@ You'll see 3 lines, the blue and red lines are there to keep fix the Y axis, the
 
 ## Conclusions
 
-The Arduino® DIN Celsius is a great board to start playing with sensors and actuators with signal of industrial level. You can now try to create a **temperature follower** apparatus, that will reach a goal temperature and keep it. Try code it yourself, if you need some help you can have a look at something called [PID](https://www.arduino.cc/reference/en/libraries/pid/).
+The Arduino DIN Celsius is a great board to start playing with sensors and actuators with signal of industrial level. You can now try to create a **temperature follower** apparatus, that will reach a goal temperature and keep it. Try code it yourself, if you need some help you can have a look at something called [PID](https://www.arduino.cc/reference/en/libraries/pid/).
 

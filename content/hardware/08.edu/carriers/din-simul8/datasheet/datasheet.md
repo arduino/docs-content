@@ -8,23 +8,23 @@ author: Paolo Cavagnolo
 ![render_simul8](assets/Simul8-Perspective-with-Adaptor.png)
 
 # Description
-Arduino® DIN Simul8 is a digital-input-simulator and power distribution board for the PLC of the Opta® family. It provides 8 toggle switches (0 - 10V output) and 4 screw terminal for bringing the 24V and the GROUND easily to the PLC or other board.
+Arduino DIN Simul8 is a digital-input-simulator and power distribution board for the PLC of the Opta® family. It provides eight toggle switches (0 - 10 V output) and four screw terminal for bringing the 24 V and the GROUND easily to the PLC or other board.
 
 # Target areas:
 Pro, PLC projects, Education
 
 # Features
-**Note**: This board needs the Arduino Opta® for full functionality.
+**Note**: This board needs the Arduino Opta for full functionality.
 
 - **Toggle Switches**
     - 8 toggle switch in the middle of the board
 - **LEDs** 
     - 8 leds showing the status of each toggle switches
 - **Screw connectors** 
-    - 2 screw connectors exposing +24V DC
+    - 2 screw connectors exposing +24 V DC
     - 2 screw connectors exposing GND
-    - 8 screw connectors link to the toggle switches output (0 - 10V)
-    - 1 barrel plug (+24V DC)
+    - 8 screw connectors link to the toggle switches output (0 - 10 V)
+    - 1 barrel plug (+24 V DC)
 - **DIN mounting**
     - RT-072 DIN Rail Modular PCB Board Holders - 72 mm
 
@@ -36,13 +36,13 @@ These are the main components of the board, other secondary components, i.e. res
 
 | **q.ty** | **Function**                  | **Description**                                              |
 | :------: | ----------------------------- | ------------------------------------------------------------ |
-|    8     | 0 - 10V signal output         | Switch toggle SPST handle 6.1mm bushing SPST terminal type M2 contact silver, color black |
+|    8     | 0 - 10 V signal output         | Switch toggle SPST handle 6.1 mm bushing SPST terminal type M2 contact silver, color black |
 |    8     | show switch status            | LED SMD 0603 GIA588 8mcd 120^                                |
-|    1     | power plug                    | CONN PWR JACK 2.1X5.5MM SOLDER                               |
+|    1     | power plug                    | CONN PWR JACK 2.1X5.5 mm SOLDER                               |
 |    1     | show main power status        | LED SMD 0603 GREEN/568 15mcd 120^                            |
-|    1     | power connector               | CONN SCREW TERMINAL, pitch 5mm, 4POS, 16A, 450V, 2.5mm<sup>2</sup> 14AWG, dovetail, GREY, screw flat, housing 20x16.8x8.9mm |
-|    1     | signal connector              | CONN SCREW TERMINAL, pitch 5mm, 8POS, 16A, 450V, 2.5mm<sup>2</sup> 14AWG, dovetail, GREY, screw flat, housing 40x16.8x8.9mm |
-|    1     | protect from reverve polarity | DIODE SCHOTTKY SMD 2A 60V SOD123FL                           |
+|    1     | power connector               | CONN SCREW TERMINAL, pitch 5 mm, 4POS, 16 A, 450 V, 2.5 mm<sup>2</sup> 14AWG, dovetail, GREY, screw flat, housing 20x16.8x8.9 mm |
+|    1     | signal connector              | CONN SCREW TERMINAL, pitch 5 mm, 8POS, 16 A, 450 V, 2.5 mm<sup>2</sup> 14AWG, dovetail, GREY, screw flat, housing 40x16.8x8.9 mm |
+|    1     | protect from reverve polarity | DIODE SCHOTTKY SMD 2 A 60 V SOD123FL                           |
 
 ## Power distribution
 
@@ -57,7 +57,7 @@ The board can be powered up from the barrel plug and then offer two couple of sc
 Once powered up, every toggle-switch drive a 0-10 V signal:
 
  - 0 V when it's in is OFF position: toward the barrel plug
- - around 10V when it's in is ON position: toward the screw connector
+ - around 10 V when it's in its ON position: toward the screw connector
 
  as shown in the following images:
 
@@ -87,7 +87,7 @@ At the bottom right of the board a white rectangle on the silk layer offer a spa
 
 ### Application Examples
 
-**Input board in the PLC Starter Kit:** Use the toggle switches to trigger the heat function in the Arduino® DIN Celsius.
+**Input board in the PLC Starter Kit:** Use the toggle switches to trigger the heat function in the Arduino DIN Celsius.
 
 
 ## Mechanical Information

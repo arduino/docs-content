@@ -1,5 +1,5 @@
 <FeatureDescription>
-The Arduino® DIN Celsius offers you a mini temperature laboratory to test your PLC skills, with heater and temperature sensor.
+The Arduino DIN Celsius offers you a mini temperature laboratory to test your PLC skills, with heater and temperature sensor.
 </FeatureDescription>
 
 <FeatureList>

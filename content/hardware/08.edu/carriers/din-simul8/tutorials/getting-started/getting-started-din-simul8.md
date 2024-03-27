@@ -2,9 +2,14 @@
 title: 'Getting Started with DIN Simul8'
 difficulty: beginner
 description: 'This short guide helps you connecting the board to a PLC of the Opta® family and test some basic functionality.'
-tags: [Simul8, DIN, Prototyping]
-hardware: - Arduino® DIN Simul8
-software: - IDE 2.x
+tags: 
+  - Simul8
+  - DIN
+  - Prototyping
+hardware:
+  - hardware/08.edu/carriers/din-simul8
+software: 
+  - ide-v2
 ---
 
 ![The board.](assets/title.png)
@@ -17,24 +22,24 @@ In this tutorial you'll be guided in connecting the **Arduino® DIN Simul8** to 
 - Arduino® DIN Simul8
 - Arduino Opta® WiFi
 - USB-C® cable
-- 24V power supply with barrel plug adapter
+- 24 V power supply with barrel plug adapter
 - 8x wire for signal
 - 2x wire for power distribution
 
 ### Software
-- Arduino IDE 2.x
+- [Arduino IDE 2](https://www.arduino.cc/en/software)
 
 ## Overview
 
 ![Render front](assets/Simul-8-Top-with-Adaptor.png)
 
-Arduino® DIN Simul8 is a digital-input-simulator and power distribution board for the PLC of the Opta family. It provides 8 toggle switches (0 - 10V output) and 4 screw terminal for bringing the 24V and the GROUND easily to the PLC or other boards.
+DIN Simul8 is a digital-input-simulator and power distribution board for the PLC of the Opta family. It provides eight toggle switches (0 - 10 V output) and four screw terminal for bringing the 24 V and the GROUND easily to the PLC or other boards.
 
-If you have any problems using the Arduino Opta® WiFi you can read its [manual](https://docs.arduino.cc/tutorials/opta/user-manual/) before proceeding.
+If you have any problems using the Opta WiFi you can read its [manual](https://docs.arduino.cc/tutorials/opta/user-manual/) before proceeding.
 
 ### Connections
 
-To connect the Simul8 board to the PLC you'll need 8 wires for the signal and two for the power.
+To connect the DIN Simul8 to the PLC you'll need 8 wires for the signal and two for the power.
 
 ![connections scheme](assets/connections_scheme.png)
 
@@ -52,7 +57,7 @@ Connections are super important in an industrial project, first of all **disconn
 
 Firstly we have to test if the components and the connections works as excepted. Let's print on the [Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/) what arrives to the inputs.
 
-The Opta WiFi has 8 inputs ports, at the top, named from `I1` to `I8`. They are mapped to the Arduino pin `A0` to `A7`. Let's assign to each of them a variable with the name of the port on the Opta board, easier to remember, we can use the [#define](https://www.arduino.cc/reference/en/language/structure/further-syntax/define/) function, like this:
+The Opta WiFi has eight inputs ports, at the top, named from `I1` to `I8`. They are mapped to pin `A0` to `A7`. Let's assign to each of them a variable with the name of the port on the Opta WiFi, easier to remember, we can use the [#define](https://www.arduino.cc/reference/en/language/structure/further-syntax/define/) function, like this:
 
 ```arduino
 #define pin_I1 A0
@@ -69,7 +74,7 @@ The Opta WiFi has 8 inputs ports, at the top, named from `I1` to `I8`. They are 
 |        `I7`        |      `A6`/`PIN_A6`      |   `pin_I7`    |
 |        `I8`        |      `A7`/`PIN_A7`      |   `pin_I8`    |
 
-From now on we can refer to the port `I1` of the Opta using the `pin_I1` variable.
+From now on we can refer to the port `I1` of the Opta WiFi using the `pin_I1` variable.
 
 
 To read what's arriving on each input port, we can use the [digitalRead](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/) function, inside the `Serial.print` command:
@@ -128,7 +133,7 @@ void loop() {
 
 >**Don't forget to** put some delay, like 100ms in order to have a stable communication over serial.
 
-Each switch in the DIN Simul8 board outputs 0V when OFF and 10V when ON. The `digitalRead()` function will read 0 for 0V and 1 for 10V.
+Each switch in the DIN Simul8 outputs 0 V when OFF and 10 V when ON. The `digitalRead()` function will read 0 for 0 V and 1 for 10 V.
 If you switch on the toggle switches 1-3-5-7 and leave off the 2-4-6-8, like in the following image:
 
 ![step1_switches](assets/step1_switches.png)
@@ -219,9 +224,9 @@ void OFF_function() {
 
 ### Upload final code
 
-In order to make it works for all the 8 switches, you can repeat the `stateSwitch` variable and the `if-else` conditions eight times... but that would be boring. What about using [arrays](https://www.arduino.cc/reference/en/language/variables/data-types/array/) and a [for-loop](https://www.arduino.cc/reference/en/language/structure/control-structure/for/)?
+In order to make it works for all the eight switches, you can repeat the `stateSwitch` variable and the `if-else` conditions eight times... but that would be boring. What about using [arrays](https://www.arduino.cc/reference/en/language/variables/data-types/array/) and a [for-loop](https://www.arduino.cc/reference/en/language/structure/control-structure/for/)?
 
-The idea is to replace all the variables used in the loop with arrays that stores 8 values, one for each switch, and put it inside a `for loop` that will cycle trough all the 8 inputs. Let's see how to do it:
+The idea is to replace all the variables used in the loop with arrays that stores eight values, one for each switch, and put it inside a `for loop` that will cycle trough all the eight inputs. Let's see how to do it:
 
 First of all we need an array for all the pins definition of the inputs:
 
@@ -334,4 +339,4 @@ If something strange happens when you turn a switch on or off, like if the switc
 
 ## Conclusions
 
-The Arduino® DIN Simul8 is the perfect playgroung to start experiment your coding skill in the PLC world. Try creating more functions that could be triggered by some combination of switch position, or whatever you like, have fun!
+The Arduino DIN Simul8 is the perfect playgroung to start experiment your coding skill in the PLC world. Try creating more functions that could be triggered by some combination of switch position, or whatever you like, have fun!

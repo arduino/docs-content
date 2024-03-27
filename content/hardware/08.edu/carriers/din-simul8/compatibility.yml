@@ -1,12 +1,12 @@
 software: 
-  	- arduino-ide
-  	- arduino-cli
-  	- iot-cloud
-  	- web-editor
+    - arduino-ide
+    - arduino-cli
+    - iot-cloud
+    - web-editor
 hardware:
   shields: ~
   carriers: 
-  	- din-celsius
+    - din-celsius
   boards: 
     - arduino-opta-wifi
     - arduino-opta-rs485

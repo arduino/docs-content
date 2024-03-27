@@ -1,10 +1,10 @@
 <FeatureDescription>
-The Arduino® DIN Simul8 brings power and control to your OPTA PLC project.
+The Arduino DIN Simul8 brings power and control to your Opta PLC project.
 </FeatureDescription>
 
 <FeatureList>
 <Feature title="Power distribution" image="power">
-  1 barrel plug and 4 screw terminal connectors let you power the board and all you project easily.
+  One barrel plug and four screw terminal connectors lets you power the board and all you project easily.
 </Feature>
 
 <Feature title="Onboard big switches" image="connection">
