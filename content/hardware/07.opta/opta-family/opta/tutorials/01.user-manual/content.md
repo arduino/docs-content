@@ -2527,8 +2527,9 @@ After the Opta™ controller is programmed with the example sketch, the relays o
 
 You can buy and find more information about the Opta™ Digital Expansions on the links below:
 
-- [Opta™ Digital Expansion Product Page](https://docs.arduino.cc/hardware/opta-digital-expansion)
-- [Buy the Opta™ Digital Expansion](https://store-usa.arduino.cc/collections/pro-family)
+- [Opta™ Digital Expansion Product Page](https://docs.arduino.cc/hardware/opta-digital-ext)
+- [Buy the Opta™ Digital Expansion EMR](https://store.arduino.cc/products/Opta-Ext-D1608E)
+- [Buy the Opta™ Digital Expansion SSR](https://store.arduino.cc/products/Opta-Ext-D1608S)
 
 ## Support
 
