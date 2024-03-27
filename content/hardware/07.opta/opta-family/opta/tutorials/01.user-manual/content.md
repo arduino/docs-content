@@ -1702,31 +1702,31 @@ To learn more about Opta™ and the Arduino IoT Cloud, check out the following r
 
 ## Opta Digital Expansions
 
-Arduino Opta® Digital Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 16 programmable inputs for connecting your digital sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
+Arduino Opta™ Digital Expansions are designed to multiply your Opta™ micro PLC capabilities with the addition of 16 programmable inputs for connecting your industrial sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
-The Opta® Digital Expansion comes in two variants: the EMR (Electromechanical Relay), and the SSR (Solid State Relay).
+The Opta™ Digital Expansion comes in two variants: the EMR (Electromechanical Relay), and the SSR (Solid State Relay).
 
 ![Opta Expansion variants](assets/variants.png)
 
 ### Library Installation
 
-To use the Opta™ Digital Expansion with your Opta® PLC, you need to install the `Arduino_OptaBlueprint` library. To do so in the IDE, select the **Library Manager** from the left side menu, now search for Opta Expansions and click on the install button.
+To use the Opta™ Digital Expansion with your Opta™ PLC, you need to install the `Arduino_OptaBlueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
 
-![Image of the Library Installation]()
+![Image of the Library Installation](assets/library-install.png)
 
 Once installed, you will have access to a variety of usage examples showcasing the expansions capabilities and how to use them.
 
 ### Snapping the Expansion
 
-You can snap up to five expansions to your Opta® Base module to multiply and mix your set of I/Os with seamless detection.
+You can snap up to five expansions to your Opta™ Base module to multiply and mix your set of I/Os with seamless detection.
 
-Fits the expansions on the right side of your Opta® PLC making sure to correctly align the **Aux connector** as shown in the image below:
+Fits the expansions on the right side of your Opta™ PLC making sure to correctly align the **Aux connector** as shown in the image below:
 
 ![Snapping Opta expansions](assets/snap-exp.png)
 
 ### Powering Expansions
 
-The Opta® Digital Expansions must be externally powered to work. See the power specifications in the table below:
+The Opta™ Digital Expansions must be externally powered to work. See the power specifications in the table below:
 
 | Property                | Min  | Typ | Max  | Unit |
 |-------------------------|------|-----|------|------|
@@ -1739,7 +1739,7 @@ In the image below there is an example of the power wiring of the expansions:
 
 ![Powering the Opta Digital Expansions](assets/power-expansion.png)
 
-***The expansions must be externally powered to operate and be detected by the Opta® controller.***
+***The expansions must be externally powered to operate and be detected by the Opta™ controller.***
 
 ### Programmable Inputs
 
@@ -1969,7 +1969,7 @@ The above method will check if there is an EMR or SSR expansion connected in the
 
 The function `<ExpObject>.updateDigitalInputs();` updates all the inputs with their current states to prepare them to be read.
 
-After the Opta® controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input state as follows:
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input state as follows:
 
 ```
 Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
@@ -2155,7 +2155,7 @@ for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
 ```
 The above method will check if there is an EMR or SSR expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read value belongs to.
 
-After the Opta® controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input voltage as follows:
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input voltage as follows:
 
 ```
 Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
@@ -2521,7 +2521,7 @@ The above method will check if there is an EMR or SSR expansion connected in the
 
 First, the desired relay states need to be defined with the `digitalWrite()` function, then with the `<ExpObject>.updateDigitalOutputs();` the states are sent to the expansion to control the relays and pass them the defined states.
 
-After the Opta® controller is programmed with the example sketch, the relays of your expansions will be controlled as follows:
+After the Opta™ controller is programmed with the example sketch, the relays of your expansions will be controlled as follows:
 
 ![Opta Digital Expansion outputs control demo](assets/outputs-animation.gif)
 
