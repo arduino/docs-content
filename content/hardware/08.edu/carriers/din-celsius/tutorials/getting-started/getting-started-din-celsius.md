@@ -15,7 +15,7 @@ hardware:
 
 In this tutorial you'll be guided in connecting the **Arduino® DIN Celsius** to the **Arduino Opta® WiFi**, to make some heat and check the temperature.
 
-## Hardware & Software Needed
+## Hardware & Software Requirements
 
 ### Hardware
 - Arduino® DIN Celsius
@@ -52,7 +52,7 @@ Connections are super important in an industrial project, first of all **disconn
 5. Connect the other pin of relay 4 to INPUT HEAT 2
 
 
-### Upload test code
+## Upload Test Code
 
 First of all let's write a code to check the connection. We will the USER BUTTON of the Opta WiFi, the I8 and two relay, the 3 and 4. Let's define them at the beginning of the code:
 
@@ -110,7 +110,7 @@ If both LEDs start blinking one time per second, it means that they are connecte
 
 To stop the LED from blinking try modifying the upper sketch, you can remove or comment the part when you set them `HIGH`.
 
-### Read temperature sensor
+## Read Temperature Sensor
 
 To read what's arriving on the I8 port, called `TEMP_SENS` in our sketch, we can use the [analogRead](https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/) function, and print the result on the [Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/). We can do it in one line of code putting the `analogRead()` directly inside the `Serial.println()` command. Here the code:
 
@@ -176,7 +176,7 @@ The number you're seeing is proportional to the voltage arriving from the temper
 
 We're reading around 377, that is just below 20 °C. From the [datasheet](assets/tmp236-datasheet.pdf) of the temperature sensor you can see that this sensor have an accuracy of +/- 2.5 °C, so you don't need to be super precise in doing the math.
 
-### Heating while reading temperature
+## Heating while Reading Temperature
 
 Now you can combine the two upper sketches and read the temperature while switching the heating circuits. To have more control, instead of blinking them, you can use the user button on the Opta WiFi to turn ON one, or both the heater, like this:
 

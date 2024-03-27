@@ -10,7 +10,7 @@ author: Paolo Cavagnolo
 # Description
 Arduino DIN Simul8 is a digital-input-simulator and power distribution board for the PLC of the Opta® family. It provides eight toggle switches (0 - 10 V output) and four screw terminal for bringing the 24 V and the GROUND easily to the PLC or other board.
 
-# Target areas:
+# Target Areas:
 Pro, PLC projects, Education
 
 # Features
@@ -30,7 +30,7 @@ Pro, PLC projects, Education
 
 # Contents
 
-## Functional overview
+## Functional Overview
 
 These are the main components of the board, other secondary components, i.e. resistors, are not listed. 
 
@@ -44,7 +44,7 @@ These are the main components of the board, other secondary components, i.e. res
 |    1     | signal connector              | CONN SCREW TERMINAL, pitch 5 mm, 8POS, 16 A, 450 V, 2.5 mm<sup>2</sup> 14AWG, dovetail, GREY, screw flat, housing 40x16.8x8.9 mm |
 |    1     | protect from reverse polarity | DIODE SCHOTTKY SMD 2 A 60 V SOD123FL                           |
 
-## Power distribution
+## Power Distribution
 
 The board can be powered up from the barrel plug and then offer two couple of screw connector to deliver power to the PLC and other board, i.e. the DIN Celsius board of the PLC Starter Kit.
 
@@ -73,7 +73,7 @@ At the bottom right of the board a white rectangle on the silk layer offer a spa
 ![name space](assets/Simul8-name_space.png)
 
 
-## Compatible boards 
+## Compatible Boards 
 
 | Product name                      | SKU      | Min voltage | Max voltage |
 | --------------------------------- | -------- | ----------- | ----------- |
@@ -91,7 +91,7 @@ At the bottom right of the board a white rectangle on the silk layer offer a spa
 
 
 ## Mechanical Information
-### Enclosure dimensions
+### Enclosure Dimensions
 
 ![DIN enclosure](assets/RT-072-Assembly.png)
 

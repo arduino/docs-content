@@ -10,7 +10,7 @@ author: Paolo Cavagnolo
 # Description
 The Arduino DIN Celsius offers you a mini temperature laboratory to test your PLC skills, with two independent heater circuits and one temperature sensor placed at the center of the board.
 
-# Target areas:
+# Target Areas:
 Pro, PLC projects, Educational, Industry Ready, Building automation
 
 # Features
@@ -30,7 +30,7 @@ Pro, PLC projects, Educational, Industry Ready, Building automation
 
 # Contents
 
-## Functional overview
+## Functional Overview
 
 These are the main components of the board, other secondary components, i.e. resistors or capacitors, are not listed. 
 
@@ -45,7 +45,7 @@ These are the main components of the board, other secondary components, i.e. res
 |     1    | input / output connectors     | CONN SCREW TERMINAL, pitch 5mm, 3POS, 16A, 450V, 2.5mm<sup>2</sup> |
 |     1    | protect from reverse polarity | DIODE SCHOTTKY SMD 2A 60V SOD123FL                                 |
 
-## Heating circuits
+## Heating Circuits
 The board provides two independent heating circuits powered by 24 V through two different screw connector, one placed on the left side of the temperature sensor and the other on the right side. You can see how it works in the following image:
 
 ![heater](assets/Celsius-heater_func.png)
@@ -99,7 +99,7 @@ At the bottom right of the board a white rectangle on the silk layer offer a spa
 ![name space](assets/Celsius-name_space.png)
 
 
-## Compatible boards 
+## Compatible Boards 
 
 | Product name                      | SKU      | Min voltage | Max voltage |
 | --------------------------------- | -------- | ----------- | ----------- |
@@ -117,7 +117,7 @@ At the bottom right of the board a white rectangle on the silk layer offer a spa
 
 
 ## Mechanical Information
-### Enclosure dimensions
+### Enclosure Dimensions
 
 ![DIN enclosure](assets/RT-072-Assembly.png)
 

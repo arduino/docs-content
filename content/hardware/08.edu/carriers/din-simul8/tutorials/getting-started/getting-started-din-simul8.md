@@ -17,11 +17,11 @@ software:
 
 In this tutorial you'll be guided in connecting the **Arduino® DIN Simul8** to the **Arduino Opta® WiFi**, and trigger some basic functions.
 
-## Hardware & Software Needed
+## Hardware & Software Requirements
 
 ### Hardware
 - Arduino® DIN Simul8
-- Arduino Opta® WiFi
+- [Arduino Opta® WiFi](https://store.arduino.cc/products/opta-wifi)
 - USB-C® cable
 - 24 V power supply with barrel plug adapter
 - 8x wire for signal
@@ -54,7 +54,7 @@ Connections are super important in an industrial project, first of all **disconn
 ![detail connections](assets/connections.png) 
 
 
-### Upload test code
+## Upload Test Code
 
 Firstly we have to test if the components and the connections works as excepted. Let's print on the [Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/) what arrives to the inputs.
 
@@ -144,7 +144,7 @@ the output should be like this:
 ![step1_output](assets/step1_serial-monitor.png)
 
 
-### Upload function trigger code
+## Upload function Trigger Code
 
 If everything works we can move on and try to trigger a function when switch change state: a function that print `"Switch 1 ON"` when turned on and the inverse for the OFF state.
 
@@ -223,7 +223,7 @@ void OFF_function() {
 
 ```
 
-### Upload final code
+## Upload Final Code
 
 In order to make it works for all the eight switches, you can repeat the `stateSwitch` variable and the `if-else` conditions eight times... but that would be boring. What about using [arrays](https://www.arduino.cc/reference/en/language/variables/data-types/array/) and a [for-loop](https://www.arduino.cc/reference/en/language/structure/control-structure/for/)?
 
