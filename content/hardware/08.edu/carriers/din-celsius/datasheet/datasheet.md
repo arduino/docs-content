@@ -1,7 +1,7 @@
 ---
 identifier: ABX00098
 title: Arduino® DIN Celsius
-type: pro
+type: edu
 author: Paolo Cavagnolo
 ---
 

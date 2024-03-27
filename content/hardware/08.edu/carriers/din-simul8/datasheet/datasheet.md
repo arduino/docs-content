@@ -1,7 +1,7 @@
 ---
 identifier: ABX00097
 title: Arduino® DIN Simul8
-type: Pro
+type: edu
 author: Paolo Cavagnolo
 ---
 
