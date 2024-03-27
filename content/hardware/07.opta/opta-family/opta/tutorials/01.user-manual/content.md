@@ -1722,7 +1722,7 @@ You can snap up to five expansions to your Opta™ Base module to multiply and m
 
 Fits the expansions on the right side of your Opta™ PLC making sure to correctly align the **Aux connector** as shown in the image below:
 
-![Snapping Opta expansions](assets/snap-exp.png)
+![Snapping Opta expansions](assets/snapping.gif)
 
 ### Powering Expansions
 
