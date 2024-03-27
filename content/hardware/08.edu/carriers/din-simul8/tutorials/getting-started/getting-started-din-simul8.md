@@ -157,7 +157,7 @@ void OFF_function() {
 }
 ```
 
-In order to make every function runs once, only when the state changed, and not continuosly, we can save the status of the switch in a variable:
+In order to make every function runs once, only when the state changed, and not continuously, we can save the status of the switch in a variable:
 
 ```arduino
 bool stateSwitch = false;
@@ -226,7 +226,7 @@ void OFF_function() {
 
 In order to make it works for all the eight switches, you can repeat the `stateSwitch` variable and the `if-else` conditions eight times... but that would be boring. What about using [arrays](https://www.arduino.cc/reference/en/language/variables/data-types/array/) and a [for-loop](https://www.arduino.cc/reference/en/language/structure/control-structure/for/)?
 
-The idea is to replace all the variables used in the loop with arrays that stores eight values, one for each switch, and put it inside a `for loop` that will cycle trough all the eight inputs. Let's see how to do it:
+The idea is to replace all the variables used in the loop with arrays that stores eight values, one for each switch, and put it inside a `for loop` that will cycle through all the eight inputs. Let's see how to do it:
 
 First of all we need an array for all the pins definition of the inputs:
 

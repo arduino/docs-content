@@ -42,7 +42,7 @@ These are the main components of the board, other secondary components, i.e. res
 |    1     | show main power status        | LED SMD 0603 GREEN/568 15mcd 120^                            |
 |    1     | power connector               | CONN SCREW TERMINAL, pitch 5 mm, 4POS, 16 A, 450 V, 2.5 mm<sup>2</sup> 14AWG, dovetail, GREY, screw flat, housing 20x16.8x8.9 mm |
 |    1     | signal connector              | CONN SCREW TERMINAL, pitch 5 mm, 8POS, 16 A, 450 V, 2.5 mm<sup>2</sup> 14AWG, dovetail, GREY, screw flat, housing 40x16.8x8.9 mm |
-|    1     | protect from reverve polarity | DIODE SCHOTTKY SMD 2 A 60 V SOD123FL                           |
+|    1     | protect from reverse polarity | DIODE SCHOTTKY SMD 2 A 60 V SOD123FL                           |
 
 ## Power distribution
 
