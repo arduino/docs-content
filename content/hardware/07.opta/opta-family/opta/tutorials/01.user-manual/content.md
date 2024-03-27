@@ -2170,7 +2170,7 @@ The Opta™ Expansions have **8 relay outputs** accessible through terminals pai
 
 ![Opta Digital Expansions outputs](assets/variants-emr-ssr.png)
 
-The EMR variant features 8 electromechanical relays with the following characteristics:
+The **EMR variant** features 8 electromechanical relays with the following characteristics:
 
 <table>
     <thead>
@@ -2255,7 +2255,7 @@ The EMR variant features 8 electromechanical relays with the following character
     </tbody>
 </table>
 
-The SSR variant features 8 solid state relays with the following characteristics:
+The **SSR variant** features 8 solid state relays with the following characteristics:
 
 <table>
     <thead>
