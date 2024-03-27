@@ -2525,6 +2525,10 @@ After the Opta™ controller is programmed with the example sketch, the relays o
 
 ![Opta Digital Expansion outputs control demo](assets/outputs-animation.gif)
 
+You can buy and find more information about the Opta™ Digital Expansions on the links below:
+
+- [Opta™ Digital Expansion Product Page](https://docs.arduino.cc/hardware/opta-digital-expansion)
+- [Buy the Opta™ Digital Expansion](https://store-usa.arduino.cc/collections/pro-family)
 
 ## Support
 
