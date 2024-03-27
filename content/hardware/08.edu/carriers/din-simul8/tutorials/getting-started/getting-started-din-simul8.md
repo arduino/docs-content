@@ -144,7 +144,7 @@ the output should be like this:
 ![step1_output](assets/step1_serial-monitor.png)
 
 
-## Upload function Trigger Code
+## Upload Function Trigger Code
 
 If everything works we can move on and try to trigger a function when switch change state: a function that print `"Switch 1 ON"` when turned on and the inverse for the OFF state.
 

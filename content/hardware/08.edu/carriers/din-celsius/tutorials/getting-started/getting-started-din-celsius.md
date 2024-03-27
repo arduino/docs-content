@@ -19,7 +19,7 @@ In this tutorial you'll be guided in connecting the **Arduino® DIN Celsius** to
 
 ### Hardware
 - Arduino® DIN Celsius
-- Arduino Opta® WiFi
+- [Arduino Opta® WiFi](https://store.arduino.cc/products/opta-wifi)
 - USB-C® cable
 - Connection cables
 - 24 V DC power supply
@@ -176,7 +176,7 @@ The number you're seeing is proportional to the voltage arriving from the temper
 
 We're reading around 377, that is just below 20 °C. From the [datasheet](assets/tmp236-datasheet.pdf) of the temperature sensor you can see that this sensor have an accuracy of +/- 2.5 °C, so you don't need to be super precise in doing the math.
 
-## Heating while Reading Temperature
+## Heating While Reading Temperature
 
 Now you can combine the two upper sketches and read the temperature while switching the heating circuits. To have more control, instead of blinking them, you can use the user button on the Opta WiFi to turn ON one, or both the heater, like this:
 

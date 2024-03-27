@@ -92,7 +92,7 @@ The relation between the temperature, the voltage of the sensor and the output v
 |          80             |            2,0           |           9,6           |
 |          85             |            2,1           |           10,1          | 
 
-## Hello, my name is:
+## Hello, My Name is:
 
 At the bottom right of the board a white rectangle on the silk layer offer a space to customize the board with your name.
 

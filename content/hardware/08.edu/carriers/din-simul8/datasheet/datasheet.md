@@ -52,7 +52,7 @@ The board can be powered up from the barrel plug and then offer two couple of sc
 
 ![power distribution scheme](assets/Simul8-power_distrib_scheme.png)
 
-## Deliver 8 signal 0-10 V with toggle switch
+## Deliver 8 Signal 0-10 V with Toggle Switch
 
 Once powered up, every toggle-switch drive a 0-10 V signal:
 
@@ -66,7 +66,7 @@ Once powered up, every toggle-switch drive a 0-10 V signal:
 
 ![toggle switch scheme](assets/Simul8-toggle_switch_scheme.png)
 
-## Hello, my name is:
+## Hello, My Name is:
 
 At the bottom right of the board a white rectangle on the silk layer offer a space to customize the board with your name.
 
