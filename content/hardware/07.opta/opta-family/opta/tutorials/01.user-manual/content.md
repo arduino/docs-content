@@ -2510,6 +2510,22 @@ void loop() {
  }
 }
 ```
+The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
+```arduino
+for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
+  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
+  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
+}
+```
+The above method will check if there is an EMR or SSR expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion is going to be controlled.
+
+First, the desired relay states need to be defined with the `digitalWrite()` function, then with the `<ExpObject>.updateDigitalOutputs();` the states are sent to the expansion to control the relays and pass them the defined states.
+
+After the Opta® controller is programmed with the example sketch, the relays of your expansions will be controlled as follows:
+
+![Opta Digital Expansion outputs control demo](assets/outputs-animation.gif)
+
 
 ## Support
 
