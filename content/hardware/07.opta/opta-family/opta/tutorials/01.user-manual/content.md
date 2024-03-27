@@ -1817,8 +1817,7 @@ Analog/digital input terminals are mapped as described in the following table:
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input current</td>
-            <td>4.12mA at 24V</td>
-            <td>2.05mA at 12V</td>
+            <td>4.12mA at 24V | 2.05mA at 12V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input frequency</td>
