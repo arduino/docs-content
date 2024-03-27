@@ -6,6 +6,7 @@ tags:
   - Celsius
   - DIN
   - Prototyping
+author: "Paolo Cavagnolo"
 hardware: 
   - hardware/08.edu/carriers/din-celsius
 ---

@@ -6,6 +6,7 @@ tags:
   - Simul8
   - DIN
   - Prototyping
+author: "Paolo Cavagnolo"
 hardware:
   - hardware/08.edu/carriers/din-simul8
 software: 
