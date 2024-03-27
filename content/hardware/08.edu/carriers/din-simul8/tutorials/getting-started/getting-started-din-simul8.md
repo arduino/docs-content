@@ -137,11 +137,11 @@ void loop() {
 Each switch in the DIN Simul8 outputs 0 V when OFF and 10 V when ON. The `digitalRead()` function will read 0 for 0 V and 1 for 10 V.
 If you switch on the toggle switches 1-3-5-7 and leave off the 2-4-6-8, like in the following image:
 
-![step1_switches](assets/step1_switches.png)
+![toggle switches 1-3-5-7](assets/step1_switches.png)
 
 the output should be like this:
 
-![step1_output](assets/step1_serial-monitor.png)
+![serial monitor output](assets/step1_serial-monitor.png)
 
 
 ## Upload Function Trigger Code
@@ -332,7 +332,7 @@ void OFF_function(int n) {
 
 And here you can see what's goes on the serial monitor when you turn on all the switch from 1 to 8 and then off from 8 to 1:
 
-![step3_output](assets/step3_serial-monitor.png)
+![serial monitor with switches](assets/step3_serial-monitor.png)
 
 ## Considerations
 
