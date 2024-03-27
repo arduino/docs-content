@@ -1732,8 +1732,8 @@ The Opta™ Digital Expansions must be externally powered to work. See the power
 |-------------------------|------|-----|------|------|
 | Supply voltage          | 12   | -   | 24   | V    |
 | Permissible range       | 10.2 | -   | 27.6 | V    |
-| Power consumption (12V) | -    | 106 | -    | mW   |
-| Power consumption (24V) | -    | 110 | -    | mW   |
+| Power consumption (12 V) | -    | 106 | -    | mW   |
+| Power consumption (24 V) | -    | 110 | -    | mW   |
 
 In the image below there is an example of the power wiring of the expansions:
 
@@ -2002,7 +2002,7 @@ LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL
         </tr>
         <tr>
             <td style="vertical-align: top;">Accuracy</td>
-            <td>+/- 0.16%, repeatability +/- 2%</td>
+            <td>+/- 5%, repeatability +/- 2%</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Cycle time for analog input acquisition</td>
