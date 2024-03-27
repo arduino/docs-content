@@ -136,3 +136,53 @@ The table below provides a comprehensive guideline for the optimal use of the Po
 </div>
 
 <sup>1</sup> Portenta Mid Carrier powered through its onboard screw terminal block (IN 5V terminal) or its breakout pins header connector (IN 5V pins).
+
+<div style="page-break-after: always;"></div>
+
+## Functional Overview
+
+<p style="text-align: justify;">
+The Portenta Mid Carrier is a powerful tool for developing scalable Portenta-based applications, offering quick access to all high-density signals. It enables expansion with Ethernet and mPCIe connectors and booting from external sources via the microSD card slot. Interacting with actuators is made easy with onboard CAN bus lines, and it supports industrial machine vision with camera connectors. The Portenta Mid Carrier also provides a solid base for creating proprietary hardware, streamlining the development process for various projects.
+</p>
+
+### Pinout 
+
+The Portenta Mid Carrier pinout is shown in the figure below.
+
+![](assets/Portenta_Mid_Carrier_Pinout.png)
+
+<div style="page-break-after: always;"></div>
+
+### Block Diagram
+
+An overview of the high-level architecture of the Portenta Mid Carrier is illustrated in the figure below.
+
+![](assets/Portenta_Mid_Carrier_Block_Diagram.png)
+
+<div style="page-break-after: always;"></div>
+
+### Power Supply
+
+<div style="text-align:justify;">
+
+The Portenta Mid Carrier can be powered through one of these interfaces:
+
+- **Onboard USB-C® port of the Portenta board**: Provides a convenient way to power the board using standard USB-C® cables and adapters. 
+- **External +5 VDC power supply**: This can be connected to the IN 5V pin of the Carrier's screw terminal block; it can also be connected to the IN 5V pins of the breakout header connectors. 
+
+![](assets/Portenta_Mid_Carrier_Power_Tree.png)
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<strong>Reverse polarity protection:</strong> IN 5V pins of the Carrier's screw terminal block and breakout header connectors <strong> do not have</strong> reverse polarity protection. Double-check the polarity of your power supply before connecting it to the Carrier to avoid damaging it. 
+</div>
+
+</div>
+
+<div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
+<strong>Safety note:</strong> Disconnect power before modifying the Carrier connections and configurations to avoid short-circuiting. For more safety tips, refer to the Carrier's user manual.
+</div>
+
+</div>
+
+<div style="page-break-after: always;"></div>
+
