@@ -98,7 +98,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Inputs Resolution</td>
-            <td>10...12 bits - User configurable</td>
+            <td>14 bits</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Degree of Protection</td>
@@ -150,11 +150,11 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
     <tbody>
         <tr>
             <td style="vertical-align: top;">Analog Input voltage</td>
-            <td>0...10V </td>
+            <td>0...10 V </td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input resolution</td>
-            <td>10...12 bits - User configurable</td>
+            <td>14 bits</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input LSB value</td>
@@ -162,7 +162,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Accuracy</td>
-            <td>+/- 0.16%, repeatability +/- 2%</td>
+            <td>+/- 5%, repeatability +/- 2%</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Cycle time for analog input acquisition</td>
@@ -182,7 +182,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
     <tbody>
         <tr>
             <td style="vertical-align: top;">Digital Input voltage</td>
-            <td>0...24V</td>
+            <td>0...24 V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input voltage logic level</td>
@@ -190,8 +190,8 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input current</td>
-            <td>4.12mA at 24V</td>
-            <td>2.05mA at 12V</td>
+            <td>4.12 mA at 24 V</td>
+            <td>2.05 mA at 12 V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input frequency</td>
@@ -215,15 +215,15 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Max current per relay</td>
-            <td>6A</td>
+            <td>6 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>10A</td>
+            <td>10 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Continuous current per terminal</td>
-            <td>6A</td>
+            <td>6 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Short-circuit protection</td>
@@ -246,12 +246,12 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
             <td>300 VA</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Breaking capacity DC1: 24/110/220V</td>
-            <td>6/0.2/0.12A</td>
+            <td style="vertical-align: top;">Breaking capacity DC1: 24/110/220 V</td>
+            <td>6/0.2/0.12 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Minimum switching load</td>
-            <td>500mW (12V/10mA)</td>
+            <td>500 mW (12 V/10 mA)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max output line length (unshielded)</td>
@@ -299,15 +299,15 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Max current per relay</td>
-            <td>2A</td>
+            <td>2 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>50A (10 ms)</td>
+            <td>50 A (10 ms)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Continuous current per terminal</td>
-            <td>2A</td>
+            <td>2 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Short-circuit protection</td>
