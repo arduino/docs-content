@@ -12,7 +12,7 @@ author: Paolo Cavagnolo
 The Arduino DIN Celsius offers you a mini temperature laboratory to test your PLC skills, with two independent heater circuits and one temperature sensor placed at the center of the board.
 
 # Target Areas:
-Pro, PLC projects, Educational, Industry Ready, Building automation
+Pro, PLC projects, Education, Industry Ready, Building automation
 
 # Features
 **Note**: This board needs the Arduino Opta® for full functionality.

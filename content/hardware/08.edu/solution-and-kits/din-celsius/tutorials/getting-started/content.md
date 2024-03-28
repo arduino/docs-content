@@ -1,7 +1,7 @@
 ---
 title: 'Getting Started with DIN Celsius'
 difficulty: beginner
-description: 'This short guide helps you connecting the board to a PLC of the Opta® family and test some basic functionality.'
+description: 'This short guide helps you connecting the board to the Opta® family and test some basic functionality.'
 tags: 
   - Celsius
   - DIN
