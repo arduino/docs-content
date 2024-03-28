@@ -2,7 +2,7 @@
 title: DIN Simul8 
 url_shop: https://store.arduino.cc/products/din-simul8
 certifications: [CE, UKCA, FCC, IC, RCM]
-primary_button_url: /tutorials/getting-started-din-simul8
+primary_button_url: /tutorials/din-simul8/getting-started
 primary_button_title: Get Started
 ---
 

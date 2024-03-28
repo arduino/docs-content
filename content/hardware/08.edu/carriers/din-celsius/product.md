@@ -2,7 +2,7 @@
 title: DIN Celsius
 url_shop: https://store.arduino.cc/products/din-celsius
 certifications: [CE, UKCA, FCC, IC, RCM]
-primary_button_url: /tutorials/getting-started-din-celsius
+primary_button_url: /tutorials/din-celsius/getting-started
 primary_button_title: Get Started
 ---
 
