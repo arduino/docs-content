@@ -69,7 +69,7 @@ In order to create an analog output signal (0 - 10 V) a 4.9 multiplier circuits 
 
 The relation between the temperature, the voltage of the sensor and the output voltage of the board is summarized in the following table:
 
-| **TEMPERATURE<br>[°C]** | **SENSOR OUTPUT<br>[V]** | **BOARD OUTPUT<br>x4,9 [V]** |
+| **TEMPERATURE [°C]** | **SENSOR OUTPUT [V]** | **BOARD OUTPUT x4,9 [V]** |
 |:-----------------------:|:------------------------:|:-----------------------:|
 |          -10            |            0,2           |           1,0           |
 |          -5             |            0,3           |           1,5           |
