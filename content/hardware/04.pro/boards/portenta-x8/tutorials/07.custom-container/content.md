@@ -178,13 +178,13 @@ cd /home/fio/x8-custom-test
 This docker-compose command will start your application and register it as a systemd service that will persist even when a reboot occurs. So at the next boot, your docker-compose app will run automatically.
 
 ```bash
-docker-compose up --detach
+docker compose up --detach
 ```
 
 To stop the docker-compose app from running, use the following command:
 
 ```bash
-docker-compose stop
+docker compose stop
 ```
 
 ## Deploying with Docker Hub

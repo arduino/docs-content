@@ -128,7 +128,7 @@ sudo docker ps
 You can then access the log of its service at any time by using following command from the **same directory**:
 
 ```bash
-sudo docker-compose logs -f --tail 20
+sudo docker compose logs -f --tail 20
 ```
 
 If you do not wish to run the container in the background, skip the `-d` flag, you will get the console output directly in the executing shell. Once the container is running, you will see the messages being sent from the M4.
@@ -160,7 +160,7 @@ sudo docker build . -t python-sensor-rpc
 When it has finished, you can run the container with:
 
 ```bash
-sudo docker-compose up
+sudo docker compose up
 ```
 
 After a few seconds, you should see the output from the Python application featuring the sensor readings on the M4 that exchanges through the RPC mechanism. The output should look similar to the following:
