@@ -1,6 +1,6 @@
 ---
 title: DIN Celsius
-url_shop: https://store.arduino.cc/products/din-celsius
+url_shop: https://store.arduino.cc/products/plc-starter-kit
 certifications: [CE, UKCA, FCC, IC, RCM]
 primary_button_url: /tutorials/din-celsius/getting-started
 primary_button_title: Get Started

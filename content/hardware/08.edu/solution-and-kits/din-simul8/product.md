@@ -1,6 +1,6 @@
 ---
 title: DIN Simul8 
-url_shop: https://store.arduino.cc/products/din-simul8
+url_shop: https://store.arduino.cc/products/plc-starter-kit
 certifications: [CE, UKCA, FCC, IC, RCM]
 primary_button_url: /tutorials/din-simul8/getting-started
 primary_button_title: Get Started
