@@ -21,7 +21,7 @@ Pro, PLC projects, Educational, Industry Ready, Building automation
 - **Heater circuits** 
     - 2 independent heater circuits
 - **Screw connectors** 
-    - 2 screw connectors exposing +24V DC
+    - 2 screw connectors exposing +24 VDC
     - 2 screw connectors exposing GND
     - 2 screw connectors for the two independent heater circuits (24 V)
     - 1 screw connector for the output voltage of the temperature sensor
