@@ -7,7 +7,6 @@ hardware:
   shields: ~
   carriers: 
     - din-celsius
+    - portenta-machine-control
   boards: 
-    - arduino-opta-wifi
-    - arduino-opta-rs485
-    - arduino-opta-lite
+    - opta
