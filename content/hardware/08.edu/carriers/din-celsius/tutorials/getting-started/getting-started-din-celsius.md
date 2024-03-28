@@ -151,7 +151,7 @@ Upload it, and open the Serial Monitor with `9600` baud rate, if you see somethi
 
 The number you're seeing is proportional to the voltage arriving from the temperature sensor, from the following table you can obtain the temperature from the number printed on the Serial Monitor:
 
-| **TEMPERATURE<br>[°C]** | **BOARD OUTPUT<br>[V]** | **ARDUINO ANALOG READ** |
+| **TEMPERATURE [°C]** | **BOARD OUTPUT [V]** | **ARDUINO ANALOG READ** |
 |:-----------------------:|:-----------------------:|:-----------------------:|
 |          -10            |           1,0           |           102           |
 |          -5             |           1,5           |           154           |
