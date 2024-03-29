@@ -12,11 +12,11 @@ hardware:
 
 ## Overview
 
-The container infrastructure provided by Arduino contains a pre-built Python® image that you can use to run Python® applications on the Portenta X8. In this tutorial, we're going to build a container based on a provided one.
+The container infrastructure provided by Arduino contains a pre-built Python® image that you can use to run Python® applications on the Portenta X8. In this tutorial, we are going to build a container based on a provided one.
 
 While all the peripherals are accessible from the iMX8 processor running the Linux environment, it can be useful to let the onboard microcontroller take care of certain peripheral handling and exchange only the required data between the microcontroller and the Python® application.
 
-Thus you will learn how to do that. If you haven't done so, read through the [user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual) to understand the fundamental concepts of the X8 and the provided infrastructure.
+You will be guided on how to achieve this setup. It is recommendable to familiarize yourself with the foundational elements of the Portenta X8 and its infrastructure by reading the [user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual) if you have not already done so.
 
 ## Goals
 
@@ -27,9 +27,9 @@ Thus you will learn how to do that. If you haven't done so, read through the [us
 
 ### Required Hardware and Software
 
-- [Portenta X8](https://store.arduino.cc/products/portenta-x8) board
-- [Portenta breakout](https://docs.arduino.cc/hardware/portenta-breakout) board
-- Any sensor (in this example, we'll use an [BME680](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/) I<sup>2</sup>C module)
+- [Portenta X8](https://store.arduino.cc/products/portenta-x8)
+- [Portenta breakout](https://docs.arduino.cc/hardware/portenta-breakout)
+- Any sensor (in this example, we will use an [BME680](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/) I<sup>2</sup>C module)
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 
 ## Python® on the X8
@@ -93,7 +93,7 @@ Make sure you have installed the **Arduino Mbed OS Portenta Boards** core and up
 
 To check if the Arduino sketch is working correctly, you may want to read the messages from the `Serial.println` statements. You cannot currently read them directly in the serial monitor of the Arduino IDE. Instead, you can use a simple service called **`py-serialrpc`**, which listens for those messages and prints them to the console.
 
-This service needs to run on the Linux side of the X8. You can get the files [here](assets/py-serialrpc.zip). From the command prompt of your local machine, navigate to the adb tool folder and upload the files to the X8 with command:
+This service needs to run on the Linux side of the X8. You can get the files [here](assets/py-serialrpc.zip). The compressed file will have every file needed to build a container as the docker compose app. From the command prompt of your local machine, navigate to the adb tool folder and upload the files to the X8 with command:
 
 ```bash
 adb push <local directory path>/py-serialrpc /home/fio
@@ -199,9 +199,13 @@ sudo docker build . -t python-sensor-rpc
 sudo docker compose up
 ```
 
-Alternatively, you could modify the files directly on the X8 using an editor such as *VIM*, so you do not need to upload the files every time. Rebuilding the container will be necessary in any case though.
+Alternatively, you could modify the files directly on the X8 using an editor such as **VIM**, so you do not need to upload the files every time. Rebuilding the container will be necessary in any case though.
 
-If you wonder how to specify the Python® script that is executed when running a container, have a look at the `Dockerfile` file. There you will find the `ENTRYPOINT` command that takes multiple arguments. In our example: `ENTRYPOINT [ "python3", "m4_to_python.py"]`.
+If you wonder how to specify the Python® script that is executed when running a container, have a look at the `Dockerfile` file. There you will find the `ENTRYPOINT` command that takes multiple arguments. In our example:
+
+```python
+ENTRYPOINT [ "python3", "m4_to_python.py"]`
+```
 
 ## Conclusion
 
@@ -209,5 +213,5 @@ In this tutorial, you learned how to use the docker infrastructure to build a co
 
 ### Next Steps
 
-- You may now further process the data that you receive from the Arduino sketch and e.g. upload it to a Cloud service or similar.
+- You may further process the data you receive from the Arduino sketch and, e.g., upload it to a Cloud service or similar.
 - Familiarize yourself with Docker commands to adjust the docker configuration to your needs.
