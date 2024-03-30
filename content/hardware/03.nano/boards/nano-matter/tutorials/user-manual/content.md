@@ -34,6 +34,16 @@ This user manual will guide you through a practical journey covering the most in
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
+### Board Core and Libraries
+
+The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, Bluetooth® Low Energy, and I/Os. To install the Nano Matter core, navigate to **File > Preferences** and in the **Additional boards manager URLs**, add the following:
+
+`https://siliconlabs.github.io/arduino/package_arduinosilabs_index.json`
+
+Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
+
+![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install.png)
+
 ## Product Overview
 
 The Nano Matter merges the well-known Arduino way of making complex technology more accessible with the powerful MGM240S from Silicon Labs, to bring Matter closer to the maker world, in one of the smallest form factors in the market.  
@@ -51,16 +61,6 @@ Here is an overview of the board's main components, as shown in the image above:
 
 - **Microcontroller**: at the heart of the Nano Matter is the MGM240S, a high-performance wireless module from Silicon Labs. The MGM240S is built around a 32-bit Arm® Cortex®-M33 processor running at 78 MHz. 
 - **Wireless connectivity**: the Nano Matter microcontroller also features multi-protocol connectivity to enable Matter IoT protocol and Bluetooth® Low Energy. This allows the Nano Matter to be integrated with smart home systems and communicate wirelessly with other devices.
-
-### Board Core and Libraries
-
-The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, Bluetooth® Low Energy, and I/Os. To install the Nano Matter core, navigate to **File > Preferences** and in the **Additional boards manager URLs**, add the following:
-
-`https://siliconlabs.github.io/arduino/package_arduinosilabs_index.json`
-
-Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
-
-![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install.png)
 
 ### Pinout
 
@@ -115,6 +115,16 @@ For low-power consumption applications, the following hacks are recommended:
 ![Image showing the LED jumper and external 3.3 V power](assets/lower-power.png)
 
 ***To power the board through the VIN pin you need to close the jumper pads with solder. The maximum voltage supported is +5 VDC.***
+
+### Install Board Core and Libraries
+
+The **Silicon Labs** core contains the libraries and examples you need to work with the board's components, such as its Matter, Bluetooth® Low Energy, and I/Os. To install the Nano Matter core, navigate to **File > Preferences** and in the **Additional boards manager URLs**, add the following:
+
+`https://siliconlabs.github.io/arduino/package_arduinosilabs_index.json`
+
+Now navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Nano Matter` and install the latest `Silicon Labs` core version.
+
+![Installing the Silicon Labs core in the Arduino IDE](assets/bsp-install.png)
 
 ### Hello World Example
 
