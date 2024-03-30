@@ -132,7 +132,7 @@ Upon successful synchronization, your directory should resemble the following:
 
 #### Set Up the Portenta X8 Distribution
 
-For the Portenta X8, you have options for the **DISTRO** setting, each desgined for different needs:
+For the Portenta X8, you have options for the **DISTRO** setting, each designed for different needs:
 
 - **`lmp-base`**: A developer-friendly, insecure image without OSTree that is unsuitable for OTA updates.
 - **`lmp`**: A secure image, streamlined without xwayland.
