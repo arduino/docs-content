@@ -6,4 +6,6 @@ primary_button_title: User Manual
 sku: [TPX00200, TPX00201]
 ---
 
-Start benefit of the fast data throughput and high bandwidths of the **Arduino Pro 4G Module**.
+Start taking advantage of the fast data throughput and high bandwidths offered by the **Arduino Pro 4G Module**.
+
+

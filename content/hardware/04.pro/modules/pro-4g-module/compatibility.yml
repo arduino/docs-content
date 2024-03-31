@@ -1,7 +1,6 @@
 software:
   - arduino-ide
   - arduino-cli
-  - linux
 hardware:
   boards:
     - portenta-max-carrier

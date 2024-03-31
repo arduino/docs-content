@@ -13,15 +13,21 @@ Chipset:
   Arduino Pro 4G Module EMEA: ASR1803 (Marvell)
   Arduino Pro 4G GNSS Module Global: MDM9x07 (Qualcomm)
 LTE Connectivity: LTE CAT4 4G with 2G/3G fallback
+GNSS:
+  Arduino Pro 4G Module EMEA: N/A
+  Arduino Pro 4G GNSS Module Global: GPS, GLONASS, BeiDou (COMPASS), Galileo and QZSS
 Interfaces:
   USB: Yes
   UART: Yes
   PCM/I2C: Yes
 Certifications:
   Carrier:
-    Arduino Pro 4G Module EMEA: Deutsche Telekom/Vodafone
-    Arduino Pro 4G GNSS Module Global: Deutsche Telekom/Verizon/ AT&T/T-Mobile/Sprint/ U.S. Cellular/Telus/ Rogers
+    Arduino Pro 4G Module EMEA: Deutsche Telekom / Vodafone
+    Arduino Pro 4G GNSS Module Global: Deutsche Telekom / Verizon / AT&T / T-Mobile / Sprint / U.S. Cellular / Telus / Rogers
+  Regulatory:
+    Arduino Pro 4G Module EMEA: CE / UKCA
+    Arduino Pro 4G GNSS Module Global: FCC / CE / IC / UKCA
 Dimensions:
-  Width: xx mm
-  Length: xx mm
-  Weight: xx g
+  Width: 30 mm
+  Length: 51 mm
+  Weight: 9.7 g

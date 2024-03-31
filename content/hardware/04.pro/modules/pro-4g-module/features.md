@@ -1,8 +1,6 @@
 <FeatureDescription>
 
- Developed in the widely adopted mini PCIe form-factor, it leverages a powerful Cat.4 modem from Quectel able to guarantee a reliable 4G connectivity as well as backward compatibility with existing 2G and 3G networks.
-
- Available in two variants, EMEA and Global (including the US), it can be combined with multiple Portenta boards to develop endless smart cities/buildings, remote maintenance and fleet management applications.
+ Designed in the widely used mini PCIe format, this device features a reliable Cat.4 modem from Quectel, ensuring stable 4G connections and supporting older 2G and 3G networks. It comes in two versions: **EMEA** and **Global (including the US)**. It can be used with different Portenta boards for applications like smart city and building projects, remote maintenance, and fleet management.
 </FeatureDescription>
 
 
