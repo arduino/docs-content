@@ -3,9 +3,7 @@ Board:
   SKU:
     Pro 4G Module EMEA: TPX00201
     Pro 4G GNSS Module Global: TPX00200
-Compatible Carriers:
-  Portenta Max Carrier: Yes
-  Portenta Mid Carrier: Yes
+Compatible Carriers: Portenta Max Carrier and Portenta Mid Carrier
 Region:
   Pro 4G Module EMEA: EMEA / Southeast Asia
   Pro 4G GNSS Module Global: Global
