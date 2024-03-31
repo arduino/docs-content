@@ -6,15 +6,27 @@
 
 <FeatureList>
 
-<Feature title="ASR1803 / MDM9x07" image="core">
+<Feature title="Marvell ASR1803 / Qualcomm MDM9x07" image="core">
 
-  Arduino Pro 4G Module EMEA uses ASR1803 (Marvell), and Arduino Pro 4G GNSS Module Global MDM9x07 (Qualcomm).
+  Arduino Pro 4G Module is available in two variants: the EMEA variant is powered by the **ASR1803** chipset from **Marvell**, while the Global variant leverages the **MDM9x07** chipset from **Qualcomm**.
 
 </Feature>
 
-<Feature title="LTE Connectivity" image="connectivity">
+<Feature title="Mini PCIe Interface" image="hw-pin">
 
-  LTE CAT4 4G with 2G/3G fallback
+  It uses a Mini PCIe connector in compliance with the PCI Express Mini Card 1.2 Standard, offering high-speed data exchange and seamless compatibility with a range of compatible carrier boards.
+
+</Feature>
+
+<Feature title="LTE Connectivity" image="cellular">
+
+  The module integrates LTE Category 4 (CAT4) 4G technology, providing high-speed data transmission. Additionally, it features 2G/3G fallback capabilities, providing reliable connectivity in areas where 4G LTE coverage may not be available, thus ensuring continuous access to essential data services.
+
+</Feature>
+
+<Feature title="Global Navigation Satellite System (GNSS)" image="world-map">
+
+  Global variant supports GNSS using the NMEA 0183 protocol, ensuring accurate global positioning by integrating GPS, GLONASS, BeiDou (also known as COMPASS), Galileo, and QZSS satellite systems for enhanced navigational reliability and tracking performance in various applications.
 
 </Feature>
 

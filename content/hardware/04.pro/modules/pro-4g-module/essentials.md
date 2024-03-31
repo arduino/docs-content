@@ -2,14 +2,14 @@
     <EssentialElement title="Portenta Max Carrier User Manual" type="getting-started" link="/tutorials/portenta-max-carrier/user-manual">
         A full guide to the basics of the Portenta Max Carrier.
     </EssentialElement>
-    <EssentialElement link="https://github.com/cristidragomir97/Arduino4GModem" title="Arduino 4G Modem" type="library">
-        Main library to power Arduino Pro 4G Module
+    <EssentialElement title="Portenta Mid Carrier User Manual" type="getting-started" link="/tutorials/portenta-mid-carrier/user-manual">
+        A full guide to the basics of the Portenta Mid Carrier.
     </EssentialElement>
 </EssentialsColumn>
 
 <EssentialsColumn title="Suggested Repositories">
     <EssentialElement link="https://github.com/cristidragomir97/Arduino4GModem" title="Arduino 4G Modem" type="article">
-        Some containers examples of Portenta X8. These containers are accessible through your Foundries.io factory.
+        A library for Arduino Pro 4G Module to manage the module's capabilities, simplifying the integration and use of the module's 4G connectivity features.
     </EssentialElement>
 </EssentialsColumn>
 
