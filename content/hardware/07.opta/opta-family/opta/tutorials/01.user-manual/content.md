@@ -2533,9 +2533,9 @@ Here is an example of how to connect an AC load to the Opta Digital Expansion EM
 
 ![EMR expansion wiring example](assets/emr-output.png)
 
-Here is an example of how to connect an DC load to the Opta Digital Expansion SSR:
+Here is an example of how to connect a DC load to the Opta Digital Expansion SSR:
 
-![SSR expansion wiring example](assets/emr-output.png)
+![SSR expansion wiring example](assets/ssr-output.png)
 
 You can buy and find more information about the Opta™ Digital Expansions on the links below:
 
