@@ -1710,9 +1710,13 @@ The Opta™ Digital Expansion comes in two variants: the EMR (Electromechanical 
 
 ### Library Installation
 
-To use the Opta™ Digital Expansion with your Opta™ PLC, you need to install the `Arduino_OptaBlueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
+To use the Opta™ Digital Expansion with your Opta™ PLC, you need to install the `Arduino_Opta_Blueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
 
-![Image of the Library Installation](assets/library-install.png)
+![Opta expansions library installation](assets/library-install.png)
+
+Install all the **library dependencies** suggested:
+
+![Library dependencies installation](assets/library-install-2.png)
 
 Once installed, you will have access to a variety of usage examples showcasing the expansions capabilities and how to use them.
 
@@ -2524,6 +2528,14 @@ First, the desired relay states need to be defined with the `digitalWrite()` fun
 After the Opta™ controller is programmed with the example sketch, the relays of your expansions will be controlled as follows:
 
 ![Opta Digital Expansion outputs control demo](assets/outputs-animation.gif)
+
+Here is an example of how to connect an AC load to the Opta Digital Expansion EMR:
+
+![EMR expansion wiring example](assets/emr-output.png)
+
+Here is an example of how to connect an DC load to the Opta Digital Expansion SSR:
+
+![SSR expansion wiring example](assets/emr-output.png)
 
 You can buy and find more information about the Opta™ Digital Expansions on the links below:
 
