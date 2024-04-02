@@ -5,7 +5,8 @@ Compatible boards:
   Portenta X8: Yes
   Portenta H7: Yes (except MIPI Camera)
   Portenta C33: Yes (except MIPI Camera)
-  Pro 4G Module: Yes (Portenta X8 only)
+  Pro 4G Module EMEA: Yes (Portenta X8 only)
+  Pro 4G Module Global: Yes (Portenta X8 only)
 Camera:	
   MIPI Connector: 1
   Arducam Connector: 1
