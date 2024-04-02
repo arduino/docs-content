@@ -54,7 +54,7 @@ Please note that when using MicroPython the pin number reflects the GPIO on the 
 ## 3. Alvik Firmware
 ![](assets/connecting-final.gif)
 ### 3.1 How To Upload Last Firmware
-### 3.2 API (Brief + Link To Cheat-sheet)
+### 3.2 API (Brief + Link To Cheat-Sheet)
 ### 3.3 Test (Simple)
 
 ## 4. Maintenance
