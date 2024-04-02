@@ -22,14 +22,14 @@
 
 <Feature title="Camera Connector" image="camera">
 
-  The Portenta Mid Carrier allows rapid development of machine vision applications thanks to the Portenta X8 and the two camera connectors (MIPI and Arducam).
+  The Portenta Mid Carrier enables rapid development of machine vision applications thanks to the Portenta X8/H7 and the two camera connectors (MIPI and Arducam).
 
 </Feature>
 
 
 <Feature title="CAN Bus" image="communication">
 
-  The Portenta Mid Carrier provides a high-speed CAN FD transceiver that allows CAN bus communication connections. Also, it allows access to a second CAN interface available without an onboard transceiver.
+  The Portenta Mid Carrier provides a high-speed CAN FD transceiver that enables CAN bus communication connections. In addition, it integrates a second CAN interface available without an onboard transceiver.
 
 </Feature>
 
@@ -41,7 +41,7 @@
 
 <Feature title="Mini PCIe Connector" image="connection">
 
-  The Portenta X8 potentiates the possibility of adding mPCIe modules leveraging the available USB, I2C and SIM connectivities through this port. A perfect feature for cellular modules among others.
+  The Portenta SOM potentiates the possibility of adding mPCIe modules leveraging the available USB, UART and SIM connectivities through this port. A perfect feature for cellular modules among others.
 
 </Feature>
 
