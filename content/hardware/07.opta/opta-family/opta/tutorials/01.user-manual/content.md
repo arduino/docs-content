@@ -7,7 +7,7 @@ tags:
   - Cheat sheet
   - User manual
   - Opta
-author: 'José Bagur and Julián Caro Linares'
+author: 'José Bagur, Christopher Méndez and Julián Caro Linares'
 hardware:
   - hardware/07.opta/opta-family/opta
 software:
