@@ -1,6 +1,6 @@
 ---
 title: Pro 4G Module
-url_shop: https://store.arduino.cc/
+url_shop: http://store.arduino.cc/products/4g-module-global
 primary_button_url: /tutorials/portenta-mid-carrier/user-manual
 primary_button_title: Mid Carrier User Manual
 secondary_button_url: /tutorials/portenta-max-carrier/user-manual

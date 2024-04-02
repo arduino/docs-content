@@ -7,6 +7,9 @@ Compatible Carriers: Portenta Max Carrier and Portenta Mid Carrier
 Region:
   Pro 4G Module EMEA: EMEA / Southeast Asia
   Pro 4G GNSS Module Global: Global
+Series:
+  Pro 4G Module EMEA: Quectel EC200A-EU
+  Pro 4G GNSS Module Global: Quectel EG25-G
 Chipset:
   Pro 4G Module EMEA: Marvell ASR1803
   Pro 4G GNSS Module Global: Qualcomm MDM9x07
@@ -73,13 +76,6 @@ Power:
   Supply voltage: 3.0 - 3.6 V
   Typical supply voltage: 3.3 V
 Mini PCIe Interface: PCI Express Mini Card 1.2 Standard Interface
-Certifications:
-  Pro 4G Module EMEA:
-    Carrier: Deutsche Telekom, Vodafone
-    Regulatory: CE, UKCA
-  Pro 4G GNSS Module Global:
-    Carrier: Deutsche Telekom, Verizon, AT&T, T-Mobile, Sprint, U.S. Cellular, Telus, Rogers
-    Regulatory: FCC, CE, IC, UKCA
 Dimensions:
   Width: 30 mm
   Length: 51 mm
