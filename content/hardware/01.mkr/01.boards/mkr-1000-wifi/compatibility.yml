@@ -2,6 +2,7 @@ software:
   - arduino-ide
   - arduino-cli
   - web-editor
+  - linux
 hardware:
   shields:
     - mkr-485-shield
