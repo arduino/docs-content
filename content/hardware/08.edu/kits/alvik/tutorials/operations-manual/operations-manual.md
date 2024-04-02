@@ -1,3 +1,11 @@
+---
+title: 'placeholder'
+description: 'placeholder'
+author: 'placeholder'
+tags:
+	- edu
+---
+
 # OPERATION MANUAL ALVIK
 ![](assets/title.png)
 

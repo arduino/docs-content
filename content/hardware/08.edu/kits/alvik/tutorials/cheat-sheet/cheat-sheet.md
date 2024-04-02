@@ -1,3 +1,11 @@
+---
+title: 'placeholder'
+description: 'placeholder'
+author: 'placeholder'
+tags:
+	- edu
+---
+
 # Cheat Sheet
 
 ## List of all functions name
