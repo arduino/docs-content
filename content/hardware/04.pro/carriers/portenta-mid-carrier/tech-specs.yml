@@ -10,7 +10,7 @@ Camera:
   Arducam Connector: 1
   USB-A Connector: 1x (compatible with USB-Cameras)
 Display:	
-  Giga Display Connector: 1
+  DSI: 1
 Communication Interfaces:
   Ethernet: 1
   SPI: 2 
