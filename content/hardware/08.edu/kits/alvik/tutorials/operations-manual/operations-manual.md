@@ -1,21 +1,20 @@
 ---
-title: 'placeholder'
-description: 'placeholder'
-author: 'placeholder'
+title: 'Operations Manual'
+description: 'Placeholder'
+author: 'Placeholder'
 tags:
 	- edu
 ---
 
-# OPERATION MANUAL ALVIK
 ![](assets/title.png)
 
-## 1. HW and SW requirements
-### 1.1 HW req
-### 1.2 SW req
+## 1. HW and SW Requirements
+### 1.1 HW Req
+### 1.2 SW Req
 
 ## 2. Alvik Overview
 ![](assets/main-components.png)
-### 2.1 Warning notes
+### 2.1 Warning Notes
 Please read carefully the following notes:
 
 ***Disclaimer about the risk of short-circuiting the battery when the PCB is out of the chassis. Since it is Li-Ion battery if ti is shortcircuited it can burn***
@@ -26,7 +25,7 @@ Please read carefully the following notes:
 
 ***If present, remove the yellow protective film on the frontal sensor***
 
-### 2.2 Main components
+### 2.2 Main Components
 ![](assets/up-components.png)
 ![](assets/down-components.png)
 #### 2.2.1 NANO ESP32
@@ -38,35 +37,35 @@ Please note that when using MicroPython the pin number reflects the GPIO on the 
 ![](assets/esp-pinout.png)
 #### 2.2.2 STM32
 
-#### 2.2.3 ON/OFF SWITCH (focus on the importance and position)
+#### 2.2.3 ON/OFF SWITCH (Focus On The Importance and Position)
 ![](assets/robot-on.png)
 
-#### 2.2.4 BATTERY (here how to charge battery and check status)
+#### 2.2.4 BATTERY (Here How To Charge Battery And Check Status)
 
 ![](assets/charging.gif)
 ![](assets/ide-charging.png)
 ![](assets/charged.png)
 
 
-#### 2.2.5 Inputs (touch / line follow / ToF / Color / IMU)
-#### 2.2.6 Outputs (LEDs / Motor + movement infos like max speed)
+#### 2.2.5 Inputs (Touch / Line Follow / ToF / Color / IMU)
+#### 2.2.6 Outputs (LEDs / Motor + Movement Infos Like Max Speed)
 #### 2.2.7 Connectors
 
 ## 3. Alvik Firmware
 ![](assets/connecting-final.gif)
-### 3.1 How to upload last firmware
-### 3.2 API (brief + link to cheat-sheet)
-### 3.3 Test (simple)
+### 3.1 How To Upload Last Firmware
+### 3.2 API (Brief + Link To Cheat-sheet)
+### 3.3 Test (Simple)
 
 ## 4. Maintenance
-### 4.1 Replace battery
-### 4.2 Check wheels alignment
-### 4.3 Check / calibrate sensors (here color calibrate procedure)
+### 4.1 Replace Battery
+### 4.2 Check Wheels Alignment
+### 4.3 Check / Calibrate Sensors (Here Color Calibrate Procedure)
 
 ## 5. Extensions
-### 5.1 Repeat warning about 15mm screws
-### 5.2 Add servo
-### 5.3 Add i2c grove
-### 5.4 Add qwiic
+### 5.1 Repeat Warning About 15mm Screws
+### 5.2 Add Servo
+### 5.3 Add I2C Grove
+### 5.4 Add Qwiic
 
 

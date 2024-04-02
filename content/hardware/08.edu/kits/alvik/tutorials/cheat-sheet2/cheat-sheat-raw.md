@@ -1,12 +1,10 @@
 ---
-title: 'placeholder'
-description: 'placeholder'
-author: 'placeholder'
+title: 'Cheat Sheet'
+description: 'Placeholder'
+author: 'Placeholder'
 tags:
 	- edu
 ---
-
-# cheat sheet
 
 ## Arduino Alvik Class
 
