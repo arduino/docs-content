@@ -10,4 +10,6 @@ hardware:
     - portenta-h7-lite
     - portenta-h7-lite-connected
     - portenta-c33
+    - 4g-module-emea
+    - 4g-module-global
 
