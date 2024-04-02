@@ -1,7 +1,7 @@
 ---
 identifier: AKX00066
 title: Arduino® Alvik
-type: educational
+type: edu
 ---
 ![](assets/perspective_top.jpg)
 

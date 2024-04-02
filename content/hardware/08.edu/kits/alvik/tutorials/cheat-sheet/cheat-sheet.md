@@ -1,14 +1,12 @@
 ---
-title: 'placeholder'
-description: 'placeholder'
-author: 'placeholder'
+title: 'Placeholder'
+description: 'Placeholder'
+author: 'Placeholder'
 tags:
 	- edu
 ---
 
-# Cheat Sheet
-
-## List of all functions name
+## List of All Functions Name
 
 ### Alvik Class
 
@@ -79,7 +77,7 @@ tags:
 | get_position(...)  | Returns the wheel position angle with respect to the reference |
 | set_position(...)  | Sets left/right motor speed                                    |
 
-### Alvik Rgb Led Class
+### Alvik RGB Led Class
 
 | **Name**       | **Description**            |
 |----------------|----------------------------|
@@ -106,9 +104,9 @@ tags:
 | update_firmware(...) | Update the firmware |
 
 
-## Parameters and return values of each functions 
+## Parameters and Return Values of Each Functions 
 
-### get_pose
+### `get_pose`
 
 get_pose(distance_unit: str = 'cm', angle_unit: str = 'deg')           
 

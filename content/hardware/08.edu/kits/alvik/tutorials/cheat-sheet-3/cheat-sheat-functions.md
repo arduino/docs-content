@@ -1,37 +1,39 @@
 ---
-title: 'placeholder'
-description: 'placeholder'
-author: 'placeholder'
+title: 'API Cheat Sheet'
+description: 'Placeholder'
+author: 'Placeholder'
 tags:
 	- edu
 ---
 
-# Alvik API cheat sheet
-
 ## Arduino Alvik Class
 
-### is_on()
+### `is_on()`
+
         """
         Returns true if robot is on
         :return:
         """
 
 
-### begin()
+### `begin()`
+
         """
         Begins all Alvik operations
         :return:
         """
 
 
-### is_target_reached()
+### `is_target_reached()`
+
         """
         Returns True if robot has sent an M or R acknowledgment.
         It also responds with an ack received message
         :return:
         """
 
-### set_behaviour(behaviour: int)
+### `set_behaviour(behaviour: int)`
+
         """
         Sets the behaviour of Alvik
         :param behaviour: behaviour code
@@ -39,7 +41,8 @@ tags:
         """
 
 
-### rotate(angle: float, unit: str = 'deg', blocking: bool = True)
+### `rotate(angle: float, unit: str = 'deg', blocking: bool = True)`
+
         """
         Rotates the robot by given angle
         :param angle:
@@ -49,7 +52,8 @@ tags:
         """
 
 
-### move(distance: float, unit: str = 'cm', blocking: bool = True)
+### `move(distance: float, unit: str = 'cm', blocking: bool = True)`
+
         """
         Moves the robot by given distance
         :param distance:
@@ -59,14 +63,16 @@ tags:
         """
 
 
-### stop()
+### `stop()`
+
         """
         Stops all Alvik operations
         :return:
         """
 
 
-### get_wheels_speed(unit: str = 'rpm')
+### `get_wheels_speed(unit: str = 'rpm')`
+
         """
         Returns the speed of the wheels
         :param unit: the speed unit of measurement (default: 'rpm')
@@ -74,7 +80,8 @@ tags:
         """
 
 
-### set_wheels_speed(left_speed: float, right_speed: float, unit: str = 'rpm')
+### `set_wheels_speed(left_speed: float, right_speed: float, unit: str = 'rpm')`
+
         """
         Sets left/right motor speed
         :param left_speed:
@@ -84,7 +91,8 @@ tags:
         """
 
 
-### set_wheels_position(left_angle: float, right_angle: float, unit: str = 'deg')
+### `set_wheels_position(left_angle: float, right_angle: float, unit: str = 'deg')`
+
         """
         Sets left/right motor angle
         :param left_angle:
@@ -94,7 +102,8 @@ tags:
         """
 
 
-### get_wheels_position(unit: str = 'deg')
+### `get_wheels_position(unit: str = 'deg')`
+
         """
         Returns the angle of the wheels
         :param unit: the angle unit of measurement (default: 'deg')
@@ -102,37 +111,43 @@ tags:
         """
 
 
-### get_orientation()
+### `get_orientation()`
+
         """
         Returns the orientation of the IMU
         :return: roll, pitch, yaw
         """
 
-### get_accelerations()
+### `get_accelerations()`
+
         """
         Returns the 3-axial acceleration of the IMU
         :return: ax, ay, az
         """
 
-### get_gyros()
+### `get_gyros()`
+
         """
         Returns the 3-axial angular acceleration of the IMU
         :return: gx, gy, gz
         """
 
-### get_imu()
+### `get_imu()`
+
         """
         Returns all the IMUs readouts
         :return: ax, ay, az, gx, gy, gz
         """
 
-### get_line_sensors()
+### `get_line_sensors()`
+
         """
         Returns the line sensors readout
         :return: left_line, center_line, right_line
         """
 
-### drive(linear_velocity: float, angular_velocity: float, linear_unit: str = 'cm/s',angular_unit: str = 'deg/s')
+### `drive(linear_velocity: float, angular_velocity: float, linear_unit: str = 'cm/s',angular_unit: str = 'deg/s')`
+
         """
         Drives the robot by linear and angular velocity
         :param linear_velocity:
@@ -142,13 +157,15 @@ tags:
         :return:
         """
 
-### brake()
+### `brake()`
+
         """
         Brakes the robot
         :return:
         """
 
-### get_drive_speed(linear_unit: str = 'cm/s', angular_unit: str = 'deg/s')
+### `get_drive_speed(linear_unit: str = 'cm/s', angular_unit: str = 'deg/s')`
+
         """
         Returns linear and angular velocity of the robot
         :param linear_unit: output linear velocity unit of meas
@@ -156,7 +173,8 @@ tags:
         :return: linear_velocity, angular_velocity
         """
 
-### reset_pose(x: float, y: float, theta: float, distance_unit: str = 'cm', angle_unit: str = 'deg')
+### `reset_pose(x: float, y: float, theta: float, distance_unit: str = 'cm', angle_unit: str = 'deg')`
+
         """
         Resets the robot pose
         :param x: x coordinate of the robot
@@ -167,7 +185,7 @@ tags:
         :return:
         """
 
-### get_pose(distance_unit: str = 'cm', angle_unit: str = 'deg')
+### `get_pose(distance_unit: str = 'cm', angle_unit: str = 'deg')`
            
         """
         Returns the current pose of the robot
@@ -176,7 +194,8 @@ tags:
         :return: x, y, theta
         """
 
-### set_servo_positions(a_position: int, b_position: int)
+### `set_servo_positions(a_position: int, b_position: int)`
+
         """
         Sets A/B servomotor angle
         :param a_position: position of A servomotor (0-180)
@@ -184,21 +203,24 @@ tags:
         :return:
         """
 
-### get_ack()
+### `get_ack()`
+
         """
         Returns last acknowledgement
         :return:
         """
 
 
-### set_builtin_led(value: bool)
+### `set_builtin_led(value: bool)`
+
         """
         Turns on/off the builtin led
         :param value:
         :return:
         """
 
-### set_illuminator(value: bool)
+### `set_illuminator(value: bool)`
+
         """
         Turns on/off the illuminator led
         :param value:
@@ -206,74 +228,84 @@ tags:
         """
 
 
-### get_battery_charge()
+### `get_battery_charge()`
+
         """
         Returns the battery SOC
         :return:
         """
 
-### get_touch_any()
+### `get_touch_any()`
+
         """
         Returns true if any button is pressed
         :return:
         """
 
-### get_touch_ok()
+### `get_touch_ok()`
+
         """
         Returns true if ok button is pressed
         :return:
         """
 
-### get_touch_cancel()
+### `get_touch_cancel()`
+
         """
         Returns true if cancel button is pressed
         :return:
         """
 
-### get_touch_center()
+### `get_touch_center()`
+
         """
         Returns true if center button is pressed
         :return:
         """
 
-### get_touch_up()
+### `get_touch_up()`
+
         """
         Returns true if up button is pressed
         :return:
         """
 
-### get_touch_left()
+### `get_touch_left()`
+
         """
         Returns true if left button is pressed
         :return:
         """
 
-### get_touch_down()
+### `get_touch_down()`
+
         """
         Returns true if down button is pressed
         :return:
         """
 
-### get_touch_right()
+### `get_touch_right()`
+
         """
         Returns true if right button is pressed
         :return:
         """
 
-### color_calibration(background: str = 'white')
+### `color_calibration(background: str = 'white')`
+
         """
         Calibrates the color sensor
         :param background: str white or black
         :return:
         """
 
-### get_color_raw()
+### `get_color_raw()`
         """
         Returns the color sensor's raw readout
         :return: red, green, blue
         """
 
-### rgb2hsv(r: float, g: float, b: float)
+### `rgb2hsv(r: float, g: float, b: float)`
         """
         Converts normalized rgb to hsv
         :param r:
@@ -282,20 +314,20 @@ tags:
         :return:
         """
 
-### get_color(color_format: str = 'rgb')
+### `get_color(color_format: str = 'rgb')`
         """
         Returns the normalized color readout of the color sensor
         :param color_format: rgb or hsv only
         :return:
         """
 
-### get_color_label()
+### `get_color_label()`
         """
         Returns the label of the color as recognized by the sensor
         :return:
         """
 
-### hsv2label(h, s, v)
+### `hsv2label(h, s, v)`
         """
         Returns the color label corresponding to the given normalized HSV color input
         :param h:
@@ -304,21 +336,21 @@ tags:
         :return:
         """
 
-### get_distance(unit: str = 'cm')
+### `get_distance(unit: str = 'cm')`
         """
         Returns the distance readout of the TOF sensor
         :param unit: distance output unit
         :return: left_tof, center_left_tof, center_tof, center_right_tof, right_tof
         """
 
-### get_distance_top(unit: str = 'cm')
+### `get_distance_top(unit: str = 'cm')`
         """
         Returns the obstacle top distance readout
         :param unit:
         :return:
         """
 
-### get_distance_bottom(unit: str = 'cm')
+### `get_distance_bottom(unit: str = 'cm')`
         """
         Returns the obstacle bottom distance readout
         :param unit:
@@ -326,20 +358,20 @@ tags:
         """
 
 
-### get_version()
+### `get_version()`
         """
         Returns the firmware version of the Alvik
         :return:
         """
 
 
-### print_status()
+### `print_status()`
         """
         Prints the Alvik status
         :return:
         """
 
-### on_touch_ok_pressed(callback: callable, args: tuple = ())
+### `on_touch_ok_pressed(callback: callable, args: tuple = ())`
         """
         Register callback when touch button OK is pressed
         :param callback:
@@ -347,7 +379,7 @@ tags:
         :return:
         """
 
-### on_touch_cancel_pressed(callback: callable, args: tuple = ())
+### `on_touch_cancel_pressed(callback: callable, args: tuple = ())`
         """
         Register callback when touch button CANCEL is pressed
         :param callback:
@@ -355,7 +387,7 @@ tags:
         :return:
         """
 
-### on_touch_center_pressed(callback: callable, args: tuple = ())
+### `on_touch_center_pressed(callback: callable, args: tuple = ())`
         """
         Register callback when touch button CENTER is pressed
         :param callback:
@@ -363,7 +395,7 @@ tags:
         :return:
         """
 
-### on_touch_up_pressed(callback: callable, args: tuple = ())
+### `on_touch_up_pressed(callback: callable, args: tuple = ())`
         """
         Register callback when touch button UP is pressed
         :param callback:
@@ -371,7 +403,7 @@ tags:
         :return:
         """
 
-### on_touch_left_pressed(callback: callable, args: tuple = ())
+### `on_touch_left_pressed(callback: callable, args: tuple = ())`
         """
         Register callback when touch button LEFT is pressed
         :param callback:
@@ -379,7 +411,7 @@ tags:
         :return:
         """
 
-### on_touch_down_pressed(callback: callable, args: tuple = ())
+### `on_touch_down_pressed(callback: callable, args: tuple = ())`
         """
         Register callback when touch button DOWN is pressed
         :param callback:
@@ -387,7 +419,7 @@ tags:
         :return:
         """
 
-### on_touch_right_pressed(callback: callable, args: tuple = ())
+### `on_touch_right_pressed(callback: callable, args: tuple = ())`
         """
         Register callback when touch button RIGHT is pressed
         :param callback:
@@ -398,7 +430,7 @@ tags:
 ## Arduino AlvikWheel Class
 
 
-### reset(initial_position: float = 0.0, unit: str = 'deg')
+### `reset(initial_position: float = 0.0, unit: str = 'deg')`
         """
         Resets the wheel reference position
         :param initial_position:
@@ -406,7 +438,7 @@ tags:
         :return:
         """
 
-### set_pid_gains(kp: float = MOTOR_KP_DEFAULT, ki: float = MOTOR_KI_DEFAULT, kd: float = MOTOR_KD_DEFAULT)
+### `set_pid_gains(kp: float = MOTOR_KP_DEFAULT, ki: float = MOTOR_KI_DEFAULT, kd: float = MOTOR_KD_DEFAULT)`
         """
         Set PID gains for Alvik wheels
         :param kp: proportional gain
@@ -416,13 +448,13 @@ tags:
         """
 
 
-### stop()
+### `stop()`
         """
         Stop Alvik wheel
         :return:
         """
 
-### set_speed(velocity: float, unit: str = 'rpm')
+### `set_speed(velocity: float, unit: str = 'rpm')`
         """
         Sets the motor speed
         :param velocity: the speed of the motor
@@ -430,14 +462,14 @@ tags:
         :return:
         """
 
-### get_speed(unit: str = 'rpm')
+### `get_speed(unit: str = 'rpm')`
         """
         Returns the current RPM speed of the wheel
         :param unit: the unit of the output speed
         :return:
         """
 
-### get_position(unit: str = 'deg')
+### `get_position(unit: str = 'deg')`
         """
         Returns the wheel position (angle with respect to the reference)
         :param unit: the unit of the output position
@@ -445,7 +477,7 @@ tags:
         """
 
 
-### set_position(position: float, unit: str = 'deg')
+### `set_position(position: float, unit: str = 'deg')`
         """
         Sets left/right motor speed
         :param position: the speed of the motor
@@ -455,7 +487,7 @@ tags:
 
 ## Arduino AlvikRgbLed Class
 
-### set_color(red: bool, green: bool, blue: bool)
+### `set_color(red: bool, green: bool, blue: bool)`
         """
         Sets the LED's r,g,b state
         :param red:
@@ -466,7 +498,7 @@ tags:
 
 ## Arduino AlvikEvents Class
 
-### register_callback(event_name: str, callback: callable, args: tuple = None)
+### `register_callback(event_name: str, callback: callable, args: tuple = None)`
         """
         Registers a callback to execute on an event
         :param event_name:
@@ -475,13 +507,13 @@ tags:
         :return:
         """
 
-### has_callbacks()
+### `has_callbacks()`
         """
         True if the _callbacks dictionary has any callback registered
         :return:
         """
 
-### execute_callback(event_name: str)
+### `execute_callback(event_name: str)`
         """
         Executes the callback associated to the event_name
         :param event_name:
@@ -490,7 +522,7 @@ tags:
 
 ## Arduino AlvikTouchEvents Class
 
-### update_touch_state(touch_state: int)
+### `update_touch_state(touch_state: int)`
         """
         Updates the internal touch state and executes any possible callback
         :param touch_state:
@@ -500,7 +532,7 @@ tags:
 
 ## UPDATE FIRMWARE METHOD
 
-### update_firmware(file_path: str)
+### `update_firmware(file_path: str)`
         """
         Update the firmware
         :param file_path: path of your FW bin
