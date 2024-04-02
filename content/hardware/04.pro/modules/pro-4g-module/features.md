@@ -8,7 +8,7 @@
 
 <Feature title="Marvell ASR1803 / Qualcomm MDM9x07" image="core">
 
-  Arduino Pro 4G Module is available in two variants: the EMEA variant is powered by the **ASR1803** chipset from **Marvell**, while the Global variant leverages the **MDM9x07** chipset from **Qualcomm**.
+  Arduino Pro 4G Module is available in two variants: the EMEA variant is powered by Quectel EC200A-EU based on the **ASR1803** chipset from **Marvell**, while the Global variant leverages the Quectel EG25-G based on **MDM9x07** chipset from **Qualcomm**.
 
 </Feature>
 
