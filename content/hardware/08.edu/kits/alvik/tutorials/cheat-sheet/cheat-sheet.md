@@ -4,7 +4,7 @@ description: 'Learn how to get the maximum from alvik, get a quick overview of t
 author: Paolo Cavagnolo
 tags:
 	- edu
-        - API
+	- API
 ---
 
 ## List of All Functions Name
@@ -105,7 +105,7 @@ tags:
 | update_firmware(...) | Update the firmware |
 
 
-## Parameters and Return Values of Each Functions 
+## Parameters and Return Values of Each Functions
 
 ### `get_pose`
 
