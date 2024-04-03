@@ -7,7 +7,7 @@ primary_button_title:  PLC IDE License
 secondary_button_url: /tutorials/portenta-machine-control/plc-programming-introduction
 secondary_button_title: PLC IDE Guide
 core: arduino:mbed_portenta
-certifications: [REACH, RoHS, WEEE, UKCA, CE, FCC, RCM]
+certifications: [RoHS, UKCA, CE, FCC, RCM]
 sku: [AKX00032]
 ---
 
