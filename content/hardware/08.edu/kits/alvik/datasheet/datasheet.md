@@ -35,7 +35,7 @@ Maker, Edu, MicroPython
   * Servo motor
   * I2C Grove
   * QWIIC
-  * Lego Technic
+  * Lego® Technic™
   * M3 Screws
 
 # Contents
@@ -256,7 +256,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 11/09/2023 | Block Diagram Update, Antenna Specifications           |
 | 11/15/2023 | Ambient temperature update                             |
 | 11/23/2023 | Added label to LP modes                                |
-
 
 
 
