@@ -10,7 +10,7 @@ author: José Bagur
 # Description 
 
 <p style="text-align: justify;">
-The Arduino Portenta Mid Carrier streamlines project development for Portenta boards by offering easy access to high-density signals through specialized and dedicated headers. It is compatible with the Portenta C33, H7, and X8 boards and is perfect for many projects, including the Internet of Things applications, asset tracking, machine vision, robotics, and automation. This carrier boasts a variety of ports and interfaces like CAN bus lines, Ethernet, microSD, and USB, along with camera and display connectors. It features debug pins and a real-time clock battery backup, easing development. Its onboard mini PCIe connector also enables quick cellular connectivity testing, ensuring reliable data transmission even in Wi-Fi® in scarce areas. These features make the Portenta Mid Carrier a vital tool for efficiently creating innovative, connected devices.
+The Arduino Portenta Mid Carrier streamlines project development for Portenta SOMs boards by offering easy access to high-density signals through specialized and dedicated headers. It is compatible with the Portenta C33, H7, and X8 boards and is perfect for many projects, including the Internet of Things applications, asset tracking, machine vision, robotics, and automation. This carrier boasts a variety of ports and interfaces like two CAN bus lines, Ethernet, microSD, and USB, along with camera and display connectors. It features debug pins and a real-time clock battery backup, easing development. Its onboard mini PCIe connector also enables quick cellular connectivity testing, ensuring reliable data transmission even in Wi-Fi® in scarce areas. These features make the Portenta Mid Carrier a vital tool for efficiently creating innovative, connected devices.
 </p>
 
 # Target Areas
@@ -25,7 +25,7 @@ Rapid prototyping, asset tracking, Internet of Things, machine vision, robotics,
 The Arduino Portenta Mid Carrier enhances various prototyping applications thanks to its flexible design. The Portenta Mid Carrier provides a robust platform for many projects, from industry-ready prototypes to machine vision and cellular connectivity testing. Here are some application examples:
 
 - **Rapid testing of cellular connectivity**: Use the mini PCIe connector on the Portenta Mid Carrier for swift cellular connectivity testing. This feature is invaluable for applications in smart cities/buildings, remote maintenance, and fleet management, ensuring rapid data transmission even in locations lacking Wi-Fi® coverage.
-- **Prototyping**: The Portenta Mid Carrier is a versatile tool for prototyping, merging seamlessly with Portenta family boards to unveil essential peripherals like microSD, Ethernet, and USB. This integration facilitates industry-ready prototyping and streamlines debugging and inspection processes through dedicated pins for CAN bus lines. Moreover, its compatibility extends to a wide array of external hardware components and devices, enhancing your Portenta boards for projects that demand embedded sensing or straightforward actuation. This dual functionality ensures the Portenta Mid Carrier provides comprehensive support, simplifying the development process and elevating the potential for innovative project creation.
+- **Prototyping**: The Portenta Mid Carrier is a versatile tool for prototyping, merging seamlessly with Portenta family boards to unveil essential peripherals like microSD, Ethernet, and USB. This integration facilitates industry-ready prototyping and streamlines debugging and inspection processes through dedicated CAN bus lines. Moreover, its compatibility extends to a wide array of external hardware components and devices, enhancing your Portenta boards for projects that demand embedded sensing or straightforward actuation. This dual functionality ensures the Portenta Mid Carrier provides comprehensive support, simplifying the development process and elevating the potential for innovative project creation.
 - **Frictionless machine vision prototyping**: Pair the Portenta Mid Carrier with an MIPI or Arducam® camera to effortlessly embark on machine vision projects. Whether for object detection and recognition, defect identification, or asset tracking, the Portenta Mid Carrier streamlines the creation of complex vision-based applications.
 - **Reference design**: The Portenta Mid Carrier serves as an excellent reference design and aids in the development of custom products within the Portenta ecosystem. Arduino PRO's full development, production, and operation support provides a solid foundation for tailoring solutions to specific business needs.
 </div>
@@ -37,7 +37,7 @@ The Arduino Portenta Mid Carrier enhances various prototyping applications thank
 ### General Specifications Overview
 
 <p style="text-align: justify;">
-The Arduino Portenta Mid Carrier is an excellent tool for building scalable projects based on the Portenta family boards. The Portenta Mid Carrier was designed to give quick access to all the essential signals of the Portenta family boards, making adding new features to your projects more accessible with its Ethernet and the onboard Mini PCIe connector. With this connector, the Portenta Mid Carrier capabilities are notably enhanced by including cellular connectivity to the carrier, allowing for rapid testing and deployment of applications requiring remote communication. The carrier includes a microSD card slot starting from an external source, and it has CAN bus lines for connecting to actuators, which helps manage devices easily. You can also develop machine vision applications using the onboard camera connectors. The carrier is also a straightforward reference design for creating their hardware. 
+The Arduino Portenta Mid Carrier is an excellent tool for building scalable projects based on the Portenta family boards. The Portenta Mid Carrier was designed to give quick access to all the essential signals of the Portenta family boards, simplifying the addition of new features to enterprise projects with its Ethernet and Mini PCIe connectors. With this connector, the Portenta Mid Carrier capabilities are notably enhanced by including cellular connectivity to the carrier, allowing for rapid testing and deployment of applications requiring remote communication. The carrier includes a microSD card slot starting from an external source, and it has two CAN bus lines for connecting to actuators, which helps manage devices easily. Moreover, its onboard camera connectors enable the development of machine vision applications. The Carrier is also a straightforward reference design for creating new custom hardware. 
 
 The main features of the Portenta Mid Carrier are summarized and highlighted in the table below.
 </p>
@@ -255,16 +255,6 @@ In the following sections, as well as the tables presented in those sections, th
 - CR1225 (3 VDC) coin cell
 - Arducam® DVP camera modules
 - SIM card (only data compatible)
-
-### Related Products (Not Included)
-
-- Arduino® Portenta X8 (SKU: ABX00049)
-- Arduino® Portenta C33 (SKU: ABX00074)
-- Arduino® Portenta H7 (SKU: ABX00042/ABX00045/ABX00046)
-- Arduino® Pro 4G Module EMEA (SKU: TPX00201)
-- Arduino® Pro 4G GNSS Module Global (SKU: TPX00200)
-- Arduino® GIGA Display Shield (SKU: ASX00039)
-- Arduino USB Type-C® Cable 2-in-1 (SKU: TPX00094)
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <strong>Note:</strong> The Portenta Mid Carrier requires a compatible Portenta family board to operate.
