@@ -1,9 +1,10 @@
 ---
-title: 'Placeholder'
-description: 'Placeholder'
-author: 'Placeholder'
+title: 'Alvik Cheat Sheet'
+description: 'Learn how to get the maximum from alvik, get a quick overview of the micropython functions you can use while playing with Alvik.'
+author: Paolo Cavagnolo
 tags:
 	- edu
+        - API
 ---
 
 ## List of All Functions Name
