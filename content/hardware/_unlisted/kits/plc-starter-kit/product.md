@@ -1,5 +1,5 @@
 ---
 title: PLC Starter Kit
-sku: AKX000051
+sku: [AKX00051]
 certifications: [CE, UKCA]
 ---
