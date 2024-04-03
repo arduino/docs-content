@@ -194,7 +194,7 @@ bool sosTriggered = false;
 int buttonState = 0;
 
 unsigned long previousMillis = 0;
-const long interval = 10000; 
+const long interval = 600000;  // 10 minutes interval in milliseconds
 
 void setup() {
   Serial.begin(9600);
