@@ -23,7 +23,7 @@ The Nerd is a desktop electronic pet that survives by eating and some sunlight. 
 
 ### In a Nutshell
 
-The Nerd will need food which you can give it by pressing its button. Otherwise, it will complain by making noise with the buzzer until you either feed it or put it in sunlight. The nerd will be connected to the Arduino Cloud, where we can visualize the amount of food the Nerd has and the level of light it is in. The Cloud will also handle the timing elements needed in the code. If the Nerd runs out of food, it will die dramatically, making a lot of noise.
+The Nerd will need food which you can give it by pressing its button. Otherwise, it will die. The nerd will be connected to the Arduino Cloud, where we can visualize the amount of food the Nerd has and the level of light it is in. If the Nerd runs out of food, it will die dramatically, making a lot of noise.
 
 ### Components
 
@@ -81,11 +81,9 @@ Creating a new thing and dashboard is easy. First, go to the Arduino Cloud site 
 
 We will start by adding three variables:
 
-- `nerdsFood` - `INT` - `READ & WRITE`
+- `nerdsFood` - `INT` - `READ ONLY`
 
 - `nerdsLight` - `INT` - `READ ONLY`
-
-- `nerdsTime` - `TIME` - `READ & WRITE`
 
 ### Dashboard
 
@@ -115,18 +113,37 @@ else{
 }
 ```
 
-And we can use the Arduino Cloud dashboard to keep track of the food numerically. We will also use a time variable from the Arduino Cloud to easily manage when the food count should go down. Here we will let it take 10 minutes before the food supply is decreased by one. The max food storage is set to 12, this can be expanded by changing the threshold in the "**if"** operator, and don't forget to update the tracker on the dashboard as well so you can accurately track the food that the Nerd has.
+To keep track of time, we store a timestamp using `millis()` at a specific event, such as when the food supply is last decremented. Then, at regular intervals, we compare the current `millis()` value with this stored timestamp to determine if a certain amount of time has elapsed. For example, if we want to decrease the food supply every 10 minutes, we check if the difference between the current millis() value and the stored timestamp is greater than or equal to 600,000 milliseconds (10 minutes in milliseconds).
 
+The max food storage is set to 12, this can be expanded by changing the threshold in the "**if"** operator, and don't forget to update the tracker on the dashboard as well so you can accurately track the food that the Nerd has.
+
+```arduino
+ if (currentMillis - previousMillis >= interval) {
+    // save the last time you called onNerdsTimeChange 
+    previousMillis = currentMillis;
+
+    // call the eating function
+    eating();
+  }
 ```
-void onNerdsFoodChange(){
-    if(nerdsFood == 0 && justWokeUp==false){
-        /* DIE :( */
-        SOS();
-    }
-}
+
+```arduino
+void eating() {
+  if(nerdsFood > 0){
+    nerdsFood--;
+    delay(200);
+  }
 ```
 
 The Nerd will start with 2 food the first time it wakes up, then this value will be tracked by the Cloud. If it dies it will start over with 2 food as well.
+
+```arduino
+  if(nerdsFood == 0 && justWokeUp == false && !sosTriggered){
+    // DIE :(
+    SOS();
+    sosTriggered = true;
+  }
+```
 
 **Checking the light level**
 
@@ -140,7 +157,7 @@ nerdsLight = analogRead(sensorPin);
 When the Nerd first wakes up, this is when the device is started and the Nerd first receives sunlight. It will make a sound and blink its light. Then the variable will be checked every time you try to give the Nerd some food. The threshold of the light level can be changed if you are having trouble feeding the Nerd. You can use the Cloud to check what values you get when the Nerd is in the light, and then change the threshold here in the code:
 
 ```
-if(nerdsFood < 12 && nerdsLight>150)
+if(nerdsFood < 12 && nerdsLight > 300)
 ```
 
 **Time tracker with the Arduino Cloud**
@@ -161,7 +178,6 @@ This tutorial is part of a series of experiments that familiarize you with the A
 ***Note: For the code to work you also need `thingProperties.h` which is automatically generated when creating a Cloud sketch.***
 
 ```arduino
-#include <SPI.h>
 #include "thingProperties.h"
 
 // RGB LED pins 
@@ -173,49 +189,54 @@ int buzzerPin = 9;
 int sensorPin = A2;
 int buttonPin = 2;  // the number of the pushbutton pin
 
-bool hungry=true;
-bool justWokeUp=true;
+bool justWokeUp = true;
+bool sosTriggered = false;
 int buttonState = 0;
 
+unsigned long previousMillis = 0;
+const long interval = 10000; 
+
 void setup() {
-
-  Serial.begin(115200);
-  delay(2000);
-
-  // Defined in thingProperties.h
+  Serial.begin(9600);
+  delay(1500); 
   initProperties();
-
-  // Connect to Arduino IoT Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
   pinMode(redPin, OUTPUT); 
   pinMode(greenPin, OUTPUT); 
   pinMode(bluePin, OUTPUT); 
   pinMode(buttonPin, INPUT);
+
+  nerdsFood = 5;
 }
 
 void loop() {
+  ArduinoCloud.update();
   
+  unsigned long currentMillis = millis();
+
   nerdsLight = analogRead(sensorPin);
   buttonState = digitalRead(buttonPin);
-  ArduinoCloud.update();
-    
+
   // Awaking notification
-  if(nerdsLight>150 && justWokeUp){
-    Serial.print("woke up");
-    if(nerdsFood == 0){
-      nerdsFood = 2;
-    }
-    justWokeUp=false;
+  if(nerdsLight < 300 && justWokeUp){
+
+    //Print wake up message
+    Serial.println("woke up");
+
     setColor(0, 255, 0); // green 
-    tone(buzzerPin, 31, 200); // tone(Pin, Note, Duration);
-    delay(200);
+    tone(buzzerPin, 262, 1000); // tone(Pin, Note, Duration);
+    delay(2000);
     setColor(0, 0, 0); // off 
     noTone(buzzerPin);
     delay(1000);
+    justWokeUp = false;
   }
-    
-  if (buttonState == HIGH) {
-    if(nerdsFood < 12 && nerdsLight>150){
+
+  if (buttonState == HIGH && !sosTriggered) {
+    if(nerdsFood < 12 && nerdsLight > 300){
       nerdsFood++;
       tone(buzzerPin, 40, 300); // tone(Pin, Note, Duration);
       delay(100);
@@ -223,7 +244,7 @@ void loop() {
       delay(100);
       noTone(buzzerPin);
     }
-    delay(500);
+    delay(100);
   }
   
   // Set color status feedback
@@ -236,12 +257,28 @@ void loop() {
   else{ 
     setColor(0, 255, 0); // green 
   }
+  
+ if (currentMillis - previousMillis >= interval) {
+    // save the last time you called onNerdsTimeChange 
+    previousMillis = currentMillis;
+
+    // call the hungry function
+    eating();
+  }
+  
+  if(nerdsFood == 0 && justWokeUp == false && !sosTriggered){
+    // DIE :(
+    SOS();
+    sosTriggered = true;
+  }
+  
 }
 
+
 void SOS(){
-  for(int a = 0; a< 3; a++){  
+  for(int a = 0; a < 3; a++){  
     setColor(255, 0, 0); // Red 
-    tone(buzzerPin, 31, 100); // tone(Pin, Note, Duration);
+    tone(buzzerPin, 262, 4); // tone(Pin, Note, Duration);
     delay(100);
     setColor(0, 0, 0); // off 
     noTone(buzzerPin);
@@ -249,21 +286,21 @@ void SOS(){
   }
   
   delay(1000);
-  for(int a = 0; a< 3; a++){  
+  for(int a = 0; a < 3; a++){  
     setColor(255, 0, 0); // Red 
-    tone(buzzerPin, 31, 2000); // tone(Pin, Note, Duration);
+    tone(buzzerPin, 262, 2000); // tone(Pin, Note, Duration);
     delay(1000);
   }
   
-  for(int a = 0; a< 3; a++){  
+  for(int a = 0; a < 3; a++){  
     setColor(255, 0, 0); // Red 
-    tone(buzzerPin, 31, 100); // tone(Pin, Note, Duration);
+    tone(buzzerPin, 262, 100); // tone(Pin, Note, Duration);
     delay(100);
     setColor(0, 0, 0); // off 
     noTone(buzzerPin);
     delay(50);
   }
-  delay(10000);
+  delay(1000);
 }
 
 // Send RGB values to the LED pins 
@@ -273,18 +310,12 @@ void setColor(int red, int green, int blue){
  analogWrite(bluePin, blue);   
 }
 
-void onNerdsTimeChange(){
+void eating(){
   if(nerdsFood > 0){
     nerdsFood--;
     delay(200);
   }
 }
 
-void onNerdsFoodChange(){
-  if(nerdsFood == 0 && justWokeUp==false){
-    // DIE :(
-    SOS();
-  }
-}
 
 ```
