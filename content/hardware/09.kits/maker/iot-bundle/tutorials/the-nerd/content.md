@@ -54,7 +54,9 @@ This tutorial is part of a series of experiments that familiarise you with the A
 
 In this project, we will be using the following circuit. In it, we have a 220 ohm resistor connected between the ground and the A2 pin used for the phototransistor. And a 10k ohm resistor connected between between ground and the push button.
 
-![Arduino IoT Bundle](assets/the_nerd_rp2040_dqr7egmpao_ESpsLy8iaq.png)
+![Arduino IoT Bundle](assets/circuit.png)
+
+***Make sure to place the phototransistor in reverse polarity, meaning the long leg is connected to GND (-) and the short leg is connected to 3.3 V.***
 
 ### Setting up the Arduino Cloud
 
