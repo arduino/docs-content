@@ -24,6 +24,12 @@ hardware:
 
 ### Software Requirements
 
+To use the Portenta Max Carrier with a Portenta X8, please follow these guidelines:
+
+- Ensure your Portenta X8 has the latest Linux image. Check this section to verify that your Portenta X8 is up-to-date.
+
+***For the smooth functioning of the Portenta Mid Carrier with the Portenta X8, it is crucial to have at least Linux **image version 7XX** on the Portenta X8. To update your board to the latest image, use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) method or [manually flash it](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool), downloading the most recent version from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
+
 ### Setting Up the Hardware
 
 The Portenta Max Carrier supports various power supply methods:
