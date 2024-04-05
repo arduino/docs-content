@@ -1,6 +1,6 @@
 ---
 identifier: AFX00005-AFX00006
-title: Arduino Opta® Digital Expansion
+title: Arduino Opta® Digital Expansion (DRAFT)
 type: pro
 variant: 'Collective Datasheet'
 author: Christopher Mendez
@@ -444,8 +444,6 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 ***Note: Terminals can be used with both solid and stranded core wire (min: 0.5 mm<sup>2</sup> / 20 AWG).***
 
-<span style="color:red">
-
 ## Certifications
 
 ### Certifications Summary
@@ -557,49 +555,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 (2) this device must accept any interference received, including interference that may cause undesired operation.
 
-**FCC RF Radiation Exposure Statement:**
-
-1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
-
-2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
-
-3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
-
 **Note:** This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at his own expense.
-
-English:
-User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
-
-(1) this device may not cause interference
-
-(2) this device must accept any interference, including interference that may cause undesired operation of the device.
-
-French:
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
-
-(1) l’ appareil nedoit pas produire de brouillage
-
-(2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
-
-**IC SAR Warning:**
-
-English:
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
-
-French:
-Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
-
-**Important:** The operating temperature of the EUT can’t exceed 50℃ and shouldn’t be lower than -20℃.
-
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
-
-| Frequency bands           | Maximum output power (EIRP) |
-|---------------------------|---------------------------- |
-| 2412-2472 MHz (2.4G WIFI) | 5.42 dBm                    |
-| 2402-2480 MHz (BLE)       | 2.41 dBm                    |
-| 2402-2480 MHz (EDR)       | -6.27 dBm                   |
-
-</span>
 
 ## Company Information
 
@@ -624,4 +580,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Date       | **Revision** | **Changes**        |
 |------------|--------------|------------------- |
-| 12/02/2024 | 1            | First Release      |
+| 05/04/2024 | 1            | First Release      |
