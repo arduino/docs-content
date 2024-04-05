@@ -10,7 +10,7 @@ author: Christopher Mendez
 # Description
 Arduino Opta® Digital Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 16 programmable inputs for connecting your digital sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
-The Arduino Opta® Digital Expansion comes in two variants: the EMR (Electromechanical Relay), and the SSR (Solid State Relay), both of them documented inside this document.
+The Arduino Opta® Digital Expansion comes in two variants: the Opta Ext D1608E (with Electromechanical Relays) and the Opta Ext D1608S (with Solid State Relays), both of them documented inside this document.
 
 
 # Target Areas:
@@ -25,8 +25,8 @@ There are two variants of the Arduino Opta® Digital Expansion created to fit th
    <thead>
       <tr>
          <th style="text-align: center;">Name</th>
-         <th style="text-align: center;">Arduino Opta® Digital Expansion EMR</th>
-         <th style="text-align: center;">Arduino Opta® Digital Expansion SSR</th>
+         <th style="text-align: center;">Arduino Opta® Ext D1608E</th>
+         <th style="text-align: center;">Arduino Opta® Ext D1608S</th>
       </tr>
    </thead>
    <tbody>
@@ -38,10 +38,10 @@ There are two variants of the Arduino Opta® Digital Expansion created to fit th
       <tr>
          <td style="vertical-align: middle;text-align: center;">Inputs</td>
          <td style="vertical-align: middle;text-align: center;">
-            <p>16 x programmable <br>(0-24 V digital | 0-10 V analog)</p>
+            <p>16 x programmable <br>(0-24 V digital | 0-24 V analog)</p>
          </td>
          <td style="text-align: center;">
-            <p>16 x programmable <br>(0-24 V digital | 0-10 V analog)</p>
+            <p>16 x programmable <br>(0-24 V digital | 0-24 V analog)</p>
          </td>
       </tr>
       <tr>
@@ -89,7 +89,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Inputs</td>
-            <td>16x Digital (0-24 V) / Analog (0-10 V) inputs</td>
+            <td>16x Digital (0-24 V) / Analog (0-24 V) inputs</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Outputs</td>
@@ -97,16 +97,12 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
             AFX00006: 8x Solid State Relays (24 VDC - 2 A)</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Inputs Resolution</td>
-            <td>14 bits</td>
-        </tr>
-        <tr>
             <td style="vertical-align: top;">Degree of Protection</td>
             <td>IP20</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Certifications</td>
-            <td>cULus, ENEC, FCC, CE, UKCA</td>
+            <td>ENEC, FCC, CE, UKCA</td>
         </tr>
     </tbody>
 </table>
@@ -122,15 +118,15 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
     <tbody>
         <tr>
             <td style="vertical-align: top;">Number of inputs</td>
-            <td>16x Analog/Digital inputs</td>
+            <td>16x Digital/Analog inputs</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Inputs overvoltage protection</td>
-            <td>yes</td>
+            <td>yes (Up to 40 V)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Antipolarity protection</td>
-            <td>yes</td>
+            <td>no</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Input impedance</td>
@@ -150,23 +146,19 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
     <tbody>
         <tr>
             <td style="vertical-align: top;">Analog Input voltage</td>
-            <td>0...10 V </td>
+            <td>0...24 V </td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input resolution</td>
-            <td>14 bits</td>
+            <td>14 bit</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input LSB value</td>
-            <td>2.44 mV</td>
+            <td>1.733 mV</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Accuracy</td>
             <td>+/- 5%, repeatability +/- 2%</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Cycle time for analog input acquisition</td>
-            <td>10 µs</td>
         </tr>
     </tbody>
 </table>
@@ -191,11 +183,11 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         <tr>
             <td style="vertical-align: top;">Digital Input current</td>
             <td>4.12 mA at 24 V</td>
-            <td>2.05 mA at 12 V</td>
+            <td>2.05 mA at 10 V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input frequency</td>
-            <td>4.5 kHz</td>
+            <td>300 Hz</td>
         </tr>
     </tbody>
 </table>
@@ -367,14 +359,14 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Protection degree rating                          | IP20                      |
 | Pollution degree                                  | 2 conforming to IEC 61010 |
 
-### Power Specification
+### Power Specification (Ambient Temperature)
 
 | Property                | Min  | Typ | Max  | Unit |
 |-------------------------|------|-----|------|------|
 | Supply voltage          | 12   | -   | 24   | V    |
 | Permissible range       | 10.2 | -   | 27.6 | V    |
-| Power consumption (12V) | -    | 106 | -    | mW   |
-| Power consumption (24V) | -    | 110 | -    | mW   |
+| Power consumption (12V) | -    | -   | 3    | W   |
+| Power consumption (24V) | -    | -   | 3    | W   |
 
 <div style="page-break-after:always;"></div>
 
@@ -384,20 +376,19 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 ## Functional Overview
 ### Product View
-![Arduino Opta® Expansion EMR and SSR variants](assets/AFX0005-6.png)
+![Arduino Opta® Expansion EMR and SSR variants](assets/AFX0005-6-new.png)
 
 
 <div style="page-break-after:always;"></div>
 
-| Item | Feature                                                              |
-|------|----------------------------------------------------------------------|
-| 3A   | Power Supply Terminals 12...24 VDC                                   |
-| 3B   | I1...I16 digital/analog input terminals (0-10V) configurable via IDE |
-| 3C   | Power Status LED                                                     |
-| 3D   | Port for communication and connection of auxiliary modules           |
-| 3E   | Status LEDs 1...8 (User Programmable?)                               |
-| 3F   | Relay Output Terminals 1...8, NO contact (SPST) 6A 250 VAC           |
-| 3G   | Label Holder                                                         |
+| Item | Feature                                                                          |
+|------|----------------------------------------------------------------------------------|
+| 3a   | Power Supply Terminals 12...24 VDC                                               |
+| 3b   | I1...I16 digital/analog input terminals (0-24 V) configurable via IDE            |
+| 3c   | Power Status LED                                                                 |
+| 3d   | Relay Output Terminals 1...8, NO contact (SPST), EMR 6 A 250 VAC - SSR 2 A 24 VDC|
+| 3e   | Status LEDs 1...8 (User Programmable?)                                           |
+| 3f   | Port for communication and connection of auxiliary modules                       |
 
 
 ### Relay Outputs
@@ -422,11 +413,11 @@ For the **SSR variant**, the minimum switching voltage and current are 1.5 VDC a
 The **EMR variant** relays on Arduino Opta® Digital Expansions provide a very fast response time of 6/4 ms to change state for closing/reopening. The **SSR variant** provides an even faster response of 0.02/0.2 ms to change state for closing/reopening.
 
 ### Expansion Port
-The expansion port can be used to daisy-chain several the Arduino Opta® Expansions and additional modules.
+The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To be accessed needs to be freed up from its breakable plastic cover and the connection plug added between each device.
 
 ## Device Operation
 ### Getting Started - IDE
-If you want to program your Arduino Opta® while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
+If you want to program your Arduino Opta® Digital Expansions while offline you need to install the Arduino® Desktop IDE **[1]** and the Arduino_Opta_Blueprint using the Library Manager. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
 
 ### Getting Started - Arduino Web Editor
 All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by just installing a simple plugin.
@@ -434,13 +425,13 @@ All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by
 The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino PLC IDE
-Arduino Opta® can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software and connect your Arduino Opta® to your computer, using a simple USB-C® cable, to start creating your own PLC industrial solutions.
+Arduino Opta® Digital Expansions can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software, attach the Opta® Expansion through the Aux Connector and connect your Arduino Opta® to your computer using a simple USB-C® cable, to start creating your own PLC industrial solutions. The PLC IDE will recognize the expansion and will expose the new available I/Os in the resources tree.
 
 ### Getting Started - Arduino Cloud
 All Arduino® IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
-Sample sketches for Arduino Opta® can be found either in the “Examples” menu in the Arduino® IDE or the “Arduino Opta® Documentation” section of Arduino® **[5]**.
+Sample sketches for Arduino Opta® Digital Expansions can be found in the **Arduino_Opta_Blueprint** library “Examples” in the Arduino® IDE or the “Arduino Opta® Documentation” section of Arduino® **[5]**.
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[6]**, the Arduino® Library Reference **[7]** and the online store **[8]** where you will be able to complement your Arduino Opta® product with additional extensions, sensors and actuators.
