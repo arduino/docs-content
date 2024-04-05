@@ -182,8 +182,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input current</td>
-            <td>4.12 mA at 24 V</td>
-            <td>2.05 mA at 10 V</td>
+            <td>4.12 mA at 24 V, 2.05 mA at 10 V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input frequency</td>
