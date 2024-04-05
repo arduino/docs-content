@@ -12,10 +12,8 @@ Arduino Opta® Digital Expansions are designed to multiply your Opta® micro PLC
 
 The Arduino Opta® Digital Expansion comes in two variants: the Opta Ext D1608E (with Electromechanical Relays) and the Opta Ext D1608S (with Solid State Relays), both of them documented inside this document.
 
-
 # Target Areas:
 Industrial IoT, Building automation, Electrical loads management, Industrial automation
-
 
 # CONTENTS
 ## Product Variants
