@@ -5,7 +5,7 @@ url_guide: /tutorials/nano-esp32/getting-started-nano-esp32
 primary_button_url: /tutorials/nano-esp32/getting-started-nano-esp32
 primary_button_title: Get Started
 core: arduino:esp32
-certifications: [CE, UKCA, RoHS, FCC, MIC, IC]
+certifications: [CE, UKCA, RoHS, FCC, MIC, IC, RCM]
 forumCategorySlug: '/hardware/nano-family/nano-esp32/190'
 ---
 
