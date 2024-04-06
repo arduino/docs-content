@@ -4,6 +4,7 @@ difficulty: intermediate
 description: "Learn how to use the mPCIe interface onboard the Portenta Max Carrier with the Arduino Pro 4G Module"
 tags:
   - Linux
+  - OOTB
   - mPCIe
   - Cellular
 author: 'Taddy Ho Chung'
@@ -15,12 +16,25 @@ hardware:
 
 ## Overview
 
+This tutorial will guide you about the Mini PCI Express (Mini PCIe) interface of the Portenta Max Carrier. We will explore the onboard Mini PCIe slot and show you how to set up and configure this interface using the Portenta X8, ensuring you can fully leverage the capabilities of your device.
+
+The hands-on part of this tutorial will walk you through performing a speed test with the Arduino Pro 4G Module, a Cat.4 modem mini PCIe card compatible with the Portenta Max Carrier. This test aims to provide valuable insights into the functionality and efficiency of the Portenta Max Carrier and the Pro 4G Module while demonstrating its combination's practical application and network performance potential.
 
 ## Goals
+
+* Learn about the onboard Mini PCI Express interface on the Portenta Max Carrier.
+* Learn to set up and configure the Mini PCIe interface on the Portenta Max Carrier using the Portenta X8.
+* Implement a speed test using a Pro 4G Module, the Portenta Max Carrier, and the Portenta X8.
 
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
+
+* [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier) (x1)
+* [Portenta X8](https://store.arduino.cc/products/portenta-x8) (x1)
+* Pro 4G Module (GNSS Module Global / EMEA) (x1)
+* USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
+* Wi-Fi® Access Point or Ethernet with Internet access (x1)
 
 ### Software Requirements
 
@@ -28,21 +42,17 @@ To use the Portenta Max Carrier with a Portenta X8, please follow these guidelin
 
 - Ensure your Portenta X8 has the latest Linux image. Check this section to verify that your Portenta X8 is up-to-date.
 
-***For the smooth functioning of the Portenta Mid Carrier with the Portenta X8, it is crucial to have at least Linux **image version 7XX** on the Portenta X8. To update your board to the latest image, use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) method or [manually flash it](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool), downloading the most recent version from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
+***For the smooth functioning of the Portenta Mid Carrier with the Portenta X8, it is crucial to have at least Linux **image version > 746** on the Portenta X8. To update your board to the latest image, use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) method or [manually flash it](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool), downloading the most recent version from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
 
 ### Setting Up the Hardware
 
 The Portenta Max Carrier supports various power supply methods:
 
-- The preferred method is to use an **external 5.0 V power supply, connecting it to the board's XX.** This ensures the carrier, the System on Module (SOM), and any PCIe modules connected are sufficiently powered. It's crucial that the power supply can meet the current demands of all components, as outlined in the provided operating conditions.
+- The preferred method is to use an **external 6.0 to 36.0 V power supply, connecting it to the board's Power Jack.** This ensures the carrier, the System on Module (SOM), and any PCIe modules connected are sufficiently powered. It is crucial that the power supply can meet the current demands of all components, as outlined in the provided operating conditions.
 
 - Powering the device through a USB-C® cable connected to any Portenta core board, like the Portenta X8, will also power the core board, the carrier, and PCIe modules.
 
 ***The maximum current output of the Portenta Max Carrier is **2.0 A**.***
-
-Below is a diagram illustrating the various power connection options for the Portenta Max Carrier, showing the different methods to supply power:
-
-![Portenta Max Carrier Power Connection Overview](assets/portentaMIDcarrier_powerSource.png)
 
 ***It is advised to use a 5.0 V external power source, especially when using modules like the Arduino Pro 4G Module (EMEA / GNSS Global) or other mPCIe modules, to ensure a stable power supply for both the SOM and the carrier during prolonged usage.***
 
@@ -54,14 +64,14 @@ The following image provides a detailed view of the terminal block area on the P
 
 To ensure the safety and longevity of the board, it is important to be aware of the Portenta Max Carrier's operating conditions. The table provided below outlines the recommended operating conditions for the carrier:
 
-|                   **Parameter**                    | **Min** | **Typ** | **Max** | **Unit** |
-|:--------------------------------------------------:|:-------:|:-------:|:-------:|:--------:|
-| 5.0 V from onboard screw terminal\* of the Carrier |    -    |   5.0   |    -    |    V     |
-|    USB-C® input from the connected Portenta X8     |    -    |   5.0   |    -    |    V     |
-|          Current supplied by the carrier           |    -    |    -    |   2.0   |    A     |
-|           Ambient operating temperature            |   -40   |    -    |   85    |    °C    |
+|                 **Parameter**                 | **Min** | **Typ** | **Max** | **Unit** |
+|:---------------------------------------------:|:-------:|:-------:|:-------:|:--------:|
+| 6.0 ~ 36.0 V from Power Jack\* of the Carrier |    -    |   5.0   |    -    |    V     |
+|  USB-C® input from the connected Portenta X8  |    -    |   5.0   |    -    |    V     |
+|        Current supplied by the carrier        |    -    |    -    |   2.0   |    A     |
+|         Ambient operating temperature         |   -40   |    -    |   85    |    °C    |
 
-***The onboard screw terminal powers both the carrier and connected Portenta board.***
+***The onboard Power Jack powers both the carrier and connected Portenta board.***
 
 To ensure the power demands are met and connectivity is reliable, especially for the PMIC modules' external power, we recommend using cables that conform to the appropriate International Electrotechnical Commission (IEC) Standards and can carry currents up to 2.0 A. **Cables with a cross-sectional area ranging from 0.5 mm² to 0.75 mm², corresponding to AWG 20-18, should be adequate to manage 2.0 A of current.**
 
@@ -71,7 +81,11 @@ To ensure the power demands are met and connectivity is reliable, especially for
 
 These cards are significantly smaller than standard PCIe cards, typically measuring around 30 mm x 50.95 mm, and are designed to fit into the limited spaces of compact systems. It connects to a motherboard via a dedicated Mini PCIe slot, supporting PCIe and USB 2.0 interfaces. It is available in full-size and half-size variations.
 
-The Portenta Max Carrier has a mini PCIe slot compatible with **Arduino Pro 4G Module**, a Cat.4 modem mini PCIe card with two variants: **EMEA** and **GNSS Global**. The [EG25GGB-MINIPCIE-S](https://www.digikey.com/en/products/detail/quectel/EG25GGB-MINIPCIE-S/13278351) and its module [EG25GGB-256-SGNS](https://www.mouser.com/ProductDetail/Quectel/EG25GGB-256-SGNS?qs=GedFDFLaBXFxjpARmcjQ9Q%3D%3D&_gl=1*1esnx8e*_ga*MTA2MDkzOTk2MC4xNzAzNjg5MDc1*_ga_15W4STQT4T*MTcwMzY4OTA3NC4xLjAuMTcwMzY4OTA3NS41OS4wLjA.) for example denotes the Arduino Pro 4G GNSS Module Global variant.
+### Mini PCIe & Portenta Max Carrier
+
+The Portenta Max Carrier features a mini PCI Express card slot designed for use with female connectors. This slot is positioned at a right angle, and the board comes equipped with two detachable supports to ease the addition of external modules. Additionally, the Max Carrier is compatible with two sizes of Mini PCIe cards. For use with SIM cards, pins 8, 10, 12, and 14 are specifically set aside.
+
+The mini PCIe slot onboard the Portenta Max Carrier is compatible with **Arduino Pro 4G Module**, a Cat.4 modem mini PCIe card with two variants: **EMEA** and **GNSS Global**. The [EG25GGB-MINIPCIE-S](https://www.digikey.com/en/products/detail/quectel/EG25GGB-MINIPCIE-S/13278351) and its module [EG25GGB-256-SGNS](https://www.mouser.com/ProductDetail/Quectel/EG25GGB-256-SGNS?qs=GedFDFLaBXFxjpARmcjQ9Q%3D%3D&_gl=1*1esnx8e*_ga*MTA2MDkzOTk2MC4xNzAzNjg5MDc1*_ga_15W4STQT4T*MTcwMzY4OTA3NC4xLjAuMTcwMzY4OTA3NS41OS4wLjA.) for example denotes the Arduino Pro 4G GNSS Module Global variant.
 
 ![Portenta Max Carrier & PRO 4G GNSS Module Global](assets/portentaMIDcarrier_x8_4g.png)
 
@@ -136,7 +150,7 @@ The onboard Mini PCIe slot of the Portenta Max Carrier has the following pin lay
 
 To accommodate the power requirements and ensure reliable connectivity, it is recommended to use jumper cables with appropriate International Electrotechnical Commission (IEC) Standards that can support a current of up to 2A. **Jumper cables with a cross-sectional area of 0.5 mm² to 0.75 mm² (approximately equivalent to AWG 20-18) should be sufficient to support 2A of current**.
 
-This precaution is necessary to prevent wire overheating and ensure reliable power transmission for the connected Mini PCIe-compatible module, such as Cat.4 modems. Thus, a complete setup to use the mini PCIe interface with the Portenta Max Carrier consists of:
+This precaution is necessary to prevent wire overheating and ensure reliable power transmission for the connected Mini PCIe-compatible module, such as Cat.4 modems. Thus, a basic setup to use the mini PCIe interface with the Portenta Max Carrier consists of:
 
 - **PCIE ENABLE (PWM6)** pin supplied with 3.3 V
 - Properly inserted mini PCIe module, e.g., Pro 4G GNSS Module Global / Pro 4G EMEA Module
@@ -144,26 +158,6 @@ This precaution is necessary to prevent wire overheating and ensure reliable pow
 ***Please make sure to use a 5.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules to maintain a stable power supply to the Portenta SOM and the carrier, particularly for extended periods of use.***
 
 ![Portenta Max Carrier Mini PCIe Configuration](assets/portentaMIDcarrier_mpcie_setup.png)
-
-The following animation shows the assembly process using a mini PCIe slot compatible with the Pro 4G module.
-
-![Portenta Max Carrier & PRO 4G GNSS Module Global Assembly Animation](assets/portentaMIDcarrier_x8_4g_animated.gif)
-
-#### Accessing Mini PCIe Interface
-
-It is possible to know if the compatible mini PCIe module has been correctly set up and detected using the Portenta X8. The Portenta Max Carrier's mini PCIe lanes contain USB lines, and the Pro 4G Module is recognized as a USB module.
-
-Thus, to verify that the Pro 4G Module has been correctly powered up and recognized by the Portenta X8 with the Portenta Max Carrier, the following command is used instead of the `lspci` command:
-
-```bash
-lsusb
-```
-
-The above command will list the devices that the Portenta X8 has recognized. The following image shows similar results if the Pro 4G Module is detected.
-
-![Portenta Max Carrier Mini PCIe Module Listing](assets/portentaMIDcarrier_mpcie_detection.png)
-
-To learn about the implementation of the Pro 4G Module with the Portenta Max Carrier right away, you can jump to the [Cat.4 Modem (Cellular Connectivity)](#cat4-modem-cellular-connectivity) section under the [Network Connectivity](#network-connectivity) section.
 
 #### Cat.4 Modem (Cellular Connectivity)
 
@@ -189,7 +183,23 @@ It will be available in two variants, **EMEA** and **Global (covering the US)**,
 
 ## Instructions
 
-#### Setting Up Via Out-Of-The-Box Experience
+### Accessing Mini PCIe Interface
+
+It is possible to know if the compatible mini PCIe module has been correctly set up and detected using the Portenta X8. The Portenta Max Carrier's mini PCIe lanes contain USB lines, and the Pro 4G Module is recognized as a USB module.
+
+Thus, to verify that the Pro 4G Module has been correctly powered up and recognized by the Portenta X8 with the Portenta Max Carrier, the following command is used instead of the `lspci` command:
+
+```bash
+lsusb
+```
+
+The above command will list the devices that the Portenta X8 has recognized. The following image shows similar results if the Pro 4G Module is detected.
+
+![Portenta Max Carrier Mini PCIe Module Listing](assets/portentaMIDcarrier_mpcie_detection.png)
+
+To learn about the implementation of the Pro 4G Module with the Portenta Max Carrier right away, you can jump to the [Cat.4 Modem (Cellular Connectivity)](#cat4-modem-cellular-connectivity) section under the [Network Connectivity](#network-connectivity) section.
+
+### Setting Up Via Out-Of-The-Box Experience
 
 Having the Portenta X8 paired with the Portenta Max Carrier, the modem can be quickly completed through the Out-Of-The-Box setup process.
 
@@ -231,7 +241,7 @@ A notification will also appear briefly to inform you that the Portenta X8 has s
 
 With this, you now have the Portenta X8 connected to a 4G/LTE network using the Portenta Max Carrier through the Quectel mini PCIe modem.
 
-#### Setting Up Using Linux Environment
+### Setting Up Using Linux Environment
 
 If you choose to establish a network connection via ADB shell, a sequence of commands is required. But before anything else, the Portenta X8 must have the following overlays active:
 
