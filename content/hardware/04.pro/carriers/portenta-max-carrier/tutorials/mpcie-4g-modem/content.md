@@ -33,8 +33,12 @@ The hands-on part of this tutorial will walk you through performing a speed test
 * [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier) (x1)
 * [Portenta X8](https://store.arduino.cc/products/portenta-x8) (x1)
 * Pro 4G Module (GNSS Module Global / EMEA) (x1)
-* USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
-* Wi-Fi® Access Point or Ethernet with Internet access (x1)
+
+The following accessories are needed:
+
+- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
+- Wi-Fi® Access Point or Ethernet with Internet access (x1)
+- Power cables: Wires with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², corresponding to AWG sizes 18 to 16
 
 ### Software Requirements
 
