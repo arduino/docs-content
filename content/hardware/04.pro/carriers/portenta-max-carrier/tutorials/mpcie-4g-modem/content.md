@@ -51,11 +51,11 @@ To get your Portenta X8 ready for use with the Portenta Max Carrier, ensure it r
 
 ### Setting Up the Hardware Power Distribution
 
-For this tutorial, you will need to connect an **external 6.0 to 36.0 V power supply to the Portenta Max Carrier's Power Jack**. This ensures the carrier, the System on Module (SOM), and any PCIe modules connected are sufficiently powered.
+For this tutorial, you will need to connect an **external 6.0 to 36.0 V power supply to the Portenta Max Carrier's Power Jack**. This ensures the carrier, the Portenta X8, and any PCIe modules connected are sufficiently powered.
 
 To ensure the power demands are met, especially for the PMIC modules' external power, we recommend using cables that conform to the appropriate electrical standards, such as ASTM B 258 standard and can carry currents up to 2.0 A. **Cables with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², corresponding to AWG 18-16, should be adequate to manage 2.0 A of current.**
 
-***It is advised to use a __6.0 - 36.0 V external power source__ when using modules like the Arduino Pro 4G Module (EMEA / GNSS Global) or other mPCIe modules, to ensure a stable power supply for both the SOM and the carrier during prolonged usage.***
+***It is advised to use a __6.0 - 36.0 V external power source__ when using modules like the Arduino Pro 4G Module (EMEA / GNSS Global) or other mPCIe modules, to ensure a stable power supply for both the Portenta X8 and the carrier during prolonged usage.***
 
 The following image provides the position of the Power Jack on the Portenta Max Carrier:
 
@@ -131,7 +131,7 @@ Such a precaution is key to preventing wire overheating and guaranteeing stable 
 
 The **PCIE ENABLE (PWM6)** is the 33rd pin of the High-Density Connector (HDC) Stacker Connector (J5).
 
-***Using an external power source of 6.0 to 36.0 V is important when working with an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules because of their high power consumption. This ensures a continuous and stable power feed to the Portenta SOM, the carrier, and the involved mPCIe module, especially during extended use.***
+***Using an external power source of 6.0 to 36.0 V is important when working with an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules because of their high power consumption. This ensures a continuous and stable power feed to the Portenta X8, the carrier, and the involved mPCIe module, especially during extended use.***
 
 ![Portenta Max Carrier & Mini PCIe Setup](assets/portentaMAXcarrier_mpcie_set.png)
 
@@ -163,7 +163,7 @@ The image below illustrates the expected setup, showcasing the integration of th
 
 Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Distribution section](#mini-pcie-power-distribution). The Portenta X8 requires the **PCIE ENABLE (PWM6)** pin to be connected to a **VCC (3V3)** pin.
 
-***Please use a 6.0 - 36.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta SOM, the carrier, and the involved mPCIe module, particularly for extended periods of use.***
+***Please use a 6.0 - 36.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta X8, the carrier, and the involved mPCIe module, particularly for extended periods of use.***
 
 ## Instructions
 
