@@ -129,6 +129,8 @@ Such a precaution is key to preventing wire overheating and guaranteeing stable 
 - Powering the **PCIE ENABLE (PWM6)** pin with 3.3 V
 - Correctly installing a mini PCIe module, such as a Pro 4G GNSS Module Global or a Pro 4G EMEA Module
 
+The **PCIE ENABLE (PWM6)** is the 33rd pin of the High-Density Connector (HDC) Stacker Connector (J5).
+
 ***Using an external power source of 6.0 to 36.0 V is important when working with an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules because of their high power consumption. This ensures a continuous and stable power feed to the Portenta SOM, the carrier, and the involved mPCIe module, especially during extended use.***
 
 ![Portenta Max Carrier & Mini PCIe Setup](assets/portentaMAXcarrier_mpcie_set.png)
