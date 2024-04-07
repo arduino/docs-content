@@ -79,42 +79,42 @@ In its portfolio, Arduino has two mini PCIe modules compatible with Portenta Max
 
 The onboard Mini PCIe slot of the Portenta Max Carrier has the following pin layout characteristics:
 
-| **Pin Number** | **Silkscreen Pin** |  **Power Net**  | **Portenta Standard Pin** |                        **High-Density Pin**                         |                  **Pin Detail**                   |
-|:--------------:|:------------------:|:---------------:|:-------------------------:|:-------------------------------------------------------------------:|:-------------------------------------------------:|
-|       2        |        N/A         | +3V3 PCIE (Out) |                           |                                                                     | From PCIE dedicated high current 3V3 power supply |
-|       4        |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       7        |        N/A         |                 |           PWM_9           |                                J2-68                                |                    PCIE_CLKREQ                    |
-|       8        |        N/A         |                 |                           |                                                                     |                      UIM_PWR                      |
-|       9        |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       10       |        N/A         |                 |                           |                                                                     |                     UIM_DATA                      |
-|       11       |        N/A         |                 |         PCIE_CK_N         |                                J2-19                                |                                                   |
-|       12       |        N/A         |                 |                           |                                                                     |                      UIM_CLK                      |
-|       13       |        N/A         |                 |         PCIE_CK_P         |                                J2-17                                |                                                   |
-|       14       |        N/A         |                 |                           |                                                                     |                      UIM_RST                      |
-|       15       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       18       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       20       |        N/A         |                 |         ANALOG_A1         |                                J2-75                                |                     W_DISABLE                     |
-|       21       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       22       |        N/A         |                 |         PCIE_RST          |                                J2-21                                |                                                   |
-|       23       |        N/A         |                 |         PCIE_RX_N         |                                J2-15                                |                                                   |
-|       24       |        N/A         | +3V3 PCIE (Out) |                           |                                                                     | From PCIE dedicated high current 3V3 power supply |
-|       25       |        N/A         |                 |         PCIE_RX_P         |                                J2-13                                |                                                   |
-|       26       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       27       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       29       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       31       |        N/A         |                 |         PCIE_TX_N         |                                J2-11                                |                                                   |
-|       33       |        N/A         |                 |         PCIE_TX_P         |                                J2-9                                 |                                                   |
-|       34       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       35       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       36       |        N/A         |                 |          USB_D_N          |                                                                     |                 USB3_N (USB HUB)                  |
-|       37       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       38       |        N/A         |                 |          USB_D_P          |                                J1-26                                |                 USB3_P (USB HUB)                  |
-|       39       |        N/A         | +3V3 PCIE (Out) |                           |                                                                     | From PCIE dedicated high current 3V3 power supply |
-|       40       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       41       |        N/A         | +3V3 PCIE (Out) |                           |                                                                     | From PCIE dedicated high current 3V3 power supply |
-|       43       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       50       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       52       |        N/A         | +3V3 PCIE (Out) |                           |                                                                     | From PCIE dedicated high current 3V3 power supply |
+| **Pin Number** | **Silkscreen Pin** |  **Power Net**  | **Portenta Standard Pin** |                         **High-Density Pin**                         |                  **Pin Detail**                   |
+|:--------------:|:------------------:|:---------------:|:-------------------------:|:--------------------------------------------------------------------:|:-------------------------------------------------:|
+|       2        |        N/A         | +3V3 PCIE (Out) |                           |                                                                      | From PCIE dedicated high current 3V3 power supply |
+|       4        |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       7        |        N/A         |                 |           PWM_9           |                                J2-68                                 |                    PCIE_CLKREQ                    |
+|       8        |        N/A         |                 |                           |                                                                      |                      UIM_PWR                      |
+|       9        |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70  |                                                   |
+|       10       |        N/A         |                 |                           |                                                                      |                     UIM_DATA                      |
+|       11       |        N/A         |                 |         PCIE_CK_N         |                                J2-19                                 |                                                   |
+|       12       |        N/A         |                 |                           |                                                                      |                      UIM_CLK                      |
+|       13       |        N/A         |                 |         PCIE_CK_P         |                                J2-17                                 |                                                   |
+|       14       |        N/A         |                 |                           |                                                                      |                      UIM_RST                      |
+|       15       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       18       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       20       |        N/A         |                 |         ANALOG_A1         |                                J2-75                                 |                     W_DISABLE                     |
+|       21       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       22       |        N/A         |                 |         PCIE_RST          |                                J2-21                                 |                                                   |
+|       23       |        N/A         |                 |         PCIE_RX_N         |                                J2-15                                 |                                                   |
+|       24       |        N/A         | +3V3 PCIE (Out) |                           |                                                                      | From PCIE dedicated high current 3V3 power supply |
+|       25       |        N/A         |                 |         PCIE_RX_P         |                                J2-13                                 |                                                   |
+|       26       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       27       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       29       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       31       |        N/A         |                 |         PCIE_TX_N         |                                J2-11                                 |                                                   |
+|       33       |        N/A         |                 |         PCIE_TX_P         |                                 J2-9                                 |                                                   |
+|       34       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       35       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       36       |        N/A         |                 |          USB_D_N          |                                                                      |                 USB3_N (USB HUB)                  |
+|       37       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       38       |        N/A         |                 |          USB_D_P          |                                J1-26                                 |                 USB3_P (USB HUB)                  |
+|       39       |        N/A         | +3V3 PCIE (Out) |                           |                                                                      | From PCIE dedicated high current 3V3 power supply |
+|       40       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       41       |        N/A         | +3V3 PCIE (Out) |                           |                                                                      | From PCIE dedicated high current 3V3 power supply |
+|       43       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       50       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
+|       52       |        N/A         | +3V3 PCIE (Out) |                           |                                                                      | From PCIE dedicated high current 3V3 power supply |
 
 The [full pinout document of the Portenta Max Carrier](https://docs.arduino.cc/resources/pinouts/ABX00043-full-pinout.pdf) can also provide a graphical representation of the mini PCIe interface pinout layout. The following image represents the dedicated page from the complete pinout documentation: 
 
