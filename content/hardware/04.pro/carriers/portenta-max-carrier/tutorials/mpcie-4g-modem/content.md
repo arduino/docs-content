@@ -1,7 +1,7 @@
 ---
 title: 'Using Mini PCIe Interface with the Portenta Max Carrier & Pro 4G Module'
 difficulty: intermediate
-description: "Learn how to use the mPCIe interface onboard the Portenta Max Carrier with the Arduino Pro 4G Module"
+description: "Learn how to use the mPCIe interface on the Portenta Max Carrier with the Arduino Pro 4G Module."
 tags:
   - Linux
   - OOTB
@@ -40,6 +40,7 @@ The following accessories are needed:
 
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
 - Wi-Fi® Access Point or Ethernet with Internet access (x1)
+- External antenna: Main antenna, GNSS antenna, and Rx-Diversity antenna
 - Power cables: Wires with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², corresponding to AWG sizes 18 to 16
 
 ### Software Requirements
@@ -68,7 +69,7 @@ These cards are significantly smaller than standard PCIe cards, typically measur
 
 ## Mini PCIe & Portenta Max Carrier
 
-The Portenta Max Carrier features a mini PCI Express card slot designed for use with female connectors. This slot is positioned at a right angle, and the board comes equipped with two detachable supports to ease the addition of external modules. Additionally, the Max Carrier is compatible with two sizes of Mini PCIe cards. For use with SIM cards, pins 8, 10, 12, and 14 are specifically set aside.
+The Portenta Max Carrier features a mini PCI Express card slot designed for use with female connectors. This slot is positioned at a right angle, and the board comes equipped with two detachable supports to ease the addition of external modules. The Max Carrier is also compatible with two sizes of Mini PCIe cards. Pins 8, 10, 12, and 14 are specifically set aside for use with SIM cards.
 
 ![Mini PCIe Interface on the Portenta Max Carrier](assets/portentaMAXcarrier_mpcie_connector.png)
 
@@ -76,7 +77,7 @@ In its portfolio, Arduino has two mini PCIe modules compatible with Portenta Max
 
 ![Portenta Max Carrier & PRO 4G Module](assets/portentaMAXcarrier_module_setup.png)
 
-The onboard Mini PCIe slot of the Portenta Max Carrier has the following pin layout characteristic:
+The onboard Mini PCIe slot of the Portenta Max Carrier has the following pin layout characteristics:
 
 | **Pin Number** | **Silkscreen Pin** |  **Power Net**  | **Portenta Standard Pin** |                        **High-Density Pin**                         |                  **Pin Detail**                   |
 |:--------------:|:------------------:|:---------------:|:-------------------------:|:-------------------------------------------------------------------:|:-------------------------------------------------:|
@@ -123,7 +124,7 @@ The [full pinout document of the Portenta Max Carrier](https://docs.arduino.cc/r
 
 To address the power demands and ensure reliable connections, using jumper cables that comply with appropriate electrical standards, such as ASTM B 258 standard, and can support up to 2A of current is advisable. **Jumper cables with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², roughly equivalent to AWG 18-16, should be sufficient for 2.0 A of current.**
 
-Such a precaution is key to preventing wire overheating and guaranteeing stable power supply to Mini PCIe-compatible devices, like Cat.4 modems. An essential setup for activating the mini PCIe interface with the Portenta Max Carrier involves:
+Such a precaution is key to preventing wire overheating and guaranteeing stable power supply to Mini PCIe-compatible devices, like Cat.4 modems. An essential setup for activating the mini PCIe interface with the Portenta Max Carrier involves the following:
 
 - Powering the **PCIE ENABLE (PWM6)** pin with 3.3 V
 - Correctly installing a mini PCIe module, such as a Pro 4G GNSS Module Global or a Pro 4G EMEA Module
@@ -196,7 +197,7 @@ In the **Settings**, choose the **LTE/4G Sim** option to start configuring the m
 
 ![PRO 4G GNSS Module OOTB Activation - Modem Parameters](assets/portentaMAXcarrier_modem_init.png)
 
-For the **LTE/4G Sim** settings, youll need to provide:
+For the **LTE/4G Sim** settings, you will need to provide:
 
 - **APN**
 - **PIN** (if available)
@@ -220,7 +221,7 @@ You have successfully connected the Portenta X8 to a 4G/LTE network via the Port
 
 ### Setting Up Using Linux Environment
 
-The Pro 4G Module can be managed via ADB shell on the Portenta X8's Linux environment. A series of commands are used to apply the necessary overlays first for the Portenta X8 and the Portenta Max Carrier.
+The Pro 4G Module can be managed via ADB shell on the Portenta X8's Linux environment. A series of commands is used to apply the necessary overlays for the Portenta X8 and the Portenta Max Carrier.
 
 To check the existing device tree overlay configurations, which play a key role in managing hardware features and customizing the system, you can use this command:
 
@@ -236,9 +237,9 @@ This might involve enabling extra peripherals, setting up pin configurations, or
 ov_carrier_max_pcie_mini
 ```
 
-If it is not present, the following steps will help you to set the needed overlays to use the mini PCIe interface on the Portenta Max Carrier. There are two ways to set up the overlay configuration for the mPCIe interface:
+If it is not present, the following steps will help you set the needed overlays to use the mini PCIe interface on the Portenta Max Carrier. There are two ways to set up the overlay configuration for the mPCIe interface:
 
-- Via **tenta-config** based on `tenta` framework
+- Via **tenta-config** based on the `tenta` framework
 - Via purely ADB shell
 
 #### Overlay Configuration Via Tenta-Config
@@ -398,3 +399,27 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.p
 ```
 
 ## Conclusion
+
+In this tutorial, you have learned the key steps to use and configure the mini PCI Express interface on the Portenta Max Carrier with the Portenta X8. You will be able to manage the mini PCIe interface and use the Pro 4G Module via the Out-Of-The-Box experience method, `tenta` framework, and ADB shell. You have seen exemplified performance and connectivity through a practical speed test using the Pro 4G Module, setting the stage for future projects and applications.
+
+## Support
+
+If you encounter any issues or have questions while working with the Portenta Max Carrier, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our Help Center, which offers a comprehensive collection of articles and guides for the Portenta Max Carrier. The Arduino Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Portenta Max Carrier help center page](https://support.arduino.cc/hc)
+
+### Forum
+
+Join our community forum to connect with other Portenta Max Carrier users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Portenta Max Carrier.
+
+- [Portenta Max Carrier category in the Arduino Forum](https://forum.arduino.cc/c/hardware/portenta/portenta-max-carrier/175)
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Portenta Max Carrier.
+
+- [Contact us page](https://www.arduino.cc/pro/contact-us)
