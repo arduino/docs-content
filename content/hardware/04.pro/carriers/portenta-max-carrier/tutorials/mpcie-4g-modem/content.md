@@ -16,9 +16,9 @@ hardware:
 
 ## Overview
 
-This tutorial will guide you about the Mini PCI Express (Mini PCIe) interface of the Portenta Max Carrier. We will explore the onboard Mini PCIe slot and show you how to set up and configure this interface using the Portenta X8, ensuring you can fully leverage the capabilities of your device.
+This tutorial will guide you about the **Mini PCI Express (Mini PCIe) interface of the Portenta Max Carrier**. We will explore the onboard Mini PCIe slot and show you how to set up and configure this interface using the Portenta X8, ensuring you can fully leverage the capabilities of your device.
 
-The hands-on part of this tutorial will walk you through performing a speed test with the Arduino Pro 4G Module, a Cat.4 modem mini PCIe card compatible with the Portenta Max Carrier. This test aims to provide valuable insights into the functionality and efficiency of the Portenta Max Carrier and the Pro 4G Module while demonstrating its combination's practical application and network performance potential.
+The hands-on part of this tutorial will walk you through performing a speed test with the **Arduino Pro 4G Module**, a Cat.4 modem mini PCIe card compatible with the Portenta Max Carrier. This test aims to provide valuable insights into the functionality and efficiency of the Portenta Max Carrier and the Pro 4G Module while demonstrating its combination's practical application and network performance potential.
 
 ## Goals
 
@@ -42,146 +42,109 @@ The following accessories are needed:
 
 ### Software Requirements
 
-To use the Portenta Max Carrier with a Portenta X8, please follow these guidelines:
+To get your Portenta X8 ready for use with the Portenta Max Carrier, ensure it runs the most recent version of Linux. The steps to check and update your device are in [this section of Portenta X8's user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#set-flashing-mode-with-carrier).
 
-- Ensure your Portenta X8 has the latest Linux image. Check this section to verify that your Portenta X8 is up-to-date.
-
-***For the smooth functioning of the Portenta Mid Carrier with the Portenta X8, it is crucial to have at least Linux **image version > 746** on the Portenta X8. To update your board to the latest image, use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) method or [manually flash it](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool), downloading the most recent version from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
+***Your Portenta X8 should be on Linux __image version 746 or newer__ to ensure everything works smoothly. To update your board to the latest image, use the [__Portenta X8 Out-of-the-box__](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) method or [manually flash it](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool), downloading the most recent version from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
 
 ### Setting Up the Hardware
 
-The Portenta Max Carrier supports various power supply methods:
+For this tutorial, you will need to connect an **external 6.0 to 36.0 V power supply to the Portenta Max Carrier's Power Jack**. This ensures the carrier, the System on Module (SOM), and any PCIe modules connected are sufficiently powered.
 
-- The preferred method is to use an **external 6.0 to 36.0 V power supply, connecting it to the board's Power Jack.** This ensures the carrier, the System on Module (SOM), and any PCIe modules connected are sufficiently powered. It is crucial that the power supply can meet the current demands of all components, as outlined in the provided operating conditions.
+To ensure the power demands are met, especially for the PMIC modules' external power, we recommend using cables that conform to the appropriate electrical standards, such as ASTM B 258 standard and can carry currents up to 2.0 A. __Cables with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², corresponding to AWG 18-16, should be adequate to manage 2.0 A of current.__ 
 
-- Powering the device through a USB-C® cable connected to any Portenta core board, like the Portenta X8, will also power the core board, the carrier, and PCIe modules.
+***It is advised to use a __6.0 - 36.0 V external power source__ when using modules like the Arduino Pro 4G Module (EMEA / GNSS Global) or other mPCIe modules, to ensure a stable power supply for both the SOM and the carrier during prolonged usage.***
 
-***The maximum current output of the Portenta Max Carrier is **2.0 A**.***
+The following image provides the position of the Power Jack on the Portenta Max Carrier:
 
-***It is advised to use a 5.0 V external power source, especially when using modules like the Arduino Pro 4G Module (EMEA / GNSS Global) or other mPCIe modules, to ensure a stable power supply for both the SOM and the carrier during prolonged usage.***
+![Portenta Max Carrier Power Jack]()
 
-The following image provides a detailed view of the terminal block area on the Portenta Max Carrier, highlighting the exact location for connecting the 5 V power sources within the terminal block:
+## Mini PCI Express
 
-![Portenta Max Carrier Power Source within Terminal Block](assets/portentaMIDcarrier_powerSource_block.png)
+**Mini PCIe**, short for Mini Peripheral Component Interconnect Express, is a smaller version of the PCIe interface mainly used in laptops and small devices to add features such as Wi-Fi®, Bluetooth®, and cellular connectivity.
 
-### Recommended Operating Conditions
+These cards are significantly smaller than standard PCIe cards, typically measuring around 30 mm x 50.95 mm, and are designed to fit into the limited spaces of compact systems. They connect to a motherboard via a dedicated Mini PCIe slot, supporting PCIe and USB 2.0 interfaces. They are available in full-size and half-size variants.
 
-To ensure the safety and longevity of the board, it is important to be aware of the Portenta Max Carrier's operating conditions. The table provided below outlines the recommended operating conditions for the carrier:
-
-|                 **Parameter**                 | **Min** | **Typ** | **Max** | **Unit** |
-|:---------------------------------------------:|:-------:|:-------:|:-------:|:--------:|
-| 6.0 ~ 36.0 V from Power Jack\* of the Carrier |    -    |   5.0   |    -    |    V     |
-|  USB-C® input from the connected Portenta X8  |    -    |   5.0   |    -    |    V     |
-|        Current supplied by the carrier        |    -    |    -    |   2.0   |    A     |
-|         Ambient operating temperature         |   -40   |    -    |   85    |    °C    |
-
-***The onboard Power Jack powers both the carrier and connected Portenta board.***
-
-To ensure the power demands are met and connectivity is reliable, especially for the PMIC modules' external power, we recommend using cables that conform to the appropriate International Electrotechnical Commission (IEC) Standards and can carry currents up to 2.0 A. **Cables with a cross-sectional area ranging from 0.5 mm² to 0.75 mm², corresponding to AWG 20-18, should be adequate to manage 2.0 A of current.**
-
-### Mini PCI Express
-
-**Mini PCIe**, short for Mini Peripheral Component Interconnect Express, is a compact version of the PCIe interface, predominantly used in laptops and small devices for adding functionalities like Wi-Fi®, Bluetooth®, and cellular modems.
-
-These cards are significantly smaller than standard PCIe cards, typically measuring around 30 mm x 50.95 mm, and are designed to fit into the limited spaces of compact systems. It connects to a motherboard via a dedicated Mini PCIe slot, supporting PCIe and USB 2.0 interfaces. It is available in full-size and half-size variations.
-
-### Mini PCIe & Portenta Max Carrier
+## Mini PCIe & Portenta Max Carrier
 
 The Portenta Max Carrier features a mini PCI Express card slot designed for use with female connectors. This slot is positioned at a right angle, and the board comes equipped with two detachable supports to ease the addition of external modules. Additionally, the Max Carrier is compatible with two sizes of Mini PCIe cards. For use with SIM cards, pins 8, 10, 12, and 14 are specifically set aside.
 
-The mini PCIe slot onboard the Portenta Max Carrier is compatible with **Arduino Pro 4G Module**, a Cat.4 modem mini PCIe card with two variants: **EMEA** and **GNSS Global**. The [EG25GGB-MINIPCIE-S](https://www.digikey.com/en/products/detail/quectel/EG25GGB-MINIPCIE-S/13278351) and its module [EG25GGB-256-SGNS](https://www.mouser.com/ProductDetail/Quectel/EG25GGB-256-SGNS?qs=GedFDFLaBXFxjpARmcjQ9Q%3D%3D&_gl=1*1esnx8e*_ga*MTA2MDkzOTk2MC4xNzAzNjg5MDc1*_ga_15W4STQT4T*MTcwMzY4OTA3NC4xLjAuMTcwMzY4OTA3NS41OS4wLjA.) for example denotes the Arduino Pro 4G GNSS Module Global variant.
+![Mini PCIe Interface on the Portenta Max Carrier]()
 
-![Portenta Max Carrier & PRO 4G GNSS Module Global](assets/portentaMIDcarrier_x8_4g.png)
+In its portfolio, Arduino has two mini PCIe modules compatible with Portenta Max Carrier, the **Arduino Pro 4G Module**, a Cat.4 modem mini PCIe card available in two variants: **EMEA** and **GNSS Global**.
 
-The onboard Mini PCIe slot of the Portenta Max Carrier has the following pin layout:
+![Portenta Max Carrier & PRO 4G GNSS Module Global]()
+
+The onboard Mini PCIe slot of the Portenta Max Carrier has the following pin layout characteristic:
 
 | **Pin Number** | **Silkscreen Pin** |  **Power Net**  | **Portenta Standard Pin** |                        **High-Density Pin**                         |                  **Pin Detail**                   |
 |:--------------:|:------------------:|:---------------:|:-------------------------:|:-------------------------------------------------------------------:|:-------------------------------------------------:|
-|       1        |        N/A         |                 |                           |                                                                     |       Connected to pin 23 of J16 connector        |
 |       2        |        N/A         | +3V3 PCIE (Out) |                           |                                                                     | From PCIE dedicated high current 3V3 power supply |
-|       3        |        N/A         |                 |                           |                                                                     |       Connected to pin 21 of J16 connector        |
 |       4        |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       5        |        N/A         |                 |                           |                                                                     |       Connected to pin 19 of J16 connector        |
-|       6        |        N/A         |                 |                           |                                                                     |       Connected to pin 17 of J16 connector        |
-|       7        |        N/A         |                 |          GPIO_1           |                                J2-48                                |                                                   |
-|       8        |        N/A         |                 |                           |                                                                     |         Connected to pin C1 of SIM1 slot          |
+|       7        |        N/A         |                 |           PWM_9           |                                J2-68                                |                    PCIE_CLKREQ                    |
+|       8        |        N/A         |                 |                           |                                                                     |                      UIM_PWR                      |
 |       9        |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       10       |        N/A         |                 |                           |                                                                     |         Connected to pin C7 of SIM1 slot          |
+|       10       |        N/A         |                 |                           |                                                                     |                     UIM_DATA                      |
 |       11       |        N/A         |                 |         PCIE_CK_N         |                                J2-19                                |                                                   |
-|       12       |        N/A         |                 |                           |                                                                     |         Connected to pin C3 of SIM1 slot          |
+|       12       |        N/A         |                 |                           |                                                                     |                      UIM_CLK                      |
 |       13       |        N/A         |                 |         PCIE_CK_P         |                                J2-17                                |                                                   |
-|       14       |        N/A         |                 |                           |                                                                     |         Connected to pin C2 of SIM1 slot          |
+|       14       |        N/A         |                 |                           |                                                                     |                      UIM_RST                      |
 |       15       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       16       |        N/A         |                 |                           |                                                                     |       Connected to pin 15 of J16 connector        |
-|       17       |        N/A         |                 |                           |                                                                     |       Connected to pin 13 of J16 connector        |
 |       18       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       19       |        N/A         |                 |                           |                                                                     |       Connected to pin 11 of J16 connector        |
-|       20       |        N/A         |                 |          GPIO_2           |                                J2-50                                |                                                   |
+|       20       |        N/A         |                 |         ANALOG_A1         |                                J2-75                                |                     W_DISABLE                     |
 |       21       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       22       |        N/A         |                 |         PCIE_RST          |                                J2-21                                |        Connected to pin 9 of J16 connector        |
+|       22       |        N/A         |                 |         PCIE_RST          |                                J2-21                                |                                                   |
 |       23       |        N/A         |                 |         PCIE_RX_N         |                                J2-15                                |                                                   |
 |       24       |        N/A         | +3V3 PCIE (Out) |                           |                                                                     | From PCIE dedicated high current 3V3 power supply |
 |       25       |        N/A         |                 |         PCIE_RX_P         |                                J2-13                                |                                                   |
 |       26       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
 |       27       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       28       |        N/A         |                 |                           |                                                                     |       Connected to pin 22 of J16 connector        |
 |       29       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       30       |        N/A         |                 |         I2C0_SCL          |                                J1-46                                |       Connected to pin 28 of J15 connector        |
 |       31       |        N/A         |                 |         PCIE_TX_N         |                                J2-11                                |                                                   |
-|       32       |        N/A         |                 |         I2C0_SDA          |                                J1-44                                |       Connected to pin 26 of J15 connector        |
 |       33       |        N/A         |                 |         PCIE_TX_P         |                                J2-9                                 |                                                   |
 |       34       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
 |       35       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       36       |        N/A         |                 |         USB0_D_N          |                                J1-28                                |         Connected to USB-A connector J13          |
+|       36       |        N/A         |                 |          USB_D_N          |                                                                     |                 USB3_N (USB HUB)                  |
 |       37       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       38       |        N/A         |                 |         USB0_D_P          |                                J1-26                                |         Connected to USB-A connector J13          |
+|       38       |        N/A         |                 |          USB_D_P          |                                J1-26                                |                 USB3_P (USB HUB)                  |
 |       39       |        N/A         | +3V3 PCIE (Out) |                           |                                                                     | From PCIE dedicated high current 3V3 power supply |
 |       40       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
 |       41       |        N/A         | +3V3 PCIE (Out) |                           |                                                                     | From PCIE dedicated high current 3V3 power supply |
-|       42       |        N/A         |                 |                           |                                                                     |       Connected to pin 20 of J16 connector        |
 |       43       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       44       |        N/A         |                 |                           |                                                                     |       Connected to pin 18 of J16 connector        |
-|       45       |        N/A         |                 |                           |                                                                     |       Connected to pin 12 of J16 connector        |
-|       46       |        N/A         |                 |                           |                                                                     |       Connected to pin 16 of J16 connector        |
-|       47       |        N/A         |                 |                           |                                                                     |       Connected to pin 10 of J16 connector        |
-|       48       |        N/A         |                 |                           |                                                                     |       Connected to pin 14 of J16 connector        |
-|       49       |        N/A         |                 |                           |                                                                     |        Connected to pin 8 of J16 connector        |
 |       50       |        N/A         |     Ground      |            GND            | J1-22, J1-31, J1-42, J1-47, J1-54 J2-24, J2-33, J2-44, J2-57, J2-70 |                                                   |
-|       51       |        N/A         |                 |                           |                                                                     |        Connected to pin 6 of J16 connector        |
 |       52       |        N/A         | +3V3 PCIE (Out) |                           |                                                                     | From PCIE dedicated high current 3V3 power supply |
 
-#### Mini PCIe Power Distribution
+The [full pinout document of the Portenta Max Carrier](https://docs.arduino.cc/resources/pinouts/ABX00043-full-pinout.pdf) can also provide a graphical representation of the mini PCIe interface pinout layout. The following image represents the dedicated page from the complete pinout documentation: 
 
-To accommodate the power requirements and ensure reliable connectivity, it is recommended to use jumper cables with appropriate International Electrotechnical Commission (IEC) Standards that can support a current of up to 2A. **Jumper cables with a cross-sectional area of 0.5 mm² to 0.75 mm² (approximately equivalent to AWG 20-18) should be sufficient to support 2A of current**.
+![Portenta Max Carrier & PRO 4G GNSS Module Global](assets/portentaMAXcarrier_mpcie_pinout.png)
 
-This precaution is necessary to prevent wire overheating and ensure reliable power transmission for the connected Mini PCIe-compatible module, such as Cat.4 modems. Thus, a basic setup to use the mini PCIe interface with the Portenta Max Carrier consists of:
+### Mini PCIe Power Distribution
 
-- **PCIE ENABLE (PWM6)** pin supplied with 3.3 V
-- Properly inserted mini PCIe module, e.g., Pro 4G GNSS Module Global / Pro 4G EMEA Module
+To address the power demands and ensure reliable connections, using jumper cables that comply with appropriate electrical standards, such as ASTM B 258 standard, and can support up to 2A of current is advisable. **Jumper cables with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², roughly equivalent to AWG 18-16, should be sufficient for 2.0 A of current.**
 
-***Please make sure to use a 5.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules to maintain a stable power supply to the Portenta SOM and the carrier, particularly for extended periods of use.***
+Such a precaution is key to preventing wire overheating and guaranteeing stable power supply to Mini PCIe-compatible devices, like Cat.4 modems. An essential setup for activating the mini PCIe interface with the Portenta Max Carrier involves:
 
-![Portenta Max Carrier Mini PCIe Configuration](assets/portentaMIDcarrier_mpcie_setup.png)
+- Powering the **PCIE ENABLE (PWM6)** pin with 3.3 V
+- Correctly installing a mini PCIe module, such as a Pro 4G GNSS Module Global or a Pro 4G EMEA Module
 
-#### Cat.4 Modem (Cellular Connectivity)
+***Using an external power source of 6.0 to 36.0 V is important when working with an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules because of their high power consumption. This ensures a continuous and stable power feed to the Portenta SOM, the carrier, and the involved mPCIe module, especially during extended use.***
 
-The **Cat.4 modem**, designed for mPCIe interfaces, uses LTE (Long Term Evolution) standards. These modems are crucial for achieving high-speed data transmission in various electronic devices.
+![Portenta Max Carrier Mini PCIe Configuration]()
 
-Cat.4 modems can deliver robust data speeds, with peak download rates of up to 150 Mbps and upload rates reaching 50 Mbps. This performance level is well-suited to various online activities, including high-definition video streaming and expedient large file transfers.
+## Pro 4G Module - Cat.4 Modem
 
-The mPCIe form factor of these modems ensures compatibility with compact devices, including laptops, tablets, and IoT (Internet of Things) systems. Furthermore, these modems maintain backward compatibility with 3G and 2G networks, offering comprehensive network connectivity in diverse locations.
+The **Cat.4 modem**, compatible with [mPCIe interfaces](#mini-pcie--portenta-max-carrier), leverages LTE (Long Term Evolution) standards to provide high-speed data transmission across various electronic devices.
 
-The Portenta Max Carrier takes advantage of this modem via an onboard mini PCIe interface and provides reliable 4G connectivity with backward compatibility for 3G and 2G networks. The **Arduino Pro 4G Module (EMEA / GNSS Global)**, a Cat.4 modem mini PCIe card using PCI Express Mini Card 1.2 Standard Interface, will be the main protagonist of this section.
+These modems offer substantial data speeds, reaching up to 150 Mbps for downloads and 50 Mbps for uploads, making them ideal for a range of internet activities like streaming high-definition content and quick transfers of large files.
 
-The following image represents the **Arduino Pro 4G Module EMEA**:
+Designed with the mPCIe form factor, Cat.4 modems fit snugly in compact electronics such as laptops, tablets, and IoT devices. They also support older 3G and 2G networks, ensuring wide network coverage.
 
-![Arduino PRO 4G Module EMEA](assets/portenta4G_module_emea.png)
+The Portenta Max Carrier uses this modem through its built-in mini PCIe interface. It ensures dependable 4G connectivity while supporting 3G and 2G networks. The **Arduino Pro 4G Module (EMEA / GNSS Global)**, a Cat.4 modem in a mini PCIe format that follows the PCI Express Mini Card 1.2 Standard Interface, is a key feature in this configuration.
 
-The following image represents the **Arduino Pro 4G GNSS Module Global**:
+Below is an image of the **Arduino Pro 4G Module**:
 
-![Arduino PRO 4G GNSS Module Global](assets/portenta4G_module_global.png)
+![Arduino PRO 4G GNSS Module](assets/portenta4G_module_struct.png)
 
-It will be available in two variants, **EMEA** and **Global (covering the US)**, this module can be integrated with various Portenta boards to create expansive smart cities/buildings and implement remote maintenance and fleet management systems.
+This module has two versions: **EMEA** and **Global (including the US)**. It can be used with various Portenta boards to help develop expansive smart city/building projects and to support remote maintenance and fleet management.
 
 ![Arduino PRO 4G GNSS Module Global / Module EMEA](assets/portentaQuectel_overview.gif)
 
@@ -189,77 +152,172 @@ It will be available in two variants, **EMEA** and **Global (covering the US)**,
 
 ### Accessing Mini PCIe Interface
 
-It is possible to know if the compatible mini PCIe module has been correctly set up and detected using the Portenta X8. The Portenta Max Carrier's mini PCIe lanes contain USB lines, and the Pro 4G Module is recognized as a USB module.
+You can check if the mini PCIe module is properly installed and detected by the Portenta X8 by using the Portenta Max Carrier. Since the mini PCIe lanes on the Portenta Max Carrier include USB lines, and the Pro 4G Module functions as a USB device, you will use a different approach to confirm its setup.
 
-Thus, to verify that the Pro 4G Module has been correctly powered up and recognized by the Portenta X8 with the Portenta Max Carrier, the following command is used instead of the `lspci` command:
+To ensure the Pro 4G Module is powered up and recognized by the Portenta X8 along with the Portenta Max Carrier, use the following command instead of the `lspci` command:
 
 ```bash
 lsusb
 ```
 
-The above command will list the devices that the Portenta X8 has recognized. The following image shows similar results if the Pro 4G Module is detected.
+This command lists the devices recognized by the Portenta X8. If the Pro 4G Module is correctly detected, you will see results similar to the ones shown in the following image.
 
-![Portenta Max Carrier Mini PCIe Module Listing](assets/portentaMIDcarrier_mpcie_detection.png)
-
-To learn about the implementation of the Pro 4G Module with the Portenta Max Carrier right away, you can jump to the [Cat.4 Modem (Cellular Connectivity)](#cat4-modem-cellular-connectivity) section under the [Network Connectivity](#network-connectivity) section.
+![Portenta Max Carrier Mini PCIe Module Listing]()
 
 ### Setting Up Via Out-Of-The-Box Experience
 
-Having the Portenta X8 paired with the Portenta Max Carrier, the modem can be quickly completed through the Out-Of-The-Box setup process.
+Setting up the modem is easy with the Out-Of-The-Box process on the Portenta X8 paired with the Portenta Max Carrier.
 
-***If you are not familiar with the Out-Of-The-Box experience of the Portenta X8, it is recommended to read the [Out-Of-The-Box Experience section of the Portenta X8 User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#out-of-the-box-experience) to gain a better understanding before proceeding.***
+Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Distribution section](#mini-pcie-power-distribution). The Portenta X8 requires the **PCIE ENABLE (PWM6)** pin to be connected to a **VCC (3V3)** pin.
 
-Navigate to the Out-Of-The-Box dashboard of the Portenta X8.
+***Please use a 6.0 - 36.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta SOM, the carrier, and the involved mPCIe module, particularly for extended periods of use.***
 
-![PRO 4G GNSS Module OOTB Activation - Main Page](assets/portentaMIDcarrier_modem_main.png)
+***If you are new to the Out-Of-The-Box experience of the Portenta X8, we recommend reviewing the [Out-Of-The-Box Experience section of the Portenta X8 User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#out-of-the-box-experience) for a better understanding before you continue.***
+
+Proceed to the Out-Of-The-Box dashboard on the Portenta X8.
+
+![PRO 4G GNSS Module OOTB Activation - Main Page](assets/portentaMAXcarrier_modem_main.png)
 
 In this dashboard, you will find the **Settings** option. Please click on this option to proceed to the next step.
 
-![PRO 4G GNSS Module OOTB Activation - Settings Option](assets/portentaMIDcarrier_modem_options.png)
+![PRO 4G GNSS Module OOTB Activation - Settings Option](assets/portentaMAXcarrier_modem_options.png)
 
-You will see three setup options in the **Settings** section. Select the **LTE/4G Sim** option to begin the modem setup.
+In the **Settings**, choose the **LTE/4G Sim** option to start configuring the modem.
 
-Make sure the Quectel 4G modem is connected to the mini PCIe slot at this stage, with the **3V3_PCIE** pin of the Mini PCIe power breakout connected to the **3V3_BUCK** of the same breakout header. 
+![PRO 4G GNSS Module OOTB Activation - Modem Parameters](assets/portentaMAXcarrier_modem_init.png)
 
-![PRO 4G GNSS Module OOTB Activation - Modem Parameters](assets/portentaMIDcarrier_modem_init.png)
-
-In the **LTE/4G Sim** setting, it will require you to provide the following:
+For the **LTE/4G Sim** settings, youll need to provide:
 
 - **APN**
-- **PIN**
+- **PIN** (if available)
 
-Additionally, it is necessary to select an **Authentication Protocol**, which could be either:
+You will also need to choose an **Authentication Protocol**, either:
 
 - **PAP/CHAP**
 - **NONE**
 
-Briefly, PAP (Password Authentication Protocol) sends credentials in plain text, which is suitable for low-security or legacy environments. At the same time, CHAP (Challenge-Handshake Authentication Protocol) improves security with three-way handshake and hash functions, protecting against replay attacks and providing a more secure option than PAP.
+PAP (Password Authentication Protocol) sends passwords as clear text, suitable for low-security or legacy environments. At the same time, CHAP (Challenge-Handshake Authentication Protocol) offers enhanced security through a three-step verification process and encrypted passwords, providing better protection than PAP.
 
-Make sure to provide these details according to your SIM card settings. After completing these steps, the bottom left of the Out-Of-The-Box interface will display the **4G/LTE Network** connection status.
+Enter these details based on your SIM card's requirements. Once done, the **4G/LTE Network** connection status will be displayed at the bottom left of the Out-Of-The-Box dashboard.
 
-![PRO 4G GNSS Module OOTB Activation - Network Status](assets/portentaMIDcarrier_modem_netStat.png)
+![PRO 4G GNSS Module OOTB Activation - Network Status](assets/portentaMAXcarrier_modem_netStat.png)
 
-A notification will also appear briefly to inform you that the Portenta X8 has successfully established a network connection if it finds an available network. By selecting **SYSTEM INFO**, you can view detailed information about the established network connection.
+A brief notification will confirm the successful network connection by the Portenta X8 if a network is available. You can view more details about the connection by selecting **SYSTEM INFO**.
 
-![PRO 4G GNSS Module OOTB Activation - System Information](assets/portentaMIDcarrier_modem_sysInfo.png)
+![PRO 4G GNSS Module OOTB Activation - System Information](assets/portentaMAXcarrier_modem_sysInfo.png)
 
-With this, you now have the Portenta X8 connected to a 4G/LTE network using the Portenta Max Carrier through the Quectel mini PCIe modem.
+You have successfully connected the Portenta X8 to a 4G/LTE network via the Portenta Max Carrier and the Pro 4G Module.
 
 ### Setting Up Using Linux Environment
 
-If you choose to establish a network connection via ADB shell, a sequence of commands is required. But before anything else, the Portenta X8 must have the following overlays active:
+The Pro 4G Module can be managed via ADB shell on the Portenta X8's Linux environment.
+
+Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Distribution section](#mini-pcie-power-distribution). The Portenta X8 requires the **PCIE ENABLE (PWM6)** pin to be connected to a **VCC (3V3)** pin.
+
+***Please use a 6.0 - 36.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta SOM, the carrier, and the involved mPCIe module, particularly for extended periods of use.***
+
+The image below shows the anticipated configuration, featuring the Portenta X8 and Pro 4G Module integrated with the Portenta Max Carrier, including the mini PCIe power configuration:
+
+![Portenta Max Carrier Mini PCIe & Portenta X8 Setup](assets/portentaMIDcarrier_x8_mpcie_set.png)
+
+Once the setup is ready, a sequence of commands is used to set the overlays required for the Portenta X8 and the Portenta Mas Carrier.
+
+To review the current device tree overlay configurations, which are crucial for hardware feature management and system customization, use the following command:
 
 ```bash
-ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_enuc_bq24195 ov_carrier_max_usbfs ov_carrier_max_sdc ov_carrier_max_cs42l52 ov_carrier_max_pcie_mini
+fw_printenv overlays
 ```
 
-To set the corresponding overlays, following command can be used:
+This command invokes the `fw_printenv` utility to display overlays from the U-Boot firmware settings. Overlays are instrumental in defining modifications or additions to the device's hardware configuration without altering the base device tree.
+
+This can include enabling additional peripherals, configuring pin mappings, or activating specific hardware features, providing a flexible approach to hardware customization. From this, the following overlay should be available:
+
+```bash
+ov_carrier_max_pcie_mini
+```
+
+If it is not present, the following steps will help you to set the needed overlays to use the mini PCIe interface on the Portenta Max Carrier. There are two ways to set up the overlay configuration for the mPCIe interface:
+
+- Via **tenta-config** based on `tenta` framework
+- Via purely ADB shell
+
+#### Overlay Configuration Via Tenta-Config
+
+It is possible to use the **tenta-config** process to apply the overlays to enable mini PCIe for the Portenta Max Carrier with the Portenta X8.
+
+Access the docker container named **x8-devel** with the following command:
+
+```bash
+docker exec -it x8-devel sh
+```
+
+This command uses **docker exec** to begin a new shell session inside the running **x8-devel** container. The `-it` flags ensure an interactive terminal session, providing direct command execution within the container's environment. This is particularly useful for development purposes, enabling code editing, process monitoring, or debugging tasks within the isolated context of the container.
+
+We need to search for **tenta_runner** Python script, and the following command can help to locate the script:
+
+```bash
+find / -name *.py
+```
+
+Starting from the root directory, this command recursively searches for files ending in `.py`, indicating Python scripts. This search aids in locating Python-based utilities, scripts, or applications scattered across the system.
+
+Having located the **tenta_runner.py**, navigate to the directory using the following command:
+
+```bash
+cd /root/examples/tenta-config
+```
+
+Run the **tenta_runner.py** script using the following command:
+
+```bash
+python tenta_runner.py
+```
+
+The script will activate a user interface within the `tenta` framework. Once the **tenta-config** window appears, please choose **Portenta Max Carrier**.
+
+![Portenta Max Carrier mPCIe Overlay Configuration - Main](assets/portentaMAXcarrier_mpcie_1.png)
+
+It will then show a list of available options that can be executed within the Portenta Max Carrier platform. Here, the **Enable alternative overlays** option will be selected.
+
+![Portenta Max Carrier mPCIe Overlay Configuration - Overlays](assets/portentaMAXcarrier_mpcie_2.png)
+
+It will open a new window displaying the **Adds Mini-PCIE support** option. Please select the **Adds Mini-PCIE support** option.
+
+![Portenta Max Carrier mPCIe Overlay Configuration - Mini PCIe](assets/portentaMAXcarrier_mpcie_3.png)
+
+It will prompt a message showing a new set of overlays that will be applied once modified.
+
+![Portenta Max Carrier mPCIe Overlay Configuration - Applied Changes](assets/portentaMAXcarrier_mpcie_4.png)
+
+Select **Ok** to confirm, and the device will be configured with the overlays for mini PCIe support.
+
+![Portenta Max Carrier mPCIe Overlay Configuration - Change Set](assets/portentaMAXcarrier_mpcie_5.png)
+
+#### Overlay Configuration Via ADB Shell
+
+The following commands are used to set the required overlays to add mini PCIe support on the Portenta X8 and the Portenta Max Carrier.
+
+```bash
+fw_setenv carrier_custom 1
+```
+
+```bash
+fw_setenv is_on_carrier yes
+```
+
+```bash
+fw_setenv carrier_name max
+```
 
 ```bash
 fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_enuc_bq24195 ov_carrier_max_usbfs ov_carrier_max_sdc ov_carrier_max_cs42l52 ov_carrier_max_pcie_mini'
 ```
 
-Afterward, the setup process involves bringing down the `wwan0` interface, setting it to raw IP mode, and then bringing it back up:
+Once the overlays are set, please reboot the Portenta X8 to ensure the configuration has been applied correctly.
+
+#### Connecting & Testing Network Connectivity
+
+With the overlays configured, the setup process involves bringing down the `wwan0` interface, setting it to raw IP mode, and then bringing it back up:
 
 ```bash
 ip link set dev wwan0 down
@@ -319,7 +377,7 @@ docker run -it --mount type=bind,source="$(pwd)",target=/app python:3.8-slim-bus
 
 Once the speed test concludes, you can see similar behavior to the following image.
 
-![PRO 4G GNSS Module - Speed Test](assets/portentaMIDcarrier_mpcie_4gmodem_result.png)
+![Arduino Pro 4G Module - Speed Test](assets/portentaMIDcarrier_mpcie_4gmodem_result.png)
 
 ***The download and upload speed may vary depending on the region.***
 
