@@ -1,5 +1,5 @@
 ---
-title: 'Using Mini PCIe Interface with the Portenta Max Carrier & Pro 4G Module'
+title: 'Using Mini PCIe on the Portenta Max Carrier & Pro 4G Module'
 difficulty: intermediate
 description: "Learn how to use the mPCIe interface on the Portenta Max Carrier with the Arduino Pro 4G Module."
 tags:
