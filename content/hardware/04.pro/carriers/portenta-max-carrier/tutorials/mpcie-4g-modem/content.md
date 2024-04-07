@@ -18,7 +18,7 @@ hardware:
 
 This tutorial will guide you about the **Mini PCI Express (Mini PCIe) interface of the Portenta Max Carrier**. We will explore the onboard Mini PCIe slot and show you how to set up and configure this interface using the Portenta X8, ensuring you can fully leverage the capabilities of your device.
 
-![Portenta Max Carrier with the Portenta X8 & Pro 4G Module]()
+![Portenta Max Carrier with the Portenta X8 & Pro 4G Module](assets/portentaMAXcarrier_modem_test.png)
 
 The hands-on part of this tutorial will walk you through performing a speed test with the **Arduino Pro 4G Module**, a Cat.4 modem mini PCIe card compatible with the Portenta Max Carrier. This test aims to provide valuable insights into the functionality and efficiency of the Portenta Max Carrier and the Pro 4G Module while demonstrating its combination's practical application and network performance potential.
 
@@ -48,17 +48,17 @@ To get your Portenta X8 ready for use with the Portenta Max Carrier, ensure it r
 
 ***Your Portenta X8 should be on Linux __image version 746 or newer__ to ensure everything works smoothly. To update your board to the latest image, use the [__Portenta X8 Out-of-the-box__](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) method or [manually flash it](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool), downloading the most recent version from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).***
 
-### Setting Up the Hardware
+### Setting Up the Hardware Power Distribution
 
 For this tutorial, you will need to connect an **external 6.0 to 36.0 V power supply to the Portenta Max Carrier's Power Jack**. This ensures the carrier, the System on Module (SOM), and any PCIe modules connected are sufficiently powered.
 
-To ensure the power demands are met, especially for the PMIC modules' external power, we recommend using cables that conform to the appropriate electrical standards, such as ASTM B 258 standard and can carry currents up to 2.0 A. __Cables with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², corresponding to AWG 18-16, should be adequate to manage 2.0 A of current.__ 
+To ensure the power demands are met, especially for the PMIC modules' external power, we recommend using cables that conform to the appropriate electrical standards, such as ASTM B 258 standard and can carry currents up to 2.0 A. **Cables with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², corresponding to AWG 18-16, should be adequate to manage 2.0 A of current.**
 
 ***It is advised to use a __6.0 - 36.0 V external power source__ when using modules like the Arduino Pro 4G Module (EMEA / GNSS Global) or other mPCIe modules, to ensure a stable power supply for both the SOM and the carrier during prolonged usage.***
 
 The following image provides the position of the Power Jack on the Portenta Max Carrier:
 
-![Portenta Max Carrier Power Jack]()
+![Portenta Max Carrier Power Jack](assets/portentaMAXcarrier_power_distro.png)
 
 ## Mini PCI Express
 
@@ -70,11 +70,11 @@ These cards are significantly smaller than standard PCIe cards, typically measur
 
 The Portenta Max Carrier features a mini PCI Express card slot designed for use with female connectors. This slot is positioned at a right angle, and the board comes equipped with two detachable supports to ease the addition of external modules. Additionally, the Max Carrier is compatible with two sizes of Mini PCIe cards. For use with SIM cards, pins 8, 10, 12, and 14 are specifically set aside.
 
-![Mini PCIe Interface on the Portenta Max Carrier]()
+![Mini PCIe Interface on the Portenta Max Carrier](assets/portentaMAXcarrier_mpcie_connector.png)
 
 In its portfolio, Arduino has two mini PCIe modules compatible with Portenta Max Carrier, the **Arduino Pro 4G Module**, a Cat.4 modem mini PCIe card available in two variants: **EMEA** and **GNSS Global**.
 
-![Portenta Max Carrier & PRO 4G GNSS Module Global]()
+![Portenta Max Carrier & PRO 4G Module](assets/portentaMAXcarrier_module_setup.png)
 
 The onboard Mini PCIe slot of the Portenta Max Carrier has the following pin layout characteristic:
 
@@ -119,7 +119,7 @@ The [full pinout document of the Portenta Max Carrier](https://docs.arduino.cc/r
 
 ![Portenta Max Carrier & PRO 4G GNSS Module Global](assets/portentaMAXcarrier_mpcie_pinout.png)
 
-### Mini PCIe Power Distribution
+### Mini PCIe Interface Setup
 
 To address the power demands and ensure reliable connections, using jumper cables that comply with appropriate electrical standards, such as ASTM B 258 standard, and can support up to 2A of current is advisable. **Jumper cables with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², roughly equivalent to AWG 18-16, should be sufficient for 2.0 A of current.**
 
@@ -130,7 +130,7 @@ Such a precaution is key to preventing wire overheating and guaranteeing stable 
 
 ***Using an external power source of 6.0 to 36.0 V is important when working with an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules because of their high power consumption. This ensures a continuous and stable power feed to the Portenta SOM, the carrier, and the involved mPCIe module, especially during extended use.***
 
-![Portenta Max Carrier Mini PCIe Configuration]()
+![Portenta Max Carrier & Mini PCIe Setup](assets/portentaMAXcarrier_mpcie_set.png)
 
 ## Pro 4G Module - Cat.4 Modem
 
@@ -150,6 +150,18 @@ This module has two versions: **EMEA** and **Global (including the US)**. It can
 
 ![Arduino PRO 4G GNSS Module Global / Module EMEA](assets/portentaQuectel_overview.gif)
 
+***Make sure to attach external antennas to the Pro 4G Module to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector, and a GNSS antenna connector. The impedance of the antenna connectors is 50 Ω.***
+
+## Complete Hardware Setup
+
+The image below illustrates the expected setup, showcasing the integration of the Portenta X8 and Pro 4G Module with the Portenta Max Carrier, complete with the mini PCIe setup:
+
+![Portenta Max Carrier Mini PCIe & Portenta X8 Setup](assets/portentaMAXcarrier_complete_setup.png)
+
+Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Distribution section](#mini-pcie-power-distribution). The Portenta X8 requires the **PCIE ENABLE (PWM6)** pin to be connected to a **VCC (3V3)** pin.
+
+***Please use a 6.0 - 36.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta SOM, the carrier, and the involved mPCIe module, particularly for extended periods of use.***
+
 ## Instructions
 
 ### Accessing Mini PCIe Interface
@@ -164,15 +176,11 @@ lsusb
 
 This command lists the devices recognized by the Portenta X8. If the Pro 4G Module is correctly detected, you will see results similar to the ones shown in the following image.
 
-![Portenta Max Carrier Mini PCIe Module Listing]()
+![Portenta Max Carrier Mini PCIe Module Listing](assets/portentaMAXcarrier_mpcie_list.png)
 
 ### Setting Up Via Out-Of-The-Box Experience
 
 Setting up the modem is easy with the Out-Of-The-Box process on the Portenta X8 paired with the Portenta Max Carrier.
-
-Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Distribution section](#mini-pcie-power-distribution). The Portenta X8 requires the **PCIE ENABLE (PWM6)** pin to be connected to a **VCC (3V3)** pin.
-
-***Please use a 6.0 - 36.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta SOM, the carrier, and the involved mPCIe module, particularly for extended periods of use.***
 
 ***If you are new to the Out-Of-The-Box experience of the Portenta X8, we recommend reviewing the [Out-Of-The-Box Experience section of the Portenta X8 User Manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#out-of-the-box-experience) for a better understanding before you continue.***
 
@@ -212,17 +220,7 @@ You have successfully connected the Portenta X8 to a 4G/LTE network via the Port
 
 ### Setting Up Using Linux Environment
 
-The Pro 4G Module can be managed via ADB shell on the Portenta X8's Linux environment.
-
-Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Distribution section](#mini-pcie-power-distribution). The Portenta X8 requires the **PCIE ENABLE (PWM6)** pin to be connected to a **VCC (3V3)** pin.
-
-***Please use a 6.0 - 36.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta SOM, the carrier, and the involved mPCIe module, particularly for extended periods of use.***
-
-The image below illustrates the expected setup, showcasing the integration of the Portenta X8 and Pro 4G Module with the Portenta Max Carrier, complete with the mini PCIe setup:
-
-![Portenta Max Carrier Mini PCIe & Portenta X8 Setup](assets/portentaMIDcarrier_x8_mpcie_set.png)
-
-Once the setup is verified, a series of commands are used to apply the necessary overlays for the Portenta X8 and the Portenta Max Carrier.
+The Pro 4G Module can be managed via ADB shell on the Portenta X8's Linux environment. A series of commands are used to apply the necessary overlays first for the Portenta X8 and the Portenta Max Carrier.
 
 To check the existing device tree overlay configurations, which play a key role in managing hardware features and customizing the system, you can use this command:
 
@@ -381,7 +379,7 @@ docker run -it --mount type=bind,source="$(pwd)",target=/app python:3.8-slim-bus
 
 After the speed test, you might observe results similar to the following image.
 
-![Arduino Pro 4G Module - Speed Test]()
+![Arduino Pro 4G Module - Speed Test](assets/portentaMAXcarrier_modem_test.png)
 
 ***The download and upload speed may vary depending on the region.***
 
