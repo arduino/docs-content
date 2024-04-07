@@ -18,6 +18,8 @@ hardware:
 
 This tutorial will guide you about the **Mini PCI Express (Mini PCIe) interface of the Portenta Max Carrier**. We will explore the onboard Mini PCIe slot and show you how to set up and configure this interface using the Portenta X8, ensuring you can fully leverage the capabilities of your device.
 
+![Portenta Max Carrier with the Portenta X8 & Pro 4G Module]()
+
 The hands-on part of this tutorial will walk you through performing a speed test with the **Arduino Pro 4G Module**, a Cat.4 modem mini PCIe card compatible with the Portenta Max Carrier. This test aims to provide valuable insights into the functionality and efficiency of the Portenta Max Carrier and the Pro 4G Module while demonstrating its combination's practical application and network performance potential.
 
 ## Goals
@@ -216,21 +218,21 @@ Please ensure the mini PCIe power configuration is set as outlined in the [Mini 
 
 ***Please use a 6.0 - 36.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta SOM, the carrier, and the involved mPCIe module, particularly for extended periods of use.***
 
-The image below shows the anticipated configuration, featuring the Portenta X8 and Pro 4G Module integrated with the Portenta Max Carrier, including the mini PCIe power configuration:
+The image below illustrates the expected setup, showcasing the integration of the Portenta X8 and Pro 4G Module with the Portenta Max Carrier, complete with the mini PCIe setup:
 
 ![Portenta Max Carrier Mini PCIe & Portenta X8 Setup](assets/portentaMIDcarrier_x8_mpcie_set.png)
 
-Once the setup is ready, a sequence of commands is used to set the overlays required for the Portenta X8 and the Portenta Mas Carrier.
+Once the setup is verified, a series of commands are used to apply the necessary overlays for the Portenta X8 and the Portenta Max Carrier.
 
-To review the current device tree overlay configurations, which are crucial for hardware feature management and system customization, use the following command:
+To check the existing device tree overlay configurations, which play a key role in managing hardware features and customizing the system, you can use this command:
 
 ```bash
 fw_printenv overlays
 ```
 
-This command invokes the `fw_printenv` utility to display overlays from the U-Boot firmware settings. Overlays are instrumental in defining modifications or additions to the device's hardware configuration without altering the base device tree.
+This command uses the `fw_printenv` tool to list the overlays as per the U-Boot firmware settings. Overlays are crucial for specifying changes or additions to the device's hardware setup without modifying the original device tree structure.
 
-This can include enabling additional peripherals, configuring pin mappings, or activating specific hardware features, providing a flexible approach to hardware customization. From this, the following overlay should be available:
+This might involve enabling extra peripherals, setting up pin configurations, or turning on specific hardware functionalities, thus offering a versatile means for customizing hardware settings. Among the overlays that should be visible is:
 
 ```bash
 ov_carrier_max_pcie_mini
@@ -243,25 +245,25 @@ If it is not present, the following steps will help you to set the needed overla
 
 #### Overlay Configuration Via Tenta-Config
 
-It is possible to use the **tenta-config** process to apply the overlays to enable mini PCIe for the Portenta Max Carrier with the Portenta X8.
+You can apply the necessary overlays to activate mini PCIe on the Portenta Max Carrier with the Portenta X8 by using the **tenta-config** process.
 
-Access the docker container named **x8-devel** with the following command:
+Start by accessing the docker container named **x8-devel** with this command:
 
 ```bash
 docker exec -it x8-devel sh
 ```
 
-This command uses **docker exec** to begin a new shell session inside the running **x8-devel** container. The `-it` flags ensure an interactive terminal session, providing direct command execution within the container's environment. This is particularly useful for development purposes, enabling code editing, process monitoring, or debugging tasks within the isolated context of the container.
+This command uses **docker exec** to start a new shell session inside the active **x8-devel** container. The `-it` flag creates an interactive terminal session, allowing you to perform commands directly within the container's environment. This feature is convenient for development activities, such as modifying code, tracking processes, or troubleshooting within the container's secluded environment.
 
-We need to search for **tenta_runner** Python script, and the following command can help to locate the script:
+Find the **tenta_runner** Python® script with the help of this command:
 
 ```bash
 find / -name *.py
 ```
 
-Starting from the root directory, this command recursively searches for files ending in `.py`, indicating Python scripts. This search aids in locating Python-based utilities, scripts, or applications scattered across the system.
+This command begins at the root directory and recursively searches for files with a `.py` extension, representing Python® scripts. This search helps find Python®-based tools, scripts, or programs throughout the system.
 
-Having located the **tenta_runner.py**, navigate to the directory using the following command:
+Once you have found **tenta_runner.py**, move to its directory with this command:
 
 ```bash
 cd /root/examples/tenta-config
@@ -309,6 +311,8 @@ fw_setenv is_on_carrier yes
 fw_setenv carrier_name max
 ```
 
+The previous commands are used to set environment variables, which we will use to set and use the needed overlays to link the mini PCIe interface under its profile. The overlays are as follows and set using the following command:
+
 ```bash
 fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_enuc_bq24195 ov_carrier_max_usbfs ov_carrier_max_sdc ov_carrier_max_cs42l52 ov_carrier_max_pcie_mini'
 ```
@@ -331,29 +335,29 @@ echo Y > /sys/class/net/wwan0/qmi/raw_ip
 ip link set dev wwan0 up
 ```
 
-The following steps include using `qmicli` commands to check the card status and start a network connection:
+Following that, use `qmicli` commands to inspect the card's status and begin a network connection:
 
 ```bash
 qmicli --device=/dev/cdc-wdm0 --device-open-proxy --uim-get-card-status
 ```
 
-![PRO 4G GNSS Module - Card Status](assets/portentaMIDcarrier_mpcie_card_status.png)
+![PRO 4G GNSS Module - Card Status](assets/portentaMAXcarrier_mpcie_card_status.png)
 
 ```bash
 qmicli --device=/dev/cdc-wdm0 --device-open-proxy --wds-start-network="ip-type=4,apn=iot.1nce.net" --client-no-release-cid
 ```
 
-![PRO 4G GNSS Module - Network Initialization](assets/portentaMIDcarrier_mpcie_network_start.png)
+![PRO 4G GNSS Module - Network Initialization](assets/portentaMAXcarrier_mpcie_network_start.png)
 
-After establishing the network connection, you can use `udhcpc` to manage dynamic IP configuration:
+After establishing the network connection, the `udhcpc` is used to handle dynamic IP configuration:
 
 ```bash
 udhcpc -q -f -n -i wwan0
 ```
 
-![PRO 4G GNSS Module - Dynamic IP Configuration](assets/portentaMIDcarrier_mpcie_dynamic.png)
+![PRO 4G GNSS Module - Dynamic IP Configuration](assets/portentaMAXcarrier_mpcie_dynamic.png)
 
-A speed test can be performed to test the speed and performance of the connection. It involves downloading the `speedtest-cli` script, converting it to an executable, and running it inside a Docker container:
+We now have the Pro 4G Module with the Portenta X8 on the Porteta Max Carrier ready for use. To test the connection speed, perform a speed test by downloading the `speedtest-cli` script, making it executable, and running it within a Docker container:
 
 ```bash
 wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
@@ -375,21 +379,21 @@ docker run -it --mount type=bind,source="$(pwd)",target=/app python:3.8-slim-bus
 /app/speedtest-cli
 ```
 
-Once the speed test concludes, you can see similar behavior to the following image.
+After the speed test, you might observe results similar to the following image.
 
-![Arduino Pro 4G Module - Speed Test](assets/portentaMIDcarrier_mpcie_4gmodem_result.png)
+![Arduino Pro 4G Module - Speed Test]()
 
 ***The download and upload speed may vary depending on the region.***
 
-This comprehensive setup shows how Mini PCIe cards can be integrated and used in compact systems as carriers, leveraging their ability to provide additional functionalities while maintaining a small footprint.
+This setup demonstrates the integration and use of Mini PCIe cards in compact systems such as the Portenta Max Carrier, showcasing their ability to add functionalities while maintaining a small footprint.
 
-To compress into a single line of command, the following format is also suggested:
+For a more streamlined approach, you can use the following single-line command:
 
 ```bash
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.autoconnect yes
 ```
 
-In case the SIM card requires a PIN number, the format is modified slightly as follows:
+If your SIM card requires a PIN, adjust the command as follows:
 
 ```bash
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.pin <PIN>
