@@ -320,7 +320,7 @@ fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_enuc_bq24195 ov_car
 
 Once the overlays are set, please reboot the Portenta X8 to ensure the configuration has been applied correctly.
 
-#### Connecting & Testing Network Connectivity
+### Connecting & Testing Network Connectivity
 
 With the overlays configured, the setup process involves bringing down the `wwan0` interface, setting it to raw IP mode, and then bringing it back up:
 
