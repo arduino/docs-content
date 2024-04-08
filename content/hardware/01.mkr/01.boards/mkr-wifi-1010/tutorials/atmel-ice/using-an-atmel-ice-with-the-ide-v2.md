@@ -115,6 +115,8 @@ Let's start by opening the Arduino IDE 2 and connecting our MKR WiFi 1010 board 
 
 ![The board and port recognized by the Arduino IDE 2.](assets/ide_v2_t1_img05.png)
 
+Select **Tools > Programmer > Atmel-ICE** from the Arduino IDE menus.
+
 ### 2. Creating the Test Code
 
 Let's try the example code show below, it is a simple program that blinks the onboard LED of our board and changes the value of variables `x` and `y` while running. Open a new sketch, copy and paste the code show below:

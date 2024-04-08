@@ -17,9 +17,9 @@ hardware:
 
 The Opta™ micro PLC is designed to operate in several industrial environments involving crucial processes. These processes require controllers to be responsive and precise to manage sensitive tasks and capable of handling large sets of conditions within defined parameters in real-time. Asynchronous operations or spontaneous events are the kind of process that requires immediate attention at a given moment. Therefore, interrupt management is critical to control and optimize these event classes.
 
-![General Overview of Interrupt on Opta™](assets/opta_interrupt_overview.svg)
+![General overview of Opta's interrupts](assets/opta_interrupt_overview.png)
 
-The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle time-sensitive and unexpected events based on state changes. This tutorial will help you to implement interrupts on Opta™ using the Arduino programming language and the [Arduino IDE](https://www.arduino.cc/en/software).
+The **interrupt**, a basic yet vital feature, is available on Opta™ to handle time-sensitive and unexpected events based on state changes. This tutorial will help you to implement interrupts on Opta™ using the Arduino programming language and the [Arduino IDE](https://www.arduino.cc/en/software).
 
 ## Goals
 
@@ -30,9 +30,9 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 #### Hardware Requirements
 
-- Opta™ PLC (x1)
-- USB-C® cable (x1)
-- 12-24VDC/1A power supply (x1)
+- [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
+- +12-24 VDC/0.5 A power supply (x1)
 
 #### Software Requirements
 
@@ -41,9 +41,9 @@ The **Interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 ## Interrupt Basics
 
-**Interrupts** are execution requests triggered usually by a timed event or signal which will pause the active process if the interrupt request is accepted under certain conditions, executing new high-priority commands immediately and returning to the main process as soon as possible. The **Interrupt Service Routine**, or **ISR**, is the handler that performs a specific instruction set whenever an interrupt is raised.
+**Interrupts** are execution requests triggered usually by a timed event or signal, which will pause the active process if the interrupt request is accepted under certain conditions, executing new high-priority commands immediately and returning to the main process as soon as possible. The **Interrupt Service Routine**, or **ISR**, is the handler that performs a specific instruction set whenever an interrupt is raised.
 
-The handler can be defined to run particular instructions periodically, use external signals, or send an alert in case of a system failure. It is a function launched as a priority task among the other operations, whenever a specific high-awareness state change occurs respective to an assigned trigger.
+The handler can be defined to run particular instructions periodically, use external signals, or send an alert in case of a system failure. It is a function launched as a priority task among the other operations whenever a specific high-awareness state change occurs relative to an assigned trigger.
 
 ### Interrupt Types
 
@@ -60,9 +60,17 @@ Interrupt signals must be set with appropriate triggers to create interrupt requ
 * **Level-Triggered:** This is when an interrupt has been requested with signals at a particular logic level, which can be either *HIGH* or *LOW*.
 * **Edge-Triggered:** This is when an interrupt has been requested due to a signal at a specific transition level, which can be either *RISING* or *FALLING* edge. It can also be configured with *CHANGE* to interrupt whenever either signal transition has occurred.
 
-![Interrupt Triggers with Opta™](assets/opta_interrupt_signals.svg)
+![Interrupt triggers in Opta™](assets/opta_interrupt_signals.svg)
 
 Now that you have a better knowledge about interrupts, let's see how to use interrupts with an Opta™ device.
+
+## Interrupts on Opta™
+
+**Opta's analog/digital programmable inputs and user-programmable button are interrupt-capable**; you can use them through the built-in functions of the Arduino programming language. To enable interrupts in your Opta's analog/digital programmable inputs and user-programmable button it is important to do the following:
+
+- Add the `attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)`  instruction in your sketch's `setup()` function. Notice that the `pin` parameter can be `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, or `BTN_USER`; the `ISR` parameter is the ISR function to call when the interrupt occurs, and the `mode` parameter defines when the interrupt should be triggered (`LOW`, `CHANGE`, `RISING`, or `FALLING`). 
+
+***Due to Opta's microcontroller interrupt structure, terminals `I1` (`A0`) and `I4` (`A4`) interrupts cannot be used simultaneously to avoid operational issues. It is important to note that, despite this limitation, any other combination of inputs can be used for interrupt detection. However, this means that, at most, seven of the eight available inputs can be used simultaneously for interrupts, as combinations containing `I1` and `I4` are excluded from viable configurations.***
 
 ## Instructions
 
@@ -72,17 +80,17 @@ This tutorial will need the latest version of the Arduino IDE. You can download 
 
 ### Example Setup
 
-The example will try to keep the setup as simple as possible while maintaining the scalability of the feature on Opta™. The setup will use the programmable user button (`BTN_USER`) and `A0-A1` inputs as interrupt pins. All available `D0-D3` relays will be configured as outputs and status LEDs will indicate the corresponding contact state.
+The example will try to keep the setup as simple as possible while maintaining the scalability of the feature on Opta™. The setup will use the programmable user button (`BTN_USER`) and `A0-A1` inputs as interrupt pins. All available `D0-D3` relays will be configured as outputs, and status LEDs will indicate the corresponding contact state.
 
 Please refer to the following diagram to have an overview of the inputs and outputs position of the example model.
 
-![Interrupt Example Setup for Opta™](assets/opta_interrupt_model.svg)
+![Interrupt example setup](assets/opta_interrupt_model.svg)
 
 ### Example Overview
 
 The example will showcase different interrupt routines for Opta™ using two scenarios:
 
-1. The `BTN_USER` is the user-programmable button that will be used for the interrupt to simulate asynchronous events. The corresponding interrupt will make relay and corresponding status LED state switch in a sequence based on its present state.
+1. The `BTN_USER` is the user-programmable button that will be used for the interrupt to simulate asynchronous events. The corresponding interrupt will make a relay and corresponding status LED state switch in a sequence based on its present state.
 2. The `A0` and `A1` inputs will be open to external devices that send signals periodically, and it will make an interrupt on the signaled pin. The `A0` will be in charge of the `D0` and `D1` relays, while the `A1` will control the `D2` and `D3` relays.
 
 These tasks will help you test multiple interrupt schemes combined with Opta™ PLC's onboard relays and status LEDs. The following section will highlight the details of interest of the example code to help you understand it with ease.
@@ -98,7 +106,7 @@ volatile bool batchState01 = false;
 volatile bool batchState23 = false;
 ```
 
-The relays and corresponding status LEDs are defined in an array including their status. Using the array provides the advantage to manage and call the data flexibly.
+The relays and corresponding status LEDs are defined in an array, including their status. Using the array provides the advantage of managing and calling the data flexibly.
 
 ```arduino
 int idx{ 0 };
@@ -107,7 +115,7 @@ int leds[]{ LED_D0, LED_D1, LED_D2, LED_D3 };
 bool statuses[]{ true, true, true, true };
 ```
 
-The `setup()` will define the relay and status LED outputs, and also the inputs that will be used to attach to interrupt cases. The `attachInterrupt()` function configures the inputs as interrupts with its trigger method and connects to the defined ISR functions that can be found later in the example description.
+The `setup()` will define the relay and status LED outputs, as well the inputs that will be used to attach to interrupt cases. The `attachInterrupt()` function configures the inputs as interrupts with its trigger method and connects to the defined ISR functions that can be found later in the example description.
 
 ***For more information about `attachInterrupt()` function, please check [here](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/). You will also be able to read briefly more information about interrupts.***
 
@@ -158,7 +166,7 @@ void loop(){
 
 The `relayLinearCounter()` function runs a linear sequence for turning on and off the `D0` to `D3` relays with their corresponding status LEDs based on the interrupt triggered each time `BTN_USER` is pressed.
 
-The `counter` and `relayLedState` variables are used to track the total number of `BTN_USER` triggered interrupts, which also represents the number of button presses, and currently shifted relay status. The `relCntState` is used as a gatekeeper instance based on the `BTN_USER` interrupt request since it is an active function inside the `loop()` function.
+The `counter` and `relayLedState` variables are used to track the total number of `BTN_USER` triggered interrupts, which also represents the number of button presses and currently shifted relay status. The `relCntState` is used as a gatekeeper instance based on the `BTN_USER` interrupt request since it is an active function inside the `loop()` function.
 
 ```arduino
 /**
@@ -274,7 +282,7 @@ You will be able to observe the following results when testing if you were able 
 * You will be able to observe that the `D0-D3` relays are turning on in sequence and turning off in the next succession linearly as you press the `BTN_USER` button. The sequence then will repeat, and the counter will keep a record of the number of interrupts caused by `BTN_USER` button press, and currently actuated relay via `relayLedState`.
 * If you send feedback on either `A0` or `A1` input with a rising edge signal, it will apply state inversion on top of the actual relay states as a result of the interrupt. Thus, you will observe the `D0` and `D1` relays invert their states if the interrupt was triggered on `A0`; while `A1` will do the same job, but on `D2` and `D3` relays.
 
-Hence, your Opta™ is processing based on asynchronous interrupt generated by `BTN_USER` button while `A0-A1` are in charge of the interrupts generated periodically by an external device.
+Hence, your Opta™ is processing based on an asynchronous interrupt generated by `BTN_USER` button while `A0-A1` are in charge of the interrupts generated periodically by an external device.
 
 ## Conclusion
 

@@ -3,11 +3,9 @@ title: "Arduino Gemma"
 description: "Arduino Gemma is a miniature wearable microcontroller board based on the ATtiny85"
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoGemma"
 coverImage: "assets/ABX00001_featured_2.jpg"
-sku: "ABX00001"
+sku: [ABX00001]
 source: "https://store.arduino.cc/arduino-gemma"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino Gemma board](assets/abx00001_front.jpg)
 
@@ -30,7 +28,7 @@ In the [Getting Started section](https://www.arduino.cc/en/Guide/ArduinoGemma), 
 
 Arduino Gemma is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-gemma-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-gemma-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-gemma-schematic.pdf)
 
@@ -71,8 +69,8 @@ The Arduino Gemma can be programmed with the Arduino [Arduino Software](https://
 
 The ATtiny85 on the Gemma comes preburned with a [bootloader](https://www.arduino.cc/en/Hacking/Bootloader?from=Tutorial.Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the AVR109 protocol.
 
-You can also bypass the bootloader and program the microcontroller through the SPI pins. The bottom of the board has a large pad that is connected to the Reset pin, you can use it soldering a wire to it.  
-  
+You can also bypass the bootloader and program the microcontroller through the SPI pins. The bottom of the board has a large pad that is connected to the Reset pin, you can use it soldering a wire to it.
+
 *Note: Some computers' USB v3 ports don't recognize the Gemma's bootloader. Simply use a USB v2 port or a USB Hub in between.*
 
 ### Reset and Bootloader Initiation

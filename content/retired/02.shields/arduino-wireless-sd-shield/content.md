@@ -3,11 +3,9 @@ title: "Arduino Wireless SD Shield"
 description: "The Wireless SD shield allows an Arduino board to communicate wirelessly using a wireless Xbee module or similar plus a micro-SD card slot"
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoWirelessShield"
 coverImage: "assets/A000065_featured_2.jpg"
-sku: "A000065"
+sku: [A000065]
 source: "https://store.arduino.cc/arduino-wireless-sd-shield"
 ---
-
-***Note: This page refers to a product that is retired.***
 
 ![The Arduino Wireless SD Shield](./assets/A000065_featured_2.jpg)
 
@@ -33,7 +31,7 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ar
 
 Arduino Wireless SD Shield is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-wireless-SD-shield-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-wireless-SD-shield-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-wireless-SD-shield-schematic.pdf)
 
@@ -53,7 +51,7 @@ With the switch in the USB position, the DOUT pin the wireless module is connect
 
 Empty sketch:
 
-void **setup**() { }  
+void **setup**() { }
 void **loop**() { }
 
 [\[Get Code\]](https://www.arduino.cc/en/Main/ArduinoWirelessShield?action=sourceblock&num=1)

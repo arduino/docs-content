@@ -1,11 +1,9 @@
 ---
 title: "Arduino Pro Gateway"
 description: "The Arduino Pro Gateway kit provides LoRa® (Long Range) connectivity using ultra-long range and high interference immunity on the 868 MHz radio bands."
-sku: "AKX00016"
+sku: [AKX00016]
 author: 'Jorge Trujillo Román'
 ---
-
-***Note: The documentation of this product is no longer maintained.***
 
 ![Front View](./assets/AKX00016_front.jpg)
 

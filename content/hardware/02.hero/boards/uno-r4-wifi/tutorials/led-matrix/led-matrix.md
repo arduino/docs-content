@@ -277,6 +277,10 @@ delay(1000);
 }
 ```
 
+## Resources
+
+The rest of this article is a collection of resources, such as functioning examples, a gallery of frames, and tools that can help you get started with the LED Matrix in different ways. 
+
 ## Scrolling Text Example
 
 The LED Matrix now supports printing characters via the [ArduinoGraphics](https://github.com/arduino-libraries/ArduinoGraphics) library. With it, you are able to:
@@ -332,6 +336,95 @@ void loop() {
 }
 ```
 
+## Frame Gallery
+
+We've designed a gallery of frames and animations that are included in the library! You may load and display them on your UNO R4 WiFi with the following code snippet:
+
+```arduino
+#include "Arduino_LED_Matrix.h"   // Include the LED_Matrix library
+#include "frames.h"               // Include a header file containing some custom icons
+
+ArduinoLEDMatrix matrix;          // Create an instance of the ArduinoLEDMatrix class
+
+void setup() {
+  Serial.begin(115200);           // Initialize serial communication at a baud rate of 115200
+  matrix.begin();                 // Initialize the LED matrix
+
+}
+
+void loop() {
+  // Load and display the basic emoji frame on the LED matrix
+  matrix.loadFrame(LEDMATRIX_EMOJI_BASIC);
+}
+```
+
+By changing the parameter in `matrix.loadFrame()` in the loop, you can choose among the available frames we designed. 
+
+The available frames are:
+- `LEDMATRIX_BLUETOOTH`
+- `LEDMATRIX_BOOTLOADER_ON`
+- `LEDMATRIX_CHIP`
+- `LEDMATRIX_CLOUD_WIFI`
+- `LEDMATRIX_DANGER`
+- `LEDMATRIX_EMOJI_BASIC`
+- `LEDMATRIX_EMOJI_HAPPY`
+- `LEDMATRIX_EMOJI_SAD`
+- `LEDMATRIX_HEART_BIG`
+- `LEDMATRIX_HEART_SMALL`
+- `LEDMATRIX_LIKE`
+- `LEDMATRIX_MUSIC_NOTE`
+- `LEDMATRIX_RESISTOR`
+- `LEDMATRIX_UNO`
+
+Alternatively, play one of the animations on the LED matrix like this:
+
+```arduino
+#include "Arduino_LED_Matrix.h"   //Include the LED_Matrix library
+#include "animation.h"            //Include animation.h header file
+
+// Create an instance of the ArduinoLEDMatrix class
+ArduinoLEDMatrix matrix;  
+
+void setup() {
+  Serial.begin(115200);
+  // you can also load frames at runtime, without stopping the refresh
+  matrix.loadSequence(LEDMATRIX_ANIMATION_STARTUP);
+  matrix.begin();
+  matrix.play(true);
+}
+
+void loop() {
+}
+```
+In this case, you change the parameter of `matrix.loadSequence()` in the setup to one of the available ones to display. 
+
+The available animations are:
+- `LEDMATRIX_ANIMATION_STARTUP`
+- `LEDMATRIX_ANIMATION_TETRIS_INTRO`
+- `LEDMATRIX_ANIMATION_ATMEGA`
+- `LEDMATRIX_ANIMATION_LED_BLINK_HORIZONTAL`
+- `LEDMATRIX_ANIMATION_LED_BLINK_VERTICAL`
+- `LEDMATRIX_ANIMATION_ARROWS_COMPASS`
+- `LEDMATRIX_ANIMATION_AUDIO_WAVEFORM`
+- `LEDMATRIX_ANIMATION_BATTERY`
+- `LEDMATRIX_ANIMATION_BOUNCING_BALL`
+- `LEDMATRIX_ANIMATION_BUG`
+- `LEDMATRIX_ANIMATION_CHECK`
+- `LEDMATRIX_ANIMATION_CLOUD`
+- `LEDMATRIX_ANIMATION_DOWNLOAD`
+- `LEDMATRIX_ANIMATION_DVD`
+- `LEDMATRIX_ANIMATION_HEARTBEAT_LINE`
+- `LEDMATRIX_ANIMATION_HEARTBEAT`
+- `LEDMATRIX_ANIMATION_INFINITY_LOOP_LOADER`
+- `LEDMATRIX_ANIMATION_LOAD_CLOCK`
+- `LEDMATRIX_ANIMATION_LOAD`
+- `LEDMATRIX_ANIMATION_LOCK`
+- `LEDMATRIX_ANIMATION_NOTIFICATION`
+- `LEDMATRIX_ANIMATION_OPENSOURCE`
+- `LEDMATRIX_ANIMATION_SPINNING_COIN`
+- `LEDMATRIX_ANIMATION_TETRIS`
+- `LEDMATRIX_ANIMATION_WIFI_SEARCH`
+
 ## Animation Generation
 We have developed a tool that is used to generate frames and animations to be rendered on the LED Matrix in your browser. This tool is part of [Arduino labs](https://labs.arduino.cc), and is therefore considered experimental software. 
 
@@ -372,10 +465,6 @@ Once you've made your animations, you can export them from the tool in the forma
 
 You can find more tips on how to use this tool on [its site](https://ledmatrix-editor.arduino.cc).
 
-## Conclusion
-In this article we've gone over the basics of using the LED Matrix built in on the Arduino UNO R4 WiFi, we've gone over the different practices for building frames and animations, as well as how to load them onto your board. 
-
-Have fun creating interactive interfaces or animation on your UNO R4 WiFi!
 
 ## API 
 

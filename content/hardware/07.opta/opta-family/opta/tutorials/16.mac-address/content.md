@@ -29,8 +29,8 @@ The Media Access Control (MAC) address is essential for computer networking and 
 
 ### Hardware Requirements
 
-- [Opta™](https://store.arduino.cc/collections/pro-family) (any variant) (x1)
-- USB-C® cable (x1)
+- [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1) (x1)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 
 ### Software Requirements
 
