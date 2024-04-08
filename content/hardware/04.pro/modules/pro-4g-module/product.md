@@ -5,6 +5,7 @@ primary_button_url: /tutorials/portenta-mid-carrier/user-manual
 primary_button_title: Mid Carrier User Manual
 secondary_button_url: /tutorials/portenta-max-carrier/user-manual
 secondary_button_title: Max Carrier User Manual
+certifications: [CE, ROHS, REACH, UKCA]
 sku: [TPX00200, TPX00201]
 ---
 
