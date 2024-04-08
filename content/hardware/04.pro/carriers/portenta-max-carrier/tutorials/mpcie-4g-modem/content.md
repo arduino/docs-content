@@ -53,7 +53,7 @@ To get your Portenta X8 ready for use with the Portenta Max Carrier, ensure it r
 
 For this tutorial, you will need to connect an **external 6.0 to 36.0 V power supply to the Portenta Max Carrier's Power Jack**. This ensures the carrier, the Portenta X8, and any PCIe modules connected are sufficiently powered.
 
-To ensure the power demands are met, especially for the PMIC modules' external power, we recommend using cables that conform to the appropriate electrical standards, such as ASTM B 258 standard and can carry currents up to 2.0 A. **Cables with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², corresponding to AWG 18-16, should be adequate to manage 2.0 A of current.**
+To ensure the power demands are met, especially for the PMIC modules' external power, we recommend using cables that conform to the appropriate electrical standards, such as the ASTM B 258 standard and can carry currents up to 2.0 A. **Cables with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², corresponding to AWG 18-16, should be adequate to manage 2.0 A of current.**
 
 ***It is advised to use a __6.0 - 36.0 V external power source__ when using modules like the Arduino Pro 4G Module (EMEA / GNSS Global) or other mPCIe modules, to ensure a stable power supply for both the Portenta X8 and the carrier during prolonged usage.***
 
