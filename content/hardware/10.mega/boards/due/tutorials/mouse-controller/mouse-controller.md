@@ -153,7 +153,7 @@ void mouseReleased() {
 
   Serial.print("Released: ");
 
-  if (!mouse.getButton(LEFT_BUTTON) && left==true) {
+  if (!mouse.getButton(LEFT_BUTTON) && leftButton==true) {
 
     Serial.print("L");
 
@@ -161,7 +161,7 @@ void mouseReleased() {
 
   }
 
-  if (!mouse.getButton(MIDDLE_BUTTON) && middle==true) {
+  if (!mouse.getButton(MIDDLE_BUTTON) && middleButton==true) {
 
     Serial.print("M");
 
@@ -169,7 +169,7 @@ void mouseReleased() {
 
   }
 
-  if (!mouse.getButton(RIGHT_BUTTON) && right==true) {
+  if (!mouse.getButton(RIGHT_BUTTON) && rightButton==true) {
 
     Serial.print("R");
 
