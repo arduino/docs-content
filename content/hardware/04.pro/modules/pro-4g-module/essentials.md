@@ -7,12 +7,6 @@
     </EssentialElement>
 </EssentialsColumn>
 
-<EssentialsColumn title="Suggested Repositories">
-    <EssentialElement link="https://github.com/cristidragomir97/Arduino4GModem" title="Arduino 4G Modem" type="library">
-        A library for Arduino Pro 4G Module to manage the module's capabilities, simplifying the integration and use of the module's 4G connectivity features with the Portenta H7 and C33 paired to the carrier.
-    </EssentialElement>
-</EssentialsColumn>
-
 <EssentialsColumn title="Suggested Resources">
     <EssentialElement title="Latest Portenta X8 Firmware" type="library" link="https://downloads.arduino.cc/portentax8image/image-latest.tar.gz">
         Latest Portenta X8 Firmware for stable operation with the Arduino Pro 4G Module.
