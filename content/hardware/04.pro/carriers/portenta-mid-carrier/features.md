@@ -19,7 +19,7 @@
 
 </Feature>
 
-<Feature title="Pro 4G Module" image="hw-pin">
+<Feature title="Pro 4G Module" image="cellular">
 
   Expand your solutions connectivity with the Pro 4G Module, designed in the mPCIE format, this device features fast and reliable LTE connectivity, supporting 4G, 3G and 2G. Also supporting GNSS for global positioning and fleet management.
 
@@ -50,7 +50,7 @@
 
 </Feature>
 
-<Feature title="MicroSD Card Slot" image="file-icon">
+<Feature title="MicroSD Card Slot" image="sim-card">
 
   The Portenta Mid Carrier microSD card slot can be used for data logging and media operations.
 
