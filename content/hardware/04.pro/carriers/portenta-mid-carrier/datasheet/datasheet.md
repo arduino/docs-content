@@ -3078,7 +3078,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-|            **Referece**            | **Link**                                                                        |
+|            **Reference**           | **Link**                                                                        |
 |:----------------------------------:|---------------------------------------------------------------------------------|
 |        Arduino IDE (Desktop)       | https://www.arduino.cc/en/Main/Software                                         |
 |         Arduino IDE (Cloud)        | https://create.arduino.cc/editor                                                |
