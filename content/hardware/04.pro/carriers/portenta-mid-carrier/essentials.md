@@ -20,9 +20,6 @@
     <EssentialElement title="Latest Portenta X8 Firmware" type="library" link="https://downloads.arduino.cc/portentax8image/image-latest.tar.gz">
         Latest Portenta X8 Firmware for stable operation with the Portenta Mid Carrier.
     </EssentialElement>
-    <EssentialElement title="Python.GPIO Library" type="library" link="https://github.com/SuMere/portenta-gpio">
-        The official library for managing GPIO pins within the Python® programming environment.
-    </EssentialElement>
     <EssentialElement title="Docker Hub for the Portenta X8" type="library" link="https://hub.docker.com/u/arduino">
         Docker Hub to access the collection of containers for the Portenta X8.
     </EssentialElement>

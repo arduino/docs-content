@@ -14,6 +14,7 @@ Camera:
 Display:	
   DSI: 1
 Communication Interfaces:
+  4G Connectivity : With Pro 4G Module through mCPIE
   Ethernet: 1
   SPI: 2 
   I2S: 1
@@ -24,7 +25,7 @@ Communication Interfaces:
   USB: 1x USB-A 2.0/Hi-Speed
   PDM: 1
   SPDIF: 1
-  mPCIe: 1
+  mPCIE: 1
 User Interface:
   Button: 1x Power On Push Button
 Storage:
