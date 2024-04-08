@@ -1704,27 +1704,17 @@ To learn more about Opta™ and the Arduino IoT Cloud, check out the following r
 
 Arduino Opta™ Digital Expansions are designed to multiply your Opta™ micro PLC capabilities with the addition of 16 programmable inputs for connecting your industrial sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
-The Opta™ Digital Expansion comes in two variants: the EMR (Electromechanical Relay), and the SSR (Solid State Relay).
+The Opta™ Digital Expansions come in two variants: the D1608E (with Electromechanical Relays), and the  D1608S (with Solid State Relays).
+
+The Opta Expansions can be controlled by any Opta controller variant: Opta Lite, Opta RS485 or Opta WiFi.
 
 ![Opta Expansion variants](assets/variants.png)
-
-### Library Installation
-
-To use the Opta™ Digital Expansion with your Opta™ PLC, you need to install the `Arduino_Opta_Blueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
-
-![Opta expansions library installation](assets/library-install.png)
-
-Install all the **library dependencies** suggested:
-
-![Library dependencies installation](assets/library-install-2.png)
-
-Once installed, you will have access to a variety of usage examples showcasing the expansions capabilities and how to use them.
 
 ### Snapping the Expansion
 
 You can snap up to five expansions to your Opta™ Base module to multiply and mix your set of I/Os with seamless detection.
 
-Fits the expansions on the right side of your Opta™ PLC making sure to correctly align the **Aux connector** as shown in the image below:
+After removing the expansion port breakable plastic cover marked as AUX, from the Opta™ controller and from the expansion to expose the expansion port, plug the expansions on the right side of your Opta™ controller making sure to correctly align the **Aux connector** and the connection clips as shown in the image below:
 
 ![Snapping Opta expansions](assets/snapping.gif)
 
@@ -1732,26 +1722,40 @@ Fits the expansions on the right side of your Opta™ PLC making sure to correct
 
 The Opta™ Digital Expansions must be externally powered to work. See the power specifications in the table below:
 
-| Property                | Min  | Typ | Max  | Unit |
-|-------------------------|------|-----|------|------|
-| Supply voltage          | 12   | -   | 24   | V    |
-| Permissible range       | 10.2 | -   | 27.6 | V    |
-| Power consumption (12 V) | -    | 106 | -    | mW   |
-| Power consumption (24 V) | -    | 110 | -    | mW   |
+| Property                 | Min  | Typ | Max  | Unit |
+|--------------------------|------|-----|------|------|
+| Supply voltage           | 12   | -   | 24   | V    |
+| Permissible range        | 10.2 | -   | 27.6 | V    |
+| Power consumption (12 V) | -    | -   | 3    | W    |
+| Power consumption (24 V) | -    | -   | 3    | W    |
 
 In the image below there is an example of the power wiring of the expansions:
 
 ![Powering the Opta Digital Expansions](assets/power-expansion.png)
 
-***The expansions must be externally powered to operate and be detected by the Opta™ controller.***
+***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
+
+### Library Installation
+
+To use the Opta™ Digital Expansion with your Opta™ PLC, you need to install the `Arduino_Opta_Blueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
+
+![Opta expansions library installation](assets/library-install.png)
+
+Install all the **library dependencies** suggested by clicking the **Install All** button:
+
+![Library dependencies installation](assets/library-install-2.png)
+
+Once installed, you will have access to a variety of sketch examples showcasing the expansions capabilities and how to use them.
 
 ### Programmable Inputs
 
 The Opta™ Expansions have **16 analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
 
-Both EMR and SSR variant inputs can be used as **digital** with a 0-24 VDC range or as **analog** inputs with a 0-10 VDC range.
+Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** with a 0-24 VDC range or as **analog** inputs with a 0-24 VDC range. The inputs are capable of operating with 0-10V analog sensors as well as 0-24V sensors. 
 
-![Opta Digital Expansions Inputs](assets/16-inputs.png)
+***The inputs are marked on plastic as DGT/0-10 V to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V range.***
+
+![Opta Digital Expansions Inputs](assets/16-inputs-new.png)
 
 <table>
     <thead>
@@ -1763,15 +1767,15 @@ Both EMR and SSR variant inputs can be used as **digital** with a 0-24 VDC range
     <tbody>
         <tr>
             <td style="vertical-align: top;">Number of inputs</td>
-            <td>16x Analog/Digital inputs</td>
+            <td>16x Digital/Analog inputs</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Inputs overvoltage protection</td>
-            <td>yes</td>
+            <td>yes (up to 40 V)</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Antipolarity protection</td>
-            <td>yes</td>
+            <td style="vertical-align: top;">Reverse protection</td>
+            <td>no</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Input impedance</td>
@@ -1821,11 +1825,11 @@ Analog/digital input terminals are mapped as described in the following table:
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input current</td>
-            <td>4.12mA at 24V | 2.05mA at 12V</td>
+            <td>4.12mA at 24V | 2.05mA at 10V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Digital Input frequency</td>
-            <td>4.5 kHz</td>
+            <td>300 Hz</td>
         </tr>
     </tbody>
 </table>
@@ -1969,7 +1973,7 @@ for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
   DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
 }
 ```
-The above method will check if there is an EMR or SSR expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read state belongs to.
+The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read state belongs to.
 
 The function `<ExpObject>.updateDigitalInputs();` updates all the inputs with their current states to prepare them to be read.
 
@@ -1980,7 +1984,7 @@ Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
 LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL 
 ```
 
-![Digital Input wiring example](assets/input-digital-animation.gif)
+![Digital Input wiring example](assets/limit-switch.gif)
 
 #### Analog 
 
@@ -1994,7 +1998,7 @@ LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL
     <tbody>
         <tr>
             <td style="vertical-align: top;">Analog Input voltage</td>
-            <td>0...10V </td>
+            <td>0...24V </td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input resolution</td>
@@ -2002,15 +2006,11 @@ LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL
         </tr>
         <tr>
             <td style="vertical-align: top;">Analog Input LSB value</td>
-            <td>610.4 uV</td>
+            <td>1.733 mV</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Accuracy</td>
             <td>+/- 5%, repeatability +/- 2%</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Cycle time for analog input acquisition</td>
-            <td>10 µs</td>
         </tr>
     </tbody>
 </table>
@@ -2157,7 +2157,7 @@ for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
   DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
 }
 ```
-The above method will check if there is an EMR or SSR expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read value belongs to.
+The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read value belongs to.
 
 After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input voltage as follows:
 
@@ -2172,9 +2172,9 @@ Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
 
 The Opta™ Expansions have **8 relay outputs** accessible through terminals pairs `1` to `8`.
 
-![Opta Digital Expansions outputs](assets/variants-emr-ssr.png)
+![Opta Digital Expansions outputs](assets/variants-emr-ssr-new.png)
 
-The **EMR variant** features 8 electromechanical relays with the following characteristics:
+The **Ext D1608E (EMR)** variant features 8 electromechanical relays with the following characteristics:
 
 <table>
     <thead>
@@ -2186,7 +2186,7 @@ The **EMR variant** features 8 electromechanical relays with the following chara
     <tbody>
         <tr>
             <td style="vertical-align: top;">Number of outputs</td>
-            <td>8x Electromechanical Relays (NO - SPST)</td>
+            <td>8x Electromechanical Relays (Normally Open - SPST)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max current per relay</td>
@@ -2259,7 +2259,7 @@ The **EMR variant** features 8 electromechanical relays with the following chara
     </tbody>
 </table>
 
-The **SSR variant** features 8 solid state relays with the following characteristics:
+The **Ext D1608S (SSR)** variant features 8 solid state relays with the following characteristics:
 
 <table>
     <thead>
@@ -2271,7 +2271,7 @@ The **SSR variant** features 8 solid state relays with the following characteris
     <tbody>
         <tr>
             <td style="vertical-align: top;">Number of outputs</td>
-            <td>8x Solid State Relays (NO - SPST)</td>
+            <td>8x Solid State Relays (Normally Open - SPST)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max current per relay</td>
@@ -2332,7 +2332,7 @@ The **SSR variant** features 8 solid state relays with the following characteris
     </tbody>
 </table>
 
-The state of an output terminal, EMR or SRR, can be set using the built-in function `digitalWrite()` as shown below:
+The state of an output terminal, in the Ext D1608S or Ext D1608E variant, can be set using the built-in function `digitalWrite()` as shown below:
 
 ```arduino
 <ExpObject>.digitalWrite(<output>, <state>);
@@ -2521,7 +2521,7 @@ for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
   DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
 }
 ```
-The above method will check if there is an EMR or SSR expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion is going to be controlled.
+The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion is going to be controlled.
 
 First, the desired relay states need to be defined with the `digitalWrite()` function, then with the `<ExpObject>.updateDigitalOutputs()` the states are sent to the expansion to control the relays with the defined states.
 
@@ -2529,19 +2529,19 @@ After the Opta™ controller is programmed with the example sketch, the relays o
 
 ![Opta Digital Expansion outputs control demo](assets/outputs-animation.gif)
 
-Here is an example of how to connect an AC load to the Opta Digital Expansion EMR:
+Here is an example of how to connect an AC load to the Opta Digital Ext D1608E (EMR):
 
 ![EMR expansion wiring example](assets/emr-output.png)
 
-Here is an example of how to connect a DC load to the Opta Digital Expansion SSR:
+Here is an example of how to connect a DC load to the Opta Digital Ext D1608S (SSR):
 
 ![SSR expansion wiring example](assets/ssr-output.png)
 
 You can buy and find more information about the Opta™ Digital Expansions on the links below:
 
 - [Opta™ Digital Expansion Product Page](https://docs.arduino.cc/hardware/opta-digital-ext)
-- [Buy the Opta™ Digital Expansion EMR](https://store.arduino.cc/products/Opta-Ext-D1608E)
-- [Buy the Opta™ Digital Expansion SSR](https://store.arduino.cc/products/Opta-Ext-D1608S)
+- [Buy the Opta™ Digital Ext D1608E (EMR)](https://store.arduino.cc/products/Opta-Ext-D1608E)
+- [Buy the Opta™ Digital Ext D1608S (SSR)](https://store.arduino.cc/products/Opta-Ext-D1608S)
 
 ## Support
 
