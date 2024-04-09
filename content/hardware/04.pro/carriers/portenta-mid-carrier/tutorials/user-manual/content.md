@@ -159,7 +159,7 @@ The 5.0 V pin from the carrier's breakout male header can also power the board. 
 
 ### Pinout
 
-![Portenta Mid Carrier Pinout](https://docs.arduino.cc/resources/pinouts/ABX00055-full-pinout.pdf)
+![Portenta Mid Carrier Pinout](assets/portentaMIDCarrier_pinout.png)
 
 ### Datasheet
 
