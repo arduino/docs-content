@@ -72,7 +72,7 @@ The **Portenta Mid Carrier** enhances the functionality of the Portenta family b
 
 ![Portenta Mid Carrier Stacked Form](assets/board_mount.png)
 
-This carrier provides access to various peripherals. It highlights a Mini PCIe connector for Cat.4 cellular modules, suitable for solutions requiring extensive network coverage. It also includes two CAN lines, Ethernet, microSD, USB, camera connectors for DVP and MIPI interfaces, and a Display Serial Interface (DSI) compatible with Giga Display Shield. Additionally, it features dedicated debug pins and an RTC battery backup, further enhancing the development experience by simplifying processes.
+This carrier provides access to various peripherals. It highlights a Mini PCIe connector for Cat.4 cellular modules, suitable for solutions requiring extensive network coverage. It also includes two CAN lines, Ethernet, microSD, USB, camera connectors for DVP and MIPI interfaces, and a Display Serial Interface (DSI) compatible with GIGA Display Shield. Additionally, it features dedicated debug pins and an RTC battery backup, further enhancing the development experience by simplifying processes.
 
 ![Compatible Portenta boards](assets/portentaMIDcarrier_compatible_boards.png)
 
@@ -117,7 +117,7 @@ The 5.0 V pin from the carrier's breakout male header can also power the board. 
 
 - **PCIe Breakout Header**: Besides the standard breakout header, the carrier also features a specific PCIe breakout header. This header provides access to each pin, enabling manual probing or the creation of external extensions for prototyping purposes.
 
-- **Giga Display Shield Connector**: The Portenta Mid Carrier features a Display Serial Interface (DSI), which matches the Mobile Industry Processor Interface (MIPI) specifications, allowing it to connect displays that support MIPI DSI signals through its MIPI/DSI connector.
+- **GIGA Display Shield Connector**: The Portenta Mid Carrier features a Display Serial Interface (DSI), which matches the Mobile Industry Processor Interface (MIPI) specifications, allowing it to connect displays that support MIPI DSI signals through its MIPI/DSI connector.
 
   The [GIGA Display Shield](#giga-display-shield-connector-j19) is compatible with the Portenta Mid Carrier. It is connected through the MIPI/DSI connector found on the carrier. This setup supports widely used frameworks like LVGL and GFX, enhancing its utility for various display applications.
 
@@ -149,7 +149,7 @@ The 5.0 V pin from the carrier's breakout male header can also power the board. 
 |    J16    | Mini PCI Express Breakout Header                                                 |
 |    J17    | Sub-series of Mini PCI Express Breakout Header                                   |
 |    J18    | Gigabit Ethernet connector - RJ45                                                |
-|    J19    | Giga Display Shield connector (DSI)                                              |
+|    J19    | GIGA Display Shield connector (DSI)                                              |
 |   SIM1    | Dedicated PCIe SIM Slot                                                          |
 |    SW1    | BOOT DIP Switch                                                                  |
 |    SW2    | CAN Bus - CAN1 - DIP Switch                                                      |
@@ -894,11 +894,11 @@ void loop()
 
 For the Portenta C33, given it has a different architecture, it is possible to navigate using the official ArduCam® source known as [Arducam_Mega](https://github.com/ArduCAM/Arducam_Mega) library.
 
-### Giga Display Shield Connector (J19)
+### GIGA Display Shield Connector (J19)
 
 The [Arduino GIGA Display Shield](https://docs.arduino.cc/hardware/giga-display-shield) is an add-on that can be used with the Portenta Mid Carrier, offering an 800x480 display with touch support. The display shield can be connected via MIPI DSI (Display Serial Interface).
 
-![Portenta Mid Carrier Giga Display Connector](assets/portentaMIDcarrier_GIGADSI.png)
+![Portenta Mid Carrier GIGA Display Connector](assets/portentaMIDcarrier_GIGADSI.png)
 
 The shield also features a camera connector, built-in IMU, microphone, and an RGB pixel. The video display connector (J19) of the carrier is specified in the following table:
 
@@ -931,21 +931,21 @@ The shield also features a camera connector, built-in IMU, microphone, and an RG
 
 The *MIPI DSI (Mobile Industry Processor Interface Display Serial Interface)* connector provides a high-speed interface that supports complex display functionalities like high resolutions and color depths. Its design is suitable for compact and mobile devices, making it ideal for applications where space and power efficiency are critical.
 
-The following image shows the orientation of the connection between the Giga Display Shield and the Portenta Mid Carrier.
+The following image shows the orientation of the connection between the GIGA Display Shield and the Portenta Mid Carrier.
 
-![Portenta Mid Carrier Giga Display Shield Connection Close-Up](assets/portentaMIDcarrier_GIGADSI_connection.png)
+![Portenta Mid Carrier GIGA Display Shield Connection Close-Up](assets/portentaMIDcarrier_GIGADSI_connection.png)
 
-For a more detailed connection orientation with a brief pinout designation, the following diagram might help you understand how to stack the Giga Display Shield to the Portenta Mid Carrier.
+For a more detailed connection orientation with a brief pinout designation, the following diagram might help you understand how to stack the GIGA Display Shield to the Portenta Mid Carrier.
 
-![Portenta Mid Carrier Giga Display Shield Connection Close-Up](assets/portentaMIDcarrier_GIGADSI_connection_dive.png)
+![Portenta Mid Carrier GIGA Display Shield Connection Close-Up](assets/portentaMIDcarrier_GIGADSI_connection_dive.png)
 
-Once you have aligned and connected the Portenta Mid Carrier with the Giga Display Shield, you should have a similar setup as in the following image:
+Once you have aligned and connected the Portenta Mid Carrier with the GIGA Display Shield, you should have a similar setup as in the following image:
 
-![Portenta Mid Carrier & Giga Display Shield Connected](assets/portentaMIDcarrier_GIGADSI_stacked.png)
+![Portenta Mid Carrier & GIGA Display Shield Connected](assets/portentaMIDcarrier_GIGADSI_stacked.png)
 
 #### Using Linux
 
-To review the current device tree overlay configurations, which are crucial for hardware feature management and system customization, to interface with the Giga Display Shield, use the following command:
+To review the current device tree overlay configurations, which are crucial for hardware feature management and system customization, to interface with the GIGA Display Shield, use the following command:
 
 ```bash
 fw_printenv overlays
@@ -959,7 +959,7 @@ This can include enabling additional peripherals, configuring pin mappings, or a
 ov_carrier_mid_dsi_panel
 ```
 
-If it is not present, the following steps will help you to set the needed overlays to use the Giga Display Shield. Access the docker container named **x8-devel** with the following command:
+If it is not present, the following steps will help you to set the needed overlays to use the GIGA Display Shield. Access the docker container named **x8-devel** with the following command:
 
 ```bash
 docker exec -it x8-devel sh
@@ -989,25 +989,25 @@ python tenta_runner.py
 
 The script will bring up a GUI within the `tenta` framework. When the **tenta-config** window is up, please select **Portenta Mid Carrier**.
 
-![Portenta Mid Carrier Giga Display Configuration - Main](assets/portentaMIDcarrier_dsi_1.png)
+![Portenta Mid Carrier GIGA Display Configuration - Main](assets/portentaMIDcarrier_dsi_1.png)
 
 It will then show a list of available options that can be executed within the Portenta Mid Carrier platform. Here, the **Enable alternative overlays** option will be selected.
 
-![Portenta Mid Carrier Giga Display Configuration - Overlays](assets/portentaMIDcarrier_dsi_2.png)
+![Portenta Mid Carrier GIGA Display Configuration - Overlays](assets/portentaMIDcarrier_dsi_2.png)
 
-Because the Giga Display Shield will be used, **Removes video output on USB-C enables video output on DSI connector** configuration will be selected. This configuration will disable video output via the USB-C connector and switch the video output to be available to the DSI connector. 
+Because the GIGA Display Shield will be used, **Removes video output on USB-C enables video output on DSI connector** configuration will be selected. This configuration will disable video output via the USB-C connector and switch the video output to be available to the DSI connector. 
 
-![Portenta Mid Carrier Giga Display Configuration - DSI Settings](assets/portentaMIDcarrier_dsi_3.png)
+![Portenta Mid Carrier GIGA Display Configuration - DSI Settings](assets/portentaMIDcarrier_dsi_3.png)
 
 Once selected, it will prompt a message showing differences that overlays will have after the change.
 
-![Portenta Mid Carrier Giga Display Configuration - Applied Changes](assets/portentaMIDcarrier_dsi_4.png)
+![Portenta Mid Carrier GIGA Display Configuration - Applied Changes](assets/portentaMIDcarrier_dsi_4.png)
 
 Proceed to accept with **Ok**, and the device will now be ready with the overlays to enable video output on the DSI connector.
 
-![Portenta Mid Carrier Giga Display Configuration - Changes Set](assets/portentaMIDcarrier_dsi_5.png)
+![Portenta Mid Carrier GIGA Display Configuration - Changes Set](assets/portentaMIDcarrier_dsi_5.png)
 
-We can now observe if the Giga Display Shield is powered on and ready for use, having the shield connected to the Portenta Mid Carrier.
+We can now observe if the GIGA Display Shield is powered on and ready for use, having the shield connected to the Portenta Mid Carrier.
 
 #### Using Arduino IDEs
 
@@ -1053,7 +1053,7 @@ It will require the **ArduinoGraphics** library installed to compile the code wi
 
 The example can be found within the Arduino IDE, and it is located under **File -> Examples -> Portenta_H7_Video**. The name of the example is **ArduinoLogo**.
 
-Once the example has been compiled and uploaded to the Portenta H7, you will be able to see the Arduino logo drawn on the Giga Display Shield.
+Once the example has been compiled and uploaded to the Portenta H7, you will be able to see the Arduino logo drawn on the GIGA Display Shield.
 
 ### CAN FD (Onboard Transceiver)
 
@@ -2089,9 +2089,9 @@ fw_setenv carrier_name mid
 fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_breakout_usbfs ov_carrier_mid_pcie_mini'
 ```
 
-Alternatively, it is possible to use the **tenta-config** process implemented in the [Giga Display Connector's Linux Setup](#using-linux-1) section to apply the overlays to enable mini PCIe for the Portenta Mid Carrier with the Portenta X8.
+Alternatively, it is possible to use the **tenta-config** process implemented in the [GIGA Display Connector's Linux Setup](#using-linux-1) section to apply the overlays to enable mini PCIe for the Portenta Mid Carrier with the Portenta X8.
 
-***Please check out the guidelines in the [Giga Display Connector's Linux Setup](#using-linux-1) section for detailed information on how the __tenta-config__ works if you have yet to become familiar with the usage.***
+***Please check out the guidelines in the [GIGA Display Connector's Linux Setup](#using-linux-1) section for detailed information on how the __tenta-config__ works if you have yet to become familiar with the usage.***
 
 Access the docker container named **x8-devel** with the following command:
 
