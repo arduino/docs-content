@@ -16,3 +16,7 @@ hardware:
     - portenta-breakout
     - portenta-max-carrier
     - portenta-hat-carrier
+    - portenta-mid-carrier
+  modules:
+    - 4g-module-emea
+    - 4g-module-global
