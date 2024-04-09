@@ -4,7 +4,7 @@ url_shop: https://store.arduino.cc/products/portenta-mid-carrier
 url_guide: /tutorials/portenta-mid-carrier/user-manual
 primary_button_url: /tutorials/portenta-mid-carrier/user-manual
 primary_button_title: User Manual
-secondary_button_url: https://docs.arduino.cc/hardware/pro-4g-module
+secondary_button_url: /hardware/pro-4g-module
 secondary_button_title: Pro 4G Module
 certifications: [CE, UKCA, RoHS, FCC, IC, RCM]
 sku: [ASX00055]
