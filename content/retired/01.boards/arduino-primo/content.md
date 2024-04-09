@@ -2,7 +2,7 @@
 title: "Arduino Primo"
 description: "The Arduino Primo combines the processing power from thenRF52 processor, an Espressif ESP8266 for WiFi, as well as several on-board sensors and a battery charger."
 coverImage: "assets/a000135_featured.jpg"
-sku: "A000135"
+sku: [A000135]
 source: "https://store.arduino.cc/arduino-primo"
 ---
 

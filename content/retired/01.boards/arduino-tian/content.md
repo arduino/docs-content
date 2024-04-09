@@ -3,7 +3,7 @@ title: "Arduino Tian"
 description: "The Arduino Tian unleashes the power of a small computer running Linux connected to a 32-bit microcontroller"
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoTian"
 coverImage: "assets/A000116_Tian_featured_2.jpg"
-sku: "A000116"
+sku: [A000116]
 source: "https://store.arduino.cc/arduino-tian"
 ---
 
@@ -31,9 +31,9 @@ You can find in the [Getting Started section](https://www.arduino.cc/en/Guide/Ho
 
 The Arduino Tian is open-source hardware! You can build your own board using the following files:
 
-[DSN FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/TIAN-V03-20160219.DSN.zip) 
+[DSN FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/TIAN-V03-20160219.DSN.zip)
 
-[SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/TIAN-V03-20160219.pdf) 
+[SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/TIAN-V03-20160219.pdf)
 
 ### Power
 

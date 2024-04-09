@@ -56,7 +56,7 @@ void loop() {
 
   HttpClient client;
 
-  client.get("http://www.arduino.cc/asciilogo.txt");
+  client.get("http://arduino.tips/asciilogo.txt");
 ```
 
 As long as there are bytes from the server in the client buffer, read the bytes and print them to the serial monitor. Repeat every 5 seconds.
@@ -79,5 +79,3 @@ while (client.available()) {
 The complete sketch is below :
 
 <iframe src='https://create.arduino.cc/example/library/bridge_1_7_0/bridge_1_7_0%5Cexamples%5CHttpClient/HttpClient/preview?embed' style='height:510px;width:100%;margin:10px 0' frameborder='0'></iframe>
-
-**Last revision 2016/05/25 by SM**

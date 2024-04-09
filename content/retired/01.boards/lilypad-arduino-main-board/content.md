@@ -3,7 +3,7 @@ title: "LilyPad Arduino Main Board"
 description: "The LilyPad Arduino is designed for e-textiles and wearables projects. It can be sewn to fabric and similarly mounted power supplies, sensors and actuators with conductive thread."
 url_guide: "https://www.arduino.cc/en/Guide/ArduinoLilyPad"
 coverImage: "assets/lilypad_main.jpg"
-sku: "DEV-13342"
+sku: [DEV-13342]
 source: "https://store.arduino.cc/lilypad-arduino-main-board"
 ---
 

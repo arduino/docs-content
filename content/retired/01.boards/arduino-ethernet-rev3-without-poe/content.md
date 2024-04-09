@@ -2,7 +2,7 @@
 title: "Arduino Ethernet Rev3 without PoE"
 description: "An Arduino Uno incorporating a WizNet W5100 TCP IP Ethernet Controller."
 coverImage: "assets/A000068_featured_2.jpg"
-sku: "A000068"
+sku: [A000068]
 source: "https://store.arduino.cc/arduino-ethernet-rev3-without-poe"
 ---
 
@@ -43,7 +43,7 @@ A separate power-over-Ethernet (PoE) module can be soldered to the board to prov
 
 Arduino Ethernet is open-source hardware! You can build your own board using the following files:
 
-[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-R3-reference-design.zip) 
+[EAGLE FILES IN .ZIP](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-R3-reference-design.zip)
 
 [SCHEMATICS IN .PDF](https://www.arduino.cc/en/uploads/Main/arduino-ethernet-R3-schematic.pdf)
 
@@ -73,7 +73,7 @@ The optional PoE module is designed to extract power from a conventional twisted
 * High efficiency DC/DC converter: typ 75% @ 50% load
 * 1500V isolation (input to output)
 
-*NB: the Power over Ethernet module is proprietary hardware not made by Arduino, it is a third party accessory. For more information, see the [datasheet](https://www.arduino.cc/en/uploads/Main/PoE-datasheet.pdf)* 
+*NB: the Power over Ethernet module is proprietary hardware not made by Arduino, it is a third party accessory. For more information, see the [datasheet](https://www.arduino.cc/en/uploads/Main/PoE-datasheet.pdf)*
 
 When using the power adapter, power can come either from an AC-to-DC adapter (wall-wart) or battery. The adapter can be connected by plugging a 2.1mm center-positive plug into the board's power jack. Leads from a battery can be inserted in the Gnd and Vin pin headers of the POWER connector. The board can operate on an external supply of 6 to 20 volts. If supplied with less than 7V, however, the 5V pin may supply less than five volts and the board may be unstable. If using more than 12V, the voltage regulator may overheat and damage the board. The recommended range is 7 to 12 volts.
 
