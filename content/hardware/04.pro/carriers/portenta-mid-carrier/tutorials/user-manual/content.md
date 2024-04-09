@@ -45,7 +45,7 @@ The following accessories are needed:
 
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
 - Wi-Fi® Access Point or Ethernet with Internet access (x1)
-- Compatible Antennas like the [Arduino Pro 4G Module Antennas Kit](https://store.arduino.cc/products/4g-module-antenna) (x1)
+- Compatible antennas like the [Arduino Pro 4G Module Antennas Kit](https://store.arduino.cc/products/4g-module-antenna) (x1)
 - Power cables: Wires with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², corresponding to AWG sizes 18 to 16
 
 ### Software Requirements

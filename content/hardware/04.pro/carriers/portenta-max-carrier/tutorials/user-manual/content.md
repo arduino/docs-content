@@ -42,7 +42,7 @@ This user manual offers a detailed guide on the Portenta Max Carrier, consolidat
 * [Portenta H7](https://store.arduino.cc/products/portenta-h7) (x1)
 * USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
 * Wi-Fi® Access Point or Ethernet with Internet access (x1)
-* Compatible Antennas like the [Arduino Pro 4G Module Antennas Kit](https://store.arduino.cc/products/4g-module-antenna) (x1)
+* Compatible antennas like the [Arduino Pro 4G Module Antennas Kit](https://store.arduino.cc/products/4g-module-antenna) (x1)
 
 ### Software Requirements
 
