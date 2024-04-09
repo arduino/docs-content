@@ -183,9 +183,11 @@ In the following sections, as well as the tables presented in those sections, th
 </div>
 
 <p style="text-align: justify;">
-<sup>1</sup>For debugging purposes only.<br> 
-<sup>2</sup>CAN0 has no CAN PHY; an external one is needed.<br>
-<sup>3</sup>CAN1 has an onboard CAN PHY available through the Carrier's screw terminal block (J4); it can be enabled or disabled via a DIP switch (SW2).<br>
+<sup>1</sup>For debugging purposes only.
+
+<sup>2</sup>CAN0 has no CAN PHY; an external one is needed.
+
+<sup>3</sup>CAN1 has an onboard CAN PHY available through the Carrier's screw terminal block (J4); it can be enabled or disabled via a DIP switch (SW2).
 </p>
 
 ### Other Features
