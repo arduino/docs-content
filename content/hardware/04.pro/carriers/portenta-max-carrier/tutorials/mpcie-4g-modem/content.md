@@ -1,5 +1,5 @@
 ---
-title: 'Cellular Connectivity with  the Portenta Max Carrier & Pro 4G Module'
+title: 'Cellular Connectivity with the Max Carrier & Pro 4G Module'
 difficulty: intermediate
 description: "Learn how to implement cellular connectivity using the mPCIe interface on the Portenta Max Carrier with the Arduino Pro 4G Module."
 tags:
