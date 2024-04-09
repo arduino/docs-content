@@ -1,7 +1,7 @@
 ---
-title: 'Using Mini PCIe on the Portenta Max Carrier & Pro 4G Module'
+title: 'Cellular Connectivity with  the Portenta Max Carrier & Pro 4G Module'
 difficulty: intermediate
-description: "Learn how to use the mPCIe interface on the Portenta Max Carrier with the Arduino Pro 4G Module."
+description: "Learn how to implement cellular connectivity using the mPCIe interface on the Portenta Max Carrier with the Arduino Pro 4G Module."
 tags:
   - Linux
   - OOTB
@@ -35,10 +35,11 @@ The hands-on part of this tutorial will walk you through performing a speed test
 * [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier) (x1)
 * [Portenta X8](https://store.arduino.cc/products/portenta-x8) (x1)
 * Pro 4G Module (GNSS Module Global / EMEA) (x1)
+* Compatible Antennas like the Arduino Pro 4G Module Antennas Kit (x1)
 
 The following accessories are needed:
 
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
+- USB-C® cable (USB-A to USB-C®) (x1)
 - Wi-Fi® Access Point or Ethernet with Internet access (x1)
 - External antenna: Main antenna, GNSS antenna, and Rx-Diversity antenna
 - Power cables: Wires with a cross-sectional area ranging from 0.82 mm² to 1.3 mm², corresponding to AWG sizes 18 to 16
@@ -73,7 +74,7 @@ The Portenta Max Carrier features a mini PCI Express card slot designed for use 
 
 ![Mini PCIe Interface on the Portenta Max Carrier](assets/portentaMAXcarrier_mpcie_connector.png)
 
-In its portfolio, Arduino has two mini PCIe modules compatible with Portenta Max Carrier, the **Arduino Pro 4G Module**, a Cat.4 modem mini PCIe card available in two variants: **EMEA** and **GNSS Global**.
+In its portfolio, Arduino has two mini PCIe modules compatible with Portenta Max Carrier, the[ **Arduino Pro 4G Module**](https://docs.arduino.cc/hardware/pro-4g-module), a Cat.4 modem mini PCIe card available in two variants: **EMEA** and **GNSS Global**.
 
 ![Portenta Max Carrier & PRO 4G Module](assets/portentaMAXcarrier_module_setup.png)
 
@@ -139,13 +140,12 @@ The **PCIE ENABLE (PWM6)** is the 33rd pin of the High-Density Connector (HDC) S
 
 The **Cat.4 modem**, compatible with [mPCIe interfaces](#mini-pcie--portenta-max-carrier), leverages LTE (Long Term Evolution) standards to provide high-speed data transmission across various electronic devices.
 
-These modems offer substantial data speeds, reaching up to 150 Mbps for downloads and 50 Mbps for uploads, making them ideal for a range of internet activities like streaming high-definition content and quick transfers of large files.
+These modems offer substantial data speeds, reaching up to 150 Mbps for downloads and 50 Mbps for uploads, making them ideal for a range of IoT and Industrial activities like remote monitoring, Smart Cities and buildings, smart farming and much more.
 
-Designed with the mPCIe form factor, Cat.4 modems fit snugly in compact electronics such as laptops, tablets, and IoT devices. They also support older 3G and 2G networks, ensuring wide network coverage.
+Designed with the mPCIe form factor, Cat.4 modems fit snugly in compact electronics such as laptops, tablets, and IoT devices with 4G connectivity. They also support older 3G and 2G networks, ensuring wide network coverage.
 
-The Portenta Max Carrier uses this modem through its built-in mini PCIe interface. It ensures dependable 4G connectivity while supporting 3G and 2G networks. The **Arduino Pro 4G Module (EMEA / GNSS Global)**, a Cat.4 modem in a mini PCIe format that follows the PCI Express Mini Card 1.2 Standard Interface, is a key feature in this configuration.
+The Portenta Max Carrier uses this modem through its built-in mini PCIe interface. The **Arduino Pro 4G Module** is a key feature in this configuration.
 
-Below is an image of the **Arduino Pro 4G Module**:
 
 ![Arduino PRO 4G GNSS Module](assets/portenta4G_module_struct.png)
 
@@ -153,31 +153,31 @@ This module has two versions: **EMEA** and **Global (including the US)**. It can
 
 ![Arduino PRO 4G GNSS Module Global / Module EMEA](assets/portentaQuectel_overview.gif)
 
-***Make sure to attach external antennas to the Pro 4G Module to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector, and a GNSS antenna connector. The impedance of the antenna connectors is 50 Ω.***
+***Make sure to attach external antennas to the Pro 4G Module to work correctly with wireless signals. There are three external antenna connectors: a main antenna connector, an Rx-diversity antenna connector, and a GNSS antenna connector. The impedance of the antenna connectors are 50 Ω.***
 
 ## Complete Hardware Setup
 
-The image below illustrates the expected setup, showcasing the integration of the Portenta X8 and Pro 4G Module with the Portenta Max Carrier, complete with the mini PCIe setup:
+The image below illustrates the expected setup, showcasing the integration of the Portenta X8 and Pro 4G Module with the Portenta Max Carrier.
 
 ![Portenta Max Carrier Mini PCIe & Portenta X8 Setup](assets/portentaMAXcarrier_complete_setup.png)
 
-Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Distribution section](#mini-pcie-power-distribution). The Portenta X8 requires the **PCIE ENABLE (PWM6)** pin to be connected to a **VCC (3V3)** pin.
+Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Distribution section](#mini-pcie-power-distribution). **The Portenta X8 requires the **PCIE ENABLE (PWM6)** pin to be connected to a **VCC (3V3)** pin**.
 
 ***Please use a 6.0 - 36.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta X8, the carrier, and the involved mPCIe module, particularly for extended periods of use.***
 
 ## Instructions
 
-### Accessing Mini PCIe Interface
+### Accessing the Mini PCIe Interface
 
-You can check if the mini PCIe module is properly installed and detected by the Portenta X8 by using the Portenta Max Carrier. Since the mini PCIe lanes on the Portenta Max Carrier include USB lines, and the Pro 4G Module functions as a USB device, you will use a different approach to confirm its setup.
+You can check if the mini PCIe module is properly installed and detected by the Portenta X8 by using the Portenta Max Carrier USB's functionality. Since the mini PCIe lanes on the Portenta Max Carrier include USB lines, and the Pro 4G Module functions as a USB device, it is possible to use them to verify a correct setup.
 
-To ensure the Pro 4G Module is powered up and recognized by the Portenta X8 along with the Portenta Max Carrier, use the following command instead of the `lspci` command:
+To ensure the Pro 4G Module is powered up and recognized by the Portenta X8 along with the Portenta Max Carrier, use the following command:
 
 ```bash
 lsusb
 ```
 
-This command lists the devices recognized by the Portenta X8. If the Pro 4G Module is correctly detected, you will see results similar to the ones shown in the following image.
+This command lists the USB devices recognized by the Portenta X8. If the Pro 4G Module is correctly detected, you will see results similar to the ones shown in the following image.
 
 ![Portenta Max Carrier Mini PCIe Module Listing](assets/portentaMAXcarrier_mpcie_list.png)
 
@@ -242,7 +242,7 @@ ov_carrier_max_pcie_mini
 If it is not present, the following steps will help you set the needed overlays to use the mini PCIe interface on the Portenta Max Carrier. There are two ways to set up the overlay configuration for the mPCIe interface:
 
 - Via **tenta-config** based on the `tenta` framework
-- Via purely ADB shell
+- Via ADB shell
 
 #### Overlay Configuration Via Tenta-Config
 
@@ -386,7 +386,6 @@ After the speed test, you might observe results similar to the following image.
 
 ***The download and upload speed may vary depending on the region.***
 
-This setup demonstrates the integration and use of Mini PCIe cards in compact systems such as the Portenta Max Carrier, showcasing their ability to add functionalities while maintaining a small footprint.
 
 For a more streamlined approach, you can use the following single-line command:
 
