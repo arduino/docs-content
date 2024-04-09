@@ -28,6 +28,7 @@ The Arduino Portenta Mid Carrier enhances various prototyping applications thank
 - **Prototyping**: The Portenta Mid Carrier is a versatile tool for prototyping, merging seamlessly with Portenta family boards to unveil essential peripherals like microSD, Ethernet, and USB. This integration facilitates industry-ready prototyping and streamlines debugging and inspection processes through dedicated CAN bus lines. Moreover, its compatibility extends to a wide array of external hardware components and devices, enhancing your Portenta boards for projects that demand embedded sensing or straightforward actuation. This dual functionality ensures the Portenta Mid Carrier provides comprehensive support, simplifying the development process and elevating the potential for innovative project creation.
 - **Frictionless machine vision prototyping**: Pair the Portenta Mid Carrier with an MIPI or Arducam® camera to effortlessly embark on machine vision projects. Whether for object detection and recognition, defect identification, or asset tracking, the Portenta Mid Carrier streamlines the creation of complex vision-based applications.
 - **Reference design**: The Portenta Mid Carrier serves as an excellent reference design and aids in the development of custom products within the Portenta ecosystem. Arduino PRO's full development, production, and operation support provides a solid foundation for tailoring solutions to specific business needs.
+
 </div>
 
 <div style="page-break-after: always;"></div>
