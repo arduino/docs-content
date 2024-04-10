@@ -1,6 +1,7 @@
 ---
 title: "Arduino Tre"
 source: "https://arduino.cc/en/Main/ArduinoBoardTre"
+sku: [A000055]
 ---
 
 ## Arduino TRE (discontinued)
