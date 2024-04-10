@@ -20,6 +20,7 @@ hardware:
   - hardware/04.pro/boards/portenta-h7-lite
   - hardware/04.pro/boards/portenta-h7-lite-connected
   - hardware/04.pro/boards/portenta-c33
+  - hardware/04.pro/modules/pro-4g-module
 software:
   - ide-v1
   - ide-v2
