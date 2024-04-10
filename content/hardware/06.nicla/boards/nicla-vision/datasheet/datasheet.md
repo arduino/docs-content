@@ -319,6 +319,12 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 ## Certifications
 
+### Product Labeling
+
+The product labeling of the Arduino Nicla Vision is shown in the image below:
+
+![Nicla Vision Product Labeling](assets/niclaVisionLabel.png)
+
 ### Declaration of Conformity CE DoC (EU)
 
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
@@ -407,9 +413,12 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands      | Typical Output Power |
-|----------------------|----------------------|
-| 2.4 GHz, 40 channels | TBC                  |
+| Frequency bands                 | Maximum Output Power |
+| ------------------------------- | -------------------- |
+| 2402 MHz ~ 2480 MHz (EDR)       | -0.21 dBM            |
+| 2402 MHz ~ 2480 MHz (BLE)       | 4.79 dBM             |
+| 2412 MHz ~ 2462 MHz (2.4G WiFi) | 16.21 dBM            |
+
 
 ## Company Information
 
@@ -429,10 +438,11 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**                       |
-| ---------- | ------------ | --------------------------------- |
-| 28/03/2024 | 5            | FCC Warning Updated, small fixes  |
-| 05/12/2023 | 4            | Accessories section updated       |
-| 27/01/2023 | 3            | Add power consumption information |
-| 10/01/2023 | 2            | Updated information and fixes     |
-| 03/09/2021 | 1            | Initial Version                   |
+| **Date**   | **Revision** | **Changes**                                              |
+| ---------- | ------------ | -------------------------------------------------------- |
+| 10/04/2024 | 6            | Product Labeling section added - FCC information updated |
+| 28/03/2024 | 5            | FCC Warning Updated, small fixes                         |
+| 05/12/2023 | 4            | Accessories section updated                              |
+| 27/01/2023 | 3            | Add power consumption information                        |
+| 10/01/2023 | 2            | Updated information and fixes                            |
+| 03/09/2021 | 1            | Initial Version                                          |
