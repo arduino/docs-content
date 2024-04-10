@@ -18,5 +18,6 @@ hardware:
     - portenta-hat-carrier
     - portenta-mid-carrier
   modules:
-    - 4g-module-emea
-    - 4g-module-global
+    - pro-4g-module
+    #- 4g-module-emea
+    #- 4g-module-global

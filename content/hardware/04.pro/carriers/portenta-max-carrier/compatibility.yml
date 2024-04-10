@@ -11,5 +11,6 @@ hardware:
     - portenta-h7-lite-connected
     - portenta-x8
   modules:
-    - 4g-module-emea
-    - 4g-module-global
+    - pro-4g-module
+    #- 4g-module-emea
+    #- 4g-module-global

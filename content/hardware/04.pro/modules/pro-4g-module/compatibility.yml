@@ -2,7 +2,7 @@ software:
   - arduino-ide
   - arduino-cli
 hardware:
-  boards:
+  carriers:
     - portenta-max-carrier
     - portenta-mid-carrier
 
