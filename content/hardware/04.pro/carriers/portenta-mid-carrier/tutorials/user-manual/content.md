@@ -17,6 +17,7 @@ hardware:
   - hardware/04.pro/boards/portenta-h7-lite
   - hardware/04.pro/boards/portenta-h7-lite-connected
   - hardware/04.pro/boards/portenta-c33
+  - hardware/04.pro/modules/pro-4g-module
 software:
   - ide-v1
   - ide-v2
@@ -4634,7 +4635,7 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 Join our community forum to connect with other Portenta Mid Carrier users, share your experiences, and ask questions. The forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Portenta Mid Carrier.
 
-- [Portenta Mid Carrier category in the Arduino Forum](https://forum.arduino.cc/c/hardware/portenta/portenta-mid-carrier/150)
+- [Portenta Mid Carrier category in the Arduino Forum](https://forum.arduino.cc/c/hardware/portenta/91)
 
 ### Contact Us
 
