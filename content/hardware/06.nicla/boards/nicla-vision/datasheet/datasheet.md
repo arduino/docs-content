@@ -415,9 +415,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Frequency bands                 | Maximum Output Power |
 | ------------------------------- | -------------------- |
-| 2402 MHz ~ 2480 MHz (EDR)       | -0.21 dBM            |
-| 2402 MHz ~ 2480 MHz (BLE)       | 4.79 dBM             |
-| 2412 MHz ~ 2462 MHz (2.4G WiFi) | 16.21 dBM            |
+| 2402 MHz ~ 2480 MHz (EDR)       | -0.21 dBm            |
+| 2402 MHz ~ 2480 MHz (BLE)       | 4.79 dBm             |
+| 2412 MHz ~ 2462 MHz (2.4GHz WiFi) | 16.21 dBm            |
 
 
 ## Company Information
