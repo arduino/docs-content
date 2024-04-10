@@ -1,3 +1,5 @@
+---
 title: Pro 4G GNSS Module (Global)
-SKU: [TPX00200]
+sku: [TPX00200]
 certifications: [CE, UKCA]
+---
