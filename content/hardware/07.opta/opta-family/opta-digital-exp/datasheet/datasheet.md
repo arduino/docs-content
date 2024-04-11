@@ -19,40 +19,12 @@ Industrial IoT, Building automation, Electrical loads management, Industrial aut
 ## Product Variants
 There are two variants of the Arduino Opta® Digital Expansion created to fit the different needs of each industry and application. The difference between each of the variants can be found in the following table:
 
-<table style="page-break-before: auto;">
-   <thead>
-      <tr>
-         <th style="text-align: center;">Name</th>
-         <th style="text-align: center;">Arduino Opta® Ext D1608E</th>
-         <th style="text-align: center;">Arduino Opta® Ext D1608S</th>
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td style="text-align: center;">SKU</td>
-         <td style="text-align: center;">AFX00005</td>
-         <td style="text-align: center;">AFX00006</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;">Inputs</td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>16 x programmable <br>(0-24 V digital | 0-24 V analog)</p>
-         </td>
-         <td style="text-align: center;">
-            <p>16 x programmable <br>(0-24 V digital | 0-24 V analog)</p>
-         </td>
-      </tr>
-      <tr>
-         <td style="text-align: center;">Outputs</td>
-         <td style="text-align: center;">
-            <p>8 x Electromechanical Relays <br>(250 VAC - 6 A)</p>
-         </td>
-         <td style="text-align: center;">
-            <p>8 x Solid State Relays <br>(24 VDC - 2 A)</p>
-         </td>
-      </tr>
-   </tbody>
-</table>
+| Name                        | Arduino Opta® Ext D1608E                            | Arduino Opta® Ext D1608S                            |
+|-----------------------------|------------------------------------------------------|------------------------------------------------------|
+| SKU                         | AFX00005                                             | AFX00006                                             |
+| Inputs                      | 16 x programmable <br>(0-24 V digital | 0-24 V analog) | 16 x programmable <br>(0-24 V digital | 0-24 V analog) |
+| Outputs                     | 8 x Electromechanical Relays <br>(250 VAC - 6 A)    | 8 x Solid State Relays <br>(24 VDC - 2 A)           |
+
 
 ## Application Examples
 Arduino Opta® Expansion is designed for industrial standard machinery control alongside the Opta® micro PLC. It is readily integrated into the Arduino hardware and software ecosystem.
@@ -65,285 +37,88 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 ## Features
 ### General Specifications Overview
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th colspan="2">Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Supply Voltage</td>
-            <td>12...24 V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Antipolarity protection</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Overvoltage protection</td>
-            <td>Yes (+20%)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Inputs</td>
-            <td>16x Digital (0-24 V) / Analog (0-24 V) inputs</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Outputs</td>
-            <td>AFX00005: 8x Electromechanical Relays (250 VAC - 6 A) <br>
-            AFX00006: 8x Solid State Relays (24 VDC - 2 A)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Degree of Protection</td>
-            <td>IP20</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Certifications</td>
-            <td>ENEC, FCC, CE, UKCA</td>
-        </tr>
-    </tbody>
-</table>
+
+| Characteristics             | Details                                                        |
+|-----------------------------|----------------------------------------------------------------|
+| Supply Voltage              | 12...24 V                                                      |
+| Antipolarity protection     | Yes                                                            |
+| Overvoltage protection      | Yes (+20%)                                                     |
+| Inputs                      | 16x Digital (0-24 V) / Analog (0-24 V) inputs                  |
+| Outputs                     | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A) <br> AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
+| Degree of Protection        | IP20                                                           |
+| Certifications              | ENEC, FCC, CE, UKCA                                            |
 
 ### Inputs
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Number of inputs</td>
-            <td>16x Digital/Analog inputs</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Inputs overvoltage protection</td>
-            <td>Yes (Up to 40 V)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Antipolarity protection</td>
-            <td>No</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Input impedance</td>
-            <td>5.85 kΩ</td>
-        </tr>
-    </tbody>
-</table>
+
+| Characteristics                    | Details               |
+|------------------------------------|-----------------------|
+| Number of inputs                   | 16x Digital/Analog inputs |
+| Inputs overvoltage protection      | Yes (Up to 40 V)     |
+| Antipolarity protection            | No                    |
+| Input impedance                    | 5.85 kΩ              |
+
 
 #### Analog Inputs
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Analog Input voltage</td>
-            <td>0...24 V </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Analog Input resolution</td>
-            <td>14 bit</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Analog Input LSB value</td>
-            <td>1.733 mV</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Accuracy</td>
-            <td>+/- 5%, repeatability +/- 2%</td>
-        </tr>
-    </tbody>
-</table>
+| Characteristics           | Details                          |
+|---------------------------|----------------------------------|
+| Analog Input voltage      | 0...24 V                         |
+| Analog Input resolution   | 14 bit                           |
+| Analog Input LSB value    | 1.733 mV                         |
+| Accuracy                  | +/- 5%, repeatability +/- 2%     |
+
 
 #### Digital Inputs
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Digital Input voltage</td>
-            <td>0...24 V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input voltage logic level</td>
-            <td>VIL Max: 4 VDC. VHL Min: 5.9 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input current</td>
-            <td>4.12 mA at 24 V, 2.05 mA at 10 V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input frequency</td>
-            <td>300 Hz</td>
-        </tr>
-    </tbody>
-</table>
+| Characteristics                     | Details                              |
+|-------------------------------------|--------------------------------------|
+| Digital Input voltage               | 0...24 V                             |
+| Digital Input voltage logic level   | VIL Max: 4 VDC. VHL Min: 5.9 VDC    |
+| Digital Input current               | 4.12 mA at 24 V, 2.05 mA at 10 V    |
+| Digital Input frequency             | 300 Hz                               |
+
 
 ### Outputs (AFX00005 Only)
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Number of outputs</td>
-            <td>8x Electromechanical Relays (NO - SPST)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max current per relay</td>
-            <td>6 A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>10 A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Continuous current per terminal</td>
-            <td>6 A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Short-circuit protection</td>
-            <td>No, external fuse required</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay rated voltage</td>
-            <td>250 VAC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay Max voltage</td>
-            <td>400 VAC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Rated load AC1</td>
-            <td>1500 VA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Rated load AC15 (230 VAC)</td>
-            <td>300 VA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Breaking capacity DC1: 24/110/220 V</td>
-            <td>6/0.2/0.12 A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Minimum switching load</td>
-            <td>500 mW (12 V/10 mA)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max output line length (unshielded)</td>
-            <td>100 m</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 0 to state 1</td>
-            <td>5 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 1 to state 0</td>
-            <td>3 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Bounce time NO</td>
-            <td>1 ms</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Bounce time NC</td>
-            <td>6 ms</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay mechanical durability</td>
-            <td>10 million cycles (DC)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay electrical durability</td>
-            <td>60 thousand cycles with a resistive load (AC1)</td>
-        </tr>
-    </tbody>
-</table>
+
+| Characteristics                              | Details                                |
+|----------------------------------------------|----------------------------------------|
+| Number of outputs                            | 8x Electromechanical Relays (NO - SPST)|
+| Max current per relay                        | 6 A                                    |
+| Max peak current per relay                   | 10 A                                   |
+| Continuous current per terminal              | 6 A                                    |
+| Short-circuit protection                     | No, external fuse required             |
+| Relay rated voltage                         | 250 VAC                                |
+| Relay Max voltage                           | 400 VAC                                |
+| Rated load AC1                              | 1500 VA                                |
+| Rated load AC15 (230 VAC)                   | 300 VA                                 |
+| Breaking capacity DC1: 24/110/220 V         | 6/0.2/0.12 A                           |
+| Minimum switching load                      | 500 mW (12 V/10 mA)                    |
+| Max output line length (unshielded)         | 100 m                                  |
+| Relay response time from state 0 to state 1 | 5 ms for relay output                   |
+| Relay response time from state 1 to state 0 | 3 ms for relay output                   |
+| Bounce time NO                              | 1 ms                                   |
+| Bounce time NC                              | 6 ms                                   |
+| Relay mechanical durability                 | 10 million cycles (DC)                 |
+| Relay electrical durability                 | 60 thousand cycles with a resistive load (AC1)|
+
 
 ### Outputs (AFX00006 Only)
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Number of outputs</td>
-            <td>8x Solid State Relays (NO - SPST)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max current per relay</td>
-            <td>2 A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>50 A (10 ms)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Continuous current per terminal</td>
-            <td>2 A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Short-circuit protection</td>
-            <td>No, external fuse required</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay rated voltage</td>
-            <td>24 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Switching voltage range</td>
-            <td>1.5...30 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Maximum blocking voltage</td>
-            <td>33 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Rated load DC13</td>
-            <td>36 W</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Minimum switching current</td>
-            <td>1 mA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max "OFF-state" leakage current</td>
-            <td>0.001 mA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max "OFF-state" voltage drop</td>
-            <td>0.4 V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 0 to state 1</td>
-            <td>0.02 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 1 to state 0</td>
-            <td>0.2 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Electrical life at rated load</td>
-            <td>> 10 million cycles</td>
-        </tr>
-    </tbody>
-</table>
+
+| Characteristics                            | Details                           |
+|--------------------------------------------|-----------------------------------|
+| Number of outputs                          | 8x Solid State Relays (NO - SPST)|
+| Max current per relay                      | 2 A                               |
+| Max peak current per relay                 | 50 A (10 ms)                      |
+| Continuous current per terminal            | 2 A                               |
+| Short-circuit protection                   | No, external fuse required       |
+| Relay rated voltage                        | 24 VDC                            |
+| Switching voltage range                    | 1.5...30 VDC                      |
+| Maximum blocking voltage                   | 33 VDC                            |
+| Rated load DC13                            | 36 W                              |
+| Minimum switching current                  | 1 mA                              |
+| Max "OFF-state" leakage current            | 0.001 mA                          |
+| Max "OFF-state" voltage drop               | 0.4 V                             |
+| Relay response time from state 0 to state 1| 0.02 ms for relay output          |
+| Relay response time from state 1 to state 0| 0.2 ms for relay output           |
+| Electrical life at rated load              | > 10 million cycles               |
 
 ## Ratings
 ### Recommended Operating Conditions
@@ -440,76 +215,17 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 ### Certifications Summary
 
-<table>
-   <thead>
-      <tr>
-         <th style="width: 16%;vertical-align: middle;text-align: center;"><strong>Cert</strong></th>
-         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>Arduino Opta® Digital Expansion EMR (AFX00005)</strong></th>
-         <th style="width: 28%;vertical-align: middle;text-align: center;"><strong>Arduino Opta® Digital Expansion SSR (AFX00006) </strong></th>
-      </tr>
-      <tr></tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>CE (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>EN IEC 61326-1:2021</p>
-            <p>EN IEC 61010 (LVD)</p>
-        </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>EN IEC 61326-1:2021</p>
-            <p>EN IEC 61010 (LVD)</p>
-         </td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>CB (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>WEEE (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>ENEC</strong></td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>Yes</p>
-         </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>Yes</p>
-         </td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>REACH (EU)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-         <td style="vertical-align: middle;text-align: center;">Yes</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>UKCA (UK)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">EN IEC 61326-1:2021</td>
-         <td style="vertical-align: middle;text-align: center;">EN IEC 61326-1:2021</td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>FCC (US)</strong></td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>Yes</p>
-         </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>Yes</p>
-         </td>
-      </tr>
-      <tr>
-         <td style="vertical-align: middle;text-align: center;"><strong>cULus</strong></td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>UL 61010-2-201</p>
-         </td>
-         <td style="vertical-align: middle;text-align: center;">
-            <p>UL 61010-2-201</p>
-         </td>
-      </tr>
-   </tbody>
-</table>
+| Cert        | Arduino Opta® Digital Expansion EMR (AFX00005) | Arduino Opta® Digital Expansion SSR (AFX00006) |
+|-------------|--------------------------------------------------|--------------------------------------------------|
+| CE (EU)     | EN IEC 61326-1:2021<br>EN IEC 61010 (LVD)       | EN IEC 61326-1:2021<br>EN IEC 61010 (LVD)       |
+| CB (EU)     | Yes                                              | Yes                                              |
+| WEEE (EU)   | Yes                                              | Yes                                              |
+| ENEC        | Yes                                              | Yes                                              |
+| REACH (EU)  | Yes                                              | Yes                                              |
+| UKCA (UK)   | EN IEC 61326-1:2021                              | EN IEC 61326-1:2021                              |
+| FCC (US)    | Yes                                              | Yes                                              |
+| cULus       | UL 61010-2-201                                    | UL 61010-2-201                                    |
+
 
 ### Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
