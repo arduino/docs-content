@@ -1,6 +1,6 @@
 ---
 identifier: AFX00005-AFX00006
-title: Arduino Opta® Digital Expansion (DRAFT)
+title: Arduino Opta® Digital Expansion
 type: pro
 variant: 'Collective Datasheet'
 author: Christopher Mendez
@@ -10,7 +10,7 @@ author: Christopher Mendez
 # Description
 Arduino Opta® Digital Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 16 programmable inputs for connecting your digital sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
-The Arduino Opta® Digital Expansion comes in two variants: the Opta Ext D1608E (with Electromechanical Relays) and the Opta Ext D1608S (with Solid State Relays), both of them documented inside this document.
+The Arduino Opta® Digital Expansion comes in two variants: the Opta Ext D1608E (with Electromechanical Relays) and the Opta Ext D1608S (with Solid State Relays), both of them described in this document.
 
 # Target Areas:
 Industrial IoT, Building automation, Electrical loads management, Industrial automation
@@ -57,7 +57,7 @@ There are two variants of the Arduino Opta® Digital Expansion created to fit th
 ## Application Examples
 Arduino Opta® Expansion is designed for industrial standard machinery control alongside the Opta® micro PLC. It is readily integrated into the Arduino hardware and software ecosystem.
 
-- **Automated Production Line:** Arduino Opta® can manage the overall flow of goods in manufacturing. For example, by integrating a load cell or a vision system, it can ensure each phase of a packing process is performed correctly, automatically discard faulty parts, ensure the appropriate amount of goods is present within each box and interact with production line printers, also adding timestamp information synchronized via Network Time Protocol (NTP)
+- **Automated Production Line:** Arduino Opta® can manage the overall flow of goods in manufacturing. For example, by integrating a load cell or a vision system, it can ensure each phase of a packing process is performed correctly, automatically discard faulty parts, ensure the appropriate amount of goods is present within each box and interact with production line printers, also adding timestamp information synchronized via Network Time Protocol (NTP).
 
 - **Real-time Monitoring in Manufacturing:** Production data can be visualized locally via an HMI or even by connecting to the Arduino Opta® via Bluetooth® Low Energy. The simplicity of Arduino Cloud allows to remotely display custom dashboards; this product is also compatible with other major Cloud providers.
 
@@ -75,15 +75,15 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
     <tbody>
         <tr>
             <td style="vertical-align: top;">Supply Voltage</td>
-            <td>12...24 VDC</td>
+            <td>12...24 V</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Antipolarity protection</td>
-            <td>yes</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Overvoltage protection</td>
-            <td>yes (+20%)</td>
+            <td>Yes (+20%)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Inputs</td>
@@ -120,11 +120,11 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Inputs overvoltage protection</td>
-            <td>yes (Up to 40 V)</td>
+            <td>Yes (Up to 40 V)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Antipolarity protection</td>
-            <td>no</td>
+            <td>No</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Input impedance</td>
@@ -363,11 +363,8 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Power consumption (12V) | -    | -   | 3    | W   |
 | Power consumption (24V) | -    | -   | 3    | W   |
 
-### Block Diagram
-
-![Block diagram](assets/Opta_Digital_EXP_Block_Diagram.svg)
-
 ## Functional Overview
+
 ### Product View
 
 ![Arduino Opta® Expansion EMR and SSR variants](assets/AFX0005-6-new.png)
@@ -378,26 +375,32 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | 3b   | I1...I16 digital/analog input terminals (0-24 V) configurable via IDE            |
 | 3c   | Power Status LED                                                                 |
 | 3d   | Relay Output Terminals 1...8, NO contact (SPST), EMR 6 A 250 VAC - SSR 2 A 24 VDC|
-| 3e   | Status LEDs 1...8 (User Programmable?)                                           |
+| 3e   | Status LEDs 1...8                                            |
 | 3f   | Port for communication and connection of auxiliary modules                       |
 
 
+### Block Diagram
+
+The following diagram explains the relation between the main components of the Opta® Digital Expansion:
+
+![Block diagram](assets/Opta_Digital_EXP_Block_Diagram.svg)
+
 ### Relay Outputs
-Arduino Opta® Digital Expansions has eight *Normally Open* (NO) relays. For the **EMR** variant, eight powerful 6A electromechanical relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC, and for the **SSR** variant, eight fast 2A solid state relays which are capable of actuating on DC loads at a rated voltage of 24 VDC. 
+Arduino Opta® Digital Expansions has eight *Normally Open* (NO) relays. For the **EMR** variant, eight powerful 6 A electromechanical relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC, and for the **SSR** variant, eight fast 2 A solid state relays which are capable of actuating on DC loads at a rated voltage of 24 VDC. 
 
 The relay *Maximum Peak Current* is defined as the highest value of inrush current that the relay can endure without undergoing any permanent degradation of its characteristics due to the generated heat. The relay has to be able to hold up that maximum using a duty cycle of less or equal to 10% and for a time equal to or less than 0.5 s.
 
-In the case of Arduino Opta® Digital Expansions, the EMR and SSR variants have a *Maximum Peak Current* of 10A and 50A respectively.
+In the case of Arduino Opta® Digital Expansions, the EMR and SSR variants have a *Maximum Peak Current* of 10 A and 50 A respectively.
 
 The *Rated Load* is the maximum resistive load that a contact can make, carry and break repeatedly. 
 - For resistive or slightly inductive loads (AC1 classification), **EMR variant's** *Rated Load* is 1500 VA.
 - For small electromagnetic loads (> 72 VA) (AC15 classification) like power contactors, magnetic solenoid valves, electromagnets and AC single-phase supplies, **EMR variant's** *Rated Load* is 300 VA. This value assumes a peak inrush current of approximately 10 times the rated current and keeps it within the maximum peak current.
 
-For controlling DC loads (DC1 classification), the **EMR variant's** *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 6/0.2/0.12A for respectively 24/110/220 V. 
+For controlling DC loads (DC1 classification), the **EMR variant's** *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 6/0.2/0.12 A for respectively 24/110/220 V. 
 
 For controlling DC electromagnetics loads (DC13 classification), the **SSR variant's** *Rated Load* is 36 W.
 
-In the case of the minimum switching load parameters, the minimum values of power, voltage and current that the **EMR variant** relays can reliably switch, are 500 mW/ 12V / 10mA. This implies that with 12V the current must be at least 42mA, with 24V, it must be at least 21mA, and with 10mA the voltage must be at least 50V.
+In the case of the minimum switching load parameters, the minimum values of power, voltage and current that the **EMR variant** relays can reliably switch, are 500 mW/ 12 V / 10 mA. This implies that with 12 V the current must be at least 42 mA, with 24 V, it must be at least 21 mA, and with 10 mA the voltage must be at least 50V.
 
 For the **SSR variant**, the minimum switching voltage and current are 1.5 VDC and 1 mA respectively.
 
@@ -416,7 +419,7 @@ All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by
 The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino PLC IDE
-Arduino Opta® Digital Expansions can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software, attach the Opta® Expansion through the Aux Connector and connect your Arduino Opta® to your computer using a simple USB-C® cable, to start creating your own PLC industrial solutions. The PLC IDE will recognize the expansion and will expose the new available I/Os in the resources tree.
+Arduino Opta® Digital Expansions can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software, attach the Opta® Expansion through the Aux Connector and connect your Arduino Opta® to your computer using a simple USB-C® cable to start creating your own PLC industrial solutions. The PLC IDE will recognize the expansion and will expose the new available I/Os in the resources tree.
 
 ### Getting Started - Arduino Cloud
 All Arduino® IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
@@ -569,4 +572,4 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 | Date       | **Revision** | **Changes**        |
 |------------|--------------|------------------- |
-| 05/04/2024 | 1            | First Release      |
+| 06/05/2024 | 1            | First Release      |
