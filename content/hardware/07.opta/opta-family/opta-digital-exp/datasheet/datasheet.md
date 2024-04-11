@@ -128,7 +128,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
         </tr>
         <tr>
             <td style="vertical-align: top;">Input impedance</td>
-            <td>1.15 kΩ</td>
+            <td>5.85 kΩ</td>
         </tr>
     </tbody>
 </table>
