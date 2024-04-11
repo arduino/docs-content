@@ -1779,7 +1779,7 @@ Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** with a 
         </tr>
         <tr>
             <td style="vertical-align: top;">Input impedance</td>
-            <td>1.15 kΩ</td>
+            <td>5.85 kΩ</td>
         </tr>
     </tbody>
 </table>
