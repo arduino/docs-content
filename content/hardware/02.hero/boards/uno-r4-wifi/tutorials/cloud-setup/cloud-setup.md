@@ -1,5 +1,5 @@
 ---
-title: Arduino UNO R4 WiFi Cloud Setup Guide
+title: Arduino UNO R4 WiFi Arduino Cloud Setup Guide
 description: A step-by-step guide on how to set up the UNO R4 WiFi with the Arduino Cloud.
 hardware:
   - hardware/02.hero/boards/uno-r4-wifi
@@ -9,7 +9,7 @@ tags: [UNO R4 WiFi, Cloud]
 
 The Arduino UNO R4 WiFi comes with a built-in ESP32-S3 module that enables Wi-Fi® functionality. This also means you can use it with the Arduino Cloud!
 
-This article shows you how to set up your board and connect it to the Cloud allowing you to upload code over the air, create dashboards to monitor your data and control your Arduino remotely.
+This article shows you how to set up your board and connect it to the Cloud allowing you to upload code over the air, create dashboards to monitor your data and control your Arduino board remotely.
 
 ## Software & Hardware Needed
 
@@ -59,10 +59,10 @@ After completing the steps in the popup you should be greeted by a prompt tellin
 
 ### Network Configuration
 
-We are almost done with the setup. Under Network click on **configure** and add your Wi-Fi credentials.
+We are almost done with the setup. Under Network click on **configure** and add your Wi-Fi® credentials.
 
 ![Network Configuration](./assets/network.png)
 
 ## Summary
 
-You have now successfully set up your UNO R4 WiFi to work with the Arduino Cloud. To get started with your first cloud project, check out our [Getting Started With the Arduino Cloud](arduino-cloud/getting-started/iot-cloud-getting-started) guide.
+You have now successfully set up your UNO R4 WiFi to work with the Arduino Cloud. To get started with your first IoT project, check out our [Getting Started With the Arduino Cloud](arduino-cloud/getting-started/iot-cloud-getting-started) guide.
