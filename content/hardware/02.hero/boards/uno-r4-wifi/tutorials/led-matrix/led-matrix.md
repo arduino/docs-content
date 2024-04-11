@@ -342,7 +342,6 @@ We've designed a gallery of frames and animations that are included in the libra
 
 ```arduino
 #include "Arduino_LED_Matrix.h"   // Include the LED_Matrix library
-#include "frames.h"               // Include a header file containing some custom icons
 
 ArduinoLEDMatrix matrix;          // Create an instance of the ArduinoLEDMatrix class
 
@@ -380,7 +379,6 @@ Alternatively, play one of the animations on the LED matrix like this:
 
 ```arduino
 #include "Arduino_LED_Matrix.h"   //Include the LED_Matrix library
-#include "animation.h"            //Include animation.h header file
 
 // Create an instance of the ArduinoLEDMatrix class
 ArduinoLEDMatrix matrix;  
