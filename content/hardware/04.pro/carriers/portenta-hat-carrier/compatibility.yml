@@ -3,6 +3,7 @@ software:
   - arduino-cli
   - iot-cloud
   - web-editor
+  - linux
 hardware:
   boards:
     - portenta-x8

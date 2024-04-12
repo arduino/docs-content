@@ -4,6 +4,7 @@ software:
   - arduino-cli
   - iot-cloud
   - web-editor
+  - linux
 hardware:
   boards:
     - portenta-h7
