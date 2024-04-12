@@ -88,8 +88,6 @@ Here the full list of the methods of the **ArduinoAlvik()** class.
 
 ### set_behaviour
 
-## Functions in detail
-
 set_behaviour(behaviour: int)
 
 _Sets the behaviour of Alvik_
