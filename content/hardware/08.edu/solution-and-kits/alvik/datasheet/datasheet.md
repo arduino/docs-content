@@ -1,7 +1,7 @@
 ---
 identifier: AKX00066
 title: Arduino® Alvik
-type: edu
+type: educational
 ---
 ![](assets/perspective_top.jpg)
 
@@ -35,7 +35,7 @@ Maker, Edu, MicroPython
   * Servo motor
   * I2C Grove
   * QWIIC
-  * Lego® Technic™
+  * Lego Technic
   * M3 Screws
 
 # Contents
@@ -44,7 +44,7 @@ Maker, Edu, MicroPython
 Arduino Alvik is battery powered and comes with 2 MCUs:
 
  - at the core there is the STM32 ARM Cortex-M4 that controls all the sensors and actuators
- - at the top a Nano ESP32 that can communicate with STM32 through a set of dedicated APIs
+ - at the top a Nano ESP32 that can communicate with STM32 trough a set of dedicated APIs
 
 ![](assets/datasheet_main_components.png)
 
@@ -62,8 +62,8 @@ Arduino Alvik is battery powered and comes with 2 MCUs:
 
 | **Description**             | **Part Name** | **Product page**                                                                                                   | **Datasheet**                          |
 |-----------------------------|---------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------|
-| Color detection             | APDS-9660     | [link](https://www.broadcom.com/products/optical-sensors/integrated-ambient-light-and-proximity-sensors/apds-9960) | [link](assets/APDS-9960_datasheet.pdf) |
-| IMU                         | LSM6DSOXTR    | [link](https://www.st.com/en/mems-and-sensors/lsm6dsox.html)                                                       | [link](assets/LSM6_datasheet.pdf)      |
+| Color detection             | APDS 9660     | [link](https://www.broadcom.com/products/optical-sensors/integrated-ambient-light-and-proximity-sensors/apds-9960) | [link](assets/APDS-9960_datasheet.pdf) |
+| IMU                         | LSM6DSOX      | [link](https://www.st.com/en/mems-and-sensors/lsm6dsox.html)                                                       | [link](assets/LSM6_datasheet.pdf)      |
 | Time of Flight              | VL53L7CXV0GC  | [link](https://www.st.com/en/imaging-and-photonics-solutions/vl53l7cx.html)                                        | [link](assets/VL53_datasheet.pdf)      |
 | Capacitive Touch Controller | AT42QT2120    | [link](https://www.microchip.com/en-us/product/AT42QT2120)                                                         | [link](assets/at42qt2120.pdf)          |
 | Line Follower Arrays        | Custom made   |                                                                                                                    |                                        |
@@ -115,7 +115,7 @@ There are three level of power:
 
 ### Block Diagram
 
-![block diagram](assets/Block_diagram.png)
+![block diagram](assets/block_diagram.png)
 
 ## Mechanical Information
 
@@ -249,13 +249,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Changes**                                            |
 | ---------- | ------------------------------------------------------ |
-| 08/06/2023 | Release                                                |
-| 09/01/2023 | Update power tree flowchart.                           |
-| 09/11/2023 | Update SPI section, update analog/digital pin section. |
-| 11/06/2023 | Correct company name, correct VBUS/VUSB                |
-| 11/09/2023 | Block Diagram Update, Antenna Specifications           |
-| 11/15/2023 | Ambient temperature update                             |
-| 11/23/2023 | Added label to LP modes                                |
+|            |                                                        |
+
 
 
 
