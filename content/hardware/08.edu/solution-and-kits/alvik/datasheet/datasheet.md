@@ -29,13 +29,13 @@ Maker, Edu, MicroPython
   * 3x Line follower
   * 7x Touch sensor
 * **Motors**
-  * High precision with magnetic encoder
-  * Up to 15 cm/s
+  * High precision with hall effect encoder
+  * Up to 13 cm/s
 * **Extensions**
   * Servo motor
   * I2C Grove
   * QWIIC
-  * Lego Technic
+  * Lego® Technic
   * M3 Screws
 
 # Contents
