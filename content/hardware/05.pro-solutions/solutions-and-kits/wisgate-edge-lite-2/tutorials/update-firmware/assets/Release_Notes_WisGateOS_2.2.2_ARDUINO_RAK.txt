@@ -29,7 +29,7 @@ New Features:
 - TDOA support in gateway UI.
 - ChirpStack V4 (MQTT Bridge) integration.
 - WisDM agent updated to v1.2.5 to allow adding gateways in Basics Station mode without erasing individual keys. 
-- Support Client ID for user to fill in when the gateway works in Build-in NS mode.
+- Support Client ID for user to fill in when the gateway works in Built-in NS mode.
 
 Fixed bugs:
 
