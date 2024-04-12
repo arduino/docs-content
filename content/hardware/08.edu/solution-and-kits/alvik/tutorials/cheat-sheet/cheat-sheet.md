@@ -82,7 +82,8 @@ Here the full list of the methods of the **ArduinoAlvik()** class.
 | [on_touch_down_pressed(...)](#on_touch_down_pressed)   | Register callback when touch button DOWN is pressed                                                      |
 | [on_touch_right_pressed(...)](#on_touch_right_pressed)  | Register callback when touch button RIGHT is pressed                                                     |
 
-## Parameters and return values of each function
+## API List II
+
 ### set_behaviour 
 
 set_behaviour(behaviour: int)
@@ -188,7 +189,7 @@ _Returns linear and angular velocity of the robot_
 
 ### reset_pose
 
-reset_pose(x: float, y: float, theta: float, distance_unit: str = 'cm', angle_unit: 
+reset_pose(x: float, y: float, theta: float, distance_unit: str = 'cm', angle_unit:
 str = 'deg')
 
 _Resets the robot pose_
@@ -438,10 +439,10 @@ Speed unit of measurement used in the APIs:
 
 ### The rotational speed unit
 
-Rotational speed unit of measurement used in the APIs: 
+Rotational speed unit of measurement used in the APIs:
 
  - 'rpm': revolutions per minute, example: 1.0 as reference for the other unit.
- - 'deg/s': degrees per second, example: 1.0 deg/s is 60.0 deg/min that is 1/6 rpm. 
+ - 'deg/s': degrees per second, example: 1.0 deg/s is 60.0 deg/min that is 1/6 rpm.
  - 'rad/s': radiant per second, example: 1.0 rad/s is 60.0 rad/min that is 9.55 rpm.
  - 'rev/s': revolution per second, example: 1.0 rev/s is 60.0 rev/min that is 60.0 rpm.
 
