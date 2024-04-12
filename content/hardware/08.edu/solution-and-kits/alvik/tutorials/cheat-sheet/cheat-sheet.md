@@ -82,9 +82,13 @@ Here the full list of the methods of the **ArduinoAlvik()** class.
 | [on_touch_down_pressed(...)](#on_touch_down_pressed)   | Register callback when touch button DOWN is pressed                                                      |
 | [on_touch_right_pressed(...)](#on_touch_right_pressed)  | Register callback when touch button RIGHT is pressed                                                     |
 
-## API List II
+## API List II - Parameters and return values of each function
 
-### set_behaviour 
+### set_behaviour
+
+
+
+### set_behaviour
 
 set_behaviour(behaviour: int)
 
