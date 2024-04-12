@@ -90,7 +90,7 @@ Fixed bugs:
 •	China cannot be selected on the "Change your country" page for CN470 gateways
 •	ASS923 band only - After a node sends uplink data through FSK or STD frequency, it cannot receive confirm-ok data
 •	The maximum payload size of the downlink should be specified in the LoRaWan protocol.
-•	In Build-in server mode, AS923 band, downlink phy payload size larger than the max limit
+•	In Built-in server mode, AS923 band, downlink phy payload size larger than the max limit
 •	The frame count stored in DB by NS is inconsistent after restarting the server.
 •	In Basics Station mode, connected to Chirp Stack, an error failed to open COM port /dev/ttyACM0
 •	NS mode, Adding "/" at the beginning when configuring the Downlink Topic in Integration Interface Parameters will cause an NS error.
