@@ -7,7 +7,7 @@ Arduino Alvik is powered by the new [Arduino Nano ESP32](https://docs.arduino.cc
 <FeatureList>
 
 <Feature title="STM32 ARM Cortex-M4" image="core">
-At the core of the robot there is a powerfull 32-bit MCU.
+At the core of the robot there is a powerful 32-bit MCU.
 </Feature>
 
 <Feature title="Cheat Sheet" image="communication">

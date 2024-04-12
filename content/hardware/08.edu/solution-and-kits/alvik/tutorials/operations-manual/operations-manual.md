@@ -2,7 +2,7 @@
 ![](assets/title.png)
 
 ## 1. Requirements
-In this manual you'll find usefull informations to test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and sotware. 
+In this manual you'll find useful information to test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and sotware. 
 
 ### 1.1 Hardware requirements
 
@@ -42,7 +42,7 @@ Please note that when using MicroPython the pin number reflects the GPIO on the 
 
 #### 2.2.2 STM32
 
-The main core of the robot is the STM32 ARM Cortex-M4 32 Bit, you can access it trough a set of dedicated APIs from the Nano ESP32.
+The main core of the robot is the STM32 ARM Cortex-M4 32 Bit, you can access it through a set of dedicated APIs from the Nano ESP32.
 
 [Here](/tutorials/cheat-sheet/cheat-sheet.md) is the list of APIs.
 
@@ -61,7 +61,7 @@ During operation the terminal of the Arduino Lab for MicroPython will notify you
 
 The battery is a rechargeable Li-ion 18650. It is located in the bottom part of the Alvik, to access it you need to remove one screw and take out the plastic holder.
 
-The Nano ESP32 can report the status of the battery trough the terminal of the Arduino Lab for MicroPython and with its RGB status LED. To do that you need to call the `Alvik.begin()` function, in any program.
+The Nano ESP32 can report the status of the battery through the terminal of the Arduino Lab for MicroPython and with its RGB status LED. To do that you need to call the `Alvik.begin()` function, in any program.
 
 When the battery is charging the status LED will blink RED for 1 second.
 ![charging blink](assets/charging.gif)
@@ -74,7 +74,7 @@ When fully charged it will stay GREEN.
 
 #### 2.2.5 Inputs
 
-Alvik has five inputs, all linked to the STM32 and accessible trough the [APIs](/tutorials/cheat-sheet/cheat-sheet.md). For every input there is a test example program that you can find in the _examples_ folder in [this](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) repository. 
+Alvik has five inputs, all linked to the STM32 and accessible through the [APIs](/tutorials/cheat-sheet/cheat-sheet.md). For every input there is a test example program that you can find in the _examples_ folder in [this](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) repository. 
 
 | **Sensor name**              | **Part name** | **Test program name** |
 |------------------------------|---------------|-----------------------|
@@ -114,7 +114,7 @@ Alvik comes with a preinstalled version of libraries and firmware, but in case y
 
 Download and install the [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython), if you are able to connect the Arduino Nano ESP32 it means that you're board is ready. You have to see the **CONNECTED** yellow label at the bottom.
 
-![connection succeded](assets/connection_succeded.png)
+![connection succeeded](assets/connection_succeeded.png)
 
 If something goes wrong it means you need to upload the MicroPython firmware on the Nano ESP32.
 Follow [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
@@ -135,5 +135,4 @@ Follow [this guide](https://docs.arduino.cc/micropython/basics/board-installatio
 ### 5.2 Add servo
 ### 5.3 Add i2c grove
 ### 5.4 Add qwiic
-
 

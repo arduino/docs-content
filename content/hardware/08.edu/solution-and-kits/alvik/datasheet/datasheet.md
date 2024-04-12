@@ -44,7 +44,7 @@ Maker, Edu, MicroPython
 Arduino Alvik is battery powered and comes with 2 MCUs:
 
  - at the core there is the STM32 ARM Cortex-M4 that controls all the sensors and actuators
- - at the top a Nano ESP32 that can communicate with STM32 trough a set of dedicated APIs
+ - at the top a Nano ESP32 that can communicate with STM32 through a set of dedicated APIs
 
 ![](assets/datasheet_main_components.png)
 
@@ -250,7 +250,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | **Date**   | **Changes**                                            |
 | ---------- | ------------------------------------------------------ |
 |            |                                                        |
-
 
 
 
