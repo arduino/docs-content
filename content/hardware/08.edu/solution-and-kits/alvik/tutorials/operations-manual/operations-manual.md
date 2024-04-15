@@ -1,11 +1,7 @@
 ---
 title: 'Getting Started with Alvik'
 difficulty: beginner
-description: 'This short guide helps you to get started with Avlik, you'll also find useful information to maintain your Alvik.'
-tags:
-  - Robot
-hardware:
-  - hardware/08.edu/solution-and-kits/alvik
+description: 'This short guide helps you to get started with Alvik, you'll also find useful information to maintain your Alvik.'
 ---
 
 ![](assets/title.png)
