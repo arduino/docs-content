@@ -444,7 +444,7 @@ on_touch_right_pressed(callback: callable, args: tuple = ())
 
 _Register callback when touch button RIGHT is pressed_
 
-### Inputs
+#### Inputs
 
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
