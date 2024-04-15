@@ -16,9 +16,9 @@ Maker, Edu, MicroPython, Robotics
 # Features
 
 * **Core**
-  * STM32 ARM Cortex-M4 32 Bit
+  * STM32 Arm® Cortex®-M4 32 Bit
 * **Controller**
-  * Arduino NANO ESP32
+  * Arduino Nano ESP32
 * **Connectivity**
   * Wi-Fi®
   * Bluetooth® LE
@@ -34,16 +34,16 @@ Maker, Edu, MicroPython, Robotics
 * **Extensions**
   * Servo motor
   * I2C Grove
-  * QWIIC
+  * Qwiic
   * Lego® Technic
   * M3 Screws
 
 # Contents
 
 ## Overview
-Arduino Alvik is battery powered and comes with 2 MCUs:
+Alvik is battery powered and comes with 2 MCUs:
 
- - at the core there is the STM32 ARM Cortex-M4 that controls all the sensors and actuators
+ - at the core there is the STM32 Arm® Cortex®-M4 that controls all the sensors and actuators
  - at the top a Nano ESP32 that can communicate with STM32 through a set of dedicated APIs
 
 ![](assets/datasheet_main_components.png)
@@ -69,7 +69,8 @@ Arduino Alvik is battery powered and comes with 2 MCUs:
 | Line Follower Arrays        | Custom made   |                                                                                                                    |                                        |
 
 
-Attach to the Capacitive Touch Controller there are seven capacitive buttons on the top of the main board and in addition there is a line follower array made up by three phototransistor and five infrared LEDs.
+Attached to the Capacitive Touch Controller there are seven capacitive buttons on the top of the main board and in addition there is a line follower array made up by three phototransistor and five infrared LEDs.
+
 The three phototransistor are link directly to the analog ports of the STM32.
 
 ### Outputs
@@ -83,7 +84,7 @@ The three phototransistor are link directly to the analog ports of the STM32.
 
 The datasheet of the motors is [here](assets/motor_specs.pdf)
 
-The two motors are drived by the MAX22211 driver:
+The two motors are driven by the MAX22211 motors driver:
 
 | **Description**   | **Part Name** | **Product page**                                         | **Datasheet**               |
 |-------------------|---------------|----------------------------------------------------------|-----------------------------|
@@ -107,7 +108,7 @@ There are three level of power:
 
 | **Level** | **Description**                                                                     |
 |-----------|-------------------------------------------------------------------------------------|
-| +3V7      | From the battery, the reference level is 3.7V but it can goes from 3.0V to 4.2V |
+| +3V7      | From the battery, the reference level is 3.7 V but it can goes from 3.0 V to 4.2 V |
 | +5V       | After the Boost Converter                                                           |
 | +3V3      | After the Step Down Converter                                                       |
 
@@ -126,15 +127,15 @@ There are three level of power:
 | Main PCB             |     1    |
 | Front PCB            |     1    |
 | Arduino Nano ESP32   |     1    |
-| INOX M3 x 5mm        |     5    |
+| INOX M3 x 5 mm        |     5    |
 | 18650 Li-Ion Battery |     1    |
 | Main Chassis         |     1    |
 | Ball caster holder   |     1    |
-| Inox stell ball 9mm  |     1    |
+| Inox stell ball 9 mm  |     1    |
 | Motor holder         |     2    |
 | Motors               |     2    |
 | Rubber wheel         |     2    |
-| 2x6mm screw          |     2    |
+| 2x6 mm screw          |     2    |
 | Battery panel        |     1    |
 
 ## Certifications
@@ -239,9 +240,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Ref                          | Link                                                                                            |
 | ---------------------------- | ----------------------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)        | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino Web Editor (Cloud)   | <https://create.arduino.cc/editor>                                                              |
-| Web Editor - Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
+| Arduino Lab for Micropython IDE (Desktop) | https://labs.arduino.cc/en/labs/micropython |
+| Arduino Cloud Editor   | <https://create.arduino.cc/editor>                                                              |
+| Cloud Editor - Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
+| Arduino Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
 | Library Reference            | <https://github.com/arduino-libraries/>                                                         |
 | Online Store                 | <https://store.arduino.cc/>                                                                     |
 
