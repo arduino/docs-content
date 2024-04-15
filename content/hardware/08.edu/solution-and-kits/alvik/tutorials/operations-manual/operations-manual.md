@@ -1,17 +1,17 @@
 ---
-
 title: 'Getting Started with Alvik'
 difficulty: beginner
 description: 'This short guide helps you to get started with Avlik, you'll also find useful information to maintain your Alvik.'
-tags: [Robot]
-hardware: - Arduino® Alvik
-
+tags:
+  - Robot
+hardware:
+  - hardware/08.edu/solution-and-kits/alvik
 ---
 
 ![](assets/title.png)
 
 ## 1. Requirements
-In this manual you'll find useful information to test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and sotware. 
+In this manual you'll find useful information to test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and sotware.
 
 ### 1.1 Hardware requirements
 
@@ -83,7 +83,7 @@ When fully charged it will stay GREEN.
 
 #### 2.2.5 Inputs
 
-Alvik has five inputs, all linked to the STM32 and accessible through the [APIs](/tutorials/cheat-sheet/cheat-sheet.md). For every input there is a test example program that you can find in the _examples_ folder in [this](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) repository. 
+Alvik has five inputs, all linked to the STM32 and accessible through the [APIs](/tutorials/cheat-sheet/cheat-sheet.md). For every input there is a test example program that you can find in the _examples_ folder in [this](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) repository.
 
 | **Sensor name**              | **Part name** | **Test program name** |
 |------------------------------|---------------|-----------------------|
@@ -144,4 +144,3 @@ Follow [this guide](https://docs.arduino.cc/micropython/basics/board-installatio
 ### 5.2 Add servo
 ### 5.3 Add i2c grove
 ### 5.4 Add qwiic
-

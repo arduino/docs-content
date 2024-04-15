@@ -84,9 +84,9 @@ Here the full list of the methods of the **ArduinoAlvik()** class.
 
 
 
-## Parameters and return values of each function
+## Parameters and Return Values of Each Function
 
-### set_behaviour
+### `set_behaviour`
 
 set_behaviour(behaviour: int)
 
@@ -95,7 +95,7 @@ _Sets the behaviour of Alvik_
 - inputs:
 	- **behaviour**: behaviour code
 
-### rotate
+### `rotate`
 
 rotate(angle: float, unit: str = 'deg', blocking: bool = True)
 
@@ -105,7 +105,8 @@ _Rotates the robot by given angle_
 	- **angle**: the angle value
 	- **unit**: the angle unit, [?](#the-angle-unit)
 	- **blocking**: _True_ or _False_, [?](#blocking-or-non-blocking)
-### move
+
+### `move`
 
 move(distance: float, unit: str = 'cm', blocking: bool = True)
 
