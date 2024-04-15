@@ -8,7 +8,7 @@ type: edu
 # Description
 Arduino Alvik (from now on referred to as Alvik) is a powerful and versatile robot car specifically designed for programming and robotics education.
 
-Powered by [Arduino® Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/), Arduino Alvik offers a diverse learning paths through different programming languages, including MicroPython, Arduino C, and block-based coding, and it enables different possibilities to explore robotics, IoT and AI.
+Powered by [Arduino® Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/), Alvik offers a diverse learning paths through different programming languages, including MicroPython, Arduino C, and block-based coding, and it enables different possibilities to explore robotics, IoT and AI.
 
 # Target areas:
 Maker, Edu, MicroPython, Robotics
