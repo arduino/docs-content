@@ -11,7 +11,7 @@ Arduino Alvik is a powerful and versatile robot car specifically designed for pr
 Powered by [Arduino® Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/), Arduino Alvik offers a diverse learning paths through different programming languages, including MicroPython, Arduino C, and block-based coding, and it enables different possibilities to explore robotics, IoT and AI.
 
 # Target areas:
-Maker, Edu, MicroPython
+Maker, Edu, MicroPython, Robotics
 
 # Features
 
