@@ -1,3 +1,0 @@
----
-title: Pointer Access Operators
----

@@ -8,3 +8,6 @@ public
 src
 .DS_Store
 .vscode/settings.json
+content/en
+content/de
+content/pt

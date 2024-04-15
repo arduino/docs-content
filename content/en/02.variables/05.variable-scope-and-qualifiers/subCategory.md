@@ -1,3 +1,0 @@
----
-title: Variable Scope & Qualifiers
----

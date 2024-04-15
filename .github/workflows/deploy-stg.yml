@@ -38,6 +38,7 @@ jobs:
           find ./content/hardware -type f -name "*-datasheet.pdf" -exec cp {} ./static/resources/datasheets/ \;
           find ./content/hardware -type f -name "*-full-pinout.pdf" -exec cp {} ./static/resources/pinouts/ \;
           find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
+          find ./content/hardware -type f -name "*-step.zip" -exec cp {} ./static/resources/models/ \;
 
       - name: Gatsby main cache
         uses: actions/cache@v4

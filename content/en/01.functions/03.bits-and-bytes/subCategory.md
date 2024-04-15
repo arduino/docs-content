@@ -1,3 +1,0 @@
----
-title: Bits and Bytes
----

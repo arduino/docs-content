@@ -1,3 +1,0 @@
----
-title: Random Numbers
----

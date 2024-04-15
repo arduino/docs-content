@@ -1,3 +1,0 @@
----
-title: Compound Operators
----
