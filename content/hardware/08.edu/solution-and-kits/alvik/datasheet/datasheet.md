@@ -115,7 +115,7 @@ There are three level of power:
 
 ### Block Diagram
 
-![block diagram](assets/block_diagram.png)
+![block diagram](assets/Block_diagram.png)
 
 ## Mechanical Information
 
