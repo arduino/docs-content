@@ -1649,6 +1649,8 @@ MachineControl_RS485Comm.setFullDuplex(false);
 
 By modifying this line, *Full-Duplex mode* is deactivated, or the line can be commented out to bypass this setting altogether. This minor code tweak and the appropriate wiring enable the two units to communicate using Modbus RTU in half-duplex mode.
 
+![Modbus RTU (Half-Duplex) Demo](assets/rtu-half-ani.gif)
+
 #### Modbus TCP
 
 Modbus TCP, taking advantage of Ethernet connectivity, allows easy integration with existing computer networks and facilitates data communication over long distances using the existing network infrastructure. It operates in full-duplex mode, allowing simultaneous sending and receiving of data.
