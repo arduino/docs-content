@@ -90,7 +90,7 @@ set_behaviour(behaviour: int)
 
 _Sets the behaviour of Alvik_
 
-#### Inputs
+### Inputs
 
 - **behaviour**: behaviour code
 
@@ -100,7 +100,7 @@ rotate(angle: float, unit: str = 'deg', blocking: bool = True)
 
 _Rotates the robot by given angle_
 
-#### Inputs
+### Inputs
 
 - **angle**: the angle value
 - **unit**: [angle unit](#the-angle-unit)
@@ -112,7 +112,7 @@ move(distance: float, unit: str = 'cm', blocking: bool = True)
 
 _Moves the robot by given distance_
 
-#### Inputs
+### Inputs
 
 - **distance**: the distance value
 - **unit**: the distance unit. [?](#the-distance-unit)
@@ -122,11 +122,11 @@ _Moves the robot by given distance_
 
 get_wheels_speed(unit: str = 'rpm')
 
-#### Inputs
+### Inputs
 
 - **unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
 
-#### Outputs
+### Outputs
 
 - **left_wheel_speed**: the speed value
 - **right_wheel_speed**: the speed value
@@ -139,7 +139,7 @@ set_wheels_speed(left_speed: float, right_speed: float, unit: str = 'rpm')
 
 _Sets left/right motor speed_
 
-#### Inputs
+### Inputs
 
 - **left_speed**: the speed value
 - **right_speed**: the speed value
@@ -151,7 +151,7 @@ set_wheels_position(left_angle: float, right_angle: float, unit: str = 'deg')
 
 _Sets left/right motor angle_
 
-#### Inputs
+### Inputs
 
 - **left_angle**: the angle value
 - **right_angle**: the angle value
@@ -164,10 +164,12 @@ get_wheels_position(unit: str = 'deg')
 
 _Returns the angle of the wheels_
 
-#### Inputs
+### Inputs
 
 - **angular_unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
-#### Outputs
+
+### Outputs
+
 - **angular_velocity**:	speed of the wheels.
 
 ### `drive`
@@ -176,7 +178,7 @@ drive(linear_velocity: float, angular_velocity: float, linear_unit: str = 'cm/s'
 
 _Drives the robot by linear and angular velocity_
 
-#### Inputs
+### Inputs
 
 - **linear_velocity**: speed of the robot.
 - **angular_velocity**:	speed of the wheels.
@@ -189,12 +191,12 @@ get_drive_speed(linear_unit: str = 'cm/s', angular_unit: str = 'deg/s')
 
 _Returns linear and angular velocity of the robot_
 
-#### Inputs
+### Inputs
 
 - **linear_unit**: unit of linear velocity. [?](#the-linear-speed-unit)
 - **angular_unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
 
-#### Outputs
+### Outputs
 
 - **linear_velocity**: speed of the robot.
 - **angular_velocity**:	speed of the wheels.
@@ -207,7 +209,7 @@ str = 'deg')
 
 _Resets the robot pose_
 
-#### Inputs
+### Inputs
 
 - **x**
 - **y**
@@ -222,12 +224,12 @@ get_pose(distance_unit: str = 'cm', angle_unit: str = 'deg')
 
 _Returns the current pose of the robot_
 
-#### Inputs
+### Inputs
 
 - **distance_unit**: unit of x and y outputs, [?](#the-distance-unit)
 - **angle_unit**: unit of theta output, [?](#the-angle-unit)
 
-#### Outputs
+### Outputs
 
 - **x**
 - **y**
@@ -239,7 +241,7 @@ set_servo_positions(a_position: int, b_position: int)
 
 _Sets A/B servomotor angle_
 
-#### Inputs
+### Inputs
 
 - **a_position**: position of A servomotor (0-180)
 - **b_position**: position of B servomotor (0-180)
@@ -250,7 +252,7 @@ set_builtin_led(value: bool)
 
 _Turns on/off the builtin led_
 
-#### Inputs
+### Inputs
 
 - **value**: True = ON, False = OFF
 
@@ -260,7 +262,7 @@ set_illuminator(value: bool)
 
 _Turns on/off the illuminator led_
 
-#### Inputs
+### Inputs
 
 - **value**: True = ON, False = OFF
 
@@ -270,7 +272,7 @@ color_calibration(background: str = 'white')
 
 _Calibrates the color sensor_
 
-#### Inputs
+### Inputs
 
 - **background**: string "white" or "black"
 
@@ -280,13 +282,13 @@ rgb2hsv(r: float, g: float, b: float)
 
 _Converts normalized rgb to hsv_
 
-#### Inputs
+### Inputs
 
 - **r**: red value
 - **g**: green value
 - **b**: blue value
 
-#### Outputs
+### Outputs
 
 - **h**: hue value
 - **s**: saturation value
@@ -298,11 +300,11 @@ get_color(color_format: str = 'rgb')
 
 _Returns the normalized color readout of the color sensor_
 
-#### Inputs
+### Inputs
 
 - **color_format**: rgb or hsv only
 
-#### Outputs
+### Outputs
 
 - **r** or **h**
 - **g** or **s**
@@ -314,13 +316,13 @@ hsv2label(h, s, v)
 
 _Returns the color label corresponding to the given normalized HSV color input_
 
-#### Inputs
+### Inputs
 
 - **h**: hue value
 - **s**: saturation value
 - **v**: brightness value
 
-#### Outputs
+### Outputs
 
 - **color label**: like "BLACK" or "GREEN", if possible, otherwise return "UNDEFINED"
 
@@ -330,11 +332,11 @@ get_distance(unit: str = 'cm')
 
 _Returns the distance readout of the TOF sensor_
 
-#### Inputs
+### Inputs
 
 - **unit**: distance output unit
 
-#### Outputs
+### Outputs
 
 - **left_tof**: 45° to the left object distance
 - **center_left_tof**: 22° to the left object distance
@@ -348,11 +350,11 @@ get_distance_top(unit: str = 'cm')
 
 _Returns the obstacle top distance readout_
 
-#### Inputs
+### Inputs
 
 - **unit**: distance output unit
 
-#### Outputs
+### Outputs
 
 - **top_tof**: 45° to the top object distance
 
@@ -362,11 +364,11 @@ get_distance_bottom(unit: str = 'cm')
 
 _Returns the obstacle bottom distance readout_
 
-#### Inputs
+### Inputs
 
 - **unit**: distance output unit
 
-#### Outputs
+### Outputs
 
 - **bottom_tof**: 45° to the bottom object distance
 
@@ -376,7 +378,7 @@ on_touch_ok_pressed(callback: callable, args: tuple = ())
 
 _Register callback when touch button OK is pressed_
 
-#### Inputs
+### Inputs
 
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
@@ -387,7 +389,7 @@ on_touch_cancel_pressed(callback: callable, args: tuple = ())
 
 _Register callback when touch button CANCEL is pressed_
 
-#### Inputs
+### Inputs
 
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
@@ -398,7 +400,7 @@ on_touch_center_pressed(callback: callable, args: tuple = ())
 
 _Register callback when touch button CENTER is pressed_
 
-#### Inputs
+### Inputs
 
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
@@ -409,7 +411,7 @@ on_touch_up_pressed(callback: callable, args: tuple = ())
 
 _Register callback when touch button UP is pressed_
 
-#### Inputs
+### Inputs
 
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
@@ -420,7 +422,7 @@ on_touch_left_pressed(callback: callable, args: tuple = ())
 
 _Register callback when touch button LEFT is pressed_
 
-#### Inputs
+### Inputs
 
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
@@ -431,7 +433,7 @@ on_touch_down_pressed(callback: callable, args: tuple = ())
 
 _Register callback when touch button DOWN is pressed_
 
-#### Inputs
+### Inputs
 
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
@@ -442,7 +444,7 @@ on_touch_right_pressed(callback: callable, args: tuple = ())
 
 _Register callback when touch button RIGHT is pressed_
 
-#### Inputs
+### Inputs
 
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
