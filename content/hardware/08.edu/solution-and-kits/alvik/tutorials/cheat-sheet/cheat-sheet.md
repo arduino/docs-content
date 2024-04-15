@@ -84,13 +84,13 @@ Here the full list of the methods of the **ArduinoAlvik()** class.
 
 ## Parameters and Return Values of Each Function
 
-### `set_behaviour`
+`set_behaviour`
 
 set_behaviour(behaviour: int)
 
 _Sets the behaviour of Alvik_
 
-#### Inputs
+Inputs
 
 - **behaviour**: behaviour code
 
