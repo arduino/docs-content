@@ -117,7 +117,7 @@ _Moves the robot by given distance_
 	- **unit**: the distance unit. [?](#the-distance-unit)
 	- **blocking**: _True_ or _False_, [?](#blocking-or-non-blocking)
 
-### get_wheels_speed
+### `get_wheels_speed`
 
 get_wheels_speed(unit: str = 'rpm')
 
@@ -129,7 +129,7 @@ get_wheels_speed(unit: str = 'rpm')
 
 _Returns the speed of the wheels_
 
-### set_wheels_speed
+### `set_wheels_speed`
 
 set_wheels_speed(left_speed: float, right_speed: float, unit: str = 'rpm')
 
@@ -140,7 +140,7 @@ _Sets left/right motor speed_
 	- **right_speed**: the speed value
 	- **unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
 
-### set_wheels_position
+### `set_wheels_position`
 
 set_wheels_position(left_angle: float, right_angle: float, unit: str = 'deg')
 
@@ -152,7 +152,7 @@ _Sets left/right motor angle_
 	- **unit**: the angle unit, [?](#the-angle-unit)
 
 
-### get_wheels_position
+### `get_wheels_position`
 
 get_wheels_position(unit: str = 'deg')
 
@@ -163,7 +163,7 @@ _Returns the angle of the wheels_
 - outputs:
 	- **angular_velocity**:	speed of the wheels.
 
-### drive
+### `drive`
 
 drive(linear_velocity: float, angular_velocity: float, linear_unit: str = 'cm/
 s',angular_unit: str = 'deg/s')
@@ -176,7 +176,7 @@ _Drives the robot by linear and angular velocity_
 	- **linear_unit**: unit of linear velocity. [?](#the-linear-speed-unit)
  	- **angular_unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
 
-### get_drive_speed
+### `get_drive_speed`
 
 get_drive_speed(linear_unit: str = 'cm/s', angular_unit: str = 'deg/s')
 
@@ -190,7 +190,7 @@ _Returns linear and angular velocity of the robot_
 	- **angular_velocity**:	speed of the wheels.
 
 
-### reset_pose
+### `reset_pose`
 
 reset_pose(x: float, y: float, theta: float, distance_unit: str = 'cm', angle_unit:
 str = 'deg')
@@ -205,7 +205,7 @@ _Resets the robot pose_
  	- **angle_unit**: unit of theta output, [?](#the-angle-unit)
 
 
-### get_pose
+### `get_pose`
 
 get_pose(distance_unit: str = 'cm', angle_unit: str = 'deg')           
 
@@ -220,7 +220,7 @@ _Returns the current pose of the robot_
 	- **y**
 	- **theta**
 
-### set_servo_positions
+### `set_servo_positions`
 
 set_servo_positions(a_position: int, b_position: int)
 
@@ -230,7 +230,7 @@ _Sets A/B servomotor angle_
 	- **a_position**: position of A servomotor (0-180)
 	- **b_position**: position of B servomotor (0-180)
 
-### set_builtin_led
+### `set_builtin_led`
 
 set_builtin_led(value: bool)
 
@@ -239,7 +239,7 @@ _Turns on/off the builtin led_
  - inputs:
 	- **value**: True = ON, False = OFF
 
-### set_illuminator
+### `set_illuminator`
 
 set_illuminator(value: bool)
 
@@ -248,7 +248,7 @@ _Turns on/off the illuminator led_
  - inputs:
 	- **value**: True = ON, False = OFF
 
-### color_calibration
+### `color_calibration`
 
 color_calibration(background: str = 'white')
 
@@ -257,7 +257,7 @@ _Calibrates the color sensor_
  - inputs:
  	- **background**: string "white" or "black"
 
-### rgb2hsv
+### `rgb2hsv`
 
 rgb2hsv(r: float, g: float, b: float)
 
@@ -272,7 +272,7 @@ _Converts normalized rgb to hsv_
  	- **s**: saturation value
  	- **v**: brightness value
 
-### get_color
+### `get_color`
 
 get_color(color_format: str = 'rgb')
 
@@ -285,7 +285,7 @@ _Returns the normalized color readout of the color sensor_
  	- **g** or **s**
  	- **b** or **v**
 
-### hsv2label
+### `hsv2label`
 
 hsv2label(h, s, v)
 
@@ -298,7 +298,7 @@ _Returns the color label corresponding to the given normalized HSV color input_
  - outputs:
  	- **color label**: like "BLACK" or "GREEN", if possible, otherwise return "UNDEFINED"
 
-### get_distance
+### `get_distance`
 
 get_distance(unit: str = 'cm')
 
@@ -313,7 +313,7 @@ _Returns the distance readout of the TOF sensor_
  	- **center_right_tof**: 22° to the right object distance
  	- **right_tof**: 45° to the right object distance
 
-### get_distance_top
+### `get_distance_top`
 
 get_distance_top(unit: str = 'cm')
 
@@ -324,7 +324,7 @@ _Returns the obstacle top distance readout_
  - outputs:
  	- **top_tof**: 45° to the top object distance
 
-### get_distance_bottom
+### `get_distance_bottom`
 
 get_distance_bottom(unit: str = 'cm')
 
@@ -335,7 +335,7 @@ _Returns the obstacle bottom distance readout_
  - outputs:
  	- **bottom_tof**: 45° to the bottom object distance
 
-### on_touch_ok_pressed
+### `on_touch_ok_pressed`
 
 on_touch_ok_pressed(callback: callable, args: tuple = ())
 
@@ -345,7 +345,7 @@ _Register callback when touch button OK is pressed_
  	- **callback**: the name of the function to recall
  	- **args**: optional arguments of the function
 
-### on_touch_cancel_pressed
+### `on_touch_cancel_pressed`
 
 on_touch_cancel_pressed(callback: callable, args: tuple = ())
 
@@ -355,7 +355,7 @@ _Register callback when touch button CANCEL is pressed_
  	- **callback**: the name of the function to recall
  	- **args**: optional arguments of the function
 
-### on_touch_center_pressed
+### `on_touch_center_pressed`
 
 on_touch_center_pressed(callback: callable, args: tuple = ())
 
@@ -365,7 +365,7 @@ _Register callback when touch button CENTER is pressed_
  	- **callback**: the name of the function to recall
  	- **args**: optional arguments of the function
 
-### on_touch_up_pressed
+### `on_touch_up_pressed`
 
 on_touch_up_pressed(callback: callable, args: tuple = ())
 
@@ -375,7 +375,7 @@ _Register callback when touch button UP is pressed_
  	- **callback**: the name of the function to recall
  	- **args**: optional arguments of the function
 
-### on_touch_left_pressed
+### `on_touch_left_pressed`
 
 on_touch_left_pressed(callback: callable, args: tuple = ())
 
@@ -385,7 +385,7 @@ _Register callback when touch button LEFT is pressed_
  	- **callback**: the name of the function to recall
  	- **args**: optional arguments of the function
 
-### on_touch_down_pressed
+### `on_touch_down_pressed`
 
 on_touch_down_pressed(callback: callable, args: tuple = ())
 
@@ -395,7 +395,7 @@ _Register callback when touch button DOWN is pressed_
  	- **callback**: the name of the function to recall
  	- **args**: optional arguments of the function
 
-### on_touch_right_pressed
+### `on_touch_right_pressed`
 
 on_touch_right_pressed(callback: callable, args: tuple = ())
 
@@ -409,7 +409,7 @@ _Register callback when touch button RIGHT is pressed_
 
 ## Extras
 
-### The distance unit
+### The Distance Unit
 
 Distance unit of measurement used in the APIs:
 
@@ -419,7 +419,7 @@ Distance unit of measurement used in the APIs:
  - _inch_: inch, 2.54 cm
  - _in_: inch, 2.54 cm
 
-### The angle unit
+### The Angle Unit
 
 Angle unit of measurement used in the APIs:
 
@@ -430,7 +430,7 @@ Angle unit of measurement used in the APIs:
  - _perc_: percentage, example 1 perc is 3.6 deg.
  - _%_: same as perc
 
-### The linear speed unit
+### The Linear Speed Unit
 
 Speed unit of measurement used in the APIs:
 
@@ -440,7 +440,7 @@ Speed unit of measurement used in the APIs:
  - 'inch/s': inch per second
  - 'in/s': inch per second
 
-### The rotational speed unit
+### The Rotational Speed Unit
 
 Rotational speed unit of measurement used in the APIs:
 
@@ -449,7 +449,7 @@ Rotational speed unit of measurement used in the APIs:
  - 'rad/s': radiant per second, example: 1.0 rad/s is 60.0 rad/min that is 9.55 rpm.
  - 'rev/s': revolution per second, example: 1.0 rev/s is 60.0 rev/min that is 60.0 rpm.
 
-### Blocking or non blocking
+### `"blocking" or "non blocking"`
 
 While programming a microcontroller, the terms "blocking" means that **all the resources are used only in performing a specific action, and no other things can happen at the same time**. Usually this is used when you want to be precise or you don't want anything else that could interact with the action you are performing.
 
