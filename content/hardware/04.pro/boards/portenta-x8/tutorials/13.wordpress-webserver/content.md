@@ -161,7 +161,7 @@ Your browser will then present the WordPress setup page, allowing you to commenc
 
 You are now free to go through the WordPress setup process and configure it however you like.
 
-### Removing the containers ###
+### Removing the containers
 
 Should you need to remove the containers, navigate back to the *`/home/fio/wordpress-test`* directory and use the commands below based on your requirements.
 
