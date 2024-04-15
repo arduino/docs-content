@@ -240,7 +240,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Ref                          | Link                                                                                            |
 | ---------------------------- | ----------------------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)        | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino Lab for Micropython IDE (Desktop) | https://labs.arduino.cc/en/labs/micropython |
+| Arduino Lab for Micropython IDE (Desktop) | <https://labs.arduino.cc/en/labs/micropython> |
 | Arduino Cloud Editor   | <https://create.arduino.cc/editor>                                                              |
 | Cloud Editor - Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
 | Arduino Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
