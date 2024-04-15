@@ -92,7 +92,7 @@ set_behaviour(behaviour: int)
 
 _Sets the behaviour of Alvik_
 
-#### Inputs:
+#### Inputs
 
 - **behaviour**: behaviour code
 
@@ -104,8 +104,8 @@ _Rotates the robot by given angle_
 
 #### Inputs
 -  **angle**: the angle value
--  **unit**: the angle unit, [?](#the-angle-unit)
--  **blocking**: _True_ or _False_, [?](#blocking-or-non-blocking)
+-  **unit**: [angle unit](#the-angle-unit)
+-  **blocking**:[_True_ or _False_](#blocking-or-non-blocking)
 
 ### `move`
 
