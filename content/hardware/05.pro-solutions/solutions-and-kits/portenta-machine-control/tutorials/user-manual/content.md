@@ -1635,6 +1635,8 @@ void loop() {
 
 With this, we have two Portenta Machine Control devices, each assigned as a Client and Server correspondingly, communicating with Modbus RTU in full-duplex mode.
 
+![Modbus RTU (Full-Duplex) Demo](assets/rtu-full-ani.gif)
+
 Alternatively, to establish communication between two Portenta Machine Control with Modbus RTU in **Half-Duplex mode**, the following wiring setup is required:
 
 ![Modbus RTU (Half-Duplex) between two Portenta Machine Control](assets/modbus-half-rtu-pmcs.png)
