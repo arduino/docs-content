@@ -2,6 +2,8 @@
 title: 'Getting Started with Alvik'
 difficulty: beginner
 description: 'This short guide helps you to get started with Alvik, you'll also find useful information to maintain your Alvik.'
+tags:
+  - Robot
 ---
 
 ![](assets/title.png)
