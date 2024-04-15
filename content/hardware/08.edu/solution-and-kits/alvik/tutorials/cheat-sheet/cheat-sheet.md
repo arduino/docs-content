@@ -82,17 +82,15 @@ Here the full list of the methods of the **ArduinoAlvik()** class.
 | [on_touch_down_pressed(...)](#on_touch_down_pressed)   | Register callback when touch button DOWN is pressed                                                      |
 | [on_touch_right_pressed(...)](#on_touch_right_pressed)  | Register callback when touch button RIGHT is pressed                                                      |
 
-
-
 ## Parameters and Return Values of Each Function
 
-### `set_behaviour`
+### `set_behaviour`
 
 set_behaviour(behaviour: int)
 
 _Sets the behaviour of Alvik_
 
-#### Inputs
+#### Inputs
 
 - **behaviour**: behaviour code
 
@@ -103,9 +101,10 @@ rotate(angle: float, unit: str = 'deg', blocking: bool = True)
 _Rotates the robot by given angle_
 
 #### Inputs
--  **angle**: the angle value
--  **unit**: [angle unit](#the-angle-unit)
--  **blocking**:[_True_ or _False_](#blocking-or-non-blocking)
+
+- **angle**: the angle value
+- **unit**: [angle unit](#the-angle-unit)
+- **blocking**:[_True_ or _False_](#blocking-or-non-blocking)
 
 ### `move`
 
@@ -114,19 +113,23 @@ move(distance: float, unit: str = 'cm', blocking: bool = True)
 _Moves the robot by given distance_
 
 #### Inputs
--  **distance**: the distance value
--  **unit**: the distance unit. [?](#the-distance-unit)
--  **blocking**: _True_ or _False_, [?](#blocking-or-non-blocking)
+
+- **distance**: the distance value
+- **unit**: the distance unit. [?](#the-distance-unit)
+- **blocking**: _True_ or _False_, [?](#blocking-or-non-blocking)
 
 ### `get_wheels_speed`
 
 get_wheels_speed(unit: str = 'rpm')
 
 #### Inputs
--  **unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
+
+- **unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
+
 #### Outputs
--  **left_wheel_speed**: the speed value
--  **right_wheel_speed**: the speed value
+
+- **left_wheel_speed**: the speed value
+- **right_wheel_speed**: the speed value
 
 _Returns the speed of the wheels_
 
@@ -137,9 +140,10 @@ set_wheels_speed(left_speed: float, right_speed: float, unit: str = 'rpm')
 _Sets left/right motor speed_
 
 #### Inputs
--  **left_speed**: the speed value
--  **right_speed**: the speed value
--  **unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
+
+- **left_speed**: the speed value
+- **right_speed**: the speed value
+- **unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
 
 ### `set_wheels_position`
 
@@ -148,9 +152,10 @@ set_wheels_position(left_angle: float, right_angle: float, unit: str = 'deg')
 _Sets left/right motor angle_
 
 #### Inputs
--  **left_angle**: the angle value
--  **right_angle**: the angle value
--  **unit**: the angle unit, [?](#the-angle-unit)
+
+- **left_angle**: the angle value
+- **right_angle**: the angle value
+- **unit**: the angle unit, [?](#the-angle-unit)
 
 
 ### `get_wheels_position`
@@ -160,22 +165,23 @@ get_wheels_position(unit: str = 'deg')
 _Returns the angle of the wheels_
 
 #### Inputs
- -  **angular_unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
+
+- **angular_unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
 #### Outputs
--  **angular_velocity**:	speed of the wheels.
+- **angular_velocity**:	speed of the wheels.
 
 ### `drive`
 
-drive(linear_velocity: float, angular_velocity: float, linear_unit: str = 'cm/
-s',angular_unit: str = 'deg/s')
+drive(linear_velocity: float, angular_velocity: float, linear_unit: str = 'cm/s',angular_unit: str = 'deg/s')
 
 _Drives the robot by linear and angular velocity_
 
 #### Inputs
--  **linear_velocity**: speed of the robot.
--  **angular_velocity**:	speed of the wheels.
--  **linear_unit**: unit of linear velocity. [?](#the-linear-speed-unit)
- -  **angular_unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
+
+- **linear_velocity**: speed of the robot.
+- **angular_velocity**:	speed of the wheels.
+- **linear_unit**: unit of linear velocity. [?](#the-linear-speed-unit)
+- **angular_unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
 
 ### `get_drive_speed`
 
@@ -184,11 +190,14 @@ get_drive_speed(linear_unit: str = 'cm/s', angular_unit: str = 'deg/s')
 _Returns linear and angular velocity of the robot_
 
 #### Inputs
--  **linear_unit**: unit of linear velocity. [?](#the-linear-speed-unit)
- -  **angular_unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
+
+- **linear_unit**: unit of linear velocity. [?](#the-linear-speed-unit)
+- **angular_unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
+
 #### Outputs
--  **linear_velocity**: speed of the robot.
--  **angular_velocity**:	speed of the wheels.
+
+- **linear_velocity**: speed of the robot.
+- **angular_velocity**:	speed of the wheels.
 
 
 ### `reset_pose`
@@ -199,11 +208,12 @@ str = 'deg')
 _Resets the robot pose_
 
 #### Inputs
--  **x**
--  **y**
--  **theta**
--  **distance_unit**: unit of x and y outputs, [?](#the-distance-unit)
- -  **angle_unit**: unit of theta output, [?](#the-angle-unit)
+
+- **x**
+- **y**
+- **theta**
+- **distance_unit**: unit of x and y outputs, [?](#the-distance-unit)
+- **angle_unit**: unit of theta output, [?](#the-angle-unit)
 
 
 ### `get_pose`
@@ -213,13 +223,15 @@ get_pose(distance_unit: str = 'cm', angle_unit: str = 'deg')
 _Returns the current pose of the robot_
 
 #### Inputs
--  **distance_unit**: unit of x and y outputs, [?](#the-distance-unit)
- -  **angle_unit**: unit of theta output, [?](#the-angle-unit)
+
+- **distance_unit**: unit of x and y outputs, [?](#the-distance-unit)
+- **angle_unit**: unit of theta output, [?](#the-angle-unit)
 
 #### Outputs
--  **x**
--  **y**
--  **theta**
+
+- **x**
+- **y**
+- **theta**
 
 ### `set_servo_positions`
 
@@ -228,8 +240,9 @@ set_servo_positions(a_position: int, b_position: int)
 _Sets A/B servomotor angle_
 
 #### Inputs
--  **a_position**: position of A servomotor (0-180)
--  **b_position**: position of B servomotor (0-180)
+
+- **a_position**: position of A servomotor (0-180)
+- **b_position**: position of B servomotor (0-180)
 
 ### `set_builtin_led`
 
@@ -238,7 +251,8 @@ set_builtin_led(value: bool)
 _Turns on/off the builtin led_
 
 #### Inputs
--  **value**: True = ON, False = OFF
+
+- **value**: True = ON, False = OFF
 
 ### `set_illuminator`
 
@@ -247,7 +261,8 @@ set_illuminator(value: bool)
 _Turns on/off the illuminator led_
 
 #### Inputs
--  **value**: True = ON, False = OFF
+
+- **value**: True = ON, False = OFF
 
 ### `color_calibration`
 
@@ -256,7 +271,8 @@ color_calibration(background: str = 'white')
 _Calibrates the color sensor_
 
 #### Inputs
- -  **background**: string "white" or "black"
+
+- **background**: string "white" or "black"
 
 ### `rgb2hsv`
 
@@ -265,13 +281,16 @@ rgb2hsv(r: float, g: float, b: float)
 _Converts normalized rgb to hsv_
 
 #### Inputs
- -  **r**: red value
- -  **g**: green value
- -  **b**: blue value
+
+- **r**: red value
+- **g**: green value
+- **b**: blue value
+
 #### Outputs
- -  **h**: hue value
- -  **s**: saturation value
- -  **v**: brightness value
+
+- **h**: hue value
+- **s**: saturation value
+- **v**: brightness value
 
 ### `get_color`
 
@@ -280,11 +299,14 @@ get_color(color_format: str = 'rgb')
 _Returns the normalized color readout of the color sensor_
 
 #### Inputs
- -  **color_format**: rgb or hsv only
+
+- **color_format**: rgb or hsv only
+
 #### Outputs
- -  **r** or **h**
- -  **g** or **s**
- -  **b** or **v**
+
+- **r** or **h**
+- **g** or **s**
+- **b** or **v**
 
 ### `hsv2label`
 
@@ -293,11 +315,14 @@ hsv2label(h, s, v)
 _Returns the color label corresponding to the given normalized HSV color input_
 
 #### Inputs
- -  **h**: hue value
- -  **s**: saturation value
- -  **v**: brightness value
+
+- **h**: hue value
+- **s**: saturation value
+- **v**: brightness value
+
 #### Outputs
- -  **color label**: like "BLACK" or "GREEN", if possible, otherwise return "UNDEFINED"
+
+- **color label**: like "BLACK" or "GREEN", if possible, otherwise return "UNDEFINED"
 
 ### `get_distance`
 
@@ -306,13 +331,16 @@ get_distance(unit: str = 'cm')
 _Returns the distance readout of the TOF sensor_
 
 #### Inputs
- -  **unit**: distance output unit
+
+- **unit**: distance output unit
+
 #### Outputs
- -  **left_tof**: 45° to the left object distance
- -  **center_left_tof**: 22° to the left object distance
- -  **center_tof**: center object distance
- -  **center_right_tof**: 22° to the right object distance
- -  **right_tof**: 45° to the right object distance
+
+- **left_tof**: 45° to the left object distance
+- **center_left_tof**: 22° to the left object distance
+- **center_tof**: center object distance
+- **center_right_tof**: 22° to the right object distance
+-  **right_tof**: 45° to the right object distance
 
 ### `get_distance_top`
 
@@ -321,9 +349,12 @@ get_distance_top(unit: str = 'cm')
 _Returns the obstacle top distance readout_
 
 #### Inputs
- -  **unit**: distance output unit
+
+- **unit**: distance output unit
+
 #### Outputs
- -  **top_tof**: 45° to the top object distance
+
+- **top_tof**: 45° to the top object distance
 
 ### `get_distance_bottom`
 
@@ -332,9 +363,12 @@ get_distance_bottom(unit: str = 'cm')
 _Returns the obstacle bottom distance readout_
 
 #### Inputs
- -  **unit**: distance output unit
+
+- **unit**: distance output unit
+
 #### Outputs
- -  **bottom_tof**: 45° to the bottom object distance
+
+- **bottom_tof**: 45° to the bottom object distance
 
 ### `on_touch_ok_pressed`
 
@@ -343,8 +377,9 @@ on_touch_ok_pressed(callback: callable, args: tuple = ())
 _Register callback when touch button OK is pressed_
 
 #### Inputs
- -  **callback**: the name of the function to recall
- -  **args**: optional arguments of the function
+
+- **callback**: the name of the function to recall
+- **args**: optional arguments of the function
 
 ### `on_touch_cancel_pressed`
 
@@ -353,8 +388,9 @@ on_touch_cancel_pressed(callback: callable, args: tuple = ())
 _Register callback when touch button CANCEL is pressed_
 
 #### Inputs
- -  **callback**: the name of the function to recall
- -  **args**: optional arguments of the function
+
+- **callback**: the name of the function to recall
+- **args**: optional arguments of the function
 
 ### `on_touch_center_pressed`
 
@@ -363,8 +399,9 @@ on_touch_center_pressed(callback: callable, args: tuple = ())
 _Register callback when touch button CENTER is pressed_
 
 #### Inputs
- -  **callback**: the name of the function to recall
- -  **args**: optional arguments of the function
+
+- **callback**: the name of the function to recall
+- **args**: optional arguments of the function
 
 ### `on_touch_up_pressed`
 
@@ -373,8 +410,9 @@ on_touch_up_pressed(callback: callable, args: tuple = ())
 _Register callback when touch button UP is pressed_
 
 #### Inputs
- -  **callback**: the name of the function to recall
- -  **args**: optional arguments of the function
+
+- **callback**: the name of the function to recall
+- **args**: optional arguments of the function
 
 ### `on_touch_left_pressed`
 
@@ -383,8 +421,9 @@ on_touch_left_pressed(callback: callable, args: tuple = ())
 _Register callback when touch button LEFT is pressed_
 
 #### Inputs
- -  **callback**: the name of the function to recall
- -  **args**: optional arguments of the function
+
+- **callback**: the name of the function to recall
+- **args**: optional arguments of the function
 
 ### `on_touch_down_pressed`
 
@@ -393,8 +432,9 @@ on_touch_down_pressed(callback: callable, args: tuple = ())
 _Register callback when touch button DOWN is pressed_
 
 #### Inputs
- -  **callback**: the name of the function to recall
- -  **args**: optional arguments of the function
+
+- **callback**: the name of the function to recall
+- **args**: optional arguments of the function
 
 ### `on_touch_right_pressed`
 
@@ -403,10 +443,9 @@ on_touch_right_pressed(callback: callable, args: tuple = ())
 _Register callback when touch button RIGHT is pressed_
 
 #### Inputs
- -  **callback**: the name of the function to recall
- -  **args**: optional arguments of the function
 
-
+- **callback**: the name of the function to recall
+- **args**: optional arguments of the function
 
 ## Extras
 
@@ -414,41 +453,41 @@ _Register callback when touch button RIGHT is pressed_
 
 Distance unit of measurement used in the APIs:
 
- - _cm_: centimeters
- - _mm_: millimeters
- - _m_: meters
- - _inch_: inch, 2.54 cm
- - _in_: inch, 2.54 cm
+- _cm_: centimeters
+- _mm_: millimeters
+- _m_: meters
+- _inch_: inch, 2.54 cm
+- _in_: inch, 2.54 cm
 
 ### The Angle Unit
 
 Angle unit of measurement used in the APIs:
 
- - _deg_: degrees, example: 1.0 as reference for the other unit. 1 degree is 1/360 of a circle.
- - _rad_: radiant, example: 1 radiant is 180/pi deg.
- - _rev_: revolution, example: 1 rev is 360 deg.
- - _revolution_: same as rev
- - _perc_: percentage, example 1 perc is 3.6 deg.
- - _%_: same as perc
+- _deg_: degrees, example: 1.0 as reference for the other unit. 1 degree is 1/360 of a circle.
+- _rad_: radiant, example: 1 radiant is 180/pi deg.
+- _rev_: revolution, example: 1 rev is 360 deg.
+- _revolution_: same as rev
+- _perc_: percentage, example 1 perc is 3.6 deg.
+- _%_: same as perc
 
 ### The Linear Speed Unit
 
 Speed unit of measurement used in the APIs:
 
- - 'cm/s': centimeters per second
- - 'mm/s': millimeters per second
- - 'm/s': meters per second
- - 'inch/s': inch per second
- - 'in/s': inch per second
+- 'cm/s': centimeters per second
+- 'mm/s': millimeters per second
+- 'm/s': meters per second
+- 'inch/s': inch per second
+- 'in/s': inch per second
 
 ### The Rotational Speed Unit
 
 Rotational speed unit of measurement used in the APIs:
 
- - 'rpm': revolutions per minute, example: 1.0 as reference for the other unit.
- - 'deg/s': degrees per second, example: 1.0 deg/s is 60.0 deg/min that is 1/6 rpm.
- - 'rad/s': radiant per second, example: 1.0 rad/s is 60.0 rad/min that is 9.55 rpm.
- - 'rev/s': revolution per second, example: 1.0 rev/s is 60.0 rev/min that is 60.0 rpm.
+- 'rpm': revolutions per minute, example: 1.0 as reference for the other unit.
+- 'deg/s': degrees per second, example: 1.0 deg/s is 60.0 deg/min that is 1/6 rpm.
+- 'rad/s': radiant per second, example: 1.0 rad/s is 60.0 rad/min that is 9.55 rpm.
+- 'rev/s': revolution per second, example: 1.0 rev/s is 60.0 rev/min that is 60.0 rpm.
 
 ### `"blocking" or "non blocking"`
 
