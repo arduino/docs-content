@@ -570,8 +570,8 @@ The Portenta X8, H7, and C33 models expand their capabilities using High-Density
 This documentation provides an in-depth view of the connectors, ensuring a comprehensive understanding of how they enhance the functionality of these devices.
 
 - [Complete Portenta X8 pinout information](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
-- [Complete Portenta H7 pinout information](https://docs.arduino.cc/static/2d38006e78d2abc588a80f12bb9c0c70/ABX00042-full-pinout.pdf)
-- [Complete Portenta C33 pinout information](https://docs.arduino.cc/static/903c16295f3bf076c2ed23eb1b38791c/ABX00074-full-pinout.pdf)
+- [Complete Portenta H7 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00042-full-pinout.pdf)
+- [Complete Portenta C33 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf)
 
 ### Mini PCI Express Interface (J8)
 

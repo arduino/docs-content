@@ -7,7 +7,7 @@ description: 'The first steps to setting up your Arduino Fio'
 
 The ATmega328P on the Arduino Fio comes preburned with a [bootloader](https://docs.arduino.cc/hacking/software/Bootloader) that allows you to upload new code to it without the use of an external hardware programmer. It communicates using the original STK500 protocol ([reference](http://www.atmel.com/dyn/resources/prod%5Fdocuments/doc2525.pdf), [C header files](http://www.atmel.com/dyn/resources/prod%5Fdocuments/avr061.zip)).
 
-There are two ways you can upload new sketches to the Arduino Fio: you can use an FTDI USB-to-serial cable, or USB-to-serial adaptor board; or you can program it wirelessly, over a pair of XBee radios. If you're new to the XBee radios, it's helpful to know a bit about them before attempting the wireless programming. This [introduction](http://itp.nyu.edu/physcomp/Tutorials/XbeeBasics) may help.
+There are two ways you can upload new sketches to the Arduino Fio: you can use an FTDI USB-to-serial cable, or USB-to-serial adaptor board; or you can program it wirelessly, over a pair of XBee radios. If you're new to the XBee radios, it's helpful to know a bit about them before attempting the wireless programming. This [introduction](https://web.archive.org/web/20140813203852/http://itp.nyu.edu/physcomp/Tutorials/XbeeBasics) may help.
 
 You can also bypass the bootloader and program the ATmega328P with an external programmer; see [these instructions](https://docs.arduino.cc/hacking/software/MiniBootloader) for details.
 

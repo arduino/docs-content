@@ -71,7 +71,7 @@ void loop()
 
 This technique has the advantage that it can use any digital output pin. In addition, you have full control the duty cycle and frequency. One major disadvantage is that any interrupts will affect the timing, which can cause considerable jitter unless you disable interrupts. A second disadvantage is you can't leave the output running while the processor does something else. Finally, it's difficult to determine the appropriate constants for a particular duty cycle and frequency unless you either carefully count cycles, or tweak the values while watching an oscilloscope.
 
-A more elaborate example of manually PWMing all pins may be found [here](http://www.arduino.cc/playground/Main/PWMallPins).
+A more elaborate example of manually PWMing all pins may be found [here](http://www.arduino.cc/playground/Main/PWMallPins/).
 
 ## Using the ATmega PWM Registers Directly
 

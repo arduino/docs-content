@@ -26,7 +26,7 @@ In this tutorial, we will go through how to set up the MKR WAN 1310 board to wor
 
 It is a good idea to already look at the limitations of using LoRa®. As with any technology, there advantages and disadvantages, and with LoRa®, there's also some limitations of how much data we can send. You can read more about this through the link below:
 
-- [Limitations of LoRaWAN®](https://www.thethingsnetwork.org/docs/lorawan/limitations.html)
+- [Limitations of LoRaWAN®](https://www.thethingsnetwork.org/docs/lorawan/limitations/)
 
 ## Goals
 

@@ -406,7 +406,7 @@ void lowBatteryWarning(){
 Here are 4 important configurations:
 
 - The **[analogReference()](https://www.arduino.cc/reference/en/language/functions/analog-io/analogreference/)** is used to configure the reference voltage for analog input.
-- The **[analogReadResolution()](https://www.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogreadresolution/)** is used to determine the resolution of the value returned by **analogRead()**.
+- The **[analogReadResolution()](https://www.arduino.cc/reference/en/language/functions/analog-io/analogreadresolution/)** is used to determine the resolution of the value returned by **analogRead()**.
 - The **[analogRead()](https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/)** is used to set an analog pin to read the value from. 
 - Last but not least, the respective resolution divider value. For the present example it uses **4095** for 12-Bit resolution applicable for MKR WAN 1310. If it uses different resolution, such as 10-Bits, you will need to define it to **1023**. 
 

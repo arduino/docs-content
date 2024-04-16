@@ -11,7 +11,7 @@ All the compatible boards have a series of pins, most of these pins work as a ge
 
 There are essentially two types of pins, analog and digital pins. Digital pins can be set to either HIGH (usually 5V or 3.3V) or LOW (0V). You can use that to e.g. read a button state or toggle an LED.
 
-***Important: unfortunately, the MicroPython implementation does not match the regular pinout of your board. This means, that if you want to use for example, digital pin (5), it might be digital pin (27) on one board, or digital pin (14) on another. Please visit the [Board API article](/micropython/basics/board-api) to see what the pin map for your board is.***
+***Important: unfortunately, the MicroPython implementation does not match the regular pinout of your board. This means, that if you want to use for example, digital pin (5), it might be digital pin (27) on one board, or digital pin (14) on another. Please visit the [Board API article](/micropython/basics/board-examples) to see what the pin map for your board is.***
 
 ## Digital Pins
 
@@ -113,7 +113,7 @@ while True:
     time.sleep_ms(500)
 ```
 
-***If you are using an [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect), you can also do the following: `adc = ADC("A4")`. For more information check out the example [here](http://docs.arduino.cc/micropython/basics/board-examples#analog-read).***
+***If you are using an [Arduino Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect), you can also do the following: `adc = ADC("A4")`. For more information check out the example [here](http://docs.arduino.cc/micropython/basics/board-examples/#analog-read).***
 
 ## PWM (Pulse Width Modulation)
 

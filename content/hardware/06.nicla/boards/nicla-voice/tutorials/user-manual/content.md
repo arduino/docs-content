@@ -69,7 +69,7 @@ The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples yo
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [Nicla Voice pinout](https://docs.arduino.cc/static/bf3e42f2adad5dcf220f548f024c388a/ABX00061-full-pinout.pdf)
+- [Nicla Voice pinout](https://docs.arduino.cc/resources/pinouts/ABX00061-full-pinout.pdf)
 
 ### Datasheet
 
