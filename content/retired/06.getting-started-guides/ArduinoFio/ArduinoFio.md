@@ -93,7 +93,7 @@ If you're running Windows, you have to make a slight change to the driver prefer
 
 ## How to configure XBee modems
 
-You can configure your radios using a terminal application, or using X-CTU on Windows, or you can use the [Fio XBee Config Tool](//www.arduino.cc/en/uploads/Main/XBeeConfigTool.zip). This is a modified version of Shigeru Kobayashi's [XBeeConfigTool](http://funnel.googlecode.com/files/XBeeConfigTool.zip).
+You can configure your radios using a terminal application, or using X-CTU on Windows, or you can use the [Fio XBee Config Tool](//www.arduino.cc/en/uploads/Main/XBeeConfigTool.zip). This is a modified version of Shigeru Kobayashi's XBeeConfigTool.
 
 #### Using Arduino Fio XbeeConfigTool
 
