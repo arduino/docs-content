@@ -144,7 +144,7 @@ Once your board has been registered you can send information to TTN. Let's come 
 - The Application EUI
 - The App Key.
 
-Lets start by making a connection Over-The-Air (OTA). Enter "1" in the Serial Monitor input box and press ENTER. Then, find the EUI and the App key from TTN **Device Overview** page. You can read more into OTA vs ABP activation mode [here](https://www.thethingsnetwork.org/docs/devices/registration/).
+Lets start by making a connection Over-The-Air (OTA). Enter "1" in the Serial Monitor input box and press ENTER. Then, find the EUI and the App key from TTN **Device Overview** page. You can read more into OTA vs ABP activation mode [here](https://www.thethingsindustries.com/docs/).
 
 ```
 Your module version is: ARD-078 1.1.9
