@@ -3,75 +3,76 @@ identifier: AKX00066
 title: Arduino® Alvik
 type: edu
 ---
-![](assets/perspective_top.jpg)
+![](assets/perspective_front.png)
 
 # Description
-Arduino Alvik (from now on referred to as Alvik) is a powerful and versatile robot car specifically designed for programming and robotics education.
+Arduino® Alvik is a powerful and versatile differential robot car specifically designed for programming and STEAM education.
 
-Powered by [Arduino® Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/), Alvik offers a diverse learning paths through different programming languages, including MicroPython, Arduino C, and block-based coding, and it enables different possibilities to explore robotics, IoT and AI.
+Powered by [Arduino® Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/), Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and AI.
 
 # Target areas:
-Maker, Edu, MicroPython, Robotics
-
-# Features
-
-* **Core**
-  * STM32 Arm® Cortex®-M4 32 Bit
-* **Controller**
-  * Arduino Nano ESP32
-* **Connectivity**
-  * Wi-Fi®
-  * Bluetooth® LE
-* **Sensors**
-  * RGB Color detection
-  * ToF 8x8 Array - up to 350 cm
-  * IMU - 6 degree
-  * 3x Line follower
-  * 7x Touch sensor
-* **Motors**
-  * High precision with hall effect encoder
-  * Up to 13 cm/s
-* **Extensions**
-  * Servo motor
-  * I2C Grove
-  * Qwiic
-  * Lego® Technic
-  * M3 Screws
+Maker, Education, MicroPython, Robotics
 
 # Contents
 
-## Overview
-Alvik is battery powered and comes with 2 MCUs:
+## Features
 
- - at the core there is the STM32 Arm® Cortex®-M4 that controls all the sensors and actuators
- - at the top a Nano ESP32 that can communicate with STM32 through a set of dedicated APIs
 
-![](assets/datasheet_main_components.png)
 
-## Tech Specs
-![](assets/alvik_components.png)
+### General Specifications Overview
+Alvik is an education robot which is battery-powered and comes with two main microcontrollers:
 
-### MCUs
+ - At the core of the robot there is the STM32 Arm® Cortex®-M4 that controls all the sensors and actuators
+ - At the top a Nano ESP32 acts like the main controller and can communicate with the STM32 through a set of dedicated APIs
 
-| **MCU**             | **Product page**                                                                                           | **Datasheet**                                                               |
-|---------------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| STM32F411RC         | [link](https://www.st.com/en/microcontrollers-microprocessors/stm32f411rc.html#st_description_sec-nav-tab) | [link](assets/STM32_datasheet.pdf)                                          |
-| Arduino® Nano ESP32 | [link](https://docs.arduino.cc/hardware/nano-esp32/)                                                       | [link](https://docs.arduino.cc/resources/datasheets/ABX00083-datasheet.pdf) |
+![Alvik's Main Components](assets/datasheet_main_components.png)
 
-### Inputs
+  | Feature               | Description                                                                                          |
+  | --------------------- | ---------------------------------------------------------------------------------------------------- |
+  | Alvik on-board Core   | STM32 Arm® Cortex®-M4 32 Bit                                                                         |
+  | Alvik Main Controller | Arduino® Nano ESP32                                                                                  |
+  | Connectivity          | Wi-Fi®, Bluetooth® LE                                                                                |
+  | Sensors               | RGB Color detection, ToF 8x8 Array - up to 350 cm, IMU - 6 degree, 3x Line follower, 7x Touch sensor |
+  | Motors                | High precision with hall effect encoder, Up to 13 cm/s                                               |
+  | Extensions            | Servo motor, I2C Grove, Qwiic, Lego® Technic, M3 Screws                                              |
 
-| **Description**             | **Part Name** | **Product page**                                                                                                   | **Datasheet**                          |
-|-----------------------------|---------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------|
-| Color detection             | APDS 9660     | [link](https://www.broadcom.com/products/optical-sensors/integrated-ambient-light-and-proximity-sensors/apds-9960) | [link](assets/APDS-9960_datasheet.pdf) |
-| IMU                         | LSM6DSOX      | [link](https://www.st.com/en/mems-and-sensors/lsm6dsox.html)                                                       | [link](assets/LSM6_datasheet.pdf)      |
-| Time of Flight              | VL53L7CXV0GC  | [link](https://www.st.com/en/imaging-and-photonics-solutions/vl53l7cx.html)                                        | [link](assets/VL53_datasheet.pdf)      |
-| Capacitive Touch Controller | AT42QT2120    | [link](https://www.microchip.com/en-us/product/AT42QT2120)                                                         | [link](assets/at42qt2120.pdf)          |
-| Line Follower Arrays        | Custom made   |                                                                                                                    |                                        |
+### Controllers
+
+| **Controllers**     | **Product page**                                                                                           | **Datasheet**                                                               |
+| ------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| STM32F411RC         | [Link](https://www.st.com/en/microcontrollers-microprocessors/stm32f411rc.html#st_description_sec-nav-tab) | [Link](assets/STM32_datasheet.pdf)                                          |
+| Arduino® Nano ESP32 | [Link](https://docs.arduino.cc/hardware/nano-esp32/)                                                       | [Link](https://docs.arduino.cc/resources/datasheets/ABX00083-datasheet.pdf) |
+
+
+### Communication Interfaces
+maybe not worth it
+
+
+### Sensors
+
+| **Description**               | **Part Name** | **Product page**                                                                                                   | **Datasheet**                          |
+| ----------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
+| Color detection               | APDS 9660     | [Link](https://www.broadcom.com/products/optical-sensors/integrated-ambient-light-and-proximity-sensors/apds-9960) | [Link](assets/APDS-9960_datasheet.pdf) |
+| IMU                           | LSM6DSOX      | [Link](https://www.st.com/en/mems-and-sensors/lsm6dsox.html)                                                       | [Link](assets/LSM6_datasheet.pdf)      |
+| Time of Flight                | VL53L7CXV0GC  | [Link](https://www.st.com/en/imaging-and-photonics-solutions/vl53l7cx.html)                                        | [Link](assets/VL53_datasheet.pdf)      |
+| Capacitive Touch Controller   | AT42QT2120    | [Link](https://www.microchip.com/en-us/product/AT42QT2120)                                                         | [Link](assets/at42qt2120.pdf)          |
+| Line Follower Array           | Custom made   | -                                                                                                                  | -                                      |
+| Capacitive Touch buttons (x7) | Custom made   | -                                                                                                                  | -                                      |
 
 
 Attached to the Capacitive Touch Controller there are seven capacitive buttons on the top of the main board and in addition there is a line follower array made up by three phototransistor and five infrared LEDs.
 
-The three phototransistor are link directly to the analog ports of the STM32.
+The three phototransistor are linked directly to the analog ports of the STM32.
+
+
+
+
+### Related Accessories (Included)
+
+- USB-A Cable to USB-C®
+
+## Technical Specifications
+
 
 ### Outputs
 
@@ -100,7 +101,7 @@ The connectors are placed in the back of the robot, the pinout is shown in the f
 
 ### Power
 
-The power distribution in the robot is explained by the following scheme:
+The power distribution in the robot is explained by the following diagram:
 
 ![power scheme](assets/power.png)
 
@@ -123,20 +124,20 @@ There are three level of power:
 ![parts](assets/mech_parts.png)
 
 | **Part**             | **q.ty** |
-|----------------------|:--------:|
-| Main PCB             |     1    |
-| Front PCB            |     1    |
-| Arduino Nano ESP32   |     1    |
-| INOX M3 x 5 mm        |     5    |
-| 18650 Li-Ion Battery |     1    |
-| Main Chassis         |     1    |
-| Ball caster holder   |     1    |
-| Inox stell ball 9 mm  |     1    |
-| Motor holder         |     2    |
-| Motors               |     2    |
-| Rubber wheel         |     2    |
-| 2x6 mm screw          |     2    |
-| Battery panel        |     1    |
+| -------------------- | :------: |
+| Main PCB             |    1     |
+| Front PCB            |    1     |
+| Arduino Nano ESP32   |    1     |
+| INOX M3 x 5 mm       |    5     |
+| 18650 Li-Ion Battery |    1     |
+| Main Chassis         |    1     |
+| Ball caster holder   |    1     |
+| Inox stell ball 9 mm |    1     |
+| Motor holder         |    2     |
+| Motors               |    2     |
+| Rubber wheel         |    2     |
+| 2x6 mm screw         |    2     |
+| Battery panel        |    1     |
 
 ## Certifications
 
