@@ -18,9 +18,9 @@ Maker, Education, MicroPython, Robotics
 ## Features
 
 
-
 ### General Specifications Overview
-Alvik is an education robot which is battery-powered and comes with two main microcontrollers:
+
+Alvik is an educational robot which is battery-powered and comes with two main microcontrollers:
 
  - At the core of the robot there is the STM32 Arm® Cortex®-M4 that controls all the sensors and actuators
  - At the top a Nano ESP32 acts like the main controller and can communicate with the STM32 through a set of dedicated APIs
@@ -44,52 +44,72 @@ Alvik is an education robot which is battery-powered and comes with two main mic
 | Arduino® Nano ESP32 | [Link](https://docs.arduino.cc/hardware/nano-esp32/)                                                       | [Link](https://docs.arduino.cc/resources/datasheets/ABX00083-datasheet.pdf) |
 
 
-### Communication Interfaces
 maybe not worth it
 
 
 ### Sensors
 
-| **Description**               | **Part Name** | **Product page**                                                                                                   | **Datasheet**                          |
-| ----------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
-| Color detection               | APDS 9660     | [Link](https://www.broadcom.com/products/optical-sensors/integrated-ambient-light-and-proximity-sensors/apds-9960) | [Link](assets/APDS-9960_datasheet.pdf) |
-| IMU                           | LSM6DSOX      | [Link](https://www.st.com/en/mems-and-sensors/lsm6dsox.html)                                                       | [Link](assets/LSM6_datasheet.pdf)      |
-| Time of Flight                | VL53L7CXV0GC  | [Link](https://www.st.com/en/imaging-and-photonics-solutions/vl53l7cx.html)                                        | [Link](assets/VL53_datasheet.pdf)      |
-| Capacitive Touch Controller   | AT42QT2120    | [Link](https://www.microchip.com/en-us/product/AT42QT2120)                                                         | [Link](assets/at42qt2120.pdf)          |
-| Line Follower Array           | Custom made   | -                                                                                                                  | -                                      |
-| Capacitive Touch buttons (x7) | Custom made   | -                                                                                                                  | -                                      |
+Alvik comes with a big number of onboards sensors, from color detection to distance sensors or inertial measurement units, all of which are listed in the following table:
 
+| **Description**                     | **Part Name** | **Product page**                                                                                                   | **Datasheet**                          |
+| ----------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
+| Color detection (x1)                | APDS 9660     | [Link](https://www.broadcom.com/products/optical-sensors/integrated-ambient-light-and-proximity-sensors/apds-9960) | [Link](assets/APDS-9960_datasheet.pdf) |
+| IMU (x1)                            | LSM6DSOX      | [Link](https://www.st.com/en/mems-and-sensors/lsm6dsox.html)                                                       | [Link](assets/LSM6_datasheet.pdf)      |
+| Time of Flight distance sensor (x1) | VL53L7CXV0GC  | [Link](https://www.st.com/en/imaging-and-photonics-solutions/vl53l7cx.html)                                        | [Link](assets/VL53_datasheet.pdf)      |
+| Line Follower Array (x1)            | Custom made   | -                                                                                                                  | -                                      |
+| Capacitive Touch buttons (x7)       | Custom made   | -                                                                                                                  | -                                      |
+
+The sensory capabilities of Alvik can be expanded using the different connectors and communication protocols available at the back of the robot or using the pinout of the Arduino® Nano ESP32 at its top.
+
+
+TODO move this to the subsection
 
 Attached to the Capacitive Touch Controller there are seven capacitive buttons on the top of the main board and in addition there is a line follower array made up by three phototransistor and five infrared LEDs.
+| Capacitive Touch Controller (x1)    | AT42QT2120    | [Link](https://www.microchip.com/en-us/product/AT42QT2120)                                                         | [Link](assets/at42qt2120.pdf)          |
 
 The three phototransistor are linked directly to the analog ports of the STM32.
 
+### Actuators
+
+Alvik mainly have two motors as main actuators and two additional RGB 2
+
+#### Motors
+
+Alvik is a differential robot driven by two independent DC motors with magnetic relative encoders:
+
+![Alvik's DC Motor Technical Specs](assets/dc_motor_specs.png)
+
+The motors have the following technical specifications:
+
+| **Description**   | **Information**  |
+| ----------------- | ---------------- |
+| Operating Voltage | 6 VDC            |
+| No load Current   | 70 mA            |
+| Max load Curret   | 90 mA            |
+| Encoder           | Magnetic encoder with  |
+|                   |                  |
 
 
+The two motors are driven by the MAX22211 motors driver:
 
-### Related Accessories (Included)
+| **Description**   | **Part Name** | **Product page**                                         | **Datasheet**               |
+|-------------------|---------------|----------------------------------------------------------|-----------------------------|
+| Dual Motor Driver | MAX22211      | [Link](https://www.analog.com/en/products/max22211.html) | [Link](assets/max22211.pdf) |
 
-- USB-A Cable to USB-C®
+#### RGB LEDs
+
+| RGB LED Left    | 3 channel LED                               |
+| RGB LED Right   | 3 channel LED                               |
+
+### Communication Interfaces
+
 
 ## Technical Specifications
 
 
 ### Outputs
 
-| **Description** | **Info**                                     |
-|-----------------|----------------------------------------------|
-| RGB LED Left    | 3 channel LED                                |
-| RGB LED Right   | 3 channel LED                                |
-| Motor Left      | High precision motors with magnetic encoder  |
-| Motor Right     | High precision motors with magnetic encoder  |
 
-The datasheet of the motors is [here](assets/motor_specs.pdf)
-
-The two motors are driven by the MAX22211 motors driver:
-
-| **Description**   | **Part Name** | **Product page**                                         | **Datasheet**               |
-|-------------------|---------------|----------------------------------------------------------|-----------------------------|
-| Dual Motor Driver | MAX22211      | [link](https://www.analog.com/en/products/max22211.html) | [link](assets/max22211.pdf) |
 
 
 
@@ -98,6 +118,10 @@ The two motors are driven by the MAX22211 motors driver:
 The connectors are placed in the back of the robot, the pinout is shown in the following image:
 
 ![connectors pinout](assets/datasheet_connectors.png)
+
+### Related Accessories (Included)
+
+- Cable USB-A to USB-C®
 
 ### Power
 
