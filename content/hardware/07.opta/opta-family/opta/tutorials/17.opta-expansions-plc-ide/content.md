@@ -26,13 +26,25 @@ software:
 - [Opta™](https://store-usa.arduino.cc/collections/opta-family) (x1)
 - [Opta Ext D1608E](https://store.arduino.cc/products/Opta-Ext-D1608E) (x1)
 - [Opta Ext D1608S](https://store.arduino.cc/products/Opta-Ext-D1608S) (x1)
-- 24 VDC/0.5 A power supply (x2)
+- 12-24 VDC/0.5 A power supply (x1)
 ### Software
 - The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (including Arduino PLC IDE Tools)
 
 ## Instructions 
 
+### Snapping the Expansion
+
+You can snap up to five expansions to your Opta™ Base module to multiply and mix your set of I/Os with seamless detection.
+
+After removing the expansion port breakable plastic cover marked as AUX, from the Opta™ controller and from the expansion to expose the expansion port, plug the expansions on the right side of your Opta™ controller making sure to correctly align the **Aux connector** and the connection clips as shown in the image below:
+
+![Snapping Opta expansions](assets/snapping.gif)
+
 ### Solution Wiring
+
+- In the **Opta™**, connect the power supply to the respective inputs on the screw terminals.
+- From the **Opta™** power screw terminals wire the power to the Opta expansion.
+- Connect the sensor output to the **I1** input of the Opta expansion, in this case, the variable tap of the potentiometer.
 
 ### Opta™ Micro PLC Setup
 
