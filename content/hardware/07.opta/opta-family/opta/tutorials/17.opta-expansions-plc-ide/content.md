@@ -42,30 +42,33 @@ After removing the expansion port breakable plastic cover marked as AUX, from th
 
 ### Solution Wiring
 
+![Solution example wiring](assets/wiring-ext.png)
+
 - In the **Opta™**, connect the power supply to the respective inputs on the screw terminals.
 - From the **Opta™** power screw terminals wire the power to the Opta expansion.
 - Connect the sensor output to the **I1** input of the Opta expansion, in this case, the variable tap of the potentiometer.
+- Power the sensor with its respective power source. In this case, the power screw terminals of the expansion.
 
 ### Opta™ Micro PLC Setup
 
-Now the server is configured, create a new project, this time for the Opta™ micro PLC that will be the Client or Master.
+After downloading the [PLC IDE](https://www.arduino.cc/en/software#arduino-plc-ide), open it and create a new project for the Opta™.
 
-![New project for the Opta™](assets/new-project-opta.png)
+![New project for the Opta™](assets/plc-ide-1.png)
 
-Upload the runtime for Opta™ by selecting its serial port and clicking on the **Download** button as before.
+Upload the runtime for Opta™ by selecting its serial port and clicking on the **Download** button.
 
-![Uploading the runtime to the Opta™](assets/runtime-opta.png)
+![Uploading the runtime to the Opta™](assets/plc-ide-2.png)
 
-Once the runtime is flashed, with your Opta™ connected to your router, search for its IP address on the router configurations.
+Once the runtime is flashed, navigate to **On-line > Set up communication**, with the **Modbus** protocol selected, open its properties and select the new virtual serial port (different from the previous step), then click "OK". 
 
-On the PLC IDE, navigate to **On-line > Set up communication**, activate and then open the **ModbusTCP** properties. Add the Opta™ IP address, then click "OK". 
+![Opta™ communication setup](assets/plc-ide-3.png)
+![Opta™ serial port selection](assets/plc-ide-4.png)
 
-![Modbus TCP connection](assets/modbus-prog-opta.png)
-![Modbus TCP IP setup](assets/modbus-ip-opta.png)
+***Modbus is the default serial protocol used to communicate the Opta™ with the PC.***
 
 Now, in the upper left corner, click on the **Connect** button and wait for the base program to be uploaded. A green **Connected** flag should appear in the lower right corner if everything goes well.
 
-![Connecting the board](assets/connected-opta.png)
+![Connecting the board](assets/plc-ide-5.png)
 
 ***The Opta™ is Pre-Licensed so you don't have to buy any license to use it with the PLC IDE***
 
