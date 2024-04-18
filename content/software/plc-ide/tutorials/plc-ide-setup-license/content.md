@@ -104,7 +104,7 @@ The following sections will guide you through creating a project, downloading th
 
 ### 2. Project Setup
 
-Create a new project by clicking the middle **New project ...** button or **File > New Project**
+Create a new project by clicking the middle **New project ...** button or **File > New Project**.
 
 ![Create new project](assets/newProjectFullScreen.png)
 
