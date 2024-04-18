@@ -19,7 +19,7 @@ hardware:
 
 The Arduino Portenta X8's processor **NXP® i.MX 8M Mini Processor** is capable of 3D rendering by using OpenGL to process the 3D-related calculations, allowing us to display 3D content on a screen or video output. 
 
-In this tutorial, we will render web content from the internet using WebGL and display it on a screen, using a USB Hub. We will go through the steps to set up, install and modify the video output.
+In this tutorial, we will render web content from the internet using WebGL and display it on a screen using a USB Hub. We will go through the steps to set up, install, and modify the video output.
 
 ## Goals
 
@@ -30,7 +30,7 @@ In this tutorial, we will render web content from the internet using WebGL and d
 
 ### Required Hardware and Software
 
-- [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
+- [Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
 - USB-C® hub with HDMI
 - External monitor
@@ -40,7 +40,7 @@ In this tutorial, we will render web content from the internet using WebGL and d
 
 ### Install The Container
 
-There are two ways to get the container, either through `foundriesFactories` or downloading the container from [portenta-containers repository](https://github.com/arduino/portenta-containers).
+There are two ways to get the container: through `foundriesFactories` or downloading the container from [portenta-containers repository](https://github.com/arduino/portenta-containers).
 
 **With Foundries.io:**
 
@@ -53,7 +53,7 @@ fioctl devices config updates --apps "x-kiosk-imx8-webgl" <deviceName> -f <yourF
 //Make a clean installation with no containers
 fioctl devices config updates --apps "," <deviceName> -f <yourFactoryName>
 
-//If you are getting issues doing so, make sure you are logged correctly with your token
+//If you are having issues doing so, make sure you are logged correctly with your token
 //You can logout:
 fioctl logout
 
@@ -61,15 +61,15 @@ fioctl logout
 fioctl login
 ```
 
-You will now see the home screen for a few seconds and then it will fade out and open the Aquarium 3D from [WebGL samples - Aquarium](https://webglsamples.org/aquarium/aquarium.html).
+You will see the home screen for a few seconds, and then it will fade. Open the Aquarium 3D from [WebGL samples - Aquarium](https://webglsamples.org/aquarium/aquarium.html).
 
 **With downloaded repository:**
 
-If you downloaded the [portenta-containers repository](https://github.com/arduino/portenta-containers), you will need to connect your board directly to your computer and run the `adb shell`, then push the container to your Portenta X8.
+If you downloaded the [portenta-containers repository](https://github.com/arduino/portenta-containers), you would need to connect your board directly to your computer and run the `adb shell,` then push the container to your Portenta X8.
 
 ### Connect to a Wi-Fi®
 
-Check the available Wi-Fi® access points by using the `nmcli de wifi` command. You will be able to see an output laying out `BSSID`, `SSID`, and its other elements.
+Check the available Wi-Fi® access points using the `nmcli de wifi` command. You will be able to see an output laying out `BSSID`, `SSID`, and its other elements.
 
 ```bash
 nmcli de wifi
@@ -94,7 +94,7 @@ nmcli con down <customName>
 nmcli c delete <customName>
 ```
 
-If the LED is illuminating Green, then we know it has been correctly connected. If you want to check it in your terminal, you can use the following commands:
+If the LED is illuminating Green, we know it has been correctly connected. If you want to check it in your terminal, you can use the following commands:
 
 ```bash
 nmcli de
@@ -107,7 +107,7 @@ wlan0    wifi      connected               <customName>
 docker0  bridge    connected (externally)  docker0
 ```
 
-The output table will display information regarding active connections as well as the Wi-Fi® connection in which we are interested.
+The output table will display information regarding active connections and the Wi-Fi® connection we are interested in.
 
 ### Get Your Board's IP
 
@@ -121,13 +121,13 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet <localIP>  netmask 255.255.255.0  broadcast <broadcastIP>
 ```
 
-Test your IP connection by exiting the `adb shell`, you can use **CTRL+Z** or type `exit`, then try to connect through **SSH** using following command:
+Test your IP connection by exiting the `adb shell`, you can use **CTRL+Z** or type `exit`, then try to connect through **SSH** using the following command:
 
 ```bash
 ssh fio@<localIP>
 ```
 
-***To connect through SSH it will request the user's password, which is "fio". If you have trouble connecting with the SSH, please check the troubleshooting section at the end of this tutorial.***
+***To connect through SSH, the user's password, "fio," will be requested. If you have trouble connecting with the SSH, please check the troubleshooting section at the end of this tutorial.***
 
 ### Copy/Push the Docker-Compose.yml
 
@@ -139,25 +139,25 @@ scp <folderName> fio@<portentaX8-IP>:<desiredPath>
 
 ### Video Output Setup
 
-Now we need a USB Hub that has an available video output connector, for example, an HDMI cable. Connect the Portenta X8 to the USB Hub as a Host, the video connector to a display, and the power supply USB to your computer. It is optional but we could also connect a USB mouse to the hub. The setup should look like as follows:
+Now, we need a USB Hub with an available video output connector, such as an HDMI cable. Connect the Portenta X8 to the USB Hub as a Host, the video connector to a display, and the power supply USB to your computer. It is optional, but we could connect a USB mouse to the hub. The setup should look like as follows:
 
 ![X8 usb hub setup](assets/portentaX8_hub_screen.svg)
 
 ***As a reference, a list of validated USB-C® to HDMI hubs that you can use are: [TPX00145](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-with-ethernet-and-usb-hub) and [TPX00146](https://store.arduino.cc/products/usb-c-to-hdmi-multiport-adapter-4k-usb-hub-pd-pass-through).***
 
-By default, if you connect the board to a display, you will see the "home screen" with the `Arduino PRO` background wallpaper, and a bottom bar with a real-time clock.
+By default, if you connect the board to a display, you will see the "home screen" with the `Arduino PRO` background wallpaper and a bottom bar with a real-time clock.
 
 ***You can interact with the interface by plugging USB devices into your hub, like a mouse or a keyboard.***
 
 ![X8 home-screen](assets/portentaX8-home-screen.png)
 
-If you need to change the resolution of your display/monitor to improve the video output quality, you need to add a specific resolution to the configuration file of the graphical server (Weston on Portenta X8). To do so, you need to generate the right **Modeline**, i.e. a row that specifies a custom mode for the graphical interface to correctly drive the display. 
+Suppose you need to change the resolution of your display/monitor to improve the video output quality. In that case, you need to add a specific resolution to the configuration file of the graphical server (Weston on Portenta X8). To do so, you need to generate the right **Modeline**, i.e., a row that specifies a custom mode for the graphical interface to drive the display correctly. 
 
 In the next steps, we provide an example of a 1600 x 758 display running at 60Hz. If you need to modify the modeline and generate a new one, you can use `cvt` command, which is already installed in the Linux image running on your Portenta X8 (see [here](https://wiki.ubuntu.com/X/Config/Resolution#Adding_undetected_resolutions) to get more information). 
 
 To get started in modifying the resolution of your display, connect to your Portenta X8 through ADB (check [this link](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#working-with-linux) to learn how to do it). 
 
-At this point, you are ready to modify the `/etc/xdg/weston/weston.ini` file with `Vim` command as follows: 
+At this point, you are ready to modify the `/etc/xdg/weston/weston.ini` file with the `Vim` command as follows: 
 
 ```bash
 sudo vim /etc/xdg/weston/weston.ini
@@ -170,13 +170,13 @@ You can now add the following lines to the `weston.ini` file:
 name=DP-1
 mode=98.00  1600 1680 1840 2080  758 761 771 787 -hsync +vsync
 ```
-Save the file and exit. To see the changes in place, you have to reboot your Portenta X8 by using the command `sudo systemctl reboot`. When the board gets started again, you will be able to see your display with the right resolution. 
+Save the file and exit. To see the changes in place, you have to reboot your Portenta X8 using the command `sudo systemctl reboot`. When the board gets started again, you will be able to see your display with the right resolution. 
 
 ### Running The Image
 
 If you obtained the app descriptor, structured through *docker-compose.yml*, from **Foundries.io**, it will run automatically after a few seconds.
 
-On the other hand, if you copied from the repository, you will need to initialize with **docker** by accessing your Portenta X8 through SSH, going to the directory where you have copied it, and running it from that directory using following commands:
+On the other hand, if you copied from the repository, you will need to initialize with **docker** by accessing your Portenta X8 through SSH, going to the directory where you have copied it, and running it from that directory using the following commands:
 
 ```bash
 //Connect to your device
@@ -194,7 +194,7 @@ docker compose stop
 
 ### Edit The Output
 
-It is possible to change the web output URL by editing the `docker-compose.yml` file, using the following commands:
+It is possible to change the web output URL by editing the `docker-compose.yml` file using the following commands:
 
 ```bash
 //Connect to your device
@@ -207,15 +207,15 @@ cd <composerPath>
 vim docker-compose.yml
 ```
 
-Once you are inside the **VIM** editor, to edit the file you will need to press **insert** and replace the URL as shown in the screenshot.
+Once inside the **VIM** editor, you will need to press **insert** and replace the URL as shown in the screenshot to edit the file.
 
 ![VIM editing docker-compose.yml](assets/vim-edit-dockerCompose.png)
 
-To save the changes, press the **ESC** key and type `:wq`. This will write and quit the **VIM** editor. After editing the file, you will need to compose the container again to make the changes take effect.
+Press the **ESC** key to save the changes and type `:wq`. This will write and quit the **VIM** editor. After editing the file, you will need to compose the container again to make the changes take effect.
 
 ## Conclusion
 
-In this tutorial, we went through how to connect the board and display something on a screen. Using a container from FoundriesFactories or by downloading it and uploading it to your Portenta X8. Lastly, we showed how to edit the video output by editing the container.
+In this tutorial, we went through how to connect the board and display something on a screen. Using a container from FoundriesFactories or downloading it and uploading it to your Portenta X8. Lastly, we showed how to edit the video output by editing the container.
 
 ### Next Steps
 
