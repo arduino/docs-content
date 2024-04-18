@@ -28,11 +28,11 @@ If your project requires simultaneous data flows, see Paul Stoffregen's [AltSoft
 
 ### Supported Pins
 
-| Board                    | RX                                           | TX  |
-| ------------------------ | -------------------------------------------- | --- |
-| 101                      | 0-12, 14 (A0) - 19 (A5)                      |     |
-| Leonardo<br />Micro      | 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI) | Any |
-| Mega<br />Mega 2560 Rev3 | 10-15, 50-53, A8 (62)-A15 (69)               | Any |
+| Board                                                                                               | RX                                           | TX  |
+| --------------------------------------------------------------------------------------------------- | -------------------------------------------- | --- |
+| [101](/retired/boards/arduino-101-619/)                                                             | 0-12, 14 (A0) - 19 (A5)                      |     |
+| [Leonardo](/hardware/leonardo/)<br />[Micro](/hardware/micro/)<br />[Yún Rev2](/hardware/yun-rev2/) | 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI) | Any |
+| [Mega](/retired/other/hardware-pictures/)<br />[Mega 2560 Rev3](/hardware/mega-2560/)               | 10-15, 50-53, A8 (62)-A15 (69)               | Any |
 
 ## Examples
 
