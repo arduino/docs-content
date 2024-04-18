@@ -98,7 +98,7 @@ The LoRa® module on the Portenta Vision Shield - LoRa can be accessed by using 
 
 ![Upload code to IDE](assets/vs_ard_select_example.png)
 
-The only line you may need to change before uploading the code is the one that sets the frequency. Set the frequency code according to your country if needed. You can find more information about frequency by country at [this TTN link](https://www.thethingsnetwork.org/docs/lorawan/frequency-plans.html).
+The only line you may need to change before uploading the code is the one that sets the frequency. Set the frequency code according to your country if needed. You can find more information about frequency by country at [this TTN link](https://www.thethingsnetwork.org/docs/lorawan/frequency-plans/).
 
 ```cpp
 // change this to your regional band (eg. US915, AS923, ...)
@@ -118,7 +118,7 @@ In order to select the way in which the board is going to connect with TTN  (OTA
 
 ### 4. Registering the Portenta on TTN
 
-Before your Portenta H7 can start communicating with the TTN, you need to [register](https://www.thethingsnetwork.org/docs/devices/registration.html) the board with an application. Go back to the TTN portal and scroll to **End devices** section on your Application dashboard, then click **Add end device**.
+Before your Portenta H7 can start communicating with the TTN, you need to [register](https://www.thethingsnetwork.org/docs/devices/registration/) the board with an application. Go back to the TTN portal and scroll to **End devices** section on your Application dashboard, then click **Add end device**.
 
 ![Registering a Device](assets/vs_ard_ttn_click_register.png)
 
@@ -144,7 +144,7 @@ Once your board has been registered you can send information to TTN. Let's come 
 - The Application EUI
 - The App Key.
 
-Lets start by making a connection Over-The-Air (OTA). Enter "1" in the Serial Monitor input box and press ENTER. Then, find the EUI and the App key from TTN **Device Overview** page. You can read more into OTA vs ABP activation mode [here](https://www.thethingsnetwork.org/docs/devices/registration.html).
+Lets start by making a connection Over-The-Air (OTA). Enter "1" in the Serial Monitor input box and press ENTER. Then, find the EUI and the App key from TTN **Device Overview** page. You can read more into OTA vs ABP activation mode [here](https://www.thethingsindustries.com/docs/).
 
 ```
 Your module version is: ARD-078 1.1.9

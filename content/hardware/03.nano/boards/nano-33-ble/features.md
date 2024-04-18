@@ -29,7 +29,7 @@ The Arduino Nano 33 BLE is a great choice for any beginner, maker or professiona
   This board can be programmed using MicroPython, which is an implementation of the Python® programming language that comes with a subset of the Python® standard library.
 <FeatureWrapper>
   <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense/micropython-installation"/>
-  <FeatureLink variant="secondary" title="Learn More" url="/learn/programming/arduino-and-python"/>
+  <FeatureLink variant="secondary" title="Learn More" url="/micropython"/>
 </FeatureWrapper>
 </Feature>
 

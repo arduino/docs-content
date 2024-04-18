@@ -55,7 +55,7 @@ The Arduino BMI270_BMM150 library allows us to use the Arduino Nano 33 BLE Rev2 
 - **Gyroscope** Output data rate is fixed at 104 Hz.
 - **Magnetometer** Output data rate is fixed at 20 Hz.
 
-If you want to read more about the sensor modules that make up the IMU system, find the datasheet for the <a href="https://content.arduino.cc/assets/bst-bmi270-ds000.pdf" target="_blank">BMI270</a> and the <a href="https://content.arduino.cc/assets/bst-bmm150-ds001.pdf" target="_blank">BMM150</a> here.
+If you want to read more about the sensor modules that make up the IMU system, find the datasheet for the <a href="https://docs.arduino.cc/resources/datasheets/bst-bmi270-ds000.pdf" target="_blank">BMI270</a> and the <a href="https://docs.arduino.cc/resources/datasheets/bst-bmm150-ds001.pdf" target="_blank">BMM150</a> here.
 
 
 ### Accelerometer

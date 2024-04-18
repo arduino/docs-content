@@ -49,7 +49,7 @@ There are two main classes that command the robot:
 
 ## Examples
 
-You can find examples for this library in the [Examples from Libraries](https://docs.arduino.cc/library-examples/) page. 
+You can find examples for this library in the [Examples from Libraries](https://docs.arduino.cc/retired/#library-example) page. 
 
 ## RobotControl Class
 
