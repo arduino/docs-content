@@ -74,6 +74,34 @@ Now, in the upper left corner, click on the **Connect** button and wait for the 
 
 If the Opta status says **No License**, click on the **Activate PLC runtime** button to activate it. Learn more about this case in this [guide](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license/#7-license-activation-with-pre-licensed-products-opta).
 
+### Solution Setup
+
+To enable the Opta Digital Expansion features on the PLC IDE, navigate to the **Resources** tab, **I/O Expansions** in the configuration tree, then click in **Scan** so the IDE searches for the connected expansions.
+
+![Scanning for expansions](assets/plc-ide-6.png)
+
+The available expansion will appear in the **Detected config** column, to enable it, click on **Apply detected config** and make sure that the **Present config** column updates.
+
+![Adding the expansion to the environment](assets/plc-ide-7.png)
+
+To set up the sensor input for the potentiometer, in the left resources menu, navigate to **Programmable inputs** below your desired expansion, define a **variable** name, **sensor** in this case and set the **IOType** to **Analog**.
+
+![Setting up the sensor input](assets/plc-ide-8.png)
+
+To set up the Opta expansion outputs, in the left resources menu, navigate to **Relay Outputs** below your desired expansion and define a **variable** name for each output, **out_1** to **out_8** in this case.
+
+![Setting up the relay outputs](assets/plc-ide-9.png)
+
+For the main code of our solution, navigate to the 
+
+### Troubleshooting - LED behavior
+
+- RED: the Opta controller couldn't initialize the expansion. Verify the power and connection of the expansion, then reset the Opta controller.
+- BLUE:
+
+- GREEN: the expansion is properly initiated and ready to use.
+
+
 ### Final Test
 
 You can leave each device connected separately to the internet router or connect them together directly with one ethernet cable. The first option will let you update the preferred device remotely as you can access it through the local network.
