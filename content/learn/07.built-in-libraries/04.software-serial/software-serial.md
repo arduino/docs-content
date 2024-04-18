@@ -28,11 +28,16 @@ If your project requires simultaneous data flows, see Paul Stoffregen's [AltSoft
 
 ### Supported Pins
 
-| Board                                                                                               | RX                                           | TX  |
-| --------------------------------------------------------------------------------------------------- | -------------------------------------------- | --- |
-| [101](/retired/boards/arduino-101-619/)                                                             | 0-12, 14 (A0) - 19 (A5)                      |     |
-| [Leonardo](/hardware/leonardo/)<br />[Micro](/hardware/micro/)<br />[Yún Rev2](/hardware/yun-rev2/) | 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI) | Any |
-| [Mega](/retired/other/hardware-pictures/)<br />[Mega 2560 Rev3](/hardware/mega-2560/)               | 10-15, 50-53, A8 (62)-A15 (69)               | Any |
+| Board                                                                                               | RX                                           | TX        |
+| --------------------------------------------------------------------------------------------------- | -------------------------------------------- | --------- |
+| [101](/retired/boards/arduino-101-619/)                                                             | 0-12, 14 (A0) - 19 (A5)                      |           |
+| [Leonardo](/hardware/leonardo/)<br />[Micro](/hardware/micro/)<br />[Yún Rev2](/hardware/yun-rev2/) | 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI) | Any       |
+| [Mega](/retired/other/hardware-pictures/)<br />[Mega 2560 Rev3](/hardware/mega-2560/)               | 10-15, 50-53, A8 (62)-A15 (69)               | Any       |
+| [Nano](/hardware/nano/)                                                                             | 0-19 (A5)                                    | 0-19 (A5) |
+| [Nano Every](/hardware/nano-every/)<br />[UNO WiFi Rev2](/hardware/uno-wifi-rev2/)                  | Any                                          | Any       |
+| [UNO R3](/hardware/uno-rev3/)                                                                       | Any                                          | Any       |
+| [UNO R4 Minima](/hardware/uno-r4-minima/)                                                           | 0-3, 8, 12, 13, 15 (A1)-19 (A5)              | Any       |
+| [UNO R4 WiFi](/hardware/uno-r4-wifi/)                                                               | 0-3, 6, 8, 11, 12, 15 (A1)-19 (A5)           | Any       |
 
 ## Examples
 
