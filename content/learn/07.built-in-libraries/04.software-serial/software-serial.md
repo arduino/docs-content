@@ -21,12 +21,18 @@ SoftwareSerial library has the following known limitations:
 
 * It cannot transmit and receive data at the same time.
 * If using multiple software serial ports, only one can receive data at a time.
-* Not all pins on the Mega and Mega 2560 boards support change interrupts, so only the following can be used for RX: 10, 11, 12, 13, 14, 15, 50, 51, 52, 53, A8 (62), A9 (63), A10 (64), A11 (65), A12 (66), A13 (67), A14 (68), A15 (69).
-Not all pins on the Leonardo and Micro boards support change interrupts, so only the following can be used for RX: 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI).
-* On Arduino or Genuino 101 boards the current maximum RX speed is 57600bps. 
-* On Arduino or Genuino 101 boards RX doesn't work on digital pin 13.
+* On some boards, not all pins can be used. See the "**Supported Pins**" table below for details.
+* On Arduino or Genuino 101 boards the current maximum RX speed is 57600bps.
 
 If your project requires simultaneous data flows, see Paul Stoffregen's [AltSoftSerial library](https://www.pjrc.com/teensy/td_libs_AltSoftSerial.html).
+
+### Supported Pins
+
+| Board                    | RX                                           | TX  |
+| ------------------------ | -------------------------------------------- | --- |
+| 101                      | 0-12, 14 (A0) - 19 (A5)                      |     |
+| Leonardo<br />Micro      | 8, 9, 10, 11, 14 (MISO), 15 (SCK), 16 (MOSI) | Any |
+| Mega<br />Mega 2560 Rev3 | 10-15, 50-53, A8 (62)-A15 (69)               | Any |
 
 ## Examples
 
