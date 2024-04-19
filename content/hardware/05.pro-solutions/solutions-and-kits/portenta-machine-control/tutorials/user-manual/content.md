@@ -149,7 +149,7 @@ The complete datasheet is available and downloadable as PDF from the link below:
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Portenta Machine Control STEP files](https://docs.arduino.cc/static/142bd938b340c767b9343451485aa5d2/AKX00032-step.zip)
+- [Portenta Machine Control STEP files](../../downloads/AKX00032-step.zip)
 
 ## First Use
 

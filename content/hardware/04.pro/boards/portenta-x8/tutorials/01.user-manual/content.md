@@ -91,7 +91,7 @@ The full schematics are available and downloadable as PDF from the link below:
 ### STEP Files
 
 The full _STEP_ files are available and downloadable from the link below:
-* [Portenta X8 STEP files](https://docs.arduino.cc/static/5d95e348688a9678e04d6f4d0b994844/ABX00049-step.zip)
+* [Portenta X8 STEP files](../../downloads/ABX00049-step.zip)
 
 ### Linux Environment
 

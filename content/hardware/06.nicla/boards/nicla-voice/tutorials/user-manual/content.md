@@ -87,7 +87,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Nicla Voice STEP files](https://docs.arduino.cc/static/6329da6a0adf61028fa0c8b63a122f04/ABX00061-step.zip)
+- [Nicla Voice STEP files](../../downloads/ABX00061-step.zip)
 
 ## First Use
 

@@ -90,7 +90,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Portenta C33 STEP files](https://docs.arduino.cc/static/0d1ade945a6d5105667ee3a0e50b96c7/ABX00074-step.zip)
+- [Portenta C33 STEP files](../../downloads/ABX00074-step.zip)
 
 ## First Use
 

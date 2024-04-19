@@ -130,7 +130,7 @@ The complete datasheet (for all Opta™ variants) is available and downloadable 
 
 The complete STEP files (for all Opta™ variants) are available and downloadable from the link below:
 
-- [Opta™ STEP files](https://docs.arduino.cc/static/805141cc64a9a27e4e73a94065fa0703/AFX00001-AFX00002-AFX00003-step.zip)  
+- [Opta™ STEP files](../../downloads/AFX00001-AFX00002-AFX00003-step.zip)  
 
 ## First Use
 

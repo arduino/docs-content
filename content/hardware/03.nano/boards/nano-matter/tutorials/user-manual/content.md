@@ -86,7 +86,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Nano Matter STEP files](https://docs.arduino.cc/static/96e7dacc4383cd4a4a928872eca9e3da/ABX00112-step.zip)
+- [Nano Matter STEP files](../../downloads/ABX00112-step.zip)
 
 
 ### Form Factor
