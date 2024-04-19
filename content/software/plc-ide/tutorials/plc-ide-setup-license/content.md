@@ -23,27 +23,27 @@ The **Arduino PLC IDE** offers the possibility to use **IEC IEC61131-3** program
 
 ![Arduino PLC IDE](assets/plc-ide-sw.svg)
 
-This tutorial will show you how to connect the Portenta Machine Control and Opta™ to the Arduino PLC IDE, learn how to activate the software license, and the basic setup to have your board up and running with the **Arduino PLC IDE**.
+This tutorial will show you how to connect the Portenta Machine Control and Opta™ to the Arduino PLC IDE, learning how to activate the software license and the basic setup to have your board up and running with the **Arduino PLC IDE**.
 
 ## Goals
 
 - Set up the Arduino PLC IDE using the Arduino PLC IDE installer
 - Download the PLC IDE bootloader to the board
-- Establish a connection between your computer and the device using the IDE
+- Establish a connection between your computer and the device using the PLC IDE
 - Activate the device license
-- Verify the connectivity between the devices
+- Verify the connection between the devices
 
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
 
 Board compatible with the Arduino PLC IDE:
-- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 - [Opta™](https://store-usa.arduino.cc/collections/opta-family)
+- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 
 The following accessories are needed:
-- [Micro-USB cable for Portenta Machine Control](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 - [USB-C® cable for Opta™](https://store-usa.arduino.cc/products/usb-cable2in1-type-c) (x1)
+- [Micro-USB cable for Portenta Machine Control](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 
 ### Software Requirements
 
@@ -120,7 +120,7 @@ Create a new project by clicking the middle **New project ...** button or **File
 
 ![Create new project](assets/newProjectFullScreen.png)
 
-After creating the project, there are some new windows on the screen; click on the left panel and switch it to the **Resources tab** inside the window on the tree structure. Now click on your board, and it will open the **Boards configuration page**.
+After creating the project, there are some new windows on the screen; click on the left panel and switch it to the **Resources tab** inside the window on the tree structure. Now click on your board, it will open the **Boards configuration page**.
 
 ![Board configuration page](assets/projectWelcome.png)
 
@@ -186,7 +186,7 @@ When a product is **Pre-licensed**, the following scenario will be displayed:
 
 ![Opta™ Activation No License](assets/opta-activation-no-license.png)
 
-By clicking the **Activate PLC Runtime** button, the product activation will be completed, and the PLC **Status** will be set as OK:
+Make sure your device is already connected to the computer and click the **Activate PLC Runtime** button, the product activation will be completed, and the PLC **Status** will be set as OK:
 
 ![Opta™ Activation Status OK](assets/opta-activation-status-ok.png)
 
@@ -204,7 +204,7 @@ The IDE will then connect to a server, validate the hardware, and recover the ac
 
 ### 8. Getting the Hardware-ID of Your Device
 
-To do it, follow the next steps:
+The hardware ID of your device is an important number to save in case you have problems with the divide or your PLC IDE license. To get the unique Hardware-ID of your device, follow the next steps:
 
 - Be sure that your device is disconnected from the Arduino PLC IDE
 - Open the **Arduino IDE** software
