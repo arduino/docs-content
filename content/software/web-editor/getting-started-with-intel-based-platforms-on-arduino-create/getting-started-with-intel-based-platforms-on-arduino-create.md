@@ -219,4 +219,4 @@ You are not limited to running one sketch at a time and can run multiple sketche
 
 ### Troubleshooting
 
-If something goes wrong in this installation process you can let us know [on the Arduino Forum](http://forum.arduino.cc/index.php?board=105.0). Keep in mind that this guide has been tested in depth only on the [Intel Nuc ](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html)and the[ UP2 Board.](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html)
+If something goes wrong in this installation process you can let us know [on the Arduino Forum](https://forum.arduino.cc/c/software/intel-based-platforms/144). Keep in mind that this guide has been tested in depth only on the [Intel Nuc ](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html)and the[ UP2 Board.](https://www.intel.com/content/www/us/en/products/boards-kits/nuc.html)

@@ -1,0 +1,40 @@
+Board:
+  Name: Arduino® Portenta Mid Carrier
+  SKU: ASX00055
+Compatible boards:
+  Portenta X8: Yes
+  Portenta H7: Yes (except MIPI Camera)
+  Portenta C33: Yes (except MIPI Camera)
+  Pro 4G Module EMEA: Yes (Portenta X8 only)
+  Pro 4G Module Global: Yes (Portenta X8 only)
+Camera:	
+  MIPI Connector: 1
+  Arducam Connector: 1
+  USB-A Connector: 1x (compatible with USB-Cameras)
+Display:	
+  DSI: 1
+Communication Interfaces:
+  4G Connectivity : With Pro 4G Module through mCPIE
+  Ethernet: 1
+  SPI: 2 
+  I2S: 1
+  SAI: 1
+  I2C: 3
+  CAN: 2x CAN FD (one without transceiver)
+  UART: 4
+  USB: 1x USB-A 2.0/Hi-Speed
+  PDM: 1
+  SPDIF: 1
+  mPCIE: 1
+User Interface:
+  Button: 1x Power On Push Button
+Storage:
+  MicroSD: 1x MicroSD card slot 
+Hardware debugging interface: JTAG/SWD
+Power:
+  Board operating voltage (VIN): 5 V
+  Maximum current provided by the board: 2 A
+Dimensions:
+  Width: 114 mm
+  Length: 86.5 mm
+  Weight: 35 g

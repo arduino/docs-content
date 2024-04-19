@@ -24,7 +24,7 @@ To use the GIGA Display Shield, there are currently three supported alternatives
 
 ### Option 1: GFX Library
 
-The [Arduino_GigaDisplay_GFX](https://github.com/arduino/Arduino_GigaDisplay_GFX) library is a layer library for the [Adafruit_GFX](https://github.com/adafruit/Adafruit-GFX-Library) graphic core library. This library makes it easy to draw geometrical shapes, printing values, drawing pixels and more. 
+The [Arduino_GigaDisplay_GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX) library is a layer library for the [Adafruit_GFX](https://github.com/adafruit/Adafruit-GFX-Library) graphic core library. This library makes it easy to draw geometrical shapes, printing values, drawing pixels and more. 
 
 ***To get started with the GFX library, visit the [GIGA Display Shield GFX Guide](/tutorials/giga-display-shield/gfx-guide).***
 

@@ -121,7 +121,7 @@ void loop() {
 
 ## GFX Touch Example
 
-The below example requires uses the [Arduino_GigaDisplay_GFX](https://github.com/arduino/Arduino_GigaDisplay_GFX) library, and demonstrates how to change a boolean whenever you touch the screen. It implements the `millis()` function to limit the number of executions. 
+The below example requires uses the [Arduino_GigaDisplay_GFX](https://github.com/arduino-libraries/Arduino_GigaDisplay_GFX) library, and demonstrates how to change a boolean whenever you touch the screen. It implements the `millis()` function to limit the number of executions. 
 
 Anytime the screen is touched, the background and text color inverts (black and white). 
 

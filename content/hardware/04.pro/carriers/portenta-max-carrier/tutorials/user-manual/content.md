@@ -20,6 +20,7 @@ hardware:
   - hardware/04.pro/boards/portenta-h7-lite
   - hardware/04.pro/boards/portenta-h7-lite-connected
   - hardware/04.pro/boards/portenta-c33
+  - hardware/04.pro/modules/pro-4g-module
 software:
   - ide-v1
   - ide-v2
@@ -42,6 +43,7 @@ This user manual offers a detailed guide on the Portenta Max Carrier, consolidat
 * [Portenta H7](https://store.arduino.cc/products/portenta-h7) (x1)
 * USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
 * Wi-Fi® Access Point or Ethernet with Internet access (x1)
+* Compatible antennas like the [Arduino Pro 4G Module Antennas Kit](https://store.arduino.cc/products/4g-module-antenna) (x1)
 
 ### Software Requirements
 
@@ -380,8 +382,8 @@ If the connection is successful, you should see your IP address and location inf
 The Portenta X8, H7, and C33 enhance functionality through High-Density connectors. For a comprehensive understanding of these connectors, please refer to the complete pinout documentation for each Portenta model.
 
 - [Complete Portenta X8 pinout information](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
-- [Complete Portenta H7 pinout information](https://docs.arduino.cc/static/2d38006e78d2abc588a80f12bb9c0c70/ABX00042-full-pinout.pdf)
-- [Complete Portenta C33 pinout information](https://docs.arduino.cc/static/903c16295f3bf076c2ed23eb1b38791c/ABX00074-full-pinout.pdf)
+- [Complete Portenta H7 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00042-full-pinout.pdf)
+- [Complete Portenta C33 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf)
 
 
 ## Configuration and Control

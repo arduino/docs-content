@@ -60,7 +60,7 @@ OpenMV is a great platform for computer vision and machine learning projects.
 
 Further down this article, you can find a lot of useful code examples that will help you to get started.
 
-***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/10-Arduino-Boards).***
+***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/50-Arduino-Boards).***
 
 ## Compatible Boards
 
@@ -84,7 +84,7 @@ If you need help getting started with MicroPython on the **Nano 33 BLE** board, 
 
 - [Install MicroPython on your Nano BLE](/tutorials/nano-33-ble-sense/micropython-installation#arduino-nano-33-ble).
 - [Getting started with OpenMV and Nano 33 BLE](/tutorials/nano-33-ble/getting-started-omv)
-- [Nano 33 BLE Python® API guide](/tutorials/nano-33-ble/ble-python-api) (a collection of useful scripts).
+- [Nano 33 BLE Python® API guide](/micropython/basics/board-examples/#nano-33-ble) (a collection of useful scripts).
 
 ***To reset the bootloader on the Nano 33 BLE board, double tap the reset button quickly. This will reset your board to factory setting.***
 
@@ -96,7 +96,7 @@ If you need help getting started with MicroPython on the **Nano 33 BLE Sense** b
 
 - [Install MicroPython on your Nano BLE Sense](/tutorials/nano-33-ble-sense/micropython-installation#arduino-nano-33-ble).
 - [Getting started with OpenMV and Nano 33 BLE Sense](/tutorials/nano-33-ble-sense/getting-started-omv)
-- [Nano 33 BLE Sense Python® guide](/tutorials/nano-33-ble-sense/ble-sense-python-api) (a collection of useful scripts).
+- [Nano 33 BLE Sense Python® guide](/micropython/basics/board-examples/#nano-33-ble-sense) (a collection of useful scripts).
 
 ***To reset the bootloader on the Nano 33 BLE Sense board, double tap the reset button quickly. This will reset your board to factory setting.***
 
@@ -106,7 +106,7 @@ If you need help getting started with MicroPython on the **Nano 33 BLE Sense** b
 
 If you need help getting started with MicroPython on the **Nano RP2040 Connect** board, you can check out the tutorials below:
 
-- [Install MicroPython on your Nano RP2040 Connect](/tutorials/nano-rp2040-connect/micropython-installation#arduino-nano-rp2040-connect)
+- [Install MicroPython on your Nano RP2040 Connect](/micropython/basics/board-installation/#nano-rp2040-connect)
 - [Nano RP2040 Connect Python® guide](/tutorials/nano-rp2040-connect/rp2040-python-api)
 - [Getting Started with OpenMV and MicroPython on Nano RP2040 Connect](/tutorials/nano-rp2040-connect/rp2040-openmv-setup)
 

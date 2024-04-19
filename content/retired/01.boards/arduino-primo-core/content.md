@@ -66,7 +66,7 @@ In addition, some pins have specialized functions:
 
 * Serial: RX and TX: these pins are used to receive (RX) and transmit (TX) TTL serial data.
 * External Interrupts: all pins can be used as external interrupts. Keep in mind that you can’t use more than eight interrupt pins at the same time. These pins can be configured to trigger an interrupt on a low value, a rising or falling edge, or a change in value. See the [attachInterrupt()](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/) function for details.
-* PWM: pulse width modulation is available on all pins. The 12-bit PWM output resolution can be adjusted using the [analogWriteResolution()](https://www.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogwriteresolution/) function.
+* PWM: pulse width modulation is available on all pins. The 12-bit PWM output resolution can be adjusted using the [analogWriteResolution()](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwriteresolution/) function.
 * SPI: a Serial Peripheral Interface (SPI) bus is available using pins 4 (MOSI), 5 (MISO), and 6 (SCK) and 7 (SS) but it is possible to change them and use other pins. For more information about it visit the [SPI library](https://www.arduino.cc/en/Reference/SPI).
 * TWI: Two-wire interface (TWI) communication is available from the serial data line (SDA) and serial clock line (SCL) pins. TWI communication is supported using the [Wire library](https://www.arduino.cc/en/Reference/Wire).
 * RESET. Bringing the reset line LOW will reset the microcontroller.

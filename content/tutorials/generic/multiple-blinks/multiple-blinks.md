@@ -7,7 +7,7 @@ tags:
 difficulty: beginner
 libraries:
   - name: Scheduler 
-    url: https://www.arduino.cc/en/reference/scheduler
+    url: https://www.arduino.cc/reference/en/libraries/scheduler/
 hardware:
   - hardware/02.hero/boards/due
   - hardware/02.hero/boards/zero
@@ -38,7 +38,7 @@ Arduino boards based on SAM and SAMD architectures (i.e Arduino Zero, MKR ZERO, 
 - Three 220 Ω resistors
 - Jumper Wires
 - Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Scheduler library](https://www.arduino.cc/en/reference/scheduler)
+- [Scheduler library](https://www.arduino.cc/reference/en/libraries/scheduler/)
 
 ### The Circuit
 
@@ -168,7 +168,7 @@ After you have uploaded the code, two of the LEDs should now light up. One shoul
 If the code is not working, there are some common issues we can troubleshoot:
 
 - LEDs / resistors are not wired correctly.
-- You have not installed the [Scheduler library](https://www.arduino.cc/en/reference/scheduler).
+- You have not installed the [Scheduler library](https://www.arduino.cc/reference/en/libraries/scheduler/).
 
 
 ## Conclusion
