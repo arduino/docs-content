@@ -97,7 +97,7 @@ Alvik has two fully programmable RGB LEDs named `DL1` and `DL2` at its top.
 | **Description** | **Information** |
 | --------------- | --------------- |
 | RGB LED Left    | DL1             |
-| RGB LED Right   | LD2             |
+| RGB LED Right   | DL2             |
 
 
 ### Connectors & Communication Protocols
