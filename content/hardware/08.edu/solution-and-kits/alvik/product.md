@@ -2,10 +2,11 @@
 title: Alvik
 url_shop: https://store.arduino.cc/alvik
 certifications: [CE, UKCA, RCM, MIC, FCC, IC, KC]
-primary_button_url: /tutorials/operations-manual
-primary_button_title: Operations Manual
-secondary_button_url: /tutorials/cheat-sheet
+primary_button_url: /tutorials/alvik/getting-started
+primary_button_title: Getting Started
+secondary_button_url: /tutorials/alvik/cheat-sheet
 secondary_button_title: Cheat Sheet
+
 ---
 
 Arduino Alvik is a powerful and versatile robot car specifically designed for programming and robotics education.

@@ -13,14 +13,14 @@ At the core of the robot there is a powerful 32-bit MCU.
 <Feature title="Cheat Sheet" image="communication">
 A reference to all the API to interface with the STM32 core.
 <FeatureWrapper>
-  <FeatureLink title="Cheat Sheet" url="/tutorials/cheat-sheet/cheat-sheet"/>
+  <FeatureLink title="Cheat Sheet" url="/tutorials/alvik/cheat-sheet"/>
 </FeatureWrapper>
 </Feature>
 
 <Feature title="MicroPython" image="python">
-Learn the basics of MicroPython with the Nano ESP 32 and our free MicroPython 101 course.
+Learn the basics of MicroPython with the Nano ESP32 and our free MicroPython 101 course.
   <FeatureWrapper>
-    <FeatureLink title="MicroPython 101" url="https://docs.arduino.cc/micropython/"/>
+    <FeatureLink title="MicroPython 101" url="https://docs.arduino.cc/micropython-course/"/>
   </FeatureWrapper>
 </Feature>
 
