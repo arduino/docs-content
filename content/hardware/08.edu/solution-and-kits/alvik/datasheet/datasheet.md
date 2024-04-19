@@ -2,13 +2,14 @@
 identifier: AKX00066
 title: Arduino® Alvik
 type: edu
+author: Paolo Cavagnolo, Jose Garcia, Julián Caro Linares
 ---
 ![](assets/perspective_front.png)
 
 # Description
-Arduino® Alvik is a powerful and versatile differential robot car specifically designed for programming and STEAM education.
+Arduino® Alvik is a powerful and versatile robot car specifically designed for programming and STEAM education.
 
-Powered by [Arduino® Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/), Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and AI.
+Powered by the [Arduino® Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/), Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and AI.
 
 # Target areas:
 Maker, Education, MicroPython, Robotics
@@ -17,13 +18,9 @@ Maker, Education, MicroPython, Robotics
 
 ## Features
 
-
 ### General Specifications Overview
 
-Alvik is an educational robot which is battery-powered and comes with two main microcontrollers:
-
- - At the core of the robot there is the STM32 Arm® Cortex®-M4 that controls all the sensors and actuators
- - At the top a Nano ESP32 acts like the main controller and can communicate with the STM32 through a set of dedicated APIs
+Alvik is an educational robot car that is battery-powered and has multiple sensors and actuators, like color detection, distance, line following, accelerometers, gyroscopes and much more.
 
 ![Alvik's Main Components](assets/datasheet_main_components.png)
 
@@ -36,7 +33,16 @@ Alvik is an educational robot which is battery-powered and comes with two main m
   | Motors                | High precision with hall effect encoder, Up to 13 cm/s                                               |
   | Extensions            | Servo motor, I2C Grove, Qwiic, Lego® Technic, M3 Screws                                              |
 
+### Related Accessories (Included)
+
+- Cable USB-A to USB-C®
+
 ### Controllers
+
+Alvik comes with two main microcontrollers:
+
+ - At the core of the robot there is the STM32 Arm® Cortex®-M4 that controls all the sensors and actuators.
+ - At the top a Nano ESP32 acts like the main controller and can communicate with the STM32 through a set of dedicated APIs.
 
 | **Controllers**     | **Product page**                                                                                           | **Datasheet**                                                               |
 | ------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
@@ -44,12 +50,9 @@ Alvik is an educational robot which is battery-powered and comes with two main m
 | Arduino® Nano ESP32 | [Link](https://docs.arduino.cc/hardware/nano-esp32/)                                                       | [Link](https://docs.arduino.cc/resources/datasheets/ABX00083-datasheet.pdf) |
 
 
-maybe not worth it
-
-
 ### Sensors
 
-Alvik comes with a big number of onboards sensors, from color detection to distance sensors or inertial measurement units, all of which are listed in the following table:
+Alvik comes with a large number of onboard sensors, from color detection to distance sensors or inertial measurement units, all of which are listed in the following table:
 
 | **Description**                     | **Part Name** | **Product page**                                                                                                   | **Datasheet**                          |
 | ----------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
@@ -59,19 +62,11 @@ Alvik comes with a big number of onboards sensors, from color detection to dista
 | Line Follower Array (x1)            | Custom made   | -                                                                                                                  | -                                      |
 | Capacitive Touch buttons (x7)       | Custom made   | -                                                                                                                  | -                                      |
 
-The sensory capabilities of Alvik can be expanded using the different connectors and communication protocols available at the back of the robot or using the pinout of the Arduino® Nano ESP32 at its top.
-
-
-TODO move this to the subsection
-
-Attached to the Capacitive Touch Controller there are seven capacitive buttons on the top of the main board and in addition there is a line follower array made up by three phototransistor and five infrared LEDs.
-| Capacitive Touch Controller (x1)    | AT42QT2120    | [Link](https://www.microchip.com/en-us/product/AT42QT2120)                                                         | [Link](assets/at42qt2120.pdf)          |
-
-The three phototransistor are linked directly to the analog ports of the STM32.
+The sensory capabilities of Alvik can be expanded using the different connectors and communication protocols available at the back of the robot.
 
 ### Actuators
 
-Alvik mainly have two motors as main actuators and two additional RGB 2
+Alvik has as actuators two DC motors with magnetic relative encoders and two RGB LEDs that can be used for different purposes. In addition to that it is possible to expand the capabilities of Alvik by adding new actuators using the different connectors and communication protocols available at the back of the robot.
 
 #### Motors
 
@@ -81,14 +76,13 @@ Alvik is a differential robot driven by two independent DC motors with magnetic 
 
 The motors have the following technical specifications:
 
-| **Description**   | **Information**  |
-| ----------------- | ---------------- |
-| Operating Voltage | 6 VDC            |
-| No load Current   | 70 mA            |
-| Max load Curret   | 90 mA            |
-| Encoder           | Magnetic encoder with  |
-|                   |                  |
-
+| **Description**              | **Information** |
+| ---------------------------- | --------------- |
+| Operating Voltage            | 6 VDC           |
+| No load Current              | 70 mA           |
+| Max load Current             | 90 mA           |
+| No load Speed                | 96 rpm          |
+| Magnetic relative AB encoder | 3 ppr           |
 
 The two motors are driven by the MAX22211 motors driver:
 
@@ -98,72 +92,137 @@ The two motors are driven by the MAX22211 motors driver:
 
 #### RGB LEDs
 
-| RGB LED Left    | 3 channel LED                               |
-| RGB LED Right   | 3 channel LED                               |
+Alvik has two fully programmable RGB LEDs named `DL1` and `DL2` at its top.
 
-### Communication Interfaces
-
-
-## Technical Specifications
-
-
-### Outputs
+| **Description** | **Information** |
+| --------------- | --------------- |
+| RGB LED Left    | DL1             |
+| RGB LED Right   | LD2             |
 
 
+### Connectors & Communication Protocols
 
+The robot is compatible with the following communication protocols:
 
-
-### Connectors
+| **Description**             | **Information**            |
+| --------------------------- | -------------------------- |
+| I2C                         | Groove and QWIIC connector |
+| PWM Servomotor Control (x2) | Servo Motor connector      |
 
 The connectors are placed in the back of the robot, the pinout is shown in the following image:
 
-![connectors pinout](assets/datasheet_connectors.png)
+![Connectors pinout](assets/datasheet_connectors.png)
 
-### Related Accessories (Included)
 
-- Cable USB-A to USB-C®
-
-### Power
-
-The power distribution in the robot is explained by the following diagram:
-
-![power scheme](assets/power.png)
-
-There are three level of power:
-
-| **Level** | **Description**                                                                     |
-|-----------|-------------------------------------------------------------------------------------|
-| +3V7      | From the battery, the reference level is 3.7 V but it can goes from 3.0 V to 4.2 V |
-| +5V       | After the Boost Converter                                                           |
-| +3V3      | After the Step Down Converter                                                       |
+<div style="page-break-after:always;"></div>
 
 ## Functional Overview
 
+### Topology
+
+The main parts of the robot are the following:
+
+![Alvik's main part from top to bottom (left) and bottom to top (right)](assets/alvik_topology.png)
+
+
+| **Part**                     | **Quantity** |                                   **Details**                                    |
+| ---------------------------- | :----------: | :------------------------------------------------------------------------------: |
+| Arduino® Nano ESP32          |      1       |                           Main controller of the robot                           |
+| Main PCB                     |      1       |                              Main PCB of the robot                               |
+| STM32 Arm® Cortex®-M4 32 Bit |      1       |                        Onboard STM32 Auxiliar controller                         |
+| Touch Programmable button    |      7       |              Touch programmable buttons integrated on the main PCB               |
+| ON/OFF Power Switch          |      1       |                Fully programmable RGB LED mounted on the main PCB                |
+| RGB LED                      |      2       |                Fully programmable RGB LED mounted on the main PCB                |
+| Color Sensor                 |      1       |                                RGB Color detector                                |
+| 6-Axis Gyro/Accelerometer    |      1       |                       6-Axis Gyro and Accelerometer sensor                       |
+| Front PCB                    |      1       |                Auxiliar PCB of the robot with additional sensors                 |
+| ToF Distance Sensor          |      1       |                   Time-of-Flight Distance sensor up to 350 cm                    |
+| Line follower array          |      1       |      Line follower array made up of 3 phototransistors and 5 infrared LEDs       |
+| Grove Connector              |      2       |                I2C Grove Connector to extend robot's capabilities                |
+| QWIIC Connector              |      2       |                 I2C QWIIC Connector to extend robot capabilities                 |
+| Servomotor Connector         |      2       |                      3-pins connector to attach servomotors                      |
+| 18650 Li-Ion Battery         |      1       |                               Battery of the robot                               |
+| Main Chassis                 |      1       |                    Main chassis of the robot made in plastic                     |
+| Motor holder                 |      2       | Plastic support to hold the motor in place, a screwdriver is required to open it |
+| Motors                       |      2       |                     DC Motor with magnetic relative encoder                      |
+| Rubber wheel                 |      2       |                       Rubber wheel with 34 mm of diameter                        |
+| Inox steal ball 9 mm         |      1       |                 Ball that serves as third support for stability                  |
+| Ball caster holder           |      1       |                      Plastic support to hold the steal ball                      |
+| INOX M3 x 5 mm Screws        |      5       |                           Phillips Screws of the robot                           |
+| Battery cover                |      1       |         Cover to hold the battery, a screwdriver is required to open it          |
+
+
+<div style="page-break-after:always;"></div>
+
 ### Block Diagram
 
-![block diagram](assets/Block_diagram.png)
+The following block diagram describes the main blocks of the robot from a hardware point of view:
 
-## Mechanical Information
+![Alvik's Block Diagram](assets/Block_diagram.png)
 
-![parts](assets/mech_parts.png)
+### Power Supply
 
-| **Part**             | **q.ty** |
-| -------------------- | :------: |
-| Main PCB             |    1     |
-| Front PCB            |    1     |
-| Arduino Nano ESP32   |    1     |
-| INOX M3 x 5 mm       |    5     |
-| 18650 Li-Ion Battery |    1     |
-| Main Chassis         |    1     |
-| Ball caster holder   |    1     |
-| Inox stell ball 9 mm |    1     |
-| Motor holder         |    2     |
-| Motors               |    2     |
-| Rubber wheel         |    2     |
-| 2x6 mm screw         |    2     |
-| Battery panel        |    1     |
+The power distribution in the robot is explained by the following diagram:
 
-## Certifications
+![Power Tree Diagram](assets/power.png)
+
+There are three levels of power inside the robot:
+
+| **Level** | **Description**                                                                    |
+| --------- | ---------------------------------------------------------------------------------- |
+| +3V7      | From the battery, the reference level is 3.7 V but it can goes from 3.0 V to 4.2 V |
+| +5V       | After the Boost Converter                                                          |
+| +3V3      | After the Step-Down Converter                                                      |
+
+<div style="page-break-after:always;"></div>
+
+#### Robot's battery
+
+Alvik's is powered by a single 18650 Li-Ion Battery protected by a battery cover at the bottom of the product which can be opened with a Phillips screwdriver. The battery is designed to be easily replaceable at any time so the robot can be used without interruptions in educational environments. 
+
+The main board of the robot incorporates the `MAX17332X22` to manage the charge and use of the battery including an overvoltage and reverse-voltage protection `LTC4360CSC8-2` chip.
+
+![Alvik's Battery Compartment](assets/alvik_battery.png)
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<strong>Note:</strong> Do not replace the battery without adult supervision.
+</div>
+
+#### ON/OFF Power Switch
+
+The power of the robot is located by a simple ON/OFF switch located on the top of the robot at the low right corner.
+
+![Alvik's Power Switch](assets/alvik_switch.png)
+
+<div style="page-break-after:always;"></div>
+
+## Device Operation
+
+### Getting Started - Micropython
+Alvik can be programmed with Micropython. To do that download and install the Arduino Lab for MycroPython **[1]**. To connect the Alvik robot to your computer, you will need a USB-C® cable.
+
+### Getting Started - Arduino IDE
+If you want to program your Alvik robot while offline you need to install the Arduino® Desktop IDE **[2]**. To connect the Alvik robot to your computer, you will need a USB-C® cable.
+
+### Getting Started - Arduino Cloud
+All Arduino® IoT-enabled products are supported on Arduino Cloud **[3]** which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+
+### Sample Sketches
+Sample sketches for the Alvik robot can be found in the “Alvik robot Documentation” section of Arduino® **[4]**.
+
+### Online Resources
+Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]** and the online store **[6]** where you will be able to complement your Alvik robot product with additional extensions, sensors and actuators.
+
+
+## Product Compliance
+
+### Certifications Summary
+
+| Cert          | Arduino Alvik (AKX00066) |
+| ------------- | ------------------------ |
+| **CE (EU)**   | Yes                      |
+| **UKCA (UK)** | Yes                      |
+
 
 ### Declaration of Conformity CE DoC (EU)
 
@@ -181,7 +240,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Hexavalent Chromium (Cr6+)             | 1000                    |
 | Poly Brominated Biphenyls (PBB)        | 1000                    |
 | Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
-| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
 | Benzyl butyl phthalate (BBP)           | 1000                    |
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
@@ -255,28 +314,27 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| Company name    | Arduino S.r.l.                                |
-| --------------- | --------------------------------------------- |
-| Company Address | Via Andrea Appiani, 25 Monza, MB, 20900 Italy |
+| Company name    | Arduino S.r.l.                                  |
+| --------------- | ----------------------------------------------- |
+| Company Address | Via Andrea Appiani, 25 Monza, MB, 20900 (Italy) |
 
 
 ## Reference Documentation
 
-| Ref                          | Link                                                                                            |
-| ---------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)        | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino Lab for MicroPython (Desktop) | <https://labs.arduino.cc/en/labs/micropython> |
-| Arduino Cloud Editor   | <https://create.arduino.cc/editor>                                                              |
-| Cloud Editor - Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Arduino Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
-| Library Reference            | <https://github.com/arduino-libraries/>                                                         |
-| Online Store                 | <https://store.arduino.cc/>                                                                     |
+| Ref                                   | Link                                                                       |
+| ------------------------------------- | -------------------------------------------------------------------------- |
+| Arduino Lab for MicroPython (Desktop) | <https://docs.arduino.cc/micropython/>                                     |
+| Arduino IDE (Desktop)                 | <https://www.arduino.cc/en/Main/Software>                                  |
+| Arduino Cloud Editor                  | <https://create.arduino.cc/editor>                                         |
+| Arduino Official Documentation        | <https://docs.arduino.cc/> |
+| Arduino Project Hub                   | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending> |
+| Online Store                          | <https://store.arduino.cc/>                                                |
 
-## Change Log
+## Revision History
 
-| **Date**   | **Changes**                                            |
-| ---------- | ------------------------------------------------------ |
-|            |                                                        |
+| Date       | **Revision** |  **Changes**  |
+| ---------- | :----------: | :-----------: |
+| 14/05/2024 |      1       | First Release |
 
 
 
