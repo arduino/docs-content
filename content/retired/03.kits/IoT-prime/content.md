@@ -1,6 +1,7 @@
 ---
 title: "Arduino IoT Prime"
 source: "https://arduino.cc/en/Kits/IoT-Prime"
+sku: [AKX00018]
 ---
 
 ## Arduino IoT Prime Bundle

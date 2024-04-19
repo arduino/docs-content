@@ -66,7 +66,7 @@ The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples yo
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [Nicla Sense ME pinout](https://docs.arduino.cc/static/b35956b631d757a0455c286da441641b/ABX00050-full-pinout.pdf)
+- [Nicla Sense ME pinout](https://docs.arduino.cc/resources/pinouts/ABX00050-full-pinout.pdf)
 
 ### Datasheet
 
