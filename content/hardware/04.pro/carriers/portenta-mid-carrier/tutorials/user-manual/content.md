@@ -569,7 +569,7 @@ The Portenta X8, H7, and C33 models expand their capabilities using High-Density
 
 This documentation provides an in-depth view of the connectors, ensuring a comprehensive understanding of how they enhance the functionality of these devices.
 
-- [Complete Portenta X8 pinout information](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
+- [Complete Portenta X8 pinout information](/resources/pinouts/ABX00049-full-pinout.pdf)
 - [Complete Portenta H7 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00042-full-pinout.pdf)
 - [Complete Portenta C33 pinout information](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf)
 
