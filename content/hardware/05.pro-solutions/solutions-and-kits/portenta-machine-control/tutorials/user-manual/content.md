@@ -1232,7 +1232,7 @@ To use the Modbus protocol with your Portenta Machine Control, you will need the
 
 #### Modbus RTU
 
-Modbus RTU, generally operating in half-duplex mode, with its capability to handle noisy and long-distance transmission lines, makes it an excellent choice for industrial environments. Modbus RTU communication is supported using Portenta's Machine Control RS-485 physical interface.
+Modbus RTU, generally operating in half-duplex mode, has the capability to handle noisy and long-distance transmission lines, which makes it an excellent choice for industrial environments. Modbus RTU communication is supported using Portenta Machine Control's RS-485 physical interface.
 
 ***The Portenta Machine Control has onboard termination resistors; its RS-485 interface can be configured as a half or full duplex.***
 
