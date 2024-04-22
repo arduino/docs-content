@@ -139,7 +139,7 @@ The main parts of the robot are the following:
 | ToF Distance Sensor          |      1       |                   Time-of-Flight Distance sensor up to 350 cm                    |
 | Line follower array          |      1       |      Line follower array made up of 3 phototransistors and 5 infrared LEDs       |
 | Grove Connector              |      2       |                I2C Grove Connector to extend robot's capabilities                |
-| QWIIC Connector              |      2       |                 I2C QWIIC Connector to extend robot capabilities                 |
+| Qwiic Connector              |      2       |                 I2C Qwiic Connector to extend robot capabilities                 |
 | Servomotor Connector         |      2       |                      3-pins connector to attach servomotors                      |
 | 18650 Li-Ion Battery         |      1       |                               Battery of the robot                               |
 | Main Chassis                 |      1       |                    Main chassis of the robot made in plastic                     |
