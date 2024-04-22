@@ -7,7 +7,7 @@ author: Paolo Cavagnolo, Jose Garcia, Julián Caro Linares
 ![](assets/perspective_front.png)
 
 # Description
-Arduino® Alvik is a powerful and versatile robot car specifically designed for programming and STEAM education.
+Arduino® Alvik (from now on referred to as Alvik) is a powerful and versatile robot car specifically designed for programming and STEAM education.
 
 Powered by the [Arduino® Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/), Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and AI.
 
