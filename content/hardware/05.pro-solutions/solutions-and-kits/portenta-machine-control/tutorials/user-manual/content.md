@@ -1641,7 +1641,7 @@ Alternatively, to establish communication between two Portenta Machine Control w
 
 ![Modbus RTU (Half-Duplex) between two Portenta Machine Control](assets/modbus-half-rtu-pmcs.png)
 
-Previous examples can be used in half-duplex mode, but it will require one minor change in the following line of code:
+The previous example can be used in half-duplex mode, but it will require one minor change in the following line of code:
 
 ```arduino
 MachineControl_RS485Comm.setFullDuplex(false);
