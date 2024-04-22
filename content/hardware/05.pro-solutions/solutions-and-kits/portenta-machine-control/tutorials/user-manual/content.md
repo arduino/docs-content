@@ -1236,206 +1236,6 @@ Modbus RTU, generally operating in half-duplex mode, with its capability to hand
 
 ***The Portenta Machine Control has onboard termination resistors; its RS-485 interface can be configured as a half or full duplex.***
 
-#### Using a Portenta Machine Control & Opta™
-
-The example below shows how to enable Modbus RTU communication between a Portenta Machine Control device and an Opta™ device. For wiring both devices, follow the diagram below:
-
-![Portenta Machine Control and Opta™ Modbus RTU wiring](assets/modbus-rtu.png)
-
-The following example sketch will let the Portenta Machine Control device toggle the four onboard Opta™ LEDs via **Modbus RTU**. The Portenta Machine Control will be the **client**, while the Opta™ device will be the **server**.
-
-For the **Opta™** device, defined as the server, use the following example sketch below.
-
-```arduino
-/*
-  Opta's Modbus RTU Server Example
-  Name: opta_modbus_rtu_server_led_control.ino
-  Purpose: Demonstrates controlling the onboard LEDs of an 
-  Opta device using the Modbus RTU protocol
-
-  @author Arduino PRO Content Team
-  @version 1.0 01/10/23
-*/
-
-// Include the necessary libraries 
-#include <ArduinoRS485.h>
-#include <ArduinoModbus.h>
-
-// Define the baud rate for Modbus communication
-constexpr auto baudrate{ 38400 };
-
-// Define the number of coils to control LEDs
-const int numCoils = 4;
-
-// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
-// Modbus over serial line specification and implementation guide V1.02
-// Paragraph 2.5.1.1 Modbus Message RTU Framing
-// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
-constexpr auto bitduration{ 1.f / baudrate };
-constexpr auto preDelayBR{ bitduration * 9.6f * 3.5f * 1e6 };
-constexpr auto postDelayBR{ bitduration * 9.6f * 3.5f * 1e6 };
-
-void setup() {
-  // Initialize serial communication at 9600 bauds
-  Serial.begin(9600);
-
-  // Print a startup message
-  Serial.println("- Modbus RTU Server");
-
-  // Set RS485 transmission delays as per Modbus specification
-  RS485.setDelays(preDelayBR, postDelayBR);
-
-  // Start the Modbus RTU server with a specific slave ID and baud rate
-  // Halt execution if the server fails to start
-  if (!ModbusRTUServer.begin(1, baudrate, SERIAL_8N1)) {
-    Serial.println("- Failed to start Modbus RTU Server!");
-    while (1)
-      ;  
-  }
-
-  // Initialize the onboard LEDs 
-  pinMode(LED_D0, OUTPUT);
-  pinMode(LED_D1, OUTPUT);
-  pinMode(LED_D2, OUTPUT);
-  pinMode(LED_D3, OUTPUT);
-
-  // Configure coils for controlling the onboard LEDs
-  ModbusRTUServer.configureCoils(0x00, numCoils);
-}
-
-void loop() {
-  // Poll for Modbus RTU requests and process them
-  int packetReceived = ModbusRTUServer.poll();
-
-  if (packetReceived) {
-    // Process each coil's state and control LEDs accordingly
-    for (int i = 0; i < numCoils; i++) {
-      // Read coil value
-      // Update discrete input with the coil's state
-      int coilValue = ModbusRTUServer.coilRead(i);       
-      ModbusRTUServer.discreteInputWrite(i, coilValue);  
-
-      // Debug output to the IDE's serial monitor
-      Serial.print("- LED ");
-      Serial.print(i);
-      Serial.print(" : ");
-      Serial.println(coilValue);
-
-      // Control the onboard LEDs based on the coil values
-      switch (i) {
-        case 0:
-          digitalWrite(LED_D0, coilValue);
-          break;
-        case 1:
-          digitalWrite(LED_D1, coilValue);
-          break;
-        case 2:
-          digitalWrite(LED_D2, coilValue);
-          break;
-        case 3:
-          digitalWrite(LED_D3, coilValue);
-          // New line for better readability
-          Serial.println();  
-          break;
-        default:
-          // Error handling for unexpected coil addresses
-          Serial.println("- Output out of scope!"); 
-          break;
-      }
-    }
-  }
-}
-```
-
-For the **Portenta Machine Control**, defined as the client, use the following example sketch.
-
-```arduino
-/*
-  Portenta's Machine Control Modbus RTU Client Example
-  Name: portenta_machine_control_modbus_rtu_client_led_control.ino
-  Purpose: Demonstrates controlling Modbus RTU coils using a 
-  Portenta Machine Control device
-
-  @author Arduino PRO Content Team
-  @version 1.0 01/10/23
-*/
-
-// Include the necessary libraries
-#include <Arduino_PortentaMachineControl.h>
-#include <ArduinoRS485.h>
-#include <ArduinoModbus.h>
-
-// Define the baud rate for Modbus communication
-constexpr auto baudrate{ 38400 };
-
-// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
-// Modbus over serial line specification and implementation guide V1.02
-// Paragraph 2.5.1.1 Modbus Message RTU Framing
-// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
-constexpr auto bitduration{ 1.f / baudrate };
-constexpr auto preDelay{ bitduration * 9.6f * 3.5f * 1e6 };
-constexpr auto postDelay{ bitduration * 9.6f * 3.5f * 1e6 };
-
-// Counter variable to demonstrate coil control logic
-int counter = 0;
-
-void setup() {
-  // Initialize serial communication at 9600 bauds
-  Serial.begin(9600);
-
-  // Initialize RS-485 communication with specified baud rate and delays
-  MachineControl_RS485Comm.begin(baudrate, preDelay, postDelay);
-
-  // Short delay to ensure RS-485 communication is stable
-  delay(2500);
-
-  // Indicate start of Modbus RTU client operation
-  Serial.println("- Modbus RTU Coils control");
-
-  // Start the Modbus RTU client with the RS-485 communication settings
-  if (!ModbusRTUClient.begin(MachineControl_RS485Comm, baudrate, SERIAL_8N1)) {
-    Serial.println("- Failed to start Modbus RTU Client!");
-    // Halt execution if unable to start
-    while (1)
-      ;  
-  }
-}
-
-void loop() {
-  // Increment counter to change coil values on each iteration
-  counter++;
-
-  // Determine coil value based on the counter's parity
-  byte coilValue = ((counter % 2) == 0) ? 0x00 : 0x01;
-
-  // Attempt to write coil values to a Modbus RTU server
-  Serial.print("- Writing coil values ... ");
-
-  // Begin transmission to Modbus server (slave ID 1) to write coil values at address 0x00
-  ModbusRTUClient.beginTransmission(1, COILS, 0x00, 4);
-  for (int i = 0; i < 4; i++) {
-    // Write the same value to all 4 coils
-    ModbusRTUClient.write(coilValue);  
-  }
-
-  // Check for successful transmission and report errors if any,
-  // print error code if transmission failed or confirm successful coil value writing
-  if (!ModbusRTUClient.endTransmission()) {
-    Serial.print("- Failed! Error code: ");
-    Serial.println(ModbusRTUClient.lastError());  
-  } else {
-    Serial.println("- Success!");  
-  }
-
-  // Delay before next operation to simulate periodic control
-  delay(1000);
-}
-```
-
-You should see the four onboard LEDs of the Opta™ device turn on and off, as shown below.
-
-![Onboard LEDs of an Opta™ device controlled by a Portenta Machine Control device via Modbus TCP](assets/rtu-blink.gif)
-
 #### Using Two Portenta Machine Controls
 
 The following example shows how to establish Modbus RTU communication between **two Portenta Machine Control devices**. We will replicate a similar behavior of blinking four LEDs on Opta™ using the Digital Output port of the Portenta Machine Control. Since Portenta Machine Control supports half-duplex and full-duplex modes, each mode requires a different wiring setup.
@@ -1650,6 +1450,206 @@ MachineControl_RS485Comm.setFullDuplex(false);
 By modifying this line, *Full-Duplex mode* is deactivated. This minor code tweak, plus the appropriate wiring, enable the two units to communicate using Modbus RTU in half-duplex mode.
 
 ![Modbus RTU (Half-Duplex) Demo](assets/rtu-half-ani.gif)
+
+#### Using a Portenta Machine Control & Opta™
+
+The example below shows how to enable Modbus RTU communication between a Portenta Machine Control device and an Opta™ device. For wiring both devices, follow the diagram below:
+
+![Portenta Machine Control and Opta™ Modbus RTU wiring](assets/modbus-rtu.png)
+
+The following example sketch will let the Portenta Machine Control device toggle the four onboard Opta™ LEDs via **Modbus RTU**. The Portenta Machine Control will be the **client**, while the Opta™ device will be the **server**.
+
+For the **Opta™** device, defined as the server, use the following example sketch below.
+
+```arduino
+/*
+  Opta's Modbus RTU Server Example
+  Name: opta_modbus_rtu_server_led_control.ino
+  Purpose: Demonstrates controlling the onboard LEDs of an 
+  Opta device using the Modbus RTU protocol
+
+  @author Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+// Include the necessary libraries 
+#include <ArduinoRS485.h>
+#include <ArduinoModbus.h>
+
+// Define the baud rate for Modbus communication
+constexpr auto baudrate{ 38400 };
+
+// Define the number of coils to control LEDs
+const int numCoils = 4;
+
+// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+// Modbus over serial line specification and implementation guide V1.02
+// Paragraph 2.5.1.1 Modbus Message RTU Framing
+// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
+constexpr auto bitduration{ 1.f / baudrate };
+constexpr auto preDelayBR{ bitduration * 9.6f * 3.5f * 1e6 };
+constexpr auto postDelayBR{ bitduration * 9.6f * 3.5f * 1e6 };
+
+void setup() {
+  // Initialize serial communication at 9600 bauds
+  Serial.begin(9600);
+
+  // Print a startup message
+  Serial.println("- Modbus RTU Server");
+
+  // Set RS485 transmission delays as per Modbus specification
+  RS485.setDelays(preDelayBR, postDelayBR);
+
+  // Start the Modbus RTU server with a specific slave ID and baud rate
+  // Halt execution if the server fails to start
+  if (!ModbusRTUServer.begin(1, baudrate, SERIAL_8N1)) {
+    Serial.println("- Failed to start Modbus RTU Server!");
+    while (1)
+      ;  
+  }
+
+  // Initialize the onboard LEDs 
+  pinMode(LED_D0, OUTPUT);
+  pinMode(LED_D1, OUTPUT);
+  pinMode(LED_D2, OUTPUT);
+  pinMode(LED_D3, OUTPUT);
+
+  // Configure coils for controlling the onboard LEDs
+  ModbusRTUServer.configureCoils(0x00, numCoils);
+}
+
+void loop() {
+  // Poll for Modbus RTU requests and process them
+  int packetReceived = ModbusRTUServer.poll();
+
+  if (packetReceived) {
+    // Process each coil's state and control LEDs accordingly
+    for (int i = 0; i < numCoils; i++) {
+      // Read coil value
+      // Update discrete input with the coil's state
+      int coilValue = ModbusRTUServer.coilRead(i);       
+      ModbusRTUServer.discreteInputWrite(i, coilValue);  
+
+      // Debug output to the IDE's serial monitor
+      Serial.print("- LED ");
+      Serial.print(i);
+      Serial.print(" : ");
+      Serial.println(coilValue);
+
+      // Control the onboard LEDs based on the coil values
+      switch (i) {
+        case 0:
+          digitalWrite(LED_D0, coilValue);
+          break;
+        case 1:
+          digitalWrite(LED_D1, coilValue);
+          break;
+        case 2:
+          digitalWrite(LED_D2, coilValue);
+          break;
+        case 3:
+          digitalWrite(LED_D3, coilValue);
+          // New line for better readability
+          Serial.println();  
+          break;
+        default:
+          // Error handling for unexpected coil addresses
+          Serial.println("- Output out of scope!"); 
+          break;
+      }
+    }
+  }
+}
+```
+
+For the **Portenta Machine Control**, defined as the client, use the following example sketch.
+
+```arduino
+/*
+  Portenta's Machine Control Modbus RTU Client Example
+  Name: portenta_machine_control_modbus_rtu_client_led_control.ino
+  Purpose: Demonstrates controlling Modbus RTU coils using a 
+  Portenta Machine Control device
+
+  @author Arduino PRO Content Team
+  @version 1.0 01/10/23
+*/
+
+// Include the necessary libraries
+#include <Arduino_PortentaMachineControl.h>
+#include <ArduinoRS485.h>
+#include <ArduinoModbus.h>
+
+// Define the baud rate for Modbus communication
+constexpr auto baudrate{ 38400 };
+
+// Calculate preDelay and postDelay in microseconds as per Modbus RTU Specification
+// Modbus over serial line specification and implementation guide V1.02
+// Paragraph 2.5.1.1 Modbus Message RTU Framing
+// https://modbus.org/docs/Modbus_over_serial_line_V1_02.pdf
+constexpr auto bitduration{ 1.f / baudrate };
+constexpr auto preDelay{ bitduration * 9.6f * 3.5f * 1e6 };
+constexpr auto postDelay{ bitduration * 9.6f * 3.5f * 1e6 };
+
+// Counter variable to demonstrate coil control logic
+int counter = 0;
+
+void setup() {
+  // Initialize serial communication at 9600 bauds
+  Serial.begin(9600);
+
+  // Initialize RS-485 communication with specified baud rate and delays
+  MachineControl_RS485Comm.begin(baudrate, preDelay, postDelay);
+
+  // Short delay to ensure RS-485 communication is stable
+  delay(2500);
+
+  // Indicate start of Modbus RTU client operation
+  Serial.println("- Modbus RTU Coils control");
+
+  // Start the Modbus RTU client with the RS-485 communication settings
+  if (!ModbusRTUClient.begin(MachineControl_RS485Comm, baudrate, SERIAL_8N1)) {
+    Serial.println("- Failed to start Modbus RTU Client!");
+    // Halt execution if unable to start
+    while (1)
+      ;  
+  }
+}
+
+void loop() {
+  // Increment counter to change coil values on each iteration
+  counter++;
+
+  // Determine coil value based on the counter's parity
+  byte coilValue = ((counter % 2) == 0) ? 0x00 : 0x01;
+
+  // Attempt to write coil values to a Modbus RTU server
+  Serial.print("- Writing coil values ... ");
+
+  // Begin transmission to Modbus server (slave ID 1) to write coil values at address 0x00
+  ModbusRTUClient.beginTransmission(1, COILS, 0x00, 4);
+  for (int i = 0; i < 4; i++) {
+    // Write the same value to all 4 coils
+    ModbusRTUClient.write(coilValue);  
+  }
+
+  // Check for successful transmission and report errors if any,
+  // print error code if transmission failed or confirm successful coil value writing
+  if (!ModbusRTUClient.endTransmission()) {
+    Serial.print("- Failed! Error code: ");
+    Serial.println(ModbusRTUClient.lastError());  
+  } else {
+    Serial.println("- Success!");  
+  }
+
+  // Delay before next operation to simulate periodic control
+  delay(1000);
+}
+```
+
+You should see the four onboard LEDs of the Opta™ device turn on and off, as shown below.
+
+![Onboard LEDs of an Opta™ device controlled by a Portenta Machine Control device via Modbus TCP](assets/rtu-blink.gif)
 
 #### Modbus TCP
 
