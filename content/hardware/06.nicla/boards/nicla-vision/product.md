@@ -7,7 +7,7 @@ primary_button_title: User Manual
 secondary_button_url: /hardware/nicla-vision/#tutorials
 secondary_button_title: All Tutorials
 core: arduino:mbed_nicla
-certifications: [CE, UKCA, RoHS, RCM, FCC]
+certifications: [CE, UKCA, RoHS, RCM, FCC, IC]
 productCode: '120'
 sku: [ABX00051]
 ---
