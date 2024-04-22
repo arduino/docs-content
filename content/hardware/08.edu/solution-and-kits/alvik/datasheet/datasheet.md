@@ -20,7 +20,7 @@ Maker, Education, MicroPython, Robotics
 
 ### General Specifications Overview
 
-Alvik is an educational robot car that is battery-powered and has multiple sensors and actuators, like color detection, distance, line following, accelerometers, gyroscopes and much more.
+Alvik is an educational robot that is battery-powered and has multiple sensors and actuators, like color detection, distance, line following, accelerometer, gyroscope and much more.
 
 ![Alvik's Main Components](assets/datasheet_main_components.png)
 
@@ -35,7 +35,7 @@ Alvik is an educational robot car that is battery-powered and has multiple senso
 
 ### Related Accessories (Included)
 
-- Cable USB-A to USB-C®
+- Cable USB-C® to USB-C®
 
 ### Controllers
 
@@ -131,13 +131,13 @@ The main parts of the robot are the following:
 | Main PCB                     |      1       |                              Main PCB of the robot                               |
 | STM32 Arm® Cortex®-M4 32 Bit |      1       |                        Onboard STM32 Auxiliar controller                         |
 | Touch Programmable button    |      7       |              Touch programmable buttons integrated on the main PCB               |
-| ON/OFF Power Switch          |      1       |                Fully programmable RGB LED mounted on the main PCB                |
+| ON/OFF Power Switch          |      1       |                Assembled on the main PCB                |
 | RGB LED                      |      2       |                Fully programmable RGB LED mounted on the main PCB                |
 | Color Sensor                 |      1       |                                RGB Color detector                                |
 | 6-Axis Gyro/Accelerometer    |      1       |                       6-Axis Gyro and Accelerometer sensor                       |
 | Front PCB                    |      1       |                Auxiliar PCB of the robot with additional sensors                 |
-| ToF Distance Sensor          |      1       |                   Time-of-Flight Distance sensor up to 350 cm                    |
-| Line follower array          |      1       |      Line follower array made up of 3 phototransistors and 5 infrared LEDs       |
+| ToF Distance Sensor          |      1       |                   Time-of-Flight Distance sensor up to 350 cm , mounted on the Front PCB                 |
+| Line follower array          |      1       |      Line follower array made up of 3 phototransistors and 5 infrared LEDs, mounted on the front PCB      |
 | Grove Connector              |      2       |                I2C Grove Connector to extend robot's capabilities                |
 | Qwiic Connector              |      2       |                 I2C Qwiic Connector to extend robot capabilities                 |
 | Servomotor Connector         |      2       |                      3-pins connector to attach servomotors                      |
