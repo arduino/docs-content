@@ -1238,9 +1238,9 @@ Modbus RTU, generally operating in half-duplex mode, with its capability to hand
 
 #### Using Two Portenta Machine Controls
 
-The following example shows how to establish Modbus RTU communication between **two Portenta Machine Control devices**. We will replicate a similar behavior of blinking four LEDs on Opta™ using the Digital Output port of the Portenta Machine Control. Since Portenta Machine Control supports half-duplex and full-duplex modes, each mode requires a different wiring setup.
+The following example shows how to establish Modbus RTU communication between **two Portenta Machine Control devices**. We will use four LEDs from the Digital Output port of the Portenta Machine Control as the visual indicator to confirm the communication is working as intended. Since Portenta Machine Control supports half-duplex and full-duplex modes, each mode requires a different wiring setup.
 
-We will begin showing **Full-Duplex mode** example following the connection diagram below between two Portenta Machine Control devices:
+We will begin showing the **Full-Duplex mode** example following the connection diagram below between two Portenta Machine Control devices:
 
 ![Modbus RTU (Full-Duplex) between two Portenta Machine Control](assets/modbus-full-rtu-pmcs.png)
 
