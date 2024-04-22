@@ -1647,7 +1647,7 @@ The previous example can be used in half-duplex mode, but it will require one mi
 MachineControl_RS485Comm.setFullDuplex(false);
 ```
 
-By modifying this line, *Full-Duplex mode* is deactivated, or the line can be commented out to bypass this setting altogether. This minor code tweak and the appropriate wiring enable the two units to communicate using Modbus RTU in half-duplex mode.
+By modifying this line, *Full-Duplex mode* is deactivated. This minor code tweak, plus the appropriate wiring, enable the two units to communicate using Modbus RTU in half-duplex mode.
 
 ![Modbus RTU (Half-Duplex) Demo](assets/rtu-half-ani.gif)
 
