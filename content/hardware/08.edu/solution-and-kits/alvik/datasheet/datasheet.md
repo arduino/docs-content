@@ -7,7 +7,7 @@ author: Paolo Cavagnolo, Jose Garcia, Julián Caro Linares
 ![](assets/perspective_front.png)
 
 # Description
-Arduino® Alvik (from now on referred to as Alvik) is a powerful and versatile robot car specifically designed for programming and STEAM education.
+Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education.
 
 Powered by the [Arduino® Nano ESP32](https://docs.arduino.cc/hardware/nano-esp32/), Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and AI.
 
@@ -24,14 +24,14 @@ Alvik is an educational robot that is battery-powered and has multiple sensors a
 
 ![Alvik's Main Components](assets/datasheet_main_components.png)
 
-  | Feature               | Description                                                                                          |
-  | --------------------- | ---------------------------------------------------------------------------------------------------- |
-  | Alvik on-board Core   | STM32 Arm® Cortex®-M4 32 Bit                                                                         |
-  | Alvik Main Controller | Arduino® Nano ESP32                                                                                  |
-  | Connectivity          | Wi-Fi®, Bluetooth® LE                                                                                |
-  | Sensors               | RGB Color detection, ToF 8x8 Array - up to 350 cm, IMU - 6 degree, 3x Line follower, 7x Touch sensor |
-  | Motors                | High precision with hall effect encoder, Up to 13 cm/s                                               |
-  | Extensions            | Servo motor, I2C Grove, Qwiic, Lego® Technic™, M3 Screws                                              |
+  | Feature               | Description                                                                                                   |
+  | --------------------- | ------------------------------------------------------------------------------------------------------------- |
+  | Alvik on-board Core   | STM32 Arm® Cortex®-M4 32 Bit                                                                                  |
+  | Alvik Main Controller | Arduino® Nano ESP32                                                                                           |
+  | Connectivity          | Wi-Fi®, Bluetooth® LE                                                                                         |
+  | Sensors               | RGB Color detection, Distance ToF 8x8 Array - up to 350 cm, IMU - 6 degree, 3x Line follower, 7x Touch sensor |
+  | Motors                | High precision with hall effect encoder. Up to 13 cm/s                                                        |
+  | Extensions            | Servo motor, I2C Grove, Qwiic, Lego® Technic™, M3 x 5 mm Screws                                               |
 
 ### Related Accessories (Included)
 
@@ -59,7 +59,7 @@ Alvik comes with a large number of onboard sensors, from color detection to dist
 | Color detection (x1)                | APDS 9660     | [Link](https://www.broadcom.com/products/optical-sensors/integrated-ambient-light-and-proximity-sensors/apds-9960) | [Link](assets/APDS-9960_datasheet.pdf) |
 | IMU (x1)                            | LSM6DSOX      | [Link](https://www.st.com/en/mems-and-sensors/lsm6dsox.html)                                                       | [Link](assets/LSM6_datasheet.pdf)      |
 | Time of Flight distance sensor (x1) | VL53L7CXV0GC  | [Link](https://www.st.com/en/imaging-and-photonics-solutions/vl53l7cx.html)                                        | [Link](assets/VL53_datasheet.pdf)      |
-| Line Follower Array (x1)            | Custom made   | -                                                                                                                  | -                                      |
+| Line Follower Array (x3)            | Custom made   | -                                                                                                                  | -                                      |
 | Capacitive Touch buttons (x7)       | Custom made   | -                                                                                                                  | -                                      |
 
 The sensory capabilities of Alvik can be expanded using the different connectors and communication protocols available at the back of the robot.
@@ -106,7 +106,7 @@ The robot is compatible with the following communication protocols:
 
 | **Description**             | **Information**            |
 | --------------------------- | -------------------------- |
-| I2C                         | Groove and QWIIC connector |
+| I2C                         | Groove and Qwiic connector |
 | PWM Servomotor Control (x2) | Servo Motor connector      |
 
 The connectors are placed in the back of the robot, the pinout is shown in the following image:
@@ -125,31 +125,31 @@ The main parts of the robot are the following:
 ![Alvik's main part from top to bottom (left) and bottom to top (right)](assets/alvik_topology.png)
 
 
-| **Part**                     | **Quantity** |                                   **Details**                                    |
-| ---------------------------- | :----------: | :------------------------------------------------------------------------------: |
-| Arduino® Nano ESP32          |      1       |                           Main controller of the robot                           |
-| Main PCB                     |      1       |                              Main PCB of the robot                               |
-| STM32 Arm® Cortex®-M4 32 Bit |      1       |                        Onboard STM32 Auxiliar controller                         |
-| Touch Programmable button    |      7       |              Touch programmable buttons integrated on the main PCB               |
-| ON/OFF Power Switch          |      1       |                Assembled on the main PCB                |
-| RGB LED                      |      2       |                Fully programmable RGB LED mounted on the main PCB                |
-| Color Sensor                 |      1       |                                RGB Color detector                                |
-| 6-Axis Gyro/Accelerometer    |      1       |                       6-Axis Gyro and Accelerometer sensor                       |
-| Front PCB                    |      1       |                Auxiliar PCB of the robot with additional sensors                 |
-| ToF Distance Sensor          |      1       |                   Time-of-Flight Distance sensor up to 350 cm , mounted on the Front PCB                 |
-| Line follower array          |      1       |      Line follower array made up of 3 phototransistors and 5 infrared LEDs, mounted on the front PCB      |
-| Grove Connector              |      2       |                I2C Grove Connector to extend robot's capabilities                |
-| Qwiic Connector              |      2       |                 I2C Qwiic Connector to extend robot capabilities                 |
-| Servomotor Connector         |      2       |                      3-pins connector to attach servomotors                      |
-| 18650 Li-Ion Battery         |      1       |                               Battery of the robot                               |
-| Main Chassis                 |      1       |                    Main chassis of the robot made in plastic                     |
-| Motor holder                 |      2       | Plastic support to hold the motor in place, a screwdriver is required to open it |
-| Motors                       |      2       |                     DC Motor with magnetic relative encoder                      |
-| Rubber wheel                 |      2       |                       Rubber wheel with 34 mm of diameter                        |
-| Inox steal ball 9 mm         |      1       |                 Ball that serves as third support for stability                  |
-| Ball caster holder           |      1       |                      Plastic support to hold the steal ball                      |
-| INOX M3 x 5 mm Screws        |      5       |                           Phillips Screws of the robot                           |
-| Battery cover                |      1       |         Cover to hold the battery, a screwdriver is required to open it          |
+| **Part**                     | **Quantity** |                                           **Details**                                           |
+| ---------------------------- | :----------: | :---------------------------------------------------------------------------------------------: |
+| Arduino® Nano ESP32          |      1       |                                  Main controller of the robot                                   |
+| Main PCB                     |      1       |                                      Main PCB of the robot                                      |
+| STM32 Arm® Cortex®-M4 32 Bit |      1       |                                Onboard STM32 Auxiliar controller                                |
+| Touch Programmable button    |      7       |                      Touch programmable buttons integrated on the main PCB                      |
+| ON/OFF Power Switch          |      1       |                                    Assembled on the main PCB                                    |
+| RGB LED                      |      2       |                       Fully programmable RGB LED mounted on the main PCB                        |
+| Color Sensor                 |      1       |                                       RGB Color detector                                        |
+| 6-Axis Gyro/Accelerometer    |      1       |                              6-Axis Gyro and Accelerometer sensor                               |
+| Front PCB                    |      1       |                        Auxiliar PCB of the robot with additional sensors                        |
+| ToF Distance Sensor          |      1       |             Time-of-Flight Distance sensor up to 350 cm , mounted on the Front PCB              |
+| Line follower array          |      1       | Line follower array made up of 3 phototransistors and 5 infrared LEDs, mounted on the front PCB |
+| Grove Connector              |      2       |                       I2C Grove Connector to extend robot's capabilities                        |
+| Qwiic Connector              |      2       |                        I2C Qwiic Connector to extend robot capabilities                         |
+| Servomotor Connector         |      2       |                             3-pins connector to attach servomotors                              |
+| 18650 Li-Ion Battery         |      1       |                                      Battery of the robot                                       |
+| Main Chassis                 |      1       |                            Main chassis of the robot made in plastic                            |
+| Motor holder                 |      2       |        Plastic support to hold the motor in place, a screwdriver is required to open it         |
+| Motors                       |      2       |                             DC Motor with magnetic relative encoder                             |
+| Rubber wheel                 |      2       |                               Rubber wheel with 34 mm of diameter                               |
+| Inox steal ball 9 mm         |      1       |                         Ball that serves as third support for stability                         |
+| Ball caster holder           |      1       |                             Plastic support to hold the steal ball                              |
+| INOX M3 x 5 mm Screws        |      5       |                                  Phillips Screws of the robot                                   |
+| Battery cover                |      1       |                 Cover to hold the battery, a screwdriver is required to open it                 |
 
 
 <div style="page-break-after:always;"></div>
@@ -208,7 +208,7 @@ If you want to program your Alvik robot while offline you need to install the Ar
 All Arduino® IoT-enabled products are supported on Arduino Cloud **[3]** which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
-Sample sketches for the Alvik robot can be found in the “Alvik robot Documentation” section of Arduino® **[4]**.
+Sample sketches for the Alvik robot can be found in the “Alvik robot Documentation” section of Arduino® Docs **[4]** and inside its dedicated libraries.
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]** and the online store **[6]** where you will be able to complement your Alvik robot product with additional extensions, sensors and actuators.
@@ -245,7 +245,7 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
 
-Exemptions : No exemptions are claimed.
+Exemptions: No exemptions are claimed.
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([https://echa.europa.eu/web/guest/candidate-list-table](https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
@@ -321,20 +321,18 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Ref                                   | Link                                                                       |
-| ------------------------------------- | -------------------------------------------------------------------------- |
-| Arduino Lab for MicroPython (Desktop) | <https://docs.arduino.cc/micropython/>                                     |
-| Arduino IDE (Desktop)                 | <https://www.arduino.cc/en/Main/Software>                                  |
-| Arduino Cloud Editor                  | <https://create.arduino.cc/editor>                                         |
-| Arduino Official Documentation        | <https://docs.arduino.cc/> |
-| Arduino Project Hub                   | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending> |
-| Online Store                          | <https://store.arduino.cc/>                                                |
+| Reference | Description                           | Link                                                                       |
+| --------- | ------------------------------------- | -------------------------------------------------------------------------- |
+| 1         | Arduino Lab for MicroPython (Desktop) | <https://docs.arduino.cc/micropython/>                                     |
+| 2         | Arduino IDE (Desktop)                 | <https://www.arduino.cc/en/Main/Software>                                  |
+| 3         | Arduino Cloud Editor                  | <https://create.arduino.cc/editor>                                         |
+| 4         | Arduino Official Documentation        | <https://docs.arduino.cc/>                                                 |
+| 5         | Arduino Project Hub                   | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending> |
+| 6         | Online Store                          | <https://store.arduino.cc/>                                                |
 
 ## Revision History
 
 | Date       | **Revision** |  **Changes**  |
 | ---------- | :----------: | :-----------: |
 | 14/05/2024 |      1       | First Release |
-
-
 
