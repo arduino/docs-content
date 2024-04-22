@@ -198,8 +198,8 @@ The power of the robot is located by a simple ON/OFF switch located on the top o
 
 ## Device Operation
 
-### Getting Started - Micropython
-Alvik can be programmed with Micropython. To do that download and install the Arduino Lab for MycroPython **[1]**. To connect the Alvik robot to your computer, you will need a USB-C® cable.
+### Getting Started - MicroPython
+Alvik can be programmed with MicroPython. To do that download and install the Arduino Lab for MicroPython **[1]**. To connect the Alvik robot to your computer, you will need a USB-C® cable.
 
 ### Getting Started - Arduino IDE
 If you want to program your Alvik robot while offline you need to install the Arduino® Desktop IDE **[2]**. To connect the Alvik robot to your computer, you will need a USB-C® cable.
