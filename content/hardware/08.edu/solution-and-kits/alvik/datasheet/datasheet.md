@@ -211,7 +211,7 @@ All Arduino® IoT-enabled products are supported on Arduino Cloud **[3]** which 
 Sample sketches for the Alvik robot can be found in the “Alvik robot Documentation” section of Arduino® **[4]**.
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]** and the online store **[6]** where you will be able to complement your Alvik robot product with additional extensions, sensors and actuators.
+Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]** and the online store **[6]** where you will be able to complement your Alvik robot product with additional extensions, sensors and actuators.
 
 
 ## Product Compliance
