@@ -442,7 +442,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Pinout
 
-![](assets/x8HDCPinout.jpg)
+![](assets/x8HDCPinout.png)
 
 ### Mounting Holes and Board Outline
 
