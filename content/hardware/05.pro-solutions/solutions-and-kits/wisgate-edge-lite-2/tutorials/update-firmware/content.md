@@ -34,7 +34,7 @@ In this tutorial, we assume that you have already connected the gateway to your 
 
 To update your product's firmware, click here to download the [**latest firmware version**](assets/WisGateOS_2.2.2_ARDUINO_RAK.zip). You will receive a ZIP file named `WisGateOS_<version>_ARDUINO_RAK.zip`. Unzip this file to extract the required firmware files.
 
-***The latest version of the WisGate Edge Gateway devices is 2.2.2; download the release notes [here](assets/Release_Notes_WisGateOS_2.2.2_ARDUINO_RAK.txt).***
+***The latest version of the WisGate Edge Gateway devices is 2.2.2. Once the device is updated to version 2.2.2 **it is not possible to downgrade the version of the firmware to an older version anymore**, download the release notes [here](assets/Release_Notes_WisGateOS_2.2.2_ARDUINO_RAK.txt) to know more.***
 
 ### Connect to the WisGate Dashboard
 
