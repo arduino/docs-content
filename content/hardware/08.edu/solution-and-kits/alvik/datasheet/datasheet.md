@@ -129,7 +129,7 @@ The main parts of the robot are the following:
 | ---------------------------- | :----------: | :---------------------------------------------------------------------------------------------: |
 | Arduino® Nano ESP32          |      1       |                                  Main controller of the robot                                   |
 | Main PCB                     |      1       |                                      Main PCB of the robot                                      |
-| STM32 Arm® Cortex®-M4 32 Bit |      1       |                                Onboard STM32 Auxiliar controller                                |
+| STM32 Arm® Cortex®-M4 32 Bit |      1       |                                Onboard STM32 auxiliary controller                                |
 | Touch Programmable button    |      7       |                      Touch programmable buttons integrated on the main PCB                      |
 | ON/OFF Power Switch          |      1       |                                    Assembled on the main PCB                                    |
 | RGB LED                      |      2       |                       Fully programmable RGB LED mounted on the main PCB                        |
