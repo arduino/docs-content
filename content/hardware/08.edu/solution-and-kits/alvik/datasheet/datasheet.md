@@ -135,7 +135,7 @@ The main parts of the robot are the following:
 | RGB LED                      |      2       |                       Fully programmable RGB LED mounted on the main PCB                        |
 | Color Sensor                 |      1       |                                       RGB Color detector                                        |
 | 6-Axis Gyro/Accelerometer    |      1       |                              6-Axis Gyro and Accelerometer sensor                               |
-| Front PCB                    |      1       |                        Auxiliar PCB of the robot with additional sensors                        |
+| Front PCB                    |      1       |                        Robot auxiliary PCB with additional sensors                        |
 | ToF Distance Sensor          |      1       |             Time-of-Flight Distance sensor up to 350 cm , mounted on the Front PCB              |
 | Line follower array          |      1       | Line follower array made up of 3 phototransistors and 5 infrared LEDs, mounted on the front PCB |
 | Grove Connector              |      2       |                       I2C Grove Connector to extend robot's capabilities                        |
@@ -178,7 +178,7 @@ There are three levels of power inside the robot:
 
 #### Robot's Battery
 
-Alvik's is powered by a single 18650 Li-Ion Battery protected by a battery cover at the bottom of the product which can be opened with a Phillips screwdriver. The battery is designed to be easily replaceable at any time so the robot can be used without interruptions in educational environments. 
+Alvik's is powered by a single 18650 Li-Ion Battery protected by a battery cover at the bottom of the product which can be opened with a Phillips screwdriver. The battery is designed to be easily replaceable at any time so the robot can be used without interruptions in educational environments.
 
 The main board of the robot incorporates the `MAX17332X22` to manage the charge and use of the battery including an overvoltage and reverse-voltage protection `LTC4360CSC8-2` chip.
 
@@ -335,4 +335,3 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Date       | **Revision** |  **Changes**  |
 | ---------- | :----------: | :-----------: |
 | 14/05/2024 |      1       | First Release |
-
