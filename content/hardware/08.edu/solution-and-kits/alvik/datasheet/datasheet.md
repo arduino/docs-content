@@ -176,7 +176,7 @@ There are three levels of power inside the robot:
 
 <div style="page-break-after:always;"></div>
 
-#### Robot's battery
+#### Robot's Battery
 
 Alvik's is powered by a single 18650 Li-Ion Battery protected by a battery cover at the bottom of the product which can be opened with a Phillips screwdriver. The battery is designed to be easily replaceable at any time so the robot can be used without interruptions in educational environments. 
 
