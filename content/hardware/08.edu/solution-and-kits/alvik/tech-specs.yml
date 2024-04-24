@@ -2,7 +2,7 @@ Robot:
   Name: Arduino® Alvik
   SKU: AKX00066
   Compatibility: Nano ESP32
-Core MCU: STM32 ARM Cortex-M4
+Core MCU: STM32 Arm® Cortex®-M4
 Power:
   Battery: 18650 Li-Ion - 2500 mAh
   Plug: Nano ESP32 USB-C®
