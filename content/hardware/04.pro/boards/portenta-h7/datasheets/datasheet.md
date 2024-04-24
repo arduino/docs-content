@@ -674,7 +674,7 @@ Depending on the variant, some of the components does not apply. The image below
 
 ### Power Tree
 
-![Portenta H7 Power Tree](assets/portentaH7powerT.svg)
+![Portenta H7 Power Tree](assets/portentaH7ptree.svg)
 
 ## Mean Time Between Failure (MTBF)
 

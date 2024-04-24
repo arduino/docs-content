@@ -29,8 +29,8 @@ This tutorial demonstrates the integration of Opta™ with Azure IoT. You will p
 
 ### Required Hardware
 
-- [Opta™](https://store.arduino.cc/collections/pro-family) (x1)
-- USB-C® cable (x1)
+- [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 
 ### Required Software
 
@@ -208,7 +208,7 @@ In the code, it is set to 300,000 milliseconds or 5 minutes:
 ```
 You can customize the value in milliseconds to change the time interval between sending messages.
 
-In the **Azure_IoT_Hub_Opta.ino** file, you find a portion of code represented by the **generateTelemetry()** function at line 329, which is called to allow sending the message to Azure IoT:
+In the **Azure_IoT_Hub_Opta.ino** file, you will find a portion of code represented by the **generateTelemetry()** function at line 329, which is called to allow sending the message to Azure IoT:
 
 ![Opta™ Azure IoT Tutorial Sketch - Telemetry payload](assets/opta-azure-iot-tutorial-202627.png)
 
@@ -261,4 +261,4 @@ In conclusion to this tutorial, we have explored and customized a sample sketch 
 - **Integration with Azure IoT Hub:** We illustrated the process of configuring the definitions in the `iot_configs.h` file, which manages Wi-Fi connection and communication with Azure IoT Hub.
 - **Code Customizations:** We provided guidance on further customizing the code, including adjusting the telemetry message sending interval and modifying the simulated data sent to Azure IoT.
 
-The tutorial provides a detailed guide to connect Opta™ to Azure IoT, allowing the secure and reliable transmission of data. This is just a starting point, and further customizations can be made based on the specific needs of the project. In case you want to dig deeper into the Azure IoT technology, check the [Azure IoT official documentation](https://learn.microsoft.com/en-us/azure/iot/).fSA
+The tutorial provides a detailed guide to connect Opta™ to Azure IoT, allowing the secure and reliable transmission of data. This is just a starting point, and further customizations can be made based on the specific needs of the project. In case you want to dig deeper into the Azure IoT technology, check the [Azure IoT official documentation](https://learn.microsoft.com/en-us/azure/iot/).

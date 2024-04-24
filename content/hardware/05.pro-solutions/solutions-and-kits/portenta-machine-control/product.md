@@ -8,6 +8,7 @@ secondary_button_url: /tutorials/portenta-machine-control/plc-programming-introd
 secondary_button_title: PLC IDE Guide
 core: arduino:mbed_portenta
 certifications: [REACH, RoHS, WEEE, UKCA, CE, FCC, RCM]
+sku: [AKX00032]
 ---
 
 The Portenta Machine Control is a fully-centralized, low-power, industrial control unit able to drive equipment and machinery. It can be programmed using the Arduino framework or other embedded development platforms.

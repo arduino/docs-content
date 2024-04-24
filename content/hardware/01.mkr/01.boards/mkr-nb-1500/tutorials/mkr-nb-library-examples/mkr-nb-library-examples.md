@@ -287,7 +287,7 @@ NB and CATM1 connectivity access can be restricted to some endpoints for securit
 
  This sketch connects to a website using SSL through a MKR NB 1500 board. Specifically,
 
- this example downloads the URL "https://www.arduino.cc/asciilogo.txt" and
+ this example downloads the URL "http://arduino.tips/asciilogo.txt" and
 
  prints it to the Serial monitor.
 
@@ -323,7 +323,7 @@ GPRS gprs;
 NB nbAccess;
 
 // URL, path and port (for example: arduino.cc)
-char server[] = "arduino.cc";
+char server[] = "arduino.tips";
 char path[] = "/asciilogo.txt";
 int port = 443; // port 443 is the default for HTTPS
 
@@ -436,7 +436,7 @@ void loop() {
 
 ### MKR NB NB Web Client
 
-This sketch connects an Arduino MKR NB 1500 board to the Arduino homepage, [http://arduino.cc](http://arduino.cc), through the NB network. It then prints the content of the page through the serial monitor of the Arduino Software (IDE).
+This sketch connects an Arduino MKR NB 1500 board to the Arduino homepage, through the NB network. It then prints the content of the page through the serial monitor of the Arduino Software (IDE).
 
 ```arduino
 
