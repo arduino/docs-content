@@ -1,6 +1,7 @@
 ---
 title: Alvik
-#url_shop: https://store.arduino.cc/alvik
+url_shop: https://www.arduino.cc/education/arduino-alvik/
+
 certifications: [CE, UKCA]
 primary_button_url: /tutorials/alvik/api-overview
 primary_button_title: API Overview
