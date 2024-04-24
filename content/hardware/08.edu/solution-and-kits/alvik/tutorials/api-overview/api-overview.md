@@ -1,5 +1,5 @@
 ---
-title: 'Arduino Alvik Cheat Sheet'
+title: 'Arduino Alvik API Overview'
 description: 'A technical summary of the APIs used to control the Alvik Robot.'
 tags:
   - Alvik
