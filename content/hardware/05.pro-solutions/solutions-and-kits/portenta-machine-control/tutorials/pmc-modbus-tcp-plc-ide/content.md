@@ -115,14 +115,12 @@ The setup uses an Ethernet switch that monitors Portenta Machine Control using t
 There are some considerations that you will need to understand beforehand for the proper use of Modbus TCP on Portenta Machine Control within PLC IDE. The following subsections will help briefly explain such aspects.
 
 #### PLC IDE Project Configuration & Licenses Management
-<br></br>
 
 In any robust development environment, understanding the intricacies of project configuration and the nuances of license management is essential. The Arduino PLC IDE provides a unique blend of features tailored for industrial automation. Still, to employ them effectively, a solid foundation is indispensable.
 
 We highly recommend reviewing [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) before delving into the present tutorial.
 
 #### Portenta Machine Control Basic Configuration
-<br></br>
 
 To establish Modbus TCP communication, identify the IP address assigned to each Portenta Machine Control device. When you connect the Portenta Machine Control to a computer using an RJ-45 cable via an Ethernet port with standard ethernet settings, it automatically obtains an IP address from the external *Dynamic Host Configuration Protocol (DHCP)* server. To locate these auto-assigned IP addresses, using tools like this [scanner](https://angryip.org/) can prove invaluable.
 
@@ -142,7 +140,7 @@ It is essential to remember a proper setup is vital when interfacing with the PL
 
 #### Modbus TCP Client and Server Mode
 
-The image below shows the panel we'll encounter when accessing the Modbus TCP configuration panel in the PLC IDE.
+The image below shows the panel we will encounter when accessing the Modbus TCP configuration panel in the PLC IDE.
 
 ![Arduino PLC IDE - Modbus Role Configuration](assets/pmc_plcide_ethernet_config.svg)
 
@@ -269,7 +267,6 @@ To integrate the `counter_buffer` and `delay_buffer` variables, access the `New 
 For deploying the main PLC code to the Portenta Machine Control, choose `Download PLC code` or press `F7`. Upon completing these instructions, you will have set up the Portenta Machine Control device as a Modbus TCP Server. The subsequent section will walk you through configuring another Portenta Machine Control as a Modbus TCP Client.
 
 #### Modbus TCP Client Portenta Machine Control
-<br></br>
 
 To configure the Portenta Machine Control as a Modbus TCP Client, access the 'Ethernet' section under the 'Resources' panel in the PLC IDE. In this section, select the 'Modbus TCP Client' checkbox. As highlighted [here](#modbus-tcp-Client-client-and-server-mode), this step will identify the Portenta Machine Control as a Client. The Server option that appears greyed out can be ignored.
 
