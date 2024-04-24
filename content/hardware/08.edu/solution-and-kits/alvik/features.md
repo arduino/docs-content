@@ -10,10 +10,10 @@ Arduino Alvik is powered by the new [Arduino Nano ESP32](https://docs.arduino.cc
 At the core of the robot there is a powerful 32-bit MCU.
 </Feature>
 
-<Feature title="Cheat Sheet" image="communication">
+<Feature title="API Overview" image="communication">
 A reference to all the API to interface with the STM32 core.
 <FeatureWrapper>
-  <FeatureLink title="Cheat Sheet" url="/tutorials/alvik/cheat-sheet"/>
+  <FeatureLink title="API Overview" url="/tutorials/alvik/api-overview"/>
 </FeatureWrapper>
 </Feature>
 
