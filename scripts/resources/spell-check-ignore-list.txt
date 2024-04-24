@@ -14,4 +14,4 @@ ro
 som
 ser
 Manuel
-Technic
+technic
