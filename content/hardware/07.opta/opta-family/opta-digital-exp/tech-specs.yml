@@ -1,7 +1,7 @@
 Board:
   SKUs:
-    Arduino Opta® Digital Expansion EMR: AFX00005
-    Arduino Opta® Digital Expansion SSR: AFX00006
+    Arduino Opta® Ext D1608E: AFX00005
+    Arduino Opta® Ext D1608S: AFX00006
 
 Microcontroller:
   ID: Renesas R7FA4M1AB3CFM ARM® Cortex®-M4
@@ -11,7 +11,7 @@ Input:
   Digital Operational Range: 0-24 V
   Digital VIL Max: 4 V
   Digital VIH Min: 5.9 V
-  Analog Operational Range: 0-10 V
+  Analog Operational Range: 0-24 V
 Relays:
   Nº of relays: 8
   Type: Normally Open (NO)
