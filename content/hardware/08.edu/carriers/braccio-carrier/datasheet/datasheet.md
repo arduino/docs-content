@@ -7,7 +7,7 @@ type: edu
 ![](assets/featured.png)
 
 # Description
-Arduino® Braccio Carrier is an add-on board that sits on top of your favorite Arduino Educational existing product line providing faster prototyping in increasing demands for robotics and automation. The tailor-made Arduino® Braccio Carrier has a collection of features that enables quick and easy learning while building small projects.
+Arduino® Braccio Carrier is an add-on board that sits on top of your favorite Arduino educational existing product line providing faster prototyping in increasing demands for robotics and automation. The tailor-made Braccio Carrier has a collection of features that enables quick and easy learning while building small projects.
 
 # Target Areas
 Robotics, Automation, Education, Gaming, Communication
@@ -34,18 +34,18 @@ Robotics, Automation, Education, Gaming, Communication
 
 # Contents
 ## The Board
-The custom-made Arduino® Braccio Carrier provides a wide range of connectivity capabilities to the Arduino® Educational boards. For easy to learn and play around prototyping robotic and smart automation projects in and out of classrooms, Arduino® Braccio Carrier features interfaces for display, servo motors and joystick. Along with high-speed RS-485/422 and RS-232 serial communication, the carrier board offers huge support for several accessories through the IO headers. In situations of long-range operations, RS-485 can support several devices on the same bus in a noisy environment. The board has robust electrostatic discharge protection circuitry to keep the components safe.
+The custom-made Braccio Carrier provides a wide range of connectivity capabilities to the Arduino educational boards. For easy to learn and play around prototyping robotic and smart automation projects in and out of classrooms, Braccio Carrier features interfaces for display, servo motors and joystick. Along with high-speed RS-485/422 and RS-232 serial communication, the carrier offers huge support for several accessories through the IO headers. In situations of long-range operations, RS-485 can support several devices on the same bus in a noisy environment. The carrier has robust electrostatic discharge protection circuitry to keep the components safe.
 
 ### Application Examples
-- **Smart Automation**: The industry-standard RS-232 and RS-485/422 serial communication support for Arduino® Braccio Carrier has made it possible to implement smart automation IoT projects for a wide range of projects. The low-power carrier board enables students to take advantage of the onboard connectors and play with the Arduino® hardware for the enhanced learning experience
+- **Smart Automation**: The industry-standard RS-232 and RS-485/422 serial communication support for Braccio Carrier has made it possible to implement smart automation IoT projects for a wide range of projects. The low-power carrier board enables students to take advantage of the onboard connectors and play with the Arduino hardware for the enhanced learning experience.
 - **Robotic Arm**: Through servo motor connector supporting up to a total of 6 motors has given a chance to demonstrate robotic application including RC Car. Some of the most interesting robotic applications with faster prototyping come from the student community for various problem statements.
-- **Gaming**: Thanks to the Mini Joystick connector provided on the Arduino® Braccio Carrier carrier board which facilitates the implementation of LCD gaming options. Interfacing Mini Joystick with the carrier board integrated with a powerful Arduino® board can deliver some really exciting projects.
+- **Gaming**: Thanks to the Mini Joystick connector provided on the Braccio Carrier carrier board which facilitates the implementation of LCD gaming options. Interfacing Mini Joystick with the carrier board integrated with a powerful Arduino board can deliver some really exciting projects.
 
 ### Related Products
-- Arduino® Nano RP2040 Connect.
+- Arduino Nano RP2040 Connect
 
 ## Technical Specification Overview
-Following information outlines the technical overview of the Arduino® Braccio Carrier.
+Following information outlines the technical overview of the Braccio Carrier.
 
 ### Peripherals
 - **JAX133T-IF05**
@@ -55,7 +55,7 @@ Following information outlines the technical overview of the Arduino® Braccio C
     | J1 (Display CONN)    |
 
 - **Switronic IT-1501-G**
-  - Joystick module to allow Braccio ++ manoeuvre. It is possible to interconnect via J3 & J4 Board Connector found on Arduino® Braccio Carrier.
+  - Joystick module to allow Braccio ++ manoeuvre. It is possible to interconnect via J3 & J4 Board Connector found on Braccio Carrier.
     | Compatible Connector |
     | :------------------: |
     | J3 & J4 Board CONN   |
@@ -65,21 +65,21 @@ Following information outlines the technical overview of the Arduino® Braccio C
   - Connector available to interface the JAX133T-IF05 display module.
     | Connector Ref.      | Maximum Electrical Operating Range   | Maximum Temperature Operating Range   |
     | ------------------- | ------------------------------------ | ------------------------------------- |
-    |  J1                 |  0.5A per Contact                    |  105°C                                |
+    |  J1                 |  0.5A per Contact                    |  105 °C                                |
 - **J3 & J4 Board Connector**
   - Board splitter which allows to interface display and joystick at a distance, from which all the motor wire interfaces arrive.
 - **Molex 44914-0601**
   - Rectangular power connector with 6 contacts. Available for external power supply and for servo line.
     | No. Connectors   | Maximum Electrical Operating Range   | Maximum Temperature Operating Range   |
     | ---------------- | ------------------------------------ | ------------------------------------- |
-    |  2               |  600V @ 8.5A                         |  -40°C ~ +105°C                       |
+    |  2               |  600V @ 8.5A                         |  -40 °C ~ +105 °C                       |
 - **Adam Equipment LHA-04-TS**
   - Connectors available to interface with motors. RS485 smart motors compatible, derived by configuration of 4x SR418D and 2x SR312 models. Lead free and RoHS Compliant.
     | No. Connectors   | Maximum Electrical Operating Range   | Maximum Temperature Operating Range   |
     | ---------------- | ------------------------------------ | ------------------------------------- |
-    |  6               |  250VAC @ 3A                         |  -25°C ~ +85°C                        |
+    |  6               |  250VAC @ 3A                         |  -25 °C ~ +85 °C                        |
 - **USB-C® Port**
-  - USB Type-C® port available to enable programming, and power supply source port under USB PD 3.0 for Arduino® Braccio Carrier.
+  - USB Type-C® port available to enable programming, and power supply source port under USB PD 3.0 for Braccio Carrier.
     | USB Standard    | USB Power Delivery Rev.    | USB Type               | Purpose                           |
     | --------------- | -------------------------- | ---------------------- | --------------------------------- |
     |  3.1            |  3.0                       |  Type C (Reversible)   |  Power Supply                     |
@@ -101,10 +101,10 @@ Following information outlines the technical overview of the Arduino® Braccio C
 
 The USB powers the Arduino® Nano RP2040 Connect which is the heart of the Braccio Carrier as it stores the programs responsible for the functioning of the whole system. The Nano is connected to the joystick which is the input peripheral and LED display screen which is the output peripheral of the microcontroller. Another power supply via USB-C® powers the connected motors which constitute the entire robotics functionality the system. RS485 Transceiver signals the motor connector for the precise motihe motors according to the input given by the user.
 
-![Arduino® Braccio Carrier Block Diagram](assets/Block_Diagram_Braccio_Carrier.svg)
+![Arduino Braccio Carrier Block Diagram](assets/Block_Diagram_Braccio_Carrier.svg)
 
 ### Board Topology
-![Arduino® Braccio Carrier Top View](assets/braccio-connectors.svg)
+![Arduino Braccio Carrier Top View](assets/braccio-connectors.svg)
 
 | **Ref.** | **Description**                    | **Ref.** | **Description**                      |
 | -------- | ---------------------------------- | -------- | ------------------------------------ |
@@ -115,23 +115,23 @@ The USB powers the Arduino® Nano RP2040 Connect which is the heart of the Bracc
 | U3      | Power Supply Support Circuit        | J8       | USB 3.1 Type C (USB PD 3.0)          |
 
 ### Processor
-Primary processor of Arduino® Braccio Carrier is the processor of the Arduino® Nano RP2040 Connect microcontroller mounted on it. The microcontroller controls every operation of the Braccio Carrier for the target applications via connections with motors and LED display screen.
+Primary processor of Braccio Carrier is the processor of the ANano RP2040 Connect microcontroller mounted on it. The microcontroller controls every operation of the Braccio Carrier for the target applications via connections with motors and LED display screen.
 
 ### Power Tree
-![Braccio Carrier Power Tree](assets/Power_Tree_Braccio_Carrier.jpg)
+![Arduino Braccio Carrier Power Tree](assets/Power_Tree_Braccio_Carrier.jpg)
 
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your Arduino® Braccio Carrier while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Braccio Carrier to your computer, you’ll need a Type-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Braccio Carrier while offline you need to install the Arduino Desktop IDE **[1]** To connect the Braccio Carrier to your computer, you’ll need a Type-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Sample Sketches
-Sample sketches for the Arduino® Braccio Carrier can be found either in the “Examples” menu in the Arduino® IDE
+Sample sketches for the Braccio Carrier can be found in the “Examples” menu in the Arduino IDE.
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Project Hub **[2]**, the Arduino® Library Reference **[3]** and the online store **[4]** where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Project Hub **[2]**, the Arduino Library Reference **[3]** and the online store **[4]** where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
-All Arduino® boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
+All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
 
 ## Connector Pinouts
 ![Braccio Carrier Pinout](assets/braccio-pinout.png)
@@ -226,9 +226,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Ref                       | Link                                                                     |
 | ------------------------- | ------------------------------------------------------------------------ |
 | Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                  |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Arduino Project Hub       | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
 | Library Reference         | https://www.arduino.cc/reference/en/libraries/                           |
-| Online Store              | https://store.arduino.cc/                                                |
+| Arduino Store             | https://store.arduino.cc/                                                |
 
 ## Revision History
 | **Date**   | **Revision** | **Changes**                      |
