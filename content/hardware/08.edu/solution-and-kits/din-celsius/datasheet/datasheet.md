@@ -15,7 +15,7 @@ The Arduino® DIN Celsius offers you a mini temperature laboratory to test your 
 Pro, PLC projects, Education, Industry Ready, Building automation
 
 # Features
-**Note**: This board needs the Arduino Opta® WiFi for full functionality.
+**Note**: This board needs the Arduino Opta® for full functionality.
 
 - **Temperature sensor**
     - 1 TMP236, from -10 °C to 125 °C with an accuracy of +/- 2.5 °C

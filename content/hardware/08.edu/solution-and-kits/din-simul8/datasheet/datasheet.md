@@ -14,7 +14,7 @@ Arduino® DIN Simul8 is a digital-input-simulator and power distribution board f
 Pro, PLC projects, Education, Industry Ready, Building automation
 
 # Features
-**Note**: This board needs the Arduino Opta® WiFi for full functionality.
+**Note**: This board needs the Arduino Opta® for full functionality.
 
 - **Toggle Switches**
     - 8 toggle switch in the middle of the board
