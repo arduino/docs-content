@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-The Arduino Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 (embedded in the NORA-W106-10B from u-blox®). This is the first Arduino board to be based fully on an ESP32, and features Wi-Fi® as well as Bluetooth® LE.
+The Arduino® Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 (embedded in the NORA-W106-10B from u-blox®). This is the first Arduino board to be based fully on an ESP32, and features Wi-Fi® as well as Bluetooth® LE.
 
 The Nano ESP32 is compatible with the Arduino Cloud, and has support for MicroPython. It is an ideal board for getting started with IoT development.
 
@@ -358,11 +358,11 @@ The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and 
 
 If you want to program your Nano ESP32 while offline you need to install the Arduino IDE **[1]**. To connect the Nano ESP32 to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -475,14 +475,14 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Ref                          | Link                                                                                            |
-| ---------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)        | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino Web Editor (Cloud)   | <https://create.arduino.cc/editor>                                                              |
-| Web Editor - Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
-| Library Reference            | <https://github.com/arduino-libraries/>                                                         |
-| Online Store                 | <https://store.arduino.cc/>                                                                     |
+| Reference                              | Link                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/Main/Software                                  |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                         |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://github.com/arduino-libraries/                                    |
+| Online Store                           | https://store.arduino.cc/                                                                     |
 
 ## Change Log
 
@@ -496,3 +496,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 11/15/2023 | Ambient temperature update                             |
 | 11/23/2023 | Added label to LP modes                                |
 | 23/02/2024 | Added antenna frequency to block diagram               |
+| 25/04/2024 | Updated link to new Cloud Editor                       |
