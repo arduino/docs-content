@@ -8,7 +8,7 @@ variant: Limited Edition
 ![](assets/featured.png)
 
 # Description 
-We are celebrating the anniversary of our flagship board, Arduino UNO, by producing a just as effective and versatile miniature: The Arduino UNO Mini. This board is, just as its big brother, equipped with the ATMega328P and the ATMega 16U2 Processor, but is updated with USB-C® connector. 
+We are celebrating the anniversary of our flagship board, Arduino® UNO, by producing a just as effective and versatile miniature: The Arduino® UNO Mini Limited Edition. This board is, just as its big brother, equipped with the ATMega328P and the ATMega 16U2 Processor, but is updated with USB-C® connector. 
 
 # Target Areas:
 Hobby-making, future-shaping, engineering, designing, problem-solving
@@ -28,9 +28,9 @@ Hobby-making, future-shaping, engineering, designing, problem-solving
       <tr>
       <td style="vertical-align: top; width: 20%;"><p>Memory</p></td>
          <td>
-            <p>32KB Flash</p>
-            <p>2KB SRAM</p>
-            <p>1KB EEPROM</p>
+            <p>32 kB Flash</p>
+            <p>2 kB SRAM</p>
+            <p>1 kB EEPROM</p>
          </td>
       </tr>
       <tr>
@@ -75,16 +75,16 @@ Hobby-making, future-shaping, engineering, designing, problem-solving
 # CONTENTS
 ## The Board
 ### Application Examples
-The UNO Mini is a smaller version of the Arduino UNO - to celebrate a successful decade. The UNO Mini Limited Edition is a collector's item for Arduino lovers. 
+The UNO Mini LE is a smaller version of the Arduino UNO - to celebrate a successful decade. The UNO Mini LE is a collector's item for Arduino lovers. 
 
-**A tribute board:** The UNO Mini Limited Edition is a special variant of the Arduino UNO. Despite the small size, it is equipped with both the ATmega328P and the ATMega16U2, as well as the 14 digital input/output pins, 6 analog inputs, USB connection, ICSP header and reset button. This board includes everything you will need for a great first experience with Arduino. 
+**A tribute board:** The UNO Mini LE is a special variant of the Arduino UNO. Despite the small size, it is equipped with both the ATmega328P and the ATMega16U2, as well as the 14 digital input/output pins, 6 analog inputs, USB connection, ICSP header and reset button. This board includes everything you will need for a great first experience with Arduino. 
 
-**Industry-standard development board:** The Arduino UNO Mini board can be used in a range of different companies and industries, as the brain for various PLC’s.
+**Industry-standard development board:** The UNO Mini LE board can be used in a range of different companies and industries, as the brain for various PLC’s.
 
 **Education purposes:** This is a perfect board to use for various education purposes and scientific projects. The board's high standard and top quality performance makes it a great resource to capture real time from sensors and to trigger complex laboratory equipment to mention a few examples.  
 
 ### Related Products
-* Starter Kit
+* Arduino Starter Kit
 * Tinkerkit Braccio Robot
 
 ## Ratings
@@ -136,22 +136,22 @@ The Main Processor is a ATmega328P running at up tp 20 MHz. Most of its pins are
 ## Board Operation
 
 ### Getting Started - IDE 
-If you want to program your Arduino UNO Mini while offline you need to install the Arduino Desktop IDE [1] To connect the Arduino UNO Mini to your computer, you’ll need a Micro-C USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your UNO Mini LE while offline you need to install the Arduino Desktop IDE [1] To connect the UNO Mini LE to your computer, you’ll need a Micro-C USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor 
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2], by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor 
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [2], by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud 
 All Arduino IoT enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches 
-Sample sketches for the Arduino UNO Mini can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website [4]
+Sample sketches for the Arduino UNO Mini can be found either in the “Examples” menu in the Arduino IDE or in Arduino Docs [4].
 
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
 
 <div class="breakPage"> </div>
 
@@ -262,18 +262,19 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Reference                 | Link                                                         |
-| ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                      |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino Docs              | https://docs.arduino.cc/                                     |
-| Project Hub               | https://create.arduino.cc/projecthub                         |
-| Library Reference         | https://www.arduino.cc/reference/en/                         |
-| Online Store              | https://store.arduino.cc/                                    |
+| Reference                              | Link                                                         |
+| -------------------------------------- | ------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/Main/Software                      |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                             |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/         |
+| Arduino Docs                           | https://docs.arduino.cc/                                     |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub                         |
+| Library Reference                      | https://www.arduino.cc/reference/en/                         |
+| Online Store                           | https://store.arduino.cc/                                    |
 
 ## Revision History
 
-| Date       | Revision | Changes           |
-| ---------- | -------- | ----------------- |
-| 24/11/2021 | 1        | Datasheet release |
+| Date       | Revision | Changes                          |
+| ---------- | -------- | -------------------------------- |
+| 25/04/2024 | 2        | Updated link to new Cloud Editor |
+| 24/11/2021 | 1        | Datasheet release                |
