@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-The Arduino UNO R4 Minima (from here on referred to as UNO R4 Minima) is the first UNO board to feature a 32-bit microcontroller. It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM).
+The Arduino® UNO R4 Minima is the first UNO board to feature a 32-bit microcontroller. It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), which embeds a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4 Minima's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM and 8 kB data memory (EEPROM).
 
 The UNO R4 Minima board's operating voltage is 5 V, making it hardware compatible with UNO form factor accessories with the same operating voltage. Shields designed for previous UNO revisions are therefore safe to use with this board but are not guaranteed to be software compatible due to the change of microcontroller.
 
@@ -60,7 +60,7 @@ The UNO R4 Minima is the first UNO series 32-bit development board, being previo
 
 The board features the standard 14 digital I/O ports, 6 analog channels, dedicated pins for I2C, SPI and UART connections. Compared to its predecessors the board has a much larger memory: 8 times more flash memory (256 kB) and 16 times more SRAM (32 kB).
 
-**Entry level projects:** If this is your first project within coding and electronics, the UNO R4 Minima is a good fit. It is easy to get started with and has a lot of online documentation (both official + 3rd party).
+**Entry level projects:** If this is your first project within coding and electronics, the UNO R4 Minima is a good fit. It is easy to get started with and has a lot of online documentation (both official + third party).
 
 **Easy power management:** the UNO R4 Minima has a barrel jack connector and supports input voltages from 6-24 V. This connector is widely popular and removes the need for additional circuitry required to step down the voltage.
 
@@ -68,9 +68,9 @@ The board features the standard 14 digital I/O ports, 6 analog channels, dedicat
 
 ### Related Products
 
-- UNO R3
-- UNO R3 SMD
-- UNO R4 WiFi
+- Arduino UNO R3
+- Arduino UNO R3 SMD
+- Arduino UNO R4 WiFi
 
 <div style="page-break-after: always;"> </div>
 
@@ -255,11 +255,11 @@ In case you need to power external devices that require more power, e.g. servo m
 
 If you want to program your UNO R4 Minima while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the UNO R4 Minima to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -356,28 +356,29 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Ref                       | Link                                                                                                                                                                                           |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                                                             |
-| Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                                                                                           |
-| Cloud IDE Getting Started | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor) |
-| Arduino Project Hub       | [https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending)                                           |
-| Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                                                                                 |
-| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
+| Ref                                    | Link                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/Main/Software                                  |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                         |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://github.com/arduino-libraries/                                    |
+| Arduino Store                          | https://store.arduino.cc/                                                |
 
 ## Change Log
 
-| Date       | **Revision** | **Changes**          |
-| ---------- | ------------ | -------------------- |
-| 28/03/2024 | 3            | Update Rated Current |
-| 25/07/2023 | 2            | Update Pin Table     |
-| 06/19/2023 | 1            | First Release        |
+| Date       | **Revision** | **Changes**                      |
+| ---------- | ------------ | -------------------------------- |
+| 25/04/2024 | 4            | Updated link to new Cloud Editor |
+| 28/03/2024 | 3            | Update Rated Current             |
+| 25/07/2023 | 2            | Update Pin Table                 |
+| 06/19/2023 | 1            | First Release                    |
 
 # 中文 (ZH)
 
 # 描述
 
-Arduino UNO R4 Minima（以下简称 UNO R4 Minima）是第一款采用 32 位微控制器的 UNO 板。它采用了瑞萨电子（Renesas）（R7FA4M1AB3CFM#AA0）的 RA4M1 系列微控制器，内嵌了 48 MHz 的 Arm® Cortex®-M4 微处理器。UNO R4 的内存比上一代更大，有 256 kB 的闪存，32 kB 的 SRAM 和 8 kB 的数据存储器（EEPROM）。
+Arduino® UNO R4 Minima（以下简称 UNO R4 Minima）是第一款采用 32 位微控制器的 UNO 板。它采用了瑞萨电子（Renesas）（R7FA4M1AB3CFM#AA0）的 RA4M1 系列微控制器，内嵌了 48 MHz 的 Arm® Cortex®-M4 微处理器。UNO R4 的内存比上一代更大，有 256 kB 的闪存，32 kB 的 SRAM 和 8 kB 的数据存储器（EEPROM）。
 
 UNO R4 Minima 板的工作电压是 5 V，使其与具有相同工作电压的 UNO 外形尺寸的配件硬件兼容。因此，为以前的 UNO 版本设计的扩展板可以安全地与该板一起使用，但由于微控制器的更换，不能保证软件兼容性。
 
@@ -437,9 +438,9 @@ UNO R4 Minima 是第一款 UNO 系列 32 位开发板，之前基于 8 位 AVR �
 
 ### 相关产品
 
-- UNO R3
-- UNO R3 SMD
-- UNO R4 WiFi
+- Arduino UNO R3
+- Arduino UNO R3 SMD
+- Arduino UNO R4 WiFi
 
 <div style="page-break-after: always;"> </div>
 
@@ -624,9 +625,9 @@ R7FA4M1AB3CFM#AA0 微控制器上的 GPIO 可以处理高达**8 mA**的电流。
 
 如果您想在离线状态下编程 UNO R4 Minima，您需要安装 Arduino® Desktop IDE1。要将 UNO R4 Minima 连接到您的计算机，您需要一根 Type-C® USB 电缆，它也可以为板子提供电源，如 LED（DL1）所示。
 
-### 入门 - Arduino Web Editor
+### 入门 - Arduino Cloud Editor
 
-所有的 Arduino 板，包括这一款，都可以在 Arduino Web Editor 上即插即用，只需安装一个简单的插件。 Arduino Web Editor 是在线托管的，因此它总是具有最新的功能和对所有板的支持。请按照 在浏览器上开始编码并将草稿上传到您的板上。
+所有的 Arduino 板，包括这一款，都可以在 Arduino Cloud Editor 上即插即用，只需安装一个简单的插件。 Arduino Cloud Editor 是在线托管的，因此它总是具有最新的功能和对所有板的支持。请按照 在浏览器上开始编码并将草稿上传到您的板上。
 
 ### 入门 - Arduino Cloud
 
@@ -722,14 +723,14 @@ Arduino S.r.l.特此声明，该产品符合 201453/EU 指令的基本要求和�
 
 ## 参考文档
 
-| 参考资料              | 链接                                                                                                                                                                                           |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop) | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                                                             |
-| Arduino IDE (Cloud)   | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                                                                                           |
-| 开始 Cloud IDE        | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor) |
-| Arduino Project Hub   | [https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending)                                           |
-| 图书馆参考            | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                                                                                 |
-| 在线商店              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
+| 参考资料                   | 链接                                                                      |
+| ------------------------- | ------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                   |
+| Arduino Cloud Editor      | https://create.arduino.cc/editor                                          |
+| 开始 Arduino Cloud Editor | https://docs.arduino.cc/arduino-cloud/guides/editor/                      |
+| Arduino Project Hub       | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending  |
+| 图书馆参考                 | https://github.com/arduino-libraries/                                     |
+| 在线商店                   | https://store.arduino.cc/                                                 |
 
 ## 变更日志
 
