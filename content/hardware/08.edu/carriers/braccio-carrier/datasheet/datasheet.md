@@ -115,7 +115,7 @@ The USB powers the Arduino® Nano RP2040 Connect which is the heart of the Bracc
 | U3      | Power Supply Support Circuit        | J8       | USB 3.1 Type C (USB PD 3.0)          |
 
 ### Processor
-Primary processor of Braccio Carrier is the processor of the ANano RP2040 Connect microcontroller mounted on it. The microcontroller controls every operation of the Braccio Carrier for the target applications via connections with motors and LED display screen.
+Primary processor of Braccio Carrier is the processor of the Nano RP2040 Connect microcontroller mounted on it. The microcontroller controls every operation of the Braccio Carrier for the target applications via connections with motors and LED display screen.
 
 ### Power Tree
 ![Arduino Braccio Carrier Power Tree](assets/Power_Tree_Braccio_Carrier.jpg)
