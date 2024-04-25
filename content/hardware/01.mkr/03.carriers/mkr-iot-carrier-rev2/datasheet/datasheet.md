@@ -359,6 +359,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date DD/MM/YY** | **Revision** | **Changes**                                           |
 | ----------------- | ------------ | ----------------------------------------------------- |
+| 25/04/2024        | 4            | Updated link to new Cloud Editor                      |
 | 20/02/2023        | 3            | Change grove connector power rail from +5.0V to +3.3V |
 | 16/01/2023        | 2            | Update Pinout graphic                                 |
 | 23/11/2022        | 1            | First Release                                         |

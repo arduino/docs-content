@@ -342,3 +342,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 24/02/2021 | 1            | First Release     |
 | 17/05/2022 | 2            | Technical updates |
 | 26/08/2022 | 3            | IMU ID fix        |
+| 25/04/2024 | 4            | Updated link to new Cloud Editor      |
