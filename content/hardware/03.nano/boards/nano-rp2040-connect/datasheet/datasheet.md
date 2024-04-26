@@ -170,13 +170,15 @@ The Nina W102 module also includes a dual core Xtensa LX6 CPU that can also be p
 It is possible to obtain 3D gyroscope and 3D accelerometer data from the LSM6DSOX 6-axis IMU (U9). In addition to providing such data, it is also possible to do machine learning on the IMU for gesture detection.
 
 ### External Memory
-The RP2040 (U1) has access to an additional 16 MB of flash memory via a QSPI interface. The execute-in-place (XIP) feature of the Nano RP2040 Connect allows external flash memory to be addressed and accessed by the system as though it were internal memory,  without first copying the code to internal memory.
+The RP2040 (U1) has access to an additional 16 MB of flash memory via a QSPI interface. The execute-in-place (XIP) feature of the RP2040 allows external flash memory to be addressed and accessed by the system as though it were internal memory,  without first copying the code to internal memory.
+
 
 ### Cryptography
 The ATECC608A Cryptographic IC (U4) provides secure boot capabilities alongside SHA and AES-128 encryption/decryption support for security in Smart Home and Industrial IoT (IIoT) applications. Additionally, a random number generator is also available for use by the RP2040. 
 
 ### Microphone
-The MP34DT06J microphone is connected via a PDM interface to the Nano RP2040 Connect. The digital MEMS microphone is omnidirectional and operate via a capacitive sensing element with a high (64 dB) signal to noise ratio. The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors.
+The MP34DT06J microphone is connected via a PDM interface to the RP2040. The digital MEMS microphone is omnidirectional and operate via a capacitive sensing element with a high (64 dB) signal to noise ratio. The sensing element, capable of detecting acoustic waves, is manufactured using a specialized silicon micromachining process dedicated to produce audio sensors.
+
 
 ### RGB LED
 The RGB LED (DL3) is a common anode LED that is connected to the Nina W102 module. The LED are off when the digital state is HIGH and on when the digital state is LOW.
@@ -184,7 +186,8 @@ The RGB LED (DL3) is a common anode LED that is connected to the Nina W102 modul
 ### Power Tree
 ![Power Tree of Arduino Nano RP2040 Connect Topology](assets/nanoRP2040PowerTree.png)
 
-The Nano RP2040 Connect can be powered by either the Micro USB port (J1) or alternatively via VIN on JP2. An onboard buck converter provides 3V3 to the RP2040 microcontroller and all other peripherals. Additionally, the Nano RP2040 Connect also has an internal 1V8 regulator.
+The Nano RP2040 Connect can be powered by either the Micro USB port (J1) or alternatively via VIN on JP2. An onboard buck converter provides 3V3 to the RP2040 microcontroller and all other peripherals. Additionally, the RP2040 also has an internal 1V8 regulator.
+
 
 ## Board Operation
 ### Getting Started - IDE
