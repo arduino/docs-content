@@ -81,7 +81,8 @@ Like most Arduino MKR form factor boards the MKR WiFi 1010 can be powered via US
 
 **NOTE:** MKR WiFi 1010 only supports 3.3 V I/Os and is NOT 5 V tolerant.
 
-Please make sure you are not directly connecting 5V signals to this board, or it will be damaged.
+Please make sure you are not directly connecting 5 V signals to this board, or it will be damaged.
+
 
 Also the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
 
