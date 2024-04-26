@@ -107,7 +107,7 @@ Note the board can be battery powered as well. As the Arduino can be connected t
 
 ![Running the micro_speech example.](assets/micro.gif)
 
-## How To Tun The Examples Using the Arduino IDE
+## How To Run The Examples Using the Arduino IDE
 
 Alternatively you can use try the same inference examples using Arduino IDE application.
 
