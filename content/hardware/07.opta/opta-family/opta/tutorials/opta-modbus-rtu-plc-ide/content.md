@@ -34,15 +34,14 @@ In this tutorial, you will learn how to implement Modbus RTU-based communication
 ### Hardware Requirements
 
 - [Opta™](https://store.arduino.cc/collections/pro-family) (x2)
-- USB-C® cable (x2)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x2)
 - Wire with either specification for RS-485 connection (x3):
 - STP/UTP 24-18AWG (Unterminated) 100-130Ω rated
 - STP/UTP 22-16AWG (Terminated) 100-130Ω rated
 
 ### Software Requirements
 
-- [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
-- [Arduino PLC IDE software](https://www.arduino.cc/en/software#arduino-plc-ide)
+- [Arduino PLC IDE Installer](https://www.arduino.cc/en/software#arduino-plc-ide)
 - If you have an Opta™, you do not need any license key to activate your product. Go to section [__License Activation With Pre-Licensed Products (Opta™)__](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license#7-license-activation-with-pre-licensed-products-opta) to know more.
 - [Opta™ Modbus RTU PLC IDE Project Example File](assets/ModbusRTU_Opta_Example.zip)
 
@@ -67,14 +66,14 @@ The following diagram illustrates a concise visualization of how Opta™ is conf
 The entire procedure is divided into three distinct stages:
 
 * __Modbus RTU Configuration__ is the foundational step in initializing the Opta™ device with Modbus RTU and other intrinsic properties.
-  
-  The Modbus RTU role, Client or Server, is assigned to the Opta™ device during this stage. It includes the 'Baud rate' and 'Serial Mode' configurations, essential for Modbus RTU communication.
-  
-  Based on the device setting within the Modbus RTU, either the 'Status variables' are delineated, or the Modbus node is defined to determine the communicating devices using this protocol.
+ 
+	The Modbus RTU role, Client or Server, is assigned to the Opta™ device during this stage. It includes the 'Baud rate' and 'Serial Mode' configurations, which are essential for Modbus RTU communication.
+ 
+	Based on the device setting within the Modbus RTU, either the 'Status variables' are delineated, or the Modbus node is defined to determine the communicating devices using this protocol.
 
 * __PLC Program__, established after device setup, is based on Modbus RTU and additional features. A significant advantage of this phase is the elimination of intricate configurations or specific programming tied to Modbus RTU within the PLC code.
-  
-  The procedure is designed for ease of use. By simply using predefined variables in the PLC code, the system handles data transfer through Modbus RTU. This approach benefits from the device's prior setup, minimizing repetitive tasks and promoting effective communication.
+ 
+	The procedure is designed for ease of use. By simply using predefined variables in the PLC code, the system handles data transfer through Modbus RTU. This approach benefits from the device's prior setup, minimizing repetitive tasks and promoting effective communication.
 
 * __System Operation__ represents the anticipated outcome post the Modbus RTU configuration and the execution of the PLC program based on the developer's designed logic. Consequently, we can observe the device communicating with other devices through Modbus RTU.
 
@@ -88,16 +87,13 @@ We can now delve into the specifics after providing an overview of the entire pr
 
 ### Setting Up the Arduino PLC IDE
 
-Access the Arduino PLC IDE software by following [Arduino PLC IDE official website](https://www.arduino.cc/pro/software-plc-ide). You will have to download two executable files for proper software installation:
+To get the Arduino PLC IDE software, go to the [official software website of the Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) and choose to download the PLC IDE installer file. The software is named `Arduino PLC IDE Installer`.
 
-- [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
-- [Arduino PLC IDE](https://www.arduino.cc/en/software#arduino-plc-ide)
+![Arduino PLC IDE Software Download Section](assets/plcide_software_download.png)
 
-![Arduino PLC IDE Software Download Section](assets/plcide_software_download.svg)
+The software requires **Windows 10** or a newer operating system version for the x64 architecture.
 
-The **Arduino PLC IDE Tools** will provide all the required drivers, libraries, and cores for development, while the **Arduino PLC IDE** will install the IDE software.
-
-Install the Arduino PLC IDE Tools before the Arduino PLC IDE to avoid potential problems related to old libraries and drivers.
+The Arduino PLC IDE installer contains the IDE and all the required drivers, libraries, and cores. The continuing sections will help you install the Arduino PLC IDE software properly.
 
 ***For more details regarding Arduino PLC IDE setup, please take a look at [Arduino PLC IDE Setup and Board's License Activation](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) tutorial.***
 
@@ -129,9 +125,9 @@ The PLC IDE software provides the option to set Opta™ as either a Modbus RTU C
 
 Opta™ set as a Modbus RTU Client will provide 'Baud Rate' and 'Serial Mode' settings. The baud rate is available from 600 b/s to 115200 b/s. The serial mode offers a set of options conformed with the following elements:
 
-- Parity: No Parity, Even Parity, Odd Parity
-- Data Bits: 8 Data Bits (Only option for Data Bits)
-- Stop Bits: 1 - 2 Stop Bits
+- **Parity**: No Parity, Even Parity, Odd Parity
+- **Data Bits**: 8 Data Bits (Only option for Data Bits)
+- **Stop Bits**: 1 - 2 Stop Bits
 
 On the other hand, Opta™ set as a Modbus RTU Server requires an additional configuration called 'Slave Settings'. It will ask you to define the Modbus address with a range between `1 .. 247`.
 
@@ -179,9 +175,9 @@ The following sections will demonstrate how to set up each Opta™ according to 
 
 To set Opta™ as a Modbus RTU Server, navigate to the `RS485 SerialPort` tab in the PLC IDE's `Resources` panel. A window named `Modbus Configuration` will open, and we must select the `Modbus RTU Slave` option. For the tutorial example, we will use the following properties for server Opta™:
 
-- Baud Rate: 19200 b/s
-- Serial Mode: N,8,1 (No parity, 8 data bits, 1 stop bit)
-- Slave settings (Modbus address): 10
+- **Baud Rate**: 19200 b/s
+- **Serial Mode**: N,8,1 (No parity, 8 data bits, 1 stop bit)
+- **Slave settings (Modbus address)**: 10
 
 ![Arduino PLC IDE - Opta™ Modbus RTU Server Configuration](assets/opta_plcide_server_modbusMainConfig.png)
 
@@ -193,9 +189,9 @@ The following image shows the `Status variables (volatile)` window. Here, we wil
 
 The `cnt` status variable uses the following parameters:
 
-* Address: 25000 (dec) / 0x61A8 (hex)
-* Name: cnt
-* PLC type: INT
+* **Address**: 25000 (dec) / 0x61A8 (hex)
+* **Name**: cnt
+* **PLC type**: INT
 
 With these settings ready, you need to go to `Resources -> Opta`, select the corresponding port, and begin the `Manual sketch download` process. Then you need to go to `On-line -> Set up Communication` and activate Modbus RTU with the higher USB port number assigned for Opta™.
 
@@ -227,8 +223,8 @@ Upon completing these steps, you will have successfully configured an Opta™ de
 
 To set Opta™ as a Modbus RTU Client, navigate to the `RS485 SerialPort` tab in the PLC IDE's `Resources` panel. The `Modbus Configuration` panel will open, and we must select the `Modbus RTU Master` option. For the tutorial example, we will use the following properties for client Opta™:
 
-- Baud Rate: 19200 b/s
-- Serial Mode: N,8,1 (No parity, 8 data bits, 1 stop bit)
+- **Baud Rate**: 19200 b/s
+- **Serial Mode**: N,8,1 (No parity, 8 data bits, 1 stop bit)
 
 ![Arduino PLC IDE - Opta™ Modbus RTU Client Configuration](assets/opta_plcide_client_modbusMainConfig.png)
 
@@ -236,11 +232,11 @@ Alternative values can be used per requirements if needed.
 
 To establish communication with a configured Modbus RTU Server on an Opta™ device, add a Modbus node by right-clicking the `RS485 SerialPort` tab in the `Resources` panel. After right-clicking, select the 'Add' option that appears. This action will allow you to introduce a 'Generic Modbus' node into the configuration. For this example, configure the node with the following parameters:
 
-* Name: Opta_RTU_1
-* Modbus address: 10
-* Minimum polling time: 1 ms
-* Address type: Modbus
-* Swap words mode: Little-endian compliant (No words swapping)
+* **Name**: Opta_RTU_1
+* **Modbus address**: 10
+* **Minimum polling time**: 1 ms
+* **Address type**: Modbus
+* **Swap words mode**: Little-endian compliant (No words swapping)
 
 For these settings, follow the configuration pattern used for the Modbus RTU Server Opta™. The most essential detail to set is the Modbus address. Ensure this address matches the one given to the server Opta™ or any other compatible device should you add more nodes. The setup should resemble the image provided:
 
@@ -252,9 +248,9 @@ Once you have established the Modbus node for the client Opta™, it is time to 
 
 To retrieve counter information from the server Opta™, select the 'Modbus FC-04 (Read Input Registers)' function. The 'General' tab needs to be configured with the following parameters to ensure correct data access:
 
-* Start address: 25000
-* Polling time: 0 ms (Continuous Read)
-* Timeout: 1000 ms
+* **Start address**: 25000
+* **Polling time**: 0 ms (Continuous Read)
+* **Timeout**: 1000 ms
 
 ![Arduino PLC IDE - Opta™ Client Modbus Function of the Node](assets/opta_plcide_client_modbusFunctionConfig.png)
 
