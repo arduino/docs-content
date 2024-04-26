@@ -7,8 +7,7 @@ libraries:
     url: https://www.arduino.cc/reference/en/libraries/arduinomodbus
 difficulty: intermediate
 tags:
-  - Getting-started
-  - ModbusRTU
+  - Modbus RTU
 software:
   - plc-ide
 hardware:
@@ -35,7 +34,7 @@ In this tutorial, you will discover how to establish Modbus RTU communication be
 ### Hardware Requirements
 
 - [Portenta Machine Control](https://store.arduino.cc/collections/pro-family) (x2)
-- USB-C® cable (x2)
+- [Micro USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x2)
 - Wire with either specification for RS-485/RS-422 connection (x3):
 - STP/UTP 24-18AWG (Unterminated) 100-130Ω rated
 - STP/UTP 22-16AWG (Terminated) 100-130Ω rated
@@ -44,8 +43,7 @@ In this tutorial, you will discover how to establish Modbus RTU communication be
 
 ### Software Requirements
 
-- [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
-- [Arduino PLC IDE software](https://www.arduino.cc/en/software#arduino-plc-ide)
+- [Arduino PLC IDE Installer](https://www.arduino.cc/en/software#arduino-plc-ide)
 - If you have a Portenta Machine Control, you will need a unique PLC IDE License key for your device. Get your license key [here](https://store.arduino.cc/products/plc-key-portenta-machine-control). Go to section [__License Activation with Product Key (Portenta Machine Control)__](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license#6-license-activation-with-product-key-portenta-machine-control) to know more.
 - [Portenta Machine Control Modbus RTU PLC IDE Project Example File](assets/ModbusRTU_PMC_Example.zip)
 
@@ -69,13 +67,13 @@ The entire procedure is divided into three distinct stages:
 
 * __Modbus RTU Configuration__ serves as the initial step, wherein we configure the Portenta Machine Control device with Modbus RTU and other inherent properties.
 
-  In this phase, the role of the Portenta Machine Control device as either a Client or Server within Modbus RTU is specified. It includes settings such as 'Port type', 'Baud rate', and 'Serial Mode', which are crucial for the communication protocol.
+	In this phase, the role of the Portenta Machine Control device as either a Client or Server within Modbus RTU is specified. It includes settings such as *Port type*, *Baud rate*, and *Serial Mode*, which are crucial for the communication protocol.
 
-  Depending on the device's role within Modbus RTU, we either outline the 'Status variables' or define the Modbus node to identify the devices communicating under this protocol.
+	Depending on the device's role within Modbus RTU, we either outline the 'Status variables' or define the Modbus node to identify the devices communicating under this protocol.
 
-* __PLC Program__, is created post-device configuration, integrating Modbus RTU and other functionalities. An essential aspect of this stage is removing the need for detailed Modbus RTU configurations within the PLC code.
+* __PLC Program__ is created as a post-device configuration, integrating Modbus RTU and other functionalities. An essential aspect of this stage is removing the need for detailed Modbus RTU configurations within the PLC code.
 
-  The setup is user-friendly. The system autonomously manages Modbus RTU data exchange by referencing predefined variables in the PLC code. Such an approach leverages the device's initial configuration, reducing redundancy and ensuring efficient communication.
+	The setup is user-friendly. The system autonomously manages Modbus RTU data exchange by referencing predefined variables in the PLC code. Such an approach leverages the device's initial configuration, reducing redundancy and ensuring efficient communication.
 
 * __System Operation__ showcases the expected results after Modbus RTU setup and the PLC program's execution based on the developer's logic. As an outcome, the device can be seen communicating with its counterparts via Modbus RTU.
 
@@ -89,16 +87,13 @@ With this broader perspective, we are ready to delve into the details.
 
 ### Setting Up the Arduino PLC IDE
 
-Access the Arduino PLC IDE software by following [Arduino PLC IDE official website](https://www.arduino.cc/pro/software-plc-ide). You will have to download two executable files for proper software installation:
+To get the Arduino PLC IDE software, go to the [official software website of the Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) and choose to download the PLC IDE installer file. The software is named `Arduino PLC IDE Installer`.
 
-- [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
-- [Arduino PLC IDE](https://www.arduino.cc/en/software#arduino-plc-ide)
+![Arduino PLC IDE Software Download Section](assets/plcide_software_download.png)
 
-![Arduino PLC IDE Software Download Section](assets/plcide_software_download.svg)
+The software requires **Windows 10** or a newer operating system version for the x64 architecture.
 
-The **Arduino PLC IDE Tools** will provide all the required drivers, libraries, and cores for development, while the **Arduino PLC IDE** will install the IDE software.
-
-Install the Arduino PLC IDE Tools before the Arduino PLC IDE to avoid potential problems related to old libraries and drivers.
+The Arduino PLC IDE installer contains the IDE and all the required drivers, libraries, and cores. The continuing sections will help you install the Arduino PLC IDE software properly.
 
 ***For more details regarding Arduino PLC IDE setup, please take a look at [Arduino PLC IDE Setup and Board's License Activation](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) tutorial.***
 
@@ -124,7 +119,7 @@ The Portenta Machine Control has integrated RS-485 120 Ω differential cable ter
 
 ### Workspace Pre-Configuration
 
-Some considerations must be considered beforehand to properly enable and use Modbus RTU on Portenta Machine Control using PLC IDE for appropriate Modbus RTU operation. The following subsections will briefly explain such aspects.
+Before properly enabling and using Modbus RTU on Portenta Machine Control, some considerations must be considered before using PLC IDE for appropriate Modbus RTU operation. The following subsections will briefly explain such aspects.
 
 ***It is recommendable to check out [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license#3-project-setup) to familiarize with Arduino PLC IDE environment.***
 
@@ -138,13 +133,13 @@ Portenta Machine Control can be initialized further in the process if additional
 
 #### Modbus RTU Client and Server Mode
 
-The PLC IDE software allows setting the Portenta Machine Control as either a Modbus RTU Client, Server or none of the previous modes. It also provides a *Port type* option to set to use RS-485 (For Half-Duplex mode) or RS-422 (For Full-Duplex mode) interface. The option is configurable under `RS485 SerialPort` listed within the `Resources` tab. The provided instructions are set to use the RS-485 interface, Half-Duplex mode.
+The PLC IDE software allows the Portenta Machine Control to be set as either a Modbus RTU Client, Server or none of the previous modes. It also provides a *Port type* option to use the RS-485 (Half-duplex mode) or RS-422 (Full-duplex mode) interface. The option is configurable under `RS485 SerialPort` listed within the `Resources` tab. The provided instructions are set to use the RS-485 interface, Half-Duplex mode.
 
 The Portenta Machine Control set as a Modbus RTU Client will provide 'Baud Rate' and 'Serial Mode' settings. The baud rate is available from 600 b/s to 115200 b/s. The serial mode offers a set of options conformed with the following elements:
 
-- Parity: No Parity, Even Parity, Odd Parity
-- Data Bits: 8 Data Bits (Only option for Data Bits)
-- Stop Bits: 1 - 2 Stop Bits
+- **Parity**: No Parity, Even Parity, Odd Parity
+- **Data Bits**: 8 Data Bits (Only option for Data Bits)
+- **Stop Bits**: 1 - 2 Stop Bits
 
 Alternatively, the Portenta Machine Control set as a Modbus RTU Server requires an additional configuration called 'Slave Settings'. It will ask you to define the Modbus address with a range between `1 .. 247`.
 
@@ -184,7 +179,7 @@ To create a live handshake verification procedure between two Portenta Machine C
 
 Using the counter data from the 'Modbus RTU Server Portenta Machine Control', the 'Modbus RTU Client Portenta Machine Control' manages the programmable digital I/Os and digital outputs. Each Portenta Machine Control is assigned a simple task using the abovementioned elements. You will learn to configure the Modbus RTU role for each Portenta Machine Control device using the sections dedicated to each role.
 
-You may access the entire example project [here](assets/ModbusRTU_PMC_Example.zip) if you want to test it immediately. Every setting and component is ready to be assembled and uploaded to the corresponding Portenta Machine Control.
+If you want to test it immediately, you may access the entire example project [here](assets/ModbusRTU_PMC_Example.zip). Every setting and component is ready to be assembled and uploaded to the corresponding Portenta Machine Control.
 
 The following sections will demonstrate how to set up each Portenta Machine Control according to its function in a Modbus RTU connection.
 
@@ -192,24 +187,24 @@ The following sections will demonstrate how to set up each Portenta Machine Cont
 
 To configure the Portenta Machine Control as a Modbus RTU Server, navigate to the `RS485 SerialPort` tab in the `Resources` panel within the PLC IDE. It will open a `Modbus Configuration` window where you should choose the `Modbus RTU Slave` setting. For the tutorial example, we will employ the following properties for the server Portenta Machine Control:
 
-- Port type: `RS485`
-- Baud Rate: 19200 b/s
-- Serial Mode: N,8,1 (No parity, 8 data bits, 1 stop bit)
-- Slave settings (Modbus address): 10
+- **Port type**: `RS485`
+- **Baud Rate**: 19200 b/s
+- **Serial Mode**: N,8,1 (No parity, 8 data bits, 1 stop bit)
+- **Slave settings (Modbus address)**: 10
 
 ![Arduino PLC IDE - Portenta Machine Control Server Modbus Configuration](assets/pmc_plcide_server_modbus.png)
 
 Alternative values can be used per requirements if needed.
 
-The subsequent image displays the `Status variables (volatile)` window. We will define the `counter_stack` variable within this window, specifying its access address and data type for Modbus RTU transmission.
+The subsequent image displays the `Status variables (volatile)` window. In this window, we will define the `counter_stack` variable, specifying its access address and data type for Modbus RTU transmission.
 
 ![Arduino PLC IDE - Portenta Machine Control Server Status Variable](assets/pmc_plcide_server_statVar.png)
 
 The `counter_stack` status variable uses the following parameters:
 
-* Address: 25000 (dec) / 0x61A8 (hex)
-* Name: cnt
-* PLC type: INT
+* **Address**: 25000 (dec) / 0x61A8 (hex)
+* **Name**: cnt
+* **PLC type**: INT
 
 After finishing the settings, go to `Resources -> Portenta Machine Control` and select the corresponding port, beginning the `Manual sketch download` process. Navigate to `On-line -> Set up Communication` and activate Modbus RTU, ensuring that the elevated USB port number designated for the Portenta Machine Control is selected.
 
@@ -267,9 +262,9 @@ Upon completing these steps, you will have effectively set up a Portenta Machine
 
 To configure the Portenta Machine Control as a Modbus RTU Client, navigate to the `RS485 SerialPort` tab in the `Resources` section of the PLC IDE. This action will reveal the `Modbus Configuration` panel, where you should choose the `Modbus RTU Master` setting. For the tutorial example, set the client Portenta Machine Control with these specifications:
 
-- Port type: `RS485`
-- Baud Rate: 19200 b/s
-- Serial Mode: N,8,1 (No parity, 8 data bits, 1 stop bit)
+- **Port type**: `RS485`
+- **Baud Rate**: 19200 b/s
+- **Serial Mode**: N,8,1 (No parity, 8 data bits, 1 stop bit)
 
 ![Arduino PLC IDE - Portenta Machine Control Client Modbus Configuration](assets/pmc_plcide_client_modbus.png)
 
@@ -277,11 +272,11 @@ Alternative values can be used per requirements if needed.
 
 To establish communication with the pre-configured Modbus RTU Server Portenta Machine Control, add a Modbus node by right-clicking the `RS485 SerialPort` tab within the `Resources` section. Once ready, you will see an 'Add' option. Use this to insert a 'Generic Modbus' node. For this example, configure the node with the following parameters:
 
-* Name: PMC_RTU_1
-* Modbus address: 10
-* Minimum polling time: 1 ms
-* Address type: Modbus
-* Swap words mode: Little-endian compliant (No words swapping)
+* **Name**: PMC_RTU_1
+* **Modbus address**: 10
+* **Minimum polling time**: 1 ms
+* **Address type**: Modbus
+* **Swap words mode**: Little-endian compliant (No words swapping)
 
 Use the configuration model applied to the Modbus RTU Server Portenta Machine Control for these settings. The vital detail to consider is the Modbus address. Ensure this address corresponds with the server Portenta Machine Control or any other compatible device in case more nodes are added. The setup should resemble the image provided:
 
@@ -299,7 +294,7 @@ To retrieve the counter data from the server Portenta Machine Control, select th
 
 ![Arduino PLC IDE - Modbus Functions](assets/pmc_plcide_modbus_functions.png)
 
-Next, you will need to assign a variable to hold the counter data captured from the server Portenta Machine Control. Go to the `Input Reg.` tab in the Modbus function configuration menu to do this. Create a variable named `counter_rec` to store the data sent via the protocol.
+Next, you will need to assign a variable to hold the counter data captured from the server Portenta Machine Control. Go to the Modbus function configuration menu's `Input Reg.` tab to do this. Create a variable named `counter_rec` to store the data sent via the protocol.
 
 The following image shows a visual representation of the anticipated configuration:
 
@@ -373,7 +368,7 @@ Finally, Portenta Machine Control is now ready as a Modbus RTU Client.
 
 You can access the complete example project [here](assets/ModbusRTU_PMC_Example.zip). You can download the compressed file, extract it, and use the pre-configured example project for your Portenta Machine Control devices.
 
-Set both Portenta Machine Control devices running with the corresponding main PLC code with the hardware setup explained in [this section](#hardware-setup).
+Set both Portenta Machine Control devices to run with the corresponding main PLC code, with the hardware setup explained in [this section](#hardware-setup).
 
 The following short clip briefly shows the expected behavior of the example project.
 
@@ -381,7 +376,7 @@ The following short clip briefly shows the expected behavior of the example proj
 
 The server Portenta Machine Control (on the right side) will:
 
-- Execute a binary counter with digital outputs working as visual indicators within an 8-bit boundary.
+- Execute a binary counter with digital outputs as visual indicators within an 8-bit boundary.
 - Increase the shared Modbus counter variable each time the 8-bit binary counter completes a cycle.
 - Adjust the binary counter's speed by modifying buffer variables according to the desired values.
 
@@ -397,6 +392,6 @@ In this tutorial, you have learned to configure the workspace environment to wor
 
 ### Next Steps
 
-Now that you have learned to implement the Modbus RTU between Portenta Machine Control devices using Arduino PLC IDE, try adding additional Modbus RTU-compatible devices and creating a Modbus RTU communication network.
+Now that you have learned to implement the Modbus RTU between Portenta Machine Control devices using Arduino PLC IDE try adding additional Modbus RTU-compatible devices and creating a Modbus RTU communication network.
 
-Further, explore the possibilities by combining the Portenta Machine Control device's onboard features with the Modbus RTU communication network and deploy it as an enhancement solution for industrial management systems.
+Further, the possibilities can be explored by combining the Portenta Machine Control device's onboard features with the Modbus RTU communication network and deploying it to enhance industrial management system solutions.
