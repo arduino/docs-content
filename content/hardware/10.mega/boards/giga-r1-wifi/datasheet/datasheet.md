@@ -174,7 +174,7 @@ Power can either be supplied via the VIN pins, or the 5V of the USB connectors (
 
 If you want to program your GIGA R1 WiFi while offline you need to install the Arduino Desktop IDE **[1]**. To connect the GIGA R1 WiFi to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
 
-### Getting Started - Arduino lCloud Editor
+### Getting Started - Arduino Cloud Editor
 
 All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor **[2]**, by just installing a simple plugin.
 

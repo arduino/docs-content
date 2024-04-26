@@ -48,7 +48,8 @@ Arduino® Mega 2560 Rev3 is an exemplary development board dedicated for buildin
 
 ## The Board
 
-Mega 2560 Rev3 is a successor board of Arduino Mega, it is dedicated to applications and projects that require large number of input output pins and the use cases which need high processing power. The Mega 2560 Rev3 comes with a much larger set of IOs when we compare it with traditional Uno board considering the form factor of both the boards.
+Mega 2560 Rev3 is a successor board of Arduino Mega, it is dedicated to applications and projects that require large number of input output pins and the use cases which need high processing power. The Mega 2560 Rev3 comes with a much larger set of IOs when we compare it with the traditional Arduino® UNO board considering the form factor of both the boards.
+
 
 ### Application Examples
 
