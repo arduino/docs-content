@@ -124,7 +124,8 @@ The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pi
 
 ## Board Operation
 ### Getting Started - IDE 
-If you want to program your Nano Every while offline you need to install the Arduino Desktop IDE [1] To connect the Arduino Nano Every to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Nano Every while offline you need to install the Arduino Desktop IDE [1] To connect the Nano Every to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+
 
 
 ### Getting Started - Arduino Cloud Editor
