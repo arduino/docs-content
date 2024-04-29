@@ -7,7 +7,8 @@ type: maker
 ![](assets/featured.jpg)
 
 # Description 
-The Arduino UNO R3 is the perfect board to get familiar with electronics and coding. This versatile development board is equipped with the well-known ATmega328P and the ATMega 16U2 Processor.  
+The Arduino® UNO R3 is the perfect board to get familiar with electronics and coding. This versatile development board is equipped with the well-known ATmega328P and the ATMega 16U2 Processor.  
+
 This board will give you a great first experience within the world of Arduino. 
 
 # Target areas:
@@ -17,9 +18,9 @@ Maker, introduction, industries
 * **ATMega328P** Processor
     * **Memory**
         * AVR CPU at up to 16 MHz
-        * 32KB Flash
-        * 2KB SRAM
-        * 1KB EEPROM 
+        * 32 kB Flash
+        * 2 kB SRAM
+        * 1 kB EEPROM 
 
     * **Security**
         * Power On Reset (POR) 
@@ -40,7 +41,7 @@ Maker, introduction, industries
         *  8-bit AVR® RISC-based microcontroller 
 
     * **Memory**
-        * 16 KB ISP Flash
+        * 16 kB ISP Flash
         * 512B EEPROM
         * 512B SRAM
         * debugWIRE interface for on-chip debugging and programming 
@@ -51,16 +52,16 @@ Maker, introduction, industries
 # CONTENTS
 ## The Board
 ### Application Examples
-The UNO board is the flagship product of Arduino. Regardless if you are new to the world of electronics or will use the UNO as a tool for education purposes or industry-related tasks, the UNO is likely to meet your needs.  
+The UNO board is the flagship product of Arduino. Regardless if you are new to the world of electronics or will use the UNO R3 as a tool for education purposes or industry-related tasks, the UNO R3 is likely to meet your needs.  
 
-**First entry to electronics:** If this is your first project within coding and electronics, get started with our most used and documented board; Arduino UNO. It is equipped with the well-known ATmega328P processor, 14 digital input/output pins, 6 analog inputs, USB connections, ICSP header and reset button. This board includes everything you will need for a great first experience with Arduino. 
+**First entry to electronics:** If this is your first project within coding and electronics, get started with our most used and documented board; UNO. It is equipped with the well-known ATmega328P processor, 14 digital input/output pins, 6 analog inputs, USB connections, ICSP header and reset button. This board includes everything you will need for a great first experience with Arduino. 
 
-**Industry-standard development board:** Using the Arduino UNO R3 board in industries, there are a range of companies using the UNO board as the brain for their PLC’s.
+**Industry-standard development board:** Using the UNO R3 board in industries, there are a range of companies using the UNO R3 board as the brain for their PLC’s.
 
 **Education purposes:** Although the UNO R3 board has been with us for about ten years, it is still widely used for various education purposes and scientific projects. The board's high standard and top quality performance makes it a great resource to capture real time from sensors and to trigger complex laboratory equipment to mention a few examples.  
 
 ### Related Products
-* Starter Kit
+* Arduino Starter Kit
 * Arduino UNO R4 Minima
 * Arduino UNO R4 WiFi
 * Tinkerkit Braccio Robot
@@ -71,7 +72,7 @@ The UNO board is the flagship product of Arduino. Regardless if you are new to t
 
 | Symbol | Description                                      | Min            | Max            |
 | ------ | ------------------------------------------------ | -------------- | -------------- |
-|        | Conservative thermal limits for the whole board: | -40 °C (-40°F) | 85 °C ( 185°F) |
+|        | Conservative thermal limits for the whole board: | -40 °C (-40 °F) | 85 °C ( 185 °F) |
 
 >**NOTE:** In extreme temperatures, EEPROM, voltage regulator, and the crystal oscillator, might not work as expected.
 
@@ -110,18 +111,18 @@ The Main Processor is a ATmega328P running at up to 20 MHz. Most of its pins are
 ## Board Operation
 
 ### Getting Started - IDE 
-If you want to program your Arduino UNO R3 while offline you need to install the [Arduino Desktop IDE](https://www.arduino.cc/en/Main/Software) [1] To connect the Arduino UNO to your computer, you’ll need a USB-B cable. This also provides power to the board, as indicated by the LED.
+If you want to program your UNO R3 while offline you need to install the Arduino Desktop IDE [1] To connect the UNO R3 to your computer, you’ll need a USB-B cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor 
-All Arduino boards, including this one, work out-of-the-box on the [Arduino Web Editor](https://create.arduino.cc/editor) [2], by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor 
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [2], by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Sample Sketches 
-Sample sketches for the Arduino UNO R3 can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the [Arduino website](https://www.arduino.cc/) [4]
+Sample sketches for the UNO R3 can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the [Arduino website](https://www.arduino.cc/) [4].
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino [Project Hub](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending) **[5]**, the [Arduino Library Reference](https://www.arduino.cc/reference/en/) **[6]** and the online [Arduino store](https://store.arduino.cc/) **[7]** where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub [5], the Arduino Library Reference [6] and the online Arduino store [7] where you will be able to complement your board with sensors, actuators and more.
 
 <div style="page-break-after:always;"></div>
 
@@ -274,19 +275,20 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Reference                 | **Link**                                                                                            |
-| ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                                             |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino  Website          | https://www.arduino.cc/                                                                             |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
-| Library Reference         | https://www.arduino.cc/reference/en/                                                                |
-| Online Store              | https://store.arduino.cc/                                                                           |
+| Reference                              | **Link**                                                                 |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/Main/Software                                  |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                         |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
+| Arduino Website                        | https://www.arduino.cc/                                                  |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://www.arduino.cc/reference/en/                                     |
+| Arduino Store                          | https://store.arduino.cc/                                                |
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**       |
-| ---------- | ------------ | ----------------- |
-| 26/07/2023 | 2            | General Update    |
-| 06/2021    | 1            | Datasheet release |
+| Date       | **Revision** | **Changes**                      |
+| ---------- | ------------ | -------------------------------- |
+| 25/04/2024 | 3            | Updated link to new Cloud Editor |
+| 26/07/2023 | 2            | General Update                   |
+| 06/2021    | 1            | Datasheet release                |
