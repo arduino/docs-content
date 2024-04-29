@@ -1,12 +1,12 @@
 ---
 identifier: A000067
-title: Arduino® MEGA 2560 Rev3
+title: Arduino® Mega 2560 Rev3
 type: maker
 ---
 ![Arduino MEGA Feature Image](./assets/ArduinoFeatureImage.png)
 
 # Description
-Arduino® Mega 2560 is an exemplary development board dedicated for building extensive applications as compared to other maker boards by Arduino. The board accommodates the ATmega2560 microcontroller, which operates at a frequency of 16 MHz. The board contains 54 digital input/output pins, 16 analog inputs, 4 UARTs (hardware serial ports), a USB connection, a power jack, an ICSP header, and a reset button.  
+Arduino® Mega 2560 Rev3 is an exemplary development board dedicated for building extensive applications as compared to other maker boards by Arduino. The board accommodates the ATmega2560 microcontroller, which operates at a frequency of 16 MHz. The board contains 54 digital input/output pins, 16 analog inputs, 4 UARTs (hardware serial ports), a USB connection, a power jack, an ICSP header, and a reset button.  
 
 # Target Areas 
 3D Printing, Robotics, Maker
@@ -48,15 +48,16 @@ Arduino® Mega 2560 is an exemplary development board dedicated for building ext
 
 ## The Board
 
-Arduino® Mega 2560 is a successor board of Arduino Mega,  it is dedicated to applications and projects that require large number of input output pins and the use cases which need high processing power. The Arduino® Mega 2560 comes with a much larger set of IOs when we compare it with traditional Uno board considering the form factor of both the boards.
+Mega 2560 Rev3 is a successor board of Arduino Mega, it is dedicated to applications and projects that require large number of input output pins and the use cases which need high processing power. The Mega 2560 Rev3 comes with a much larger set of IOs when we compare it with the traditional Arduino® UNO board considering the form factor of both the boards.
+
 
 ### Application Examples
 
-- **Robotics**: Featuring the high processing capacitity, the Arduino Mega 2560 can handle the extensive robotic applications. It is compatible with the motor controller shield that enables it to control multiple motors at an instance, thus making it perfect of robotic applications. The large number of I/O pins can accommodate many robotic sensors as well.
+- **Robotics**: Featuring the high processing capacity, the Mega 2560 Rev3 can handle the extensive robotic applications. It is compatible with the motor controller shield that enables it to control multiple motors at an instance, thus making it perfect of robotic applications. The large number of I/O pins can accommodate many robotic sensors as well.
   
-- **3D Printing**: Algorithms play a significant role in implementation of 3D printers. Arduino Mega 2560 has the power to process these complex algorithms required for 3D printing. Additionally, the slight changes to the code is easily possible with the Arduino IDE and thus 3D printing programs can be customized according to user requirements.
+- **3D Printing**: Algorithms play a significant role in implementation of 3D printers. Mega 2560 Rev3 has the power to process these complex algorithms required for 3D printing. Additionally, the slight changes to the code is easily possible with the Arduino IDE and thus 3D printing programs can be customized according to user requirements.
 
-- **Wi-Fi**: Integrating wireless functionality enhances the utility of the applications. Arduino Mega 2560 is compatible with WiFi shields hence allowing the wireless features for the applications in 3D printing and Robotics. 
+- **Wi-Fi**: Integrating wireless functionality enhances the utility of the applications. Mega 2560 Rev3 is compatible with Wi-Fi® shields hence allowing the wireless features for the applications in 3D printing and Robotics. 
 
 
 ### Accessories
@@ -64,9 +65,9 @@ Arduino® Mega 2560 is a successor board of Arduino Mega,  it is dedicated to ap
 
 ### Related Products
 
-- Arduino® Uno Rev 3
+- Arduino® UNO R3
 - Arduino® Nano
-- Arduino® DUE without headers
+- Arduino® Due without headers
 
 
 ## Ratings
@@ -84,12 +85,12 @@ Arduino® Mega 2560 is a successor board of Arduino Mega,  it is dedicated to ap
 ## Functional Overview
 
 ### Block Diagram
-![Arduino MEGA Block Diagram](./assets/Block_Diagram_Mega2560.png)
+![Arduino Mega 2560 Rev3 Block Diagram](./assets/Block_Diagram_Mega2560.png)
 
 ### Board Topology
 **Front View**
 
-![Arduino MEGA Top View](./assets/ArduinoMEGATopView.png)
+![Arduino Mega 2560 Rev3 Top View](./assets/ArduinoMEGATopView.png)
 
 | **Ref.** | **Description**                  | **Ref.** | **Description**                  |
 | -------- | -------------------------------- | -------- | -------------------------------- |
@@ -104,28 +105,29 @@ Arduino® Mega 2560 is a successor board of Arduino Mega,  it is dedicated to ap
 
 
 ### Processor
-Primary processor of Arduino Mega 2560 Rev3 board is ATmega2560 chip which operates at a frequency of 16 MHz. It accommodates a large number of input and output lines which gives the provision of interfacing many external devices. At the same time the operations and processing is not slowed due to its significantly larger RAM than the other processors. The board also features a USB serial processor ATmega16U2 which acts an interface between the USB input signals and the main processor. This increases the flexibility of interfacing and connecting peripherals to the Arduino Mega 2560 Rev 3 board.
+Primary processor of Mega 2560 Rev3 board is ATmega2560 chip which operates at a frequency of 16 MHz. It accommodates a large number of input and output lines which gives the provision of interfacing many external devices. At the same time the operations and processing is not slowed due to its significantly larger RAM than the other processors. The board also features a USB serial processor ATmega16U2 which acts an interface between the USB input signals and the main processor. This increases the flexibility of interfacing and connecting peripherals to the Mega 2560 Rev3 board.
 
 ### Power Tree
 ![Power Tree](./assets/Power_Tree_Mega_2560_Rev2.svg)
+
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your Arduino® MEGA 2560 while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® MEGA 2560 to your computer, you’ll need a Type-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Mega 2560 Rev3 while offline you need to install the Arduino Desktop IDE **[1]** To connect the Mega 2560 Rev3 to your computer, you’ll need a Type-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
-All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin. 
+### Getting Started - Arduino Cloud Editor
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor **[2]**, by just installing a simple plugin. 
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Sample Sketches
-Sample sketches for the Arduino® MEGA 2560 can be found either in the “Examples” menu in the Arduino® IDE 
+Sample sketches for the Mega 2560 Rev3 can be found either in the “Examples” menu in the Arduino IDE or under the "Documentation" menu on the Arduino website [4].
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
 
 ## Connector Pinouts
 
-![Arduino Mega Pinout](./assets/ArduinoMEGAPinOut.png)
+![Arduino Mega 2560 Rev3 Pinout](./assets/ArduinoMEGAPinOut.png)
 
 ### Analog
 | Pin | Function | Type   | Description                                     |
@@ -184,7 +186,7 @@ Now that you have gone through the basics of what you can do with the board you 
 | 25  | D20      | Digital/GPIO      | Digital input 20 /GPIO        |
 | 26  | D21      | Digital/GPIO      | Digital input 21 /GPIO        |
 
-![Arduino Mega Pinout](./assets/ArduinoMEGAPinOut2.png)
+![Arduino Mega 2560 Rev3 Pinout](./assets/ArduinoMEGAPinOut2.png)
 
 ### ATMEGA16U2 JP5
 | Pin | Function | Type     | Description       |
@@ -252,11 +254,11 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### Board Outline
 
-![Arduino Mega Outline](./assets/ArduinoMEGAOutline.png)
+![Arduino Mega 2560 Rev3 Outline](./assets/ArduinoMEGAOutline.png)
 
 ### Board Mount Holes
 
-![Arduino Mega Mount Holes](./assets/ArduinoMEGAMountHoles.png)
+![Arduino Mega 2560 Rev3 Mount Holes](./assets/ArduinoMEGAMountHoles.png)
 
 # Certifications
 ## Declaration of Conformity CE DoC (EU)
@@ -336,20 +338,21 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Ref                       | Link                                                                                                |
-| ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                                                             |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino Pro Website       | https://www.arduino.cc/pro                                                                          |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
-| Library Reference         | https://www.arduino.cc/reference/en/libraries/                                                      |
-| Online Store              | https://store.arduino.cc/                                                                           |
+| Ref                                    | Link                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/Main/Software                                  |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                         |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
+| Arduino Website                        | https://www.arduino.cc/                                                  |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://www.arduino.cc/reference/en/libraries/                           |
+| Online Store                           | https://store.arduino.cc/                                                |
 
 ## Revision History
 
 | **Date**   | **Revision** | **Changes**                              |
 | ---------- | ------------ | ---------------------------------------- |
+| 25/04/2024 | 3            | Updated link to new Cloud Editor         |
 | 09/10/2023 | 2            | Updated recommended operating conditions |
 | 29/09/2020 | 1            | First Release                            |
 
