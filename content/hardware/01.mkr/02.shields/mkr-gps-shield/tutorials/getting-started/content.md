@@ -150,7 +150,7 @@ This second example keeps the power consumption under control waking up the modu
 ```c
 /*
 
-  GPS Location Standy
+  GPS Location Standby
 
   This sketch uses the GPS to determine the location of the board
 
