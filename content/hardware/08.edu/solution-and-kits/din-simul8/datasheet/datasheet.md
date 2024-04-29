@@ -8,13 +8,13 @@ author: Paolo Cavagnolo
 ![render_simul8](assets/Simul8-Perspective-with-Adaptor.png)
 
 # Description
-Arduino DIN Simul8 is a digital-input-simulator and power distribution board for the Opta® family and PLC Starter Kit. It provides eight toggle switches (0 - 10 V output) and four screw terminal for bringing the 24 V and the GROUND easily to the PLC or other board.
+Arduino® DIN Simul8 is a digital-input-simulator and power distribution board for the Arduino Opta® family and Arduino® PLC Starter Kit. It provides eight toggle switches (0 - 10 V output) and four screw terminal for bringing the 24 V and the GROUND easily to the PLC or other board.
 
 # Target Areas:
 Pro, PLC projects, Education, Industry Ready, Building automation
 
 # Features
-**Note**: This board needs the Arduino Opta for full functionality.
+**Note**: This board needs the Arduino Opta® for full functionality.
 
 - **Toggle Switches**
     - 8 toggle switch in the middle of the board
@@ -46,7 +46,7 @@ These are the main components of the board, other secondary components, i.e. res
 
 ## Power Distribution
 
-The board can be powered up from the barrel plug and then offer two couple of screw connector to deliver power to the PLC and other board, i.e. the DIN Celsius board of the PLC Starter Kit.
+The board can be powered up from the barrel plug and then offer two couple of screw connector to deliver power to the PLC and other board, i.e. the Arduino® DIN Celsius board of the PLC Starter Kit.
 
 ![power distribution](assets/Simul8-power_distrib.png)
 
@@ -87,7 +87,7 @@ At the bottom right of the board a white rectangle on the silk layer offer a spa
 
 ### Application Examples
 
-**Input board in the PLC Starter Kit:** Use the toggle switches to trigger the heat function in the Arduino DIN Celsius.
+**Input board in the PLC Starter Kit:** Use the toggle switches to trigger the heat function in the DIN Celsius.
 
 
 ## Mechanical Information
