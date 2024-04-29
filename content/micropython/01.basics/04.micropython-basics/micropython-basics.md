@@ -57,10 +57,10 @@ Then with the `while` loop we execute the statements as long as the condition is
 
 ## Functions
 
-A function is a block of code, a sequence of instructions composed by several statements, which runs only when it is called.
+A function is a block of code, a sequence of instructions comprising several statements, that runs only when it is called.
 You can pass the information as parameters into a function. A function can have input arguments, and can also have output parameters.
 
-We can define our own functions, the most common way can be specified using the def keyword, inside the parentheses you can find the arguments if there are. Take a look to the example below:
+We can define our own functions.  The most common way involves using the def keyword, inside the parentheses you can find the arguments if there are any. Consider the follpowing example:
 
 ```python
 def my_function():    
@@ -73,7 +73,7 @@ Then you can call your function using the function name followed by parentheses:
 my_function() 
 ```
 
-The function need two components: the header, starting with keyword def, followed by parentheses with inside the arguments and ending by colon (:) and the indented body is composed by descriptive string, function statements, return statements.
+The function needs two components: the header, starting with keyword def, followed by parentheses with inside the arguments and ending by colon (:) and the indented body is composed by descriptive string, function statements, return statements.
 
 This script prints "Hello world!" every second. In addition, the function counter_function() increases the number every second and will be printed next to.
 
