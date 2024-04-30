@@ -1753,17 +1753,17 @@ With the library properly installed, we will update the expansion firmware to en
 
 In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > updateExpansionFw**.
 
-[Firmware update example](assets/fw-update.png)
+![Firmware update example](assets/fw-update.png)
 
 Upload the program to the Opta™ controller and open the Arduino IDE Serial Monitor.
 
-[Firmware update process](assets/fw-update-serial.png)
+![Firmware update process](assets/fw-update-serial.png)
 
 If your expansion is updatable, in the Serial Monitor you will see its current firmware version and the new one to which it will be updated.
 
 Type `Y` in the Serial Monitor to confirm the update and wait for it to be completed.
 
-[Firmware update running](assets/fw-update-serial-2.png)
+![Firmware update running](assets/fw-update-serial-2.png)
 
 Finally, your Opta™ expansion will be updated with the latest firmware version.
 
