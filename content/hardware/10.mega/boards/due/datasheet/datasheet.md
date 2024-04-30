@@ -76,7 +76,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 ### Microcontroller
 
 <!---
-Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main speficications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
+Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
 -->
 
 | Component                | Details                                                                                        |
@@ -88,7 +88,7 @@ Subsection about a Main Feature: Subsection inside features and under General Sp
 ### Inputs
 
 <!---
-Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main speficications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
+Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
 -->
 
 | Characteristics               | Details                  |
@@ -101,7 +101,7 @@ Subsection about a Main Feature: Subsection inside features and under General Sp
 ### Outputs
 
 <!---
-Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main speficications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
+Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
 -->
 
 | Characteristics                       | Details                                          |
@@ -131,7 +131,7 @@ Subsection about a Main Feature: Subsection inside features and under General Sp
 ### Communication
 
 <!---
-Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main speficications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
+Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
 -->
 
 | Interfaces            | Type                                       | Protocols/Technologies supported                     |
@@ -145,7 +145,7 @@ Subsection about a Main Feature: Subsection inside features and under General Sp
 ### Security
 
 <!---
-Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main speficications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
+Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
 -->
 
 | Component                   | Details                                                           |
@@ -179,27 +179,71 @@ Related products: This section list some of the related products like shields or
 
 ## Rating
 
-TODO continue here
+<!---
+Rating: This section is really important from the technical point of view, containing important information regarding the minimum and maximum values of this like voltage and current. The better the information is, the less support tickets the company will receive due to burn boards.
+-->
+
 
 ### Recommended Operating Conditions
 
-| Symbol          | Description                      | Min                | Typ | Max                | Unit |
-|-----------------|----------------------------------|--------------------|-----|--------------------|------|
-| V<sub>IN</sub>  | Input voltage from VIN pad       | 6                  | 7.0 | 32                 | V    |
-| V<sub>USB</sub> | Input voltage from USB connector | 4.8                | 5.0 | 5.5                | V    |
-| V<sub>DD</sub>  | Input high-level voltage         | 0.7*V<sub>DD</sub> |     | V<sub>DD</sub>     | V    |
-| V<sub>IL</sub>  | Input low-level voltage          | 0                  |     | 0.3*V<sub>DD</sub> | V    |
-| T<sub>OP</sub>  | Operating Temperature            | -40                | 25  | 85                 | °C   |
+<!---
+Recommended Operating Conditions/Power Specifications: This section contains the minimum, typical and Maximum main values, normally related with voltage, current and temperature, but there can be additionally specifications depending of the product. Table for example purposes. Warnings or Notes are reccomended in case the product need it to make sure the user does not commit mistakes.
+-->
+
+| Description                 | Value                     |
+| --------------------------- | ------------------------- |
+| Temperature Operating Range | -20...50 °C               |
+| Protection degree rating    | IP20                      |
+| Pollution degree            | 2 conforming to IEC 61010 |
 
 **Note:** V<sub>DD</sub> controls the logic level and is connected to the 3.3V power rail. V<sub>AREF</sub> is for the analog logic.
 
-<div style="page-break-after: always;"> </div>
+### Power Specification
 
-# Functional Overview
+<!---
+Recommended Operating Conditions/Power Specifications: This section contains the minimum, typical and Maximum main values, normally related with voltage, current and temperature, but there can be additionally specifications depending of the product. Table for example purposes. Warnings or Notes are reccomended in case the product need it to make sure the user does not commit mistakes.
+-->
 
-## Block Diagram
+| Property               | Min   | Typ | Max  | Unit |
+|----------------------- |------ |-----|------|------|
+| Supply voltage         | 12    | -   | 24   | V    |
+| Permissible range      | 10.2  | -   | 27.6 | V    |
+| Power consumption (12V)| 0.6   | -   | 2    | W    |
+| Power consumption (24V)| 0.6   | -   | 2.2  | W    |
+
+### Current Consumption
+
+<!---
+Current Consumption: This section contains information about the current compsunption of the product. This information is really useful but always tricky to get and can help users to understand the real estimated current compsumtion in different scenarios like sleeps modes.
+-->
+
+| Parameter                                       | Symbol         | Min | Typ | Max | Unit |
+| ----------------------------------------------- | -------------- | --- | --- | --- | ---- |
+| Deep Sleep Mode Current Consumption<sup>1</sup> | I<sub>DS</sub> | -   | 86  | -   | µA   |
+| Normal Mode Current Consumption<sup>2</sup>     | I<sub>NM</sub> | -   | 180 | -   | mA   |
+
+
+## Functional Overview
+
+<!---
+Functional Overview: Functional overview contains important information of the product in terms of block diagram, mechanical information, power tree and much more. Sections and text for example purposes.
+-->
+
+<p style="text-align: justify;">
+The core of the Portenta C33 is the R7FA6M5BH2CBG microcontroller from Renesas. The board also contains several peripherals connected to its microcontroller.
+</p>
+
+### Block Diagram
+
+<!---
+Block Diagram: Functional overview contains important information of the product in terms of block diagram, mechanical information, power tree and much more. Sections and text for example purposes.
+-->
+
+The block diagram with the main parts of the product can be checked in the following image:
 
 ![Arduino GIGA R1 WiFi Block Diagram](assets/GIGA_R1_WiFi_Block_Diagram.png)
+
+### Power Tree
 
 ## Board Topology
 
