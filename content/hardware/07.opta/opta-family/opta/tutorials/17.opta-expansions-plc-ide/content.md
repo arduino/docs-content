@@ -59,7 +59,7 @@ The expansions must be powered externally in order to be detected and properly w
 
 ### Solution Wiring
 
-The following wiring will be used for the solution explained in this tutorial.
+The following wiring setup will be used for the solution explained in this tutorial.
 
 ![Solution example wiring](assets/wiring-ext.png)
 
