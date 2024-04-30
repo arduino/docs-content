@@ -1710,6 +1710,8 @@ The Opta Expansions can be controlled by any Opta controller variant: Opta Lite,
 
 ![Opta Expansion variants](assets/variants.png)
 
+***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step.***
+
 ### Snapping the Expansion
 
 You can snap up to five expansions to your Opta™ Base module to multiply and mix your set of I/Os with seamless detection.
