@@ -17,7 +17,7 @@ software:
 ---
 
 ## Overview
-In this tutorial, you will learn how to use the Opta™ Digital Expansions alongside an Opta™ controller.
+In this tutorial, you will learn how to use Opta™ Digital Expansions AFX00005 and AFX00006 alongside an Opta™ controller.
 
 ![Final application showcase](assets/animation.gif)
 
