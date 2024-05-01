@@ -130,6 +130,10 @@ The board needs to run a specific program (runtime) to interact with the **PLC I
 
 Plug your device to the computer, select your board's Serial Port, and click the **Download** button.
 
+![Board runtime upload](assets/runtime.png)
+
+***Download the runtime every time you update the PLC IDE from a previous version.***
+
 ***The device will show two Serial Ports: the default (generally with the lowest number) is the usual Serial Port. The secondary one (usually with the highest number) is a virtual port for Modbus communication from the device to your computer. Please take note of the port number assigned to the secondary port (virtual port for Modbus), as it will be needed in a second step.***
 
 If the following message appears during the download procedure, double-tap the reset button using the tip of a pen or a similar pointed object. The LED above the reset button for Opta™ or the Digital Outputs LEDs for Portenta Machine control will start blinking, indicating that the device is ready to be flashed with new firmware. Click the **Download** button to begin the process again.
