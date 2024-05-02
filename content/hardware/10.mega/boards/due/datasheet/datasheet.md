@@ -37,11 +37,11 @@ Application Examples: Section regarding main application examples of the product
 <div style="text-align:justify;">
 The GIGA R1 WiFi combines the best of the Portenta H7 and the Mega 2560. A generous amount of I/O easily accessible via pins allows for easy and fast testing of new ideas and solutions. The STM32H7 has ample power to handle machine-learning tasks. Your IoT projects can even benefit from the Arduino Cloud with the help of the onboard secure element and its wireless connectivity.
 
-- **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high-resolution ADC interfaces for high-performance sensing of the 3D printing process. Together with the dual-core computing power, control the printing process like never before. Monitor filament usage and print status locally over Bluetooth® or from anywhere in the world with the Arduino Cloud, or any other third-party service, and its Wi-Fi® features.
+- **3D Printing:** The Mega form factor has been very popular for creating 3D printers. Connect sensors to the high-resolution ADC interfaces for high-performance sensing of the 3D printing process. Together with the dual-core computing power, controls the printing process like never before. Monitor filament usage and print status locally over Bluetooth® or from anywhere in the world with the Arduino Cloud, or any other third-party service, and its Wi-Fi® features.
 
 - **Audio Processing:** The GIGA R1 WiFi provides a 3.5 mm audio input/output to easily interact with audio signals in the environment. Analyse and create audio signals directly on the board. Connect a microphone and control a wide range of digital and analog devices. Create your own musical instrument and change the note through the various inputs. Create an online concert with the Arduino Cloud or any other third-party service and connect with people all over the world.
 
-- **Data acquisition device:** Thanks to the numerous analog inputs, including the jack connector (J15) and the two DAC outputs with a resolution up to 12 bits, you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino Cloud or any other third-party service. Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
+- **Data acquisition device:** Thanks to the numerous analog inputs, including the jack connector (J15) and the two DAC outputs with a resolution of up to 12 bits, you can create your own data acquisition device. Make your own multimeter or even an oscilloscope and create an online dashboard with the Arduino Cloud or any other third-party service. Design your own electrochemical experiments, apply custom current/voltage waveforms and check the status of your experiment from the comfort of your home.
 </div>
 
 ## Features
@@ -76,7 +76,7 @@ The Portenta C33 is a powerful microcontroller board designed for low-cost IoT a
 ### Microcontroller
 
 <!---
-Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
+Subsection about a Main Feature: The subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor's main specifications to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain an initial 2/3 line paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical specifications. Warnings and Note blocks regarding special things of the feature to take into account are also recommended it.
 -->
 
 | Component                | Details                                                                                        |
@@ -88,7 +88,7 @@ Subsection about a Main Feature: Subsection inside features and under General Sp
 ### Inputs
 
 <!---
-Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
+Subsection about a Main Feature: The subsection inside features and under General Specification Overview talks about some of the main features of the product, from the microprocessor's main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain an initial 2/3 line paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical specifications. Warnings and Note blocks regarding special things of the feature to take into account are also recommended.
 -->
 
 | Characteristics               | Details                  |
@@ -101,7 +101,7 @@ Subsection about a Main Feature: Subsection inside features and under General Sp
 ### Outputs
 
 <!---
-Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
+Subsection about a Main Feature: The subsection inside features and under General Specification Overview talks about some of the main features of the product, from the microprocessor's main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain an initial 2/3 line paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical specifications. Warnings and Note blocks regarding special things of the feature to take into account are also recommended it.
 -->
 
 | Characteristics                       | Details                                          |
@@ -131,7 +131,7 @@ Subsection about a Main Feature: Subsection inside features and under General Sp
 ### Communication
 
 <!---
-Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
+Subsection about a Main Feature: The subsection inside features and under General Specification Overview talks about some of the main features of the product, from the microprocessor's main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain an initial 2/3 line paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical specifications. Warnings and Note blocks regarding special things of the feature to take into account are also recommended.
 -->
 
 | Interfaces            | Type                                       | Protocols/Technologies supported                     |
@@ -145,7 +145,7 @@ Subsection about a Main Feature: Subsection inside features and under General Sp
 ### Security
 
 <!---
-Subsection about a Main Feature: Subsection inside features and under General Specification Overview to talk about some of the main features of the product, from the microprocessor main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain and initial 2/3 lines paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical especifications. Warnings and Notes blocks regarding special things of the feature to take into account are also reccomended it.
+Subsection about a Main Feature: The subsection inside features and under General Specification Overview talks about some of the main features of the product, from the microprocessor's main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain an initial 2/3 line paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical specifications. Warnings and Note blocks regarding special things of the feature to take into account are also recommended it.
 -->
 
 | Component                   | Details                                                           |
@@ -160,7 +160,7 @@ Subsection about a Main Feature: Subsection inside features and under General Sp
 ## Accessories (<included / not included>)
 
 <!---
-Accesories: This section list some of the related accesories that comes or not with the product, like USB cables, antennas or batteries. It is important to put if the accesory is included or not. Actual items only for purposes examples.
+Accessories: This section lists some of the related accessories that comes or not with the product, like USB cables, antennas or batteries. It is important to put in the accessory is included or not. Actual items only for purposes examples.
 -->
 
 - Micro UFL antenna (Included)
@@ -170,7 +170,7 @@ Accesories: This section list some of the related accesories that comes or not w
 ## Related Products
 
 <!---
-Related products: This section list some of the related products like shields or others. Ask and align with the Project Manager responsible of the product and check the sales brief. It is important to put the SKU of each item. Actual items only for example purposes.
+Related products: This section lists some of the related products like shields or others. Ask and align with the Project Manager responsible for the product and check the sales brief. It is important to put the SKU of each item. Actual items are only for example purposes.
 -->
 
 - Arduino Mega Proto Shield Rev3 (A000080)
@@ -180,14 +180,14 @@ Related products: This section list some of the related products like shields or
 ## Rating
 
 <!---
-Rating: This section is really important from the technical point of view, containing important information regarding the minimum and maximum values of this like voltage and current. The better the information is, the less support tickets the company will receive due to burn boards.
+Rating: This section is really important from the technical point of view, containing important information regarding the minimum and maximum values of this like voltage and current. The better the information is, the fewer support tickets the company will receive due to burn boards.
 -->
 
 
 ### Recommended Operating Conditions
 
 <!---
-Recommended Operating Conditions/Power Specifications: This section contains the minimum, typical and Maximum main values, normally related with voltage, current and temperature, but there can be additionally specifications depending of the product. Table for example purposes. Warnings or Notes are reccomended in case the product need it to make sure the user does not commit mistakes.
+Recommended Operating Conditions/Power Specifications: This section contains the minimum, typical and Maximum main values, normally related to voltage, current and temperature, but there can be additional specifications depending on the product. Table for example purposes. Warnings or Notes are recommended in case the product needs them to make sure the user does not commit mistakes.
 -->
 
 | Description                 | Value                     |
@@ -201,7 +201,7 @@ Recommended Operating Conditions/Power Specifications: This section contains the
 ### Power Specification
 
 <!---
-Recommended Operating Conditions/Power Specifications: This section contains the minimum, typical and Maximum main values, normally related with voltage, current and temperature, but there can be additionally specifications depending of the product. Table for example purposes. Warnings or Notes are reccomended in case the product need it to make sure the user does not commit mistakes.
+Recommended Operating Conditions/Power Specifications: This section contains the minimum, typical and Maximum main values, normally related to voltage, current and temperature, but there can be additional specifications depending on the product. Table for example purposes. Warnings or Notes are recommended in case the product needs them to make sure the user does not commit mistakes.
 -->
 
 | Property               | Min   | Typ | Max  | Unit |
@@ -214,7 +214,7 @@ Recommended Operating Conditions/Power Specifications: This section contains the
 ### Current Consumption
 
 <!---
-Current Consumption: This section contains information about the current compsunption of the product. This information is really useful but always tricky to get and can help users to understand the real estimated current compsumtion in different scenarios like sleeps modes.
+Current Consumption: This section contains information about the current consumption of the product. This information is really useful but always tricky to get and can help users understand the real estimated current consumption in different scenarios like sleep modes.
 -->
 
 | Parameter                                       | Symbol         | Min | Typ | Max | Unit |
@@ -226,7 +226,7 @@ Current Consumption: This section contains information about the current compsun
 ## Functional Overview
 
 <!---
-Functional Overview: Functional overview contains important information of the product in terms of block diagram, mechanical information, power tree and much more. Sections and text for example purposes.
+Functional Overview: The functional overview contains important information about the product in terms of the block diagram, mechanical information, power tree and much more. Sections and text for example purposes.
 -->
 
 <p style="text-align: justify;">
@@ -236,7 +236,7 @@ The core of the Portenta C33 is the R7FA6M5BH2CBG microcontroller from Renesas. 
 ### Block Diagram
 
 <!---
-Block Diagram: Functional overview contains important information of the product in terms of block diagram, mechanical information, power tree and much more. Sections and text for example purposes.
+Block Diagram: The functional overview contains important information of the product in terms of a block diagram, mechanical information, power tree and much more. Sections and text for example purposes.
 -->
 
 The block diagram with the main parts of the product can be checked in the following image:
@@ -475,12 +475,12 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 | Hexavalent Chromium (Cr6+)             | 1000                    |
 | Poly Brominated Biphenyls (PBB)        | 1000                    |
 | Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
-| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
 | Benzyl butyl phthalate (BBP)           | 1000                    |
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
 
-Exemptions : No exemptions are claimed.
+Exemptions: No exemptions are claimed.
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([https://echa.europa.eu/web/guest/candidate-list-table](https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
