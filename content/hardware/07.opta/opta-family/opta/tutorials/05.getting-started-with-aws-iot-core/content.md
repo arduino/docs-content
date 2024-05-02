@@ -1,5 +1,5 @@
 ---
-title: 'Connect Arduino OPTA to AWS IoT Core'
+title: 'Connect Arduino Opta™ to AWS IoT Core'
 description: "Learn how to connect your Opta™ device to the AWS IoT Core."
 
 difficulty: intermediate 
