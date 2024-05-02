@@ -5,14 +5,14 @@
 Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
 Arduino Opta® Digital Expansion is available in two variants:
-* Arduino Opta® Digital Expansion EMR: Electromechanical Relay outputs
-* Arduino Opta® Digital Expansion SSR: Solid State Relay outputs
+* AFX00005 - Arduino Opta® Ext D1608E: Electromechanical Relay outputs
+* AFX00006 - Arduino Opta® Ext D1608S: Solid State Relay outputs
 
 </FeatureDescription>
 
 <FeatureList>
 
-<Feature title="Connectivity" image="connection">
+<Feature title="Expandability" image="communication">
 
   Up to 5 snap-on modules managed to multiply and mix your set of I/Os with seamless detection. 
 
@@ -20,7 +20,7 @@ Arduino Opta® Digital Expansion is available in two variants:
 
 <Feature title="Industrial Temperature Range" image="temperature-sensor">
 
-  Arduino Opta® Digital Expansion has a highly reliable design operating at industrial temperature ranges (-20 °C to +50 °C) thanks to a dual-core architecture that doesn’t require any external cooling.
+  Arduino Opta® Digital Expansion has a highly reliable design operating at industrial temperature ranges (-20 °C to +50 °C).
 
 </Feature>
 
@@ -29,7 +29,7 @@ Arduino Opta® Digital Expansion is available in two variants:
   * Arduino sketch
   * IEC-61131-3:
     * Ladder (LD)
-    * Sequential Function Chart(SFC)
+    * Sequential Function Chart (SFC)
     * Function Block Diagram (FBD)
     * Structured Text (ST)
     * Instruction List (IL)
