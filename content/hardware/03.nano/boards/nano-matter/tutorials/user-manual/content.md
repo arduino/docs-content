@@ -221,13 +221,17 @@ void setup()
     delay(200);
   }
 
-  if (!Matter.isDeviceConnected()) {
-    Serial.println("Waiting for network connection...");
-  }
-  while (!Matter.isDeviceConnected()) {
+  Serial.println("Waiting for Thread network...");
+  while (!Matter.isDeviceThreadConnected()) {
     delay(200);
   }
-  Serial.println("Device connected");
+  Serial.println("Connected to Thread network");
+
+  Serial.println("Waiting for Matter device discovery...");
+  while (!matter_color_bulb.is_online()) {
+    delay(200);
+  }
+  Serial.println("Matter device is now online");
 }
 
 void loop()
@@ -235,9 +239,8 @@ void loop()
   // If the physical button state changes - update the lightbulb's on/off state
   if (button_pressed) {
     button_pressed = false;
-    // Invert the on/off state of the lightbulb
-    bool bulb_state = matter_color_bulb.get_onoff();
-    matter_color_bulb.set_onoff(!bulb_state);
+    // Toggle the on/off state of the lightbulb
+    matter_color_bulb.toggle();
   }
 
   // Get the current on/off state of the lightbulb
@@ -283,18 +286,32 @@ void update_led_color()
   }
   uint8_t r, g, b;
   matter_color_bulb.get_rgb(&r, &g, &b);
-  analogWrite(LED_R, 255 - r);
-  analogWrite(LED_G, 255 - g);
-  analogWrite(LED_B, 255 - b);
+  // If our built-in LED is active LOW, we need to invert the brightness values
+  if (LED_BUILTIN_ACTIVE == LOW) {
+    analogWrite(LED_R, 255 - r);
+    analogWrite(LED_G, 255 - g);
+    analogWrite(LED_B, 255 - b);
+  } else {
+    analogWrite(LED_R, r);
+    analogWrite(LED_G, g);
+    analogWrite(LED_B, b);
+  }
   Serial.printf("Setting bulb color to > r: %u  g: %u  b: %u\n", r, g, b);
 }
 
 // Turns the RGB LED off
 void led_off()
 {
-  analogWrite(LED_R, 255);
-  analogWrite(LED_G, 255);
-  analogWrite(LED_B, 255);
+  // If our built-in LED is active LOW, we need to invert the brightness values
+  if (LED_BUILTIN_ACTIVE == LOW) {
+    analogWrite(LED_R, 255);
+    analogWrite(LED_G, 255);
+    analogWrite(LED_B, 255);
+  } else {
+    analogWrite(LED_R, 0);
+    analogWrite(LED_G, 0);
+    analogWrite(LED_B, 0);
+  }
 }
 
 void handle_button_press()
@@ -310,10 +327,15 @@ void handle_button_press()
 
 Here is the example sketch main functions explanation:
 
-- In the `setup()` function, Matter is initialized with `Matter.begin()` alongside the initial configurations of the board to handle the different inputs and outputs. The device commissioning is verified with `Matter.isDeviceCommissioned()` to show the user the network pairing credentials if needed and the connection is confirmed with the `Matter.isDeviceConnected()` function.
-- In the `loop()` function, the RGB LED is controlled on and off with `matter_color_bulb.set_onoff(state)`, the current state is retrieved with `matter_color_bulb.get_onoff()` and the button state is read to control the LED manually.
-- In the `update_led_color()` function, the color defined in the app is retrieved using the function `matter_color_bulb.get_rgb(&r, &g, &b)` that stores the requested color code in RGB format variables.
+- In the `setup()` function, Matter is initialized with `Matter.begin()` alongside the initial configurations of the board to handle the different inputs and outputs. 
 
+- The device commissioning is verified with `Matter.isDeviceCommissioned()` to show the user the network pairing credentials if needed, and the connection is confirmed with the `Matter.isDeviceThreadConnected()` function. 
+
+- With the `matter_color_bulb.is_online()` function, we confirm that the device is online and reachable by the coordinator app.
+
+- In the `loop()` function, the RGB LED is controlled on and off with `matter_color_bulb.set_onoff(state)`, the current state is retrieved with `matter_color_bulb.get_onoff()` and the button state is read to control the LED manually.
+
+- In the `update_led_color()` function, the color defined in the app is retrieved using the function `matter_color_bulb.get_rgb(&r, &g, &b)` that stores the requested color code in RGB format variables.
 
 To upload the code to the Nano Matter, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
 
@@ -428,7 +450,7 @@ To set up Home Assistant so that it can manage Matter devices, we need first to 
 
 ![Installing the Matter Server](assets/ha-setup.png)
 
-When the Matter server is correctly installed, navigate to **Settings > Devices % Services > Add Integration** and search for **Matter**:
+When the Matter server is correctly installed, navigate to **Settings > Devices & Services > Add Integration** and search for **Matter**:
 
 ![Installing the Matter integration](assets/ha-setup-2.png)
 
@@ -542,10 +564,8 @@ The application sketch below is based on the `matter_temp_sensor` example that c
 
 MatterTemperature matter_temp_sensor;
 
-unsigned long previousMillis = 0;  // will store last time sensor was updated
-const long interval = 2000;  // interval at which to send sensor data
-
-void setup() {
+void setup()
+{
   Serial.begin(115200);
   Matter.begin();
 
@@ -565,31 +585,32 @@ void setup() {
   }
   while (!Matter.isDeviceCommissioned()) {
     delay(200);
+    decommission_handler();  // if the user button is pressed for 10 seconds
   }
 
-  if (!Matter.isDeviceConnected()) {
-    Serial.println("Waiting for network connection...");
-  }
-  while (!Matter.isDeviceConnected()) {
+  Serial.println("Waiting for Thread network...");
+  while (!Matter.isDeviceThreadConnected()) {
     delay(200);
+    decommission_handler();
   }
-  Serial.println("Device connected");
+  Serial.println("Connected to Thread network");
+
+  Serial.println("Waiting for Matter device discovery...");
+  while (!matter_temp_sensor.is_online()) {
+    delay(200);
+    decommission_handler();
+  }
+  Serial.println("Matter device is now online");
 }
 
-void loop() {
+void loop()
+{
   decommission_handler();  // if the user button is pressed for 10 seconds
 
-  float current_cpu_temp = getCPUTemp();  // reads CPU temperature
-
-  unsigned long currentMillis = millis();
-
-  if (currentMillis - previousMillis >= interval) {
-    // save the last time you updated the sensor
-    previousMillis = currentMillis;
-
-    matter_temp_sensor.set_measured_value_celsius(current_cpu_temp);
-    Serial.printf("Current CPU temperature: %.02f C\n", current_cpu_temp);
-  }
+  float current_cpu_temp = getCPUTemp();
+  matter_temp_sensor.set_measured_value_celsius(current_cpu_temp);
+  Serial.printf("Current CPU temperature: %.02f C\n", current_cpu_temp);
+  delay(2000);
 }
 
 void decommission_handler() {
@@ -802,7 +823,7 @@ In the upper menu, navigate to **Tools > Protocol stack** and select **BLE**.
 
 ![Enable "BLE" Protocol Stack](assets/ble-setup.png)
 
-For this Bluetooth® Low Energy application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > Silicon Labs >ble_blinky**:
+For this Bluetooth® Low Energy application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > Silicon Labs > ble_blinky**:
 
 ```arduino
 /*
@@ -819,6 +840,7 @@ static void set_led_on(bool state);
 void setup()
 {
   pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, LED_BUILTIN_INACTIVE);
   set_led_on(false);
   Serial.begin(115200);
   Serial.println("Silicon Labs BLE blinky example");
@@ -979,12 +1001,11 @@ static void send_button_state_notification()
  *****************************************************************************/
 static void set_led_on(bool state)
 {
-  bool state_out = state;
-  #if defined(ARDUINO_NANO_MATTER) || defined(ARDUINO_SILABS_WIOMG24_BLE) || defined(ARDUINO_SILABS_XG24DEVKIT)
-  // These boards have an inverted LED logic, state is negated to account for this
-  state_out = !state_out;
-  #endif
-  digitalWrite(LED_BUILTIN, state_out);
+  if (state) {
+    digitalWrite(LED_BUILTIN, LED_BUILTIN_ACTIVE);
+  } else {
+    digitalWrite(LED_BUILTIN, LED_BUILTIN_INACTIVE);
+  }
 }
 
 /**************************************************************************//**
@@ -1121,7 +1142,6 @@ static void ble_initialize_gatt_db()
   sc = sl_bt_gattdb_commit(gattdb_session_id);
   app_assert_status(sc);
 }
-
 ```
 Here are the main functions explanations of the example sketch:
 
