@@ -46,7 +46,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Inputs                      | 16x Digital (0-24 V) / Analog (0-24 V) inputs                  |
 | Outputs                     | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A) <br> AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
 | Degree of Protection        | IP20                                                           |
-| Certifications              | ENEC, FCC, CE, UKCA                                            |
+| Certifications              | FCC, CE, UKCA                                            |
 
 ### Inputs
 
@@ -220,7 +220,6 @@ Now that you have gone through the basics of what you can do with the device, yo
 | CE (EU)     | EN IEC 61326-1:2021<br>EN IEC 61010 (LVD)       | EN IEC 61326-1:2021<br>EN IEC 61010 (LVD)       |
 | CB (EU)     | Yes                                              | Yes                                              |
 | WEEE (EU)   | Yes                                              | Yes                                              |
-| ENEC        | Yes                                              | Yes                                              |
 | REACH (EU)  | Yes                                              | Yes                                              |
 | UKCA (UK)   | EN IEC 61326-1:2021                              | EN IEC 61326-1:2021                              |
 | FCC (US)    | Yes                                              | Yes                                              |
