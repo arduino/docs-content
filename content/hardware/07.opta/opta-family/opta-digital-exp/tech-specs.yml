@@ -2,7 +2,6 @@ Board:
   SKUs:
     Arduino Opta® Ext D1608E: AFX00005
     Arduino Opta® Ext D1608S: AFX00006
-
 Microcontroller:
   ID: Renesas R7FA4M1AB3CFM ARM® Cortex®-M4
   Cortex-M4 core: Up to 48 MHz
@@ -13,21 +12,19 @@ Input:
   Digital VIH Min: 5.9 V
   Analog Operational Range: 0-24 V
   Analog Resolution: 14 bit
-
 Relays:
-  Nº of relays: 8
-  Relay rated voltage:
-    EMR variant: 250 VAC
-    SSR variant: 24 VDC
-  Relay maximum switching voltage:
-    EMR variant: 400 VAC
-    SSR variant: 33 VDC
-  Maximum current per relay:
-    EMR variant: 6 A
-    SSR variant: 2 A
-  Maximum peak current per relay:
-    EMR variant: 10 A
-    SSR variant: 50 A
+  Arduino Opta® Ext D1608E (AFX00005):
+    Nº of relays: 8
+    Relay rated voltage: 250 VAC
+    Relay maximum switching voltage: 400 VAC
+    Maximum current per relay: 6 A
+    Maximum peak current per relay: 10 A
+  Arduino Opta® Ext D1608S (AFX00006):
+    Nº of relays: 8
+    Relay rated voltage: 24 VDC
+    Relay maximum switching voltage: 33 VDC
+    Maximum current per relay: 2 A
+    Maximum peak current per relay: 50 A
 Power:
   Input voltage: 12-24 VDC
 Dimensions:
