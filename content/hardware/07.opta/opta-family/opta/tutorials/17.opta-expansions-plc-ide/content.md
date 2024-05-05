@@ -1,5 +1,5 @@
 ---
-title: 'Opta™ Expansions usage with the PLC IDE'
+title: 'Opta™ Expansions Usage with the PLC IDE'
 difficulty: beginner
 description: "Learn how to use the Opta™ expansions to extend your solution capabilities with the Arduino® PLC IDE."
 tags:
