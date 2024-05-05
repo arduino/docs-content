@@ -56,12 +56,12 @@ where Vin is 5V, R2 is 10k ohm and R1 is the photoresistor value that ranges fro
 
 Potentiometer
 
-![](assets/circuit-pot.png)
+![](assets/schematic-pot.png)
 
 
 Photoresistor
 
-![](assets/schematic-pot.png)
+![](assets/schematic.png)
 
 ### Code
 

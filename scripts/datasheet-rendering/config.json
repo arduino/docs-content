@@ -1,5 +1,5 @@
 {
-    "datasheetFile" : "datasheet.md",
+    "datasheetFile" : ["en-datasheet.md", "datasheet.md"],
     "excludePatterns" : [".git", "template", "_unlisted"],
     "defaultSourcePath" : "../../content/hardware",
     "relativeBuildPath" : "../downloads",

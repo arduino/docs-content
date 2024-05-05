@@ -28,30 +28,61 @@ Compatible carriers with the supported device:
 # Firmware Versions
 The following section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
 
-## Latest Firmware Version: __746__
+## Latest Firmware Version: __822__
 
 The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of the integrated key new features, major bug fixes, and critical security patches to ensure the highest level of functionality and performance within the Portenta X8 system.
 
 * **New Features:**
-- Added support for the Portenta Hat Carrier
-- Added experimental support for Ditto
+- Added `libgpiod` to enhance functionality across both software images.
+- Introduced support for **EC200A-EU** in *ModemManager*, expanding compatibility.
 
 * **Enhancements:**
-- Improved bridge implementation (X8H7)
+- Enhanced *ModemManager* scripts to manage USB modem power cycles more effectively using `gpiod`.
+- Implemented the `aklite-offline` run command post-update for streamlined offline operations.
 
 * **Bug Fixes:**
-- Patched _u-boot env_ accessibility in devel images
-- Patched CAN bus protocol
+- Resolved an issue where the U-Boot environment in RAM was inadvertently modified even when `carrier_custom` was set to **1**.
 
 * **Security Updates:**
-- Security patches and updates included in the most recent release.
+- Decided against integrating SE05x support in *lmp-base* to maintain security standards.
+
+* **Additional Notes:**
+- Disabled the PCIe connector by default and removed the `sara-r4` overlay to simplify device tree configurations.
+- Downgraded CAN and (X8H7) in general to align with arduino-88.91 specifications (tag: 746-portenta-x8) due to regression issues stemming from new Linux driver/firmware updates.
 
 ***__You can access the latest version of the firmware [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__***
 
 ## Available Firmware Versions
 
 Below is a list of all available firmware versions with their release notes.
-  
+
+### OS Image 822
+
+<details>
+  <summary><strong>OS Image 822: Release arduino-88.94</strong></summary>
+
+#### New Features
+  - Added `libgpiod` to enhance functionality across both software images.
+  - Introduced support for **EC200A-EU** in *ModemManager*, expanding compatibility.
+
+#### Enhancements
+  - Enhanced *ModemManager* scripts to manage USB modem power cycles more effectively using `gpiod`.
+  - Implemented the `aklite-offline` run command post-update for streamlined offline operations.
+
+#### Bug Fixes
+  - Resolved an issue where the U-Boot environment in RAM was inadvertently modified even when `carrier_custom` was set to **1**.
+
+#### Security Updates
+  - Decided against integrating SE05x support in *lmp-base* to maintain security standards.
+
+#### Additional Notes
+  - Disabled the PCIe connector by default and removed the `sara-r4` overlay to simplify device tree configurations.
+  - Downgraded CAN and (X8H7) in general to align with arduino-88.91 specifications (tag: 746-portenta-x8) due to regression issues stemming from new Linux driver/firmware updates.
+  - Based on [LmP v88](https://foundries.io/products/releases/88/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
+
+</details>
+<br></br>
+
 ### OS Image 746
 
 <details>

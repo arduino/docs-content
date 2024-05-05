@@ -7,7 +7,7 @@ tags:
   - Cheat sheet
   - User manual
   - Opta
-author: 'José Bagur and Julián Caro Linares'
+author: 'José Bagur, Christopher Méndez and Julián Caro Linares'
 hardware:
   - hardware/07.opta/opta-family/opta
 software:
@@ -21,12 +21,14 @@ software:
 
 This user manual will provide a comprehensive overview of Opta™, covering its major hardware and software elements. With this user manual, you will learn how to set up, configure, and use all the main features of an Opta™ device. 
 
+![ ](hero-banner.png)
+
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
 
 - [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
-- USB-C® cable (x1)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - +12-24 VDC/0.5 A power supply (x1)
 
 ### Software Requirements
@@ -1194,7 +1196,7 @@ You should be able now to connect to your Opta™ using a central device. The Bl
 
 Interrupts are particularly useful when reacting instantly to an external event, such as a button press or a sensor signal. Without interrupts, you would have to constantly poll the status of a button or a sensor in the main loop of your running sketch. With interrupts, you can let your Opta's microcontroller do other tasks and only react when a desired event occurs.
 
-***Due to Opta's microcontroller interrupt structure, interrupts in terminals `I1` and `I3` cannot be used simultaneously; you need to choose just one to avoid issues with them.***
+***Due to Opta's microcontroller interrupt structure, interrupts in terminals `I1` (`A0`) and `I4` (`A4`) cannot be used simultaneously to avoid operational issues. It is important to note that, despite this limitation, any other combination of inputs can be used for interrupt detection. However, this means that, at most, seven of the eight available inputs can be used simultaneously for interrupts, as combinations containing both `I1` and `I4` are excluded from viable configurations.***
 
 Interrupts can be used through the built-in functions of the Arduino programming language. To enable interrupts in your Opta's analog/digital programmable inputs and user-programmable button:
 
@@ -1696,6 +1698,872 @@ To learn more about Opta™ and the Arduino IoT Cloud, check out the following r
 
 - [Opta™ Relay Management template](https://create.arduino.cc/iot/templates/relay-management)
 - [Using PLC IDE With Arduino® IoT Cloud](https://docs.arduino.cc/tutorials/opta/plc-ide-cloud-support)
+
+
+## Opta Digital Expansions
+
+Arduino Opta™ Digital Expansions are designed to multiply your Opta™ micro PLC capabilities with the addition of 16 programmable inputs for connecting your industrial sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
+
+The Opta™ Digital Expansions come in two variants: the D1608E (with Electromechanical Relays), and the  D1608S (with Solid State Relays).
+
+The Opta Expansions can be controlled by any Opta controller variant: Opta Lite, Opta RS485 or Opta WiFi.
+
+![Opta Expansion variants](assets/variants.png)
+
+***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step.***
+
+### Snapping the Expansion
+
+You can snap up to five expansions to your Opta™ Base module to multiply and mix your set of I/Os with seamless detection.
+
+After removing the expansion port breakable plastic cover marked as AUX, from the Opta™ controller and from the expansion to expose the expansion port, plug the expansions on the right side of your Opta™ controller making sure to correctly align the **Aux connector** and the connection clips as shown in the image below:
+
+![Snapping Opta expansions](assets/snapping.gif)
+
+### Powering Expansions
+
+The Opta™ Digital Expansions must be externally powered to work. See the power specifications in the table below:
+
+| Property                 | Min  | Typ | Max  | Unit |
+|--------------------------|------|-----|------|------|
+| Supply voltage           | 12   | -   | 24   | V    |
+| Permissible range        | 10.2 | -   | 27.6 | V    |
+| Power consumption (12 V) | -    | -   | 3    | W    |
+| Power consumption (24 V) | -    | -   | 3    | W    |
+
+In the image below there is an example of the power wiring of the expansions:
+
+![Powering the Opta Digital Expansions](assets/power-expansion.png)
+
+***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
+
+### Library Installation
+
+To use the Opta™ Digital Expansion with your Opta™ PLC, you need to install the `Arduino_Opta_Blueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
+
+![Opta expansions library installation](assets/library-install.png)
+
+Install all the **library dependencies** suggested by clicking the **Install All** button:
+
+![Library dependencies installation](assets/library-install-2.png)
+
+Once installed, you will have access to a variety of sketch examples showcasing the expansions capabilities and how to use them.
+
+#### Update Expansion Firmware
+
+With the library properly installed, we will update the expansion firmware to ensure proper functioning and seamless detection.
+
+In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > updateExpansionFw**.
+
+![Firmware update example](assets/fw-update.png)
+
+Upload the program to the Opta™ controller and open the Arduino IDE Serial Monitor.
+
+![Firmware update process](assets/fw-update-serial.png)
+
+If your expansion is updatable, in the Serial Monitor you will see its current firmware version and the new one to which it will be updated.
+
+Type `Y` in the Serial Monitor to confirm the update and wait for it to be completed.
+
+![Firmware update running](assets/fw-update-serial-2.png)
+
+Finally, your Opta™ expansion will be updated with the latest firmware version.
+
+### Programmable Inputs
+
+The Opta™ Expansions have **16 analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
+
+Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** with a 0-24 VDC range or as **analog** inputs with a 0-24 VDC range. The inputs are capable of operating with 0-10V analog sensors as well as 0-24V sensors. 
+
+***The inputs are marked on plastic as DGT/0-10 V to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V range.***
+
+![Opta Digital Expansions Inputs](assets/16-inputs-new.png)
+
+<table>
+    <thead>
+        <tr style="text-align: middle;">
+            <th width="30%">Characteristics</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;">Number of inputs</td>
+            <td>16x Digital/Analog inputs</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Inputs overvoltage protection</td>
+            <td>yes (up to 40 V)</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Reverse protection</td>
+            <td>no</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Input impedance</td>
+            <td>5.85 kΩ</td>
+        </tr>
+    </tbody>
+</table>
+
+Analog/digital input terminals are mapped as described in the following table:
+
+| **Opta Digital Expansion Terminal** | **Arduino Pin Mapping** |
+|:-----------------------------------:|:-----------------------:|
+|                 I1                  |            0            |
+|                 I2                  |            1            |
+|                 I3                  |            2            |
+|                 I4                  |            3            |
+|                 I5                  |            4            |
+|                 I6                  |            5            |
+|                 I7                  |            6            |
+|                 I8                  |            7            |
+|                 I9                  |            8            |
+|                 I10                 |            9            |
+|                 I11                 |           10            |
+|                 I12                 |           11            |
+|                 I13                 |           12            |
+|                 I14                 |           13            |
+|                 I15                 |           14            |
+|                 I16                 |           15            |
+
+#### Digital 
+
+<table>
+    <thead>
+        <tr style="text-align: middle;">
+            <th width="30%">Characteristics</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;">Digital Input voltage</td>
+            <td>0...24V</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Digital Input voltage logic level</td>
+            <td>VIL Max: 4 VDC. VHL Min: 5.9 VDC</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Digital Input current</td>
+            <td>4.12mA at 24V | 2.05mA at 10V</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Digital Input frequency</td>
+            <td>300 Hz</td>
+        </tr>
+    </tbody>
+</table>
+
+The state of an input terminal, configured as digital, can be read using the built-in function `digitalRead()` as shown below:
+
+```arduino
+PinStatus state = <ExpObject>.digitalRead(<input>);
+```
+The following example will let you read all the digital inputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_OptaBlueprint > getDigital**:
+
+```arduino
+#include "OptaBlue.h"
+
+using namespace Opta;
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+/* -------------------------------------------------------------------------- */  
+  if(t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("DIGITAL [Mechanical]");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("DIGITAL [Solid State]");
+  }
+  else if(t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("DIGITAL [!!Invalid!!]");
+  }
+  else if(t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("ANALOG");
+  }
+  else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo(uint8_t index, ExpansionType_t type, uint8_t i2c_address) {
+/* -------------------------------------------------------------------------- */
+  Serial.print("Expansion[" + String(index) + "]:");
+  Serial.print(" type ");
+  printExpansionType(type);
+  Serial.print(", I2C address: ");
+  Serial.println(i2c_address);
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {   
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+   
+ OptaController.update();
+
+  Serial.println();
+
+  for(int i = 0; i < OPTA_CONTROLLER_MAX_EXPANSION_NUM; i++) {
+    /* ask for a digital expansion 
+     * just one of these will be a valid expansion */
+    DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
+    DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
+    /* always check for the validity of the expansion */
+    if(mechExp) {
+      /* get and print information about expansion */
+      printExpansionInfo(mechExp.getIndex(), mechExp.getType(),
+      mechExp.getI2CAddress());
+      
+      /* this will update the status of all the digital input 
+       * the same can be achieved using digitalRead() function
+       * with the second parameter equal true, however in this
+       * case multiple i2c transaction are performed without
+       * reason */
+      mechExp.updateDigitalInputs();
+
+      for(int k = 0; k < OPTA_DIGITAL_IN_NUM; k++) {
+        /* this will return the pin status of the pin k */
+        PinStatus v = mechExp.digitalRead(k);
+
+        if(v == HIGH) {
+          Serial.print("HH");
+        }
+        else {
+          Serial.print("LL");
+        }
+        Serial.print(' ');
+      }
+      Serial.println();
+    }
+
+  
+    /* always check for the validity of the expansion */
+    if(stsolidExp) {
+      /* get and print information about expansion */
+        printExpansionInfo(stsolidExp.getIndex(), stsolidExp.getType(),
+        stsolidExp.getI2CAddress());
+
+      /* this will update the status of all the digital input 
+       * the same can be achieved using digitalRead() function
+       * with the second parameter equal true, however in this
+       * case multiple i2c transaction are performed without
+       * reason */
+      stsolidExp.updateDigitalInputs();
+
+      for(int k = 0; k < OPTA_DIGITAL_IN_NUM; k++) {
+        /* this will return the pin status of the pin k */
+        PinStatus v = stsolidExp.digitalRead(k);
+
+        if(v == HIGH) {
+          Serial.print("HH");
+        }
+        else {
+          Serial.print("LL");
+        }
+        Serial.print(' ');
+      }
+      Serial.println();
+    }
+  }
+  delay(1000);
+
+}
+```
+The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
+```arduino
+for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
+  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
+  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
+}
+```
+The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read state belongs to.
+
+The function `<ExpObject>.updateDigitalInputs();` updates all the inputs with their current states to prepare them to be read.
+
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input state as follows:
+
+```
+Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
+LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL 
+```
+
+![Digital Input wiring example](assets/limit-switch.gif)
+
+#### Analog 
+
+<table>
+    <thead>
+        <tr style="text-align: middle;">
+            <th width="30%">Characteristics</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;">Analog Input voltage</td>
+            <td>0...24V </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Analog Input resolution</td>
+            <td>14 bits</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Analog Input LSB value</td>
+            <td>1.733 mV</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Accuracy</td>
+            <td>+/- 5%, repeatability +/- 2%</td>
+        </tr>
+    </tbody>
+</table>
+
+The state of an input terminal, configured as analog, can be read using the built-in function `analogRead()` as shown below:
+
+```arduino
+uint16_t raw_adc = <ExpObject>.analogRead(<input>);
+```
+The following example will let you read all the analog inputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_OptaBlueprint > getAnalog**:
+
+```arduino
+#include "OptaBlue.h"
+
+using namespace Opta;
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+/* -------------------------------------------------------------------------- */  
+  if(t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("DIGITAL [Mechanical]");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("DIGITAL [Solid State]");
+  }
+  else if(t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("DIGITAL [!!Invalid!!]");
+  }
+  else if(t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("ANALOG");
+  }
+  else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo(uint8_t index, ExpansionType_t type, uint8_t i2c_address) {
+/* -------------------------------------------------------------------------- */
+  Serial.print("Expansion[" + String(index) + "]:");
+  Serial.print(" type ");
+  printExpansionType(type);
+  Serial.print(", I2C address: ");
+  Serial.println(i2c_address);
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() { 
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+}
+
+/* -------------------------------------------------------------------------- */
+void printUint16(uint16_t v) {
+/* -------------------------------------------------------------------------- */  
+  if(v < 10) {
+    Serial.print("    ");
+  }
+  else if(v < 100) {
+    Serial.print("   ");
+
+  }
+  else if(v < 1000) {
+    Serial.print("  ");
+
+  }
+  else if(v < 10000) {
+     Serial.print(" ");
+  }
+  Serial.print(v);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+ 
+ OptaController.update();
+
+  for(int i = 0; i < OPTA_CONTROLLER_MAX_EXPANSION_NUM; i++) {
+    /* ask for a digital expansion 
+     * just one of these will be a valid expansion */
+    DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
+    DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
+    /* always check for the validity of the expansion */
+    if(mechExp) {
+      /* get and print information about expansion */
+      printExpansionInfo(mechExp.getIndex(), mechExp.getType(),
+      mechExp.getI2CAddress());
+      /* get and print information about analog input status */
+      for(int k = 0; k < OPTA_DIGITAL_IN_NUM; k++) {
+        /* this will return the ad converter bits */
+        uint16_t v = mechExp.analogRead(k);
+        printUint16(v);
+        Serial.print(" ");
+        /* this will return the voltage at the pin k in Volts
+         * we pass false as the last argument since we have
+         * just read the analog value with the previous analogRead */
+        float V = mechExp.pinVoltage(k,false);
+        Serial.print("(" + String(V) + "V) ");
+      }
+      Serial.println();
+    }
+
+  
+    /* always check for the validity of the expansion */
+    if(stsolidExp) {
+      /* get and print information about expansion */
+        printExpansionInfo(stsolidExp.getIndex(), stsolidExp.getType(),
+        stsolidExp.getI2CAddress());
+
+      /* get and print information about analog input status */
+      for(int k = 0; k < OPTA_DIGITAL_IN_NUM; k++) {
+        uint16_t v = stsolidExp.analogRead(k);
+        printUint16(v);
+        Serial.print(" ");
+        /* this will return the voltage at the pin k in Volts
+         * we pass false as the last argument since we have
+         * just read the analog value with the previous analogRead */
+        float V = stsolidExp.pinVoltage(k,false);
+        Serial.print("(" + String(V) + "V) ");
+      }
+      Serial.println();
+    }
+  }
+  delay(1000);
+
+}
+```
+The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
+```arduino
+for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
+  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
+  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
+}
+```
+The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read value belongs to.
+
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input voltage as follows:
+
+```
+Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
+ 4320 (7.51V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V)     0 (0.00V) 
+```
+
+![Analog Input wiring example](assets/analog-inputs.png)
+
+### Outputs
+
+The Opta™ Expansions have **8 relay outputs** accessible through terminals pairs `1` to `8`.
+
+![Opta Digital Expansions outputs](assets/variants-emr-ssr-new.png)
+
+The **Ext D1608E (EMR)** variant features 8 electromechanical relays with the following characteristics:
+
+<table>
+    <thead>
+        <tr style="text-align: middle;">
+            <th width="30%">Characteristics</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;">Number of outputs</td>
+            <td>8x Electromechanical Relays (Normally Open - SPST)</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Max current per relay</td>
+            <td>6A</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Max peak current per relay</td>
+            <td>10A</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Continuous current per terminal</td>
+            <td>6A</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Short-circuit protection</td>
+            <td>No, external fuse required</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Relay rated voltage</td>
+            <td>250 VAC</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Relay Max voltage</td>
+            <td>400 VAC</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Rated load AC1</td>
+            <td>1500 VA</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Rated load AC15 (230 VAC)</td>
+            <td>300 VA</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Breaking capacity DC1: 24/110/220V</td>
+            <td>6/0.2/0.12A</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Minimum switching load</td>
+            <td>500mW (12V/10mA)</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Max output line length (unshielded)</td>
+            <td>100 m</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Relay response time from state 0 to state 1</td>
+            <td>5 ms for relay output</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Relay response time from state 1 to state 0</td>
+            <td>3 ms for relay output</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Bounce time NO</td>
+            <td>1 ms</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Bounce time NC</td>
+            <td>6 ms</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Relay mechanical durability</td>
+            <td>10 million cycles (DC)</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Relay electrical durability</td>
+            <td>60 thousand cycles with a resistive load (AC1)</td>
+        </tr>
+    </tbody>
+</table>
+
+The **Ext D1608S (SSR)** variant features 8 solid state relays with the following characteristics:
+
+<table>
+    <thead>
+        <tr style="text-align: middle;">
+            <th width="30%">Characteristics</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;">Number of outputs</td>
+            <td>8x Solid State Relays (Normally Open - SPST)</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Max current per relay</td>
+            <td>2A</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Max peak current per relay</td>
+            <td>50A (10 ms)</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Continuous current per terminal</td>
+            <td>2A</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Short-circuit protection</td>
+            <td>No, external fuse required</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Relay rated voltage</td>
+            <td>24 VDC</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Switching voltage range</td>
+            <td>1.5...30 VDC</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Maximum blocking voltage</td>
+            <td>33 VDC</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Rated load DC13</td>
+            <td>36 W</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Minimum switching current</td>
+            <td>1 mA</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Max "OFF-state" leakage current</td>
+            <td>0.001 mA</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Max "OFF-state" voltage drop</td>
+            <td>0.4 V</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Relay response time from state 0 to state 1</td>
+            <td>0.02 ms for relay output</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Relay response time from state 1 to state 0</td>
+            <td>0.2 ms for relay output</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Electrical life at rated load</td>
+            <td>> 10 million cycles</td>
+        </tr>
+    </tbody>
+</table>
+
+The state of an output terminal, in the Ext D1608S or Ext D1608E variant, can be set using the built-in function `digitalWrite()` as shown below:
+
+```arduino
+<ExpObject>.digitalWrite(<output>, <state>);
+```
+The following example will let you control all the relay outputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_OptaBlueprint > setDigital**:
+
+```arduino
+#include "OptaBlue.h"
+
+using namespace Opta;
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+/* -------------------------------------------------------------------------- */  
+  if(Serial) {
+    if(t == EXPANSION_NOT_VALID) {
+      Serial.print("Unknown!");
+    }
+    else if(t == EXPANSION_OPTA_DIGITAL_MEC) {
+      Serial.print("DIGITAL [Mechanical]");
+    }
+    else if(t == EXPANSION_OPTA_DIGITAL_STS) {
+      Serial.print("DIGITAL [Solid State]");
+    }
+    else if(t == EXPANSION_DIGITAL_INVALID) {
+      Serial.print("DIGITAL [!!Invalid!!]");
+    }
+    else if(t == EXPANSION_OPTA_ANALOG) {
+      Serial.print("ANALOG");
+    }
+    else {
+      Serial.print("Unknown!");
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo(uint8_t index, ExpansionType_t type, uint8_t i2c_address) {
+/* -------------------------------------------------------------------------- */
+  if(Serial) {
+    Serial.print("Expansion[" + String(index) + "]:");
+    Serial.print(" type ");
+    printExpansionType(type);
+    Serial.print(", I2C address: ");
+    Serial.println(i2c_address);
+  }
+
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+   
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  
+ OptaController.update();
+
+  static long int start_m = millis();
+  static bool st = true;
+      /* non blocking delay, this will run every 1000 ms */
+  if(millis() - start_m > 500) {
+    start_m = millis();
+
+  for(int i = 0; i < OPTA_CONTROLLER_MAX_EXPANSION_NUM; i++) {
+    /* ask for a digital expansion 
+     * just one of these will be a valid expansion */
+    DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
+    DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
+    /* always check for the validity of the expansion */
+    if(mechExp) {
+      /* get and print information about expansion */
+      printExpansionInfo(mechExp.getIndex(), mechExp.getType(),
+      mechExp.getI2CAddress());
+
+        /* this implement 2 states in the first one 
+         * pin 0 2 4 6 are turned off and pin 1 3 5 7 are turned on */
+        if(st) {
+          mechExp.digitalWrite(0,LOW);  //turn off pin 0
+          mechExp.digitalWrite(1,HIGH); //turn on pin 1
+          mechExp.digitalWrite(2,LOW);  //turn off pin 2
+          mechExp.digitalWrite(3,HIGH); //turn on pin 3
+          mechExp.digitalWrite(4,LOW);  //turn off pin 4
+          mechExp.digitalWrite(5,HIGH); //turn on pin 5
+          mechExp.digitalWrite(6,LOW);  //turn off pin 6
+          mechExp.digitalWrite(7,HIGH); //turn on pin 7
+
+          /* once all pin are set send the new status to the
+           * expansion */
+          mechExp.updateDigitalOutputs();
+
+          /* pin status can be sent to the expansion also setting the 
+           * last parameter of digitalWrite to true (default is false) 
+           * however this involves a lot of unnecessary I2C transaction */
+        }
+        else {
+        /* in the second state 
+         * pin 0 2 4 6 are turned on and pin 1 3 5 7 are turned off */
+          mechExp.digitalWrite(0,HIGH);  //turn off pin 0
+          mechExp.digitalWrite(1,LOW); //turn on pin 1
+          mechExp.digitalWrite(2,HIGH);  //turn off pin 2
+          mechExp.digitalWrite(3,LOW); //turn on pin 3
+          mechExp.digitalWrite(4,HIGH);  //turn off pin 4
+          mechExp.digitalWrite(5,LOW); //turn on pin 5
+          mechExp.digitalWrite(6,HIGH);  //turn off pin 6
+          mechExp.digitalWrite(7,LOW); //turn on pin 7
+
+          /* once all pin are set send the new status to the
+           * expansion */
+          mechExp.updateDigitalOutputs();
+
+          /* pin status can be sent to the expansion also setting the 
+           * last parameter of digitalWrite to true (default is false) 
+           * however this involves a lot of unnecessary I2C transaction */
+        }
+    }
+
+  
+    /* always check for the validity of the expansion */
+    if(stsolidExp) {
+      /* get and print information about expansion */
+        printExpansionInfo(stsolidExp.getIndex(), stsolidExp.getType(),
+        stsolidExp.getI2CAddress());
+
+        /* if present state solid expansion will use a different pattern */
+        if(st) {
+          stsolidExp.digitalWrite(0,HIGH);  
+          stsolidExp.digitalWrite(1,LOW);
+          stsolidExp.digitalWrite(2,LOW); 
+          stsolidExp.digitalWrite(3,HIGH);
+          stsolidExp.digitalWrite(4,HIGH);
+          stsolidExp.digitalWrite(5,LOW);
+          stsolidExp.digitalWrite(6,LOW); 
+          stsolidExp.digitalWrite(7,HIGH);
+
+          /* once all pin are set send the new status to the
+           * expansion */
+          stsolidExp.updateDigitalOutputs();
+
+          /* pin status can be sent to the expansion also setting the 
+           * last parameter of digitalWrite to true (default is false) 
+           * however this involves a lot of unnecessary I2C transaction */
+        }
+        else {
+        /* in the second state 
+         * pin 0 2 4 6 are turned on and pin 1 3 5 7 are turned off */
+          stsolidExp.digitalWrite(0,LOW); 
+          stsolidExp.digitalWrite(1,HIGH);
+          stsolidExp.digitalWrite(2,HIGH); 
+          stsolidExp.digitalWrite(3,LOW); 
+          stsolidExp.digitalWrite(4,LOW); 
+          stsolidExp.digitalWrite(5,HIGH); 
+          stsolidExp.digitalWrite(6,HIGH); 
+          stsolidExp.digitalWrite(7,LOW);
+
+          /* once all pin are set send the new status to the
+           * expansion */
+          stsolidExp.updateDigitalOutputs();
+        }
+    } // if(stsolidExp[i]) {
+  }
+  if(st) {
+    st = false;
+  }
+  else {
+    st = true;
+  }
+ }
+}
+```
+The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
+```arduino
+for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
+  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
+  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
+}
+```
+The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion is going to be controlled.
+
+First, the desired relay states need to be defined with the `digitalWrite()` function, then with the `<ExpObject>.updateDigitalOutputs()` the states are sent to the expansion to control the relays with the defined states.
+
+After the Opta™ controller is programmed with the example sketch, the relays of your expansions will be controlled as follows:
+
+![Opta Digital Expansion outputs control demo](assets/outputs-animation.gif)
+
+Here is an example of how to connect an AC load to the Opta Digital Ext D1608E (EMR):
+
+![EMR expansion wiring example](assets/emr-output.png)
+
+Here is an example of how to connect a DC load to the Opta Digital Ext D1608S (SSR):
+
+![SSR expansion wiring example](assets/ssr-output.png)
+
+You can buy and find more information about the Opta™ Digital Expansions on the links below:
+
+- [Opta™ Digital Expansion Product Page](https://docs.arduino.cc/hardware/opta-digital-ext)
+- [Buy the Opta™ Digital Ext D1608E (EMR)](https://store.arduino.cc/products/Opta-Ext-D1608E)
+- [Buy the Opta™ Digital Ext D1608S (SSR)](https://store.arduino.cc/products/Opta-Ext-D1608S)
 
 ## Support
 

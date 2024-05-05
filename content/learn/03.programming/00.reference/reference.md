@@ -371,7 +371,7 @@ Compact version of the [Arduino Language Reference](https://www.arduino.cc/refer
 | `<< (bitshift left)`  | Shifts bits to the left.                       |
 | `>> (bitshift right)` | Shifts bits to the right.                      |
 | `^ (bitwise xor)`     | Performs bitwise XOR (exclusive OR) operation. |
-| `(bitwise or)`        | Performs bitwise OR operation.                 |
+| `\| (bitwise or)`     | Performs bitwise OR operation.                 |
 | `~ (bitwise not)`     | Inverts all bits.                              |
 
 
@@ -388,5 +388,5 @@ Compact version of the [Arduino Language Reference](https://www.arduino.cc/refer
 | `-= (compound subtraction)`    | Subtracts the right operand from the left operand and assigns the result to the left operand. |
 | `/= (compound division)`       | Divides the left operand by the right operand and assigns the result to the left operand.     |
 | `^= (compound bitwise xor)`    | Performs a bitwise XOR operation and assigns the result to the left operand.                  |
-| `= (compound bitwise or)`      | Performs a bitwise OR operation and assigns the result to the left operand.                   |
+| `\|= (compound bitwise or)`    | Performs a bitwise OR operation and assigns the result to the left operand.                   |
 

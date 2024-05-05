@@ -4,7 +4,7 @@ inputs:
   upload-dir:
     description: "The name of the app to build and export"
     required: true
-  
+
   project-name:
     description: "The name of the project to upload to"
     required: true
@@ -66,7 +66,7 @@ runs:
           ### ${{ inputs.project-name }}
           🚀 Preview this PR: ${{ steps.deploy-cloudflare.outputs.url }}
           📍 Commit SHA: ${{ github.sha }}
-          
+
 
     - name: Update PR Preview Comment
       if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id != 0
