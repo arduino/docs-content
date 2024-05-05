@@ -7,7 +7,7 @@ primary_button_title: Get Started
 secondary_button_url: /tutorials/portenta-vision-shield/things-network-openmv
 secondary_button_title: TTN OpenMV Guide
 core: arduino:mbed_portenta
-certifications: [CE, REACH, RoHS, WEEE, UKCA, FCC, RCM]
+certifications: [CE, RoHS, UKCA, FCC, RCM]
 sku: [ASX00021, ASX00026]
 ---
 

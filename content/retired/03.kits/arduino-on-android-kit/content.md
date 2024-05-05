@@ -1,6 +1,7 @@
 ---
 title: "Arduino On Android Kit"
 source: "https://arduino.cc/en/Main/ArduinoOnAndroidKit"
+sku: [K000008]
 ---
 
 Use your **Arduino MEGA ADK (usb cable included)** to connect an Android device. Mount all your experiments on the **breadboard** and join your components using your **wire kit**. Build visual indicators using some of the **40 LEDs** in the kit; you have them in **4 different colors**. 
