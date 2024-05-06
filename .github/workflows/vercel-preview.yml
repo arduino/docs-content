@@ -7,6 +7,10 @@ on:
   pull_request:
     types: [opened, synchronize]
 
+concurrency:
+  group: vercel
+  cancel-in-progress: false
+
 jobs:
   run:
     runs-on: ubuntu-latest
