@@ -4,34 +4,32 @@ Board:
 Microprocessor: MGM240SD22VNA 32-bit Arm® Cortex®-M33 with DSP instruction and FPU
 Clock speed: 78 MHz
 USB connector: USB-C®
-Pins:
-  Digital I/O Pins: 14
-  Analog input pins: 8
-  PWM pins: 5
-  UART pins: 2
-  I2C pins: 4
-  SPI pins: 7
-Connectivity:
-  Matter: Matter-ready Smart Home Connectivity
-  LR-WPANs: IEEE 802.15.4 w/ Thread
-  Bluetooth®: Bluetooth® 5.3 & Bluetooth® Mesh
-Additional Compatible Protocols: OpenThread
-Connectivity Band Frequency: On-board 2.4 GHz
-Secure element: Secure Vault
-Analog-to-digital converter (ADC):
-  Channels: 8
-  Resolution: 16 bits
-Digital-to-analog converter (DAC):
-  Channels: 4
-  Resolution: 12 bits 
-Pulse Width Modulation (PWM):
-  Channels: 5
-  Maximum simultaneously operational channel: 5
-External Interrupts: Available within all Digital pins
+Pin Availability:
+  Digital I/O pins: 22
+  Analog input pins: 19
+  PWM pins: 22
 Communication:
   UART: 1
   I2C: 2
   SPI: 2
+Connectivity:
+  Matter: Matter-ready Smart Home Connectivity
+  LR-WPANs: IEEE 802.15.4 w/ Thread
+  Bluetooth®: Bluetooth® Low Energy 5.3 & Bluetooth® Mesh
+Additional Compatible Protocols: OpenThread
+Connectivity Band Frequency: On-board 2.4 GHz
+Secure element: Secure Vault
+Analog-to-digital converter (ADC):
+  Pins: 19
+  Resolution: 12 bits
+Digital-to-analog converter (DAC):
+  Channels: 2
+  Pins: 4
+  Resolution: 12 bits 
+Pulse Width Modulation (PWM):
+  Pins: 22 (All Digital pins)
+  Maximum simultaneously operational channel: 5
+External Interrupts: Available within all Digital pins
 Power:
   Circuit operating voltage: 3.3 V
   Input voltage (VIN): 5 V
