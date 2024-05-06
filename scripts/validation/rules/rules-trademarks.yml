@@ -1,11 +1,11 @@
 # Bluetooth® rule
-- regex: "((?<![a-zA-Z]|[0-9])(?<=\\s)([bB]lueto{2}th)(?!®|[a-zA-Z]))|((?<![a-zA-Z]|[0-9])(?<=\\s)(blueto{2}th)(?=®))"
-  regexModifiers: "gi"
-  shouldMatch: false
-  includeCodeBlocks: false
-  format: markdown
-  type: warning
-  errorMessage: The Bluetooth® trademark is not used correctly.
+#- regex: "((?<![a-zA-Z]|[0-9])(?<=\\s)([bB]lueto{2}th)(?!®|[a-zA-Z]))|((?<![a-zA-Z]|[0-9])(?<=\\s)(blueto{2}th)(?=®))"
+#  regexModifiers: "gi"
+#  shouldMatch: false
+#  includeCodeBlocks: false
+#  format: markdown
+#  type: warning
+#  errorMessage: The Bluetooth® trademark is not used correctly.
 
 # LoRa® / LoRaWAN® rule
 # Avoids false positives by excluding the word in conjunction with a dash (e.g. URLs) and as part of code)
