@@ -1704,9 +1704,12 @@ To learn more about Opta™ and the Arduino IoT Cloud, check out the following r
 
 Arduino Opta™ Digital Expansions are designed to multiply your Opta™ micro PLC capabilities with the addition of 16 programmable inputs for connecting your industrial sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
-The Opta™ Digital Expansions come in two variants: the D1608E (with Electromechanical Relays), and the  D1608S (with Solid State Relays).
+The Opta™ Digital Expansions come in two variants: 
 
-The Opta Expansions can be controlled by any Opta controller variant: Opta Lite, Opta RS485 or Opta WiFi.
+* [The Arduino Opta® Ext D1608E (AFX00005)](https://store.arduino.cc/products/opta-ext-d1608e) with Electromechanical Relays.
+* [The Arduino Opta® Ext D1608S (AFX00006)](https://store.arduino.cc/products/opta-ext-d1608s) with Solid State Relays.
+
+The Opta Expansions can be controlled by any Opta controller variant: [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485) or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi).
 
 ![Opta Expansion variants](assets/variants.png)
 
