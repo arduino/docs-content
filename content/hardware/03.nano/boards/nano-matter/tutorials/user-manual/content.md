@@ -476,11 +476,15 @@ You can use the Home Assistant web view or mobile app to control your device.
 
 If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
 
+***We tested the Matter integration with the Home Assistant OS and hosting Home Assistant in Docker containers.***
+
 #### Home Assistant Tips
 
-- Make sure you are using a **64-bit** Home Assistant OS version.
+- Make sure you are using a **64-bit** Home Assistant version (OS or Docker containerized version).
 - Use the **Thread®** add-on to verify your available Thread® networks.
 - You can just have a Matter device commissioned to one platform at a time.
+
+***Be aware that the Matter integration for Home Assistant is still in BETA, it can receive major updates and its functionality may vary between different vendors.***
 
 ### Device Decommissioning 
 
@@ -666,6 +670,8 @@ Now it is time to commission the Nano Matter with Home Assistant, for this, foll
 Once you have everything set up and running you will be able to monitor the Nano Matter temperature in Home Assistant:
 
 ![Nano Matter Temperature in Home Assistant](assets/home-assistant-temp.png)
+
+***Be aware that the Matter integration for Home Assistant is still in BETA, it can receive major updates and its functionality may vary between different vendors.***
 
 ### Arduino Cloud Set-Up
 
