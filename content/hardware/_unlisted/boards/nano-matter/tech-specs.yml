@@ -8,9 +8,9 @@ Pins:
   Digital I/O Pins: 14
   Analog input pins: 8
   PWM pins: 5
-  UART pins: 4
-  I2C pins: 2
-  SPI pins: 4
+  UART pins: 2
+  I2C pins: 4
+  SPI pins: 7
 Connectivity:
   Matter: Matter-ready Smart Home Connectivity
   LR-WPANs: IEEE 802.15.4 w/ Thread
@@ -22,7 +22,7 @@ Analog-to-digital converter (ADC):
   Channels: 8
   Resolution: 16 bits
 Digital-to-analog converter (DAC):
-  Channels: 1
+  Channels: 4
   Resolution: 12 bits 
 Pulse Width Modulation (PWM):
   Channels: 5
@@ -30,8 +30,8 @@ Pulse Width Modulation (PWM):
 External Interrupts: Available within all Digital pins
 Communication:
   UART: 1
-  I2C: 1
-  SPI: 1
+  I2C: 2
+  SPI: 2
 Power:
   Circuit operating voltage: 3.3 V
   Input voltage (VIN): 5 V
