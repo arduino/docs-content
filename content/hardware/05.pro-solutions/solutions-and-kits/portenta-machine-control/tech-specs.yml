@@ -4,7 +4,7 @@ Board:
 Microcontroller: Portenta H7
 Input:
   Encoder readings channels: 2
-  Analog for PT100/PT1000/J/K temperature probes: 3
+  Analog for PT100/J/K temperature probes: 3
   Analog inputs: 3
 Output:
   Analog 0-10V: 4
