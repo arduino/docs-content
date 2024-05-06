@@ -19,11 +19,11 @@ Industrial IoT, Building automation, Electrical loads management, Industrial aut
 ## Product Variants
 There are two variants of the Arduino Opta® Digital Expansion created to fit the different needs of each industry and application. The difference between each of the variants can be found in the following table:
 
-| Name                        | Arduino Opta® Ext D1608E                            | Arduino Opta® Ext D1608S                            |
-|-----------------------------|------------------------------------------------------|------------------------------------------------------|
-| SKU                         | AFX00005                                             | AFX00006                                             |
-| Inputs                      | 16 x programmable <br>(0-24 V digital | 0-24 V analog) | 16 x programmable <br>(0-24 V digital | 0-24 V analog) |
-| Outputs                     | 8 x Electromechanical Relays <br>(250 VAC - 6 A)    | 8 x Solid State Relays <br>(24 VDC - 2 A)           |
+| Name    | Arduino Opta® Ext D1608E                           | Arduino Opta® Ext D1608S                           |
+| ------- | -------------------------------------------------- | -------------------------------------------------- |
+| SKU     | AFX00005                                           | AFX00006                                           |
+| Inputs  | 16 x programmable (0-24 V digital / 0-24 V analog) | 16 x programmable (0-24 V digital / 0-24 V analog) |
+| Outputs | 8 x Electromechanical Relays (250 VAC - 6 A)       | 8 x Solid State Relays (24 VDC - 2 A)              |
 
 
 ## Application Examples
@@ -38,24 +38,24 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 ## Features
 ### General Specifications Overview
 
-| Characteristics             | Details                                                        |
-|-----------------------------|----------------------------------------------------------------|
-| Supply Voltage              | 12...24 V                                                      |
-| Antipolarity protection     | Yes                                                            |
-| Overvoltage protection      | Yes (+20%)                                                     |
-| Inputs                      | 16x Digital (0-24 V) / Analog (0-24 V) inputs                  |
-| Outputs                     | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A) <br> AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
-| Degree of Protection        | IP20                                                           |
-| Certifications              | FCC, CE, UKCA                                            |
+| Characteristics         | Details                                                                                               |
+| ----------------------- | ----------------------------------------------------------------------------------------------------- |
+| Supply Voltage          | 12...24 V                                                                                             |
+| Antipolarity protection | Yes                                                                                                   |
+| Overvoltage protection  | Yes (+20%)                                                                                            |
+| Inputs                  | 16x Digital (0-24 V) / Analog (0-24 V) inputs                                                         |
+| Outputs                 | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
+| Degree of Protection    | IP20                                                                                                  |
+| Certifications          | FCC, CE, UKCA                                                                                         |
 
 ### Inputs
 
-| Characteristics                    | Details               |
-|------------------------------------|-----------------------|
-| Number of inputs                   | 16x Digital/Analog inputs |
-| Inputs overvoltage protection      | Yes (Up to 40 V)     |
-| Antipolarity protection            | No                    |
-| Input impedance                    | 5.85 kΩ              |
+| Characteristics               | Details                   |
+| ----------------------------- | ------------------------- |
+| Number of inputs              | 16x Digital/Analog inputs |
+| Inputs overvoltage protection | Yes (Up to 40 V)          |
+| Antipolarity protection       | No                        |
+| Input impedance               | 5.85 kΩ                   |
 
 
 #### Analog Inputs
@@ -68,75 +68,75 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 
 #### Digital Inputs
-| Characteristics                     | Details                              |
-|-------------------------------------|--------------------------------------|
-| Digital Input voltage               | 0...24 V                             |
-| Digital Input voltage logic level   | VIL Max: 4 VDC. VHL Min: 5.9 VDC    |
-| Digital Input current               | 4.12 mA at 24 V, 2.05 mA at 10 V    |
-| Digital Input frequency             | 300 Hz                               |
+| Characteristics                   | Details                          |
+| --------------------------------- | -------------------------------- |
+| Digital Input voltage             | 0...24 V                         |
+| Digital Input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC |
+| Digital Input current             | 4.12 mA at 24 V, 2.05 mA at 10 V |
+| Digital Input frequency           | 300 Hz                           |
 
 
 ### Outputs (AFX00005 Only)
 
-| Characteristics                              | Details                                |
-|----------------------------------------------|----------------------------------------|
-| Number of outputs                            | 8x Electromechanical Relays (NO - SPST)|
-| Max current per relay                        | 6 A                                    |
-| Max peak current per relay                   | 10 A                                   |
-| Continuous current per terminal              | 6 A                                    |
-| Short-circuit protection                     | No, external fuse required             |
-| Relay rated voltage                         | 250 VAC                                |
-| Relay Max voltage                           | 400 VAC                                |
-| Rated load AC1                              | 1500 VA                                |
-| Rated load AC15 (230 VAC)                   | 300 VA                                 |
-| Breaking capacity DC1: 24/110/220 V         | 6/0.2/0.12 A                           |
-| Minimum switching load                      | 500 mW (12 V/10 mA)                    |
-| Max output line length (unshielded)         | 100 m                                  |
-| Relay response time from state 0 to state 1 | 5 ms for relay output                   |
-| Relay response time from state 1 to state 0 | 3 ms for relay output                   |
-| Bounce time NO                              | 1 ms                                   |
-| Bounce time NC                              | 6 ms                                   |
-| Relay mechanical durability                 | 10 million cycles (DC)                 |
-| Relay electrical durability                 | 60 thousand cycles with a resistive load (AC1)|
+| Characteristics                             | Details                                        |
+| ------------------------------------------- | ---------------------------------------------- |
+| Number of outputs                           | 8x Electromechanical Relays (NO - SPST)        |
+| Max current per relay                       | 6 A                                            |
+| Max peak current per relay                  | 10 A                                           |
+| Continuous current per terminal             | 6 A                                            |
+| Short-circuit protection                    | No, external fuse required                     |
+| Relay rated voltage                         | 250 VAC                                        |
+| Relay Max voltage                           | 400 VAC                                        |
+| Rated load AC1                              | 1500 VA                                        |
+| Rated load AC15 (230 VAC)                   | 300 VA                                         |
+| Breaking capacity DC1: 24/110/220 V         | 6/0.2/0.12 A                                   |
+| Minimum switching load                      | 500 mW (12 V/10 mA)                            |
+| Max output line length (unshielded)         | 100 m                                          |
+| Relay response time from state 0 to state 1 | 5 ms for relay output                          |
+| Relay response time from state 1 to state 0 | 3 ms for relay output                          |
+| Bounce time NO                              | 1 ms                                           |
+| Bounce time NC                              | 6 ms                                           |
+| Relay mechanical durability                 | 10 million cycles (DC)                         |
+| Relay electrical durability                 | 60 thousand cycles with a resistive load (AC1) |
 
 
 ### Outputs (AFX00006 Only)
 
-| Characteristics                            | Details                           |
-|--------------------------------------------|-----------------------------------|
-| Number of outputs                          | 8x Solid State Relays (NO - SPST)|
-| Max current per relay                      | 2 A                               |
-| Max peak current per relay                 | 50 A (10 ms)                      |
-| Continuous current per terminal            | 2 A                               |
-| Short-circuit protection                   | No, external fuse required       |
-| Relay rated voltage                        | 24 VDC                            |
-| Switching voltage range                    | 1.5...30 VDC                      |
-| Maximum blocking voltage                   | 33 VDC                            |
-| Rated load DC13                            | 36 W                              |
-| Minimum switching current                  | 1 mA                              |
-| Max "OFF-state" leakage current            | 0.001 mA                          |
-| Max "OFF-state" voltage drop               | 0.4 V                             |
-| Relay response time from state 0 to state 1| 0.02 ms for relay output          |
-| Relay response time from state 1 to state 0| 0.2 ms for relay output           |
-| Electrical life at rated load              | > 10 million cycles               |
+| Characteristics                             | Details                           |
+| ------------------------------------------- | --------------------------------- |
+| Number of outputs                           | 8x Solid State Relays (NO - SPST) |
+| Max current per relay                       | 2 A                               |
+| Max peak current per relay                  | 50 A (10 ms)                      |
+| Continuous current per terminal             | 2 A                               |
+| Short-circuit protection                    | No, external fuse required        |
+| Relay rated voltage                         | 24 VDC                            |
+| Switching voltage range                     | 1.5...30 VDC                      |
+| Maximum blocking voltage                    | 33 VDC                            |
+| Rated load DC13                             | 36 W                              |
+| Minimum switching current                   | 1 mA                              |
+| Max "OFF-state" leakage current             | 0.001 mA                          |
+| Max "OFF-state" voltage drop                | 0.4 V                             |
+| Relay response time from state 0 to state 1 | 0.02 ms for relay output          |
+| Relay response time from state 1 to state 0 | 0.2 ms for relay output           |
+| Electrical life at rated load               | > 10 million cycles               |
 
 ## Ratings
 ### Recommended Operating Conditions
 
-| Description                                       | Value                     |
-|---------------------------------------------------|---------------------------|
-| Temperature Operating Range                       | -20...50 °C                |
-| Protection degree rating                          | IP20                      |
-| Pollution degree                                  | 2 conforming to IEC 61010 |
+| Description                 | Value                     |
+| --------------------------- | ------------------------- |
+| Temperature Operating Range | -20...50 °C               |
+| Protection degree rating    | IP20                      |
+| Pollution degree            | 2 conforming to IEC 61010 |
 
 ### Power Specification (Ambient Temperature)
 
 | Property                | Min  | Typ | Max  | Unit |
-|-------------------------|------|-----|------|------|
+| ----------------------- | ---- | --- | ---- | ---- |
 | Supply voltage          | 12   | -   | 24   | V    |
 | Permissible range       | 10.2 | -   | 27.6 | V    |
-| Power consumption (12V) | -    | -   | 3    | W   |
-| Power consumption (24V) | -    | -   | 3    | W   |
+| Power consumption (12V) | -    | -   | 3    | W    |
+| Power consumption (24V) | -    | -   | 3    | W    |
 
 ## Functional Overview
 
@@ -144,14 +144,14 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 ![Arduino Opta® Expansion EMR and SSR variants](assets/AFX0005-6-new.png)
 
-| Item | Feature                                                                          |
-|------|----------------------------------------------------------------------------------|
-| 3a   | Power Supply Terminals 12...24 VDC                                               |
-| 3b   | I1...I16 digital/analog input terminals (0-24 V) configurable via IDE            |
-| 3c   | Power Status LED                                                                 |
-| 3d   | Relay Output Terminals 1...8, NO contact (SPST), EMR 6 A 250 VAC - SSR 2 A 24 VDC|
-| 3e   | Status LEDs 1...8                                            |
-| 3f   | Port for communication and connection of auxiliary modules                       |
+| Item | Feature                                                                           |
+| ---- | --------------------------------------------------------------------------------- |
+| 3a   | Power Supply Terminals 12...24 VDC                                                |
+| 3b   | I1...I16 digital/analog input terminals (0-24 V) configurable via IDE             |
+| 3c   | Power Status LED                                                                  |
+| 3d   | Relay Output Terminals 1...8, NO contact (SPST), EMR 6 A 250 VAC - SSR 2 A 24 VDC |
+| 3e   | Status LEDs 1...8                                                                 |
+| 3f   | Port for communication and connection of auxiliary modules                        |
 
 
 ### Block Diagram
@@ -215,15 +215,15 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 ### Certifications Summary
 
-| Cert        | Arduino Opta® Digital Expansion EMR (AFX00005) | Arduino Opta® Digital Expansion SSR (AFX00006) |
-|-------------|--------------------------------------------------|--------------------------------------------------|
-| CE (EU)     | EN IEC 61326-1:2021<br>EN IEC 61010 (LVD)       | EN IEC 61326-1:2021<br>EN IEC 61010 (LVD)       |
-| CB (EU)     | Yes                                              | Yes                                              |
-| WEEE (EU)   | Yes                                              | Yes                                              |
-| REACH (EU)  | Yes                                              | Yes                                              |
-| UKCA (UK)   | EN IEC 61326-1:2021                              | EN IEC 61326-1:2021                              |
-| FCC (US)    | Yes                                              | Yes                                              |
-| cULus       | UL 61010-2-201                                    | UL 61010-2-201                                    |
+| Cert       | Arduino Opta® Digital Expansion EMR (AFX00005) | Arduino Opta® Digital Expansion SSR (AFX00006) |
+| ---------- | ---------------------------------------------- | ---------------------------------------------- |
+| CE (EU)    | EN IEC 61326-1:2021, EN IEC 61010 (LVD)        | EN IEC 61326-1:2021, EN IEC 61010 (LVD)        |
+| CB (EU)    | Yes                                            | Yes                                            |
+| WEEE (EU)  | Yes                                            | Yes                                            |
+| REACH (EU) | Yes                                            | Yes                                            |
+| UKCA (UK)  | EN IEC 61326-1:2021                            | EN IEC 61326-1:2021                            |
+| FCC (US)   | Yes                                            | Yes                                            |
+| cULus      | UL 61010-2-201                                 | UL 61010-2-201                                 |
 
 
 ### Declaration of Conformity CE DoC (EU)
@@ -266,8 +266,8 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 ## Company Information
 
-| Company name    | Arduino S.r.l                                     |
-|-----------------|-------------------------------------------------|
+| Company name    | Arduino S.r.l                                   |
+| --------------- | ----------------------------------------------- |
 | Company Address | Via Andrea Appiani, 25 - 20900 MONZA （ Italy ) |
 
 
