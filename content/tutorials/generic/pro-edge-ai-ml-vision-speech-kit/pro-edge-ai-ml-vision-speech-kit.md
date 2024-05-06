@@ -47,6 +47,8 @@ Additionally you may need the following accessories:
 * USB-C® cable (x1)
 * 3.7 V Li-Po battery to externally power the Nicla Vision
 
+***The __AKX00058 Edge AI/ML: Vision and Speech Kit__ can be purchased from __Avnet__. For more details, please visit [the store page](https://www.avnet.com/shop/us/products/arduino/akx00058-3074457345653947779).***
+
 ## Getting Started with Your Kit
 
 1. Get to [https://cloud.arduino.cc/](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started with Arduino Cloud For Business](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business)!
