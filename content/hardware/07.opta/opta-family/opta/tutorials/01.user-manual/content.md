@@ -1987,7 +1987,17 @@ void loop() {
 
 }
 ```
+Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
+
+Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
+
+`OptaController.update()` function DOES NOT:
+* Check if an expansion has been removed and remove their objects
+* Update any data from or to the expansion
+
+
 The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
 
 ```arduino
 for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
