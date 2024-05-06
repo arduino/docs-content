@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-The **Arduino Nano 33 BLE Rev2**\* is a miniature-sized module containing a NINA B306 module, based on Nordic nRF52480 and containing an Arm® Cortex®-M4F. The BMI270 and BMM150 jointly provide a 9-axis IMU. The module can either be mounted as a DIP component (when mounting pin headers) or as a SMT component, directly soldering it via the castellated pads.
+The **Arduino® Nano 33 BLE Rev2**\* is a miniature-sized module containing a NINA B306 module, based on Nordic nRF52480 and containing an Arm® Cortex®-M4F. The BMI270 and BMM150 jointly provide a 9-axis IMU. The module can either be mounted as a DIP component (when mounting pin headers) or as a SMT component, directly soldering it via the castellated pads.
 
 \*Nano 33 BLE Rev2 product has two SKUs:
 
@@ -24,7 +24,7 @@ Maker, enhancements, IoT application
 - **NINA B306 Module**
   - **Processor**
     - 64 MHz Arm® Cortex®-M4F (with FPU)
-    - 1 MB Flash + 256 KB RAM
+    - 1 MB Flash + 256 kB RAM
   - **Bluetooth® 5 multiprotocol radio**
     - 2 Mbps
     - CSA #2
@@ -37,7 +37,7 @@ Maker, enhancements, IoT application
     - Integrated balun with 50 Ω single-ended output
     - IEEE 802.15.4 radio support
     - Thread
-    - Zigbee
+    - Zigbee®
   - **Peripherals**
     - Full-speed 12 Mbps USB
     - NFC-A tag
@@ -136,23 +136,23 @@ The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pi
 
 If you want to program your Nano 33 BLE Rev2 while offline you need to install the Arduino Desktop IDE [1] To connect the Nano 33 BLE Rev2 to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [2], by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
+### Getting Started - Arduino Cloud
 
-All Arduino IoT-enabled products are supported on Arduino IoT Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino IoT-enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
 
-Sample sketches for the Nano 33 BLE Rev2 can be found either in the “Examples” menu in the Arduino IDE or in the “Built-in Examples” section of the Arduino Docs website.
+Sample sketches for the Nano 33 BLE Sense can be found either in the “Examples” menu in the Arduino IDE or in the “Built-in Examples” section of the Arduino Docs website.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub, the Arduino Library Reference and the online store where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub [4], the Arduino Library Reference [5] and the online store where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 
@@ -316,18 +316,20 @@ Hereby, Arduino S.r.l. declares that this product complies with essential requir
 
 ## Reference Documentation
 
-| Reference                 | **Link**                                                                                              |
-| ------------------------- | ----------------------------------------------------------------------------------------------------- | --- |
-| Arduino IDE (Desktop)     | <https://www.arduino.cc/en/software>                                                                  |
-| Arduino IDE (Cloud)       | <https://create.arduino.cc/editor>                                                                    |
-| Cloud IDE Getting Started | <https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a> |
-| Forum                     | <http://forum.arduino.cc/>                                                                            |
-| Nina B306                 | <https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf>                   |     |
-| ProjectHub                | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                            |
-| Library Reference         | <https://www.arduino.cc/reference/en/>                                                                |
+| Reference                              | **Link**                                                                                            |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/software                                                                  |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                                                    |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                                                |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
+| Library Reference                      | https://www.arduino.cc/reference/en/                                                                |
+| Forum                                  | http://forum.arduino.cc/                                                                            |
+| Nina B306                              | https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf                   |
+
 
 ## Revision History
 
-| **Date**   | **Changes**   |
-| ---------- | ------------- |
-| 2024/02/21 | First Release |
+| **Date**   | **Changes**                      |
+| ---------- | -------------------------------- |
+| 25/04/2024 | Updated link to new Cloud Editor |
+| 2024/02/21 | First Release                    |
