@@ -7,7 +7,7 @@ type: maker
 ![](assets/featured.jpg)
 
 # Description 
-The MKR IoT Carrier provides infinite possibilities for IoT projects. 
+The Arduino® MKR IoT Carrier provides infinite possibilities for IoT projects. 
 
 The integrated sensors, circuits and display leave you free to focus on programming and prototyping your ideas. 
 
@@ -43,7 +43,7 @@ IoT applications, MKR hobbyists
     * Low power consumption (2μA @ 1 Hz sampling rate)
 
 * **Broadcom APDS-9660 RGB and Gesture Sensor**
-    * Ambient light and RGB Colour Sensing
+    * Ambient light and RGB Color Sensing
     * Proximity Sensing
     * Gesture Detection
     * UV/IR Blocking Filter
@@ -74,7 +74,7 @@ IoT applications, MKR hobbyists
 
 * **Power**
     * Li-ion 18650 3.7 v battery holder
-    * USB Battery charging via MKR Board (Runs up to 48h with a 3.7v 2500mAh)
+    * USB Battery charging via MKR board (Runs up to 48h with a 3.7v 2500mAh)
 
 * **I/O**
     * All sensors feature wake up function
@@ -91,11 +91,11 @@ IoT applications, MKR hobbyists
 
 ### Application Examples
 
-**Light controller:** Control your house lightning with the MKR IoT Carrier, using the RGB light sensor. This feature identifies the general amount of light in a room or environment and adapts. If the board is connected to Wi-Fi,  you can manage and control your device remotely on a smartphone via the IoT Cloud.
+**Light controller:** Control your house lightning with the MKR IoT Carrier, using the RGB light sensor. This feature identifies the general amount of light in a room or environment and adapts. If the board is connected to Wi-Fi®, you can manage and control your device remotely on a smartphone via the Arduino Cloud.
 
-**Light and water controller for greenhouse:** With moisture sensor, pressure sensor and temperature the IoT Carrier can evaluate and recognize the moisture of the soil, depending on air humidity and sun. Through the various sensors, it can reconstruate suitable climate (e.g. tropical) with the help of heaters and relays to increase the humidity. It can also be programmed with a watering system thanks to the relays. 
+**Light and water controller for greenhouse:** With moisture sensor, pressure sensor and temperature the MKR IoT Carrier can evaluate and recognize the moisture of the soil, depending on air humidity and sun. Through the various sensors, it can reconstruate suitable climate (e.g. tropical) with the help of heaters and relays to increase the humidity. It can also be programmed with a watering system thanks to the relays. 
 
-**Weather station:** With temperature sensor, pressure sensor, humidity sensor and light sensors,  you can easily use your IoT carrier as a local weather station. The various sensors can via sensors collect statistics about the different variables required to display weather. 
+**Weather station:** With temperature sensor, pressure sensor, humidity sensor and light sensors,  you can easily use your MKR IoT Carrier as a local weather station. The various sensors can via sensors collect statistics about the different variables required to display weather. 
 
 ### Accessories
 
@@ -106,7 +106,7 @@ IoT applications, MKR hobbyists
 
 * Arduino® MKR WiFi 1010 (SKU: ABX00023)
 * Protective case
-* Arduino® MKR Zero
+* Arduino® MKR Zero (SKU: ABX00012)
 
 ## Functional Overview
 
@@ -146,27 +146,28 @@ The MKR IoT Carrier makes use of the power management features of the Arduino MK
 
 ![Solution overview](assets/solution_overview.png)
 
-The MKR IoT Carrier is also a part of the Arduino® Oplá IoT Kit, that in addition to the carrier contains an Arduino MKR WiFi 1010, a motion sensor, moisture sensor, USB cable and a protective case.  
+The MKR IoT Carrier is also a part of the Arduino® Oplà IoT Kit, that in addition to the carrier contains an MKR WiFi 1010, a motion sensor, moisture sensor, USB cable and a protective case.  
 
 ## Board Operation
 
 ### Getting Started - IDE 
 If you want to program your MKR IoT Carrier while offline you need to install the Arduino Desktop IDE **[1]**. To connect the MKR IoT Carrier to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor 
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor 
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor **[2]**, by just installing a simple plugin.
+
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud 
 All Arduino IoT enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches 
-Sample sketches for the MKR IoT Carrier can be found either in the “Examples” menu in the Arduino IDE or in the Oplá IoT Kit platform **[4]** and further documentation can be found in Arduino Documentation **[8]** which also contains links to the troubleshooting articles.
+Sample sketches for the MKR IoT Carrier can be found either in the “Examples” menu in the Arduino IDE or in the Oplà IoT Kit platform **[4]** and further documentation can be found in Arduino Documentation **[8]** which also contains links to the troubleshooting articles.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
 
 ### Board Recovery 
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
@@ -175,7 +176,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ![Pinout](assets/Pinout.png)
 
-Detailed information on the MKR IoT Carrier’s pinouts are available in a separate document: [Docs Arduino - MKR IoT Carrier pinout](https://docs.arduino.cc/resources/pinouts/ABX00047-full-pinout.pdf)
+Detailed information on the MKR IoT Carrier’s pinouts are available in a separate document: [MKR IoT Carrier pinout](https://docs.arduino.cc/resources/pinouts/ABX00047-full-pinout.pdf)
 
 ### Battery Clips
 
@@ -323,16 +324,16 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| **Ref**                   | **Link**                                                     |
-| ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/Main/Software                      |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino® Oplà IoT Kit              | https://opla.arduino.cc/                                     |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| Library Reference         | https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/ |
-| Online Store              | https://store.arduino.cc/mkr-iot-carrier                     |
-| Arduino Documentation               | https://docs.arduino.cc/hardware/mkr-iot-carrier             |
+| **Ref**                                | **Link**                                                     |
+| -------------------------------------- | ------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/Main/Software                      |
+| Arduino IDE (Cloud)                    | https://create.arduino.cc/editor                             |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/         |
+| Arduino Oplà IoT Kit                   | https://opla.arduino.cc/                                     |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/ |
+| Online Store                           | https://store.arduino.cc/mkr-iot-carrier                     |
+| Arduino Documentation                  | https://docs.arduino.cc/hardware/mkr-iot-carrier             |
 
 ## Revision History
 
@@ -341,3 +342,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 24/02/2021 | 1            | First Release     |
 | 17/05/2022 | 2            | Technical updates |
 | 26/08/2022 | 3            | IMU ID fix        |
+| 25/04/2024 | 4            | Updated link to new Cloud Editor      |

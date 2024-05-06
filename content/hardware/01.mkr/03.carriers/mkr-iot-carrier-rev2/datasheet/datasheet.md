@@ -9,7 +9,7 @@ variant: Rev2
 ![](assets/featured.png)
 
 # Description
-The **MKR IoT Carrier Rev2** provides infinite possibilities for IoT projects, including a TFT display to display information, Grove connectors and multiple sensors.
+The **Arduino® MKR IoT Carrier Rev2** provides infinite possibilities for IoT projects, including a TFT display to display information, Grove connectors and multiple sensors.
 
 The integrated sensors, circuits and display leave you free to focus on programming and prototyping your ideas.
 
@@ -47,7 +47,7 @@ IoT applications, MKR hobbyists
   - Operating range
     - Pressure: 300-1100 hPa
     - Humidity: 0-100%
-    - Temperature: -40 - +85°C
+    - Temperature: -40 - +85 °C
   - eNose Gas sensor
     - Sensor-to-sensor deviation (IAQ): ± 15% ± 15 IAQ
     - Standard scan speed: 10.8 s/scan
@@ -59,7 +59,7 @@ IoT applications, MKR hobbyists
       - Intensity level
 
 * **Broadcom APDS-9660 RGB and Gesture Sensor**
-  * Ambient light and RGB Colour Sensing
+  * Ambient light and RGB Color Sensing
   * Proximity Sensing
   * Gesture Detection
   * UV/IR Blocking Filter
@@ -86,7 +86,7 @@ IoT applications, MKR hobbyists
 
 * **Power**
   * Li-ion 18650 3.7 v battery holder
-  * USB Battery charging via MKR Board (Runs up to 48h with a 3.7v 2500mAh)
+  * USB Battery charging via MKR board (Runs up to 48h with a 3.7v 2500mAh)
 
 * **I/O**
   * All sensors feature wake up function
@@ -103,11 +103,11 @@ IoT applications, MKR hobbyists
 
 ### Application Examples
 
-**Light controller:** Control your house lightning with the **MKR IoT Carrier Rev2**, using the RGB light sensor. This feature identifies the general amount of light in a room or environment and adapts. If the board is connected to Wi-Fi®, you can manage and control your device remotely on a smartphone via the IoT Cloud.
+**Light controller:** Control your house lightning with the **MKR IoT Carrier Rev2**, using the RGB light sensor. This feature identifies the general amount of light in a room or environment and adapts. If the board is connected to Wi-Fi®, you can manage and control your device remotely on a smartphone via the Arduino Cloud.
 
-**Light and water controller for greenhouse:** With moisture sensor, pressure sensor and temperature the IoT Carrier can evaluate and recognize the moisture of the soil, depending on air humidity and sun. Through the various sensors, it can reconstruate suitable climate (e.g. tropical) with the help of heaters and relays to increase the humidity. It can also be programmed with a watering system thanks to the relays.
+**Light and water controller for greenhouse:** With moisture sensor, pressure sensor and temperature the MKR IoT Carrier Rev2 can evaluate and recognize the moisture of the soil, depending on air humidity and sun. Through the various sensors, it can reconstruate suitable climate (e.g. tropical) with the help of heaters and relays to increase the humidity. It can also be programmed with a watering system thanks to the relays.
 
-**Weather station:** With temperature sensor, pressure sensor, humidity sensor and light sensors, you can easily use your IoT carrier as a local weather station. The various sensors can via sensors collect statistics about the different variables required to display weather.
+**Weather station:** With temperature sensor, pressure sensor, humidity sensor and light sensors, you can easily use your MKR IoT Carrier Rev2 as a local weather station. The various sensors can via sensors collect statistics about the different variables required to display weather.
 
 ### Accessories
 
@@ -162,10 +162,10 @@ The **MKR IoT Carrier Rev2** makes use of the power management features of the A
 ### Getting Started - IDE
 If you want to program your **MKR IoT Carrier Rev2** while offline you need to install the Arduino Desktop IDE <sup>[**[1]**](#10-reference-documentation)</sup>. To connect the **MKR IoT Carrier Rev2** to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor <sup>[**[2]**](#10-reference-documentation)</sup>, by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor <sup>[**[2]**](#10-reference-documentation)</sup>, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow <sup>[**[3]**](#10-reference-documentation)</sup> to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow <sup>[**[3]**](#10-reference-documentation)</sup> to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 All Arduino IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
@@ -174,7 +174,7 @@ All Arduino IoT enabled products are supported on Arduino Cloud which allows you
 Sample sketches for the **MKR IoT Carrier Rev2** can be found either in the “Examples” menu in the Arduino IDE and further documentation can be found in Arduino Documentation <sup>[**[7]**](#10-reference-documentation)</sup> which also contains links to the troubleshooting articles.
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub <sup>[**[4]**](#10-reference-documentation)</sup>, the Arduino Library Reference <sup>[**[5]**](#10-reference-documentation)</sup> and the online store <sup>[**[6]**](#10-reference-documentation)</sup> where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub <sup>[**[4]**](#10-reference-documentation)</sup>, the Arduino Library Reference <sup>[**[5]**](#10-reference-documentation)</sup> and the online store <sup>[**[6]**](#10-reference-documentation)</sup> where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
@@ -183,7 +183,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ![Pinout](assets/Pinout.png)
 
-Detailed information on the pinouts are available in a separate document: <u>[Docs Arduino - MKR IoT Carrier Rev2 pinout](https://docs.arduino.cc/resources/pinouts/ABX00073-full-pinout.pdf)</u>
+Detailed information on the pinouts are available in a separate document: <u>[MKR IoT Carrier Rev2 pinout](https://docs.arduino.cc/resources/pinouts/ABX00073-full-pinout.pdf)</u>
 
 ### Battery Clips
 
@@ -345,20 +345,21 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| **Id** | **Ref**                   | **Link**                                                                                                   |
-| ------ | ------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| 1      | Arduino IDE (Desktop)     | <u>https://www.arduino.cc/en/Main/Software</u>                                                             |
-| 2      | Arduino IDE (Cloud)       | <u>https://create.arduino.cc/editor</u>                                                                    |
-| 3      | Cloud IDE Getting Started | <u>https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a</u> |
-| 4      | Project Hub               | <u>https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending</u>                            |
-| 5      | Library Reference         | <u>https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/</u>                                |
-| 6      | Online Store              | <u>https://store.arduino.cc/mkr-iot-carrier-rev2</u>                                                       |
-| 7      | Arduino Documentation     | <u>https://docs.arduino.cc/hardware/mkr-iot-carrier-rev2</u>                                               |
+| **Id** | **Ref**                        | **Link**                                                                 |
+| ------ | ------------------------------ | ------------------------------------------------------------------------ |
+| 1      | Arduino IDE (Desktop)          | https://www.arduino.cc/en/Main/Software                                  |
+| 2      | Arduino Cloud Editor           | https://create.arduino.cc/editor                                         |
+| 3      | Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
+| 4      | Arduino Project Hub            | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| 5      | Library Reference              | https://www.arduino.cc/reference/en/libraries/arduino_mkriotcarrier/     |
+| 6      | Online Store                   | https://store.arduino.cc/mkr-iot-carrier-rev2                            |
+| 7      | Arduino Documentation          | https://docs.arduino.cc/hardware/mkr-iot-carrier-rev2                    |
 
 ## Revision History
 
 | **Date DD/MM/YY** | **Revision** | **Changes**                                           |
 | ----------------- | ------------ | ----------------------------------------------------- |
+| 25/04/2024        | 4            | Updated link to new Cloud Editor                      |
 | 20/02/2023        | 3            | Change grove connector power rail from +5.0V to +3.3V |
 | 16/01/2023        | 2            | Update Pinout graphic                                 |
 | 23/11/2022        | 1            | First Release                                         |
