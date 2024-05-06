@@ -84,7 +84,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Nicla Sense ME STEP files](https://docs.arduino.cc/static/10c0953581f489a9a136ff00f2d2fa9d/ABX00050-step.zip)
+- [Nicla Sense ME STEP files](../../downloads/ABX00050-step.zip)
 
 
 ## First Use
