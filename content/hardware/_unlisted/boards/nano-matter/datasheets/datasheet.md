@@ -47,7 +47,7 @@ The main features are highlighted in the table shown below.
 
 
 | Feature             | Description                                                                                                                                                      |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Microcontroller     | 78 MHz, 32-bit Arm® Cortex®-M33 core (MGM240SD22VNA)                                                                                                             |
 | Internal Memory     | 1536 kB Flash and 256 kB RAM                                                                                                                                     |
 | Connectivity        | 802.15.4 Thread, Bluetooth® Low Energy 5.3, and Bluetooth® Mesh                                                                                                  |
@@ -55,7 +55,7 @@ The main features are highlighted in the table shown below.
 | USB Connectivity    | USB-C® port for power and data                                                                                                                                   |
 | Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (IN5V, VIN) |
 | Analog Peripherals  | 12-bit ADC (x20), up to 12-bit DAC (x4)                                                                                                                          |
-| Digital Peripherals | GPIO (x22), I2C (x2), UART (x2), SPI (x2), PWM (x22)                                                                                                             |
+| Digital Peripherals | GPIO (x22 - All exposed I/O can be used as digital), UART (x2), I2C (x2), SPI (x2), PWM (x22) with a maximum of 5 simultaneously operational channels            |
 | Debugging           | JTAG/SWD debug port (accessible through the board's test pads)                                                                                                   |
 | Dimensions          | 18 mm x 45 mm                                                                                                                                                    |
 | Weight              | 4 g                                                                                                                                                              |
@@ -85,11 +85,11 @@ The table below provides a comprehensive guideline for the optimal use of the Na
 
 <div style="text-align:center;">
 
-|           **Parameter**          |    **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
+|          **Parameter**           |   **Symbol**    | **Min** | **Typ** | **Max** | **Unit** |
 |:--------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
-|     USB Supply Input Voltage     | V<sub>USB</sub> |    -    |   5.0   |    -    |     V    |
-| Supply Input Voltage<sup>1</sup> |  V<sub>IN</sub> |    -    |   5.0   |   5.5   |     V    |
-|       Operating Temperature      |  T<sub>OP</sub> |   -40   |    -    |    85   |    °C    |
+|     USB Supply Input Voltage     | V<sub>USB</sub> |    -    |   5.0   |    -    |    V     |
+| Supply Input Voltage<sup>1</sup> | V<sub>IN</sub>  |    -    |   5.0   |   5.5   |    V     |
+|      Operating Temperature       | T<sub>OP</sub>  |   -40   |    -    |   85    |    °C    |
 
 </div>
 
@@ -102,7 +102,7 @@ The table below summarizes the power consumption of the Nano Matter in different
 </p>
 
 |             Parameter             |     Symbol     | Min | Typ | Max | Unit |
-| :-------------------------------: | :------------: | :-: | :-: | :-: | :--: |
+|:---------------------------------:|:--------------:|:---:|:---:|:---:|:----:|
 | Typical Mode Current Consumption² | I<sub>NM</sub> |  -  | 16  |  -  |  mA  |
 
 
@@ -233,7 +233,7 @@ The Nano Matter is designed to be usable as a surface-mount module and presents 
 ### Product Compliance Summary
 
 | **Product Compliance** |
-| :--------------------: |
+|:----------------------:|
 |  CE (European Union)   |
 |          RoHS          |
 |         REACH          |
@@ -343,12 +343,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Company Information
 
 | **Company name** |              **Arduino S.r.l.**              |
-| :--------------: | :------------------------------------------: |
+|:----------------:|:--------------------------------------------:|
 | Company address  | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
 |             **Ref**             | **Link**                                                                        |
-| :-----------------------------: | ------------------------------------------------------------------------------- |
+|:-------------------------------:|---------------------------------------------------------------------------------|
 |      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                         |
 |       Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                |
 | Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
@@ -361,6 +361,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Document Revision History
 
 |  **Date**  | **Revision** |        **Changes**        |
-| :--------: | :----------: | :-----------------------: |
-| 06/05/2024 |      2       | Official Release          |
+|:----------:|:------------:|:-------------------------:|
+| 07/05/2024 |      2       |       Board update        |
 | 21/03/2024 |      1       | Community Preview Release |
