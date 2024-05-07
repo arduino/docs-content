@@ -1226,11 +1226,11 @@ After pressing the push button, you will see a **"Button Pressed!"** message in 
 
 The Nano Matter features a built-in RGB LED that can be a visual feedback indicator for the user. The LED is connected through the board GPIO's; therefore, usual digital pins built-in functions can be used to operate the LED colors. 
 
-| **LED Color Segment** | **Arduino Name** | **Microcontroller Pin** |
-|:---------------------:|:----------------:|:-----------------------:|
-|          Red          |   LEDR or LED_BUILTIN    |          PC01           |
-|         Green         |  LEDG or LED_BUILTIN_1   |          PC02           |
-|         Blue          |  LEDB or LED_BUILTIN_2   |          PC03           |
+| **LED Color Segment** |   **Arduino Name**    | **Microcontroller Pin** |
+|:---------------------:|:---------------------:|:-----------------------:|
+|          Red          |  LEDR or LED_BUILTIN  |          PC01           |
+|         Green         | LEDG or LED_BUILTIN_1 |          PC02           |
+|         Blue          | LEDB or LED_BUILTIN_2 |          PC03           |
 
 ***The RGB LED colors are activated with zeros, this means that you need to set to LOW the color segment you want to turn on.***
 
@@ -1274,29 +1274,28 @@ The Nano Matter has **22 digital pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
 |:-----------------------:|:-----------------------:|:---------------------:|
-|          PB00           |           A0            |     GPIO/ADC/DAC      |
-|          PB02           |           A1            |       GPIO/ADC        |
-|          PB05           |           A2            |       GPIO/ADC        |
-|          PC00           |           A3            |       GPIO/ADC        |
-|          PA06           |         A4/SDA          |     I2C/GPIO/ADC      |
-|          PA07           |         A5/SCL          |     I2C/GPIO/ADC      |
-|          PB01           |           A6            |     GPIO/ADC/DAC      |
-|          PB03           |           A7            |       GPIO/ADC        |
-|          PB04           |           D13           |     SPI/GPIO/ADC      |
-|          PA08           |           D12           |     SPI/GPIO/ADC      |
-|          PA09           |           D11           |     SPI/GPIO/ADC      |
-|          PD05           |           D10           |       SPI/GPIO        |
+|          PB00           |         A0 / DAC0         |     GPIO / ADC / DAC      |
+|          PB02           |         A1 / DAC2         |     GPIO / ADC / DAC      |
+|          PB05           |           A2            |       GPIO / ADC        |
+|          PC00           |           A3            |       GPIO / ADC        |
+|          PA06           |         A4 / SDA          |     I2C / GPIO / ADC      |
+|          PA07           |         A5 / SCL          |     I2C / GPIO / ADC      |
+|          PB01           |         A6 / DAC1         |     GPIO / ADC / DAC      |
+|          PB03           |         A7 / DAC3         |     GPIO / ADC / DAC      |
+|          PB04           |         D13 / SCK         |     SPI / GPIO / ADC      |
+|          PA08           |        D12 / MISO         |     SPI / GPIO / ADC      |
+|          PA09           |        D11 / MOSI         |     SPI / GPIO / ADC      |
+|          PD05           |         D10 / SS          |       SPI / GPIO        |
 |          PD04           |           D9            |         GPIO          |
-|          PD03           |           D8            |       GPIO/ADC        |
-|          PD02           |           D7            |       GPIO/ADC        |
-|          PC09           |           D6            |       GPIO/ADC        |
-|          PC08           |           D5            |       GPIO/ADC        |
-|          PC07           |           D4            |       GPIO/ADC        |
-|          PC06           |           D3            |       GPIO/ADC        |
-|          PA03           |           D2            |         GPIO          |
-|          PA04           |      PIN_SERIAL_TX      |     UART/GPIO/ADC     |
-|          PA05           |      PIN_SERIAL_RX      |     UART/GPIO/ADC     |
-
+|          PD03           |           D8            |       GPIO / ADC        |
+|          PD02           |           D7            |       GPIO / ADC        |
+|          PC09           |           D6            |       GPIO / ADC        |
+|          PC08           |         D5 / SCL1         |     I2C / GPIO / ADC      |
+|          PC07           |         D4 / SDA1         |     I2C / GPIO / ADC      |
+|          PC06           |           D3            |       GPIO / ADC        |
+|          PA03           |         D2 / SCK1         |       SPI / GPIO        |
+|          PA05           | D1 / PIN_SERIAL_RX / MISO1  |   UART / SPI / GPIO / ADC   |
+|          PA04           | D0 / PIN_SERIAL_TX / MOSI1  |   UART / SPI / GPIO / ADC   |
 
 The digital pins of the Nano Matter can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
 
@@ -1453,27 +1452,27 @@ The Nano Matter has **19 analog input pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
 |:-----------------------:|:-----------------------:|:---------------------:|
-|          PB00           |           A0            |     GPIO/ADC/DAC      |
-|          PB02           |           A1            |       GPIO/ADC        |
-|          PB05           |           A2            |       GPIO/ADC        |
-|          PC00           |           A3            |       GPIO/ADC        |
-|          PA06           |         A4/SDA          |     I2C/GPIO/ADC      |
-|          PA07           |         A5/SCL          |     I2C/GPIO/ADC      |
-|          PB01           |           A6            |     GPIO/ADC/DAC      |
-|          PB03           |           A7            |       GPIO/ADC        |
-|          PB04           |           D13           |     SPI/GPIO/ADC      |
-|          PA08           |           D12           |     SPI/GPIO/ADC      |
-|          PA09           |           D11           |     SPI/GPIO/ADC      |
-|          PD03           |           D8            |       GPIO/ADC        |
-|          PD02           |           D7            |       GPIO/ADC        |
-|          PC09           |           D6            |       GPIO/ADC        |
-|          PC08           |           D5            |       GPIO/ADC        |
-|          PC07           |           D4            |       GPIO/ADC        |
-|          PC06           |           D3            |       GPIO/ADC        |
-|          PA04           |      PIN_SERIAL_TX      |     UART/GPIO/ADC     |
-|          PA05           |      PIN_SERIAL_RX      |     UART/GPIO/ADC     |
+|          PB00           |           A0            |     GPIO / ADC / DAC      |
+|          PB02           |           A1            |       GPIO / ADC        |
+|          PB05           |           A2            |       GPIO / ADC        |
+|          PC00           |           A3            |       GPIO / ADC        |
+|          PA06           |         A4 / SDA          |     I2C / GPIO / ADC      |
+|          PA07           |         A5 / SCL          |     I2C / GPIO / ADC      |
+|          PB01           |           A6            |     GPIO / ADC / DAC      |
+|          PB03           |           A7            |       GPIO / ADC        |
+|          PB04           |         D13 / SCK         |     SPI / GPIO / ADC      |
+|          PA08           |        D12 / MISO         |     SPI / GPIO / ADC      |
+|          PA09           |        D11 / MOSI         |     SPI / GPIO / ADC      |
+|          PD03           |           D8            |       GPIO / ADC        |
+|          PD02           |           D7            |       GPIO / ADC        |
+|          PC09           |           D6            |       GPIO / ADC        |
+|          PC08           |         D5 / SCL1         |     I2C / GPIO / ADC      |
+|          PC07           |         D4 / SDA1         |     I2C / GPIO / ADC      |
+|          PC06           |           D3            |       GPIO / ADC        |
+|          PA05           | D1 / PIN_SERIAL_RX / MISO1  |   UART / GPIO / ADC / SPI   |
+|          PA04           | D0 / PIN_SERIAL_TX / MOSI1  |   UART / GPIO / ADC / SPI   |
 
-***Digital I/O's can also be used as analog inputs with the exception of `D10`,`D9` and `D2`.***
+***Digital I/O's can also be used as analog inputs except for `D10`,`D9` and `D2`.***
 
 Analog input pins can be used through the built-in functions of the Arduino programming language.
 
@@ -1526,6 +1525,8 @@ The Nano Matter has **one DAC** with two channels, mapped as follows:
 |:-----------------------:|:----------------:|:--------------------:|:--------------:|
 |          PB00           |       DAC0       |          A0          |    DAC0_CH0    |
 |          PB01           |       DAC1       |          A6          |    DAC0_CH1    |
+|          PB02           |       DAC2       |          A1          |    DAC1_CH0    |
+|          PB03           |       DAC3       |          A7          |    DAC1_CH1    |
 
 The digital-to-analog converters of the Nano Matter can be used as outputs through the built-in functions of the Arduino programming language.
 
@@ -1618,16 +1619,22 @@ This section of the user manual covers the different communication protocols tha
 
 ### SPI
 
-The Nano Matter supports SPI communication, which enables data transmission between the board and other SPI-compatible devices. The pins used in the Nano Matter for the SPI communication protocol are the following:
+The Nano Matter supports SPI communication, which enables data transmission between the board and other SPI-compatible devices. It counts with two SPI interfaces and the pins used in the Nano Matter for the SPI communication protocol are the following:
+
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|          PD05           |        SS or D10         |
-|          PA09           |       MOSI or D11        |
-|          PA08           |       MISO or D12        |
-|          PB04           |        SCK or D13        |
+|          PD05           |        SS or D10        |
+|          PA09           |       MOSI or D11       |
+|          PA08           |       MISO or D12       |
+|          PB04           |       SCK or D13        |
+|          PA04           |       MOSI1 or D0       |
+|          PA05           |       MISO1 or D1       |
+|          PA03           |       SCK1 or D2        |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
+
+***You can not use __SPI1__ and __UART__ interfaces at the same time because they share pins.***
 
 Include the `SPI` library at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
 
@@ -1635,7 +1642,9 @@ Include the `SPI` library at the top of your sketch to use the SPI communication
 #include <SPI.h>
 ```
 
-In the `setup()` function, initialize the SPI library, define and configure the chip select (`SS`) pin:
+In the `setup()` function, initialize the SPI peripheral, define and configure the chip select (`SS`) pin:
+
+***Use SPI.begin() for SPI0 and SPI1.begin() for SPI1.***
 
 ```arduino
 
@@ -1679,12 +1688,14 @@ The example code above should output this:
 
 ### I2C
 
-The Nano Matter supports I2C communication, which enables data transmission between the board and other I2C-compatible devices. The pins used in the Nano Matter for the I2C communication protocol are the following:
+The Nano Matter supports I2C communication, which enables data transmission between the board and other I2C-compatible devices. The Nano Matter features two I2C interfaces and the pins used in the Nano Matter for the I2C communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|          PA06           |           SDA           |
-|          PA07           |           SCL           |
+|          PA06           |        SDA or A4        |
+|          PA07           |        SCL or A5        |
+|          PC07           |       SDA1 or D4        |
+|          PC08           |       SCL1 or D5        |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
@@ -1695,6 +1706,8 @@ To use I2C communication, include the `Wire` library at the top of your sketch. 
 ```
 
 In the `setup()` function, initialize the I2C library:
+
+***Use Wire.begin() for I2C0 and Wire1.begin() for I2C1.***
 
 ```arduino
  // Initialize the I2C communication
@@ -1755,10 +1768,12 @@ The pins used in the Nano Matter for the UART communication protocol are the fol
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|          PA05           |      PIN_SERIAL_RX      |
-|          PA04           |      PIN_SERIAL_TX      |
+|          PA05           |   PIN_SERIAL_RX or D1   |
+|          PA04           |   PIN_SERIAL_TX or D0   |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
+
+***You can not use __UART__ and __SPI1__ interfaces at the same time because they share pins.***
 
 To begin with UART communication, you will need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
 
