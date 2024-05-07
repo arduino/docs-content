@@ -1272,30 +1272,30 @@ void loop() {
 
 The Nano Matter has **22 digital pins**, mapped as follows:
 
-| **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
-|:-----------------------:|:-----------------------:|:---------------------:|
-|          PB00           |         A0 / DAC0         |     GPIO / ADC / DAC      |
-|          PB02           |         A1 / DAC2         |     GPIO / ADC / DAC      |
-|          PB05           |           A2            |       GPIO / ADC        |
-|          PC00           |           A3            |       GPIO / ADC        |
-|          PA06           |         A4 / SDA          |     I2C / GPIO / ADC      |
-|          PA07           |         A5 / SCL          |     I2C / GPIO / ADC      |
-|          PB01           |         A6 / DAC1         |     GPIO / ADC / DAC      |
-|          PB03           |         A7 / DAC3         |     GPIO / ADC / DAC      |
-|          PB04           |         D13 / SCK         |     SPI / GPIO / ADC      |
-|          PA08           |        D12 / MISO         |     SPI / GPIO / ADC      |
-|          PA09           |        D11 / MOSI         |     SPI / GPIO / ADC      |
-|          PD05           |         D10 / SS          |       SPI / GPIO        |
-|          PD04           |           D9            |         GPIO          |
-|          PD03           |           D8            |       GPIO / ADC        |
-|          PD02           |           D7            |       GPIO / ADC        |
-|          PC09           |           D6            |       GPIO / ADC        |
-|          PC08           |         D5 / SCL1         |     I2C / GPIO / ADC      |
-|          PC07           |         D4 / SDA1         |     I2C / GPIO / ADC      |
-|          PC06           |           D3            |       GPIO / ADC        |
-|          PA03           |         D2 / SCK1         |       SPI / GPIO        |
-|          PA05           | D1 / PIN_SERIAL_RX / MISO1  |   UART / SPI / GPIO / ADC   |
-|          PA04           | D0 / PIN_SERIAL_TX / MOSI1  |   UART / SPI / GPIO / ADC   |
+| **Microcontroller Pin** |   **Arduino Pin Mapping**   |  **Pin Functionality**  |
+|:-----------------------:|:---------------------------:|:-----------------------:|
+|          PB00           |          A0 / DAC0          |    GPIO / ADC / DAC     |
+|          PB02           |          A1 / DAC2          |    GPIO / ADC / DAC     |
+|          PB05           |             A2              |       GPIO / ADC        |
+|          PC00           |             A3              |       GPIO / ADC        |
+|          PA06           |          A4 / SDA           |    I2C / GPIO / ADC     |
+|          PA07           |          A5 / SCL           |    I2C / GPIO / ADC     |
+|          PB01           |          A6 / DAC1          |    GPIO / ADC / DAC     |
+|          PB03           |          A7 / DAC3          |    GPIO / ADC / DAC     |
+|          PB04           |          D13 / SCK          |    SPI / GPIO / ADC     |
+|          PA08           |         D12 / MISO          |    SPI / GPIO / ADC     |
+|          PA09           |         D11 / MOSI          |    SPI / GPIO / ADC     |
+|          PD05           |          D10 / SS           |       SPI / GPIO        |
+|          PD04           |             D9              |          GPIO           |
+|          PD03           |             D8              |       GPIO / ADC        |
+|          PD02           |             D7              |       GPIO / ADC        |
+|          PC09           |             D6              |       GPIO / ADC        |
+|          PC08           |          D5 / SCL1          |    I2C / GPIO / ADC     |
+|          PC07           |          D4 / SDA1          |    I2C / GPIO / ADC     |
+|          PC06           |          D3 / SS1           |    GPIO / SPI / ADC     |
+|          PA03           |          D2 / SCK1          |       SPI / GPIO        |
+|          PA05           | D1 / PIN_SERIAL_RX1 / MISO1 | UART / SPI / GPIO / ADC |
+|          PA04           | D0 / PIN_SERIAL_TX1 / MOSI1 | UART / SPI / GPIO / ADC |
 
 The digital pins of the Nano Matter can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
 
@@ -1329,14 +1329,14 @@ digitalWrite(pin, HIGH);
 digitalWrite(pin, LOW);    
 ```
 
-The example code shown below uses digital pin `5` to control an LED and reads the state of a button connected to digital pin `4`:
+The example code shown below uses digital pin `D5` to control an LED and reads the state of a button connected to digital pin `D4`:
 
 ![Digital I/O example wiring](assets/gpio-wiring.png)
 
 ```arduino
 // Define button and LED pin
-int buttonPin = 4;
-int ledPin = 5;
+int buttonPin = D4;
+int ledPin = D5;
 
 // Variable to store the button state
 int buttonState = 0;
@@ -1373,7 +1373,7 @@ void loop() {
 
 All the digital and analog pins of the Nano Matter can be used as PWM (Pulse Width Modulation) pins. 
 
-***You can only use 5 PWMs outputs simultaneously.***
+***You can only use 5 PWM outputs simultaneously.***
 
 This functionality can be used with the built-in function `analogWrite()` as shown below:
 
@@ -1392,7 +1392,7 @@ Here is an example of how to create a **1 kHz** variable duty-cycle PWM signal:
 
 ```arduino
 const int analogInPin = A0;   // Analog input pin that the potentiometer is attached to
-const int pwmOutPin = 13;  // PWM output pin
+const int pwmOutPin = D13;  // PWM output pin
 
 int sensorValue = 0;  // value read from the pot
 int outputValue = 0;  // value output to the PWM (analog out)
@@ -1433,7 +1433,7 @@ PWM.frequency_mode(output_pin, frequency);
 Here is an example of how to create a **10 kHz** fixed duty-cycle PWM signal:
 
 ```arduino
-const int analogOutPin = 13;  // PWM output pin to use
+const int analogOutPin = D13;  // PWM output pin to use
 
 void setup() {
   analogWriteResolution(12); 
@@ -1448,35 +1448,36 @@ void loop() {
 
 ### Analog Input Pins (ADC)
 
-The Nano Matter has **19 analog input pins**, mapped as follows:
+The Nano Matter has **20 analog input pins**, mapped as follows:
 
-| **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
-|:-----------------------:|:-----------------------:|:---------------------:|
-|          PB00           |           A0            |     GPIO / ADC / DAC      |
-|          PB02           |           A1            |       GPIO / ADC        |
-|          PB05           |           A2            |       GPIO / ADC        |
-|          PC00           |           A3            |       GPIO / ADC        |
-|          PA06           |         A4 / SDA          |     I2C / GPIO / ADC      |
-|          PA07           |         A5 / SCL          |     I2C / GPIO / ADC      |
-|          PB01           |           A6            |     GPIO / ADC / DAC      |
-|          PB03           |           A7            |       GPIO / ADC        |
-|          PB04           |         D13 / SCK         |     SPI / GPIO / ADC      |
-|          PA08           |        D12 / MISO         |     SPI / GPIO / ADC      |
-|          PA09           |        D11 / MOSI         |     SPI / GPIO / ADC      |
-|          PD03           |           D8            |       GPIO / ADC        |
-|          PD02           |           D7            |       GPIO / ADC        |
-|          PC09           |           D6            |       GPIO / ADC        |
-|          PC08           |         D5 / SCL1         |     I2C / GPIO / ADC      |
-|          PC07           |         D4 / SDA1         |     I2C / GPIO / ADC      |
-|          PC06           |           D3            |       GPIO / ADC        |
-|          PA05           | D1 / PIN_SERIAL_RX / MISO1  |   UART / GPIO / ADC / SPI   |
-|          PA04           | D0 / PIN_SERIAL_TX / MOSI1  |   UART / GPIO / ADC / SPI   |
+| **Microcontroller Pin** |   **Arduino Pin Mapping**   |  **Pin Functionality**  |
+|:-----------------------:|:---------------------------:|:-----------------------:|
+|          PB00           |          A0 / DAC0          |    GPIO / ADC / DAC     |
+|          PB02           |          A1 / DAC2          |    GPIO / ADC / DAC     |
+|          PB05           |             A2              |       GPIO / ADC        |
+|          PC00           |             A3              |       GPIO / ADC        |
+|          PA06           |          A4 / SDA           |    I2C / GPIO / ADC     |
+|          PA07           |          A5 / SCL           |    I2C / GPIO / ADC     |
+|          PB01           |          A6 / DAC1          |    GPIO / ADC / DAC     |
+|          PB03           |          A7 / DAC3          |    GPIO / ADC / DAC     |
+|          PB04           |          D13 / SCK          |    SPI / GPIO / ADC     |
+|          PA08           |         D12 / MISO          |    SPI / GPIO / ADC     |
+|          PA09           |         D11 / MOSI          |    SPI / GPIO / ADC     |
+|          PD03           |             D8              |       GPIO / ADC        |
+|          PD02           |             D7              |       GPIO / ADC        |
+|          PC09           |             D6              |       GPIO / ADC        |
+|          PC08           |          D5 / SCL1          |    I2C / GPIO / ADC     |
+|          PC07           |          D4 / SDA1          |    I2C / GPIO / ADC     |
+|          PC06           |          D3 / SS1           |    GPIO / SPI / ADC     |
+|          PA03           |          D2 / SCK1          |       SPI / GPIO        |
+|          PA05           | D1 / PIN_SERIAL_RX1 / MISO1 | UART / SPI / GPIO / ADC |
+|          PA04           | D0 / PIN_SERIAL_TX1 / MOSI1 | UART / SPI / GPIO / ADC |
 
-***Digital I/O's can also be used as analog inputs except for `D10`,`D9` and `D2`.***
+***Digital I/O's can also be used as analog inputs except for `D9` and `D10`.***
 
 Analog input pins can be used through the built-in functions of the Arduino programming language.
 
-Nano Matter ADC resolution is fixed to 12 bits and cannot be changed by the user.
+Nano Matter ADC resolution is fixed to **12 bits** and cannot be changed by the user.
 
 The Nano Matter ADC reference voltage is 3.3 V by default, it can be configured using the function `analogReference()` with the following arguments:
 
@@ -1519,7 +1520,7 @@ void loop() {
 
 ### Analog Output Pins (DAC)
 
-The Nano Matter has **one DAC** with two channels, mapped as follows:
+The Nano Matter has **two DACs** with two channels each, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Name** | **Board Pin Output** | **Peripheral** |
 |:-----------------------:|:----------------:|:--------------------:|:--------------:|
@@ -1530,7 +1531,7 @@ The Nano Matter has **one DAC** with two channels, mapped as follows:
 
 The digital-to-analog converters of the Nano Matter can be used as outputs through the built-in functions of the Arduino programming language.
 
-The DAC output resolution can be configured using the `analogWriteResolution()` function as follows:
+The DAC output resolution can be configured from 8 to 12 bits using the `analogWriteResolution()` function as follows:
 
 ```arduino
 analogWriteResolution(12);  // enter the desired resolution in bits (8,10,12)
@@ -1631,6 +1632,7 @@ The Nano Matter supports SPI communication, which enables data transmission betw
 |          PA04           |       MOSI1 or D0       |
 |          PA05           |       MISO1 or D1       |
 |          PA03           |       SCK1 or D2        |
+|          PC06           |       SS1 or D3        |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
@@ -1764,16 +1766,20 @@ while (Wire.available()) {
 
 ### UART
 
-The pins used in the Nano Matter for the UART communication protocol are the following:
+The Nano Matter features two UARTs. The pins used in the Nano Matter for the UART communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|          PA05           |   PIN_SERIAL_RX or D1   |
-|          PA04           |   PIN_SERIAL_TX or D0   |
+|          PA05           |   PIN_SERIAL_RX1 or D1   |
+|          PA04           |   PIN_SERIAL_TX1 or D0   |
+|          PC05           |   PIN_SERIAL_RX (internal)    |
+|          PC04           |   PIN_SERIAL_TX (internal)   |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
 ***You can not use __UART__ and __SPI1__ interfaces at the same time because they share pins.***
+
+***Use Serial.begin() for UART0 (internal) and Serial1.begin() for UART1 (exposed).***
 
 To begin with UART communication, you will need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
 
