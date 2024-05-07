@@ -93,7 +93,7 @@ The table below provides a comprehensive guideline for the optimal use of the Na
 
 </div>
 
-<sup>1</sup> Nano Matter powered through the IN5V pin (+5 VDC).<br>
+<sup>1</sup> Nano Matter powered through the IN5V pin (+5 VDC).
 
 ### Power Consumption
 
