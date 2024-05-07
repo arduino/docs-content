@@ -54,8 +54,8 @@ The main features are highlighted in the table shown below.
 | Security            | Secure Vault® from Silicon Labs                                                                                                                                  |
 | USB Connectivity    | USB-C® port for power and data                                                                                                                                   |
 | Power Supply        | Various options for easily powering the board: USB-C® port and external power supply connected through the board's Nano-styled header connector pins (IN5V, VIN) |
-| Analog Peripherals  | 12-bit ADC (x19), up to 12-bit DAC (x4)                                                                                                                          |
-| Digital Peripherals | GPIO (x22), I2C (x2), UART (x1), SPI (x2), PWM (x22)                                                                                                             |
+| Analog Peripherals  | 12-bit ADC (x20), up to 12-bit DAC (x4)                                                                                                                          |
+| Digital Peripherals | GPIO (x22), I2C (x2), UART (x2), SPI (x2), PWM (x22)                                                                                                             |
 | Debugging           | JTAG/SWD debug port (accessible through the board's test pads)                                                                                                   |
 | Dimensions          | 18 mm x 45 mm                                                                                                                                                    |
 | Weight              | 4 g                                                                                                                                                              |

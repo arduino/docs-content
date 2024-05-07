@@ -5,11 +5,11 @@ Microprocessor: MGM240SD22VNA 32-bit Arm® Cortex®-M33 with DSP instruction and
 Clock speed: 78 MHz
 USB connector: USB-C®
 Pin Availability:
-  Digital I/O pins: 22
-  Analog input pins: 19
-  PWM pins: 22
+  Digital I/O pins: 22 (All exposed I/O can be used as digital)
+  Analog input pins: 20 (All exposed I/O can be used as analog inputs)
+  PWM pins: 22 (All exposed I/O can be used as PWM. A maximum of 5 pins simultaneously)
 Communication:
-  UART: 1
+  UART: 2 (UART0 connected to USB, UART1 accesible thought pinout)
   I2C: 2
   SPI: 2
 Connectivity:
@@ -20,14 +20,13 @@ Additional Compatible Protocols: OpenThread
 Connectivity Band Frequency: On-board 2.4 GHz
 Secure element: Secure Vault
 Analog-to-digital converter (ADC):
-  Pins: 19
+  Pins: 20 (All exposed I/O can be used as analog inputs)
   Resolution: 12 bits
 Digital-to-analog converter (DAC):
-  Channels: 2
   Pins: 4
-  Resolution: 12 bits 
+  Resolution: 8-12 bits
 Pulse Width Modulation (PWM):
-  Pins: 22 (All Digital pins)
+  Pins: 22 (All exposed I/O can be used as PWM)
   Maximum simultaneously operational channel: 5
 External Interrupts: Available within all Digital pins
 Power:
