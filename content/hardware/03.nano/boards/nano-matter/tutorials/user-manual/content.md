@@ -172,7 +172,7 @@ The Silicon Labs core in the Arduino IDE comes with several Matter examples read
 
 ![Matter examples](assets/matter-examples.png)
 
-***The "matter_lightbulb" example is the only officially Matter-certified profile for the Nano Matter **Community Preview**. Consequently, while running any of the other available profile examples, it is expected to get an "Uncertified device" message in the different Matter-compatible apps. This does not prevent the user from prototyping a solution with different configurations.***
+***The _matter_lightbulb_ example is the only officially Matter-certified profile for the Nano Matter __Community Preview__. Consequently, while running any of the other available profile examples, it is expected to get an _Uncertified device_ message in the different Matter-compatible apps. This does not prevent the user from prototyping a solution with different configurations.***
 
 First, to start creating *Matter-enabled* solutions, we need to select the Matter protocol in **Tools > Protocol stack > Matter**:
 
@@ -221,13 +221,17 @@ void setup()
     delay(200);
   }
 
-  if (!Matter.isDeviceConnected()) {
-    Serial.println("Waiting for network connection...");
-  }
-  while (!Matter.isDeviceConnected()) {
+  Serial.println("Waiting for Thread network...");
+  while (!Matter.isDeviceThreadConnected()) {
     delay(200);
   }
-  Serial.println("Device connected");
+  Serial.println("Connected to Thread network");
+
+  Serial.println("Waiting for Matter device discovery...");
+  while (!matter_color_bulb.is_online()) {
+    delay(200);
+  }
+  Serial.println("Matter device is now online");
 }
 
 void loop()
@@ -235,9 +239,8 @@ void loop()
   // If the physical button state changes - update the lightbulb's on/off state
   if (button_pressed) {
     button_pressed = false;
-    // Invert the on/off state of the lightbulb
-    bool bulb_state = matter_color_bulb.get_onoff();
-    matter_color_bulb.set_onoff(!bulb_state);
+    // Toggle the on/off state of the lightbulb
+    matter_color_bulb.toggle();
   }
 
   // Get the current on/off state of the lightbulb
@@ -283,18 +286,32 @@ void update_led_color()
   }
   uint8_t r, g, b;
   matter_color_bulb.get_rgb(&r, &g, &b);
-  analogWrite(LED_R, 255 - r);
-  analogWrite(LED_G, 255 - g);
-  analogWrite(LED_B, 255 - b);
+  // If our built-in LED is active LOW, we need to invert the brightness values
+  if (LED_BUILTIN_ACTIVE == LOW) {
+    analogWrite(LED_R, 255 - r);
+    analogWrite(LED_G, 255 - g);
+    analogWrite(LED_B, 255 - b);
+  } else {
+    analogWrite(LED_R, r);
+    analogWrite(LED_G, g);
+    analogWrite(LED_B, b);
+  }
   Serial.printf("Setting bulb color to > r: %u  g: %u  b: %u\n", r, g, b);
 }
 
 // Turns the RGB LED off
 void led_off()
 {
-  analogWrite(LED_R, 255);
-  analogWrite(LED_G, 255);
-  analogWrite(LED_B, 255);
+  // If our built-in LED is active LOW, we need to invert the brightness values
+  if (LED_BUILTIN_ACTIVE == LOW) {
+    analogWrite(LED_R, 255);
+    analogWrite(LED_G, 255);
+    analogWrite(LED_B, 255);
+  } else {
+    analogWrite(LED_R, 0);
+    analogWrite(LED_G, 0);
+    analogWrite(LED_B, 0);
+  }
 }
 
 void handle_button_press()
@@ -310,10 +327,15 @@ void handle_button_press()
 
 Here is the example sketch main functions explanation:
 
-- In the `setup()` function, Matter is initialized with `Matter.begin()` alongside the initial configurations of the board to handle the different inputs and outputs. The device commissioning is verified with `Matter.isDeviceCommissioned()` to show the user the network pairing credentials if needed and the connection is confirmed with the `Matter.isDeviceConnected()` function.
-- In the `loop()` function, the RGB LED is controlled on and off with `matter_color_bulb.set_onoff(state)`, the current state is retrieved with `matter_color_bulb.get_onoff()` and the button state is read to control the LED manually.
-- In the `update_led_color()` function, the color defined in the app is retrieved using the function `matter_color_bulb.get_rgb(&r, &g, &b)` that stores the requested color code in RGB format variables.
+- In the `setup()` function, Matter is initialized with `Matter.begin()` alongside the initial configurations of the board to handle the different inputs and outputs. 
 
+- The device commissioning is verified with `Matter.isDeviceCommissioned()` to show the user the network pairing credentials if needed, and the connection is confirmed with the `Matter.isDeviceThreadConnected()` function. 
+
+- With the `matter_color_bulb.is_online()` function, we confirm that the device is online and reachable by the coordinator app.
+
+- In the `loop()` function, the RGB LED is controlled on and off with `matter_color_bulb.set_onoff(state)`, the current state is retrieved with `matter_color_bulb.get_onoff()` and the button state is read to control the LED manually.
+
+- In the `update_led_color()` function, the color defined in the app is retrieved using the function `matter_color_bulb.get_rgb(&r, &g, &b)` that stores the requested color code in RGB format variables.
 
 To upload the code to the Nano Matter, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the board with the sketch.
 
@@ -428,7 +450,7 @@ To set up Home Assistant so that it can manage Matter devices, we need first to 
 
 ![Installing the Matter Server](assets/ha-setup.png)
 
-When the Matter server is correctly installed, navigate to **Settings > Devices % Services > Add Integration** and search for **Matter**:
+When the Matter server is correctly installed, navigate to **Settings > Devices & Services > Add Integration** and search for **Matter**:
 
 ![Installing the Matter integration](assets/ha-setup-2.png)
 
@@ -454,11 +476,15 @@ You can use the Home Assistant web view or mobile app to control your device.
 
 If you want to commission your Nano Matter solution with another service, follow the steps in the [decommissioning](#device-decommissioning) section.
 
+***We tested the Matter integration with the Home Assistant OS and hosting Home Assistant in Docker containers.***
+
 #### Home Assistant Tips
 
-- Make sure you are using a **64-bit** Home Assistant OS version.
+- Make sure you are using a **64-bit** Home Assistant version (OS or Docker containerized version).
 - Use the **Thread®** add-on to verify your available Thread® networks.
 - You can just have a Matter device commissioned to one platform at a time.
+
+***Be aware that the Matter integration for Home Assistant is still in BETA, it can receive major updates and its functionality may vary between different vendors.***
 
 ### Device Decommissioning 
 
@@ -542,10 +568,8 @@ The application sketch below is based on the `matter_temp_sensor` example that c
 
 MatterTemperature matter_temp_sensor;
 
-unsigned long previousMillis = 0;  // will store last time sensor was updated
-const long interval = 2000;  // interval at which to send sensor data
-
-void setup() {
+void setup()
+{
   Serial.begin(115200);
   Matter.begin();
 
@@ -565,31 +589,32 @@ void setup() {
   }
   while (!Matter.isDeviceCommissioned()) {
     delay(200);
+    decommission_handler();  // if the user button is pressed for 10 seconds
   }
 
-  if (!Matter.isDeviceConnected()) {
-    Serial.println("Waiting for network connection...");
-  }
-  while (!Matter.isDeviceConnected()) {
+  Serial.println("Waiting for Thread network...");
+  while (!Matter.isDeviceThreadConnected()) {
     delay(200);
+    decommission_handler();
   }
-  Serial.println("Device connected");
+  Serial.println("Connected to Thread network");
+
+  Serial.println("Waiting for Matter device discovery...");
+  while (!matter_temp_sensor.is_online()) {
+    delay(200);
+    decommission_handler();
+  }
+  Serial.println("Matter device is now online");
 }
 
-void loop() {
+void loop()
+{
   decommission_handler();  // if the user button is pressed for 10 seconds
 
-  float current_cpu_temp = getCPUTemp();  // reads CPU temperature
-
-  unsigned long currentMillis = millis();
-
-  if (currentMillis - previousMillis >= interval) {
-    // save the last time you updated the sensor
-    previousMillis = currentMillis;
-
-    matter_temp_sensor.set_measured_value_celsius(current_cpu_temp);
-    Serial.printf("Current CPU temperature: %.02f C\n", current_cpu_temp);
-  }
+  float current_cpu_temp = getCPUTemp();
+  matter_temp_sensor.set_measured_value_celsius(current_cpu_temp);
+  Serial.printf("Current CPU temperature: %.02f C\n", current_cpu_temp);
+  delay(2000);
 }
 
 void decommission_handler() {
@@ -645,6 +670,8 @@ Now it is time to commission the Nano Matter with Home Assistant, for this, foll
 Once you have everything set up and running you will be able to monitor the Nano Matter temperature in Home Assistant:
 
 ![Nano Matter Temperature in Home Assistant](assets/home-assistant-temp.png)
+
+***Be aware that the Matter integration for Home Assistant is still in BETA, it can receive major updates and its functionality may vary between different vendors.***
 
 ### Arduino Cloud Set-Up
 
@@ -802,7 +829,7 @@ In the upper menu, navigate to **Tools > Protocol stack** and select **BLE**.
 
 ![Enable "BLE" Protocol Stack](assets/ble-setup.png)
 
-For this Bluetooth® Low Energy application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > Silicon Labs >ble_blinky**:
+For this Bluetooth® Low Energy application example, we are going to control the Nano Matter built-in LED and read the onboard button status. The example sketch to be used can be found in **File > Examples > Silicon Labs > ble_blinky**:
 
 ```arduino
 /*
@@ -819,6 +846,7 @@ static void set_led_on(bool state);
 void setup()
 {
   pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, LED_BUILTIN_INACTIVE);
   set_led_on(false);
   Serial.begin(115200);
   Serial.println("Silicon Labs BLE blinky example");
@@ -979,12 +1007,11 @@ static void send_button_state_notification()
  *****************************************************************************/
 static void set_led_on(bool state)
 {
-  bool state_out = state;
-  #if defined(ARDUINO_NANO_MATTER) || defined(ARDUINO_SILABS_WIOMG24_BLE) || defined(ARDUINO_SILABS_XG24DEVKIT)
-  // These boards have an inverted LED logic, state is negated to account for this
-  state_out = !state_out;
-  #endif
-  digitalWrite(LED_BUILTIN, state_out);
+  if (state) {
+    digitalWrite(LED_BUILTIN, LED_BUILTIN_ACTIVE);
+  } else {
+    digitalWrite(LED_BUILTIN, LED_BUILTIN_INACTIVE);
+  }
 }
 
 /**************************************************************************//**
@@ -1121,7 +1148,6 @@ static void ble_initialize_gatt_db()
   sc = sl_bt_gattdb_commit(gattdb_session_id);
   app_assert_status(sc);
 }
-
 ```
 Here are the main functions explanations of the example sketch:
 
@@ -1200,11 +1226,11 @@ After pressing the push button, you will see a **"Button Pressed!"** message in 
 
 The Nano Matter features a built-in RGB LED that can be a visual feedback indicator for the user. The LED is connected through the board GPIO's; therefore, usual digital pins built-in functions can be used to operate the LED colors. 
 
-| **LED Color Segment** | **Arduino Name** | **Microcontroller Pin** |
-|:---------------------:|:----------------:|:-----------------------:|
-|          Red          |   LEDR or LED_BUILTIN    |          PC01           |
-|         Green         |  LEDG or LED_BUILTIN_1   |          PC02           |
-|         Blue          |  LEDB or LED_BUILTIN_2   |          PC03           |
+| **LED Color Segment** |   **Arduino Name**    | **Microcontroller Pin** |
+|:---------------------:|:---------------------:|:-----------------------:|
+|          Red          |  LEDR or LED_BUILTIN  |          PC01           |
+|         Green         | LEDG or LED_BUILTIN_1 |          PC02           |
+|         Blue          | LEDB or LED_BUILTIN_2 |          PC03           |
 
 ***The RGB LED colors are activated with zeros, this means that you need to set to LOW the color segment you want to turn on.***
 
@@ -1248,29 +1274,28 @@ The Nano Matter has **22 digital pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
 |:-----------------------:|:-----------------------:|:---------------------:|
-|          PB00           |           A0            |     GPIO/ADC/DAC      |
-|          PB02           |           A1            |       GPIO/ADC        |
-|          PB05           |           A2            |       GPIO/ADC        |
-|          PC00           |           A3            |       GPIO/ADC        |
-|          PA06           |         A4/SDA          |     I2C/GPIO/ADC      |
-|          PA07           |         A5/SCL          |     I2C/GPIO/ADC      |
-|          PB01           |           A6            |     GPIO/ADC/DAC      |
-|          PB03           |           A7            |       GPIO/ADC        |
-|          PB04           |           D13           |     SPI/GPIO/ADC      |
-|          PA08           |           D12           |     SPI/GPIO/ADC      |
-|          PA09           |           D11           |     SPI/GPIO/ADC      |
-|          PD05           |           D10           |       SPI/GPIO        |
+|          PB00           |         A0 / DAC0         |     GPIO / ADC / DAC      |
+|          PB02           |         A1 / DAC2         |     GPIO / ADC / DAC      |
+|          PB05           |           A2            |       GPIO / ADC        |
+|          PC00           |           A3            |       GPIO / ADC        |
+|          PA06           |         A4 / SDA          |     I2C / GPIO / ADC      |
+|          PA07           |         A5 / SCL          |     I2C / GPIO / ADC      |
+|          PB01           |         A6 / DAC1         |     GPIO / ADC / DAC      |
+|          PB03           |         A7 / DAC3         |     GPIO / ADC / DAC      |
+|          PB04           |         D13 / SCK         |     SPI / GPIO / ADC      |
+|          PA08           |        D12 / MISO         |     SPI / GPIO / ADC      |
+|          PA09           |        D11 / MOSI         |     SPI / GPIO / ADC      |
+|          PD05           |         D10 / SS          |       SPI / GPIO        |
 |          PD04           |           D9            |         GPIO          |
-|          PD03           |           D8            |       GPIO/ADC        |
-|          PD02           |           D7            |       GPIO/ADC        |
-|          PC09           |           D6            |       GPIO/ADC        |
-|          PC08           |           D5            |       GPIO/ADC        |
-|          PC07           |           D4            |       GPIO/ADC        |
-|          PC06           |           D3            |       GPIO/ADC        |
-|          PA03           |           D2            |         GPIO          |
-|          PA04           |      PIN_SERIAL_TX      |     UART/GPIO/ADC     |
-|          PA05           |      PIN_SERIAL_RX      |     UART/GPIO/ADC     |
-
+|          PD03           |           D8            |       GPIO / ADC        |
+|          PD02           |           D7            |       GPIO / ADC        |
+|          PC09           |           D6            |       GPIO / ADC        |
+|          PC08           |         D5 / SCL1         |     I2C / GPIO / ADC      |
+|          PC07           |         D4 / SDA1         |     I2C / GPIO / ADC      |
+|          PC06           |           D3            |       GPIO / ADC        |
+|          PA03           |         D2 / SCK1         |       SPI / GPIO        |
+|          PA05           | D1 / PIN_SERIAL_RX / MISO1  |   UART / SPI / GPIO / ADC   |
+|          PA04           | D0 / PIN_SERIAL_TX / MOSI1  |   UART / SPI / GPIO / ADC   |
 
 The digital pins of the Nano Matter can be used as inputs or outputs through the built-in functions of the Arduino programming language. 
 
@@ -1427,27 +1452,27 @@ The Nano Matter has **19 analog input pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** | **Pin Functionality** |
 |:-----------------------:|:-----------------------:|:---------------------:|
-|          PB00           |           A0            |     GPIO/ADC/DAC      |
-|          PB02           |           A1            |       GPIO/ADC        |
-|          PB05           |           A2            |       GPIO/ADC        |
-|          PC00           |           A3            |       GPIO/ADC        |
-|          PA06           |         A4/SDA          |     I2C/GPIO/ADC      |
-|          PA07           |         A5/SCL          |     I2C/GPIO/ADC      |
-|          PB01           |           A6            |     GPIO/ADC/DAC      |
-|          PB03           |           A7            |       GPIO/ADC        |
-|          PB04           |           D13           |     SPI/GPIO/ADC      |
-|          PA08           |           D12           |     SPI/GPIO/ADC      |
-|          PA09           |           D11           |     SPI/GPIO/ADC      |
-|          PD03           |           D8            |       GPIO/ADC        |
-|          PD02           |           D7            |       GPIO/ADC        |
-|          PC09           |           D6            |       GPIO/ADC        |
-|          PC08           |           D5            |       GPIO/ADC        |
-|          PC07           |           D4            |       GPIO/ADC        |
-|          PC06           |           D3            |       GPIO/ADC        |
-|          PA04           |      PIN_SERIAL_TX      |     UART/GPIO/ADC     |
-|          PA05           |      PIN_SERIAL_RX      |     UART/GPIO/ADC     |
+|          PB00           |           A0            |     GPIO / ADC / DAC      |
+|          PB02           |           A1            |       GPIO / ADC        |
+|          PB05           |           A2            |       GPIO / ADC        |
+|          PC00           |           A3            |       GPIO / ADC        |
+|          PA06           |         A4 / SDA          |     I2C / GPIO / ADC      |
+|          PA07           |         A5 / SCL          |     I2C / GPIO / ADC      |
+|          PB01           |           A6            |     GPIO / ADC / DAC      |
+|          PB03           |           A7            |       GPIO / ADC        |
+|          PB04           |         D13 / SCK         |     SPI / GPIO / ADC      |
+|          PA08           |        D12 / MISO         |     SPI / GPIO / ADC      |
+|          PA09           |        D11 / MOSI         |     SPI / GPIO / ADC      |
+|          PD03           |           D8            |       GPIO / ADC        |
+|          PD02           |           D7            |       GPIO / ADC        |
+|          PC09           |           D6            |       GPIO / ADC        |
+|          PC08           |         D5 / SCL1         |     I2C / GPIO / ADC      |
+|          PC07           |         D4 / SDA1         |     I2C / GPIO / ADC      |
+|          PC06           |           D3            |       GPIO / ADC        |
+|          PA05           | D1 / PIN_SERIAL_RX / MISO1  |   UART / GPIO / ADC / SPI   |
+|          PA04           | D0 / PIN_SERIAL_TX / MOSI1  |   UART / GPIO / ADC / SPI   |
 
-***Digital I/O's can also be used as analog inputs with the exception of `D10`,`D9` and `D2`.***
+***Digital I/O's can also be used as analog inputs except for `D10`,`D9` and `D2`.***
 
 Analog input pins can be used through the built-in functions of the Arduino programming language.
 
@@ -1500,6 +1525,8 @@ The Nano Matter has **one DAC** with two channels, mapped as follows:
 |:-----------------------:|:----------------:|:--------------------:|:--------------:|
 |          PB00           |       DAC0       |          A0          |    DAC0_CH0    |
 |          PB01           |       DAC1       |          A6          |    DAC0_CH1    |
+|          PB02           |       DAC2       |          A1          |    DAC1_CH0    |
+|          PB03           |       DAC3       |          A7          |    DAC1_CH1    |
 
 The digital-to-analog converters of the Nano Matter can be used as outputs through the built-in functions of the Arduino programming language.
 
@@ -1592,16 +1619,22 @@ This section of the user manual covers the different communication protocols tha
 
 ### SPI
 
-The Nano Matter supports SPI communication, which enables data transmission between the board and other SPI-compatible devices. The pins used in the Nano Matter for the SPI communication protocol are the following:
+The Nano Matter supports SPI communication, which enables data transmission between the board and other SPI-compatible devices. It counts with two SPI interfaces and the pins used in the Nano Matter for the SPI communication protocol are the following:
+
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|          PD05           |        SS or D10         |
-|          PA09           |       MOSI or D11        |
-|          PA08           |       MISO or D12        |
-|          PB04           |        SCK or D13        |
+|          PD05           |        SS or D10        |
+|          PA09           |       MOSI or D11       |
+|          PA08           |       MISO or D12       |
+|          PB04           |       SCK or D13        |
+|          PA04           |       MOSI1 or D0       |
+|          PA05           |       MISO1 or D1       |
+|          PA03           |       SCK1 or D2        |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
+
+***You can not use __SPI1__ and __UART__ interfaces at the same time because they share pins.***
 
 Include the `SPI` library at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
 
@@ -1609,7 +1642,9 @@ Include the `SPI` library at the top of your sketch to use the SPI communication
 #include <SPI.h>
 ```
 
-In the `setup()` function, initialize the SPI library, define and configure the chip select (`SS`) pin:
+In the `setup()` function, initialize the SPI peripheral, define and configure the chip select (`SS`) pin:
+
+***Use SPI.begin() for SPI0 and SPI1.begin() for SPI1.***
 
 ```arduino
 
@@ -1653,12 +1688,14 @@ The example code above should output this:
 
 ### I2C
 
-The Nano Matter supports I2C communication, which enables data transmission between the board and other I2C-compatible devices. The pins used in the Nano Matter for the I2C communication protocol are the following:
+The Nano Matter supports I2C communication, which enables data transmission between the board and other I2C-compatible devices. The Nano Matter features two I2C interfaces and the pins used in the Nano Matter for the I2C communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|          PA06           |           SDA           |
-|          PA07           |           SCL           |
+|          PA06           |        SDA or A4        |
+|          PA07           |        SCL or A5        |
+|          PC07           |       SDA1 or D4        |
+|          PC08           |       SCL1 or D5        |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
@@ -1669,6 +1706,8 @@ To use I2C communication, include the `Wire` library at the top of your sketch. 
 ```
 
 In the `setup()` function, initialize the I2C library:
+
+***Use Wire.begin() for I2C0 and Wire1.begin() for I2C1.***
 
 ```arduino
  // Initialize the I2C communication
@@ -1729,10 +1768,12 @@ The pins used in the Nano Matter for the UART communication protocol are the fol
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 |:-----------------------:|:-----------------------:|
-|          PA05           |      PIN_SERIAL_RX      |
-|          PA04           |      PIN_SERIAL_TX      |
+|          PA05           |   PIN_SERIAL_RX or D1   |
+|          PA04           |   PIN_SERIAL_TX or D0   |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
+
+***You can not use __UART__ and __SPI1__ interfaces at the same time because they share pins.***
 
 To begin with UART communication, you will need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
 
