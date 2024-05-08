@@ -5,16 +5,16 @@ on:
     types: [opened, synchronize, labeled]
 
 concurrency:
-  group: netlify
-  cancel-in-progress: false
+  group: netlify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   run:
     if: contains(github.event.pull_request.labels.*.name, 'preview')
     runs-on: ubuntu-latest
     concurrency:
-      group: netlify-${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
+      group: netlify
+      cancel-in-progress: false
     env:
       REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
       APP_ENV: prod
