@@ -74,6 +74,8 @@ When the GSM module starts, you can connect to a remote server using the server 
 client.connect(server,port)
 ```
 
+***Please be aware that the Portenta Cat. M1/NB IoT GNSS Shield is not certified as an End-Device by all cellular network providers. If you encounter difficulties with network connection, we recommend checking with your service provider to verify if End-Device certification is required for network access. Switching to a provider that does not have such requirements may resolve these issues. We advise reviewing this compatibility information during setup to ensure optimal device performance and to prevent potential service interruptions.***
+
 ### Result of Sketch
 
 After finishing this setup, compile and upload the program. You should see the HTML content of the server printed in the Serial Monitor. The server is set as `example.com` as default. Feel free to change this and take a look at how it prints different webpages. Below you can see what will be printed in the Serial Monitor when connecting to `example.com`.
