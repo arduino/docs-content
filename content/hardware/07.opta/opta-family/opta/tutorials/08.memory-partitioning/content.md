@@ -34,7 +34,7 @@ In this tutorial, we will learn how to partition the memory of an Opta™ device
 
 ### Hardware Requirements
 
-- [Opta™](https://store.arduino.cc/collections/pro-family) (x1)
+- [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - USB-C® cable (x1)
 
 ### Software Requirements

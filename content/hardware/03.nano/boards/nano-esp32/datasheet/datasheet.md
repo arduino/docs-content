@@ -3,51 +3,54 @@ identifier: ABX00083
 title: Arduino® Nano ESP32
 type: maker
 ---
+
 ![](assets/featured.png)
 
 # Description
-The Arduino Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 (embedded in the NORA-W106-10B from u-blox®). This is the first Arduino board to be based fully on an ESP32, and features Wi-Fi® as well as Bluetooth® LE.
+
+The Arduino® Nano ESP32 (with and without headers) is a Nano form factor board based on the ESP32-S3 (embedded in the NORA-W106-10B from u-blox®). This is the first Arduino board to be based fully on an ESP32, and features Wi-Fi® as well as Bluetooth® LE.
 
 The Nano ESP32 is compatible with the Arduino Cloud, and has support for MicroPython. It is an ideal board for getting started with IoT development.
 
 # Target areas:
+
 Maker, IoT, MicroPython
 
 # Features
 
-* **Xtensa® Dual-core 32-bit LX7 Microprocessor**
-  * Up to 240 MHz
-  * 384 kB ROM
-  * 512 kB SRAM
-  * 16 kB SRAM in RTC (low power mode)
-  * DMA Controller
-* **Power**
-  * Operating voltage 3.3 V
-  * VBUS supplies 5 V via USB-C® connector
-  * VIN range is 6-21 V
-* **Connectivity**
-  * Wi-Fi®
-  * Bluetooth® LE
-  * Built-in antenna
-  * 2.4 GHz transmitter/receiver
-  * Up to 150 Mbps
-* **Pins**
-  * 14x digital (21x including analog)
-  * 8x analog (available in RTC mode)
-  * SPI(D11,D12,D13), I2C (A4/A5), UART(D0/D1)
-* **Communication Ports**
-  * SPI
-  * I2C
-  * I2S
-  * UART
-  * CAN (TWAI®)
-* **Low Power**
-  * 7 μA consumption in deep sleep mode\*
-  * 240 μA consumption in light sleep mode\*
-  * RTC Memory
-  * Ultra Low Power (ULP) Coprocessor
-  * Power Management Unit (PMU)
-  * ADC in RTC mode
+- **Xtensa® Dual-core 32-bit LX7 Microprocessor**
+  - Up to 240 MHz
+  - 384 kB ROM
+  - 512 kB SRAM
+  - 16 kB SRAM in RTC (low power mode)
+  - DMA Controller
+- **Power**
+  - Operating voltage 3.3 V
+  - VBUS supplies 5 V via USB-C® connector
+  - VIN range is 6-21 V
+- **Connectivity**
+  - Wi-Fi®
+  - Bluetooth® LE
+  - Built-in antenna
+  - 2.4 GHz transmitter/receiver
+  - Up to 150 Mbps
+- **Pins**
+  - 14x digital (21x including analog)
+  - 8x analog (available in RTC mode)
+  - SPI(D11,D12,D13), I2C (A4/A5), UART(D0/D1)
+- **Communication Ports**
+  - SPI
+  - I2C
+  - I2S
+  - UART
+  - CAN (TWAI®)
+- **Low Power**
+  - 7 μA consumption in deep sleep mode\*
+  - 240 μA consumption in light sleep mode\*
+  - RTC Memory
+  - Ultra Low Power (ULP) Coprocessor
+  - Power Management Unit (PMU)
+  - ADC in RTC mode
 
 \*The power consumption ratings listed in low power modes are only for the ESP32-S3 SoC. Other components on the board (such as LEDs), consumes power as well, which increases the overall power consumption of the board.
 
@@ -112,6 +115,7 @@ The Nano ESP32 features the **NORA-W106-10B** stand alone radio module, embeddin
 ### Xtensa® Dual-Core 32bit LX7 Microprocessor
 
 The microprocessor for the ESP32-S3 SoC inside the NORA-W106 module is a dual-core 32-bit Xtensa® LX7. Each core can run at up to 240 MHz and has 512 kB SRAM memory. The LX7 features:
+
 - 32-bit customized instruction set
 - 128-bit data bus
 - 32-bit multiplier / divider
@@ -122,9 +126,9 @@ The LX7 has a 384 kB ROM (Read Only Memory), and 512 kB of SRAM (Static Random A
 
 The NORA-W106-10B module supports the Wi-Fi® 4 IEEE 802.11 standards b/g/n, with an output power EIRP at up to 10 dBm. The max range for this module is 500 meters.
 
-* 802.11b: 11 Mbit/s
-* 802.11g: 54 Mbit/s
-* 802.11n: 72 Mbit/s max at HT-20 (20 MHz), 150 Mbit/s max at HT-40 (40 MHz)
+- 802.11b: 11 Mbit/s
+- 802.11g: 54 Mbit/s
+- 802.11n: 72 Mbit/s max at HT-20 (20 MHz), 150 Mbit/s max at HT-40 (40 MHz)
 
 ### Bluetooth®
 
@@ -139,22 +143,25 @@ The NORA-W106-10B module includes 8 MB of embedded PSRAM. (Octal SPI)
 The built-in antenna on the NORA-W106-10B module uses GFSK modulation technique, with the performance ratings listed below:
 
 Wi-Fi®:
+
 - Typical conducted output power: **17 dBm.**
 - Typical radiated output power: **20 dBm EIRP.**
 - Conducted sensitivity: **-97 dBm**.
 
 Bluetooth® Low Energy:
+
 - Typical conducted output power: **7 dBm.**
 - Typical radiated output power: **10 dBm EIRP.**
 - Conducted sensitivity: **-98 dBm**.
 
-This data is retrieved from the uBlox NORA-W10 data sheet (page 7, section 1.5) available [here](https://www.u-blox.com/en/product/nora-w10-series). 
+This data is retrieved from the uBlox NORA-W10 data sheet (page 7, section 1.5) available [here](https://www.u-blox.com/en/product/nora-w10-series).
 
 ## System
 
 ### Resets
 
 The ESP32-S3 has support for four levels of reset:
+
 - **CPU:** resets CPU0/CPU1 core
 - **Core:** resets the digital system, except for the RTC peripherals (ULP coprocessor, RTC memory).
 - **System:** resets the entire digital system, including the RTC peripherals.
@@ -167,6 +174,7 @@ To do a hardware reset of the board, use the onboard reset button (PB1).
 ### Timers
 
 The Nano ESP32 has the following timers:
+
 - 52-bit system timer with 2x 52-bit counters (16 MHz) and 3x comparators.
 - 4x general-purpose 54-bit timers
 - 3x watchdog timers, two in main system (MWDT0/1), one in the RTC module (RWDT).
@@ -174,6 +182,7 @@ The Nano ESP32 has the following timers:
 ### Interrupts
 
 All GPIOs on the Nano ESP32 can be configured to be used as interrupts, and is provided by an interrupt matrix. Interrupt pins are configured on an application level, using the following configurations:
+
 - LOW
 - HIGH
 - CHANGE
@@ -187,6 +196,7 @@ The ESP32-S3 chip provides flexibility for the various serial protocols it suppo
 ### Inter-Integrated Circuit (I2C)
 
 Default pins:
+
 - A4 - SDA
 - A5 - SCL
 
@@ -201,12 +211,14 @@ The SDA and SCL pins can be assigned to most GPIOs, however some of these pins m
 There two I2S controllers that are typically used for communication with audio devices. There are no specific pins assigned for I2S, this can be used by any free GPIO.
 
 Using standard or TDM mode, the following lines are used:
+
 - **MCLK** - master clock
 - **BCLK** - bit clock
 - **WS** - word select
 - **DIN/DOUT** - serial data
 
 Using PDM mode:
+
 - **CLK** - PDM clock
 - **DIN/DOUT** serial data
 
@@ -267,6 +279,7 @@ The recommended input voltage range is **6-21 V**.
 You should not attempt to power the board with a voltage outside the recommended range, particularly not higher than 21 V.
 
 The efficiency of the converter depends on the input voltage via the VIN pin. See the average below for a board operation with normal current consumption:
+
 - **4.5 V** - >90%.
 - **12 V** - 85-90%
 - **18 V** - <85%
@@ -345,11 +358,11 @@ The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and 
 
 If you want to program your Nano ESP32 while offline you need to install the Arduino IDE **[1]**. To connect the Nano ESP32 to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -421,10 +434,11 @@ However, there is no guarantee that interference will not occur in a particular 
 this equipment does cause harmful interference to radio or television reception, which can be
 determined by turning the equipment off and on, the user is encouraged to try to correct the
 interference by one or more of the following measures:
+
 - Reorient or relocate the receiving antenna.
 - Increase the separation between the equipment and receiver.
 - Connect the equipment into an outlet on a circuit different from that to which the
-receiver is connected.
+  receiver is connected.
 - Consult the dealer or an experienced radio/TV technician for help.
 
 English:
@@ -459,17 +473,16 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | --------------- | --------------------------------------------- |
 | Company Address | Via Andrea Appiani, 25 Monza, MB, 20900 Italy |
 
-
 ## Reference Documentation
 
-| Ref                          | Link                                                                                            |
-| ---------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)        | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino Web Editor (Cloud)   | <https://create.arduino.cc/editor>                                                              |
-| Web Editor - Getting Started | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
-| Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
-| Library Reference            | <https://github.com/arduino-libraries/>                                                         |
-| Online Store                 | <https://store.arduino.cc/>                                                                     |
+| Reference                              | Link                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/Main/Software                                  |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                         |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://github.com/arduino-libraries/                                    |
+| Online Store                           | https://store.arduino.cc/                                                                     |
 
 ## Change Log
 
@@ -482,7 +495,5 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 11/09/2023 | Block Diagram Update, Antenna Specifications           |
 | 11/15/2023 | Ambient temperature update                             |
 | 11/23/2023 | Added label to LP modes                                |
-
-
-
-
+| 23/02/2024 | Added antenna frequency to block diagram               |
+| 25/04/2024 | Updated link to new Cloud Editor                       |

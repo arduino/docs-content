@@ -29,10 +29,10 @@ This tutorial will show the steps to connect two Opta™ devices via RS-485 and 
 
 ### Required Hardware and Software
 
-- Opta™ PLC with RS-485 support (x2)
-- 12-24VDC/1A power supply (x1)
+- Opta™ PLC with RS-485 support: [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x2)
+- 12-24 VDC / 1 A power supply (x1)
 - 24AWG twisted-pair cable (used for electrical connections)
-- USB-C® cable (x1)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [ArduinoRS485 library](https://www.arduino.cc/reference/en/libraries/arduinors485/)
 - [RS-485 example code](assets/Opta_RS485_Example.zip)

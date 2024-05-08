@@ -36,12 +36,12 @@ The Modbus RTU protocol is one of the protocols available within Opta™. In thi
 
 ### Hardware Requirements
 
-- Opta™ PLC with RS-485 support (x2)
-- 12VDC/1A DIN rail power supply (x1)
-- USB-C® cable (x1)
-- Wire with either specification for RS-485 connection (x3):
-- STP/UTP 24-18AWG (Unterminated) 100-130Ω rated
-- STP/UTP 22-16AWG (Terminated) 100-130Ω rated
+- Opta™ PLC with RS-485 support: [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x2)
+- 12 VDC / 1 A DIN rail power supply (x1)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
+- Wire with either specification for RS-485 connection (x3)
+- STP/UTP 24-18AWG (Unterminated) 100-130 Ω rated
+- STP/UTP 22-16AWG (Terminated) 100-130 Ω rated
 
 ### Software Requirements
 

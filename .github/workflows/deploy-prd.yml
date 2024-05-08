@@ -6,6 +6,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
 jobs:
   build:
     if: "github.repository == 'arduino/docs-content'"
@@ -15,8 +19,10 @@ jobs:
       APP_ENV: prod
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: "npm"
@@ -34,7 +40,7 @@ jobs:
           find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
 
       - name: Gatsby main cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: gatsby-cache-folder
         with:
           path: .cache
@@ -43,7 +49,7 @@ jobs:
             ${{ runner.os }}-cache-gatsby-
 
       - name: Gatsby Public Folder
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: gatsby-public-folder
         with:
           path: public/

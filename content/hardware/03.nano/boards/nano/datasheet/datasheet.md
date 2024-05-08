@@ -8,7 +8,7 @@ type: maker
 
 # Description
 
-**Arduino® Nano** is an intelligent development board designed for building faster prototypes with the smallest dimension. Arduino Nano being the oldest member of the Nano family, provides enough interfaces for your breadboard-friendly applications. At the heart of the board is **ATmega328 microcontroller** clocked at a frequency of 16 MHz featuring more or less the same functionalities as the Arduino Duemilanove. The board offers 20 digital input/output pins, 8 analog pins, and a mini-USB port.
+**Arduino® Nano** is an intelligent development board designed for building faster prototypes with the smallest dimension. Arduino Nano being the oldest member of the Nano family, provides enough interfaces for your breadboard-friendly applications. At the heart of the board is **ATmega328 microcontroller** clocked at a frequency of 16 MHz featuring more or less the same functionalities as the Arduino® Duemilanove. The board offers 20 digital input/output pins, 8 analog pins, and a mini-USB port.
 
 # Target Areas 
 Maker, Security, Environmental, Robotics and Control Systems
@@ -45,13 +45,11 @@ Maker, Security, Environmental, Robotics and Control Systems
 
 ## The Board
 ### Application Examples
-Arduino Nano is the first embedded microcontroller in the Nano series with minimum functionalities, designed for mini projects from the maker community. With a large number of input/output pins gives the advantage of utilizing several serial communications like UART, SPI and I2C. The hardware is compatible with Arduino IDE, Arduino CLI and web editor.
+Arduino Nano is the first embedded microcontroller in the Nano series with minimum functionalities, designed for mini projects from the maker community. With a large number of input/output pins gives the advantage of utilizing several serial communications like UART, SPI and I2C. The hardware is compatible with Arduino IDE, Arduino CLI and Cloud Editor.
 
 **Security**: The high-performance and low-power capabilities gives the chance to develop security based applications like access control systems using fingerprint sensors. The flexibility to interface sensors and external devices using serial communication has improved the scope of utility.
 
-**Environmental**: The low-power feature of the microcontroller and the power supply
-options for the board has enhanced the ability to implement remote IoT projects related
-to environmental issues.
+**Environmental**: The low-power feature of the microcontroller and the power supply options for the board has enhanced the ability to implement remote IoT projects related to environmental issues.
 
 **Robotics**: Robotics has always been the favorite area of exploration for the Maker community and with this tiny embedded hardware you can now create complex and advanced robotic applications.
 
@@ -60,9 +58,9 @@ to environmental issues.
 
 ### Related Products
 
-- Arduino Nano 33 BLE
-- Arduino 33 IoT
-- Arduino Micro
+- Arduino® Nano 33 BLE (SKU: ABX00030)
+- Arduino® 33 IoT (SKU: ABX00027)
+- Arduino® Micro (SKU: A000093)
 
 ## Ratings
 
@@ -83,26 +81,27 @@ to environmental issues.
 
 ### Processor
 
-The primary processor in the Arduino Nano v3.3 board is the high-performance and low-power 8-bit ATmega328 microcontroller that runs at a clock frequency of 16 MHz. The ability to interface external devices through serial communication supported by the chip with UART TTL (5V), I2C (TWI) and SPI. Arduino Nano can be programmed with Arduino software reducing the entry barriers for new users. Smallest dimension embedded hardware makes it a perfect choice for breadboard-friendly projects from the maker community.
+The primary processor in the Nano board is the high-performance and low-power 8-bit ATmega328 microcontroller that runs at a clock frequency of 16 MHz. The ability to interface external devices through serial communication supported by the chip with UART TTL (5V), I2C (TWI) and SPI. Nano can be programmed with Arduino software reducing the entry barriers for new users. Smallest dimension embedded hardware makes it a perfect choice for breadboard-friendly projects from the maker community.
 
 ### Power Tree
 ![Power Tree of Arduino Nano](./assets/nano_power_tree.png)
 
-The Arduino Nano can be powered by either the USB port or alternatively via VIN. The input supply of VIN is regulated by an LDO so the supply is limited to 5V for the optimal functioning of the board. There is also another regulator which limits the voltage to 3.3V for powrering the components with low voltage requirements.
+The Nano can be powered by either the USB port or alternatively via VIN. The input supply of VIN is regulated by an LDO so the supply is limited to 5 V for the optimal functioning of the board. There is also another regulator which limits the voltage to 3.3V for powering the components with low voltage requirements.
 
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your Arduino® Nano while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino Uno to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Nano while offline you need to install the Arduino Desktop IDE **[1]** To connect the Nano to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
-All Arduino® boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+### Getting Started - Arduino Cloud Editor
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor **[2]**, by just installing a simple plugin.
+
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Sample Sketches
-Sample sketches for the Arduino® can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation” section of the Arduino website **[4]**
+Sample sketches for the board can be found either in the “Examples” menu in the Arduino IDE or in Arduino Documentation **[4]**.
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino® Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more.
 
 ## Connector Pinouts
 
@@ -236,20 +235,21 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Ref                       | Link                                                                                                |
-| ------------------------- | --------------------------------------------------------------------------------------------------- |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                                                                  |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                                    |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Arduino Documentation     | https://docs.arduino.cc/hardware/nano                                                               |
-| Project Hub               | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
-| Library Reference         | https://www.arduino.cc/reference/en/libraries/                                                      |
-| Online Store              | https://store.arduino.cc/                                                                           |
+| Ref                                    | Link                                                                                                |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/software                                                                  |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                                                    |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                                                |
+| Arduino Documentation                  | https://docs.arduino.cc/hardware/nano                                                               |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
+| Library Reference                      | https://www.arduino.cc/reference/en/libraries/                                                      |
+| Online Store                           | https://store.arduino.cc/                                                                           |
 
 
 ## Revision History
 
 | **Date**   | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
+| 25/04/2024 | 3            | Updated link to new Cloud Editor      |
 | 03/08/2022 | 2            | Reference documentation links updates |
 | 12/04/2022 | 1            | First Release                         |

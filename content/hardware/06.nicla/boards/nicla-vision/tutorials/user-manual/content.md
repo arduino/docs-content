@@ -150,7 +150,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Nicla Vision STEP files](https://docs.arduino.cc/static/24f56d94c6040c9c3a4a187375cf7601/ABX00051-step.zip)
+- [Nicla Vision STEP files](../../downloads/ABX00051-step.zip)
 
 ## First Use
 ### Powering the Board

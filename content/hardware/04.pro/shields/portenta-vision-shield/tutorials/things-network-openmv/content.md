@@ -92,7 +92,7 @@ It is now time to connect your Portenta H7 and Portenta Vision Shield - LoRa to 
 
 Plug the Portenta Vision Shield - LoRa to the Portenta H7 and them to your PC through the USB port. If the Portenta board does not show up on OpenMV, try double-pressing the reset button on the Portenta. Now update to the latest firmware in OpenMV.
 
-The only line you may need to change before uploading the code is the one that sets the frequency. Set the frequency code according to your country if needed. You can find more information about frequency by country at [this TTN link](https://www.thethingsnetwork.org/docs/lorawan/frequency-plans.html).
+The only line you may need to change before uploading the code is the one that sets the frequency. Set the frequency code according to your country if needed. You can find more information about frequency by country at [this TTN link](https://www.thethingsnetwork.org/docs/lorawan/frequency-plans/).
 
 ***Consider that in Australia the boards connect correctly to TTN gateways on AS923 frequencies; AU915 frequencies requires the selection of sub band 2 which is not yet implemented in the firmware.***
 
@@ -142,7 +142,7 @@ In order to select the way in which the board is going to connect with TTN (OTAA
 
 ### 5. Registering the Portenta on TTN
 
-Before your Portenta H7 can start communicating with the TTN, you need to [register](https://www.thethingsnetwork.org/docs/devices/registration.html) the board with an application. Go back to the TTN portal and scroll to **End devices** section on your Application dashboard, then click **Add end device**.
+Before your Portenta H7 can start communicating with the TTN, you need to [register](https://www.thethingsnetwork.org/docs/devices/registration/) the board with an application. Go back to the TTN portal and scroll to **End devices** section on your Application dashboard, then click **Add end device**.
 
 ![Registering a Device](assets/vs_ard_ttn_click_register.png)
 
@@ -169,7 +169,7 @@ After pressing the Register button, your board will show up on the **Device Over
 
 Once your board has been registered, you can send information to TTN. Let's go back to the sketch to fill in the appEui and appKey. The sketch you use here will leverage OTA connection.
 
-You can read more into OTA vs ABP activation mode at [this link](https://www.thethingsnetwork.org/docs/devices/registration.html)
+You can read more into OTA vs ABP activation mode at [this link](https://www.thethingsnetwork.org/docs/devices/registration/)
 
 Once your board has been registered, you can send information to TTN. Let's proceed in OpenMV. In the sketch the application EUI and the app key needs to be filled in. Find the EUI and the App key from TTN **Device Overview** page.
 

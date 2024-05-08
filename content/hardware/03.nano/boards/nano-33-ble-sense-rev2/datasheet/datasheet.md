@@ -8,9 +8,9 @@ type: maker
 
 # Description
 
-The **Arduino Nano 33 BLE Sense Rev2**\* is a miniature sized module containing a NINA B306 module, based on Nordic nRF52480 and containing a Cortex M4F. The BMI270 and BMM150 jointly provide a 9 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
+The **Arduino® Nano 33 BLE Sense Rev2**\* is a miniature sized module containing a NINA B306 module, based on Nordic nRF52480 and containing an Arm® Cortex®-M4F. The BMI270 and BMM150 jointly provide a 9 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
 
-\*The Arduino Nano 33 BLE Sense Rev2 product has two SKUs:
+\*The Nano 33 BLE Sense Rev2 product has two SKUs:
 * Without headers (ABX00069)
 * With headers (ABX00070)
 
@@ -23,7 +23,7 @@ Maker, enhancements, IoT application
 - **NINA B306 Module**
   - **Processor**
     - 64 MHz Arm® Cortex®-M4F (with FPU)
-    - 1 MB Flash + 256 KB RAM
+    - 1 MB Flash + 256 kB RAM
   - **Bluetooth® 5 multiprotocol radio**
     - 2 Mbps
     - CSA #2
@@ -86,7 +86,7 @@ Maker, enhancements, IoT application
 
 As all Nano form factor boards, Nano 33 BLE Sense Rev2 does not have a battery charger but can be powered through USB or headers.
 
-**NOTE:** Arduino Nano 33 BLE Sense Rev2 only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
+**NOTE:** Nano 33 BLE Sense Rev2 only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
 
 ### Ratings
 
@@ -139,16 +139,18 @@ The Main Processor is an Arm® Cortex®-M4F running at up to 64MHz. Most of its 
 
 ### IMU
 
-The Arduino Nano 33 BLE Sense Rev2 provides IMU capabilities with 9-axis, by combination of the BMI270 and BMM150 ICs. The BMI270 includes both a three axis gyroscope as well as an three axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning.
+The Nano 33 BLE Sense Rev2 provides IMU capabilities with 9-axis, by combination of the BMI270 and BMM150 ICs. The BMI270 includes both a three axis gyroscope as well as an three axis accelerometer, while the BMM150 is capable of sensing magnetic field variations in all three dimensions. The information obtained can be used for measuring raw movement parameters as well as for machine learning.
 
 ### LPS22HB (U9) Barometer and Temperature Sensor
 
 The LPS22HB pressure sensor IC (U9) includes both a piezoresistive absolute pressure sensor together with a temperature sensor integrated into a small chip. The pressure sensor (U9) interfaces with the main microcontroller (U1) via an I2C interface. The sensing element is composed of a micromachined suspended membrane for measuring absolute pressure, and includes a Wheatstone bridge internally for measuring the the piezoresistive elements. The temperature perturbations are compensated via an included temperature sensor on-chip. The absolute pressure can range from 260 to 1260 hPa. Pressure data can be polled via I2C at up to 24-bits, while temperature data can be polled at up to 16-bits.
+
 The Arduino_LPS22HB library provides a ready to use implementation of the I2C protocol with this chip.
 
 ### HS3003 (U8) Relative Humidity and Temperature Sensor
 
-The HS3003 (U8) is a MEMS sensors, designed to provide accurate readings of relative humidity and temperature in a small package. Temperature-compensation and calibration is performed on-chip, without requiring external circuitry. The HS3003 can measure the relative humidity from 0% to 100%RH with fast response times (under 4 seconds). The included on-chip temperature sensor (used for compensation) is has a temperature accuracy of ±0.1°C.
+The HS3003 (U8) is a MEMS sensors, designed to provide accurate readings of relative humidity and temperature in a small package. Temperature-compensation and calibration is performed on-chip, without requiring external circuitry. The HS3003 can measure the relative humidity from 0% to 100%RH with fast response times (under 4 seconds). The included on-chip temperature sensor (used for compensation) is has a temperature accuracy of ±0.1 °C.
+
 U8 communicates via the main microcontroller via an I2C bus.
 
 #### Gesture Detection
@@ -181,13 +183,13 @@ The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pi
 
 ### Getting Started - IDE
 
-If you want to program your Arduino Nano 33 BLE Sense Rev2 while offline you need to install the Arduino Desktop IDE [1] To connect the Arduino Nano 33 BLE Sense Rev2 to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Nano 33 BLE Sense Rev2 while offline you need to install the Arduino Desktop IDE [1] To connect the Nano 33 BLE Sense Rev2 to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [2], by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -195,11 +197,11 @@ All Arduino IoT enabled products are supported on Arduino Cloud which allows you
 
 ### Sample Sketches
 
-Sample sketches for the Arduino Nano 33 BLE Sense Rev2 can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website.
+Sample sketches for the Nano 33 BLE Sense Rev2 can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Docs website.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub, the Arduino Library Reference and the on line store where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub [4], the Arduino Library Reference [5] and the on line store where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 
@@ -363,22 +365,23 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Reference                 | **Link**                                                                                                                                                             |
-|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software)                                                                                                                                  |
-| Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                                                                                                    |
-| Cloud IDE Getting Started | [https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a)                                                                 |
-| Forum                     | [https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a)                                                                                                                                            |
-| Nina B306                 | [https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf](https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf)                                                                                   |
-| Arduino_LPS22HB Library                   | [https://github.com/arduino-libraries/Arduino_LPS22HB](https://github.com/arduino-libraries/Arduino_LPS22HB)                                                                                                                               |
-| Arduino_APDS9960 Library          | [https://github.com/arduino-libraries/Arduino_APDS9960](https://github.com/arduino-libraries/Arduino_APDS9960)                                                                                                                       |
-| ProjectHub                | [https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending)                                                                                            |
-| Library Reference         | [https://www.arduino.cc/reference/en/](https://www.arduino.cc/reference/en/)                                                                                                                                 |
+| Reference                              | **Link**                                                                            |
+|---------------------------------------|------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/software                                                  |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                                    |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                                |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending            |
+| Library Reference                      | https://www.arduino.cc/reference/en/                                                |
+| Forum                                  | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
+| Nina B306                              | https://content.u-blox.com/sites/default/files/NINA-B3_DataSheet_UBX-17052099.pdf   |
+| Arduino_LPS22HB Library                | https://github.com/arduino-libraries/Arduino_LPS22HB                                |
+| Arduino_APDS9960 Library               | https://github.com/arduino-libraries/Arduino_APDS9960                               |
 
 ## Revision History
 
 | Date       | **Revision** | **Changes**                           |
 |------------|--------------|---------------------------------------|
+| 25/04/2024 | 5            | Updated link to new Cloud Editor      |
 | 03/05/2023 | 4            | Add SKU for version with headers      |
 | 10/11/2022 | 3            | Updated to account for Rev2 changes:  LSM9DS1 -> BMI270+Bmm150, HTS221 -> HS3003, MPM3610 -> MP2322, PCB modification   |
 | 03/08/2022 | 2            | Reference documentation links updates |

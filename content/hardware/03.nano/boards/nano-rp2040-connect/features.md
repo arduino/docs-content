@@ -18,7 +18,7 @@ The Nano RP2040 Connect is compatible with the Arduino Cloud platform. Build IoT
 This board can be programmed using MicroPython which is an implementation of the Python® programming language that comes with a subset of the Python® standard library.
 <FeatureWrapper>
 <FeatureLink variant="primary" title="Documentation" url="/tutorials/nano-33-ble-sense/micropython-installation"/>
-<FeatureLink variant="secondary" title="Learn More" url="/learn/programming/arduino-and-python"/>
+<FeatureLink variant="secondary" title="Learn More" url="/micropython"/>
 </FeatureWrapper>
 </Feature>
 

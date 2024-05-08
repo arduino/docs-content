@@ -35,7 +35,7 @@ In order to use the OLED screen you will need to install the following module:
 mip.install("https://raw.githubusercontent.com/micropython/micropython-lib/master/micropython/drivers/display/ssd1306/ssd1306.py")
 ```
 
-***If you are unsure how to install external modules you can read up on it [here](https://docs.arduino.cc/micropython-course/course/introduction-python#external-modules)***
+***If you are unsure how to install external modules you can read up on it [here](https://docs.arduino.cc/micropython/micropython-course/course/examples/#module-installation)***
 
 ```python
 from machine import SoftI2C, Pin

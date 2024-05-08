@@ -27,4 +27,4 @@ OpenMV is a platform that supports programming Arduino boards with MicroPython. 
 
 - [Download OpenMV](https://openmv.io/pages/download).
 
-***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/10-Arduino-Boards).***
+***You can also check out the full list of examples in the [OpenMV's GitHub repository](https://github.com/openmv/openmv/tree/master/scripts/examples/50-Arduino-Boards).***

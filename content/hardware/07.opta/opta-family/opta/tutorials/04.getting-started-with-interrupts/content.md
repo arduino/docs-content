@@ -31,7 +31,7 @@ The **interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 #### Hardware Requirements
 
 - [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
-- USB-C® cable (x1)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - +12-24 VDC/0.5 A power supply (x1)
 
 #### Software Requirements

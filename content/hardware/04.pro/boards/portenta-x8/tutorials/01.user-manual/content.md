@@ -91,7 +91,7 @@ The full schematics are available and downloadable as PDF from the link below:
 ### STEP Files
 
 The full _STEP_ files are available and downloadable from the link below:
-* [Portenta X8 STEP files](https://docs.arduino.cc/static/5d95e348688a9678e04d6f4d0b994844/ABX00049-step.zip)
+* [Portenta X8 STEP files](../../downloads/ABX00049-step.zip)
 
 ### Linux Environment
 
@@ -360,7 +360,7 @@ If this is not the case, you can update your device using FoundriesFactory **Wav
 
 ### Update Using `uuu` Tool
 
-An alternative method to updating the Portenta X8 with the latest OS image is to use the `uuu` command. This flash method is helpful if you have built a custom image or desire a more manual approach. Nonetheless, you will need to prepare the OS image files and the board must be set into programming mode for this flashing process.
+An alternative method to updating the Portenta X8 with the latest OS image is to use the `uuu` command (`uuu_mac` command in case you are using MAC OS). This flash method is helpful if you have built a custom image or desire a more manual approach. Nonetheless, you will need to prepare the OS image files and the board must be set into programming mode for this flashing process.
 
 ***To learn more about creating a custom image for Portenta X8, please check out [How To Build a Custom Image for Your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/image-building) tutorial.***
 
