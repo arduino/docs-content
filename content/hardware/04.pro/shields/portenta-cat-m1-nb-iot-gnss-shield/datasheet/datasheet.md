@@ -14,7 +14,12 @@ Unleash the global connectivity and positioning capabilities of your Portenta or
 Internet of Things, outdoor asset tracking, positioning, cellular connectivity, fleet management
 
 # Features
-***Note: This board requires a compatible MKR or Portenta board to function. Use together with the Arduino Portenta Vision Shield is not supported.***
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+<strong>Note:</strong> This board requires a compatible MKR or Portenta board to function. Its use together with the Arduino Portenta Vision Shield is not supported.
+</p>
+</div>
 
 - Cinterion TX62 wireless module
   - Cellular connectivity and positioning support
@@ -47,7 +52,7 @@ Internet of Things, outdoor asset tracking, positioning, cellular connectivity, 
     - BeiDou
 - MKR and Portenta Compatible
   - MKR requires headers
-  
+ 
 
 # Contents
 
@@ -56,14 +61,14 @@ Internet of Things, outdoor asset tracking, positioning, cellular connectivity, 
 ### Application Examples
 Enter the world of global asset tracking with the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. This shield can connect to your Portenta/MKR board enabling a wide range of applications.
 
-- **Global Asset tracking**
+- **Global asset tracking**
   The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provides connectivity to four major satellite positioning networks, allowing you to track your inventory reliably. The multi-band cellular connectivity ensures you get live updates on your inventory nearly anywhere in the world.
 
 - **Remote node monitoring**
-  The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can relay geo-tagged data from local sensors located worldwide to provide real-time insight for increasing your business revenues. 
+  The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can relay geo-tagged data from local sensors located worldwide to provide real-time insight for increasing your business revenues.
 
 - **Fleet management**
-  Manage your MaaS (Mobility as a Service) solution across the city or between borders. Track, analyse and dynamically manage your fleet to optimize fuel usage, increase your customers satisfaction and reduce transport times. Enable predictive maintenance and remote diagnostics to ensure your business runs smoothly with minimal downtime.
+  Manage your MaaS (Mobility as a Service) solution across the city or between borders. Track, analyze and dynamically manage your fleet to optimize fuel usage, increase your customers' satisfaction and reduce transport times. Enable predictive maintenance and remote diagnostics to ensure your business runs smoothly with minimal downtime.
 
 ### Accessories (Not Included)
 - Active GNSS Antenna (e.g. ECHO19/0.1M/UFL/S/S/17)
@@ -84,19 +89,9 @@ Enter the world of global asset tracking with the **Arduino® Portenta Cat. M1/N
 | ---------------- | ---------------------------------- | :--: | :--: | :--: | :--: |
 | V<sub>cc</sub>   | Input Voltage from Portenta        | 3.2  | 3.3  | 3.4  |  V   |
 | V<sub>GNSS</sub> | Active GNSS Antenna Bias Voltage   | 2.9  |  3   | 3.1  |  V   |
-| T<sub>OP</sub>   | Operating Temperature <sup>2</sup> | -40  |  25  |  85  |  °C  |
+| T<sub>OP</sub>   | Operating Temperature <sup>1</sup> | -40  |  25  |  85  |  °C  |
 
-**<sup>(1)</sup>:** See Portenta datasheet  
-**<sup>(2)</sup>:** Temperatures under -30°C may cause instability in the TX62 operation.
-
-
-### Power Consumption
-| Symbol                  | Description                                                  | Min  | Typ  | Max  | Unit |
-| ----------------------- | ------------------------------------------------------------ | :--: | :--: | :--: | :--: |
-| P<sub>STDBY</sub>       | Power consumption in standby                                 |      | TBC  |      |  mW  |
-| P<sub>GPS</sub>         | Power consumption for GPS geo-location at 1 Hz               |      | TBC  |      |  mW  |
-| P<sub>CLOUD</sub>       | Power consumption for sending data to Arduino Cloud at 1 Hz  |      | TBC  |      |  mW  |
-| P<sub>GPSCLOUD_LP</sub> | Power consumption for GPS geo-location and sending data to Arduino Cloud once per hour |      | TBC  |      |  mW  |
+**<sup>(1)</sup>:** Temperatures under -30°C may cause instability in the TX62 operation.
 
 ## Functional Overview
 ### Block Diagram
@@ -125,19 +120,29 @@ Enter the world of global asset tracking with the **Arduino® Portenta Cat. M1/N
 ### Cellular Connectivity
 The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** provides access to various cellular networks via the TX62-W Module (U1). It is possible to connect an external cellular antenna via a micro UFL connector (J7). Both SMS and data transfer functionality are provided. SMS messages can be stored in the SIM card module.  The modem is addressable via AT commands. Modem status is provided by the RGB LED (DL1). The input impedance for the cellular antenna is 50Ω.
 
-***Note: The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano-SIM for cellular connectivity. eSIM is not supported at this time.***
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+<strong>Note:</strong> The Portenta Cat. M1/NB IoT GNSS Shield requires a physical nano-SIM for cellular connectivity. eSIM is not supported at this time.
+</p>
+</div>
+
+
 
 ### Service Provider Compatibility and End-Device Certification
-Please be aware that the Portenta Cat. M1/NB IoT GNSS Shield is not certified as an End-Device by all cellular network providers. 
+Please be aware that the Portenta Cat. M1/NB IoT GNSS Shield is not certified as an end device by all cellular network providers. 
 
 If you encounter difficulties with network connection, we recommend checking with your service provider to verify if End-Device certification is required for network access. Switching to a provider that does not have such requirements may resolve these issues.
 
 We advise reviewing this compatibility information during setup to ensure optimal device performance and to prevent potential service interruptions.
 
 ### Positioning
-Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for the transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and should have a bias voltage of 3.0V. The input impedance for the GNSS antenna connector is 50Ω. For compatibility with all GNSS systems, the antenna should support bands over 1559 - 1606 MHz frequency range. 
+Four major GNSS systems are supported by the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield**. NMEA protocol is used for the transmission of GNSS information. An active antenna can be connected via the micro UFL connector (J8) and should have a bias voltage of 3.0V. The input impedance for the GNSS antenna connector is 50Ω. For compatibility with all GNSS systems, the antenna should support bands over the 1559 - 1606 MHz frequency range.
 
-***Note: GNSS and cellular services cannot be used simultaneously.***
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+<strong>Note:</strong> GNSS and cellular services cannot be used simultaneously.
+</p>
+</div>
 
 ### Power Tree
 ![Portenta Cat. M1/NB IoT GNSS Shield Power Tree](assets/thalesShieldPowerTree.svg)
@@ -146,7 +151,12 @@ Power to the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** is provided by th
 
 ## Board Operation
 
-***Note: The **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** requires a Portenta/MKR host board to operate.***
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+<strong>Note:</strong> The Arduino® Portenta Cat. M1/NB IoT GNSS Shield requires a Portenta/MKR host board to operate.
+</p>
+</div>
+
 
 ### Sample Sketches
 Sample sketches for the **Arduino® Portenta Cat. M1/NB IoT GNSS Shield** can be found either in the “Examples” menu in the Arduino® IDE or in the “Documentation > Tutorials” section of the Arduino® Pro website **[4]**
@@ -183,17 +193,17 @@ electrical and electronic equipment
 | Hexavalent Chromium (Cr6+)             | 1000                    |
 | Poly Brominated Biphenyls (PBB)        | 1000                    |
 | Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
-| Bis(2-Ethylhexyl} phthalate (DEHP)     | 1000                    |
+| Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
 | Benzyl butyl phthalate (BBP)           | 1000                    |
 | Dibutyl phthalate (DBP)                | 1000                    |
 | Diisobutyl phthalate (DIBP)            | 1000                    |
 
-Exemptions: No exemptions are claimed. 
+Exemptions: No exemptions are claimed.
 
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
 
-### Conflict Minerals Declaration 
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas. 
+### Conflict Minerals Declaration
+As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
 
 ## FCC Caution
 Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
@@ -212,7 +222,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20cm between the radiator & your body.
 
-English: 
+English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
@@ -228,10 +238,10 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 **IC SAR Warning:**
 
-English 
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.  
+English
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
-French: 
+French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
@@ -258,11 +268,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino® Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
 | Arduino® Pro Website               | https://www.arduino.cc/pro                                                                          |
 | Project Hub                        | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                            |
-| Library Reference                  | https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/GSM      |
+| Library Reference                  | https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/GSM                               |
 | Online Store                       | https://store.arduino.cc/                                                                           |
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**     |
-| ---------- | ------------ | --------------- |
-| 31/01/2022 | 1           | Initial Version |
+| **Date**   | **Revision** | **Changes**                                       |
+| ---------- | ------------ | ------------------------------------------------- |
+| 09/05/2024 | 2            | Additional notes and warnings added. Format fixes |
+| 31/01/2022 | 1            | Initial Version                                   |
