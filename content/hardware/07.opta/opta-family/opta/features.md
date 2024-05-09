@@ -37,7 +37,7 @@ Arduino Opta® is available in three variants:
 </Feature>
 
 
-<Feature title="Suitable to DIN Rail" image="configurability">
+<Feature title="Suitable to DIN rail" image="configurability">
 
   Thanks to its form factor, it can be attached to a Din Rail mount system, providing quick access to all the I/O ‘s.
 
@@ -57,7 +57,7 @@ Arduino Opta® is available in three variants:
 
 <Feature title="Arduino Opta® F.A.Q" image="magnetometer">
 
-  Check the most _Frequently Asked Questions_ about the Arduino Opta® Device
+  Check the most _Frequently Asked Questions_ about the Arduino Opta® Devices
 
 <FeatureWrapper>
   <FeatureLink title="F.A.Q - Arduino Opta®" url="https://support.arduino.cc/hc/en-us/articles/13870453088924-FAQ-Arduino-Opta" download/>
