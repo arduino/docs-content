@@ -14,19 +14,19 @@ author: 'Paolo Cavagnolo'
 
 ![](assets/title.png)
 
-In this manual you'll find usefull informations to get started, test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and sotware. 
+In this manual you'll find useful information to get started, test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and sotware.
 
-## 1. Unboxing 
+## 1. Unboxing
 
 ![Unboxing Alvik](assets/unboxing.jpg)
 
-Your Alvik robot is equiped with three ready to go examples, each one of the examples are color-coded. There's Red, Green, and Blue:
+Your Alvik robot is equipped with three ready to go examples, each one of the examples are color-coded. There's Red, Green, and Blue:
 
-* **Red Program (Touch Mode):** Use the arrows to tell your robot what to do: up and down for moving forward and backward by 10 cm, and left and right for turning 90 degrees. The robot will collect instructions untill you press the "tick" to make it happen.
+* **Red Program (Touch Mode):** Use the arrows to tell your robot what to do: up and down for moving forward and backward by 10 cm, and left and right for turning 90 degrees. The robot will collect instructions until you press the "tick" to make it happen.
 
 * **Green Program (Hand Follower):** Your robot will keep a steady 10 cm distance from your hand or any object you put in front of it.
 
-* **Blue Program (Line Follower):** Your robot will glide along a black line on a wite surface. 
+* **Blue Program (Line Follower):** Your robot will glide along a black line on a white surface.
 
   ***The recommended size for the "black line" is between 2-3cm wide***
 
@@ -34,13 +34,13 @@ Just turn your Alvik ON, wait until the LEDs turn blue and use the up and down b
 
 ![Selecting one of the ready to go examples](assets/select-examples.gif)
 
-***The product is sensible to electrostatic discharge*** 
+***The product is sensible to electrostatic discharge***
 
 ## 2. Getting to Know Alvik in Detail
 
 Now that you have played with Alvik and you have seen it moving, tt is time to know more in depth how it is built and how to get much more than the out-of-the-box  experience from it.
 
-### 2.1 Requeriments
+### 2.1 Requirements
 
 #### 2.1.1 Hardware Requirements
 
@@ -72,7 +72,7 @@ Please note that when using MicroPython the pin number reflects the GPIO on the 
 
 #### 3.2.2 STM32
 
-The main core of the robot is the STM32 ARM Cortex-M4 32 Bit, you can access it trough a set of dedicated APIs from the Nano ESP32.
+The main core of the robot is the STM32 ARM Cortex-M4 32 Bit, you can access it through a set of dedicated APIs from the Nano ESP32.
 
 [Here](/tutorials/02.api-overview/api-overview.md) is the list of APIs.
 
@@ -93,7 +93,7 @@ The battery is a rechargeable Li-ion 18650. It is located in the bottom part of 
 
 ![charging blink](assets/battery_holder.jpg)
 
-The Nano ESP32 can report the status of the battery trough the terminal of the Arduino Lab for MicroPython and with its RGB status LED. To do that you need to call the `Alvik.begin()` function, in any program or you can also do it directly at the command line area.
+The Nano ESP32 can report the status of the battery through the terminal of the Arduino Lab for MicroPython and with its RGB status LED. To do that you need to call the `Alvik.begin()` function, in any program or you can also do it directly at the command line area.
 
 When the battery is charging the status LED will blink RED for 1 second.
 ![charging blink](assets/charging.gif)
@@ -106,7 +106,7 @@ When fully charged it will stay GREEN.
 
 #### 3.2.5 Inputs
 
-Alvik has five inputs, all linked to the STM32 and accessible trough the [APIs](/tutorials/cheat-sheet/cheat-sheet.md). For every input there is a test example program that you can find in the _examples_ folder in [this](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) repository. 
+Alvik has five inputs, all linked to the STM32 and accessible through the [APIs](/tutorials/cheat-sheet/cheat-sheet.md). For every input there is a test example program that you can find in the _examples_ folder in [this](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) repository.
 
 | **Sensor name**              | **Part name** | **Test program name** |
 |------------------------------|---------------|-----------------------|
@@ -133,7 +133,7 @@ The connectors are placed in the back of the robot, the pinout is shown in the f
 
 ![connectors pinout](assets/datasheet_connectors.png)
 
-## 4. Coding Alvik 
+## 4. Coding Alvik
 ![alvik usb connection](assets/connecting-final.gif)
 
 In order for Alvik to work properly three things has to be set correctly:
@@ -148,7 +148,7 @@ Alvik comes with a preinstalled version of libraries and firmware, but in case y
 
 Download and install the [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython), if you are able to connect the Arduino Nano ESP32 it means that you're board is ready. You have to see the **CONNECTED** yellow label at the bottom.
 
-![connection succeded](assets/connection_succeeded.png)
+![connection succeeded](assets/connection_succeeded.png)
 
 If something goes wrong it means you need to upload the MicroPython firmware on the Nano ESP32.
 Follow [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
@@ -184,7 +184,7 @@ You'll find the latest instructions directly in the [repository](https://github.
 (venv)$ pip install mpremote
 ```
 
-or 
+or
 
 ```shell
 (venv)$ python3 -m pip install mpremote
@@ -229,7 +229,7 @@ Answer `y` to flash firmware.
 
 ### 4.4 Test
 
-There are severals examples files to test all the features of your Alvik, placed inside the `examples` folder. 
+There are severals examples files to test all the features of your Alvik, placed inside the `examples` folder.
 
 Open **Arduino Lab for MicroPython** and **connect** the Alvik. Then:
 
@@ -260,7 +260,7 @@ You'll do it manually, so you can get familiar with the REPL terminal.
 2. Connect the Alvik
 3. Open the REPL terminal (just click on the Terminal Icon on top)
 
-Now you're ready to send command directy to the Alvik. Everytime you'll click enter the command will be executed.
+Now you're ready to send command directly to the Alvik. Every time you'll click enter the command will be executed.
 
 ```bash
 >>> from arduino_alvik import ArduinoAlvik
@@ -296,7 +296,7 @@ You can now test using read_color_sensor.py in examples folder. Refer to the [te
 
 On both sides of the Alvik there are different housings that let you add:
 
- - 4x M3 screws per side 
+ - 4x M3 screws per side
  - 2x LEGO Technic Connector per side.
 
 The dimensions are:
@@ -387,7 +387,7 @@ print()
 
 for device in devices:  
     print("Decimal address: ",device," | Hexa address: ",hex(device))
-    
+
 print()
 ```
 
@@ -417,7 +417,7 @@ The Qwiic connectors are placed at the back of the Alvik, for this example we'll
 (venv)$ pip install mpremote
 ```
 
-or 
+or
 
 ```shell
 (venv)$ python3 -m pip install mpremote
