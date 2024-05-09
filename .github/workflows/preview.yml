@@ -1,6 +1,9 @@
 name: Preview Deployment
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     types: [opened, synchronize, labeled]
 
@@ -10,7 +13,7 @@ concurrency:
 
 jobs:
   run:
-    if: contains(github.event.pull_request.labels.*.name, 'preview')
+    if: contains(github.event.pull_request.labels.*.name, 'preview') || ${{ github.ref_name == 'main' }}
     runs-on: ubuntu-latest
     concurrency:
       group: netlify
@@ -18,6 +21,7 @@ jobs:
     env:
       REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
       APP_ENV: prod
+      BRANCH_NAME: ${{ github.ref_name }}
 
     steps:
 
@@ -83,8 +87,8 @@ jobs:
       - name: Install Netlify
         run: npm install netlify-cli@17.23.2 -g
 
-      - name: Deploy to Netlify
-        id: netlify_deploy
+      - name: Deploy to Netlify Preview
+        if: github.event_name == 'pull_request'
         run: |
           netlify deploy \
             --dir public \
@@ -92,8 +96,20 @@ jobs:
             --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
             --json \
             > deploy_output.json
+
+      - name: Deploy to Netlify Prod
+        if: github.event_name != 'pull_request'
+        run: |
+          netlify deploy \
+            --prod \
+            --dir public \
+            --site ${{ secrets.NETLIFY_SITE_ID }} \
+            --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
+            --json \
+            > deploy_output.json
       
       - name: Generate URL Preview
+        if: github.event_name == 'pull_request'
         id: url_preview
         run: |
           NETLIFY_PREVIEW_URL=$(jq -r '.deploy_url' deploy_output.json)
