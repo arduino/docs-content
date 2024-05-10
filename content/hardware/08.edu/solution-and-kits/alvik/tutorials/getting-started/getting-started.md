@@ -55,7 +55,7 @@ Now that you have played with Alvik and you have seen it moving, tt is time to k
  - [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
 
 ## 3. Alvik Overview
-![](assets/main-components.png)
+![Alvik exploded view](assets/main-components.png)
 
 ***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the HW from the chassis make sure you do it in a non conductive surface clean of materials or tools that can short-circuit the battery***
 
@@ -100,7 +100,7 @@ When the battery is charging the status LED will blink RED for 1 second.
 ![terminal notification](assets/ide-charging.png)
 
 When fully charged it will stay GREEN.
-![](assets/charged.png)
+![Alvik fully charged - Green LED](assets/charged.png)
 
 ***Don't confuse the RGB status LED with the power ON LED of the Nano ESP32, that is always green.***
 
@@ -180,13 +180,13 @@ You'll find the latest instructions directly in the [repository](https://github.
 
 [mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html) is a python module needed to upload files on the Nano ESP32. The minimum suggested mpremote release is 1.22.0. Be sure to have Python installed before proceeding!
 
-```shell
+```
 (venv)$ pip install mpremote
 ```
 
 or
 
-```shell
+```
 (venv)$ python3 -m pip install mpremote
 ```
 
@@ -196,11 +196,13 @@ Depending on how you configure python on your machine.
 
 Run the following line to upload all files and download the dependencies needed to run the Arduino Alvik micropython library.
 
-```shell
 Linux
+```
 $ ./install.sh -p <device port>
+```
 
 Windows
+```
 > install.bat -p <device port>
 ```
 
@@ -218,11 +220,14 @@ The `<device port>` is the name of the USB port that your computer assigned to t
 
  2. Go into `utilities` folder and run the `flash_firmware` script:
 
-```shell
+
 Linux
+```
 $ ./flash_firmware.sh -p <device port> <path-to-your-firmware>
+```
 
 Windows
+```
 > flash_firmware.bat -p <device port> <path-to-your-firmware>
 ```
 Answer `y` to flash firmware.
@@ -305,8 +310,8 @@ The dimensions are:
 
 As reference you can take a look at the following images:
 
-![screws](assets/screw_lego.png)
-![lego](assets/lego.png)
+![Alvik screws compatibility connectors](assets/screw_lego.png)
+![Alvik Lego® compatibility connectors](assets/lego.png)
 
 ### 6.2 Add Servo
 
@@ -413,13 +418,13 @@ The Qwiic connectors are placed at the back of the Alvik, for this example we'll
 
 [mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html) is a python module needed to upload files on the Nano ESP32. The minimum suggested mpremote release is 1.22.0. Be sure to have Python installed before proceeding!
 
-```shell
+```
 (venv)$ pip install mpremote
 ```
 
 or
 
-```shell
+```
 (venv)$ python3 -m pip install mpremote
 ```
 
@@ -429,11 +434,13 @@ Depending on how you configure python on your machine.
 
 Run the following line to upload all files and download the dependencies needed to run the Arduino Alvik micropython library.
 
-```shell
-Linux
-$ ./install_oled_lib.sh -p <device port>
 
+Linux
+```
+$ ./install_oled_lib.sh -p <device port>
+```
 Windows
+```
 > install_oled_lib.bat -p <device port>
 ```
 
