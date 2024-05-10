@@ -1,5 +1,5 @@
 ---
----
+-
 
 title: 'Getting Started with Alvik'
 difficulty: beginner
