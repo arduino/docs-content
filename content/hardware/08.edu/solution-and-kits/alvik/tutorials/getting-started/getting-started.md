@@ -1,7 +1,5 @@
 ---
 
----
-
 title: 'Getting Started with Alvik'
 difficulty: beginner
 description: 'This short guide helps you to get started with Alvik, you'll also find useful information to maintain your Alvik.'
@@ -11,8 +9,6 @@ tags:
 author: 'Paolo Cavagnolo'
 
 ---
-
-![](assets/title.png)
 
 In this manual you'll find useful information to get started, test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and sotware.
 
