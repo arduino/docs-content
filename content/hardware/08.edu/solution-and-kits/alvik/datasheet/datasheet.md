@@ -196,6 +196,43 @@ The power of the robot is located by a simple ON/OFF switch located on the top o
 
 <div style="page-break-after:always;"></div>
 
+### Robot Expandability
+
+Alvik is a robot designed to be used in STEAM & Maker enviroments where openess and a wide compatibility with other products and construction systems are key. Thanks to that Alvik's capabilities can be expanded with new sensors and actuators using the additional connectors on its back, and with additional mechanical extensions like Lego Technic pieces or 3D printed/custom made parts. In the following sections we will explain how to expand Alvik's capabilities.
+
+#### Additional Connectors
+
+Alvik has a series of additional connectors to expand its possibilities located at the back of the robot:
+
+| **Description**             | **Information**                                                                       |
+| --------------------------- | ------------------------------------------------------------------------------------- |
+| Qwiic Connector (x2)        | I2C Connectivity with compatible sensors and actuators using the Qwiic estandard      |
+| I2C Grove Connector (x2)    | I2C Connectivity with compatible sensors and actuators using the Grove estandard      |
+| PWM Servomotor Control (x2) | 3-pins Servo Motor connector compatible with a wide ranger of 3rd party manufacturers |
+
+![Connectors pinout](assets/datasheet_connectors.png)
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<strong>Note:</strong> When connecting additional hardware to Alvik's connector, make sure each of the components connected have an unique I2C address to avoid connectivity issues.
+</div>
+
+#### Lego Technick Compatibility
+
+The robot is compatible with Lego Technik pins to expand its body with new features and additional mechanisms.
+
+![Lego Technick Compatibility](assets/lego_compatibility.png)
+
+To attach Lego Technik pieces to Alvik's body use the widely available Lego Technik Pegs. There are two Lego's compatible peg holes in each side of the robot as it can be seen in the following image:
+
+![Lego Technick Peg Holes](assets/screw_lego.png)
+
+#### M3 Screw Inserters Compatibility
+
+TODO
+
+TODO ADD WARNING NOTE HERE REGARDING THE USE OF M3x10 screws as maximum lenght
+
+
 ## Device Operation
 
 ### Getting Started - MicroPython
