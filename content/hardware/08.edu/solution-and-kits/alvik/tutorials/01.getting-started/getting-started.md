@@ -7,13 +7,13 @@ tags:
 author: "Paolo Cavagnolo"
 ---
 
-In this manual you'll find useful information to get started, test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and software.
+In this tutorial you will find useful information to get started, test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and software.
 
 ## Unboxing
 
 ![Unboxing Alvik](assets/unboxing.jpg)
 
-Your Alvik robot is equipped with three ready to go examples, each one of the examples are color-coded. There's Red, Green, and Blue:
+Your Alvik robot is equipped with three ready-to-go examples. You can know which one of the examples is executing by checking the color of Alvik's LED:
 
 * **Red Program (Touch Mode):** Use the arrows to tell your robot what to do: up and down for moving forward and backward by 10 cm, and left and right for turning 90 degrees. The robot will collect instructions until you press the "tick" to make it happen.
 
@@ -25,13 +25,13 @@ Your Alvik robot is equipped with three ready to go examples, each one of the ex
 
 Just turn your Alvik ON, wait until the LEDs turn blue and use the up and down buttons to pick one color, then hit the "tick" button to choose. It's that easy!
 
-![Selecting one of the ready to go examples](assets/select-examples.gif)
+![Selecting one of the ready-to-go examples](assets/select-examples.gif)
 
-***The product is sensible to electrostatic discharge***
+***The product is sensible to electrostatic discharge*** FIXME so what?
 
 ## Getting to Know Alvik in Detail
 
-Now that you have played with Alvik and you have seen it moving, tt is time to know more in depth how it is built and how to get much more than the out-of-the-box  experience from it.
+Now that you have played with Alvik and you have seen it moving, it is time to know more in-depth how it is built and how to get much more than the out-of-the-box experience from it.
 
 ### Requirements
 
@@ -39,19 +39,21 @@ Now that you have played with Alvik and you have seen it moving, tt is time to k
 
 - One Alvik, of course.
 - One USB-C® type cable, working and with data lines, not only power lines.
-- One screw driver, cross head
+- One screwdriver, cross head
 - One computer
+
+FIXME put pro system here, remove comments regarding usb and add here a warning block for it
 
 #### Software Requirements
 
-- OS: all the major os are supported.
+- Operating Systems: All the major Operating Systems are supported.
 - [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
 
 ## Alvik Overview
 
 ![Alvik exploded view](assets/main-components.png)
 
-***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the HW from the chassis make sure you do it in a non conductive surface clean of materials or tools that can short-circuit the battery***
+***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the HW from the chassis make sure you do it **in a __non-conductive__ surface clean** of materials or tools that can short-circuit the battery***
 
 ### Main Components
 
@@ -75,7 +77,7 @@ The main core of the robot is the STM32 ARM Cortex-M4 32 Bit, you can access it 
 
 [Here](/tutorials/02.api-overview/api-overview.md) is the list of APIs.
 
-The latest firmware of the STM32 can be found at [this link](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases), and [here](#how-to-upload-firmware) there is the guide to flash it.
+The latest firmware of the STM32 can be found at [this link](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases), and [here](#how-to-upload-firmware) is the guide to flash it.
 
 
 #### ON/OFF Switch
@@ -107,7 +109,7 @@ When fully charged it will stay GREEN.
 
 ![Alvik fully charged - Green LED](assets/charged.png)
 
-***Don't confuse the RGB status LED with the power ON LED of the Nano ESP32, that is always green.***
+***Don't confuse the RGB status LED with the power ON LED of the Nano ESP32, which is always green.***
 
 #### Inputs
 
@@ -125,7 +127,7 @@ Alvik has five inputs, all linked to the STM32 and accessible through the [APIs]
 
 #### Outputs
 
-Alvik has 2 high precision geared motors and 2 RGB leds. The test programs are located in the same folder as for the [inputs](#2.2.5-inputs).
+Alvik has 2 high-precision geared motors and 2 RGB LEDs. The test programs are located in the same folder as for the [inputs](#2.2.5-inputs).
 
 | **Actuator name**        | **Part name**           | **Test program name** |
 |--------------------------|-------------------------|-----------------------|
@@ -142,13 +144,13 @@ The connectors are placed in the back of the robot, the pinout is shown in the f
 
 ![Alvik USB Connection](assets/connecting-final.gif)
 
-In order for Alvik to work properly three things has to be set correctly:
+In order for Alvik to work properly three things have to be set correctly:
 
 1. The Nano ESP32 needs the [MicroPython firmware](https://labs.arduino.cc/en/labs/micropython) on it.
 2. The [latest libraries](https://github.com/arduino/arduino-alvik-mpy/releases) have to be placed in the Nano ESP32.
-3. The [latest firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases) have to be uploaded to the STM32 microcontroller.
+3. The [latest firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases) has to be uploaded to the STM32 microcontroller.
 
-Alvik comes with a preinstalled version of libraries and firmware, but in case you want to upgrade it or if something happened and you mess things up, heres is the guide to reinstall both libraries and firmware.
+Alvik comes with a preinstalled version of libraries and firmware, but in case you want to upgrade it or if something happens and you mess things up, here is is the guide to reinstall both libraries and firmware.
 
 ### MicroPython Firmware on the Nano ESP32
 
@@ -166,7 +168,7 @@ You'll find the latest instructions directly in the [repository](https://github.
 
 1. Prepare file
 
-Download the repository and extract all the files in a specific folder that will became the main Alvik folder.
+Download the repository and extract all the files in a specific folder that will become the main Alvik folder.
 
 2. Remove old files
 
@@ -451,7 +453,7 @@ Windows
 > install_oled_lib.bat -p <device port>
 ```
 
-The `<device port>` is the name of the USB port that your computer assigned to the Nano ESP32. There are several ways to find it, depending on your OS, for examples:
+The `<device port>` is the name of the USB port that your computer assigned to the Nano ESP32. There are several ways to find it, depending on your Operating System, for example:
 
 - You can use the Arduino IDE 2.x,  [here](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE) a guide.
 - You can look it using the Arduino Lab for MicroPython by clicking `Connect` after have connected the Alvik with the USB cable.
@@ -465,6 +467,6 @@ Now you can open the Arduino Lab for MicroPython, connect the Alvik, and open th
 
 7. Test `bender.py`
 
-Open the example called `bender.py`, launch it and see if the outputs is like the image below:
+Open the example called `bender.py`, launch it and see if the output is like the image below:
 
 ![Bender OLED](assets/bender.png)
