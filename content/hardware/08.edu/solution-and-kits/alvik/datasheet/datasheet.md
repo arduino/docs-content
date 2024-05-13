@@ -31,7 +31,7 @@ Alvik is an educational robot that is battery-powered and has multiple sensors a
   | Connectivity          | Wi-Fi®, Bluetooth® LE                                                                                         |
   | Sensors               | RGB Color detection, Distance ToF 8x8 Array - up to 350 cm, IMU - 6 degree, 3x Line follower, 7x Touch sensor |
   | Motors                | High precision with hall effect encoder. Up to 13 cm/s                                                        |
-  | Extensions            | Servo motor, I2C Grove, Qwiic, Lego® Technic™, M3 x 5 mm Screws                                               |
+  | Extensions            | Servo motor, I2C Grove, Qwiic, Lego® Technic™, M3x5 mm Screws                                               |
 
 ### Related Accessories (Included)
 
@@ -198,7 +198,7 @@ The power of the robot is located by a simple ON/OFF switch located on the top o
 
 ### Robot Expandability
 
-Alvik is a robot designed to be used in STEAM & Maker enviroments where openess and a wide compatibility with other products and construction systems are key. Thanks to that Alvik's capabilities can be expanded with new sensors and actuators using the additional connectors on its back, and with additional mechanical extensions like Lego Technic pieces or 3D printed/custom made parts. In the following sections we will explain how to expand Alvik's capabilities.
+Alvik is a robot designed to be used in STEAM & Maker environments where openness and wide compatibility with other products and construction systems are key. Thanks to that Alvik's capabilities can be expanded with new sensors and actuators using the additional connectors on its back, and with additional mechanical extensions like Lego Technic pieces or 3D printed/custom made parts. In the following sections we will explain how to expand Alvik's capabilities.
 
 #### Additional Connectors
 
@@ -213,24 +213,32 @@ Alvik has a series of additional connectors to expand its possibilities located 
 ![Connectors pinout](assets/datasheet_connectors.png)
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> When connecting additional hardware to Alvik's connector, make sure each of the components connected have an unique I2C address to avoid connectivity issues.
+<strong>Note:</strong> When connecting additional hardware to Alvik's connector, make sure each of the components connected has a unique I2C address to avoid connectivity issues.
 </div>
 
-#### Lego Technick Compatibility
+#### Lego® Technic™ Compatibility
 
-The robot is compatible with Lego Technik pins to expand its body with new features and additional mechanisms.
+The robot is compatible with Lego® Technic™ pins to expand its body with new features and additional mechanisms.
 
-![Lego Technick Compatibility](assets/lego_compatibility.png)
+![Lego® Technic™ Compatibility](assets/lego_compatibility.png)
 
-To attach Lego Technik pieces to Alvik's body use the widely available Lego Technik Pegs. There are two Lego's compatible peg holes in each side of the robot as it can be seen in the following image:
+To attach Lego® Technic™ pieces to Alvik's body use the widely available Lego® Technic™ Pegs. There are two Lego's compatible peg holes on each side of the robot as can be seen in the following image:
 
-![Lego Technick Peg Holes](assets/screw_lego.png)
+<div style="page-break-after:always;"></div>
 
 #### M3 Screw Inserters Compatibility
 
-TODO
+Alvik can be expanded with any additional hardware and pieces thanks to its four screw inserts present on each side of the robot. These inserts are compatible with M3 screws being the best way to expand the robot's possibilities using custom made or third-party pieces.
 
-TODO ADD WARNING NOTE HERE REGARDING THE USE OF M3x10 screws as maximum lenght
+![M3 Screws and Lego® Technic™ Peg Holes compatibility](assets/screw_lego.png)
+
+<!---
+![Alvik's Screw Inserters and Lego holes measurements](assets/holes_dimensions.png)
+-->
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<strong>Warning:</strong> The <strong>maximum screw length recommended is 10 mm (M3x10</strong> ). In case larger screws are used the robot case could be damaged.
+</div>
 
 
 ## Device Operation
@@ -369,6 +377,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** |  **Changes**  |
-| ---------- | :----------: | :-----------: |
-| 24/04/2024 |      1       | First Release |
+| Date       | **Revision** |             **Changes**             |
+| ---------- | :----------: | :---------------------------------: |
+| 13/05/2024 |      2       | Robot's Expandability section added |
+| 24/04/2024 |      1       |            First Release            |
