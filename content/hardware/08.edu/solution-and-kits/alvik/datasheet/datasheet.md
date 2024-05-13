@@ -237,7 +237,7 @@ Alvik can be expanded with any additional hardware and pieces thanks to its four
 -->
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Warning:</strong> The <strong>maximum screw length recommended is 10 mm (M3x10</strong> ). In case larger screws are used the robot case could be damaged.
+<strong>Warning:</strong> The <strong>maximum screw length recommended is 10 mm (M3x10</strong> ). In case longer screws are used the robot could be damaged.
 </div>
 
 
