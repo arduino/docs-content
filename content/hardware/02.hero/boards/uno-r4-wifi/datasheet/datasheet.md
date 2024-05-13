@@ -47,7 +47,7 @@ The **R7FA4M1AB3CFM#AA0**, often referred to as RA4M1 in this datasheet, is the 
   * 1x CAN (pin D4, D5, external transceiver is required)
 
 See the full datasheet for the R7FA4M1AB3CFM#AA0 in the link below:
-- [R7FA4M1AB3CFM#AA0 datasheet](/resources/datasheets/ra4m1.pdf)
+- [R7FA4M1AB3CFM#AA0 datasheet](../../../../../../../static/resources/datasheets/ra4m1.pdf)
 
 The **ESP32-S3-MINI-1-N8** is the secondary MCU with a built-in antenna for Wi-Fi® & Bluetooth® connectivity. This module operates on 3.3 V and communicates with the RA4M1 using a logic-level translator (TXB0108DQSR).
 
@@ -63,7 +63,7 @@ The **ESP32-S3-MINI-1-N8** is the secondary MCU with a built-in antenna for Wi-F
   * Bluetooth® 5
 
 See the full datasheet for the ESP32-S3-MINI-1-N8 in the link below:
-- [ESP32-S3-MINI-1-N8 datasheet](/resources/datasheets/esp32-s3-mini.pdf)
+- [ESP32-S3-MINI-1-N8 datasheet](https://github.com/arduino/docs-content/blob/main/static/resources/datasheets/esp32-s3-mini.pdf)
 
 # CONTENTS
 
