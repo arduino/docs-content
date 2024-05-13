@@ -1,10 +1,10 @@
 ---
-title: 'Getting Started with Alvik'
+title: "Getting Started with Alvik"
 difficulty: beginner
-description: 'This short guide helps you to get started with Alvik, you'll also find useful information to maintain your Alvik.'
+description: "This short guide helps you to get started with Alvik, you'll also find useful information to maintain your Alvik."
 tags:
   - Robot
-author: 'Paolo Cavagnolo'
+author: "Paolo Cavagnolo"
 ---
 
 In this manual you'll find useful information to get started, test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and software.
@@ -397,7 +397,7 @@ else:
     print('i2c devices found:',len(devices))
 print()
 
-for device in devices:  
+for device in devices:
     print("Decimal address: ",device," | Hexa address: ",hex(device))
 
 print()
@@ -461,7 +461,7 @@ The `<device port>` is the name of the USB port that your computer assigned to t
 
 Now you can open the Arduino Lab for MicroPython, connect the Alvik, and open the example called `hello_world.py` in the `examples` folder. If everything works as expected you'll see something like this
 
-    ![Hello World OLED](assets/hello.png)
+![Hello World OLED](assets/hello.png)
 
 7. Test `bender.py`
 
