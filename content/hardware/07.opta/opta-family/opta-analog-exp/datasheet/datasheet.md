@@ -7,22 +7,13 @@ author: Christopher Méndez
 ![](assets/featured.png)
 
 # Description
-Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current or resistive temperature sensors or actuators. In addition, 4 dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
+Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or actuators. In addition, 4 dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
 
 # Target Areas:
 Industrial IoT, Building automation, Electrical loads management, Industrial automation
 
 # CONTENTS
-## Product Variants
-There are two variants of the Arduino Opta® Digital Expansion created to fit the different needs of each industry and application. The difference between each of the variants can be found in the following table:
-
-| Name    | Arduino Opta® Ext D1608E                           | Arduino Opta® Ext D1608S                           |
-| ------- | -------------------------------------------------- | -------------------------------------------------- |
-| SKU     | AFX00005                                           | AFX00006                                           |
-| Inputs  | 16 x programmable (0-24 V digital / 0-24 V analog) | 16 x programmable (0-24 V digital / 0-24 V analog) |
-| Outputs | 8 x Electromechanical Relays (250 VAC - 6 A)       | 8 x Solid State Relays (24 VDC - 2 A)              |
-
 
 ## Application Examples
 Arduino Opta® Expansion is designed for industrial standard machinery control alongside the Opta® micro PLC. It is readily integrated into the Arduino hardware and software ecosystem.
@@ -36,33 +27,34 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 ## Features
 ### General Specifications Overview
 
-| Characteristics         | Details                                                                                               |
-| ----------------------- | ----------------------------------------------------------------------------------------------------- |
-| Supply Voltage          | 12...24 V                                                                                             |
-| Antipolarity protection | Yes                                                                                                   |
-| Overvoltage protection  | Yes (+20%)                                                                                            |
-| Inputs                  | 16x Digital (0-24 V) / Analog (0-24 V) inputs                                                         |
-| Outputs                 | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
-| Degree of Protection    | IP20                                                                                                  |
-| Certifications          | FCC, CE, UKCA                                                                                         |
+| Characteristics         | Details                                                       |
+|-------------------------|---------------------------------------------------------------|
+| Supply Voltage          | 12...24 V                                                     |
+| Antipolarity protection | Yes                                                           |
+| Overvoltage protection  | Yes (+20%)                                                    |
+| Inputs                  | 8x Programmable inputs (Voltage, Current and RTD)             |
+| Outputs                 | 2x Programmable outputs (Voltage, Current) and 4x PWM outputs |
+| Degree of Protection    | IP20                                                          |
+| Certifications          | FCC, CE, UKCA                                                 |
 
 ### Inputs
 
-| Characteristics               | Details                   |
-| ----------------------------- | ------------------------- |
-| Number of inputs              | 16x Digital/Analog inputs |
-| Inputs overvoltage protection | Yes (Up to 40 V)          |
-| Antipolarity protection       | No                        |
-| Input impedance               | 5.85 kΩ                   |
+| Characteristics               | Details                                    |
+|-------------------------------|--------------------------------------------|
+| Number of inputs              | 8x Analog inputs (Voltage, Current and RTD) |
+| Inputs overvoltage protection | Yes (Up to 40 V)                           |
+| Antipolarity protection       | No                                         |
+| Input impedance               | 5.85 kΩ                                    |
 
 
 #### Analog Inputs
-| Characteristics           | Details                          |
-|---------------------------|----------------------------------|
-| Analog Input voltage      | 0...24 V                         |
-| Analog Input resolution   | 14 bit                           |
-| Analog Input LSB value    | 1.733 mV                         |
-| Accuracy                  | +/- 5%, repeatability +/- 2%     |
+| Characteristics         | Details                      |
+|-------------------------|------------------------------|
+| Analog Input voltage    | 0...10 V                     |
+| Analog Input resolution | 16 bit                       |
+| Analog Input LSB value  | 152.59 uV                    |
+| Noise Rejection         | 50 and 60 Hz (Optional)      |
+| Accuracy                | +/- 1%, repeatability +/- 1% |
 
 
 #### Digital Inputs
