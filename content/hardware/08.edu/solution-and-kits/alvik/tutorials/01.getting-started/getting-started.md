@@ -17,9 +17,9 @@ Your Alvik robot is equipped with three ready-to-go examples. You can know which
 
 * **Red Program (Touch Mode):** Use the arrows to tell your robot what to do: up and down for moving forward and backward by 10 cm, and left and right for turning 90 degrees. The robot will collect instructions until you press the "tick" to make it happen.
 
-* **Green Program (Hand Follower):** Your robot will keep a steady 10 cm distance from your hand or any object you put in front of it.
+* **Green Program (Hand Follower):** Your robot will keep a steady 10 cm distance from your hand or any object you put in front of it. Press the tick button again to make the robot keep the distance.
 
-* **Blue Program (Line Follower):** Your robot will glide along a black line on a white surface.
+* **Blue Program (Line Follower):** Your robot will glide along a black line on a white surface. Press the tick button again to make the robot follow the line. You can stop the robot at any moment pressing the X button.
 
 ***The recommended size for the "black line" is between 2-3cm wide***
 
