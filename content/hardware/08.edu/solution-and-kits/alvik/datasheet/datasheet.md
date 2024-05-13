@@ -31,7 +31,7 @@ Alvik is an educational robot that is battery-powered and has multiple sensors a
   | Connectivity          | Wi-Fi®, Bluetooth® LE                                                                                         |
   | Sensors               | RGB Color detection, Distance ToF 8x8 Array - up to 350 cm, IMU - 6 degree, 3x Line follower, 7x Touch sensor |
   | Motors                | High precision with hall effect encoder. Up to 13 cm/s                                                        |
-  | Extensions            | Servo motor, I2C Grove, Qwiic, Lego® Technic™, M3x5 mm Screws                                               |
+  | Extensions            | Servo motor, I2C Grove, Qwiic, Lego® Technic™, M3x5 mm Screws                                                 |
 
 ### Related Accessories (Included)
 
