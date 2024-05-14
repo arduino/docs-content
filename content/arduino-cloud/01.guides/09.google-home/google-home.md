@@ -59,6 +59,57 @@ Your Thing should look something like this when you are finished:
 
 ***Learn more about how variables work in the [Variables documentation](/arduino-cloud/cloud-interface/variables)***
 
+### Upload Sketch
+
+Upload the following sketch to your Arduino board.
+
+```arduino
+
+
+#include "thingProperties.h"
+
+void setup() {
+  // Initialize serial and wait for port to open:
+  Serial.begin(9600);
+  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
+  delay(1500); 
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection, false, "mqtts-sa.iot.oniudra.cc");
+  
+  /*
+     The following function allows you to obtain more information
+     related to the state of network and IoT Cloud connection and errors
+     the higher number the more granular information you’ll get.
+     The default is 0 (only errors).
+     Maximum is 4
+ */
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+}
+
+void loop() {
+  ArduinoCloud.update();
+  digitalWrite(LED_BUILTIN, led);
+  
+}
+
+
+/*
+  Since Led is READ_WRITE variable, onLedChange() is
+  executed every time a new value is received from IoT Cloud.
+*/
+void onLedChange()  {
+  // Add your code here to act upon Led change
+}
+
+```
+
+Your board setup is now complete and you can continue to the Google Home app.
+
 #### Detect Your Device with Google Home
 
 1. **Network Connection:** Ensure the board is connected to the network.
