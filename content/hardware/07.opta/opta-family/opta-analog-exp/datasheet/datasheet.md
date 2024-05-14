@@ -44,21 +44,45 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 |-------------------------------|---------------------------------------------|
 | Number of inputs              | 8x Analog inputs (Voltage, Current and RTD) |
 | Inputs overvoltage protection | Yes (Up to 40 V)                            |
-| Antipolarity protection       | No ???                                      |
-| Input impedance               | TBD kΩ                                      |
+| Antipolarity protection       | No                                          |
+| Analog Input resolution       | 16 bit                                      |
+| Noise Rejection               | 50 and 60 Hz (Optional)                     |
 
 
-
-#### Analog Inputs
+#### Voltage Input Mode
 | Characteristics         | Details                      |
 |-------------------------|------------------------------|
-| Analog Input voltage    | 0...10 V                     |
-| Analog Input resolution | 16 bit                       |
-| Analog Input LSB value  | 152.59 uV                    |
-| Noise Rejection         | 50 and 60 Hz (Optional)      |
+| Analog input voltage    | 0...10 V                     |
+| Analog input LSB value  | 152.59 uV                    |
 | Accuracy                | +/- 1%, repeatability +/- 1% |
+| Input impedance         | 175 kΩ                       |
+
+#### Current Input Mode
+
+| Characteristics             | Details                                     |
+|-----------------------------|---------------------------------------------|
+| Analog input current        | 0...25 mA                                   |
+| Analog input LSB value      | 381.5 nA                                    |
+| Short circuit current limit | Min: 25 mA, Max 35 mA (externally powered). |
+| Programmable current limit  | 0.5 mA to 24.5 mA (loop powered)            |
+| Accuracy                    | +/- 1%, repeatability +/- 1%                |
+
+#### RTD Input Mode 
+
+| Characteristics | Details  |
+|-----------------|----------|
+| Input range     | 0...1 MΩ |
+| Bias voltage    | 2.5 V    |
 
 
+**3 Wires RTD Connection**
+
+RTD with 3 wires has generally two wires with the same color.
+
+- Connect the two wires with the same color to the - and the ICx screw terminals.
+- Connect the wire with a different color to the + screw terminal.
+
+***3 wires RTD can only be measured by channels __I1__ and __I2__.***
 
 ### Outputs (AFX00005 Only)
 
