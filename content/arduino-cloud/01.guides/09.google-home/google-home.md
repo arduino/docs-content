@@ -1,8 +1,8 @@
 ---
-title: 'Google Home™'
+title: 'Google Home'
 description: 'Learn how to connect the Arduino Cloud with Google Home™.'
 tags:
-- Google Home™
+- Google Home
 author: 'Hannes Siebeneicher'
 featuredImage: 'cloud'
 ---
@@ -44,7 +44,7 @@ If you need more information on how to set up your device check out our [getting
 
 ### Create Variables
 
-The next step is to create a Cloud variable, which we will later interact with via our Google Home.
+The next step is to create a Cloud variable, which we will later interact with via Google Home.
 
 1. While in Thing configuration, click on **"Add Variable"** which will open a new window.
 2. Name your variable `led`, select `Smart home`, and select it to be of a `Switch` type.
@@ -83,7 +83,7 @@ void setup() {
   initProperties();
 
   // Connect to Arduino IoT Cloud
-  ArduinoCloud.begin(ArduinoIoTPreferredConnection, false, "mqtts-sa.iot.oniudra.cc");
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
   
   /*
      The following function allows you to obtain more information
