@@ -1,66 +1,65 @@
 ---
 title: "Getting Started with Alvik"
 difficulty: beginner
-description: "This short guide helps you to get started with Alvik, you'll also find useful information to maintain your Alvik."
+description: "Discover how to use and program Alvik's robot"
 tags:
   - Robot
 author: "Paolo Cavagnolo"
 ---
 
-FIXME: description field not good
-FIXME: First sentences not good
+Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education. 
 
-In this tutorial you will find useful information to get started, test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and software.
+![](assets/alvik_main.jpg)
 
-## Unboxing
+Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
 
-![Unboxing Alvik](assets/unboxing.jpg)
+In this tutorial you will find useful information to get started, test and maintain Alvik.
 
-Your Alvik robot is equipped with three ready-to-go examples. You can know which one of the examples is executing by checking the color of Alvik's LED:
-
-* **Red Program (Touch Mode):** Use the arrows to tell your robot what to do: up and down for moving forward and backward by 10 cm, and left and right for turning 90 degrees. The robot will collect instructions until you press the "tick" to make it happen.
-
-* **Green Program (Hand Follower):** Your robot will keep a steady 10 cm distance from your hand or any object you put in front of it. Press the tick button again to make the robot keep the distance.
-
-* **Blue Program (Line Follower):** Your robot will glide along a black line on a white surface. Press the tick button again to make the robot follow the line. You can stop the robot at any moment pressing the X button.
-
-***The recommended size for the "black line" is between 2-3cm wide***
-
-Just turn your Alvik ON, wait until the LEDs turn blue and use the up and down buttons to pick one color, then hit the "tick" button to choose. It's that easy!
+## Alvik's First Use
 
 ![Selecting one of the ready-to-go examples](assets/select-examples.gif)
 
-***The product is sensible to electrostatic discharge*** FIXME so what?
+Your Alvik robot is equipped with three ready-to-go examples. To choose one of the examples, just turn your Alvik ON, wait until the LEDs turn blue and use the Up and Down buttons to pick one color, then hit the "tick" confirmation button. It's that easy!
 
-## Getting to Know Alvik in Detail
+* **Red Program (Touch Mode):** Use the arrows to tell your robot what to do: up and down for moving forward and backward by 10 cm, and left and right for turning 90 degrees in each of the directions. The robot will collect instructions until you press the "tick" confirmation button. Once you press it, the robot will execute all the actions in order.
 
-FIXME: Section title too long
+* **Green Program (Hand Follower):** Your robot will keep a steady 10 cm distance from your hand or any object you put in front of it. Press the "tick" confirmation button again to make the robot start following your hand.
 
-Now that you have played with Alvik and you have seen it moving, it is time to know more in-depth how it is built and how to get much more than the out-of-the-box experience from it.
+* **Blue Program (Line Follower):** Your robot will glide along a black line on a white surface. Press the "tick" confirmation button again to make the robot follow the line. You can stop the robot at any moment by pressing the "X" cancel button. __The recommended size for the "black line" to follow is between 2-3 cm wide.__
 
-### Requirements
+***The product is sensible to electrostatic discharge, observe ESD-safe handling procedures when working with it***
 
-#### Hardware Requirements
+Now that you have played with Alvik and have seen it moving, it is time to know more in-depth how it is built and how to get much more than the out-of-the-box experience from it.
 
-- One Alvik, of course.
-- One USB-C® type cable, working and with data lines, not only power lines.
-- One screwdriver, cross head
-- One computer
+## Alvik in Detail
 
-FIXME put pro system here, remove comments regarding usb and add here a warning block for it
+![Unboxing Alvik](assets/unboxing.jpg)
 
-#### Software Requirements
+To get started to play with Alvik you will need the following hardware and software:
 
-- Operating Systems: All the major Operating Systems are supported.
+### Hardware Requirements
+
+- Alvik (x1)
+- USB-C® to USB-C® cable (x1)
+- Phillips Screwdriver (cross head) (x1)
+- Computer (X1)
+
+***Make sure the UCB-C® cable you are using works with data lines, not only power lines***
+
+### Software Requirements
+
+- Operating Systems: All the major Operating Systems are supported
 - [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
 
 ## Alvik Overview
 
 ![Alvik exploded view](assets/main-components.png)
 
-***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the HW from the chassis make sure you do it _**_in a __non-conductive__ surface clean** of materials or tools that can short-circuit the battery***
+***__Warning__: When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the hardware from the chassis make sure you do it _**_in a __non-conductive__ surface clean** of materials or tools that can short-circuit the battery***
 
 ### Main Components
+
+Alvik is a robot with two controllers and tons of useful sensors and actuators. The main controller is the Arduino Nano ESP32 attached at the top of the robot while there is an STM32 controller integrated into the robot that takes care of the low-level commands like reading the sensors and moving the motors.
 
 ![Alvik top components](assets/up-components.png)
 
@@ -80,35 +79,34 @@ Please note that when using MicroPython the pin number reflects the GPIO on the 
 
 The main core of the robot is the STM32 ARM Cortex-M4 32 Bit, you can access it through a set of dedicated APIs from the Nano ESP32.
 
-[Here](/tutorials/02.api-overview/api-overview.md) is the list of APIs.
+You can learn more about the available functions for Alvik in the following [ Alvik's API Documentation](/tutorials/02.api-overview/api-overview.md).
 
 The latest firmware of the STM32 can be found at [this link](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases), and [here](#how-to-upload-firmware) is the guide to flash it.
 
 
 #### ON/OFF Switch
 
-![switch on](assets/robot-on.png)
+![Switch on](assets/robot-on.png)
 
-At the right side on the back side of the robot, there is the main switch of the robot. When ON the robot will power up and it will execute the "main.py" routine, if present; also with USB cable disconnected.
+At the back-right side of Alvik there is the main switch of the robot. When ON the robot will power up and it will execute the already loaded program.
 
+***While programming the terminal of the Arduino Lab for MicroPython will notify you if you forgot to switch on the robot. Keep the robot off while programming to avoid undesired movements and remember to turn it on when you are ready to execute your program***
 
-During operation the terminal of the Arduino Lab for MicroPython will notify you if you forgot to switch on the robot.
-
-![notification to switch on](assets/message-switch-on.png)
+![Notification to switch on](assets/message-switch-on.png)
 
 #### Battery
 
-The battery is a rechargeable Li-ion 18650. It is located in the bottom part of the Alvik, to access it you need to remove one screw and take out the plastic holder.
+The battery is a rechargeable Li-ion 18650. It is located in the bottom part of Alvik, to access it you need to remove one Phillip's screw and take out the plastic holder.
 
-![charging blink](assets/battery_holder.jpg)
+![Charging blink](assets/battery_holder.jpg)
 
-The Nano ESP32 can report the status of the battery through the terminal of the Arduino Lab for MicroPython and with its RGB status LED. To do that you need to call the `Alvik.begin()` function, in any program or you can also do it directly at the command line area.
+The Nano ESP32 can report the status of the battery through the terminal of the Arduino Lab for MicroPython and with its RGB status LED. To do that you need to call the `Alvik.begin()` function in any program or directly at the command line area.
 
-When the battery is charging the status LED will blink RED for 1 second.
+When the battery is charging the status LED will blink RED for one second.
 
-![charging blink](assets/charging.gif)
+![Charging blink](assets/charging.gif)
 
-![terminal notification](assets/ide-charging.png)
+![Terminal notification](assets/ide-charging.png)
 
 When fully charged it will stay GREEN.
 
@@ -116,9 +114,9 @@ When fully charged it will stay GREEN.
 
 ***Don't confuse the RGB status LED with the power ON LED of the Nano ESP32, which is always green.***
 
-#### Inputs
+#### Sensors
 
-Alvik has five inputs, all linked to the STM32 and accessible through the [APIs](/tutorials/cheat-sheet/cheat-sheet.md). For every input there is a test example program that you can find in the _examples_ folder in [this](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) repository.
+Alvik has five different sensors, all connected to the STM32 and accessible through the [APIs](/tutorials/02.api-overview/). For each sensor there is a test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples).
 
 | **Sensor name**              | **Part name** | **Test program name** |
 |------------------------------|---------------|-----------------------|
@@ -130,9 +128,9 @@ Alvik has five inputs, all linked to the STM32 and accessible through the [APIs]
 
 ***Before using the ToF sensor check if it has a yellow protective film, if present, remove it from the sensor to ensure it works properly***
 
-#### Outputs
+#### Actuators
 
-Alvik has 2 high-precision geared motors and 2 RGB LEDs. The test programs are located in the same folder as for the [inputs](#2.2.5-inputs).
+Alvik has two high-precision geared motors and two RGB LEDs. The test programs are located in the same folder as the [sensor examples](#2.2.5-inputs).
 
 | **Actuator name**        | **Part name**           | **Test program name** |
 |--------------------------|-------------------------|-----------------------|
@@ -169,7 +167,7 @@ Follow [this guide](https://docs.arduino.cc/micropython/basics/board-installatio
 
 ### How to Upload Libraries
 
-You'll find the latest instructions directly in the [repository](https://github.com/arduino/arduino-alvik-mpy/releases). Here are the main steps:
+You will find the latest instructions directly in the [repository](https://github.com/arduino/arduino-alvik-mpy/releases). Here are the main steps:
 
 1. Prepare file
 
@@ -177,7 +175,7 @@ Download the repository and extract all the files in a specific folder that will
 
 2. Remove old files
 
-Open **Arduino Lab for MicroPython** and **connect** the Alvik. Then:
+Open **Arduino Lab for MicroPython** and **connect** Alvik. Then:
 
 - Click on the `files` icon
 
@@ -187,11 +185,11 @@ Open **Arduino Lab for MicroPython** and **connect** the Alvik. Then:
 
 - Repeat for all the files, from all folders
 
-![delete all files](assets/delete_files.png)
+![Delete all files](assets/delete_files.png)
 
 3. Install mpremote
 
-[mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html) is a python module needed to upload files on the Nano ESP32. The minimum suggested mpremote release is 1.22.0. Be sure to have Python installed before proceeding!
+[mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html) is a Python module needed to upload files on the Nano ESP32. The minimum suggested mpremote release is 1.22.0. Be sure to have Python installed before proceeding!
 
 ```
 (venv)$ pip install mpremote
@@ -203,7 +201,7 @@ or
 (venv)$ python3 -m pip install mpremote
 ```
 
-Depending on how you configure python on your machine.
+Depending on how you configure Python on your machine.
 
 4. Install library
 
@@ -221,15 +219,15 @@ Windows
 
 The `install.*` script will copy all the needed files into your Alvik.
 
-The `<device port>` is the name of the USB port that your computer assigned to the Nano ESP32. There are several ways to find it, depending on your OS, for examples:
+The `<device port>` is the name of the USB port that your computer assigned to the Nano ESP32. There are several ways to find it, depending on your OS, for example:
 
-- You can use the Arduino IDE 2.x, [here](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE) is a guide.
-- You can look it using the Arduino Lab for MicroPython by clicking `Connect` after have connected the Alvik with the USB cable.
-- You can look at the list of the USB devices attach to the PC
+- You can use the Arduino IDE to discover the port, [follow this guide to know more.](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE)
+- You can check it by using the Arduino Lab for MicroPython by clicking `Connect` after connecting Alvik with the USB cable.
+- You can check the list of the USB devices attached to your PC.
 
 ### How to Upload Firmware
 
-1. Download the latest [pre-compiled firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases/latest) and place it inside the Alvik project folder
+1. Download the latest [pre-compiled firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases/latest) and place it inside Alvik's project folder
 
 2. Go into `utilities` folder and run the `flash_firmware` script:
 
@@ -247,73 +245,72 @@ Answer `y` to flash firmware.
 
 ### Test
 
-There are severals examples files to test all the features of your Alvik, placed inside the `examples` folder.
+There are several examples to test all the features of your Alvik placed inside the `examples` folder.
 
-Open **Arduino Lab for MicroPython** and **connect** the Alvik. Then:
+Open **Arduino Lab for MicroPython** and **connect** Alvik. Then:
 
-- Click on the `files` icon
-- Click on the `path string` in the bottom right explorer windows.
-- Click on the `file name` of the example you choose
-- Click on the `play button`
+1. Click on the `files` icon
+2. Click on the `path string` in the bottom right explorer windows.
+3. Click on the `file name` of the example you choose
+4. Click on the `play button`
 
-![test examples files](assets/test_files.png)
+![Test examples files](assets/test_files.png)
 
 ## Maintenance
 
 ### Check Wheels Alignment
 
-The motion calculations performed by Alvik are based on a precise position of both wheels. Periodically you can check this position and correct it if needed:
+The motion calculations performed by Alvik are based on the precise position of both wheels. You can check this position and correct it in case you think your robot is not moving as expected:
 
-- Place your Alvik on a side on a flat surface
-- Check that the exterior part of the wheel touch the flat surface, aligned with the plastic chassis
-- Repeat with the other side / wheel
+1. Place your Alvik on a side on a flat surface
+2. Check that the exterior part of the wheel is in contact with the flat surface and aligned with the plastic chassis
+3. Repeat with the other wheel
 
-![check wheel alignment](assets/wheels_alignment.png)
+![Check wheel alignment](assets/wheels_alignment.png)
 
 ### Calibrate Color Sensors
 
-To calibrate the color sensor, placed in the bottom PCB under the Nano ESP32, you'll need a white surface and a black surface.
-You'll do it manually, so you can get familiar with the REPL terminal.
+To calibrate the color sensor, placed in the bottom PCB under the Nano ESP32, you'll need a white surface and a black surface. Follow these steps:
 
 1. Open the Arduino Lab for MicroPython
-2. Connect the Alvik
+2. Connect Alvik
 3. Open the REPL terminal (just click on the Terminal Icon on top)
 
-Now you're ready to send command directly to the Alvik. Every time you'll click enter the command will be executed.
+Now you're ready to send commands directly to Alvik. Every time you click enter the command will be executed in real time.
 
 ```bash
->>> from arduino_alvik import ArduinoAlvik
+ from arduino_alvik import ArduinoAl
 
->>> alvik = ArduinoAlvik()
+ alvik = ArduinoAlvi
 
->>> alvik.begin()
+ alvik.begin()
 ```
 
 Now place your robot on the white surface and type:
 
 ```bash
->>> alvik.color_calibration('white')
+alvik.color_calibration('white')
 ```
 
 Now place your robot on the black surface and type:
 
 ```bash
->>> alvik.color_calibration('black')
+alvik.color_calibration('black')
 ```
 
 Press reset on Lab for MicroPython.
 
-You can now test using read_color_sensor.py in examples folder. Refer to the [test chapter](#4.4-test) if you have any problem.
+You can now test using read_color_sensor.py in the examples folder. Refer to the [test chapter](#4.4-test) if you have any problems.
 
-***Colors are tested on paper painted using acrilic marker pens, such as UNIPOSCA, or paper printed with an inkjet printer.***
+***Colors are tested on paper painted using acrylic marker pens, such as UNIPOSCA, or paper printed with an inkjet printer.***
 
 ## Extensions
 
-***When adding extension in the side, never use screws longer then 15mm, overall never use objects longer then 15mm in the holes because the device can be damaged.***
+***When adding extensions to the robot, never use screws longer than 10 mm or the device could be damaged.***
 
 ### Add LEGO® Addons
 
-On both sides of the Alvik there are different housings that let you add:
+On both sides of Alvik there are different housings that let you add:
 
 - 4x M3 screws per side
 - 2x LEGO® Technic™ Connector per side
@@ -328,19 +325,19 @@ As reference you can take a look at the following images:
 
 ![Alvik LEGO® compatibility connectors](assets/lego.png)
 
-### Add Servo
+### Add Servo motors
 
-The Servo connectors are placed at the back of the Alvik, in this tutorial we'll attach a servo motor to the port A. You can take a look at the pinout image at the [pinout chapter](#3.2.7-connectors).
+The servo motors connectors are placed at the back of Alvik, in this tutorial we'll attach a servo motor to the port A. You can take a look at the pinout image in the [pinout](#3.2.7-connectors) chapter](#3.2.7-connectors).
 
-***The port provides 5 Volt to the motor, so be sure to connect a servo that run with 5V.***
+***The port provides 5 Volt to the motor, so be sure to connect a servo that runs with 5V.***
 
 1. Connect the servo motor to the upper port
 
-    ![servo connected](assets/servo_connection.png)
+    ![Servo connected](assets/servo_connection.png)
 
 2. Open the Arduino Lab for MicroPython
 
-3. Connect the Alvik with a USB cable and click CONNECT
+3. Connect Alvik with a USB cable and click CONNECT
 
 4. Copy and paste the following test code
 
@@ -368,21 +365,21 @@ while True:
 
 6. The motor should move as in the gif below
 
-    ![servo movement](assets/servo_move.gif)
+    ![Servo movement](assets/servo_move.gif)
 
 If you want to understand how the command `alvik.set_servo_positions` works, you can have a look in the [API overview](/tutorials/02.api-overview/api-overview.md).
 
 ### Add I2C Grove
 
-The I2C Grove connectors are placed at the back of the Alvik, in this tutorial we'll see how to scan a generic I2C device connected to it. You can take a look at the pinout image at the [pinout chapter](#3.2.7-connectors).
+The I2C Grove connectors are placed at the back of Alvik, in this tutorial we'll see how to scan a generic I2C device connected to it. You can take a look at the pinout image in the [pinout](#3.2.7-connectors) chapter](#3.2.7-connectors).
 
 1. Connect the I2C Groove device to one of the two ports.
 
 2. Open the Arduino Lab for MicroPython
 
-3. Connect the Alvik with a USB cable and click CONNECT
+3. Connect Alvik with a USB cable and click CONNECT
 
-4. Turn ON the Alvik
+4. Turn ON Alvik
 
 5. Copy and paste the following test code
 
@@ -416,11 +413,11 @@ print()
 
 ### Add Qwiic
 
-The Qwiic connectors are placed at the back of the Alvik, for this example we'll using the Qwiic OLED display from SparkFun. You can take a look at the pinout image at the [pinout chapter](#3.2.7-connectors).
+The Qwiic connectors are placed at the back of Alvik, for this example we'll be using the Qwiic OLED display from SparkFun. You can take a look at the pinout image in the [pinout](#3.2.7-connectors) chapter](#3.2.7-connectors).
 
 ![Qwiic OLED display](assets/qwiic_oled.png)
 
-1. Connect the OLED display to one of the Qwiic connector, you can use either the left one or the right one.
+1. Connect the OLED display to one of the Qwiic connectors, you can use either the left one or the right one.
 
 ![Qwiic OLED display](assets/qwiic_connection.png)
 
@@ -430,7 +427,7 @@ The Qwiic connectors are placed at the back of the Alvik, for this example we'll
 
 4. Install mpremote
 
-[mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html) is a python module needed to upload files on the Nano ESP32. The minimum suggested mpremote release is 1.22.0. Be sure to have Python installed before proceeding!
+[mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html) is a Python module needed to upload files on the Nano ESP32. The minimum suggested mpremote release is 1.22.0. Be sure to have Python installed before proceeding!
 
 ```
 (venv)$ pip install mpremote
@@ -442,7 +439,7 @@ or
 (venv)$ python3 -m pip install mpremote
 ```
 
-Depending on how you configure python on your machine.
+Depending on how you configure Python on your machine.
 
 5. Install library
 
@@ -460,13 +457,13 @@ Windows
 
 The `<device port>` is the name of the USB port that your computer assigned to the Nano ESP32. There are several ways to find it, depending on your Operating System, for example:
 
-- You can use the Arduino IDE 2.x,  [here](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE) a guide.
+- You can use the Arduino IDE to know the port by [following this guide](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE).
 - You can look it using the Arduino Lab for MicroPython by clicking `Connect` after have connected the Alvik with the USB cable.
-- You can look at the list of the USB devices attach to the PC
+- You can look at the list of the USB devices attached to the PC
 
 6. Test `Hello World!`
 
-Now you can open the Arduino Lab for MicroPython, connect the Alvik, and open the example called `hello_world.py` in the `examples` folder. If everything works as expected you'll see something like this
+Now you can open the Arduino Lab for MicroPython, connect Alvik and open the example called `hello_world.py` in the `examples` folder. If everything works as expected you'll see something like the following image:
 
 ![Hello World OLED](assets/hello.png)
 
@@ -476,99 +473,3 @@ Open the example called `bender.py`, launch it and see if the output is like the
 
 ![Bender OLED](assets/bender.png)
 
-
-## Julian Proposal
-
-## What is Alvik
-
-![](assets/alvik-classroom.jpg)
-
-Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education. Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
-
-
-
-### What is included
-
-![Unboxing Alvik](assets/unboxing.jpg)
-
-Inside Alvik's packaging you will find the following items:
-* Alvik (x1)
-* Cable USB-C® to USB-C® (x1)
-* 18650 Battery (already inside the robot) (x1)
-
-
-***The product is sensible to electrostatic discharge, observe ESD-safe handling procedures when working with it***
-
-
-### The Brain
-
-Alvik have two controllers
-
-### The Body
-
-#### Controller
-
-#### Power
-
-    - How to charge Alvik
-    - Replacing the battery
-
-#### Sensors
-    - Touch Buttons
-    - Distance Sensor
-    - Line Follower Sensors
-    - Color Sensor
-    - IMU
-
-#### Actuators
-    - Motors and Encoders
-
-## Move Alvik!
-
-### Basic Touch Programming
-
-### Following Objects
-
-### Line Follower
-
-
-## Alvik First Use
-
-### Update Alvik's body
-
-### Update Alvik's brain
-    - Update ESP32 Micropython Firmware
-    - Update Alvik's Library
-### Hello Alvik! Your first program!
-
-
-## Program Alvik!
-
-### Controlling the motors
-
-### Reading buttons
-
-### Detecting obstacles
-
-### Following a line
-
-### Sensing colors
-
-### Detecting Crashes and Fallings
-
-### LEDs
-
-## Expanding the Robot
-
-### Additional Connectors
-    - Qwiic Connectors
-    - Grove Connectors
-    - Servomotors Connectors
-
-### Lego Technic Compatibility
-
-### Custom parts
-
-## Want more?
-
-## Need Help?

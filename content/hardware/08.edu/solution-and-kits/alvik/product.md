@@ -1,6 +1,6 @@
 ---
 title: Alvik
-url_shop: https://www.arduino.cc/education/arduino-alvik/
+url_shop: https://store.arduino.cc/products/alvik
 certifications: [CE, UKCA]
 primary_button_url: /tutorials/alvik/getting-started
 primary_button_title: Get Started
