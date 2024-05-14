@@ -325,7 +325,7 @@ As reference you can take a look at the following images:
 
 ![Alvik LEGO® compatibility connectors](assets/lego.png)
 
-### Add Servo motors
+### Add Servo Motors
 
 The servo motors connectors are placed at the back of Alvik, in this tutorial we'll attach a servo motor to the port A. You can take a look at the pinout image in the [pinout](#3.2.7-connectors) chapter](#connectors).
 
