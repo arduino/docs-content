@@ -48,8 +48,13 @@ The next step is to create a Cloud variable, which we will later interact with v
 
 1. While in Thing configuration, click on **"Add Variable"** which will open a new window.
 2. Name your variable `led`, select `Smart home`, and select it to be of a `Switch` type.
+
+![Create Variable](./assets/thingConfig.png)
+
 3. Click on **"Add Variable"** at the bottom of the window.
 4. Make sure the **Smart Home Integration** is set to Google Home.
+
+![Smart Home Integration](./assets/smartHomeIntegration.png)
 
 ***Most Cloud variables are compatible with both Alexa and Google Home but there is an icon on the right side of the type that indicates the compatibility***
 
@@ -61,7 +66,7 @@ Your Thing should look something like this when you are finished:
 
 ### Upload Sketch
 
-Upload the following sketch to your Arduino board.
+Navigate to the Sketch tab and upload the following sketch to your Arduino board.
 
 ```arduino
 
@@ -110,13 +115,18 @@ void onLedChange()  {
 
 Your board setup is now complete and you can continue to the Google Home app.
 
-#### Detect Your Device with Google Home
+### Detect Your Device with Google Home
 
-1. **Network Connection:** Ensure the board is connected to the network.
-2. **Google Home App:** Open the app, navigate to Devices, and click "Add Device."
-3. **Integration Method:** Select "Works with Google Home" and then choose the "Arduino" action.
-4. **Device Pairing:** Link your Arduino account if requested and proceed to add your devices (one for each variable) by associating them with a room.
+- **Network Connection:** Ensure the board is connected to the network.
 
-![Google Home Device Pairing](./assets/googleHome.png)
+- **Google Home App:** Open the app, navigate to Devices, and click "Add Device."
+
+- **Integration Method:** Select "Works with Google Home" and then choose the "Arduino" action.
+
+![Setup Device](./assets/googleHome_1.png)
+
+- **Device Pairing:** Link your Arduino account if requested and proceed to add your devices (one for each variable) by associating them with a room.
+
+![Link Accounts](./assets/googleHome_2.png)
 
 **Congratulations!** Your device is now successfully configured to work with Google Home.
