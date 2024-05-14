@@ -35,8 +35,7 @@ In this comprehensive tutorial, you will learn how to integrate and utilize the 
 
 ### Software Requirements
 
-- [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
-- [Arduino PLC IDE software](https://www.arduino.cc/en/software#arduino-plc-ide)
+- [Arduino PLC IDE Installer](https://www.arduino.cc/en/software#arduino-plc-ide)
 - If you have an Opta™, you do not need any license key to activate your product. Go to section [__License Activation With Pre-Licensed Products (Opta™)__](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license#7-license-activation-with-pre-licensed-products-opta) to know more.
 - The [Arduino Cloud](https://cloud.arduino.cc/) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the sketch provided in the following section. In case you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
 
@@ -206,7 +205,6 @@ The PLC IDE configuration will play an important role in establishing successful
 Thus, you will learn to configure the 'Shared variables' based on the peripherals and tasks you may assign to Opta™.
 
 #### Shared Variables Configuration
-<br></br>
 
 The successful communication between Opta™ configured with PLC IDE and Arduino Cloud relies on the 'Shared variables'. The 'Shared variables' is defined by heading to `Resources > Opta > Shared variables`. It will then offer two additional tabs: 'Inputs' and 'Outputs'.
 
@@ -240,7 +238,6 @@ Depending on the project's development requirements, you can add all the variabl
 We will now configure Opta™ device's features to link all these shared variables.
 
 #### Analog Port Configuration
-<br></br>
 
 The analog port is configured using the following properties under: `Resources > Opta > Local IO Mapping > Programmable Inputs`.
 
@@ -257,7 +254,6 @@ The 'Programmable inputs mapping' table should look as the following image:
 You can also change the analog resolution if needed between 12, 14, or 16 bits.
 
 #### User Programmable LED Configuration
-<br></br>
 
 The user programmable LED of Opta™ is configurable under `Resources > Opta > Local IO Mapping > LED Outputs`. To use the user programmable LED, you will need to assign a variable that will represent the 'LB' row as it can be seen in the following image:
 
@@ -274,12 +270,13 @@ In the context of the PLC IDE, the libraries will need to be added manually unde
 
 | **Library Name**          | **Version** |
 |---------------------------|-------------|
-| ArduinoIoTCloud           | 1.11.2      |
-| Arduino_ConnectionHandler | 0.7.6       |
-| ArduinoECCX08             | 1.3.7       |
-| ArduinoMqttClient         | 0.1.7       |
+| ArduinoIoTCloud           | 1.15.1      |
+| Arduino_ConnectionHandler | 0.8.1       |
+| ArduinoECCX08             | 1.3.8       |
+| ArduinoMqttClient         | 0.1.8       |
 | Arduino_DebugUtils        | 1.4.0       |
-| Arduino_Portenta_OTA      | 1.1.3       |
+| Arduino_Portenta_OTA      | 1.2.1       |
+| Arduino_SecureElement     | 0.1.2       |
 
 Once the libraries are in place within `Sketch Libraries`, we should have a similar table as the following image:
 
@@ -290,7 +287,6 @@ These libraries are indexed, thus they are certified guaranteeing optimized perf
 ***For more information about managing libraries inside PLC IDE, please have a look at ["Library Management"](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction#library-management) section from the [Programming Introduction with Arduino PLC IDE](https://docs.arduino.cc/software/plc-ide/tutorials/plc-programming-introduction).***
 
 #### Arduino Sketch
-<br></br>
 
 We can now build the Arduino sketch that will be used to establish communication with the Arduino Cloud and manage data traffic. The base sketch will be needed and can be found as discussed in the ['Setting Up the Arduino Cloud'](#setting-up-the-iot-cloud) section.
 
@@ -392,7 +388,6 @@ void onCloudButtonChange()  {
 The `NETWORK_SSID` and `NETWORK_PASS` requires to be manually defined. Please replace these parameters to establish a connection with the desired network. Also, the parameters must be defined in between the quotation marks, replacing `NETWORK_SSID` and `NETWORK_PASS` fields.
 
 #### PLC Program
-<br></br>
 
 The Arduino sketch is ready and now we need a PLC program that will control the onboard features of Opta™ and data readings.
 
