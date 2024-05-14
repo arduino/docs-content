@@ -34,21 +34,20 @@ The following section highlights the critical updates and enhancements introduce
 The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of the integrated key new features, major bug fixes, and critical security patches to ensure the highest level of functionality and performance within the Portenta X8 system.
 
 * **New Features:**
-- The gpu and the vpus can now be enabled by ov_som_gpu_vpus.
-- Is now possible to scale system frequency down to 100MHz per core.
-- Implemented configurable ncm gadget from /etc/default/usbgx
+- Implemented a configurable *NCM* gadget from `/etc/default/usbgx` .
+- Created *udev* rules to map devices with Arduino standard names.
 
 * **Enhancements:**
-- Created udev rules to map devs with Arduino standard names.
-- CAN and in general X8H7 upgraded with the latest source and firmware available
-- `xterm` and `resize` are now performed by default in .bashrc
-- Update WiFi chipset 1DX firmware
+- Updated Wi-Fi® chipset 1DX firmware.
+- Enabled GPU and VPUs through the `ov_som_gpu_vpus` overlay.
+- Allowed dynamic frequency scaling (*DVFS*) to scale system frequency down to 100 MHz per core.
+- Upgraded CAN and X8H7 in general with the latest source and firmware.
 
 * **Bug Fixes:**
-- Fixes to ec200a-eu udev rules and systemd services
+- Fixed **EC200A-EU** *udev* rules and *systemd* services.
 
 * **Security Updates:**
-- Force password change at first login
+- Forced password change at first login.
 
 ***__You can access the latest version of the firmware [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__***
 
@@ -61,6 +60,25 @@ Below is a list of all available firmware versions with their release notes.
 <details>
   <summary><strong>OS Image 844: Release arduino-91</strong></summary>
 
+#### New Features
+  - Implemented a configurable *NCM* gadget from `/etc/default/usbgx` .
+  - Created *udev* rules to map devices with Arduino standard names.
+
+#### Enhancements
+  - Updated Wi-Fi® chipset 1DX firmware.
+  - Enabled GPU and VPUs through the `ov_som_gpu_vpus` overlay.
+  - Allowed dynamic frequency scaling (*DVFS*) to scale system frequency down to 100 MHz per core.
+  - Upgraded CAN and X8H7 in general with the latest source and firmware.
+
+#### Bug Fixes
+  - Fixed **EC200A-EU** *udev* rules and *systemd* services.
+
+#### Security Updates
+  - Forced password change at first login.
+
+#### Additional Notes
+  - *xterm* and *resize* are now performed by default in **`.bashrc`** for a better shell experience.
+  - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
 
 </details>
 <br></br>
