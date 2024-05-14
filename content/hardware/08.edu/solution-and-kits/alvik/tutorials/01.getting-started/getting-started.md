@@ -55,7 +55,7 @@ To get started to play with Alvik you will need the following hardware and softw
 
 ![Alvik exploded view](assets/main-components.png)
 
-***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the hardware from the chassis make sure you do it _**_in a __non-conductive__ surface clean** of materials or tools that can short-circuit the battery***
+***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the hardware from the chassis make sure you do it on a __non-conductive surface clean__ of materials or tools that can short-circuit the battery***
 
 ### Main Components
 
