@@ -469,7 +469,4 @@ Now you can open the Arduino Lab for MicroPython, connect Alvik and open the exa
 
 7. Test `bender.py`
 
-Open the example called `bender.py`, launch it and see if the output is like the image below:
-
-![Bender OLED](assets/bender.png)
-
+Open the example called `bender.py`, launch it and see on your display the image of Bender's robot.
