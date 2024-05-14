@@ -7,7 +7,7 @@ tags:
 author: "Paolo Cavagnolo"
 ---
 
-Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education. 
+Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education.
 
 ![](assets/alvik_main.jpg)
 
@@ -55,7 +55,7 @@ To get started to play with Alvik you will need the following hardware and softw
 
 ![Alvik exploded view](assets/main-components.png)
 
-***__Warning__: When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the hardware from the chassis make sure you do it _**_in a __non-conductive__ surface clean** of materials or tools that can short-circuit the battery***
+***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the hardware from the chassis make sure you do it _**_in a __non-conductive__ surface clean** of materials or tools that can short-circuit the battery***
 
 ### Main Components
 
@@ -79,7 +79,7 @@ Please note that when using MicroPython the pin number reflects the GPIO on the 
 
 The main core of the robot is the STM32 ARM Cortex-M4 32 Bit, you can access it through a set of dedicated APIs from the Nano ESP32.
 
-You can learn more about the available functions for Alvik in the following [ Alvik's API Documentation](/tutorials/02.api-overview/api-overview.md).
+You can learn more about the available functions for Alvik in the following [ Alvik's API Documentation](/tutorials/alvik/api-overview/).
 
 The latest firmware of the STM32 can be found at [this link](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases), and [here](#how-to-upload-firmware) is the guide to flash it.
 
@@ -116,7 +116,7 @@ When fully charged it will stay GREEN.
 
 #### Sensors
 
-Alvik has five different sensors, all connected to the STM32 and accessible through the [APIs](/tutorials/02.api-overview/). For each sensor there is a test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples).
+Alvik has five different sensors, all connected to the STM32 and accessible through the [APIs](/tutorials/alvik/api-overview/). For each sensor there is a test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples).
 
 | **Sensor name**              | **Part name** | **Test program name** |
 |------------------------------|---------------|-----------------------|
@@ -130,7 +130,7 @@ Alvik has five different sensors, all connected to the STM32 and accessible thro
 
 #### Actuators
 
-Alvik has two high-precision geared motors and two RGB LEDs. The test programs are located in the same folder as the [sensor examples](#2.2.5-inputs).
+Alvik has two high-precision geared motors and two RGB LEDs. The test programs are located in the same folder as the [sensor examples](#sensors).
 
 | **Actuator name**        | **Part name**           | **Test program name** |
 |--------------------------|-------------------------|-----------------------|
@@ -300,7 +300,7 @@ alvik.color_calibration('black')
 
 Press reset on Lab for MicroPython.
 
-You can now test using read_color_sensor.py in the examples folder. Refer to the [test chapter](#4.4-test) if you have any problems.
+You can now test using read_color_sensor.py in the examples folder. Refer to the [test chapter](#test) if you have any problems.
 
 ***Colors are tested on paper painted using acrylic marker pens, such as UNIPOSCA, or paper printed with an inkjet printer.***
 
@@ -327,7 +327,7 @@ As reference you can take a look at the following images:
 
 ### Add Servo motors
 
-The servo motors connectors are placed at the back of Alvik, in this tutorial we'll attach a servo motor to the port A. You can take a look at the pinout image in the [pinout](#3.2.7-connectors) chapter](#3.2.7-connectors).
+The servo motors connectors are placed at the back of Alvik, in this tutorial we'll attach a servo motor to the port A. You can take a look at the pinout image in the [pinout](#3.2.7-connectors) chapter](#connectors).
 
 ***The port provides 5 Volt to the motor, so be sure to connect a servo that runs with 5V.***
 
@@ -367,11 +367,11 @@ while True:
 
     ![Servo movement](assets/servo_move.gif)
 
-If you want to understand how the command `alvik.set_servo_positions` works, you can have a look in the [API overview](/tutorials/02.api-overview/api-overview.md).
+If you want to understand how the command `alvik.set_servo_positions` works, you can have a look in the [API overview](/tutorials/alvik/api-overview/).
 
 ### Add I2C Grove
 
-The I2C Grove connectors are placed at the back of Alvik, in this tutorial we'll see how to scan a generic I2C device connected to it. You can take a look at the pinout image in the [pinout](#3.2.7-connectors) chapter](#3.2.7-connectors).
+The I2C Grove connectors are placed at the back of Alvik, in this tutorial we'll see how to scan a generic I2C device connected to it. You can take a look at the pinout image at [Arvik's Product Page](/hardware/alvik/).
 
 1. Connect the I2C Groove device to one of the two ports.
 
@@ -413,7 +413,7 @@ print()
 
 ### Add Qwiic
 
-The Qwiic connectors are placed at the back of Alvik, for this example we'll be using the Qwiic OLED display from SparkFun. You can take a look at the pinout image in the [pinout](#3.2.7-connectors) chapter](#3.2.7-connectors).
+The Qwiic connectors are placed at the back of Alvik, for this example we'll be using the Qwiic OLED display from SparkFun. You can take a look at the pinout image in the [pinout](#3.2.7-connectors) chapter](#connectors).
 
 ![Qwiic OLED display](assets/qwiic_oled.png)
 
