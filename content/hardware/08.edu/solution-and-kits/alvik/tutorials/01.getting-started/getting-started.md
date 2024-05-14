@@ -479,11 +479,30 @@ Open the example called `bender.py`, launch it and see if the output is like the
 
 ## Julian Proposal
 
-## Move your Robot!
+## What is Alvik
 
-### What is Alvik
+![](assets/alvik-classroom.jpg)
+
+Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education. Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
+
+
+
+### What is included
+
+![Unboxing Alvik](assets/unboxing.jpg)
+
+Inside Alvik's packaging you will find the following items:
+* Alvik (x1)
+* Cable USB-C® to USB-C® (x1)
+* 18650 Battery (already inside the robot) (x1)
+
+
+***The product is sensible to electrostatic discharge, observe ESD-safe handling procedures when working with it***
+
 
 ### The Brain
+
+Alvik have two controllers
 
 ### The Body
 
