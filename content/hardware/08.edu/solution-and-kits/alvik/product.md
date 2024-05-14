@@ -4,8 +4,8 @@ url_shop: https://www.arduino.cc/education/arduino-alvik/
 certifications: [CE, UKCA]
 primary_button_url: /tutorials/alvik/getting-started
 primary_button_title: Get Started
-secondary_button_url: /tutorials/alvik/api-overview
-secondary_button_title: API Overview
+secondary_button_url: https://courses.arduino.cc/explore-robotics-micropython/
+secondary_button_title: Course & Projects
 sku: [AKX00066]
 ---
 
