@@ -27,24 +27,26 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 ## Features
 ### General Specifications Overview
 
-| Characteristics         | Details                                                       |
-|-------------------------|---------------------------------------------------------------|
-| Supply Voltage          | 12...24 V                                                     |
-| Antipolarity protection | Yes                                                           |
-| Overvoltage protection  | Yes (+20%)                                                    |
-| Inputs                  | 8x Programmable inputs (Voltage, Current and RTD)             |
-| Outputs                 | 2x Programmable outputs (Voltage, Current) and 4x PWM outputs |
-| Degree of Protection    | IP20                                                          |
-| Certifications          | FCC, CE, UKCA                                                 |
+| Characteristics             | Details                                                       |
+|-----------------------------|---------------------------------------------------------------|
+| Supply Voltage              | 12...24 V                                                     |
+| Reverse polarity protection | Yes                                                           |
+| ESP protection              | Yes                                                           |
+| Overvoltage protection      | Yes (up to 40 V)                                                    |
+| Inputs                      | 8x Programmable inputs (Voltage, Current and RTD)             |
+| Outputs                     | 2x Programmable outputs (Voltage, Current) and 4x PWM outputs |
+| Degree of Protection        | IP20                                                          |
+| Certifications              | FCC, CE, UKCA                                                 |
 
 ### Inputs
 
-| Characteristics               | Details                                    |
-|-------------------------------|--------------------------------------------|
+| Characteristics               | Details                                     |
+|-------------------------------|---------------------------------------------|
 | Number of inputs              | 8x Analog inputs (Voltage, Current and RTD) |
-| Inputs overvoltage protection | Yes (Up to 40 V)                           |
-| Antipolarity protection       | No                                         |
-| Input impedance               | 5.85 kΩ                                    |
+| Inputs overvoltage protection | Yes (Up to 40 V)                            |
+| Antipolarity protection       | No ???                                      |
+| Input impedance               | TBD kΩ                                      |
+
 
 
 #### Analog Inputs
@@ -56,14 +58,6 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Noise Rejection         | 50 and 60 Hz (Optional)      |
 | Accuracy                | +/- 1%, repeatability +/- 1% |
 
-
-#### Digital Inputs
-| Characteristics                   | Details                          |
-| --------------------------------- | -------------------------------- |
-| Digital Input voltage             | 0...24 V                         |
-| Digital Input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC |
-| Digital Input current             | 4.12 mA at 24 V, 2.05 mA at 10 V |
-| Digital Input frequency           | 300 Hz                           |
 
 
 ### Outputs (AFX00005 Only)
