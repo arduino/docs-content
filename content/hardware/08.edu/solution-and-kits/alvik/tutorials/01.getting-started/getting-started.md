@@ -7,6 +7,9 @@ tags:
 author: "Paolo Cavagnolo"
 ---
 
+FIXME: description field not good
+FIXME: First sentences not good
+
 In this tutorial you will find useful information to get started, test and maintain your Alvik. But before proceeding let's check to have all the essential tools, hardware and software.
 
 ## Unboxing
@@ -31,6 +34,8 @@ Just turn your Alvik ON, wait until the LEDs turn blue and use the up and down b
 
 ## Getting to Know Alvik in Detail
 
+FIXME: Section title too long
+
 Now that you have played with Alvik and you have seen it moving, it is time to know more in-depth how it is built and how to get much more than the out-of-the-box experience from it.
 
 ### Requirements
@@ -53,7 +58,7 @@ FIXME put pro system here, remove comments regarding usb and add here a warning 
 
 ![Alvik exploded view](assets/main-components.png)
 
-***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the HW from the chassis make sure you do it **in a __non-conductive__ surface clean** of materials or tools that can short-circuit the battery***
+***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the HW from the chassis make sure you do it _**_in a __non-conductive__ surface clean** of materials or tools that can short-circuit the battery***
 
 ### Main Components
 
@@ -150,7 +155,7 @@ In order for Alvik to work properly three things have to be set correctly:
 2. The [latest libraries](https://github.com/arduino/arduino-alvik-mpy/releases) have to be placed in the Nano ESP32.
 3. The [latest firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases) has to be uploaded to the STM32 microcontroller.
 
-Alvik comes with a preinstalled version of libraries and firmware, but in case you want to upgrade it or if something happens and you mess things up, here is is the guide to reinstall both libraries and firmware.
+Alvik comes with a preinstalled version of libraries and firmware, but in case you want to upgrade it or if something happens and you mess things up, here is the guide to reinstall both libraries and firmware.
 
 ### MicroPython Firmware on the Nano ESP32
 
@@ -164,7 +169,7 @@ Follow [this guide](https://docs.arduino.cc/micropython/basics/board-installatio
 
 ### How to Upload Libraries
 
-You'll find the latest instructions directly in the [repository](https://github.com/arduino/arduino-alvik-mpy/releases). Here there are the main steps:
+You'll find the latest instructions directly in the [repository](https://github.com/arduino/arduino-alvik-mpy/releases). Here are the main steps:
 
 1. Prepare file
 
@@ -470,3 +475,81 @@ Now you can open the Arduino Lab for MicroPython, connect the Alvik, and open th
 Open the example called `bender.py`, launch it and see if the output is like the image below:
 
 ![Bender OLED](assets/bender.png)
+
+
+## Julian Proposal
+
+## Move your Robot!
+
+### What is Alvik
+
+### The Brain
+
+### The Body
+
+#### Controller
+
+#### Power
+
+    - How to charge Alvik
+    - Replacing the battery
+
+#### Sensors
+    - Touch Buttons
+    - Distance Sensor
+    - Line Follower Sensors
+    - Color Sensor
+    - IMU
+
+#### Actuators
+    - Motors and Encoders
+
+## Move Alvik!
+
+### Basic Touch Programming
+
+### Following Objects
+
+### Line Follower
+
+
+## Alvik First Use
+
+### Update Alvik's body
+
+### Update Alvik's brain
+    - Update ESP32 Micropython Firmware
+    - Update Alvik's Library
+### Hello Alvik! Your first program!
+
+
+## Program Alvik!
+
+### Controlling the motors
+
+### Reading buttons
+
+### Detecting obstacles
+
+### Following a line
+
+### Sensing colors
+
+### Detecting Crashes and Fallings
+
+### LEDs
+
+## Expanding the Robot
+
+### Additional Connectors
+    - Qwiic Connectors
+    - Grove Connectors
+    - Servomotors Connectors
+
+### Lego Technic Compatibility
+
+### Custom parts
+
+## Want more?
+
+## Need Help?
