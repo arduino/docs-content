@@ -31,7 +31,7 @@ Alvik is an educational robot that is battery-powered and has multiple sensors a
   | Connectivity          | Wi-Fi®, Bluetooth® LE                                                                                         |
   | Sensors               | RGB Color detection, Distance ToF 8x8 Array - up to 350 cm, IMU - 6 degree, 3x Line follower, 7x Touch sensor |
   | Motors                | High precision with hall effect encoder. Up to 13 cm/s                                                        |
-  | Extensions            | Servo motor, I2C Grove, Qwiic, Lego® Technic™, M3 x 5 mm Screws                                               |
+  | Extensions            | Servo motor, I2C Grove, Qwiic, Lego® Technic™, M3x5 mm Screws                                                 |
 
 ### Related Accessories (Included)
 
@@ -129,13 +129,13 @@ The main parts of the robot are the following:
 | ---------------------------- | :----------: | :---------------------------------------------------------------------------------------------: |
 | Arduino® Nano ESP32          |      1       |                                  Main controller of the robot                                   |
 | Main PCB                     |      1       |                                      Main PCB of the robot                                      |
-| STM32 Arm® Cortex®-M4 32 Bit |      1       |                                Onboard STM32 auxiliary controller                                |
+| STM32 Arm® Cortex®-M4 32 Bit |      1       |                               Onboard STM32 auxiliary controller                                |
 | Touch Programmable button    |      7       |                      Touch programmable buttons integrated on the main PCB                      |
 | ON/OFF Power Switch          |      1       |                                    Assembled on the main PCB                                    |
 | RGB LED                      |      2       |                       Fully programmable RGB LED mounted on the main PCB                        |
 | Color Sensor                 |      1       |                                       RGB Color detector                                        |
 | 6-Axis Gyro/Accelerometer    |      1       |                              6-Axis Gyro and Accelerometer sensor                               |
-| Front PCB                    |      1       |                        Robot auxiliary PCB with additional sensors                        |
+| Front PCB                    |      1       |                           Robot auxiliary PCB with additional sensors                           |
 | ToF Distance Sensor          |      1       |             Time-of-Flight Distance sensor up to 350 cm , mounted on the Front PCB              |
 | Line follower array          |      1       | Line follower array made up of 3 phototransistors and 5 infrared LEDs, mounted on the front PCB |
 | Grove Connector              |      2       |                       I2C Grove Connector to extend robot's capabilities                        |
@@ -195,6 +195,51 @@ The power of the robot is located by a simple ON/OFF switch located on the top o
 ![Alvik's Power Switch](assets/alvik_switch.png)
 
 <div style="page-break-after:always;"></div>
+
+### Robot Expandability
+
+Alvik is a robot designed to be used in STEAM & Maker environments where openness and wide compatibility with other products and construction systems are key. Thanks to that Alvik's capabilities can be expanded with new sensors and actuators using the additional connectors on its back, and with additional mechanical extensions like Lego® Technic™ pieces or 3D printed/custom made parts. In the following sections we will explain how to expand Alvik's capabilities.
+
+#### Additional Connectors
+
+Alvik has a series of additional connectors to expand its possibilities located at the back of the robot:
+
+| **Description**             | **Information**                                                                       |
+| --------------------------- | ------------------------------------------------------------------------------------- |
+| Qwiic Connector (x2)        | I2C Connectivity with compatible sensors and actuators using the Qwiic estandard      |
+| I2C Grove Connector (x2)    | I2C Connectivity with compatible sensors and actuators using the Grove estandard      |
+| PWM Servomotor Control (x2) | 3-pins Servo Motor connector compatible with a wide ranger of 3rd party manufacturers |
+
+![Connectors pinout](assets/datasheet_connectors.png)
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<strong>Note:</strong> When connecting additional hardware to Alvik's connector, make sure each of the components connected has a unique I2C address to avoid connectivity issues.
+</div>
+
+#### Lego® Technic™ Compatibility
+
+The robot is compatible with Lego® Technic™ pins to expand its body with new features and additional mechanisms.
+
+![Lego® Technic™ Compatibility](assets/lego_compatibility.png)
+
+To attach Lego® Technic™ pieces to Alvik's body use the widely available Lego® Technic™ Pegs. There are two Lego's compatible peg holes on each side of the robot as can be seen in the following image:
+
+<div style="page-break-after:always;"></div>
+
+#### M3 Screw Inserters Compatibility
+
+Alvik can be expanded with any additional hardware and pieces thanks to its four screw inserts present on each side of the robot. These inserts are compatible with M3 screws being the best way to expand the robot's possibilities using custom made or third-party pieces.
+
+![M3 Screws and Lego® Technic™ Peg Holes compatibility](assets/screw_lego.png)
+
+<!---
+![Alvik's Screw Inserters and Lego holes measurements](assets/holes_dimensions.png)
+-->
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<strong>Warning:</strong> The <strong>maximum screw length recommended is 10 mm (M3x10</strong> ). In case longer screws are used the robot could be damaged.
+</div>
+
 
 ## Device Operation
 
@@ -332,6 +377,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** |  **Changes**  |
-| ---------- | :----------: | :-----------: |
-| 24/04/2024 |      1       | First Release |
+| Date       | **Revision** |             **Changes**             |
+| ---------- | :----------: | :---------------------------------: |
+| 13/05/2024 |      2       | Robot's Expandability section added |
+| 24/04/2024 |      1       |            First Release            |
