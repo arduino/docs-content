@@ -42,20 +42,21 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 | Characteristics               | Details                                     |
 |-------------------------------|---------------------------------------------|
-| Number of inputs              | 8x Analog inputs (Voltage, Current and RTD) |
+| Number of inputs              | 8x Digital/Analog inputs (Voltage, Current and RTD) |
 | Inputs overvoltage protection | Yes (Up to 40 V)                            |
 | Antipolarity protection       | No                                          |
-| Analog Input resolution       | 16 bit                                      |
+| Analog Input resolution       | 16 bits                                      |
 | Noise Rejection               | 50 and 60 Hz (Optional)                     |
 
 
 #### Voltage Input Mode
 | Characteristics         | Details                      |
 |-------------------------|------------------------------|
+| Digital input voltage    | 0...24 V                     |
 | Analog input voltage    | 0...10 V                     |
 | Analog input LSB value  | 152.59 uV                    |
 | Accuracy                | +/- 1%, repeatability +/- 1% |
-| Input impedance         | 175 kΩ                       |
+| Input impedance         | Min: 175 kΩ (200 kΩ to GND enabled)                       |
 
 #### Current Input Mode
 
@@ -74,6 +75,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Input range     | 0...1 MΩ |
 | Bias voltage    | 2.5 V    |
 
+***2 wires RTDs can be connected to any of the eight channels.***
 
 **3 Wires RTD Connection**
 
@@ -84,49 +86,44 @@ RTD with 3 wires has generally two wires with the same color.
 
 ***3 wires RTD can only be measured by channels __I1__ and __I2__.***
 
-### Outputs (AFX00005 Only)
+![3 Wires RTD connection example]()
 
-| Characteristics                             | Details                                        |
-| ------------------------------------------- | ---------------------------------------------- |
-| Number of outputs                           | 8x Electromechanical Relays (NO - SPST)        |
-| Max current per relay                       | 6 A                                            |
-| Max peak current per relay                  | 10 A                                           |
-| Continuous current per terminal             | 6 A                                            |
-| Short-circuit protection                    | No, external fuse required                     |
-| Relay rated voltage                         | 250 VAC                                        |
-| Relay Max voltage                           | 400 VAC                                        |
-| Rated load AC1                              | 1500 VA                                        |
-| Rated load AC15 (230 VAC)                   | 300 VA                                         |
-| Breaking capacity DC1: 24/110/220 V         | 6/0.2/0.12 A                                   |
-| Minimum switching load                      | 500 mW (12 V/10 mA)                            |
-| Max output line length (unshielded)         | 100 m                                          |
-| Relay response time from state 0 to state 1 | 5 ms for relay output                          |
-| Relay response time from state 1 to state 0 | 3 ms for relay output                          |
-| Bounce time NO                              | 1 ms                                           |
-| Bounce time NC                              | 6 ms                                           |
-| Relay mechanical durability                 | 10 million cycles (DC)                         |
-| Relay electrical durability                 | 60 thousand cycles with a resistive load (AC1) |
+### Outputs
+
+| Characteristics                     | Details                                                 |
+|-------------------------------------|---------------------------------------------------------|
+| Number of outputs                   | 2x Analog outputs (Voltage and Current), 4x PWM outputs |
+| DAC resolution                      | 13 bits                                                 |
+| Charge pump for zero voltage output | Yes                                                     |
+
+***All eight analog channels can be used as outputs but due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time.***
+
+***At 25°C of ambient temperature all the 8 channels set as outputs have been tested at the same time while outputting more than 24 mA at 10 V each (>0.24W per channel).***
+
+#### Voltage Output Mode
+
+| Characteristics                  | Details                                                                                                                     |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| Analog output voltage            | 0...11 V                                                                                                                    |
+| Resistive load range             | 500 Ω...100 kΩ                                                                                                              |
+| Maximum capacitive load          | 2 μF                                                                                                                        |
+| Short-circuit current (sourcing) | Min: 25 mA, Typ: 29 mA, Max: 32 mA (lower limit bit = 0 (default)), Min: 5.5 mA, Typ: 7 mA, Max: 9 mA (lower limit bit = 1) |
+| Short-circuit current (sinking)  | Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                                                                       |
+| Accuracy                         | +/- 1%, repeatability +/- 1%                                                                                                |
 
 
-### Outputs (AFX00006 Only)
+#### Current Output Mode
 
-| Characteristics                             | Details                           |
-| ------------------------------------------- | --------------------------------- |
-| Number of outputs                           | 8x Solid State Relays (NO - SPST) |
-| Max current per relay                       | 2 A                               |
-| Max peak current per relay                  | 50 A (10 ms)                      |
-| Continuous current per terminal             | 2 A                               |
-| Short-circuit protection                    | No, external fuse required        |
-| Relay rated voltage                         | 24 VDC                            |
-| Switching voltage range                     | 1.5...30 VDC                      |
-| Maximum blocking voltage                    | 33 VDC                            |
-| Rated load DC13                             | 36 W                              |
-| Minimum switching current                   | 1 mA                              |
-| Max "OFF-state" leakage current             | 0.001 mA                          |
-| Max "OFF-state" voltage drop                | 0.4 V                             |
-| Relay response time from state 0 to state 1 | 0.02 ms for relay output          |
-| Relay response time from state 1 to state 0 | 0.2 ms for relay output           |
-| Electrical life at rated load               | > 10 million cycles               |
+| Characteristics                            | Details                                   |
+|--------------------------------------------|-------------------------------------------|
+| Analog output current                      | 0...25 mA                                 |
+| Maximum output voltage when sourcing 25 mA | 11.9 V ± 20%                              |
+| Open circuit voltage                       | 16.9 V ± 20%                              |
+| Output  impedance                          | Min: 1.5 MΩ, Typ: 4 MΩ                    |
+| Accuracy                                   | 1% in 0-10 mA range, 2% in 10-24 mA range |
+| Repeatability                              | 1% in 0-10 mA range, 2% in 10-24 mA range |
+
+
 
 ## Ratings
 ### Recommended Operating Conditions
@@ -139,18 +136,23 @@ RTD with 3 wires has generally two wires with the same color.
 
 ### Power Specification (Ambient Temperature)
 
-| Property                | Min  | Typ | Max  | Unit |
-| ----------------------- | ---- | --- | ---- | ---- |
-| Supply voltage          | 12   | -   | 24   | V    |
-| Permissible range       | 10.2 | -   | 27.6 | V    |
-| Power consumption (12V) | -    | -   | 3    | W    |
-| Power consumption (24V) | -    | -   | 3    | W    |
+| Property                | Min | Typ | Max  | Unit |
+|-------------------------|-----|-----|------|------|
+| Supply voltage          | 12  | -   | 24   | V    |
+| Permissible range       | 9.6 | -   | 28.8 | V    |
+| Power consumption (12V) | 1.5 | -   | -    | W    |
+| Power consumption (24V) | 1.8 | -   | -    | W    |
+
+#### Additional Notes
+
+***All screw terminals marked with “-” (minus sign) are shorted together.***
+***There is no galvanic isolation between the board and its DC power supply.***
 
 ## Functional Overview
 
 ### Product View
 
-![Arduino Opta® Expansion EMR and SSR variants](assets/AFX0005-6-new.png)
+![Arduino Opta® Analog Expansion](assets/AFX0007.png)
 
 | Item | Feature                                                                           |
 | ---- | --------------------------------------------------------------------------------- |
@@ -164,7 +166,7 @@ RTD with 3 wires has generally two wires with the same color.
 
 ### Block Diagram
 
-The following diagram explains the relation between the main components of the Opta® Digital Expansion:
+The following diagram explains the relation between the main components of the Opta® Analog Expansion:
 
 ![Block diagram](assets/Opta_Digital_EXP_Block_Diagram.svg)
 
@@ -194,7 +196,7 @@ The expansion port can be used to daisy-chain several Opta® Expansions and addi
 
 ## Device Operation
 ### Getting Started - IDE
-If you want to program your Arduino Opta® Digital Expansions while offline you need to install the Arduino® Desktop IDE **[1]** and the Arduino_Opta_Blueprint using the Library Manager. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
+If you want to program your Arduino Opta® Analog Expansion while offline you need to install the Arduino® Desktop IDE **[1]** and the Arduino_Opta_Blueprint using the Library Manager. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
 
 ### Getting Started - Arduino Web Editor
 All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by just installing a simple plugin.
@@ -202,20 +204,20 @@ All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by
 The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino PLC IDE
-Arduino Opta® Digital Expansions can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software, attach the Opta® Expansion through the Aux Connector and connect your Arduino Opta® to your computer using a simple USB-C® cable to start creating your own PLC industrial solutions. The PLC IDE will recognize the expansion and will expose the new available I/Os in the resources tree.
+Arduino Opta® Analog Expansion can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software, attach the Opta® Expansion through the Aux Connector and connect your Arduino Opta® to your computer using a simple USB-C® cable to start creating your own PLC industrial solutions. The PLC IDE will recognize the expansion and will expose the new available I/Os in the resources tree.
 
 ### Getting Started - Arduino Cloud
 All Arduino® IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
-Sample sketches for Arduino Opta® Digital Expansions can be found in the **Arduino_Opta_Blueprint** library “Examples” in the Arduino® IDE or the “Arduino Opta® Documentation” section of Arduino® **[5]**.
+Sample sketches for Arduino Opta® Analog Expansions can be found in the **Arduino_Opta_Blueprint** library “Examples” in the Arduino® IDE or the “Arduino Opta® Documentation” section of Arduino® **[5]**.
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[6]**, the Arduino® Library Reference **[7]** and the online store **[8]** where you will be able to complement your Arduino Opta® product with additional extensions, sensors and actuators.
 
 ## Mechanical Information
 ### Product Dimensions
-![Arduino Opta® Expansion Outline. Dimensions are in mm](assets/dimensions.png)
+![Arduino Opta® Analog Expansion Outline. Dimensions are in mm](assets/dimensions.png)
 
 ***Note: Terminals can be used with both solid and stranded core wire (min: 0.5 mm<sup>2</sup> / 20 AWG).***
 
@@ -223,15 +225,15 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 ### Certifications Summary
 
-| Cert       | Arduino Opta® Digital Expansion EMR (AFX00005) | Arduino Opta® Digital Expansion SSR (AFX00006) |
-| ---------- | ---------------------------------------------- | ---------------------------------------------- |
-| CE (EU)    | EN IEC 61326-1:2021, EN IEC 61010 (LVD)        | EN IEC 61326-1:2021, EN IEC 61010 (LVD)        |
-| CB (EU)    | Yes                                            | Yes                                            |
-| WEEE (EU)  | Yes                                            | Yes                                            |
-| REACH (EU) | Yes                                            | Yes                                            |
-| UKCA (UK)  | EN IEC 61326-1:2021                            | EN IEC 61326-1:2021                            |
-| FCC (US)   | Yes                                            | Yes                                            |
-| cULus      | UL 61010-2-201                                 | UL 61010-2-201                                 |
+| Cert       | Arduino Opta® Analog Expansion (AFX00007 | 
+| ---------- | ---------------------------------------------- |
+| CE (EU)    | EN IEC 61326-1:2021, EN IEC 61010 (LVD)        |
+| CB (EU)    | Yes                                            |
+| WEEE (EU)  | Yes                                            |
+| REACH (EU) | Yes                                            |
+| UKCA (UK)  | EN IEC 61326-1:2021                            |
+| FCC (US)   | Yes                                            |
+| cULus      | UL 61010-2-201                                 |
 
 
 ### Declaration of Conformity CE DoC (EU)
@@ -295,4 +297,4 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 | Date       | **Revision** | **Changes**        |
 |------------|--------------|------------------- |
-| 06/05/2024 | 1            | First Release      |
+| 14/05/2024 | 1            | First Release      |
