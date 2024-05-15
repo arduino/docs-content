@@ -476,7 +476,7 @@ Open the example called `bender.py`, launch it and see on your display the image
 
 ## What is Alvik
 
-![](assets/alvik-classroom.jpg)
+![This is an image](assets/alvik-classroom.jpg)
 
 Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education. Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
 
