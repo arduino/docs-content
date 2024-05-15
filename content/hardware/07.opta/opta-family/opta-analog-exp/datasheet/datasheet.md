@@ -7,7 +7,7 @@ author: Christopher Méndez
 ![](assets/featured.png)
 
 # Description
-Arduino Opta® Analog Expansion is designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or actuators. In addition, 4 dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
+Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or actuators. In addition, 4 dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
 
 # Target Areas:
@@ -16,7 +16,7 @@ Industrial IoT, Building automation, Electrical loads management, Industrial aut
 # CONTENTS
 
 ## Application Examples
-Arduino Opta® Expansion is designed for industrial standard machinery control alongside the Opta® micro PLC. It is readily integrated into the Arduino hardware and software ecosystem.
+The Arduino Opta® Analog Expansion is designed for industrial standard machinery control alongside the Opta® micro PLC. It is readily integrated into the Arduino hardware and software ecosystem.
 
 - **Automated Production Line:** Arduino Opta® can manage the overall flow of goods in manufacturing. For example, by integrating a load cell or a vision system, it can ensure each phase of a packing process is performed correctly, automatically discard faulty parts, ensure the appropriate amount of goods is present within each box and interact with production line printers, also adding timestamp information synchronized via Network Time Protocol (NTP).
 
@@ -50,6 +50,9 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 
 #### Voltage Input Mode
+
+The Analog Expansion input channels can be configured for digital sensors or 0-10 V analog sensors. 
+
 | Characteristics         | Details                      |
 |-------------------------|------------------------------|
 | Digital input voltage    | 0...24 V                     |
@@ -60,6 +63,8 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 #### Current Input Mode
 
+The Analog Expansion input channels can be configured for current loop instrumentation using the 0/4-20 mA standard. 
+
 | Characteristics             | Details                                     |
 |-----------------------------|---------------------------------------------|
 | Analog input current        | 0...25 mA                                   |
@@ -69,6 +74,8 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Accuracy                    | +/- 1%, repeatability +/- 1%                |
 
 #### RTD Input Mode 
+
+The Analog Expansion input channels can be used for temperature metering with **PT100** RTDs.
 
 | Characteristics | Details  |
 |-----------------|----------|
@@ -81,7 +88,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 RTD with 3 wires has generally two wires with the same color.
 
-- Connect the two wires with the same color to the - and the ICx screw terminals.
+- Connect the two wires with the same color to the - and the ICx screw terminals respectively.
 - Connect the wire with a different color to the + screw terminal.
 
 ***3 wires RTD can only be measured by channels __I1__ and __I2__.***
@@ -102,6 +109,8 @@ RTD with 3 wires has generally two wires with the same color.
 
 #### Voltage Output Mode
 
+This output mode lets you control voltage-driven actuators.
+
 | Characteristics                  | Details                                                                                                                     |
 |----------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | Analog output voltage            | 0...11 V                                                                                                                    |
@@ -114,6 +123,8 @@ RTD with 3 wires has generally two wires with the same color.
 
 #### Current Output Mode
 
+This output mode lets you control current-driven actuators.
+
 | Characteristics                            | Details                                   |
 |--------------------------------------------|-------------------------------------------|
 | Analog output current                      | 0...25 mA                                 |
@@ -122,6 +133,8 @@ RTD with 3 wires has generally two wires with the same color.
 | Output  impedance                          | Min: 1.5 MΩ, Typ: 4 MΩ                    |
 | Accuracy                                   | 1% in 0-10 mA range, 2% in 10-24 mA range |
 | Repeatability                              | 1% in 0-10 mA range, 2% in 10-24 mA range |
+
+#### PWM Output Channels
 
 
 
@@ -172,9 +185,9 @@ The following diagram explains the relation between the main components of the O
 
 ### Input/Output Channels
 
+The Arduino Opta® Analog Expansion features 8 channels that can be configured as inputs or outputs. When the channels are configured as inputs they can be used as digital ones with a 0-24 V range, or analog being able to measure voltage from 0 to 10 V, measure current from 0 to 25 mA or temperature leveraging the RTD mode. 
 
-
-
+The channels **I1** and **I2** can be used for connecting 3-Wires RTDs. Every channel can be used also as an output, be aware that using more than two channels as an output simultaneously may overheat the device. This will depend on the ambient temperature and channel load. We have tested setting all eight channels as outputs at 25 °C outputting more than 24 mA at 10 V each without problem.
 
 ### Expansion Port
 The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To be accessed needs to be freed up from its breakable plastic cover and the connection plug added between each device.
