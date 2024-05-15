@@ -179,6 +179,24 @@ Type the email addresses of all your team and define which role they will cover 
 
 The users you added will get the invitation by email with a link to join your Shared Space. You are now ready to start working all together on your Arduino Cloud projects.
 
+### Custom Branding
+
+WIP
+
+The Arduino Cloud for Business allows to configure custom branding for the desired space. 
+
+To access the **Custom Branding** option, navigate by selecting the **Space Settings** found on the left sidebar of the main Cloud space: 
+
+![Custom Branding - Space Settings](assets/custom-branding-1.png "Space Settings")
+
+Inside the **Space Settings**, navigate to **Custom Branding** page using the left sidebar. The page will show **Basic** and **Advanced** options to configure custom branding.
+
+Within the **Basic** option, the logo can be customized and the Arduino logo visibility on the sidebar can be toggled.
+
+![Custom Branding - Basic Options](assets/custom-branding-2.png "Basic Options")
+
+![Custom Branding - Advanced Options](assets/custom-branding-3.png "Advanced Options")
+
 ## Device Management
 
 The Arduino Cloud for Business allows for device management with Over-The-Air updates, secure provisioning to connect boards leveraging their secure element, and easy verification of their status (connected, not connected) and maintenance.
