@@ -7,7 +7,7 @@ author: Christopher Méndez
 ![](assets/featured.png)
 
 # Description
-Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or actuators. In addition, 4 dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
+Arduino Opta® Analog Expansion is designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or actuators. In addition, 4 dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
 
 # Target Areas:
@@ -98,7 +98,7 @@ RTD with 3 wires has generally two wires with the same color.
 
 ***All eight analog channels can be used as outputs but due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time.***
 
-***At 25°C of ambient temperature all the 8 channels set as outputs have been tested at the same time while outputting more than 24 mA at 10 V each (>0.24W per channel).***
+***At 25°C of ambient temperature, all the 8 channels set as outputs have been tested at the same time while outputting more than 24 mA at 10 V each (>0.24W per channel).***
 
 #### Voltage Output Mode
 
@@ -152,16 +152,16 @@ RTD with 3 wires has generally two wires with the same color.
 
 ### Product View
 
-![Arduino Opta® Analog Expansion](assets/AFX0007.png)
+![Arduino Opta® Analog Expansion](assets/AFX00007.png)
 
-| Item | Feature                                                                           |
-| ---- | --------------------------------------------------------------------------------- |
-| 3a   | Power Supply Terminals 12...24 VDC                                                |
-| 3b   | I1...I16 digital/analog input terminals (0-24 V) configurable via IDE             |
-| 3c   | Power Status LED                                                                  |
-| 3d   | Relay Output Terminals 1...8, NO contact (SPST), EMR 6 A 250 VAC - SSR 2 A 24 VDC |
-| 3e   | Status LEDs 1...8                                                                 |
-| 3f   | Port for communication and connection of auxiliary modules                        |
+| Item | Feature                                                                                                          |
+|------|------------------------------------------------------------------------------------------------------------------|
+| 3a   | Power Supply Terminals 12...24 VDC                                                                               |
+| 3b   | P1...P4 PWM Outputs                                                                                              |
+| 3c   | Power Status LED                                                                                                 |
+| 3d   | Analog Input Terminals I1...I6 (Voltage, Current and RTD), Analog Output Terminals O1...O2 (Voltage and Current) |
+| 3e   | Status LEDs 1...8                                                                                                |
+| 3f   | Port for communication and connection of auxiliary modules                                                       |
 
 
 ### Block Diagram
@@ -170,26 +170,11 @@ The following diagram explains the relation between the main components of the O
 
 ![Block diagram](assets/Opta_Digital_EXP_Block_Diagram.svg)
 
-### Relay Outputs
-Arduino Opta® Digital Expansions has eight *Normally Open* (NO) relays. For the **EMR** variant, eight powerful 6 A electromechanical relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC, and for the **SSR** variant, eight fast 2 A solid state relays which are capable of actuating on DC loads at a rated voltage of 24 VDC. 
+### Input/Output Channels
 
-The relay *Maximum Peak Current* is defined as the highest value of inrush current that the relay can endure without undergoing any permanent degradation of its characteristics due to the generated heat. The relay has to be able to hold up that maximum using a duty cycle of less or equal to 10% and for a time equal to or less than 0.5 s.
 
-In the case of Arduino Opta® Digital Expansions, the EMR and SSR variants have a *Maximum Peak Current* of 10 A and 50 A respectively.
 
-The *Rated Load* is the maximum resistive load that a contact can make, carry and break repeatedly. 
-- For resistive or slightly inductive loads (AC1 classification), **EMR variant's** *Rated Load* is 1500 VA.
-- For small electromagnetic loads (> 72 VA) (AC15 classification) like power contactors, magnetic solenoid valves, electromagnets and AC single-phase supplies, **EMR variant's** *Rated Load* is 300 VA. This value assumes a peak inrush current of approximately 10 times the rated current and keeps it within the maximum peak current.
 
-For controlling DC loads (DC1 classification), the **EMR variant's** *Breaking Capacity* or maximum value of DC resistive current that a contact can make, carry and break repeatedly, is 6/0.2/0.12 A for respectively 24/110/220 V. 
-
-For controlling DC electromagnetics loads (DC13 classification), the **SSR variant's** *Rated Load* is 36 W.
-
-In the case of the minimum switching load parameters, the minimum values of power, voltage and current that the **EMR variant** relays can reliably switch, are 500 mW/ 12 V / 10 mA. This implies that with 12 V the current must be at least 42 mA, with 24 V, it must be at least 21 mA, and with 10 mA the voltage must be at least 50V.
-
-For the **SSR variant**, the minimum switching voltage and current are 1.5 VDC and 1 mA respectively.
-
-The **EMR variant** relays on Arduino Opta® Digital Expansions provide a very fast response time of 6/4 ms to change state for closing/reopening. The **SSR variant** provides an even faster response of 0.02/0.2 ms to change state for closing/reopening.
 
 ### Expansion Port
 The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To be accessed needs to be freed up from its breakable plastic cover and the connection plug added between each device.
