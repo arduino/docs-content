@@ -198,7 +198,7 @@ The power of the robot is located by a simple ON/OFF switch located on the top o
 
 ### Robot Expandability
 
-Alvik is a robot designed to be used in STEAM & Maker environments where openness and wide compatibility with other products and construction systems are key. Thanks to that Alvik's capabilities can be expanded with new sensors and actuators using the additional connectors on its back, and with additional mechanical extensions like Lego Technic pieces or 3D printed/custom made parts. In the following sections we will explain how to expand Alvik's capabilities.
+Alvik is a robot designed to be used in STEAM & Maker environments where openness and wide compatibility with other products and construction systems are key. Thanks to that Alvik's capabilities can be expanded with new sensors and actuators using the additional connectors on its back, and with additional mechanical extensions like Lego® Technic™ pieces or 3D printed/custom made parts. In the following sections we will explain how to expand Alvik's capabilities.
 
 #### Additional Connectors
 
