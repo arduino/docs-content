@@ -470,3 +470,101 @@ Now you can open the Arduino Lab for MicroPython, connect Alvik and open the exa
 7. Test `bender.py`
 
 Open the example called `bender.py`, launch it and see on your display the image of Bender's robot.
+
+<!-- 
+## Julian Proposal
+
+## What is Alvik
+
+![](assets/alvik-classroom.jpg)
+
+Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education. Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
+
+
+
+### What is included
+
+![Unboxing Alvik](assets/unboxing.jpg)
+
+Inside Alvik's packaging you will find the following items:
+* Alvik (x1)
+* Cable USB-C® to USB-C® (x1)
+* 18650 Battery (already inside the robot) (x1)
+
+
+***The product is sensible to electrostatic discharge, observe ESD-safe handling procedures when working with it***
+
+
+### The Brain
+
+Alvik have two controllers
+
+### The Body
+
+#### Controller
+
+#### Power
+
+    - How to charge Alvik
+    - Replacing the battery
+
+#### Sensors
+    - Touch Buttons
+    - Distance Sensor
+    - Line Follower Sensors
+    - Color Sensor
+    - IMU
+
+#### Actuators
+    - Motors and Encoders
+
+## Move Alvik!
+
+### Basic Touch Programming
+
+### Following Objects
+
+### Line Follower
+
+
+## Alvik First Use
+
+### Update Alvik's body
+
+### Update Alvik's brain
+    - Update ESP32 Micropython Firmware
+    - Update Alvik's Library
+### Hello Alvik! Your first program!
+
+
+## Program Alvik!
+
+### Controlling the motors
+
+### Reading buttons
+
+### Detecting obstacles
+
+### Following a line
+
+### Sensing colors
+
+### Detecting Crashes and Fallings
+
+### LEDs
+
+## Expanding the Robot
+
+### Additional Connectors
+    - Qwiic Connectors
+    - Grove Connectors
+    - Servomotors Connectors
+
+### Lego Technic Compatibility
+
+### Custom parts
+
+## Want more?
+
+## Need Help?
+-->
