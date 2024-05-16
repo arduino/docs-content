@@ -112,6 +112,58 @@ There, you will find multiple options to customize your Shared Space:
 
 The Arduino Cloud for Business plan allows you to create and manage one Shared Space and one Private Space. If you need additional Spaces, you have to purchase a new Arduino Cloud plan. Check the available plans [here](https://cloud.arduino.cc/plans).
 
+### Custom Branding
+
+The Arduino Cloud for Business allows the configuration of custom branding for available spaces. This feature provides the flexibility to customize the appearance of the cloud environment.
+
+To access the **Custom Branding** option, navigate to the **Space Settings** on the left sidebar of the Cloud space.
+
+![Custom Branding - Space Settings](assets/custom-branding-1.png "Space Settings")
+
+Select the **Custom Branding** page from the left sidebar inside the **Space Settings**. This page offers **Basic** and **Advanced** options for configuring custom branding and white labelling.
+
+Under the **Basic** option, you can customize the logo and toggle the visibility of the Arduino logo on the sidebar.
+
+![Custom Branding - Basic Options](assets/custom-branding-2.png)
+
+  - **Your Logo:** You can upload your custom logo in `JPEG` or `PNG` format, with a maximum size of 500 KB.
+  
+    The custom logo will be displayed on the Arduino Cloud sidebar and home page. The **Icon Logo** is used on platform's sidebar. The **Horizontal Logo** is used on your space's Home Page. It is recommended to use a ratio of *1:1* for the **Icon Logo** and a ratio of *3:1* for the **Horizontal Logo**.
+
+  - **Arduino Logo:** You can turn the visibility of the Arduino logo on or off on the sidebar.
+
+If you have applied custom branding logo and toggled the Arduino logo, your **Basic** configuration page will resemble the following image:
+
+![Custom Branding - Complete Basic Options](assets/custom-branding-2-1.png)
+
+Once the configuration is set, your **Home** page will reflect your custom branding:
+
+![Custom Branding - Home Page with Custom Logo](assets/custom-branding-2-2.png)
+
+For customizations related to *white labeling*, navigate to the **Advanced** tab within the **Custom Branding** page.
+
+![Custom Branding - Advanced Options](assets/custom-branding-3.png "Advanced Options")
+
+In this section, you will find features that allow for *white labeling*:
+
+  - **Custom URL:** You can set a custom URL and a name for your site (usually the name of the company) that will be shown as the page title. Please avoid using special characters or spaces for the custom subdomain. Based on the provided information, the submitted custom subdomain will be validated, and a quick preview will be generated.
+
+![Custom Branding - White Labelling Custom URL](assets/custom-branding-3-1.png)
+
+  - **Social Sign-in:** By enabling *Social Sign-In*, you can provide faster authentication to your app. The available options for *Social Sign-In* are Google, GitHub, and Apple. To enable this option, the **Custom URL** information must be completed. Otherwise, the feature will not be available.
+
+![Custom Branding - White Labelling Social Sign-in](assets/custom-branding-3-2.png)
+
+  The **Social Sign-in** options can be disabled later by toggling off. Please be cautious when doing so, as it will remove the user's associated account and data corresponding to the authentication method.
+
+![Custom Branding - White Labelling Disabling Social Sign-in](assets/custom-branding-3-4.png)
+
+  - **Legal:** You can add URLs for your Terms and Conditions and Privacy Policy. These links will be shown to new users during sign-up, ensuring compliance and transparency. These URLs must be complete, including `https://www...`.
+
+![Custom Branding - White Labelling Legal](assets/custom-branding-3-3.png)
+
+With this, you will have a complete custom branding configuration with white labeling for the corresponding Cloud space.
+
 ### Invite Members Into Your Space
 
 To add more members to your Shared Space, use the sidebar to navigate to the **Manage Members** item under **Space Settings**.
@@ -178,24 +230,6 @@ The following page will appear to allow you to send an email invitation to all t
 Type the email addresses of all your team and define which role they will cover in your Space based on the available options. Click on **INVITE**.
 
 The users you added will get the invitation by email with a link to join your Shared Space. You are now ready to start working all together on your Arduino Cloud projects.
-
-### Custom Branding
-
-WIP
-
-The Arduino Cloud for Business allows to configure custom branding for the desired space. 
-
-To access the **Custom Branding** option, navigate by selecting the **Space Settings** found on the left sidebar of the main Cloud space: 
-
-![Custom Branding - Space Settings](assets/custom-branding-1.png "Space Settings")
-
-Inside the **Space Settings**, navigate to **Custom Branding** page using the left sidebar. The page will show **Basic** and **Advanced** options to configure custom branding.
-
-Within the **Basic** option, the logo can be customized and the Arduino logo visibility on the sidebar can be toggled.
-
-![Custom Branding - Basic Options](assets/custom-branding-2.png "Basic Options")
-
-![Custom Branding - Advanced Options](assets/custom-branding-3.png "Advanced Options")
 
 ## Device Management
 
