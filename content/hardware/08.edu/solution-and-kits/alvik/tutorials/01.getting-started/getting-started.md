@@ -154,19 +154,19 @@ It may happen that you used your Nano ESP32 for other projects than Alvik, or yo
 2. Download the Alvik micropyton libraries
 
    1. Alvik micropython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
-   2. ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main) 
+   2. ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
 
 3. Unzip both of the downloaded libraries in a single "Alvik" folder, open the Arduino Lab for MicroPython, go to the "files" tab and set the path to the unzipped folder on the Arduino Lab for Micropython
 
    ![Setting the FW path on the Labs for micropython](assets/fw_path.png)
 
-   
+
 
 4. Make sure your Alvik is OFF, connect it to your computer and then, turn it ON
 
    ![Alvik USB Connection](assets/connecting-final.gif)
 
-   
+
 
 5. Connect your Alvik to the Arduino Labs for micropython and open the "lib"
    ![Setting the FW path on the Labs for micropython](assets/lib_folder.png)
@@ -174,7 +174,7 @@ It may happen that you used your Nano ESP32 for other projects than Alvik, or yo
 6. Select the "Arduino-alvik" and move it to the "lib" folder in your Alvik.
    ![Setting the FW path on the Labs for micropython](assets/moving_alvik_folder.png)
 
-7. Go back to the main folder and select the "ucPack-mpy-main" folder and move it next ot the arduino_alvik inside the "lib" folder in your Nano ESP32.
+7. Go back to the main folder and select the "ucPack-mpy-main" folder and move it next to the arduino_alvik inside the "lib" folder in your Nano ESP32.
    ![Setting the FW path on the Labs for micropython](assets/moving_ucPack.png)
 
 8. Now go back to the main root of the files system on the Nano ESP32. Then in your local folder navigate to the examples folder once there, select the following files and move them to the main folder of the ESP32.
@@ -187,7 +187,7 @@ It may happen that you used your Nano ESP32 for other projects than Alvik, or yo
 
    ![Setting the FW path on the Labs for micropython](assets/moving_examples.png)
 
-With this last step, your Nano ESP32 has been setted up with the Alvik out of the box experience and is ready to be used.
+With this last step, your Nano ESP32 has been set up with the Alvik out of the box experience and is ready to be used.
 
 ### Updating Alvik's Body (STM32)
 
@@ -201,18 +201,18 @@ With this last step, your Nano ESP32 has been setted up with the Alvik out of th
 3. Let's move now the "firmware_x_x_x.bin" to the main root.
    ![Setting the FW path on the Labs for micropython](assets/moving_fw_bin.png)
 
-   
+
 
 4. Turn ON your alvik, go to the Editor tab and tun the following commands by typing them and clicking on the "Play" button
    ```shell
    from arduino_alvik import update_firmware
-   
+
    update_firmware('./firmware_1_0_0.bin')
    ```
 
    ![Setting the FW path on the Labs for micropython](assets/flashing_fw.png)
 
-After executing these commands, there will be updates of the process on the prompt, once the process finishes, the firmware of your alvik will be updated. 
+After executing these commands, there will be updates of the process on the prompt, once the process finishes, the firmware of your alvik will be updated.
 
 ## Maintenance
 
@@ -429,7 +429,7 @@ Now you can open the Arduino Lab for MicroPython, connect Alvik and open the exa
 
 Open the example called `bender.py`, launch it and see on your display the image of Bender's robot.
 
-<!-- 
+<!--
 ## Julian Proposal
 
 ## What is Alvik
