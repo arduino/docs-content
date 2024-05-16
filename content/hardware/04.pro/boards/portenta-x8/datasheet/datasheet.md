@@ -442,7 +442,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Pinout
 
-![](assets/x8HDCPinout.jpg)
+![](assets/x8HDCPinout.png)
 
 ### Mounting Holes and Board Outline
 
@@ -523,8 +523,6 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 (1) l’ appareil nedoit pas produire de brouillage
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
-
-<div style="page-break-after: always;"></div>
 
 **IC SAR Warning:**
 
