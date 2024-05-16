@@ -42,8 +42,8 @@ In this comprehensive tutorial, you will learn how to integrate and utilize the 
 - To ensure optimal Wi-Fi® connectivity on Opta™, please use the `WiFiFirmwareUpdater` to update with the latest network firmware version. This can be done by going to `Examples -> STM32H747_System -> WiFiFirmwareUpdater` on Arduino IDE 2.X. Additionally, please ensure that you have the latest __Arduino Mbed OS Opta Boards__ version, which can be checked under `Boards Manager`.
 - [PLC IDE & Arduino Cloud integration example project](assets/Opta_PLCIDE_Cloud.zip) file compatible with Opta™
 
-***This tutorial requires the latest versions of the PLC IDE & PLC IDE Tools ( >= v 1.0.4 ). 
-You can get the latest versions [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools. If it is your first time using the Arduino PLC IDE, we highly recommend you to begin with [Arduino PLC IDE Setup & Device License Activation](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license).***
+***This tutorial requires the latest version of the PLC IDE ( >= v 1.0.6 ). 
+You can get the latest versions [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE. If it is your first time using the Arduino PLC IDE, we highly recommend you to begin with [Arduino PLC IDE Setup & Device License Activation](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license).***
 
 ## PLC IDE & Arduino Cloud Integration
 
@@ -74,10 +74,13 @@ The functions of each layer are:
 * The **Arduino sketch** will handle data exchange bound between the PLC program layer and the Arduino Cloud platform. The methods are '__PLCOut.varname__' and '__PLCIn.varname__', which are used to access the shared variables. For the purpose of the tutorial and to easily classify these methods, we will replace the 'varname' with the 'Shared_variable' tag.
 
   Therefore, the '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' methods manage the shared variables that facilitate the communication between the two systems:
+
 ![Shared variables between layers](assets/plc-ide-iot-cloud-img_02.png)
+
   - __PLCOut.Shared_Variable__: This variable refers to the data that is being sent from the PLC program layer to the Arduino sketch layer, which will be sent to Arduino Cloud.
   
     In other words, it represents the outputs from the PLC program. It could be sensor readings, status information, or any other data that the PLC program is designed to generate and share.
+
   - __PLCIn.Shared_Variable__: Conversely, this variable refers to the data that is being sent to the PLC from the Arduino sketch layer, received from the Arduino Cloud platform.
   
     These are inputs for the PLC program. It could be commands, configuration data, or other information that the Arduino Cloud system sends to control or interact with the PLC.
@@ -262,7 +265,6 @@ The user programmable LED of Opta™ is configurable under `Resources > Opta > L
 In this case, the `userLed` is assigned as the variable that will represent the user programmable LED of Opta™ that emits blue light. The `userLed` is a boolean type variable as well as the `in_cloudButton`. It will be matched inside the PLC program to pass the boolean state per the command sent from the Arduino Cloud dashboard.
 
 #### Library Components
-<br></br>
 
 The Library section would be where you could find various pre-written codes or functions specific to PLC operations. It could include libraries for handling several industrial protocols, dealing with specific types of I/O, or even specialized functions for certain control systems. It makes the development process more efficient by providing ready-to-use codes, saving time and effort.
 
