@@ -162,7 +162,7 @@ In this section, you will find features that allow *white labeling*:
 
 ![Custom Branding - Legal (White Labeling)](assets/custom-branding-3-3.png)
 
-With these configurations, you will have a complete custom branding setup with white labeling for your Cloud space.
+With these configurations, you will have a complete custom branding setup with white labeling for your Cloud space. Remember to click Save to finish setting up.
 
 ### Invite Members Into Your Space
 
