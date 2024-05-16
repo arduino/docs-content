@@ -136,7 +136,7 @@ This output mode lets you control current-driven actuators.
 
 #### PWM Output Channels
 
-
+The Analog Expansion has four PWM output channels **(P1...P4)**. They are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage.
 
 ## Ratings
 ### Recommended Operating Conditions
@@ -188,6 +188,8 @@ The following diagram explains the relation between the main components of the O
 The Arduino Opta® Analog Expansion features 8 channels that can be configured as inputs or outputs. When the channels are configured as inputs they can be used as digital ones with a 0-24 V range, or analog being able to measure voltage from 0 to 10 V, measure current from 0 to 25 mA or temperature leveraging the RTD mode. 
 
 The channels **I1** and **I2** can be used for connecting 3-Wires RTDs. Every channel can be used also as an output, be aware that using more than two channels as an output simultaneously may overheat the device. This will depend on the ambient temperature and channel load. We have tested setting all eight channels as outputs at 25 °C outputting more than 24 mA at 10 V each without problem.
+
+The PWM outputs are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage between 8 and 40 VDC.
 
 ### Expansion Port
 The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To be accessed needs to be freed up from its breakable plastic cover and the connection plug added between each device.
