@@ -154,7 +154,7 @@ In this section, you will find features that allow *white labeling*:
 
 ![Custom Branding - Social Sign-in (White Labeling)](assets/custom-branding-3-2.png)
 
-  The **Social Sign-in** options can be disabled later by toggling off. Be cautious, as it will remove the user's associated account and data corresponding to the authentication method.
+  ***The __Social Sign-in__ options can be disabled later by toggling off this option. Be cautious, as it will remove the user's associated account and data corresponding to the authentication method.***
 
 ![Custom Branding - Disabling Social Sign-in (White Labeling)](assets/custom-branding-3-4.png)
 
