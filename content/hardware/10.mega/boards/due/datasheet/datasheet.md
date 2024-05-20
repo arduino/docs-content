@@ -145,7 +145,7 @@ Subsection about a Main Feature: The subsection inside features and under Genera
 ### Security
 
 <!---
-Subsection about a Main Feature: The subsection inside features and under General Specification Overview talks about some of the main features of the product, from the microprocessor's main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain an initial 2/3 line paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical specifications. Warnings and Note blocks regarding special things of the feature to take into account are also recommended it.
+Subsection about a Main Feature: The subsection inside features and under General Specification Overview talks about some of the main features of the product, from the microprocessor's main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain an initial 2/3 line paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical specifications. Warnings and Note blocks regarding special things of the feature to take into account are also recommended.
 -->
 
 | Component                   | Details                                                           |
@@ -160,7 +160,7 @@ Subsection about a Main Feature: The subsection inside features and under Genera
 ## Accessories (<included / not included>)
 
 <!---
-Accessories: This section lists some of the related accessories that comes or not with the product, like USB cables, antennas or batteries. It is important to put in the accessory is included or not. Actual items only for purposes examples.
+Accessories: This section lists some of the related accessories that come or not with the product, like USB cables, antennas or batteries. It is important to put in whether the accessory is included or not. Actual items only for purposes examples.
 -->
 
 - Micro UFL antenna (Included)
@@ -232,10 +232,10 @@ Functional Overview: The functional overview contains important information abou
 ### Pinout
 
 <!---
-Pinout: It is always interesting to show the pinout of the product inside the datasheet. Pinout and texxt for example purposes.
+Pinout: It is always interesting to show the pinout of the product inside the datasheet. Pinout and text for example purposes.
 -->
 
-The Portent Hat Carrier pinout is shown in in the following figure.
+The Portent Hat Carrier pinout is shown in the following figure.
 
 ![Portenta Hat Carrier pinout](assets/phc-pinout.png)
 
@@ -250,7 +250,7 @@ Notes and warnings: If the product has some important tips to take into account 
 ### Full Pinout Table
 
 <!---
-Full Pinout Table: The full pinout tables are done only necessary in case of really complex products intended for the professional sector. These tables are extracted from the Pinout Table Spreadsheet normally done before the graphical simple pinout and used as an internal tool. Following text and tables for exampe purposes.
+Full Pinout Table: The full pinout tables are done only necessary in case of really complex products intended for the professional sector. These tables are extracted from the Pinout Table Spreadsheet normally done before the graphical simple pinout and used as an internal tool. Following text and tables for example purposes.
 -->
 
 The full pinout of the Portenta Hat Carrier is available in the following tables sorted by element/connector.
@@ -284,7 +284,7 @@ The full pinout of the Portenta Hat Carrier is available in the following tables
 </div>
 
 <!---
-Div page break tags: Sometimes the format is not perfect and some sections are added/cut in the pages we do not want to. This kind of div page break tasks can be used to fix those problems
+Div page break tags: Sometimes the format is not perfect and some sections are added/cut in the pages we do not want to. This kind of div page break tag can be used to fix those problems
 -->
 
 <div style="page-break-after: always;"></div>
@@ -307,11 +307,13 @@ Div page break tags: Sometimes the format is not perfect and some sections are a
 
 </div>
 
+<div style="page-break-after: always;"></div>
+
 
 ### Block Diagram
 
 <!---
-Block Diagram: The block diagram is really important from the technical point of view and for certification purposes. Must be good and consistent with Arduino`s visual style. Raw diagram is created by the R&D team and adapted and converted to the final one by the content team using Figma. Clock signals are mandatory for certification purposes. Diagram and text for example purposes.
+Block Diagram: The block diagram is really important from the technical point of view and for certification purposes. Must be good and consistent with Arduino`s visual style. The raw diagram is created by the R&D team and adapted and converted to the final one by the content team using Figma. Clock signals are mandatory for certification purposes. Diagram and text for example purposes.
 -->
 
 The block diagram with the main parts of the product can be checked in the following image:
@@ -321,7 +323,7 @@ The block diagram with the main parts of the product can be checked in the follo
 ### Power Supply
 
 <!---
-Power tree: The power tree is really important from the technical point of view and for certification purposes. Must be good and consistent with Arduino`s visual style. Raw diagram is created by the R&D team and adapted and converted to the final one by the content team using Figma. Diagram and text for example purposes.
+Power tree: The power tree is really important from the technical point of view and for certification purposes. Must be good and consistent with Arduino`s visual style. The raw diagram is created by the R&D team and adapted and converted to the final one by the content team using Figma. Diagram and text for example purposes.
 -->
 
 The Portenta C33 can be powered through one of these interfaces:
@@ -361,13 +363,13 @@ Product Topology: Product topology is an important section of the datasheet and 
 | DL2      | RGB SMLP34RGB2W3 Common anode LED       | J12      | CX90B-16P USB-C® connector          |
 
 <!---
-Product Topology specific subsections: Different subsections about specific features and important parts of the product can be added inside the product topology, explaining for example more information about the microprocessors, the MIPI camera connectos, the GPS connectivity, the GPIO pins, JTAG connectors, USB, etc etc. Some of the Portenta Hat Carrier specific sections has been added as a nice example.
+Product Topology specific subsections: Different subsections about specific features and important parts of the product can be added inside the product topology, explaining for example more information about the microprocessors, the MIPI camera connector, the GPS connectivity, the GPIO pins, JTAG connectors, USB, etc etc. Some of the Portenta Hat Carrier specific sections have been added as a nice example.
 -->
 
 
 #### High-Density Connectors (J1-J2)
 
-<p style="text-align: justify;">The High-Density connectors (J1-J2) provide connectivity with the Portenta family boards. For detailed information, refer to the Portenta Hat Carrier pinout and the respective documentation for the Portenta family boards. In Figure 6, the Portenta X8 board High-Density connectors pinout is shown as an example.</p>
+<p style="text-align: justify;">The High-Density connectors (J1-J2) provide connectivity with the Portenta family boards. For detailed information, refer to the Portenta Hat Carrier pinout and the respective documentation for the Portenta family boards. In the following image, the Portenta X8 board High-Density connectors pinout is shown as an example.</p>
 
 ![Portenta X8 High-Density connectors pinout](assets/phc_high-density-connector-x8.png)
 
@@ -377,7 +379,7 @@ Product Topology specific subsections: Different subsections about specific feat
 
 #### USB-A (J4)
 
-<p style="text-align: justify;">The onboard USB-A connector (female), shown in Figure 7, is integrated in the Portenta Hat Carrier for multiple purposes, including:</p>
+<p style="text-align: justify;">The onboard USB-A connector (female), shown in Figure 7, is integrated into the Portenta Hat Carrier for multiple purposes, including:</p>
 
 - Connecting external peripherals such as mouse devices, keyboards, USB cameras, hubs, and hard drives.
 - Data logging using a USB memory stick.
@@ -414,9 +416,13 @@ The onboard microSD card slot can be used for:
 
 ## Device Operation
 
+<!---
+Device Operation: This section is the only section where we mention software-related topics, like IDEs and additional documentation, tools and resources. Normally is generic and only needs to change names and make sure citations are in order but make sure that is this way for your products. Some products are also compatible with Linux, micropython or PLC IDE.
+-->
+
 ### Getting Started - IDE
 
-If you want to program your GIGA R1 WiFi while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the GIGA R1 WiFi to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
+If you want to program your <NAME_OF_PRODUCT> while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the <NAME_OF_PRODUCT> to your computer, you will need a <CABLE_TYPE> cable, which can also provide power to the board, as indicated by the LED (DL1).
 
 ### Getting Started - Arduino Web Editor
 
@@ -434,160 +440,94 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### Board Recovery
 
+<!---
+Board Recovery:  Make sure to explain how to put the board in recovery mode. If that information is not available, please remove.
+-->
+
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
 
-# Mechanical Information
+## Mechanical Information
+
+<!---
+Mechanical Information: Information related to measurements and drawings, putting special attention to the main components, connectors, holes and more. Nano Matter drawings and text as an example.
+-->
+
+<p style="text-align: justify;">
+The Nano Matter is a double-sided 18 mm x 45 mm board with a USB-C® port overhanging the top edge and dual
+castellated/through-hole pins around the two long edges; the onboard wireless antenna is located in the center of the bottom edge of the board.
+</p>
+
+### Board Dimensions
+
+The Nano Matter board outline and mounting holes dimensions are shown in the figure below; all the dimensions are in mm. 
+
+![](assets/Nano_Matter_Outline.png)
+
+The Nano Matter has four 1.65 mm drilled mounting holes for mechanical fixing.
+
+### Board Connectors
+
+Connectors of the Nano Matter are placed on the top side of the board; their placement is shown in the figure below; all the dimensions are in mm. 
+
+![](assets/Nano_Matter_Connectors.png)
+
+<p style="text-align: justify;">
+The Nano Matter was designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
+</p>
+
+### Board Peripherals and Actuators 
+
+<p style="text-align: justify;">
+The Nano Matter has one push button and one RGB LED available for the user; both the push button and the RGB LED are placed on the top side of the board.  Their placement is shown in the figure below; all the dimensions are in mm.
+</p>
+
+![](assets/Nano_Matter_PeripheralsActuators.png)
+
+<p style="text-align: justify;">
+The Nano Matter is designed to be usable as a surface-mount module and presents a dual inline package (DIP) format with the Nano-styled header connectors on a 2.54 mm pitch grid with 1 mm holes.
+</p>
+
+<div style="page-break-after: always;"></div>
 
 
-## Pinout
+## Certifications
 
-### Three-Pins Header - J1
-| Pin | Function | Type    | Description             |
-|-----|----------|---------|-------------------------|
-| 1   | OFF      | Digital | 3V3 Enable Pin (U6)     |
-| 2   | GND      | Power   | Ground                  |
-| 3   | VRTC     | Reset   | Real Time Clock Battery |
+<!---
+Important legal information regarding certifications, only change the section "Certification Summary and double check with the Certification and Project Manager of the product the information written.
+-->
 
+### Certifications Summary
 
-### Analog
+<!---
+Certification Summary: A table including the main certification of the products. Add certifications serial names if possible.
+-->
 
-| Pin  | Function   | Type      | Description                                     |
-| ---- | ---------- | --------- | ----------------------------------------------- |
-|  1   | NC         | NC        | Not Connected                                   |
-|  2   | IOREF      | IOREF     | Reference for digital logic V - connected to 3.3V |
-|  3   | Reset      | Reset     | Reset                                           |
-|  4   | +3V3       | Power     | +3V3 Power Rail                                 |
-|  5   | +5V        | Power     | +5V Power Rail                                  |
-|  6   | GND        | Power     | Ground                                          |
-|  7   | GND        | Power     | Ground                                          |
-|  8   | VIN        | Power     | Voltage Input                                   |
-|  9   | A0         | Analog    | Analog input 0 /GPIO                            |
-|  10  | A1         | Analog    | Analog input 1 /GPIO                            |
-|  11  | A2         | Analog    | Analog input 2 /GPIO                            |
-|  12  | A3         | Analog    | Analog input 3 /GPIO                            |
-|  13  | A4         | Analog    | Analog input 4 /GPIO                            |
-|  14  | A5         | Analog    | Analog input 5 /GPIO                            |
-|  15  | A6         | Analog    | Analog input 6 /GPIO                            |
-|  16  | A7         | Analog    | Analog input 7 /GPIO                            |
-|  17  | A8         | Analog    | Analog input 8 /GPIO                            |
-|  18  | A9         | Analog    | Analog input 9 /GPIO                            |
-|  19  | A10        | Analog    | Analog input 10 /GPIO                           |
-|  20  | A11        | Analog    | Analog input 11 /GPIO                           |
-|  21  | DAC0       | Analog    | Digital to Analog Converter 0                   |
-|  22  | DAC1       | Analog    | Digital to Analog Converter 1                   |
-|  23  | CANRX      | Digital   | CAN Bus Receive                                 |
-|  24  | CANTX      | Digital   | CAN Bus Transfer                                |
+| **Certification** | **Status** |
+|:-----------------:|:----------:|
+|  CE/RED (Europe)  |     Yes    |
+|     UKCA (UK)     |     Yes    |
+|     FCC (USA)     |     Yes    |
+|    IC (Canada)    |     Yes    |
+| MIC/Telec (Japan) |     Yes    |
+|  RCM (Australia)  |     Yes    |
+|        RoHS       |     Yes    |
+|       REACH       |     Yes    |
+|        WEEE       |     Yes    |
 
-### Digital
+### Declaration of Conformity CE DoC (EU)
 
-| Pin | Function | Type    | Description                                     |
-| --- | -------- | ------- | ----------------------------------------------- |
-| 1   | D21/SCL1 | Digital | GPIO 21/I2C 1 Clock                             |
-| 2   | D20/SDA1 | Digital | GPIO 20/I2C 1 Dataline                          |
-| 3   | AREF     | Digital | Analog Reference Voltage                        |
-| 4   | GND      | Power   | Ground                                          |
-| 5   | D13/SCK  | Digital | GPIO 13/SPI Clock (PWM~)                        |
-| 6   | D12/CIPO | Digital | GPIO 12/SPI Controller In Peripheral Out (PWM~) |
-| 7   | D11/COPI | Digital | GPIO 11/SPI Controller Out Peripheral In (PWM~) |
-| 8   | D10/CS   | Digital | GPIO 10/SPI Chip Select (PWM~)                  |
-| 9   | D9/SDA2  | Digital | GPIO 9/I2C 2 Dataline (PWM~)                    |
-| 10  | D8/SCL2  | Digital | GPIO 8/I2C 2 Clockline (PWM~)                   |
-| 11  | D7       | Digital | GPIO 7 (PWM~)                                   |
-| 12  | D6       | Digital | GPIO 6 (PWM~)                                   |
-| 13  | D5       | Digital | GPIO 5 (PWM~)                                   |
-| 14  | D4       | Digital | GPIO 4 (PWM~)                                   |
-| 15  | D3       | Digital | GPIO 3 (PWM~)                                   |
-| 16  | D2       | Digital | GPIO 2 (PWM~)                                   |
-| 17  | D1/TX0   | Digital | GPIO 1 / Serial 0 Transmitter                   |
-| 18  | D0/TX0   | Digital | GPIO 0 / Serial 0 Receiver                      |
-| 19  | D14/TX3  | Digital | GPIO 14 / Serial 3 Transmitter                  |
-| 20  | D15/RX3  | Digital | GPIO 15 / Serial 3 Receiver                     |
-| 21  | D16/TX2  | Digital | GPIO 16 / Serial 2 Transmitter                  |
-| 22  | D17/RX2  | Digital | GPIO 17 / Serial 2 Receiver                     |
-| 23  | D18/TX1  | Digital | GPIO 18 / Serial 1 Transmitter                  |
-| 24  | D19/RX1  | Digital | GPIO 19 / Serial 1 Receiver                     |
-| 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                        |
-| 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                           |
+<p style="text-align: justify;">We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).</p>
 
-### STM32 ICSP
+### Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
 
-| Pin | Function | Type     | Description                  |
-|-----|----------|----------|------------------------------|
-| 1   | CIPO     | Internal | Controller In Peripheral Out |
-| 2   | +5V      | Internal | Power Supply of 5V           |
-| 3   | SCK      | Internal | Serial Clock                 |
-| 4   | COPI     | Internal | Controller Out Peripheral In |
-| 5   | RESET    | Internal | Reset                        |
-| 6   | GND      | Internal | Ground                       |
+<p style="text-align: justify;">Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.</p>
 
-### Digital Pins D22 - D53 LHS
-
-| Pin | Function | Type    | Description    |
-|-----|----------|---------|----------------|
-| 1   | +5V      | Power   | +5V Power Rail |
-| 2   | D22      | Digital | GPIO 22        |
-| 3   | D24      | Digital | GPIO 24        |
-| 4   | D26      | Digital | GPIO 26        |
-| 5   | D28      | Digital | GPIO 28        |
-| 6   | D30      | Digital | GPIO 30        |
-| 7   | D32      | Digital | GPIO 32        |
-| 8   | D34      | Digital | GPIO 34        |
-| 9   | D36      | Digital | GPIO 36        |
-| 10  | D38      | Digital | GPIO 38        |
-| 11  | D40      | Digital | GPIO 40        |
-| 12  | D42      | Digital | GPIO 42        |
-| 13  | D44      | Digital | GPIO 44        |
-| 14  | D46      | Digital | GPIO 46        |
-| 15  | D48      | Digital | GPIO 48        |
-| 16  | D50      | Digital | GPIO 50        |
-| 17  | D52      | Digital | GPIO 52        |
-| 18  | GND      | Power   | Ground         |
-
-### Digital Pins D22 - D53 RHS
-
-| Pin | Function | Type    | Description    |
-|-----|----------|---------|----------------|
-| 1   | +5V      | Power   | +5V Power Rail |
-| 2   | D23      | Digital | GPIO 23        |
-| 3   | D25      | Digital | GPIO 25        |
-| 4   | D27      | Digital | GPIO 27        |
-| 5   | D29      | Digital | GPIO 29        |
-| 6   | D31      | Digital | GPIO 31        |
-| 7   | D33      | Digital | GPIO 33        |
-| 8   | D35      | Digital | GPIO 35        |
-| 9   | D37      | Digital | GPIO 37        |
-| 10  | D39      | Digital | GPIO 39        |
-| 11  | D41      | Digital | GPIO 41        |
-| 12  | D43      | Digital | GPIO 43        |
-| 13  | D45      | Digital | GPIO 45        |
-| 14  | D47      | Digital | GPIO 47        |
-| 15  | D49      | Digital | GPIO 49        |
-| 16  | D51      | Digital | GPIO 51        |
-| 17  | D53      | Digital | GPIO 53        |
-| 18  | GND      | Power   | Ground         |
-
-## Mounting Holes And Board Outline
-
-![Mechanical View of Arduino GIGA R1 WiFi](assets/gigaMechanical.png)
-
-<div style="page-break-after: always;"> </div>
-
-# Certifications
-
-## Declaration of Conformity CE DoC (EU)
-
-We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
-
-## Declaration of Conformity to EU RoHS & REACH 211 01/19/2021
-
-Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
-
-| **Substance**                          | **Maximum Limit (ppm)** |
+| Substance                              | **Maximum limit (ppm)** |
 |----------------------------------------|-------------------------|
-| Lead (Pb)                              | 1000                    |
-| Cadmium (Cd)                           | 100                     |
-| Mercury (Hg)                           | 1000                    |
-| Hexavalent Chromium (Cr6+)             | 1000                    |
+| Lead (Pb)                              | 1000                    || **Date**   | **Revision** | **Changes**               |
+| ---------- | ------------ | ------------------------- |
+| 02/11/2023 | 2            | Flashing Mode Description |
+| 25/10/2023 | 1            | First Release             |
 | Poly Brominated Biphenyls (PBB)        | 1000                    |
 | Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
 | Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
@@ -597,13 +537,13 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 
 Exemptions: No exemptions are claimed.
 
-Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs ([https://echa.europa.eu/web/guest/candidate-list-table](https://echa.europa.eu/web/guest/candidate-list-table)), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+<p style="text-align: justify;">Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.</p>
 
-## Conflict Minerals Declaration
+### Conflict Minerals Declaration
 
-As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regards to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+<p style="text-align: justify;">As a global supplier of electronic and electrical components, Arduino is aware of our obligations with regard to laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.</p>
 
-## FCC Caution
+### FCC Caution
 
 Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
@@ -621,15 +561,30 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
 English:
-User manuals for licence-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada licence-exempt RSS standard(s). Operation is subject to the following two conditions:
+User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 (1) this device may not cause interference
 
 (2) this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French:
-Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes :
+Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
 
 (1) l’ appareil nedoit pas produire de brouillage
 
@@ -637,7 +592,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 **IC SAR Warning:**
 
-English
+English:
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 French:
@@ -645,33 +600,46 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 **Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
 
-Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
+Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands      | Maximum output power (ERP) |
-|----------------------|----------------------------|
-| 2.4 GHz, 40 channels | TBD                        |
+# Company Information
 
-## Company Information
+<!---
+Company information: Make sure is updated and always the same.
+-->
 
 | Company name    | Arduino SRL                                   |
 |-----------------|-----------------------------------------------|
 | Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy)  |
 
 
-## Reference Documentation
+# Reference Documentation
 
-| Ref                       | Link                                                                                            |
-|---------------------------|-------------------------------------------------------------------------------------------------|
-| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                      |
-| Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                              |
+<!---
+Reference Documentation: Make sure the quotes this is coherent with the "Device Operation" section.
+-->
+
+| Ref                       | Link                                                                                                                                                                                           |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                                                             |
+| Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                                                                                           |
 | Cloud IDE Getting Started | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor) |
-| Project Hub               | [https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending)                     |
-| Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                        |
-| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                    |
+| Project Hub               | [https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending)                                           |
+| Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                                                                                 |
+| Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
 
-## Change Log
+## Revision History
 
-| **Date**   | **Changes**   |
-| ---------- | ------------- |
-| 03/02/2023 | Release       |
-| 12/07/2023 | Pinout Update |
+<!---
+Revision History: Every time there are updates or important changes a new line must be added. Always use date format: dd/mm/yyyy, put the revisions sorted by the most recent one. Put simple but descriptive information in the "Changes" column.
+-->
+
+|  **Date**  | **Revision** |                      **Changes**                       |
+| :--------: | :----------: | :----------------------------------------------------: |
+| 23/01/2024 |      7       |               Updated Interfaces section               |
+| 14/12/2023 |      6       |            Updated Related Product section             |
+| 14/11/2023 |      5       |             FCC and Block Diagram Updates              |
+| 30/10/2023 |      4       |          I2C ports information section added           |
+| 20/06/2023 |      3       | Power tree added, related products information updated |
+| 09/06/2023 |      2       |      Board's power consumption information added       |
+| 14/03/2023 |      1       |                     First release                      |
