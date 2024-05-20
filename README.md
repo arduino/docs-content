@@ -94,7 +94,7 @@ Broken URLs will show an error alert. URL must be in the GitHub domain and must 
 
 ## Previewing Changes
 
-Whenever you create a Pull Request (PR) and the label preview is assigned to it, a preview is created and updated for every commit, as explained at: https://github.com/arduino/docs-content/pull/1931
+Whenever you create a Pull Request (PR) and the label `preview` is assigned to it, a preview is created and updated for every commit, as explained at: https://github.com/arduino/docs-content/pull/1931
 
 ## License
 
