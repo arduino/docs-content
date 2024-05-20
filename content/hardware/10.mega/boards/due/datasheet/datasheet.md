@@ -1,7 +1,7 @@
 ---
-identifier: <ABXXXXXX>
-title: <Official name of the Product>
-type: <maker/pro/edu>
+identifier: ABXXXXXX
+title: Official name of the Product
+type: maker
 author: <names of the authors separated with commas>
 ---
 
@@ -226,28 +226,123 @@ Current Consumption: This section contains information about the current consump
 ## Functional Overview
 
 <!---
-Functional Overview: The functional overview contains important information about the product in terms of the block diagram, mechanical information, power tree and much more. Sections and text for example purposes.
+Functional Overview: The functional overview contains important information about the product in terms of pinout, block diagram, mechanical information, power tree and much more. Sections and text for example purposes.
 -->
 
-<p style="text-align: justify;">
-The core of the Portenta C33 is the R7FA6M5BH2CBG microcontroller from Renesas. The board also contains several peripherals connected to its microcontroller.
-</p>
+### Pinout
+
+<!---
+Pinout: It is always interesting to show the pinout of the product inside the datasheet. Pinout and texxt for example purposes.
+-->
+
+The Portent Hat Carrier pinout is shown in in the following figure.
+
+![Portenta Hat Carrier pinout](assets/phc-pinout.png)
+
+<!---
+Notes and warnings: If the product has some important tips to take into account regarding its pins it can be a good idea to put that information as a warning. Note code for example purposes
+-->
+
+<div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
+<strong>Safety Note:</strong> Disconnect power before board modifications. Avoid short-circuiting. Refer to the full guide for more safety tips.
+</div>
+
+### Full Pinout Table
+
+<!---
+Full Pinout Table: The full pinout tables are done only necessary in case of really complex products intended for the professional sector. These tables are extracted from the Pinout Table Spreadsheet normally done before the graphical simple pinout and used as an internal tool. Following text and tables for exampe purposes.
+-->
+
+The full pinout of the Portenta Hat Carrier is available in the following tables sorted by element/connector.
+
+#### 16-Pin Header (J6)
+
+
+<div style="text-align:center;">
+
+| Pin number | Silkscreen |   Power Net   | Portenta HD Standard Pin |                           High-Density Pin                           |    Interface     |
+| :--------: | :--------: | :-----------: | :----------------------: | :------------------------------------------------------------------: | :--------------: |
+|     1      |     A0     |               |        ANALOG_A0         |                                J2-73                                 |                  |
+|     2      |     A1     |               |        ANALOG_A1         |                                J2-75                                 |                  |
+|     3      |     A2     |               |        ANALOG_A2         |                                J2-77                                 |                  |
+|     4      |     A3     |               |        ANALOG_A3         |                                J2-79                                 |                  |
+|     5      |     A4     |               |        ANALOG_A4         |                                J2-74                                 |                  |
+|     6      |     A5     |               |        ANALOG_A5         |                                J2-76                                 |                  |
+|     7      |     A6     |               |        ANALOG_A6         |                                J2-78                                 |                  |
+|     8      |     A7     |               |        ANALOG_A7         |                                J2-80                                 |                  |
+|     9      |    PWM7    |               |          PWM_7           |                                J2-64                                 |                  |
+|     10     |    PWM8    |               |          PWM_8           |                                J2-66                                 |                  |
+|     11     |   LICELL   |               |          LICELL          |                                 J2-7                                 | RTC Power Source |
+|     12     |    PWM4    |               |          GPIO_0          |                                J2-46                                 |                  |
+|     13     |    3V3     | +3V3_PORTENTA |           VCC            |                      J2-23, J2-34, J2-43, J2-69                      |                  |
+|     14     |    TX2     |               |        SERIAL2_TX        |                                J2-26                                 |    UART 2 TX     |
+|     15     |    GND     |      GND      |           GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                  |
+|     16     |    RX2     |               |        SERIAL2_RX        |                                J2-28                                 |    UART 2 RX     |
+
+<caption>Table 6: 16-Pin Header (J6) pinout</caption>
+
+</div>
+
+<!---
+Div page break tags: Sometimes the format is not perfect and some sections are added/cut in the pages we do not want to. This kind of div page break tasks can be used to fix those problems
+-->
+
+<div style="page-break-after: always;"></div>
+
+
+#### Power Block CAN Bus (J9)
+
+<div style="text-align:center;">
+
+| Pin number | Silkscreen  |  Power Net   | Portenta HD Standard Pin |                           High-Density Pin                           |   Interface    |
+| :--------: | :---------: | :----------: | :----------------------: | :------------------------------------------------------------------: | :------------: |
+|     1      | VIN 7-32VDC | INPUT_7V-32V |                          |                                                                      |                |
+|     2      |     GND     |     GND      |           GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                |
+|     3      |     GND     |     GND      |           GND            | J1-22, J1-31, J1-42, J1-47, J1-54, J2-24, J2-33, J2-44, J2-57, J2-70 |                |
+|     4      |     5V      |     +5V      |           VIN            |                  J1-21, J1-24, J1-32, J1-41, J1-48                   |                |
+|     5      |    CANH     |              |                          |                          J1-49 (Through U1)                          | CAN BUS - CANH |
+|     6      |    CANL     |              |                          |                          J1-51 (Through U1)                          | CAN BUS - CANL |
+
+<caption>Table 7: Power Block CAN Bus (J9) pinout</caption>
+
+</div>
+
 
 ### Block Diagram
 
 <!---
-Block Diagram: The functional overview contains important information of the product in terms of a block diagram, mechanical information, power tree and much more. Sections and text for example purposes.
+Block Diagram: The block diagram is really important from the technical point of view and for certification purposes. Must be good and consistent with Arduino`s visual style. Raw diagram is created by the R&D team and adapted and converted to the final one by the content team using Figma. Clock signals are mandatory for certification purposes. Diagram and text for example purposes.
 -->
 
 The block diagram with the main parts of the product can be checked in the following image:
 
 ![Arduino GIGA R1 WiFi Block Diagram](assets/GIGA_R1_WiFi_Block_Diagram.png)
 
-### Power Tree
+### Power Supply
 
-## Board Topology
+<!---
+Power tree: The power tree is really important from the technical point of view and for certification purposes. Must be good and consistent with Arduino`s visual style. Raw diagram is created by the R&D team and adapted and converted to the final one by the content team using Figma. Diagram and text for example purposes.
+-->
 
-### Front View
+The Portenta C33 can be powered through one of these interfaces:
+
+- USB-C® port
+- 3.7 V single-cell lithium-ion/lithium-polymer battery, connected through the onboard battery connector
+- External 5 V power supply connected through the MKR-styled pins
+
+The recommended minimum battery capacity is 700 mAh. The battery is connected to the board via a disconnectable crimp-style connector as shown in Figure 3. The battery connector part number is BM03B-ACHSS-GAN-TF(LF)(SN). 
+
+The following diagram shows the power options available on the Portenta C33 and illustrates the main system power architecture.
+</div>
+
+![Power architecture of the Portenta C33](assets/Portenta_C33_Power_Tree.svg)
+
+
+### Product Topology
+
+<!---
+Product Topology: Product topology is an important section of the datasheet and a combination of two elements: the diagram with the main components references, and the table listing and describing those main components. It is important to describe only the components interesting for the final user, so capacitors, resistors and other passive components should not be described in this section as a general rule. Image and text for example purposes
+-->
 
 ![Top View of Arduino GIGA R1 WiFi](assets/gigaR1WiFiTop.png)
 
@@ -265,39 +360,59 @@ The block diagram with the main parts of the product can be checked in the follo
 | J6       | Camera                                  | DL1      | Power LED                           |
 | DL2      | RGB SMLP34RGB2W3 Common anode LED       | J12      | CX90B-16P USB-C® connector          |
 
-### Back View
+<!---
+Product Topology specific subsections: Different subsections about specific features and important parts of the product can be added inside the product topology, explaining for example more information about the microprocessors, the MIPI camera connectos, the GPS connectivity, the GPIO pins, JTAG connectors, USB, etc etc. Some of the Portenta Hat Carrier specific sections has been added as a nice example.
+-->
 
-![Back View of Arduino GIGA R1 WiFi](assets/gigaR1WiFiBottom.png)
 
-## Processor
+#### High-Density Connectors (J1-J2)
 
-The GIGA R1 WiFi's main processor is the dual-core STM32H747 (U1) including a Cortex® M7 running at 480 MHz and a Cortex® M4 running at 240 MHz. The two cores communicate via a _Remote Procedure Call_ mechanism that allows calling functions between each processor seamlessly.
+<p style="text-align: justify;">The High-Density connectors (J1-J2) provide connectivity with the Portenta family boards. For detailed information, refer to the Portenta Hat Carrier pinout and the respective documentation for the Portenta family boards. In Figure 6, the Portenta X8 board High-Density connectors pinout is shown as an example.</p>
 
-## Wi-Fi®/Bluetooth® Connectivity
+![Portenta X8 High-Density connectors pinout](assets/phc_high-density-connector-x8.png)
 
-The Murata® LBEE5KL1DX-883 wireless module (U5) simultaneously provides Wi-Fi® and Bluetooth® connectivity in an ultra-small package based on the Cypress CYW4343W. The IEEE802.11 b/g/n Wi-Fi® interface can be operated as an access point (AP), station (STA) or as a dual mode simultaneous AP/STA and supports a maximum transfer rate of 65 Mbps. Bluetooth® interface supports Bluetooth® Classic and Bluetooth® Low Energy. An integrated antenna circuitry switch allows a single external antenna (J14) to be shared between Wi-Fi® and Bluetooth®.
+#### JTAG Connector (J3)
 
-## Onboard Memories
+<p style="text-align: justify;">Debugging capabilities are integrated directly into the Portenta Hat Carrier and are accessible via the 10-pin JTAG connector (J3) shown in Figure 7.</p>
 
-The GIGA R1 WiFi supplements the 2 MB Flash and 1 MB SRAM on the STM32H747 (U1) with 16 MB of NOR Flash with the AT25SF128A-MHB-T (U8) as well as 8 MB of SDRAM with the AS4C4M16SA (U3). U8 connects over a Quad-SPI interface to the main processor (U1). U3 operates at a frequency of 166 MHz.
+#### USB-A (J4)
 
-## USB Connector
+<p style="text-align: justify;">The onboard USB-A connector (female), shown in Figure 7, is integrated in the Portenta Hat Carrier for multiple purposes, including:</p>
 
-Two USB ports are provided on the Arduino GIGA R1 WiFi. One USB 2.0 type A (J2) and a USB-C® (J12). The USB 2.0 connector allows external devices to be connected as peripherals, while the USB-C® connector allows the GIGA board to be connected as a peripheral for other devices. Note that super speed pins on the USB-C® connector (J12) are unpopulated. A TVS diode array is placed on the VBUS of each connector (D4, D2) for ESD protection purposes.
+- Connecting external peripherals such as mouse devices, keyboards, USB cameras, hubs, and hard drives.
+- Data logging using a USB memory stick.
 
-## Audio
+![JTAG and USB-A connectors of the Portenta Hat Carrier](assets/portentaHatCarrier_usbjtagConnectors.png)
 
-The STM32H7 (U1) has two digital-to-analog converters (DAC) which drive the stereo audio output on the 3.5 mm jack connector (J15). Each DAC has a resolution of up to 12 bits. The right and left channels are also accessible via pins DAC0 and DAC1 respectively. A microphone input is also present on the jack connector (J15), which is shared with analog pin A7. The _Buffered mode_ in the STM32H7 can allow for low-impedance output while _Sample and hold_ functionality can help to reduce power consumption. Up to 10 mega samples per second are supported.
+#### 40-Pin Header Connector (J5)
 
-<div style="page-break-after: always;"> </div>
+<p style="text-align: justify;">The Portenta Hat Carrier features a 40-pin header connector as shown in Figure 8, making it compatible with most of the Raspberry Pi® Hats available on the market.</p>
 
-## Power Tree
+![Raspberry Pi®-compatible 40-pin header connector](assets/portentaHatCarrier_raspiConnector.png)
 
-![Arduino GIGA R1 WiFi Power Tree](assets/GIGA_R1_WiFi_Power_Tree.png)
+The main interfaces and general-purpose pins available through this connector include:
 
-Power can either be supplied via the VIN pins, or the 5V of the USB connectors (J2, J12). If power is supplied via VIN, the MP2269GD-Z (U7) buck converter steps the voltage down to 5V. The 5V power rail is then stepped down to 3.3V by the MP2322GQH (U6) buck converter. The logic level of components on the Arduino GIGA R1 WiFi is 3.3V.
+- SPI (x1)
+- I2S (x1)
+- SAI (x1)
+- 5 VDC (x2)
+- 3.3 VDC (x2)
+- I2C (x2)
+- UART (without flow control) (x2)
+- PWM (x7)
+- GND (x8)
+- GPIO (x26)
 
-## Board Operation
+#### MicroSD Card Slot (J7)
+
+The onboard microSD card slot can be used for:
+
+- Data logging operations
+- Media purposes
+
+![MicroSD card slot of the Portenta Hat Carrier](assets/portentaHatCarrier_microSDConnector.png)
+
+## Device Operation
 
 ### Getting Started - IDE
 
