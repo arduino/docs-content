@@ -54,7 +54,7 @@ Here's an overview of the board's main components shown in the images above:
 
 - **Microcontroller**: At the heart of the Nicla Sense Env is a [Renesas R7FA2E1 microcontroller](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus/ra2e1-48mhz-arm-cortex-m23-entry-level-general-purpose-microcontroller). This entry-level single-chip microcontroller, known as the industry's most energy-efficient ultra-low-power microcontroller, is based on a 48 MHz Arm® Cortex®-M23 core with up to 128 KB code flash and 16 KB SRAM memory.
 - **Onboard humidity and temperature sensor**: The Nicla Sense Env features an onboard humidity and temperature sensor, the [HS4001 from Renesas](https://www.renesas.com/us/en/products/sensor-products/environmental-sensors/humidity-temperature-sensors/hs4001-relative-humidity-and-temperature-sensor-digital-output-15-rh). This highly accurate, ultra-low power, fully calibrated relative humidity and temperature sensor features proprietary sensor-level protection, ensuring high reliability and long-term stability.
-- **Onboard indoor air quality sensor**: The Nicla Sense Env features an onboard gas sensor, the [ZMOD4410 from Renesas](https://www.renesas.com/us/en/document/dst/zmod4410-datasheet). This sophisticated sensor was designed to detect total volatile organic compounds (TVOC), estimate CO2, and monitor and report indoor air quality (IAQ). 
+- **Onboard indoor air quality sensor**: The Nicla Sense Env features an onboard gas sensor, the [ZMOD4410 from Renesas](https://www.renesas.com/us/en/document/dst/zmod4410-datasheet). This sophisticated sensor was designed to detect total volatile organic compounds (TVOC), estimate CO<sub>2</sub>, and monitor and report indoor air quality (IAQ). 
 - **Onboard outdoor air quality sensor**: The Nicla Sense Env features an onboard gas sensor, the [ZMOD4510 from Renesas](https://www.renesas.com/us/en/document/dst/zmod4410-datasheet). This sophisticated sensor was designed to monitor and report outdoor air quality (OAQ) based on nitrogen dioxide (NO<sub>2</sub>) and ozone (O<sub>3</sub>) measurements. 
 - **Onboard user LEDs**: The Nicla Sense Env has two onboard user-programmable LEDs; one is a white LED, and the other one is an RGB LED.
 - **ESLOV connector**: The Niclas Sense Env has an onboard ESLOV connector to extend the board communication capabilities via I<sub>2</sub>C. 
@@ -68,10 +68,10 @@ The [`Arduino_NiclaSenseEnv` library](https://github.com/sebromero/Arduino_Nicla
 - Board configuration (I<sup>2</sup>C address)
 - Onboard RGB LED control
 - Onboard white LED control
-- Onboard indoor air quality sensor control
-- Onboard outdoor air quality sensor control
+- Onboard indoor air quality sensor control (sulfur detection, odor intensity, ethanol level, TVOC, CO<sub>2</sub>, IAQ measurements)
+- Onboard outdoor air quality sensor control (NO<sub>2</sub>, O<sub>3</sub>, OAQ measurements)
 - Temperature and humidity sensor control
-- UART CSV output
+- UART comma-separated values (CSV) output
 
 ***The Portenta, MKR, and Nano family boards support the `Arduino_NiclaSenseEnv` library.***
 
