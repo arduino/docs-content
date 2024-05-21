@@ -158,12 +158,7 @@ In this section, you will find features that allow *white labeling*:
 
 ![Custom Branding - Disabling Social Sign-in (White Labeling)](assets/custom-branding-3-4.png)
 
-  - **Legal:** You can add URLs for your *Terms and Conditions* and *Privacy Policy*. These links will be shown to new users during sign-up, ensuring compliance and transparency. These URLs must be complete, including `https://www...`.
-
-![Custom Branding - Legal (White Labeling)](assets/custom-branding-3-3.png)
-
 With these configurations, you will have a complete custom branding setup with white labeling for your Cloud space. Remember to click **Save** to finish the setup.
-
 
 ### Invite Members Into Your Space
 
