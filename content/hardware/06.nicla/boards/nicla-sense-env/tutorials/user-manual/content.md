@@ -20,6 +20,8 @@ software:
 
 This user manual provides a comprehensive Nicla Sense Env board overview, highlighting its hardware and software elements. With it, you will confidently learn how to set up, configure, and use all the main features of a Nicla Sense Env board.
 
+![ ](assets/hero-banner.png)
+
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
@@ -46,7 +48,11 @@ The Nicla Sense Env includes an ultra-low power temperature and humidity sensor,
 
 The Nicla Sense Env features a secure, certified, and durable design that enables it for several applications, such as industrial automation, building automation, and prototyping. 
 
+The Nicla Sense Env board top view is shown in the image below:
+
 ![The Nicla Sense Env main components (top view)](assets/user-manual-1.png)
+
+The Nicla Sense Env board bottom view is shown in the image below:
 
 ![The Nicla Sense Env main components (bottom view)](assets/user-manual-2.png)
 
@@ -65,7 +71,7 @@ Here's an overview of the board's main components shown in the images above:
 The [`Arduino_NiclaSenseEnv` library](https://github.com/sebromero/Arduino_NiclaSenseEnv) contains an application programming interface (API) to read data from the board and control its parameters and behavior over I<sup>2</sup>C. This library supports the following: 
 
 - Board control (sleep, reset, and factory reset)
-- Board configuration (I<sup>2</sup>C address)
+- Board configuration (I<sup>2</sup>C address configuration)
 - Onboard RGB LED control
 - Onboard white LED control
 - Onboard indoor air quality sensor control (sulfur detection, odor intensity, ethanol level, TVOC, CO<sub>2</sub>, IAQ measurements)
@@ -94,6 +100,61 @@ The complete datasheet is available and downloadable as PDF from the link below:
 The complete schematics are available and downloadable as PDF from the link below:
 
 - Nicla Sense Env schematics
+
+## First Use
+
+### Unboxing the Board
+
+Let's check out what's inside the box of the Nicla Sense Env board. The board includes an ESLOV cable only, which can connect the Nicla Sense Env with other supported Arduino boards (Portenta, Nano, or MKR family boards). The board's MKR-styled pins can also connect the Nicla Sense Env to other supported Arduino boards, but 2.54 mm header pins (not included) must be soldered to the MKR-styled board pins. 
+
+![Unboxing the Nicla Sense Env](assets/user-manual-3.png)
+
+As mentioned, **the Nicla Sense Env is not a standalone device but a shield for an Arduino-supported board from the Portenta, MKR, or Nano board families**. This tutorial will use a Portenta C33 as the main or host board and the Nicla Sense Env as a shield or client board connected through the included ESLOV cable.
+
+### Powering the Board
+
+### Hello World Example
+
+## Pins
+
+## Board Management
+
+## LEDs
+
+## Temperature and Humidity Sensor
+
+## Indoor Air Quality Sensor 
+
+## Outdoor Air Quality Sensor
+
+## Communication
+
+## Support
+
+If you encounter any issues or have questions while working with your Nicla Sense Env board, we provide various support resources to help you find answers and solutions.
+
+### Help Center
+
+Explore our Help Center, which offers a comprehensive collection of articles and guides for Nicla family boards. The Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
+
+- [Nicla family help center page](https://support.arduino.cc/hc/en-us/sections/4410176504978-Nicla-Family)
+
+### Forum
+
+Join our community forum to connect with other Nicla family board users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to the Nicla Sense Env.
+
+- Nicla Sense Env category in the Arduino Forum
+
+### Contact Us
+
+Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Nicla family boards.
+
+- [Contact us page](https://www.arduino.cc/en/contact-us/)
+
+
+
+
+
 
 
 
