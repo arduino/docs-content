@@ -203,7 +203,7 @@ Save this example template for later. We will now proceed with a demonstrative e
 
 ### Setting Up the PLC IDE
 
-***Before continuing with the PLC IDE configuration with Opta™, please remember to have the latest PLC IDE with its corresponding tools stated within [Software Requirements](#software-requirements).***
+***Before continuing with the PLC IDE configuration with Opta™, please remember to have the latest PLC IDE with its corresponding tools stated within [__Software Requirements__](#software-requirements).***
 
 The PLC IDE configuration will be important in establishing successful communication with the Arduino Cloud. It will require setting onboard features and the communication protocol for Opta™ as usual. However, a proper 'Shared variables' setting will define the communication outcome with the Arduino Cloud.
 
@@ -211,7 +211,7 @@ Thus, you will learn to configure the 'Shared variables' based on the peripheral
 
 #### Shared Variables Configuration
 
-The successful communication between Opta™ configured with PLC IDE and Arduino Cloud relies on the `Shared variables`. The `Shared variables` is defined by heading to `Resources > Opta > Shared variables`. It will then offer two additional tabs: *Inputs* and *Outputs*.
+The successful communication between Opta™ configured with PLC IDE and Arduino Cloud relies on the **`Shared variables`**. The **`Shared variables`** is defined by heading to `Resources > Opta > Shared variables`. It will then offer two additional tabs: *Inputs* and *Outputs*.
 
 ![PLC IDE - Shared 'Input' and 'Output' variables](assets/plc-ide-shared-variable.png)
 
@@ -221,20 +221,20 @@ Subsequently, the user programmable LED will be controlled via the Arduino Cloud
 
 ![PLC IDE - Shared inputs](assets/plc-ide-shared-variable-input.png)
 
-The `in_cloudButton` will represent the user programmable LED of Opta™ as a two state variable and indicate an input variable with the `in` tag.
+The **`in_cloudButton`** will represent the user programmable LED of Opta™ as a two state variable and indicate an input variable with the **`in`** tag.
 
 The **Outputs** define the variables that Opta™ will send to Arduino Cloud. It is the compilation of variables that you would want to monitor within the Arduino Cloud dashboard.
 
 The analog port reading and the counter value of Opta™ are the information that we want to display on the Arduino Cloud dashboard. It can be programmed to use Modbus-compatible devices and use its information for further development.
 
-The following table shows the variables added to the `Shared outputs` table.
+The following table shows the variables added to the **`Shared outputs`** table.
 
 ![PLC IDE - Shared outputs](assets/plc-ide-shared-variable-output.png)
 
-The shared output variables are indicated with an `out` tag and represent the following information:
+The shared output variables are indicated with an **`out`** tag and represent the following information:
 
-- `out_analog01`: Analog port number one reading
-- `out_counter` : Counter value
+- **`out_analog01`**: Analog port number one reading
+- **`out_counter`** : Counter value
 
 The same variable name is used to maintain variable relationship and simplicity with the Cloud variables we have previously defined [here](#setting-up-the-arduino-iot-cloud).
 
@@ -250,9 +250,9 @@ The analog port is configured using the following properties: `Resources > Opta 
 |-----------------|----------|--------------|-------------|----------|
 | #1              | I1       | analog01     | Analog      | UINT     |
 
-Opta™ has 8x I/O ports that can be programmed as analog or digital. You will select port number one and assign the `analog01` as the variable. The *IO Type* must be *Analog*, and the *Type* will update based on selecting the *IO Type* property.
+Opta™ has 8x I/O ports that can be programmed as analog or digital. You will select port number one and assign the **`analog01`** as the variable. The *IO Type* must be *Analog*, and the *Type* will update based on selecting the *IO Type* property.
 
-The `Programmable inputs mapping` table should look as the following image:
+The **`Programmable inputs mapping`** table should look as the following image:
 
 ![PLC IDE - Programmable inputs mapping table](assets/plc-ide-programmable-inputs-mapping.png)
 
@@ -264,13 +264,13 @@ The user programmable LED of Opta™ is configurable under `Resources > Opta > L
 
 ![PLC IDE - LED outputs mapping table](assets/plc-ide-led-output-mapping.png)
 
-In this case, the `userLed` is assigned as the variable representing the user programmable LED of Opta™ that emits blue light. The `userLed` and the `in_cloudButton` are boolean type variables. It will be matched inside the PLC program to pass the boolean state per the command sent from the Arduino Cloud dashboard.
+In this case, the **`userLed`** is assigned as the variable representing the user programmable LED of Opta™ that emits blue light. The **`userLed`** and the **`in_cloudButton`** are boolean type variables. It will be matched inside the PLC program to pass the boolean state per the command sent from the Arduino Cloud dashboard.
 
 #### Library Components
 
 The Library section is where you can find various pre-written codes or functions specific to PLC operations. It could include libraries for handling several industrial protocols, dealing with specific types of I/O, or even specialized functions for certain control systems. It makes the development process more efficient by providing ready-to-use codes, saving time and effort.
 
-In the context of the PLC IDE, the libraries will need to be added manually under the `Sketch Libraries` found within the 'Resources' tab. These libraries are required to manage Arduino Cloud connection, and it is as follows:
+In the context of the PLC IDE, the libraries will need to be added manually under the **`Sketch Libraries`** found within the 'Resources' tab. These libraries are required to manage Arduino Cloud connection, and it is as follows:
 
 | **Library Name**          | **Version** |
 |---------------------------|-------------|
@@ -282,7 +282,7 @@ In the context of the PLC IDE, the libraries will need to be added manually unde
 | Arduino_Portenta_OTA      | 1.2.1       |
 | Arduino_SecureElement     | 0.1.2       |
 
-Once the libraries are in place within `Sketch Libraries`, we should have a similar table as the following image:
+Once the libraries are in place within **`Sketch Libraries`**, we should have a similar table as the following image:
 
 ![PLC IDE - Required libraries for Arduino Cloud integration](assets/plc-ide-libraries.png)
 
@@ -294,9 +294,9 @@ These libraries are indexed. Thus, they are certified to guarantee optimized per
 
 We can now build the Arduino sketch that will be used to establish communication with the Arduino Cloud and manage data traffic. The base sketch will be needed and can be found as discussed in the ['Setting Up the Arduino Cloud'](#setting-up-the-iot-cloud) section.
 
-Most of the code will keep the same structure contrary to the `loop()` and `onCloudButtonChange()` functions. It will integrate the 'Shared variables' with the `PLCOut.Shared_Variable` or `PLCIn.Shared_Variable` to establish information exchange between the device and platform.
+Most of the code will keep the same structure contrary to the **`loop()`** and **`onCloudButtonChange()`** functions. It will integrate the 'Shared variables' with the **`PLCOut.Shared_Variable`** or **`PLCIn.Shared_Variable`** to establish information exchange between the device and platform.
 
-Beginning with the `loop()` function, we have the following code:
+Beginning with the **`loop()`** function, we have the following code:
 
 ```arduino
 void loop() {
@@ -307,11 +307,11 @@ void loop() {
 }
 ```
 
-The `loop()` function periodically updates the `analog01` and `counter` variables with the shared output variables. The shared output variables are `out_analog01` and `out_counter`, which are attached to `PLCOut`.
+The **`loop()`** function periodically updates the **`analog01`** and **`counter`** variables with the shared output variables. The shared output variables are **`out_analog01`** and **`out_counter`**, which are attached to `PLCOut`.
 
-This means that the PLC program, which captures the analog port reading and updates the counter value, is defined to bring the data to the Arduino sketch layer and update the Cloud variables accordingly. The Arduino Cloud dashboard then displays updated information after the `ArduinoCloud.update()` method based on the Cloud variables `analog01` and `counter`.
+This means that the PLC program, which captures the analog port reading and updates the counter value, is defined to bring the data to the Arduino sketch layer and update the Cloud variables accordingly. The Arduino Cloud dashboard then displays updated information after the **`ArduinoCloud.update()`** method based on the Cloud variables **`analog01`** and **`counter`**.
 
-The `onCloudButtonChange()` function is Cloud generated and designed to process similar tasks. The function will be triggered whenever a new value is updated from the Arduino Cloud, and the assigned tasks will be run. In this instance, it will update the user programmable LED of Opta™ whenever a change is detected with the assigned dashboard button.
+The **`onCloudButtonChange()`** function is Cloud generated and designed to process similar tasks. The function will be triggered whenever a new value is updated from the Arduino Cloud, and the assigned tasks will be run. In this instance, it will update the user programmable LED of Opta™ whenever a change is detected with the assigned dashboard button.
 
 ```
 /*
@@ -324,7 +324,7 @@ void onCloudButtonChange()  {
 }
 ```
 
-The process involves assigning the updated Cloud variable value to the `PLCIn.in_cloudButton` variable. It will update the shared variables attached to `PLCIn`, which is the `in_cloudButton`, and pass its value to the PLC program layer updating the status of Opta™.
+The process involves assigning the updated Cloud variable value to the **`PLCIn.in_cloudButton`** variable. It will update the shared variables attached to **`PLCIn`**, which is the **`in_cloudButton`**, and pass its value to the PLC program layer updating the status of Opta™.
 
 Consequently, you will have an Opta™ constantly exchanging information with the Arduino Cloud. The complete code for the Arduino sketch is as follows:
 
@@ -397,10 +397,10 @@ The Arduino sketch is ready, and now we need a PLC program that will control the
 
 The PLC program will do the following processes:
 
-- Run a linear counter and store to `cnt`, and pass the data to `out_counter` (Shared variables)
+- Run a linear counter and store to **`cnt`**, and pass the data to **`out_counter`** (Shared variables)
 - Reset counter value when it reaches 2500 in its value
-- Update the user programmable LED state of Opta™ based on `in_cloudButton` (Shared variables)
-- Update analog reading on the port number one defined to `analog01` and pass it to `out_analog01` (Shared variables)
+- Update the user programmable LED state of Opta™ based on **`in_cloudButton`** (Shared variables)
+- Update analog reading on the port number one defined to **`analog01`** and pass it to **`out_analog01`** (Shared variables)
 
 The following code delivers the previous tasks:
 
@@ -420,7 +420,7 @@ out_analog01 := analog01;
 
 With this PLC program, we are all set to configure the Opta™ device's internal processes and use Arduino Sketch to establish a connection with the Arduino Cloud.
 
-We will set the present PLC program as a 'Fast Task' for good practice. It can be done by adding the `main`, the present PLC program we will use, to `Tasks -> Fast` under `Project` window tab.
+We will set the present PLC program as a 'Fast Task' for good practice. It can be done by adding the **`main`**, the present PLC program we will use, to `Tasks -> Fast` under **`Project`** window tab.
 
 ![PLC IDE - Fast Task assignment](assets/plc-ide-fast-task.png)
 
@@ -459,7 +459,7 @@ You have now set an Opta™ using PLC IDE and successfully connected to the Ardu
 
 ### Next Steps
 
-As you progress, feel free to delve into the vast Arduino ecosystem. It will encourage you to utilize various libraries and hardware enhancements to construct robust, secure, and interconnected industrial solutions with the Arduino Pro products. To better understand the Arduino PLC IDE, consider reviewing the [available tutorials](https://docs.arduino.cc/software/plc-ide).
+As you progress, feel free to delve into the vast Arduino ecosystem. It will encourage you to use various libraries and hardware enhancements to construct robust, secure, and interconnected industrial solutions with the Arduino Pro products. To better understand the Arduino PLC IDE, consider reviewing the [available tutorials](https://docs.arduino.cc/software/plc-ide).
 
 ## Support
 
