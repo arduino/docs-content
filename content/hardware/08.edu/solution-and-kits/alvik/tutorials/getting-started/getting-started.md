@@ -92,14 +92,14 @@ while (True):
 
 ***Make sure that Alvik is OFF before connecting it to your PC***
 
-5. Once Alvik is connected to the PC, connect it to the Arduino Lab for MicroPython and open the _main.py_ file in the Alvik folder.
+5. Once Alvik is connected to the PC, connect it to the Arduino Lab for MicroPython and open the _main.py_ file in the Alvik folder. Once the file is opened let's replace the `import demo` statement by `import obstacle_avoider`.
 
 ![Connecting Alvik to the IDE](assets/connecting_alvik_ide.gif)
 
-6. We need to modify the "_main.py_" file by replacing the `import demo.py` by `import obstacle_avoider.py`
-   *** If you want to run again the out of the box program selector, you only need to modify the _main.py_ replacing the `import obstacle_avoider.py`by `import demo.py`***
 
-7. The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
+*** If you want to go back to the out of the box experience where you could select between reg, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`***
+
+6. The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
 
 ![Moving file from local to Alvik's memory](assets/local2memory.gif)
 
