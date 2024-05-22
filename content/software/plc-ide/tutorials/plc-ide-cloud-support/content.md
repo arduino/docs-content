@@ -54,7 +54,7 @@ In this present tutorial, we will be utilizing two distinct platforms: the **Ard
   
   A wide set of standard features are included with these PRO solutions to develop industrial automation or advanced applications. You can find more tutorials related to the PLC IDE at [the arduino documentation page](https://docs.arduino.cc/software/plc-ide) and the latest version of the software can be [downloaded here](https://www.arduino.cc/en/software#arduino-plc-ide).
 
-* The __IoT Cloud__ is a platform that allows users to deploy IoT applications with ease and control parameters at any given moment. The platform provides robust security characteristics, of which Opta™ takes advantage to provide secure industrial application deployments. You can find more about Arduino Cloud at [here](https://docs.arduino.cc/arduino-cloud/).
+* The __IoT Cloud__ is a platform that allows users to deploy IoT applications with ease and control parameters at any given moment. The platform provides robust security characteristics, of which Opta™ takes advantage to provide secure industrial application deployments. You can find more about Arduino Cloud [here](https://docs.arduino.cc/arduino-cloud/).
 
 ### Understanding the Process
 
@@ -75,7 +75,7 @@ The functions of each layer are:
 * The **Arduino sketch** will handle data exchange bound between the PLC program layer and the Arduino Cloud platform. The methods are '__PLCOut.varname__' and '__PLCIn.varname__', which are used to access the shared variables. For the purpose of the tutorial and to easily classify these methods, we will replace the 'varname' with the 'Shared_variable' tag.
 
   Therefore, the '__PLCOut.Shared_Variable__' and '__PLCIn.Shared_Variable__' methods manage the shared variables that facilitate the communication between the two systems:
-![Shared variables between layers](assets/plc-ide-iot-cloud-img_02.png)
+  ![Shared variables between layers](assets/plc-ide-iot-cloud-img_02.png)
   - __PLCOut.Shared_Variable__: This variable refers to the data that is being sent from the PLC program layer to the Arduino sketch layer, which will be sent to Arduino Cloud.
   
     In other words, it represents the outputs from the PLC program. It could be sensor readings, status information, or any other data that the PLC program is designed to generate and share.
@@ -248,7 +248,7 @@ The analog port is configured using the following properties under: `Resources >
 |-----------------|----------|--------------|-------------|----------|
 | #1              | I1       | analog01     | Analog      | UINT     |
 
-Opta™ has available 8x I/O ports that can be programmed either as analog or digital. You will select port number one and assign the `analog01` as the variable. The 'IO Type' must be 'Analog' and the 'Type' will update based on the selection of the 'IO Type' property.
+Opta™ has available 8x I/O ports that can be programmed either as analog or digital. You will select port number one and assign the `analog01` as the variable. The 'IO Type' must be 'Analog' and the 'Type' will update based on the selection of the 'IOType' property.
 
 The 'Programmable inputs mapping' table should look as the following image:
 
