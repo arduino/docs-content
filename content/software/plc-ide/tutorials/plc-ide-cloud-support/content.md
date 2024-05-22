@@ -89,7 +89,7 @@ Therefore, the __PLCOut.Shared_Variable__ and __PLCIn.Shared_Variable__ methods 
   
     These are inputs for the PLC program. It could be commands, configuration data, or other information the Arduino Cloud system sends to control or interact with the PLC.
 
-In most industrial IoT applications, the PLC program layer will directly control machinery or processes based on its programming. At the same time, the Arduino Cloud platform will be used as an HMI for operators, analytics, and remote control capabilities. The `Shared_Variables` commands allow, in both cases, real-time communication between these two layers.
+In most industrial IoT applications, the PLC program layer will directly control machinery or processes based on its programming. At the same time, the Arduino Cloud platform will be used as an HMI for operators, analytics, and remote control capabilities. The `Shared_Variables` commands allow in both cases real-time communication between these two layers.
 
 ## Example Implementation
 
