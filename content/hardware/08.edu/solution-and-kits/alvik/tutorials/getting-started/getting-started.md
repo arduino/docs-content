@@ -94,7 +94,7 @@ while (True):
 
 ![Moving file from local to Alvik's memory](assets/local2memory.gif)
 
-You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON and see how Alvik detects them and turns to avoid them.
+You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON and see how Alvik navigates around your room avoiding them.
 
 ### Next Steps
 
