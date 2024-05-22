@@ -88,7 +88,7 @@ while (True):
 
 4. Connect Alvik to your PC using the cable included in the box, under the tray.
 
-![Connectin Alvik to the PC](assets/connecting_alvik.gif)
+![Connecting Alvik to the PC](assets/connecting_alvik.gif)
 
 ***Make sure that Alvik is OFF before connecting it to your PC***
 
