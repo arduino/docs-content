@@ -88,7 +88,7 @@ while (True):
 
 ![Connecting Alvik to the IDE](assets/connecting_alvik_ide.gif)
 
-*** If you want to go back to the out of the box experience where you could select between reg, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`.***
+*** If you want to go back to the out of the box experience where you could select between red, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`.***
 
 **6. **The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
 
