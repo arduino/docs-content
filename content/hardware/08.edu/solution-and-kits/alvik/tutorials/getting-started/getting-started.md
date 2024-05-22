@@ -17,6 +17,7 @@ Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through
 ## Unboxing Alvik
 
 ![Selecting one of the ready-to-go examples](assets/select-examples.gif)
+
 Your Alvik robot is equipped with three ready-to-go examples. To choose one of the examples, just turn your Alvik ON, wait until the LEDs turn blue and use the Up and Down buttons to pick one color, then hit the "tick" confirmation button. It's that easy!
 
 - **Red Program (Touch Mode):** Use the arrows to tell your robot what to do: up and down for moving forward and backward by 10 cm, and left and right for turning 90 degrees in each of the directions. The robot will collect instructions until you press the "tick" confirmation button. Once you press it, the robot will execute all the actions in order.
