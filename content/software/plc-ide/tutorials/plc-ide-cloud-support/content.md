@@ -73,7 +73,7 @@ The device is programmed in two layers: The PLC main execution program and the A
 
 The functions of each layer are:
 
-* The **PLC program layer** will manage internal communication and data handling. It can be programmed to read sensor information obtained via selected Modbus protocol or available I/O pins. Then, use this data to send to or receive from the Arduino sketch layer.
+* The **PLC program layer** will manage internal communication and data handling. It can be programmed to read sensor information obtained via selected Modbus protocol or available I/O pins and then, use that data to send to or receive from the Arduino sketch layer.
 
 * The **Arduino sketch** will handle data exchange between the PLC program layer and the Arduino Cloud platform. The methods are __PLCOut.varname__ and __PLCIn.varname__, which are used to access the shared variables. For the purpose of the tutorial and to easily classify these methods, we will replace the `varname` with the `Shared_variable` tag.
 
