@@ -208,11 +208,13 @@ Depending on how you configure Python on your machine.
 Run the following line to upload all files and download the dependencies needed to run the Arduino Alvik MicroPython library.
 
 Linux
+
 ```
 $ ./install.sh -p <device port>
 ```
 
 Windows
+
 ```
 > install.bat -p <device port>
 ```
@@ -233,14 +235,17 @@ The `<device port>` is the name of the USB port that your computer assigned to t
 
 
 Linux
+
 ```
 $ ./flash_firmware.sh -p <device port> <path-to-your-firmware>
 ```
 
 Windows
+
 ```
 > flash_firmware.bat -p <device port> <path-to-your-firmware>
 ```
+
 Answer `y` to flash firmware.
 
 ### Test
@@ -470,3 +475,237 @@ Now you can open the Arduino Lab for MicroPython, connect Alvik and open the exa
 7. Test `bender.py`
 
 Open the example called `bender.py`, launch it and see on your display the image of Bender's robot.
+
+<!--
+## Julian Proposal
+
+## What is Alvik
+
+![This is an image](assets/alvik-classroom.jpg)
+
+Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education. Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
+
+
+
+### What is included
+
+![Unboxing Alvik](assets/unboxing.jpg)
+
+Inside Alvik's packaging you will find the following items:
+* Alvik (x1)
+* Cable USB-C® to USB-C® (x1)
+* 18650 Battery (already inside the robot) (x1)
+
+
+***The product is sensible to electrostatic discharge, observe ESD-safe handling procedures when working with it***
+
+
+### The Brain
+
+Alvik have two controllers
+
+### The Body
+
+#### Controller
+
+#### Power
+
+    - How to charge Alvik
+    - Replacing the battery
+
+#### Sensors
+    - Touch Buttons
+    - Distance Sensor
+    - Line Follower Sensors
+    - Color Sensor
+    - IMU
+
+#### Actuators
+    - Motors and Encoders
+
+## Move Alvik!
+
+### Basic Touch Programming
+
+### Following Objects
+
+### Line Follower
+
+## Updating Alvik
+
+### Updating Alvik's Brain (Nano ESP32)
+
+It may happen that you used your Nano ESP32 for other projects than Alvik, or you need to replace it. In order to make your Nano ESP32 work with Alvik, there are few steps needed:
+
+1. Install the micropython bootloader on it following [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
+
+2. Download the Alvik micropyton libraries
+
+   1. Alvik micropython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
+   2. ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
+
+3. Unzip both of the downloaded libraries in a single "Alvik" folder, open the Arduino Lab for MicroPython, go to the "files" tab and set the path to the unzipped folder on the Arduino Lab for Micropython
+
+   ![Setting the FW path on the Labs for micropython](assets/fw_path.png)
+
+4. Make sure your Alvik is OFF, connect it to your computer and then, turn it ON
+
+   ![Alvik USB Connection](assets/connecting-final.gif)
+
+5. Connect your Alvik to the Arduino Labs for micropython and open the "lib"
+   ![Setting the FW path on the Labs for micropython](assets/lib_folder.png)
+
+6. Select the "Arduino-alvik" and move it inside the "lib" folder in your Alvik.
+   ![Setting the FW path on the Labs for micropython](assets/moving_alvik_folder.png)
+
+7. Go back to the main folder and select the "ucPack-mpy-main" folder and move it next to the arduino_alvik inside the "lib" folder in your Nano ESP32.
+   ![Setting the FW path on the Labs for micropython](assets/moving_ucPack.png)
+
+8. Now go back to the main root of the files system on the Nano ESP32. Then in your local folder navigate to the examples folder once there, select the following files and move them to the main folder of the ESP32.
+
+   1. demo.py
+   2. hand_follower.py
+   3. line_follower.py
+   4. main.py
+   5. touch_move.py
+
+   ![Setting the FW path on the Labs for micropython](assets/moving_examples.png)
+
+With this last step, your Nano ESP32 has been set up with the Alvik out of the box experience and is ready to be used.
+
+### Updating Alvik's Body (STM32)
+
+1. Download the [pre-compiled firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases/latest) from the [Alvik Carrier GitHub reposiitory](https://github.com/arduino-libraries/Arduino_AlvikCarrier)
+
+   This step will download a "firmware_x_x_x.bin" file, save it in your Alvik folder
+
+2. Connect your Alvik to the Computer and to the Arduino Labs for Micropython. Then, go to the files tab and navigate to the folder where you stored the "firmware_x_x_x.bin"
+   ![Setting the FW path on the Labs for micropython](assets/firmware.png)
+
+3. Let's move now the "firmware_x_x_x.bin" to the main root.
+   ![Setting the FW path on the Labs for micropython](assets/moving_fw_bin.png)
+
+4. Turn ON your alvik, go to the Editor tab and tun the following commands by typing them and clicking on the "Play" button
+
+   ```
+   from arduino_alvik import update_firmware
+
+   update_firmware('./firmware_1_0_0.bin')
+   ```
+
+   ![Setting the FW path on the Labs for micropython](assets/flashing_fw.png)
+
+After executing these commands, there will be updates of the process on the prompt, once the process finishes, the firmware of your alvik will be updated.
+
+### Hello Alvik! Your first program!
+
+Alvik is intended to be programmed with MicroPyton. We recommend you to install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) editor.
+
+Now that all the previous steps have been set, let's see how to create custom programs for Alvik to move forward until detecting an object in front of it, Alvik will detect it, dodge it and continue on its way.
+
+
+**1. **Create an Alvik folder in your computer and set it as the path of the Arduino Lab for MicroPython IDE
+
+![Adding Alvik folder path to the IDE](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/getting-started/assets/alvik_folder_path.png)
+
+**2. **Create a new file "obstacle_avoider.py" in your local folder
+
+![Creating obstacle_avoider.py file](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/getting-started/assets/creating_file.png)
+
+**3. **Double click on the file to open it. Once it is opened, erase the text on it and add the following code.
+
+![Adding custom code](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/getting-started/assets/adding_custom_code.gif)
+
+``` python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+import sys
+
+alvik = ArduinoAlvik()
+alvik.begin()
+sleep_ms(5000)  #waiting for the robot to setup
+#robot.set_illuminator(0)
+distance = 10
+speed = 40 #rpm
+
+def turning():
+    alvik.set_wheels_speed(0,0)
+    sleep_ms(250)
+    alvik.set_wheels_speed(-35,-35)
+    sleep_ms(1500)
+    alvik.set_wheels_speed(35,-35)
+    sleep_ms(1000)
+
+while (True):
+
+    distance_l, distance_cl, distance_c, distance_r, distance_cr  = alvik.get_distance()
+    sleep_ms(50)
+    print(distance_c)
+
+    if distance_c < distance:
+        turning()
+    elif distance_cl < distance:
+        turning()
+    elif distance_cr < distance:
+        turning()
+    elif distance_l < distance:
+        turning()
+    elif distance_r < distance:
+        turning()
+    else:
+        alvik.set_wheels_speed(speed, speed)
+
+```
+
+**4. **Connect Alvik to your PC using the cable included in the box, under the tray.
+
+![Connecting Alvik to the PC](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/getting-started/assets/connecting_alvik.gif)
+
+***Make sure that Alvik is OFF before connecting it to your computer.***
+
+**5. **Once Alvik is connected to the PC, connect it to the Arduino Lab for MicroPython and open the _main.py_ file in the Alvik folder. Once the file is opened let's replace the `import demo` statement by `import obstacle_avoider`.
+
+![Connecting Alvik to the IDE](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/getting-started/assets/connecting_alvik_ide.gif)
+
+***If you want to go back to the out of the box experience where you could select between reg, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`***
+
+**6. **The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
+
+![Moving file from local to Alvik's memory](assets/local2memory.gif)
+
+You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON and see how Alvik detects them and turns to avoid them.
+
+
+
+
+## Program Alvik!
+
+### Controlling the motors
+
+### Reading buttons
+
+### Detecting obstacles
+
+### Following a line
+
+### Sensing colors
+
+### Detecting Crashes and Fallings
+
+### LEDs
+
+## Expanding the Robot
+
+### Additional Connectors
+    - Qwiic Connectors
+    - Grove Connectors
+    - Servomotors Connectors
+
+### Lego Technic Compatibility
+
+### Custom parts
+
+## Want more?
+
+## Need Help?
+-->
