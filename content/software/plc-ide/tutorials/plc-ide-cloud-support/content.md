@@ -457,7 +457,7 @@ The mobile dashboard is also available if on-demand monitoring and actuation is 
 
 ## Conclusion
 
-You have now set an Opta™ using PLC IDE and successfully connected to the Arduino Cloud platform. You learned how these tools integrate and can be used to create a simple interface allowing you to oversee the Opta™ device's status. Now, you are more familiar with the PLC IDE and Arduino Cloud environment, and you have the base to create HMI interfaces that can be used to control and monitor your Industrial Arduino Pro devices.
+You have now set an Opta™ using PLC IDE and successfully connected to the Arduino Cloud platform. You learned how these tools integrate and can be used to create a simple interface allowing you to oversee the Opta™ device's status. Now that you are more familiar with the PLC IDE and Arduino Cloud environment, you have the base to create HMI interfaces that can be used to control and monitor your Industrial Arduino Pro devices.
 
 ### Next Steps
 
