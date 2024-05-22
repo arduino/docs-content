@@ -2313,7 +2313,7 @@ void setup(){
 void loop(){}
 ```
 
-The example above connects to the web and fetches resources via HTTP. The script will require **arduino_secrets.h** to be defined wtih following credentials:
+The example above connects to the web and fetches resources via HTTP. The script will require **arduino_secrets.h** to be defined with following credentials:
 
 - GPRS APN
 - GPRS User
