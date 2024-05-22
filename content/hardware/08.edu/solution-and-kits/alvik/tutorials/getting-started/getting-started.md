@@ -34,13 +34,17 @@ Alvik is intended to be programmed with MicroPyton. We recommend you to install 
 Now that all the previous steps have been set, let's see how to create custom programs for Alvik to move forward until detecting an object in front of it, Alvik will detect it, dodge it and continue on its way.
 
 1. Create an Alvik folder in your computer and set it as the path of the Arduino Lab for MicroPython IDE
-   ![Adding Alvik folder path to the IDE](assets/alvik_folder_path.png)
+
+![Adding Alvik folder path to the IDE](assets/alvik_folder_path.png)
 
 2. Create a new file "obstacle_avoider.py" in your local folder
-   ![Creating obstacle_avoider.py file](assets/creating_file.png)
+
+![Creating obstacle_avoider.py file](assets/creating_file.png)
 
 3. Double click on the file to open it. Once it is opened, erase the text on it and add the following code.
-   ![Adding custom code](assets/adding_custom_code.gif)
+
+![Adding custom code](assets/adding_custom_code.gif)
+
 ``` python
 from arduino_alvik import ArduinoAlvik
 from time import sleep_ms
@@ -83,18 +87,21 @@ while (True):
 ```
 
 4. Connect Alvik to your PC using the cable included in the box, under the tray.
-   ![Connectin Alvik to the PC](assets/connecting_alvik.gif)
 
-   ***Make sure that Alvik is OFF before connecting it to your PC***
+![Connectin Alvik to the PC](assets/connecting_alvik.gif)
+
+***Make sure that Alvik is OFF before connecting it to your PC***
 
 5. Once Alvik is connected to the PC, connect it to the Arduino Lab for MicroPython and open the _main.py_ file in the Alvik folder.
-   ![Connecting Alvik to the IDE](assets/connecting_alvik_ide.gif)
+
+![Connecting Alvik to the IDE](assets/connecting_alvik_ide.gif)
 
 6. We need to modify the "_main.py_" file by replacing the `import demo.py` by `import obstacle_avoider.py`
    *** If you want to run again the out of the box program selector, you only need to modify the _main.py_ replacing the `import obstacle_avoider.py`by `import demo.py`***
 
 7. The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
-   ![Moving file from local to Alvik's memory](assets/local2memory.gif)
+
+![Moving file from local to Alvik's memory](assets/local2memory.gif)
 
 You are now all set, disconnect Alvik from the PC, put some obstacles around Alvik, turn it ON and see how alvik detects them and turns to avoid them.
 
