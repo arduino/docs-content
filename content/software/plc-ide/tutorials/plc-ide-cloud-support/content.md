@@ -51,7 +51,8 @@ This tutorial will guide you through integrating and using the *Arduino Cloud* w
 
 In this tutorial, we will use two separate platforms: the **Arduino PLC IDE** and the **Arduino Cloud**. Each tool brings unique features and capabilities that are required to our workflow.
 
-* The [__Arduino PLC IDE__](https://www.arduino.cc/pro/software-plc-ide) integrates the capability to use **IEC IEC61131-3** programming languages, which are Ladder Diagram (LD), Sequential Function Chart (SFC), Function Block Diagram (FBD), Structured Text (ST), and Instruction List (IL). All these languages apply to Opta™.
+* The [__Arduino PLC IDE__](https://www.arduino.cc/pro/software-plc-ide) integrates the capability to use **IEC IEC61131-3** programming languages, which are Ladder Diagram (LD), Sequential Function Chart (SFC), Function Block Diagram (FBD), Structured Text (ST), and Instruction List (IL). All these languages can be used with Opta™.
+
   
   These PRO solutions include a wide set of standard features to develop industrial automation or advanced applications. You can find more tutorials related to the PLC IDE at [the Arduino documentation page](https://docs.arduino.cc/software/plc-ide), and the latest version of the software can be [downloaded here](https://www.arduino.cc/en/software#arduino-plc-ide).
 
