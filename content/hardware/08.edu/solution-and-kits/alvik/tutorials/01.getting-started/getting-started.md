@@ -145,7 +145,7 @@ The connectors are placed in the back of the robot, the pinout is shown in the f
 
 ## Coding Alvik
 
-![Alvik USB Connection](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/user-manual/assets/connecting-final.gif)
+![Alvik USB Connection](assets/connecting-final.gif)
 
 In order for Alvik to work properly three things have to be set correctly:
 
@@ -159,7 +159,7 @@ Alvik comes with a preinstalled version of libraries and firmware, but in case y
 
 Download and install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython), if you are able to connect the Arduino Nano ESP32 it means that you're board is ready. You have to see the **CONNECTED** yellow label at the bottom.
 
-![Connection Succeeded](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/user-manual/assets/connection_succeeded.png)
+![Connection Succeeded](assets/connection_succeeded.png)
 
 If something goes wrong it means you need to upload the MicroPython firmware on the Nano ESP32.
 
@@ -185,7 +185,7 @@ Open **Arduino Lab for MicroPython** and **connect** Alvik. Then:
 
 - Repeat for all the files, from all folders
 
-![Delete all files](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/user-manual/assets/delete_files.png)
+![Delete all files](assets/delete_files.png)
 
 3. Install mpremote
 
@@ -531,7 +531,7 @@ Alvik have two controllers
 
 ### Line Follower
 
-## Updating Alvik 
+## Updating Alvik
 
 ### Updating Alvik's Brain (Nano ESP32)
 
@@ -587,9 +587,9 @@ With this last step, your Nano ESP32 has been set up with the Alvik out of the b
 
 4. Turn ON your alvik, go to the Editor tab and tun the following commands by typing them and clicking on the "Play" button
 
-   ```shell
+   ```
    from arduino_alvik import update_firmware
-   
+
    update_firmware('./firmware_1_0_0.bin')
    ```
 
@@ -667,7 +667,7 @@ while (True):
 
 ![Connecting Alvik to the IDE](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/getting-started/assets/connecting_alvik_ide.gif)
 
-*** If you want to go back to the out of the box experience where you could select between reg, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`***
+***If you want to go back to the out of the box experience where you could select between reg, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`***
 
 **6. **The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
 
