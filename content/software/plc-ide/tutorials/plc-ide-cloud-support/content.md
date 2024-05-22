@@ -212,7 +212,7 @@ Thus, you will learn to configure the 'Shared variables' based on the peripheral
 
 #### Shared Variables Configuration
 
-The successful communication between Opta™ configured with PLC IDE and Arduino Cloud relies on the **`Shared variables`**. The **`Shared variables`** is defined by heading to `Resources > Opta > Shared variables`. It will then offer two additional tabs: *Inputs* and *Outputs*.
+The successful communication between Opta™ configured with PLC IDE and Arduino Cloud relies on the **`Shared variables`**. The **`Shared variables`** are defined under `Resources > Opta > Shared variables`, where two additional tabs can be found: *Inputs* and *Outputs*.
 
 ![PLC IDE - Shared 'Input' and 'Output' variables](assets/plc-ide-shared-variable.png)
 
