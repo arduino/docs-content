@@ -98,7 +98,8 @@ while (True):
 ![Connecting Alvik to the IDE](assets/connecting_alvik_ide.gif)
 
 6. We need to modify the "_main.py_" file by replacing the `import demo.py` by `import obstacle_avoider.py`
-   *** If you want to run again the out of the box program selector, you only need to modify the _main.py_ replacing the `import obstacle_avoider.py`by `import demo.py`***
+
+*** If you want to run again the out of the box program selector, you only need to modify the _main.py_ replacing the `import obstacle_avoider.py`by `import demo.py`***
 
 7. The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
 
