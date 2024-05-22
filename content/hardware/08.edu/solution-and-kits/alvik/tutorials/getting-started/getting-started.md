@@ -105,7 +105,7 @@ while (True):
 
 ![Moving file from local to Alvik's memory](assets/local2memory.gif)
 
-You are now all set, disconnect Alvik from the PC, put some obstacles around Alvik, turn it ON and see how Alvik detects them and turns to avoid them.
+You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON and see how Alvik detects them and turns to avoid them.
 
 ## Next Steps
 * There are a set of already build examples that will help you to better understand how Alvik works, you can download them from [this link](https://github.com/arduino/arduino-alvik-mpy/archive/refs/tags/0.2.0.zip), unzip them in your already created _alvik_ folder and you will be able to see them straight away in the Labs for MicroPython IDE
