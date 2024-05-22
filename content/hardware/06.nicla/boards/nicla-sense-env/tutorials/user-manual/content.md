@@ -36,7 +36,7 @@ This user manual provides a comprehensive Nicla Sense Env board overview, highli
 - [Arduino_NiclaSenseEnv library](https://github.com/sebromero/Arduino_NiclaSenseEnv)
 - [Arduino Renesas Portenta Boards core](https://github.com/arduino/ArduinoCore-renesas) (required to work with the Portenta C33 board)
 
-***The Nicla Sense Env board is not intended as a standalone device but as a shield of another Portenta, MKR, or Nano family board. In this User Manual, we will use the Portenta C33 as the main board and show how to use the Nicla Sense Env board as a shield.***
+***The Nicla Sense Env board is not intended as a standalone device but as a shield of another Portenta, MKR, or Nano family board. In this user manual, we will use the Portenta C33 as the main board and show how to use the Nicla Sense Env board as a shield.***
 
 ## Nicla Sense Env Overview
 
@@ -101,19 +101,48 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 - Nicla Sense Env schematics
 
+### STEP Files 
+
+The complete STEP files are available and downloadable from the link below:
+
+- Nicla Sense Env STEP files
+
 ## First Use
 
-### Unboxing the Board
+### Unboxing the Product
 
-Let's check out what's inside the box of the Nicla Sense Env board. The board includes an ESLOV cable only, which can connect the Nicla Sense Env with other supported Arduino boards (Portenta, Nano, or MKR family boards). The board's MKR-styled pins can also connect the Nicla Sense Env to other supported Arduino boards, but 2.54 mm header pins (not included) must be soldered to the MKR-styled board pins. 
+Let's check out what's inside the box of the Nicla Sense Env board. Besides the board, you will also find an ESLOV cable inside the box, which can connect the Nicla Sense Env with other supported Arduino boards (Portenta, Nano, or MKR family boards). The board's MKR-styled pins can also connect the Nicla Sense Env to other supported Arduino boards, but 2.54 mm header pins (not included) must be soldered to the MKR-styled board pins. 
 
 ![Unboxing the Nicla Sense Env](assets/user-manual-3.png)
 
-As mentioned, **the Nicla Sense Env is not a standalone device but a shield for an Arduino-supported board from the Portenta, MKR, or Nano board families**. This tutorial will use a Portenta C33 as the main or host board and the Nicla Sense Env as a shield or client board connected through the included ESLOV cable.
+As mentioned, **the Nicla Sense Env is not a standalone device but a shield for an Arduino-supported board from the Portenta, MKR, or Nano board families**. This user manual will use a Portenta C33 as the main or host board and the Nicla Sense Env as a shield or client board connected through the included ESLOV cable.
 
 ### Powering the Board
 
+The Nicla Sense Env can be powered by:
+
+- Using the onboard **ESLOV connector**, which has a dedicated  +5 VDC power line regulated onboard to +3.3 VDC.
+- Using an **external +3.3 VDC power supply** connected to `VCC` pin (please refer to the [board pinout section](#pinout) of the user manual).
+
+![Different ways to power the Nicla Sense Env](assets/user-manual-4.png)
+
+***The Nicla Sense Env's `VCC` pin can be connected only to a +3.3 VDC power supply; any other voltage will permanently damage the board. Furthermore, the `VCC` pin does not have reverse polarity protection. Double-check your connections to avoid damaging the board.***
+
+In this user manual, we will use the board's ESLOV connector to power it.
+
 ### Hello World Example
+
+Let's program the Nicla Sense Env board with the classic `hello world` example used in the Arduino ecosystem: the `Blink`. We will use this example to verify the Nicla Sense Env's connection to the host board (a Portenta C33) via ESLOV, the host board's connection to the Arduino IDE, and that the `Arduino_NiclaSenseEnv` library and both boards, the shield and the host, are working as expected. This section will refer to the Nicla Sense Env as a shield or client. 
+
+First, connect the shield to the host board (a Portenta C33) via ESLOV, as shown in the image below, using an ESLOV cable (included with your Nicla Sense Env):
+
+![Connecting the Nicla Sense Env to the host board via ESLOV](assets/user-manual-5.png)
+
+Now, connect the host board to your computer using a USB-C® cable, open the Arduino IDE, and connect the host board to it (in this case, the Portenta C33). 
+
+***If you are new to the Portenta C33, please refer to the board's [user manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual/) for more detailed information.***
+
+Copy and paste the code below into a new sketch in the Arduino IDE: 
 
 ## Pins
 
