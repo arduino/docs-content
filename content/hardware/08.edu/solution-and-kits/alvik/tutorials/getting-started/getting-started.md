@@ -6,15 +6,14 @@ tags:
   - Robot
 author: "Jose Garcia"
 ---
-# Getting Started With Alvik
+## Getting Started With Alvik
 
 Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education.
 ![Alvik's Robot](assets/alvik_main.jpg)
 
 Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, the Arduino language, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
 
-
-## Unboxing Alvik
+### Unboxing Alvik
 
 ![Selecting one of the ready-to-go examples](assets/select-examples.gif)
 
@@ -28,7 +27,7 @@ Your Alvik robot is equipped with three ready-to-go examples. To choose one of t
 
 Now that you have played with Alvik and have seen it moving, it is time to know more in-depth how it is built and how to get much more than the out-of-the-box experience from it.
 
-## Let's Start Coding Alvik
+### Let's Start Coding Alvik
 
 Alvik is intended to be programmed with MicroPyton. We recommend you to install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) editor.
 
@@ -97,7 +96,8 @@ while (True):
 
 You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON and see how Alvik detects them and turns to avoid them.
 
-## Next Steps
+### Next Steps
+
 * There are a set of already build examples that will help you to better understand how Alvik works, you can download them from [this link](https://github.com/arduino/arduino-alvik-mpy/archive/refs/tags/0.2.0.zip), unzip them in your already created _alvik_ folder and you will be able to see them straight away in the Arduino Labs for MicroPython IDE.
 *  If you want to learn more about how Alvik is built or which functions you can use to program it, visit the documentation in the [Docs space for Alvik](https://docs.arduino.cc/hardware/alvik/).
 * If you want to follow step-by-step guided projects following a educational approach to learn MicroPython and robotics topics with Alvik, follow the [Explore Robotics in MicroPython](https://courses.arduino.cc/explore-robotics-micropython/) course.
