@@ -34,7 +34,6 @@ Alvik is intended to be programmed with MicroPyton. We recommend you to install 
 
 Now that all the previous steps have been set, let's see how to create custom programs for Alvik to move forward until detecting an object in front of it, Alvik will detect it, dodge it and continue on its way.
 
-
 **1. **Create an Alvik folder in your computer and set it as the path of the Arduino Lab for MicroPython IDE
 
 ![Adding Alvik folder path to the IDE](assets/alvik_folder_path.png)
