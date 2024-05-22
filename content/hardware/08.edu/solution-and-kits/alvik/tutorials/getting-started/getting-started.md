@@ -53,37 +53,29 @@ import sys
 
 alvik = ArduinoAlvik()
 alvik.begin()
-sleep_ms(5000)  #waiting for the robot to setup
-#robot.set_illuminator(0)
-distance = 10
-speed = 40 #rpm
-
-def turning():
-    alvik.set_wheels_speed(0,0)
-    sleep_ms(250)
-    alvik.set_wheels_speed(-35,-35)
-    sleep_ms(1500)
-    alvik.set_wheels_speed(35,-35)
-    sleep_ms(1000)
+sleep_ms(5000)  # waiting for the robot to setup
+distance = 12
+degrees = 45.00
+speed = 10.00
 
 while (True):
-
+    
     distance_l, distance_cl, distance_c, distance_r, distance_cr  = alvik.get_distance()
     sleep_ms(50)
     print(distance_c)
-
+    
     if distance_c < distance:
-        turning()
+        alvik.rotate(degrees, 'deg')
     elif distance_cl < distance:
-        turning()
+        alvik.rotate(degrees, 'deg')
     elif distance_cr < distance:
-        turning()
+        alvik.rotate(degrees, 'deg')
     elif distance_l < distance:
-        turning()
+        alvik.rotate(degrees, 'deg')
     elif distance_r < distance:
-        turning()
+        alvik.rotate(degrees, 'deg')
     else:
-        alvik.set_wheels_speed(speed, speed)
+        alvik.drive(speed, 0.0, linear_unit='cm/s')
 
 ```
 
