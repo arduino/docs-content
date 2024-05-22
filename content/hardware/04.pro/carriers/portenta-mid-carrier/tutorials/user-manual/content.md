@@ -2218,16 +2218,11 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.p
 
 #### Using Arduino IDE
 
-The Portenta H7 and C33 are compatible with the Mini PCIe interface and can leverage the Pro 4G Module's capability. Enable and using the modem with the Portenta H7 or C33 will require a library named **Arduino_4GModem**.
+The Portenta H7 and C33 are compatible with the Mini PCIe interface and can leverage the Pro 4G Module's capability. Enable and using the modem with the Portenta H7 or C33 will require a library named [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular). The library manager within the Arduino IDE can access the library by navigating to **Sketch -> Include Library -> Manage Libraries**.
 
-The *Arduino_4GModem* library packs two sources:
+![Arduino Cellular Library for Pro 4G Modules](assets/arduino_cellular_library.png)
 
-- Arduino_4G_Module
-- ArduinoProModem
-
-Each source is included for the correct compilation and operation of the modem with either Portenta H7 or C33. The library manager within the Arduino IDE can access the library by navigating to **Sketch -> Include Library -> Manage Libraries**.
-
-The library provides functionality for setting up a 4G connection, handling GPS/A-GPS location services, and uninterrupted SMS transactions.
+The [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) provides tools for interacting with Arduino Pro 4G modules. It enables internet connectivity, SMS communication, and location tracking via cellular networks or GPS. Features include fast 4G internet connection, secure SSL connections, GPS or GSM-based location tracking, time synchronization with cell providers, and SMS sending and receiving.
 
 Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta H7 or C33 requires **SERIAL1 Breakout** pins to be connected to designated **PCIe Breakout** pins :
 
@@ -2250,96 +2245,95 @@ The Portenta H7 can be replaced with the Portenta C33, maintaining the same setu
 Once the setup is ready, we can use the following example from the library called **HTTPClient**:
 
 ```arduino
-#define TINY_GSM_DEBUG
-#define LOGGING
-#define DEBUGSERIAL Serial
+/**
+ * This example demonstrates how to make a HTTP GET request using 
+ * the ArduinoHttpClient library and the ArduinoCellular library.
+ * 
+ * Instructions:
+ * 1. Insert a SIM card with or without PIN code in the Arduino Pro 4G Module.
+ * 2. Provide sufficient power to the Arduino Pro 4G Module. Ideally, use a 5V power supply
+ *    with a current rating of at least 2A and connect it to the VIN and GND pins.
+ * 3. Specify the APN, login, and password for your cellular network provider.
+ * 4. Upload the sketch to the connected Arduino board.
+ * 5. Open the serial monitor to view the output.
+ * 
+ * Initial author: Cristian Dragomir
+*/
 
-#include "ArduinoProModem.h"
+#define ARDUINO_CELLULAR_DEBUG
 
-const char apn[]      = "APN";
-const char gprsUser[] = "GPRSUSER";
-const char gprsPass[] = "GPRSPASS";
+#include "ArduinoCellular.h"
+#include "arduino_secrets.h"
 
 const char server[]   = "vsh.pp.ua";
 const char resource[] = "/TinyGSM/logo.txt";
 const int  port       = 80;
 
-ArduinoCellularModem fourgee = ArduinoCellularModem();
-HttpClient http = fourgee.getHTTPClient(server, port);
+ArduinoCellular cellular = ArduinoCellular();
+HttpClient client = cellular.getHTTPClient(server, port);
 
-//HttpClient http = HttpClient(&fourgee.getNetworkClient(), server, port);
+void getResource(){
+
+  Serial.println("Making GET request...");
+
+  client.get(resource);
+
+  int statusCode = client.responseStatusCode();
+  String response = client.responseBody();
+
+  Serial.print("Status code: ");
+  Serial.println(statusCode);
+  Serial.print("Response: ");
+  Serial.println(response);
+
+  client.stop();
+}
 
 void setup(){
     Serial.begin(115200);
     while (!Serial);
-    fourgee.begin();
-    fourgee.connect(apn, gprsUser, gprsPass);
+    // cellular.setDebugStream(Serial); // Uncomment this line to enable debug output
+    cellular.begin();
+
+    if(String(SECRET_PINNUMBER).length() > 0 && !cellular.unlockSIM(SECRET_PINNUMBER)){
+        Serial.println("Failed to unlock SIM card.");
+        while(true); // Stop here
+    }
+
+    Serial.println("Connecting...");
+    if(!cellular.connect(SECRET_GPRS_APN, SECRET_GPRS_LOGIN, SECRET_GPRS_PASSWORD)){
+        Serial.println("Failed to connect to the network.");
+        while(true); // Stop here
+    }
+    Serial.println("Connected!");
+
+    getResource();
 }
 
-void loop(){
-
-  Serial.print(F("Performing HTTP GET request... "));
-  int err = http.get(resource);
-  if (err != 0) {
-    Serial.println(F("failed to connect"));
-    delay(10000);
-    return;
-  }
-
-  int status = http.responseStatusCode();
-  Serial.print(F("Response status code: "));
-  Serial.println(status);
-  if (!status) {
-    delay(10000);
-    return;
-  }
-
-  Serial.println(F("Response Headers:"));
-  while (http.headerAvailable()) {
-    String headerName  = http.readHeaderName();
-    String headerValue = http.readHeaderValue();
-    Serial.println("    " + headerName + " : " + headerValue);
-  }
-
-  int length = http.contentLength();
-  if (length >= 0) {
-    Serial.print(F("Content length is: "));
-    Serial.println(length);
-  }
-  if (http.isResponseChunked()) {
-    Serial.println(F("The response is chunked"));
-  }
-
-  String body = http.responseBody();
-  Serial.println(F("Response:"));
-  Serial.println(body);
-
-  Serial.print(F("Body length is: "));
-  Serial.println(body.length());
-
-  // Shutdown
-
-  http.stop();
-  Serial.println(F("Server disconnected"));
-
-}
+void loop(){}
 ```
 
-The example above connects to the web and fetches resources via HTTP. The script will require defining the following parameter fields:
+The example above connects to the web and fetches resources via HTTP. The script will require **arduino_secrets.h** to be defined wtih following credentials:
 
-- APN
+- GPRS APN
 - GPRS User
 - GPRS Password
+- SIM Card Pin Number
 
-These three parameters will always be required to be defined to use the SIM functionalities within the modem. The image below shows an anticipated initial result of the modem detected and connecting to a 4G network:
+These parameters will always be required to be defined to use the SIM functionalities within the modem. The image below shows an anticipated initial result of the modem detected and connecting to a 4G network:
 
 ![Portenta H7 & Pro 4G Module - HTTPClient Example Initialized](assets/portentaMIDcarrier_h7_mpcie_4gmodem_result.png)
 
-You may find additional examples as well within the library, each dedicated to different purposes as follows:
+You may find additional examples as well within the library to try various functionalities such as deleting SMS, getting GPS location, and connecting to web servers securely:
 
-- **MQTTClient:** Stream sensor information via MQTT
-- **SMSReceive:** Send and receive SMS messages
-- **TimeAndLocation:** Get time and location using GPS and GSM as a fallback process for the EU version
+- **HTTPClient**: Connects to a web server using the [*ArduinoHttpClient*](https://github.com/arduino-libraries/ArduinoHttpClient).
+- **HTTPSClient**: Establishes a secure connection to a web server with [*BearSSL*](https://bearssl.org/) and [*ArduinoHttpClient*](https://github.com/arduino-libraries/ArduinoHttpClient).
+- **ModemTerminal**: Useful for debugging and testing AT commands.
+- **GetLocation**: Shows how to obtain the current GPS location.
+- **GetTime**: Uses GPS to acquire the device's time.
+- **ReceiveSMS**: Demonstrates SMS sending and receiving functionality.
+- **SendSMS**: Shows how to send an SMS.
+- **DeleteSMS**: Demonstrates how to delete SMS messages.
 
 #### Ethernet
 
