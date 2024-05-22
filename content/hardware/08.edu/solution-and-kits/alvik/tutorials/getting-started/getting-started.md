@@ -108,6 +108,6 @@ while (True):
 You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON and see how Alvik detects them and turns to avoid them.
 
 ## Next Steps
-* There are a set of already build examples that will help you to better understand how Alvik works, you can download them from [this link](https://github.com/arduino/arduino-alvik-mpy/archive/refs/tags/0.2.0.zip), unzip them in your already created _alvik_ folder and you will be able to see them straight away in the Labs for MicroPython IDE
+* There are a set of already build examples that will help you to better understand how Alvik works, you can download them from [this link](https://github.com/arduino/arduino-alvik-mpy/archive/refs/tags/0.2.0.zip), unzip them in your already created _alvik_ folder and you will be able to see them straight away in the Arduino Labs for MicroPython IDE.
 *  If you want to learn more about how Alvik is built or which functions you can use to program it, visit the documentation in the [Docs space for Alvik](https://docs.arduino.cc/hardware/alvik/).
 * If you want to follow step-by-step guided projects following a educational approach to learn micropython and robotics topics with Alvik, follow the [Explore Robotics in MicroPython](https://explore-robotics-micropython.vercel.app/explore-robotics-micropython/) course.
