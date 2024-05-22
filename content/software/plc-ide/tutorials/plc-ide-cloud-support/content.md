@@ -438,7 +438,7 @@ More information about Arduino Cloud & how to create dashboards can be found [he
 
 The complete example project file for PLC IDE can be downloaded [here](assets/Opta_PLCIDE_Cloud.zip). It is ready to use with Opta™ in the instance at the preferred workspace.
 
-***The first compilation process may take some time to finish. Depending on the environment and hardware used, it can take around 7 minutes or more.***
+***The first compilation process may take some time to finish. Depending on the environment and hardware, it can take around 7 minutes or more.***
 
 Once we have successfully configured Opta™ with PLC IDE and established communication with the Arduino Cloud dashboard, we have the following tasks in action:
 
