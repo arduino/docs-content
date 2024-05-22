@@ -13,7 +13,7 @@ The new Arduino Cloud brings a lot of new things, and one of them is the OTA (ov
 ![Over-the-Air uploads.](assets/other_power_supplier.png)
 
 
-Over-the-air update is now available through [Arduino Cloud](https://app.arduino.cc/) and the [Arduino Web Editor](https://create.arduino.cc/editor), which is an always up-to-date online IDE that stores sketches in the Cloud. It also allows you to wirelessly upload sketches from a browser, to any board that is connected to that computer. 
+Over-the-air update is now available through [Arduino Cloud](https://app.arduino.cc/) and the [Arduino Cloud Editor](https://create.arduino.cc/editor), which is an always up-to-date online IDE that stores sketches in the Cloud. It also allows you to wirelessly upload sketches from a browser, to any board that is connected to that computer. 
 
 This tutorial will guide you through the necessary steps to configure your board to work with the OTA feature.
 
@@ -57,8 +57,8 @@ In order to configure the feature, we will need to create a project in the Ardui
 > **Note:** You will need to have an Arduino account to be able to use both the Web editor and Arduino Cloud features.
 
 
-**2.** Once you are logged in the Arduino Cloud, you need to create a new thing and name it “smart_led”.
-    Inside the thing let’s include a boolean variable called `light`, activate the interaction **Modify from dashboard API** and select the **on change** variable update. Once we have these characteristics set, click on **add variable**.
+**2.** Once you are logged in the Arduino Cloud, you need to create a new thing and name it something, for this example let's call it “smart_led”.
+    Inside the thing let’s include a boolean variable called `light`, set variable permission to **Read & Write** and select the **On Change** variable update policy. Once we have these characteristics set, click on **add variable**.
 
 
 ![Adding a variable.](assets/adding_variable.png)
@@ -66,12 +66,9 @@ In order to configure the feature, we will need to create a project in the Ardui
 > **Note:** If you want to know more about how to get started with the Arduino Cloud, visit the [getting started tutorial](/arduino-cloud/guides/overview).
 
 
-**3.** Once you have added the variable, you’ll need to associate your device (Arduino MKR WiFi 1010 or Arduino Nano 33 IoT) to this new thing and add your network credentials.
+**3.** Once you have added the variable, you’ll need to associate your device to this new thing and add your network credentials.
 
-![Selecting a device to associate.](assets/select_device.png)
-
-***Note: If it is the first time you configure the MKR WiFi 1010 or the Nano 33 IoT board to the Arduino Cloud, you will need to have the latest version of the WiFi Nina firmware installed. The configuration process updates it automatically. However, if you get any error during the configuration process, you can manually update the FW version of the Nina module following [these instructions](https://support.arduino.cc/hc/en-us/articles/360013896579-Check-and-update-the-firmware-for-WiFiNINA-and-WiFi101).***
-
+![Selecting a device to associate.](assets/select_device.png) 
 
 **4.** Next step is to create a dashboard with a **Switch** widget, linked to the lights variable that you created before. Once it is set, click on the **use dashboard** button and go to **things > smart_led > Sketch**
 
@@ -98,7 +95,7 @@ Check the highlighted lines in the following code to see what required changes a
 
 Now that we have checked that everything is working as it should, let’s go back to the **Things > smart_led >**  **Sketch** tab in the Arduino Cloud, and see what has happened there.
 
-Once in the sketch tab, let’s open the board's drop down menu. There, a new option to connect our board should be available. The name of the board configured for the Cloud will appear, followed by the **Over-the-Air** option.
+Once in the sketch tab, you'll see a toggle switch next to the board. The toggle switch lets us select a new option for connecting our board. Selecting the cloud icon instead of the USB icon means that when we upload to the board, it's done **Over the Air**.
 
 ![List of devices available.](assets/device_OtA.png)
 
@@ -142,8 +139,7 @@ When uploading a sketch over-the-air:
 
 In order to upload sketches Over-the-Air to your Arduino board you need:
 
-- An [Arduino NANO 33 IoT](https://store.arduino.cc/arduino-nano-33-iot) or [Arduino MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010) board.
-- NINA firmware on the board, updated to version 1.4.1 or later.
+- An [OTA Compatible board](#supported-arduino-boards).
 - An **IoT Sketch** to be uploaded.
 
 
