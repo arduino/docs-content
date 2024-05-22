@@ -455,7 +455,7 @@ In case the Portenta X8 was flashed barebone, you will just need to recycle the 
 
 ## First Use Of Your Portenta X8
 
-You can now start interacting with your Portenta X8. Portenta X8 comes with an embedded Out-of-the-box experience that will guide you step-by-step in the configuration of your board.  
+You can now start interacting with your Portenta X8. Portenta X8 comes with an embedded configuration console that will guide you step-by-step in the configuration of your board.  
 
 ### Power The Board
 
@@ -475,47 +475,36 @@ The table below describes LEDs meaning and functionalities.
   | Status LED   | Green        | Board connected to the Internet                 |
   | Status LED   | Red          | STM32H7 LED, blinking when triggered in the IDE |
 
-### Out-Of-The-Box Experience
+### First configuration with the Out-of-the-box experience
 
 ***It is recommended to have your Portenta X8 with the latest OS version. Check [this section](#portenta-x8-os-image-update) to learn how to have your Portenta X8 up-to-date.***
 
-Once the Portenta X8 is correctly powered up, you can start interacting with it.
+Once the Portenta X8 is correctly powered up, you can start interacting with it. 
 
-In order to do that, you have the possibility to connect to your Portenta X8 through [**ADB**](https://developer.android.com/studio/command-line/adb). Android Debug Bridge (ADB) is a tool included in the SDK software (Software Development Kit) and used, inter alia, to make an Android device and a computer to communicate with each other.
+Open your browser and navigate to [www.arduino.cc/start](www.arduino.cc/start). The following page will be displayed.
 
-In the case of the Portenta X8, ADB allows to establish a reliable communication between Portenta X8 and a command-line interface of a computer. In order to check if you have already installed ADB on your computer, you have to verify you installed the latest **Mbed OS Portenta Core** from the IDE. Portenta core contains ADB in it.
+![First Setup](assets/registration-homepage.png "First Setup")
 
-***If you need to install ADB, you can also download the right tool for your Operating System directly from the [official Android website](https://developer.android.com/studio/releases/platform-tools).***
+Click on **Linux boards** and then sign into your Arduino Cloud account. If you do not have an account yet, create a new one from the same webpage.
 
-At this point, you can open your terminal window and look for ADB inside the directory **Arduino15/packages/arduino/tools/adb/32.0.0**.
+![Sign into Arduino Cloud](assets/registration-signin.png "Sign into Arduino Cloud")
 
-***The Arduino15 folder may have a different location depending on the Operating System you are using. Check [this article](https://support.arduino.cc/hc/en-us/articles/360018448279-Open-the-Arduino15-folder) to learn where your Arduino15 folder is located.***
+When successfully logged in, you will be asked to download the Arduino Create Agent if you have not done so yet. Click on **DOWNLOAD**.
 
-To check if ADB is working correctly, you can type `adb devices`. Your Portenta X8 will be listed there.
+![Create Agent Installation](assets/agent-installation.png "Create Agent Installation")
 
-![Connection with ADB](assets/adb-connection.png "Connection with ADB")
+The agent will be installed in your computer. This activity might take few minutes. Once installed, your Portenta X8 will be automatically detected by your PC after few seconds.
 
-To start the Out-of-the-box experience, you can continue typing in your terminal `adb forward tcp:8080 tcp:80`. With this command, ADB allows to forward the requests of the `8080 TCP-IP port` of your computer to the `80 TCP-IP port` of your device, that for this case it is the device with the name _Portenta X8_.
+![Portenta X8 successfully detected](assets/board-detection.png "Portenta X8 successfully detected")
 
-![ADB forward command](assets/adb-tcp-port.png "ADB forward command")
+Now click on **START CONFIGURATION**. The tool will install all the required add-ons to make your Portenta X8 able to work efficiently with your PC. 
+You can now proceed to the setup of the board connectivity by clicking **OK, GOT IT**. 
 
-Now you can open your browser, go to [http://localhost:8080](http://localhost:8080) and the same Out-of-the-box dashboard will appear to allow you to configure your Portenta X8.
-
-![Out-of-the-box Homepage](assets/OOTB_homepage.png "Out-of-the-box Homepage")
-
-#### Portenta X8 Out-Of-The-Box Homepage
-
-This web page is hosted on the Portenta X8 and allows a user to:
-
-- Get board details
-- [Configure Portenta X8 Wi-Fi®](#wi-fi-configuration)
-- [Interact with the board through the embedded Python® Alpine Shell](#portenta-x8-with-python-alpine-shell)
-- [Provision your device to Arduino Cloud](#portenta-x8-with-arduino-cloud)
-- Manage the Linux distribution with the dedicated [Portenta X8 Board Manager](#portenta-x8-board-manager)
+![Out-of-the-box Connectivity Configuration](assets/ootb-wifi-config.png "Out-of-the-box Connectivity Configuration")
 
 #### Wi-Fi® Configuration
 
-Click **Wi-Fi® Settings** to start configuring your network connectivity. Otherwise, you can also connect your Portenta X8 to the Internet through an Ethernet cable, using a USB-C® hub with an RJ45 port or a Portenta Carrier. In this tutorial, Wi-Fi® connectivity will be used.
+Click **Wi-Fi® Connection** to start configuring your network connectivity. Otherwise, you can also connect your Portenta X8 to the Internet through an Ethernet cable, using a USB-C® hub with an RJ45 port or a Portenta Carrier. In this tutorial, Wi-Fi® connectivity will be used.
 
 ![Out-of-the-box Wi-Fi® Settings](assets/OOTB_homepage_Wifi.png "Out-of-the-box Wi-Fi® Settings")
 
@@ -527,7 +516,7 @@ Type your Wi-Fi® password.
 
 ![Out-of-the-box Wi-Fi® password set-up](assets/OOTB_wifi_SSID.png "Out-of-the-box Wi-Fi® password set-up")
 
-Once it is connected, you will get a notification confirming your Portenta X8 is now connected to the selected network.
+Once it is connected, you will get a notification confirming your Portenta X8 is now connected to the selected network and its led will start blinking green.
 
 Moreover, you can check the network you are connected to in the bottom left section of this dashboard.
 
@@ -537,7 +526,17 @@ Now you can click **OK** and you will be redirected to the Out-of-the-box homepa
 
 ![Out-of-the-box Homepage](assets/OOTB_homepage.png "Out-of-the-box Homepage")
 
-***You can change your network by clicking on the Wi-Fi® Settings button and repeat the steps from above.***
+***You can change your network by clicking on the Settings button and repeat the steps above.***
+
+#### Portenta X8 Out-Of-The-Box Homepage
+
+This web page is hosted on the Portenta X8 and allows a user to:
+
+- Get board details
+- [Configure Portenta X8 Wi-Fi®](#wi-fi-configuration)
+- [Interact with the board through the embedded Python® Alpine Shell](#portenta-x8-with-python-alpine-shell)
+- [Provision your device to Arduino Cloud](#portenta-x8-with-arduino-cloud)
+- Manage the Linux distribution with the dedicated [Portenta X8 Board Manager](#portenta-x8-board-manager)
 
 #### Portenta X8 with Python Alpine Shell
 
