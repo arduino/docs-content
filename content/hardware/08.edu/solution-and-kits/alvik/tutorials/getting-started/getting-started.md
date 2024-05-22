@@ -3,7 +3,7 @@ title: "Getting Started with Alvik"
 difficulty: beginner
 description: "Take your first steps with Alvik."
 tags:
-  - Robot
+  - Robot, MicroPython, Education
 author: "Jose Garcia"
 ---
 ## Getting Started With Alvik
