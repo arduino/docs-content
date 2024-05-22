@@ -461,7 +461,7 @@ You have now set an Opta™ using PLC IDE and successfully connected to the Ardu
 
 ### Next Steps
 
-As you progress, feel free to delve into the vast Arduino ecosystem. It will encourage you to use various libraries and hardware enhancements to construct robust, secure, and interconnected industrial solutions with the Arduino Pro products. To better understand the Arduino PLC IDE, consider reviewing the [available tutorials](https://docs.arduino.cc/software/plc-ide).
+As you progress, feel free to dig into the vast Arduino ecosystem. To better understand the Arduino PLC IDE, consider reviewing the [available tutorials](https://docs.arduino.cc/software/plc-ide).
 
 ## Support
 
