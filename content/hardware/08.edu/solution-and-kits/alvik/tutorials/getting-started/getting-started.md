@@ -33,15 +33,15 @@ Alvik is intended to be programmed with MicroPyton. We recommend you to install 
 
 Now that all the previous steps have been set, let's see how to create custom programs for Alvik to move forward until detecting an object in front of it, Alvik will detect it, dodge it and continue on its way.
 
-1. Create an Alvik folder in your computer and set it as the path of the Arduino Lab for MicroPython IDE
+**1. **Create an Alvik folder in your computer and set it as the path of the Arduino Lab for MicroPython IDE
 
 ![Adding Alvik folder path to the IDE](assets/alvik_folder_path.png)
 
-2. Create a new file "obstacle_avoider.py" in your local folder
+**2. **Create a new file "obstacle_avoider.py" in your local folder
 
 ![Creating obstacle_avoider.py file](assets/creating_file.png)
 
-3. Double click on the file to open it. Once it is opened, erase the text on it and add the following code.
+**3. **Double click on the file to open it. Once it is opened, erase the text on it and add the following code.
 
 ![Adding custom code](assets/adding_custom_code.gif)
 
@@ -86,20 +86,19 @@ while (True):
 
 ```
 
-4. Connect Alvik to your PC using the cable included in the box, under the tray.
+**4. **Connect Alvik to your PC using the cable included in the box, under the tray.
 
 ![Connecting Alvik to the PC](assets/connecting_alvik.gif)
 
 ***Make sure that Alvik is OFF before connecting it to your PC***
 
-5. Once Alvik is connected to the PC, connect it to the Arduino Lab for MicroPython and open the _main.py_ file in the Alvik folder. Once the file is opened let's replace the `import demo` statement by `import obstacle_avoider`.
+**5. **Once Alvik is connected to the PC, connect it to the Arduino Lab for MicroPython and open the _main.py_ file in the Alvik folder. Once the file is opened let's replace the `import demo` statement by `import obstacle_avoider`.
 
 ![Connecting Alvik to the IDE](assets/connecting_alvik_ide.gif)
 
-
 *** If you want to go back to the out of the box experience where you could select between reg, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`***
 
-6. The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
+**6. **The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
 
 ![Moving file from local to Alvik's memory](assets/local2memory.gif)
 
