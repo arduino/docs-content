@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Alvik"
 difficulty: beginner
-description: "Take your first steps with Alvik"
+description: "Take your first steps with Alvik."
 tags:
   - Robot
 author: "Jose Garcia"
