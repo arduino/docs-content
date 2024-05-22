@@ -11,7 +11,7 @@ author: "Jose Garcia"
 Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education.
 ![Alvik's Robot](assets/alvik_main.jpg)
 
-Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, Arduino C, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
+Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through different programming languages including MicroPython, the Arduino language, and block-based coding; enabling different possibilities to explore Robotics, IoT and Artificial Intelligence.
 
 
 ## Unboxing Alvik
