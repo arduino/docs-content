@@ -2320,9 +2320,13 @@ The example above connects to the web and fetches resources via HTTP. The script
 - GPRS Password
 - SIM Card Pin Number
 
-These parameters will always be required to be defined to use the SIM functionalities within the modem. The image below shows an anticipated initial result of the modem detected and connecting to a 4G network:
+These parameters will always be required to be defined to use the SIM functionalities within the modem. The image below shows an anticipated result of the modem detected and connecting to a network:
 
-![Portenta H7 & Pro 4G Module - HTTPClient Example Initialized](assets/portentaMIDcarrier_h7_mpcie_4gmodem_result.png)
+![Portenta H7 & Pro 4G Module - HTTPClient Example](assets/portentaMIDcarrier_h7_mpcie_4gmodem_result.png)
+
+It will show similar result when the Portenta C33 is used as the core device with the Portenta Mid Carrier and the Pro 4G Module:
+
+![Portenta C33 & Pro 4G Module - HTTPClient Example](assets/portentaMIDcarrier_c33_mpcie_4gmodem_result.png)
 
 You may find additional examples as well within the library to try various functionalities such as deleting SMS, getting GPS location, and connecting to web servers securely:
 
