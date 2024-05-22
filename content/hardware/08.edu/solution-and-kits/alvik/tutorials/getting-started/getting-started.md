@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Alvik"
 difficulty: beginner
-description: "Take your first steps with Alvik."
+description: "Take your first steps with Arduino® Alvik."
 tags:
   - Robot
 author: "Jose Garcia"
@@ -82,7 +82,9 @@ while (True):
 
 ![Connecting Alvik to the PC](assets/connecting_alvik.gif)
 
-***Make sure that Alvik is OFF before connecting it to your computer.***
+***As a good practice, to prevent the Alvik from falling off the table, turn it OFF when you are programming it..***
+
+***For Alvik to be recognized by your computer, it must be turned OFF.***
 
 **5. **Once Alvik is connected to the PC, connect it to the Arduino Lab for MicroPython and open the _main.py_ file in the Alvik folder. Once the file is opened let's replace the `import demo` statement by `import obstacle_avoider`.
 
