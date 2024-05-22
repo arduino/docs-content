@@ -32,7 +32,7 @@ Portenta X8 is a powerful, industrial-grade System on Module with Linux OS prelo
 ## Required Software
 
 * For Linux Programming, leverage the latest Linux image available, check [this section](#portenta-x8-os-image-update) to verify if your Portenta X8 is already updated.
-* For Arduino programming, leverage [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor) and the latest "Arduino Mbed OS Portenta Boards" Core > 3.0.1.
+* For Arduino programming, leverage [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor), and the latest "Arduino Mbed OS Portenta Boards" Core > 3.0.1.
 
 
 ## Product Overview
@@ -40,7 +40,7 @@ Portenta X8 is a powerful, industrial-grade System on Module with Linux OS prelo
 The Portenta X8 combines the best of two approaches, offering the flexibility of Linux and the capability for real-time applications within the Arduino environment. Developers can execute real-time tasks while simultaneously handling high-performance processing on Linux cores.
 So, let's have a look at its technical specification.
 
-### Architecture Overview
+### Board Architecture Overview
 
 Portenta X8 is a powerful, industrial-grade System on Module combining a Yocto Linux distribution with the well-known Arduino environment.
 
@@ -48,9 +48,8 @@ Portenta X8 is a powerful, industrial-grade System on Module combining a Yocto L
 
 As reported in the image above, Portenta X8 features two powerful computing units:
 
-* **NXP® i.MX 8M Mini** featuring 4x ARM® Cortex®-A53 cores running up to 1.8GHz and 1x ARM® Cortex®-M4 core running up to 400 MHz. This microprocessor hosts the Yocto Linux distribution and supports Docker containers. For more details, refer to [this section](#linux-environment) of the user manual.
-
-* **STMicroelectronics STM32H747XI** featureing 1x ARM® Cortex®-M7 core running up to 480 MHz and 1x ARM® Cortex®-M4 core running up to 240 MHz. This microcontroller hosts the ["Arduino Mbed OS Portenta Boards" Core](https://github.com/arduino/ArduinoCore-mbed). M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4 as well as to manage peripherals through RPC. For more details, refer to [this section](#arduino-environment) of the user manual.
+-* **STMicroelectronics STM32H747XI** featureing 1x ARM® Cortex®-M7 core running up to 480 MHz and 1x ARM® Cortex®-M4 core running up to 240 MHz. This microcontroller hosts the ["Arduino Mbed OS Portenta Boards" Core](https://github.com/arduino/ArduinoCore-mbed). M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4 as well as to manage peripherals through RPC. For more details, refer to [this section](#arduino-environment) of the user manual.
++* **STMicroelectronics STM32H747XI** featureing 1x Arm® Cortex®-M7 core running up to 480 MHz and 1x Arm® Cortex®-M4 core running up to 240 MHz. This microcontroller hosts the ["Arduino Mbed OS Portenta Boards" Core](https://github.com/arduino/ArduinoCore-mbed). M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4 as well as to manage peripherals through RPC. For more details, refer to [this section](#arduino-environment) of the user manual.
 
 The two computing units are responsible for different tasks, which are summarized in the table below.
 
@@ -62,18 +61,18 @@ The two computing units are responsible for different tasks, which are summarize
   | Manage network-based buses (e.g. Modbus TCP, etc.)      | Manage field buses (e.g. Modbus RTU, CANbus, etc.)             |
   | Access to peripherals without concurrent access control | Access to peripherals without concurrent access control        |
 
-In addition to the above features, Portenta X8 guarantees security over time. A secure element (i.e. [NXP® SE050C2](https://www.nxp.com/docs/en/data-sheet/SE050-DATASHEET.pdf)) ensures a secure connection at the hardware level and allows the board to be PSA certified from ARM® (click [here](https://www.psacertified.org/products/portenta-x8/) to learn more).
+In addition to the above features, here is an overview of the board's main components:
 
-Moreover, Portenta X8 can be further customized to get a continuously maintained Linux kernel distribution and to keep security at first by Over-The-Air (OTA) device updates and fleet management. In order to activate these features, you need to create an Arduino Cloud for business account including the so-called **Portenta X8 Board Manager**. Portenta X8 Board Manager has been developed together with [Foundries.io](https://foundries.io/) and allows a user to:
-
-* Securely maintain Linux distribution inside a FoundriesFactory, i.e. a dedicated workspace where all your Portenta X8 are provisioned and maintained.
-* Deploy and update applications packaged into containers, including both containers provided by Arduino or custom containers.
-* Get individual provisioning keys for each device.
-* Perform secure Over-the-air (OTA) updates to target Portenta X8 devices/fleets.
-
-***Click [here](https://cloud.arduino.cc/plans#business) to learn more about Arduino Cloud for business and the Portenta X8 Board Manager add-on. Otherwise, check the [dedicated section](#working-with-portenta-x8-board-manager) of this user manual to start working with Portenta X8 Manager.***
+* **External memory**: The board features an onboard 16 GB eMMC Flash memory and 2 GB Low Power DDR4 DRAM.
+* **Wireless connectivity**: The board supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® 5.1, provided by the Murata® 1DX module. This high-performance Wi-Fi® and Bluetooth® module allows the Portenta X8 to communicate wirelessly with other devices and systems.
+* **Ethernet connectivity**: The board features an onboard, high-performance 1 Gbps Ethernet transceiver accessible through its High-Density connectors.
+* **Secure element**: The board includes a ready-to-use secure element, the SE050C2 from NXP®, tailored for IoT devices and offering advanced security features. This enables Portenta X8 to achieve PSA certification from ARM®. For more information, click [here](https://www.psacertified.org/products/portenta-x8/).
+* **USB connectivity**: The board features a USB-C port for power and data, which is also accessible through the board's High-Density connectors. This port is linked to a MIPI to USB-C/DisplayPort converter, enabling video output through the USB-C connection.
+* **Power management**: The Portenta X8 includes a power management integrated circuit (PMIC) to meet the demands of always-connected IoT devices.
 
 ### Pinout
+
+**MISSING PINOUT PICTURE**
 
 The full pinout is available and downloadable as PDF from the link below:
 * [Portenta X8 Pinout](https://docs.arduino.cc/static/019dd9ac3b08f48192dcb1291d37aab9/ABX00049-full-pinout.pdf)
@@ -92,6 +91,17 @@ The full schematics are available and downloadable as PDF from the link below:
 
 The full _STEP_ files are available and downloadable from the link below:
 * [Portenta X8 STEP files](../../downloads/ABX00049-step.zip)
+
+### Features Overview
+
+Portenta X8 integrates two main programming experiences, Yocto Linux environment and the popular Arduino environment.
+
+**DIAGRAM SHOWING MPU + LINUX, MCU (M4) + ARDUINO, COMPUTER, CLOUD + PORTENTA X8 MANAGER**
+
+To explore specific sections in more detail, please click on the links below that interest you: 
+* Linux Environment - Link to be added
+* Arduino Environment - Link to be added
+* Arduino Cloud - Link to be added
 
 ### Linux Environment
 
