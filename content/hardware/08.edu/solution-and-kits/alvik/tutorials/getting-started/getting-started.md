@@ -25,7 +25,7 @@ Your Alvik robot is equipped with three ready-to-go examples. To choose one of t
 
 - **Blue Program (Line Follower):** Your robot will glide along a black line on a white surface. Press the "tick" confirmation button again to make the robot follow the line. You can stop the robot at any moment by pressing the "X" cancel button. **The recommended size for the "black line" to follow is between 2-3 cm wide.**
 
-Now that you have played with Alvik and have seen it moving, it is time to know more in-depth how it is built and how to get much more than the out-of-the-box experience from it.
+Now that you have played with Alvik and have seen it moving, it is time to know more in-depth how it is built and how to program Alvik to do amazing things.
 
 ### Let's Start Coding Alvik
 
