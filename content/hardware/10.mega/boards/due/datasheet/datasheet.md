@@ -63,7 +63,7 @@ The Arduino Due is a versatile microcontroller board designed for a wide range o
 | Microcontroller       | **Atmel SAM3X8E ARM Cortex-M3**  32-bit ARM Cortex-M3 / 84 MHzClock speed            |
 | Memory                | **SAM3X** 512 KB Flash / 96 KB SRAM (divided into two banks: 64 KB and 32 KB)        |
 | USB-to-serial         | **ATmega16U2** Connected to the SAM3X hardware UART                                  |
-| Digital Inputs        | Digital Inputs not 5 V compatible (x54)                                              |
+| Digital Inputs        | Digital Inputs (x54) not 5 V compatible                                              |
 | Analog Inputs         | The Due's analog inputs pins measure from ground to a maximum value of 3.3V (x12)    |
 | PWM Pins              | PWM Pins with 8 bits resolution (x12)                                                |
 | Communication         | UART (x4), I2C (x2), SPI (x1 SPI header), Native USB port, Programming USB port      |
