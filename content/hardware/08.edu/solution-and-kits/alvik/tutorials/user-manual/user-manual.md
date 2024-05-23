@@ -1,7 +1,7 @@
 ---
-title: "Getting Started with Alvik"
+title: "Alvik User Manual"
 difficulty: beginner
-description: "Discover how to use and program Alvik's robot"
+description: "Discover how to use and program Arduino® Alvik's robot"
 tags:
   - Robot
 author: "Paolo Cavagnolo"
