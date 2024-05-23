@@ -17,7 +17,7 @@ Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through
 
 ![Selecting one of the ready-to-go examples](assets/select-examples.gif)
 
-Your Alvik robot is equipped with three ready-to-go examples. To choose one of the examples, just turn your Alvik ON, moving the switch located at the bottom right corner of the robot to the right, wait until the LEDs turn blue and use the Up and Down buttons to pick one color, then hit the "tick" confirmation button. It's that easy!
+Your Alvik robot is equipped with three ready-to-go examples. To choose one of the examples, just turn your Alvik ON, move the switch located at the bottom right corner of the robot to the right, wait until the LEDs turn blue and use the Up and Down buttons to pick one color, then hit the "tick" confirmation button. It's that easy!
 
 - **Red Program (Touch Mode):** Use the arrows to tell your robot what to do: up and down for moving forward and backward by 10 cm, and left and right for turning 90 degrees in each of the directions. The robot will collect instructions until you press the "tick" confirmation button. Once you press it, the robot will execute all the actions in order.
 
@@ -41,10 +41,10 @@ Now that all the previous steps have been set, let's see how to create custom pr
 
 ![Creating obstacle_avoider.py file](assets/creating_file.png)
 
-**3. **Double click on the file to open it. Once it is opened, erase the text on it and add the following code.
+**3. **Double-click on the file to open it. Once it is opened, erase the text on it and add the following code.
 
 ![Adding custom code](assets/adding_custom_code.gif)
-
+  
 ``` python
 from arduino_alvik import ArduinoAlvik
 from time import sleep_ms
@@ -82,24 +82,24 @@ while (True):
 
 ![Connecting Alvik to the PC](assets/connecting_alvik.gif)
 
-***As a good practice, to prevent the Alvik from falling off the table, turn it OFF when you are programming it..***
+***As a good practice, to prevent the Alvik from falling off the table, turn it OFF when you are programming it.***
 
 ***For Alvik to be recognized by your computer, it must be turned OFF.***
 
-**5. **Once Alvik is connected to the PC, connect it to the Arduino Lab for MicroPython and open the _main.py_ file in the Alvik folder. Once the file is opened let's replace the `import demo` statement by `import obstacle_avoider`.
+**5. **Once Alvik is connected to the PC, connect it to the Arduino Lab for MicroPython and open the _main.py_ file in the Alvik folder. Once the file is opened let's replace the `import demo` statement with `import obstacle_avoider`.
 
 ![Connecting Alvik to the IDE](assets/connecting_alvik_ide.gif)
 
-*** If you want to go back to the out of the box experience where you could select between red, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`.***
+*** If you want to go back to the out-of-the-box experience where you could select between red, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement with `import demo`.***
 
 **6. **The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
 
 ![Moving file from local to Alvik's memory](assets/local2memory.gif)
 
-You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON and see how Alvik navigates around your room avoiding them.
+You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON, and see how Alvik navigates around your room avoiding them.
 
 ### Next Steps
 
-* There are a set of already build examples that will help you to better understand how Alvik works, you can download them from [this link](https://github.com/arduino/arduino-alvik-mpy/archive/refs/tags/0.2.0.zip), unzip them in your already created _alvik_ folder and you will be able to see them straight away in the Arduino Labs for MicroPython IDE.
+* There is a set of already built examples that will help you to better understand how Alvik works, you can download them from [this link](https://github.com/arduino/arduino-alvik-mpy/archive/refs/tags/0.2.0.zip), unzip them in your already created _alvik_ folder and you will be able to see them straight away in the Arduino Labs for MicroPython IDE.
 *  If you want to learn more about how Alvik is built or which functions you can use to program it, visit the documentation in the [Docs space for Alvik](https://docs.arduino.cc/hardware/alvik/) and follow the respective [Alvik's User Manual]((https://docs.arduino.cc/hardware/alvik/user-manual) to know more about how to build incredible projects with your robot!
-* If you want to follow step-by-step guided projects following a educational approach to learn MicroPython and robotics topics with Alvik, follow the [Explore Robotics in MicroPython](https://courses.arduino.cc/explore-robotics-micropython/) course.
+* If you want to follow step-by-step guided projects following an educational approach to learn MicroPython and robotics topics with Alvik, follow the [Explore Robotics in MicroPython](https://courses.arduino.cc/explore-robotics-micropython/) course.
