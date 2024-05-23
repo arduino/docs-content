@@ -2218,7 +2218,7 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.p
 
 #### Using Arduino IDE
 
-The Portenta H7 and C33 are compatible with the Mini PCIe interface and can leverage the Pro 4G Module's capability. Enable and using the modem with the Portenta H7 or C33 will require a library named [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular). The library manager within the Arduino IDE can access the library by navigating to **Sketch -> Include Library -> Manage Libraries**.
+The Portenta H7 and C33 are compatible with the Mini PCIe interface and can leverage the Pro 4G Module's capabilities. Enabling and using the modem with the Portenta H7 or C33 will require a library named [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular). You can access the library through the Arduino IDE's library manager by navigating to **Sketch -> Include Library -> Manage Libraries** or using the IDE's side panel with books icon.
 
 ![Arduino Cellular Library for Pro 4G Modules](assets/arduino_cellular_library.png)
 
@@ -2240,9 +2240,7 @@ The image below shows the setup, featuring the Portenta H7 and Pro 4G Module con
 
 ![Portenta Mid Carrier Mini PCIe & Portenta H7/C33 Setup](assets/portentaMIDcarrier_h7_c33_mpcie_set.png)
 
-The Portenta H7 can be replaced with the Portenta C33, maintaining the same setup.
-
-Once the setup is ready, we can use the following example from the library called **HTTPClient**:
+The Portenta H7 can be replaced with the Portenta C33, maintaining the same setup. Once ready, you can use the following **HTTPClient** example from the library:
 
 ```arduino
 /**
@@ -2313,14 +2311,14 @@ void setup(){
 void loop(){}
 ```
 
-The example above connects to the web and fetches resources via HTTP. The script will require **arduino_secrets.h** to be defined with following credentials:
+The example above connects to the web and fetches resources via HTTP using the [*ArduinoHttpClient*](https://github.com/arduino-libraries/ArduinoHttpClient). The script requires **arduino_secrets.h** to be defined with the following credentials:
 
 - GPRS APN
 - GPRS User
 - GPRS Password
 - SIM Card PIN Number
 
-These parameters will always be required to be defined to use the SIM functionalities within the modem. The image below shows an anticipated result of the modem detected and connecting to a network:
+These parameters are always required to use the SIM functionalities within the modem. The image below shows an anticipated result of the modem detected and connecting to a network:
 
 ![Portenta H7 & Pro 4G Module - HTTPClient Example](assets/portentaMIDcarrier_h7_mpcie_4gmodem_result.png)
 
@@ -2328,9 +2326,8 @@ It will show a similar result when the Portenta C33 is used as the core device w
 
 ![Portenta C33 & Pro 4G Module - HTTPClient Example](assets/portentaMIDcarrier_c33_mpcie_4gmodem_result.png)
 
-You may find additional examples as well within the library to try various functionalities such as deleting SMS, getting GPS location, and connecting to web servers securely:
+You may find additional examples within the library to try various functionalities such as deleting SMS, getting GPS location, and connecting to web servers securely:
 
-- [**HTTPClient**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/HTTPClient/HTTPClient.ino): Connects to a web server using the [*ArduinoHttpClient*](https://github.com/arduino-libraries/ArduinoHttpClient).
 - [**HTTPSClient**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/HTTPSClient/HTTPSClient.ino): Establishes a secure connection to a web server with [*BearSSL*](https://bearssl.org/) and [*ArduinoHttpClient*](https://github.com/arduino-libraries/ArduinoHttpClient).
 - [**ModemTerminal**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/ModemTerminal/ModemTerminal.ino): Useful for debugging and testing AT commands.
 - [**GetLocation**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/GetLocation/GetLocation.ino): Shows how to obtain the current GPS location.
