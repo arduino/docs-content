@@ -2318,26 +2318,28 @@ The example above connects to the web and fetches resources via HTTP. The script
 - GPRS APN
 - GPRS User
 - GPRS Password
-- SIM Card Pin Number
+- SIM Card PIN Number
 
 These parameters will always be required to be defined to use the SIM functionalities within the modem. The image below shows an anticipated result of the modem detected and connecting to a network:
 
 ![Portenta H7 & Pro 4G Module - HTTPClient Example](assets/portentaMIDcarrier_h7_mpcie_4gmodem_result.png)
 
-It will show similar result when the Portenta C33 is used as the core device with the Portenta Mid Carrier and the Pro 4G Module:
+It will show a similar result when the Portenta C33 is used as the core device with the Portenta Mid Carrier and the Pro 4G Module:
 
 ![Portenta C33 & Pro 4G Module - HTTPClient Example](assets/portentaMIDcarrier_c33_mpcie_4gmodem_result.png)
 
 You may find additional examples as well within the library to try various functionalities such as deleting SMS, getting GPS location, and connecting to web servers securely:
 
-- **HTTPClient**: Connects to a web server using the [*ArduinoHttpClient*](https://github.com/arduino-libraries/ArduinoHttpClient).
-- **HTTPSClient**: Establishes a secure connection to a web server with [*BearSSL*](https://bearssl.org/) and [*ArduinoHttpClient*](https://github.com/arduino-libraries/ArduinoHttpClient).
-- **ModemTerminal**: Useful for debugging and testing AT commands.
-- **GetLocation**: Shows how to obtain the current GPS location.
-- **GetTime**: Uses GPS to acquire the device's time.
-- **ReceiveSMS**: Demonstrates SMS sending and receiving functionality.
-- **SendSMS**: Shows how to send an SMS.
-- **DeleteSMS**: Demonstrates how to delete SMS messages.
+- [**HTTPClient**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/HTTPClient/HTTPClient.ino): Connects to a web server using the [*ArduinoHttpClient*](https://github.com/arduino-libraries/ArduinoHttpClient).
+- [**HTTPSClient**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/HTTPSClient/HTTPSClient.ino): Establishes a secure connection to a web server with [*BearSSL*](https://bearssl.org/) and [*ArduinoHttpClient*](https://github.com/arduino-libraries/ArduinoHttpClient).
+- [**ModemTerminal**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/ModemTerminal/ModemTerminal.ino): Useful for debugging and testing AT commands.
+- [**GetLocation**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/GetLocation/GetLocation.ino): Shows how to obtain the current GPS location.
+- [**GetTime**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/GetTime/GetTime.ino): Uses GPS to acquire the device's time.
+- [**ReceiveSMS**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/ReceiveSMS/ReceiveSMS.ino): Demonstrates SMS sending and receiving functionality.
+- [**SendSMS**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/SendSMS/SendSMS.ino): Shows how to send an SMS.
+- [**DeleteSMS**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/DeleteSMS/DeleteSMS.ino): Demonstrates how to delete SMS messages.
+
+For more details on how the library works, including a comprehensive guide on setup and usage of the above examples, please refer to this [library documentation](https://github.com/arduino-libraries/Arduino_Cellular/tree/main/docs).
 
 #### Ethernet
 
