@@ -27,7 +27,7 @@ The Arduino Due is a groundbreaking microcontroller board featuring the Atmel SA
 Target Areas: Tags about the main keywords of the product, can be taken from the sales brief or asking the Project Manager about the right ones. Tags must be first letter in caps and must be separated by commas. Actual tags for example purposes.
 -->
 
-Embedded Systems Development, Robotics, 3D Printing & CNC Machines and Prototyping
+Embedded Systems Development, Robotics, 3D Printing, CNC Machines, Prototyping
 
 # Contents
 ## Application Examples
@@ -45,10 +45,15 @@ The Arduino Due combines the performance of the Atmel SAM3X8E microcontroller wi
 
 - **3D Printing & CNC Machines:** the Arduino Due can function as a versatile controller for DIY projects. By interfacing stepper motor drivers and endstop switches with the Due's numerous I/O pins, enthusiasts can create their own 3D printers or CNC machines. The Due's high-speed processing capabilities enable precise control of stepper motors for accurate positioning and movement.
 
-- **Prototyping:** The Arduino Due serves as an invaluable tool for quickly iterating and testing new ideas for IoT devices. By leveraging the Due's extensive I/O capabilities and compatibility with various sensors, communication modules, and actuators, developers can rapidly assemble and test prototypes of IoT devices. Whether it's a smart home sensor node, a weather station, or a remote monitoring system, the Arduino Due provides a flexible platform for integrating components, writing firmware, and validating functionality. With the Due's support for Arduino libraries and easy-to-use development environment, prototypers can focus on innovation and experimentation, accelerating the process of bringing ideas to fruition.
+- **Prototyping:** The Arduino Due serves as an invaluable tool for quickly iterating and testing new ideas for IoT devices. By leveraging the Due's extensive I/O capabilities and compatibility with various sensors, communication modules, and actuators, developers can rapidly assemble and test prototypes of IoT devices. Whether it is a smart home sensor node, a weather station, or a remote monitoring system, the Arduino Due provides a flexible platform for integrating components, writing firmware, and validating functionality. With the Due's support for Arduino libraries and easy-to-use development environment, prototypers can focus on innovation and experimentation, accelerating the process of bringing ideas to fruition.
 </div>
 
+
+
 ## Features
+
+<div style="page-break-inside: avoid;">
+
 ### General Specifications Overview
 
 <!---
@@ -83,8 +88,9 @@ Subsection about a Main Feature: The subsection inside features and under Genera
 | Component                | Details                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------- |
 | Atmel SAM3X8E            | 32-bit ARM Cortex-M3 at 84 MHz                                                                 |
-| Flash Memory             | 512 KB Flash                                                                                   |
+| Flash Memory             | 512 KB                                                                                         |
 | Programming Memory       | 96 KB SRAM (divided into two banks: 64 KB and 32 KB)                                           |
+
 
 ### Inputs
 
@@ -92,12 +98,11 @@ Subsection about a Main Feature: The subsection inside features and under Genera
 Subsection about a Main Feature: The subsection inside features and under General Specification Overview talks about some of the main features of the product, from the microprocessor's main specifications, to the wifi chipset, Camera, Audio, Important Interfaces like CAN, etc. Ideally those sections should contain an initial 2/3 line paragraph, a table or multiple tables explaining the main specs and related media like images or schemas to explain better the technical specifications. Warnings and Note blocks regarding special things of the feature to take into account are also recommended.
 -->
 
-| Characteristics               | Details                  |
-| ----------------------------- | ------------------------ |
-| Number of inputs              | 66x Analog/Digital inputs|
-| Inputs overvoltage protection | yes                      |
-| Antipolarity protection       | yes                      |
-| Input impedance               | 8.9 kΩ                   |
+| Characteristics               | Details                                        |
+| ----------------------------- | ---------------------------------------------- |
+| Number of inputs              | 54x digital input, 12x analog inputs           |
+| Inputs overvoltage protection | yes                                            |
+| Antipolarity protection       | yes                                            |
 
 ### Outputs
 
@@ -108,11 +113,11 @@ Subsection about a Main Feature: The subsection inside features and under Genera
 | Characteristics                       | Details                                             |
 | ------------------------------------- | --------------------------------------------------- |
 | DAC1 and DAC2                         | True analog output 12-bits resolution (4096 levels) |
-| PWM outputs                           | 12x                                                 |
+| PWM outputs                           | 12x PWM Outputs                                     |
 
+</div>
 
-
-## Accessories (<included / not included>)
+## Accessories
 
 <!---
 Accessories: This section lists some of the related accessories that come or not with the product, like USB cables, antennas or batteries. It is important to put in whether the accessory is included or not. Actual items only for purposes examples.
@@ -131,12 +136,9 @@ Related products: This section lists some of the related products like shields o
 - Arduino Motor Shield Rev3 (A000079)
 
 ## Rating
-
 <!---
 Rating: This section is really important from the technical point of view, containing important information regarding the minimum and maximum values of this like voltage and current. The better the information is, the fewer support tickets the company will receive due to burn boards.
 -->
-
-
 ### Recommended Operating Conditions
 
 <!---
@@ -164,6 +166,7 @@ Recommended Operating Conditions/Power Specifications: This section contains the
 | Supply voltage         | 7     | -   | 12   | V    |
 | Permissible range      | 6     | -   | 16   | V    |
 
+
 ### Current Consumption
 
 <!---
@@ -172,7 +175,8 @@ Current Consumption: This section contains information about the current consump
 
 | Parameter                                       | Symbol         | Min | Typ | Max | Unit |
 | ----------------------------------------------- | -------------- | --- | --- | --- | ---- |
-| Normal Mode Current Consumption<sup>2</sup>     | I<sub>NM</sub> | 130 | --- | 800 | mA   |
+| Normal Mode Current Consumption                 | I<sub>NM</sub> | 130 | --- | 800 | mA   |
+
 
 
 ## Functional Overview
@@ -196,7 +200,7 @@ Notes and warnings: If the product has some important tips to take into account 
 -->
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<strong>Safety Note:</strong> Disconnect power before board modifications. Avoid short-circuiting. Refer to the full guide for more safety tips.
+<strong>Safety Note:</strong> Disconnect power before board modifications, to avoid short-circuiting.
 </div>
 
 ### Full Pinout Table
@@ -208,7 +212,6 @@ Full Pinout Table: The full pinout tables are done only necessary in case of rea
 The full pinout of the Arduino due is available in the following tables.
 
 #### 24-Pin Header
-
 
 <div style="text-align:center;">
 
@@ -247,9 +250,6 @@ The full pinout of the Arduino due is available in the following tables.
 Div page break tags: Sometimes the format is not perfect and some sections are added/cut in the pages we do not want to. This kind of div page break tag can be used to fix those problems
 -->
 
-<div style="page-break-after: always;"></div>
-
-
 #### 26-Pin Header
 
 <div style="text-align:center;">
@@ -287,9 +287,6 @@ Div page break tags: Sometimes the format is not perfect and some sections are a
 
 </div>
 
-<div style="page-break-after: always;"></div>
-
-
 #### SPI
 
 <div style="text-align:center;">
@@ -306,9 +303,6 @@ Div page break tags: Sometimes the format is not perfect and some sections are a
 <caption>SPI pinout</caption>
 
 </div>
-
-<div style="page-break-after: always;"></div>
-
 
 #### Digital Pins D22 - D53 LHS
 
@@ -339,9 +333,6 @@ Div page break tags: Sometimes the format is not perfect and some sections are a
 
 </div>
 
-<div style="page-break-after: always;"></div>
-
-
 #### Digital Pins D22 - D53 RHS
 
 <div style="text-align:center;">
@@ -371,8 +362,26 @@ Div page break tags: Sometimes the format is not perfect and some sections are a
 
 </div>
 
-<div style="page-break-after: always;"></div>
+#### JTAG Pins
 
+<div style="text-align:center;">
+
+| Pin | Function | Type    | Description      |
+|-----|----------|---------|------------------|
+| 1   | Reset    | Reset   | Reset            |
+| 2   | GND      | Power   | GROUND           |
+| 3   | TDI      | Digital | Test Data In     |
+| 4   | n/c      |    -    | Not Connected    |
+| 5   | TDO      | Digital | Test Data Out    |
+| 6   | GND      | Power   | GROUND           |
+| 7   | TCK      | Digital | Test Clock       |
+| 8   | GND      | Power   | GROUND           |
+| 9   | TMS      | Digital | Test Mode Select |
+| 10  | +3V3     | Power   | +3V3 Power Rail  |
+
+<caption>JTAG pinout</caption>
+
+</div>
 
 ### Block Diagram
 
@@ -393,10 +402,10 @@ Power tree: The power tree is really important from the technical point of view 
 The Arduino Due can be powered through multiple interfaces:
 
 - USB Type-B port (Native port and Programming port)
-- The Due can also be powered using an external voltage source connected to the VIN pin, which has a recommended voltage range of 7 to 12 volts.
-- The Power Jack: Alternatively, the Due can be powered using a DC power supply connected to the power jack, which accepts a voltage range of 7 to 12 volts.
+- The Due can also be powered using an external voltage source connected to the VIN pin, which has a recommended voltage range of 7 to 12 V.
+- The Power Jack: alternatively, the Due can be powered using a DC power supply connected to the power jack, which accepts a voltage range of 7 to 12 V.
 
-**It is essential to note that the Arduino Due operates at 3.3V, so any external power sources must be regulated to this voltage level. Additionally, the power supply should be able to provide sufficient current for the board's operation and any connected peripherals.** 
+**It is essential to note that the Arduino Due operates at 3.3 V, so any external power sources must be regulated to this voltage level. Additionally, the power supply should be able to provide sufficient current for the board's operation and any connected peripherals.** 
 
 </div>
 
@@ -409,30 +418,34 @@ The Arduino Due can be powered through multiple interfaces:
 Product Topology: Product topology is an important section of the datasheet and a combination of two elements: the diagram with the main components references, and the table listing and describing those main components. It is important to describe only the components interesting for the final user, so capacitors, resistors and other passive components should not be described in this section as a general rule. Image and text for example purposes
 -->
 
-![Top View of Arduino GIGA R1 WiFi](assets/gigaR1WiFiTop.png)
-
-| **Ref.** | **Description**                         | **Ref.** | **Description**                     |
-|----------|-----------------------------------------|----------|-------------------------------------|
-| U1       | STM32H7 Dual Core Microcontroller IC    | U8       | AT25SF128A-MHB-T 16 MB Flash IC     |
-| U3       | AS4C4M16SA 8MB SDRAM IC                 | U4       | ATECC608A-MAHDA-T Secure Element IC |
-| U5       | LBEE5KL1DX-883 Wi-Fi®/Bluetooth® Module | U6       | MP2322GQH Buck Converter 3.3V IC    |
-| U7       | MP2269GD-Z Buck Converter 5V IC         | JANALOG  | Analog input/output headers         |
-| JDIGITAL | Digital input/output headers            | JSIDE    | Digital input/output headers        |
-| SPI      | SPI headers                             | JTAG     | JTAG Headers                        |
-| J2       | USB 2.0 A Host                          | J15      | 3.5 mm audio in/out                 |
-| PB1      | RESET Button                            | PB2      | BOOT0 button                        |
-| J14      | Micro UFL connector                     | J5       | Camera                              |
-| J6       | Camera                                  | DL1      | Power LED                           |
-| DL2      | RGB SMLP34RGB2W3 Common anode LED       | J12      | CX90B-16P USB-C® connector          |
+![Arduino Due Topology](assets/Arduino%20Due%20topology.png)
 
 <!---
 Product Topology specific subsections: Different subsections about specific features and important parts of the product can be added inside the product topology, explaining for example more information about the microprocessors, the MIPI camera connector, the GPS connectivity, the GPIO pins, JTAG connectors, USB, etc etc. Some of the Portenta Hat Carrier specific sections have been added as a nice example.
 -->
 
-
 #### JTAG Connector
 
 <p style="text-align: justify;">Debugging capabilities are integrated directly into the Arduino due and are accessible via the 6-pin JTAG connector.</p>
+
+<div style="text-align:center;">
+
+| Pin | Function | Type    | Description      |
+|-----|----------|---------|------------------|
+| 1   | Reset    | Reset   | Reset            |
+| 2   | GND      | Power   | GROUND           |
+| 3   | TDI      | Digital | Test Data In     |
+| 4   | n/c      |    -    | Not Connected    |
+| 5   | TDO      | Digital | Test Data Out    |
+| 6   | GND      | Power   | GROUND           |
+| 7   | TCK      | Digital | Test Clock       |
+| 8   | GND      | Power   | GROUND           |
+| 9   | TMS      | Digital | Test Mode Select |
+| 10  | +3V3     | Power   | +3V3 Power Rail  |
+
+<caption>JTAG pinout</caption>
+
+</div>
 
 #### Native USB port
 
@@ -450,20 +463,156 @@ Product Topology specific subsections: Different subsections about specific feat
 
 These pins offer a range of functionalities, including analog and digital input/output, power supply connections, analog-to-digital and digital-to-analog conversion, and CAN bus communication.
 
+<div style="text-align:center;">
+
+| Pin  | Function   | Type      | Description                                       |
+| ---- | ---------- | --------- | ------------------------------------------------- |
+|  1   | NC         | NC        | Not Connected                                     |
+|  2   | IOREF      | IOREF     | Reference for digital logic V - connected to 3.3V |
+|  3   | Reset      | Reset     | Reset                                             |
+|  4   | +3V3       | Power     | +3V3 Power Rail                                   |
+|  5   | +5V        | Power     | +5V Power Rail                                    |
+|  6   | GND        | Power     | Ground                                            |
+|  7   | GND        | Power     | Ground                                            |
+|  8   | VIN        | Power     | Voltage Input                                     |
+|  9   | A0         | Analog    | Analog input 0 /GPIO                              |
+|  10  | A1         | Analog    | Analog input 1 /GPIO                              |
+|  11  | A2         | Analog    | Analog input 2 /GPIO                              |
+|  12  | A3         | Analog    | Analog input 3 /GPIO                              |
+|  13  | A4         | Analog    | Analog input 4 /GPIO                              |
+|  14  | A5         | Analog    | Analog input 5 /GPIO                              |
+|  15  | A6         | Analog    | Analog input 6 /GPIO                              |
+|  16  | A7         | Analog    | Analog input 7 /GPIO                              |
+|  17  | A8         | Analog    | Analog input 8 /GPIO                              |
+|  18  | A9         | Analog    | Analog input 9 /GPIO                              |
+|  19  | A10        | Analog    | Analog input 10 /GPIO                             |
+|  20  | A11        | Analog    | Analog input 11 /GPIO                             |
+|  21  | DAC0       | Analog    | Digital to Analog Converter 0                     |
+|  22  | DAC1       | Analog    | Digital to Analog Converter 1                     |
+|  23  | CANRX      | Digital   | CAN Bus Receive                                   |
+|  24  | CANTX      | Digital   | CAN Bus Transfer                                  |
+
+<caption>24-Pin Header pinout</caption>
+
+</div>
+
 #### 26-Pin Header Connector
 
 <p style="text-align: justify;">The 26-pin header connector on the Arduino Due offers a comprehensive set of interfaces and versatile pins crucial for diverse applications</p>
 
 These pins offer a range of functionalities, including digital input/output, serial communication, PWM (Pulse Width Modulation) outputs, and I2C (Inter-Integrated Circuit) communication.
 
+<div style="text-align:center;">
+
+| Pin | Function | Type    | Description                                     |
+| --- | -------- | ------- | ----------------------------------------------- |
+| 1   | D21/SCL1 | Digital | GPIO 21/I2C 1 Clock                             |
+| 2   | D20/SDA1 | Digital | GPIO 20/I2C 1 Dataline                          |
+| 3   | AREF     | Digital | Analog Reference Voltage                        |
+| 4   | GND      | Power   | Ground                                          |
+| 5   | D13/SCK  | Digital | GPIO 13/SPI Clock (PWM~)                        |
+| 6   | D12/CIPO | Digital | GPIO 12/SPI Controller In Peripheral Out (PWM~) |
+| 7   | D11/COPI | Digital | GPIO 11/SPI Controller Out Peripheral In (PWM~) |
+| 8   | D10/CS   | Digital | GPIO 10/SPI Chip Select (PWM~)                  |
+| 9   | D9/SDA2  | Digital | GPIO 9/I2C 2 Dataline (PWM~)                    |
+| 10  | D8/SCL2  | Digital | GPIO 8/I2C 2 Clockline (PWM~)                   |
+| 11  | D7       | Digital | GPIO 7 (PWM~)                                   |
+| 12  | D6       | Digital | GPIO 6 (PWM~)                                   |
+| 13  | D5       | Digital | GPIO 5 (PWM~)                                   |
+| 14  | D4       | Digital | GPIO 4 (PWM~)                                   |
+| 15  | D3       | Digital | GPIO 3 (PWM~)                                   |
+| 16  | D2       | Digital | GPIO 2 (PWM~)                                   |
+| 17  | D1/TX0   | Digital | GPIO 1 / Serial 0 Transmitter                   |
+| 18  | D0/TX0   | Digital | GPIO 0 / Serial 0 Receiver                      |
+| 19  | D14/TX3  | Digital | GPIO 14 / Serial 3 Transmitter                  |
+| 20  | D15/RX3  | Digital | GPIO 15 / Serial 3 Receiver                     |
+| 21  | D16/TX2  | Digital | GPIO 16 / Serial 2 Transmitter                  |
+| 22  | D17/RX2  | Digital | GPIO 17 / Serial 2 Receiver                     |
+| 23  | D18/TX1  | Digital | GPIO 18 / Serial 1 Transmitter                  |
+| 24  | D19/RX1  | Digital | GPIO 19 / Serial 1 Receiver                     |
+| 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                        |
+| 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                           |
+
+<caption>26-Pin Header pinout</caption>
+
+</div>
+
 #### SPI
 
 <p style="text-align: justify;">These pins facilitate communication between the Arduino Due and external SPI devices </p>
+
+<div style="text-align:center;">
+
+| Pin | Function | Type     | Description                  |
+|-----|----------|----------|------------------------------|
+| 1   | CIPO     | Internal | Controller In Peripheral Out |
+| 2   | +5V      | Internal | Power Supply of 5V           |
+| 3   | SCK      | Internal | Serial Clock                 |
+| 4   | COPI     | Internal | Controller Out Peripheral In |
+| 5   | RESET    | Internal | Reset                        |
+| 6   | GND      | Internal | Ground                       |
+
+<caption>SPI pinout</caption>
+
+</div>
 
 #### D22 to D53 on the left-hand side (LHS) and right-hand side (RHS)
 
 <p style="text-align: justify;">These digital pins provide a wide range of GPIO (General Purpose Input/Output) capabilities for interfacing with external sensors, actuators, and other digital devices in Arduino Due projects. </p>
 
+<div style="text-align:center;">
+
+| Pin | Function | Type    | Description    |
+|-----|----------|---------|----------------|
+| 1   | +5V      | Power   | +5V Power Rail |
+| 2   | D22      | Digital | GPIO 22        |
+| 3   | D24      | Digital | GPIO 24        |
+| 4   | D26      | Digital | GPIO 26        |
+| 5   | D28      | Digital | GPIO 28        |
+| 6   | D30      | Digital | GPIO 30        |
+| 7   | D32      | Digital | GPIO 32        |
+| 8   | D34      | Digital | GPIO 34        |
+| 9   | D36      | Digital | GPIO 36        |
+| 10  | D38      | Digital | GPIO 38        |
+| 11  | D40      | Digital | GPIO 40        |
+| 12  | D42      | Digital | GPIO 42        |
+| 13  | D44      | Digital | GPIO 44        |
+| 14  | D46      | Digital | GPIO 46        |
+| 15  | D48      | Digital | GPIO 48        |
+| 16  | D50      | Digital | GPIO 50        |
+| 17  | D52      | Digital | GPIO 52        |
+| 18  | GND      | Power   | Ground         |
+
+<caption>D22 - D53 LHS pinout</caption>
+
+</div>
+
+<div style="text-align:center;">
+
+| Pin | Function | Type    | Description    |
+|-----|----------|---------|----------------|
+| 1   | +5V      | Power   | +5V Power Rail |
+| 2   | D23      | Digital | GPIO 23        |
+| 3   | D25      | Digital | GPIO 25        |
+| 4   | D27      | Digital | GPIO 27        |
+| 5   | D29      | Digital | GPIO 29        |
+| 6   | D31      | Digital | GPIO 31        |
+| 7   | D33      | Digital | GPIO 33        |
+| 8   | D35      | Digital | GPIO 35        |
+| 9   | D37      | Digital | GPIO 37        |
+| 10  | D39      | Digital | GPIO 39        |
+| 11  | D41      | Digital | GPIO 41        |
+| 12  | D43      | Digital | GPIO 43        |
+| 13  | D45      | Digital | GPIO 45        |
+| 14  | D47      | Digital | GPIO 47        |
+| 15  | D49      | Digital | GPIO 49        |
+| 16  | D51      | Digital | GPIO 51        |
+| 17  | D53      | Digital | GPIO 53        |
+| 18  | GND      | Power   | Ground         |
+
+<caption>D22 - D53 RHS pinout</caption>
+
+</div>
 
 ## Device Operation
 
@@ -516,10 +665,7 @@ The Arduino Due board outline and mounting holes dimensions are shown in the fig
 
 Connectors of the Arduino Due are placed on the left side of the board; their placement is shown in the figure below; all the dimensions are in mm. 
 
-![Arduino Due Connector](assets/Arduino_Due_Connectors.png)
-
-
-<div style="page-break-after: always;"></div>
+![Arduino Due Technical drawing](assets/Arduino_Due_Connectors.png)
 
 
 ## Certifications
@@ -536,15 +682,15 @@ Certification Summary: A table including the main certification of the products.
 
 | **Certification** | **Status** |
 |:-----------------:|:----------:|
-|  CE/RED (Europe)  |         |
-|     UKCA (UK)     |         |
-|     FCC (USA)     |         |
-|    IC (Canada)    |         |
-| MIC/Telec (Japan) |         |
-|  RCM (Australia)  |         |
-|        RoHS       |         |
-|       REACH       |         |
-|        WEEE       |         |
+|  CE/RED (Europe)  |    Yes     |
+|     UKCA (UK)     |    Yes     |
+|     FCC (USA)     |    Yes     |
+|    IC (Canada)    |    Yes     |
+| MIC/Telec (Japan) |    No      |
+|  RCM (Australia)  |    Yes     |
+|        RoHS       |    Yes     |
+|       REACH       |    Yes     |
+|        WEEE       |    Yes     |
 
 ### Declaration of Conformity CE DoC (EU)
 
@@ -556,10 +702,9 @@ Certification Summary: A table including the main certification of the products.
 
 | Substance                              | **Maximum limit (ppm)** |
 |----------------------------------------|-------------------------|
-| Lead (Pb)                              | 1000                    || **Date**   | **Revision** | **Changes**               |
-| ---------- | ------------ | ------------------------- |
-| 02/11/2023 | 2            | Flashing Mode Description |
-| 25/10/2023 | 1            | First Release             |
+| Lead (Pb)                              | 1000                    |
+| 02/11/2023                             | 2                       |
+| 25/10/2023                             | 1                       |
 | Poly Brominated Biphenyls (PBB)        | 1000                    |
 | Poly Brominated Diphenyl ethers (PBDE) | 1000                    |
 | Bis(2-Ethylhexyl) phthalate (DEHP)     | 1000                    |
