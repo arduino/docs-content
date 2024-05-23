@@ -31,7 +31,13 @@ Now that you have played with Alvik and have seen it moving, it is time to know 
 
 Alvik is intended to be programmed with MicroPyton. We recommend you to install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) editor. Follow the instructions next to the download link to install it and open the IDE
 
-Now that all the previous steps have been set, let's see how to create custom programs for Alvik to move forward until detecting an object in front of it, Alvik will detect it, dodge it and continue on its way.
+Now that all the previous steps have been set, let's see how to make Alvik moving across your room while avoiding objects! Let's create custom program for Alvik that:
+
+ * Move forward until detecting an object in front of it
+ * Dodge the object by turning on
+ * Continue on its way by moving forwards again
+
+***Alvik does not have its own parachute! Be careful avoid using Alvik on your table or it could fall over the edge!***
 
 **1. **Create an Alvik folder in your computer and set it as the path of the Arduino Lab for MicroPython IDE.
 
