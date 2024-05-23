@@ -50,7 +50,7 @@ The following ESP32 boards have been tested and verified to support OTA:
 
 In order to configure the feature, we will need to create a project in the Arduino Cloud following the next steps.
 
-**1.** Go to the [Arduino Cloud](https://app.arduino.cc/) by opening the grid menu in any Arduino Site.
+**1.** Go to the [Arduino Cloud](https://app.arduino.cc/) by clicking the Cloud icon in the top right of the Arduino homepage.
 
 ![Navigating to the Cloud.](assets/iot_cloud_grid.png)
 
