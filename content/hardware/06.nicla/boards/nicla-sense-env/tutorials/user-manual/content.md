@@ -81,7 +81,9 @@ The [`Arduino_NiclaSenseEnv` library](https://github.com/sebromero/Arduino_Nicla
 
 ***The Portenta, MKR, and Nano family boards support the `Arduino_NiclaSenseEnv` library.***
 
-To install the `Arduino_NiclaSenseEnv` library, navigate to `Tools > Manage libraries...` or click the Library Manager icon in the left tab of the Arduino IDE. In the Library Manager tab, search for `Arduino_NiclaSenseEnv` and install the latest version of the library.
+To install the `Arduino_NiclaSenseEnv` library, navigate to `Tools > Manage libraries...` or click the **Library Manager** icon in the left tab of the Arduino IDE. In the Library Manager tab, search for `Arduino_NiclaSenseEnv` and install the latest version of the library.
+
+![Installing Nicla Sense Env library](assets/user-manual-6.png)
 
 ### Pinout
 
@@ -144,9 +146,232 @@ Now, connect the host board to your computer using a USB-C® cable, open the Ard
 
 Copy and paste the code below into a new sketch in the Arduino IDE: 
 
-## Pins
+```arduino
+/**
+  Blink LED on Nicla Sense Env
+  Name: nicla_sense_env_blink.ino
+  Purpose: This sketch demonstrates how to blink the onboard 
+  white LED of the Nicla Sense Env board.
+  
+  @author Arduino Product Experience Team
+  @version 1.0 22/07/23
+*/
+
+#include "NiclaSenseEnv.h"
+
+// Global device object for the Nicla Sense Env board
+NiclaSenseEnv device; 
+
+/**
+  Toggles the onboard white LED between on and off states.
+  @param led Reference to WhiteLED object controlling the LED.
+*/
+void toggleLED(WhiteLED& led) {
+    // Turn on the LED to full brightness for one second
+    led.setBrightness(63);
+    delay(1000);  
+
+    // Turn off the LED for one second
+    led.setBrightness(0);
+    delay(1000);
+}
+
+void setup() {
+    // Initialize serial communication at 115200 bits per second.
+    Serial.begin(115200);
+    
+    // Wait for Serial to be ready with a timeout of 5 seconds
+    for(auto start = millis(); !Serial && millis() - start < 5000;);
+
+    if (device.begin()) {
+        // Initialize the onboard white LED
+        auto whiteLED = device.whiteLED();
+    } 
+}
+
+void loop() {
+    // Retrieve the white LED object
+    WhiteLED whiteLED = device.whiteLED();
+
+    // Continuously toggle the white LED on and off
+    toggleLED(whiteLED);
+}
+```
+
+To upload the code to your Portenta C33, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch.
 
 ## Board Management
+
+This section of the user manual outlines how to manage the onboard sensors and main features of the Nicla Sense Env board using the `Arduino_NiclaSenseEnv` library API. It also explains how to perform essential tasks such as retrieving the board's information, managing sensor states, resetting the board, and putting it into deep sleep mode.
+
+### Board Information
+
+Detailed information from the board, such as its I2C address, serial number, product ID, software revision, and UART communication settings, can be retrieved using the `Arduino_NiclaSenseEnv` library API. The sketch shown below is an example of how to retrieve that information using a  function called `printDeviceInfo()`:
+
+```arduino
+void printDeviceInfo(NiclaSenseEnv& device) {
+    Serial.print("- Device (0x");
+    Serial.print(device.deviceAddress(), HEX);
+    Serial.println(") connected.");
+    Serial.print("- Serial number: ");
+    Serial.println(device.serialNumber());
+    Serial.print("- Product ID: ");
+    Serial.println(device.productID());
+    Serial.print("- Software revision: ");
+    Serial.println(device.softwareRevision());
+    Serial.print("- Baud rate: ");
+    Serial.println(device.UARTBaudRate());
+    Serial.print("- CSV delimiter: ");
+    Serial.println(device.CSVDelimiter());
+
+    Serial.print("- Debugging enabled: ");
+    if (device.isDebuggingEnabled()) {
+        Serial.println("true");
+    } else {
+        Serial.println("false");
+    }
+
+    Serial.print("- CSV output enabled: ");
+    if (device.isUARTCSVOutputEnabled()) {
+        Serial.println("true");
+    } else {
+        Serial.println("false");
+    }
+}
+```
+
+Here is a detailed breakdown of the `printDeviceInfo()` function and the `Arduino_NiclaSenseEnv` library API functions used in the `printDeviceInfo()` function:
+
+- `deviceAddress()`: Retrieves the I<sup>2</sup>C address of the board. This is useful for identifying the board when multiple devices are connected to the same I<sup>2</sup>C bus.
+- `serialNumber()`: Outputs the board's unique serial number. Each board's serial number is unique and can be used for tracking, inventory management, or validating its authenticity.
+- `productID()`: Provides the product ID, which specifies the exact model or version of the board.
+- `softwareRevision()`: This displays the current firmware version installed on the board. Keeping the firmware updated is critical for security, performance, and access to new features, making this information valuable for maintenance and support.
+- `UARTBaudRate()`: Shows the baud rate used for UART communications.
+- `CSVDelimiter()`: Reveals the delimiter used in CSV outputs. This detail is vital for developers who process or log data, as it affects how data is parsed and stored.
+- `isDebuggingEnabled()`: Indicates whether the debugging mode is active. Debugging can provide additional output that helps diagnose issues or for development purposes.
+- `isUARTCSVOutputEnabled()`: Shows whether CSV output through UART is enabled. This setting is important for applications that require data logging for analysis or reporting, as it impacts how data is exported from the board.
+
+### Onboard Sensors Management 
+
+Efficient management of the Nicla Sense Env's onboard sensors is important for optimizing its performance and power usage. The sketch shown below demonstrates how to turn on or off the onboard sensors of the Nicla Sense Env and check their statuses using the `Arduino_NiclaSenseEnv` library API: 
+
+```arduino
+void setup() {
+    Serial.begin(115200);
+    while (!Serial) {
+        // Wait for Serial to be ready
+    }
+
+    NiclaSenseEnv device;
+
+    if (device.begin()) {
+
+        // Disable all the onboard sensors
+        Serial.println("- Disabling all sensors...");
+        device.temperatureHumiditySensor().setEnabled(false);
+        device.indoorAirQualitySensor().setEnabled(false);
+        device.outdoorAirQualitySensor().setEnabled(false);
+
+        // Check the onboard sensor states
+        Serial.print("- Temperature sensor enabled: ");
+        if (device.temperatureHumiditySensor().enabled()) {
+            Serial.println("true");
+        } else {
+            Serial.println("false");
+        }
+
+        Serial.print("- Indoor air quality sensor enabled: ");
+        if (device.indoorAirQualitySensor().enabled()) {
+            Serial.println("true");
+        } else {
+            Serial.println("false");
+        }
+
+        Serial.print("- Outdoor air quality sensor enabled: ");
+        if (device.outdoorAirQualitySensor().enabled()) {
+            Serial.println("true");
+        } else {
+            Serial.println("false");
+        }
+    } else {
+        Serial.println("- Device could not be found. Please double-check the wiring.");
+    }
+}
+```
+
+Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+
+- `temperatureHumiditySensor().setEnabled(false)`: Disables the onboard temperature and humidity sensor.
+- `indoorAirQualitySensor().setEnabled(false)`: Turns off the onboard indoor air quality sensor. 
+- `outdoorAirQualitySensor().setEnabled(false)`: Deactivates the onboard outdoor air quality sensor.
+- `temperatureHumiditySensor().enabled()`: Checks if the onboard temperature and humidity sensor is active.
+- `indoorAirQualitySensor().enabled()`: Indicates whether the onboard indoor air quality sensor is currently enabled. 
+- `outdoorAirQualitySensor().enabled()`: Confirms if the onboard outdoor air quality sensor is operational. 
+
+### Board Reset
+
+Resetting the Nicla Sense Env is important for troubleshooting and ensuring the device operates cleanly. It is handy after making significant changes to the configuration or when an unexpected behavior occurs.
+
+The sketch shown below demonstrates how to reset the Nicla Sense Env using the `Arduino_NiclaSenseEnv` library API: 
+
+```arduino
+void setup() {
+    // Initialize serial communication
+    Serial.begin(115200);
+    while (!Serial) {
+        // Wait for Serial to be ready
+    }
+
+    NiclaSenseEnv device;
+
+    if (device.begin()) {
+        // Resetting the device
+        Serial.println("- Resetting the device...");
+        device.reset();
+        delay(2000);  // Ensure the device has enough time to reset properly
+    } else {
+        Serial.println("- Device could not be found. Please double-check the wiring.");
+    }
+}
+```
+
+Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+
+- `device.reset()`: This function reboots the Nicla Sense Env, clearing all temporary settings. 
+
+### Low Power Mode Management
+
+Saving energy is vital for many projects, particularly those deployed in remote areas or with a limited power supply. The Nicla Sense Env supports a deep sleep mode that can help to minimize the board's power consumption.
+
+***Deep sleep is essential for extending battery life and reducing energy use when the board is not actively collecting data or performing any tasks. It is especially important for battery-powered or power-constrained applications.***
+
+The sketch shown below demonstrates how to put the Nicla Sense Env into deep sleep mode using the `Arduino_NiclaSenseEnv` library API: 
+
+```arduino
+void setup() {
+    // Initialize serial communication
+    Serial.begin(115200);
+    while (!Serial) {
+        // Wait for Serial to be ready
+    }
+
+    NiclaSenseEnv device;
+
+    if (device.begin()) {
+        // Putting the device to sleep
+        Serial.println("- Going to deep sleep mode...");
+        device.deepSleep();
+    } else {
+        Serial.println("- Device could not be found. Please double-check the wiring.");
+    }
+}
+```
+
+Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+
+- `device.deepSleep()`: This function puts the Nicla Sense Env board into a deep sleep state where power consumption is minimized to the lowest possible level.
+
+***Waking up a board from deep sleep mode can only be made by a hardware reset.*** 
 
 ## LEDs
 
