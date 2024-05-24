@@ -56,7 +56,7 @@ In this tutorial, we will use two separate platforms: the **Arduino PLC IDE** an
   
   These PRO solutions include a wide set of standard features to develop industrial automation or advanced applications. You can find more tutorials related to the PLC IDE at [the Arduino documentation page](https://docs.arduino.cc/software/plc-ide), and the latest version of the software can be [downloaded here](https://www.arduino.cc/en/software#arduino-plc-ide).
 
-* The __IoT Cloud__ is a platform that allows users to deploy IoT applications with ease and control parameters at any given moment. The platform provides robust security characteristics, of which Opta™ takes advantage to provide secure industrial application deployments. You can find more about Arduino Cloud at [here](https://docs.arduino.cc/arduino-cloud/).
+* The __IoT Cloud__ is a platform that allows users to deploy IoT applications with ease and control parameters at any given moment. The platform provides robust security characteristics, of which Opta™ takes advantage to provide secure industrial application deployments. You can find more about Arduino Cloud [here](https://docs.arduino.cc/arduino-cloud/).
 
 ### Understanding the Process
 
@@ -79,7 +79,7 @@ The functions of each layer are:
 
 Therefore, the __PLCOut.Shared_Variable__ and __PLCIn.Shared_Variable__ methods manage the shared variables that facilitate the communication between the two systems:
 
-![Shared variables between layers](assets/plc-ide-iot-cloud-img_02.png)
+  ![Shared variables between layers](assets/plc-ide-iot-cloud-img_02.png)
 
   - __PLCOut.Shared_Variable__: This variable refers to the data sent from the PLC program layer to the Arduino sketch layer, which will be sent to the Arduino Cloud. 
   
@@ -248,11 +248,11 @@ We will now configure the Opta™ device's features to link all these shared var
 
 The analog port is configured using the following properties: `Resources > Opta > Local IO Mapping > Programmable Inputs`.
 
-| **Analog Port** | **Name** | **Variable** | **IO Type** | **Type** |
+| **Analog Port** | **Name** | **Variable** | **IOType** | **Type** |
 |-----------------|----------|--------------|-------------|----------|
 | #1              | I1       | analog01     | Analog      | UINT     |
 
-Opta™ has 8x I/O ports that can be programmed as analog or digital. You will select port number one and assign the **`analog01`** as the variable. The *IO Type* must be *Analog*, and the *Type* will update based on selecting the *IO Type* property.
+Opta™ has 8x I/O ports that can be programmed as analog or digital. You will select port number one and assign the **`analog01`** as the variable. The *IOType* must be *Analog*, and the *Type* will update based on selecting the *IOType* property.
 
 The **`Programmable inputs mapping`** table should look as the following image:
 
