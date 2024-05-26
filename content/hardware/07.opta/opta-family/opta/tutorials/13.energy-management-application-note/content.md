@@ -55,7 +55,7 @@ Below is a visual representation of the intended application:
 ### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
-- If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, `ArduinoModbus` and `Scheduler`. You can install those libraries via the Library Manager of the Arduino IDE.
+- If you choose an offline Arduino IDE, you must install the following libraries: [**ArduinoRS485**](https://github.com/arduino-libraries/ArduinoRS485), [**ArduinoModbus**](https://github.com/arduino-libraries/ArduinoModbus) and Scheduler. You can install those libraries via the Library Manager of the Arduino IDE. Optionally, [**Finder6M**](https://github.com/dndg/Finder6M) library can be installed for use with the **6M.Tx** series energy meters.
 - For the Wi-Fi® connectivity feature of Opta™, we will use [Arduino Cloud](https://create.arduino.cc/iot/things); you will need to create an account if you still need to create one.
 - [Opta™ Energy Manager Example Code](assets/energy_management.zip)
 
@@ -63,15 +63,23 @@ Below is a visual representation of the intended application:
 
 The electrical connections of the intended application design are shown in the diagram below:
 
-![Electrical connections of the application](assets/electrical_connections.png)
+![Electrical connections of the application with the 7M.24 Energy Meter](assets/electrical_connections.png)
 
-The Opta™ system will access real-time consumption details from the energy meter, using the Modbus RTU over the RS-485 interface. Power from the solar panels undergoes multiple processes before it reaches the energy meter. Household appliances can be managed using the Opta™ system's built-in relay functions. It is also worth noting that other power sources can replace the solar panels.
+The Opta™ system will access real-time consumption details from the 7M.24 energy meter, using the Modbus RTU over the RS-485 interface. Power from the solar panels undergoes multiple processes before it reaches the energy meter.
+
+Household appliances can be managed using the Opta™ system's built-in relay functions. It is also worth noting that other power sources can replace the solar panels.
+
+***The __6M.TA Energy Meter__ can be used instead of the 7M.24 energy meter maintaining similar overall setup shown prviously. For more details, please refer to the tutorial dedicated to __6M.TA Energy Meter__ [here](https://docs.arduino.cc/tutorials/opta/opta-6m-power-analyzer/).***
 
 ## Opta™ Energy Management Model Description
 
 The main role of Opta™ is to efficiently handle power, using data from the energy meter linked to the solar panel as its basis. It fetches and processes data from the energy meter, estimating real-time consumption based on the meter's thresholds and the current power output of the solar panel.
 
-For this application, we are using the __7M.24 energy meter__ model from Finder. You can access its datasheet [here](https://cdn.findernet.com/app/uploads/2021/09/20090052/Modbus-7M24-7M38_v2_30062021.pdf). This model communicates via the Modbus RTU on the RS-485 interface. The relay functions of Opta™ will operate the relevant household appliances. To gather data and oversee power allocation, Opta™ carries out the following steps:
+For this application, we are using the __7M.24 energy meter__ model from Finder. You can access its datasheet [here](https://cdn.findernet.com/app/uploads/2021/09/20090052/Modbus-7M24-7M38_v2_30062021.pdf).
+
+***For the __6M.TA Energy Meter__, you can refer to this document containing [communication protocol](https://cdn.findernet.com/app/uploads/Modbus_RS485_6MTx.pdf) information. For more details, please refer to the tutorial dedicated to __6M.TA Energy Meter__ [here](https://docs.arduino.cc/tutorials/opta/opta-6m-power-analyzer/).***
+
+The __7M.24 energy meter__ communicates via the Modbus RTU on the RS-485 interface. The relay functions of Opta™ will operate the relevant household appliances. To gather data and oversee power allocation, Opta™ carries out the following steps:
 
 - Procure voltage and current readings from the energy meter.
 - Gather three types of power readings from the energy meter: _Active Power Total - Pt (`W`)_, _Reactive Power Total - Qt (`var`)_, and _Apparent Power Total - St (`VA`)_.
@@ -81,7 +89,7 @@ For this application, we are using the __7M.24 energy meter__ model from Finder.
 
 While all these processes are handled by Opta™ locally, it is also connected to the Arduino Cloud through Wi-Fi®. This connection allows users to view their energy usage and remotely control connected devices via the Arduino Cloud.
 
-### Opta™ Energy Management Example Code
+### Opta™ Energy Management with 7M.24 Example Code
 
 The provided code showcases the capabilities of Opta™ as described earlier. It is worth noting that some code functions are generated by the Arduino Cloud during dashboard configuration. For immediate access to the full example, the files can be downloaded [here](assets/energy_management.zip). We will now delve into key code components to break down how the example code works.
 
@@ -614,6 +622,8 @@ EthernetConnectionHandler ArduinoIoTPreferredConnection(IP, DNS, GATEWAY, NETMAS
 The header, automatically generated by Arduino Cloud based on the defined variables, is best left unedited. Any additions or deletions of variables should be handled directly within the Cloud environment.
 
 The above header is an illustrative example tailored to a demonstration script. This script can either be employed as-is or adjusted to meet different system requirements per your preference.
+
+***If the __6M.TA Energy Meter__ is used instead of the 7M.24 energy meter, please refer to the dedicated tutorial's [Cloud Data Recollection](https://docs.arduino.cc/tutorials/opta/opta-6m-power-analyzer/#cloud-data-recollection) section.***
 
 ## Connecting Opta™ with Arduino Cloud
 
