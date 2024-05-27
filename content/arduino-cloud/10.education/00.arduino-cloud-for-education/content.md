@@ -78,7 +78,7 @@ The [Arduino Cloud Editor](http://create.arduino.cc/editor) allows you to **writ
 
 You can **download** your sketch via a .zip file or sort your sketches into **folders**.
 
-![download sketch from Cloud editor](assets/download-sketch.png)
+![Download sketch from Cloud Editor](assets/download-sketch.png)
 
 The Cloud Editor is part of Arduino Cloud, that simplifies a project by bringing all the different tools you need together in one place. This is a complementary solution for schools or institutions that don't want to install [Arduino IDE](https://www.arduino.cc/en/software) to program their devices.
 
