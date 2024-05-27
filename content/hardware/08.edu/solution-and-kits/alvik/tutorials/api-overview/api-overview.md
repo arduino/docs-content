@@ -317,7 +317,7 @@ get_wheels_speed(unit: str = 'rpm')
 
 _Returns the speed of the wheels_
 
-### `set_wheels_speed`
+### `set_wheels_speed`
 
 set_wheels_speed(left_speed: float, right_speed: float, unit: str = 'rpm')
 
