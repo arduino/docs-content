@@ -109,7 +109,7 @@ Each Thing is represented by a collection of properties, such as
 - **Variables** - they are very similar to the variables we create in a regular sketch where they are used to retrieve and store information. 
 - **Associated device** - The device that is used to collect data from the real world. 
 - **Network Credentials** - Contains information about Wi-Fi® name and password 
-- **Sketch** - access to Editor to edit or preview a sketch saved in the Cloud.
+- **Sketch** - access to the editor to edit or preview a sketch saved in the Cloud.
 - **Metadata** - such as tags, time zone and Thing ID.
 
 Read more about Things [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things).
