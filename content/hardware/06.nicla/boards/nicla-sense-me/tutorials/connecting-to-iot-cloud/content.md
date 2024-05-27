@@ -129,7 +129,7 @@ Inside `void setup()` initialize the `Serial` communication, set up the variable
     // Connect to Arduino Cloud
     ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
-    // Wait to be connected before intitalize the communication with the Nicla Sense ME
+    // Wait to be connected before initialize the communication with the Nicla Sense ME
     Serial.println("Connecting to the Arduino Cloud");
     while (ArduinoCloud.connected() != 1) {
       ArduinoCloud.update();
