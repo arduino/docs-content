@@ -100,7 +100,7 @@ You can run the simple flow shown below using Node-RED's default nodes:
 - drag the **"debug"** node into the workspace
 - connect the two nodes by dragging a wire from the message node to the debug node
 - click on the debug menu from the sidebar on the right
-- press **Depoly** from the header on the top
+- press **Deploy** from the header on the top
 - finally, press on the checkbox of the message node
 
 ![Creating a simple flow](assets/nodered-02.gif)
