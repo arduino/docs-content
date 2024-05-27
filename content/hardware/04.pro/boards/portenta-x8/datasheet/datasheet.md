@@ -316,7 +316,7 @@ The Arduino® Portenta X8 has been designed for high-performance embedded comput
 | P<sub>LP</sub>  | Power consumption in low power mode |     | 200  |     |  mW  |
 | P<sub>MAX</sub> | Maximum Power Consumption           |     | 4000 |     |  mW  |
 
-The use of a USB 3.0 compatible port will ensure that the current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
+The use of a USB 3.0 compatible port will ensure that the current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during boot-up. Average power consumption is provided in the above table for several reference scenarios.
 
 ## Functional Overview
 
