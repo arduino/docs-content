@@ -178,14 +178,10 @@ The Plug and Make Kit modules offer a versatile and user-friendly introduction t
 - Green power LED powered by +3V3 net, with 1kΩ series resistor
 - Power LED nominal current consumption: 1mA ≈ (3.3V - 2.2V) / 1kΩ
 
-
-
 ![](assets/GeneralMec.png)
 
 #### I2C Side Connectors
 At least x2 connectors, JST pitch 1mm compatible like SM04B-SRSS-TB
-
-
 
 #### Pinout
 ![](assets/pinGeneral.png)
@@ -196,8 +192,7 @@ Version number on bottom copper, below solder mask. Location is always on the to
 ![](assets/verNumber.png)
 
 #### Modules with Microcontroller
-All modules that have a added microcontroller for interfacing, such as the knob, buzzer, buttons, and pixels, have footprints allowing for the optional mounting of I2C pullups. However, these pullups are not mounted by default.
-This table allowsto easily check this information, “x” in the table means that the pullup of that pin is not mounted.
+All modules that have a added microcontroller for interfacing, such as the knob, buzzer, buttons, and pixels, have footprints allowing for the optional mounting of I2C pullups. However, these pullups are not mounted by default. This table allows to easily check this information, “x” in the table means that the pullup of that pin is not mounted.
 
 | Board            | SKU      | PA6 | PA7 | PA8 | PC14 | PC15 | PF2 |
 |------------------|----------|-----|-----|-----|------|------|-----|
@@ -205,7 +200,6 @@ This table allowsto easily check this information, “x” in the table means th
 | NODE08 BUZZER    | ABX00108 |  x  |     |     |      |      |     |
 | NODE09 NEOP      | ABX00109 |     |     |  x  |      |      |     |
 | NODE10 BUTTON    | ABX00110 |     |     |     |      |      |     |
-
 
 ### Movement
 #### Description
@@ -233,27 +227,34 @@ The MOVEMENT module, featuring the LSM6DSOXTR sensor, measures acceleration, rot
 | SCL     | I2C Clock    |
 
 ##### LSM6DSOXTR Signals
-| **Pin** | **Function**     |
-|---------|------------------|
-| INT1    | Interrupt 1      |
-| INT2    | Interrupt 2      |
-| SDX (Editable) | SPI Data X |
-| SCX     | SPI Clock X      |
-| SDO/SA0 (Editable) | SPI Data Out / I2C Address |
-| CS (Editable) | SPI Chip Select |
-| OCS AUX | Auxiliary Output |
-| DEFAULT 0x6A (Editable) | Default I2C Address |
-| 0x6B (Editable) | Optional I2C Address |
+| **Pin**   | **Function**                 |
+|-----------|------------------------------|
+| VDDIO     | 3V3 (cuttable)               |
+| GND       | Ground                       |
+| INT1      | Interrupt 1 (Sensor)         |
+| INT2      | Interrupt 2 (Sensor)         |
+| SDX       | SPI Data X                   |
+| SCX       | SPI Clock X                  |
+| SDO/SA0   | SPI Data Out / I2C Addr      |
+| CS        | SPI Chip Select              |
+| OCSAUX    | Auxiliary Output             |
 
 1x4 Header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
 1x10 header for LSM6DSOXTR signals. These holes provide a place to mount header pins if desired.
 
 It is possible to make VDDIO independent from +3V3 by cutting its solder jumper.
+![](assets/VDDIO.png)
 
 LSM6DSOXTR interrupts INT1 and INT2 are available on the header.
 
 With the header pins and cutting the appropriate solder jumpers, it is possible to control the LSM6DSOXTR with 3-wire SPI or 4-wire SPI, connecting other sensors to it. Check the LSM6DSOXTR datasheet for more details.
+
+It is possible to change the I2C adress for the module with a small hardware change. For this the exposed pads on the bottom of the board corresponding with the desired adress (0x6A or 0x6B) must be separated shorted together and the oposite set of pads needs to be separated. Image for reference is changing from the (default) 0x6A to 0x6B.
+Please remember to disconnect the modules when making these changes.
+
+![](assets/AdressChangeIMU.png)
+
 
 LSM6DSOXTR has several advanced features to control other compatible sensors with its “machine learning capabilities,” which can be empowered with a combination of advanced FW code, the headers, and the solder jumper on board. Check the LSM6DSOXTR datasheet for more details.
 
@@ -286,10 +287,10 @@ The DISTANCE module, featuring the VL53L4CDV0DH/1 sensor, provides accurate dist
 | SCL     | I2C Clock    |
 
 ##### VL53L4CDV0DH/1 Signals
-| **Pin** | **Function**   |
-|---------|----------------|
-| GPIO1   | General Purpose I/O |
-| XSHUT   | Shutdown       |
+| **Pin** | **Function**              |
+|---------|---------------------------|
+| GPIO1   | Digital output (Sensor)   |
+| XSHUT   | Shutdown (Sensor)         |
 
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
@@ -359,24 +360,20 @@ The KNOB module includes a quadrature rotary encoder with an SPST switch, using 
 | SCL     | I2C Clock    |
 
 ##### Encoder Signals
-| **Pin** | **Function**   |
-|---------|----------------|
-| PA0     | General Purpose I/O |
-| PA1     | General Purpose I/O |
-| PA2     | General Purpose I/O |
-| RX1     | UART Receive   |
-| TX1     | UART Transmit  |
-| SWDIO   | SWD Data       |
-| SWCLK   | SWD Clock      |
-| PF2     | General Purpose I/O |
+| **Pin** | **Function**           |
+|---------|------------------------|
+| PA0     | PinA (Encoder)         |
+| PA1     | PinB (Encoder)         |
+| PA2     | Switch (Encoder)       |
+| RX1     | UART Receive           |
+| TX1     | UART Transmit          |
+| SWDIO   | SWD Data               |
+| SWCLK   | SWD Clock              |
+| PF2     | NRST                   |
 
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
 1x10 header for encoder and microcontroller signals. This header can be used to read the encoder from an external controller, to use the microcontroller pins for other purposes, or to reprogram the microcontroller using its SWD interface. These holes provide a place to mount header pins if desired.
-
-Encoder pins A, B, E (microcontroller pins PA0, PA1, PA2).
-
-Microcontroller pins: PF2 (NRST), PA14 (SWCLK), PA13 (SWDIO), PA9 (USART1 TX), PA10 (USART1 RX).
 
 #### Mechanical Information
 ![](assets/KnobMec.png)
@@ -406,23 +403,19 @@ The BUZZER module contains a single buzzer and uses the STM32C011F4 microcontrol
 | SDA     | I2C Data     |
 | SCL     | I2C Clock    |
 
-Buzzer and Microcontroller Signals
-| **Pin** | **Function**   |
-|---------|----------------|
-| PA0     | General Purpose I/O |
-| RX1     | UART Receive   |
-| TX1     | UART Transmit  |
-| SWDIO   | SWD Data       |
-| SWCLK   | SWD Clock      |
-| PF2     | General Purpose I/O |
+##### Buzzer and Microcontroller Signals
+| **Pin** | **Function**           |
+|---------|------------------------|
+| PA0     | + (Buzzer)             |
+| RX1     | UART Receive           |
+| TX1     | UART Transmit          |
+| SWDIO   | SWD Data               |
+| SWCLK   | SWD Clock              |
+| PF2     | NRST                   |
 
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
 1x8 header for buzzer and microcontroller signals. This header can be used to actuate the buzzer from an external 3.3V source, to use the microcontroller pins for other purposes, or to reprogram the microcontroller using its SWD interface. These holes provide a place to mount header pins if desired.
-
-Buzzer positive pin (microcontroller pin PA0).
-
-Microcontroller pins: PF2 (NRST), PA14 (SWCLK), PA13 (SWDIO), PA9 (USART1 TX), PA10 (USART1 RX).
 
 #### Mechanical Information
 ![](assets/BuzzMec.png)
@@ -452,23 +445,19 @@ The PIXELS module includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 m
 | SCL     | I2C Clock    |
 
 ##### LC8822-2020 and Microcontroller Signals
-| **Pin** | **Function**   |
-|---------|----------------|
-| CO      | Clock Out      |
-| DO      | Data Out       |
-| RX1     | UART Receive   |
-| TX1     | UART Transmit  |
-| SWDIO   | SWD Data       |
-| SWCLK   | SWD Clock      |
-| PF2     | General Purpose I/O |
+| **Pin** | **Function**           |
+|---------|------------------------|
+| CO      | Clock Out              |
+| DO      | Data Out               |
+| RX1     | UART Receive           |
+| TX1     | UART Transmit          |
+| SWDIO   | SWD Data               |
+| SWCLK   | SWD Clock              |
+| PF2     | NRST                   |
 
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
 1x10 header for LC8822-2020 and microcontroller signals. This header can be used to add more LC8822-2020 to the chain since the last LC8822-2020 CO (clock out) and DO (data out) pins are connected to it. The header also has other microcontroller pins usable for other purposes or to reprogram the microcontroller using its SWD interface. These holes provide a place to mount header pins if desired.
-
-LC8822-2020 last of the chain: CO (clock out) and DO (data out) pins.
-
-Microcontroller pins: PF2 (NRST), PA14 (SWCLK), PA13 (SWDIO), PA9 (USART1 TX), PA10 (USART1 RX).
 
 #### Mechanical Information
 ![](assets/PixelMec.png)
@@ -498,25 +487,21 @@ The BUTTONS module includes three SPST push buttons and three yellow LEDs, using
 | SDA     | I2C Data     |
 | SCL     | I2C Clock    |
 
-Pushbutton and Microcontroller Signals
-| **Pin** | **Function**   |
-|---------|----------------|
-| PA0     | General Purpose I/O |
-| PA1     | General Purpose I/O |
-| PA2     | General Purpose I/O |
-| RX1     | UART Receive   |
-| TX1     | UART Transmit  |
-| SWDIO   | SWD Data       |
-| SWCLK   | SWD Clock      |
-| PF2     | General Purpose I/O |
+##### Pushbutton and Microcontroller Signals
+| **Pin** | **Function**           |
+|---------|------------------------|
+| PA0     | A (Pushbutton)         |
+| PA1     | B (Pushbutton)         |
+| PA2     | C (Pushbutton)         |
+| RX1     | UART Receive           |
+| TX1     | UART Transmit          |
+| SWDIO   | SWD Data               |
+| SWCLK   | SWD Clock              |
+| PF2     | NRST                   |
 
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
 1x10 header for pushbutton signals and microcontroller signals. This header can be used to read the pushbuttons status from an external 3.3V controller, to use the microcontroller pins for other purposes, or to reprogram the microcontroller using its SWD interface. These holes provide a place to mount header pins if desired.
-
-Pushbutton A, B, C pins (microcontroller pins PA0, PA1, PA2).
-
-Microcontroller pins: PF2 (NRST), PA14 (SWCLK), PA13 (SWDIO), PA9 (USART1 TX), PA10 (USART1 RX).
 
 #### Mechanical Information
 ![](assets/BtnMec.png)
@@ -582,6 +567,7 @@ Accessories: This section lists some of the related accessories that come or not
 - 24 M3x10 screws (Included)
 - 20 M3 bolts (Included)
 - 4 M3x20 female spacers (Included)
+- 7 Female-to-Female I2C cables (with QWICC connectors)
 - USB-C® cable (Not included)
 
 ## Related Products
@@ -639,7 +625,7 @@ Now that you have gone through the basics of what you can do with the board you 
 Board Recovery:  Make sure to explain how to put the board in recovery mode. If that information is not available, please remove.
 -->
 
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
+All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by doubletapping the reset button right after the power-up.
 
 
 <div style="page-break-after: always;"></div>
