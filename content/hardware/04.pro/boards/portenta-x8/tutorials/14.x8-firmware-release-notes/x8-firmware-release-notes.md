@@ -24,37 +24,64 @@ Compatible carriers with the supported device:
 - [Portenta Breakout board](https://store.arduino.cc/portenta-breakout)
 - [Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier)
 - [Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat-carrier)
+- [Portenta Mid Carrier](https://store.arduino.cc/products/portenta-mid-carrier)
 
 # Firmware Versions
 The following section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
 
-## Latest Firmware Version: __822__
+## Latest Firmware Version: __844__
 
 The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of the integrated key new features, major bug fixes, and critical security patches to ensure the highest level of functionality and performance within the Portenta X8 system.
 
 * **New Features:**
-- Added `libgpiod` to enhance functionality across both software images.
-- Introduced support for **EC200A-EU** in *ModemManager*, expanding compatibility.
+- Implemented a configurable *NCM* gadget from `/etc/default/usbgx` .
+- Created *udev* rules to map devices with Arduino standard names.
 
 * **Enhancements:**
-- Enhanced *ModemManager* scripts to manage USB modem power cycles more effectively using `gpiod`.
-- Implemented the `aklite-offline` run command post-update for streamlined offline operations.
+- Updated Wi-Fi® chipset 1DX firmware.
+- Enabled GPU and VPUs through the `ov_som_gpu_vpus` overlay.
+- Allowed dynamic frequency scaling (*DVFS*) to scale system frequency down to 100 MHz per core.
+- Upgraded CAN and X8H7 in general with the latest source and firmware.
 
 * **Bug Fixes:**
-- Resolved an issue where the U-Boot environment in RAM was inadvertently modified even when `carrier_custom` was set to **1**.
+- Fixed **EC200A-EU** *udev* rules and *systemd* services.
 
 * **Security Updates:**
-- Decided against integrating SE05x support in *lmp-base* to maintain security standards.
-
-* **Additional Notes:**
-- Disabled the PCIe connector by default and removed the `sara-r4` overlay to simplify device tree configurations.
-- Downgraded CAN and (X8H7) in general to align with arduino-88.91 specifications (tag: 746-portenta-x8) due to regression issues stemming from new Linux driver/firmware updates.
+- Forced password change at first login.
 
 ***__You can access the latest version of the firmware [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__***
 
 ## Available Firmware Versions
 
 Below is a list of all available firmware versions with their release notes.
+
+### OS Image 844
+
+<details>
+  <summary><strong>OS Image 844: Release arduino-91</strong></summary>
+
+#### New Features
+  - Implemented a configurable *NCM* gadget from `/etc/default/usbgx` .
+  - Created *udev* rules to map devices with Arduino standard names.
+
+#### Enhancements
+  - Updated Wi-Fi® chipset 1DX firmware.
+  - Enabled GPU and VPUs through the `ov_som_gpu_vpus` overlay.
+  - Allowed dynamic frequency scaling (*DVFS*) to scale system frequency down to 100 MHz per core.
+  - Upgraded CAN and X8H7 in general with the latest source and firmware.
+
+#### Bug Fixes
+  - Fixed **EC200A-EU** *udev* rules and *systemd* services.
+
+#### Security Updates
+  - Forced password change at first login.
+
+#### Additional Notes
+  - *xterm* and *resize* are now performed by default in **`.bashrc`** for a better shell experience.
+  - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
+
+</details>
+<br></br>
 
 ### OS Image 822
 

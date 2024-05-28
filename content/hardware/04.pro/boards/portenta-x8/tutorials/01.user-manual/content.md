@@ -981,7 +981,7 @@ To start using your Portenta X8 with Arduino Cloud, provision your device as des
 
 Once ready, you will have the chance to customize Portenta X8 example Thing and Dashboard. This can be done by writing your own Python script leveraging the [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Check the documentation and the examples inside the library to learn more about how to create your own Python application.
 
-When your Python script is ready, you have to create a dedicated Dockerfile integrating your new script. The Dockefile needs the Out-of-the-box Python container (i.e. `arduino-ootb-python-devel`) to be able to correctly interact with your Arduino Cloud account.
+When your Python script is ready, you have to create a dedicated Dockerfile integrating your new script. The Dockerfile needs the Out-of-the-box Python container (i.e. `arduino-ootb-python-devel`) to be able to correctly interact with your Arduino Cloud account.
 
 So, open a terminal window and create a Dockerfile integrating the following code together with your Python script:
 

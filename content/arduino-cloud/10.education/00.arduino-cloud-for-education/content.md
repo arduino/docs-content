@@ -60,23 +60,27 @@ The home page is more or less like a control panel where you can access all the 
 
 ### Sidebar 
 
-The **Sidebar**  on the left provides you quick access to all the important tools such as the Editor (through Sketches), IoT Cloud (through Devices, Things and Dashboards), Templates and even learning materials such as **Courses** and **Resources**. Let's take a closer look at these components and what they are.
+The **Sidebar** on the left provides you quick access to all the important tools such as the Editor (through Sketches), IoT Cloud (through Devices, Things and Dashboards), Templates and even learning materials such as **Courses** and **Resources**. Let's take a closer look at these components and what they are.
 
-- **Sketches** - These are the programs you or your students will create. Here you can access all sketches that you have created in the past or wish to create. Your Sketchbook will be stored in the Cloud and accessible from any device. 
-- **IoT Tools** - One of the core functionalities of the Cloud Platform is to enable you to build IoT projects that allows you to collect, analyze and monitor data from the environment. 
+- **Sketches** - These are the programs you or your students will create. Here you can access all sketches that you have created in the past or wish to create and access them from any device. 
+- **Devices, Things, Dashboards, Triggers** - these are the core functionalities of the Cloud Platform, enabling  you to build IoT projects that allows you to collect, analyze and monitor data from the environment. 
 - **Resources, Courses & Templates** - These are learning materials and ready-made IoT projects to get you started with your educational kits or other Arduino hardware. 
 - **Integrations** - Integrate with third-party APIs and extend your projects functionality. 
-- **Plans** - Here you can track the usage of your free plans. You can always upgrade to a School Plan whenever you want. If you are curious, take a look at our [School Plans options](https://cloud.arduino.cc/#schools).
+- **Plans Usage** - Here you can track the usage of your free plans. You can always upgrade to a School Plan whenever you want. If you are curious, take a look at our [School Plans options](https://cloud.arduino.cc/#schools).
 
 ***If you are new to the platform, make sure you try out the interactive walkthrough for a faster onboarding experience.***
 
 ## Cloud Editor 
 
-The [Arduino Cloud Editor](http://create.arduino.cc/editor) allows you to **write code** and **upload sketches** to any Arduino board after installing a [**simple plug-in**](https://create.arduino.cc/getting-started/plugin/welcome) **for your browser**. Your Sketchbook will be stored in the Cloud and accessible from any device. You can use this tool to create both basic and IoT sketches. 
+The [Arduino Cloud Editor](http://create.arduino.cc/editor) allows you to **write code** and **upload sketches** to any Arduino board after installing a [**simple plug-in**](https://create.arduino.cc/getting-started/plugin/welcome) **for your browser**. Your sketches will be stored in the Cloud and accessible from any device. You can use this tool to create both basic and IoT sketches. 
 
 ![Cloud Editor](assets/cloud-editor.png)
 
-You can import your Sketchbook via a .zip file. The Cloud Editor is part of Arduino Cloud, that simplifies a project by bringing all the different tools you need together in one place. This is a complementary solution for schools or institutions that don't want to install [Arduino IDE](https://www.arduino.cc/en/software) to program their devices.
+You can **download** your sketch via a .zip file or sort your sketches into **folders**.
+
+![Download sketch from Cloud Editor](assets/download-sketch.png)
+
+The Cloud Editor is part of Arduino Cloud, that simplifies a project by bringing all the different tools you need together in one place. This is a complementary solution for schools or institutions that don't want to install [Arduino IDE](https://www.arduino.cc/en/software) to program their devices.
 
 ***Interested in getting started? Get to know more about Arduino Cloud Editor by [visiting this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor).***
 
@@ -105,8 +109,8 @@ Each Thing is represented by a collection of properties, such as
 - **Variables** - they are very similar to the variables we create in a regular sketch where they are used to retrieve and store information. 
 - **Associated device** - The device that is used to collect data from the real world. 
 - **Network Credentials** - Contains information about Wi-Fi® name and password 
-- **Sketch** - A lite version of the Web Editor which is actually a preview of a sketch saved on the Web Editor.
-- **Metadata** - such as tags, timezone and Thing ID.
+- **Sketch** - access to the editor to edit or preview a sketch saved in the Cloud.
+- **Metadata** - such as tags, time zone and Thing ID.
 
 Read more about Things [here](https://docs.arduino.cc/arduino-cloud/cloud-interface/things).
 
@@ -188,7 +192,7 @@ You can find a full list of tutorials on the [Arduino Cloud documentation page](
 
 If you are a enthusiast and would like to explore more about our Cloud platform, here are some documentation on all the important elements you can familiarize yourself with: 
 
-- [ Sketches ](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches/)
+- [Sketches](https://docs.arduino.cc/arduino-cloud/cloud-interface/sketches/)
 - [Arduino Cloud Editor](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor)
 - [Cloud Variables](https://docs.arduino.cc/arduino-cloud/cloud-interface/variables/) 
 - [Dashboards & Widgets](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets)
