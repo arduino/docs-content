@@ -55,7 +55,6 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 | -------------- | -------------------------- |-----------------------------------------------------|-----------|
 | ABX00080       | Arduino UNO R4 WiFi        | Programmable board with WiFi                        | 1         |
 | ASX00071       | Plate Node                 | Fix firmly an UNO and some nodes on it              | 1         |
-| ??             | I2C Cables                 | I2C Cables (With QWICC connectors)                  | 6         |
 | ABX00101       | MOVEMENT                   | Measure acceleration and rotation     | 1         |
 | ABX00102       | DISTANCE                   | Time of flight, finds distances                     | 1         |
 | ABX00103       | THERMO                     | Measure temperature and humidity                    | 1         |
@@ -219,25 +218,26 @@ The MOVEMENT module, featuring the LSM6DSOXTR sensor, measures acceleration, rot
 #### Pinout
 
 ##### 1x4 Header
-| **Pin** | **Function** |
-|---------|--------------|
-| GND     | Ground       |
-| 3V3     | Power Supply |
-| SDA     | I2C Data     |
-| SCL     | I2C Clock    |
+| **Pin** | **Net Name** | **Function**  |
+|---------|--------------|---------------|
+| GND     | GND          | Ground        |
+| 3V3     | +3V3         | Power Supply  |
+| SDA     | SDA_1        | I2C Data      |
+| SCL     | SCL_1        | I2C Clock     |
+
 
 ##### LSM6DSOXTR Signals
-| **Pin**   | **Function**                 |
-|-----------|------------------------------|
-| VDDIO     | 3V3 (cuttable)               |
-| GND       | Ground                       |
-| INT1      | Interrupt 1 (Sensor)         |
-| INT2      | Interrupt 2 (Sensor)         |
-| SDX       | SPI Data X                   |
-| SCX       | SPI Clock X                  |
-| SDO/SA0   | SPI Data Out / I2C Addr      |
-| CS        | SPI Chip Select              |
-| OCSAUX    | Auxiliary Output             |
+| **Pin**   | **Net Name**    | **Function**             |
+|-----------|-----------------|--------------------------|
+| VDDIO     | +3V3            | 3V3 (cuttable)           |
+| GND       | GND             | Ground                   |
+| INT1      | INT1_1          | Interrupt 1 (Sensor)     |
+| INT2      | INT2_1          | Interrupt 2 (Sensor)     |
+| SDX       | SDx_1           | SPI Data X               |
+| SCX       | SCx_1           | SPI Clock X              |
+| SDO/SA0   | SDO/SA0_1       | SPI Data Out / I2C Addr  |
+| CS        | CS_1            | SPI Chip Select          |
+| OCSAUX    | OCS_Aux_1       | Auxiliary Output         |
 
 1x4 Header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
@@ -279,18 +279,18 @@ The DISTANCE module, featuring the VL53L4CDV0DH/1 sensor, provides accurate dist
 #### Pinout
 
 ##### 1x4 Header
-| **Pin** | **Function** |
-|---------|--------------|
-| GND     | Ground       |
-| 3V3     | Power Supply |
-| SDA     | I2C Data     |
-| SCL     | I2C Clock    |
+| **Pin** | **Net Name** | **Function**  |
+|---------|--------------|---------------|
+| GND     | GND          | Ground        |
+| 3V3     | +3V3         | Power Supply  |
+| SDA     | SDA_1        | I2C Data      |
+| SCL     | SCL_1        | I2C Clock     |
 
 ##### VL53L4CDV0DH/1 Signals
-| **Pin** | **Function**              |
-|---------|---------------------------|
-| GPIO1   | Digital output (Sensor)   |
-| XSHUT   | Shutdown (Sensor)         |
+| **Pin**   | **Net Name**  | **Function**              |
+|-----------|---------------|---------------------------|
+| GPIO1     | GPIO1_1       | Digital output (Sensor)   |
+| XSHUT     | XSHUT_1       | Shutdown (Sensor)         |
 
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
@@ -321,12 +321,12 @@ The THERMO module, featuring the HS3003 sensor, measures both temperature and hu
 #### Pinout
 
 ##### 1x4 Header
-| **Pin** | **Function** |
-|---------|--------------|
-| GND     | Ground       |
-| 3V3     | Power Supply |
-| SDA     | I2C Data     |
-| SCL     | I2C Clock    |
+| **Pin** | **Net Name** | **Function**  |
+|---------|--------------|---------------|
+| GND     | GND          | Ground        |
+| 3V3     | +3V3         | Power Supply  |
+| SDA     | SDA_1        | I2C Data      |
+| SCL     | SCL_1        | I2C Clock     |
 
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
@@ -352,24 +352,24 @@ The KNOB module includes a quadrature rotary encoder with an SPST switch, using 
 #### Pinout
 
 ##### 1x4 Header
-| **Pin** | **Function** |
-|---------|--------------|
-| GND     | Ground       |
-| 3V3     | Power Supply |
-| SDA     | I2C Data     |
-| SCL     | I2C Clock    |
+| **Pin** | **Net Name** | **Function**  |
+|---------|--------------|---------------|
+| GND     | GND          | Ground        |
+| 3V3     | +3V3         | Power Supply  |
+| SDA     | SDA_1        | I2C Data      |
+| SCL     | SCL_1        | I2C Clock     |
 
 ##### Encoder Signals
-| **Pin** | **Function**           |
-|---------|------------------------|
-| PA0     | PinA (Encoder)         |
-| PA1     | PinB (Encoder)         |
-| PA2     | Switch (Encoder)       |
-| RX1     | UART Receive           |
-| TX1     | UART Transmit          |
-| SWDIO   | SWD Data               |
-| SWCLK   | SWD Clock              |
-| PF2     | NRST                   |
+| **Pin**   | **Net Name**             | **Function**           |
+|-----------|--------------------------|------------------------|
+| PA0       | PA0_1                    | PinA (Encoder)         |
+| PA1       | PA1_1                    | PinB (Encoder)         |
+| PA2       | PA2_1                    | Switch (Encoder)       |
+| RX1       | PA10_USART1_RX_1         | UART Receive           |
+| TX1       | PA9_USART1_TX_1          | UART Transmit          |
+| SWDIO     | PA13_SWDIO_1             | SWD Data               |
+| SWCLK     | PA14_SWCLK_BOOT0_1       | SWD Clock              |
+| PF2       | PF2_NRST_1               | NRST                   |
 
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
@@ -396,22 +396,22 @@ The BUZZER module contains a single buzzer and uses the STM32C011F4 microcontrol
 #### Pinout
 
 ##### 1x4 Header
-| **Pin** | **Function** |
-|---------|--------------|
-| GND     | Ground       |
-| 3V3     | Power Supply |
-| SDA     | I2C Data     |
-| SCL     | I2C Clock    |
+| **Pin** | **Net Name** | **Function**  |
+|---------|--------------|---------------|
+| GND     | GND          | Ground        |
+| 3V3     | +3V3         | Power Supply  |
+| SDA     | SDA_1        | I2C Data      |
+| SCL     | SCL_1        | I2C Clock     |
 
 ##### Buzzer and Microcontroller Signals
-| **Pin** | **Function**           |
-|---------|------------------------|
-| PA0     | + (Buzzer)             |
-| RX1     | UART Receive           |
-| TX1     | UART Transmit          |
-| SWDIO   | SWD Data               |
-| SWCLK   | SWD Clock              |
-| PF2     | NRST                   |
+| **Pin**   | **Net Name**             | **Function**           |
+|-----------|--------------------------|------------------------|
+| PA0       | PA0_1                    | + (Buzzer)             |
+| RX1       | PA10_USART1_RX_1         | UART Receive           |
+| TX1       | PA9_USART1_TX_1          | UART Transmit          |
+| SWDIO     | PA13_SWDIO_1             | SWD Data               |
+| SWCLK     | PA14_SWCLK_BOOT0_1       | SWD Clock              |
+| PF2       | PF2_NRST_1               | NRST                   |
 
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
@@ -437,27 +437,27 @@ The PIXELS module includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 m
 #### Pinout
 
 ##### 1x4 Header
-| **Pin** | **Function** |
-|---------|--------------|
-| GND     | Ground       |
-| 3V3     | Power Supply |
-| SDA     | I2C Data     |
-| SCL     | I2C Clock    |
+| **Pin** | **Net Name** | **Function**  |
+|---------|--------------|---------------|
+| GND     | GND          | Ground        |
+| 3V3     | +3V3         | Power Supply  |
+| SDA     | SDA_1        | I2C Data      |
+| SCL     | SCL_1        | I2C Clock     |
 
 ##### LC8822-2020 and Microcontroller Signals
-| **Pin** | **Function**           |
-|---------|------------------------|
-| CO      | Clock Out              |
-| DO      | Data Out               |
-| RX1     | UART Receive           |
-| TX1     | UART Transmit          |
-| SWDIO   | SWD Data               |
-| SWCLK   | SWD Clock              |
-| PF2     | NRST                   |
+| **Pin**   | **Net Name**             | **Function**           |
+|-----------|--------------------------|------------------------|
+| CO        | CO_1                     | Clock Out              |
+| DO        | DO_1                     | Data Out               |
+| RX1       | PA10_USART1_RX_1         | UART Receive           |
+| TX1       | PA9_USART1_TX_1          | UART Transmit          |
+| SWDIO     | PA13_SWDIO_1             | SWD Data               |
+| SWCLK     | PA14_SWCLK_BOOT0_1       | SWD Clock              |
+| PF2       | PF2_NRST_1               | NRST                   |
 
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
-1x10 header for LC8822-2020 and microcontroller signals. This header can be used to add more LC8822-2020 to the chain since the last LC8822-2020 CO (clock out) and DO (data out) pins are connected to it. The header also has other microcontroller pins usable for other purposes or to reprogram the microcontroller using its SWD interface. These holes provide a place to mount header pins if desired.
+1x10 header for LC8822-2020 and microcontroller signals. This header can be used to add more LC8822-2020 to the chain. The header also has other microcontroller pins usable for other purposes or to reprogram the microcontroller using its SWD interface. These holes provide a place to mount header pins if desired.
 
 #### Mechanical Information
 ![](assets/PixelMec.png)
@@ -480,25 +480,24 @@ The BUTTONS module includes three SPST push buttons and three yellow LEDs, using
 #### Pinout
 
 ##### 1x4 Header
-| **Pin** | **Function** |
-|---------|--------------|
-| GND     | Ground       |
-| 3V3     | Power Supply |
-| SDA     | I2C Data     |
-| SCL     | I2C Clock    |
+| **Pin** | **Net Name** | **Function**  |
+|---------|--------------|---------------|
+| GND     | GND          | Ground        |
+| 3V3     | +3V3         | Power Supply  |
+| SDA     | SDA_1        | I2C Data      |
+| SCL     | SCL_1        | I2C Clock     |
 
 ##### Pushbutton and Microcontroller Signals
-| **Pin** | **Function**           |
-|---------|------------------------|
-| PA0     | A (Pushbutton)         |
-| PA1     | B (Pushbutton)         |
-| PA2     | C (Pushbutton)         |
-| RX1     | UART Receive           |
-| TX1     | UART Transmit          |
-| SWDIO   | SWD Data               |
-| SWCLK   | SWD Clock              |
-| PF2     | NRST                   |
-
+| **Pin**   | **Net Name**             | **Function**           |
+|-----------|--------------------------|------------------------|
+| PA0       | PA0_1                    | A (Pushbutton)         |
+| PA1       | PA1_1                    | B (Pushbutton)         |
+| PA2       | PA2_1                    | C (Pushbutton)         |
+| RX1       | PA10_USART1_RX_1         | UART Receive           |
+| TX1       | PA9_USART1_TX_1          | UART Transmit          |
+| SWDIO     | PA13_SWDIO_1             | SWD Data               |
+| SWCLK     | PA14_SWCLK_BOOT0_1       | SWD Clock              |
+| PF2       | PF2_NRST_1               | NRST                   |
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
 1x10 header for pushbutton signals and microcontroller signals. This header can be used to read the pushbuttons status from an external 3.3V controller, to use the microcontroller pins for other purposes, or to reprogram the microcontroller using its SWD interface. These holes provide a place to mount header pins if desired.
