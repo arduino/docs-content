@@ -255,7 +255,7 @@ void loop() {
 
 ## EEPROM Iteration
 
-The purpose of this example is to show how to go through the whole EEPROM memory space with different approaches. The code provided doesn't run on its own but should be used as a surce of code snippets to be used elsewhere.
+The purpose of this example is to show how to go through the whole EEPROM memory space with different approaches. The code provided doesn't run on its own but should be used as a source of code snippets to be used elsewhere.
 
 ```arduino
 /***

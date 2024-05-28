@@ -10,6 +10,6 @@
   "author": "Sebastian Romero",
   "license": "ISC",
   "dependencies": {
-    "content-lint": "^1.1.3"
+    "content-lint": "^1.2.0"
   }
 }

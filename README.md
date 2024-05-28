@@ -94,7 +94,7 @@ Broken URLs will show an error alert. URL must be in the GitHub domain and must 
 
 ## Previewing Changes
 
-Whenever you create a Pull Request (PR) GatsbyCloud will create a preview deployment in which you can see how your changes look when rendered on the website. The link to the preview will appear in the comments of the PR. This also works with Draft PRs, but not for PRs created from a fork.
+Whenever you create a Pull Request (PR) and the label `preview` is assigned to it, a preview is created and updated for every commit, as explained at: https://github.com/arduino/docs-content/pull/1931
 
 ## License
 

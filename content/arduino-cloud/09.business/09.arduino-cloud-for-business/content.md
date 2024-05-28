@@ -103,14 +103,62 @@ To change the current settings of your Shared Space, navigate to the **Space Set
 There, you will find multiple options to customize your Shared Space:
 
 * **General** tab to view shared space information and to edit space name
-* **Custom Branding** to assign custom logo
-* **Manage Members** for space member management
-* **Roles & Permissions** for Role-Based-Access-Control management
+* [**Custom Branding**](#custom-branding) to assign custom logo
+* [**Manage Members**](#invite-members-into-your-space) for space member management
+* [**Roles & Permissions**](#members-types) for Role-Based-Access-Control management
 * **Plan Usage** to view features usage
 
 ### Create Additional Spaces
 
 The Arduino Cloud for Business plan allows you to create and manage one Shared Space and one Private Space. If you need additional Spaces, you have to purchase a new Arduino Cloud plan. Check the available plans [here](https://cloud.arduino.cc/plans).
+
+### Custom Branding
+
+The Arduino Cloud for Business provides the option to configure custom branding for your spaces, allowing you to personalize the appearance of your cloud environment with white labeling. This feature lets you customize branding elements to reflect your company's identity, including logos, URLs, and authentication methods.
+
+To access the **Custom Branding** option, navigate to the **Space Settings** on the left sidebar of the Cloud space.
+
+![Custom Branding - Space Settings](assets/custom-branding-1.png "Space Settings")
+
+Select the **Custom Branding** page from the left sidebar inside the **Space Settings**. This page offers **Basic** and **Advanced** options for configuring custom branding and white labeling.
+
+Under the **Basic** option, you can customize your logo and toggle the visibility of the Arduino logo on the sidebar.
+
+![Custom Branding - Basic Options](assets/custom-branding-2.png)
+
+Two configuration blocks will be present to set custom branding:
+
+  - **Your Logo:** You can upload your custom logo in `JPEG` or `PNG` format, with a maximum size of 500 kb. The custom logo will be displayed on the Arduino Cloud sidebar and home page. The **Icon Logo** is used on the platform's sidebar, while the **Horizontal Logo** is used on your space's Home Page. It is recommended to use a ratio of *1:1* for the **Icon Logo** and a ratio of *3:1* for the **Horizontal Logo**.
+
+  - **Arduino Logo:** You can toggle the visibility of the Arduino logo on the sidebar.
+
+If you have applied a custom branding logo and toggled the Arduino logo, your **Basic** configuration page will resemble the following image:
+
+![Custom Branding - Complete Basic Options](assets/custom-branding-2-1.png)
+
+Once the configuration is set, your **Home** page will reflect your custom branding:
+
+![Custom Branding - Home Page with Custom Logo](assets/custom-branding-2-2.png)
+
+For customizations related to *white labeling*, navigate to the **Advanced** tab within the **Custom Branding** page.
+
+![Custom Branding - Advanced Options](assets/custom-branding-3.png "Advanced Options")
+
+In this section, you will find features that allow *white labeling*:
+
+  - **Custom URL:** You can set a custom URL and a name for your site, usually the name of your company, which will be shown as the page title. Avoid using special characters or spaces for the custom subdomain. Once submitted, the custom subdomain will be validated, and a quick preview will be generated.
+
+![Custom Branding - Custom URL (White Labeling)](assets/custom-branding-3-1.png)
+
+  - **Social Sign-in:** By enabling *Social Sign-In*, you can offer faster authentication to your app. The available options for *Social Sign-In* are Google, GitHub, and Apple. **To enable this option, You must first complete the _Custom URL_ information. Otherwise, this feature will not be available.**
+
+![Custom Branding - Social Sign-in (White Labeling)](assets/custom-branding-3-2.png)
+
+  ***The __Social Sign-in__ options can be disabled later by toggling off this option. Be cautious, as it will remove the user's associated account and data corresponding to the authentication method.***
+
+![Custom Branding - Disabling Social Sign-in (White Labeling)](assets/custom-branding-3-4.png)
+
+With these configurations, you will have a complete custom branding setup with white labeling for your Cloud space. Remember to click **Save** to finish the setup.
 
 ### Invite Members Into Your Space
 

@@ -130,6 +130,8 @@ Each country has a compatible frequency band, so it is a good practice to check 
 
 #### Connect to Your Provider
 
+***__Please be aware that the Portenta Cat. M1/NB IoT GNSS Shield is not certified as an End-Device by all cellular network providers__. If you encounter difficulties with network connection, we recommend checking with your service provider to verify if End-Device certification is required for network access. Switching to a provider that does not have such requirements may resolve these issues. We advise reviewing this compatibility information during setup to ensure optimal device performance and to prevent potential service interruptions.***
+
 You need to enter the Pin code and the APN link of your provider.
 
 The username and password depend on your provider; these are required to authenticate with the APN gateway. These values can usually be found by searching online for APN credentials and provider names. Sometimes they can be left blank.

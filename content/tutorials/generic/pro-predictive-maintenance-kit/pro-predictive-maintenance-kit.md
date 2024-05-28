@@ -50,6 +50,8 @@ Additionally, you may need the following accessories:
 * 5 VDC wall power adapter (x1)
 * Male headers to solder Nicla boards
 
+***The __AKX00059 Smart Industry Predictive Maintenance Kit__ can be purchased from __Avnet__. For more details on the purchase, please visit [the store page](https://www.avnet.com/shop/us/products/arduino/akx00059-3074457345653947786).***
+
 ## Getting Started with Your Kit
 
 1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business) with Arduino Cloud For Business!

@@ -112,41 +112,33 @@ If you need to reflash the bootloader, you can follow the steps of this [Help Ce
 The default sketch loaded on the Nano ESP32 board is found in the code snippet below:
 
 ```arduino
-#define LEDR 46
-#define LEDG 45
-#define LEDB 0
-#ifdef LED_BUILTIN
-#undef LED_BUILTIN
-#define LED_BUILTIN 48
-#endif
-
 void setup() {
   // put your setup code here, to run once:
-  pinMode(LEDR, OUTPUT);
-  pinMode(LEDG, OUTPUT);
-  pinMode(LEDB, OUTPUT);
+  pinMode(LED_RED, OUTPUT);
+  pinMode(LED_GREEN, OUTPUT);
+  pinMode(LED_BLUE, OUTPUT);
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
   digitalWrite(LED_BUILTIN, HIGH);
-  digitalWrite(LEDR, LOW);
-  digitalWrite(LEDG, HIGH);
-  digitalWrite(LEDB, HIGH);
+  digitalWrite(LED_RED, LOW);
+  digitalWrite(LED_GREEN, HIGH);
+  digitalWrite(LED_BLUE, HIGH);
 
   delay(1000);
 
   digitalWrite(LED_BUILTIN, LOW);
-  digitalWrite(LEDR, HIGH);
-  digitalWrite(LEDG, LOW);
-  digitalWrite(LEDB, HIGH);
+  digitalWrite(LED_RED, HIGH);
+  digitalWrite(LED_GREEN, LOW);
+  digitalWrite(LED_BLUE, HIGH);
 
   delay(1000);
 
   digitalWrite(LED_BUILTIN, HIGH);
-  digitalWrite(LEDR, HIGH);
-  digitalWrite(LEDG, HIGH);
-  digitalWrite(LEDB, LOW);
+  digitalWrite(LED_RED, HIGH);
+  digitalWrite(LED_GREEN, HIGH);
+  digitalWrite(LED_BLUE, LOW);
 
   delay(1000);
   digitalWrite(LED_BUILTIN, LOW);

@@ -316,7 +316,7 @@ The Arduino® Portenta X8 has been designed for high-performance embedded comput
 | P<sub>LP</sub>  | Power consumption in low power mode |     | 200  |     |  mW  |
 | P<sub>MAX</sub> | Maximum Power Consumption           |     | 4000 |     |  mW  |
 
-The use of a USB 3.0 compatible port will ensure that the current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
+The use of a USB 3.0 compatible port will ensure that the current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during boot-up. Average power consumption is provided in the above table for several reference scenarios.
 
 ## Functional Overview
 
@@ -442,7 +442,7 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### Pinout
 
-![](assets/x8HDCPinout.jpg)
+![](assets/x8HDCPinout.png)
 
 ### Mounting Holes and Board Outline
 
@@ -523,8 +523,6 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 (1) l’ appareil nedoit pas produire de brouillage
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
-
-<div style="page-break-after: always;"></div>
 
 **IC SAR Warning:**
 
