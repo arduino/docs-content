@@ -47,6 +47,7 @@ Additionally, you may need the following accessories:
 * USB-C® cable (x1)
 * Solar panel with respective system (Controller, battery, and inverter) or similar power system
 
+***The __AKX00060 Smart Industry Prototyping Kit__ can be purchased from __Avnet__. For more details on the purchase, please visit [the store page](https://www.avnet.com/shop/us/products/arduino/akx00060-3074457345653947794).***
 
 ## Getting Started with Your Kit
 

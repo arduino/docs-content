@@ -43,6 +43,8 @@ Additionally, you may need the following accessories:
 
 * Micro-USB cable (x1)
 
+***The __AKX00057 Smart Industry OEM Condition Monitoring Kit__ can be purchased from __Avnet__. For more details on the purchase, please visit [the store page](https://www.avnet.com/shop/us/products/arduino/akx00057-3074457345653947739).***
+
 ## Getting Started with Your Kit
 
 1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in, or Create an Arduino account. Rescue your Arduino Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business)!

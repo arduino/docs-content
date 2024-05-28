@@ -44,6 +44,8 @@ Additionally, you may need the following accessories:
 * RS-485 connection wire STP/UTP 24-18AWG (Unterminated) 100-130Ω rated (x3)
 * RS-485 connection wire STP/UTP 22-16AWG (Terminated) 100-130Ω rated (x3)
 
+***The __AKX00056 Industrial Automation and Lighting Kit__ can be purchased from __Avnet__. For more details on the purchase, please visit [the store page](https://www.avnet.com/shop/us/products/arduino/akx00056-3074457345653947772).***
+
 ## Getting Started with Your Kit
 
 1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business)!

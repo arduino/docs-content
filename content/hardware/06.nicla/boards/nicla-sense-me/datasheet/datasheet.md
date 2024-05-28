@@ -7,77 +7,84 @@ author: Ali Jahangiri
 
 ![Nicla Sense ME](assets/featured.png)
 
-# Description 
-The **Arduino® Nicla Sense ME** is our smallest form factor yet, with a range of industrial-grade sensors packed into a tiny footprint. Measure process parameters such as temperature, humidity and movement. Dive into edge computing with powerful data fusion capabilities. Make your own industrial-grade wireless sensing network with the onboard BHI260AP, BMP390, BMM150 and BME688 Bosch® sensors.
+# Description
 
-# Target areas:
-wireless sensor networks, data fusion, artificial intelligence, gas detection
+<p style="text-align: justify;">
+The Arduino Nicla Sense ME is our smallest form factor yet, with a range of industrial-grade sensors packed into a tiny footprint. Measure process parameters such as temperature, humidity, and movement. Dive into edge computing with powerful data fusion capabilities. Make your own industrial-grade wireless sensing network with the onboard BHI260AP, BMP390, BMM150, and BME688 sensors from Bosch®.
+</p>
 
-# Features
-- **ANNA-B112** Bluetooth®  Module
-  - **nRF52832** System-on-chip
-    - 64 MHz Arm® Cortex®-M4F microcontroller 
-    - 64 KB SRAM
-    - 512 KB Flash
-    - RAM mapped FIFOs using EasyDMA
-    - 2x SPI (one is accessible via pin header)
-    - 2x I2C (one is accessible via pin header)
-    - 12-bit/200 ksps ADC
-    - 2.400 - 2.4835 GHz Bluetooth®  (5.0 via cordio stack, 4.2 via ArduinoBLE)
-  - Internal antenna
-  - Internal 32 MHz oscillator
-  - 1.8V Operating Voltage
-- **Bosch® BHI260AP** - AI smart sensor hub with integrated IMU
-  - Fuser 2 CPU Core
-    - 32 Bit Synopsys DesignWare ARC™ EM4™ CPU
-    - floating point RISC Processor
-    - 4-channel micro DMA controller/ 2-way associative cache controller
-  - 6-axis IMU
-    - 16-bit 3-axis accelerometer
-    - 16-bit 3-axis gyroscope
-  - Pro Features
-    - Self-learning AI software for fitness tracking
-    - Swim analytics
-    - Pedestrian dead reckoning
-    - Relative and absolute orientation
-  - External 2MB FLASH connected via QSPI
-  
-- **Bosch® BMP390** High-performance pressure sensor
-  - Operation range: 300-1250 hPa
-  - Absolute accuracy pressure (typ.): ± 0.5 hPa
-  - Relative accuracy pressure (typ.): ± 0.03 hPa (equivalent to ±25 cm)
-  - RMS noise in pressure @ highest resolution: 0.02 Pa
-  - Temperature coefficient offset: ± 0.6 Pa/K
-  - Long-term stability (12 months): ± 0.16 hPa
-  - Max sampling rate: 200 Hz
-  - Integrated 512 byte FIFO buffer
-- **Bosch® BMM150** 3-axis Magnetometer
-  - Magnetic range typ.
-    - X,Y axis: ±1300μT
-    - Z axis: ±2500μT
-  - Resolution: 0.3μT
-  - Non-linearity: <1% FS
-- **Bosch® BME688** Environmental sensing with Artificial Intelligence
-  - Operating range
-    - Pressure: 300-1100 hPa
-    - Humidity: 0-100%
-    - Temperature: -40 - +85°C
-  - eNose Gas sensor
-    - Sensor-to-sensor deviation (IAQ): ± 15% ± 15 IAQ
-    - Standard scan speed: 10.8 s/scan
-    - Electric charge for standard scan: 0.18 mAh (5 scans - 1 min)
-    - Major Sensor outputs
-      - Index for air quality (IAQ)
-      - bVOC- & CO2-equivalents (ppm)
-      - Gas scan result (%)
-      - Intensity level
-
-- **ATSAMD11D14A-MUT** Microcontroller
-  - Serial to USB Bridge
-  - Debugger interface
-
+# Target Areas
+Wireless sensor networks, data fusion, artificial intelligence, and gas detection
 
 # Contents
+
+## Features
+
+### Bluetooth® Module
+
+| **Feature**               | **Description**                                     |
+|---------------------------|-----------------------------------------------------|
+| **Model**                 | ANNA-B112 Bluetooth® Module                         |
+| **Microcontroller**       | nRF52832 System-on-chip                             |
+| **CPU Core**              | 64 MHz Arm® Cortex®-M4F                             |
+| **Internal SRAM Memory**  | 64 KB                                               |
+| **Internal Flash Memory** | 512 KB                                              |
+| **External Flash Memory** | 2 MB                                                |
+| **Interfaces**            | 2x SPI, 2x I2C (one accessible via pin header each) |
+| **ADC**                   | 12-bit/200 ksps                                     |
+| **Bluetooth® Frequency**  | 2402 - 2480 MHz                                     |
+| **Antenna**               | Internal                                            |
+| **Oscillator**            | Internal 32 MHz                                     |
+| **Operating Voltage**     | 1.8 VDC                                             |
+
+### Smart Sensor with Integrated IMU
+
+| **Feature**           | **Description**                                                          |
+|-----------------------|--------------------------------------------------------------------------|
+| **Model**             | Bosch® BHI260AP                                                          |
+| **CPU Core**          | Fuser 2, 32 Bit Synopsys DesignWare ARC™ EM4™ CPU                        |
+| **IMU**               | 6-axis: 16-bit 3-axis accelerometer & gyroscope                          |
+| **Advanced Features** | Self-learning AI, swim analytics, pedestrian dead reckoning, orientation |
+| **External Memory**   | 2MB Flash connected via QSPI                                             |
+
+### High-Performance Pressure Sensor
+
+| **Feature**               | **Description**                   |
+|---------------------------|-----------------------------------|
+| **Model**                 | Bosch® BMP390                     |
+| **Operating Range**       | 300-1250 hPa                      |
+| **Absolute Accuracy**     | ± 0.5 hPa                         |
+| **Relative Accuracy**     | ± 0.03 hPa (equivalent to ±25 cm) |
+| **RMS Noise**             | 0.02 Pa                           |
+| **FIFO Buffer**           | Integrated 512 byte               |
+| **Maximum Sampling Rate** | 200 Hz                            |
+
+### 3-Axis Magnetometer
+
+| **Feature**        | **Description**                      |
+|--------------------|--------------------------------------|
+| **Model**          | Bosch® BMM150                        |
+| **Magnetic Range** | X,Y axis: ±1300 μT, Z axis: ±2500 μT |
+| **Resolution**     | 0.3 μT                               |
+| **Non-linearity**  | <1% FS                               |
+
+### Environmental Sensor
+
+| **Feature**         | **Description**                                                            |
+|---------------------|----------------------------------------------------------------------------|
+| **Model**           | Bosch® BME688                                                              |
+| **Operating Range** | Pressure: 300-1100 hPa, Humidity: 0-100%, Temperature: -40 - +85°C         |
+| **eNose Sensor**    | Sensor-to-sensor deviation (IAQ): ± 15% ± 15 IAQ                           |
+| **Sensor Outputs**  | IAQ, bVOC- and CO2-equivalents (ppm), gas scan result (%), intensity level |
+
+### Onboard Microcontroller
+
+| **Feature**   | **Description**                          |
+|---------------|------------------------------------------|
+| **Model**     | ATSAMD11D14A-MUT                         |
+| **Functions** | Serial to USB bridge, debugger interface |
+
+<div style="page-break-after: always;"></div>
 
 ## The Board
 
@@ -132,7 +139,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 ## Functional Overview
 
 ### Block Diagram
-![Nicla Sense ME Block Diagram](assets/niclaSenseMEBlockDiagram.svg)
+![Nicla Sense ME Block Diagram](assets/niclaSenseMEBlockDiagram.png)
 
 <div style="page-break-after:always;"></div>
 
@@ -167,15 +174,20 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 ### Microcontroller
 The Arduino® Nicla Sense ME is powered by a nRF52832 SoC within the ANNA-B112 module (MD1). The nRF52832 SoC is built around an Arm® Cortex®-M4 microcontroller with a floating point unit running at 64 MHz. Sketches are stored inside the nRF52832 internal 512 KB FLASH which is shared with the bootloader. 64 KB SRAM is available to the user. The ANNA-B112 acts as an SPI host for the data logging 2MB flash (U7) and the BHI260 6-axis IMU (U5). It is also the secondary for the BHI260 (U5) I2C and SPI connection. While the module itself runs at 1.8V, a level shifter can adjust the logic level between 1.8V and 3.3V depending on the LDO set in BQ25120 (U9). An external oscillator (Y1) provides a 32 KHz signal. 
+
 ### Bosch® BHI260 Smart Sensor System with Built-in 6-Axis IMU
 The Bosch® BHI260 is an ultra-low power programmable sensor, combining a Fuser2 core processor, 6-axis IMU (gyroscope and accelerometer) together with a sensor fusion software framework. The BHI260 is a smart sensor core (hosting a programmable recognition system), that handles communication with other sensors on the **Arduino Nicla Sense ME** via I2C and SPI connections. There is also a dedicated 2MB Flash (U2) used to store execute-in-place (XiP) code as well as data storage, such as Bosch® sensor fusion algorithm (BSX) calibration data. The BHI 260 is capable of loading custom algorithms that can be trained on a PC. The generated smart algorithm then operates on this chip.
+
 ### Bosch® BME688 Environmental Sensor
 The **Arduino Nicla Sense ME** is able to perform environmental monitoring via the Bosch® BME688 sensor (U6). This provides capabilities for pressure, humidity, temperature as well as Volatile Organic Compound (VOC) detection. The Bosch® BME688 performs gas detection via an eNose metal oxide semiconductor array with a typical gas scan cycle of 10.8 seconds.
+
 ### Bosch® BMP390 Pressure Sensor
 Industrial grade accuracy and stability in pressure measurements are provided by the BMP390 (U3) designed for prolonged use, with a relative accuracy of ±0.03 hPa and an RMS of 0.02 Pa in high-resolution mode. The Bosch® BMP390 is suitable for rapid measurements with a sampling rate of 200 Hz, or for low-power use with a sampling rate of 1 Hz, consuming less than 3.2 µA. U3 is controlled via an SPI interface to the BHI260 (U2), on the same bus as the BME688 (U6).
+
 ### Bosch® BMM150 3-Axis Magnetometer
 The Bosch® BMM150 (U4) provides accurate 3-axis measurements of the magnetic field with compass-level accuracy. Combined with the BHI260 IMU (U2), Bosch® sensor fusion can be used to obtain high-accuracy spatial orientation and motion vectors for the detection of heading in autonomous robots as well as predictive maintenance. There is a dedicated I2C connection to the BHI260 (U2), acting as the host.
 ### RGB LED
+
 An I2C LED driver (U8) drives the RGB LED (DL1) and is capable of a maximum output of 40 mA. It is driven by the ANN-B112 (U5) microcontroller. 
 
 ### USB Bridge
@@ -471,6 +483,17 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |----------------------|----------------------|
 | 2.4 GHz, 40 channels | +6dBm                |
 
+## NCC Low Power Warning
+
+警語:
+
+取得審驗證明之低功率射頻器材，非經核准，公司、商號或使用者均不得擅自變更頻率、加大功率或變更原設計之特性及功能。
+
+低功率射頻器材之使用不得影響飛航安全及干擾合法通信；經發現有干擾現象時，應立即停用，並改善至無干擾時方得繼續使用。
+
+前述合法通信，指依電信管理法規定作業之無線電通信。
+
+低功率射頻器材須忍受合法通信或工業、科學及醫療用電波輻射性電機設備之干擾。
 
 ## Company Information
 
