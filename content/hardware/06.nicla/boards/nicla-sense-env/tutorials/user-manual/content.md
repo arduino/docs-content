@@ -83,7 +83,7 @@ The [`Arduino_NiclaSenseEnv` library](https://github.com/sebromero/Arduino_Nicla
 
 To install the `Arduino_NiclaSenseEnv` library, navigate to `Tools > Manage libraries...` or click the **Library Manager** icon in the left tab of the Arduino IDE. In the Library Manager tab, search for `Arduino_NiclaSenseEnv` and install the latest version of the library.
 
-![Installing Nicla Sense Env library](assets/user-manual-3.png)
+![Installing the Arduino_NiclaSenseEnv library](assets/user-manual-3.png)
 
 ### Pinout
 
@@ -261,7 +261,7 @@ Here is a detailed breakdown of the `printDeviceInfo()` function and the `Arduin
 
 ### Onboard Sensors Management 
 
-Efficient management of the Nicla Sense Env's onboard sensors is important for optimizing its performance and power usage. The sketch shown below demonstrates how to turn on or off the onboard sensors of the Nicla Sense Env and check their statuses using the `Arduino_NiclaSenseEnv` library API: 
+Efficient management of the Nicla Sense Env's onboard sensors is important for optimizing its performance and power usage. The sketch shown below demonstrates how to turn on or off the onboard sensors (temperature, relative humidity, ) of the Nicla Sense Env and check their statuses using the `Arduino_NiclaSenseEnv` library API: 
 
 ```arduino
 void setup() {
