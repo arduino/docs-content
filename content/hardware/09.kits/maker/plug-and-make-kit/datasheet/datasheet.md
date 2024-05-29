@@ -55,13 +55,13 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 | -------------- | -------------------------- |-----------------------------------------------------|-----------|
 | ABX00080       | Arduino UNO R4 WiFi        | Programmable board with WiFi                        | 1         |
 | ASX00071       | Plate Node                 | Fix firmly an UNO and some nodes on it              | 1         |
-| ABX00101       | MOVEMENT                   | Measure acceleration and rotation     | 1         |
-| ABX00102       | DISTANCE                   | Time of flight, finds distances                     | 1         |
-| ABX00103       | THERMO                     | Measure temperature and humidity                    | 1         |
-| ABX00107       | KNOB                       | Rotary encoder for input                            | 1         |
-| ABX00108       | BUZZER                     | Produce sound                                       | 1         |
-| ABX00109       | PIXELS                     | 8 RGB LEDs for display                              | 1         |
-| ABX00110       | BUTTONS                    | 3 push buttons for input                            | 1         |
+| ABX00101       | Modulino Movement                   | Measure acceleration and rotation     | 1         |
+| ABX00102       | Modulino Distance                   | Time of flight, finds distances                     | 1         |
+| ABX00103       | Modulino Thermo                     | Measure temperature and humidity                    | 1         |
+| ABX00107       | Modulino Knob                       | Rotary encoder for input                            | 1         |
+| ABX00108       | Modulino Buzzer                    | Produce sound                                       | 1         |
+| ABX00109       | Modulino Pixels                     | 8 RGB LEDs for display                              | 1         |
+| ABX00110       | Modulino Buttons                    | 3 push buttons for input                            | 1         |
 
 
 ### Arduino UNO R4 WiFi
@@ -195,10 +195,10 @@ All modules that have a added microcontroller for interfacing, such as the knob,
 
 | Board            | SKU      | PA6 | PA7 | PA8 | PC14 | PC15 | PF2 |
 |------------------|----------|-----|-----|-----|------|------|-----|
-| NODE07 ENCODER   | ABX00107 |     |     |  x  |      |      |     |
-| NODE08 BUZZER    | ABX00108 |  x  |     |     |      |      |     |
-| NODE09 NEOP      | ABX00109 |     |     |  x  |      |      |     |
-| NODE10 BUTTON    | ABX00110 |     |     |     |      |      |     |
+| Modulino Knob   | ABX00107 |     |     |  x  |      |      |     |
+| Modulino Buzzer   | ABX00108 |  x  |     |     |      |      |     |
+| Modulino Pixels      | ABX00109 |     |     |  x  |      |      |     |
+| Modulino Buttons    | ABX00110 |     |     |     |      |      |     |
 
 ### Movement
 #### Description
