@@ -1,7 +1,6 @@
 Board:
   SKUs:
-    Arduino Opta® Ext D1608E: AFX00005
-    Arduino Opta® Ext D1608S: AFX00006
+    Arduino Opta® Ext A0602: AFX00007
 Microcontroller:
   ID: Renesas R7FA4M1AB3CFM ARM® Cortex®-M4
   Cortex-M4 core: Up to 48 MHz
