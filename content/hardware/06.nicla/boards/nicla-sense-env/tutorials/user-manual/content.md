@@ -113,7 +113,7 @@ The complete STEP files are available and downloadable from the link below:
 
 ### Unboxing the Product
 
-Let's check out what's inside the box of the Nicla Sense Env board. Besides the board, you will also find an ESLOV cable inside the box, which can connect the Nicla Sense Env with other supported Arduino boards (Portenta, Nano, or MKR family boards). The board's MKR-styled pins can also connect the Nicla Sense Env to other supported Arduino boards, but 2.54 mm header pins (not included) must be soldered to the MKR-styled board pins. 
+Let's check out what's inside the box of the Nicla Sense Env board. Besides the board, you will also find an ESLOV cable inside the box, which can connect the Nicla Sense Env with other supported Arduino boards with an onboard ESLOV connector (Portenta, Nano, or MKR family boards). The board's MKR-styled pins can also connect the Nicla Sense Env to other supported Arduino boards, but 2.54 mm header pins (not included) must be soldered to the MKR-styled board pins. 
 
 ![Unboxing the Nicla Sense Env](assets/user-manual-4.png)
 
@@ -156,7 +156,7 @@ Copy and paste the example sketch below into a new sketch in the Arduino IDE:
   orange LED of the Nicla Sense Env board.
   
   @author Arduino Product Experience Team
-  @version 1.0 22/07/23
+  @version 1.0 31/05/24
 */
 
 #include "NiclaSenseEnv.h"
@@ -214,10 +214,30 @@ This section of the user manual outlines how to manage the onboard sensors and m
 
 ### Board Information
 
-Detailed information from the board, such as its I2C address, serial number, product ID, software revision, and UART communication settings, can be retrieved using the `Arduino_NiclaSenseEnv` library API. The sketch shown below is an example of how to retrieve that information using a  function called `printDeviceInfo()`:
+Detailed information from the board, such as its I<sup>2</sup>C address, serial number, product ID, software revision, and UART communication settings, can be retrieved using the `Arduino_NiclaSenseEnv` library API. The example sketch shown below retrieves that information using a dedicated function called `printDeviceInfo()`:
 
 ```arduino
-void printDeviceInfo(NiclaSenseEnv& device) {
+/**
+  Board Information Retrieval for Nicla Sense Env
+  Name: nicla_board_info_example.ino
+  Purpose: This sketch demonstrates how to retrieve detailed board information from the Nicla Sense Env using the Arduino_NiclaSenseEnv library API.
+  
+  @author Sebastián Romero, modified by the Arduino Product Experience Team
+  @version 1.0 31/05/24
+*/
+
+#include "NiclaSenseEnv.h"
+
+// Global device object for Nicla Sense Env
+NiclaSenseEnv device;
+
+/**
+  Prints detailed device information to the serial monitor.
+  This function outputs all critical system parameters including 
+  the device I2C address, serial number, and other configuration settings.
+*/
+void printDeviceInfo() {
+    Serial.println("Device Information:");
     Serial.print("- Device (0x");
     Serial.print(device.deviceAddress(), HEX);
     Serial.println(") connected.");
@@ -246,6 +266,24 @@ void printDeviceInfo(NiclaSenseEnv& device) {
         Serial.println("false");
     }
 }
+
+void setup() {  
+    // Initialize serial communication and wait up to 2.5 seconds for a connection
+    Serial.begin(115200);
+    for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+    if (device.begin()) {
+        Serial.println("Device successfully initialized!");
+        // Print device information once after initialization
+        printDeviceInfo();  
+    } else {
+        Serial.println("Failed to initialize the device. Please check the connection!");
+    }
+}
+
+void loop() {
+    // Nothing to do here. All information is printed once in setup().
+}
 ```
 
 Here is a detailed breakdown of the `printDeviceInfo()` function and the `Arduino_NiclaSenseEnv` library API functions used in the `printDeviceInfo()` function:
@@ -258,6 +296,12 @@ Here is a detailed breakdown of the `printDeviceInfo()` function and the `Arduin
 - `CSVDelimiter()`: Reveals the delimiter used in CSV outputs. This detail is vital for developers who process or log data, as it affects how data is parsed and stored.
 - `isDebuggingEnabled()`: Indicates whether the debugging mode is active. Debugging can provide additional output that helps diagnose issues or for development purposes.
 - `isUARTCSVOutputEnabled()`: Shows whether CSV output through UART is enabled. This setting is important for applications that require data logging for analysis or reporting, as it impacts how data is exported from the board.
+
+After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-9.png)
+
+You can download the example code [here](assets/nicla_board_info_example.zip).
 
 ### Onboard Sensors Management 
 
