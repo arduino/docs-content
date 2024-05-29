@@ -21,7 +21,7 @@ A number of libraries come installed with the IDE, but you can also download or 
 
 **3.** Finally, **click on install** and wait for the IDE to install the new library. 
 
-Once it has finished, an **Installed** tag should appear next to the Bridge library, so you can go ahead and close the library manager.
+Once it has finished, an **Installed** tag should appear next to the library of your choice, so you can go ahead and close the library manager.
 
 Now the new library will be available in the **Sketch > Include Library** menu. If you want to add your own library to Library Manager, follow [these instructions](https://github.com/arduino/library-registry#adding-a-library-to-library-manager).
 
