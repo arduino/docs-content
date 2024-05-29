@@ -8,7 +8,7 @@ Designed in partnership with leading relay manufacturer Finder®, it allows prof
 
 <FeatureList>
 
-<Feature title="Configurability" image="configurability">
+<Feature title="Configurability" image="settings">
 
   All eight available channels can be configured by software as analog input or analog output. There are two dedicated channels for 3 wires RTD sensors and the PWM output voltage is defined by the user from 8 to 40 VDC using the V<sub>PWM</sub> terminal. 
 
