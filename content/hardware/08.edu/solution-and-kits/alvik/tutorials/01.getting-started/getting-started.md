@@ -90,7 +90,8 @@ The latest firmware of the STM32 can be found at [this link](https://github.com/
 
 At the back-right side of Alvik there is the main switch of the robot. When ON the robot will power up and it will execute the already loaded program.
 
-***Keep the robot off while programming to avoid undesired movements and remember to turn it on when you are ready to execute your program. A feature of the Arduino Lab for MicroPython terminal is that it will notify you if you forgot to switch on the robot to run the code. ***
+***Keep the robot off while programming to avoid undesired movements and remember to turn it on when you are ready to execute your program. A feature of the Arduino Lab for MicroPython terminal is that it will notify you if you forgot to switch on the robot to run the code.***
+
 
 ![Notification to switch on](assets/message-switch-on.png)
 
