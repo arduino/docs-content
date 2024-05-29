@@ -15,7 +15,7 @@ All you need to get started is an Arduino account. The following steps can guide
 
 **1.** [Install the Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) plugin.
    
-**2.** [Create a new Arduino Account at this link](https://auth.arduino.cc/register). Complete the registration form, then hit the "create account" button. Then you will receive an email with a link to activate your account. Select the link and a new page will open with your confirmed account information.
+**2.** [Create a new Arduino Account at this link](https://login.arduino.cc/login). Complete the registration form, then hit the "create account" button. Then you will receive an email with a link to activate your account. Select the link and a new page will open with your confirmed account information.
    
 **3.** [Log in the Arduino Web Editor](http://create.arduino.cc/editor).
 
