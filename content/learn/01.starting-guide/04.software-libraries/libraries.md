@@ -27,19 +27,15 @@ Now the new library will be available in the **Sketch > Include Library** menu. 
 
 ### Online IDE
 
-The process of **setting up libraries on the online IDE** (Arduino Web Editor) is quite similar to the offline one:
+The process of **setting up libraries on the online IDE** (Arduino Cloud Editor) is quite similar to the offline one:
 
-**1.** Login to the [Arduino Web Editor](https://create.arduino.cc/editor).
+**1.** Login to the [Arduino Cloud](https://app.arduino.cc).
 
-**2.** Open the "Libraries" tab from the left menu, and search for libraries. The list displays read-only libraries, authored and maintained by the Arduino team and its partners.
+**2.** Create or open a sketch.
 
-![A list of libraries on the library manager](./assets/SetUpOnlineIDE-01.png)
+**3.** Open the "Libraries" tab from the left menu, and search for libraries. The list displays read-only libraries, authored and maintained by the Arduino team and its partners.
 
-**3.** When you find the library, you can **add it to your sketch** by selecting the "Include" button. You can also see the related examples, and select a specific version, if available.
+**4.** When you find the library, you can **add it to your sketch** by selecting the "Include" button. You can also see the related examples, and select a specific version, if available.
 
-![Adding a library](./assets/SetUpOnlineIDE-02.png)
-
-**4.** If you can't find a specific library on the list, you can search every existing library through **the library manager**. From there you also have the option to add them to your favorites list by clicking on the star next to the library you want. Once you star a library, you can view it under the "favorites" tab and use its examples (if available).
-
-![Online library manager](./assets/SetUpOnlineIDE-03.png)
+**5.** If you can't find a specific library on the list, you can search every existing library through **the search bar**. You also have the option to add them to your favorites list by clicking on the star next to the library you want. Once you star a library, you can view it under the "favorites" tab and use its examples (if available).
 
