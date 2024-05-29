@@ -51,6 +51,7 @@ Below is a visual representation of the intended application:
 - RS-485 connection wire as recommended by the standard specification (x3):
 - STP/UTP 24-18AWG (Unterminated) 100-130 Ω rated
 - STP/UTP 22-16AWG (Terminated) 100-130 Ω rated
+- Power cables for supply and load: Wires with a cross-sectional area ranging from 13.3 mm² to 21.2 mm², corresponding to AWG sizes 6 to 4.
 
 ### Software Requirements
 
@@ -64,6 +65,8 @@ Below is a visual representation of the intended application:
 The electrical connections of the intended application design are shown in the diagram below:
 
 ![Electrical connections of the application with the 7M.24 Energy Meter](assets/electrical_connections.png)
+
+***To address the power demands and ensure reliable connections with the load, using cables that comply with appropriate electrical standards, such as ASTM B 258 standard, and can support up to __50 A__ of current is advisable. __Cables with a cross-sectional area ranging from 13.3 mm² to 21.2 mm², roughly equivalent to AWG 6-4, should be sufficient for 50 A of current.__***
 
 The Opta™ system will access real-time consumption details from the 7M.24 energy meter using the Modbus RTU over the RS-485 interface. Power from the solar panels undergoes multiple processes before it reaches the energy meter.
 
