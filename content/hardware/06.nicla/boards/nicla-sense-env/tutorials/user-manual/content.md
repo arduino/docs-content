@@ -83,7 +83,7 @@ The [`Arduino_NiclaSenseEnv` library](https://github.com/sebromero/Arduino_Nicla
 
 To install the `Arduino_NiclaSenseEnv` library, navigate to `Tools > Manage libraries...` or click the **Library Manager** icon in the left tab of the Arduino IDE. In the Library Manager tab, search for `Arduino_NiclaSenseEnv` and install the latest version of the library.
 
-![Installing Nicla Sense Env library](assets/user-manual-6.png)
+![Installing Nicla Sense Env library](assets/user-manual-3.png)
 
 ### Pinout
 
@@ -115,7 +115,7 @@ The complete STEP files are available and downloadable from the link below:
 
 Let's check out what's inside the box of the Nicla Sense Env board. Besides the board, you will also find an ESLOV cable inside the box, which can connect the Nicla Sense Env with other supported Arduino boards (Portenta, Nano, or MKR family boards). The board's MKR-styled pins can also connect the Nicla Sense Env to other supported Arduino boards, but 2.54 mm header pins (not included) must be soldered to the MKR-styled board pins. 
 
-![Unboxing the Nicla Sense Env](assets/user-manual-3.png)
+![Unboxing the Nicla Sense Env](assets/user-manual-4.png)
 
 As mentioned, **the Nicla Sense Env is not a standalone device but a shield for an Arduino-supported board from the Portenta, MKR, or Nano board families**. This user manual will use a Portenta C33 as the main or host board and the Nicla Sense Env as a shield or client board connected through the included ESLOV cable.
 
@@ -126,7 +126,7 @@ The Nicla Sense Env can be powered by:
 - Using the onboard **ESLOV connector**, which has a dedicated  +5 VDC power line regulated onboard to +3.3 VDC.
 - Using an **external +3.3 VDC power supply** connected to `VCC` pin (please refer to the [board pinout section](#pinout) of the user manual).
 
-![Different ways to power the Nicla Sense Env](assets/user-manual-4.png)
+![Different ways to power the Nicla Sense Env](assets/user-manual-5.png)
 
 ***The Nicla Sense Env's `VCC` pin can be connected only to a +3.3 VDC power supply; any other voltage will permanently damage the board. Furthermore, the `VCC` pin does not have reverse polarity protection. Double-check your connections to avoid damaging the board.***
 
@@ -134,24 +134,26 @@ In this user manual, we will use the board's ESLOV connector to power it.
 
 ### Hello World Example
 
-Let's program the Nicla Sense Env board with the classic `hello world` example used in the Arduino ecosystem: the `Blink`. We will use this example to verify the Nicla Sense Env's connection to the host board (a Portenta C33) via ESLOV, the host board's connection to the Arduino IDE, and that the `Arduino_NiclaSenseEnv` library and both boards, the shield and the host, are working as expected. This section will refer to the Nicla Sense Env as a shield or client. 
+Let's control the Nicla Sense Env board to reproduce the classic `hello world` example used in the Arduino ecosystem: the `Blink`. We will use this example to verify the Nicla Sense Env's connection to the host board (a Portenta C33) via ESLOV, the host board's connection to the Arduino IDE, and that the `Arduino_NiclaSenseEnv` library and both boards, the shield and the host, are working as expected. This section will refer to the Nicla Sense Env as a shield or client. 
 
-First, connect the shield to the host board (a Portenta C33) via ESLOV, as shown in the image below, using an ESLOV cable (included with your Nicla Sense Env):
+***We are using the API of the `Arduino_NiclaSenseEnv` library with the host board (Portenta C33) to control the Nicla Sense Env (shield).***
 
-![Connecting the Nicla Sense Env to the host board via ESLOV](assets/user-manual-5.png)
+First, connect the shield to the host board via ESLOV, as shown in the image below, using an ESLOV cable (included with your Nicla Sense Env):
 
-Now, connect the host board to your computer using a USB-C® cable, open the Arduino IDE, and connect the host board to it (in this case, the Portenta C33). 
+![Connecting the Nicla Sense Env to the host board via ESLOV](assets/user-manual-6.png)
+
+Now, connect the host board to your computer using a USB-C® cable, open the Arduino IDE, and connect the host board to it. 
 
 ***If you are new to the Portenta C33, please refer to the board's [user manual](https://docs.arduino.cc/tutorials/portenta-c33/user-manual/) for more detailed information.***
 
-Copy and paste the code below into a new sketch in the Arduino IDE: 
+Copy and paste the example sketch below into a new sketch in the Arduino IDE: 
 
 ```arduino
 /**
   Blink LED on Nicla Sense Env
   Name: nicla_sense_env_blink.ino
   Purpose: This sketch demonstrates how to blink the onboard 
-  white LED of the Nicla Sense Env board.
+  orange LED of the Nicla Sense Env board.
   
   @author Arduino Product Experience Team
   @version 1.0 22/07/23
@@ -184,21 +186,27 @@ void setup() {
     for(auto start = millis(); !Serial && millis() - start < 5000;);
 
     if (device.begin()) {
-        // Initialize the onboard white LED
-        auto whiteLED = device.whiteLED();
+        // Initialize the onboard orange LED
+        auto orangeLED = device.whiteLED();
     } 
 }
 
 void loop() {
-    // Retrieve the white LED object
-    WhiteLED whiteLED = device.whiteLED();
+    // Retrieve the orange LED object
+    WhiteLED orangeLED = device.whiteLED();
 
-    // Continuously toggle the white LED on and off
-    toggleLED(whiteLED);
+    // Continuously toggle the orange LED on and off
+    toggleLED(orangeLED);
 }
 ```
 
-To upload the code to your Portenta C33, click the **Verify** button to compile the sketch and check for errors; then click the **Upload** button to program the device with the sketch.
+To upload the code to the host board, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
+
+![Uploading a sketch to the host board (Portenta C33) in the Arduino IDE](assets/user-manual-7.png)
+
+You should see the onboard orange LED of your Nicla Sense Env board turn on for one second, then off for one second, repeatedly.
+
+![](assets/user-manual-8.gif)
 
 ## Board Management
 
