@@ -206,7 +206,7 @@ To upload the code to the host board, click the **Verify** button to compile the
 
 You should see the onboard orange LED of your Nicla Sense Env board turn on for one second, then off for one second, repeatedly.
 
-![](assets/user-manual-8.gif)
+![Hello World on the Nicla Sense Env board](assets/user-manual-8.gif)
 
 ## Board Management
 
