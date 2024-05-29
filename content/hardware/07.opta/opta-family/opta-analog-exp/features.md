@@ -40,7 +40,7 @@ Designed in partnership with leading relay manufacturer Finder®, it allows prof
 
 <Feature title="Suitable to DIN Rail" image="configurability">
 
-  Thanks to its form factor, it can be attached to a Din Rail mount system, providing a quick access to all the I/O ‘s.
+  Thanks to its form factor, it can be attached to a Din Rail mount system, providing a quick access to all the I/O's.
 
 </Feature>
 
