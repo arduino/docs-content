@@ -73,7 +73,6 @@ Additionally you may need the following accessories:
 
 8. Start practicing the first examples included in the products user manuals, the IDE examples and the experiences proposed in the following section.
 
-
 ## Experiences Proposed
 
 If you want to learn more about the technologies of the kit, we propose the following experiences:
@@ -106,9 +105,10 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |                       [Accessing IMU Data on Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/nicla-vision-imu)                        | Yes |               |              |
 |                     [Proximity Detection with Arduino Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/proximity)                      | Yes |               |              |
 
-
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that to follow the tutorial you must use all the products with the `+` symbol.
 
 ## Support
 
 If you encounter any issues or have questions, we offer various support resources to help you find answers and solutions. In case of any issues with the redemption process, please contact us by filling out the form available [here](https://www.arduino.cc/en/contact-us/).
+
+Want to discuss how you can use Edge AI/ML in your industrial applications? Click [here](https://www.arduino.cc/pro/contact-us/) to consult with our experts.

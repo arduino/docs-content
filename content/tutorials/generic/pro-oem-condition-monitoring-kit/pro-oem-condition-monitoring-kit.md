@@ -73,8 +73,6 @@ If you want to learn more about the technologies of the kit, we propose the foll
 
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that to follow the tutorial you must use all the products with the `+` symbol.
 
-
-
 ## Support
 
 If you encounter any issues or have questions, we offer various support resources to help you find answers and solutions. In case of any issues with the redemption process, please contact us by filling out the form available [here](https://www.arduino.cc/en/contact-us/).
