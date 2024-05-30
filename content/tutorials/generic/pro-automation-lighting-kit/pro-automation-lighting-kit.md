@@ -58,7 +58,6 @@ Additionally, you may need the following accessories:
 
 5. Start practicing the first examples included in the user manual, the IDE examples, and deep dive into the knowledge topics needed to exploit all the product’s features such as [Modbus Protocol](https://docs.arduino.cc/learn/communication/modbus) and the experiences proposed below.
 
-
 ## Experiences Proposed
 
 If you want to learn more about the technologies of the kit, we propose the following experiences:
@@ -68,8 +67,6 @@ If you want to learn more about the technologies of the kit, we propose the foll
 | [Energy Management with Opta](https://docs.arduino.cc/tutorials/opta/energy-management-application-note) |    Yes     |    Yes    |
 |   [Home Automation with Opta](https://docs.arduino.cc/tutorials/opta/home-automation-application-note)   |            |    Yes    |
 |      [Tank Level Monitoring with Opta](https://docs.arduino.cc/tutorials/opta/tank-level-app-note)       |    Yes     |    Yes    |
-
-
 
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that to follow the tutorial you must use all the products with the `+` symbol.
 
