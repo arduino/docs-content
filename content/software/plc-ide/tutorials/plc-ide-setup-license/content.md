@@ -134,7 +134,7 @@ Plug your device to the computer, select your board's Serial Port, and click the
 
 ***Download the runtime every time you update the PLC IDE from a previous version.***
 
-***The device will show two Serial Ports: the default (generally with the lowest number) is the usual Serial Port. The secondary one (usually with the highest number) is a virtual port for Modbus communication from the device to your computer. Please take note of the port number assigned to the secondary port (virtual port for Modbus), as it will be needed in a second step.***
+***The device will display two Serial Ports: the default port, typically with the lowest number, and the secondary port, usually with the highest number. The default port is the usual Serial port and a virtual port for Modbus communication between the device and your computer. If the default port with the lowest number cannot establish a connection, please note the port number assigned to the secondary port, as it will be needed in a subsequent step.***
 
 If the following message appears during the download procedure, double-tap the reset button using the tip of a pen or a similar pointed object. The LED above the reset button for Opta™ or the Digital Outputs LEDs for Portenta Machine control will start blinking, indicating that the device is ready to be flashed with new firmware. Click the **Download** button to begin the process again.
 
@@ -150,7 +150,7 @@ On the new popup window, open the properties of the Modbus protocol.
 
 ![Properties of the communication](assets/onlineSetup.png)
 
-Ensure the Modbus protocol uses the secondary Serial port number, the Modbus Virtual port you noted before. Press OK.
+Ensure the Modbus protocol uses the default Serial port number as the initial option, the Modbus Virtual port you noted before. Use the secondary Serial port number number for additional devices or those with higher Serial number series if applicable. Press OK.
 
 ![Setting up the Modbus protocol](assets/onlineSetupProperties.png)
 
