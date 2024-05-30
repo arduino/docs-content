@@ -33,7 +33,7 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 | Reverse polarity protection | Yes                                                           |
 | ESP protection              | Yes                                                           |
 | Overvoltage protection      | Yes (up to 40 V)                                                    |
-| Inputs                      | 8x Programmable inputs (Voltage, Current and RTD)             |
+| Inputs                      | 6x Programmable inputs (Voltage, Current and RTD)             |
 | Outputs                     | 2x Programmable outputs (Voltage, Current) and 4x PWM outputs |
 | Degree of Protection        | IP20                                                          |
 | Certifications              | FCC, CE, UKCA                                                 |
@@ -42,7 +42,7 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 
 | Characteristics               | Details                                     |
 |-------------------------------|---------------------------------------------|
-| Number of inputs              | 8x Digital/Analog inputs (Voltage, Current and RTD) |
+| Number of inputs              | 6x Digital/Analog inputs (Voltage, Current and RTD) |
 | Inputs overvoltage protection | Yes (Up to 40 V)                            |
 | Antipolarity protection       | No                                          |
 | Analog Input resolution       | 16 bits                                      |
@@ -75,7 +75,7 @@ The Analog Expansion input channels can be configured for current loop instrumen
 
 #### RTD Input Mode 
 
-The Analog Expansion input channels can be used for temperature metering with **PT100** RTDs.
+The Analog Expansion input channels can be used for temperature metering with **PT100** or **PT1000** RTDs.
 
 | Characteristics | Details  |
 |-----------------|----------|
@@ -93,7 +93,7 @@ RTD with 3 wires has generally two wires with the same color.
 
 ***3 wires RTD can only be measured by channels __I1__ and __I2__.***
 
-![3 Wires RTD connection example]()
+![3 Wires RTD connection example](assets/rtd-3wires.png)
 
 ### Outputs
 
