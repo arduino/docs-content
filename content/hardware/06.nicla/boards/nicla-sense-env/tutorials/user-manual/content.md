@@ -385,32 +385,74 @@ You can download the example code [here](assets/nicla_sensors_management_example
 
 Resetting the Nicla Sense Env is important for troubleshooting and ensuring the device operates cleanly. It is handy after making significant changes to the configuration or when an unexpected behavior occurs.
 
-The sketch shown below demonstrates how to reset the Nicla Sense Env using the `Arduino_NiclaSenseEnv` library API: 
+The example sketch shown below demonstrates how to reset the Nicla Sense Env using the `Arduino_NiclaSenseEnv` library API.  It also shows how to verify that the board has been reset by turning off the temperature sensor before the reset and checking its status after the reset.
 
 ```arduino
-void setup() {
-    // Initialize serial communication
-    Serial.begin(115200);
-    while (!Serial) {
-        // Wait for Serial to be ready
-    }
+/**
+  Board Reset for Nicla Sense Env
+  Name: nicla_board_reset_example.ino
+  Purpose: This sketch demonstrates how to reset the Nicla Sense Env 
+  using the Arduino_NiclaSenseEnv library API and verifies the reset
+  by disabling and then re-enabling the temperature sensor.
+  
+  @version 1.0 31/05/24
+*/
 
-    NiclaSenseEnv device;
+#include "NiclaSenseEnv.h"
+
+// Global device object for Nicla Sense Env
+NiclaSenseEnv device;
+
+void setup() {
+    // Initialize serial communication and wait up to 2.5 seconds for a connection
+    Serial.begin(115200);
+    for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
 
     if (device.begin()) {
+        // Disable the temperature sensor
+        Serial.println("- Disabling temperature sensor...");
+        device.temperatureHumiditySensor().setEnabled(false);
+
+        // Check the temperature sensor state before reset
+        Serial.print("- Temperature sensor enabled before reset: ");
+        if (device.temperatureHumiditySensor().enabled()) {
+            Serial.println("true");
+        } else {
+            Serial.println("false");
+        }
+
         // Resetting the device
         Serial.println("- Resetting the device...");
         device.reset();
         delay(2000);  // Ensure the device has enough time to reset properly
+
+        // Check the temperature sensor state after reset
+        Serial.print("- Temperature sensor enabled after reset: ");
+        if (device.temperatureHumiditySensor().enabled()) {
+            Serial.println("true");
+        } else {
+            Serial.println("false");
+        }
     } else {
-        Serial.println("- Device could not be found. Please double-check the wiring.");
+        Serial.println("- Device could not be found. Please double-check the wiring!");
     }
+}
+
+void loop() {
+    // Nothing to do here. The device resets in setup().
 }
 ```
 
-Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+This example shows that the temperature sensor, which was disabled before the reset, is re-enabled after the reset, confirming that the board has restarted and all settings have been reset to their defaults. Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
 
-- `device.reset()`: This function reboots the Nicla Sense Env, clearing all temporary settings. 
+- `device.temperatureHumiditySensor().setEnabled(false)`: Disables the onboard temperature and humidity sensor.
+- `device.reset()`: This function reboots the Nicla Sense Env, clearing all temporary settings.
+
+After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-11.png)
+
+You can download the example code [here](assets/nicla_board_reset_example.zip).
 
 ### Low Power Mode Management
 
