@@ -2,7 +2,7 @@
 identifier: AKX00069
 title: Plug and Make Kit
 type: maker
-author: <names of the authors separated with commas>
+
 ---
 
 
@@ -777,3 +777,4 @@ Revision History: Every time there are updates or important changes a new line m
 |  **Date**  | **Revision** |                      **Changes**                       |
 | :--------: | :----------: | :----------------------------------------------------: |
 | 14/03/2023 |      1       |                     First release                      |
+
