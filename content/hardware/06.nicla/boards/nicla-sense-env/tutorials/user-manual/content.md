@@ -63,7 +63,7 @@ Here's an overview of the board's main components shown in the images above:
 - **Onboard indoor air quality sensor**: The Nicla Sense Env features an onboard gas sensor, the [ZMOD4410 from Renesas](https://www.renesas.com/us/en/document/dst/zmod4410-datasheet). This sophisticated sensor was designed to detect total volatile organic compounds (TVOC), estimate CO<sub>2</sub>, and monitor and report indoor air quality (IAQ). 
 - **Onboard outdoor air quality sensor**: The Nicla Sense Env features an onboard gas sensor, the [ZMOD4510 from Renesas](https://www.renesas.com/us/en/document/dst/zmod4410-datasheet). This sophisticated sensor was designed to monitor and report outdoor air quality (OAQ) based on nitrogen dioxide (NO<sub>2</sub>) and ozone (O<sub>3</sub>) measurements. 
 - **Onboard user LEDs**: The Nicla Sense Env has two onboard user-programmable LEDs; one is a white LED, and the other one is an RGB LED.
-- **ESLOV connector**: The Niclas Sense Env has an onboard ESLOV connector to extend the board communication capabilities via I<sub>2</sub>C. 
+- **ESLOV connector**: The Niclas Sense Env has an onboard ESLOV connector to extend the board communication capabilities via I<sup>2</sup>C. 
 - **Surface mount**: The castellated pins of the board allow it to be positioned as a surface-mountable module.
 
 ### Board Libraries 
@@ -305,19 +305,29 @@ You can download the example code [here](assets/nicla_board_info_example.zip).
 
 ### Onboard Sensors Management 
 
-Efficient management of the Nicla Sense Env's onboard sensors is important for optimizing its performance and power usage. The sketch shown below demonstrates how to turn on or off the onboard sensors (temperature, relative humidity, ) of the Nicla Sense Env and check their statuses using the `Arduino_NiclaSenseEnv` library API: 
+Efficient management of the Nicla Sense Env's onboard sensors is important for optimizing its performance and power usage. The sketch shown below demonstrates how to manage (turn on or off) the onboard sensors (temperature, relative humidity, and air quality) of the Nicla Sense Env and check their statuses using the `Arduino_NiclaSenseEnv` library API: 
 
 ```arduino
-void setup() {
-    Serial.begin(115200);
-    while (!Serial) {
-        // Wait for Serial to be ready
-    }
+/**
+  Onboard Sensors Management for Nicla Sense Env
+  Name: nicla_sensors_management_example.ino
+  Purpose: This sketch demonstrates how to manage the onboard sensors of the Nicla Sense Env using the Arduino_NiclaSenseEnv library API.
+  
+  @author Arduino PRO Content Team
+  @version 1.0 31/05/24
+*/
 
-    NiclaSenseEnv device;
+#include "NiclaSenseEnv.h"
+
+// Global device object for Nicla Sense Env
+NiclaSenseEnv device;
+
+void setup() {
+    // Initialize serial communication and wait up to 2.5 seconds for a connection
+    Serial.begin(115200);
+    for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
 
     if (device.begin()) {
-
         // Disable all the onboard sensors
         Serial.println("- Disabling all sensors...");
         device.temperatureHumiditySensor().setEnabled(false);
@@ -325,6 +335,7 @@ void setup() {
         device.outdoorAirQualitySensor().setEnabled(false);
 
         // Check the onboard sensor states
+        Serial.println("- Checking the sensor states...");
         Serial.print("- Temperature sensor enabled: ");
         if (device.temperatureHumiditySensor().enabled()) {
             Serial.println("true");
@@ -346,12 +357,16 @@ void setup() {
             Serial.println("false");
         }
     } else {
-        Serial.println("- Device could not be found. Please double-check the wiring.");
+        Serial.println("- Device could not be found. Please double-check the wiring!");
     }
+}
+
+void loop() {
+    // Nothing to do here. All information is printed once in setup().
 }
 ```
 
-Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+This example sketch initializes the Nicla Sense Env board disables all onboard sensors and then checks and prints the status of each sensor on the Arduino IDE's Serial Monitor. Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
 
 - `temperatureHumiditySensor().setEnabled(false)`: Disables the onboard temperature and humidity sensor.
 - `indoorAirQualitySensor().setEnabled(false)`: Turns off the onboard indoor air quality sensor. 
@@ -359,6 +374,12 @@ Here is a detailed breakdown of the example sketch shown before and the `Arduino
 - `temperatureHumiditySensor().enabled()`: Checks if the onboard temperature and humidity sensor is active.
 - `indoorAirQualitySensor().enabled()`: Indicates whether the onboard indoor air quality sensor is currently enabled. 
 - `outdoorAirQualitySensor().enabled()`: Confirms if the onboard outdoor air quality sensor is operational. 
+
+After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-10.png)
+
+You can download the example code [here](assets/nicla_sensors_management_example.zip).
 
 ### Board Reset
 
