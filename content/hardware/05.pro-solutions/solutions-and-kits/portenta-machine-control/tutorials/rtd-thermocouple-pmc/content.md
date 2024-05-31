@@ -50,7 +50,7 @@ The goals of this tutorial are:
 
 ### Software Requirements
 
-- The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (Including Arduino PLC IDE Tools)
+- The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide)
 - If you have not done so, set up and activate the Portenta Machine Control license following the steps of [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
 
 ## Temperature Sensors
