@@ -205,6 +205,8 @@ The image below shows Opta™ devices have **eight digital/analog programmable i
 
 ![Programmable input terminals in Opta™ devices](assets/user-manual-9-2.png)
 
+***The Opta™ digital inputs also support 0 to +10 VDC logic level sensors.***
+
 Digital/analog input terminals are mapped as described in the following table:
 
 | **Opta™ Terminal** | **Arduino Pin Mapping** |
