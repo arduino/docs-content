@@ -19,12 +19,13 @@ Industrial IoT, Building automation, Electrical loads management, Industrial aut
 ## Product Variants
 There are two variants of the Arduino Opta® Digital Expansion created to fit the different needs of each industry and application. The difference between each of the variants can be found in the following table:
 
-| Name    | Arduino Opta® Ext D1608E                           | Arduino Opta® Ext D1608S                           |
-| ------- | -------------------------------------------------- | -------------------------------------------------- |
-| SKU     | AFX00005                                           | AFX00006                                           |
-| Inputs  | 16 x programmable (0-24 V digital / 0-24 V analog) | 16 x programmable (0-24 V digital / 0-24 V analog) |
-| Outputs | 8 x Electromechanical Relays (250 VAC - 6 A)       | 8 x Solid State Relays (24 VDC - 2 A)              |
+| Name    | Arduino Opta® Ext D1608E                                     | Arduino Opta® Ext D1608S                                    |
+|---------|--------------------------------------------------------------|-------------------------------------------------------------|
+| SKU     | AFX00005                                                     | AFX00006                                                    |
+| Inputs  | 16 x programmable (0-10 V or 0-24 V digital / 0-24 V analog) | 16 x programmable (0-10 V or 0-24 V digital / 0-24 V analog) |
+| Outputs | 8 x Electromechanical Relays (250 VAC - 6 A)                 | 8 x Solid State Relays (24 VDC - 2 A)                       |
 
+***All digital expansion inputs support both 0-10 V and 0-24 V logic levels.***
 
 ## Application Examples
 Arduino Opta® Expansion is designed for industrial standard machinery control alongside the Opta® micro PLC. It is readily integrated into the Arduino hardware and software ecosystem.
@@ -43,7 +44,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Supply Voltage          | 12...24 V                                                                                             |
 | Antipolarity protection | Yes                                                                                                   |
 | Overvoltage protection  | Yes (+20%)                                                                                            |
-| Inputs                  | 16x Digital (0-10 V | 0-24 V) / Analog (0-24 V) inputs                                                         |
+| Inputs                  | 16x Digital (0-10 V / 0-24 V) / Analog (0-24 V) inputs                                                         |
 | Outputs                 | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
 | Degree of Protection    | IP20                                                                                                  |
 | Certifications          | FCC, CE, UKCA                                                                                         |
