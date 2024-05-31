@@ -43,7 +43,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Supply Voltage          | 12...24 V                                                                                             |
 | Antipolarity protection | Yes                                                                                                   |
 | Overvoltage protection  | Yes (+20%)                                                                                            |
-| Inputs                  | 16x Digital (0-24 V) / Analog (0-24 V) inputs                                                         |
+| Inputs                  | 16x Digital (0-10 V | 0-24 V) / Analog (0-24 V) inputs                                                         |
 | Outputs                 | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
 | Degree of Protection    | IP20                                                                                                  |
 | Certifications          | FCC, CE, UKCA                                                                                         |
