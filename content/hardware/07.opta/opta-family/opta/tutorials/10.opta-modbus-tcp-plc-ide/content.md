@@ -40,7 +40,6 @@ In this tutorial, you will learn how to implement Modbus TCP based communication
 
 ### Software Requirements
 
-- [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
 - [Arduino PLC IDE software](https://www.arduino.cc/en/software#arduino-plc-ide)
 - If you have an Opta™, you do not need any license key to activate your product. Go to section [__License Activation With Pre-Licensed Products (Opta™)__](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license#7-license-activation-with-pre-licensed-products-opta) to know more.
 - [Opta™ Modbus TCP PLC IDE Project Example File](assets/ModbusTCP_Opta_Example.zip)
@@ -93,14 +92,11 @@ Having provided an overview of the entire process, we can now delve into the spe
 
 Access the Arduino PLC IDE software by following [Arduino PLC IDE official website](https://www.arduino.cc/pro/software-plc-ide). You will have to download two executable files for proper software installation:
 
-- [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
 - [Arduino PLC IDE](https://www.arduino.cc/en/software#arduino-plc-ide)
 
 ![Arduino PLC IDE Software Download Section](assets/plcide_software_download.svg)
 
-The **Arduino PLC IDE Tools** will provide all the required drivers, libraries, and cores for development while the **Arduino PLC IDE** will install the IDE software.
-
-Install the Arduino PLC IDE Tools before the Arduino PLC IDE to avoid potential problems related to old libraries and drivers.
+The installation wizard will provide all the required drivers, libraries, and cores for development and install the **Arduino PLC IDE**.
 
 ***For more details regarding Arduino PLC IDE setup, please take a look at [Arduino PLC IDE Setup and Board's License Activation](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license) tutorial.***
 
