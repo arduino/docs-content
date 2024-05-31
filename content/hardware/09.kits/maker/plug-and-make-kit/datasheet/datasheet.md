@@ -191,7 +191,15 @@ Version number on bottom copper, below solder mask. Location is always on the to
 ![](assets/verNumber.png)
 
 #### Modules with Microcontroller
-All modules that have a added microcontroller for interfacing, such as the knob, buzzer, buttons, and pixels, have footprints allowing for the optional mounting of I2C pullups. However, these pullups are not mounted by default. This table allows to easily check this information, “x” in the table means that the pullup of that pin is not mounted.
+
+##### Pull-up Resistors
+These modules have pads for optional I2C pull-up mounting. No resistors are mounted by default:
+![Pullup resistors pads](ResistorsPullup.png)
+
+
+##### I2C address auto identification
+When the board is powered, the microcontroller reads the status of its pins PA6, PA7, PA8, PC14, PC15, and PF2. Each of the microcontroller boards has footprints for pullup resistors for those pins. The pull-ups can be mounted (or not) , so that the microcontroller can understand on what kind of board it has been mounted. Each of the boards with a microcontroller will have a different mounting configurations. This table allows for easily acess to this information:
+![Resistor I2C Identification](I2CAdressResistors.png)
 
 | Board            | SKU      | PA6 | PA7 | PA8 | PC14 | PC15 | PF2 |
 |------------------|----------|-----|-----|-----|------|------|-----|
