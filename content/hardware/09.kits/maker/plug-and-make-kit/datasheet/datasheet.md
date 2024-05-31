@@ -457,7 +457,9 @@ The PIXELS module includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 m
 
 1x4 header for GND, 3V3, SDA, SCL. These holes provide a place to mount header pins if desired.
 
-1x10 header for LC8822-2020 and microcontroller signals. This header can be used to add more LC8822-2020 to the chain. The header also has other microcontroller pins usable for other purposes or to reprogram the microcontroller using its SWD interface. These holes provide a place to mount header pins if desired.
+1x10 header for LC8822-2020 and microcontroller signals. This header can be used to add more LC8822-2020 to the chain. 
+![](assets/LEDExtention.png)
+The header also has other microcontroller pins usable for other purposes or to reprogram the microcontroller using its SWD interface. These holes provide a place to mount header pins if desired.
 
 #### Mechanical Information
 ![](assets/PixelMec.png)
