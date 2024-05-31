@@ -523,9 +523,9 @@ The Plug and Make Kit is compatible with the Modulino library, which can be foun
 
 ### I2C Connections on UNO R4 WiFi
 - **Wire** on headers A4, A5
-- **Wire1** on QWIIC connector
+- **Wire1** on Qwiic connector
 
-Keep in mind that by default the Modulino library assumes the QWIIC connector is going to be used, therefore by default it is using the Wire1.
+Keep in mind that by default the Modulino library assumes the Qwiic connector is going to be used, therefore by default it is using the Wire1.
 
 When connecting the Modulino boards to the UNO R4 WiFi headers, or to the Portenta on Mid Carrier, remember to modify the code to use Wire instead of Wire1.
 
@@ -576,7 +576,7 @@ Accessories: This section lists some of the related accessories that come or not
 - 24 M3x10 screws (Included)
 - 20 M3 bolts (Included)
 - 4 M3x20 female spacers (Included)
-- 7 Female-to-Female I2C cables (with QWICC connectors)
+- 7 Female-to-Female I2C cables (with Qwiic connectors)
 - USB-C® cable (Not included)
 
 ## Related Products
