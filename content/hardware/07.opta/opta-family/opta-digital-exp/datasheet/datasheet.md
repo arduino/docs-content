@@ -139,8 +139,8 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | ----------------------- | ---- | --- | ---- | ---- |
 | Supply voltage          | 12   | -   | 24   | V    |
 | Permissible range       | 10.2 | -   | 27.6 | V    |
-| Power consumption (12V) | -    | -   | 3    | W    |
-| Power consumption (24V) | -    | -   | 3    | W    |
+| Power consumption (12 V) | -    | -   | 3    | W    |
+| Power consumption (24 V) | -    | -   | 3    | W    |
 
 ## Functional Overview
 
