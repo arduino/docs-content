@@ -57,6 +57,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Antipolarity protection       | No                        |
 | Input impedance               | 5.85 kΩ                   |
 
+***The inputs are marked on plastic as DGT/0-10 V to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V range.***
 
 #### Analog Inputs
 | Characteristics           | Details                          |
@@ -66,15 +67,17 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Analog Input LSB value    | 1.733 mV                         |
 | Accuracy                  | +/- 5%, repeatability +/- 2%     |
 
+***The analog-to-digital converter resolution of 14 bits is considered in the 0-24 V range.***
 
 #### Digital Inputs
-| Characteristics                   | Details                          |
-| --------------------------------- | -------------------------------- |
-| Digital Input voltage             | 0...24 V                         |
-| Digital Input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC |
-| Digital Input current             | 4.12 mA at 24 V, 2.05 mA at 10 V |
-| Digital Input frequency           | 300 Hz                           |
+| Characteristics                   | Details                                |
+|-----------------------------------|----------------------------------------|
+| Digital Input voltage             | 0...24 V (supports 0-10 V logic level) |
+| Digital Input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC       |
+| Digital Input current             | 4.12 mA at 24 V, 2.05 mA at 10 V       |
+| Digital Input frequency           | 300 Hz                                 |
 
+***The expansion digital inputs are compatible with 0-10 V and 0-24 V logic-level sensors.***
 
 ### Outputs (AFX00005 Only)
 
