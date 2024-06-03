@@ -271,7 +271,7 @@ So, the communication between Arduino and Linux side will proceed as follow (che
 
 ![RPC M4 proxy](assets/m4-proxy.png "RPC M4 proxy")
 
-***If you want to learn more about how to work with RPC on your Portenta X8, please check the [dedicated section](#working-with-arduino) of this user manual.***
+***If you want to learn more about how to work with RPC on your Portenta X8, please check the [dedicated section](#working-with-arduino-sketch) of this user manual.***
 
 ## Portenta X8 OS Image Update
 
@@ -312,7 +312,9 @@ chmod +x 399-install-update
 sudo ./399-install-update
 ```
 
-Remember that the default password for admin access is `fio`.
+Remember to set a new admin password at your first access.
+
+***For image versions earlier than 844, the default password for admin access is `fio`.*** 
 
 Now you need to reboot the board by pressing its pushbutton for around 10 seconds. After that, connect again to your Portenta X8 through the Command Line and type the following commands:
 
@@ -475,7 +477,7 @@ The table below describes LEDs meaning and functionalities.
   | Status LED   | Green        | Board connected to the Internet                 |
   | Status LED   | Red          | STM32H7 LED, blinking when triggered in the IDE |
 
-### First configuration with the Out-of-the-box experience
+### Setup with the Arduino Linux Configurator
 
 ***It is recommended to have your Portenta X8 with the latest OS version. Check [this section](#portenta-x8-os-image-update) to learn how to have your Portenta X8 up-to-date.***
 
@@ -497,10 +499,12 @@ The agent will be installed in your computer. This activity might take few minut
 
 ![Portenta X8 successfully detected](assets/board-detection.png "Portenta X8 successfully detected")
 
-Now click on **START CONFIGURATION**. The tool will install all the required add-ons to make your Portenta X8 able to work efficiently with your PC. 
+Now click on **START CONFIGURATION**. The tool will install all the required add-ons to make your Portenta X8 able to work efficiently with your PC leveraging serial communication. 
 You can now proceed to the setup of the board connectivity by clicking **OK, GOT IT**. 
 
 ![Out-of-the-box Connectivity Configuration](assets/ootb-wifi-config.png "Out-of-the-box Connectivity Configuration")
+
+***If you face any issue with this flow or you prefer to directly interact with your Portenta X8 through the command line, please refer to [this section](#working-with-linux) to learn how to connect with the board leveraging ADB service.***
 
 #### Wi-Fi® Configuration
 
@@ -528,7 +532,7 @@ Now you can click **OK** and you will be redirected to the Out-of-the-box homepa
 
 ***You can change your network by clicking on the Settings button and repeat the steps above.***
 
-#### Portenta X8 Out-Of-The-Box Homepage
+#### Arduino Linux Configurator Homepage
 
 This web page is hosted on the Portenta X8 and allows a user to:
 
@@ -711,56 +715,23 @@ To verify your device status, click on your FoundriesFactory, go to **Devices** 
 
 ***If you want to learn more about Portenta X8 Manager features, check the dedicated section of this user manual called [Working with Portenta X8 Board Manager](#working-with-portenta-x8-board-manager).***
 
-## Portenta X8 with Arduino IDE
-
-In this section you will learn how to upload a sketch to the M4 core on the STM32H747XI MCU.
-
-Open the Arduino IDE and make sure you downloaded the latest Arduino Mbed OS Portenta Boards Core. Learn how to do it by following [this tutorial](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta).
-
-Select Portenta X8 in the board selector.
-
-![IDE Board Selector](assets/x8-IDE.png "IDE Board Selector")
-
-Create a custom sketch or open one of the example sketches e.g. the blink sketch:
-
-```arduino
-void setup(){
-  pinMode(LED_BUILTIN ,OUTPUT);
-}
-
-void loop(){
-  digitalWrite(LED_BUILTIN , HIGH);
-  delay(1000);
-  digitalWrite(LED_BUILTIN , LOW);
-  delay(1000);
-}
-```
-
-At this point, select the port of your device in the port selector menu and then press the Compile and Upload button.
-
-Behind the curtains, the sketch gets compiled into a binary. That binary file is then uploaded to the Linux side of the Portenta X8. The flashing is done on the board itself by the RPC service running on Linux (see [Communication between Linux and Arduino section](#communication-between-linux-and-arduino) of this user manual to learn more).
-
-When the sketch has been uploaded successfully, the onboard LED of your Portenta X8 will start blinking at an interval of one second.
-
-You can also upload the firmware manually if you like. To do so, you first need to compile the sketch: select **Export compiled binary** from the Sketch menu in the Arduino IDE. It will compile the sketch and save the binary file in the sketch folder. Alternatively, you can use the [Arduino CLI](https://arduino.github.io/arduino-cli/0.29/) to create an `elf` file.
-
-To upload the firmware you can use the ADB tool that has been installed as part of the Portenta X8 core. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
-
-From that directory, you can use the `adb` tool. To upload your compiled sketch, you just need to type the following command into your terminal window:
-
-```
-adb push <sketchBinaryPath> /tmp/arduino/m4-user-sketch.elf
-```
-
-![ADB upload with a terminal](assets/x8-terminal-ADB-push.png)
-
 ## Working with Linux
 
-Now it is time to start interacting with the Linux OS embedded in your Portenta X8. To do that, you need to open your terminal window and look for ADB inside the directory **Arduino15/packages/arduino/tools/adb/32.0.0**.
+Now it is time to start interacting with the Linux OS embedded in your Portenta X8. To do that, you need to open your terminal window and look for [**ADB**](https://developer.android.com/studio/command-line/adb) inside the directory **Arduino15/packages/arduino/tools/adb/32.0.0**. The Arduino15 folder may have a different location depending on the Operating System you are using. Check [this article](https://support.arduino.cc/hc/en-us/articles/360018448279-Open-the-Arduino15-folder) to learn where your Arduino15 folder is located.
 
-To check if ADB is working correctly, you can type `adb devices`. Your Portenta X8 will be listed there.
+Android Debug Bridge (ADB) is a tool included in the SDK software (Software Development Kit) and used, inter alia, to make an Android device and a computer to communicate with each other. To check if ADB is working correctly, you can type `adb devices`. Your Portenta X8 will be listed there.
 
 ![Connection with ADB](assets/adb-connection.png "Connection with ADB")
+
+***If you need to install ADB, you can also download the right tool for your Operating System directly from the [official Android website](https://developer.android.com/studio/releases/platform-tools).***
+
+In case you would like to start the embedded Arduino Linux configurator from the command line, you can continue typing in your terminal `adb forward tcp:8080 tcp:80`. With this command, ADB allows to forward the requests of the `8080 TCP-IP port` of your computer to the `80 TCP-IP port` of your device, that for this case it is the device with the name _Portenta X8_.
+
+![ADB forward command](assets/adb-tcp-port.png "ADB forward command")
+
+Now you can open your browser, go to [http://localhost:8080](http://localhost:8080) and the same Arduino Linux Configurator dashboard will appear to allow you to configure your Portenta X8.
+
+![Out-of-the-box Homepage](assets/OOTB_homepage.png "Out-of-the-box Homepage")
 
 At this point, you can type `adb shell` to start communicating with your Portenta X8.
 
@@ -768,7 +739,11 @@ At this point, you can type `adb shell` to start communicating with your Portent
 
 As it is a Linux device, you can do tasks like creating files, changing directories, etc.
 
-To gain admin (root) access, type `sudo su -` and the password, which by default is `fio`. After that, the terminal prefix should turn red.
+To gain admin (root) access, type `sudo su -` and set your own password. 
+
+***For image versions earlier than 844, the default password for admin access is `fio`.*** 
+
+After that, the terminal prefix should turn red.
 
 ![ADB shell with admin access](assets/adb-sudo-su.png "ADB shell with admin access")
 
@@ -776,7 +751,7 @@ You can now freely program your Portenta X8 Linux OS. In the sections below you 
 
 ### Change Default User Password
 
-Your Portenta X8 comes with the default user fio with password fio.
+For image versions earlier than 844, our Portenta X8 comes with the default user fio with password fio.
 
 For security reasons, we strongly suggest changing the default password. To do so, when logged in to your Portenta X8, launch this command to change the password of the fio account:
 
@@ -970,9 +945,51 @@ You may want to build a custom image for the Portenta X8 with the source code pr
 
 If you want to continue working with your Portenta X8, you can find tons of additional tutorials in the **Tutorials** section of our [Arduino Docs](https://docs.arduino.cc/hardware/portenta-x8). Go check them out!
 
-## Working With Arduino
+## Working With Arduino Sketch
 
-You have learned how to use your Portenta X8 with the Arduino IDE in the section [Portenta X8 with Arduino IDE](#portenta-x8-with-arduino-ide), but you can do much more with the Arduino environment, in particular leveraging the RPC communication between the Arduino layer and the Linux layer.
+In this section you will learn how to upload a sketch to the M4 core on the STM32H747XI MCU.
+
+Open the Arduino IDE and make sure you downloaded the latest Arduino Mbed OS Portenta Boards Core. Learn how to do it by following [this tutorial](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta).
+
+Select Portenta X8 in the board selector.
+
+![IDE Board Selector](assets/x8-IDE.png "IDE Board Selector")
+
+Create a custom sketch or open one of the example sketches e.g. the blink sketch:
+
+```arduino
+void setup(){
+  pinMode(LED_BUILTIN ,OUTPUT);
+}
+
+void loop(){
+  digitalWrite(LED_BUILTIN , HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN , LOW);
+  delay(1000);
+}
+```
+
+At this point, select the port of your device in the port selector menu and then press the Compile and Upload button.
+
+Behind the curtains, the sketch gets compiled into a binary. That binary file is then uploaded to the Linux side of the Portenta X8. The flashing is done on the board itself by the RPC service running on Linux (see [Communication between Linux and Arduino section](#communication-between-linux-and-arduino) of this user manual to learn more).
+
+When the sketch has been uploaded successfully, the onboard LED of your Portenta X8 will start blinking at an interval of one second.
+
+You can also upload the firmware manually if you like. To do so, you first need to compile the sketch: select **Export compiled binary** from the Sketch menu in the Arduino IDE. It will compile the sketch and save the binary file in the sketch folder. Alternatively, you can use the [Arduino CLI](https://arduino.github.io/arduino-cli/0.29/) to create an `elf` file.
+
+To upload the firmware you can use the ADB tool that has been installed as part of the Portenta X8 core. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
+
+From that directory, you can use the `adb` tool. To upload your compiled sketch, you just need to type the following command into your terminal window:
+
+```
+adb push <sketchBinaryPath> /tmp/arduino/m4-user-sketch.elf
+```
+
+![ADB upload with a terminal](assets/x8-terminal-ADB-push.png)
+
+
+You have just learned how to use your Portenta X8 with the Arduino IDE, but you can do much more with the Arduino environment, in particular leveraging the RPC communication between the Arduino layer and the Linux layer.
 
 You can have a look at this [GitHub repository](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/RPC/examples) to have access to multiple IDE examples showing how to use RPC communication with Portenta X8.
 
@@ -1224,7 +1241,7 @@ Open Portenta X8 Shell as explained [here](#working-with-linux).
 sudo modprobe spi-dev
 ```
 
-Insert the user password `fio`.
+Insert the user password.
 
 An upcoming image release for the X8 will load the `spi-dev` modules automatically at boot. In the current version, please create a `/etc/modules-load.d/spi-dev.conf` file with the following content:
 
