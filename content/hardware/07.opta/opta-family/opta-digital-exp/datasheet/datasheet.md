@@ -25,7 +25,7 @@ There are two variants of the Arduino Opta® Digital Expansion created to fit th
 | Inputs  | 16 x programmable (0-10 V or 0-24 V digital / 0-24 V analog) | 16 x programmable (0-10 V or 0-24 V digital / 0-24 V analog) |
 | Outputs | 8 x Electromechanical Relays (250 VAC - 6 A)                 | 8 x Solid State Relays (24 VDC - 2 A)                       |
 
-***All digital expansion inputs support both 0-10 V and 0-24 V logic levels.***
+***All digital expansion inputs support both 0-10 V and 0-24 V logic levels, this means that you can seamlessly interface them with 0-10 V or 0-24 V sensors.***
 
 ## Application Examples
 Arduino Opta® Expansion is designed for industrial standard machinery control alongside the Opta® micro PLC. It is readily integrated into the Arduino hardware and software ecosystem.
