@@ -77,7 +77,7 @@ The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontro
 | **Clock Speed**           | 48 MHz                              |
 | **Operating Voltage**     | 5 V (RA4M1), 3.3 V (ESP32-S3)       |
 | **Memory**                | 256 kB Flash, 32 kB SRAM, 8 kB EEPROM |
-| **Peripherals**           | Capacitive Touch Sensing Unit (CTSU), USB 2.0 Full-Speed Module, 14-bit ADC, Up to 12-bit DAC, Operational Amplifier (OPAMP) |
+| **Peripherals**           | Capacitive Touch Sensing Unit (CTSU), USB® 2.0 Full-Speed Module, 14-bit ADC, Up to 12-bit DAC, Operational Amplifier (OPAMP) |
 | **Communication**         | 1x UART, 1x SPI, 1x I2C, 1x CAN (external transceiver required) |
 | **Wi-Fi**                 | 802.11 b/g/n (Wi-Fi 4), up to 150 Mbps |
 | **Bluetooth**             | Bluetooth 5                         |
@@ -198,7 +198,7 @@ These modules have pads for optional I2C pull-up mounting. No resistors are moun
 
 
 ##### I2C address auto identification
-When the board is powered, the microcontroller reads the status of its pins PA6, PA7, PA8, PC14, PC15, and PF2. Each of the microcontroller boards has footprints for pullup resistors for those pins. The pull-ups can be mounted (or not) , so that the microcontroller can understand on what kind of board it has been mounted. Each of the boards with a microcontroller will have a different mounting configurations. This table allows for easily acess to this information:
+When the board is powered, the microcontroller reads the status of its pins PA6, PA7, PA8, PC14, PC15, and PF2. Each of the microcontroller boards has footprints for pullup resistors for those pins. The pull-ups can be mounted (or not) , so that the microcontroller can understand on what kind of board it has been mounted. Each of the boards with a microcontroller will have a different mounting configurations. This table allows for easily access to this information:
 ![Resistor I2C Identification](I2CAdressResistors.png)
 
 | Board            | SKU      | PA6 | PA7 | PA8 | PC14 | PC15 | PF2 |
@@ -258,7 +258,7 @@ LSM6DSOXTR interrupts INT1 and INT2 are available on the header.
 
 With the header pins and cutting the appropriate solder jumpers, it is possible to control the LSM6DSOXTR with 3-wire SPI or 4-wire SPI, connecting other sensors to it. Check the LSM6DSOXTR datasheet for more details.
 
-It is possible to change the I2C adress for the module with a small hardware change. For this the exposed pads on the bottom of the board corresponding with the desired adress (0x6A or 0x6B) must be separated shorted together and the oposite set of pads needs to be separated. Image for reference is changing from the (default) 0x6A to 0x6B.
+It is possible to change the I2C address for the module with a small hardware change. For this the exposed pads on the bottom of the board corresponding with the desired address (0x6A or 0x6B) must be separated shorted together and the opposite set of pads needs to be separated. Image for reference is changing from the (default) 0x6A to 0x6B.
 Please remember to disconnect the modules when making these changes.
 
 ![](assets/AdressChangeIMU.png)
@@ -634,7 +634,7 @@ Now that you have gone through the basics of what you can do with the board you 
 Board Recovery:  Make sure to explain how to put the board in recovery mode. If that information is not available, please remove.
 -->
 
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by doubletapping the reset button right after the power-up.
+All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB®, it is possible to enter bootloader mode by doubletapping the reset button right after the power-up.
 
 
 <div style="page-break-after: always;"></div>
