@@ -2579,6 +2579,89 @@ You can buy and find more information about the Opta™ Digital Expansions on th
 - [Buy the Opta™ Digital Ext D1608E (EMR)](https://store.arduino.cc/products/Opta-Ext-D1608E)
 - [Buy the Opta™ Digital Ext D1608S (SSR)](https://store.arduino.cc/products/Opta-Ext-D1608S)
 
+## Opta Analog Expansions
+
+Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or actuators. In addition, 4 dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
+
+The Opta Expansions can be controlled by any Opta controller variant: [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485) or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi).
+
+![Opta Analog Expansion](assets/variant-analog.png)
+
+***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step.***
+
+### Snapping the Expansion
+
+You can snap up to five expansions to your Opta™ Base module to multiply and mix your set of I/Os with seamless detection.
+
+After removing the expansion port breakable plastic cover marked as AUX, from the Opta™ controller and from the expansion to expose the expansion port, plug the expansions on the right side of your Opta™ controller making sure to correctly align the **Aux connector** and the connection clips as shown in the image below:
+
+![Snapping Opta expansions](assets/snap-exp-analog.gif)
+
+### Powering Expansions
+
+The Opta™ Analog Expansions must be externally powered to work. See the power specifications in the table below:
+
+| Property                 | Min  | Typ | Max  | Unit |
+|--------------------------|------|-----|------|------|
+| Supply voltage           | 12   | -   | 24   | V    |
+| Permissible range        | 10.2 | -   | 27.6 | V    |
+| Power consumption (12 V) | -    | -   | 3    | W    |
+| Power consumption (24 V) | -    | -   | 3    | W    |
+
+In the image below there is an example of the power wiring of the expansions:
+
+![Powering the Opta Analog Expansions](assets/power-expansion-2.png)
+
+***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
+
+### Library Installation
+
+To use the Opta™ Analog Expansion with your Opta™ PLC, you need to install the `Arduino_Opta_Blueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
+
+![Opta expansions library installation](assets/library-install.png)
+
+Install all the **library dependencies** suggested by clicking the **Install All** button:
+
+![Library dependencies installation](assets/library-install-2.png)
+
+Once installed, you will have access to a variety of sketch examples showcasing the expansion capabilities and how to use them.
+
+#### Update Expansion Firmware
+
+With the library properly installed, we will update the expansion firmware to ensure proper functioning and seamless detection.
+
+In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > updateExpansionFw**.
+
+![Firmware update example](assets/fw-update.png)
+
+Upload the program to the Opta™ controller and open the Arduino IDE Serial Monitor.
+
+![Firmware update process](assets/fw-update-serial.png)
+
+If your expansion is updatable, in the Serial Monitor you will see its current firmware version and the new one to which it will be updated.
+
+Type `Y` in the Serial Monitor to confirm the update and wait for it to be completed.
+
+![Firmware update running](assets/fw-update-serial-2.png)
+
+Finally, your Opta™ expansion will be updated with the latest firmware version.
+
+### Programmable Inputs
+
+The Opta™ Analog Expansions have **6 digital/analog programmable inputs** accessible through terminals `I1` to `I6`.
+Each input can be used as:
+
+|            **Mode**            |             **Specification**             |
+|:------------------------------:|:-----------------------------------------:|
+|     Digital input voltage      | 0...24 V  (supports 0...10 V logic level) |
+|      Analog input voltage      |                 0...10 V                  |
+|      Analog input current      |                 0...25 mA                 |
+| Analog temperature input (RTD) |                 0...1 MΩ                  |
+
+***The inputs are marked on plastic as 0-10V/4-20mA/PT100 to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V or 4-20 mA range.***
+
+![Opta Analog Expansions Inputs](assets/16-inputs-new.png)
+
 ## Support
 
 If you encounter any issues or have questions while working with Opta™ devices, we provide various support resources to help you find answers and solutions.
