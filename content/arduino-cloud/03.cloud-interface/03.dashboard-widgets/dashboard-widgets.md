@@ -336,6 +336,21 @@ An example of how it is used in a sketch:
 locationVariable = Location(51.5074, 0.1278);
 ```
 
+### Advanced Map
+
+![Advanced Map Widget](assets/widget-advanced-map.png)
+
+The advanced map widget allows you to track the location of your cloud project. Using GPS with your project allows the advanced map widget to track where the linked thing has been. The widget allows you to see the live location of the thing, you can also specify the time frame for the location tracking.
+
+Can be linked with the **Location** variable. When the location updates the new location will be added to the advanced map widget and a path between the locations will be marked. The path and icon on the map can be customized in the widget settings.
+
+An example of how it is used in a sketch:
+
+```arduino
+//Location(Latitude, Longitude);
+locationVariable = Location(51.5074, 0.1278);
+```
+
 ### Chart
 
 ![Chart Widget](assets/widget-chart.png)
