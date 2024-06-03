@@ -227,7 +227,7 @@ The input voltage range for each digital input terminal is the following:
 
 - **Input voltage range**: 0 to +24 VDC
 
-***The Opta™ digital inputs also support the 0 to +10 VDC logic level.***
+***The Opta™ digital inputs also support 0 to +10 VDC logic level sensors.***
 
 The input terminals can be used through the built-in functions of the [Arduino programming language](https://www.arduino.cc/reference/en/). To use the input terminals as digital inputs:
 
