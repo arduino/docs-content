@@ -2658,9 +2658,222 @@ Each input can be used as:
 |      Analog input current      |                 0...25 mA                 |
 | Analog temperature input (RTD) |                 0...1 MΩ                  |
 
+***All available channels of the analog expansion can be used as input, including `O1` and `O2`, so there are 8 accessible inputs actually.***
+
+![Opta Analog Expansions Inputs](assets/inputs-analog.png)
+
 ***The inputs are marked on plastic as 0-10V/4-20mA/PT100 to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V or 4-20 mA range.***
 
-![Opta Analog Expansions Inputs](assets/16-inputs-new.png)
+| Characteristics               | Details                                     |
+|-------------------------------|---------------------------------------------|
+| Number of inputs              | 6x Digital/Analog inputs (Voltage, Current and RTD) |
+| Inputs overvoltage protection | Yes (Up to 40 V)                            |
+| Antipolarity protection       | No                                          |
+| Analog Input resolution       | 16 bits                                      |
+| Noise Rejection               | 50 and 60 Hz (Optional)                     |
+
+Input terminals are mapped as described in the following table:
+
+| **Opta Analog Expansion Terminal** | **Arduino Pin Mapping** |
+|:----------------------------------:|:-----------------------:|
+|                 I1                 |            0            |
+|                 I2                 |            1            |
+|                 I3                 |            2            |
+|                 I4                 |            3            |
+|                 O1                 |            4            |
+|                 I5                 |            5            |
+|                 I6                 |            6            |
+|                 O2                 |            7            |
+
+#### Digital Input Mode
+
+<table>
+    <thead>
+        <tr style="text-align: middle;">
+            <th width="30%">Characteristics</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;">Digital Input voltage</td>
+            <td>0...24V</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Digital Input voltage logic level</td>
+            <td>VIL Max: 4 VDC. VHL Min: 5.9 VDC</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Digital Input current</td>
+            <td>4.12mA at 24V | 2.05mA at 10V</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Digital Input frequency</td>
+            <td>300 Hz</td>
+        </tr>
+    </tbody>
+</table>
+
+The state of an input terminal, configured as digital, can be read using the built-in function `digitalRead()` as shown below:
+
+```arduino
+state = <ExpObject>.digitalRead(<input>);
+```
+The following example will let you read all the digital inputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_Opta_Blueprint > Analog > DI**:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 2000
+#define DELAY_AFTER_SETUP 1000
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+  /* -------------------------------------------------------------------------- */
+  if (t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  } else if (t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  } else if (t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  } else if (t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  } else if (t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  } else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+  /* -------------------------------------------------------------------------- */
+  static long int start = millis();
+
+  if (millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }
+}
+
+int8_t oa_index = -1;
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+  /* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+  Serial.println("*** Opta Analog Digital Input example ***");
+
+  OptaController.begin();
+
+  for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+
+    for (int k = 0; k < OA_AN_CHANNELS_NUM; k++) {
+      /* all channels are initialized in the same way as VOLTAGE ADC */
+      AnalogExpansion::beginChannelAsDigitalInput(OptaController, i,  // the device
+                                                  k,                  // the output channel you are using
+                                                  true,               // filter comparator
+                                                  false,              // invert comparator
+                                                  true,               // use simple debounce algorithm
+                                                  OA_DI_SINK_1,       // sink 120 uA
+                                                  OA_DI_DEB_TIME_5,   // ~ 42 ms
+                                                  false,              // use fix threshold
+                                                  8.0,                // threshold at 8 V
+                                                  24.0);              // unused in this c    }
+    }
+  }
+}
+
+/* the optaAnalogTask function runs every 2000 ms it set the pwm for all the
+ * channels from with a period equal to 10 ms and a variable duty cycle from 10%
+ * to 70% */
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+  /* -------------------------------------------------------------------------- */
+
+  static long int start = millis();
+  static bool stop_pwm = false;
+  if (millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      AnalogExpansion exp = OptaController.getExpansion(i);
+      if (exp) {
+        for (int j = 0; j < 8; j++) {
+          int value = exp.digitalRead((uint8_t)j, true);
+          Serial.print("DI channel ");
+          Serial.print(j);
+          Serial.print(" value ");
+          Serial.println(value);
+        }
+        Serial.println();
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  /* -------------------------------------------------------------------------- */
+  OptaController.update();
+  optaAnalogTask();
+}
+
+```
+
+Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
+
+Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
+
+`OptaController.update()` function DOES NOT:
+* Check if an expansion has been removed and remove their objects
+* Update any data from or to the expansion
+
+
+The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
+
+```arduino
+for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the five available expansion slots
+  AnalogExpansion exp = OptaController.getExpansion(i);
+}
+```
+The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+
+The function `optaAnalogTask()` updates all the inputs with their current states and prints out the values.
+
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input state as follows:
+
+```
+DI channel 0 value 0
+DI channel 1 value 1
+DI channel 2 value 0
+DI channel 3 value 0
+DI channel 4 value 0
+DI channel 5 value 0
+DI channel 6 value 0
+DI channel 7 value 0
+```
+
+![Digital Input wiring example](assets/digital-animation.gif)
+
+***General note: The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
+
 
 ## Support
 
