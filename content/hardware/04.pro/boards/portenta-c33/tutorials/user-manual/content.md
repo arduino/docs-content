@@ -704,6 +704,7 @@ The Portenta C33 supports UART communication. The pins used in the Portenta C33 
 
 Please refer to the board pinout section of the user manual to find them on the board. The built-in ([Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/)) library functions can use the UART pins.
 
+#### UART Initialization
 
 To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
 
@@ -712,11 +713,20 @@ To begin with UART communication, you'll need to configure it first. In the `set
 Serial.begin(9600);
 ```
 
-To read incoming data, you can use a `while()` loop to continuously check for available data with the `Serial.available()` function and read individual characters with the `Serial.read()` function. The code shown above stores the incoming characters in a String variable and processes the data when a line-ending character is received:
+#### Receive Data
+
+To read incoming data, you can use a `while()` loop to continuously check for available data with the `Serial.available()` function and read individual characters with the `Serial.read()` function. 
+
+The example sketch shown below stores incoming characters in a String variable and processes the data when a line-ending character is received:
 
 ```arduino
 // Variable for storing incoming data
 String incoming = "";
+
+// Start UART communication at 9600 baud
+void setup() {
+  Serial.begin(9600);
+}
 
 void loop() {
   // Check for available data and read individual characters
@@ -738,7 +748,15 @@ void loop() {
     }
   }
 }
+
+// Function to process the received data
+void processData(String data) {
+  // Example: Print the received data to the Arduino IDE Serial Monitor
+  Serial.println("Received: " + data);
+}
 ```
+
+#### Transmit Data
 
 To transmit data to another device via UART, you can use the `Serial.write()` function:
 
