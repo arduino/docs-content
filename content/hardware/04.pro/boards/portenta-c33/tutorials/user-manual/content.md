@@ -702,30 +702,38 @@ The Portenta C33 supports UART communication. The pins used in the Portenta C33 
 |           `92`          |          `P603`         |
 |           `93`          |          `P604`         |
 
-Please refer to the board pinout section of the user manual to find them on the board. The built-in ([Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/)) library functions can use the UART pins.
+***Please refer to the board pinout section of the user manual to find them on the board. The built-in [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) library functions can use the UART pins.***
 
-#### UART Initialization
+The `Arduino Renesas Core` has a built-in library that lets you use the UART communication, the `Serial` library, right out of the box. Let's walk through an example sketch demonstrating some of the module's capabilities.
 
-To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
-
-```arduino
-// Start UART communication at 9600 baud
-Serial.begin(9600);
-```
-
-#### Receive Data
-
-To read incoming data, you can use a `while()` loop to continuously check for available data with the `Serial.available()` function and read individual characters with the `Serial.read()` function. 
-
-The example sketch shown below stores incoming characters in a String variable and processes the data when a line-ending character is received:
+The example sketch below showcases how to configure UART, read incoming data, and transmit data with the Portenta C33 board, which are common tasks for serial communication.
 
 ```arduino
+/**
+  UART Communication
+  Name: UARTCommunication.ino
+  Purpose: This sketch demonstrates UART communication on the Portenta C33
+
+  @author Arduino Product Experience Team
+  @version 1.0 03/06/24
+*/
+
+// Include the necessary libraries for UART communication
+#include <Arduino.h>
+
 // Variable for storing incoming data
 String incoming = "";
 
-// Start UART communication at 9600 baud
 void setup() {
+  // Begin serial communication at a baud rate of 9600
   Serial.begin(9600);
+
+  // Wait for the serial port to connect
+  // This is necessary for boards that have native USB
+  while (!Serial) {}
+
+  // Print a message to the Serial Monitor to indicate setup is complete
+  Serial.println("UART Communication Setup Complete");
 }
 
 void loop() {
@@ -747,33 +755,36 @@ void loop() {
       incoming += c;
     }
   }
+
+  // Example of transmitting data
+  // Transmit the string "Hello world!" every second
+  // Wait for 1 second before sending again
+  Serial.println("Hello world!");
+  delay(1000); 
 }
 
-// Function to process the received data
+/**
+  Processes the received data
+  This function can be modified to perform different actions based on the received data
+
+  @param data The received data as a String
+  @return none
+*/
 void processData(String data) {
-  // Example: Print the received data to the Arduino IDE Serial Monitor
-  Serial.println("Received: " + data);
+  // Print the received data to the Arduino IDE Serial Monitor
+  Serial.println("- Received: " + data);
 }
 ```
 
-#### Transmit Data
+Let's analyze the example sketch. First, the necessary configurations are made:
 
-To transmit data to another device via UART, you can use the `Serial.write()` function:
+- The UART communication is initialized at a baud rate of 9600.
+- A loop continuously checks for available data and reads individual characters, storing them in a `String` variable.
+- A newline character indicates the end of a message, triggering the processing function.
 
-```arduino
-// Transmit the string "Hello world!
-Serial.write("Hello world!");
-```
+The `processData()` function is called to process the received data. This example simply prints the data to the Arduino IDE's Serial Monitor. You can modify this function to perform different actions based on the received data. Finally, the example sketch shows how to send data using the `Serial.println()` function, which transmits the string `Hello world!` every second.
 
-You can also use the `Serial.print()` and `Serial.println()` functions to send a String without a newline character or followed by a newline character:
-
-```arduino
-// Transmit the string "Hello world!"
-Serial.print("Hello world!");
-
-// Transmit the string "Hello world!" followed by a newline character
-Serial.println("Hello world!");
-```
+You should see the following output in the Arduino IDE's Serial Monitor:
 
 ### Wi-Fi®
 
