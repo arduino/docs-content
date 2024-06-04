@@ -140,6 +140,8 @@ If the following message appears during the download procedure, double-tap the r
 
 ![Download error message](assets/downloadSketchError.png)
 
+***If you persistently experience issues during the download procedure or related processes, try launching the PLC IDE with __administrative privileges__. This can help resolve permission related problems that may prevent download procedures or device interactions.***
+
 ### 4. Connect to the Device
 
 After the runtime is up and running, set up the communication by going to **On-line > Set up communication**.
