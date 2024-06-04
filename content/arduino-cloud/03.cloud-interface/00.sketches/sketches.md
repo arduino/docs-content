@@ -128,7 +128,7 @@ This section highlights some important aspects of writing code with regard to th
 
 ### Watchdog Timer (WDT)
 
-All Arduino Cloud sketches use a **Watchdog Timer (WDT)** by default. The WDT can be used to automatically recover from hardware faults or unrecoverable software errors.
+Arduino Cloud sketches use a **Watchdog Timer (WDT)** by default, however, not all boards support this function. The WDT can be used to automatically recover from hardware faults or unrecoverable software errors.
 
 A WDT is essentially a countdown timer, whereas it starts counting from a set value, and upon reaching zero, it resets the board. To prevent it from reaching zero, we continuously call it from the `loop()`, using the `ArduinoCloud.update()` function.
 
@@ -140,7 +140,7 @@ The WDT can however be disabled inside of the `setup()` function, by adding the 
 ArduinoCloud.begin(ArduinoIoTPreferredConnection, false).
 ```
 
-***You can view the source code of this implementation [here](https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/src/utility/watchdog).***
+***You can view the source code of this implementation [here](https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/src/utility/watchdog) and you can check if your board supports this feature [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).***
 
 ### Alternatives to Delays
 
