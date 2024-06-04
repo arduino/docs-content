@@ -140,7 +140,7 @@ The WDT can however be disabled inside of the `setup()` function, by adding the 
 ArduinoCloud.begin(ArduinoIoTPreferredConnection, false).
 ```
 
-***You can view the source code of this implementation [here](https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/src/utility/watchdog) and you can check if your board supports this feature [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).***
+***You can view the source code of this implementation [here](https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/src/utility/watchdog) and you can check if your board supports this feature [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#watchdog).***
 
 ### Alternatives to Delays
 
