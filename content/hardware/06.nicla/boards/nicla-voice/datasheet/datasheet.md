@@ -417,9 +417,9 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands     | Typical Output Power |
-| ------------------- | -------------------- |
-| 2.4GHz, 40 channels | +4dBm                |
+| Frequency bands      | Typical Output Power |
+| -------------------- | -------------------- |
+| 2.4 GHz, 40 channels | -1.14 dBm            |
 
 ## Company Information
 
