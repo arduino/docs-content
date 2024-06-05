@@ -706,7 +706,7 @@ The Portenta C33 supports UART communication. The pins used in the Portenta C33 
 
 The `Arduino Renesas Core` has a built-in library that lets you use the UART communication, the `Serial` library, right out of the box. Let's walk through an example sketch demonstrating some of the module's capabilities.
 
-The example sketch below showcases how to configure UART, read incoming data, and transmit data with the Portenta C33 board, which are common tasks for serial communication.
+The example sketch below showcases how to configure the UART interface, read incoming data, and transmit data with the Portenta C33 board, which are common tasks for serial communication.
 
 ```arduino
 /**
