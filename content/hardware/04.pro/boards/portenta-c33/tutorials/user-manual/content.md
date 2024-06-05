@@ -725,15 +725,12 @@ The example sketch below showcases how to configure UART, read incoming data, an
 String incoming = "";
 
 void setup() {
-  // Begin serial communication at a baud rate of 9600
-  Serial.begin(9600);
-
-  // Wait for the serial port to connect
-  // This is necessary for boards that have native USB
-  while (!Serial) {}
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
 
   // Print a message to the Serial Monitor to indicate setup is complete
-  Serial.println("UART Communication Setup Complete");
+  Serial.println("- UART communication setup complete!");
 }
 
 void loop() {
@@ -759,7 +756,7 @@ void loop() {
   // Example of transmitting data
   // Transmit the string "Hello world!" every second
   // Wait for 1 second before sending again
-  Serial.println("Hello world!");
+  Serial.println("- Hello world!");
   delay(1000); 
 }
 
@@ -778,13 +775,21 @@ void processData(String data) {
 
 Let's analyze the example sketch. First, the necessary configurations are made:
 
-- The UART communication is initialized at a baud rate of 9600.
+- The UART communication is initialized at a baud rate of 115200.
 - A loop continuously checks for available data and reads individual characters, storing them in a `String` variable.
 - A newline character indicates the end of a message, triggering the processing function.
 
 The `processData()` function is called to process the received data. This example simply prints the data to the Arduino IDE's Serial Monitor. You can modify this function to perform different actions based on the received data. Finally, the example sketch shows how to send data using the `Serial.println()` function, which transmits the string `Hello world!` every second.
 
 You should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-23.png)
+
+You can also send information to the Portenta C33 using the Arduino IDE's Serial Monitor. In the `Message` box of the IDE's Serial Monitor, write a message (for example, `Portenta C33`) and press Enter; you should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-24.png)
+
+You can download the example sketch [here](assets/UARTCommunication.zip).
 
 ### Wi-Fi®
 
@@ -1081,7 +1086,6 @@ void loop() {
   }
 }
 ```
-
 
 First, the necessary libraries are included: 
 
