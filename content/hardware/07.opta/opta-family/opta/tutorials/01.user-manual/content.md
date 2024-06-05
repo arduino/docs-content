@@ -2874,6 +2874,17 @@ DI channel 7 value 0
 
 ***General note: The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
 
+#### Analog Voltage Input Mode
+
+#### Analog Current Input Mode
+
+#### Analog RTD Input Mode
+
+### Programmable Outputs
+
+#### Analog Voltage Output Mode
+
+#### Analog Current Output Mode
 
 ## Support
 
