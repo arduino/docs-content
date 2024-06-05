@@ -219,7 +219,7 @@ Detailed information from the board, such as its I<sup>2</sup>C address, serial 
 ```arduino
 /**
   Board Information Retrieval for Nicla Sense Env
-  Name: nicla_board_info_example.ino
+  Name: nicla_sense_env_board_info_example.ino
   Purpose: This sketch demonstrates how to retrieve detailed board information from the Nicla Sense Env using the Arduino_NiclaSenseEnv library API.
   
   @author Sebastián Romero, modified by the Arduino Product Experience Team
@@ -301,7 +301,7 @@ After uploading the example sketch to the host board, you should see the followi
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-9.png)
 
-You can download the example code [here](assets/nicla_board_info_example.zip).
+You can download the example code [here](assets/nicla_sense_env_board_info_example.zip).
 
 ### Onboard Sensors Management 
 
@@ -310,10 +310,10 @@ Efficient management of the Nicla Sense Env's onboard sensors is important for o
 ```arduino
 /**
   Onboard Sensors Management for Nicla Sense Env
-  Name: nicla_sensors_management_example.ino
+  Name: nicla_sense_env_sensors_management_example.ino
   Purpose: This sketch demonstrates how to manage the onboard sensors of the Nicla Sense Env using the Arduino_NiclaSenseEnv library API.
   
-  @author Arduino PRO Content Team
+  @author Arduino Product Experience Team
   @version 1.0 31/05/24
 */
 
@@ -379,7 +379,7 @@ After uploading the example sketch to the host board, you should see the followi
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-10.png)
 
-You can download the example code [here](assets/nicla_sensors_management_example.zip).
+You can download the example code [here](assets/nicla_sense_env_sensors_management_example.zip).
 
 ### Board Reset
 
@@ -390,11 +390,12 @@ The example sketch shown below demonstrates how to reset the Nicla Sense Env usi
 ```arduino
 /**
   Board Reset for Nicla Sense Env
-  Name: nicla_board_reset_example.ino
+  Name: nicla_sense_env_board_reset_example.ino
   Purpose: This sketch demonstrates how to reset the Nicla Sense Env 
   using the Arduino_NiclaSenseEnv library API and verifies the reset
   by disabling and then re-enabling the temperature sensor.
   
+  @author Arduino Product Experience Team
   @version 1.0 31/05/24
 */
 
@@ -452,7 +453,7 @@ After uploading the example sketch to the host board, you should see the followi
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-11.png)
 
-You can download the example code [here](assets/nicla_board_reset_example.zip).
+You can download the example code [here](assets/nicla_sense_env_board_reset_example.zip).
 
 ### Low Power Mode Management
 
@@ -460,17 +461,28 @@ Saving energy is vital for many projects, particularly those deployed in remote 
 
 ***Deep sleep is essential for extending battery life and reducing energy use when the board is not actively collecting data or performing any tasks. It is especially important for battery-powered or power-constrained applications.***
 
-The sketch shown below demonstrates how to put the Nicla Sense Env into deep sleep mode using the `Arduino_NiclaSenseEnv` library API: 
+The example sketch shown below demonstrates how to put the Nicla Sense Env board into deep sleep mode using the `Arduino_NiclaSenseEnv` library API: 
 
 ```arduino
-void setup() {
-    // Initialize serial communication
-    Serial.begin(115200);
-    while (!Serial) {
-        // Wait for Serial to be ready
-    }
+/**
+  Low Power Mode Management for Nicla Sense Env
+  Name: nicla_sense_env_low_power_mode_example.ino
+  Purpose: This sketch demonstrates how to put the Nicla Sense Env 
+  into deep sleep mode using the Arduino_NiclaSenseEnv library API.
+  
+  @author Arduino Product Experience Team
+  @version 1.0 31/05/24
+*/
 
-    NiclaSenseEnv device;
+#include "NiclaSenseEnv.h"
+
+// Global device object for Nicla Sense Env
+NiclaSenseEnv device;
+
+void setup() {
+    // Initialize serial communication and wait up to 2.5 seconds for a connection
+    Serial.begin(115200);
+    for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
 
     if (device.begin()) {
         // Putting the device to sleep
@@ -480,13 +492,21 @@ void setup() {
         Serial.println("- Device could not be found. Please double-check the wiring.");
     }
 }
+
+void loop() {
+    // Nothing to do here. The device is in deep sleep mode.
+}
 ```
 
 Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
 
 - `device.deepSleep()`: This function puts the Nicla Sense Env board into a deep sleep state where power consumption is minimized to the lowest possible level.
 
-***Waking up a board from deep sleep mode can only be made by a hardware reset.*** 
+After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
+
+***Waking up a board from deep sleep mode can only be done by a hardware reset.***
+
+You can download the example code [here](assets/nicla_sense_env_low_power_mode_example.zip).
 
 ## LEDs
 
