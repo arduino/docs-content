@@ -2687,7 +2687,7 @@ Input terminals are mapped as described in the following table:
 
 #### Digital Input Mode
 
-Here's the HTML table converted to Markdown format:
+The Analog Expansion input channels can be configured as digital inputs to read 0-10 V or 0-24 V digital sensors:
 
 | Characteristics                   | Details                                   |
 |-----------------------------------|-------------------------------------------|
@@ -2696,7 +2696,7 @@ Here's the HTML table converted to Markdown format:
 | Digital input current             | 4.12mA at 24V \| 2.05mA at 10V            |
 | Digital input frequency           | 300 Hz                                    |
 
-The state of an input terminal, configured as digital, can be read using the built-in function `digitalRead()` as shown below:
+The state of an input terminal configured as digital can be read using the built-in function `digitalRead()` as shown below:
 
 ```arduino
 state = <ExpObject>.digitalRead(<input>);
@@ -2842,8 +2842,8 @@ The function `optaAnalogTask()` updates all the inputs with their current states
 After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input state as follows:
 
 ```
-DI channel 0 value 0
-DI channel 1 value 1
+DI channel 0 value 1
+DI channel 1 value 0
 DI channel 2 value 0
 DI channel 3 value 0
 DI channel 4 value 0
@@ -2868,11 +2868,17 @@ The Analog Expansion input channels can be configured for 0-10 V analog sensors.
 | Accuracy                | +/- 1%, repeatability +/- 1%        |
 | Input impedance         | Min: 175 kΩ (200 kΩ to GND enabled) |
 
-The state of an input terminal, configured as analog, can be read using the built-in function `analogRead()` as shown below:
+The raw value of an input terminal configured as analog can be read using the built-in function `analogRead()` as shown below:
 
 ```arduino
 uint16_t raw_adc = <ExpObject>.analogRead(<input>);
 ```
+Also, it can be directly converted to a voltage reading using the `pinVoltage()` function as:
+
+```arduino
+float value =	exp.pinVoltage(<input>);
+```
+
 The following example will let you read all the analog inputs of every expansion connected at once, it can be found in the Opta Analog Expansions library by navigating to **File > Examples > Arduino_Opta_Blueprint > Analog > ADC**:
 
 ```arduino
@@ -2968,7 +2974,7 @@ void optaAnalogTask() {
       if(exp) {  
 	      Serial.println("\nAnalog Expansion n. " +  String(exp.getIndex()));
         
-        
+  
         for(int j = 0; j < OA_AN_CHANNELS_NUM; j++) {
           Serial.print(" - ch " + String(j));
 	        int value =	exp.analogRead((uint8_t)j);
@@ -2999,9 +3005,7 @@ Thanks to this function, the action of plugging in a new expansion will cause th
 * Check if an expansion has been removed and remove their objects
 * Update any data from or to the expansion
 
-
 The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
 
 ```arduino
 for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
@@ -3010,7 +3014,26 @@ for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the av
 ```
 The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
 
-The function `optaAnalogTask()` reads all the analog input raw ADC values and prints out them.
+The expansion channels are configured as **analog voltage inputs** using the function `beginChannelAsAdc` alongside the following parameters:
+
+```arduino
+AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
+          i, // the device (connected expansion index from 0 to 5)
+          k, // the output channel you are using (0 to 7)
+			    OA_VOLTAGE_ADC, // adc type (voltage input)
+			    true, // enable pull down
+			    false, // disable rejection
+			    false, // disable diagnostic
+			    0); // disable averaging
+```
+The function `optaAnalogTask()` reads all the analog input raw ADC values and prints out them. If you want to show the voltage reading instead use the following function:
+
+```arduino
+//Change 
+int value =	exp.analogRead((uint8_t)j); // get the raw ADC reading
+//for
+float value =	exp.pinVoltage((uint8_t)j); // get the ADC reading and returns it as a voltage
+```
 
 After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
 
@@ -3020,14 +3043,199 @@ Analog Expansion n. 0
  - ch 1 -> ADC 0
  - ch 2 -> ADC 0
  - ch 3 -> ADC 0
- - ch 4 -> ADC 25112
- - ch 5 -> ADC 0
+ - ch 4 -> ADC 0
+ - ch 5 -> ADC 25112
  - ch 6 -> ADC 0
  - ch 7 -> ADC 0
 ```
 ![Analog voltage input wiring example](assets/volt-in-a.png)
 
+You can test other ADC functionalities by studying other examples included in the library, for example, the ones listed below:
+
+- AdcUpdateAll
+- DiPlusAdc
+
 #### Analog Current Input Mode
+
+The Analog Expansion input channels can be configured for current loop instrumentation using the 0/4-20 mA standard. 
+
+| Characteristics             | Details                                     |
+|-----------------------------|---------------------------------------------|
+| Analog input current        | 0...25 mA                                   |
+| Analog input LSB value      | 381.5 nA                                    |
+| Short circuit current limit | Min: 25 mA, Max 35 mA (externally powered). |
+| Programmable current limit  | 0.5 mA to 24.5 mA (loop powered)            |
+| Accuracy                    | +/- 1%, repeatability +/- 1%                |
+
+The current of an input terminal configured in current mode can be read using the built-in function `pinCurrent()` as shown below:
+
+```arduino
+float value =	exp.pinCurrent(<input>);
+```
+
+The following example will let you measure the current in all the analog inputs of every expansion connected at once, this sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > ADC**:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 500
+#define DELAY_AFTER_SETUP 5000
+
+using namespace Opta;
+
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+/* -------------------------------------------------------------------------- */
+  if(t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  }
+  else if(t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  }
+  else if(t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  }
+  else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+/* -------------------------------------------------------------------------- */
+  static long int start = millis();
+  
+  if(millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for(int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }  
+}
+
+  int8_t oa_index = -1;
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+/* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+  
+
+  for(int i = 0; i < OptaController.getExpansionNum(); i++) {
+
+    for(int k = 0; k < OA_AN_CHANNELS_NUM;k++){
+      /* all channels are initialized in the same way as VOLTAGE ADC */
+      AnalogExpansion::beginChannelAsAdc(OptaController, i, // the device
+                            k, // the output channel you are using
+			    OA_CURRENT_ADC, // adc type
+			    false, // enable pull down
+			    false, // disable rejection
+			    false, // disable diagnostic
+			    0); // disable averaging
+    }
+  }
+
+}
+
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+/* -------------------------------------------------------------------------- */
+  static long int start = millis();
+  if(millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+    for(int i = 0; i < OptaController.getExpansionNum(); i++) {
+      AnalogExpansion exp = OptaController.getExpansion(i);
+      
+      if(exp) {  
+	      Serial.println("\nAnalog Expansion n. " +  String(exp.getIndex()));
+        
+        
+        for(int j = 0; j < OA_AN_CHANNELS_NUM; j++) {
+          Serial.print(" - ch " + String(j));
+	        float value =	exp.pinCurrent((uint8_t)j);
+	        Serial.println(" -> Current " + String(value) + " mA");
+	      }
+        Serial.println();
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+/* -------------------------------------------------------------------------- */    
+  OptaController.update();
+  optaAnalogTask();
+
+}
+```
+Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
+
+Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
+
+`OptaController.update()` function DOES NOT:
+* Check if an expansion has been removed and remove their objects
+* Update any data from or to the expansion
+
+The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
+```arduino
+for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
+  AnalogExpansion exp = OptaController.getExpansion(i);
+}
+```
+The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+
+The expansion channels are configured as **analog current inputs** using the function `beginChannelAsAdc` alongside the following parameters:
+
+```arduino
+AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
+          i, // the device (connected expansion index from 0 to 5)
+          k, // the output channel you are using (0 to 7)
+			    OA_CURRENT_ADC, // adc type (voltage input)
+			    false, // enable pull down
+			    false, // disable rejection
+			    false, // disable diagnostic
+			    0); // disable averaging
+```
+The function `optaAnalogTask()` reads all the analog input current values and prints out them.
+
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+
+```
+Analog Expansion n. 0
+ - ch 0 -> Current 0.00 mA
+ - ch 1 -> Current 0.00 mA
+ - ch 2 -> Current 0.00 mA
+ - ch 3 -> Current 0.00 mA
+ - ch 4 -> Current 0.00 mA
+ - ch 5 -> Current 18.20 mA
+ - ch 6 -> Current 0.00 mA
+ - ch 7 -> Current 0.00 mA
+```
+![Analog current input wiring example](assets/volt-in-a.png)
 
 #### Analog RTD Input Mode
 
