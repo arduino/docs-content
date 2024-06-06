@@ -477,7 +477,7 @@ The table below describes LEDs meaning and functionalities.
   | Status LED   | Green        | Board connected to the Internet                 |
   | Status LED   | Red          | STM32H7 LED, blinking when triggered in the IDE |
 
-### Setup with the Arduino Linux Configurator
+### Setup with the Arduino Linux Wizard
 
 ***It is recommended to have your Portenta X8 with the latest OS version. Check [this section](#portenta-x8-os-image-update) to learn how to have your Portenta X8 up-to-date.***
 
@@ -532,7 +532,7 @@ Now you can click **OK** and you will be redirected to the Out-of-the-box homepa
 
 ***You can change your network by clicking on the Settings button and repeat the steps above.***
 
-#### Arduino Linux Configurator Homepage
+#### Arduino Linux Wizard Homepage
 
 This web page is hosted on the Portenta X8 and allows a user to:
 
@@ -725,11 +725,11 @@ Android Debug Bridge (ADB) is a tool included in the SDK software (Software Deve
 
 ***If you need to install ADB, you can also download the right tool for your Operating System directly from the [official Android website](https://developer.android.com/studio/releases/platform-tools).***
 
-In case you would like to start the embedded Arduino Linux configurator from the command line, you can continue typing in your terminal `adb forward tcp:8080 tcp:80`. With this command, ADB allows to forward the requests of the `8080 TCP-IP port` of your computer to the `80 TCP-IP port` of your device, that for this case it is the device with the name _Portenta X8_.
+In case you would like to start the embedded Arduino Linux Wizard from the command line, you can continue typing in your terminal `adb forward tcp:8080 tcp:80`. With this command, ADB allows to forward the requests of the `8080 TCP-IP port` of your computer to the `80 TCP-IP port` of your device, that for this case it is the device with the name _Portenta X8_.
 
 ![ADB forward command](assets/adb-tcp-port.png "ADB forward command")
 
-Now you can open your browser, go to [http://localhost:8080](http://localhost:8080) and the same Arduino Linux Configurator dashboard will appear to allow you to configure your Portenta X8.
+Now you can open your browser, go to [http://localhost:8080](http://localhost:8080) and the same Arduino Linux Wizard dashboard will appear to allow you to configure your Portenta X8.
 
 ![Out-of-the-box Homepage](assets/OOTB_homepage.png "Out-of-the-box Homepage")
 
