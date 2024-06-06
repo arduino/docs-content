@@ -23,9 +23,11 @@ hardware:
 
 ## Introduction
 
-The Opta™ can be an irreplaceable support for home energy management. Getting information on instantaneous electrical consumption and interacting with the customer’s consumption plan, daily usage statistics, and seasonal forecasts can help plan and manage electrical devices to optimize energy efficiency. Always be connected and informed by integrating the Arduino Cloud. Add self-adjustment capability by monitoring and logging electrical statistics and the option to operate the connected devices on-demand based on pre-set triggers.
+The Opta™ can be an irreplaceable support for home energy management, offering real-time consumption data, interaction with usage plans and forecasts, and optimization of energy efficiency. It integrates with the Arduino Cloud and features self-adjustment and on-demand device operation.
 
-As the industry shifts towards Industry 4.0, also known as the Industrial Internet of Things (IIoT), the focus is on improved energy management and the ability to operate devices on-demand within power grids. This transition promises significant cost savings and enhanced production performance. Opta™ prioritizes security, featuring elements that ensure data integrity, encryption, and secure certificate storage. This makes it a suitable IoT node for creating a private and secure IIoT network.
+![Opta™ Energy Management Interactive Dashboard on Arduino Cloud Preview](assets/arduino_iot_cloud_dashboard_intro.png)
+
+Embracing Industry 4.0 (IIoT), Opta™ focuses on energy management, device operation, cost savings, and performance improvements. Its security features ensure data integrity, encryption, and secure certificate storage, making it ideal for secure IIoT networks.
 
 ## Goals
 
@@ -59,6 +61,47 @@ Below is a visual representation of the intended application:
 - If you choose an offline Arduino IDE, you must install the following libraries: [**ArduinoRS485**](https://github.com/arduino-libraries/ArduinoRS485), [**ArduinoModbus**](https://github.com/arduino-libraries/ArduinoModbus) and Scheduler. You can install those libraries via the Library Manager of the Arduino IDE. Optionally, the [**Finder6M**](https://github.com/dndg/Finder6M) library can be installed with the **6M.Tx** series energy meters.
 - For the Wi-Fi® connectivity feature of Opta™, we will use [Arduino Cloud](https://create.arduino.cc/iot/things); you will need to create an account if you still need to create one.
 - [Opta™ Energy Manager Example Code](assets/energy_management.zip)
+
+## Pre-Requisite Setup
+
+### Setting Up the Arduino IDE
+
+For this application note, ensure you have the latest version of the Arduino IDE, which is available for download [here](https://www.arduino.cc/en/software). Within the Arduino IDE, you need to install the **`Arduino Mbed OS Opta Boards`** core for Opta™ devices.
+
+To install this core, go to **Tools > Board > Boards Manager** or click the **Boards Manager** icon on the left side of the IDE.
+
+In the Boards Manager, search for `opta` and install the latest version of the `Arduino Mbed OS Opta Boards` core.
+
+![Installing the Opta™ core in the Arduino IDE](assets/opta-core.png)
+
+### Installing the Required Libraries
+
+Install the latest versions of the following libraries:
+
+- [**ArduinoModbus**](https://github.com/arduino-libraries/ArduinoModbus)
+- [**ArduinoRS485**](https://github.com/arduino-libraries/ArduinoRS485)
+
+These libraries are necessary for Modbus RTU and RS-485 communication. You can easily install them through the Library Manager in the Arduino IDE.
+
+The Library Manager can be accessed using the **"Ctrl + Shift + I"** shortcut or by going to **Tools > Manage Libraries...**, navigating the Arduino IDE's left panel, and selecting the third option from the top.
+
+***If you are using the Arduino Cloud Web Editor, manual installation of these libraries is not required.***
+
+## Power Analyzer & Modbus RTU
+
+A **power analyzer** or **energy meter** measures and analyzes electrical parameters in power systems, which is essential for monitoring energy efficiency, checking network performance, and diagnosing issues. By providing insights into voltage, current, power factor, and energy consumption, these devices help optimize load operation and reduce energy costs.
+
+The **6M.Tx** series includes three single-phase power monitors for AC and DC systems, handling AC frequencies from 1 to 400 Hz and nominal currents from 50 to 300 A (up to 400 A for DC). They measure parameters like peak voltage (`Vpk`), peak current (`Ipk`), and Total Harmonic Distortion (`THD(U)`), which are important for assessing power quality. Data is accessible via Modbus RTU over RS-485, using 16-bit registers.
+
+The **7M.24** series is a single-phase bi-directional energy meter designed to monitor domestic and industrial energy consumption in settings such as offices, campsites, and photovoltaic systems. This series supports single-phase 230 V AC at 50/60 Hz and currents up to 40 A with a reference current of 5 A.
+
+It features a backlit LCD that shows real-time values like voltage (`V`), current (`I`), power factor (`PF`), frequency (`Hz`), total harmonic distortion (`THD V` and `THD I`), and power flow direction. Energy measurement includes total or partial consumption in `kWh`, `kVAh`, and `kvarh`, with 2 MID-certified active energy counters, two reactive energy counters, and eight resettable counters for various energy metrics.
+
+The series provides real-time data logging and advanced diagnostics with a run-time counter for preventive maintenance activities. It includes an integrated Modbus RS485 interface for easy data integration into larger systems. The series boasts active energy accuracy **Class B** according to **EN 50470-3 (MID)** and reactive energy accuracy **Class 2** according to **EN 62053-23**.
+
+For both series, measurements are available as 16-bit reads, with energy measurements as 32-bit values from two adjacent 16-bit registers. Note that all offsets are register offsets, not byte offsets, with Modbus addressing starting from 0.
+
+***For more details on the Modbus protocol, refer to the [__Arduino® & Modbus Protocol__](https://docs.arduino.cc/learn/communication/modbus/) tutorial and the [__ArduinoModbus__](https://github.com/arduino-libraries/ArduinoModbus) library. For practical implementation of Modbus RTU on Opta™, see the [__Getting Started with Modbus RTU on Opta™__](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu/) tutorial.***
 
 ## Hardware Setup Overview
 
