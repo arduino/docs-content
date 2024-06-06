@@ -3018,8 +3018,8 @@ The expansion channels are configured as **analog voltage inputs** using the fun
 
 ```arduino
 AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
-          i, // the device (connected expansion index from 0 to 5)
-          k, // the output channel you are using (0 to 7)
+                i, // the device (connected expansion index from 0 to 5)
+                k, // the output channel you are using (0 to 7)
 			    OA_VOLTAGE_ADC, // adc type (voltage input)
 			    true, // enable pull down
 			    false, // disable rejection
@@ -3212,8 +3212,8 @@ The expansion channels are configured as **analog current inputs** using the fun
 
 ```arduino
 AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
-          i, // the device (connected expansion index from 0 to 5)
-          k, // the output channel you are using (0 to 7)
+                i, // the device (connected expansion index from 0 to 5)
+                k, // the output channel you are using (0 to 7)
 			    OA_CURRENT_ADC, // adc type (voltage input)
 			    false, // enable pull down
 			    false, // disable rejection
@@ -3226,16 +3226,22 @@ After the Opta™ controller is programmed with the example sketch, open the Ard
 
 ```
 Analog Expansion n. 0
- - ch 0 -> Current 0.00 mA
+ - ch 0 -> Current 18.20 mA
  - ch 1 -> Current 0.00 mA
  - ch 2 -> Current 0.00 mA
  - ch 3 -> Current 0.00 mA
  - ch 4 -> Current 0.00 mA
- - ch 5 -> Current 18.20 mA
+ - ch 5 -> Current 0.00 mA
  - ch 6 -> Current 0.00 mA
  - ch 7 -> Current 0.00 mA
 ```
-![Analog current input wiring example](assets/volt-in-a.png)
+![Analog current input wiring example](assets/analog-4-20-inputs.png)
+
+There is another approach for interfacing 4-20 mA sensors that consists of defining the channel as a voltage output, connecting the sensor to the channel and measuring the current of the loop. Use the following example sketch instead:
+
+```arduino
+```
+
 
 #### Analog RTD Input Mode
 
