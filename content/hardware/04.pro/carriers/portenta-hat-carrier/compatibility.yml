@@ -2,7 +2,7 @@ software:
   - arduino-ide
   - arduino-cli
   - iot-cloud
-  - web-editor
+  - cloud-editor
   - linux
 hardware:
   boards:
@@ -11,4 +11,3 @@ hardware:
     - portenta-h7-lite
     - portenta-h7-lite-connected
     - portenta-c33
-
