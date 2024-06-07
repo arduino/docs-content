@@ -3248,7 +3248,7 @@ Analog Expansion n. 0
  - ch 6 -> Current 0.00 mA
  - ch 7 -> Current 0.00 mA
 ```
-![Analog current input wiring example](assets/analog-4-20-inputs.png)
+![Analog current input wiring example (externally powered)](assets/analog-4-20-inputs.png)
 
 There is another approach for interfacing 4-20 mA sensors that consists of defining the channel as a **voltage DAC** and adding a **current ADC** to the same channel, connecting the sensor to the channel and measuring the current of the loop. Use the following example sketch instead:
 
@@ -3385,7 +3385,9 @@ The key section of the example from above is in the `setup()` function, specific
 
 First, the channel is initialized as a voltage DAC with the "limit current" parameter disabled, a voltage is set in the output that will power the current loop and then a current ADC is added to the same channel, this way we can use the `pinCurrent()` function to measure the current output of the sensor.
 
+With this last configuration, we can directly connect the 4-20 mA sensor to the desired channel. Look at the following example for reference:
 
+![Analog current input wiring example (internally powered)](assets/analog-4-20-in-out.png)
 
 #### Analog RTD Input Mode
 
