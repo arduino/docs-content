@@ -3408,26 +3408,178 @@ The Analog Expansion input channels can be used for temperature metering with **
 | Input range     | 0...1 MΩ |
 | Bias voltage    | 2.5 V    |
 
-***2 wires RTDs can be connected to any of the eight channels.***
+2 wires RTDs can be connected to any of the eight channels as follows:
 
-**3 Wires RTD Connection**
+![2 Wires RTD connection example](assets/rtd-2wires-user.png)
 
-RTD with 3 wires has generally two wires with the same color.
+3 wires RTDs has generally two wires with the same color.
 
 - Connect the two wires with the same color to the - and the ICx screw terminals respectively.
 - Connect the wire with a different color to the + screw terminal.
 
 ***3 wires RTD can only be measured by channels __I1__ and __I2__.***
 
-![3 Wires RTD connection example](assets/rtd-3wires.png)
+![3 Wires RTD connection example](assets/rtd-3wires-user.png)
 
-To perform measurements of an input terminal configured as RTD use built-in function `pinCurrent()` as shown below:
+To perform measurements of an input terminal configured as RTD use the built-in function `getRtd()` as shown below:
 
 ```arduino
-float value = exp.pinCurrent(<input>);
+float value = exp.getRtd(<input>);  // this returns the resistive value measured in the input in ohms
 ```
 
-The following example will let you measure the current in all the analog inputs of every expansion connected at once, this sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > ADC**:
+For the following example a 2 wires **PT1000** will be used connected to **I1**. The sketch below will let you measure the resistance and convert it to a temperature value. This sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > RTD**:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 2000
+#define DELAY_AFTER_SETUP 1000
+// RTD constants
+float a = 0.0039083;
+float b = -0.0000005775;
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+  /* -------------------------------------------------------------------------- */
+  if (t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  } else if (t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  } else if (t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  } else if (t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  } else if (t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  } else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+  /* -------------------------------------------------------------------------- */
+  static long int start = millis();
+
+  if (millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }
+}
+
+int8_t oa_index = -1;
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+  /* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+  Serial.println("*** Opta Analog RTD example ***");
+
+  OptaController.begin();
+
+  for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+
+    for (int k = 0; k < OA_AN_CHANNELS_NUM; k++) {
+      /* all channels are initialized in the same way as RTD */
+      AnalogExpansion::beginChannelAsRtd(OptaController, i,  // the device
+                                         k,                  // the output channel you are using
+                                         false,              // use 3 wire RTD
+                                         0.2);               // current used on RTD in mA
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+  /* -------------------------------------------------------------------------- */
+
+  static long int start = millis();
+  if (millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      AnalogExpansion aexp = OptaController.getExpansion(i);
+      if (aexp) {
+        Serial.println("Expansion n. " + String(aexp.getIndex()));
+        for (int j = 0; j < 8; j++) {
+          float value = aexp.getRtd((uint8_t)j);
+          if (value != -1.00 && value < 1000000.0) {   // if the channel reading is valid
+            Serial.print("ch ");
+            Serial.print(j);
+            Serial.print(" -> ");
+            Serial.print(value);
+            Serial.print(" Ω");
+            float temp = ((1.0 / 1000.0) * (-10.0 * sqrt(10.0) * sqrt(-b * value + 250.0 * pow(a, 2.0) + 1000.0 * b) + 500.0 * a)) / b;
+            Serial.print(" -> ");
+            Serial.print(temp);
+            Serial.print(" C");
+            Serial.println();
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  /* -------------------------------------------------------------------------- */
+  OptaController.update();
+  //printExpansionInfo();
+  optaAnalogTask();
+}
+```
+
+Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
+
+Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
+
+`OptaController.update()` function DOES NOT:
+* Check if an expansion has been removed and remove their objects
+* Update any data from or to the expansion
+
+The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
+```arduino
+for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
+  AnalogExpansion exp = OptaController.getExpansion(i);
+}
+```
+The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+
+The expansion channels are configured as **RTD inputs** using the function `beginChannelAsRtd` alongside the following parameters:
+
+```arduino
+AnalogExpansion::beginChannelAsRtd(OptaController, i,  // the device
+                                         k,                  // the output channel you are using
+                                         false,              // use 3 wire RTD
+                                         0.2);               // current used on RTD in mA
+```
+
+The current parameter in the function above will depend on your RTD type, study your sensor datasheet to find the more suitable for it, in this case, the **PT1000** used recommends a **0.2 mA** current. 
+
+The function `optaAnalogTask()` reads all the RTDs connected and converts their resistive value to a temperature.
+
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+
+```
+Expansion n. 0
+ch 0 -> 1101.66 Ω -> 25.91 C
+```
 
 ### Programmable Outputs
 
