@@ -3339,7 +3339,7 @@ void optaAnalogTask() {
   static long int start = millis();
 
   /* using this the code inside the if will run every PERIODIC_UPDATE_TIME ms
-     assuming the function is called repeteadly in the loop() function */
+     assuming the function is called repeatedly in the loop() function */
 
   if (millis() - start > PERIODIC_UPDATE_TIME) {
     start = millis();
