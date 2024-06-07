@@ -3038,7 +3038,7 @@ The function `optaAnalogTask()` reads all the analog input raw ADC values and pr
 //Change 
 int value =	exp.analogRead((uint8_t)j); // get the raw ADC reading
 //for
-float value =	exp.pinVoltage((uint8_t)j); // get the ADC reading and returns it as a voltage
+float value = exp.pinVoltage((uint8_t)j); // get the ADC reading and returns it as a voltage
 ```
 
 After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
@@ -3076,7 +3076,7 @@ The Analog Expansion input channels can be configured for current loop instrumen
 The current of an input terminal configured in current mode can be read using the built-in function `pinCurrent()` as shown below:
 
 ```arduino
-float value =	exp.pinCurrent(<input>);
+float value = exp.pinCurrent(<input>);
 ```
 
 The following example will let you measure the current in all the analog inputs of every expansion connected at once, this sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > ADC**:
@@ -3258,7 +3258,7 @@ There is another approach for interfacing 4-20 mA sensors that consists of defin
 #define PERIODIC_UPDATE_TIME 2000
 #define DELAY_AFTER_SETUP 200
 
-#define SENSOR_CH 0
+#define SENSOR_CH 0 // define the sensor channel 
 
 /* -------------------------------------------------------------------------- */
 void printExpansionType(ExpansionType_t t) {
