@@ -3401,6 +3401,34 @@ Setting DAC output to 11 V on expansion n. 0
 
 #### Analog RTD Input Mode
 
+The Analog Expansion input channels can be used for temperature metering with **PT100** or **PT1000** RTDs.
+
+| Characteristics | Details  |
+|-----------------|----------|
+| Input range     | 0...1 MΩ |
+| Bias voltage    | 2.5 V    |
+
+***2 wires RTDs can be connected to any of the eight channels.***
+
+**3 Wires RTD Connection**
+
+RTD with 3 wires has generally two wires with the same color.
+
+- Connect the two wires with the same color to the - and the ICx screw terminals respectively.
+- Connect the wire with a different color to the + screw terminal.
+
+***3 wires RTD can only be measured by channels __I1__ and __I2__.***
+
+![3 Wires RTD connection example](assets/rtd-3wires.png)
+
+To perform measurements of an input terminal configured as RTD use built-in function `pinCurrent()` as shown below:
+
+```arduino
+float value = exp.pinCurrent(<input>);
+```
+
+The following example will let you measure the current in all the analog inputs of every expansion connected at once, this sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > ADC**:
+
 ### Programmable Outputs
 
 #### Analog Voltage Output Mode
