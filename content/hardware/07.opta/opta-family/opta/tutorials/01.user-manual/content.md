@@ -3026,6 +3026,12 @@ AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
 			    false, // disable diagnostic
 			    0); // disable averaging
 ```
+
+You can also use the simplified dedicated method using the function `beginChannelAsVoltageAdc` as follows:
+
+```arduino
+exp.beginChannelAsVoltageAdc(<exp channel>); // pass the desired input as argument
+```
 The function `optaAnalogTask()` reads all the analog input raw ADC values and prints out them. If you want to show the voltage reading instead use the following function:
 
 ```arduino
@@ -3220,6 +3226,13 @@ AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
 			    false, // disable diagnostic
 			    0); // disable averaging
 ```
+
+You can also use the simplified dedicated method using the function `beginChannelAsCurrentAdc` as follows:
+
+```arduino
+exp.beginChannelAsCurrentAdc(<exp channel>); // pass the desired input as argument
+```
+
 The function `optaAnalogTask()` reads all the analog input current values and prints out them.
 
 After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
@@ -3237,10 +3250,141 @@ Analog Expansion n. 0
 ```
 ![Analog current input wiring example](assets/analog-4-20-inputs.png)
 
-There is another approach for interfacing 4-20 mA sensors that consists of defining the channel as a voltage output, connecting the sensor to the channel and measuring the current of the loop. Use the following example sketch instead:
+There is another approach for interfacing 4-20 mA sensors that consists of defining the channel as a **voltage DAC** and adding a **current ADC** to the same channel, connecting the sensor to the channel and measuring the current of the loop. Use the following example sketch instead:
 
 ```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 2000
+#define DELAY_AFTER_SETUP 200
+
+#define SENSOR_CH 0
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+  /* -------------------------------------------------------------------------- */
+  if (t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  } else if (t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  } else if (t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  } else if (t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  } else if (t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  } else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+  /* -------------------------------------------------------------------------- */
+  static long int start = millis();
+
+  if (millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }
+}
+
+int8_t oa_index = -1;
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+  /* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+
+  for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+    AnalogExpansion exp = OptaController.getExpansion(i);
+
+    if (exp) {
+      // start the channel as a voltage DAC 
+      exp.beginChannelAsDac(SENSOR_CH,        //channel index
+                            OA_VOLTAGE_DAC,   //DAC type
+                            false,            //limit current (set to false so it can power the sensor current loop)
+                            false,            //No slew rate
+                            OA_SLEW_RATE_0);  //Slew rate setting.
+      
+      Serial.println("Setting DAC output to 11 V on expansion n. " + String(exp.getIndex()));
+      exp.pinVoltage(SENSOR_CH, 11.0, true);  // set channel 0 output to 11 V (Max voltage output)
+      delay(200); // give time for the channel to be set up
+      // add a current ADC to the same channel
+      exp.addCurrentAdcOnChannel(SENSOR_CH);
+      
+    }
+  }
+}
+
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+  /* -------------------------------------------------------------------------- */
+
+  static long int start = millis();
+
+  /* using this the code inside the if will run every PERIODIC_UPDATE_TIME ms
+     assuming the function is called repeteadly in the loop() function */
+
+  if (millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      AnalogExpansion exp = OptaController.getExpansion(i);
+      if (exp) {
+        float value = exp.pinCurrent(SENSOR_CH);
+        Serial.println("- ch" + String(SENSOR_CH) + " -> Current " + String(abs(value)) + " mA");
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  /* -------------------------------------------------------------------------- */
+  OptaController.update();
+  //printExpansionInfo();
+  optaAnalogTask();
+}
+
 ```
+The key section of the example from above is in the `setup()` function, specifically in the way we initialize the channel to be used for the measurement:
+
+```arduino
+// start the channel as a voltage DAC 
+      exp.beginChannelAsDac(SENSOR_CH,        //channel index
+                            OA_VOLTAGE_DAC,   //DAC type
+                            false,            //limit current (set to false so it can power the sensor current loop)
+                            false,            //No slew rate
+                            OA_SLEW_RATE_0);  //Slew rate setting.
+      
+      Serial.println("Setting DAC output to 11 V on expansion n. " + String(exp.getIndex()));
+      exp.pinVoltage(SENSOR_CH, 11.0, true);  // set channel 0 output to 11 V (Max voltage output)
+      delay(200); // give time for the channel to be set up
+      // add a current ADC to the same channel
+      exp.addCurrentAdcOnChannel(SENSOR_CH);
+```
+
+First, the channel is initialized as a voltage DAC with the "limit current" parameter disabled, a voltage is set in the output that will power the current loop and then a current ADC is added to the same channel, this way we can use the `pinCurrent()` function to measure the current output of the sensor.
+
 
 
 #### Analog RTD Input Mode
