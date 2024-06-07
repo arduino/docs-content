@@ -150,7 +150,7 @@ Copy and paste the example sketch below into a new sketch in the Arduino IDE:
 
 ```arduino
 /**
-  Blink LED on Nicla Sense Env
+  Blink Example on Nicla Sense Env
   Name: nicla_sense_env_blink.ino
   Purpose: This sketch demonstrates how to blink the onboard 
   orange LED of the Nicla Sense Env board.
@@ -159,6 +159,7 @@ Copy and paste the example sketch below into a new sketch in the Arduino IDE:
   @version 1.0 31/05/24
 */
 
+// Include the NiclaSenseEnv library
 #include "NiclaSenseEnv.h"
 
 // Global device object for the Nicla Sense Env board
@@ -200,7 +201,7 @@ void loop() {
 }
 ```
 
-To upload the code to the host board, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
+To upload the sketch to the host board, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
 
 ![Uploading a sketch to the host board (Portenta C33) in the Arduino IDE](assets/user-manual-7.png)
 
@@ -218,7 +219,7 @@ Detailed information from the board, such as its I<sup>2</sup>C address, serial 
 
 ```arduino
 /**
-  Board Information Retrieval for Nicla Sense Env
+  Board Information Retrieval Example for Nicla Sense Env
   Name: nicla_sense_env_board_info_example.ino
   Purpose: This sketch demonstrates how to retrieve detailed board information from the Nicla Sense Env using the Arduino_NiclaSenseEnv library API.
   
@@ -226,13 +227,14 @@ Detailed information from the board, such as its I<sup>2</sup>C address, serial 
   @version 1.0 31/05/24
 */
 
+// Include the NiclaSenseEnv library
 #include "NiclaSenseEnv.h"
 
 // Global device object for Nicla Sense Env
 NiclaSenseEnv device;
 
 /**
-  Prints detailed device information to the serial monitor.
+  Prints detailed device information to the Serial Monitor.
   This function outputs all critical system parameters including 
   the device I2C address, serial number, and other configuration settings.
 */
@@ -301,7 +303,7 @@ After uploading the example sketch to the host board, you should see the followi
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-9.png)
 
-You can download the example code [here](assets/nicla_sense_env_board_info_example.zip).
+You can download the example sketch [here](assets/nicla_sense_env_board_info_example.zip).
 
 ### Onboard Sensors Management 
 
@@ -309,7 +311,7 @@ Efficient management of the Nicla Sense Env's onboard sensors is important for o
 
 ```arduino
 /**
-  Onboard Sensors Management for Nicla Sense Env
+  Onboard Sensors Management Example for Nicla Sense Env
   Name: nicla_sense_env_sensors_management_example.ino
   Purpose: This sketch demonstrates how to manage the onboard sensors of the Nicla Sense Env using the Arduino_NiclaSenseEnv library API.
   
@@ -317,6 +319,7 @@ Efficient management of the Nicla Sense Env's onboard sensors is important for o
   @version 1.0 31/05/24
 */
 
+// Include the NiclaSenseEnv library
 #include "NiclaSenseEnv.h"
 
 // Global device object for Nicla Sense Env
@@ -379,7 +382,7 @@ After uploading the example sketch to the host board, you should see the followi
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-10.png)
 
-You can download the example code [here](assets/nicla_sense_env_sensors_management_example.zip).
+You can download the example sketch [here](assets/nicla_sense_env_sensors_management_example.zip).
 
 ### Board Reset
 
@@ -389,7 +392,7 @@ The example sketch shown below demonstrates how to reset the Nicla Sense Env usi
 
 ```arduino
 /**
-  Board Reset for Nicla Sense Env
+  Board Reset Example for Nicla Sense Env
   Name: nicla_sense_env_board_reset_example.ino
   Purpose: This sketch demonstrates how to reset the Nicla Sense Env 
   using the Arduino_NiclaSenseEnv library API and verifies the reset
@@ -399,6 +402,7 @@ The example sketch shown below demonstrates how to reset the Nicla Sense Env usi
   @version 1.0 31/05/24
 */
 
+// Include the NiclaSenseEnv library
 #include "NiclaSenseEnv.h"
 
 // Global device object for Nicla Sense Env
@@ -453,19 +457,19 @@ After uploading the example sketch to the host board, you should see the followi
 
 ![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-11.png)
 
-You can download the example code [here](assets/nicla_sense_env_board_reset_example.zip).
+You can download the example sketch [here](assets/nicla_sense_env_board_reset_example.zip).
 
 ### Low Power Mode Management
 
 Saving energy is vital for many projects, particularly those deployed in remote areas or with a limited power supply. The Nicla Sense Env supports a deep sleep mode that can help to minimize the board's power consumption.
 
-***Deep sleep is essential for extending battery life and reducing energy use when the board is not actively collecting data or performing any tasks. It is especially important for battery-powered or power-constrained applications.***
+***Deep sleep is essential for extending battery life and reducing energy use when the board is not collecting data or performing tasks. It is necessary for battery-powered or power-constrained applications.***
 
 The example sketch shown below demonstrates how to put the Nicla Sense Env board into deep sleep mode using the `Arduino_NiclaSenseEnv` library API: 
 
 ```arduino
 /**
-  Low Power Mode Management for Nicla Sense Env
+  Low Power Mode Management Example for Nicla Sense Env
   Name: nicla_sense_env_low_power_mode_example.ino
   Purpose: This sketch demonstrates how to put the Nicla Sense Env 
   into deep sleep mode using the Arduino_NiclaSenseEnv library API.
@@ -474,6 +478,7 @@ The example sketch shown below demonstrates how to put the Nicla Sense Env board
   @version 1.0 31/05/24
 */
 
+// Include the NiclaSenseEnv library
 #include "NiclaSenseEnv.h"
 
 // Global device object for Nicla Sense Env
@@ -489,7 +494,7 @@ void setup() {
         Serial.println("- Going to deep sleep mode...");
         device.deepSleep();
     } else {
-        Serial.println("- Device could not be found. Please double-check the wiring.");
+        Serial.println("- Device could not be found. Please double-check the wiring!");
     }
 }
 
@@ -500,17 +505,99 @@ void loop() {
 
 Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
 
-- `device.deepSleep()`: This function puts the Nicla Sense Env board into a deep sleep state where power consumption is minimized to the lowest possible level.
+- `device.deepSleep()`: This function puts the Nicla Sense Env board into a deep sleep state, minimizing power consumption to the lowest possible level.
 
 After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
 
-***Waking up a board from deep sleep mode can only be done by a hardware reset.***
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-12.png)
 
-You can download the example code [here](assets/nicla_sense_env_low_power_mode_example.zip).
+***Waking up a Nicla Sense Env board from deep sleep mode can only be done by a hardware reset.***
+
+You can download the example sketch [here](assets/nicla_sense_env_low_power_mode_example.zip).
 
 ## LEDs
 
 ## Temperature and Humidity Sensor
+
+The Nicla Sense Env board has an onboard temperature and humidity sensor, the HS4001 from Renesas. The HS4001 is a highly accurate, ultra-low power, fully calibrated automotive-grade relative humidity and temperature sensor. Its high accuracy, fast measurement response time, and long-term stability make the HS4001 sensor ideal for many applications ranging from portable devices to products designed for harsh environments.
+
+![The HS4001 sensor of the Nicla Sense Env board](assets/user-manual-13.png)
+
+The example sketch shown below demonstrates how to read temperature and humidity data from the HS4001 sensor using the `Arduino_NiclaSenseEnv` library API. The sketch will report the temperature and humidity values to the Arduino IDE's Serial Monitor every 2.5 seconds.
+
+```arduino
+/**
+  Temperature and Humidity Sensor Example for Nicla Sense Env
+  Name: nicla_sense_env_temp_humidity_example.ino
+  Purpose: This sketch demonstrates how to read temperature and humidity from 
+  the HS4001 sensor on the Nicla Sense Env using the Arduino_NiclaSenseEnv library API.
+  
+  @author Arduino Product Experience Team
+  @version 1.0 31/05/24
+*/
+
+// Include the NiclaSenseEnv library
+#include "NiclaSenseEnv.h"  
+
+// Global device object for Nicla Sense Env
+NiclaSenseEnv device;  
+
+/**
+  Displays temperature and humidity data from the HS4001 sensor.
+  @param sensor Reference to TemperatureHumiditySensor object controlling the sensor.
+*/
+void displaySensorData(TemperatureHumiditySensor& sensor) {
+    if (sensor.enabled()) {
+        float temperature = sensor.temperature();
+        if (isnan(temperature)) {
+            Serial.println("- Temperature: N/A");
+        } else {
+            Serial.print("- Temperature: ");
+            Serial.print(temperature, 2);
+            Serial.println(" °C");
+        }
+        Serial.print("- Relative humidity: ");
+        Serial.print(sensor.humidity(), 2);
+        Serial.println(" %");
+        Serial.println("");
+    } else {
+        Serial.println("- Temperature sensor is disabled!");
+    }
+}
+
+void setup() {    
+    // Initialize serial communication and wait up to 2.5 seconds for a connection
+    Serial.begin(115200);
+    for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+    if (device.begin()) {
+        Serial.println("- Device is connected!");
+    } else {
+        Serial.println("- Device could not be found. Please double check the wiring!");
+    }
+}
+
+void loop() {
+    // Read data from the HS4001 sensor 
+    // Wait for 2.5 seconds before reading again
+    auto temperatureSensor = device.temperatureHumiditySensor();
+    displaySensorData(temperatureSensor);
+    delay(2500);
+}
+```
+
+Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+
+- `temperatureHumiditySensor()`: Retrieves the temperature and humidity sensor object from the Nicla Sense Env.
+- `sensor.enabled()`: Checks if the sensor is currently enabled.
+- `sensor.temperature()`: Reads the current temperature value from the sensor. The reading is unavailable if the value is not a number (NaN).
+- `sensor.humidity()`: Reads the current relative humidity value from the sensor.
+
+After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-14.png)
+
+You can download the example sketch [here](assets/nicla_sense_env_temp_humidity_example.zip).
 
 ## Indoor Air Quality Sensor 
 
