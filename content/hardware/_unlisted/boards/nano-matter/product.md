@@ -8,6 +8,9 @@ core: arduino:mbed_nano
 certifications: [CE, UKCA]
 ---
 
-**[Community Preview] The Matter Color Light will be the only officially Matter-certified profile for the Nano Matter Community Preview. Currently under certification.**
 
 The Arduino Nano Matter combines Arduino's user-friendly approach with the powerful MGM240S technology from Silicon Labs. This enables Makers and Professionals to work with **[Matter®](https://csa-iot.org/all-solutions/matter/)**, the popular standard for IoT devices, taking advantage of the Nano's low-power and compact design.
+
+
+
+**[Community Preview] The Matter Color Light will be the only officially Matter-certified profile for the Nano Matter Community Preview. Currently under certification.**
