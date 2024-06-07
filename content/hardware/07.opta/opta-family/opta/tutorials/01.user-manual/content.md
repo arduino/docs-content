@@ -3583,6 +3583,16 @@ ch 0 -> 1101.66 Ω -> 25.91 C
 
 ### Programmable Outputs
 
+| Characteristics                     | Details                                                 |
+|-------------------------------------|---------------------------------------------------------|
+| Number of outputs                   | 2x Analog outputs (Voltage and Current), 4x PWM outputs |
+| DAC resolution                      | 13 bits                                                 |
+| Charge pump for zero voltage output | Yes                                                     |
+
+***All eight analog channels can be used as outputs but due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time.***
+
+***At 25°C of ambient temperature, all the 8 channels set as outputs have been tested at the same time while outputting more than 24 mA at 10 V each (>0.24W per channel).***
+
 #### Analog Voltage Output Mode
 
 #### Analog Current Output Mode
