@@ -3389,6 +3389,16 @@ With this last configuration, we can directly connect the 4-20 mA sensor to the 
 
 ![Analog current input wiring example (internally powered)](assets/analog-4-20-in-out.png)
 
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+
+```
+Setting DAC output to 11 V on expansion n. 0
+- ch0 -> Current 18.20 mA
+- ch0 -> Current 18.20 mA
+- ch0 -> Current 18.20 mA
+- ch0 -> Current 18.20 mA
+```
+
 #### Analog RTD Input Mode
 
 ### Programmable Outputs
