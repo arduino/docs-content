@@ -1,6 +1,6 @@
 ---
 title: 'Energy Management with Opta™'
-description: "This application note describes how to implement Opta™ for a domestic energy management system."
+description: "This application note explains how to use Opta™ for managing energy consumption in a domestic environment."
 difficulty: intermediate
 tags:
   - Energy
@@ -48,7 +48,7 @@ Below is a visual representation of the intended application:
 - Opta™ PLC with RS-485 support: [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - 7M.24 Energy meter (x1)
-- Solar panel with respective system (Controller, battery, and inverter) or similar power system
+- Power source: e.g., solar panels with their respective system (controller, battery, and inverter)
 - Domestic appliances or devices of interest
 - RS-485 connection wire as recommended by the standard specification (x3):
 - STP/UTP 24-18AWG (Unterminated) 100-130 Ω rated
@@ -66,7 +66,7 @@ Below is a visual representation of the intended application:
 
 ### Setting Up the Arduino IDE
 
-For this application note, ensure you have the latest version of the Arduino IDE, which is available for download [here](https://www.arduino.cc/en/software). Within the Arduino IDE, you need to install the **`Arduino Mbed OS Opta Boards`** core for Opta™ devices.
+For this application note, ensure you have the latest version of the Arduino IDE, available for download [here](https://www.arduino.cc/en/software). Within the Arduino IDE, you need to install the **`Arduino Mbed OS Opta Boards`** core for Opta™ devices.
 
 To install this core, go to **Tools > Board > Boards Manager** or click the **Boards Manager** icon on the left side of the IDE.
 
@@ -89,7 +89,7 @@ The Library Manager can be accessed using the **"Ctrl + Shift + I"** shortcut or
 
 ## Power Analyzer & Modbus RTU
 
-A **power analyzer** or **energy meter** measures and analyzes electrical parameters in power systems, which is essential for monitoring energy efficiency, checking network performance, and diagnosing issues. By providing insights into voltage, current, power factor, and energy consumption, these devices help optimize load operation and reduce energy costs.
+A **power analyzer** or **energy meter** measures and analyzes electrical parameters in power systems, essential for monitoring energy efficiency, checking network performance, and diagnosing issues. By providing insights into voltage, current, power factor, and energy consumption, these devices help optimize load operation and reduce energy costs.
 
 The **6M.Tx** series includes three single-phase power monitors for AC and DC systems, handling AC frequencies from 1 to 400 Hz and nominal currents from 50 to 300 A (up to 400 A for DC). They measure parameters like peak voltage (`Vpk`), peak current (`Ipk`), and Total Harmonic Distortion (`THD(U)`), which are important for assessing power quality. Data is accessible via Modbus RTU over RS-485, using 16-bit registers.
 
@@ -99,19 +99,19 @@ It features a backlit LCD that shows real-time values like voltage (`V`), curren
 
 The series provides real-time data logging and advanced diagnostics with a run-time counter for preventive maintenance activities. It includes an integrated Modbus RS485 interface for easy data integration into larger systems. The series boasts active energy accuracy **Class B** according to **EN 50470-3 (MID)** and reactive energy accuracy **Class 2** according to **EN 62053-23**.
 
-For both series, measurements are available as 16-bit reads, with energy measurements as 32-bit values from two adjacent 16-bit registers. Note that all offsets are register offsets, not byte offsets, with Modbus addressing starting from 0.
+For both series, measurements are available as 16-bit reads, with energy measurements as 32-bit values from two adjacent 16-bit registers. **Note that all offsets are register offsets, not byte offsets, with Modbus addressing starting from 0**.
 
 ***For more details on the Modbus protocol, refer to the [__Arduino® & Modbus Protocol__](https://docs.arduino.cc/learn/communication/modbus/) tutorial and the [__ArduinoModbus__](https://github.com/arduino-libraries/ArduinoModbus) library. For practical implementation of Modbus RTU on Opta™, see the [__Getting Started with Modbus RTU on Opta™__](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu/) tutorial.***
 
 ## Hardware Setup Overview
 
-The electrical connections of the intended application design are shown in the diagram below:
+This application note is focused on using the 7M.24 energy meter. The electrical connections for the intended application design are shown in the diagram below:
 
 ![Electrical connections of the application with the 7M.24 Energy Meter](assets/electrical_connections.png)
 
-***To address the power demands and ensure reliable connections with the load, using cables that comply with appropriate electrical standards, such as ASTM B 258 standard, and can support up to __50 A__ of current is advisable. __Cables with a cross-sectional area ranging from 13.3 mm² to 21.2 mm², roughly equivalent to AWG 6-4, should be sufficient for 50 A of current.__***
+***To meet the power demands and ensure reliable connections with the load, using cables that comply with appropriate electrical standards, such as ASTM B 258 standard, and can support up to __50 A__ of current is advisable. __Cables with a cross-sectional area ranging from 13.3 mm² to 21.2 mm², roughly equivalent to AWG 6-4, should be sufficient for 50 A of current.__***
 
-The Opta™ system will access real-time consumption details from the 7M.24 energy meter using the Modbus RTU over the RS-485 interface. Power from the solar panels undergoes multiple processes before it reaches the energy meter.
+The Opta™ system will access real-time consumption details from the 7M.24 energy meter using Modbus RTU over the RS-485 interface. Power from the solar panels undergoes multiple processes before it reaches the energy meter.
 
 Household appliances can be managed using the Opta™ system's built-in relay functions. It is also worth noting that other power sources can replace the solar panels.
 
@@ -119,13 +119,13 @@ Household appliances can be managed using the Opta™ system's built-in relay fu
 
 ## Opta™ Energy Management Model Description
 
-The main role of Opta™ is to efficiently handle power, using data from the energy meter linked to the solar panel as its basis. It fetches and processes data from the energy meter, estimating real-time consumption based on the meter's thresholds and the current power output of the solar panel.
+The main role of Opta™ is to manage power distribution as efficiently as possible, using data from the energy meter connected to the solar panel as its basis. It fetches and processes data from the energy meter, estimating real-time consumption based on the meter's thresholds and the current power supply of the solar panel.
 
 For this application, we are using the __7M.24 energy meter__ model from Finder. You can access its datasheet [here](https://cdn.findernet.com/app/uploads/2021/09/20090052/Modbus-7M24-7M38_v2_30062021.pdf).
 
 ***For the __6M.TA Energy Meter__, refer to this document containing [communication protocol](https://cdn.findernet.com/app/uploads/Modbus_RS485_6MTx.pdf) information. For more details, please refer to the tutorial dedicated to __6M.TA Energy Meter__ [here](https://docs.arduino.cc/tutorials/opta/opta-6m-power-analyzer/).***
 
-The __7M.24 energy meter__ communicates via the Modbus RTU on the RS-485 interface. The relay functions of Opta™ will operate the relevant household appliances. To gather data and oversee power allocation, Opta™ carries out the following steps:
+The __7M.24 energy meter__ communicates via the Modbus RTU on the RS-485 interface. The relay functions of Opta™ will control the relevant household appliances. To gather data and oversee power allocation, Opta™ carries out the following steps:
 
 - Procure voltage and current readings from the energy meter.
 - Gather three types of power readings from the energy meter: _Active Power Total - Pt (`W`)_, _Reactive Power Total - Qt (`var`)_, and _Apparent Power Total - St (`VA`)_.
@@ -133,11 +133,11 @@ The __7M.24 energy meter__ communicates via the Modbus RTU on the RS-485 interfa
 - Access the Energy Counter figures in _`Wh`_ and _`varh`_ units.
 - Distribute power optimally to regulate selected household appliances based on the user's energy profile.
 
-While all these processes are handled by Opta™ locally, it is also connected to the Arduino Cloud through Wi-Fi®. This connection lets users view their energy usage and remotely control connected devices via the Arduino Cloud.
+While all these processes are managed by Opta™ locally, it is also connected to the Arduino Cloud through Wi-Fi®. This connection lets users view their energy usage and remotely control connected devices via the Arduino Cloud.
 
 ### Opta™ Energy Management with 7M.24 Example Code
 
-The provided code showcases the capabilities of Opta™ as described earlier. It is worth noting that the Arduino Cloud generates some code functions during dashboard configuration. The files can be downloaded [here](assets/energy_management.zip) for immediate access to the full example. We will dive into key code components to explain how the example code works.
+The provided code showcases the capabilities of Opta™ as described earlier. It is worth noting that the Arduino Cloud generates some code functions during dashboard configuration. The files can be downloaded [here](assets/energy_management.zip) to access the complete example immediately. We will dive into key code components to explain how the example code works.
 
 The code requires the inclusion of specific headers. These headers enable the RS-485 interface, the Modbus RTU protocol, the Arduino Cloud connection, and the scheduler. The scheduler oversees data exchange through the RS-485 interface using the Modbus RTU protocol. Moreover, it includes the parameters essential for stable communication and adhering to Modbus RTU standards.
 
@@ -199,13 +199,13 @@ constexpr auto preDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 constexpr auto postDelayBR { bitduration * 9.6f * 3.5f * 1e6 };
 ```
 
-Configuring the user parameters correctly is vital to ensure appropriate system operation. Such parameters are:
+Configuring the user parameters correctly is important to ensure appropriate system operation. Such parameters are:
 
-- `operation_safety_margin`: This is the safety margin multiplier factor. It is expressed in decimal format. For instance, to have a 20% safety buffer, the input should resemble `1.2`.
+- `operation_safety_margin`: This is the safety margin multiplier factor. It is expressed in decimal format. For instance, to have a 20% safety buffer, the input should be `1.2`.
 
 - `estimated_max_power`: The anticipated maximum power (measured in Watts) under which the network will operate. It sets a benchmark average power based on user input and then compares it to the energy meter reading. This helps verify if the network is running in line with the desired electrical attributes set by the user.
 
-- `estimated_max_energy`: Similar to `estimated_max_power`, this parameter marks the network's forecasted maximum active energy limit (in Wh). Its role is to ensure the network remains stable, delivering consistent power to the connected devices.
+- `estimated_max_energy`: Similar to `estimated_max_power`, this parameter characterizes the network's forecasted maximum active energy limit (in Wh). Its role is to ensure the network remains stable, delivering consistent power to the connected devices.
 
 - `Device_X_Limiter`: This sets the maximum limit for a chosen parameter for devices 1 & 2. Its definition should align with that of the `Device_X_CompRef`.
 
@@ -268,11 +268,11 @@ The function `energy_distro_ctrl()` uses energy meter data and user inputs from 
 
 This ensures that devices operate when energy consumption is within a range that is 10% below the maximum safe operation level. The `handleDevice()` function streamlines parameter adjustments and troubleshooting for each device state, facilitating desired relay activation.
 
-The system will alert the user if the average power demand surpasses the predefined user profile threshold. This application note considers specific data from the devices used, serving as a proof of concept for this scenario.
+The system will warn the user if the average power demand surpasses the predefined user profile threshold. This application note considers specific data from the devices used, serving as a proof of concept for this scenario.
 
 The `Device #1` is configured for low-power devices that need a consistent current or the existing power to switch on securely. Users also have the option to control it remotely.
 
-The `Device #2` caters to devices with higher power demands. It will begin operations if the current or average power available meets the specified power requirement.
+The `Device #2` can be seen as a device with higher power demands. It will begin operations if the current or average power available meets the specified power requirement.
 
 ```arduino
 /**
@@ -412,7 +412,7 @@ void RTU_Setup(){
 
 The provided functions are designed for data retrieval from a target device via the Modbus RTU protocol. Each function is designed to fetch specific data types from the device using distinct register addresses.
 
-By indicating the device and the register address, these functions simplify accessing data from devices communicating through Modbus RTU. We will employ these functions to extract data from the 7M.24 energy meter.
+By indicating the device and the register address, these functions simplify accessing data from devices communicating through Modbus RTU. We will use these functions to extract data from the 7M.24 energy meter.
 
 ```arduino
 /**
@@ -685,15 +685,15 @@ Access the complete sketch used in the energy management design for Opta™ in c
 
 ## Conclusion
 
-You have built an Opta™ energy manager adept at monitoring an electrical system, evaluating power availability and consumption, and remotely managing devices prioritized by power or energy via the Arduino Cloud.
+You have built an Opta™ energy manager to monitor an electrical system, evaluate power availability and consumption, and remotely manage devices prioritized by power or energy via the Arduino Cloud.
 
 Opta™ can help manage the energetical balance in industrial environments: in this example, we have considered a scenario where machines can be operated opportunistically, based on power availability, over a 24/7 span, to improve the overall power efficiency.
 
-This project can be adapted with a few tweaks, such as integrating different types of power sources, setting varied conditions for machinery operations, and adjusting power-related parameters. This flexibility allows for customized solutions, effectively addressing numerous scenarios and optimizing energy distribution.
+This project can be adapted with a few tweaks, such as integrating different power sources, setting varied conditions for machinery operations, and adjusting power-related parameters. This flexibility allows customized solutions, effectively addressing numerous scenarios and optimizing energy distribution.
 
 ## Next Steps
 
-Setting up an energy management system at home or in an industrial setting can greatly minimize unneeded power usage. Delve into the potential of energy management by harnessing the Arduino Cloud to develop a more energy-conscious environment.
+Setting up an energy management system at home or in an industrial setting can greatly minimize unnecessary power usage. Dive into the potential of energy management by harnessing the Arduino Cloud to develop a more energy-conscious environment. The 6M.TA energy meter can also be used to meet demands as an alternative using a similar setup. For more details, please refer to the dedicated tutorial [here](https://docs.arduino.cc/tutorials/opta/opta-6m-power-analyzer/).
 
 ## Support
 
