@@ -352,7 +352,7 @@ The KNOB module includes a quadrature rotary encoder with an SPST switch, using 
 | Microcontroller     | STM32C011F4                                         |
 | Supply Voltage      | Min: 2.0 V, Max: 3.6 V                              |
 | Power Consumption   | 3.4 mA                                              |
-| Range               | 360° continuous                                     |
+| Range               | 360°                                      |
 | Accuracy            | Internal Oscillator: ±1%                            |
 | Resolution          | 12-bit ADC                                          |
 | Communication       | I2C, USART, SPI, I2S                                |
