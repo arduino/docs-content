@@ -30,7 +30,7 @@ The [Arduino Core for AVR devices](https://github.com/arduino/ArduinoCore-avr) c
 
 ![Arduino AVR Board Package](./assets/install-nano-core.png)
 
-You should now be able to select your board in the board selector. You will need to have your board connected to your computer via the USB-C® connector at this point.
+You should now be able to select your board in the board selector. You will need to have your board connected to your computer via the USB Mini B connector at this point.
 
 ![Arduino Nano board found.](./assets/nano-connected.png)
 
