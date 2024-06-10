@@ -203,10 +203,10 @@ When the board is powered, the microcontroller reads the status of its pins PA6,
 
 | Board            | SKU      | PA6 | PA7 | PA8 | PC14 | PC15 | PF2 |
 |------------------|----------|-----|-----|-----|------|------|-----|
-| Modulino Knob   | ABX00107 |     |     |  x  |      |      |     |
-| Modulino Buzzer   | ABX00108 |  x  |     |     |      |      |     |
-| Modulino Pixels      | ABX00109 |     |     |  x  |      |      |     |
-| Modulino Buttons    | ABX00110 |     |     |     |      |      |     |
+| Modulino® Knob   | ABX00107 |     |     |  x  |      |      |     |
+| Modulino® Buzzer   | ABX00108 |  x  |     |     |      |      |     |
+| Modulino® Pixels      | ABX00109 |     |     |  x  |      |      |     |
+| Modulino® Buttons    | ABX00110 |     |     |     |      |      |     |
 
 ### Movement
 #### Description
