@@ -527,7 +527,7 @@ The Plug and Make Kit is compatible with the Modulino library, which can be foun
 
 Keep in mind that by default the Modulino library assumes the Qwiic connector is going to be used, therefore by default it is using the Wire1.
 
-When connecting the Modulino boards to the UNO R4 WiFi headers, or to the Portenta on Mid Carrier, remember to modify the code to use Wire instead of Wire1.
+When connecting the Modulino boards to the UNO R4 WiFi headers, or to a Portenta board on Portenta Mid Carrier, remember to modify the code to use Wire instead of Wire1.
 
 Example code to connect the Modulino boards:
 
