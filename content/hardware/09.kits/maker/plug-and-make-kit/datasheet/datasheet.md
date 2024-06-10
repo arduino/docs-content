@@ -748,7 +748,7 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
+**Important:** The operating temperature of the EUT can’t exceed 85 ℃ and shouldn’t be lower than -40 ℃.
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
