@@ -1,13 +1,13 @@
 ---
 title: Getting Started with Arduino Nano
-description: A step-by-step guide to install the board package needed for the Arduino Nano board.
+description: A step-by-step guide to get started with the Arduino Nano.
 author: Hannes Siebeneicher
 tags: [Nano, Installation, IDE]
 ---
 
-To use the [Arduino Nano](/hardware/nano/) board, you will need to install the Arduino AVR Board Package.
+To use the [Arduino Nano](/hardware/nano/) board, you will need the Arduino AVR Board Package, which comes preinstalled with the IDE.
 
-To install it, you will need a version of the Arduino IDE, which you can download from the [Arduino Software page](https://www.arduino.cc/en/software). In this guide, we will use the latest version of the IDE 2.
+You will need a version of the Arduino IDE, which you can download from the [Arduino Software page](https://www.arduino.cc/en/software). In this guide, we will use the latest version of the IDE 2.
 
 ## Software & Hardware Needed
 
@@ -24,17 +24,17 @@ To install it, you will need a version of the Arduino IDE, which you can downloa
 
 ![The Arduino IDE.](./assets/open-ide.png)
 
-## Install Board Package
+## Board Package
 
 The [Arduino Core for AVR devices](https://github.com/arduino/ArduinoCore-avr) comes preinstalled with the IDE, so no additional installation is necessary to get started.  To use a different version than the latest, open the "Board Manager" from the left-hand menu. Search for Nano and install the version you want to use.
 
 ![Arduino AVR Board Package](./assets/install-nano-core.png)
 
-You should now be able to select your board in the board selector. You will need to have your board connected to your computer via the USB-C® connector at this point.
+You should now be able to select your board in the board selector. You will need to have your board connected to your computer via the USB Mini connector at this point.
 
 ![Arduino Nano board found.](./assets/nano-connected.png)
 
-Congratulations, you have now successfully installed the Arduino AVR board package via the Arduino IDE.
+Congratulations, your board is now ready to be used via the Arduino IDE.
 
 ## Compile & Upload Sketches
 
@@ -48,6 +48,6 @@ There are several examples available for the Nano board, which can be accessed d
 
 ## Summary
 
-In this tutorial, we have installed the Arduino AVR board package, using the Arduino IDE.
+In this tutorial we prepared the Arduino Nano to be used with the Arduino IDE.
 
 For any issues regarding the Arduino AVR board package, please refer to the [Arduino Core for AVR devices](https://github.com/arduino/ArduinoCore-avr).
