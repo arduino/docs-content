@@ -279,7 +279,7 @@ The DISTANCE module, featuring the VL53L4CDV0DH/1 sensor, provides accurate dist
 | Sensor              | VL53L4CDV0DH/1                                      |
 | Supply Voltage      | Min: 2.6 V, Max: 3.5 V                              |
 | Power Consumption   | 40 mA (peak), 24 mA active ranging, 4mA I2C         |
-| Range               | 0 to 1200mm                                         |
+| Range               | 0 to 1200 mm                                         |
 | Accuracy            | ±7 mm to ±3%                                        |
 | Resolution          | 1 mm                                                |
 | Communication       | I2C                                                 |
