@@ -1,6 +1,6 @@
 ---
 identifier: AKX00069
-title: Plug and Make Kit
+title: Arduino® Plug and Make Kit
 type: maker
 
 ---
