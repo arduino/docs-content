@@ -53,7 +53,7 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 
 | **SKU**            | *Name**                       | **Purpose**                                             | **Quantity**  |
 | -------------- | -------------------------- |-----------------------------------------------------|-----------|
-| ABX00080       | Arduino UNO R4 WiFi        | Programmable board with WiFi                        | 1         |
+| ABX00080       | Arduino UNO R4 WiFi        | Programmable main board | 1         |
 | ASX00071       | Plate Node                 | Fix firmly an UNO and some nodes on it              | 1         |
 | ABX00101       | Modulino Movement                   | Measure acceleration and rotation     | 1         |
 | ABX00102       | Modulino Distance                   | Time of flight, finds distances                     | 1         |
