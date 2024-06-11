@@ -6,9 +6,6 @@ type: maker
 ---
 
 
-<!---
-Feature Image: A descriptive image of the product to identify it on the first page of the Datasheet. Image must be put inside the "assets" folder and be named "featured.png" Actual Image for example purposes.
--->
 ![](assets/featured.png)
 
 # Description
