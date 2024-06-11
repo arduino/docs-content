@@ -78,7 +78,7 @@ The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontro
 | **Communication**         | 1x UART, 1x SPI, 1x I2C, 1x CAN (external transceiver required) |
 | **Wi-Fi®**                 | 802.11 b/g/n (Wi-Fi® 4), up to 150 Mbps |
 | **Bluetooth®**             | Bluetooth® 5                         |
-| **Power Supply**          | 6-24 V via VIN, 5 V via USB-C®      |
+| **Power Supply**          | 6-24 VDC via VIN, 5 VDC via USB-C®      |
 | **LED Matrix**            | 12x8 red LEDs, fully programmable   |
 | **Additional Features**   | Real-time Clock (RTC), Memory Protection Unit (MPU), DAC, DMA |
 
