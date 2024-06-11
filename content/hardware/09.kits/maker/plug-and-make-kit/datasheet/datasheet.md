@@ -68,7 +68,7 @@ The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontro
 ![Topology Arduino UNO R4 WiFi](assets/R4Topo.png)
 
 #### Technical Specifications
-| **Specification**         | **Details**                         |
+| **Feature**         | **Description**                         |
 |---------------------------|-------------------------------------|
 | **Microcontroller**       | Renesas RA4M1 (R7FA4M1AB3CFM#AA0)   |
 | **Clock Speed**           | 48 MHz                              |
