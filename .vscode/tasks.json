@@ -11,7 +11,7 @@
                 "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"
             },
             "windows": {
-                "command": ".\\content-lint.cmd -p '..\\..\\content\\hardware\\'"                
+                "command": ".\\content-lint.cmd -p '..\\..\\content\\hardware\\'"
             },
             "group": "none",
             "presentation": {
@@ -19,19 +19,23 @@
                 "panel": "dedicated",
                 "clear": true
             },
-            
-            "problemMatcher": [{
-                "fileLocation": ["relative", "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"],
-                "owner": "linter",
-                "pattern": {
-                "regexp": "^.+\\s(WARNING|ERROR):\\s(.*)\\sLocation:\\s(.*\\.[A-Za-z]+):(\\d+):?(\\d*)$",
-                "severity": 1,
-                "message": 2,
-                "file": 3,
-                "line": 4,
-                "column": 5
+            "problemMatcher": [
+                {
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"
+                    ],
+                    "owner": "linter",
+                    "pattern": {
+                        "regexp": "^.+\\s(WARNING|ERROR):\\s(.*)\\sLocation:\\s(.*\\.[A-Za-z]+):(\\d+):?(\\d*)$",
+                        "severity": 1,
+                        "message": 2,
+                        "file": 3,
+                        "line": 4,
+                        "column": 5
+                    }
                 }
-            }]
+            ]
         },
         {
             "label": "Run linter (current article)",
@@ -41,7 +45,7 @@
                 "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"
             },
             "windows": {
-                "command": ".\\content-lint.cmd -p '..\\..\\${relativeFile}' -c -v"                                
+                "command": ".\\content-lint.cmd -p '..\\..\\${relativeFile}' -c -v"
             },
             "group": "none",
             "presentation": {
@@ -49,18 +53,23 @@
                 "panel": "dedicated",
                 "clear": true
             },
-            "problemMatcher": [{
-                "fileLocation": ["relative", "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"],
-                "owner": "linter",
-                "pattern": {
-                "regexp": "^.+\\s(WARNING|ERROR):\\s(.+)\\sLocation:\\s(.+\\.[A-Za-z]+):(\\d+):?(\\d*)$",
-                "severity": 1,
-                "message": 2,
-                "file": 3,
-                "line": 4,
-                "column": 5
+            "problemMatcher": [
+                {
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"
+                    ],
+                    "owner": "linter",
+                    "pattern": {
+                        "regexp": "^.+\\s(WARNING|ERROR):\\s(.+)\\sLocation:\\s(.+\\.[A-Za-z]+):(\\d+):?(\\d*)$",
+                        "severity": 1,
+                        "message": 2,
+                        "file": 3,
+                        "line": 4,
+                        "column": 5
+                    }
                 }
-            }]
+            ]
         },
         {
             "label": "Fix linter issues (current article)",
@@ -70,7 +79,7 @@
                 "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}validation"
             },
             "windows": {
-                "command": "node '.\\fix-issues.js' -p '..\\..\\${relativeFileDirname}'"                
+                "command": "node '.\\fix-issues.js' -p '..\\..\\${relativeFileDirname}'"
             },
             "group": "none",
             "presentation": {
@@ -104,7 +113,7 @@
                 "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}datasheet-rendering"
             },
             "windows": {
-                "command": ".\\render-datasheets.cmd"                
+                "command": ".\\render-datasheets.cmd"
             },
             "group": "none",
             "presentation": {
@@ -121,7 +130,7 @@
                 "cwd": "${workspaceFolder}${pathSeparator}scripts${pathSeparator}datasheet-rendering"
             },
             "windows": {
-                "command": ".\\render-datasheets.cmd '..\\..\\${relativeFileDirname}'"                
+                "command": ".\\render-datasheets.cmd '..\\..\\${relativeFileDirname}'"
             },
             "group": "none",
             "presentation": {
@@ -145,16 +154,21 @@
                 "reveal": "always",
                 "panel": "shared"
             },
-            "problemMatcher": [{
-                "fileLocation": ["relative", "${workspaceFolder}"],
-                "owner": "linter",
-                "pattern": {
-                "regexp": "^\\s*(\\S+):(\\d+):\\s(.+)$",
-                "file": 1,
-                "line": 2,
-                "message": 3
+            "problemMatcher": [
+                {
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceFolder}"
+                    ],
+                    "owner": "linter",
+                    "pattern": {
+                        "regexp": "^\\s*(\\S+):(\\d+):\\s(.+)$",
+                        "file": 1,
+                        "line": 2,
+                        "message": 3
+                    }
                 }
-            }]
+            ]
         },
         {
             "label": "Fix misspellings",
