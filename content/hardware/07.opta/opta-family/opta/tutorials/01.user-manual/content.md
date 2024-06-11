@@ -2676,14 +2676,14 @@ Input terminals are mapped as described in the following table:
 
 | **Opta Analog Expansion Terminal** | **Arduino Pin Mapping** |
 |:----------------------------------:|:-----------------------:|
-|                 I1                 |            0            |
-|                 I2                 |            1            |
-|                 I3                 |            2            |
-|                 I4                 |            3            |
-|                 O1                 |            4            |
-|                 I5                 |            5            |
-|                 I6                 |            6            |
-|                 O2                 |            7            |
+|                 I1                 |            0 or OA_CH_0         |
+|                 I2                 |            1 or OA_CH_1            |
+|                 I3                 |            2 or OA_CH_2            |
+|                 I4                 |            3 or OA_CH_3            |
+|                 O1                 |            4 or OA_CH_4            |
+|                 I5                 |            5 or OA_CH_5            |
+|                 I6                 |            6 or OA_CH_6            |
+|                 O2                 |            7 or OA_CH_7            |
 
 #### Digital Input Mode
 
@@ -2854,7 +2854,7 @@ DI channel 7 value 0
 
 ![Digital Input wiring example](assets/digital-animation.gif)
 
-***General note: The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
+***The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
 
 #### Analog Voltage Input Mode
 
@@ -3589,11 +3589,64 @@ ch 0 -> 1101.66 Ω -> 25.91 C
 | DAC resolution                      | 13 bits                                                 |
 | Charge pump for zero voltage output | Yes                                                     |
 
-***All eight analog channels can be used as outputs but due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time.***
+The Opta™ Analog Expansions have **2 analog programmable outputs** accessible through terminals `O1` to `O2` that can be used as:
+
+|            **Mode**            |             **Specification**             |
+|:------------------------------:|:-----------------------------------------:|
+|      Analog output voltage      |                 0...11 V                  |
+|      Analog output current      |                 0...25 mA                 |
+
+Analog output terminals are mapped as described in the following table:
+
+| **Opta Analog Expansion Terminal** | **Arduino Pin Mapping** |
+|:----------------------------------:|:-----------------------:|
+|                 I1                 |      0 or OA_CH_0       |
+|                 I2                 |      1 or OA_CH_1       |
+|                 I3                 |      2 or OA_CH_2       |
+|                 I4                 |      3 or OA_CH_3       |
+|                 O1                 |      4 or OA_CH_4       |
+|                 I5                 |      5 or OA_CH_5       |
+|                 I6                 |      6 or OA_CH_6       |
+|                 O2                 |      7 or OA_CH_7       |
+
+
+***All available channels of the analog expansion can be used as outputs, including `I1` to `I6`, so there are 8 accessible analog outputs actually, but due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time.***
 
 ***At 25°C of ambient temperature, all the 8 channels set as outputs have been tested at the same time while outputting more than 24 mA at 10 V each (>0.24W per channel).***
 
+Also, it features **4 PWM outputs** accessible through terminals `P1` to `P4`. 
+
+PWM output terminals are mapped as described in the following table:
+
+| **Opta Analog Expansion Terminal** | **Arduino Pin Mapping** |
+|:----------------------------------:|:-----------------------:|
+|                 P1                 |    8 or OA_PWM_CH_0     |
+|                 P2                 |    9 or OA_PWM_CH_1     |
+|                 P3                 |    10 or OA_PWM_CH_2    |
+|                 P4                 |    11 or OA_PWM_CH_3    |
+
+![Opta Analog Expansions Outputs](assets/outputs-analog.png)
+
 #### Analog Voltage Output Mode
+
+This output mode lets you control voltage-driven actuators.
+
+| Characteristics                  | Details                                                                                                                     |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| Analog output voltage            | 0...11 V                                                                                                                    |
+| Resistive load range             | 500 Ω...100 kΩ                                                                                                              |
+| Maximum capacitive load          | 2 μF                                                                                                                        |
+| Short-circuit current (sourcing) | Min: 25 mA, Typ: 29 mA, Max: 32 mA (lower limit bit = 0 (default)), Min: 5.5 mA, Typ: 7 mA, Max: 9 mA (lower limit bit = 1) |
+| Short-circuit current (sinking)  | Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                                                                       |
+| Accuracy                         | +/- 1%, repeatability +/- 1%                                                                                                |
+
+To set a voltage in an analog output terminal use the built-in function `pinVoltage()` as shown below:
+
+```arduino
+float value = exp.getRtd(<input>);  // this returns the resistive value measured in the input in ohms
+```
+
+For the following example a 2 wires **PT1000** will be used connected to **I1**. The sketch below will let you measure the resistance and convert it to a temperature value. This sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > RTD**:
 
 #### Analog Current Output Mode
 
