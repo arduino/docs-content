@@ -167,11 +167,11 @@ The Plug and Make Kit modules offer a versatile and user-friendly introduction t
 - Minimum trace width: 0.127 mm
 
 #### Mechanical Information
-- Board dimensions: 41mm x 25.36mm
-- Board thickness: 1.6mm, tolerance ± 0.2mm
-- 4 mounting holes, nominal diameter 3.2mm, tolerance -0mm, +0.2mm
-- Hole to hole quotes: 16mm vertical, 32mm horizontal
-- Green power LED powered by +3V3 net, with 1kΩ series resistor
+- Board dimensions: 41 mm x 25.36 mm
+- Board thickness: 1.6 mm, tolerance ± 0.2 mm
+- 4 mounting holes, nominal diameter 3.2 mm, tolerance -0 mm, +0.2 mm
+- Hole to hole quotes: 16 mm vertical, 32 mm horizontal
+- Green power LED powered by +3V3 net, with 1 kΩ series resistor
 - Power LED nominal current consumption: 1mA ≈ (3.3V - 2.2V) / 1kΩ
 
 ![](assets/GeneralMec.png)
