@@ -163,8 +163,8 @@ The Plug and Make Kit modules offer a versatile and user-friendly introduction t
 - Solder mask color: blue
 - Silkscreen color: white
 - Surface finish: HAL LF (silver for “exposed copper”)
-- Minimum isolation: 0.127mm
-- Minimum trace width: 0.127mm
+- Minimum isolation: 0.127 mm
+- Minimum trace width: 0.127 mm
 
 #### Mechanical Information
 - Board dimensions: 41mm x 25.36mm
