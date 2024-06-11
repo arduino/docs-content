@@ -146,8 +146,8 @@ The Plate Node is designed to provide a stable and secure mounting solution for 
 #### Tech Specs
 | **Specification** | **Details** |
 |-------------------|-------------|
-| Dimensions        | 140x140x1.6mm |
-| Holes             | 3.5mm       |
+| Dimensions        | 140x140x1.6 mm |
+| Holes             | 3.5 mm       |
 
 #### Mechanical Information
 ![ Base Plate Mechanical info](assets/PlateMec.png)
