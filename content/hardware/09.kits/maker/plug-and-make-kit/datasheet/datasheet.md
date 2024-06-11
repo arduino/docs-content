@@ -2,7 +2,7 @@
 identifier: AKX00069
 title: Plug and Make Kit
 type: maker
-
+author: Pedro Sousa Lima
 ---
 
 
@@ -109,7 +109,7 @@ The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontro
 | CANTX                     | CAN Transmitter (requires transceiver) |
 
 
-![Arduino UNO R4 WiFi](assets/ABX00080-pinout.png)
+![Arduino UNO R4 WiFi](assets/ABX00087-pinout.png)
 
 ## Power Options
 
