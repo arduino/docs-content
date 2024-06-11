@@ -1,14 +1,11 @@
 ---
 identifier: AKX00069
-title: Plug and Make Kit
+title: Arduino® Plug and Make Kit
 type: maker
 author: Pedro Sousa Lima
 ---
 
 
-<!---
-Feature Image: A descriptive image of the product to identify it on the first page of the Datasheet. Image must be put inside the "assets" folder and be named "featured.png" Actual Image for example purposes.
--->
 ![](assets/featured.png)
 
 # Description
@@ -17,7 +14,7 @@ Feature Image: A descriptive image of the product to identify it on the first pa
 Description: A paragraph describing the product in an official and commercial way. This text is normally taken from the official description inside the Product Sales brief slides and adapted the text if necessary to the datasheet. The actual text is for examples purposes.
 -->
 	
-The Plug and Make Kit features the Arduino R4 board with built-in Wi-Fi® capabilities, enabling connectivity and opening the doors to integration with the Arduino IoT Cloud plataform. This kit includes a selection of 7 modules, all easily connectable via I2C Qwiic cables. Tailor your project to perfection by selecting the sensors and inputs that best suit your needs, and experience a completely solder-free way to easily build your ideas. Dive into the world of electronics with hands-on learning and intuitive module interaction, empowering you to innovate and create with unparalleled ease and flexibility.
+The Plug and Make Kit features the Arduino UNO R4 WiFi with built-in Wi-Fi® capabilities, enabling connectivity and opening the doors to integration with the Arduino Cloud platform. This kit includes a selection of 7 modules, all easily connectable via I2C Qwiic cables. Tailor your project to perfection by selecting the sensors and inputs that best suit your needs, and experience a completely solder-free way to easily build your ideas. Dive into the world of electronics with hands-on learning and intuitive module interaction, empowering you to innovate and create with unparalleled ease and flexibility.
 
 # Target Areas
 
@@ -33,9 +30,9 @@ Maker, beginner, education
 <div style="text-align:justify;">
 The Plug and Make Kit, featuring the Arduino UNO R4 WiFi, offers a seamless and user-friendly introduction to IoT and electronics. With its extensive array of modular sensors and components, this kit is designed to simplify project development and enhance learning experiences. The I2C Qwiic cable connectivity ensures quick and easy customization of your projects, making it an ideal choice for a variety of applications. Below are some examples of how this kit can be utilized:
 
-- **Smart Home Automation:** Utilize the kit to build smart home devices that can monitor and control various environmental factors. With sensors for temperature, humidity, and movement, create a system that automates climate control, security, and lighting. The onboard WiFi allows for remote monitoring and control through the Arduino IoT Cloud or other third-party services.
+- **Smart Home Automation:** Utilize the kit to build smart home devices that can monitor and control various environmental factors. With sensors for temperature, humidity, and movement, create a system that automates climate control, security, and lighting. The onboard Wi-Fi® allows for remote monitoring and control through the Arduino Cloud or other third-party services.
 
-- **Environmental Monitoring:** Leverage the kit's sensors to develop a comprehensive environmental monitoring system. Measure and track data such as air quality, temperature, and humidity levels. The kit's modular design facilitates effortless expansion with additional sensors, providing the flexibility to adapt to evolving project requirements. Data can be logged and analyzed through the Arduino IoT Cloud, providing real-time insights and alerts.
+- **Environmental Monitoring:** Leverage the kit's sensors to develop a comprehensive environmental monitoring system. Measure and track data such as air quality, temperature, and humidity levels. The kit's modular design facilitates effortless expansion with additional sensors, providing the flexibility to adapt to evolving project requirements. Data can be logged and analyzed through the Arduino Cloud, providing real-time insights and alerts.
 
 - **Interactive Learning Tools:** The kit's interactive modules, including buttons, RGB LEDs, and buzzers, can be used to create engaging educational tools. Develop projects that teach coding, electronics, and IoT concepts in a hands-on manner. The plug-and-play nature of the kit simplifies setup and reduces the learning curve, making it perfect for classrooms and educational workshops.
 </div>
@@ -48,30 +45,30 @@ The Plug and Make Kit, featuring the Arduino UNO R4 WiFi, offers a seamless and 
 General Specifications Overview: This section covers the main technical descriptions and a full summary of the main technical specifications of the product. The section normally starts with another descriptive 3/4 lines paragraph this time focused mostly on the technical features of the product plus a table with its main technical specifications. It is important to note that this section and the following related one where the product specifications are broken down into detail in new sections and tables hugely vary from product to product, being really important to cover all the main technical features of each product properly. That info will be expanded later in the specific sections related to that feature. The actual text and the following table are intended for example purposes.
 -->
 
-The Plug and Make Kit offers an intuitive and effortless introduction to the world of IoT and electronics. Featuring the powerful Arduino UNO R4 WiFi, this kit enables seamless integration with the Arduino IoT Cloud for a smooth, wireless experience. With its array of modular sensors and components connectable via I2C Qwiic cables, the kit allows for easy customization of your projects. Equipped with a diverse range of sensors and interactive modules, this kit provides the tools you need to create dynamic and engaging projects with ease. Perfect for both beginners and experienced makers, the Plug and Make Kit empowers you to explore and innovate effortlessly.
+The Plug and Make Kit offers an intuitive and effortless introduction to the world of IoT and electronics. Featuring the powerful Arduino UNO R4 WiFi, this kit enables seamless integration with the Arduino Cloud for a smooth, wireless experience. With its array of modular sensors and components connectable via I2C Qwiic cables, the kit allows for easy customization of your projects. Equipped with a diverse range of sensors and interactive modules, this kit provides the tools you need to create dynamic and engaging projects with ease. Perfect for both beginners and experienced makers, the Plug and Make Kit empowers you to explore and innovate effortlessly.
 
 
 | **SKU**            | *Name**                       | **Purpose**                                             | **Quantity**  |
 | -------------- | -------------------------- |-----------------------------------------------------|-----------|
-| ABX00080       | Arduino UNO R4 WiFi        | Programmable board with WiFi                        | 1         |
+| ABX00080       | Arduino UNO R4 WiFi        | Programmable main board | 1         |
 | ASX00071       | Plate Node                 | Fix firmly an UNO and some nodes on it              | 1         |
-| ABX00101       | Modulino Movement                   | Measure acceleration and rotation     | 1         |
-| ABX00102       | Modulino Distance                   | Time of flight, finds distances                     | 1         |
-| ABX00103       | Modulino Thermo                     | Measure temperature and humidity                    | 1         |
-| ABX00107       | Modulino Knob                       | Rotary encoder for input                            | 1         |
-| ABX00108       | Modulino Buzzer                    | Produce sound                                       | 1         |
-| ABX00109       | Modulino Pixels                     | 8 RGB LEDs for display                              | 1         |
-| ABX00110       | Modulino Buttons                    | 3 push buttons for input                            | 1         |
+| ABX00101       | Modulino® Movement                   | Measure acceleration and rotation     | 1         |
+| ABX00102       | Modulino® Distance                   | Time of flight, finds distances                     | 1         |
+| ABX00103       | Modulino® Thermo                     | Measure temperature and humidity                    | 1         |
+| ABX00107       | Modulino® Knob                       | Rotary encoder for input                            | 1         |
+| ABX00108       | Modulino® Buzzer                    | Produce sound                                       | 1         |
+| ABX00109       | Modulino® Pixels                     | 8x RGB LEDs for display                              | 1         |
+| ABX00110       | Modulino® Buttons                    | 3x push buttons for input                            | 1         |
 
 
 ### Arduino UNO R4 WiFi
 #### Description
 The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi® module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4 WiFi's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM, and 8 kB of EEPROM. This board is ideal for entry-level projects, easy IoT applications, and projects requiring a built-in 12x8 LED matrix for animations and displays.
 
-![Topology R4](assets/R4Topo.png)
+![Topology Arduino UNO R4 WiFi](assets/R4Topo.png)
 
-#### Tech Specs
-| **Specification**         | **Details**                         |
+#### Technical Specifications
+| **Feature**         | **Description**                         |
 |---------------------------|-------------------------------------|
 | **Microcontroller**       | Renesas RA4M1 (R7FA4M1AB3CFM#AA0)   |
 | **Clock Speed**           | 48 MHz                              |
@@ -79,9 +76,9 @@ The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontro
 | **Memory**                | 256 kB Flash, 32 kB SRAM, 8 kB EEPROM |
 | **Peripherals**           | Capacitive Touch Sensing Unit (CTSU), USB® 2.0 Full-Speed Module, 14-bit ADC, Up to 12-bit DAC, Operational Amplifier (OPAMP) |
 | **Communication**         | 1x UART, 1x SPI, 1x I2C, 1x CAN (external transceiver required) |
-| **Wi-Fi**                 | 802.11 b/g/n (Wi-Fi 4), up to 150 Mbps |
-| **Bluetooth**             | Bluetooth 5                         |
-| **Power Supply**          | 6-24 V via VIN, 5 V via USB-C®      |
+| **Wi-Fi®**                 | 802.11 b/g/n (Wi-Fi® 4), up to 150 Mbps |
+| **Bluetooth®**             | Bluetooth® 5                         |
+| **Power Supply**          | 6-24 VDC via VIN, 5 VDC via USB-C®      |
 | **LED Matrix**            | 12x8 red LEDs, fully programmable   |
 | **Additional Features**   | Real-time Clock (RTC), Memory Protection Unit (MPU), DAC, DMA |
 
@@ -144,13 +141,13 @@ For powering e.g. servo motors, always use an external power supply.
 
 ### Plate Node
 #### Description
-The Plate Node is designed to provide a stable and secure mounting solution for your Arduino UNO R4 WiFi and additional nodes. Measuring 140x140x1.6mm with 3.5mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections, particularly useful in complex projects where multiple sensors and modules need to be fixed in place to ensure consistent performance.
+The Plate Node is designed to provide a stable and secure mounting solution for your Arduino UNO R4 WiFi and additional nodes. Measuring 140x140x1.6 mm with 3.5 mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections, particularly useful in complex projects where multiple sensors and modules need to be fixed in place to ensure consistent performance.
 
 #### Tech Specs
 | **Specification** | **Details** |
 |-------------------|-------------|
-| Dimensions        | 140x140x1.6mm |
-| Holes             | 3.5mm       |
+| Dimensions        | 140x140x1.6 mm |
+| Holes             | 3.5 mm       |
 
 #### Mechanical Information
 ![ Base Plate Mechanical info](assets/PlateMec.png)
@@ -166,21 +163,21 @@ The Plug and Make Kit modules offer a versatile and user-friendly introduction t
 - Solder mask color: blue
 - Silkscreen color: white
 - Surface finish: HAL LF (silver for “exposed copper”)
-- Minimum isolation: 0.127mm
-- Minimum trace width: 0.127mm
+- Minimum isolation: 0.127 mm
+- Minimum trace width: 0.127 mm
 
 #### Mechanical Information
-- Board dimensions: 41mm x 25.36mm
-- Board thickness: 1.6mm, tolerance ± 0.2mm
-- 4 mounting holes, nominal diameter 3.2mm, tolerance -0mm, +0.2mm
-- Hole to hole quotes: 16mm vertical, 32mm horizontal
-- Green power LED powered by +3V3 net, with 1kΩ series resistor
+- Board dimensions: 41 mm x 25.36 mm
+- Board thickness: 1.6 mm, tolerance ± 0.2 mm
+- 4 mounting holes, nominal diameter 3.2 mm, tolerance -0 mm, +0.2 mm
+- Hole to hole quotes: 16 mm vertical, 32 mm horizontal
+- Green power LED powered by +3V3 net, with 1 kΩ series resistor
 - Power LED nominal current consumption: 1mA ≈ (3.3V - 2.2V) / 1kΩ
 
 ![](assets/GeneralMec.png)
 
 #### I2C Side Connectors
-At least x2 connectors, JST pitch 1mm compatible like SM04B-SRSS-TB
+At least two 4-pin surface mount connectors from the JST SM Series with a 1.0 mm pitch
 
 #### Pinout
 ![](assets/pinGeneral.png)
@@ -203,10 +200,10 @@ When the board is powered, the microcontroller reads the status of its pins PA6,
 
 | Board            | SKU      | PA6 | PA7 | PA8 | PC14 | PC15 | PF2 |
 |------------------|----------|-----|-----|-----|------|------|-----|
-| Modulino Knob   | ABX00107 |     |     |  x  |      |      |     |
-| Modulino Buzzer   | ABX00108 |  x  |     |     |      |      |     |
-| Modulino Pixels      | ABX00109 |     |     |  x  |      |      |     |
-| Modulino Buttons    | ABX00110 |     |     |     |      |      |     |
+| Modulino® Knob   | ABX00107 |     |     |  x  |      |      |     |
+| Modulino® Buzzer   | ABX00108 |  x  |     |     |      |      |     |
+| Modulino® Pixels      | ABX00109 |     |     |  x  |      |      |     |
+| Modulino® Buttons    | ABX00110 |     |     |     |      |      |     |
 
 ### Movement
 #### Description
@@ -279,7 +276,7 @@ The DISTANCE module, featuring the VL53L4CDV0DH/1 sensor, provides accurate dist
 | Sensor              | VL53L4CDV0DH/1                                      |
 | Supply Voltage      | Min: 2.6 V, Max: 3.5 V                              |
 | Power Consumption   | 40 mA (peak), 24 mA active ranging, 4mA I2C         |
-| Range               | 0 to 1200mm                                         |
+| Range               | 0 to 1200 mm                                         |
 | Accuracy            | ±7 mm to ±3%                                        |
 | Resolution          | 1 mm                                                |
 | Communication       | I2C                                                 |
@@ -352,7 +349,7 @@ The KNOB module includes a quadrature rotary encoder with an SPST switch, using 
 | Microcontroller     | STM32C011F4                                         |
 | Supply Voltage      | Min: 2.0 V, Max: 3.6 V                              |
 | Power Consumption   | 3.4 mA                                              |
-| Range               | 360° continuous                                     |
+| Range               | 360°                                      |
 | Accuracy            | Internal Oscillator: ±1%                            |
 | Resolution          | 12-bit ADC                                          |
 | Communication       | I2C, USART, SPI, I2S                                |
@@ -527,7 +524,7 @@ The Plug and Make Kit is compatible with the Modulino library, which can be foun
 
 Keep in mind that by default the Modulino library assumes the Qwiic connector is going to be used, therefore by default it is using the Wire1.
 
-When connecting the Modulino boards to the UNO R4 WiFi headers, or to the Portenta on Mid Carrier, remember to modify the code to use Wire instead of Wire1.
+When connecting the Modulino boards to the UNO R4 WiFi headers, or to a Portenta board on Portenta Mid Carrier, remember to modify the code to use Wire instead of Wire1.
 
 Example code to connect the Modulino boards:
 
@@ -612,7 +609,7 @@ TODO Get this info
 
 ### Getting Started - IDE
 
-If you want to program your Arduino U while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the **Arduino UNO R4 WiFi** to your computer, you will need a USB-C cable, which can also provide power to the board, as indicated by the LED (DL1).
+If you want to program your Arduino U while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the **Arduino UNO R4 WiFi** to your computer, you will need a USB-C® cable, which can also provide power to the board, as indicated by the LED (DL1).
 
 ### Getting Started - Arduino Web Editor
 
@@ -748,7 +745,7 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
 
-**Important:** The operating temperature of the EUT can’t exceed 85℃ and shouldn’t be lower than -40℃.
+**Important:** The operating temperature of the EUT can’t exceed 85 ℃ and shouldn’t be lower than -40 ℃.
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
