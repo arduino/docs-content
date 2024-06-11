@@ -177,7 +177,7 @@ The Plug and Make Kit modules offer a versatile and user-friendly introduction t
 ![](assets/GeneralMec.png)
 
 #### I2C Side Connectors
-At least x2 connectors, JST pitch 1mm compatible like SM04B-SRSS-TB
+At least two 4-pin surface mount connectors from the JST SM Series with a 1.0 mm pitch
 
 #### Pinout
 ![](assets/pinGeneral.png)
