@@ -52,13 +52,13 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 | -------------- | -------------------------- |-----------------------------------------------------|-----------|
 | ABX00080       | Arduino UNO R4 WiFi        | Programmable main board | 1         |
 | ASX00071       | Plate Node                 | Fix firmly an UNO and some nodes on it              | 1         |
-| ABX00101       | Modulino Movement                   | Measure acceleration and rotation     | 1         |
-| ABX00102       | Modulino Distance                   | Time of flight, finds distances                     | 1         |
-| ABX00103       | Modulino Thermo                     | Measure temperature and humidity                    | 1         |
-| ABX00107       | Modulino Knob                       | Rotary encoder for input                            | 1         |
-| ABX00108       | Modulino Buzzer                    | Produce sound                                       | 1         |
-| ABX00109       | Modulino Pixels                     | 8 RGB LEDs for display                              | 1         |
-| ABX00110       | Modulino Buttons                    | 3 push buttons for input                            | 1         |
+| ABX00101       | Modulino® Movement                   | Measure acceleration and rotation     | 1         |
+| ABX00102       | Modulino® Distance                   | Time of flight, finds distances                     | 1         |
+| ABX00103       | Modulino® Thermo                     | Measure temperature and humidity                    | 1         |
+| ABX00107       | Modulino® Knob                       | Rotary encoder for input                            | 1         |
+| ABX00108       | Modulino® Buzzer                    | Produce sound                                       | 1         |
+| ABX00109       | Modulino® Pixels                     | 8x RGB LEDs for display                              | 1         |
+| ABX00110       | Modulino® Buttons                    | 3x push buttons for input                            | 1         |
 
 
 ### Arduino UNO R4 WiFi
