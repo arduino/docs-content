@@ -26,7 +26,7 @@ You will need a version of the Arduino IDE, which you can download from the [Ard
 
 ## Board Package
 
-The [Arduino Core for AVR devices](https://github.com/arduino/ArduinoCore-avr) comes preinstalled with the IDE, so no additional installation is necessary to get started.  To use a different version than the latest, open the "Board Manager" from the left-hand menu. Search for AVR and install the version you want to use.
+The [Arduino Core for AVR devices](https://github.com/arduino/ArduinoCore-avr) comes pre-installed with the IDE, so no additional installation is necessary to get started. To use a different version than the latest, open the "Board Manager" from the left-hand menu. Search for AVR and install the version you want to use.
 
 ![Arduino AVR Board Package](./assets/install-uno-core.png)
 
