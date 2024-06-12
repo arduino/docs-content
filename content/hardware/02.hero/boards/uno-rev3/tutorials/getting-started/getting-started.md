@@ -5,7 +5,7 @@ author: Jacob Hylén
 tags: [UNO R3, Installation, IDE]
 ---
 
-To use the [Arduino UNO R3](/hardware/uno-rev3/) board, you will need the Arduino AVR Board Package, which comes preinstalled with the IDE.
+To use the [Arduino UNO R3](/hardware/uno-rev3/) board, you will need the Arduino AVR Board Package, which comes pre-installed with the IDE.
 
 You will need a version of the Arduino IDE, which you can download from the [Arduino Software page](https://www.arduino.cc/en/software). In this guide, we will use the latest version of the IDE 2.
 
