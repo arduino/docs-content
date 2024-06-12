@@ -11,8 +11,6 @@ author: Eric Emmanuel Chavez
 
 The Arduino Due is a groundbreaking microcontroller board featuring the Atmel SAM3X8E ARM Cortex-M3 CPU, making it the first Arduino board built around a 32-bit ARM core microcontroller. With its 54x digital input/output pins, 12x analog inputs, 4x UARTs, USB OTG capability, and 84 MHz clock, the Due offers enhanced performance and versatility for a wide range of projects. Compatible with all Arduino shields designed for operation at 3.3 V and compliant with the 1.0 Arduino pinout standard, the Due is a powerful tool for both beginners and experienced makers alike.
 
-**Warning: Unlike most traditional Arduino boards, the Arduino Due board runs at 3.3 V. Keep in mind the maximum voltage that the I/O pins can tolerate is 3.3 V. Applying voltages higher than 3.3 V to any I/O pin could damage the board.**
-
 # Target Areas
 
 Embedded Systems Development, Robotics, 3D Printing, CNC Machines, Prototyping
@@ -69,24 +67,24 @@ The Arduino Due is a versatile microcontroller board designed for a wide range o
 
 ### Inputs
 
-| Characteristics               | Details                                        |
-| ----------------------------- | ---------------------------------------------- |
-| Number of inputs              | 54x digital input, 12x analog inputs           |
-| Inputs overvoltage protection | Yes                                            |
-| Antipolarity protection       | Yes                                            |
+| Characteristics               | Details                               |
+| ----------------------------- | ------------------------------------- |
+| Number of inputs              | 54x digital inputs, 12x analog inputs |
+| Inputs overvoltage protection | Yes                                   |
+| Antipolarity protection       | Yes                                   |
 
 ### Outputs
 
 | Characteristics                       | Details                                             |
 | ------------------------------------- | --------------------------------------------------- |
 | DAC1 and DAC2                         | True analog output 12-bits resolution (4096 levels) |
-| PWM outputs                           | 12x PWM Outputs                                     |
+| PWM outputs                           | 12x PWM outputs                                     |
 
 </div>
 
 ## Accessories
 
-- USB Cable Type A Male to Micro Type B Male (Not included)
+- USB Cable Type-A Male to Micro Type-B Male (Not included)
 
 ## Related Products
 
@@ -114,6 +112,11 @@ The Arduino Due is a versatile microcontroller board designed for a wide range o
 | Supply voltage    | 7.0 | -   | 12  | V    |
 | Permissible range | 6.0 | -   | 16  | V    |
 
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
+<strong>Safety Note:</strong> Unlike most traditional Arduino boards, the Arduino Due board runs at 3.3 V. Keep in mind the maximum voltage that the I/O pins can tolerate is 3.3 V. Applying voltages higher than 3.3 V to any I/O pin could damage the board.
+</p>
+</div>
 
 ### Current Consumption
 
@@ -122,6 +125,7 @@ The Arduino Due is a versatile microcontroller board designed for a wide range o
 | Normal Mode Current Consumption                 | I<sub>NM</sub> | 130 | --- | 800 | mA   |
 
 
+<div style="page-break-inside: avoid;">
 
 ## Functional Overview
 
@@ -131,8 +135,10 @@ The Arduino Due pinout is shown in the following figure.
 
 ![Arduino Due pinout](assets/ad-pinout.png)
 
-<div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+<p style="text-align: justify;">
 <strong>Safety Note:</strong> Disconnect power before board modifications to avoid short-circuiting.
+</p>
 </div>
 
 ### Full Pinout Table
@@ -179,34 +185,34 @@ The full pinout of the Arduino Due is available in the following tables.
 
 <div style="text-align:center;">
 
-| Pin | Function | Type    | Description                                     |
-| --- | -------- | ------- | ----------------------------------------------- |
-| 1   | D21/SCL1 | Digital | GPIO 21/I2C 1 Clock                             |
-| 2   | D20/SDA1 | Digital | GPIO 20/I2C 1 Dataline                          |
-| 3   | AREF     | Digital | Analog Reference Voltage                        |
-| 4   | GND      | Power   | Ground                                          |
-| 5   | D13/SCK  | Digital | GPIO 13/SPI Clock (PWM~)                        |
-| 6   | D12/CIPO | Digital | GPIO 12/SPI Controller In Peripheral Out (PWM~) |
-| 7   | D11/COPI | Digital | GPIO 11/SPI Controller Out Peripheral In (PWM~) |
-| 8   | D10/CS   | Digital | GPIO 10/SPI Chip Select (PWM~)                  |
-| 9   | D9/SDA2  | Digital | GPIO 9/I2C 2 Dataline (PWM~)                    |
-| 10  | D8/SCL2  | Digital | GPIO 8/I2C 2 Clockline (PWM~)                   |
-| 11  | D7       | Digital | GPIO 7 (PWM~)                                   |
-| 12  | D6       | Digital | GPIO 6 (PWM~)                                   |
-| 13  | D5       | Digital | GPIO 5 (PWM~)                                   |
-| 14  | D4       | Digital | GPIO 4 (PWM~)                                   |
-| 15  | D3       | Digital | GPIO 3 (PWM~)                                   |
-| 16  | D2       | Digital | GPIO 2 (PWM~)                                   |
-| 17  | D1/TX0   | Digital | GPIO 1 / Serial 0 Transmitter                   |
-| 18  | D0/TX0   | Digital | GPIO 0 / Serial 0 Receiver                      |
-| 19  | D14/TX3  | Digital | GPIO 14 / Serial 3 Transmitter                  |
-| 20  | D15/RX3  | Digital | GPIO 15 / Serial 3 Receiver                     |
-| 21  | D16/TX2  | Digital | GPIO 16 / Serial 2 Transmitter                  |
-| 22  | D17/RX2  | Digital | GPIO 17 / Serial 2 Receiver                     |
-| 23  | D18/TX1  | Digital | GPIO 18 / Serial 1 Transmitter                  |
-| 24  | D19/RX1  | Digital | GPIO 19 / Serial 1 Receiver                     |
-| 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                        |
-| 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                           |
+| Pin | Function | Type    | Description                                       |
+| --- | -------- | ------- | ------------------------------------------------- |
+| 1   | D21/SCL1 | Digital | GPIO 21 / I2C 1 Clock                             |
+| 2   | D20/SDA1 | Digital | GPIO 20 / I2C 1 Dataline                          |
+| 3   | AREF     | Digital | Analog Reference Voltage                          |
+| 4   | GND      | Power   | Ground                                            |
+| 5   | D13/SCK  | Digital | GPIO 13 / SPI Clock (PWM~)                        |
+| 6   | D12/CIPO | Digital | GPIO 12 / SPI Controller In Peripheral Out (PWM~) |
+| 7   | D11/COPI | Digital | GPIO 11 / SPI Controller Out Peripheral In (PWM~) |
+| 8   | D10/CS   | Digital | GPIO 10 / SPI Chip Select (PWM~)                  |
+| 9   | D9/SDA2  | Digital | GPIO 9 / I2C 2 Dataline (PWM~)                    |
+| 10  | D8/SCL2  | Digital | GPIO 8 / I2C 2 Clockline (PWM~)                   |
+| 11  | D7       | Digital | GPIO 7 (PWM~)                                     |
+| 12  | D6       | Digital | GPIO 6 (PWM~)                                     |
+| 13  | D5       | Digital | GPIO 5 (PWM~)                                     |
+| 14  | D4       | Digital | GPIO 4 (PWM~)                                     |
+| 15  | D3       | Digital | GPIO 3 (PWM~)                                     |
+| 16  | D2       | Digital | GPIO 2 (PWM~)                                     |
+| 17  | D1/TX0   | Digital | GPIO 1 / Serial 0 Transmitter                     |
+| 18  | D0/TX0   | Digital | GPIO 0 / Serial 0 Receiver                        |
+| 19  | D14/TX3  | Digital | GPIO 14 / Serial 3 Transmitter                    |
+| 20  | D15/RX3  | Digital | GPIO 15 / Serial 3 Receiver                       |
+| 21  | D16/TX2  | Digital | GPIO 16 / Serial 2 Transmitter                    |
+| 22  | D17/RX2  | Digital | GPIO 17 / Serial 2 Receiver                       |
+| 23  | D18/TX1  | Digital | GPIO 18 / Serial 1 Transmitter                    |
+| 24  | D19/RX1  | Digital | GPIO 19 / Serial 1 Receiver                       |
+| 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                          |
+| 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                             |
 
 <caption>Board's 26-Pin Header pinout</caption>
 
@@ -316,26 +322,41 @@ The board provides access to the debugging interface using the JTAG pins as it c
 
 The block diagram with the main parts of the product can be checked in the following image:
 
-![Arduino GIGA R1 WiFi Block Diagram](assets/GIGA_R1_WiFi_Block_Diagram.png)
+![Arduino Due Block Diagram](assets/DUE_Block_Diagram.svg)
 
 ### Power Supply
 
 The Arduino Due can be powered in multiple ways:
 
 - USB Type-B port (Native port and Programming port).
-- Using an external voltage source connected to the VIN pin, which has a recommended voltage range of 7-12 VCC.
+- Using an external voltage source connected to VIN pin, which has a recommended voltage range of 7-12 VCC.
 - The Power Jack: The Due can be powered using a DC power supply connected to the power jack, which accepts a voltage range of 7 to 12 V.
 
 **It is essential to note that the Arduino Due operates at 3.3 V, so any external power source must be regulated to this voltage level. Additionally, the power supply should be able to provide sufficient current for the board's operation and any connected peripherals.** 
 
 </div>
 
-![Arduino Due Power Tree](assets/Portenta_C33_Power_Tree.svg)
+![Arduino Due Power Tree](assets/Due_Power_Tree.svg)
 
 
 ### Product Topology
 
-![Arduino Due Topology](assets/Arduino%20Due%20topology.png)
+In the following drawing you can see the main integrated circuits and passive components of the Arduino Due board.
+
+![Arduino Due Topology](assets/DUE_V02g.png)
+
+| **Ref.** | **Description**             |
+| -------- | --------------------------- |
+| U1       | Atmel SAM3X8E ARM Cortex-M3 |
+| USB1     | Native USB port             |
+| USB2     | Programming USB port        |
+| X2       | Power Jack VIN 7-12 VCC     |
+| ERASE    | ERASE Button                |
+| RESET    | Reset Button                |
+| DEBUG    | Debug JTAG pinnout          |
+| SPI      | SPI pinout                  |
+| ICSP1    | ICSPI1 Pinout               |
+
 
 #### JTAG Connector
 
@@ -364,11 +385,12 @@ The Arduino Due can be powered in multiple ways:
 
 <p style="text-align: justify;">The Arduino Due's Native USB port features a USB Type-B connector. This port allows the board to communicate directly with a computer as a USB device, enabling functionalities such as USB host/device capabilities and USB OTG (On-The-Go) functionality.</p>
 
+![Arduino Due USB port](assets/DueUSBPorts.jpg)
+
 #### Programming USB port
 
 <p style="text-align: justify;">This port allows the board to be programmed and powered via a USB connection to a computer. It facilitates serial communication between the Arduino Due and the computer, enabling the uploading of sketches and interaction with the Arduino IDE. The port is connected to the ATmega16U2 microcontroller, which acts as a USB-to-serial converter, simplifying the programming process. When connected to a computer, the Arduino IDE recognizes the board as a COM port, enabling seamless communication for programming and debugging purposes.</p>
 
-![Arduino Due USB port](assets/DueUSBPorts.jpg)
 
 #### Board's 24-Pin Header Connector
 
@@ -417,34 +439,34 @@ These pins offer a range of functionalities, including digital input/output, ser
 
 <div style="text-align:center;">
 
-| Pin | Function | Type    | Description                                     |
-| --- | -------- | ------- | ----------------------------------------------- |
-| 1   | D21/SCL1 | Digital | GPIO 21/I2C 1 Clock                             |
-| 2   | D20/SDA1 | Digital | GPIO 20/I2C 1 Dataline                          |
-| 3   | AREF     | Digital | Analog Reference Voltage                        |
-| 4   | GND      | Power   | Ground                                          |
-| 5   | D13/SCK  | Digital | GPIO 13/SPI Clock (PWM~)                        |
-| 6   | D12/CIPO | Digital | GPIO 12/SPI Controller In Peripheral Out (PWM~) |
-| 7   | D11/COPI | Digital | GPIO 11/SPI Controller Out Peripheral In (PWM~) |
-| 8   | D10/CS   | Digital | GPIO 10/SPI Chip Select (PWM~)                  |
-| 9   | D9/SDA2  | Digital | GPIO 9/I2C 2 Dataline (PWM~)                    |
-| 10  | D8/SCL2  | Digital | GPIO 8/I2C 2 Clockline (PWM~)                   |
-| 11  | D7       | Digital | GPIO 7 (PWM~)                                   |
-| 12  | D6       | Digital | GPIO 6 (PWM~)                                   |
-| 13  | D5       | Digital | GPIO 5 (PWM~)                                   |
-| 14  | D4       | Digital | GPIO 4 (PWM~)                                   |
-| 15  | D3       | Digital | GPIO 3 (PWM~)                                   |
-| 16  | D2       | Digital | GPIO 2 (PWM~)                                   |
-| 17  | D1/TX0   | Digital | GPIO 1 / Serial 0 Transmitter                   |
-| 18  | D0/TX0   | Digital | GPIO 0 / Serial 0 Receiver                      |
-| 19  | D14/TX3  | Digital | GPIO 14 / Serial 3 Transmitter                  |
-| 20  | D15/RX3  | Digital | GPIO 15 / Serial 3 Receiver                     |
-| 21  | D16/TX2  | Digital | GPIO 16 / Serial 2 Transmitter                  |
-| 22  | D17/RX2  | Digital | GPIO 17 / Serial 2 Receiver                     |
-| 23  | D18/TX1  | Digital | GPIO 18 / Serial 1 Transmitter                  |
-| 24  | D19/RX1  | Digital | GPIO 19 / Serial 1 Receiver                     |
-| 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                        |
-| 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                           |
+| Pin | Function | Type    | Description                                       |
+| --- | -------- | ------- | ------------------------------------------------- |
+| 1   | D21/SCL1 | Digital | GPIO 21 / I2C 1 Clock                             |
+| 2   | D20/SDA1 | Digital | GPIO 20 / I2C 1 Dataline                          |
+| 3   | AREF     | Digital | Analog Reference Voltage                          |
+| 4   | GND      | Power   | Ground                                            |
+| 5   | D13/SCK  | Digital | GPIO 13 / SPI Clock (PWM~)                        |
+| 6   | D12/CIPO | Digital | GPIO 12 / SPI Controller In Peripheral Out (PWM~) |
+| 7   | D11/COPI | Digital | GPIO 11 / SPI Controller Out Peripheral In (PWM~) |
+| 8   | D10/CS   | Digital | GPIO 10 / SPI Chip Select (PWM~)                  |
+| 9   | D9/SDA2  | Digital | GPIO 9 / I2C 2 Dataline (PWM~)                    |
+| 10  | D8/SCL2  | Digital | GPIO 8 / I2C 2 Clockline (PWM~)                   |
+| 11  | D7       | Digital | GPIO 7 (PWM~)                                     |
+| 12  | D6       | Digital | GPIO 6 (PWM~)                                     |
+| 13  | D5       | Digital | GPIO 5 (PWM~)                                     |
+| 14  | D4       | Digital | GPIO 4 (PWM~)                                     |
+| 15  | D3       | Digital | GPIO 3 (PWM~)                                     |
+| 16  | D2       | Digital | GPIO 2 (PWM~)                                     |
+| 17  | D1/TX0   | Digital | GPIO 1 / Serial 0 Transmitter                     |
+| 18  | D0/TX0   | Digital | GPIO 0 / Serial 0 Receiver                        |
+| 19  | D14/TX3  | Digital | GPIO 14 / Serial 3 Transmitter                    |
+| 20  | D15/RX3  | Digital | GPIO 15 / Serial 3 Receiver                       |
+| 21  | D16/TX2  | Digital | GPIO 16 / Serial 2 Transmitter                    |
+| 22  | D17/RX2  | Digital | GPIO 17 / Serial 2 Receiver                       |
+| 23  | D18/TX1  | Digital | GPIO 18 / Serial 1 Transmitter                    |
+| 24  | D19/RX1  | Digital | GPIO 19 / Serial 1 Receiver                       |
+| 25  | D20/SDA  | Digital | GPIO 20 / I2C 0 Dataline                          |
+| 26  | D21/SCL  | Digital | GPIO 21 / I2C 0 Clock                             |
 
 <caption>Board's 26-Pin Header pinout</caption>
 
@@ -500,6 +522,9 @@ These pins offer a range of functionalities, including digital input/output, ser
 
 </div>
 
+
+<div style="page-break-inside: avoid;">
+
 <div style="text-align:center;">
 
 | Pin | Function | Type    | Description    |
@@ -526,6 +551,8 @@ These pins offer a range of functionalities, including digital input/output, ser
 <caption>D22 - D53 RHS pinout</caption>
 
 </div>
+
+<div style="page-break-inside: avoid;">
 
 ## Device Operation
 
