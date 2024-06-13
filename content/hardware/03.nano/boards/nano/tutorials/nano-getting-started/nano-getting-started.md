@@ -14,7 +14,7 @@ You will need a version of the Arduino IDE, which you can download from the [Ard
 - [Arduino Nano](https://store.arduino.cc/products/arduino-nano)
 - [Arduino IDE](/software/ide-v2)
 
-***You can also use the [Web Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 
+***You can also use the [Cloud Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 
 
 ## Download & Install IDE
 
