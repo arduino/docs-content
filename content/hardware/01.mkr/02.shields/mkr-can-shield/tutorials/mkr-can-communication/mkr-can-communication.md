@@ -104,7 +104,7 @@ We will now get to the programming part of this tutorial.
 
 ### Programming the Sender
 
-We will start by programming the sender. The code can be found in the snippet below, or in the **CAN** library under **File > Examples > CAN > Sender**.
+We will start by programming the sender. The code can be found in the snippet below, or in the **CAN** library under **File > Examples > CAN > CANSender**.
 
 >**Note:** Make sure that you remember which board you upload to. As we are uploading two different sketches in total, we need to make sure we don't upload the sketches to the same board.
 
@@ -160,7 +160,7 @@ void loop() {
 
 ### Receiver Code
 
-We will now program the receiver. The code can be found in the snippet below, or in the **CAN** library under **File > Examples > CAN > Receiver**.
+We will now program the receiver. The code can be found in the snippet below, or in the **CAN** library under **File > Examples > CAN > CANReceiver**.
 
 Upload the program to the board, and remember to change the upload port, so we don't accidentally upload the sketch to the wrong board.
 
