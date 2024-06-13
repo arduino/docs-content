@@ -33,7 +33,7 @@ jobs:
 
       - name: Copy Static Files
         run: |
-          mkdir -p static/resources/datasheets static/resources/schematics static/resources/pinouts
+          mkdir -p static/resources/datasheets static/resources/schematics static/resources/pinouts static/resources/models
           find ./content/hardware -type f -name "*-schematics.pdf" -exec cp {} ./static/resources/schematics/ \;
           find ./content/hardware -type f -name "*-datasheet.pdf" -exec cp {} ./static/resources/datasheets/ \;
           find ./content/hardware -type f -name "*-full-pinout.pdf" -exec cp {} ./static/resources/pinouts/ \;
