@@ -381,13 +381,13 @@ In the following drawing you can see the main integrated circuits and passive co
 
 </div>
 
-#### Native USB port
+#### Native USB Port
 
 <p style="text-align: justify;">The Arduino Due's Native USB port features a USB Type-B connector. This port allows the board to communicate directly with a computer as a USB device, enabling functionalities such as USB host/device capabilities and USB OTG (On-The-Go) functionality.</p>
 
 ![Arduino Due USB port](assets/DueUSBPorts.jpg)
 
-#### Programming USB port
+#### Programming USB Port
 
 <p style="text-align: justify;">This port allows the board to be programmed and powered via a USB connection to a computer. It facilitates serial communication between the Arduino Due and the computer, enabling the uploading of sketches and interaction with the Arduino IDE. The port is connected to the ATmega16U2 microcontroller, which acts as a USB-to-serial converter, simplifying the programming process. When connected to a computer, the Arduino IDE recognizes the board as a COM port, enabling seamless communication for programming and debugging purposes.</p>
 
@@ -491,7 +491,7 @@ These pins offer a range of functionalities, including digital input/output, ser
 
 </div>
 
-#### D22 to D53 on the left-hand side (LHS) and right-hand side (RHS)
+#### D22 to D53 on Left and Right Side
 
 <p style="text-align: justify;">These digital pins provide a wide range of GPIO (General Purpose Input/Output) capabilities for interfacing with external sensors, actuators, and other digital devices in Arduino Due projects. </p>
 
