@@ -2883,6 +2883,7 @@ The following example will let you read all the analog inputs of every expansion
 
 ```arduino
 #include "OptaBlue.h"
+
 #define PERIODIC_UPDATE_TIME 500
 #define DELAY_AFTER_SETUP 5000
 
@@ -3014,7 +3015,7 @@ for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the av
 ```
 The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
 
-The expansion channels are configured as **analog voltage inputs** using the function `beginChannelAsAdc` alongside the following parameters:
+The expansion channels are configured as **analog voltage inputs** using the function `beginChannelAsAdc()` alongside the following parameters:
 
 ```arduino
 AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
@@ -3027,7 +3028,7 @@ AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
 			    0); // disable averaging
 ```
 
-You can also use the simplified dedicated method using the function `beginChannelAsVoltageAdc` as follows:
+You can also use the simplified dedicated method using the function `beginChannelAsVoltageAdc()` as follows:
 
 ```arduino
 exp.beginChannelAsVoltageAdc(<exp channel>); // pass the desired input as argument
@@ -3214,7 +3215,7 @@ for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the av
 ```
 The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
 
-The expansion channels are configured as **analog current inputs** using the function `beginChannelAsAdc` alongside the following parameters:
+The expansion channels are configured as **analog current inputs** using the function `beginChannelAsAdc()` alongside the following parameters:
 
 ```arduino
 AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
@@ -3227,7 +3228,7 @@ AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
 			    0); // disable averaging
 ```
 
-You can also use the simplified dedicated method using the function `beginChannelAsCurrentAdc` as follows:
+You can also use the simplified dedicated method using the function `beginChannelAsCurrentAdc()` as follows:
 
 ```arduino
 exp.beginChannelAsCurrentAdc(<exp channel>); // pass the desired input as argument
@@ -3414,8 +3415,8 @@ The Analog Expansion input channels can be used for temperature metering with **
 
 3 wires RTDs has generally two wires with the same color.
 
-- Connect the two wires with the same color to the - and the ICx screw terminals respectively.
-- Connect the wire with a different color to the + screw terminal.
+- Connect the two wires with the same color to the `-` and the `ICx` screw terminals respectively.
+- Connect the wire with a different color to the `+` screw terminal.
 
 ***3 wires RTD can only be measured by channels __I1__ and __I2__.***
 
@@ -3434,6 +3435,7 @@ For the following example a 2 wires **PT1000** will be used connected to **I1**.
 
 #define PERIODIC_UPDATE_TIME 2000
 #define DELAY_AFTER_SETUP 1000
+
 // RTD constants
 float a = 0.0039083;
 float b = -0.0000005775;
@@ -3802,7 +3804,7 @@ for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the av
 ```
 The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
 
-The expansion channels are configured as **voltage output** using the function `beginChannelAsDac` alongside the following parameters:
+The expansion channels are configured as **voltage output** using the function `beginChannelAsDac()` alongside the following parameters:
 
 ```arduino
       AnalogExpansion::beginChannelAsDac(OptaController,  // object class
@@ -3991,7 +3993,7 @@ for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the av
 ```
 The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
 
-The expansion channels are configured as **current output** using the function `beginChannelAsDac` alongside the following parameters:
+The expansion channels are configured as **current output** using the function `beginChannelAsDac()` alongside the following parameters:
 
 ```arduino
       AnalogExpansion::beginChannelAsDac(OptaController,  // object class
@@ -4203,6 +4205,8 @@ To control a status LED use the built-in function `switchLedOn()` or `switchLedO
 ```arduino
 // Turn ON
 exp.switchLedOn(<LED>, <update>); // define the LED to control and set to true or false the update parameter
+
+// Turn OFF
 exp.switchLedOff(<LED>, <update>); // define the LED to control and set to true or false the update parameter
 ```
 If the `update` parameter is set to "false", then you will be setting the desired status of the LED but it won't be applied until you call `updateLeds()` function.
