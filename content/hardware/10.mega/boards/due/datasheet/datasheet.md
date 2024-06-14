@@ -28,9 +28,8 @@ The Arduino Due combines the performance of the Atmel SAM3X8E microcontroller wi
 - **3D Printing & CNC Machines:** The Arduino Due can function as a versatile controller for DIY projects. By interfacing stepper motor drivers and end-stop switches with the Due's numerous I/O pins, enthusiasts can create their own 3D printers or CNC machines. The Due's high-speed processing capabilities enable precise control of stepper motors for accurate positioning and movement.
 
 - **Prototyping:** The Arduino Due serves as an invaluable tool for quickly iterating and testing new ideas for IoT devices. By leveraging the Due's extensive I/O capabilities and compatibility with various sensors, communication modules, and actuators, developers can rapidly assemble and test prototypes of IoT devices. Whether it is a smart home sensor node, a weather station, or a remote monitoring system, the Arduino Due provides a flexible platform for integrating components, writing firmware, and validating functionality. With the Due's support for Arduino libraries and easy-to-use development environment, prototypers can focus on innovation and experimentation, accelerating the process of bringing ideas to fruition.
+
 </div>
-
-
 
 ## Features
 
@@ -332,7 +331,7 @@ The Arduino Due can be powered in multiple ways:
 - Using an external voltage source connected to VIN pin, which has a recommended voltage range of 7-12 VCC.
 - The Power Jack: The Due can be powered using a DC power supply connected to the power jack, which accepts a voltage range of 7 to 12 V.
 
-**It is essential to note that the Arduino Due operates at 3.3 V, so any external power source must be regulated to this voltage level. Additionally, the power supply should be able to provide sufficient current for the board's operation and any connected peripherals.** 
+**It is essential to note that the Arduino Due operates at 3.3 V, so any external power source must be regulated to this voltage level. Additionally, the power supply should be able to provide sufficient current for the board's operation and any connected peripherals.**
 
 </div>
 
@@ -586,7 +585,7 @@ The Arduino Due is a microcontroller board measuring 101.52 mm x 53.3 mm, featur
 
 ### Board Dimensions
 
-The Arduino Due board outline and mounting holes dimensions are shown in the figure below; all the dimensions are in mm. 
+The Arduino Due board outline and mounting holes dimensions are shown in the figure below; all the dimensions are in mm.
 
 ![Arduino Due Mounting Holes And Board Outline](assets/dueMechanical.png)
 
@@ -723,3 +722,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |  **Date**  | **Revision** |  **Changes**  |
 | :--------: | :----------: | :-----------: |
 | 12/06/2024 |      1       | First release |
+
+</div>
+</div>
