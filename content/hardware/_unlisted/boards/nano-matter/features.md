@@ -10,14 +10,14 @@
   <Feature title="Matter® Ready" image="core">
     Create, connect, and communicate with Matter® compatible devices using Arduino as the software layer for rapid prototyping.
     <FeatureWrapper>
-      <FeatureLink title="Matter Specification" url="https://csa-iot.org/all-solutions/matter/" download blank/>
+      <FeatureLink title="Matter Specification" url="https://csa-iot.org/all-solutions/matter/"/>
     </FeatureWrapper>
   </Feature>
 
   <Feature title="OpenThread" image="communication">
     Nano Matter uses Thread for IoT mesh networking communication in a highly compact form factor.
     <FeatureWrapper>
-      <FeatureLink title="OpenThread" url="https://openthread.io/" download blank/>
+      <FeatureLink title="OpenThread" url="https://openthread.io/"/>
     </FeatureWrapper>
   </Feature>
 
@@ -31,7 +31,7 @@
   <Feature title="Bluetooth® connectivity" image="bluetooth">
     Leverage dual-mode connectivity, integrating both IEEE 802.15.4 (Thread) for mesh networking and Bluetooth® Low Energy for short-range communication.
     <FeatureWrapper>
-      <FeatureLink title="Bluetooth®" url="https://www.bluetooth.com/" download blank/>
+      <FeatureLink title="Bluetooth®" url="https://www.bluetooth.com/"/>
     </FeatureWrapper>
   </Feature>
 
