@@ -5,7 +5,6 @@ type: maker
 author: Pedro Sousa Lima
 ---
 
-
 ![](assets/featured.png)
 
 # Description
@@ -14,14 +13,10 @@ The Plug and Make Kit features the Arduino UNO R4 WiFi with built-in Wi-Fi® cap
 
 # Target Areas
 
-<!---
-Target Areas: Tags about the main keywords of the product, can be taken from the sales brief or asking the Project Manager about the right ones. Tags must be first letter in caps and must be separated by commas. Actual tags for example purposes.
--->
-
 Maker, beginner, education
 
-
-# Application Examples
+# Contents
+## Application Examples
 
 <div style="text-align:justify;">
 The Plug and Make Kit, featuring the Arduino UNO R4 WiFi, offers a seamless and user-friendly introduction to IoT and electronics. With its extensive array of modular sensors and components, this kit is designed to simplify project development and enhance learning experiences. The I2C Qwiic cable connectivity ensures quick and easy customization of your projects, making it an ideal choice for a variety of applications. Below are some examples of how this kit can be utilized:
@@ -31,16 +26,13 @@ The Plug and Make Kit, featuring the Arduino UNO R4 WiFi, offers a seamless and 
 - **Smart Home Automation:** Utilize the kit to build smart home devices that can monitor and control various environmental factors. With sensors for temperature, humidity, and movement, create a system that automates climate control, security, and lighting. The onboard Wi-Fi® allows for remote monitoring and control through the Arduino Cloud or other third-party services.
 
 - **Environmental Monitoring:** Leverage the kit's sensors to develop a comprehensive environmental monitoring system. Measure and track data such as air quality, temperature, and humidity levels. The kit's modular design facilitates effortless expansion with additional sensors, providing the flexibility to adapt to evolving project requirements. Data can be logged and analyzed through the Arduino Cloud, providing real-time insights and alerts.
-
-
 </div>
 
-# Content of the kit
+## Features
 
 The Plug and Make Kit offers an intuitive and effortless introduction to the world of IoT and electronics. Featuring the powerful Arduino UNO R4 WiFi, this kit enables seamless integration with the Arduino Cloud for a smooth, wireless experience. With its array of modular sensors and components connectable via I2C Qwiic cables, the kit allows for easy customization of your projects. Equipped with a diverse range of sensors and interactive modules, this kit provides the tools you need to create dynamic and engaging projects with ease. Perfect for both beginners and experienced makers, the Plug and Make Kit empowers you to explore and innovate effortlessly.
 
-
-## Features
+### General Specifications Overview
 
 | **SKU**            | **Name**                       | **Purpose**                                             | **Quantity**  |
 | -------------- | -------------------------- |-----------------------------------------------------|-----------|
@@ -54,23 +46,8 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 | ABX00109       | Modulino® Pixels                     | 8x RGB LEDs for display                              | 1         |
 | ABX00110       | Modulino® Buttons                    | 3x push buttons for input                            | 1         |
 
-### Accessories (Included / Not Included)
+### Microcontroller
 
-| **Quantity** | **Item Name**| **Included**|
-|--------------|--------------------------------------------|-----------------|
-| 24 | M3x10 screws|x|
-| 20| M3 bolts|x|
-| 4| M3x20 female spacers|x|
-| 7| I2C Qwiic cables |x|
-| 1| USB-C® cable||
-
-# Arduino UNO R4 WiFi
-## Description
-The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontroller and an ESP32-S3 Wi-Fi® module (ESP32-S3-MINI-1-N8). It features a RA4M1 series microcontroller from Renesas (R7FA4M1AB3CFM#AA0), based on a 48 MHz Arm® Cortex®-M4 microprocessor. The UNO R4 WiFi's memory is larger than its predecessors, with 256 kB flash, 32 kB SRAM, and 8 kB of EEPROM. This board is ideal for entry-level projects, easy IoT applications, and projects requiring a built-in 12x8 LED matrix for animations and displays.
-
-![Top side of Arduino UNO R4 WiFi](assets/R4.png)
-
-## Technical Specifications
 | **Feature**         | **Description**                         |
 |---------------------------|-------------------------------------|
 | **Microcontroller**       | Renesas RA4M1 (R7FA4M1AB3CFM#AA0)   |
@@ -85,13 +62,49 @@ The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontro
 | **LED Matrix**            | 12x8 red LEDs, fully programmable   |
 | **Additional Features**   | Real-time Clock (RTC), Memory Protection Unit (MPU), DAC, DMA |
 
-## Pinout
+### Accessories (Included / Not Included)
 
+| **Quantity** | **Item Name**| **Included**|
+|--------------|--------------------------------------------|-----------------|
+| 24 | M3x10 screws|x|
+| 20| M3 bolts|x|
+| 4| M3x20 female spacers|x|
+| 7| I2C Qwiic cables |x|
+| 1| USB-C® cable||
+
+## Related Products
+
+- [Arduino Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit)
+  - SKU: ASX00027
+
+- [Arduino Starter Kit](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
+  - SKU: K000007
+
+- [Arduino Oplà IoT Kit](https://store.arduino.cc/products/opla-iot-kit)
+  - SKU: AKX00026
+
+## Rating
+
+### Recommended Operating Conditions
+
+| Symbol          | Description                          | Min | Typ | Max | Unit |
+| --------------- | ------------------------------------ | --- | --- | --- | ---- |
+| V<sub>IN</sub>  | Input voltage from VIN pad / DC Jack | 6   | 7.0 | 24  | V    |
+| V<sub>USB</sub> | Input voltage from USB connector     | 4.8 | 5.0 | 5.5 | V    |
+| T<sub>OP</sub>  | Operating Temperature                | -40 | 25  | 85  | °C   |
+
+**Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
+
+## Functional Overview
+
+### Pinout
+
+The Arduino® UNO R4 WiFi pinout is shown in the following figure.
 
 | **Pin**                   | **Function**                        |
 |---------------------------|-------------------------------------|
 | GND                       | Ground                              |
-| 3.3 V                       | 3.3 V Power Rail                     |
+| 3.3 V                     | 3.3 V Power Rail                    |
 | 5V                        | 5V Power Rail                       |
 | VIN                       | Voltage Input                       |
 | SDA                       | I2C Data                            |
@@ -110,31 +123,31 @@ The Arduino® UNO R4 WiFi is the first UNO board to feature a 32-bit microcontro
 | CANRX                     | CAN Receiver (requires transceiver) |
 | CANTX                     | CAN Transmitter (requires transceiver) |
 
-
 ![Arduino UNO R4 WiFi](assets/ABX00087-pinout.png)
 
-## Power Specifications
+### Power Specifications
 
-### Supply Options
+#### Supply Options
+
 Power for the Arduino UNO R4 WiFi can be supplied through either the VIN pin or the USB-C® connector.
 
 - **VIN Pin:** When power is supplied via the VIN pin, the ISL854102FRZ buck converter reduces the voltage to 5 V. This input is protected by Schottky diodes for reverse polarity and overvoltage protection.
 
 - **USB-C Connector:** Power supplied via the USB-C connector provides approximately 4.7 V to the RA4M1 MCU, accounting for the voltage drop due to the Schottky diodes. 
 
-### Power Tree
+#### Power Tree
+
 The power distribution system ensures proper voltage levels for all components. The ISL854102 buck converter and SGM2205 regulator manage voltage regulation. Diodes for protection are also represented.
 
 ![Arduino UNO R4 WiFi power tree.](assets/UNO_R4_WiFi_Power_Tree.png)
 
-### Pin Specifications
+#### Pin Specifications
 
-The general operating voltage for UNO R4 WiFi is 5 V, however the ESP32-S3 module's operating voltage is 3.3 V.
+The general operating voltage for UNO R4 WiFi is 5 V, however, the ESP32-S3 module's operating voltage is 3.3 V.
 Note: It is very important that ESP32-S3's pins (3.3 V) do not come in contact with any of the RA4M1's pins (5 V), as this may damage the circuits.
 The GPIOs on the R7FA4M1AB3CFM#AA0 microcontroller can safely handle up to 8 mA of current. Never connect devices that draw higher current directly to a GPIO as this may damage the circuit.
 
 For powering e.g. servo motors, always use an external power supply.
-
 
 ### Mechanical Information
 
@@ -142,10 +155,11 @@ Layout for dimensions and mounting hole locations for secure attachment
 
 ![Arduino UNO R4 WiFi](assets/Arduino_UNO_R4_WiFi_Mec.svg)
 
-# Plate Node
+### Plate Node
+
 The Plate Node is designed to provide a stable and secure mounting solution for your Arduino UNO R4 WiFi and additional nodes. Measuring 140x140x1.6 mm with 3.5 mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections, particularly useful in complex projects where multiple sensors and modules need to be fixed in place to ensure consistent performance.
 
-## Mechanical Information
+#### Mechanical Information
 
 ![ Base Plate Mechanical information](assets/PlateMec.png)
 
@@ -154,39 +168,47 @@ The Plate Node is designed to provide a stable and secure mounting solution for 
 | Dimensions        | 140x140x1.6 mm |
 | Holes             | 3.5 mm       |
 
-# Modules
+### Modules
+
 The Plug and Make Kit modules offer a versatile and user-friendly introduction to IoT and electronics. Designed for seamless integration, these modules allow for easy expansion with additional sensors and components, providing a flexible platform to meet diverse project requirements. The modules can be easily connected using Qwiic cables, enabling straightforward daisy-chaining of multiple modules via I2C. This design makes it perfect for both beginners and advanced users, enabling them to experiment and create with ease.
 
 ## General Characteristics
+
 The Plug and Make Kit modules provide a straightforward introduction to IoT and electronics. These modules connect easily using Qwiic cables for I2C communication, simplifying setup. This modular design is ideal for both beginners and experienced users.
 
 All modules share common features such as standardized connectors, blue solder mask, and consistent mechanical dimensions and hole locations, ensuring compatibility.
 
 ### Mechanical Information
+
 - Board dimensions: 41 mm x 25.36 mm
 - Board thickness: 1.6 mm, tolerance ± 0.2 mm
 - 4 mounting holes, nominal diameter 3.2 mm, tolerance -0 mm, +0.2 mm
 - Hole to hole quotes: 16 mm vertical, 32 mm horizontal
-- Green power LED powered by 3V3net, with 1 kΩ series resistor
+- Green power LED powered by 3V3 net, with 1 kΩ series resistor
 - Power LED nominal current consumption: 1mA ≈ (3.3 V - 2.2V) / 1kΩ
 
 ![](assets/GeneralMec.png)
 
 ### I2C Side Connectors
-At least one 4-pin surface mount connectors from the JST SM Series with a 1.0 mm pitch
+
+At least one 4-pin surface mount connectors from the JST SM Series with a 1.0 mm pitch.
 
 ## Modules with dedicated I2C Interface Controller
+
 These modules use an additional chip to handle I2C communication when there is a lack of native I2C support, ensuring the experience is consistent across every module within the Plug and Make Kit.
 
 ### Pull-up Resistors
+
 These modules have pads for optional I2C pull-up mounting. No resistors are mounted by default:
+
 ![Pullup resistors pads](assets/ResistorsPullup.png)
 
-
 ## Movement
+
 The MOVEMENT module, featuring the LSM6DSOXTR sensor, measures acceleration, rotation, and temperature, providing comprehensive data for motion detection applications. It's ideal for projects involving gesture recognition, pedometers, and vibration monitoring.
 
 ### Technical Specifications
+
 | **Specification**     | **Details**                                         |
 |-----------------------|-----------------------------------------------------|
 | Sensor                | LSM6DSOXTR                                          |
@@ -206,16 +228,17 @@ The MOVEMENT module, featuring the LSM6DSOXTR sensor, measures acceleration, rot
 | **Pin** | **Net Name** | **Function**  |
 |---------|--------------|---------------|
 | GND     | GND          | Ground        |
-| 3.3 V     | 3V3        | Power Supply  |
+| 3.3 V   | 3V3          | Power Supply  |
 | SDA     | SDA_1        | I2C Data      |
 | SCL     | SCL_1        | I2C Clock     |
 
 The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
 **1x10 Header with LSM6DSOXTR signals**
+
 | **Pin**   | **Net Name**    | **Function**             |
 |-----------|-----------------|--------------------------|
-| VDDIO     | 3V3           | 3.3 V (cuttable)           |
+| VDDIO     | 3V3             | 3.3 V (cuttable)         |
 | GND       | GND             | Ground                   |
 | INT1      | INT1_1          | Interrupt 1 (Sensor)     |
 | INT2      | INT2_1          | Interrupt 2 (Sensor)     |
@@ -225,20 +248,21 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | CS        | CS_1            | SPI Chip Select          |
 | OCSAUX    | OCS_Aux_1       | Auxiliary Output         |
 
-1x10 header for LSM6DSOXTR signals. These provide a place to mount header pins if desired.
-
 It is possible to make VDDIO independent from 3V3 by cutting its solder jumper.
 ![](assets/VDDIO.png)
 
 LSM6DSOXTR interrupts INT1 and INT2 are available on the header.
 
 ### Mechanical Information
+
 ![](assets/IMUMec.png)
 
 ## Distance
+
 The DISTANCE module, featuring the VL53L4CDV0DH/1 sensor, provides accurate distance measurements using time-of-flight technology. It's perfect for applications requiring precise distance sensing, such as robotics and proximity sensors.
 
 ### Technical Specifications
+
 | **Specification**   | **Details**                                         |
 |---------------------|-----------------------------------------------------|
 | Sensor              | VL53L4CDV0DH/1                                      |
@@ -258,7 +282,7 @@ The DISTANCE module, featuring the VL53L4CDV0DH/1 sensor, provides accurate dist
 | **Pin** | **Net Name** | **Function**  |
 |---------|--------------|---------------|
 | GND     | GND          | Ground        |
-| 3.3 V     | 3V3        | Power Supply  |
+| 3.3 V   | 3V3          | Power Supply  |
 | SDA     | SDA_1        | I2C Data      |
 | SCL     | SCL_1        | I2C Clock     |
 
@@ -276,17 +300,20 @@ GPIO1 open drain interrupt output, with onboard 10kΩ pullup to 3.3 V.
 XSHUT active low digital input, with onboard 10kΩ pullup to 3.3 V.
 
 ### Mechanical Information
+
 ![](assets/DistanceMec.png)
 
 ## Thermo
+
 The THERMO module, featuring the HS3003 sensor, measures both temperature and humidity. It's suitable for environmental monitoring and climate control applications.
 
 ### Technical Specifications
+
 | **Specification**   | **Details**                                         |
 |---------------------|-----------------------------------------------------|
 | Sensor              | HS3003                                              |
 | Supply Voltage      | Min: 2.3 V, Max: 5.5 V                              |
-| Power Consumption   | 24.4 µA (14-bit resolution, 3.3 V supply)            |
+| Power Consumption   | 24.4 µA (14-bit resolution, 3.3 V supply)           |
 | Range               | 0% to 100% RH, -40°C to +125°C                      |
 | Accuracy            | Humidity: ±2.8%RH, Temperature: ±0.25°C             |
 | Resolution          | Humidity: 14-bit, Temperature: 14-bit               |
@@ -301,19 +328,22 @@ The THERMO module, featuring the HS3003 sensor, measures both temperature and hu
 | **Pin** | **Net Name** | **Function**  |
 |---------|--------------|---------------|
 | GND     | GND          | Ground        |
-| 3.3 V     | 3V3        | Power Supply  |
+| 3.3 V   | 3V3          | Power Supply  |
 | SDA     | SDA_1        | I2C Data      |
 | SCL     | SCL_1        | I2C Clock     |
 
 The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
 ### Mechanical Information
+
 ![](assets/TempMec.png)
 
 ## Knob
+
 The KNOB module includes a quadrature rotary encoder with an SPST switch, using the STM32C011F4 chip for digital communication. This setup allows precise control for user interfaces and adjustments in various applications. All of the modules that use dedicated I2C interface controller ICs have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
 
 ### Technical Specifications
+
 | **Specification**   | **Details**                                         |
 |---------------------|-----------------------------------------------------|
 | Sensor              | Quadrature Rotary Encoder                           |
@@ -334,13 +364,14 @@ The KNOB module includes a quadrature rotary encoder with an SPST switch, using 
 | **Pin** | **Net Name** | **Function**  |
 |---------|--------------|---------------|
 | GND     | GND          | Ground        |
-| 3.3 V     | 3V3        | Power Supply  |
+| 3.3 V   | 3V3          | Power Supply  |
 | SDA     | SDA_1        | I2C Data      |
 | SCL     | SCL_1        | I2C Clock     |
 
 The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
-1x10 Header for Encoder signals
+**1x10 Header for Encoder signals**
+
 | **Pin**   | **Net Name**             | **Function**           |
 |-----------|--------------------------|------------------------|
 | PA0       | PA0_1                    | PinA (Encoder)         |
@@ -355,12 +386,15 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 This header can be used to read the encoder from an external controller, to use the microcontroller pins for other purposes, or to reprogram the microcontroller using its SWD interface. These provide a place to mount header pins if desired.
 
 ### Mechanical Information
+
 ![](assets/KnobMec.png)
 
 ## Buzzer
+
 The BUZZER module contains a single buzzer and uses the STM32C011F4 chip for digital communication, making it suitable for producing sound alerts and notifications in various projects. All of the modules that use dedicated I2C interface controller ICs have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
 
 ### Technical Specifications
+
 | **Specification**   | **Details**                                         |
 |---------------------|-----------------------------------------------------|
 | Sensor              | 1 Buzzer                                            |
@@ -380,7 +414,7 @@ The BUZZER module contains a single buzzer and uses the STM32C011F4 chip for dig
 | **Pin** | **Net Name** | **Function**  |
 |---------|--------------|---------------|
 | GND     | GND          | Ground        |
-| 3.3 V     | 3V3        | Power Supply  |
+| 3.3 V   | 3V3          | Power Supply  |
 | SDA     | SDA_1        | I2C Data      |
 | SCL     | SCL_1        | I2C Clock     |
 
@@ -397,21 +431,24 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | SWCLK     | PA14_SWCLK_BOOT0_1       | SWD Clock              |
 | PF2       | PF2_NRST_1               | NRST                   |
 
-1x8 header for buzzer and I2C interface controller. This header can be used to actuate the buzzer from an external 3.3 V source, to use the microcontroller pins for other purposes, or to reprogram the microcontroller using its SWD interface. These provide a place to mount header pins if desired.
+This header can be used to actuate the buzzer from an external 3.3 V source, to use the microcontroller pins for other purposes, or to reprogram the microcontroller using its SWD interface. These provide a place to mount header pins if desired.
 
 ### Mechanical Information
+
 ![](assets/BuzzMec.png)
 
 ## Pixels
+
 The PIXELS module includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 chip for digital communication, perfect for creating colorful displays and lighting effects in your projects. All of the modules that use dedicated I2C interface controller ICs have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
 
 ### Technical Specifications
+
 | **Specification**   | **Details**                                         |
 |---------------------|-----------------------------------------------------|
 | Sensor              | Eight LC8822-2020                                   |
 | Microcontroller     | STM32C011F4                                         |
 | Supply Voltage      | Min: 2.0 V, Max: 3.6 V                              |
-| Power Consumption   | 33mA @ 3.3 V * 8 + 3.4 mA                            |
+| Power Consumption   | 33mA @ 3.3 V * 8 + 3.4 mA                           |
 | Resolution          | 12-bit ADC                                          |
 | Communication       | I2C, USART, SPI, I2S                                |
 
@@ -424,13 +461,14 @@ The PIXELS module includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 c
 | **Pin** | **Net Name** | **Function**  |
 |---------|--------------|---------------|
 | GND     | GND          | Ground        |
-| 3.3 V     | 3V3        | Power Supply  |
+| 3.3 V   | 3V3          | Power Supply  |
 | SDA     | SDA_1        | I2C Data      |
 | SCL     | SCL_1        | I2C Clock     |
 
 The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
 **1x10 Header for LC8822-2020 and I2C interface controller**
+
 | **Pin**   | **Net Name**             | **Function**           |
 |-----------|--------------------------|------------------------|
 | CO        | CO_1                     | Clock Out              |
@@ -441,17 +479,21 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | SWCLK     | PA14_SWCLK_BOOT0_1       | SWD Clock              |
 | PF2       | PF2_NRST_1               | NRST                   |
 
-1x10 header for LC8822-2020 and I2C interface controller. The header can be used to add more LC8822-2020 to the chain. 
-![Built in LEDs open for extention](assets/LEDExtention.png)
+The header can be used to add more LC8822-2020 to the chain.
+![Built in LEDs open for extension](assets/LEDExtention.png)
+
 It also has other I2C interface controller IC pins usable for other purposes or to reprogram it using its SWD interface. These provide a place to mount header pins if desired.
 
 ### Mechanical Information
+
 ![Mechanical information for Modulino® Pixels](assets/PixelMec.png)
 
 ## Buttons
+
 The BUTTONS module includes three SPST push buttons and three yellow LEDs, using the STM32C011F4 chip for digital communication. It's ideal for creating interactive input interfaces. All of the modules that use dedicated I2C interface controller ICs have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
 
 ### Technical Specifications
+
 | **Specification**   | **Details**                                         |
 |---------------------|-----------------------------------------------------|
 | Sensor              | 3 SPST Push Buttons                                 |
@@ -467,16 +509,17 @@ The BUTTONS module includes three SPST push buttons and three yellow LEDs, using
 ![Modulino® Buttons Pinout](assets/ButtonsPinouts.png)
 
 **1x4 Header**
+
 | **Pin** | **Net Name** | **Function**  |
 |---------|--------------|---------------|
 | GND     | GND          | Ground        |
-| 3.3 V     | 3V3        | Power Supply  |
+| 3.3 V   | 3V3          | Power Supply  |
 | SDA     | SDA_1        | I2C Data      |
 | SCL     | SCL_1        | I2C Clock     |
 
 The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
-**1x10 Header for Pushbutton and I2C interface controller** 
+**1x10 Header for Pushbutton and I2C interface controller**
 
 | **Pin**   | **Net Name**             | **Function**           |
 |-----------|--------------------------|------------------------|
@@ -489,16 +532,16 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | SWCLK     | PA14_SWCLK_BOOT0_1       | SWD Clock              |
 | PF2       | PF2_NRST_1               | NRST                   |
 
-1x10 header for pushbutton signals and I2C interface controller signals. This header can be used to read the pushbuttons status from an external 3.3 V controller, to use the I2C interface IC pins for other purposes, or to reprogram it using the SWD interface. These provide a place to mount header pins if desired.
+This header can be used to read the pushbuttons status from an external 3.3 V controller, to use the I2C interface IC pins for other purposes, or to reprogram it using the SWD interface. These provide a place to mount header pins if desired.
 
 ### Mechanical Information
+
 ![](assets/BtnMec.png)
-
-
 
 # Software
 
 ## Libraries and Sketches
+
 The Plug and Make Kit is compatible with the Modulino library, which can be found at the following link: [Modulino library link](https://github.com/arduino-libraries/Modulino).
 
 ## I2C Address Reference
@@ -507,8 +550,8 @@ The Plug and Make Kit is compatible with the Modulino library, which can be foun
 |----------------------|--------------------------|------------------------------|------------------------------------|
 | MOVEMENT             | LSM6DSOXTR               | 0x6A                         | 0x6A, 0x6B                         |
 | DISTANCE             | VL53L4CDV0DH/1           | 0x29                         | -                                  |
-| THERMO               | HS3003                   | 0x44                         | -                                 |
-| BUZZER               | ADD BUZZER MODEL TODO                | 0x3C                         | -                                  |
+| THERMO               | HS3003                   | 0x44                         | -                                  |
+| BUZZER               | ADD BUZZER MODEL TODO    | 0x3C                         | -                                  |
 | KNOB                 | Quadrature Rotary Encoder | 0x76                        | -                                  |
 | PIXELS               | Eight LC8822-2020        | 0x6C                         | -                                  |
 | BUTTONS              | 3 SPST Push Buttons      | 0x7C                         | -                                  |
@@ -517,60 +560,29 @@ With the provided sketch, users can change the default I2C address of the dedica
 To facilitate this, a white rectangle is positioned on the bottom silk of the board, where users can write the new I2C address directly on the board itself.
 ![Blank silk for identification](assets/I2CTag.png)
 
+# Device Operation
+
 ## Getting Started - IDE
 
-If you want to program your Arduino U while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the **Arduino UNO R4 WiFi** to your computer, you will need a USB-C® cable, which can also provide power to the board, as indicated by the LED (DL1).
+If you want to program your Arduino Plug and Make Kit while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the **Arduino UNO R4 WiFi** to your computer, you will need a USB-C® cable, which can also provide power to the board, as indicated by the LED (DL1).
 
-### Getting Started - Arduino Web Editor
+## Getting Started - Arduino Web Editor
 
 All Arduino boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
 
 The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino Cloud
+## Getting Started - Arduino Cloud
 
 All Arduino IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
-### Online Resources
+## Online Resources
 
 Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
 
-### Board Recovery
+## Board Recovery
 
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB®, it is possible to enter bootloader mode by doubletapping the reset button right after the power-up.
-
-# Related Products
-
-- [Arduino Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit)
-  - SKU: ASX00027
-
-- [Arduino Starter Kit](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
-  - SKU: K000007
-
-- [Arduino Oplà IoT Kit](https://store.arduino.cc/products/opla-iot-kit)
-  - SKU: AKX00026
-
-
-
-# Rating
-
-## Recommended Operating Conditions
-
-| Symbol          | Description                          | Min | Typ | Max | Unit |
-| --------------- | ------------------------------------ | --- | --- | --- | ---- |
-| V<sub>IN</sub>  | Input voltage from VIN pad / DC Jack | 6   | 7.0 | 24  | V    |
-| V<sub>USB</sub> | Input voltage from USB connector     | 4.8 | 5.0 | 5.5 | V    |
-| T<sub>OP</sub>  | Operating Temperature                | -40 | 25  | 85  | °C   |
-
-**Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
-
-
-# Product Overview
-
-![Product Overview](assets/featured.png)
-
-<div style="page-break-after: always;"></div>
-
+All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
 
 # Certifications
 
@@ -582,8 +594,8 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 |     UKCA (UK)     |     Yes    |
 |     FCC (USA)     |     Yes    |
 |    IC (Canada)    |     Yes    |
-| MIC/Telec (Japan) |     No    |
-|  RCM (Australia)  |     No    |
+| MIC/Telec (Japan) |     No     |
+|  RCM (Australia)  |     No     |
 |        RoHS       |     Yes    |
 |       REACH       |     Yes    |
 |        WEEE       |     Yes    |
@@ -623,46 +635,33 @@ Any Changes or modifications not expressly approved by the party responsible for
 
 This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
-(1) This device may not cause harmful interference
-
-(2) this device must accept any interference received, including interference that may cause undesired operation.
+1. This device may not cause harmful interference.
+2. This device must accept any interference received, including interference that may cause undesired operation.
 
 **FCC RF Radiation Exposure Statement:**
 
 1. This Transmitter must not be co-located or operating in conjunction with any other antenna or transmitter.
-
 2. This equipment complies with RF radiation exposure limits set forth for an uncontrolled environment.
-
 3. This equipment should be installed and operated with a minimum distance of 20 cm between the radiator & your body.
 
-**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
-device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
-reasonable protection against harmful interference in a residential installation. This equipment
-generates, uses and can radiate radio frequency energy and, if not installed and used in
-accordance with the instructions, may cause harmful interference to radio communications.
-However, there is no guarantee that interference will not occur in a particular installation. If
-this equipment does cause harmful interference to radio or television reception, which can be
-determined by turning the equipment off and on, the user is encouraged to try to correct the
-interference by one or more of the following measures:
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
 - Reorient or relocate the receiving antenna.
 - Increase the separation between the equipment and receiver.
-- Connect the equipment into an outlet on a circuit different from that to which the
-receiver is connected.
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
 - Consult the dealer or an experienced radio/TV technician for help.
 
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
-(1) this device may not cause interference
-
-(2) this device must accept any interference, including interference that may cause undesired operation of the device.
+1. this device may not cause interference.
+2. this device must accept any interference, including interference that may cause undesired operation of the device.
 
 French:
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
 
-(1) l’ appareil nedoit pas produire de brouillage
-
-(2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
+1. l’appareil nedoit pas produire de brouillage.
+2. l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
 **IC SAR Warning:**
 
@@ -670,19 +669,20 @@ English:
 This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 French:
-Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
+Lors de l’installation et de l’exploitation de ce dispositif, la distance entre le radiateur et le corps est d’au moins 20 cm.
 
 **Important:** The operating temperature of the EUT can’t exceed 85 ℃ and shouldn’t be lower than -40 ℃.
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
 # Company Information
+
 | Company name    | Arduino SRL                                   |
 |-----------------|-----------------------------------------------|
 | Company Address | Via Andrea Appiani, 25 - 20900 MONZA（Italy)  |
 
-
 # Reference Documentation
+
 | Ref                       | Link                                                                                                                                                                                           |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                                                             |
@@ -693,7 +693,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
 
 # Revision History
+
 |  **Date**  | **Revision** |                      **Changes**                       |
 | ---------- | ------------ | ------------------------------------------------------ |
 | 11/07/2024 |      1       |                     First release                      |
-
