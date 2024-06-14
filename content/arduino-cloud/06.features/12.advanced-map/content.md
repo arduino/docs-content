@@ -105,9 +105,7 @@ To see a specific time period, click on the calendar icon, where you can select 
 
 ## Limitations
 
-The following variables are not supported in the advanced map widget.
-
-- 
+- The advanced map widget only supports the use of the `CloudLocation` variable.
 
 ## Summary
 
