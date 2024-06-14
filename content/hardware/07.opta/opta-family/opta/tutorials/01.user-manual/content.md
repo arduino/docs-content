@@ -3733,7 +3733,7 @@ void optaAnalogTask() {
   static long int start = millis();
 
   /* using this the code inside the if will run every PERIODIC_UPDATE_TIME ms
-     assuming the function is called repeteadly in the loop() function */
+     assuming the function is called repeatedly in the loop() function */
 
   if (millis() - start > PERIODIC_UPDATE_TIME) {
     start = millis();
@@ -3922,7 +3922,7 @@ void optaAnalogTask() {
   static long int start = millis();
 
   /* using this the code inside the if will run every PERIODIC_UPDATE_TIME ms
-     assuming the function is called repeteadly in the loop() function */
+     assuming the function is called repeatedly in the loop() function */
 
   if (millis() - start > PERIODIC_UPDATE_TIME) {
     start = millis();
@@ -4030,19 +4030,6 @@ exp.setPwm(ch, <period_us>, <pulse_us>); // the first argument is to define the 
 The following example will let you set a **PWM** signal on channel **P1**, increasing and decreasing its duty-cycle sequentially, this sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > PWM**:
 
 ```arduino
-/* -------------------------------------------------------------------------- */
-/* FILE NAME:   Pwm.ino
-   AUTHOR:      Daniele Aimo
-   EMAIL:       d.aimo@arduino.cc
-   DATE:        20231205
-   DESCRIPTION: This sketch shows basic PWM usage with the OptaBlue library.
-   LICENSE:     Copyright (c) 2024 Arduino SA
-                This Source Code Form is subject to the terms fo the Mozilla
-                Public License (MPL), v 2.0. You can obtain a copy of the MPL
-                at http://mozilla.org/MPL/2.0/.
-   NOTES:                                                                     */
-/* -------------------------------------------------------------------------- */
-
 #include "OptaBlue.h"
 
 
@@ -4211,7 +4198,159 @@ The Opta™ Analog Expansions have **8 status LEDs** on the front panel. They ar
 |                 LED 7                 |      6 or OA_LED_7       |
 |                 LED 8                 |      7 or OA_LED_8       |
 
+To control a status LED use the built-in function `switchLedOn()` or `switchLedOff()` as shown below:
 
+```arduino
+// Turn ON
+exp.switchLedOn(<LED>, <update>); // define the LED to control and set to true or false the update parameter
+exp.switchLedOff(<LED>, <update>); // define the LED to control and set to true or false the update parameter
+```
+If the `update` parameter is set to "false", then you will be setting the desired status of the LED but it won't be applied until you call `updateLeds()` function.
+
+```arduino
+exp.switchLedOn(OA_LED_1, false); // set the desired status to the queue
+exp.updateLeds(); // apply the changes and update the current LED state
+```
+
+The following example will let you control the status LEDs sequentially, this sketch  can be found in **File > Examples > Arduino_Opta_Blueprint > Analog > LED**:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 2  //actually not used (it's DELAY_LED that leads the timing)
+#define DELAY_AFTER_SETUP 1000
+#define DELAY_LED 250
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+  /* -------------------------------------------------------------------------- */
+  if (t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  } else if (t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  } else if (t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  } else if (t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  } else if (t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  } else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+  /* -------------------------------------------------------------------------- */
+  static long int start = millis();
+
+  if (millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }
+}
+
+int8_t oa_index = -1;
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+  /* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+  Serial.println("*** Opta Analog LED example ***");
+
+  OptaController.begin();
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+  /* -------------------------------------------------------------------------- */
+  static bool st = true;
+  static long int start = millis();
+
+  static const char *msg_on = "ON";
+  static const char *msg_off = "OFF";
+  static char *msg_ptr = (char *)msg_on;
+
+  if (millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+
+      AnalogExpansion exp = OptaController.getExpansion(i);
+      if (exp) {
+
+        /* exp is true only if exp is an actual 
+         * AnalogExpansion and false otherwise */
+
+        for (int j = 0; j < 8; j++) {
+          if (st) {
+            msg_ptr = (char *)msg_on;
+            exp.switchLedOn((uint8_t)j, false);
+          } else {
+            msg_ptr = (char *)msg_off;
+            exp.switchLedOff((uint8_t)j, false);
+          }
+          exp.updateLeds();
+          delay(250);
+          Serial.print("switching LED ");
+          Serial.print(j);
+          Serial.print(" ");
+          Serial.println(msg_ptr);
+        }
+
+        st = !st;
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  /* -------------------------------------------------------------------------- */
+  OptaController.update();
+  //printExpansionInfo();
+  optaAnalogTask();
+}
+```
+
+Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
+
+Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
+
+`OptaController.update()` function DOES NOT:
+* Check if an expansion has been removed and remove their objects
+* Update any data from or to the expansion
+
+The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
+```arduino
+for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
+  AnalogExpansion exp = OptaController.getExpansion(i);
+}
+```
+The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+
+The function `optaAnalogTask()` turns on sequentially the **LEDs** and turns them off again.
+
+After the Opta™ controller is programmed with the example sketch, you can see the onboard LEDs blinking with a pattern and experience the following behavior:
+
+![Status LED Example Animation](assets/led-ani.gif)
 
 ## Support
 
