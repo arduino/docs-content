@@ -5,7 +5,7 @@ author: Jacob Hylén
 tags: [Mega 2560 Rev3, Installation, IDE]
 ---
 
-To use the [Arduino Mega 2560 Rev3](hardware/mega-2560/) board, you will need the Arduino AVR Board Package, which comes pre-installed with the IDE.
+To use the [Arduino Mega 2560 Rev3](/hardware/mega-2560/) board, you will need the Arduino AVR Board Package, which comes pre-installed with the IDE.
 
 You will need a version of the Arduino IDE, which you can download from the [Arduino Software page](https://www.arduino.cc/en/software). In this guide, we will use the latest version of the IDE 2.
 
