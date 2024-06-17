@@ -1,4 +1,4 @@
----
+WIFI---
 identifier: AKX00069
 title: Arduino® Plug and Make Kit
 type: maker
@@ -9,7 +9,7 @@ author: Pedro Sousa Lima
 
 # Description
 
-The Plug and Make Kit features the Arduino UNO R4 WiFi with built-in Wi-Fi® capabilities, enabling connectivity and opening the doors to integration with the Arduino Cloud platform. This kit includes a selection of 7 modules, all easily connectable via I2C Qwiic cables. Tailor your project to perfection by selecting the sensors and inputs that best suit your needs, and experience a completely solder-free way to easily build your ideas. Dive into the world of electronics with hands-on learning and intuitive module interaction, empowering you to innovate and create with unparalleled ease and flexibility.
+The Plug and Make Kit features the Arduino® UNO R4 WiFi with built-in Wi-Fi® capabilities, enabling connectivity and opening the doors to integration with the Arduino® Cloud platform. This kit includes a selection of seven modules, all easily connectable via I2C Qwiic cables. Tailor your project to perfection by selecting the sensors and inputs that best suit your needs, and experience a completely solder-free way to easily build your ideas. Dive into the world of electronics with hands-on learning and intuitive module interaction, empowering you to innovate and create with unparalleled ease and flexibility.
 
 # Target Areas
 
@@ -19,25 +19,25 @@ Maker, beginner, education
 ## Application Examples
 
 <div style="text-align:justify;">
-The Plug and Make Kit, featuring the Arduino UNO R4 WiFi, offers a seamless and user-friendly introduction to IoT and electronics. With its extensive array of modular sensors and components, this kit is designed to simplify project development and enhance learning experiences. The I2C Qwiic cable connectivity ensures quick and easy customization of your projects, making it an ideal choice for a variety of applications. Below are some examples of how this kit can be utilized:
+The Plug and Make Kit, featuring the Arduino® UNO R4 WiFi, offers a seamless and user-friendly introduction to IoT and electronics. With its extensive array of modular sensors and components, this kit is designed to simplify project development and enhance learning experiences. The I2C Qwiic cable connectivity ensures quick and easy customization of your projects, making it an ideal choice for a variety of applications. Below are some examples of how this kit can be utilized:
 
 - **Interactive Learning Tools:** The kit's interactive modules, including buttons, RGB LEDs, and buzzers, can be used to create engaging educational tools. Develop projects that teach coding, electronics, and IoT concepts in a hands-on manner. The plug-and-play nature of the kit simplifies setup and reduces the learning curve, making it perfect for classrooms and educational workshops.
 
-- **Smart Home Automation:** Utilize the kit to build smart home devices that can monitor and control various environmental factors. With sensors for temperature, humidity, and movement, create a system that automates climate control, security, and lighting. The onboard Wi-Fi® allows for remote monitoring and control through the Arduino Cloud or other third-party services.
+- **Smart Home Automation:** Utilize the kit to build smart home devices that can monitor and control various environmental factors. With sensors for temperature, humidity, and movement, create a system that automates climate control, security, and lighting. The onboard Wi-Fi® allows for remote monitoring and control through the Arduino® Cloud or other third-party services.
 
-- **Environmental Monitoring:** Leverage the kit's sensors to develop a comprehensive environmental monitoring system. Measure and track data such as air quality, temperature, and humidity levels. The kit's modular design facilitates effortless expansion with additional sensors, providing the flexibility to adapt to evolving project requirements. Data can be logged and analyzed through the Arduino Cloud, providing real-time insights and alerts.
+- **Environmental Monitoring:** Leverage the kit's sensors to develop a comprehensive environmental monitoring system. Measure and track data such as air quality, temperature, and humidity levels. The kit's modular design facilitates effortless expansion with additional sensors, providing the flexibility to adapt to evolving project requirements. Data can be logged and analyzed through the Arduino® Cloud, providing real-time insights and alerts.
 </div>
 
 ## Features
 
-The Plug and Make Kit offers an intuitive and effortless introduction to the world of IoT and electronics. Featuring the powerful Arduino UNO R4 WiFi, this kit enables seamless integration with the Arduino Cloud for a smooth, wireless experience. With its array of modular sensors and components connectable via I2C Qwiic cables, the kit allows for easy customization of your projects. Equipped with a diverse range of sensors and interactive modules, this kit provides the tools you need to create dynamic and engaging projects with ease. Perfect for both beginners and experienced makers.
+The Plug and Make Kit offers an intuitive and effortless introduction to the world of IoT and electronics. Featuring the powerful Arduino® UNO R4 WiFi, this kit enables seamless integration with the Arduino® Cloud for a smooth, wireless experience. With its array of modular sensors and components connectable via I2C Qwiic cables, the kit allows for easy customization of your projects. Equipped with a diverse range of sensors and interactive modules, this kit provides the tools you need to create dynamic and engaging projects with ease. Perfect for both beginners and experienced makers.
 
 ### Contents of the kit
 
 | **SKU**            | **Name**                       | **Purpose**                                             | **Quantity**  |
 | -------------- | -------------------------- |-----------------------------------------------------|-----------|
-| ABX00080       | Arduino UNO R4 WiFi        | Programmable main board | 1         |
-| ASX00071       | Plate Node                 | Fix firmly an UNO and some nodes on it              | 1         |
+| ABX00080       | Arduino® UNO R4 WiFi        | Programmable main board | 1         |
+| ASX00071       | Plate Node                 | Base plate for UNO and modules| 1         |
 | ABX00101       | Modulino® Movement                   | Measure acceleration and rotation     | 1         |
 | ABX00102       | Modulino® Distance                   | Time of flight, finds distances                     | 1         |
 | ABX00103       | Modulino® Thermo                     | Measure temperature and humidity                    | 1         |
@@ -62,7 +62,7 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 |---------------------------|-------------------------------------|
 | **Microcontroller**       | Renesas RA4M1 (R7FA4M1AB3CFM#AA0)   |
 | **Clock Speed**           | 48 MHz                              |
-| **Operating Voltage**     | 5 V (RA4M1), 3.3 V (ESP32-S3)       |
+| **Operating Voltage**     | 5 V (RA4M1)      |
 | **Memory**                | 256 kB Flash, 32 kB SRAM, 8 kB EEPROM |
 | **Peripherals**           | Capacitive Touch Sensing Unit (CTSU), USB® 2.0 Full-Speed Module, 14-bit ADC, Up to 12-bit DAC, Operational Amplifier (OPAMP) |
 | **Communication**         | 1x UART, 1x SPI, 1x I2C, 1x CAN (external transceiver required) |
@@ -74,11 +74,11 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 
 ## Related Products
 
-- *SKU: ASX00027* - [Arduino Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit)
+- *SKU: ASX00027* - [Arduino® Sensor Kit](https://store.arduino.cc/products/arduino-sensor-kit)
   
-- *SKU: K000007* - [Arduino Starter Kit](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
+- *SKU: K000007* - [Arduino® Starter Kit](https://store.arduino.cc/products/arduino-starter-kit-multi-language)
   
-- *SKU: AKX00026* - [Arduino Oplà IoT Kit](https://store.arduino.cc/products/opla-iot-kit)
+- *SKU: AKX00026* - [Arduino® Oplà IoT Kit](https://store.arduino.cc/products/opla-iot-kit)
 
 ## Rating
 
@@ -120,13 +120,13 @@ The Arduino® UNO R4 WiFi pinout is shown in the following figure.
 | CANRX                     | CAN Receiver (requires transceiver) |
 | CANTX                     | CAN Transmitter (requires transceiver) |
 
-![Arduino UNO R4 WiFi](assets/ABX00087-pinout.png)
+![Arduino® UNO R4 WiFi](assets/ABX00087-pinout.png)
 
 ### Power Specifications
 
 #### Supply Options
 
-Power for the Arduino UNO R4 WiFi can be supplied through either the VIN pin or the USB-C® connector.
+Power for the Arduino® UNO R4 WiFi can be supplied through either the VIN pin or the USB-C® connector.
 
 - **VIN Pin:** When power is supplied via the VIN pin, the ISL854102FRZ buck converter reduces the voltage to 5 V. This input is protected by Schottky diodes for reverse polarity and overvoltage protection.
 
@@ -136,7 +136,7 @@ Power for the Arduino UNO R4 WiFi can be supplied through either the VIN pin or 
 
 The power distribution system ensures proper voltage levels for all components. The ISL854102 buck converter and SGM2205 regulator manage voltage regulation. Diodes for protection are also represented.
 
-![Arduino UNO R4 WiFi power tree.](assets/UNO_R4_WiFi_Power_Tree.png)
+![Arduino® UNO R4 WiFi power tree.](assets/UNO_R4_WiFi_Power_Tree.png)
 
 #### Pin Specifications
 
@@ -150,11 +150,11 @@ For powering e.g. servo motors, always use an external power supply.
 
 Layout for dimensions and mounting hole locations for secure attachment
 
-![Arduino UNO R4 WiFi](assets/Arduino_UNO_R4_WiFi_Mec.svg)
+![Arduino® UNO R4 WiFi](assets/Arduino_UNO_R4_WiFi_Mec.svg)
 
 ## Plate Node
 
-The Plate Node is designed to provide a stable and secure mounting solution for your Arduino UNO R4 WiFi and additional nodes. Measuring 140x140x1.6 mm with 3.5 mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections, particularly useful in complex projects where multiple sensors and modules need to be fixed in place to ensure consistent performance.
+The Plate Node is designed to provide a stable and secure mounting solution for your Arduino® UNO R4 WiFi and additional nodes. Measuring 140x140x1.6 mm with 3.5 mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections, particularly useful in complex projects where multiple sensors and modules need to be fixed in place to ensure consistent performance.
 
 ### Mechanical Information
 
@@ -561,25 +561,25 @@ To facilitate this, a white rectangle is positioned on the bottom silk of the bo
 
 ## Getting Started - IDE
 
-If you want to program your Arduino Plug and Make Kit while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the **Arduino UNO R4 WiFi** to your computer, you will need a USB-C® cable, which can also provide power to the board, as indicated by the LED (DL1).
+If you want to program your Arduino® Plug and Make Kit while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the **Arduino® UNO R4 WiFi** to your computer, you will need a USB-C® cable, which can also provide power to the board, as indicated by the LED (DL1).
 
 ## Getting Started - Arduino Web Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ## Getting Started - Arduino Cloud
 
-All Arduino IoT enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino® IoT enabled products are supported on Arduino® Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ## Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino® Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
 
 ## Board Recovery
 
-All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
+All Arduino® boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB, it is possible to enter bootloader mode by double-tapping the reset button right after the power-up.
 
 # Certifications
 
@@ -685,7 +685,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                                                             |
 | Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                                                                                           |
 | Cloud IDE Getting Started | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor) |
-| Project Hub               | [https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending](https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending)                                           |
+| Project Hub               | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                                           |
 | Library Reference         | [https://github.com/arduino-libraries/](https://github.com/arduino-libraries/)                                                                                                                 |
 | Online Store              | [https://store.arduino.cc/](https://store.arduino.cc/)                                                                                                                                         |
 
