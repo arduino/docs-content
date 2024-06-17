@@ -5,7 +5,7 @@ author: Benjamin Dannegård
 tags: [Arduino Cloud, Map, GPS, Location]
 ---
 
-The **advanced map widget** is used to track the location of a cloud Thing and draw a path between the different logged points. You can track the data in both real time, select from a specific time period while selecting the variables you want to display.
+The **advanced map widget** is used to track the location of a cloud Thing and draw a path between the different logged points. You can track GPS locations in real time or chose a specific time frame for location tracking. The look of the tracks between points and map pin can also be customized.
 
 ![The advanced map widget.](assets/world-map.gif)
 
@@ -25,7 +25,7 @@ This widget can be added onto existing projects (if you are already tracking loc
 
 ## Setup & Configuration
 
-To use the advanced map widget, you will need to set up a Thing and a variable that you want to track. This needs to be a `location` type variable.
+To use the advanced map widget, you will need to set up a Thing and a variable that you want to track. This needs to be a `Location` type variable, it will be declared as a `CloudLocation` variable.
 
 ***If you are unfamiliar with how to set up a Thing and variables, head on over to the [Getting Started with the Arduino Cloud](/arduino-cloud/guides/overview) article.***
 
