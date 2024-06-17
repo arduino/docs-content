@@ -1,4 +1,4 @@
-WIFI---
+---
 identifier: AKX00069
 title: Arduino® Plug and Make Kit
 type: maker
@@ -32,7 +32,7 @@ The Plug and Make Kit, featuring the Arduino® UNO R4 WiFi, offers a seamless an
 
 The Plug and Make Kit offers an intuitive and effortless introduction to the world of IoT and electronics. Featuring the powerful Arduino® UNO R4 WiFi, this kit enables seamless integration with the Arduino® Cloud for a smooth, wireless experience. With its array of modular sensors and components connectable via I2C Qwiic cables, the kit allows for easy customization of your projects. Equipped with a diverse range of sensors and interactive modules, this kit provides the tools you need to create dynamic and engaging projects with ease. Perfect for both beginners and experienced makers.
 
-### Contents of the kit
+### Contents Of The kit
 
 | **SKU**            | **Name**                       | **Purpose**                                             | **Quantity**  |
 | -------------- | -------------------------- |-----------------------------------------------------|-----------|
@@ -190,7 +190,7 @@ All modules share common features such as standardized connectors, blue solder m
 
 At least one 4-pin surface mount connectors from the JST SM Series with a 1.0 mm pitch.
 
-### Modules with dedicated I2C Interface Controller
+### Modules With Dedicated I2C Interface Controller
 
 These modules use an additional chip to handle I2C communication when there is a lack of native I2C support, ensuring the experience is consistent across every module within the Plug and Make Kit.
 
