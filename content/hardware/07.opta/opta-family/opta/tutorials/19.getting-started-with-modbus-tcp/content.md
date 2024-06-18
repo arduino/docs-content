@@ -23,11 +23,15 @@ hardware:
 
 ## Overview
 
-...
+The Opta™ offers industrial-grade hardware and software capabilities, along with the Arduino ecosystem tools such as the Arduino IDE and its libraries, allowing easy implementation of different Modbus communication protocols, including Modbus TCP.
+
+In this tutorial, we will learn how to set up and use the Modbus TCP communication protocol over Ethernet between two Opta™ devices.
 
 ## Goals
 
-- Learn how to use the Modbus TCP communication protocol between two Opta™ devices
+- Learn how to set up the workspace environment for Modbus TCP using Arduino IDE.
+- Learn how to use the Modbus TCP communication protocol between two Opta™ devices.
+- Learn how to verify that Opta™ has been correctly set up using an example that uses Modbus TCP communication.
 
 ## Required Hardware and Software
 
@@ -36,52 +40,67 @@ hardware:
 - [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x2)
 - 12 VDC / 1 A DIN rail power supply (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
-- RJ-45 LAN cable (x1)
+- Ethernet cable with RJ45 connectors - Cat5e, Cat6, Cat6e (x1)
 - Power cables for supply and load: Wires with a cross-sectional area ranging from 13.3 mm² to 21.2 mm², corresponding to AWG sizes 6 to 4
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
-- If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, and `ArduinoModbus`. You can install these libraries via Library Manager of the Arduino IDE.
+- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- If you choose an offline Arduino IDE, you must install the following libraries via the Library Manager: [**ArduinoRS485**](https://github.com/arduino-libraries/ArduinoRS485) and [**ArduinoModbus**](https://github.com/arduino-libraries/ArduinoModbus).
 - [Modbus TCP example code](assets/Opta_Modbus_TCP_Example.zip)
 
 ## Modbus Protocol
 
-Modbus is an open and royalty-free serial communication protocol derived from the client/server architecture. It is widely used in industrial electronic devices, especially in Building Management Systems (BMS) and Industrial Automation Systems (IAS).
+Modbus is a widely used, open, and royalty-free serial communication protocol based on a client/server architecture. It is commonly known in industrial electronic devices, such as Building Management Systems (BMS) and Industrial Automation Systems (IAS).
 
-It was published by Modicon (now Schneider Electric) in 1979 and has become a _de facto_ standard communication protocol among industrial electronic devices to be used with programmable logic controllers (PLCs).
+Developed by Modicon (now Schneider Electric) in 1979, Modbus has become a standard communication protocol for industrial electronic devices, particularly those using programmable logic controllers (PLCs).
 
-Modbus communication protocol is often used to connect a supervisory device with a Remote Terminal Unit (TCP) in Supervisory Control and Data Acquisition (SCADA) systems. Reliability in communications between electronic devices is ensured with Modbus by using messages with a simple 16-bit structure with a Cyclic-Redundant Checksum (CRC).
+The Modbus protocol is frequently used to connect supervisory devices with Remote Terminal Units (RTUs) in Supervisory Control and Data Acquisition (SCADA) systems. Modbus ensures reliable communication between electronic devices through simple 16-bit messages with a Cyclic Redundant Checksum (CRC) for error-checking.
 
-If you want more insights on the Modbus communication protocol, take a look at [Modbus article](https://docs.arduino.cc/learn/communication/modbus) complying as well with Opta™.
+For more information on the Modbus protocol, check out the [Modbus article](https://docs.arduino.cc/learn/communication/modbus) complying with Opta™.
 
 ## Modbus TCP
 
-The Modbus protocol is a messaging service structure using Client/Server communication. It is an *application protocol*, with its data management being independent of the transmission method.
+The Modbus protocol is a messaging service that uses Client/Server or Controller/Peripheral communications. It keeps its data handling separate from its transmission method as an *application protocol*.
 
-The **Modbus TCP/IP**, often simply referred to as **Modbus TCP**, is a variant of the Modbus RTU protocol that uses the TCP/IP interface over Ethernet to exchange data between compatible devices. Here are some key elements to understand about Modbus TCP:
+**Modbus over TCP/IP**, commonly known as **Modbus TCP**, is a variant of the Modbus RTU protocol. It uses the TCP/IP interface over Ethernet for data transfer between compatible devices. Here are some key points about Modbus TCP:
 
-* The 'Transmission Control Protocol (TCP)' is responsible for the exchange of packets.
+* The **Transmission Control Protocol (TCP)** manages packet transmissions.
 
-* The 'Internet Protocol (IP)' defines the addresses for routing message destinations.
+* The **Internet Protocol (IP)** sets the addresses to guide message routing.
 
-* A distinct feature of Modbus TCP concerns how it maintains data integrity. Since Modbus TCP encapsulates the basic data frame within the TCP frame, the usual checksum field of Modbus isn't utilized. Instead, the checksum method from the Ethernet TCP/IP layer ensures data integrity.
+* Modbus TCP maintains data integrity by encapsulating the primary data frame within a TCP frame, relying on the Ethernet TCP/IP layer’s checksum technique instead of the traditional Modbus checksum.
 
-* Modbus TCP/IP adheres to TCP/IP networking standards on Ethernet, using the Modbus messaging service as its data handler. Typically, the connected devices are Modbus TCP/IP Client and Server devices. However, interconnections can also be established through routers, gateways, or bridges, forming a TCP/IP network.
+* Modbus over TCP/IP sticks to TCP/IP networking standards on Ethernet, using the Modbus messaging service as its data intermediary. Connections involve Modbus TCP/IP Client and Server devices, but routers, gateways, or bridges can also create a TCP/IP network.
 
-***Controller/Peripheral was formerly known as Master/Slave. The Modbus Organization no longer supports the use of this terminology. Devices formerly known as Master are referred to as Controller/Client and devices formerly known as Slaves are referred to as Peripheral/Server.***
+***The terms __Controller__ and __Peripheral__ replace the outdated __Master__ and __Slave__ terminology. The Modbus Organization now refers to devices previously known as __Masters__ as __Controllers/Clients__ and devices previously known as __Slaves__ as __Peripherals/Servers__.***
 
 ## Instructions
 
 ### Setting Up the Arduino IDE
 
-If you haven't already, head over [here](https://www.arduino.cc/en/software) and install the most recent version of the Arduino IDE along with the necessary device drivers for your computer. For additional details on Opta™, check out the [User Manual](/tutorials/opta/user-manual). Make sure you install the latest version of the [ArduinoModbus](https://www.arduino.cc/reference/en/libraries/arduinomodbus/) and the [ArduinoRS485](https://www.arduino.cc/reference/en/libraries/arduinors485/) libraries, as they will be used to implement the Modbus TCP communication protocol.
+This tutorial requires the latest version of the Arduino IDE, which you can download [here](https://www.arduino.cc/en/software). In the Arduino IDE, you need to install the **`Arduino Mbed OS Opta Boards`** core for Opta™ devices.
+
+To install the core for Opta™, navigate to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE.
+
+In the Boards Manager tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` core version.
+
+![Installing the Opta™ core in the Arduino IDE](assets/opta-core.png)
+
+### Installing the Required Libraries
+
+Install the latest versions of the following libraries required for Modbus TCP communication:
+
+- [**ArduinoModbus**](https://github.com/arduino-libraries/ArduinoModbus)
+- [**ArduinoRS485**](https://github.com/arduino-libraries/ArduinoRS485)
+
+You can easily install them through the Library Manager in the Arduino IDE. The Library manager can be accessed using the **"ctrl + shift+ i"** shortcut, by going to **Tools > Manage Libraries...**, or by navigating the left panel of the Arduino IDE and selecting the third option from the top.
 
 ### Connecting the Opta™ Over Ethernet LAN
 
 Set up the connection by attaching the Ethernet LAN (RJ-45) cable to both devices using the `ETH RJ45` port. The following image provides a connection diagram for both devices:
 
-![Connecting two Opta™ devices via RS-485](assets/opta-modbus-connection.svg)
+![Connecting two Opta™ devices via Ethernet cable with RJ45 connector](assets/opta-modbus-connection.png)
 
 The setup incorporates an Ethernet switch that monitors both Opta™ devices using the PLC IDE. This configuration not only links both Opta™ devices using the PLC IDE but also lets you employ a profile to observe information exchanges in real-time. We recommend using the setup with the Ethernet switch for this tutorial to ensure optimal communication between devices.
 
@@ -294,19 +313,19 @@ void updateLED() {
 
 ### Testing the Modbus TCP Client and Server
 
-Once the Modbus TCP Client and Server code for each Opta™ device has been uploaded, a `Success!` message will be displayed on the Serial Monitor of Opta™ Client after each read-and-write task:
+Once the Modbus TCP Client and Server code for each Opta™ device has been uploaded, the user LED will be toggles along with the coil value on the Serial Monitor of the Opta™ Client after each read-and-write task:
 
 ![Modbus TCP Client and Server communication status](assets/opta-modbus-client.svg)
 
 ## Conclusion
 
-This tutorial demonstrates how to use the Arduino ecosystem's `ArduinoRS485` and `ArduinoModbus` libraries, as well as the Arduino IDE, to implement the Modbus TCP protocol between two Opta™ devices. These are necessary elements to enable connection with Modbus TCP compliant devices.
+This tutorial demonstrates how to use the Arduino ecosystem's `ArduinoRS485` and `ArduinoModbus` libraries and the Arduino IDE to implement the Modbus TCP protocol between two Opta™ devices. These elements are essential for allowing connections with Modbus TCP-compliant devices.
 
-With the help of these examples, it is easy to understand how to enable Modbus TCP communication between a Server and a Client. For further project developments, it offers a scalable architecture to link additional Modbus Server devices, such as secondary Opta™ or a Modbus TCP-compatible module.
+With these examples, you can easily understand how to establish Modbus TCP communication between a Server and a Client using Opta™. This setup provides a scalable architecture for connecting additional Modbus Server devices, such as another Opta™ or a Modbus TCP-compatible module.
 
 ### Next Steps
 
-Now that you know how to establish and use Modbus TCP communication with Opta™, you can take a look at [Opta User Manual](/tutorials/opta/user-manual) to discover more about all the connectivity possibilities that Opta™ has to offer.
+Now that you know how to establish and use Modbus TCP communication with Opta™, you can explore the [Opta User Manual](/tutorials/opta/user-manual) to discover more about all the connectivity possibilities that Opta™ offers.
 
 ## Support
 
