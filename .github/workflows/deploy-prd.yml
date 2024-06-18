@@ -7,7 +7,7 @@ on:
       - main
 
 concurrency:
-  group: deploy-production
+  group: deploy-prd
   cancel-in-progress: true
 
 jobs:
