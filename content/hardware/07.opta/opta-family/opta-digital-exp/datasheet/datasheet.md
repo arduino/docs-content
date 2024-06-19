@@ -22,10 +22,10 @@ There are two variants of the Arduino Opta® Digital Expansion created to fit th
 | Name    | Arduino Opta® Ext D1608E                                     | Arduino Opta® Ext D1608S                                    |
 |---------|--------------------------------------------------------------|-------------------------------------------------------------|
 | SKU     | AFX00005                                                     | AFX00006                                                    |
-| Inputs  | 16 x programmable (0-10 V or 0-24 V digital / 0-24 V analog) | 16 x programmable (0-10 V or 0-24 V digital / 0-24 V analog) |
+| Inputs  | 16 x programmable (0-24 V digital / 0-10 V or 0-24 V analog) | 16 x programmable (0-24 V digital / 0-10 V or 0-24 V analog) |
 | Outputs | 8 x Electromechanical Relays (250 VAC - 6 A)                 | 8 x Solid State Relays (24 VDC - 2 A)                       |
 
-***All digital expansion inputs support both 0-10 V and 0-24 V logic levels, this means that you can seamlessly interface them with 0-10 V or 0-24 V sensors.***
+***All digital expansion inputs, configured as analog, support analog sensors both 0-10 VDC(industrial standard) and 0-24 VDC.***
 
 ## Application Examples
 Arduino Opta® Expansion is designed for industrial standard machinery control alongside the Opta® micro PLC. It is readily integrated into the Arduino hardware and software ecosystem.
@@ -44,7 +44,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Supply Voltage          | 12...24 V                                                                                             |
 | Antipolarity protection | Yes                                                                                                   |
 | Overvoltage protection  | Yes (+20%)                                                                                            |
-| Inputs                  | 16x Digital (0-10 V / 0-24 V) / Analog (0-24 V) inputs                                                         |
+| Inputs                  | 16x Digital (0-24 V) / Analog (0-10 V or 0-24 V) inputs                                                         |
 | Outputs                 | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
 | Degree of Protection    | IP20                                                                                                  |
 | Certifications          | FCC, CE, UKCA                                                                                         |
@@ -60,25 +60,25 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 
 ***The inputs are marked on plastic as DGT/0-10 V to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V range.***
 
-#### Analog Inputs
-| Characteristics           | Details                          |
-|---------------------------|----------------------------------|
-| Analog Input voltage      | 0...24 V                         |
-| Analog Input resolution   | 14 bit                           |
-| Analog Input LSB value    | 1.733 mV                         |
-| Accuracy                  | +/- 5%, repeatability +/- 2%     |
-
-***The analog-to-digital converter resolution of 14 bits is considered in the 0-24 V range.***
-
 #### Digital Inputs
 | Characteristics                   | Details                                |
 |-----------------------------------|----------------------------------------|
-| Digital Input voltage             | 0...24 V (supports 0-10 V logic level) |
+| Digital Input voltage             | 0...24 V                               |
 | Digital Input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC       |
 | Digital Input current             | 4.12 mA at 24 V, 2.05 mA at 10 V       |
 | Digital Input frequency           | 300 Hz                                 |
 
-***The expansion digital inputs are compatible with 0-10 V and 0-24 V logic-level sensors.***
+***The expansion digital inputs are compatible with 0-10 V and 0-24 V digital sensors.***
+
+#### Analog Inputs
+| Characteristics           | Details                          |
+|---------------------------|----------------------------------|
+| Analog Input voltage      | 0...10 V or 0...24 V             |
+| Analog Input resolution   | 14 bit                           |
+| Analog Input LSB value    | 1.733 mV                         |
+| Accuracy                  | +/- 5%, repeatability +/- 2%     |
+
+***The analog-to-digital converter resolution of 14 bits is considered in the 0-24 VDC range. If you are using a 0-10 VDC sensor, take into account that you will be leveraging half of the ADC scope.***
 
 ### Outputs (AFX00005 Only)
 
