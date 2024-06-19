@@ -57,7 +57,7 @@ if(configManager.options.checkBrokenLinks){
 };
 
 // Verify if articles contain discouraged foldernames (which translate into URLs)
-validator.addValidation(allArticles, validateFolderName);
+validator.addValidation(allArticles, validateFolderName, configManager.getConfig("generic").folderNameIgnoreList);
 
 // Verify that all files in the assets folder are referenced
 validator.addValidation(allArticles, validateReferencedAssets);

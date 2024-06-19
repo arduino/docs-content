@@ -52,7 +52,7 @@ The following accessories are needed:
 - If you have an [Opta™](https://store-usa.arduino.cc/collections/opta-family), you do not need any license key to activate your product. Go to section [__License Activation With Pre-Licensed Products (Opta™)__](#6-license-activation-with-pre-licensed-products-opta™) to know more.
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), [Arduino Web Editor](https://create.arduino.cc/editor) or any program with a serial monitor in case you need to retrieve the _Hardware-ID_ of your device.
 
-***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the [Arduino software page](https://www.arduino.cc/en/software) and the [store page](https://store.arduino.cc/plc-key-portenta-machine-control).***
+***To get the Arduino PLC IDE for your device, please visit the [Arduino software page](https://www.arduino.cc/en/software). In case you are using a Portenta Machine Control, you need to acquire a PLC IDE License at the [store page](https://store.arduino.cc/plc-key-portenta-machine-control).***
 
 ## Instructions
 
@@ -134,11 +134,13 @@ Plug your device to the computer, select your board's Serial Port, and click the
 
 ***Download the runtime every time you update the PLC IDE from a previous version.***
 
-***The device will show two Serial Ports: the default (generally with the lowest number) is the usual Serial Port. The secondary one (usually with the highest number) is a virtual port for Modbus communication from the device to your computer. Please take note of the port number assigned to the secondary port (virtual port for Modbus), as it will be needed in a second step.***
+***The device will display two Serial Ports: the default port, typically with the lowest number, and the secondary port, usually with the highest number. The default port is the usual Serial port and a virtual port for Modbus communication between the device and your computer. If the default port with the lowest number cannot establish a connection, please note the port number assigned to the secondary port, as it will be needed in a subsequent step.***
 
 If the following message appears during the download procedure, double-tap the reset button using the tip of a pen or a similar pointed object. The LED above the reset button for Opta™ or the Digital Outputs LEDs for Portenta Machine control will start blinking, indicating that the device is ready to be flashed with new firmware. Click the **Download** button to begin the process again.
 
 ![Download error message](assets/downloadSketchError.png)
+
+***If you persistently experience issues during the download procedure or related processes, try launching the PLC IDE with __administrative privileges__. This can help resolve permission related problems that may prevent download procedures or device interactions.***
 
 ### 4. Connect to the Device
 
@@ -150,7 +152,7 @@ On the new popup window, open the properties of the Modbus protocol.
 
 ![Properties of the communication](assets/onlineSetup.png)
 
-Ensure the Modbus protocol uses the secondary Serial port number, the Modbus Virtual port you noted before. Press OK.
+Ensure the Modbus protocol uses the default Serial port number as the initial option, the Modbus Virtual port you noted before. Use the secondary Serial port number number for additional devices or those with higher Serial number series if applicable. Press OK.
 
 ![Setting up the Modbus protocol](assets/onlineSetupProperties.png)
 

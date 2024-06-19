@@ -44,6 +44,8 @@ Additionally, you may need the following accessories:
 * RS-485 connection wire STP/UTP 24-18AWG (Unterminated) 100-130Ω rated (x3)
 * RS-485 connection wire STP/UTP 22-16AWG (Terminated) 100-130Ω rated (x3)
 
+***The __AKX00056 Industrial Automation and Lighting Kit__ can be purchased from __Avnet__. For more details on the purchase, please visit [the store page](https://www.avnet.com/shop/us/products/arduino/akx00056-3074457345653947772).***
+
 ## Getting Started with Your Kit
 
 1. Get to [cloud.arduino.cc](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business)!
@@ -56,7 +58,6 @@ Additionally, you may need the following accessories:
 
 5. Start practicing the first examples included in the user manual, the IDE examples, and deep dive into the knowledge topics needed to exploit all the product’s features such as [Modbus Protocol](https://docs.arduino.cc/learn/communication/modbus) and the experiences proposed below.
 
-
 ## Experiences Proposed
 
 If you want to learn more about the technologies of the kit, we propose the following experiences:
@@ -66,8 +67,6 @@ If you want to learn more about the technologies of the kit, we propose the foll
 | [Energy Management with Opta](https://docs.arduino.cc/tutorials/opta/energy-management-application-note) |    Yes     |    Yes    |
 |   [Home Automation with Opta](https://docs.arduino.cc/tutorials/opta/home-automation-application-note)   |            |    Yes    |
 |      [Tank Level Monitoring with Opta](https://docs.arduino.cc/tutorials/opta/tank-level-app-note)       |    Yes     |    Yes    |
-
-
 
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that to follow the tutorial you must use all the products with the `+` symbol.
 

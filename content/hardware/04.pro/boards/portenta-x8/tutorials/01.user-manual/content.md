@@ -302,7 +302,9 @@ chmod +x 399-install-update
 sudo ./399-install-update
 ```
 
-Remember that the default password for admin access is `fio`.
+Remember to set a new admin password at your first access.
+
+***For image versions earlier than 844, the default password for admin access is `fio`.*** 
 
 Now you need to reboot the board by pressing its pushbutton for around 10 seconds. After that, connect again to your Portenta X8 through the Command Line and type the following commands:
 
@@ -759,7 +761,11 @@ At this point, you can type `adb shell` to start communicating with your Portent
 
 As it is a Linux device, you can do tasks like creating files, changing directories, etc.
 
-To gain admin (root) access, type `sudo su -` and the password, which by default is `fio`. After that, the terminal prefix should turn red.
+To gain admin (root) access, type `sudo su -` and set your own password. 
+
+***For image versions earlier than 844, the default password for admin access is `fio`.*** 
+
+After that, the terminal prefix should turn red.
 
 ![ADB shell with admin access](assets/adb-sudo-su.png "ADB shell with admin access")
 
@@ -767,7 +773,7 @@ You can now freely program your Portenta X8 Linux OS. In the sections below you 
 
 ### Change Default User Password
 
-Your Portenta X8 comes with the default user fio with password fio.
+For image versions earlier than 844, our Portenta X8 comes with the default user fio with password fio.
 
 For security reasons, we strongly suggest changing the default password. To do so, when logged in to your Portenta X8, launch this command to change the password of the fio account:
 
@@ -981,7 +987,7 @@ To start using your Portenta X8 with Arduino Cloud, provision your device as des
 
 Once ready, you will have the chance to customize Portenta X8 example Thing and Dashboard. This can be done by writing your own Python script leveraging the [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Check the documentation and the examples inside the library to learn more about how to create your own Python application.
 
-When your Python script is ready, you have to create a dedicated Dockerfile integrating your new script. The Dockefile needs the Out-of-the-box Python container (i.e. `arduino-ootb-python-devel`) to be able to correctly interact with your Arduino Cloud account.
+When your Python script is ready, you have to create a dedicated Dockerfile integrating your new script. The Dockerfile needs the Out-of-the-box Python container (i.e. `arduino-ootb-python-devel`) to be able to correctly interact with your Arduino Cloud account.
 
 So, open a terminal window and create a Dockerfile integrating the following code together with your Python script:
 
@@ -1215,7 +1221,7 @@ Open Portenta X8 Shell as explained [here](#working-with-linux).
 sudo modprobe spi-dev
 ```
 
-Insert the user password `fio`.
+Insert the user password.
 
 An upcoming image release for the X8 will load the `spi-dev` modules automatically at boot. In the current version, please create a `/etc/modules-load.d/spi-dev.conf` file with the following content:
 

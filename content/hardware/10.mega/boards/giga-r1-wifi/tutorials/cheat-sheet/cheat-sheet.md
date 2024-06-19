@@ -289,6 +289,8 @@ The pinout for the display connector is shown in the image below:
 
 ![MIPI/DSI connector.](assets/mipi-dsi.png)
 
+***When connecting a module or shield to the GIGA R1 WiFi board, be careful to not connect it at an angle or your board may be damaged.***
+
 The following pins are directly connected to the STM32H747XI and cannot be used as GPIOs.
 - D1N
 - D1P

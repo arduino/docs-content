@@ -347,7 +347,17 @@ Between the main pins, there are smaller contacts (fins) that provide access to 
 
 ![Nicla Voice connectors - mechanical measures](assets/mechanical_connectors.svg)
 
+<div style="page-break-after: always;"> </div>
+
 ## Certifications
+
+### Product Labeling
+
+The product labeling of the Arduino Nicla Voice is shown in the image below.
+
+![Nicla Voice Product Labeling](assets/niclaVoice-leaflet.png)
+
+
 ### Declaration of Conformity CE DoC (EU)
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
 
@@ -417,9 +427,9 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands     | Typical Output Power |
-| ------------------- | -------------------- |
-| 2.4GHz, 40 channels | +4dBm                |
+| Frequency bands      | Typical Output Power |
+| -------------------- | -------------------- |
+| 2.4 GHz, 40 channels | -1.14 dBm            |
 
 ## Company Information
 
@@ -440,10 +450,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**              | **Revision** | **Changes**               |
-| --------------------- | ------------ | ------------------------- |
-| 17/05/2023            | 2            | ESLOV Information updated |
-| 05/01/2023            | 1            | First release             |
+| **Date**   | **Revision** | **Changes**                    |
+| ---------- | ------------ | ------------------------------ |
+| 11/06/2024 | 4            | Product Labeling section added |
+| 04/06/2024 | 3            | Typical Output Power updated   |
+| 17/05/2023 | 2            | ESLOV Information updated      |
+| 05/01/2023 | 1            | First release                  |
 
 ## Product Warnings and Disclaimers
 

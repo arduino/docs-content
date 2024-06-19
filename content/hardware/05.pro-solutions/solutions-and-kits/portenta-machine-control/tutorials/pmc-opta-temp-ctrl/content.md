@@ -50,16 +50,16 @@ Opta™ PLC with RS-485 support: [Opta™ RS485](https://store.arduino.cc/produc
 
 ### Software Requirements
 
-- The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (including Arduino PLC IDE Tools)
+- The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide)
 - [Portenta Machine Control - PLC IDE Activation](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license)
 - [Opta™ - Set up with PLC IDE](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license#7-license-activation-with-pre-licensed-products-opta)
 - You can directly download the Arduino [PLC IDE Projects](assets/pmc-opta-temp-ctrl.zip) and extract them in your workspace
 
-***It is recommendable to read ["Connect RTD/Thermocouple to the Portenta Machine Control"](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc) tutorial before continuing present tutorial.***
+***It is recommended to read ["Connect RTD/Thermocouple to the Portenta Machine Control"](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc) tutorial before continuing to follow the present tutorial.***
 
 ## Temperature Sensor
 
-In this tutorial, a **Two-wire PT100 RTD** is used, but you can also use a Three-wire RTD or a thermocouple depending on your requirements or preferences. You can learn more about the differences between these temperature sensors and how to connect them to the Portenta Machine Control following the [previously mentioned tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc). It is recommendable to read [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc) to learn the basics about the temperature sensors introduced earlier.
+In this tutorial, a **Two-wire PT100 RTD** is used, but you can also use a Three-wire RTD or a thermocouple depending on your requirements or preferences. You can learn more about the differences between these temperature sensors and how to connect them to the Portenta Machine Control following the [previously mentioned tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc). It is recommended to read [this tutorial](https://docs.arduino.cc/tutorials/portenta-machine-control/rtd-thermocouple-pmc) to learn the basics about the temperature sensors introduced earlier.
 
 ## Connections
 

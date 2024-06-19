@@ -127,7 +127,7 @@ Test your IP connection by exiting the `adb shell`, you can use **CTRL+Z** or ty
 ssh fio@<localIP>
 ```
 
-***To connect through SSH, the user's password, "fio," will be requested. If you have trouble connecting with the SSH, please check the troubleshooting section at the end of this tutorial.***
+***To connect through SSH, the user's admin password you setup at first access will be requested. If you have trouble connecting with the SSH, please check the troubleshooting section at the end of this tutorial.***
 
 ### Copy/Push the Docker-Compose.yml
 
