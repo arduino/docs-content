@@ -218,7 +218,6 @@ The successful communication between Opta™ configured with PLC IDE and Arduino
 
 The **Inputs** define the variables that will capture the data from the Arduino Cloud through the local Arduino sketch to Opta™ PLC main program runtime. The Arduino Cloud will send the compilation of variables accordingly.
 
-
 Subsequently, the user programmable LED will be controlled via the Arduino Cloud dashboard. We will define a variable to be assigned later to update the LED state variable accordingly.
 
 ![PLC IDE - Shared inputs](assets/plc-ide-shared-variable-input.png)
