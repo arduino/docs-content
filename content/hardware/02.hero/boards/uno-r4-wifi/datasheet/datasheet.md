@@ -491,6 +491,7 @@ This equipment contains a radio transmitter module with model approval code: CMI
 
 | Date       | **Revision** | **Changes**        |
 | ---------- | ------------ | ------------------ |
+| 08/06/2023 | 5            | Update microcontroler datasheet links|
 | 19/09/2023 | 4            | Update FCC section |
 | 25/07/2023 | 3            | Update Pin Table   |
 | 30/06/2023 | 2            | Update Pinout File |
@@ -976,6 +977,7 @@ Arduino S.r.l.特此声明，本产品符合欧盟指令 2014/53/EU 的基本要
 
 | 日期       | ** **修订版** ** | **变更内容**  |
 | ---------- | ---------------- | ------------- |
+| 20/06/2024 | 5                | 更新微控制器数据手册链接|
 | 19/09/2023 | 4                | 更新 FCC 部分 |
 | 25/07/2023 | 3                | 更新引脚表    |
 | 30/06/2023 | 2                | 更新引脚文件  |
