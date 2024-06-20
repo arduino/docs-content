@@ -491,7 +491,7 @@ This equipment contains a radio transmitter module with model approval code: CMI
 
 | Date       | **Revision** | **Changes**        |
 | ---------- | ------------ | ------------------ |
-| 08/06/2023 | 5            | Update microcontroler datasheet links|
+| 08/06/2023 | 5            | Update microcontroller datasheet links|
 | 19/09/2023 | 4            | Update FCC section |
 | 25/07/2023 | 3            | Update Pin Table   |
 | 30/06/2023 | 2            | Update Pinout File |
