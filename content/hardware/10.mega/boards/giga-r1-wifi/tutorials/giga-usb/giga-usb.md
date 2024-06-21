@@ -44,7 +44,7 @@ The GIGA R1 has two USB connectors:
 
 ***Note: do NOT connect the USB-A connector to your computer. This is not a programming port and if the `PA15` pin is enabled, it can damage your computer's USB port.***
 
-Below is an example of how you should use the USB-C / USB-A connectors. 
+Below is an example of how you should use the USB-C / USB-A connectors.
 
 ![Keyboard connected to USB-A port.](assets/giga-keyboard-connect.png)
 
@@ -158,7 +158,7 @@ void setup() {
       ;
   }
   Serial.print("read done ");
-  
+
   //function to write to file
   WriteToFile();
 }
@@ -182,9 +182,9 @@ void WriteToFile() {
     Serial.print(count);
     Serial.print(", Value: ");
     Serial.println(analogRead(A0));
-    
+
     fflush(stdout);
-    
+
     int reading = analogRead(A0);
 
     err = fprintf(f, "%s", "Reading Nr: ");
@@ -217,16 +217,16 @@ void WriteToFile() {
 
 After logging data, remove the USB stick from your board, and insert it in your computer to see the data logged:
 
-![Data logged in .txt file.](assets/giga-file-write.png)
+![Data logged in .txt file.](./assets//giga-file-write.png)
 
 ## USB Host Keyboard
 
-It is possible to connect generic USB keyboards to the GIGA R1's USB-A connector without any additional circuitry. 
+It is possible to connect generic USB keyboards to the GIGA R1's USB-A connector without any additional circuitry.
 
-The library used for this can be downloaded through Github. 
+The library used for this can be downloaded through Github.
 - [USBHostGiga](https://github.com/arduino-libraries/USBHostGiga)
 
-Please note that this library is in **Alpha** development stage. This means support is experimental and examples may not function as expected. Future versions of this library may break the example provided below. 
+Please note that this library is in **Alpha** development stage. This means support is experimental and examples may not function as expected. Future versions of this library may break the example provided below.
 
 ***The USBHostGiga library is not available in the Arduino IDE and needs to be installed manually. You can do so my navigating to `Sketch` > `Include Library` > `Add .ZIP Library`.***
 
@@ -234,7 +234,7 @@ Please note that this library is in **Alpha** development stage. This means supp
 
 ## USB HID
 
-It is possible to turn your GIGA R1 board into a Human Interface Device **(HID)**, aka mouse & keyboard, using the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library which is included in the GIGA Board Package. 
+It is possible to turn your GIGA R1 board into a Human Interface Device **(HID)**, aka mouse & keyboard, using the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library which is included in the GIGA Board Package.
 
 Among other things, you can:
 - Create a custom keyboard, or a keyboard accessory,
@@ -243,9 +243,9 @@ Among other things, you can:
 
 ### Keyboard
 
-***Important! When using the GIGA as a keyboard, make sure to include some sort of delay. Otherwise, you may end up printing things very fast, which can be an annoyance. If this happens nonetheless, double tap the reset button and upload a blank sketch to reset the board.*** 
+***Important! When using the GIGA as a keyboard, make sure to include some sort of delay. Otherwise, you may end up printing things very fast, which can be an annoyance. If this happens nonetheless, double tap the reset button and upload a blank sketch to reset the board.***
 
-To emulate a keyboard, we need to include `PluggableUSBHID.h` and `USBKeyboard.h`, and create an object using the `USBkeyboard` constructor. 
+To emulate a keyboard, we need to include `PluggableUSBHID.h` and `USBKeyboard.h`, and create an object using the `USBkeyboard` constructor.
 
 ```arduino
 #include "PluggableUSBHID.h"
@@ -265,7 +265,7 @@ See the `DEC` column at [ascii-code.com](https://www.ascii-code.com/) to underst
 To print a whole string, use the `printf()` method.
 
 ```arduino
-Keyboard.printf("Hello World!"); 
+Keyboard.printf("Hello World!");
 ```
 
 To use modifiers and function keys, use the `key_code()` method.
@@ -284,7 +284,7 @@ Keyboard.media_control(KEY_NEXT_TRACK);
 
 ### Mouse
 
-To emulate a mouse, we need to include `PluggableUSBHID.h` and `USBMouse.h`, and create an object using the `USBMouse` constructor. 
+To emulate a mouse, we need to include `PluggableUSBHID.h` and `USBMouse.h`, and create an object using the `USBMouse` constructor.
 
 ```arduino
 #include "PluggableUSBHID.h"
@@ -322,7 +322,7 @@ Mouse.press(MOUSE_MIDDLE);
 
 delay(1000);
 
-Mouse.release(); 
+Mouse.release();
 ```
 
 ## Summary
