@@ -217,6 +217,8 @@ void WriteToFile() {
 
 After logging data, remove the USB stick from your board, and insert it in your computer to see the data logged:
 
+![Data logged in .txt file.](./assets/giga-file-write.png)
+
 ## USB Host Keyboard
 
 It is possible to connect generic USB keyboards to the GIGA R1's USB-A connector without any additional circuitry.
