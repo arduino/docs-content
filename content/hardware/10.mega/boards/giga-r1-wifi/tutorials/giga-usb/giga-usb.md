@@ -44,8 +44,8 @@ The GIGA R1 has two USB connectors:
 
 ***Note: do NOT connect the USB-A connector to your computer. This is not a programming port and if the `PA15` pin is enabled, it can damage your computer's USB port.***
 
-Below is an example of how you should use the USB-C / USB-A connectors. 
-
+Below is an example of how you should use the USB-C / USB-A connectors.
+![Keyboard connected to USB-A port.](assets/giga-file-write-test.png)
 ![Keyboard connected to USB-A port.](assets/giga-keyboard-connect.png)
 
 ## Enable/Disable USB-A Port
@@ -98,234 +98,19 @@ FILE *f = fopen("/usb/text.txt", "r+");
 
 Below is an example sketch that can be used to **list** files in a USB mass storage device.
 
-```arduino
-#include <DigitalOut.h>
-#include <FATFileSystem.h>
-#include <Arduino_USBHostMbed5.h>
-
-USBHostMSD msd;
-mbed::FATFileSystem usb("usb");
-
-
-void setup()
-{
-    Serial.begin(115200);
-    
-    pinMode(PA_15, OUTPUT); //enable the USB-A port
-    digitalWrite(PA_15, HIGH);
-    
-    while (!Serial)
-        ;
-
-    Serial.println("Starting USB Dir List example...");
-
-    // if you are using a Max Carrier uncomment the following line
-    // start_hub();
-
-    while (!msd.connect()) {
-        //while (!port.connected()) {
-        delay(1000);
-    }
-
-    Serial.print("Mounting USB device... ");
-    int err = usb.mount(&msd);
-    if (err) {
-        Serial.print("Error mounting USB device ");
-        Serial.println(err);
-        while (1);
-    }
-    Serial.println("done.");
-
-    char buf[256];
-
-    // Display the root directory
-    Serial.print("Opening the root directory... ");
-    DIR* d = opendir("/usb/");
-    Serial.println(!d ? "Fail :(" : "Done");
-    if (!d) {
-        snprintf(buf, sizeof(buf), "error: %s (%d)\r\n", strerror(errno), -errno);
-        Serial.print(buf);
-    }
-    Serial.println("done.");
-
-    Serial.println("Root directory:");
-    unsigned int count { 0 };
-    while (true) {
-        struct dirent* e = readdir(d);
-        if (!e) {
-            break;
-        }
-        count++;
-        snprintf(buf, sizeof(buf), "    %s\r\n", e->d_name);
-        Serial.print(buf);
-    }
-    Serial.print(count);
-    Serial.println(" files found!");
-
-    snprintf(buf, sizeof(buf), "Closing the root directory... ");
-    Serial.print(buf);
-    fflush(stdout);
-    err = closedir(d);
-    snprintf(buf, sizeof(buf), "%s\r\n", (err < 0 ? "Fail :(" : "OK"));
-    Serial.print(buf);
-    if (err < 0) {
-        snprintf(buf, sizeof(buf), "error: %s (%d)\r\n", strerror(errno), -errno);
-        Serial.print(buf);
-    }
-}
-
-void loop()
-{
-}
-```
+<CodeBlock url="https://github.com/arduino-libraries/Arduino_USBHostMbed5/blob/main/examples/DirList/DirList.ino" className="arduino"/>
 
 ### File Read
 
 Below is an example sketch that can be used to **read** files from a USB mass storage device.
 
-```arduino
-#include <Arduino_USBHostMbed5.h>
-#include <DigitalOut.h>
-#include <FATFileSystem.h>
-
-USBHostMSD msd;
-mbed::FATFileSystem usb("usb");
-
-// If you are using a Portenta Machine Control uncomment the following line
-mbed::DigitalOut otg(PB_14, 0);
- 
-void setup() {
-  Serial.begin(115200);
-  
-  pinMode(PA_15, OUTPUT); //enable the USB-A port
-  digitalWrite(PA_15, HIGH);  
-  
-  while (!Serial);
-
-  delay(2500);
-  Serial.println("Starting USB File Read example...");
-
-  // if you are using a Max Carrier uncomment the following line
-  //start_hub();
-
-  while (!msd.connect()) {
-    delay(1000);
-  }
-
-  Serial.println("Mounting USB device...");
-  int err =  usb.mount(&msd);
-  if (err) {
-    Serial.print("Error mounting USB device ");
-    Serial.println(err);
-    while (1);
-  }
-  Serial.print("read done ");
-  mbed::fs_file_t file;
-  struct dirent *ent;
-  int dirIndex = 0;
-  int res = 0;
-  Serial.println("Open file..");
-  FILE *f = fopen("/usb/Arduino.txt", "r+");
-  char buf[256];
-  Serial.println("File content:");
-
-  while (fgets(buf, 256, f) != NULL) {
-    Serial.print(buf);
-  }
-
-  Serial.println("File closing");
-  fflush(stdout);
-  err = fclose(f);
-  if (err < 0) {
-    Serial.print("fclose error:");
-    Serial.print(strerror(errno));
-    Serial.print(" (");
-    Serial.print(-errno);
-    Serial.print(")");
-  } else {
-    Serial.println("File closed");
-  }
-}
-
-void loop() {
-
-}
-```
+<CodeBlock url="https://github.com/arduino-libraries/Arduino_USBHostMbed5/blob/main/examples/FileRead/FileRead.ino" className="arduino"/>
 
 ### File Write
 
 Below is an example sketch that can be used to **write** files from a USB mass storage device.
 
-```arduino
-#include <Arduino_USBHostMbed5.h>
-#include <DigitalOut.h>
-#include <FATFileSystem.h>
-
-USBHostMSD msd;
-mbed::FATFileSystem usb("usb");
-
-// mbed::DigitalOut pin5(PC_6, 0);
-mbed::DigitalOut otg(PB_8, 1);
-
-void setup() {
-  Serial.begin(115200);
-  
-  pinMode(PA_15, OUTPUT); //enable the USB-A port
-  digitalWrite(PA_15, HIGH);
-  
-  while (!Serial);
-  
-  msd.connect();
-
-  while (!msd.connected()) {
-    //while (!port.connected()) {
-    delay(1000);
-  }
-
-  Serial.println("Mounting USB device...");
-  int err =  usb.mount(&msd);
-  if (err) {
-    Serial.print("Error mounting USB device ");
-    Serial.println(err);
-    while (1);
-  }
-  Serial.print("read done ");
-  mbed::fs_file_t file;
-  struct dirent *ent;
-  int dirIndex = 0;
-  int res = 0;
-  Serial.println("Open /usb/numbers.txt");
-  FILE *f = fopen("/usb/numbers.txt", "w+");
-  for (int i = 0; i < 10; i++) {
-    Serial.print("Writing numbers (");
-    Serial.print(i);
-    Serial.println("/10)");
-    fflush(stdout);
-    err = fprintf(f, "%d\n", i);
-    if (err < 0) {
-      Serial.println("Fail :(");
-      error("error: %s (%d)\n", strerror(errno), -errno);
-    }
-  }
-
-  Serial.println("File closing");
-  fflush(stdout);
-  err = fclose(f);
-  if (err < 0) {
-    Serial.print("fclose error:");
-    Serial.print(strerror(errno));
-    Serial.print(" (");
-    Serial.print(-errno);
-    Serial.print(")");
-  } else {
-    Serial.println("File closed");
-  }
-}
-
-void loop() {
-
-}
-```
+<CodeBlock url="https://github.com/arduino-libraries/Arduino_USBHostMbed5/blob/main/examples/FileWrite/FileWrite.ino" className="arduino"/>
 
 ### Datalogger Example
 
@@ -373,7 +158,7 @@ void setup() {
       ;
   }
   Serial.print("read done ");
-  
+
   //function to write to file
   WriteToFile();
 }
@@ -397,9 +182,9 @@ void WriteToFile() {
     Serial.print(count);
     Serial.print(", Value: ");
     Serial.println(analogRead(A0));
-    
+
     fflush(stdout);
-    
+
     int reading = analogRead(A0);
 
     err = fprintf(f, "%s", "Reading Nr: ");
@@ -432,52 +217,22 @@ void WriteToFile() {
 
 After logging data, remove the USB stick from your board, and insert it in your computer to see the data logged:
 
-![Data logged in .txt file.](assets/giga-file-write.png)
-
 ## USB Host Keyboard
 
-It is possible to connect generic USB keyboards to the GIGA R1's USB-A connector without any additional circuitry. 
+It is possible to connect generic USB keyboards to the GIGA R1's USB-A connector without any additional circuitry.
 
-The library used for this can be downloaded through Github. 
+The library used for this can be downloaded through Github.
 - [USBHostGiga](https://github.com/arduino-libraries/USBHostGiga)
 
-Please note that this library is in **Alpha** development stage. This means support is experimental and examples may not function as expected. Future versions of this library may break the example provided below. 
+Please note that this library is in **Alpha** development stage. This means support is experimental and examples may not function as expected. Future versions of this library may break the example provided below.
 
 ***The USBHostGiga library is not available in the Arduino IDE and needs to be installed manually. You can do so my navigating to `Sketch` > `Include Library` > `Add .ZIP Library`.***
 
-```arduino
-#include "USBHostGiga.h"
-
-//REDIRECT_STDOUT_TO(Serial)
-Keyboard keyb;
-HostSerial ser;
-
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(115200);
-  while (!Serial);
-  pinMode(PA_15, OUTPUT);
-  keyb.begin();
-  ser.begin();
-}
-
-
-void loop() {
-  if (keyb.available()) {
-    auto _key = keyb.read();
-    Serial.println(keyb.getAscii(_key));
-  }
-  while (ser.available()) {
-    auto _char = ser.read();
-    Serial.write(_char);
-  }
-  //delay(1);
-}
-```
+<CodeBlock url="https://github.com/arduino-libraries/USBHostGiga/blob/master/examples/KeyboardGiga/KeyboardGiga.ino" className="arduino"/>
 
 ## USB HID
 
-It is possible to turn your GIGA R1 board into a Human Interface Device **(HID)**, aka mouse & keyboard, using the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library which is included in the GIGA Board Package. 
+It is possible to turn your GIGA R1 board into a Human Interface Device **(HID)**, aka mouse & keyboard, using the [USBHID](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/USBHID) library which is included in the GIGA Board Package.
 
 Among other things, you can:
 - Create a custom keyboard, or a keyboard accessory,
@@ -486,9 +241,9 @@ Among other things, you can:
 
 ### Keyboard
 
-***Important! When using the GIGA as a keyboard, make sure to include some sort of delay. Otherwise, you may end up printing things very fast, which can be an annoyance. If this happens nonetheless, double tap the reset button and upload a blank sketch to reset the board.*** 
+***Important! When using the GIGA as a keyboard, make sure to include some sort of delay. Otherwise, you may end up printing things very fast, which can be an annoyance. If this happens nonetheless, double tap the reset button and upload a blank sketch to reset the board.***
 
-To emulate a keyboard, we need to include `PluggableUSBHID.h` and `USBKeyboard.h`, and create an object using the `USBkeyboard` constructor. 
+To emulate a keyboard, we need to include `PluggableUSBHID.h` and `USBKeyboard.h`, and create an object using the `USBkeyboard` constructor.
 
 ```arduino
 #include "PluggableUSBHID.h"
@@ -508,7 +263,7 @@ See the `DEC` column at [ascii-code.com](https://www.ascii-code.com/) to underst
 To print a whole string, use the `printf()` method.
 
 ```arduino
-Keyboard.printf("Hello World!"); 
+Keyboard.printf("Hello World!");
 ```
 
 To use modifiers and function keys, use the `key_code()` method.
@@ -527,7 +282,7 @@ Keyboard.media_control(KEY_NEXT_TRACK);
 
 ### Mouse
 
-To emulate a mouse, we need to include `PluggableUSBHID.h` and `USBMouse.h`, and create an object using the `USBMouse` constructor. 
+To emulate a mouse, we need to include `PluggableUSBHID.h` and `USBMouse.h`, and create an object using the `USBMouse` constructor.
 
 ```arduino
 #include "PluggableUSBHID.h"
@@ -565,7 +320,7 @@ Mouse.press(MOUSE_MIDDLE);
 
 delay(1000);
 
-Mouse.release(); 
+Mouse.release();
 ```
 
 ## Summary
