@@ -45,7 +45,7 @@ The GIGA R1 has two USB connectors:
 ***Note: do NOT connect the USB-A connector to your computer. This is not a programming port and if the `PA15` pin is enabled, it can damage your computer's USB port.***
 
 Below is an example of how you should use the USB-C / USB-A connectors.
-
+![Keyboard connected to USB-A port.](assets/giga-file-write-test.png)
 ![Keyboard connected to USB-A port.](assets/giga-keyboard-connect.png)
 
 ## Enable/Disable USB-A Port
