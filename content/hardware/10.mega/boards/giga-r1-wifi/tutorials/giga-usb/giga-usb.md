@@ -217,7 +217,7 @@ void WriteToFile() {
 
 After logging data, remove the USB stick from your board, and insert it in your computer to see the data logged:
 
-![Data logged in .txt file.](./assets/giga-file-write.png)
+![Data logged in .txt file.](./assets/giga-file-write-test.png)
 
 ## USB Host Keyboard
 
