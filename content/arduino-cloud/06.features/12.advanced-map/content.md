@@ -101,7 +101,7 @@ Picking one of the other time frame options will show the locations of the devic
 
 To see a specific time period, click on the calendar icon, where you can select the starting & end time & date.
 
-![Select time & date.](assets/select-time-frame.png)
+![Select time & date.](assets/set-time-frame.png)
 
 ## Limitations
 
