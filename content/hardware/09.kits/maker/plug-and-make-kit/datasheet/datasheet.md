@@ -467,7 +467,7 @@ The PIXELS module includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 c
 
 | **Specification**   | **Details**                                         |
 |---------------------|-----------------------------------------------------|
-| Sensor              | Eight LC8822-2020                                   |
+| Actuator              | Eight LC8822-2020                                   |
 | Microcontroller     | STM32C011F4                                         |
 | Supply Voltage      | Min: 2.0 V, Max: 3.6 V                              |
 | Power Consumption   | 33mA @ 3.3 V * 8 + 3.4 mA                           |
