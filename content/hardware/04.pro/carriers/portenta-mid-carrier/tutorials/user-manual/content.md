@@ -2395,19 +2395,21 @@ sudo mmcli -m /org/freedesktop/ModemManager1/Modem/0 --command="ATI"
 
 You can now start sending AT commands. Here are a few basic AT commands to test the modem:
 
-| **AT Command** 	|                                       **Description**                                      	|
-|:--------------:	|:------------------------------------------------------------------------------------------:	|
-| ATI            	| Retrieves the modem's basic information such as manufacturer, model, and firmware version. 	|
-| AT+CSQ         	| Checks the signal quality of the modem                                                     	|
-| AT+GMI         	| Retrieves the manufacturer identification                                                  	|
-| AT+GMM         	| Retrieves the model identification of the modem                                            	|
-| ATV            	| Displays the active configuration profile                                                  	|
-| AT+CGMR        	| Retrieves the firmware version of the modem                                                	|
-| AT+CPAS        	| Reports the current status of the modem                                                    	|
-| AT+CEER        	| Provides detailed information on the last error cause                                      	|
-| AT+QNWINFO     	| Retrieves the current network information                                                  	|
+| **AT Command** |                                       **Description** |
+|:--------------: |:------------------------------------------------------------------------------------------: |
+| ATI             | Retrieves the modem's basic information, such as manufacturer, model, and firmware version.  |
+| AT+CSQ          | Checks the signal quality of the modem                                                      |
+| AT+GMI          | Retrieves the manufacturer identification                                                   |
+| AT+GMM          | Retrieves the model identification of the modem                                             |
+| ATV             | Displays the active configuration profile                                                   |
+| AT+CGMR         | Retrieves the firmware version of the modem                                                 |
+| AT+CPAS         | Reports the current status of the modem                                                     |
+| AT+CEER         | Provides detailed information on the last error cause                                       |
+| AT+QNWINFO      | Retrieves the current network information                                                   |
 
 ![Arduino Pro 4G Module - AT Commands Test](assets/portentaMIDcarrier_mpcie_4gmodem_at3.png)
+
+***For complete information on AT commands compatible with the Pro 4G Module, please refer to the [AT Commands Manual](assets/Quectel_EC2x&EG9x&EG2x-G&EM05_Series_AT_Commands_Manual_V2.0.pdf).***
 
 You can use Docker to manage the dependencies and tools needed to send AT commands and ensure a consistent environment. The idea would be that you will have the environment running in a separate instance for testing purposes.
 
@@ -2495,17 +2497,17 @@ sudo kill <PID>
 
 Using **`nmcli`**, you can easily send AT commands to your Cat.4 modem to perform various tasks like checking the modem status, signal quality, and network registration. This method provides a straightforward way to interact with your modem from a Linux environment, whether you are performing a simple check or managing more advanced functions.
 
-By following these steps, you can effectively manage and troubleshoot your modem using AT commands in the Linux environment.
+Following these steps, you can effectively manage and troubleshoot your modem using AT commands in the Linux environment.
 
 #### Using Arduino
 
-The AT commands can also be sent to the Pro 4G Module using the Portenta H7 or Portenta C33 with the Arduino IDE.
+The AT commands can be sent to the Pro 4G Module using the Portenta H7 or Portenta C33 with the Arduino IDE.
 
-It will require [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) library. You can access the library through the Arduino IDE's library manager by navigating to **Sketch -> Include Library -> Manage Libraries** or using the IDE's side panel with books icon.
+You will need the [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) library, which you can access through the Arduino IDE's library manager by navigating to **Sketch -> Include Library -> Manage Libraries** or using the IDE's side panel with the books icon.
 
 ![Arduino Cellular Library for Pro 4G Modules](assets/arduino_cellular_library.png)
 
-Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta H7 or C33 requires **SERIAL1 Breakout** pins to be connected to designated **PCIe Breakout** pins :
+Make sure the mini PCIe power configuration is set as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta H7 or C33 requires the **SERIAL1 Breakout** pins to be connected to the corresponding **PCIe Breakout** pins:
 
 | **SERIAL1 Breakout Pins (17)** | **PCIe Breakout Pins (16)** |
 |--------------------------------|-----------------------------|
@@ -2515,13 +2517,13 @@ Please ensure the mini PCIe power configuration is set as outlined in the [Mini 
 | SERIAL1 CTS                    | mPCIe_RX_P                  |
 | mPCIE_GPIO_RST (GPIO6)         | mPCIe_RST                   |
 
-***Please use a 5.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta SOM and the carrier, particularly for extended periods of use.***
+***Please use a 5.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This ensures a stable power supply to the Portenta SOM and the carrier, especially during extended use.***
 
-The image below shows the setup, featuring the Portenta H7 and Pro 4G Module connected to the Portenta Mid Carrier along with a mini PCIe power configuration:
+The image below shows the setup with the Portenta H7 and Pro 4G Module connected to the Portenta Mid Carrier, along with a mini PCIe power configuration:
 
 ![Portenta Mid Carrier Mini PCIe & Portenta H7/C33 Setup](assets/portentaMIDcarrier_h7_c33_mpcie_set.png)
 
-The following example is called **ModemTerminal**, which can be found within the [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) library, compatible with the Portenta H7 and Portenta C33.
+The following example, **ModemTerminal**, is available in the [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) library and compatible with the Portenta H7 and Portenta C33.
 
 ```arduino
 /**
@@ -2572,18 +2574,18 @@ void loop() {
 }
 ```
 
-The example lets you send raw AT commands to the Pro 4G Module using the Arduino IDE with the Portenta H7 and Portenta C33. The script requires **arduino_secrets.h** to be defined with the following credentials:
+This example allows you to send raw AT commands to the Pro 4G Module using the Arduino IDE with the Portenta H7 and Portenta C33. The script requires the **arduino_secrets.h** file to be defined with the following credentials:
 
 - SIM Card PIN Number
 - GPRS APN
 - GPRS Login
 - GPRS Password
 
-These parameters are always required to use the SIM functionalities within the modem. The image below shows an anticipated result of the modem detected and connecting to a network using the Portenta H7 as the core device:
+These parameters are always required to use the SIM functionalities within the modem. The image below shows an example of the modem being detected and connecting to a network using the Portenta H7 as the core device:
 
 ![Arduino Pro 4G Module - AT Commands Test with Portenta H7](assets/portentaMIDcarrier_mpcie_4gmodem_at3_h7.png)
 
-It will show a similar result when the Portenta C33 is used as the core device with the Portenta Mid Carrier and the Pro 4G Module:
+A similar result will be shown when using the Portenta C33 as the core device with the Portenta Mid Carrier and the Pro 4G Module:
 
 ![Arduino Pro 4G Module - AT Commands Test with Portenta C33](assets/portentaMIDcarrier_mpcie_4gmodem_at3_c33.png)
 
