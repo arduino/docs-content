@@ -273,7 +273,7 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | OCSAUX    | Auxiliary Output         |
 
 It is possible to make VDDIO independent from 3.3 V by cutting its solder jumper.
-![](assets/VDDIO.png)
+![Cuttable jumper for selection](assets/VDDIO.png)
 
 LSM6DSOXTR interrupts INT1 and INT2 are available on the header.
 
