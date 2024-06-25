@@ -213,7 +213,7 @@ To facilitate this, a white rectangle is positioned on the bottom silk of the bo
 ![Blank silk for identification](assets/I2CTag.png)
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The maximum number of modules that can be connected together using this configuration is dependant on the power source and total consumption of the system plus the total length of the cables used. In our tests the maximum number of modules connected together and powered via the USB Type-C of the microcontroller is approximately 50 modules.
+<strong>Note:</strong> The maximum number of modules that can be connected together using this configuration is dependent on the power source and total consumption of the system plus the total length of the cables used. In our tests the maximum number of modules connected together and powered via the USB Type-C of the microcontroller is approximately 50 modules.
 </div>
 
 
