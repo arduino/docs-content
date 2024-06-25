@@ -2338,6 +2338,255 @@ You may find additional examples within the library to try various functionaliti
 
 For more details on how the library works, including a comprehensive guide on setup and usage of the above examples, please refer to this [library documentation](https://github.com/arduino-libraries/Arduino_Cellular/tree/main/docs).
 
+#### AT Commands Utility
+
+This section explains using AT commands to interact with the Cat.4 modem. These instructions will guide you through setting up your environment, sending AT commands, and managing your modem effectively.
+
+AT commands, also known as Hayes commands, are instructions used to control modems. These commands allow you to perform various functions, such as checking the modem status, signal quality, and network registration. Understanding how to send these commands is essential for managing and troubleshooting your Arduino Pro 4G Module.
+
+#### Using Linux
+
+This section provides instructions on using **ModemManager** and **mmcli** to send AT commands to your Cat.4 modem on the Portenta X8.
+
+Ensure that the Pro 4G Module is properly mounted on the Portenta Mid Carrier and that the Portenta X8 recognizes it. You can always use the following commands to verify the connection:
+
+```bash
+lsusb
+
+# Or
+dmesg
+```
+
+***Please set up the Pro 4G Module referring to [this section](#using-linux-4). Otherwise, the __ModemManager__ service may not work as intended or be recognized.***
+
+First, identify the modem with:
+
+```bash
+mmcli -L
+```
+
+The output will list the modems detected as the Pro 4G Module. Note the modem's device ID, for example:
+
+```bash
+/org/freedesktop/ModemManager1/Modem/0
+```
+
+![Arduino Pro 4G Module - AT Commands](assets/portentaMIDcarrier_mpcie_4gmodem_at1.png)
+
+To send AT commands, *ModemManager* must be in debug mode.
+
+```bash
+sudo systemctl stop ModemManager
+```
+
+The command below starts *ModemManager* in the background and redirects its output to a log file.
+
+```bash
+sudo ModemManager --debug > /var/log/modemmanager.log 2>&1 &
+```
+
+To send an AT command, the following command can be used:
+
+```bash
+sudo mmcli -m /org/freedesktop/ModemManager1/Modem/0 --command="ATI"
+```
+
+![Arduino Pro 4G Module - AT Commands](assets/portentaMIDcarrier_mpcie_4gmodem_at2.png)
+
+You can now start sending AT commands. Here are a few basic AT commands to test the modem:
+
+| **AT Command** 	|                                       **Description**                                      	|
+|:--------------:	|:------------------------------------------------------------------------------------------:	|
+| ATI            	| Retrieves the modem's basic information such as manufacturer, model, and firmware version. 	|
+| AT+CSQ         	| Checks the signal quality of the modem                                                     	|
+| AT+GMI         	| Retrieves the manufacturer identification                                                  	|
+| AT+GMM         	| Retrieves the model identification of the modem                                            	|
+| ATV            	| Displays the active configuration profile                                                  	|
+| AT+CGMR        	| Retrieves the firmware version of the modem                                                	|
+| AT+CPAS        	| Reports the current status of the modem                                                    	|
+| AT+CEER        	| Provides detailed information on the last error cause                                      	|
+| AT+QNWINFO     	| Retrieves the current network information                                                  	|
+
+![Arduino Pro 4G Module - AT Commands Test](assets/portentaMIDcarrier_mpcie_4gmodem_at3.png)
+
+You can use Docker to manage the dependencies and tools needed to send AT commands and ensure a consistent environment. The idea would be that you will have the environment running in a separate instance for testing purposes.
+
+```
+# Use the official Debian image
+FROM debian:latest
+
+# Install necessary packages
+RUN apt-get update && \
+ apt-get install -y modemmanager && \
+ apt-get install -y mmcli && \
+ apt-get clean && \
+ rm -rf /var/lib/apt/lists/*
+
+# Set the working directory
+WORKDIR /app
+
+# Set the default command to bash
+CMD ["bash"]
+```
+
+Create a file named *Dockerfile* with the content above. This *Dockerfile* sets up a Debian-based image with *ModemManager* and *mmcli* installed.
+
+Open a terminal in the directory containing the Dockerfile and build the Docker image:
+
+```bash
+docker build -t modem-manager .
+```
+
+Run the container with the Pro 4G Module attached. This command will start the container and open a bash shell:
+
+```bash
+docker run --rm -it --device=/dev/cdc-wdm0 modem-manager
+```
+
+Inside the Docker container, identify the modem and send AT commands:
+
+```bash
+# List modems
+mmcli -L
+```
+
+```bash
+# Replace `/org/freedesktop/ModemManager1/Modem/0` with your actual modem's device ID if required after verification
+sudo mmcli -m /org/freedesktop/ModemManager1/Modem/0 --command="ATI"
+```
+
+You can create a script to automate the process of starting *ModemManager* in debug mode and sending an AT command:
+
+```python
+#!/bin/bash
+
+# Stop ModemManager
+sudo systemctl stop ModemManager
+
+# Start ModemManager in debug mode quietly
+sudo ModemManager --debug > /var/log/modemmanager.log 2>&1 &
+
+# Wait a few seconds to ensure ModemManager is fully started
+sleep 5
+
+# Send AT command
+mmcli -m /org/freedesktop/ModemManager1/Modem/0 --command="ATI"
+```
+
+Save this script as run_mm_debug.sh, make it executable, and run it:
+
+```bash
+chmod +x run_mm_debug.sh
+```
+
+```bash
+./run_mm_debug.sh
+```
+
+To stop the ModemManager process running in debug mode, find its process ID (PID) and kill it:
+
+```bash
+ps aux | grep ModemManager
+```
+
+```bash
+sudo kill <PID>
+```
+
+Using **`nmcli`**, you can easily send AT commands to your Cat.4 modem to perform various tasks like checking the modem status, signal quality, and network registration. This method provides a straightforward way to interact with your modem from a Linux environment, whether you are performing a simple check or managing more advanced functions.
+
+By following these steps, you can effectively manage and troubleshoot your modem using AT commands in the Linux environment.
+
+#### Using Arduino
+
+The AT commands can also be sent to the Pro 4G Module using the Portenta H7 or Portenta C33 with the Arduino IDE.
+
+It will require [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) library. You can access the library through the Arduino IDE's library manager by navigating to **Sketch -> Include Library -> Manage Libraries** or using the IDE's side panel with books icon.
+
+![Arduino Cellular Library for Pro 4G Modules](assets/arduino_cellular_library.png)
+
+Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta H7 or C33 requires **SERIAL1 Breakout** pins to be connected to designated **PCIe Breakout** pins :
+
+| **SERIAL1 Breakout Pins (17)** | **PCIe Breakout Pins (16)** |
+|--------------------------------|-----------------------------|
+| SERIAL1 RX                     | mPCIe_CK_P                  |
+| SERIAL1 TX                     | mPCIe_CK_N                  |
+| SERIAL1 RTS                    | mPCIe_RX_N                  |
+| SERIAL1 CTS                    | mPCIe_RX_P                  |
+| mPCIE_GPIO_RST (GPIO6)         | mPCIe_RST                   |
+
+***Please use a 5.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This is important for maintaining a stable power supply to the Portenta SOM and the carrier, particularly for extended periods of use.***
+
+The image below shows the setup, featuring the Portenta H7 and Pro 4G Module connected to the Portenta Mid Carrier along with a mini PCIe power configuration:
+
+![Portenta Mid Carrier Mini PCIe & Portenta H7/C33 Setup](assets/portentaMIDcarrier_h7_c33_mpcie_set.png)
+
+The following example is called **ModemTerminal**, which can be found within the [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) library, compatible with the Portenta H7 and Portenta C33.
+
+```arduino
+/**
+ * The ModemTerminal example demonstrates how to use the ArduinoCellular library to send raw AT commands to the modem.
+ * 
+ * Instructions:
+ * 1. Insert a SIM card with or without PIN code in the Arduino Pro 4G Module.
+ * 2. Provide sufficient power to the Arduino Pro 4G Module. Ideally, use a 5V power supply
+ *   with a current rating of at least 2A and connect it to the VIN and GND pins.
+ * 3. Specify the APN, login, and password for your cellular network provider.
+ * 4. Upload the sketch to the connected Arduino board.
+ * 5. Open the serial monitor and type AT commands to interact with the modem.
+ * 
+ * Initial author: Cristian Dragomir
+*/
+
+#include "ArduinoCellular.h"
+#include "arduino_secrets.h"
+
+ArduinoCellular cellular = ArduinoCellular();
+
+void setup(){
+    Serial.begin(115200);
+    while (!Serial);
+    cellular.setDebugStream(Serial); // Uncomment this line to enable debug output
+    cellular.begin();
+
+    if(String(SECRET_PINNUMBER).length() > 0 && !cellular.unlockSIM(SECRET_PINNUMBER)){
+        Serial.println("Failed to unlock SIM card.");
+        while(true); // Stop here
+    }
+
+    Serial.println("Connecting...");
+    cellular.connect(SECRET_GPRS_APN, SECRET_GPRS_LOGIN, SECRET_GPRS_PASSWORD);
+    Serial.println("Connected!");
+    Serial.println("You can now send AT commands to the modem.");
+}
+
+void loop() {
+  while(Serial.available() == 0); // Wait for user input
+
+  // Read data from serial until newline
+  String userInput = Serial.readStringUntil('\n');
+
+  // Call the sendATCommand function with the read data
+  String response = cellular.sendATCommand(userInput.c_str());
+  Serial.println(response);
+}
+```
+
+The example lets you send raw AT commands to the Pro 4G Module using the Arduino IDE with the Portenta H7 and Portenta C33. The script requires **arduino_secrets.h** to be defined with the following credentials:
+
+- SIM Card PIN Number
+- GPRS APN
+- GPRS Login
+- GPRS Password
+
+These parameters are always required to use the SIM functionalities within the modem. The image below shows an anticipated result of the modem detected and connecting to a network using the Portenta H7 as the core device:
+
+![Arduino Pro 4G Module - AT Commands Test with Portenta H7](assets/portentaMIDcarrier_mpcie_4gmodem_at3_h7.png)
+
+It will show a similar result when the Portenta C33 is used as the core device with the Portenta Mid Carrier and the Pro 4G Module:
+
+![Arduino Pro 4G Module - AT Commands Test with Portenta C33](assets/portentaMIDcarrier_mpcie_4gmodem_at3_c33.png)
+
 #### Ethernet
 
 The Portenta Mid Carrier features an Ethernet port with an RJ45 connector model _TRJK7003A97NL_ with integrated magnetics. These magnetics are crucial for voltage isolation, noise suppression, signal quality maintenance, and rejecting common mode noise, ensuring adherence to waveform standards.
