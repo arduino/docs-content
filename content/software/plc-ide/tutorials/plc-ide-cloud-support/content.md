@@ -35,7 +35,6 @@ In this comprehensive tutorial, you will learn how to integrate and utilize the 
 
 ### Software Requirements
 
-- [Arduino PLC IDE Tools](https://www.arduino.cc/en/software#arduino-plc-ide)
 - [Arduino PLC IDE software](https://www.arduino.cc/en/software#arduino-plc-ide)
 - If you have an Opta™, you do not need any license key to activate your product. Go to section [__License Activation With Pre-Licensed Products (Opta™)__](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license#7-license-activation-with-pre-licensed-products-opta) to know more.
 - The [Arduino Cloud](https://cloud.arduino.cc/) will be required to perform remote actuation and status monitoring via Wi-Fi® connectivity using the sketch provided in the following section. In case you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
@@ -43,8 +42,8 @@ In this comprehensive tutorial, you will learn how to integrate and utilize the 
 - To ensure optimal Wi-Fi® connectivity on Opta™, please use the `WiFiFirmwareUpdater` to update with the latest network firmware version. This can be done by going to `Examples -> STM32H747_System -> WiFiFirmwareUpdater` on Arduino IDE 2.X. Additionally, please ensure that you have the latest __Arduino Mbed OS Opta Boards__ version, which can be checked under `Boards Manager`.
 - [PLC IDE & Arduino Cloud integration example project](assets/Opta_PLCIDE_Cloud.zip) file compatible with Opta™
 
-***This tutorial requires the latest versions of the PLC IDE & PLC IDE Tools ( >= v 1.0.4 ). 
-You can get the latest versions [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE and its tools. If it is your first time using the Arduino PLC IDE, we highly recommend you to begin with [Arduino PLC IDE Setup & Device License Activation](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license).***
+***This tutorial requires the latest versions of the PLC IDE ( >= v 1.0.4 ). 
+You can get the latest versions [here](https://www.arduino.cc/en/software#arduino-plc-ide) for the latest PLC IDE. If it is your first time using the Arduino PLC IDE, we highly recommend you to begin with [Arduino PLC IDE Setup & Device License Activation](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license).***
 
 ## PLC IDE & Arduino Cloud Integration
 
@@ -199,7 +198,7 @@ Save this example template for later. We will now proceed with a demonstrative e
 
 ### Setting Up the PLC IDE
 
-***Before continuing with the PLC IDE configuration with Opta™, please remember to have the latest PLC IDE with its corresponding tools stated within [Software Requirements](#software-requirements).***
+***Before continuing with the PLC IDE configuration with Opta™, please remember to have the latest PLC IDE and [Software Requirements](#software-requirements).***
 
 The PLC IDE configuration will play an important role in establishing successful communication with the Arduino Cloud. It will require setting onboard features and the communication protocol for Opta™ as usual. However, a proper 'Shared variables' setting will define the communication outcome with the Arduino Cloud.
 

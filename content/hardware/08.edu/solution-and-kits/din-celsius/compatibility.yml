@@ -1,12 +1,12 @@
-software: 
-    - arduino-ide
-    - arduino-cli
-    - iot-cloud
-    - web-editor
+software:
+  - arduino-ide
+  - arduino-cli
+  - iot-cloud
+  - cloud-editor
 hardware:
   shields: ~
-  carriers: 
+  carriers:
     - din-simul8
     - portenta-machine-control
-  boards: 
+  boards:
     - opta

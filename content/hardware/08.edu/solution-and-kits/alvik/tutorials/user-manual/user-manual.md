@@ -74,7 +74,7 @@ The latest firmware of the STM32 can be found at [this link](https://github.com/
 
 At the back-right side of Alvik there is the main switch of the robot. When ON the robot will power up and it will execute the already loaded program.
 
-***While programming the terminal of the Arduino Lab for MicroPython will notify you if you forgot to switch on the robot. Keep the robot off while programming to avoid undesired movements and remember to turn it on when you are ready to execute your program***
+***Keep the robot off while programming to avoid undesired movements and remember to turn it on when you are ready to execute your program. A feature of the Arduino Lab for MicroPython terminal is that it will notify you if you forgot to switch on the robot to run the code.***
 
 ![Notification to switch on](assets/message-switch-on.png)
 
@@ -82,7 +82,7 @@ At the back-right side of Alvik there is the main switch of the robot. When ON t
 
 The battery is a rechargeable Li-ion 18650. It is located in the bottom part of Alvik, to access it you need to remove one Phillip's screw and take out the plastic holder.
 
-![Charging blink](assets/battery_holder.jpg)
+![Accessing battery compartment](assets/battery_holder.jpg)
 
 The Nano ESP32 can report the status of the battery through the terminal of the Arduino Lab for MicroPython and with its RGB status LED. To do that you need to call the `Alvik.begin()` function in any program or directly at the command line area.
 

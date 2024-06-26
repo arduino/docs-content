@@ -187,6 +187,6 @@ In this tutorial, we went through installing and running a WordPress and databas
 
 - If the containers are not being installed or running correctly, check if any other containers are currently running on the same ports as the ones used by the WordPress container. You can check it with ``docker ps -a``.
 
-- If there is any issue running docker commands, ensure you are using ``sudo`` before the commands or having root access using: ``sudo su -r`` with password: ``fio``.
+- If there is any issue running docker commands, ensure you are using ``sudo`` before the commands or having root access using: ``sudo su -r`` with the password you selected at first access.
 
 - If you cannot connect to the site when everything is running, you can double-check the X8's IP address. Run the command `ip -h address` in the **adb shell**. This will display the X8's IP address via USB and Wi-Fi®. Try connecting via those IP addresses if all the rest fails.

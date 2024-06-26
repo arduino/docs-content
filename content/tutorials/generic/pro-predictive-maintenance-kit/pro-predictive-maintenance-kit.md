@@ -94,7 +94,8 @@ If you want to learn more about the technologies of the kit, we propose the foll
 
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that the product can be used with the experience even when the tutorials are using another board or compatible product.
 
-
 ## Support
 
 If you encounter any issues or have questions, we offer various support resources to help you find answers and solutions. In case of any issues with the redemption process, please contact us by filling out the form available [here](https://www.arduino.cc/en/contact-us/).
+
+Want to discuss how you can use Edge AI/ML in your industrial applications? Click [here](https://www.arduino.cc/pro/contact-us/) to consult with our experts.
