@@ -2419,10 +2419,9 @@ FROM debian:latest
 
 # Install necessary packages
 RUN apt-get update && \
-  apt-get install -y modemmanager && \
-  apt-get install -y mmcli && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/*
+    apt-get install -y modemmanager dbus usbutils udhcpc libqmi-utils && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /app
@@ -2436,16 +2435,20 @@ Create a file named *Dockerfile* with the content above. This *Dockerfile* sets 
 Open a terminal in the directory containing the Dockerfile and build the Docker image:
 
 ```bash
-docker build -t modem-manager .
+docker build . -t atcommands
 ```
 
 Run the container with the Pro 4G Module attached. This command will start the container and open a bash shell:
 
 ```bash
-docker run --rm -it --device=/dev/cdc-wdm0 modem-manager
+docker run --rm -it --device=/dev/cdc-wdm0 --volume /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket --privileged atcommands
 ```
 
 Inside the Docker container, identify the modem and send AT commands:
+
+```bash
+ModemManager --debug > /var/log/modemmanager.log 2>&1 &
+```
 
 ```bash
 # List modems
