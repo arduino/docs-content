@@ -266,10 +266,11 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | GND       | Ground                   |
 | INT1      | Interrupt 1 (Sensor)     |
 | INT2      | Interrupt 2 (Sensor)     |
+| SDO/SA0   | SPI Data Out / I2C Addr  |
 | SDX       | SPI Data X               |
 | SCX       | SPI Clock X              |
-| SDO/SA0   | SPI Data Out / I2C Addr  |
 | CS        | SPI Chip Select          |
+| SDOAUX    | Auxiliary Output         |
 | OCSAUX    | Auxiliary Output         |
 
 It is possible to make VDDIO independent from 3.3 V by cutting its solder jumper.
