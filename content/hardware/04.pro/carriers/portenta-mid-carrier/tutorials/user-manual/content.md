@@ -2395,17 +2395,17 @@ sudo mmcli -m /org/freedesktop/ModemManager1/Modem/0 --command="ATI"
 
 You can now start sending AT commands. Here are a few basic AT commands to test the modem:
 
-| **AT Command** |                                       **Description** |
-|:--------------: |:------------------------------------------------------------------------------------------: |
-| ATI             | Retrieves the modem's basic information, such as manufacturer, model, and firmware version.  |
-| AT+CSQ          | Checks the signal quality of the modem                                                      |
-| AT+GMI          | Retrieves the manufacturer identification                                                   |
-| AT+GMM          | Retrieves the model identification of the modem                                             |
-| ATV             | Displays the active configuration profile                                                   |
-| AT+CGMR         | Retrieves the firmware version of the modem                                                 |
-| AT+CPAS         | Reports the current status of the modem                                                     |
-| AT+CEER         | Provides detailed information on the last error cause                                       |
-| AT+QNWINFO      | Retrieves the current network information                                                   |
+| **AT Command** |                                       **Description**                                       |
+|:--------------:|:-------------------------------------------------------------------------------------------:|
+|      ATI       | Retrieves the modem's basic information, such as manufacturer, model, and firmware version. |
+|     AT+CSQ     |                           Checks the signal quality of the modem                            |
+|     AT+GMI     |                          Retrieves the manufacturer identification                          |
+|     AT+GMM     |                       Retrieves the model identification of the modem                       |
+|      ATV       |                          Displays the active configuration profile                          |
+|    AT+CGMR     |                         Retrieves the firmware version of the modem                         |
+|    AT+CPAS     |                           Reports the current status of the modem                           |
+|    AT+CEER     |                    Provides detailed information on the last error cause                    |
+|   AT+QNWINFO   |                          Retrieves the current network information                          |
 
 ![Arduino Pro 4G Module - AT Commands Test](assets/portentaMIDcarrier_mpcie_4gmodem_at3.png)
 
@@ -2419,10 +2419,10 @@ FROM debian:latest
 
 # Install necessary packages
 RUN apt-get update && \
- apt-get install -y modemmanager && \
- apt-get install -y mmcli && \
- apt-get clean && \
- rm -rf /var/lib/apt/lists/*
+  apt-get install -y modemmanager && \
+  apt-get install -y mmcli && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 # Set the working directory
 WORKDIR /app
@@ -2574,7 +2574,25 @@ void loop() {
 }
 ```
 
-This example allows you to send raw AT commands to the Pro 4G Module using the Arduino IDE with the Portenta H7 and Portenta C33. The script requires the **arduino_secrets.h** file to be defined with the following credentials:
+This example allows you to send raw AT commands to the Pro 4G Module using the Arduino IDE with the Portenta H7 and Portenta C33.
+
+To send AT commands with the Arduino IDE, please use the **Message** space within the **Serial Monitor** and enter commands that follows after **`AT`**. For example:
+
+| **AT Command** | **AT Command Input Format** |
+|:--------------:|:---------------------------:|
+|      ATI       |              I              |
+|     AT+CSQ     |            +CSQ             |
+|     AT+GMI     |            +GMI             |
+|     AT+GMM     |            +GWM             |
+|      ATV       |              V              |
+|    AT+CGMR     |            +CGMR            |
+|    AT+CPAS     |            +CPAS            |
+|    AT+CEER     |            +CEER            |
+|   AT+QNWINFO   |          +QNWINFO           |
+
+***For complete information on AT commands compatible with the Pro 4G Module, please refer to the [AT Commands Manual](assets/Quectel_EC2x&EG9x&EG2x-G&EM05_Series_AT_Commands_Manual_V2.0.pdf).***
+
+The script requires the **arduino_secrets.h** file to be defined with the following credentials:
 
 - SIM Card PIN Number
 - GPRS APN
