@@ -34,7 +34,7 @@ The goals of this tutorial are:
 
 Before starting this tutorial, please take a moment to locate the online user manual integrated into the PLC IDE programming environment. You can access it from the top menu bar by navigating to **Help > Index**. 
 
-The user manual can be downloaded, stored locally, or printed for your reference. It contains detailed information on the following aspects of the PLC IDE programming environment:
+The user manual can be downloaded and stored locally or printed. It contains detailed information on the following aspects of the PLC IDE programming environment:
 
 - Overview of the programming environment
 - Project and project elements management
