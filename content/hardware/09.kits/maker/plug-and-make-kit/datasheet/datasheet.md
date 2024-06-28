@@ -150,7 +150,7 @@ Power for the Arduino® UNO R4 WiFi can be supplied through either the VIN pin o
 
 The power distribution system ensures proper voltage levels for all components. The ISL854102 buck converter and SGM2205 regulator manage voltage regulation. Diodes for protection are also represented.
 
-![Arduino® UNO R4 WiFi power tree.](assets/UNO_R4_WiFi_Power_Tree.png)
+![Arduino® UNO R4 WiFi power tree](assets/UNO_R4_WiFi_Power_Tree.png)
 
 #### Pin Specifications
 
@@ -170,12 +170,12 @@ The Plate Node is designed to provide a stable and secure mounting solution for 
 
 ### Mechanical Information
 
-![ Base Plate Mechanical information](assets/PlateMec.png)
+![Plate Node Mechanical information](assets/PlateMec.png)
 
-| **Specification** | **Details**    |
-| ----------------- | -------------- |
-| Dimensions        | 140x140x1.6 mm |
-| Holes             | 3.5 mm         |
+| **Specification**     | **Details**    |
+| --------------------- | -------------- |
+| Dimensions            | 140x140x1.6 mm |
+| Holes size (diameter) | 3.5 mm         |
 
 
 ## Modules
@@ -184,7 +184,7 @@ The Plug and Make Kit modules offer a versatile and user-friendly introduction t
 
 ### General Characteristics
 
-The Plug and Make Kit modules provide a straightforward introduction to IoT and electronics. These modules connect easily using Qwiic cables for I2C communication, simplifying setup. This modular design is ideal for both beginners and experienced users.
+The Plug and Make Kit modules provide a straightforward introduction to IoT and electronics. These modules connect easily using Qwiic cables for I2C communication, simplifying the setup. This modular design is ideal for both beginners and experienced users.
 
 All modules share common features such as standardized connectors, blue solder mask, and consistent mechanical dimensions and hole locations, ensuring compatibility.
 
@@ -201,7 +201,7 @@ All modules share common features such as standardized connectors, blue solder m
 
 #### I2C Side Connectors
 
-At least one 4-pin surface mount connector from the JST SM Series with a 1.0 mm pitch.
+All modules have at least two 4-pin surface mount connector from the JST SM Series with a 1.0 mm pitch. These connectors are used to connect modules between them and to the microcontroller.
 
 
 #### I2C Address Reference
@@ -235,9 +235,9 @@ These modules use an additional chip to handle I2C communication when there is a
 
 #### Pull-up Resistors
 
-These modules have pads for optional I2C pull-up mounting. No resistors are mounted by default:
+These modules have pads for optional I2C pull-up mounting in both data lines to avoid communication problems in case the I2C bus is not working as it should. No resistors are mounted by default but in case the resistors are need 4.7 K resistors in a SMD 0402 format are reccomended.
 
-![Pullup resistors pads](assets/ResistorsPullup.png)
+![Not mounted pullup resistors pads example on the movement module](assets/ResistorsPullup.png)
 
 ### Movement Module
 
@@ -285,10 +285,9 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | SDOAUX    | Auxiliary Output         |
 | OCSAUX    | Auxiliary Output         |
 
-It is possible to make VDDIO independent from 3.3 V by cutting its solder jumper.
-![Cuttable jumper for selection](assets/VDDIO.png)
+![Cuttable jumper for VVDIO](assets/VDDIO.png)
 
-LSM6DSOXTR interrupts INT1 and INT2 are available on the header.
+It is possible to make VDDIO independent from the 3.3 V power net by cutting its solder jumper.
 
 #### Mechanical Information
 
@@ -372,6 +371,8 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 #### Mechanical Information
 
 ![](assets/TempMec.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Knob Module
 
@@ -466,7 +467,7 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | SWCLK   | SWD Clock     |
 | PF2     | NRST          |
 
-This header can be used to actuate the buzzer from an external 3.3 V source, to use the dedicated I2C IC other purposes, or to reprogram the chip its SWD interface. These provide a place to mount header pins if desired.
+This header can be used to actuate the buzzer from an external 3.3 V source, to use the dedicated I2C IC for other purposes, or to reprogram the chip its SWD interface. These provide a place to mount header pins if desired.
 
 #### Mechanical Information
 
