@@ -27,7 +27,25 @@ The goals of this tutorial are:
 
 ### Required Hardware and Software
 
+- [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
+
+### Arduino PLC IDE User Manual
+
+Before starting this tutorial, please take a moment to locate the online user manual integrated into the PLC IDE programming environment. You can access it from the top menu bar by navigating to **Help > Index**. 
+
+![Help menu in the PLC IDE](assets/help_menu.png)
+
+The user manual can be downloaded and stored locally or printed. It contains detailed information on the following aspects of the PLC IDE programming environment:
+
+- Overview of the programming environment
+- Project and project elements management
+- Usage of programming languages and functions
+- Debugging tools
+
+This resource is designed to guide you through the various functionalities and features of the Arduino PLC IDE, ensuring a smoother and more efficient programming experience. You can rely on this resource to provide the support and guidance you need.
+
+![Generated user manual from the Help menu](assets/user_manual.png)
 
 ## Common Features
 
