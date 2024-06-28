@@ -34,6 +34,8 @@ The goals of this tutorial are:
 
 Before starting this tutorial, please take a moment to locate the online user manual integrated into the PLC IDE programming environment. You can access it from the top menu bar by navigating to **Help > Index**. 
 
+![Help menu in the PLC IDE](assets/help_menu.png)
+
 The user manual can be downloaded and stored locally or printed. It contains detailed information on the following aspects of the PLC IDE programming environment:
 
 - Overview of the programming environment
@@ -42,6 +44,8 @@ The user manual can be downloaded and stored locally or printed. It contains det
 - Debugging tools
 
 This resource is designed to guide you through the various functionalities and features of the Arduino PLC IDE, ensuring a smoother and more efficient programming experience. You can rely on this resource to provide the support and guidance you need.
+
+![Generated user manual from the Help menu](assets/user_manual.png)
 
 ## Common Features
 
