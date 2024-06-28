@@ -101,7 +101,7 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 
 ## Block Diagram
 
-The Plug and Make Kit is a combination of the Arduino UNO R4 Wifi board connnected to different Modulinos boards thought and I2C bus as it can be seen in the following block diagram.
+The Plug and Make Kit is a combination of the Arduino UNO R4 Wifi board connected to different Modulinos boards through and I2C bus as can be seen in the following block diagram.
 
 ![ Plug and Make Kit block diagram](assets/Block_Diagram_Plug_and_Make.svg)
 
@@ -201,7 +201,7 @@ All modules share common features such as standardized connectors, blue solder m
 
 #### I2C Side Connectors
 
-All modules have at least two 4-pin surface mount connector from the JST SM Series with a 1.0 mm pitch. These connectors are used to connect modules between them and to the microcontroller.
+All modules have at least two 4-pin surface mount connectors from the JST SM Series with a 1.0 mm pitch. These connectors are used to connect modules between them and to the microcontroller.
 
 
 #### I2C Address Reference
@@ -516,7 +516,7 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | PF2     | NRST          |
 
 The header can be used to add more LC8822-2020 RGB's LED in a daisy chain configuration.
-![Built in LEDs open for extension](assets/LEDExtention.png)
+![Built-in LEDs open for extension](assets/LEDExtention.png)
 
 It also has other I2C interface controller IC pins usable for other purposes or for reprogramming it using its SWD interface. These provide a place to mount header pins if desired.
 
