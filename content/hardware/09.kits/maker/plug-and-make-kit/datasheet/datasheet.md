@@ -28,11 +28,15 @@ The Plug and Make Kit, featuring the Arduino® UNO R4 WiFi, offers a seamless an
 - **Smart Home Automation:** Utilize the kit to build smart home devices that can monitor and control various environmental factors. With sensors for temperature, humidity, and movement, create a system that automates climate control, security, and lighting. The onboard Wi-Fi® allows for remote monitoring and control through the Arduino® Cloud or other third-party services.
 </div>
 
+
+
+<div style="page-break-after: always;"></div>
+
 ## Features
 
 The Plug and Make Kit offers an intuitive and effortless introduction to the world of IoT and electronics. Featuring the powerful Arduino® UNO R4 WiFi, this kit enables seamless integration with the Arduino® Cloud for a smooth, wireless experience. With its array of modular sensors and components connectable via I2C Qwiic cables, the kit allows for easy customization of your projects. Equipped with a diverse range of sensors and interactive modules, this kit provides the tools you need to create dynamic and engaging projects with ease. Perfect for both beginners and experienced makers.
 
-### Kit Contents
+### Kit Content
 
 | **SKU**  | **Name**             | **Purpose**                       | **Quantity** |
 | -------- | -------------------- | --------------------------------- | ------------ |
@@ -48,13 +52,13 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 
 ### Accessories
 
-| **Quantity** | **Item Name**        | **Included** |
-| ------------ | -------------------- | ------------ |
-| 24           | M3x10 screws         | Yes          |
-| 20           | M3 bolts             | Yes          |
-| 4            | M3x20 female spacers | Yes          |
-| 7            | I2C Qwiic cables     | Yes          |
-| 1            | USB-C® cable         | Yes          |
+| **Item Name**        | **Included** | **Quantity** |
+| -------------------- | ------------ | ------------ |
+| USB-C® cable         | Yes          | 1            |
+| I2C Qwiic cables     | Yes          | 7            |
+| M3x10 screws         | Yes          | 24           |
+| M3 bolts             | Yes          | 20           |
+| M3x20 female spacers | Yes          | 4            |
 
 ### Microcontroller
 
@@ -94,6 +98,13 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 | T<sub>OP</sub>  | Operating Temperature                | -40 | 25  | 85  | °C   |
 
 **Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
+
+## Block Diagram
+
+The Plug and Make Kit is a combination of the Arduino UNO R4 Wifi board connnected to different Modulinos boards thought and I2C bus as it can be seen in the following block diagram.
+
+![ Plug and Make Kit block diagram](assets/Block_Diagram_Plug_and_Make.svg)
+
 
 ## Functional Overview - Arduino UNO R4 WiFi
 
@@ -155,7 +166,7 @@ Layout for dimensions and mounting hole locations for secure attachment.
 
 ## Plate Node
 
-The Plate Node is designed to provide a stable and secure mounting solution for your Arduino® UNO R4 WiFi and additional nodes. Measuring 140x140x1.6 mm with 3.5 mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections, particularly useful in complex projects where multiple sensors and modules need to be fixed in place to ensure consistent performance.
+The Plate Node is designed to provide a stable and secure mounting solution for your Arduino® UNO R4 WiFi and additional nodes. Measuring 140x140x1.6 mm with 3.5 mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections.
 
 ### Mechanical Information
 
@@ -165,6 +176,7 @@ The Plate Node is designed to provide a stable and secure mounting solution for 
 | ----------------- | -------------- |
 | Dimensions        | 140x140x1.6 mm |
 | Holes             | 3.5 mm         |
+
 
 ## Modules
 
