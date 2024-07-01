@@ -28,11 +28,15 @@ The Plug and Make Kit, featuring the Arduino® UNO R4 WiFi, offers a seamless an
 - **Smart Home Automation:** Utilize the kit to build smart home devices that can monitor and control various environmental factors. With sensors for temperature, humidity, and movement, create a system that automates climate control, security, and lighting. The onboard Wi-Fi® allows for remote monitoring and control through the Arduino® Cloud or other third-party services.
 </div>
 
+
+
+<div style="page-break-after: always;"></div>
+
 ## Features
 
 The Plug and Make Kit offers an intuitive and effortless introduction to the world of IoT and electronics. Featuring the powerful Arduino® UNO R4 WiFi, this kit enables seamless integration with the Arduino® Cloud for a smooth, wireless experience. With its array of modular sensors and components connectable via I2C Qwiic cables, the kit allows for easy customization of your projects. Equipped with a diverse range of sensors and interactive modules, this kit provides the tools you need to create dynamic and engaging projects with ease. Perfect for both beginners and experienced makers.
 
-### Kit Contents
+### Kit Content
 
 | **SKU**  | **Name**             | **Purpose**                       | **Quantity** |
 | -------- | -------------------- | --------------------------------- | ------------ |
@@ -48,13 +52,13 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 
 ### Accessories
 
-| **Quantity** | **Item Name**        | **Included** |
-| ------------ | -------------------- | ------------ |
-| 24           | M3x10 screws         | Yes          |
-| 20           | M3 bolts             | Yes          |
-| 4            | M3x20 female spacers | Yes          |
-| 7            | I2C Qwiic cables     | Yes          |
-| 1            | USB-C® cable         | Yes          |
+| **Item Name**        | **Included** | **Quantity** |
+| -------------------- | ------------ | ------------ |
+| USB-C® cable         | Yes          | 1            |
+| I2C Qwiic cables     | Yes          | 7            |
+| M3x10 screws         | Yes          | 24           |
+| M3 bolts             | Yes          | 20           |
+| M3x20 female spacers | Yes          | 4            |
 
 ### Microcontroller
 
@@ -94,6 +98,13 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 | T<sub>OP</sub>  | Operating Temperature                | -40 | 25  | 85  | °C   |
 
 **Note:** V<sub>DD</sub> controls the logic level and is connected to the 5V power rail. V<sub>AREF</sub> is for the analog logic.
+
+## Block Diagram
+
+The Plug and Make Kit is a combination of the Arduino UNO R4 Wifi board connected to different Modulinos boards through and I2C bus as can be seen in the following block diagram.
+
+![ Plug and Make Kit block diagram](assets/Block_Diagram_Plug_and_Make.svg)
+
 
 ## Functional Overview - Arduino UNO R4 WiFi
 
@@ -139,7 +150,7 @@ Power for the Arduino® UNO R4 WiFi can be supplied through either the VIN pin o
 
 The power distribution system ensures proper voltage levels for all components. The ISL854102 buck converter and SGM2205 regulator manage voltage regulation. Diodes for protection are also represented.
 
-![Arduino® UNO R4 WiFi power tree.](assets/UNO_R4_WiFi_Power_Tree.png)
+![Arduino® UNO R4 WiFi power tree](assets/UNO_R4_WiFi_Power_Tree.png)
 
 #### Pin Specifications
 
@@ -155,16 +166,17 @@ Layout for dimensions and mounting hole locations for secure attachment.
 
 ## Plate Node
 
-The Plate Node is designed to provide a stable and secure mounting solution for your Arduino® UNO R4 WiFi and additional nodes. Measuring 140x140x1.6 mm with 3.5 mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections, particularly useful in complex projects where multiple sensors and modules need to be fixed in place to ensure consistent performance.
+The Plate Node is designed to provide a stable and secure mounting solution for your Arduino® UNO R4 WiFi and additional nodes. Measuring 140x140x1.6 mm with 3.5 mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections.
 
 ### Mechanical Information
 
-![ Base Plate Mechanical information](assets/PlateMec.png)
+![Plate Node Mechanical information](assets/PlateMec.png)
 
-| **Specification** | **Details**    |
-| ----------------- | -------------- |
-| Dimensions        | 140x140x1.6 mm |
-| Holes             | 3.5 mm         |
+| **Specification**     | **Details**    |
+| --------------------- | -------------- |
+| Dimensions            | 140x140x1.6 mm |
+| Holes size (diameter) | 3.5 mm         |
+
 
 ## Modules
 
@@ -172,7 +184,7 @@ The Plug and Make Kit modules offer a versatile and user-friendly introduction t
 
 ### General Characteristics
 
-The Plug and Make Kit modules provide a straightforward introduction to IoT and electronics. These modules connect easily using Qwiic cables for I2C communication, simplifying setup. This modular design is ideal for both beginners and experienced users.
+The Plug and Make Kit modules provide a straightforward introduction to IoT and electronics. These modules connect easily using Qwiic cables for I2C communication, simplifying the setup. This modular design is ideal for both beginners and experienced users.
 
 All modules share common features such as standardized connectors, blue solder mask, and consistent mechanical dimensions and hole locations, ensuring compatibility.
 
@@ -189,7 +201,7 @@ All modules share common features such as standardized connectors, blue solder m
 
 #### I2C Side Connectors
 
-At least one 4-pin surface mount connector from the JST SM Series with a 1.0 mm pitch.
+All modules have at least two 4-pin surface mount connectors from the JST SM Series with a 1.0 mm pitch. These connectors are used to connect modules between them and to the microcontroller.
 
 
 #### I2C Address Reference
@@ -223,9 +235,9 @@ These modules use an additional chip to handle I2C communication when there is a
 
 #### Pull-up Resistors
 
-These modules have pads for optional I2C pull-up mounting. No resistors are mounted by default:
+These modules have pads for optional I2C pull-up mounting in both data lines to avoid communication problems in case the I2C bus is not working as it should. No resistors are mounted by default but in case the resistors are need 4.7 K resistors in a SMD 0402 format are recommended.
 
-![Pullup resistors pads](assets/ResistorsPullup.png)
+![Not mounted pullup resistors pads example on the movement module](assets/ResistorsPullup.png)
 
 ### Movement Module
 
@@ -266,16 +278,16 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | GND       | Ground                   |
 | INT1      | Interrupt 1 (Sensor)     |
 | INT2      | Interrupt 2 (Sensor)     |
+| SDO/SA0   | SPI Data Out / I2C Addr  |
 | SDX       | SPI Data X               |
 | SCX       | SPI Clock X              |
-| SDO/SA0   | SPI Data Out / I2C Addr  |
 | CS        | SPI Chip Select          |
+| SDOAUX    | Auxiliary Output         |
 | OCSAUX    | Auxiliary Output         |
 
-It is possible to make VDDIO independent from 3.3 V by cutting its solder jumper.
-![Cuttable jumper for selection](assets/VDDIO.png)
+![Cuttable jumper for VVDIO](assets/VDDIO.png)
 
-LSM6DSOXTR interrupts INT1 and INT2 are available on the header.
+It is possible to make VDDIO independent from the 3.3 V power net by cutting its solder jumper.
 
 #### Mechanical Information
 
@@ -359,6 +371,8 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 #### Mechanical Information
 
 ![](assets/TempMec.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Knob Module
 
@@ -453,7 +467,7 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | SWCLK   | SWD Clock     |
 | PF2     | NRST          |
 
-This header can be used to actuate the buzzer from an external 3.3 V source, to use the dedicated I2C IC other purposes, or to reprogram the chip its SWD interface. These provide a place to mount header pins if desired.
+This header can be used to actuate the buzzer from an external 3.3 V source, to use the dedicated I2C IC for other purposes, or to reprogram the chip its SWD interface. These provide a place to mount header pins if desired.
 
 #### Mechanical Information
 
@@ -502,7 +516,7 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 | PF2     | NRST          |
 
 The header can be used to add more LC8822-2020 RGB's LED in a daisy chain configuration.
-![Built in LEDs open for extension](assets/LEDExtention.png)
+![Built-in LEDs open for extension](assets/LEDExtention.png)
 
 It also has other I2C interface controller IC pins usable for other purposes or for reprogramming it using its SWD interface. These provide a place to mount header pins if desired.
 
