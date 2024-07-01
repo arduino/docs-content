@@ -235,7 +235,7 @@ These modules use an additional chip to handle I2C communication when there is a
 
 #### Pull-up Resistors
 
-These modules have pads for optional I2C pull-up mounting in both data lines to avoid communication problems in case the I2C bus is not working as it should. No resistors are mounted by default but in case the resistors are need 4.7 K resistors in a SMD 0402 format are reccomended.
+These modules have pads for optional I2C pull-up mounting in both data lines to avoid communication problems in case the I2C bus is not working as it should. No resistors are mounted by default but in case the resistors are need 4.7 K resistors in a SMD 0402 format are recommended.
 
 ![Not mounted pullup resistors pads example on the movement module](assets/ResistorsPullup.png)
 
