@@ -39,7 +39,10 @@ In this tutorial, you will find useful information to get started, test, and mai
     - [Distance Sensors](#distance-sensors)
     - [Line Follower Sensor](#line-follower-sensor)
     - [Color Sensor](#color-sensor)
+      - [Functions](#functions)
     - [IMU](#imu)
+      - [Functions](#functions-1)
+      - [Example Usage](#example-usage)
   - [Actuators](#actuators)
     - [Motors and Encoders](#motors-and-encoders)
   - [What the Robot Includes](#what-the-robot-includes)
@@ -68,6 +71,7 @@ In this tutorial, you will find useful information to get started, test, and mai
     - [Following a Line](#following-a-line)
     - [Sensing Colors](#sensing-colors)
     - [Detecting Falling and Crashes (IMU)](#detecting-falling-and-crashes-imu)
+    - [Add I2C Grove](#add-i2c-grove)
     - [Add Qwiic](#add-qwiic)
   - [Want More?](#want-more)
   - [Need Help](#need-help)
@@ -178,11 +182,207 @@ TODO: Content for this section
 
 ### Color Sensor
 
+The color sensor on the Arduino Alvik robot is used to detect and identify colors on surfaces that the robot encounters. It provides both raw color readouts and labeled color information that can be used for various applications such as line following, object detection, and more.
+
+#### Functions
+
+1. **color_calibration**
+
+   The `color_calibration` function is used to calibrate the color sensor for accurate color detection. Calibration can be done against a white or black background.
+
+   ```
+   color_calibration(background: str = 'white')
+   ```
+
+   **Inputs:**
+   - `background`: A string specifying the background color for calibration. Can be "white" or "black".
+
+2. **get_color_raw**
+
+   The `get_color_raw` function returns the raw readout from the color sensor. This is the direct sensor data before any processing or labeling. It can be useful for advanced applications where precise color data is needed.
+
+   ```python
+   get_color_raw()
+   ```
+
+   **Outputs:**
+   - `color`: The color sensor's raw readout.
+
+3. **get_color_label**
+
+   The `get_color_label` function returns the label of the color as recognized by the sensor. This function processes the raw sensor data and converts it into a human-readable label, such as "red", "blue", "green", etc. It simplifies the use of color data for most applications however some flexibility is lost as colors are grouped into the nearest labeled color.
+
+   ```python
+   get_color_label()
+   ```
+
+   **Outputs:**
+   - `color`: The label of the color as recognized by the sensor. These can be:
+     - TODO add color labels
+
+   **Example Usage**
+
+   Here is an example of how to use the `get_color_label` function in a script that makes the robot walk in a straight line, detect three different colors (ignoring white), stop, and communicate the detected colors via serial every second:
+
+   ```python
+   from arduino_alvik import ArduinoAlvik
+   import time
+   from time import sleep
+
+   # Initialization
+   alvik = ArduinoAlvik()
+   alvik.begin()
+   sleep(5)  # Waiting for the robot to setup
+
+   # Calibrate color sensor for white
+   alvik.color_calibration('white')
+
+   # Main logic
+   detected_colors = set()
+
+   print("Starting to move and detect colors...")
+
+   try:
+       while len(detected_colors) < 3:
+           alvik.set_wheels_speed(20, 20)
+           color = alvik.get_color_label()
+           
+           if color != 'WHITE' and color not in detected_colors:
+               detected_colors.add(color)
+               print(f"Detected color: {color}")
+           
+           time.sleep(0.1)  # Adjust the sleep time as needed
+       
+       alvik.brake()
+       print("Detected three different colors. Stopping...")
+       
+       # Communicate the detected colors via serial every second
+       while True:
+           print(f"Detected colors: {', '.join(detected_colors)}")
+           time.sleep(1)
+   except KeyboardInterrupt:
+       alvik.brake()
+       print("Interrupted. Stopping the robot.")
+   except Exception as e:
+       alvik.brake()
+       print(f"An error occurred: {e}")
+   ```
+
+4. **get_color**
+
+   The `get_color` function returns the normalized color readout of the color sensor. This function can output the color in either RGB or HSV format.
+
+   ```python
+   get_color(color_format: str = 'rgb')
+   ```
+
+   **Inputs:**
+   - `color_format`: The format of the color readout. Can be "rgb" or "hsv".
+
+   **Outputs:**
+   - `r` or `h`: The red component in RGB format or the hue in HSV format.
+   - `g` or `s`: The green component in RGB format or the saturation in HSV format.
+   - `b` or `v`: The blue component in RGB format or the value in HSV format.
+
+5. **hsv2label**
+
+TODO: CHECK THIS BETTER FUNCTION UNCLEAR
+   The `hsv2label` function returns the color label corresponding to the given normalized HSV color input. It converts HSV values to a human-readable color label.
+
+   ```python
+   hsv2label(h, s, v)
+   ```
+
+   **Inputs:**
+   - `h`: Hue value.
+   - `s`: Saturation value.
+   - `v`: Brightness value.
+
+   **Outputs:**
+   - `color label`: The label of the color like "BLACK" or "GREEN", if possible, otherwise returns "UNDEFINED".
+
+You can use these functions depending on your needs:
+
+- Use `color_calibration` to calibrate the sensor for accurate readings.
+- Use `get_color_raw` to get the raw sensor data.
+- Use `get_color_label` to get a human-readable label of the detected color.
+- Use `get_color` to get normalized color data in RGB or HSV format.
+- Use `hsv2label` to convert HSV values to a color label.
+
 TODO: Content for this section
 
 ### IMU
 
-TODO: Content for this section
+The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Unit) that provides valuable information about the robot's motion and orientation. The IMU can measure acceleration, angular velocity, and orientation.
+
+TODO add image of IMU
+
+#### Functions
+
+1. **get_orientation**
+
+   The [`get_orientation`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_orientation) function returns the orientation of the IMU, including roll, pitch, and yaw values. This can be useful for determining the robot's orientation in 3D space.
+
+2. **get_accelerations**
+
+   The [`get_accelerations`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_accelerations) function returns the 3-axial acceleration of the IMU. This provides the acceleration values along the x, y, and z axes.
+
+3. **get_gyros**
+
+   The [`get_gyros`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_gyros) function returns the 3-axial angular acceleration of the IMU. This provides the angular acceleration values along the x, y, and z axes.
+
+4. **get_imu**
+
+   The [`get_imu`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_imu) function returns all the IMU's readouts, including both the acceleration and angular acceleration values.
+
+#### Example Usage
+
+Here is a combined example that utilizes all IMU functions:
+
+```python
+
+from arduino_alvik import ArduinoAlvik
+import time
+
+# Initialization
+alvik = ArduinoAlvik()
+alvik.begin()
+
+# Give some time for initialization
+time.sleep(2)
+
+# Get orientation
+orientation = alvik.get_orientation()
+roll = orientation['r']
+pitch = orientation['p']
+yaw = orientation['y']
+print(f"Orientation - Roll: {roll}, Pitch: {pitch}, Yaw: {yaw}")
+
+# Get accelerations
+accelerations = alvik.get_accelerations()
+ax = accelerations['ax']
+ay = accelerations['ay']
+az = accelerations['az']
+print(f"Acceleration - X: {ax}, Y: {ay}, Z: {az}")
+
+# Get gyros
+gyros = alvik.get_gyros()
+gx = gyros['gx']
+gy = gyros['gy']
+gz = gyros['gz']
+print(f"Gyro - X: {gx}, Y: {gy}, Z: {gz}")
+
+# Combine all IMU readings
+imu_readings = alvik.get_imu()
+ax = imu_readings['ax']
+ay = imu_readings['ay']
+az = imu_readings['az']
+gx = imu_readings['gx']
+gy = imu_readings['gy']
+gz = imu_readings['gz']
+
+print(f"IMU Readings - Acceleration: X: {ax}, Y: {ay}, Z: {az}, Gyro: X: {gx}, Y: {gy}, Z: {gz}")
+```
 
 ## Actuators
 
@@ -491,7 +691,7 @@ The servo motors connectors are placed at the back of Alvik, in this tutorial we
 
 4. Copy and paste the following test code
 
-```
+```python
 from arduino_alvik import ArduinoAlvik
 import time
 
