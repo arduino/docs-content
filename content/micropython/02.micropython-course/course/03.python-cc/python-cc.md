@@ -107,7 +107,7 @@ Now take a look at what happens after each statement. Notice the empty space jus
 Anything inside of this indentation will execute if the statement is met, and this is a fundamental principle that is used in every Python program that you write!
 
 Now since we already defined `x` to be `5+5`, the terminal will of course print:
-- `"x is larger than 10"` 
+- `"x is exactly 10"` 
 
 ## While Loop
 
