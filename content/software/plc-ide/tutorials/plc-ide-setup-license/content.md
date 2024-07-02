@@ -76,7 +76,9 @@ If you have the correct IDE software, its name should include the version format
 
 Run the Arduino PLC IDE installer after verifying that the installer naming scheme follows the above software nomenclature. It helps ensure the software package is legitimate and the latest version available.
 
-***During the installation, you may notice several terminal windows opening automatically. These are necessary for the installation process to load all required resources onto your computer successfully, so there is no need to be concerned.***
+> <span style="color: yellow;">__To ensure a smooth and reliable installation, it is recommended to temporarily disable any antivirus software and run the installation with administrative privileges.__</span>
+
+> During the installation, you may notice several terminal windows opening automatically. These are necessary for the installation process to load all required resources onto your computer successfully, so there is no need to be concerned.
 
 The installation process starts with a window that prompts you to begin. Click **Install** to proceed:
 
