@@ -2352,9 +2352,6 @@ Ensure that the Pro 4G Module is properly mounted on the Portenta Mid Carrier an
 
 ```bash
 lsusb
-
-# Or
-dmesg
 ```
 
 ***Please set up the Pro 4G Module referring to [this section](#using-linux-4). Otherwise, the __ModemManager__ service may not work as intended or be recognized.***
@@ -2411,94 +2408,7 @@ You can now start sending AT commands. Here are a few basic AT commands to test 
 
 ***For complete information on AT commands compatible with the Pro 4G Module, please refer to the [AT Commands Manual](assets/Quectel_EC2x&EG9x&EG2x-G&EM05_Series_AT_Commands_Manual_V2.0.pdf).***
 
-You can use Docker to manage the dependencies and tools needed to send AT commands and ensure a consistent environment. The idea would be that you will have the environment running in a separate instance for testing purposes.
-
-```
-# Use the official Debian image
-FROM debian:latest
-
-# Install necessary packages
-RUN apt-get update && \
-    apt-get install -y modemmanager dbus usbutils udhcpc libqmi-utils && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Set the working directory
-WORKDIR /app
-
-# Set the default command to bash
-CMD ["bash"]
-```
-
-Create a file named *Dockerfile* with the content above. This *Dockerfile* sets up a Debian-based image with *ModemManager* and *mmcli* installed.
-
-Open a terminal in the directory containing the Dockerfile and build the Docker image:
-
-```bash
-docker build . -t atcommands
-```
-
-Run the container with the Pro 4G Module attached. This command will start the container and open a bash shell:
-
-```bash
-docker run --rm -it --device=/dev/cdc-wdm0 --volume /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket --privileged atcommands
-```
-
-Inside the Docker container, identify the modem and send AT commands:
-
-```bash
-ModemManager --debug > /var/log/modemmanager.log 2>&1 &
-```
-
-```bash
-# List modems
-mmcli -L
-```
-
-```bash
-# Replace `/org/freedesktop/ModemManager1/Modem/0` with your actual modem's device ID if required after verification
-sudo mmcli -m /org/freedesktop/ModemManager1/Modem/0 --command="ATI"
-```
-
-You can create a script to automate the process of starting *ModemManager* in debug mode and sending an AT command:
-
-```python
-#!/bin/bash
-
-# Stop ModemManager
-sudo systemctl stop ModemManager
-
-# Start ModemManager in debug mode quietly
-sudo ModemManager --debug > /var/log/modemmanager.log 2>&1 &
-
-# Wait a few seconds to ensure ModemManager is fully started
-sleep 5
-
-# Send AT command
-mmcli -m /org/freedesktop/ModemManager1/Modem/0 --command="ATI"
-```
-
-Save this script as run_mm_debug.sh, make it executable, and run it:
-
-```bash
-chmod +x run_mm_debug.sh
-```
-
-```bash
-./run_mm_debug.sh
-```
-
-To stop the ModemManager process running in debug mode, find its process ID (PID) and kill it:
-
-```bash
-ps aux | grep ModemManager
-```
-
-```bash
-sudo kill <PID>
-```
-
-Using **`nmcli`**, you can easily send AT commands to your Cat.4 modem to perform various tasks like checking the modem status, signal quality, and network registration. This method provides a straightforward way to interact with your modem from a Linux environment, whether you are performing a simple check or managing more advanced functions.
+Using **`mmcli`**, you can easily send AT commands to your Cat.4 modem to perform various tasks like checking the modem status, signal quality, and network registration. This method provides a straightforward way to interact with your modem from a Linux environment, whether you are performing a simple check or managing more advanced functions.
 
 Following these steps, you can effectively manage and troubleshoot your modem using AT commands in the Linux environment.
 
