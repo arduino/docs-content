@@ -58,7 +58,7 @@ This tutorial requires the latest version of the Arduino IDE; we can download it
 
 Now we are ready to start compiling and uploading Arduino sketches to an Opta™ device using the Arduino IDE. 
 
-***Memory partitioning of an Opta™ should be done using the latest core and libraries to ensure the system is up-to-date with the intended configuration.***
+***Memory partitioning of an Opta™ should be done using the latest core and libraries to ensure the system is up-to-date with the intended default configuration.***
 
 ### Partitioning Memory of an Opta™ Device
 
