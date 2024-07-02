@@ -9,7 +9,7 @@ author: Pedro Sousa Lima, Julián Caro Linares
 
 # Description
 
-The Arduino® Plug and Make Kit features the Arduino® UNO R4 WiFi with built-in Wi-Fi® capabilities, enabling connectivity and opening the doors to integration with the Arduino® Cloud platform. This kit includes a selection of seven modules, all easily connectable via I2C Qwiic cables. Tailor your project to perfection by selecting the sensors and inputs that best suit your needs, and experience a completely solder-free way to easily build your ideas. Dive into the world of electronics with hands-on learning and intuitive module interaction, empowering you to innovate and create with unparalleled ease and flexibility.
+The Arduino® Plug and Make Kit features the Arduino® UNO R4 WiFi with built-in Wi-Fi® capabilities, enabling connectivity and opening the doors to integration with the Arduino® Cloud platform. This kit includes a selection of seven Modulino® nodes, all easily connectable via I2C Qwiic cables. Tailor your project to perfection by selecting the sensors and inputs that best suit your needs, and experience a completely solder-free way to easily build your ideas. Dive into the world of electronics with hands-on learning and intuitive module interaction, empowering you to innovate and create with unparalleled ease and flexibility.
 
 # Target Areas
 
@@ -21,7 +21,7 @@ Maker, beginner, education
 <div style="text-align:justify;">
 The Plug and Make Kit, featuring the Arduino® UNO R4 WiFi, offers a seamless and user-friendly introduction to IoT and electronics. With its extensive array of modular sensors and components, this kit is designed to simplify project development and enhance learning experiences. The I2C Qwiic cable connectivity ensures quick and easy customization of your projects, making it an ideal choice for a variety of applications. Below are some examples of how this kit can be utilized:
 
-- **Interactive Learning Tools:** The kit's interactive modules, including buttons, RGB LEDs, and buzzers, can be used to create engaging educational tools. Develop projects that teach coding, electronics, and IoT concepts in a hands-on manner. The plug-and-play nature of the kit simplifies setup and reduces the learning curve, making it perfect for classrooms and educational workshops.
+- **Interactive Learning Tools:** The kit's interactive Modulino® nodes, including buttons, RGB LEDs, and buzzers, can be used to create engaging educational tools. Develop projects that teach coding, electronics, and IoT concepts in a hands-on manner. The plug-and-play nature of the kit simplifies setup and reduces the learning curve, making it perfect for classrooms and educational workshops.
 
 - **Environmental Monitoring:** Leverage the kit's sensors to develop a comprehensive environmental monitoring system. Measure and track data such as air quality, temperature, and humidity levels. The kit's modular design facilitates effortless expansion with additional sensors, providing the flexibility to adapt to evolving project requirements. Data can be logged and analyzed through the Arduino® Cloud, providing real-time insights and alerts.
 
@@ -34,14 +34,14 @@ The Plug and Make Kit, featuring the Arduino® UNO R4 WiFi, offers a seamless an
 
 ## Features
 
-The Plug and Make Kit offers an intuitive and effortless introduction to the world of IoT and electronics. Featuring the powerful Arduino® UNO R4 WiFi, this kit enables seamless integration with the Arduino® Cloud for a smooth, wireless experience. With its array of modular sensors and components connectable via I2C Qwiic cables, the kit allows for easy customization of your projects. Equipped with a diverse range of sensors and interactive modules, this kit provides the tools you need to create dynamic and engaging projects with ease. Perfect for both beginners and experienced makers.
+The Plug and Make Kit offers an intuitive and effortless introduction to the world of IoT and electronics. Featuring the powerful Arduino® UNO R4 WiFi, this kit enables seamless integration with the Arduino® Cloud for a smooth, wireless experience. With its array of modular sensors and components connectable via I2C Qwiic cables, the kit allows for easy customization of your projects. Equipped with a diverse range of sensors and interactive Modulino® nodes, this kit provides the tools you need to create dynamic and engaging projects with ease. Perfect for both beginners and experienced makers.
 
 ### Kit Content
 
 | **SKU**  | **Name**             | **Purpose**                       | **Quantity** |
 | -------- | -------------------- | --------------------------------- | ------------ |
 | ABX00080 | Arduino® UNO R4 WiFi | Programmable main board           | 1            |
-| ASX00071 | Plate Node           | Base plate for UNO and modules    | 1            |
+| ASX00071 | Modulino® Base           | Base plate for UNO and Modulino® nodes    | 1            |
 | ABX00101 | Modulino® Movement   | Measure acceleration and rotation | 1            |
 | ABX00102 | Modulino® Distance   | Time of flight, finds distances   | 1            |
 | ABX00103 | Modulino® Thermo     | Measure temperature and humidity  | 1            |
@@ -101,7 +101,7 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 
 ## Block Diagram
 
-The Plug and Make Kit is a combination of the Arduino UNO R4 Wifi board connected to different Modulinos boards through and I2C bus as can be seen in the following block diagram.
+The Plug and Make Kit is a combination of the Arduino UNO R4 Wifi board connected to different Modulino® nodes boards through and I2C bus as can be seen in the following block diagram.
 
 ![ Plug and Make Kit block diagram](assets/Block_Diagram_Plug_and_Make.svg)
 
@@ -164,7 +164,7 @@ Layout for dimensions and mounting hole locations for secure attachment.
 
 ![Arduino® UNO R4 WiFi Mechanical Information](assets/Arduino_UNO_R4_WiFi_Mec.svg)
 
-## Plate Node
+## Modulino® Base
 
 The Plate Node is designed to provide a stable and secure mounting solution for your Arduino® UNO R4 WiFi and additional nodes. Measuring 140x140x1.6 mm with 3.5 mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections.
 
@@ -178,15 +178,15 @@ The Plate Node is designed to provide a stable and secure mounting solution for 
 | Holes size (diameter) | 3.5 mm         |
 
 
-## Modules
+## Modulino® Nodes
 
-The Plug and Make Kit modules offer a versatile and user-friendly introduction to IoT and electronics. Designed for seamless integration, these modules allow for easy expansion with additional sensors and components, providing a flexible platform to meet diverse project requirements. The modules can be easily connected using Qwiic cables, enabling straightforward daisy-chaining of multiple modules via I2C. This design makes it perfect for both beginners and advanced users, enabling them to experiment and create with ease.
+The Modulino® nodes offer a versatile and user-friendly introduction to IoT and electronics. Designed for seamless integration, these nodes allow for easy expansion with additional sensors and components, providing a flexible platform to meet diverse project requirements. The Modulino® nodes can be easily connected using Qwiic cables, enabling straightforward daisy-chaining of multiple nodes via I2C. This design makes it perfect for both beginners and advanced users, enabling them to experiment and create with ease.
 
 ### General Characteristics
 
-The Plug and Make Kit modules provide a straightforward introduction to IoT and electronics. These modules connect easily using Qwiic cables for I2C communication, simplifying the setup. This modular design is ideal for both beginners and experienced users.
+The Modulino® nodes provide a straightforward introduction to IoT and electronics. These nodes connect easily using Qwiic cables for I2C communication, simplifying the setup. This modular design is ideal for both beginners and experienced users.
 
-All modules share common features such as standardized connectors, blue solder mask, and consistent mechanical dimensions and hole locations, ensuring compatibility.
+All Modulinos® share common features such as standardized connectors, blue solder mask, and consistent mechanical dimensions and hole locations, ensuring compatibility.
 
 #### Mechanical Information
 
@@ -201,14 +201,14 @@ All modules share common features such as standardized connectors, blue solder m
 
 #### I2C Side Connectors
 
-All modules have at least two 4-pin surface mount connectors from the JST SM Series with a 1.0 mm pitch. These connectors are used to connect modules between them and to the microcontroller.
+All Modulino® nodes have at least two 4-pin surface mount connectors from the JST SM Series with a 1.0 mm pitch. These connectors are used to connect nodes between them and to the microcontroller.
 
 
 #### I2C Address Reference
 
-Each module of the kit is designed to be connected to the Arduino® UNO R4 WiFi microcontroller using the QWIICC connectors available on both sides of the modules. The first module is connected to the microcontroller while the rest of the modules are connected to the latest one creating a physical "daisy-chain" connection that, from the communication point of view, is an I2C bus line where all the devices are connected acting the Arduino® UNO R4 WiFi as the controller and the modules as the targets.
+Each Modulino® node of the kit is designed to be connected to the Arduino® UNO R4 WiFi microcontroller using the QWIICC connectors available on both sides of the Modulino® nodes. The first node is connected to the microcontroller while the rest are connected to the latest one creating a physical "daisy-chain" connection that, from the communication point of view, is an I2C bus line where all the devices are connected acting the Arduino® UNO R4 WiFi as the controller and the Modulino® nodes as the targets.
 
-In the case multiple modules of the same kind are connected to the I2C "daisy-chain", they may have the same I2C default address, causing communication problems. All modules are designed to have the possibility of having different I2C addresses via hardware or firmware changes as it is presented in the following table.
+In the case multiple nodes of the same kind are connected to the I2C "daisy-chain", they may have the same I2C default address, causing communication problems. All Modulino® nodes are designed to have the possibility of having different I2C addresses via hardware or firmware changes as it is presented in the following table.
 
 | **Board Silk Name** | **Sensor/Actuator**     | **Default I2C Address (HEX)** | **Editable Addresses (HEX)**                    |
 | ------------------- | ----------------------- | ----------------------------- | ----------------------------------------------- |
@@ -225,23 +225,28 @@ To facilitate this, a white rectangle is positioned on the bottom silk of the bo
 ![Blank silk for identification](assets/I2CTag.png)
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<strong>Note:</strong> The maximum number of modules that can be connected together using this configuration is dependent on the power source and total consumption of the system plus the total length of the cables used. In our tests the maximum number of modules connected together and powered via the USB Type-C of the microcontroller is approximately 50 modules.
+<strong>Note:</strong> The maximum number of Modulino® nodes that can be connected together using this configuration is dependent on the power source and total consumption of the system plus the total length of the cables used. In our tests the maximum number of Modulino® nodes connected together and powered via the USB Type-C of the microcontroller is approximately 50 nodes.
 </div>
 
 
-### Modules With Dedicated I2C Interface Controller
+### Modulino® Nodes With Dedicated I2C Interface Controller
 
-These modules use an additional chip to handle I2C communication when there is a lack of native I2C support, ensuring the experience is consistent across every module within the Plug and Make Kit.
+These nodes use an additional chip to handle I2C communication when there is a lack of native I2C support, ensuring the experience is consistent across every Modulino® node within the Plug and Make Kit.
 
 #### Pull-up Resistors
 
-These modules have pads for optional I2C pull-up mounting in both data lines to avoid communication problems in case the I2C bus is not working as it should. No resistors are mounted by default but in case the resistors are need 4.7 K resistors in a SMD 0402 format are recommended.
+These nodes have pads for optional I2C pull-up mounting in both data lines to avoid communication problems in case the I2C bus is not working as it should. No resistors are mounted by default but in case the resistors are need 4.7 K resistors in a SMD 0402 format are recommended.
 
-![Not mounted pullup resistors pads example on the movement module](assets/ResistorsPullup.png)
+These are positioned near the Qwicc connector on the power LED side except on the Modulino® Buttons where it can be found between the button B and C.
+![Generic pull-up resistor position](assets/ResistorsPullupGen.png)
 
-### Movement Module
 
-The MOVEMENT module, featuring the LSM6DSOXTR sensor, measures acceleration, rotation, and temperature, providing comprehensive data for motion detection applications. It's ideal for projects involving gesture recognition, pedometers, and vibration monitoring.
+![Pull-up resistor positions for Modulino® Buttons](assets/ResistorsPullupBtn.png) 
+
+
+### Modulino® Movement
+
+The Modulino® Movement, featuring the LSM6DSOXTR sensor, measures acceleration, rotation, and temperature, providing comprehensive data for motion detection applications. It's ideal for projects involving gesture recognition, pedometers, and vibration monitoring.
 
 #### Technical Specifications
 
@@ -259,7 +264,7 @@ The MOVEMENT module, featuring the LSM6DSOXTR sensor, measures acceleration, rot
 
 ![Modulino® Movement Pinout](assets/MovementPinouts.png)
 
-**Module 1x4 Header**
+**1x4 Header**
 
 | **Pin** | **Function**  |
 |---------|---------------|
@@ -268,9 +273,11 @@ The MOVEMENT module, featuring the LSM6DSOXTR sensor, measures acceleration, rot
 | SDA     | I2C Data      |
 | SCL     | I2C Clock     |
 
-The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
+The above pads are generic to all Modulino® nodes and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
-**Module 1x10 Header with LSM6DSOXTR signals**
+<div style="page-break-after: always;"></div>
+
+**1x10 Header with LSM6DSOXTR signals**
 
 | **Pin**   | **Function**             |
 |-----------|--------------------------|
@@ -293,9 +300,9 @@ It is possible to make VDDIO independent from the 3.3 V power net by cutting its
 
 ![Modulino® Movement Mechanical Information](assets/IMUMec.png)
 
-### Distance Module
+### Modulino® Distance
 
-The DISTANCE module, featuring the VL53L4CDV0DH/1 sensor, provides accurate distance measurements using time-of-flight technology. It's perfect for applications requiring precise distance sensing, such as robotics and proximity sensors.
+The Modulino® Distance, featuring the VL53L4CDV0DH/1 sensor, provides accurate distance measurements using time-of-flight technology. It's perfect for applications requiring precise distance sensing, such as robotics and proximity sensors.
 
 #### Technical Specifications
 
@@ -313,7 +320,7 @@ The DISTANCE module, featuring the VL53L4CDV0DH/1 sensor, provides accurate dist
 
 ![Modulino® Distance Pinout](assets/DistancePinouts.png)
 
-**Module 1x4 Header**
+**1x4 Header**
 
 | **Pin** |  **Function**  |
 |---------| ---------------|
@@ -322,9 +329,11 @@ The DISTANCE module, featuring the VL53L4CDV0DH/1 sensor, provides accurate dist
 | SDA     |  I2C Data      |
 | SCL     |  I2C Clock     |
 
-The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
+The above pads are generic to all Modulino® nodes and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
-**Module 1x4 Header with VL53L4CDV0DH/1 signals**
+<div style="page-break-after: always;"></div>
+
+**1x4 Header with VL53L4CDV0DH/1 signals**
 
 | **Pin** | **Function**                     |
 | ------- | -------------------------------- |
@@ -335,11 +344,11 @@ These provide a place to mount header pins if desired. GPIO1 open-drain interrup
 
 #### Mechanical Information
 
-![Distance Module Mechanical Information](assets/DistanceMec.png)
+![Modulino® Distance Mechanical Information](assets/DistanceMec.png)
 
-### Thermo Module
+### Modulino® Thermo 
 
-The THERMO module, featuring the HS3003 sensor, measures both temperature and humidity. It's suitable for environmental monitoring and climate control applications.
+The Modulino® Thermo , featuring the HS3003 sensor, measures both temperature and humidity. It's suitable for environmental monitoring and climate control applications.
 
 #### Technical Specifications
 
@@ -357,7 +366,7 @@ The THERMO module, featuring the HS3003 sensor, measures both temperature and hu
 
 ![Modulino® Thermo Pinout](assets/ThermoPinouts.png)
 
-**Module 1x4 Header**
+**1x4 Header**
 
 | **Pin** | **Function** |
 | ------- | ------------ |
@@ -366,7 +375,7 @@ The THERMO module, featuring the HS3003 sensor, measures both temperature and hu
 | SDA     | I2C Data     |
 | SCL     | I2C Clock    |
 
-The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
+The above pads are generic to all Modulino® nodes and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
 #### Mechanical Information
 
@@ -374,9 +383,9 @@ The above pads are generic to all modules and they are on the same bus as the Qw
 
 <div style="page-break-after: always;"></div>
 
-### Knob Module
+### Modulino® Knob
 
-The KNOB module includes a quadrature rotary encoder with an SPST switch, using the STM32C011F4 chip for digital communication. This setup allows precise control for user interfaces and adjustments in various applications. All of the modules that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Knob includes a quadrature rotary encoder with an SPST switch, using the STM32C011F4 chip for digital communication. This setup allows precise control for user interfaces and adjustments in various applications. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
 
 #### Technical Specifications
 
@@ -395,7 +404,7 @@ The KNOB module includes a quadrature rotary encoder with an SPST switch, using 
 
 ![Modulino® Knob Pinout](assets/KnobPinouts.png)
 
-**Module 1x4 Header**
+**1x4 Header**
 
 | **Pin** | **Function** |
 | ------- | ------------ |
@@ -404,9 +413,11 @@ The KNOB module includes a quadrature rotary encoder with an SPST switch, using 
 | SDA     | I2C Data     |
 | SCL     | I2C Clock    |
 
-The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
+The above pads are generic to all Modulino® nodes and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
-**Module 1x10 Header for Encoder signals**
+<div style="page-break-after: always;"></div>
+
+**1x10 Header for Encoder signals**
 
 | **Pin** | **Function**     |
 | ------- | ---------------- |
@@ -425,9 +436,9 @@ This header can be used to read the encoder from an external controller, to use 
 
 ![](assets/KnobMec.png)
 
-### Buzzer Module
+### Modulino® Buzzer
 
-The BUZZER module contains a single buzzer and uses the STM32C011F4 chip for digital communication, making it suitable for producing sound alerts and notifications in various projects. All of the modules that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Buzzer contains a single buzzer and uses the STM32C011F4 chip for digital communication, making it suitable for producing sound alerts and notifications in various projects. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
 
 #### Technical Specifications
 
@@ -445,7 +456,7 @@ The BUZZER module contains a single buzzer and uses the STM32C011F4 chip for dig
 
 ![Modulino® Buzzer Pinout](assets/BuzzerPinouts.png)
 
-**Module 1x4 Header**
+**1x4 Header**
 
 | **Pin** | **Function** |
 | ------- | ------------ |
@@ -454,9 +465,11 @@ The BUZZER module contains a single buzzer and uses the STM32C011F4 chip for dig
 | SDA     | I2C Data     |
 | SCL     | I2C Clock    |
 
-The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
+The above pads are generic to all Modulino® nodes and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
-**Module 1x8 Header for Buzzer and I2C interface chip signals**
+<div style="page-break-after: always;"></div>
+
+**1x8 Header for Buzzer and I2C interface chip signals**
 
 | **Pin** | **Function**  |
 | ------- | ------------- |
@@ -473,9 +486,9 @@ This header can be used to actuate the buzzer from an external 3.3 V source, to 
 
 ![](assets/BuzzMec.png)
 
-### Pixels Module
+### Modulino® Pixels
 
-The PIXELS module includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 chip for digital communication, perfect for creating colorful displays and lighting effects in your projects. All of the modules that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Pixels includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 chip for digital communication, perfect for creating colorful displays and lighting effects in your projects. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
 
 #### Technical Specifications
 
@@ -492,7 +505,7 @@ The PIXELS module includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 c
 
 ![Modulino® Pixels Pinout](assets/PixelsPinouts.png)
 
-**Module 1x4 Header**
+**1x4 Header**
 
 | **Pin** | **Function** |
 | ------- | ------------ |
@@ -501,9 +514,11 @@ The PIXELS module includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 c
 | SDA     | I2C Data     |
 | SCL     | I2C Clock    |
 
-The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
+The above pads are generic to all Modulino® nodes and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
-**Module 1x10 Header for LC8822-2020 and I2C interface controller**
+'<div style="page-break-after: always;"></div>
+
+**1x10 Header for LC8822-2020 and I2C interface controller**
 
 | **Pin** | **Function**  |
 | ------- | ------------- |
@@ -524,9 +539,9 @@ It also has other I2C interface controller IC pins usable for other purposes or 
 
 ![Mechanical information for Modulino® Pixels](assets/PixelMec.png)
 
-### Buttons Module
+### Modulino® Buttons
 
-The BUTTONS module includes three SPST push buttons and three yellow LEDs, using the STM32C011F4 chip for digital communication. It's ideal for creating interactive input interfaces. All of the modules that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Buttons includes three SPST push buttons and three yellow LEDs, using the STM32C011F4 chip for digital communication. It's ideal for creating interactive input interfaces. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
 
 #### Technical Specifications
 
@@ -544,7 +559,7 @@ The BUTTONS module includes three SPST push buttons and three yellow LEDs, using
 
 ![Modulino® Buttons Pinout](assets/ButtonsPinouts.png)
 
-**Module 1x4 Header**
+**1x4 Header**
 
 | **Pin** | **Function** |
 | ------- | ------------ |
@@ -553,9 +568,11 @@ The BUTTONS module includes three SPST push buttons and three yellow LEDs, using
 | SDA     | I2C Data     |
 | SCL     | I2C Clock    |
 
-The above pads are generic to all modules and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
+The above pads are generic to all Modulino® nodes and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
 
-**Module 1x10 Header for Push button and I2C interface controller**
+<div style="page-break-after: always;"></div>
+
+**1x10 Header for Push button and I2C interface controller**
 
 | **Pin** | **Function**    |
 | ------- | --------------- |
@@ -580,6 +597,10 @@ This header can be used to read the push-button status from an external 3.3 V co
 ### Getting Started - IDE
 
 If you want to program your Arduino® Plug and Make Kit while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the **Arduino® UNO R4 WiFi** to your computer, you will need a USB-C® cable, which can also provide power to the board, as indicated by the LED (DL1).
+
+### Getting Started - The Plug and Make
+
+To learn more about how to use this kit and quickly build useful and interesting projects with it, please refer to the dedicated course available at [https://www.arduino.cc/education/courses](https://www.arduino.cc/education/courses) as well as the official documentation found at [https://docs.arduino.cc/](https://docs.arduino.cc/).
 
 ### Getting Started - Arduino Web Editor
 
