@@ -53,10 +53,14 @@ The listing herein offers a glimpse into the Portenta X8 firmware's continuous i
 
 Below is a list of all available firmware versions with their release notes.
 
-### [OS Image 859](https://downloads.arduino.cc/portentax8image/859.tar.gz)
+### OS Image 859
 
 <details>
   <summary><strong>OS Image 859: Release arduino-91.2</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/859.tar.gz)
+  - Update package [download](https://downloads.arduino.cc/portentax8image/offline-update-859.tar.gz)
 
 #### New Features
   - Added support for Akida Brainchip PCIe module in NPU.
@@ -78,10 +82,14 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-### [OS Image 844](https://downloads.arduino.cc/portentax8image/844.tar.gz)
+### OS Image 844
 
 <details>
   <summary><strong>OS Image 844: Release arduino-91</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/844.tar.gz)
+  - Update package [download](https://downloads.arduino.cc/portentax8image/offline-update-844.tar.gz)
 
 #### New Features
   - Implemented a configurable *NCM* gadget from `/etc/default/usbgx` .
@@ -106,10 +114,14 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-### [OS Image 822](https://downloads.arduino.cc/portentax8image/822.tar.gz)
+### OS Image 822
 
 <details>
   <summary><strong>OS Image 822: Release arduino-88.94</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/822.tar.gz)
+  - Update package [download](https://downloads.arduino.cc/portentax8image/offline-update-822.tar.gz)
 
 #### New Features
   - Added `libgpiod` to enhance functionality across both software images.
@@ -133,10 +145,14 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-### [OS Image 746](https://downloads.arduino.cc/portentax8image/746.tar.gz)
+### OS Image 746
 
 <details>
   <summary><strong>OS Image 746: Release arduino-88.91</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/746.tar.gz)
+  - Update package [download](https://downloads.arduino.cc/portentax8image/offline-update-746.tar.gz)
 
 #### New Features
   - Added the Portenta HAT Carrier support
@@ -159,9 +175,13 @@ Below is a list of all available firmware versions with their release notes.
 <br></br>
 
 
-### [OS Image 719](https://downloads.arduino.cc/portentax8image/719.tar.gz)
+### OS Image 719
 <details>
   <summary><strong>OS Image 719: Release arduino-88.7</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/719.tar.gz)
+  - Update package [download](https://downloads.arduino.cc/portentax8image/offline-update-719.tar.gz)
 
 #### New Features
   - Added PWM fan support
