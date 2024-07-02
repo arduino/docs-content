@@ -39,9 +39,8 @@ In this tutorial, you will find useful information to get started, test, and mai
     - [Distance Sensors](#distance-sensors)
     - [Line Follower Sensor](#line-follower-sensor)
     - [Color Sensor](#color-sensor)
-      - [Functions](#functions)
     - [IMU](#imu)
-      - [Functions](#functions-1)
+      - [Functions](#functions)
       - [Example Usage](#example-usage)
   - [Actuators](#actuators)
     - [Motors and Encoders](#motors-and-encoders)
@@ -68,9 +67,28 @@ In this tutorial, you will find useful information to get started, test, and mai
     - [Encoder’s Control](#encoders-control)
     - [Reading Buttons](#reading-buttons)
     - [Detecting Obstacles](#detecting-obstacles)
+      - [Function](#function)
+      - [Example Usage](#example-usage-1)
     - [Following a Line](#following-a-line)
+      - [Function](#function-1)
+      - [Example Usage](#example-usage-2)
     - [Sensing Colors](#sensing-colors)
+      - [Functions](#functions-1)
     - [Detecting Falling and Crashes (IMU)](#detecting-falling-and-crashes-imu)
+    - [LEDs](#leds)
+  - [Talking with other Machines!](#talking-with-other-machines)
+    - [WiFi](#wifi)
+    - [ESPNow](#espnow)
+    - [BLE Tutorial](#ble-tutorial)
+  - [Expanding the Robot](#expanding-the-robot)
+    - [Additional Connectors](#additional-connectors)
+    - [Qwiic Connectors](#qwiic-connectors)
+    - [Grove Connectors](#grove-connectors)
+    - [Servomotor Connectors](#servomotor-connectors)
+    - [Lego Technic Compatibility](#lego-technic-compatibility)
+    - [Custom Parts](#custom-parts)
+    - [Add LEGO® Addons](#add-lego-addons)
+    - [Add Servo Motors](#add-servo-motors)
     - [Add I2C Grove](#add-i2c-grove)
     - [Add Qwiic](#add-qwiic)
   - [Want More?](#want-more)
@@ -174,140 +192,24 @@ TODO: Content for this section
 
 ### Distance Sensors
 
+The Arduino Alvik robot is equipped with a ToF (Time of Flight) 8x8 Array sensor, specifically the LSM6DSOX, which can measure distances up to 350 cm. These distance sensors help the robot detect obstacles and measure the distance to objects in its environment.
+
+TODO:Add image
 TODO: Content for this section
 
 ### Line Follower Sensor
 
-TODO: Content for this section
+The Arduino Alvik robot is equipped with line follower sensors that help it detect and follow lines on the ground. This is useful for applications where the robot needs to navigate along predefined paths.
+TODO:Add images
+
+
+TODO: Content for this section and images
 
 ### Color Sensor
 
 The color sensor on the Arduino Alvik robot is used to detect and identify colors on surfaces that the robot encounters. It provides both raw color readouts and labeled color information that can be used for various applications such as line following, object detection, and more.
 
-#### Functions
 
-1. **color_calibration**
-
-   The `color_calibration` function is used to calibrate the color sensor for accurate color detection. Calibration can be done against a white or black background.
-
-   ```
-   color_calibration(background: str = 'white')
-   ```
-
-   **Inputs:**
-   - `background`: A string specifying the background color for calibration. Can be "white" or "black".
-
-2. **get_color_raw**
-
-   The `get_color_raw` function returns the raw readout from the color sensor. This is the direct sensor data before any processing or labeling. It can be useful for advanced applications where precise color data is needed.
-
-   ```python
-   get_color_raw()
-   ```
-
-   **Outputs:**
-   - `color`: The color sensor's raw readout.
-
-3. **get_color_label**
-
-   The `get_color_label` function returns the label of the color as recognized by the sensor. This function processes the raw sensor data and converts it into a human-readable label, such as "red", "blue", "green", etc. It simplifies the use of color data for most applications however some flexibility is lost as colors are grouped into the nearest labeled color.
-
-   ```python
-   get_color_label()
-   ```
-
-   **Outputs:**
-   - `color`: The label of the color as recognized by the sensor. These can be:
-     - TODO add color labels
-
-   **Example Usage**
-
-   Here is an example of how to use the `get_color_label` function in a script that makes the robot walk in a straight line, detect three different colors (ignoring white), stop, and communicate the detected colors via serial every second:
-
-   ```python
-   from arduino_alvik import ArduinoAlvik
-   import time
-   from time import sleep
-
-   # Initialization
-   alvik = ArduinoAlvik()
-   alvik.begin()
-   sleep(5)  # Waiting for the robot to setup
-
-   # Calibrate color sensor for white
-   alvik.color_calibration('white')
-
-   # Main logic
-   detected_colors = set()
-
-   print("Starting to move and detect colors...")
-
-   try:
-       while len(detected_colors) < 3:
-           alvik.set_wheels_speed(20, 20)
-           color = alvik.get_color_label()
-           
-           if color != 'WHITE' and color not in detected_colors:
-               detected_colors.add(color)
-               print(f"Detected color: {color}")
-           
-           time.sleep(0.1)  # Adjust the sleep time as needed
-       
-       alvik.brake()
-       print("Detected three different colors. Stopping...")
-       
-       # Communicate the detected colors via serial every second
-       while True:
-           print(f"Detected colors: {', '.join(detected_colors)}")
-           time.sleep(1)
-   except KeyboardInterrupt:
-       alvik.brake()
-       print("Interrupted. Stopping the robot.")
-   except Exception as e:
-       alvik.brake()
-       print(f"An error occurred: {e}")
-   ```
-
-4. **get_color**
-
-   The `get_color` function returns the normalized color readout of the color sensor. This function can output the color in either RGB or HSV format.
-
-   ```python
-   get_color(color_format: str = 'rgb')
-   ```
-
-   **Inputs:**
-   - `color_format`: The format of the color readout. Can be "rgb" or "hsv".
-
-   **Outputs:**
-   - `r` or `h`: The red component in RGB format or the hue in HSV format.
-   - `g` or `s`: The green component in RGB format or the saturation in HSV format.
-   - `b` or `v`: The blue component in RGB format or the value in HSV format.
-
-5. **hsv2label**
-
-TODO: CHECK THIS BETTER FUNCTION UNCLEAR
-   The `hsv2label` function returns the color label corresponding to the given normalized HSV color input. It converts HSV values to a human-readable color label.
-
-   ```python
-   hsv2label(h, s, v)
-   ```
-
-   **Inputs:**
-   - `h`: Hue value.
-   - `s`: Saturation value.
-   - `v`: Brightness value.
-
-   **Outputs:**
-   - `color label`: The label of the color like "BLACK" or "GREEN", if possible, otherwise returns "UNDEFINED".
-
-You can use these functions depending on your needs:
-
-- Use `color_calibration` to calibrate the sensor for accurate readings.
-- Use `get_color_raw` to get the raw sensor data.
-- Use `get_color_label` to get a human-readable label of the detected color.
-- Use `get_color` to get normalized color data in RGB or HSV format.
-- Use `hsv2label` to convert HSV values to a color label.
 
 TODO: Content for this section
 
@@ -477,7 +379,7 @@ Open **Arduino Lab for MicroPython** and **connect** Alvik. Then:
 
 [mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html) is a Python module needed to upload files on the Nano ESP32. The minimum suggested mpremote release is 1.22.0. Be sure to have Python installed before proceeding!
 
-`venv)$ pip install mpremote`
+`(venv)$ pip install mpremote`
 
 or
 
@@ -556,11 +458,275 @@ TODO: Content for this section
 
 TODO: Content for this section
 
+#### Function
+
+**get_distance**
+
+The `get_distance` function returns the distance readouts from the left, center-left, center, center-right, and right sensors.
+
+**Outputs:**
+- `L`: Left sensor readout.
+- `CL`: Center-left sensor readout.
+- `C`: Center sensor readout.
+- `CR`: Center-right sensor readout.
+- `R`: Right sensor readout.
+
+**get_distance_top**
+
+The `get_distance_top` function returns the distance readout from the top sensor.
+
+**Outputs:**
+- `T`: Top sensor readout.
+
+**get_distance_bottom**
+
+The `get_distance_bottom` function returns the distance readout from the bottom sensor.
+
+**Outputs:**
+- `B`: Bottom sensor readout.
+
+#### Example Usage
+
+Here is an example of how to use the distance sensors to get distance measurements:
+
+```python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+import sys
+
+alvik = ArduinoAlvik()
+alvik.begin()
+
+while True:
+    try:
+        L, CL, C, CR, R = alvik.get_distance()
+        T = alvik.get_distance_top()
+        B = alvik.get_distance_bottom()
+        print(f'T: {T} | B: {B} | L: {L} | CL: {CL} | C: {C} | CR: {CR} | R: {R}')
+        sleep_ms(100)
+    except KeyboardInterrupt as e:
+        print('over')
+        alvik.stop()
+        sys.exit()
+```
+
+In this example, the robot uses its distance sensors to measure distances in its environment. The distance readouts from the left, center-left, center, center-right, right, top, and bottom sensors are printed continuously, allowing the robot to detect obstacles and measure distances accurately.
+
+TODO: Content for this section
+
 ### Following a Line
+
+#### Function
+
+**get_line_sensors**
+
+The `get_line_sensors` function returns the line follower sensors' readouts, providing the status of the left, center, and right sensors.
+
+**Outputs:**
+- `left`: Left sensor readout.
+- `center`: Center sensor readout.
+- `right`: Right sensor readout.
+
+#### Example Usage
+
+Here is an example of how to use the line follower sensors to make the robot follow a line:
+
+```python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+import sys
+
+def calculate_center(left: int, center: int, right: int):
+    centroid = 0
+    sum_weight = left + center + right
+    sum_values = left + 2 * center + 3 * right
+    if sum_weight != 0:
+        centroid = sum_values / sum_weight
+        centroid = 2 - centroid
+    return centroid
+
+alvik = ArduinoAlvik()
+alvik.begin()
+
+error = 0
+control = 0
+kp = 50.0
+
+alvik.left_led.set_color(0, 0, 1)
+alvik.right_led.set_color(0, 0, 1)
+
+while alvik.get_touch_ok():
+    sleep_ms(50)
+
+while not alvik.get_touch_ok():
+    sleep_ms(50)
+
+try:
+    while True:
+        while not alvik.get_touch_cancel():
+
+            line_sensors = alvik.get_line_sensors()
+            print(f' {line_sensors}')
+
+            error = calculate_center(*line_sensors)
+            control = error * kp
+
+            if control > 0.2:
+                alvik.left_led.set_color(1, 0, 0)
+                alvik.right_led.set_color(0, 0, 0)
+            elif control < -0.2:
+                alvik.left_led.set_color(1, 0, 0)
+                alvik.right_led.set_color(0, 0, 0)
+            else:
+                alvik.left_led.set_color(0, 1, 0)
+                alvik.right_led.set_color(0, 1, 0)
+
+            alvik.set_wheels_speed(30 - control, 30 + control)
+            sleep_ms(100)
+
+        while not alvik.get_touch_ok():
+            alvik.left_led.set_color(0, 0, 1)
+            alvik.right_led.set_color(0, 0, 1)
+            alvik.brake()
+            sleep_ms(100)
+
+except KeyboardInterrupt as e:
+    print('over')
+    alvik.stop()
+    sys.exit()
+```
+
+In this example, the robot uses its line follower sensor array to navigate along a line. The `calcu2late_center` function determines the center of the line's position, and the robot adjusts its wheel speeds to stay on the line based on the calculated error from this center.
+
 
 TODO: Content for this section
 
 ### Sensing Colors
+
+#### Functions
+
+1. **color_calibration**
+
+   The `color_calibration` function is used to calibrate the color sensor for accurate color detection. Calibration can be done against a white or black background.
+
+   ```
+   color_calibration(background: str = 'white')
+   ```
+
+   **Inputs:**
+   - `background`: A string specifying the background color for calibration. Can be "white" or "black".
+
+2. **get_color_raw**
+
+   The `get_color_raw` function returns the raw readout from the color sensor. This is the direct sensor data before any processing or labeling. It can be useful for advanced applications where precise color data is needed.
+
+   ```python
+   get_color_raw()
+   ```
+
+   **Outputs:**
+   - `color`: The color sensor's raw readout.
+
+3. **get_color_label**
+
+   The `get_color_label` function returns the label of the color as recognized by the sensor. This function processes the raw sensor data and converts it into a human-readable label, such as "red", "blue", "green", etc. It simplifies the use of color data for most applications however some flexibility is lost as colors are grouped into the nearest labeled color.
+
+   ```python
+   get_color_label()
+   ```
+
+   **Outputs:**
+   - `color`: The label of the color as recognized by the sensor. These can be:
+     - `'BLACK'`, `'GREY'`, `'BLACK'`, `'LIGHT GREY'`, `'WHITE'`, `'YELLOW'`, `'LIGHT GREEN'`, `'BLUE'`, `'VIOLET'`, `'BROWN'`, `'ORANGE'`, `'RED'`.
+
+   **Example Usage**
+
+   Here is an example of how to use the `get_color_label` function in a script that makes the robot walk in a straight line, detect three different colors (ignoring white), stop, and communicate the detected colors via serial every second:
+
+   ```python
+   from arduino_alvik import ArduinoAlvik
+   import time
+   from time import sleep
+
+   # Initialization
+   alvik = ArduinoAlvik()
+   alvik.begin()
+   sleep(5)  # Waiting for the robot to setup
+
+   # Calibrate color sensor for white
+   alvik.color_calibration('white')
+
+   # Main logic
+   detected_colors = set()
+
+   print("Starting to move and detect colors...")
+
+   try:
+       while len(detected_colors) < 3:
+           alvik.set_wheels_speed(20, 20)
+           color = alvik.get_color_label()
+           
+           if color != 'WHITE' and color not in detected_colors:
+               detected_colors.add(color)
+               print(f"Detected color: {color}")
+           
+           time.sleep(0.1)  # Adjust the sleep time as needed
+       
+       alvik.brake()
+       print("Detected three different colors. Stopping...")
+       
+       # Communicate the detected colors via serial every second
+       while True:
+           print(f"Detected colors: {', '.join(detected_colors)}")
+           time.sleep(1)
+   except KeyboardInterrupt:
+       alvik.brake()
+       print("Interrupted. Stopping the robot.")
+   except Exception as e:
+       alvik.brake()
+       print(f"An error occurred: {e}")
+   ```
+
+4. **get_color**
+
+   The `get_color` function returns the normalized color readout of the color sensor. This function can output the color in either RGB or HSV format.
+
+   ```python
+   get_color(color_format: str = 'rgb')
+   ```
+
+   **Inputs:**
+   - `color_format`: The format of the color readout. Can be "rgb" or "hsv".
+
+   **Outputs:**
+   - `r` or `h`: The red component in RGB format or the hue in HSV format.
+   - `g` or `s`: The green component in RGB format or the saturation in HSV format.
+   - `b` or `v`: The blue component in RGB format or the value in HSV format.
+
+5. **hsv2label**
+
+TODO: CHECK THIS BETTER FUNCTION UNCLEAR
+   The `hsv2label` function returns the color label corresponding to the given normalized HSV color input. It converts HSV values to a human-readable color label.
+
+   ```python
+   hsv2label(h, s, v)
+   ```
+
+   **Inputs:**
+   - `h`: Hue value.
+   - `s`: Saturation value.
+   - `v`: Brightness value.
+
+   **Outputs:**
+   - `color label`: The label of the color like "BLACK" or "GREEN", if possible, otherwise returns "UNDEFINED".
+
+You can use these functions depending on your needs:
+
+- Use `color_calibration` to calibrate the sensor for accurate readings.
+- Use `get_color_raw` to get the raw sensor data.
+- Use `get_color_label` to get a human-readable label of the detected color.
+- Use `get_color` to get normalized color data in RGB or HSV format.
+- Use `hsv2label` to convert HSV values to a color label.
 
 TODO: Content for this section
 
@@ -604,6 +770,7 @@ def detect_fall_or_crash():
 while True:
     detect_fall_or_crash()
     time.sleep(0.1)  # Adjust the sleep time as needed
+```
 
 ### LEDs
 
