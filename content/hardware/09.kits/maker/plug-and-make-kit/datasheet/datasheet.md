@@ -340,7 +340,7 @@ The above pads are generic to all Modulino® nodes and they are on the same bus 
 | GPIO1   | Digital output (Distance Sensor) |
 | XSHUT   | Shutdown (Distance Sensor)       |
 
-These provide a place to mount header pins if desired. GPIO1 open-drain interrupt output, with onboard 10 kΩ pullup to 3.3 V. XSHUT actives low digital input with onboard 10 kΩ pullup to 3.3 V.
+These provide a place to mount header pins if desired. GPIO1 open-drain interrupt output, with onboard 10 kΩ pullup resistor to 3.3 V. XSHUT actives low digital input with onboard 10 kΩ pullup resistor to 3.3 V.
 
 #### Mechanical Information
 
@@ -385,7 +385,7 @@ The above pads are generic to all Modulino® nodes and they are on the same bus 
 
 ### Modulino® Knob
 
-The Modulino® Knob includes a quadrature rotary encoder with an SPST switch, using the STM32C011F4 chip for digital communication. This setup allows precise control for user interfaces and adjustments in various applications. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Knob includes a quadrature rotary encoder with an SPST switch, using the STM32C011F4 chip for digital communication. This setup allows precise control for user interfaces and adjustments in various applications. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullup resistors, but no resistors are mounted.
 
 #### Technical Specifications
 
@@ -438,7 +438,7 @@ This header can be used to read the encoder from an external controller, to use 
 
 ### Modulino® Buzzer
 
-The Modulino® Buzzer contains a single buzzer and uses the STM32C011F4 chip for digital communication, making it suitable for producing sound alerts and notifications in various projects. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Buzzer contains a single buzzer and uses the STM32C011F4 chip for digital communication, making it suitable for producing sound alerts and notifications in various projects. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullup resistors, but no resistors are mounted.
 
 #### Technical Specifications
 
@@ -488,7 +488,7 @@ This header can be used to actuate the buzzer from an external 3.3 V source, to 
 
 ### Modulino® Pixels
 
-The Modulino® Pixels includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 chip for digital communication, perfect for creating colorful displays and lighting effects in your projects. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Pixels includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 chip for digital communication, perfect for creating colorful displays and lighting effects in your projects. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullup resistors, but no resistors are mounted.
 
 #### Technical Specifications
 
@@ -539,7 +539,7 @@ It also has other I2C interface controller IC pins usable for other purposes or 
 
 ### Modulino® Buttons
 
-The Modulino® Buttons includes three SPST push buttons and three yellow LEDs, using the STM32C011F4 chip for digital communication. It's ideal for creating interactive input interfaces. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Buttons includes three SPST push buttons and three yellow LEDs, using the STM32C011F4 chip for digital communication. It's ideal for creating interactive input interfaces. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullup resistors, but no resistors are mounted.
 
 #### Technical Specifications
 
