@@ -491,6 +491,7 @@ This equipment contains a radio transmitter module with model approval code: CMI
 
 | Date       | **Revision** | **Changes**        |
 | ---------- | ------------ | ------------------ |
+| 03/07/2024 | 5            | Update Assets      |
 | 19/09/2023 | 4            | Update FCC section |
 | 25/07/2023 | 3            | Update Pin Table   |
 | 30/06/2023 | 2            | Update Pinout File |
@@ -603,7 +604,7 @@ UNO R4 WiFi是第一代32位开发板的一部分, 之前基于8位AVR微控制�
 
 ### 正视图
 
-![Arduino UNO R4 WiFi 的正视图](assets/topViewWiFi.svg)
+![Arduino UNO R4 WiFi 的正视图](assets/topViewWiFi.png)
 
 | **参考**      | **描述**                                  |
 | ------------ | ----------------------------------------- |
@@ -843,7 +844,7 @@ R7FA4M1AB3CFM#AA0微控制器上的GPIO可安全处理高达8mA的电流。切�
 
 ## 安装孔和开发板轮廓
 
-![Arduino UNO R4 WiFi 的顶部机械视图](assets/mechanicalDrawingwWiFi.svg)
+![Arduino UNO R4 WiFi 的顶部机械视图](assets/mechanicalDrawingWiFi.png)
 
 ## 开发板操作
 
