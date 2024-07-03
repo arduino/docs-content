@@ -29,8 +29,6 @@ The message is sent over Narrow Band IoT (NB IoT) or LTE CAT M1 network.
 
 The sketch will be setup to record input from the Serial Monitor, where we can enter a number and a message, and send it. 
 
->**Note:** The Arduino SIM card does not work with this tutorial. A SIM card with a plan from an operator in your country is required. 
-
 ## Goals
 
 The goals of this tutorial are:
