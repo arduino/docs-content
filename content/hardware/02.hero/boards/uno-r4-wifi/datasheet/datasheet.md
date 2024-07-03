@@ -349,7 +349,7 @@ For powering e.g. servo motors, always use an external power supply.
 
 ## Mounting Holes And Board Outline
 
-![Top side Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingwWiFi.png)
+![Top side Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingWiFi.png)
 
 ## Board Operation
 
