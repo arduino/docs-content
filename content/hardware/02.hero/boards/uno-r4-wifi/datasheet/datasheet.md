@@ -110,7 +110,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 
 ### Front View
 
-![Top View of Arduino UNO R4 WiFi](assets/topViewWiFi.svg)
+![Top View of Arduino UNO R4 WiFi](assets/topViewWiFi.png)
 
 | **Ref.**    | **Description**                                  |
 | ----------- | ------------------------------------------------ |
@@ -349,7 +349,7 @@ For powering e.g. servo motors, always use an external power supply.
 
 ## Mounting Holes And Board Outline
 
-![Top side Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingwWiFi.svg)
+![Top side Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingwWiFi.png)
 
 ## Board Operation
 
