@@ -66,12 +66,13 @@ In this tutorial, you will find useful information to get started, test, and mai
       - [Controlling power and time in degrees/s cm/s](#controlling-power-and-time-in-degreess-cms)
     - [Encoder’s Control](#encoders-control)
     - [Reading Buttons](#reading-buttons)
+      - [Example Usage](#example-usage-1)
     - [Detecting Obstacles](#detecting-obstacles)
       - [Function](#function)
-      - [Example Usage](#example-usage-1)
+      - [Example Usage](#example-usage-2)
     - [Following a Line](#following-a-line)
       - [Function](#function-1)
-      - [Example Usage](#example-usage-2)
+      - [Example Usage](#example-usage-3)
     - [Sensing Colors](#sensing-colors)
       - [Functions](#functions-1)
     - [Detecting Falling and Crashes (IMU)](#detecting-falling-and-crashes-imu)
@@ -297,6 +298,9 @@ Alvik has two high-precision geared motors and two RGB LEDs. The test programs a
 | Geared motors w/ encoder | GM12-N20VA-08255-150-EN | wheels_positions.py   |
 | RGB LEDs                 | RGB LEDs                | leds_settings.py      |
 
+TODO: Does this make sense to group together?
+
+
 ## What the Robot Includes
 
 TODO: Content for this section
@@ -379,11 +383,7 @@ Open **Arduino Lab for MicroPython** and **connect** Alvik. Then:
 
 [mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html) is a Python module needed to upload files on the Nano ESP32. The minimum suggested mpremote release is 1.22.0. Be sure to have Python installed before proceeding!
 
-`(venv)$ pip install mpremote`
-
-or
-
-`(venv)$ python3 -m pip install mpremote`
+`(venv)$ pip install mpremote` or `(venv)$ python3 -m pip install mpremote`
 
 Depending on how you configure Python on your machine.
 
@@ -392,11 +392,9 @@ Depending on how you configure Python on your machine.
 Run the following line to upload all files and download the dependencies needed to run the Arduino Alvik MicroPython library.
 
 Linux
-
 `$ ./install.sh -p <device port>`
 
 Windows
-
 `install.bat -p <device port>`
 
 
@@ -415,12 +413,10 @@ The `<device port>` is the name of the USB port that your computer assigned to t
 2. Go into `utilities` folder and run the `flash_firmware` script:
 
 Linux
-
 `$ ./flash_firmware.sh -p <device port> <path-to-your-firmware>`
 
 
 Windows
-
 `flash_firmware.bat -p <device port> <path-to-your-firmware>`
 
 
@@ -433,6 +429,8 @@ TODO: Content for this section
 ## Program Alvik!
 
 ### Controlling the Motors
+
+TODO - IMPROVE THIS TEXT: Movement is one of the Alvik's main feature, as such it is very important to have a lot of flexibility on how you control Alvik's motors as such there are different control methods on how to control them 
 
 #### High level, fix power x amount of time or distance
 
@@ -452,7 +450,104 @@ TODO: Content for this section
 
 ### Reading Buttons
 
-TODO: Content for this section
+The Arduino Alvik robot is equipped with several touch buttons that can be used for various input purposes. The following functions are available to read the state of each button:
+
+1. Detect **any** button pressed.
+
+   The `get_touch_any` function returns true if any of the buttons is pressed.
+
+   **Outputs:**
+   - `touch_any`: true if any button is pressed, false otherwise.
+
+2. Detect the **OK** button pressed.
+
+   The `get_touch_ok` function returns true if the OK button is pressed.
+
+   **Outputs:**
+   - `touch_ok`: true if OK button is pressed, false otherwise.
+
+3. Detect the **Cancel** button pressed.
+
+   The `get_touch_cancel` function returns true if the Cancel button is pressed.
+
+   **Outputs:**
+   - `touch_cancel`: true if Cancel button is pressed, false otherwise.
+
+4. Detect the **Center** button pressed.
+
+   The `get_touch_center` function returns true if the Center button is pressed.
+
+   **Outputs:**
+   - `touch_center`: true if Center button is pressed, false otherwise.
+
+5. Detect the **Up** button pressed.
+
+   The `get_touch_up` function returns true if the Up button is pressed.
+
+   **Outputs:**
+   - `touch_up`: true if Up button is pressed, false otherwise.
+
+6. Detect the **Left** button pressed.
+
+   The `get_touch_left` function returns true if the Left button is pressed.
+
+   **Outputs:**
+   - `touch_left`: true if Left button is pressed, false otherwise.
+
+7. Detect the **Down** button pressed.
+
+   The `get_touch_down` function returns true if the Down button is pressed.
+
+   **Outputs:**
+   - `touch_down`: true if Down button is pressed, false otherwise.
+
+8. Detect the **Right** button pressed.
+
+   The `get_touch_right` function returns true if the Right button is pressed.
+
+   **Outputs:**
+   - `touch_right`: true if Right button is pressed, false otherwise.
+
+#### Example Usage
+
+The following example demonstrates how to read the state of each button and print its name when pressed:
+
+```python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+import sys
+
+alvik = ArduinoAlvik()
+alvik.begin()
+
+while True:
+    try:
+        if alvik.get_touch_any():
+            if alvik.get_touch_up():
+                print("UP")
+            if alvik.get_touch_down():
+                print("DOWN")
+            if alvik.get_touch_left():
+                print("LEFT")
+            if alvik.get_touch_right():
+                print("RIGHT")
+            if alvik.get_touch_ok():
+                print("OK")
+            if alvik.get_touch_cancel():
+                print("CANCEL")
+            if alvik.get_touch_center():
+                print("CENTER")
+
+        sleep_ms(100)
+    except KeyboardInterrupt as e:
+        print('over')
+        alvik.stop()
+        sys.exit()
+```
+
+This example provides a simple way to read and respond to button presses on the Arduino Alvik robot.
+Feel free to expand to it by adding customized responses to each different press.
+
 
 ### Detecting Obstacles
 
@@ -597,7 +692,6 @@ except KeyboardInterrupt as e:
 ```
 
 In this example, the robot uses its line follower sensor array to navigate along a line. The `calcu2late_center` function determines the center of the line's position, and the robot adjusts its wheel speeds to stay on the line based on the calculated error from this center.
-
 
 TODO: Content for this section
 
