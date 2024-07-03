@@ -38,17 +38,17 @@ The Plug and Make Kit offers an intuitive and effortless introduction to the wor
 
 ### Kit Content
 
-| **SKU**  | **Name**             | **Purpose**                       | **Quantity** |
-| -------- | -------------------- | --------------------------------- | ------------ |
-| ABX00080 | Arduino® UNO R4 WiFi | Programmable main board           | 1            |
-| ASX00071 | Modulino® Base           | Base plate for UNO and Modulino® nodes    | 1            |
-| ABX00101 | Modulino® Movement   | Measure acceleration and rotation | 1            |
-| ABX00102 | Modulino® Distance   | Time of flight, finds distances   | 1            |
-| ABX00103 | Modulino® Thermo     | Measure temperature and humidity  | 1            |
-| ABX00107 | Modulino® Knob       | Rotary encoder for input          | 1            |
-| ABX00108 | Modulino® Buzzer     | Produce sound                     | 1            |
-| ABX00109 | Modulino® Pixels     | 8x RGB LEDs for display           | 1            |
-| ABX00110 | Modulino® Buttons    | 3x push buttons for input         | 1            |
+| **SKU**  | **Name**             | **Purpose**                            | **Quantity** |
+| -------- | -------------------- | -------------------------------------- | ------------ |
+| ABX00080 | Arduino® UNO R4 WiFi | Programmable main board                | 1            |
+| ASX00071 | Modulino® Base       | Base plate for UNO and Modulino® nodes | 1            |
+| ABX00101 | Modulino® Movement   | Measure acceleration and rotation      | 1            |
+| ABX00102 | Modulino® Distance   | Time of flight, finds distances        | 1            |
+| ABX00103 | Modulino® Thermo     | Measure temperature and humidity       | 1            |
+| ABX00107 | Modulino® Knob       | Rotary encoder for input               | 1            |
+| ABX00108 | Modulino® Buzzer     | Produce sound                          | 1            |
+| ABX00109 | Modulino® Pixels     | 8x RGB LEDs for display                | 1            |
+| ABX00110 | Modulino® Buttons    | 3x push buttons for input              | 1            |
 
 ### Accessories
 
@@ -144,7 +144,7 @@ Power for the Arduino® UNO R4 WiFi can be supplied through either the VIN pin o
 
 - **VIN Pin:** When power is supplied via the VIN pin, the ISL854102FRZ buck converter reduces the voltage to 5 V. This input is protected by Schottky diodes for reverse polarity and overvoltage protection.
 
-- **USB-C Connector:** Power supplied via the USB-C connector provides approximately 4.7 V to the RA4M1 MCU, accounting for the voltage drop due to the Schottky diodes. 
+- **USB-C Connector:** Power supplied via the USB-C connector provides approximately 4.7 V to the RA4M1 MCU, accounting for the voltage drop due to the Schottky diodes.
 
 #### Power Tree
 
@@ -208,7 +208,7 @@ All Modulino® nodes have at least two 4-pin surface mount connectors from the J
 
 Each Modulino® node of the kit is designed to be connected to the Arduino® UNO R4 WiFi microcontroller using the QWIICC connectors available on both sides of the Modulino® nodes. The first node is connected to the microcontroller while the rest are connected to the latest one creating a physical "daisy-chain" connection that, from the communication point of view, is an I2C bus line where all the devices are connected acting the Arduino® UNO R4 WiFi as the controller and the Modulino® nodes as the targets.
 
-In the case multiple nodes of the same kind are connected to the I2C "daisy-chain", they may have the same I2C default address, causing communication problems. All Modulino® nodes are designed to have the possibility of having different I2C addresses via hardware or firmware changes as it is presented in the following table.
+In the case multiple nodes of the same kind are connected to the I2C "daisy-chain", they may have the same I2C default address, causing communication problems. All Modulino® nodes are designed to have the possibility of having different I2C addresses via hardware or firmware changes as presented in the following table.
 
 | **Board Silk Name** | **Sensor/Actuator**     | **Default I2C Address (HEX)** | **Editable Addresses (HEX)**                    |
 | ------------------- | ----------------------- | ----------------------------- | ----------------------------------------------- |
@@ -235,13 +235,13 @@ These nodes use an additional chip to handle I2C communication when there is a l
 
 #### Pull-up Resistors
 
-These nodes have pads for optional I2C pull-up mounting in both data lines to avoid communication problems in case the I2C bus is not working as it should. No resistors are mounted by default but in case the resistors are need 4.7 K resistors in a SMD 0402 format are recommended.
+These nodes have pads for optional I2C pull-up mounting in both data lines to avoid communication problems in case the I2C bus is not working as it should. No resistors are mounted by default but in case the resistors are need 4.7 K resistors in an SMD 0402 format are recommended.
 
 These are positioned near the Qwicc connector on the power LED side except on the Modulino® Buttons where it can be found between the button B and C.
 ![Generic pull-up resistor position](assets/ResistorsPullupGen.png)
 
 
-![Pull-up resistor positions for Modulino® Buttons](assets/ResistorsPullupBtn.png) 
+![Pull-up resistor positions for Modulino® Buttons](assets/ResistorsPullupBtn.png)
 
 
 ### Modulino® Movement
@@ -346,9 +346,9 @@ These provide a place to mount header pins if desired. GPIO1 open-drain interrup
 
 ![Modulino® Distance Mechanical Information](assets/DistanceMec.png)
 
-### Modulino® Thermo 
+### Modulino® Thermo
 
-The Modulino® Thermo , featuring the HS3003 sensor, measures both temperature and humidity. It's suitable for environmental monitoring and climate control applications.
+The Modulino® Thermo, featuring the HS3003 sensor, measures both temperature and humidity. It's suitable for environmental monitoring and climate control applications.
 
 #### Technical Specifications
 
@@ -492,14 +492,14 @@ The Modulino® Pixels includes eight LC8822-2020 RGB LEDs and uses the STM32C011
 
 #### Technical Specifications
 
-| **Specification**   | **Details**                                         |
-|---------------------|-----------------------------------------------------|
-| Actuator              | Eight LC8822-2020                                   |
-| Microcontroller     | STM32C011F4                                         |
-| Supply Voltage      | Min: 2.0 V, Max: 3.6 V                              |
-| Power Consumption   | 33mA @ 3.3 V * 8 + 3.4 mA                           |
-| Resolution          | 12-bit ADC                                          |
-| Communication       | I2C, USART, SPI, I2S                                |
+| **Specification** | **Details**               |
+| ----------------- | ------------------------- |
+| Actuator          | Eight LC8822-2020         |
+| Microcontroller   | STM32C011F4               |
+| Supply Voltage    | Min: 2.0 V, Max: 3.6 V    |
+| Power Consumption | 33mA @ 3.3 V * 8 + 3.4 mA |
+| Resolution        | 12-bit ADC                |
+| Communication     | I2C, USART, SPI, I2S      |
 
 #### Pinout
 
@@ -515,8 +515,6 @@ The Modulino® Pixels includes eight LC8822-2020 RGB LEDs and uses the STM32C011
 | SCL     | I2C Clock    |
 
 The above pads are generic to all Modulino® nodes and they are on the same bus as the Qwiic connectors. These provide a place to mount header pins if desired.
-
-'<div style="page-break-after: always;"></div>
 
 **1x10 Header for LC8822-2020 and I2C interface controller**
 
@@ -598,23 +596,23 @@ This header can be used to read the push-button status from an external 3.3 V co
 
 If you want to program your Arduino® Plug and Make Kit while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the **Arduino® UNO R4 WiFi** to your computer, you will need a USB-C® cable, which can also provide power to the board, as indicated by the LED (DL1).
 
-### Getting Started - The Plug and Make
+### Getting Started - The Plug and Make kit
 
-To learn more about how to use this kit and quickly build useful and interesting projects with it, please refer to the dedicated course available at [https://www.arduino.cc/education/courses](https://www.arduino.cc/education/courses) as well as the official documentation found at [https://docs.arduino.cc/](https://docs.arduino.cc/).
+To learn more about how to use this kit and quickly build useful and interesting projects with it, please refer to the dedicated course available at **[2]** as well as the official documentation **[3]**.
 
 ### Getting Started - Arduino Web Editor
 
-All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[4]**, by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[5]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
-All Arduino® IoT enabled products are supported on Arduino® Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
+All Arduino® IoT enabled products are supported on Arduino® Cloud which allows you to log, graph, analyze sensor data, trigger events, and automate your home or business.
 
 ### Online Resources
 
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[4]**, the Arduino® Library Reference **[5]**, and the online store **[6]**; where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[6]**, the Arduino® Library Reference **[7]**, and the online store **[8]**; where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 
@@ -720,6 +718,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | Ref                       | Link                                                                                                                                                                                           |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)     | [https://www.arduino.cc/en/Main/Software](https://www.arduino.cc/en/Main/Software)                                                                                                             |
+| Arduino Courses           | [https://www.arduino.cc/education/courses](https://www.arduino.cc/education/courses)                                                                                                           |
+| Arduino Documentation     | [https://docs.arduino.cc/](https://docs.arduino.cc/)                                                                                                           |
 | Arduino IDE (Cloud)       | [https://create.arduino.cc/editor](https://create.arduino.cc/editor)                                                                                                                           |
 | Cloud IDE Getting Started | [https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor) |
 | Project Hub               | [https://projecthub.arduino.cc/](https://projecthub.arduino.cc/)                                                                                                                               |
@@ -731,3 +731,4 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 |  **Date**  | **Revision** |                      **Changes**                       |
 | ---------- | ------------ | ------------------------------------------------------ |
 | 11/07/2024 |      1       |                     First release                      |
+
