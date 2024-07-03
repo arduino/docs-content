@@ -596,7 +596,7 @@ This header can be used to read the push-button status from an external 3.3 V co
 
 If you want to program your Arduino® Plug and Make Kit while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the **Arduino® UNO R4 WiFi** to your computer, you will need a USB-C® cable, which can also provide power to the board, as indicated by the LED (DL1).
 
-### Getting Started - The Plug and Make kit
+### Getting Started - The Plug and Make Kit
 
 To learn more about how to use this kit and quickly build useful and interesting projects with it, please refer to the dedicated course available at **[2]** as well as the official documentation **[3]**.
 
