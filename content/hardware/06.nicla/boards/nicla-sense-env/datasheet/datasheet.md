@@ -1,6 +1,6 @@
 ---
 identifier: ABX00089
-title: Arduino Nicla Sense Env
+title: Arduino® Nicla Sense Env
 type: pro
 variant: 'Datasheet'
 author: José Bagur
@@ -42,7 +42,6 @@ The Nicla Sense Env is a compact, powerful board for environmental sensing appli
 The main features are highlighted in the table shown below.
 
 | **Feature**                             | **Description**                                                                                                                                                                                                       |
-| **Feature**                             | **Description**                                                                                                                                                                                                       |
 |-----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Microcontroller                         | 48 MHz, Arm® Cortex® M23 (not accessible or programmable by the user)                                                                                                                                                 |
 | Internal Memory                         | 128 kB Flash and 16 kB SRAM                                                                                                                                                                                           |
@@ -58,9 +57,10 @@ The main features are highlighted in the table shown below.
 
 <div style="page-break-after: always;"></div>
 
-### Included Accessories
+### Accessories
 
-- ESLOV cable
+- ESLOV cable (included)
+- 12-pin P-MOD header connector (not included, P/N: TSM-106-01-L-DH-TR)
 
 ### Related Products
 
@@ -98,7 +98,7 @@ The table below provides a comprehensive guideline for the optimal use of the Ni
 ### Power Consumption
 
 <p style="text-align: justify;">
-The table below summarizes the power consumption of the Nicla Sense Env in different test cases. Notice that the board's operating current will depend greatly on the application.
+<strong>Work in progress</strong>. The table below summarizes the power consumption of the Nicla Sense Env in different test cases. Notice that the board's operating current will depend greatly on the application.
 </p>
 
 |             **Parameter**            |   **Symbol**   | **Min** | **Typ** | **Max** | **Unit** |
@@ -128,7 +128,7 @@ The core of the Nicla Sense Env is the R7FA2E1A92DNH microcontroller from Renesa
 
 The Nicla Sense Env connectors pinout is shown in the figure below.
 
-**TBD**
+![](assets/Nicla_Sense_Env_Pinout.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -136,7 +136,7 @@ The Nicla Sense Env connectors pinout is shown in the figure below.
 
 An overview of the high-level architecture of the Nicla Sense Env is illustrated in the figure below.
 
-**TBD**
+![](assets/Nicla_Sense_Env_Block_Diagram.png)
 
 <div style="page-break-after: always;"></div>
 
@@ -148,6 +148,7 @@ The Nicla Sense Env can be powered through one of the following interfaces:
 
 - **ESLOV connector**: The Nicla Sense Env can be powered through the power supply of a connected Portenta or MKR family board by using the ESLOV connector. 
 - **External +3.3 VDC power supply**: This can be connected to the VCC pin of the board's header connector.
+- **Onboard P-MOD connector**: The Nicla Sense Env can also be powered through the power pins (VCC pin) of the onboard P-MOD connector (VCC pin) using an external +3.3 VDC power supply. 
 
 A detailed figure below illustrates the power options available on the Nicla Sense Env and the main system power architecture.
 
@@ -160,7 +161,7 @@ A detailed figure below illustrates the power options available on the Nicla Sen
 </div>
 
 <div style="background-color: #FFCCCC; border-left: 6px solid #FF0000; margin: 20px 0; padding: 15px;">
-<strong>Safety Note:</strong> If you power your Nicla Sense Env board through its VCC pin, notice that the <strong>only</strong> operating input voltage is +3.3 VDC; any other voltage will permanently damage the board. 
+<strong>Safety Note:</strong> If you power your Nicla Sense Env board through its VCC pin, notice that <strong>the only operating input voltage is +3.3 VDC; any other voltage will permanently damage the board</strong>. 
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -175,7 +176,7 @@ If you want to program your Nicla Sense Env offline with a Portenta, MKR, or Nan
 
 ### Getting Started - Arduino Web Editor
 
-All Arduino devices work out of the box on the Arduino CLoud Editor **[2]** by installing a simple plugin. The Arduino Cloud Editor is hosted online. Therefore, it will always be up-to-date with all the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
+All Arduino devices work out of the box on the Arduino Cloud Editor **[2]** by installing a simple plugin. The Arduino Cloud Editor is hosted online. Therefore, it will always be up-to-date with all the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino Cloud
 
@@ -212,7 +213,9 @@ The Nicla Sense Env does not have mounting holes for mechanical fixing. The slot
 
 ### Board Connectors
 
+<p style="text-align: justify;">
 The ESLOV connector of the Nicla Sense Env is placed on the bottom side of the board; its placement is shown in the figure below; all the dimensions are in mm. 
+</p>
 
 ![](assets/Nicla_Sense_Env_Connectors.png)
 
@@ -225,7 +228,7 @@ The Nicla Sense Env was designed to be usable as a surface-mount module and pres
 ### Board Peripherals and Actuators 
 
 <p style="text-align: justify;">
-The Nano Matter has one reset button and two LEDs, an orange and an RGB LED, available for the user; the reset button and the orange and RGB LED are placed on the top side of the board.  Their placement is shown in the figure below; all the dimensions are in mm.
+The Nicla Sense Env has one reset button and two LEDs, an orange and an RGB LED, available for the user; the reset button, the orange LED, and the RGB LED are placed on the top side of the board.  The placement of these components is shown in the figure below; all the dimensions are in mm.
 </p>
 
 ![](assets/Nicla_Sense_Env_PeripheralsActuators.png)
@@ -277,15 +280,19 @@ Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the Europea
 
 Exemptions: No exemptions are claimed.
 
+<p style="text-align: justify;">
 Arduino Boards are fully compliant with the related requirements of European Union Regulation (EC) 1907 /2006 concerning the Registration, Evaluation, Authorization and Restriction of Chemicals (REACH). We declare none of the SVHCs (https://echa.europa.eu/web/guest/candidate-list-table), the Candidate List of Substances of Very High Concern for authorization currently released by ECHA, is present in all products (and also package) in quantities totaling in a concentration equal or above 0.1%. To the best of our knowledge, we also declare that our products do not contain any of the substances listed on the "Authorization List" (Annex XIV of the REACH regulations) and Substances of Very High Concern (SVHC) in any significant amounts as specified by the Annex XVII of Candidate list published by ECHA (European Chemical Agency) 1907 /2006/EC.
+</p>
 
 ### Conflict Minerals Declaration
 
+<p style="text-align: justify;">
 As a global supplier of electronic and electrical components, Arduino is aware of our obligations concerning laws and regulations regarding Conflict Minerals, specifically the Dodd-Frank Wall Street Reform and Consumer Protection Act, Section 1502. Arduino does not directly source or process conflict minerals such as Tin, Tantalum, Tungsten, or Gold. Conflict minerals are contained in our products in the form of solder, or as a component in metal alloys. As part of our reasonable due diligence, Arduino has contacted component suppliers within our supply chain to verify their continued compliance with the regulations. Based on the information received thus far we declare that our products contain Conflict Minerals sourced from conflict-free areas.
+</p>
 
 ## FCC Caution
 
-Any Changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
+Any changes or modifications not expressly approved by the party responsible for compliance could void the user’s authority to operate the equipment.
 
 This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions:
 
@@ -303,33 +310,24 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 <div style="page-break-after: always;"></div>
 
-**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
-device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
-reasonable protection against harmful interference in a residential installation. This equipment
-generates, uses and can radiate radio frequency energy and, if not installed and used in
-accordance with the instructions, may cause harmful interference to radio communications.
-However, there is no guarantee that interference will not occur in a particular installation. If
-this equipment does cause harmful interference to radio or television reception, which can be
-determined by turning the equipment off and on, the user is encouraged to try to correct the
-interference by one or more of the following measures:
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference in a residential installation. This equipment generates, uses and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. 
+However, there is no guarantee that interference will not occur in a particular installation. If this equipment does cause harmful interference to radio or television reception, which can be determined by turning the equipment off and on, the user is encouraged to try to correct the interference by one or more of the following measures:
+
 - Reorient or relocate the receiving antenna.
 - Increase the separation between the equipment and receiver.
-- Connect the equipment into an outlet on a circuit different from that to which the
-receiver is connected.
+- Connect the equipment into an outlet on a circuit different from that to which the receiver is connected.
 - Consult the dealer or an experienced radio/TV technician for help.
 
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
 1. This device may not cause interference
-
 2. This device must accept any interference, including interference that may cause undesired operation of the device.
 
 French:
 Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux appareils radio exempts de licence. L’exploitation est autorisée aux deux conditions suivantes:
 
 1. L’ appareil nedoit pas produire de brouillage
-
 2. L’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
 **IC SAR Warning:**
@@ -346,24 +344,24 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Company Information
 
-| **Company name** |              **Arduino S.r.l.**              |
-|:----------------:|:--------------------------------------------:|
-| Company address  | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
+| **Company Name**    | **Arduino S.r.l.**                         |
+|---------------------|--------------------------------------------|
+| **Company Address** | Via Andrea Appiani, 25-20900 Monza (Italy) |
 
 ## Reference Documentation
-|             **Ref**             | **Link**                                                                        |
+
+|          **Reference**          | **Link**                                                                        |
 |:-------------------------------:|---------------------------------------------------------------------------------|
 |      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                         |
 |       Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                |
-| Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
-|    Nano Matter Documentation    | https://docs.arduino.cc/hardware/nicla-sense-env                                    |
+| Arduino Cloud - Getting Started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
+|  Nicla Sense Env Documentation  | https://docs.arduino.cc/hardware/nicla-sense-env/                               |
 |           Project Hub           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending        |
 |        Library Reference        | https://www.arduino.cc/reference/en/                                            |
-|          Online Store           | https://store.arduino.cc/                                                       |
-         
+|           Online Store          | https://store.arduino.cc/                                                       |
 
 ## Document Revision History
 
-|  **Date**  | **Revision** |        **Changes**        |
-|:----------:|:------------:|:-------------------------:|
-| 02/07/2024 |      1       | First release |
+|  **Date**  | **Revision** |     **Changes**     |
+|:----------:|:------------:|:-------------------:|
+| 01/07/2024 |       1      | Draft first release |
