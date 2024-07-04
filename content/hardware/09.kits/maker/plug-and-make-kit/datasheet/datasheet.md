@@ -166,11 +166,11 @@ Layout for dimensions and mounting hole locations for secure attachment.
 
 ## Modulino® Base
 
-The Plate Node is designed to provide a stable and secure mounting solution for your Arduino® UNO R4 WiFi and additional nodes. Measuring 140x140x1.6 mm with 3.5 mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections.
+The Modulino® Base is designed to provide a stable and secure mounting solution for your Arduino® UNO R4 WiFi and additional nodes. Measuring 140x140x1.6 mm with 3.5 mm holes, it ensures that your setup remains firm and organized, making it easier to manage your components and connections.
 
 ### Mechanical Information
 
-![Plate Node Mechanical information](assets/PlateMec.png)
+![Modulino® Base Mechanical information](assets/PlateMec.png)
 
 | **Specification**     | **Details**    |
 | --------------------- | -------------- |
@@ -206,19 +206,19 @@ All Modulino® nodes have at least two 4-pin surface mount connectors from the J
 
 #### I2C Address Reference
 
-Each Modulino® node of the kit is designed to be connected to the Arduino® UNO R4 WiFi microcontroller using the QWIICC connectors available on both sides of the Modulino® nodes. The first node is connected to the microcontroller while the rest are connected to the latest one creating a physical "daisy-chain" connection that, from the communication point of view, is an I2C bus line where all the devices are connected acting the Arduino® UNO R4 WiFi as the controller and the Modulino® nodes as the targets.
+Each Modulino® node of the kit is designed to be connected to the Arduino® UNO R4 WiFi microcontroller using the Qwiic connectors available on both sides of the Modulino® nodes. The first node is connected to the microcontroller while the rest are connected to the latest one creating a physical "daisy-chain" connection that, from the communication point of view, is an I2C bus line where all the devices are connected acting the Arduino® UNO R4 WiFi as the controller and the Modulino® nodes as the targets.
 
 In the case multiple nodes of the same kind are connected to the I2C "daisy-chain", they may have the same I2C default address, causing communication problems. All Modulino® nodes are designed to have the possibility of having different I2C addresses via hardware or firmware changes as presented in the following table.
 
 | **Board Silk Name** | **Sensor/Actuator**     | **Default I2C Address (HEX)** | **Editable Addresses (HEX)**                    |
 | ------------------- | ----------------------- | ----------------------------- | ----------------------------------------------- |
-| MOVEMENT            | LSM6DSOXTR              | 0x6A                          | 0x6A, 0x6B (via Solder Jumper)                  |
-| DISTANCE            | VL53L4CDV0DH/1          | 0x29                          | Any custom address (via software configuration) |
-| THERMO              | HS3003                  | 0x44                          | Any custom address (via software configuration) |
-| BUZZER              | PKLCS1212E4001          | 0x3C                          | Any custom address (via software configuration) |
-| KNOB                | PEC11J-9215F-S0015      | 0x76                          | Any custom address (via software configuration) |
-| PIXELS              | Eight LC8822-2020       | 0x6C                          | Any custom address (via software configuration) |
-| BUTTONS             | Three SPST Push Buttons | 0x7C                          | Any custom address (via software configuration) |
+| MODULINO MOVEMENT            | LSM6DSOXTR              | 0x6A                          | 0x6A, 0x6B (via Solder Jumper)                  |
+| MODULINO DISTANCE            | VL53L4CDV0DH/1          | 0x29                          | Any custom address (via software configuration) |
+| MODULINO THERMO              | HS3003                  | 0x44                          | Any custom address (via software configuration) |
+| MODULINO BUZZER              | PKLCS1212E4001          | 0x3C                          | Any custom address (via software configuration) |
+| MODULINO KNOB                | PEC11J-9215F-S0015      | 0x76                          | Any custom address (via software configuration) |
+| MODULINO PIXELS              | Eight LC8822-2020       | 0x6C                          | Any custom address (via software configuration) |
+| MODULINO BUTTONS             | Three SPST Push Buttons | 0x7C                          | Any custom address (via software configuration) |
 
 With the provided software, users can change the default I2C address of the dedicated I2C interface controller firmware. Assigning different addresses allows users to connect multiple boards of the same type in a chain.
 To facilitate this, a white rectangle is positioned on the bottom silk of the board, where users can write the new I2C address directly on the board itself.
@@ -237,7 +237,7 @@ These nodes use an additional chip to handle I2C communication when there is a l
 
 These nodes have pads for optional I2C pull-up mounting in both data lines to avoid communication problems in case the I2C bus is not working as it should. No resistors are mounted by default but in case the resistors are need 4.7 K resistors in an SMD 0402 format are recommended.
 
-These are positioned near the Qwicc connector on the power LED side except on the Modulino® Buttons where it can be found between the button B and C.
+These are positioned near the Qwiic connector on the power LED side except on the Modulino® Buttons where it can be found between the button B and C.
 ![Generic pull-up resistor position](assets/ResistorsPullupGen.png)
 
 
@@ -340,7 +340,7 @@ The above pads are generic to all Modulino® nodes and they are on the same bus 
 | GPIO1   | Digital output (Distance Sensor) |
 | XSHUT   | Shutdown (Distance Sensor)       |
 
-These provide a place to mount header pins if desired. GPIO1 open-drain interrupt output, with onboard 10 kΩ pullup to 3.3 V. XSHUT actives low digital input with onboard 10 kΩ pullup to 3.3 V.
+These provide a place to mount header pins if desired. GPIO1 open-drain interrupt output, with onboard 10 kΩ pullup resistor to 3.3 V. XSHUT actives low digital input with onboard 10 kΩ pullup resistor to 3.3 V.
 
 #### Mechanical Information
 
@@ -385,7 +385,7 @@ The above pads are generic to all Modulino® nodes and they are on the same bus 
 
 ### Modulino® Knob
 
-The Modulino® Knob includes a quadrature rotary encoder with an SPST switch, using the STM32C011F4 chip for digital communication. This setup allows precise control for user interfaces and adjustments in various applications. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Knob includes a quadrature rotary encoder with an SPST switch, using the STM32C011F4 chip for digital communication. This setup allows precise control for user interfaces and adjustments in various applications. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullup resistors, but no resistors are mounted.
 
 #### Technical Specifications
 
@@ -438,7 +438,7 @@ This header can be used to read the encoder from an external controller, to use 
 
 ### Modulino® Buzzer
 
-The Modulino® Buzzer contains a single buzzer and uses the STM32C011F4 chip for digital communication, making it suitable for producing sound alerts and notifications in various projects. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Buzzer contains a single buzzer and uses the STM32C011F4 chip for digital communication, making it suitable for producing sound alerts and notifications in various projects. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullup resistors, but no resistors are mounted.
 
 #### Technical Specifications
 
@@ -488,7 +488,7 @@ This header can be used to actuate the buzzer from an external 3.3 V source, to 
 
 ### Modulino® Pixels
 
-The Modulino® Pixels includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 chip for digital communication, perfect for creating colorful displays and lighting effects in your projects. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Pixels includes eight LC8822-2020 RGB LEDs and uses the STM32C011F4 chip for digital communication, perfect for creating colorful displays and lighting effects in your projects. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullup resistors, but no resistors are mounted.
 
 #### Technical Specifications
 
@@ -539,7 +539,7 @@ It also has other I2C interface controller IC pins usable for other purposes or 
 
 ### Modulino® Buttons
 
-The Modulino® Buttons includes three SPST push buttons and three yellow LEDs, using the STM32C011F4 chip for digital communication. It's ideal for creating interactive input interfaces. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullups, but no pullups are mounted.
+The Modulino® Buttons includes three SPST push buttons and three yellow LEDs, using the STM32C011F4 chip for digital communication. It's ideal for creating interactive input interfaces. All of the Modulino® nodes that use dedicated I2C interface controllers have the footprints to provide the option to mount I2C pullup resistors, but no resistors are mounted.
 
 #### Technical Specifications
 
