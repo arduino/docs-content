@@ -40,8 +40,6 @@ In this tutorial, you will find useful information to get started, test, and mai
     - [Line Follower Sensor](#line-follower-sensor)
     - [Color Sensor](#color-sensor)
     - [IMU](#imu)
-      - [Functions](#functions)
-      - [Example Usage](#example-usage)
   - [Actuators](#actuators)
     - [Motors and Encoders](#motors-and-encoders)
   - [What the Robot Includes](#what-the-robot-includes)
@@ -64,18 +62,21 @@ In this tutorial, you will find useful information to get started, test, and mai
       - [High level, fix power x amount of time or distance](#high-level-fix-power-x-amount-of-time-or-distance)
       - [Distance, angle, etc](#distance-angle-etc)
       - [Controlling power and time in degrees/s cm/s](#controlling-power-and-time-in-degreess-cms)
+    - [Units Explained](#units-explained)
     - [Encoder’s Control](#encoders-control)
     - [Reading Buttons](#reading-buttons)
-      - [Example Usage](#example-usage-1)
+      - [Example Usage](#example-usage)
     - [Detecting Obstacles](#detecting-obstacles)
       - [Function](#function)
-      - [Example Usage](#example-usage-2)
+      - [Example Usage](#example-usage-1)
     - [Following a Line](#following-a-line)
       - [Function](#function-1)
-      - [Example Usage](#example-usage-3)
+      - [Example Usage](#example-usage-2)
     - [Sensing Colors](#sensing-colors)
-      - [Functions](#functions-1)
+      - [Functions](#functions)
     - [Detecting Falling and Crashes (IMU)](#detecting-falling-and-crashes-imu)
+      - [Functions](#functions-1)
+      - [Example Usage](#example-usage-3)
     - [LEDs](#leds)
   - [Talking with other Machines!](#talking-with-other-machines)
     - [WiFi](#wifi)
@@ -220,72 +221,7 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 
 TODO add image of IMU
 
-#### Functions
 
-1. **get_orientation**
-
-   The [`get_orientation`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_orientation) function returns the orientation of the IMU, including roll, pitch, and yaw values. This can be useful for determining the robot's orientation in 3D space.
-
-2. **get_accelerations**
-
-   The [`get_accelerations`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_accelerations) function returns the 3-axial acceleration of the IMU. This provides the acceleration values along the x, y, and z axes.
-
-3. **get_gyros**
-
-   The [`get_gyros`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_gyros) function returns the 3-axial angular acceleration of the IMU. This provides the angular acceleration values along the x, y, and z axes.
-
-4. **get_imu**
-
-   The [`get_imu`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_imu) function returns all the IMU's readouts, including both the acceleration and angular acceleration values.
-
-#### Example Usage
-
-Here is a combined example that utilizes all IMU functions:
-
-```python
-
-from arduino_alvik import ArduinoAlvik
-import time
-
-# Initialization
-alvik = ArduinoAlvik()
-alvik.begin()
-
-# Give some time for initialization
-time.sleep(2)
-
-# Get orientation
-orientation = alvik.get_orientation()
-roll = orientation['r']
-pitch = orientation['p']
-yaw = orientation['y']
-print(f"Orientation - Roll: {roll}, Pitch: {pitch}, Yaw: {yaw}")
-
-# Get accelerations
-accelerations = alvik.get_accelerations()
-ax = accelerations['ax']
-ay = accelerations['ay']
-az = accelerations['az']
-print(f"Acceleration - X: {ax}, Y: {ay}, Z: {az}")
-
-# Get gyros
-gyros = alvik.get_gyros()
-gx = gyros['gx']
-gy = gyros['gy']
-gz = gyros['gz']
-print(f"Gyro - X: {gx}, Y: {gy}, Z: {gz}")
-
-# Combine all IMU readings
-imu_readings = alvik.get_imu()
-ax = imu_readings['ax']
-ay = imu_readings['ay']
-az = imu_readings['az']
-gx = imu_readings['gx']
-gy = imu_readings['gy']
-gz = imu_readings['gz']
-
-print(f"IMU Readings - Acceleration: X: {ax}, Y: {ay}, Z: {az}, Gyro: X: {gx}, Y: {gy}, Z: {gz}")
-```
 
 ## Actuators
 
@@ -430,19 +366,119 @@ TODO: Content for this section
 
 ### Controlling the Motors
 
-TODO - IMPROVE THIS TEXT: Movement is one of the Alvik's main feature, as such it is very important to have a lot of flexibility on how you control Alvik's motors as such there are different control methods on how to control them 
+Movement is one of Alvik's main features, making it essential to have a variety of methods to control Alvik's motors. This flexibility allows you to use different control methods depending on your needs, whether it's for precise movement or simple speed control.
 
 #### High level, fix power x amount of time or distance
 
-TODO: Content for this section
+You can set the speed of Alvik's motors directly and let it run for a specific amount of time or distance. This method is straightforward and useful for simple tasks where precise control isn't necessary.
+
+**Function: `set_wheels_speed`**
+
+The `set_wheels_speed` function sets the speed of the left and right motors.
+
+**Inputs:**
+- `left_speed`: The speed value for the left motor.
+- `right_speed`: The speed value for the right motor.
+- `unit`: Unit of rotational speed of the wheels (default is 'rpm').
+
+**Example Usage:**
+
+```python
+alvik.set_wheels_speed(30, 30, 'rpm')
+sleep_ms(2000)  # Run motors at 30 rpm for 2 seconds
+alvik.brake()
+```
 
 #### Distance, angle, etc
 
-TODO: Content for this section
+Alvik allows you to control the motors based on specific distances or angles. This method provides precise control over the robot's movements, ensuring it travels the exact distance or rotates to the exact angle specified.
+
+**Function: `set_wheels_position`**
+
+The `set_wheels_position` function sets the angle position for the left and right motors.
+
+**Inputs:**
+- `left_angle`: The angle value for the left motor.
+- `right_angle`: The angle value for the right motor.
+- `unit`: The angle unit (default is 'deg').
+
+**Example Usage:**
+
+```python
+alvik.set_wheels_position(360, 360, 'deg')
+sleep_ms(2000)  # Rotate wheels 360 degrees in 2 seconds
+alvik.brake()
+```
+
+**Function: `move`**
+
+The `move` function moves the robot by a given distance.
+
+**Inputs:**
+- `distance`: The distance value.
+- `unit`: The distance unit (default is 'cm').
+- `blocking`: True or False, whether the function should block until the movement is complete (default is True).
+
+**Example Usage:**
+
+```python
+alvik.move(50, 'cm')
+sleep_ms(2000)  # Move forward 50 cm in 2 seconds
+alvik.brake()
+```
 
 #### Controlling power and time in degrees/s cm/s
 
-TODO: Content for this section
+For more advanced control, you can specify the power and time for Alvik's motors in terms of degrees per second or centimeters per second. This method is useful for tasks requiring fine-tuned control of the robot's speed and direction.
+
+**Function: `drive`**
+
+The `drive` function drives the robot by setting the linear and angular velocity.
+
+**Inputs:**
+- `linear_velocity`: Speed of the robot.
+- `angular_velocity`: Speed of the wheels.
+- `linear_unit`: Unit of linear velocity (default is 'cm/s').
+- `angular_unit`: Unit of rotational speed of the wheels (default is 'deg/s').
+
+**Example Usage:**
+
+```python
+alvik.drive(10, 30, 'cm/s', 'deg/s')
+sleep_ms(2000)  # Drive at 10 cm/s linear velocity and 30 deg/s angular velocity for 2 seconds
+alvik.brake()
+```
+
+### Units Explained
+
+**Distance Unit:**
+- `cm`: centimeters
+- `mm`: millimeters
+- `m`: meters
+- `inch`: inch, 2.54 cm
+- `in`: inch, 2.54 cm
+
+**Angle Unit:**
+- `deg`: degrees (1 degree is 1/360 of a circle)
+- `rad`: radian (1 radian is 180/pi degrees)
+- `rev`: revolution (1 revolution is 360 degrees)
+- `revolution`: same as `rev`
+- `perc`: percentage (1 percent is 3.6 degrees)
+- `%`: same as `perc`
+
+**Linear Speed Unit:**
+- `cm/s`: centimeters per second
+- `mm/s`: millimeters per second
+- `m/s`: meters per second
+- `inch/s`: inches per second
+- `in/s`: inches per second
+
+**Rotational Speed Unit:**
+- `rpm`: revolutions per minute (1 rpm is the reference unit)
+- `deg/s`: degrees per second (1 deg/s is 60 deg/min or 1/6 rpm)
+- `rad/s`: radians per second (1 rad/s is 60 rad/min or 9.55 rpm)
+- `rev/s`: revolutions per second (1 rev/s is 60 rev/min or 60 rpm)
+
 
 ### Encoder’s Control
 
@@ -826,12 +862,104 @@ TODO: Content for this section
 
 ### Detecting Falling and Crashes (IMU)
 
-TODO: Content for this section
-
 The `get_imu` function from the [Alvik API](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_imu) returns all the IMU's readouts. The readouts include acceleration (ax, ay, az) and angular acceleration (gx, gy, gz) on the x, y, and z axes.
 
-Here's an example of how to use this function to detect falling and crashes:
+#### Functions
 
+1. Retrieves IMU's orientation values like **roll**, **pitch** and **yaw**
+
+   The [`get_orientation()`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_orientation) function returns the orientation of the IMU, including roll, pitch, and yaw values. This can be useful for determining the robot's orientation in 3D space.
+
+   **Outputs:**
+   - **r**: roll value
+   - **p**: pitch value
+   - **y**: yaw value
+
+2. Retrieves 3-axial acceleration values
+
+   The [`get_accelerations()`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_accelerations) function returns the 3-axial acceleration of the IMU. This provides the acceleration values along the x, y, and z axes.
+
+   **Outputs:**
+   - **ax**: acceleration on x
+   - **ay**: acceleration on y
+   - **az**: acceleration on z
+
+3. Retrieves 3-axial angular acceleration values
+
+   The [`get_gyros()`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_gyros) function returns the 3-axial angular acceleration of the IMU. This provides the angular acceleration values along the x, y, and z axes.
+
+   **Outputs:**
+   - **gx**: angular acceleration on x
+   - **gy**: angular acceleration on y
+   - **gz**: angular acceleration on z
+
+4. Retrieves all IMU readouts including acceleration and angular acceleration
+
+   The [`get_imu()`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_imu) function returns all the IMU's readouts, including both the acceleration and angular acceleration values.
+
+   **Outputs:**
+   - **ax**: acceleration on x
+   - **ay**: acceleration on y
+   - **az**: acceleration on z
+   - **gx**: angular acceleration on x
+   - **gy**: angular acceleration on y
+   - **gz**: angular acceleration on z
+
+#### Example Usage
+
+Here is a combined example that utilizes all IMU functions:
+
+```python
+
+from arduino_alvik import ArduinoAlvik
+import time
+
+# Initialization
+alvik = ArduinoAlvik()
+alvik.begin()
+
+# Give some time for initialization
+time.sleep(2)
+
+# Get orientation
+orientation = alvik.get_orientation()
+roll = orientation['r']
+pitch = orientation['p']
+yaw = orientation['y']
+print(f"Orientation - Roll: {roll}, Pitch: {pitch}, Yaw: {yaw}")
+
+# Get accelerations
+accelerations = alvik.get_accelerations()
+ax = accelerations['ax']
+ay = accelerations['ay']
+az = accelerations['az']
+print(f"Acceleration - X: {ax}, Y: {ay}, Z: {az}")
+
+# Get gyros
+gyros = alvik.get_gyros()
+gx = gyros['gx']
+gy = gyros['gy']
+gz = gyros['gz']
+print(f"Gyro - X: {gx}, Y: {gy}, Z: {gz}")
+
+# Combine all IMU readings
+imu_readings = alvik.get_imu()
+ax = imu_readings['ax']
+ay = imu_readings['ay']
+az = imu_readings['az']
+gx = imu_readings['gx']
+gy = imu_readings['gy']
+gz = imu_readings['gz']
+
+print(f"IMU Readings - Acceleration: X: {ax}, Y: {ay}, Z: {az}, Gyro: X: {gx}, Y: {gy}, Z: {gz}")
+```
+
+
+Now that we've got a solid grasp on how the IMU works and how to interact with it, let's put this knowledge to use in a practical scenario. Events like falls and crashes are critical for a robot, as they often result from sudden changes in linear acceleration (movement along the x, y, or z axes) or angular velocity (rotational movement around these axes). By monitoring these specific changes, we can effectively detect such incidents and respond accordingly.
+
+In the following example, we'll create a sketch that uses the IMU to identify falls and crashes. The sketch will look for sudden spikes in linear acceleration or angular velocity, using set thresholds to accurately determine when these events occur.
+
+Here's how you can implement this functionality:
 ```python
 from arduino_alvik import ArduinoAlvik
 import time
@@ -865,6 +993,11 @@ while True:
     detect_fall_or_crash()
     time.sleep(0.1)  # Adjust the sleep time as needed
 ```
+
+Now that you've got the basics down, why not take it a step further? You can customize how Alvik reacts to falls and crashes. Whether it's sending an alert, logging the event for later analysis, or performing a recovery maneuver, the possibilities are endless. 
+
+And let's be honest, there's a certain satisfaction in programming your robot to handle mishaps gracefully (or even dramatically). It's not just about functionality—sometimes, it's about giving our robots that extra bit of personality and, let's face it, feeling a bit superior when our creations stumble. Go ahead, have fun with it and see what creative solutions you can come up with when Alvik takes a tumble!
+
 
 ### LEDs
 
