@@ -18,7 +18,7 @@ software:
   - web-editor
 ---
 
-This user manual provides a comprehensive Nicla Sense Env board overview, highlighting its hardware and software elements. With it, you will confidently learn how to set up, configure, and use all the main features of a Nicla Sense Env board.
+This user manual provides a comprehensive overview of the Nicla Sense Env board, highlighting its hardware and software elements. With it, you will confidently learn how to set up, configure, and use all the main features of a Nicla Sense Env board.
 
 ![ ](assets/hero-banner.png)
 
@@ -601,6 +601,91 @@ You can download the example sketch [here](assets/nicla_sense_env_temp_humidity_
 
 ## Indoor Air Quality Sensor 
 
+The Nicla Sense Env board features an onboard air quality sensor, the ZMOD4410 from Renesas. The ZMOD4410 is a highly integrated digital gas sensor module for indoor air quality monitoring. It provides measurements of total volatile organic compounds (TVOCs), estimates CO₂ levels, and monitors indoor air quality (IAQ), making it suitable for applications such as smart home devices, air purifiers, and HVAC systems. Its compact size, low power consumption, and high sensitivity make this sensor an excellent choice for various air quality monitoring applications.
+
+![The ZMOD4410 sensor of the Nicla Sense Env board](assets/user-manual-15.png)
+
+The example sketch below demonstrates how to read air quality data from the ZMOD4410 sensor using the `Arduino_NiclaSenseEnv` library API. The sketch reports indoor air quality values to the Arduino IDE's Serial Monitor every 5 seconds.
+
+```arduino
+/**
+  Air Quality Sensor Example for Nicla Sense Env
+  Name: nicla_sense_env_indoor_air_quality_example.ino
+  Purpose: This sketch demonstrates how to read air quality data from the
+  ZMOD4410 sensor on the Nicla Sense Env using the Arduino_NiclaSenseEnv library API.
+  
+  @author Arduino Product Experience Team
+  @version 1.0 31/05/24
+*/
+
+// Include the NiclaSenseEnv library
+#include "NiclaSenseEnv.h"  
+
+// Global device object for Nicla Sense Env
+NiclaSenseEnv device;  
+
+/**
+  Displays air quality data from the ZMOD4410 sensor.
+  @param sensor Reference to IndoorAirQualitySensor object controlling the sensor.
+*/
+void displaySensorData(IndoorAirQualitySensor& sensor) {
+    if (sensor.enabled()) {
+        Serial.print("- Indoor air quality value: ");
+        Serial.println(sensor.airQuality());
+        Serial.print("- CO2 (ppm): ");
+        Serial.println(sensor.CO2());
+        Serial.print("- TVOC (mg/m3): ");
+        Serial.println(sensor.TVOC());
+        Serial.print("- Ethanol (ppm): ");
+        Serial.println(sensor.ethanol());
+        Serial.println("");
+    } else {
+        Serial.println("- Indoor air quality sensor is disabled!");
+    }
+}
+
+void setup() {    
+    // Initialize serial communication and wait up to 2.5 seconds for a connection
+    Serial.begin(115200);
+    for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+    if (device.begin()) {
+        Serial.println("- Device is connected!");
+        auto airQualitySensor = device.indoorAirQualitySensor();
+
+        // Set the sensor mode to indoor air quality
+        airQualitySensor.setMode(IndoorAirQualitySensorMode::indoorAirQuality);
+
+        // Allow time for the sensor to start delivering data
+        delay(5000);
+    } else {
+        Serial.println("- Device could not be found. Please double-check the wiring!");
+    }
+}
+
+void loop() {
+    // Read data from the ZMOD4410 sensor every 5 seconds
+    auto airQualitySensor = device.indoorAirQualitySensor();
+    displaySensorData(airQualitySensor);
+    delay(5000);
+}
+```
+
+Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+
+- `indoorAirQualitySensor()`: Retrieves the air quality sensor object from the Nicla Sense Env.
+- `sensor.enabled()`: Checks if the sensor is currently enabled.
+- `sensor.airQuality()`: Reads the current air quality value from the sensor.
+- `sensor.CO2()`: Reads the estimated CO₂ concentration from the sensor.
+- `sensor.TVOC()`: Reads the sensor's total concentration of volatile organic compounds.
+- `sensor.ethanol()`: Reads the ethanol concentration from the sensor.
+
+After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-16.png)
+
+You can download the example sketch [here](assets/nicla_sense_env_indoor_air_quality_example.zip).
+
 ## Outdoor Air Quality Sensor
 
 ## Communication
@@ -626,11 +711,3 @@ Join our community forum to connect with other Nicla family board users, share y
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about the Nicla family boards.
 
 - [Contact us page](https://www.arduino.cc/en/contact-us/)
-
-
-
-
-
-
-
-
