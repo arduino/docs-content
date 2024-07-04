@@ -688,7 +688,226 @@ You can download the example sketch [here](assets/nicla_sense_env_indoor_air_qua
 
 ## Outdoor Air Quality Sensor
 
+The Nicla Sense Env board features an onboard outdoor air quality sensor, the ZMOD4510 from Renesas. The ZMOD4510 is a digital gas sensor module for outdoor air quality monitoring. It measures nitrogen dioxide (NO₂) and ozone (O₃) levels. It calculates an outdoor air quality index (AQI), making it suitable for air quality monitoring stations, wearable devices, and smart city infrastructure applications. Its robustness, low power consumption, and high sensitivity make this sensor an excellent choice for outdoor air quality monitoring applications.
+
+![The ZMOD4510 sensor of the Nicla Sense Env board](assets/user-manual-17.png)
+
+The example sketch below demonstrates how to read air quality data from the ZMOD4510 sensor using the `Arduino_NiclaSenseEnv` library API. The sketch reports outdoor air quality values to the Arduino IDE's Serial Monitor every 5 seconds.
+
+```arduino
+/**
+  Outdoor Air Quality Sensor Example for Nicla Sense Env
+  Name: nicla_sense_env_outdoor_air_quality_example.ino
+  Purpose: This sketch demonstrates how to read air quality data from the
+  ZMOD4510 sensor on the Nicla Sense Env using the Arduino_NiclaSenseEnv library API.
+  
+  @author Arduino Product Experience Team
+  @version 1.0 31/05/24
+*/
+
+// Include the NiclaSenseEnv library
+#include "NiclaSenseEnv.h"  
+
+// Global device object for Nicla Sense Env
+NiclaSenseEnv device;  
+
+/**
+  Displays air quality data from the ZMOD4510 sensor.
+  @param sensor Reference to OutdoorAirQualitySensor object controlling the sensor.
+*/
+void displaySensorData(OutdoorAirQualitySensor& sensor) {
+    if (sensor.enabled()) {
+        Serial.print("- Outdoor air quality value: ");
+        Serial.println(sensor.airQualityIndex());
+        Serial.print("- NO2 (ppb): ");
+        Serial.println(sensor.NO2());
+        Serial.print("- O3 (ppb): ");
+        Serial.println(sensor.O3());
+        Serial.println("");
+    } else {
+        Serial.println("- Outdoor air quality sensor is disabled!");
+    }
+}
+
+void setup() {    
+    // Initialize serial communication and wait up to 2.5 seconds for a connection
+    Serial.begin(115200);
+    for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+    if (device.begin()) {
+        Serial.println("- Device is connected!");
+        auto outdoorAirQualitySensor = device.outdoorAirQualitySensor();
+
+        // Enable the outdoor air quality sensor
+        outdoorAirQualitySensor.setMode(OutdoorAirQualitySensorMode::outdoorAirQuality);
+        outdoorAirQualitySensor.setEnabled(true);
+
+        // Allow time for the sensor to start delivering data
+        delay(5000);
+    } else {
+        Serial.println("- Device could not be found. Please double-check the wiring!");
+    }
+}
+
+void loop() {
+    // Read data from the ZMOD4510 sensor every 5 seconds
+    auto outdoorAirQualitySensor = device.outdoorAirQualitySensor();
+    displaySensorData(outdoorAirQualitySensor);
+    delay(5000);
+}
+```
+
+Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+
+- `outdoorAirQualitySensor()`: Retrieves the outdoor air quality sensor object from the Nicla Sense Env.
+- `sensor.enabled()`: Checks if the sensor is currently enabled.
+- `sensor.airQualityIndex()`: Reads the current outdoor air quality index value.
+- `sensor.NO2()`: Reads the nitrogen dioxide concentration from the sensor.
+- `sensor.O3()`: Reads the ozone concentration from the sensor.
+
+After uploading the example sketch to the host board, you should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-18.png)
+
+You can download the example sketch [here](assets/nicla_sense_env_outdoor_air_quality_example.zip).
+
 ## Communication
+
+The Nicla Sense Env board features a UART interface for data logging purposes. This allows the board to output sensor data in `CSV` format over UART, enabling easy data logging and monitoring in various applications. The UART interface is handy for scenarios where the board needs to communicate with other microcontrollers or systems without relying on USB connections.
+
+The example sketch shown below demonstrates how to read data from the UART port on the Nicla Sense Env board. The sketch assumes the Nicla Sense Env is powered through the board's `VCC` pin or the ESLOV connector of a host board and connected to another board through the UART pins. The example also requires enabling the UART output on the Nicla Sense Env.
+
+```arduino
+/**
+  UART Communication Example for Nicla Sense Env
+  Name: nicla_sense_env_uart_communication_example.ino
+  Purpose: This sketch demonstrates how to read data from the UART port on the Nicla Sense Env board 
+  and process the data in CSV format for logging and monitoring purposes.
+  
+  @author Sebastián Romero, modified by the Arduino Product Experience Team
+  @version 1.0 31/05/24
+*/
+
+// Include necessary libraries
+#include <map>
+#include <vector>
+#include <tuple>
+
+// Define the default delimiter for CSV
+constexpr char DEFAULT_DELIMITER = ',';
+
+// Define a mapping of CSV fields
+std::map<u_int8_t, std::tuple<String, String>> csvFieldMapping = {
+    {0, {"HS4001 sample counter", "uint32"}},
+    {1, {"HS4001 temperature (degC)", "float"}},
+    {2, {"HS4001 humidity (%RH)", "float"}},
+    {3, {"ZMOD4510 status", "uint8"}},
+    {4, {"ZMOD4510 sample counter", "uint32"}},
+    {5, {"ZMOD4510 EPA AQI", "uint16"}},
+    {6, {"ZMOD4510 Fast AQI", "uint16"}},
+    {7, {"ZMOD4510 O3 (ppb)", "float"}},
+    {8, {"ZMOD4510 NO2 (ppb)", "float"}},
+    {9, {"ZMOD4510 Rmox[0]", "float"}},
+    // ... more fields as needed ...
+};
+
+// Define a map to store parsed values
+std::map<String, String> parsedValuesMap;
+
+/**
+  Converts a string to a float, handling exponents
+  @param str The string to convert
+  @return The float value
+*/
+float parseFloatWithExponent(const String &str) {
+    double value = str.toDouble();
+    return static_cast<float>(value);
+}
+
+/**
+  Processes a CSV line and maps the fields to their corresponding names
+  @param data The CSV line as a string
+  @param delimiter The character used to separate fields in the CSV line
+  @param targetMap The map to store parsed values
+*/
+void processCSVLine(String data, char delimiter, std::map<String, String> &targetMap) {
+    if (data.startsWith("INFO:") || data.startsWith("WARNING:")) {
+        return;
+    }
+
+    if (data.startsWith("ERROR:")) {
+        Serial.println(data);
+        return;
+    }
+
+    std::vector<String> fields;
+    size_t pos = 0;
+    while ((pos = data.indexOf(delimiter)) != -1) {
+        fields.push_back(data.substring(0, pos));
+        data = data.substring(pos + 1);
+    }
+    fields.push_back(data);  // Last field
+
+    for (size_t i = 0; i < fields.size(); ++i) {
+        auto [name, type] = csvFieldMapping[i];
+        String fieldValue = fields[i];
+
+        if (fieldValue == "") {
+            continue;
+        }
+
+        if (type == "float") {
+            float floatValue = parseFloatWithExponent(fieldValue);
+            targetMap[name] = String(floatValue);
+        } else {
+            targetMap[name] = fieldValue;
+        }
+    }
+}
+
+void setup(){
+    Serial.begin(115200);
+    Serial1.begin(38400, SERIAL_8N1);
+
+    while (!Serial || !Serial1) {
+        delay(100);
+    }
+
+    Serial.println("Serial ports initialized");
+}
+
+void loop() {
+    if (!Serial1.available()) {
+        delay(100);
+        return;
+    }
+
+    String csvLine = Serial1.readStringUntil('\n');
+    processCSVLine(csvLine, DEFAULT_DELIMITER, parsedValuesMap);
+
+    if (parsedValuesMap.empty()) {
+        Serial.println("No data to parse.");
+        return;
+    }
+
+    for (const auto &entry : parsedValuesMap) {
+        Serial.print(entry.first + ": ");
+        Serial.println(entry.second);
+    }
+
+    Serial.println();
+    parsedValuesMap.clear();
+}
+```
+
+Here is a detailed breakdown of the example sketch shown before and the main functionalities of the UART communication on the Nicla Sense Env:
+
+- First the Nicla Sense Env needs to have its UART output enabled. This can be done by connecting to the board over I²C to a host board and running `device.begin()` and `device.setUARTCSVOutputEnabled(true, true)`.
+- `Serial1.begin(38400, SERIAL_8N1)`: Initializes the `Serial1` port for UART communication with the specified baud rate and configuration.
+- `processCSVLine()`: A function that processes a CSV line, maps the fields to their corresponding names, and stores them in a map for easy access.
+- The `loop()` function reads data from the UART port, processes the CSV data, and prints the parsed values to the Serial Monitor.
+
+You can download the example sketch [here](assets/nicla_sense_env_uart_communication_example.zip).
 
 ## Support
 
