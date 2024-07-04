@@ -106,210 +106,185 @@ The setup incorporates an Ethernet switch that monitors both Opta™ devices usi
 
 ### Code Overview
 
-...
+The following example aims to configure and use the Modbus TCP communication protocol over the Ethernet interface between two Opta™ devices.
+
+Modbus is a well-known client-server protocol for its reliability. The Modbus client is responsible for sending requests, and the Modbus server provides the requested information when available. Multiple Modbus servers can be present, but only one Modbus client can be active.
+
+In this example, an Opta™ client handles writing and reading coil values. At the same time, an Opta™ server polls for Modbus TCP requests and returns the appropriate values, with LED output as a visual indicator.
+
+You can access the complete example code below.
 
 #### Modbus TCP Client
 
-The Opta™ Client will require the following setup:
+The Opta™ Client uses the following example:
 
 ```arduino
+// Include necessary libraries for Ethernet and Modbus communication
 #include <SPI.h>
 #include <Ethernet.h>
-
-#include <ArduinoRS485.h> // ArduinoModbus depends on the ArduinoRS485 library
+#include <ArduinoRS485.h>
 #include <ArduinoModbus.h>
-
-// Enter a MAC address for your controller below.
-// Newer Ethernet shields have a MAC address printed on a sticker on the shield
-// The IP address will be dependent on your local network:
-byte mac[] = {
-  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED
-};
-IPAddress ip(192, 168, 1, 177);
 
 EthernetClient ethClient;
 ModbusTCPClient modbusTCPClient(ethClient);
 
-IPAddress server(192, 168, 1, 10); // update with the IP Address of your Modbus server
+// Define the IP address for Opta
+IPAddress ip(10, 0, 0, 157);
+
+// Define the IP Address of the Modbus TCP server (Opta device)
+IPAddress server(10, 0, 0, 227);
 
 void setup() {
-  //Initialize serial and wait for port to open:
-  Serial.begin(9600);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
+    // Initialize serial communication at 9600 bauds,
+    // wait for the serial port to connect
+    Serial.begin(9600);
+    while (!Serial);
 
-  // start the Ethernet connection and the server:
-  Ethernet.begin(mac, ip);
+    // Initialize Ethernet connection with the specified IP address
+    // Using NULL for MAC to auto-assign the device's MAC address
+    Ethernet.begin(NULL, ip); 
 
-  // Check for Ethernet hardware present
-  if (Ethernet.hardwareStatus() == EthernetNoHardware) {
-    Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
-    while (true) {
-      delay(1); // do nothing, no point running without Ethernet hardware
+    // Check Ethernet hardware presence
+    if (Ethernet.hardwareStatus() == EthernetNoHardware) {
+        Serial.println("- Ethernet interface was not found!");
+        while (true);
     }
-  }
-  if (Ethernet.linkStatus() == LinkOFF) {
-    Serial.println("Ethernet cable is not connected.");
-  }
+
+    // Check Ethernet cable connection
+    if (Ethernet.linkStatus() == LinkOFF) {
+        Serial.println("- Ethernet cable is not connected!");
+    }
 }
 
 void loop() {
-  if (!modbusTCPClient.connected()) {
-    // client not connected, start the Modbus TCP client
-    Serial.println("Attempting to connect to Modbus TCP server");
-    
-    if (!modbusTCPClient.begin(server, 502)) {
-      Serial.println("Modbus TCP Client failed to connect!");
+    // Attempt to connect to Modbus TCP server if not already connected
+    if (!modbusTCPClient.connected()) {
+        Serial.println("- Attempting to connect to Modbus TCP server...");
+
+        // Start Modbus TCP client
+        if (!modbusTCPClient.begin(server, 502)) {
+            Serial.println("- Failed to connect to Modbus TCP server!");
+        } else {
+            Serial.println("- Connected to Modbus TCP server!");
+        }
     } else {
-      Serial.println("Modbus TCP Client connected");
+        // Modbus TCP client is connected, perform communication;
+        // write a value to a coil at address 0x00
+        if (!modbusTCPClient.coilWrite(0x00, 0x01)) {
+            Serial.print("- Failed to write coil: ");
+            Serial.println(modbusTCPClient.lastError());
+        }
+
+        // Wait for a second
+        delay(1000);
+
+        // Reset the coil at address 0x00
+        if (!modbusTCPClient.coilWrite(0x00, 0x00)) {
+            Serial.print("- Failed to reset coil: ");
+            Serial.println(modbusTCPClient.lastError());
+        }
+
+        // Wait for a second
+        delay(1000); 
     }
-  } else {
-    // client connected
-
-    // write the value of 0x01, to the coil at address 0x00
-    if (!modbusTCPClient.coilWrite(0x00, 0x01)) {
-      Serial.print("Failed to write coil! ");
-      Serial.println(modbusTCPClient.lastError());
-    }
-
-    // wait for 1 second
-    delay(1000);
-
-    // write the value of 0x00, to the coil at address 0x00
-    if (!modbusTCPClient.coilWrite(0x00, 0x00)) {
-      Serial.print("Failed to write coil! ");
-      Serial.println(modbusTCPClient.lastError());
-    }
-
-    // wait for 1 second
-    delay(1000);
-  }
 }
 ```
 
+This example allows the Opta™ client to communicate with the Opta™ server over Modbus TCP. The client attempts to connect to the server and toggles a coil value at address 0x00 every second.  
+
 #### Modbus TCP Server
 
-In the Opta™ Server, the main task will be to poll for Modbus TCP requests and return configured values when requested. It requires following the same initial configuration as the Opta™ Client. The main difference between the Client and the Server devices lies in the `setup()` function:
+In the Opta™ server, the main task will be to poll for Modbus TCP requests and return configured values when requested. It requires following the same initial configuration as the Opta™ client. The main difference between the client and the server devices lies in the `setup()` function:
 
 ```arduino
-/*
-  Ethernet Modbus TCP Server LED
-
-  This sketch creates a Modbus TCP Server with a simulated coil.
-  The value of the simulated coil is set on the LED
-
-  Circuit:
-   - Any Arduino MKR Board
-   - MKR ETH Shield
-
-  created 16 July 2018
-  by Sandeep Mistry
-*/
-
 #include <SPI.h>
 #include <Ethernet.h>
-
-#include <ArduinoRS485.h> // ArduinoModbus depends on the ArduinoRS485 library
+#include <ArduinoRS485.h>
 #include <ArduinoModbus.h>
 
-// Enter a MAC address for your controller below.
-// Newer Ethernet shields have a MAC address printed on a sticker on the shield
-// The IP address will be dependent on your local network:
-byte mac[] = {
-  0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED
-};
-IPAddress ip(192, 168, 1, 177);
+// Define the IP address for the Modbus TCP server
+IPAddress ip(10, 0, 0, 227);
 
-EthernetServer ethServer(502);
+// Server will listen on Modbus TCP standard port 502
+EthernetServer ethServer(502); 
 
+// Create a Modbus TCP server instance
 ModbusTCPServer modbusTCPServer;
 
-const int ledPin = LED_BUILTIN;
+// Define the pin for the LED
+const int ledPin = LED_D0; // Use LED_D0 as the LED pin
 
 void setup() {
-  // You can use Ethernet.init(pin) to configure the CS pin
-  //Ethernet.init(10);  // Most Arduino shields
-  //Ethernet.init(5);   // MKR ETH shield
-  //Ethernet.init(0);   // Teensy 2.0
-  //Ethernet.init(20);  // Teensy++ 2.0
-  //Ethernet.init(15);  // ESP8266 with Adafruit Featherwing Ethernet
-  //Ethernet.init(33);  // ESP32 with Adafruit Featherwing Ethernet
-
-  // Open serial communications and wait for port to open:
+  // Initialize serial communication at 9600 bauds,
+  // wait for the serial port to connect,
+  // initialize Ethernet connection with the specified IP address
   Serial.begin(9600);
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for native USB port only
-  }
-  Serial.println("Ethernet Modbus TCP Example");
+  while (!Serial);
+  Ethernet.begin(NULL, ip); 
 
-  // start the Ethernet connection and the server:
-  Ethernet.begin(mac, ip);
-
-  // Check for Ethernet hardware present
+  // Check Ethernet hardware and cable connections
   if (Ethernet.hardwareStatus() == EthernetNoHardware) {
-    Serial.println("Ethernet shield was not found.  Sorry, can't run without hardware. :(");
-    while (true) {
-      delay(1); // do nothing, no point running without Ethernet hardware
-    }
+    Serial.println("- Ethernet interface not found!");
+    while (true);
   }
   if (Ethernet.linkStatus() == LinkOFF) {
-    Serial.println("Ethernet cable is not connected.");
+    Serial.println("- Ethernet cable not connected!");
   }
 
-  // start the server
+  // Start the Modbus TCP server
   ethServer.begin();
-  
-  // start the Modbus TCP server
   if (!modbusTCPServer.begin()) {
-    Serial.println("Failed to start Modbus TCP Server!");
+    Serial.println("- Failed to start Modbus TCP Server!");
     while (1);
   }
 
-  // configure the LED
+  // Configure the LED pin as an output
   pinMode(ledPin, OUTPUT);
-  digitalWrite(ledPin, LOW);
 
-  // configure a single coil at address 0x00
+  // Configure a single coil at address 0x00 for Modbus communication
   modbusTCPServer.configureCoils(0x00, 1);
 }
 
 void loop() {
-  // listen for incoming clients
+  // Handle incoming client connections and process Modbus requests
   EthernetClient client = ethServer.available();
-  
   if (client) {
-    // a new client connected
-    Serial.println("new client");
+    Serial.println("- Client connected!");
 
-    // let the Modbus TCP accept the connection 
+    // Accept and handle the client connection for Modbus communication
     modbusTCPServer.accept(client);
 
+    // Update the LED state based on Modbus coil value
     while (client.connected()) {
-      // poll for Modbus TCP requests, while client connected
-      modbusTCPServer.poll();
-
-      // update the LED
+      // Process Modbus requests
+      modbusTCPServer.poll(); 
       updateLED();
     }
 
-    Serial.println("client disconnected");
+    Serial.println("Client disconnected.");
   }
 }
 
+/**
+  * Updates the LED state based on the Modbus coil value.
+  * Reads the current value of the coil from the Modbus TCP 
+  * server and sets the LED state. If the coil value is high, 
+  * the LED is turned on. If it is low, the LED is turned off
+  *
+  * @param None
+  */
 void updateLED() {
-  // read the current value of the coil
+  // Read the current value of the coil at address 0x00
   int coilValue = modbusTCPServer.coilRead(0x00);
-
-  if (coilValue) {
-    // coil value set, turn LED on
-    digitalWrite(ledPin, HIGH);
-  } else {
-    // coild value clear, turn LED off
-    digitalWrite(ledPin, LOW);
-  }
+  
+  // Set the LED state; HIGH if coil value is 1, LOW if coil value is 0
+  digitalWrite(ledPin, coilValue ? HIGH : LOW);
 }
 ```
+
+This example sets up the Opta™ server to listen for incoming Modbus TCP connections and handle requests. It controls the LED_D0 based on the coil value received from the client.
+
+***You can find more information about Opta™ device's LEDs [here](https://docs.arduino.cc/tutorials/opta/user-manual/#leds).***
 
 ### Testing the Modbus TCP Client and Server
 
