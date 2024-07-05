@@ -18,8 +18,6 @@ The GIGA Display Shield with the GIGA R1 WiFi board can run LVGL which allows fo
 
 Make sure the latest GIGA Board Package is installed in the Arduino IDE. **Tools > Board > Board Manager...**. Here you need to look for the **Arduino Mbed OS Giga Boards** and install it, the [Arduino_H7_Video library](https://github.com/arduino/ArduinoCore-mbed/tree/main/libraries/Arduino_H7_Video) is included in the Board Package. Now you have to install the library needed. Go to **Tools > Manage libraries..**, search for [**lvgl**](https://github.com/lvgl/lvgl)(SquareLine studio is only compatible with LVGL version 8.3.11 or earlier, please keep the version that you install in mind here) and [**Arduino_GigaDisplayTouch**](https://github.com/arduino-libraries/Arduino_GigaDisplayTouch), install both of these libraries.
 
-***SquareLine Studio is only compatible with LVGL version 8.3.11 or earlier.***
-
 ## Using SquareLine Studio
 
 First download SquareLine Studio from the link above. Now in SquareLine Studio go to the "create" section and select the Arduino tab. On the right you can set the "project settings". These needs to be set like so:
