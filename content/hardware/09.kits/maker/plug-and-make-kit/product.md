@@ -1,6 +1,6 @@
 ---
 title: Plug and Make Kit
-url_shop: https://store.arduino.cc/products/make-your-uno-kit
+url_shop: https://store.arduino.cc/products/plug-and-make-kit
 url_guide: https://courses.arduino.cc/plugandmake
 primary_button_url: https://courses.arduino.cc/plugandmake
 primary_button_title: Get Started
