@@ -104,7 +104,7 @@ To get started to play with Alvik you will need the following hardware and softw
 
 - Alvik (x1)
 - USB-C® to USB-C® cable (x1)
-- Phillips Screwdriver (cross head) (x1)
+- Phillips® Screwdriver (cross head) (x1)
 - Computer (x1)
 
 ***Make sure the USB-C® cable you are using works with data lines, not only power lines***
@@ -190,70 +190,111 @@ Alvik has five different sensors, all connected to the STM32 and accessible thro
 
 ### Touch Buttons
 
-TODO: Content for this section
+The Arduino Alvik robot is equipped with seven capacitive touch buttons. These buttons allow for interactive input and can be used to control various functions of the robot, such as movement, mode selection, and more.
+
+**Available buttons are:**
+- Up
+- Down
+- Left
+- Right
+- Center
+- OK (represented by a "tick" Icon)
+- Cancel (represented by a "x")
+
+Each button can be programmed to perform specific actions, providing more complex interface for user interaction.
 
 ### Distance Sensors
 
-The Arduino Alvik robot is equipped with a ToF (Time of Flight) 8x8 Array sensor, specifically the LSM6DSOX, which can measure distances up to 350 cm. These distance sensors help the robot detect obstacles and measure the distance to objects in its environment.
+The Arduino Alvik robot is equipped with a ToF (Time of Flight) 8x8 Array sensor, specifically the VL53L7CX, which can measure distances up to 350 cm. These distance sensors help the robot detect obstacles and measure the distance to objects in its environment. The sensor is integrated into the front PCB of the robot.
 
-TODO:Add image
-TODO: Content for this section
+**Key Features:**
+- Maximum distance: 350 cm
+- High precision and accuracy
+- Used for obstacle detection and distance measurement
+
+TODO: Add image
 
 ### Line Follower Sensor
 
-The Arduino Alvik robot is equipped with line follower sensors that help it detect and follow lines on the ground. This is useful for applications where the robot needs to navigate along predefined paths.
-TODO:Add images
+The Arduino Alvik robot is equipped with line follower sensors that help it detect and follow lines on the ground. This is useful for applications where the robot needs to navigate along predefined paths. The line follower array consists of three phototransistors and five infrared LEDs, mounted on the front PCB.
+
+The infrared LEDs emit light towards the ground, and the phototransistors detect the reflected light. When the sensors pass over a line (typically a dark line on a light surface), the amount of reflected light changes. Dark lines reflect less infrared light compared to light surfaces, allowing the phototransistors to detect the presence of a line.
+
+**Key Features:**
+- Detects lines on the ground
+- Helps in navigating predefined paths
+- Consists of three phototransistors and five infrared LEDs
+
+**How it Works:**
+- **Infrared LEDs**: Emit infrared light towards the ground.
+- **Phototransistors**: Detect the reflected infrared light.
+  - When over a dark line, the reflection is low, indicating the presence of a line.
+  - When over a light surface, the reflection is high, indicating no line.
+
+![Follow the line sensor principles](assets/ch07-blacktape-color.png)
+
+By continuously reading the values from the phototransistors, the robot can determine its position relative to the line and adjust its movements to follow the path accurately.
 
 
-TODO: Content for this section and images
+TODO: Add images
 
 ### Color Sensor
 
-The color sensor on the Arduino Alvik robot is used to detect and identify colors on surfaces that the robot encounters. It provides both raw color readouts and labeled color information that can be used for various applications such as line following, object detection, and more.
+The color sensor on the Arduino Alvik robot is used to detect and identify colors on surfaces that the robot encounters. It provides both raw color readouts and labeled color information that can be used for various applications such as line following, object detection, and more. The sensor used is the APDS 9660.
 
-
-
-TODO: Content for this section
+**Key Features:**
+- Detects and identifies colors
+- Provides raw color readouts and labeled color information
+- Useful for line following, object detection, and other applications
 
 ### IMU
 
-The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Unit) that provides valuable information about the robot's motion and orientation. The IMU can measure acceleration, angular velocity, and orientation.
+The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Unit) that provides valuable information about the robot's motion and orientation. The IMU can measure acceleration, angular velocity, and orientation. The sensor used is the LSM6DSOX.
 
-TODO add image of IMU
+**Key Features:**
+- Measures acceleration, angular velocity, and orientation
+- Provides roll, pitch, and yaw values
+- Useful for motion tracking and stabilization
 
-
+TODO: Add image of IMU
 
 ## Actuators
 
 ### Motors and Encoders
 
-Alvik has two high-precision geared motors and two RGB LEDs. The test programs are located in the same folder as the [sensor examples](#sensors).
+Alvik has two high-precision geared motors and two RGB LEDs. The motors are driven by the MAX22211 motor driver and include magnetic relative encoders for precise control.
 
 | **Actuator name**        | **Part name**           | **Test program name** |
 |--------------------------|-------------------------|-----------------------|
 | Geared motors w/ encoder | GM12-N20VA-08255-150-EN | wheels_positions.py   |
 | RGB LEDs                 | RGB LEDs                | leds_settings.py      |
 
-TODO: Does this make sense to group together?
-
+The RGB LEDs can be used for visual feedback and can be programmed to display various colors and patterns.
 
 ## What the Robot Includes
 
-TODO: Content for this section
+The Arduino Alvik robot package includes the following items:
+- Alvik robot
+- USB-C to USB-C cable
+- Phillips screwdriver
+- 18650 Li-Ion battery
 
 ## Move Alvik! (extended)
 
 ### Basic Touch Programming
 
-TODO: Content for this section
+Alvik’s touch buttons can be programmed to control various actions such as movement, changing modes, and interacting with the environment. This allows for creating intuitive control schemes for different applications.
 
 ### Following Objects
 
-TODO: Content for this section
+Using the distance sensors, Alvik can follow objects by maintaining a certain distance from them. This is useful for applications like automated guided vehicles and interactive robotics.
 
 ### Line Follower
 
-TODO: Content for this section
+With its line follower sensors, Alvik can navigate along predefined paths marked by lines on the ground. This is especially useful in educational settings and for demonstrating basic robotic navigation.
+
+The goal is to present the sensors and actuators of the Alvik robot, highlighting their key features and uses without delving into programming specifics.
+
 
 ## Alvik First Use
 
