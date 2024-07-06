@@ -27,39 +27,45 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 ## Features
 ### General Specifications Overview
 
-| Characteristics             | Details                                                       |
-|-----------------------------|---------------------------------------------------------------|
-| Supply Voltage              | 12...24 V                                                     |
-| Reverse polarity protection | Yes                                                           |
-| ESP protection              | Yes                                                           |
-| Overvoltage protection      | Yes (up to 40 V)                                                    |
-| Inputs                      | 6x Programmable inputs (Voltage, Current and RTD)             |
-| Outputs                     | 2x Programmable outputs (Voltage, Current) and 4x PWM outputs |
-| Degree of Protection        | IP20                                                          |
-| Certifications              | FCC, CE, UKCA                                                 |
+| Characteristics             | Details                                                                                                                                                                                                                                        |
+|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Supply Voltage              | 12...24 V                                                                                                                                                                                                                                      |
+| Reverse polarity protection | Yes                                                                                                                                                                                                                                            |
+| ESP protection              | Yes                                                                                                                                                                                                                                            |
+| Overvoltage protection      | Yes (up to 40 V)                                                                                                                                                                                                                               |
+| Channels                    | 8x: I1, I2, I3, I4, O1, I5, I6, O2                                                                                                                                                                                                             |
+| Channels functionalities    | I1 and I2: Programmable inputs (Voltage, Current, RTD2 wires, RTD3 wires), Programmable outputs (Voltage and current) - I3, I4, O1, I5, I6, O2: Programmable inputs (Voltage, Current, RTD2 wires), Programmable outputs (Voltage and current) |
+| Degree of Protection        | IP20                                                                                                                                                                                                                                           |
+| Certifications              | FCC, CE, UKCA, cULus, ENEC                                                                                                                                                                                                                     |
+
+***Check the inputs and outputs detailed sections below for more information about the Analog Expansion channels use.***
 
 ### Inputs
 
-| Characteristics               | Details                                     |
-|-------------------------------|---------------------------------------------|
-| Number of inputs              | 6x Digital/Analog inputs (Voltage, Current and RTD) |
-| Inputs overvoltage protection | Yes (Up to 40 V)                            |
-| Antipolarity protection       | No                                          |
-| Analog Input resolution       | 16 bits                                      |
-| Noise Rejection               | 50 and 60 Hz (Optional)                     |
+| Characteristics                 | Details                                               |
+|---------------------------------|-------------------------------------------------------|
+| Number of channels              | 8                                                     |
+| Channels programmable as inputs | I1, I2, I3, I4, O1, I5, I6, O2                        |
+| Type of inputs accepted         | Digital voltage and Analog (Voltage, Current and RTD) |
+| Inputs overvoltage protection   | Yes (Up to 40 V)                                      |
+| Antipolarity protection         | No                                                    |
+| Analog Input resolution         | 16 bits                                               |
+| Noise Rejection                 | Optional noise rejection between 50 Hz and 60 Hz      |
 
 
 #### Voltage Input Mode
 
 The Analog Expansion input channels can be configured for digital sensors or 0-10 V analog sensors. 
 
-| Characteristics        | Details                                   |
-|------------------------|-------------------------------------------|
-| Digital input voltage  | 0...24 V  (supports 0...10 V logic level) |
-| Analog input voltage   | 0...10 V                                  |
-| Analog input LSB value | 152.59 uV                                 |
-| Accuracy               | +/- 1%, repeatability +/- 1%              |
-| Input impedance        | Min: 175 kΩ (200 kΩ to GND enabled)       |
+| Characteristics        | Details                                                |
+|------------------------|--------------------------------------------------------|
+| Digital input voltage  | 0...24 V                                               |
+| Configurable threshold | Yes (for supporting 0...10 V logic level)              |
+| Analog input voltage   | 0...10 V                                               |
+| Analog input LSB value | 152.59 uV                                              |
+| Accuracy               | +/- 1%                                                 |
+| Repeatability          | +/- 1%                                                 |
+| Input impedance        | Min: 175 kΩ (when internal 200 kΩ resistor is enabled) |
 
 #### Current Input Mode
 
@@ -71,7 +77,8 @@ The Analog Expansion input channels can be configured for current loop instrumen
 | Analog input LSB value      | 381.5 nA                                    |
 | Short circuit current limit | Min: 25 mA, Max 35 mA (externally powered). |
 | Programmable current limit  | 0.5 mA to 24.5 mA (loop powered)            |
-| Accuracy                    | +/- 1%, repeatability +/- 1%                |
+| Accuracy                    | +/- 1%                                      |
+| Repeatability               | +/- 1%                                      |
 
 #### RTD Input Mode 
 
@@ -97,11 +104,13 @@ RTD with 3 wires has generally two wires with the same color.
 
 ### Outputs
 
-| Characteristics                     | Details                                                 |
-|-------------------------------------|---------------------------------------------------------|
-| Number of outputs                   | 2x Analog outputs (Voltage and Current), 4x PWM outputs |
-| DAC resolution                      | 13 bits                                                 |
-| Charge pump for zero voltage output | Yes                                                     |
+| Characteristics                     | Details                                |
+|-------------------------------------|----------------------------------------|
+| Number of channels                  | 8, (2x used simultaneusly recommended) |
+| Channels programmable as outputs    | I1, I2, I3, I4, O1, I5, I6, O2         |
+| Type of outputs supported           | Analog voltage and current             |
+| DAC resolution                      | 13 bits                                |
+| Charge pump for zero voltage output | Yes                                    |
 
 ***All eight analog channels can be used as outputs but due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time.***
 
@@ -116,10 +125,10 @@ This output mode lets you control voltage-driven actuators.
 | Analog output voltage            | 0...11 V                                                                                                                    |
 | Resistive load range             | 500 Ω...100 kΩ                                                                                                              |
 | Maximum capacitive load          | 2 μF                                                                                                                        |
-| Short-circuit current (sourcing) | Min: 25 mA, Typ: 29 mA, Max: 32 mA (lower limit bit = 0 (default)), Min: 5.5 mA, Typ: 7 mA, Max: 9 mA (lower limit bit = 1) |
-| Short-circuit current (sinking)  | Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                                                                       |
-| Accuracy                         | +/- 1%, repeatability +/- 1%                                                                                                |
-
+| Short-circuit current per channel (sourcing) | Min: 25 mA, Typ: 29 mA, Max: 32 mA (lower limit bit = 0 (default)), Min: 5.5 mA, Typ: 7 mA, Max: 9 mA (lower limit bit = 1) |
+| Short-circuit current per channel (sinking)  | Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                                                                       |
+| Accuracy                         | +/- 1%                                                                                                                      |
+| Repeatability                    | +/- 1%                                                                                                                      |
 
 #### Current Output Mode
 
@@ -146,7 +155,7 @@ The Analog Expansion has four PWM output channels **(P1...P4)**. They are softwa
 ### Recommended Operating Conditions
 
 | Description                 | Value                     |
-| --------------------------- | ------------------------- |
+|-----------------------------|---------------------------|
 | Temperature Operating Range | -20...50 °C               |
 | Protection degree rating    | IP20                      |
 | Pollution degree            | 2 conforming to IEC 61010 |
@@ -229,15 +238,15 @@ Now that you have gone through the basics of what you can do with the device, yo
 
 ### Certifications Summary
 
-| Cert       | Arduino Opta® Analog Expansion (AFX00007 | 
-| ---------- | ---------------------------------------------- |
-| CE (EU)    | EN IEC 61326-1:2021, EN IEC 61010 (LVD)        |
-| CB (EU)    | Yes                                            |
-| WEEE (EU)  | Yes                                            |
-| REACH (EU) | Yes                                            |
-| UKCA (UK)  | EN IEC 61326-1:2021                            |
-| FCC (US)   | Yes                                            |
-| cULus      | UL 61010-2-201                                 |
+| Cert       | Arduino Opta® Analog Expansion (AFX00007 |
+|------------|------------------------------------------|
+| CE (EU)    | EN IEC 61326-1:2021, EN IEC 61010 (LVD)  |
+| CB (EU)    | Yes                                      |
+| WEEE (EU)  | Yes                                      |
+| REACH (EU) | Yes                                      |
+| UKCA (UK)  | EN IEC 61326-1:2021                      |
+| FCC (US)   | Yes                                      |
+| cULus      | UL 61010-2-201                           |
 
 
 ### Declaration of Conformity CE DoC (EU)
@@ -280,25 +289,25 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 ## Company Information
 
-| Company name    | Arduino S.r.l                                   |
-| --------------- | ----------------------------------------------- |
+| Company name    | Arduino S.r.l                                  |
+|-----------------|------------------------------------------------|
 | Company Address | Via Andrea Appiani, 25 - 20900 MONZA （ Italy ) |
 
 
 ## Reference Documentation
-|        **Ref**                    | **Link**                                                                                    |
-|:---------------------------------:|---------------------------------------------------------------------------------------------|
-| Arduino IDE (Desktop)             | https://www.arduino.cc/en/Main/Software                                                     |
-| Arduino IDE (Cloud)               | https://create.arduino.cc/editor                                                            |
-| Arduino Cloud - Getting started   | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started             |
-| Arduino PLC IDE                   | https://www.arduino.cc/en/Main/Software                                                     |
-| Arduino Opta® Documentation       | https://docs.arduino.cc/hardware/opta                                                       |
-| Project Hub                       | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                    |
-| Library Reference                 | https://www.arduino.cc/reference/en/                                                        |
-| Online Store                      | https://store.arduino.cc/                                                                   |
+|             **Ref**             | **Link**                                                                        |
+|:-------------------------------:|---------------------------------------------------------------------------------|
+|      Arduino IDE (Desktop)      | https://www.arduino.cc/en/Main/Software                                         |
+|       Arduino IDE (Cloud)       | https://create.arduino.cc/editor                                                |
+| Arduino Cloud - Getting started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
+|         Arduino PLC IDE         | https://www.arduino.cc/en/Main/Software                                         |
+|   Arduino Opta® Documentation   | https://docs.arduino.cc/hardware/opta                                           |
+|           Project Hub           | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending        |
+|        Library Reference        | https://www.arduino.cc/reference/en/                                            |
+|          Online Store           | https://store.arduino.cc/                                                       |
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**        |
-|------------|--------------|------------------- |
-| 14/05/2024 | 1            | First Release      |
+| Date       | **Revision** | **Changes**   |
+|------------|--------------|---------------|
+| 14/05/2024 | 1            | First Release |
