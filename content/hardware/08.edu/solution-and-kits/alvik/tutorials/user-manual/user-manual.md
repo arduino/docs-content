@@ -212,7 +212,6 @@ The Arduino Alvik robot is equipped with a ToF (Time of Flight) 8x8 Array sensor
 - High precision and accuracy
 - Used for obstacle detection and distance measurement
 
-TODO: Add image
 
 ### Line Follower Sensor
 
@@ -221,7 +220,7 @@ The Arduino Alvik robot is equipped with line follower sensors that help it dete
 The infrared LEDs emit light towards the ground, and the phototransistors detect the reflected light. When the sensors pass over a line (typically a dark line on a light surface), the amount of reflected light changes. Dark lines reflect less infrared light compared to light surfaces, allowing the phototransistors to detect the presence of a line.
 
 **Key Features:**
-- Detects lines on the ground
+- Detects lines on the ground (or any patterns using colors or materials with different reflective properties)
 - Helps in navigating predefined paths
 - Consists of three phototransistors and five infrared LEDs
 
@@ -235,9 +234,6 @@ The infrared LEDs emit light towards the ground, and the phototransistors detect
 
 By continuously reading the values from the phototransistors, the robot can determine its position relative to the line and adjust its movements to follow the path accurately.
 
-
-TODO: Add images
-
 ### Color Sensor
 
 The color sensor on the Arduino Alvik robot is used to detect and identify colors on surfaces that the robot encounters. It provides both raw color readouts and labeled color information that can be used for various applications such as line following, object detection, and more. The sensor used is the APDS 9660.
@@ -246,6 +242,8 @@ The color sensor on the Arduino Alvik robot is used to detect and identify color
 - Detects and identifies colors
 - Provides raw color readouts and labeled color information
 - Useful for line following, object detection, and other applications
+
+![Color sensor bottom view](imageColor.png)
 
 ### IMU
 
@@ -256,7 +254,7 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 - Provides roll, pitch, and yaw values
 - Useful for motion tracking and stabilization
 
-TODO: Add image of IMU
+![IMU axis reference](imageIMU.png)
 
 ## Actuators
 
@@ -628,11 +626,15 @@ Feel free to expand to it by adding customized responses to each different press
 
 ### Detecting Obstacles
 
-TODO: Content for this section
+These sensors provide detailed readouts from multiple positions around the robot, including **left**, **center-left**, **center, center-right**, **right**, **top**, and **bottom**. Unlike single-point sensors, these distance sensors offer comprehensive zone-based information.
+
+![ToF Sensor top-view](image.png)
+
+The distance sensor array is divided into five distinct zones: left, center-left, center, center-right, and right. Each zone measures distances and is capable of detecting objects up to three meters away. It's important to note that while the sensors can detect objects at greater distances, the reliability of the readings may decrease.
 
 #### Function
 
-**get_distance**
+Read **distance**
 
 The `get_distance` function returns the distance readouts from the left, center-left, center, center-right, and right sensors.
 
@@ -642,20 +644,6 @@ The `get_distance` function returns the distance readouts from the left, center-
 - `C`: Center sensor readout.
 - `CR`: Center-right sensor readout.
 - `R`: Right sensor readout.
-
-**get_distance_top**
-
-The `get_distance_top` function returns the distance readout from the top sensor.
-
-**Outputs:**
-- `T`: Top sensor readout.
-
-**get_distance_bottom**
-
-The `get_distance_bottom` function returns the distance readout from the bottom sensor.
-
-**Outputs:**
-- `B`: Bottom sensor readout.
 
 #### Example Usage
 
