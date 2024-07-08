@@ -1698,21 +1698,7 @@ To learn more about Opta™ and the Arduino IoT Cloud, check out the following r
 - [Opta™ Relay Management template](https://create.arduino.cc/iot/templates/relay-management)
 - [Using PLC IDE With Arduino® IoT Cloud](https://docs.arduino.cc/tutorials/opta/plc-ide-cloud-support)
 
-
-## Opta Digital Expansions
-
-Arduino Opta™ Digital Expansions are designed to multiply your Opta™ micro PLC capabilities with the addition of 16 programmable inputs for connecting your industrial sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
-
-The Opta™ Digital Expansions come in two variants: 
-
-* [The Arduino Opta® Ext D1608E (AFX00005)](https://store.arduino.cc/products/opta-ext-d1608e) with Electromechanical Relays.
-* [The Arduino Opta® Ext D1608S (AFX00006)](https://store.arduino.cc/products/opta-ext-d1608s) with Solid State Relays.
-
-The Opta Expansions can be controlled by any Opta controller variant: [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485) or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi).
-
-![Opta Expansion variants](assets/variants.png)
-
-***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step.***
+## Opta Expansions
 
 ### Snapping the Expansion
 
@@ -1722,26 +1708,9 @@ After removing the expansion port breakable plastic cover marked as AUX, from th
 
 ![Snapping Opta expansions](assets/snapping.gif)
 
-### Powering Expansions
-
-The Opta™ Digital Expansions must be externally powered to work. See the power specifications in the table below:
-
-| Property                 | Min  | Typ | Max  | Unit |
-|--------------------------|------|-----|------|------|
-| Supply voltage           | 12   | -   | 24   | V    |
-| Permissible range        | 10.2 | -   | 27.6 | V    |
-| Power consumption (12 V) | -    | -   | 3    | W    |
-| Power consumption (24 V) | -    | -   | 3    | W    |
-
-In the image below there is an example of the power wiring of the expansions:
-
-![Powering the Opta Digital Expansions](assets/power-expansion.png)
-
-***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
-
 ### Library Installation
 
-To use the Opta™ Digital Expansion with your Opta™ PLC, you need to install the `Arduino_Opta_Blueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
+To use the Opta™ Expansions with your Opta™ PLC, you need to install the `Arduino_Opta_Blueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
 
 ![Opta expansions library installation](assets/library-install.png)
 
@@ -1771,7 +1740,71 @@ Type `Y` in the Serial Monitor to confirm the update and wait for it to be compl
 
 Finally, your Opta™ expansion will be updated with the latest firmware version.
 
-### Programmable Inputs
+### General Library Notes
+
+This section aims to clarify some recommendations for your programming experience to be as smooth as possible. 
+
+Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
+
+Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
+
+`OptaController.update()` function DOES NOT:
+* Check if an expansion has been removed and remove their objects
+* Update any data from or to the expansion
+
+
+The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
+
+```arduino
+//For Digital Expansions
+for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
+  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
+  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
+}
+
+//For Analog Expansions:
+for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
+  AnalogExpansion exp = OptaController.getExpansion(i);
+}
+```
+The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read state belongs to.
+
+In the case of using analog expansions, the same method is used but checking for an Ext A0602 expansion. If any is found in the asked index, the `exp` object turns to true.
+
+### Opta Digital Expansions
+
+Arduino Opta™ Digital Expansions are designed to multiply your Opta™ micro PLC capabilities with the addition of 16 programmable inputs for connecting your industrial sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
+
+The Opta™ Digital Expansions come in two variants: 
+
+* [The Arduino Opta® Ext D1608E (AFX00005)](https://store.arduino.cc/products/opta-ext-d1608e) with Electromechanical Relays.
+* [The Arduino Opta® Ext D1608S (AFX00006)](https://store.arduino.cc/products/opta-ext-d1608s) with Solid State Relays.
+
+The Opta Expansions can be controlled by any Opta controller variant: [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485) or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi).
+
+![Opta Expansion variants](assets/variants.png)
+
+***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step.***
+
+#### Powering Expansions
+
+The Opta™ Digital Expansions must be externally powered to work. See the power specifications in the table below:
+
+| Property                 | Min  | Typ | Max  | Unit |
+|--------------------------|------|-----|------|------|
+| Supply voltage           | 12   | -   | 24   | V    |
+| Permissible range        | 10.2 | -   | 27.6 | V    |
+| Power consumption (12 V) | -    | -   | 3    | W    |
+| Power consumption (24 V) | -    | -   | 3    | W    |
+
+In the image below there is an example of the power wiring of the expansions:
+
+![Powering the Opta Digital Expansions](assets/power-expansion.png)
+
+***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
+
+#### Programmable Inputs
 
 The Opta™ Expansions have **16 analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
 
@@ -1829,7 +1862,7 @@ Analog/digital input terminals are mapped as described in the following table:
 |                 I15                 |           14            |
 |                 I16                 |           15            |
 
-#### Digital 
+##### Digital 
 
 <table>
     <thead>
@@ -1989,25 +2022,8 @@ void loop() {
 
 }
 ```
-Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
 
-Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
-
-`OptaController.update()` function DOES NOT:
-* Check if an expansion has been removed and remove their objects
-* Update any data from or to the expansion
-
-
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-
-```arduino
-for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
-  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
-  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read state belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The function `<ExpObject>.updateDigitalInputs();` updates all the inputs with their current states to prepare them to be read.
 
@@ -2022,7 +2038,7 @@ LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL
 
 ***General note: The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
 
-#### Analog 
+##### Analog 
 
 <table>
     <thead>
@@ -2185,15 +2201,7 @@ void loop() {
 
 }
 ```
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-```arduino
-for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
-  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
-  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read value belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input voltage as follows:
 
@@ -2204,7 +2212,7 @@ Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
 
 ![Analog Input wiring example](assets/analog-inputs.png)
 
-### Outputs
+#### Outputs
 
 The Opta™ Expansions have **8 relay outputs** accessible through terminals pairs `1` to `8`.
 
@@ -2549,15 +2557,7 @@ void loop() {
  }
 }
 ```
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-```arduino
-for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
-  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
-  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion is going to be controlled.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 First, the desired relay states need to be defined with the `digitalWrite()` function, then with the `<ExpObject>.updateDigitalOutputs()` the states are sent to the expansion to control the relays with the defined states.
 
@@ -2579,7 +2579,7 @@ You can buy and find more information about the Opta™ Digital Expansions on th
 - [Buy the Opta™ Digital Ext D1608E (EMR)](https://store.arduino.cc/products/Opta-Ext-D1608E)
 - [Buy the Opta™ Digital Ext D1608S (SSR)](https://store.arduino.cc/products/Opta-Ext-D1608S)
 
-## Opta Analog Expansions
+### Opta Analog Expansions
 
 Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or actuators. In addition, 4 dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
@@ -2589,15 +2589,7 @@ The Opta Expansions can be controlled by any Opta controller variant: [Opta™ L
 
 ***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step.***
 
-### Snapping the Expansion
-
-You can snap up to five expansions to your Opta™ Base module to multiply and mix your set of I/Os with seamless detection.
-
-After removing the expansion port breakable plastic cover marked as AUX, from the Opta™ controller and from the expansion to expose the expansion port, plug the expansions on the right side of your Opta™ controller making sure to correctly align the **Aux connector** and the connection clips as shown in the image below:
-
-![Snapping Opta expansions](assets/snap-exp-analog.gif)
-
-### Powering Expansions
+#### Powering Expansions
 
 The Opta™ Analog Expansions must be externally powered to work. See the power specifications in the table below:
 
@@ -2614,63 +2606,33 @@ In the image below there is an example of the power wiring of the expansions:
 
 ***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
 
-### Library Installation
+#### Programmable Inputs
 
-To use the Opta™ Analog Expansion with your Opta™ PLC, you need to install the `Arduino_Opta_Blueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
-
-![Opta expansions library installation](assets/library-install.png)
-
-Install all the **library dependencies** suggested by clicking the **Install All** button:
-
-![Library dependencies installation](assets/library-install-2.png)
-
-Once installed, you will have access to a variety of sketch examples showcasing the expansion capabilities and how to use them.
-
-#### Update Expansion Firmware
-
-With the library properly installed, we will update the expansion firmware to ensure proper functioning and seamless detection.
-
-In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > updateExpansionFw**.
-
-![Firmware update example](assets/fw-update.png)
-
-Upload the program to the Opta™ controller and open the Arduino IDE Serial Monitor.
-
-![Firmware update process](assets/fw-update-serial.png)
-
-If your expansion is updatable, in the Serial Monitor you will see its current firmware version and the new one to which it will be updated.
-
-Type `Y` in the Serial Monitor to confirm the update and wait for it to be completed.
-
-![Firmware update running](assets/fw-update-serial-2.png)
-
-Finally, your Opta™ expansion will be updated with the latest firmware version.
-
-### Programmable Inputs
-
-The Opta™ Analog Expansions have **6 digital/analog programmable inputs** accessible through terminals `I1` to `I6`.
+The Opta™ Analog Expansions have **eight digital/analog programmable inputs** accessible through terminals `I1` to `I6` and `O1` to `O2`.
 Each input can be used as:
 
-|            **Mode**            |             **Specification**             |
-|:------------------------------:|:-----------------------------------------:|
-|     Digital input voltage      | 0...24 V  (supports 0...10 V logic level) |
-|      Analog input voltage      |                 0...10 V                  |
-|      Analog input current      |                 0...25 mA                 |
-| Analog temperature input (RTD) |                 0...1 MΩ                  |
+|            **Mode**            | **Specification** |
+|:------------------------------:|:-----------------:|
+|     Digital input voltage      |     0...24 V      |
+|      Analog input voltage      |     0...10 V      |
+|      Analog input current      |     0...25 mA     |
+| Analog temperature input (RTD) |     0...1 MΩ      |
 
-***All available channels of the analog expansion can be used as input, including `O1` and `O2`, so there are 8 accessible inputs actually.***
+***All available channels of the analog expansion can be used as input, including `O1` and `O2`, so there are 8 accessible inputs.***
 
 ![Opta Analog Expansions Inputs](assets/inputs-analog.png)
 
 ***The inputs are marked on plastic as 0-10V/4-20mA/PT100 to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V or 4-20 mA range.***
 
-| Characteristics               | Details                                     |
-|-------------------------------|---------------------------------------------|
-| Number of inputs              | 6x Digital/Analog inputs (Voltage, Current and RTD) |
-| Inputs overvoltage protection | Yes (Up to 40 V)                            |
-| Antipolarity protection       | No                                          |
-| Analog input resolution       | 16 bits                                      |
-| Noise rejection               | 50 and 60 Hz (Optional)                     |
+| Characteristics                 | Details                                               |
+|---------------------------------|-------------------------------------------------------|
+| Number of channels              | 8x                                                     |
+| Channels programmable as inputs | I1, I2, I3, I4, O1, I5, I6, O2                        |
+| Type of inputs accepted         | Digital Voltage and Analog (Voltage, Current and RTD) |
+| Inputs overvoltage protection   | Yes (Up to 40 V)                                      |
+| Antipolarity protection         | No                                                    |
+| Analog Input resolution         | 16 bits                                               |
+| Noise Rejection                 | Optional noise rejection between 50 Hz and 60 Hz      |
 
 Input terminals are mapped as described in the following table:
 
@@ -2685,16 +2647,16 @@ Input terminals are mapped as described in the following table:
 |                 I6                 |            6 or OA_CH_6            |
 |                 O2                 |            7 or OA_CH_7            |
 
-#### Digital Input Mode
+##### Digital Input Mode
 
 The Analog Expansion input channels can be configured as digital inputs to read 0-10 V or 0-24 V digital sensors:
 
-| Characteristics                   | Details                                   |
-|-----------------------------------|-------------------------------------------|
-| Digital input voltage             | 0...24 V  (supports 0...10 V logic level) |
-| Digital input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC          |
-| Digital input current             | 4.12mA at 24V \| 2.05mA at 10V            |
-| Digital input frequency           | 300 Hz                                    |
+| Characteristics         | Details                                   |
+|-------------------------|-------------------------------------------|
+| Digital input voltage   | 0...24 V                                  |
+| Configurable threshold  | Yes (for supporting 0...10 V logic level) |
+| Digital input current   | 4.12mA at 24V \| 2.05mA at 10V            |
+| Digital input frequency | 300 Hz                                    |
 
 The state of an input terminal configured as digital can be read using the built-in function `digitalRead()` as shown below:
 
@@ -2818,24 +2780,7 @@ void loop() {
 
 ```
 
-Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
-
-Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
-
-`OptaController.update()` function DOES NOT:
-* Check if an expansion has been removed and remove their objects
-* Update any data from or to the expansion
-
-
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-
-```arduino
-for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
-  AnalogExpansion exp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The function `optaAnalogTask()` updates all the inputs with their current states and prints out the values.
 
@@ -2856,7 +2801,7 @@ DI channel 7 value 0
 
 ***The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
 
-#### Analog Voltage Input Mode
+##### Analog Voltage Input Mode
 
 The Analog Expansion input channels can be configured for 0-10 V analog sensors. 
 
@@ -2865,8 +2810,9 @@ The Analog Expansion input channels can be configured for 0-10 V analog sensors.
 | Analog input voltage    | 0...10 V                            |
 | Analog Input resolution | 16 bits                             |
 | Analog input LSB value  | 152.59 uV                           |
-| Accuracy                | +/- 1%, repeatability +/- 1%        |
-| Input impedance         | Min: 175 kΩ (200 kΩ to GND enabled) |
+| Accuracy               | +/- 1%                                                 |
+| Repeatability          | +/- 1%                                                 |
+| Input impedance        | Min: 175 kΩ (when internal 200 kΩ resistor is enabled) |
 
 The raw value of an input terminal configured as analog can be read using the built-in function `analogRead()` as shown below:
 
@@ -2998,22 +2944,7 @@ void loop() {
 }
 ```
 
-Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
-
-Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
-
-`OptaController.update()` function DOES NOT:
-* Check if an expansion has been removed and remove their objects
-* Update any data from or to the expansion
-
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-```arduino
-for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
-  AnalogExpansion exp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The expansion channels are configured as **analog voltage inputs** using the function `beginChannelAsAdc()` alongside the following parameters:
 
@@ -3062,17 +2993,18 @@ You can test other ADC functionalities by studying other examples included in th
 - AdcUpdateAll
 - DiPlusAdc
 
-#### Analog Current Input Mode
+##### Analog Current Input Mode
 
 The Analog Expansion input channels can be configured for current loop instrumentation using the 0/4-20 mA standard. 
 
-| Characteristics             | Details                                     |
-|-----------------------------|---------------------------------------------|
-| Analog input current        | 0...25 mA                                   |
-| Analog input LSB value      | 381.5 nA                                    |
-| Short circuit current limit | Min: 25 mA, Max 35 mA (externally powered). |
-| Programmable current limit  | 0.5 mA to 24.5 mA (loop powered)            |
-| Accuracy                    | +/- 1%, repeatability +/- 1%                |
+| Characteristics                           | Details                                     |
+|-------------------------------------------|---------------------------------------------|
+| Analog input current                      | 0...25 mA                                   |
+| Analog input LSB value                    | 381.5 nA                                    |
+| Short circuit current limit (per channel) | Min: 25 mA, Max 35 mA (externally powered). |
+| Programmable current limit (per channel)  | 0.5 mA to 24.5 mA (loop powered)            |
+| Accuracy                                  | +/- 1%                                      |
+| Repeatability                             | +/- 1%                                      |
 
 The current of an input terminal configured in current mode can be read using the built-in function `pinCurrent()` as shown below:
 
@@ -3198,22 +3130,7 @@ void loop() {
 
 }
 ```
-Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
-
-Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
-
-`OptaController.update()` function DOES NOT:
-* Check if an expansion has been removed and remove their objects
-* Update any data from or to the expansion
-
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-```arduino
-for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
-  AnalogExpansion exp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The expansion channels are configured as **analog current inputs** using the function `beginChannelAsAdc()` alongside the following parameters:
 
@@ -3400,7 +3317,7 @@ Setting DAC output to 11 V on expansion n. 0
 - ch0 -> Current 18.20 mA
 ```
 
-#### Analog RTD Input Mode
+##### Analog RTD Input Mode
 
 The Analog Expansion input channels can be used for temperature metering with **PT100** or **PT1000** RTDs.
 
@@ -3545,23 +3462,7 @@ void loop() {
   optaAnalogTask();
 }
 ```
-
-Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
-
-Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
-
-`OptaController.update()` function DOES NOT:
-* Check if an expansion has been removed and remove their objects
-* Update any data from or to the expansion
-
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-```arduino
-for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
-  AnalogExpansion exp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The expansion channels are configured as **RTD inputs** using the function `beginChannelAsRtd` alongside the following parameters:
 
@@ -3583,15 +3484,18 @@ Expansion n. 0
 ch 0 -> 1101.66 Ω -> 25.91 C
 ```
 
-### Programmable Outputs
+#### Programmable Outputs
 
-| Characteristics                     | Details                                                 |
-|-------------------------------------|---------------------------------------------------------|
-| Number of outputs                   | 2x Analog outputs (Voltage and Current), 4x PWM outputs |
-| DAC resolution                      | 13 bits                                                 |
-| Charge pump for zero voltage output | Yes                                                     |
+| Characteristics                     | Details                                  |
+|-------------------------------------|------------------------------------------|
+| Number of channels                  | 8x, (2x used simultaneously recommended) |
+| Channels programmable as outputs    | I1, I2, I3, I4, O1, I5, I6, O2           |
+| Type of outputs supported           | Analog voltage and current               |
+| DAC resolution                      | 13 bits                                  |
+| Charge pump for zero voltage output | Yes                                      |
+| Number of PWM outputs               | 4x                                       |
 
-The Opta™ Analog Expansions have **2 analog programmable outputs** accessible through terminals `O1` to `O2` that can be used as:
+The Opta™ Analog Expansions have **eight analog programmable outputs** accessible through terminals `I1` to `I6` and `O1` to `O2` that can be used as:
 
 |            **Mode**            |             **Specification**             |
 |:------------------------------:|:-----------------------------------------:|
@@ -3629,7 +3533,7 @@ PWM output terminals are mapped as described in the following table:
 
 ![Opta Analog Expansions Outputs](assets/outputs-analog.png)
 
-#### Analog Voltage Output Mode
+##### Analog Voltage Output Mode
 
 This output mode lets you control voltage-driven actuators or communicate with other devices through analog voltages.
 
@@ -3638,9 +3542,10 @@ This output mode lets you control voltage-driven actuators or communicate with o
 | Analog output voltage            | 0...11 V                                                                                                                    |
 | Resistive load range             | 500 Ω...100 kΩ                                                                                                              |
 | Maximum capacitive load          | 2 μF                                                                                                                        |
-| Short-circuit current (sourcing) | Min: 25 mA, Typ: 29 mA, Max: 32 mA (lower limit bit = 0 (default)), Min: 5.5 mA, Typ: 7 mA, Max: 9 mA (lower limit bit = 1) |
-| Short-circuit current (sinking)  | Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                                                                       |
-| Accuracy                         | +/- 1%, repeatability +/- 1%                                                                                                |
+| Short-circuit current per channel (sourcing) | Min: 25 mA, Typ: 29 mA, Max: 32 mA (lower limit bit = 0 (default)), Min: 5.5 mA, Typ: 7 mA, Max: 9 mA (lower limit bit = 1) |
+| Short-circuit current per channel (sinking)  | Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                                                                       |
+| Accuracy                         | +/- 1%                                                                                                                      |
+| Repeatability                    | +/- 1%                                                                                                                      |
 
 To set a voltage in an analog output terminal use the built-in function `pinVoltage()` as shown below:
 
@@ -3787,22 +3692,7 @@ void loop() {
   optaAnalogTask();
 }
 ```
-Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
-
-Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
-
-`OptaController.update()` function DOES NOT:
-* Check if an expansion has been removed and remove their objects
-* Update any data from or to the expansion
-
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-```arduino
-for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
-  AnalogExpansion exp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The expansion channels are configured as **voltage output** using the function `beginChannelAsDac()` alongside the following parameters:
 
@@ -3822,7 +3712,7 @@ After the Opta™ controller is programmed with the example sketch, you can meas
 
 ![Analog Voltage Output Demo](assets/analog-voltage.png)
 
-#### Analog Current Output Mode
+##### Analog Current Output Mode
 
 This output mode lets you control current-driven actuators or communicate with other devices through analog current.
 
@@ -3976,22 +3866,7 @@ void loop() {
   optaAnalogTask();
 }
 ```
-Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
-
-Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
-
-`OptaController.update()` function DOES NOT:
-* Check if an expansion has been removed and remove their objects
-* Update any data from or to the expansion
-
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-```arduino
-for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
-  AnalogExpansion exp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The expansion channels are configured as **current output** using the function `beginChannelAsDac()` alongside the following parameters:
 
@@ -4013,13 +3888,15 @@ After the Opta™ controller is programmed with the example sketch, you can meas
 
 ***Make sure to use a resistor value that makes it possible for the output to achieve the desired current. For example, if a 3 kΩ resistor is used and you want a 10 mA output, the channel must source the resistor with 30 V, which is not possible.***
 
-#### PWM Output
+##### PWM Output
 
 The Analog Expansion has four PWM output channels **(P1...P4)**. They are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage.
 
 | V<sub>PWM</sub> Voltage  | Details    |
 |--------------------------|------------|
 | Source voltage supported | 8...40 VDC |
+| Period                   | Programmable          |
+| Duty-cycle               | Programmable (0-100%) |
 
 ![Wiring to use the PWM outputs](assets/pwm-setup.png)
 
@@ -4149,22 +4026,7 @@ void loop() {
 
 ```
 
-Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
-
-Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
-
-`OptaController.update()` function DOES NOT:
-* Check if an expansion has been removed and remove their objects
-* Update any data from or to the expansion
-
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-```arduino
-for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
-  AnalogExpansion exp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The function `optaAnalogTask()` increases sequentially the `duty-cycle` variable to set the PWM output on the expansion channels and decrease it back generating a swiping output.
 
@@ -4179,15 +4041,15 @@ You can use the following auxiliary functions to manage and monitor the PWM outp
 - `getPwmFreqHz(<channel>)`: Get the PWM frequency of the defined channel in Hz
 - `getPwmPulsePerc(<channel>)`: Get the PWM pulse duty-cycle of the defined channel in %
 
-### Expansion Status LEDs
+#### Expansion Status LEDs
 
 | Characteristics | Details |
 |-----------------|---------|
-| Number of LEDs  | 8       |
+| Number of LEDs  | 8x       |
 
 ![Analog Expansion LEDs](assets/leds-analog.png)
 
-The Opta™ Analog Expansions have **8 status LEDs** on the front panel. They are mapped as described in the following table:
+The Opta™ Analog Expansions have **eight status LEDs** on the front panel. They are mapped as described in the following table:
 
 | **Opta Analog Expansion LED** | **Arduino Pin Mapping** |
 |:----------------------------------:|:-----------------------:|
@@ -4333,22 +4195,7 @@ void loop() {
 }
 ```
 
-Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
-
-Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
-
-`OptaController.update()` function DOES NOT:
-* Check if an expansion has been removed and remove their objects
-* Update any data from or to the expansion
-
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-```arduino
-for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
-  AnalogExpansion exp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext A0602 expansion connected in the `i` index from the five admitted. This will ensure which expansion the read state belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The function `optaAnalogTask()` turns on sequentially the **LEDs** and turns them off again.
 
