@@ -1793,12 +1793,12 @@ The Opta Expansions can be controlled by any Opta controller variant: [Opta™ L
 
 The Opta™ Digital Expansions must be externally powered to work. See the power specifications in the table below:
 
-| Property                 | Min  | Typ | Max  | Unit |
-|--------------------------|------|-----|------|------|
-| Supply voltage           | 12   | -   | 24   | V    |
-| Permissible range        | 10.2 | -   | 27.6 | V    |
-| Power consumption (12 V) | -    | -   | 3    | W    |
-| Power consumption (24 V) | -    | -   | 3    | W    |
+|       **Property**       | **Min** | **Typ** | **Max** | **Unit** |
+|:------------------------:|:-------:|:-------:|:-------:|:--------:|
+|      Supply voltage      |   12    |    -    |   24    |    V     |
+|    Permissible range     |  10.2   |    -    |  27.6   |    V     |
+| Power consumption (12 V) |    -    |    -    |    3    |    W     |
+| Power consumption (24 V) |    -    |    -    |    3    |    W     |
 
 In the image below there is an example of the power wiring of the expansions:
 
@@ -1816,32 +1816,12 @@ Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** with a 
 
 ![Opta Digital Expansions Inputs](assets/16-inputs-new.png)
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Number of inputs</td>
-            <td>16x Digital/Analog inputs</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Inputs overvoltage protection</td>
-            <td>yes (up to 40 V)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Reverse protection</td>
-            <td>no</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Input impedance</td>
-            <td>5.85 kΩ</td>
-        </tr>
-    </tbody>
-</table>
+|      **Characteristics**      |        **Details**        |
+|:-----------------------------:|:-------------------------:|
+|       Number of inputs        | 16x Digital/Analog inputs |
+| Inputs overvoltage protection |     Yes (up to 40 V)      |
+|      Reverse protection       |            No             |
+|        Input impedance        |          5.85 kΩ          |
 
 Analog/digital input terminals are mapped as described in the following table:
 
@@ -1866,32 +1846,12 @@ Analog/digital input terminals are mapped as described in the following table:
 
 ##### Digital 
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Digital Input voltage</td>
-            <td>0...24V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input voltage logic level</td>
-            <td>VIL Max: 4 VDC. VHL Min: 5.9 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input current</td>
-            <td>4.12mA at 24V | 2.05mA at 10V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input frequency</td>
-            <td>300 Hz</td>
-        </tr>
-    </tbody>
-</table>
+|        **Characteristics**        |           **Details**            |
+|:---------------------------------:|:--------------------------------:|
+|       Digital Input voltage       |             0...24V              |
+| Digital Input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC |
+|       Digital Input current       |  4.12mA at 24V \| 2.05mA at 10V  |
+|      Digital Input frequency      |              300 Hz              |
 
 The state of an input terminal, configured as digital, can be read using the built-in function `digitalRead()` as shown below:
 
@@ -2042,32 +2002,13 @@ LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL
 
 ##### Analog 
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Analog Input voltage</td>
-            <td>0...24V </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Analog Input resolution</td>
-            <td>14 bits</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Analog Input LSB value</td>
-            <td>1.733 mV</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Accuracy</td>
-            <td>+/- 5%, repeatability +/- 2%</td>
-        </tr>
-    </tbody>
-</table>
+|   **Characteristics**   | **Details** |
+|:-----------------------:|:-----------:|
+|  Analog Input voltage   |   0...24V   |
+| Analog Input resolution |   14 bits   |
+| Analog Input LSB value  |  1.733 mV   |
+|        Accuracy         |   +/- 5%    |
+|      Repeatability      |   +/- 2%    |
 
 The state of an input terminal, configured as analog, can be read using the built-in function `analogRead()` as shown below:
 
@@ -2222,161 +2163,47 @@ The Opta™ Expansions have **8 relay outputs** accessible through terminals pai
 
 The **Ext D1608E (EMR)** variant features 8 electromechanical relays with the following characteristics:
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Number of outputs</td>
-            <td>8x Electromechanical Relays (Normally Open - SPST)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max current per relay</td>
-            <td>6A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>10A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Continuous current per terminal</td>
-            <td>6A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Short-circuit protection</td>
-            <td>No, external fuse required</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay rated voltage</td>
-            <td>250 VAC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay Max voltage</td>
-            <td>400 VAC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Rated load AC1</td>
-            <td>1500 VA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Rated load AC15 (230 VAC)</td>
-            <td>300 VA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Breaking capacity DC1: 24/110/220V</td>
-            <td>6/0.2/0.12A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Minimum switching load</td>
-            <td>500mW (12V/10mA)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max output line length (unshielded)</td>
-            <td>100 m</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 0 to state 1</td>
-            <td>5 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 1 to state 0</td>
-            <td>3 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Bounce time NO</td>
-            <td>1 ms</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Bounce time NC</td>
-            <td>6 ms</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay mechanical durability</td>
-            <td>10 million cycles (DC)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay electrical durability</td>
-            <td>60 thousand cycles with a resistive load (AC1)</td>
-        </tr>
-    </tbody>
-</table>
+|             **Characteristics**             |                    **Details**                     |
+|:-------------------------------------------:|:--------------------------------------------------:|
+|              Number of outputs              | 8x Electromechanical Relays (Normally Open - SPST) |
+|            Max current per relay            |                         6A                         |
+|         Max peak current per relay          |                        10A                         |
+|       Continuous current per terminal       |                         6A                         |
+|          Short-circuit protection           |             No, external fuse required             |
+|             Relay rated voltage             |                      250 VAC                       |
+|              Relay Max voltage              |                      400 VAC                       |
+|               Rated load AC1                |                      1500 VA                       |
+|          Rated load AC15 (230 VAC)          |                       300 VA                       |
+|     Breaking capacity DC1: 24/110/220V      |                    6/0.2/0.12A                     |
+|           Minimum switching load            |                  500mW (12V/10mA)                  |
+|     Max output line length (unshielded)     |                       100 m                        |
+| Relay response time from state 0 to state 1 |               5 ms for relay output                |
+| Relay response time from state 1 to state 0 |               3 ms for relay output                |
+|               Bounce time NO                |                        1 ms                        |
+|               Bounce time NC                |                        6 ms                        |
+|         Relay mechanical durability         |               10 million cycles (DC)               |
+|         Relay electrical durability         |   60 thousand cycles with a resistive load (AC1)   |
 
 The **Ext D1608S (SSR)** variant features 8 solid state relays with the following characteristics:
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Number of outputs</td>
-            <td>8x Solid State Relays (Normally Open - SPST)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max current per relay</td>
-            <td>2A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>50A (10 ms)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Continuous current per terminal</td>
-            <td>2A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Short-circuit protection</td>
-            <td>No, external fuse required</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay rated voltage</td>
-            <td>24 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Switching voltage range</td>
-            <td>1.5...30 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Maximum blocking voltage</td>
-            <td>33 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Rated load DC13</td>
-            <td>36 W</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Minimum switching current</td>
-            <td>1 mA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max "OFF-state" leakage current</td>
-            <td>0.001 mA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max "OFF-state" voltage drop</td>
-            <td>0.4 V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 0 to state 1</td>
-            <td>0.02 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 1 to state 0</td>
-            <td>0.2 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Electrical life at rated load</td>
-            <td>> 10 million cycles</td>
-        </tr>
-    </tbody>
-</table>
+|          **Characteristics**          |                 **Details**                  |
+|:-------------------------------------:|:--------------------------------------------:|
+|           Number of outputs           | 8x Solid State Relays (Normally Open - SPST) |
+|         Max current per relay         |                      2A                      |
+|      Max peak current per relay       |                 50A (10 ms)                  |
+|    Continuous current per terminal    |                      2A                      |
+|       Short-circuit protection        |          No, external fuse required          |
+|          Relay rated voltage          |                    24 VDC                    |
+|        Switching voltage range        |                 1.5...30 VDC                 |
+|       Maximum blocking voltage        |                    33 VDC                    |
+|            Rated load DC13            |                     36 W                     |
+|       Minimum switching current       |                     1 mA                     |
+|    Max "OFF-state" leakage current    |                   0.001 mA                   |
+|     Max "OFF-state" voltage drop      |                    0.4 V                     |
+| Relay response time from state 0 to 1 |           0.02 ms for relay output           |
+| Relay response time from state 1 to 0 |           0.2 ms for relay output            |
+|     Electrical life at rated load     |             > 10 million cycles              |
+
 
 The state of an output terminal, in the Ext D1608S or Ext D1608E variant, can be set using the built-in function `digitalWrite()` as shown below:
 
@@ -2595,12 +2422,12 @@ The Opta Expansions can be controlled by any Opta controller variant: [Opta™ L
 
 The Opta™ Analog Expansions must be externally powered to work. See the power specifications in the table below:
 
-| Property                 | Min  | Typ | Max  | Unit |
-|--------------------------|------|-----|------|------|
-| Supply voltage           | 12   | -   | 24   | V    |
-| Permissible range        | 10.2 | -   | 27.6 | V    |
-| Power consumption (12 V) | -    | -   | 3    | W    |
-| Power consumption (24 V) | -    | -   | 3    | W    |
+|       **Property**       | **Min** | **Typ** | **Max** | **Unit** |
+|:------------------------:|:-------:|:-------:|:-------:|:--------:|
+|      Supply voltage      |   12    |    -    |   24    |    V     |
+|    Permissible range     |  10.2   |    -    |  27.6   |    V     |
+| Power consumption (12 V) |    -    |    -    |    3    |    W     |
+| Power consumption (24 V) |    -    |    -    |    3    |    W     |
 
 In the image below there is an example of the power wiring of the expansions:
 
@@ -2626,39 +2453,39 @@ Each input can be used as:
 
 ***The inputs are marked on plastic as 0-10V/4-20mA/PT100 to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V or 4-20 mA range.***
 
-| Characteristics                 | Details                                               |
-|---------------------------------|-------------------------------------------------------|
-| Number of channels              | 8x                                                     |
-| Channels programmable as inputs | I1, I2, I3, I4, O1, I5, I6, O2                        |
-| Type of inputs accepted         | Digital Voltage and Analog (Voltage, Current and RTD) |
-| Inputs overvoltage protection   | Yes (Up to 40 V)                                      |
-| Antipolarity protection         | No                                                    |
-| Analog Input resolution         | 16 bits                                               |
-| Noise Rejection                 | Optional noise rejection between 50 Hz and 60 Hz      |
+|       **Characteristics**       |                      **Details**                      |
+|:-------------------------------:|:-----------------------------------------------------:|
+|       Number of channels        |                          8x                           |
+| Channels programmable as inputs |            I1, I2, I3, I4, O1, I5, I6, O2             |
+|     Type of inputs accepted     | Digital Voltage and Analog (Voltage, Current and RTD) |
+|  Inputs overvoltage protection  |                   Yes (Up to 40 V)                    |
+|     Antipolarity protection     |                          No                           |
+|     Analog Input resolution     |                        16 bits                        |
+|         Noise Rejection         |   Optional noise rejection between 50 Hz and 60 Hz    |
 
 Input terminals are mapped as described in the following table:
 
 | **Opta Analog Expansion Terminal** | **Arduino Pin Mapping** |
 |:----------------------------------:|:-----------------------:|
-|                 I1                 |            0 or OA_CH_0         |
-|                 I2                 |            1 or OA_CH_1            |
-|                 I3                 |            2 or OA_CH_2            |
-|                 I4                 |            3 or OA_CH_3            |
-|                 O1                 |            4 or OA_CH_4            |
-|                 I5                 |            5 or OA_CH_5            |
-|                 I6                 |            6 or OA_CH_6            |
-|                 O2                 |            7 or OA_CH_7            |
+|                 I1                 |      0 or OA_CH_0       |
+|                 I2                 |      1 or OA_CH_1       |
+|                 I3                 |      2 or OA_CH_2       |
+|                 I4                 |      3 or OA_CH_3       |
+|                 O1                 |      4 or OA_CH_4       |
+|                 I5                 |      5 or OA_CH_5       |
+|                 I6                 |      6 or OA_CH_6       |
+|                 O2                 |      7 or OA_CH_7       |
 
 ##### Digital Input Mode
 
 The Analog Expansion input channels can be configured as digital inputs to read 0-10 V or 0-24 V digital sensors:
 
-| Characteristics         | Details                                   |
-|-------------------------|-------------------------------------------|
-| Digital input voltage   | 0...24 V                                  |
+|   **Characteristics**   |                **Details**                |
+|:-----------------------:|:-----------------------------------------:|
+|  Digital input voltage  |                 0...24 V                  |
 | Configurable threshold  | Yes (for supporting 0...10 V logic level) |
-| Digital input current   | 4.12mA at 24V \| 2.05mA at 10V            |
-| Digital input frequency | 300 Hz                                    |
+|  Digital input current  |      4.12mA at 24V \| 2.05mA at 10V       |
+| Digital input frequency |                  300 Hz                   |
 
 The state of an input terminal configured as digital can be read using the built-in function `digitalRead()` as shown below:
 
@@ -2807,14 +2634,14 @@ DI channel 7 value 0
 
 The Analog Expansion input channels can be configured for 0-10 V analog sensors. 
 
-| Characteristics         | Details                             |
-|-------------------------|-------------------------------------|
-| Analog input voltage    | 0...10 V                            |
-| Analog Input resolution | 16 bits                             |
-| Analog input LSB value  | 152.59 uV                           |
-| Accuracy               | +/- 1%                                                 |
-| Repeatability          | +/- 1%                                                 |
-| Input impedance        | Min: 175 kΩ (when internal 200 kΩ resistor is enabled) |
+|   **Characteristics**   |                      **Details**                       |
+|:-----------------------:|:------------------------------------------------------:|
+|  Analog input voltage   |                        0...10 V                        |
+| Analog Input resolution |                        16 bits                         |
+| Analog input LSB value  |                       152.59 uV                        |
+|        Accuracy         |                         +/- 1%                         |
+|      Repeatability      |                         +/- 1%                         |
+|     Input impedance     | Min: 175 kΩ (when internal 200 kΩ resistor is enabled) |
 
 The raw value of an input terminal configured as analog can be read using the built-in function `analogRead()` as shown below:
 
@@ -2999,14 +2826,14 @@ You can test other ADC functionalities by studying other examples included in th
 
 The Analog Expansion input channels can be configured for current loop instrumentation using the 0/4-20 mA standard. 
 
-| Characteristics                           | Details                                     |
-|-------------------------------------------|---------------------------------------------|
-| Analog input current                      | 0...25 mA                                   |
-| Analog input LSB value                    | 381.5 nA                                    |
+|            **Characteristics**            |                 **Details**                 |
+|:-----------------------------------------:|:-------------------------------------------:|
+|           Analog input current            |                  0...25 mA                  |
+|          Analog input LSB value           |                  381.5 nA                   |
 | Short circuit current limit (per channel) | Min: 25 mA, Max 35 mA (externally powered). |
-| Programmable current limit (per channel)  | 0.5 mA to 24.5 mA (loop powered)            |
-| Accuracy                                  | +/- 1%                                      |
-| Repeatability                             | +/- 1%                                      |
+| Programmable current limit (per channel)  |      0.5 mA to 24.5 mA (loop powered)       |
+|                 Accuracy                  |                   +/- 1%                    |
+|               Repeatability               |                   +/- 1%                    |
 
 The current of an input terminal configured in current mode can be read using the built-in function `pinCurrent()` as shown below:
 
@@ -3323,10 +3150,10 @@ Setting DAC output to 11 V on expansion n. 0
 
 The Analog Expansion input channels can be used for temperature metering with **PT100** or **PT1000** RTDs.
 
-| Characteristics | Details  |
-|-----------------|----------|
-| Input range     | 0...1 MΩ |
-| Bias voltage    | 2.5 V    |
+| **Characteristics** | **Details** |
+|:-------------------:|:-----------:|
+|     Input range     |  0...1 MΩ   |
+|    Bias voltage     |    2.5 V    |
 
 2 wires RTDs can be connected to any of the eight channels as follows:
 
@@ -3488,14 +3315,14 @@ ch 0 -> 1101.66 Ω -> 25.91 C
 
 #### Programmable Outputs
 
-| Characteristics                     | Details                                  |
-|-------------------------------------|------------------------------------------|
-| Number of channels                  | 8x, (2x used simultaneously recommended) |
-| Channels programmable as outputs    | I1, I2, I3, I4, O1, I5, I6, O2           |
-| Type of outputs supported           | Analog voltage and current               |
-| DAC resolution                      | 13 bits                                  |
-| Charge pump for zero voltage output | Yes                                      |
-| Number of PWM outputs               | 4x                                       |
+|         **Characteristics**         |               **Details**                |
+|:-----------------------------------:|:----------------------------------------:|
+|         Number of channels          | 8x, (2x used simultaneously recommended) |
+|  Channels programmable as outputs   |      I1, I2, I3, I4, O1, I5, I6, O2      |
+|      Type of outputs supported      |        Analog voltage and current        |
+|           DAC resolution            |                 13 bits                  |
+| Charge pump for zero voltage output |                   Yes                    |
+|        Number of PWM outputs        |                    4x                    |
 
 The Opta™ Analog Expansions have **eight analog programmable outputs** accessible through terminals `I1` to `I6` and `O1` to `O2` that can be used as:
 
@@ -3539,15 +3366,15 @@ PWM output terminals are mapped as described in the following table:
 
 This output mode lets you control voltage-driven actuators or communicate with other devices through analog voltages.
 
-| Characteristics                  | Details                                                                                                                     |
-|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Analog output voltage            | 0...11 V                                                                                                                    |
-| Resistive load range             | 500 Ω...100 kΩ                                                                                                              |
-| Maximum capacitive load          | 2 μF                                                                                                                        |
+|             **Characteristics**              |                                                         **Details**                                                         |
+|:--------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------:|
+|            Analog output voltage             |                                                          0...11 V                                                           |
+|             Resistive load range             |                                                       500 Ω...100 kΩ                                                        |
+|           Maximum capacitive load            |                                                            2 μF                                                             |
 | Short-circuit current per channel (sourcing) | Min: 25 mA, Typ: 29 mA, Max: 32 mA (lower limit bit = 0 (default)), Min: 5.5 mA, Typ: 7 mA, Max: 9 mA (lower limit bit = 1) |
-| Short-circuit current per channel (sinking)  | Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                                                                       |
-| Accuracy                         | +/- 1%                                                                                                                      |
-| Repeatability                    | +/- 1%                                                                                                                      |
+| Short-circuit current per channel (sinking)  |                                            Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                            |
+|                   Accuracy                   |                                                           +/- 1%                                                            |
+|                Repeatability                 |                                                           +/- 1%                                                            |
 
 To set a voltage in an analog output terminal use the built-in function `pinVoltage()` as shown below:
 
@@ -3718,14 +3545,14 @@ After the Opta™ controller is programmed with the example sketch, you can meas
 
 This output mode lets you control current-driven actuators or communicate with other devices through analog current.
 
-| Characteristics                            | Details                                   |
-|--------------------------------------------|-------------------------------------------|
-| Analog output current                      | 0...25 mA                                 |
-| Maximum output voltage when sourcing 25 mA | 11.9 V ± 20%                              |
-| Open circuit voltage                       | 16.9 V ± 20%                              |
-| Output  impedance                          | Min: 1.5 MΩ, Typ: 4 MΩ                    |
-| Accuracy                                   | 1% in 0-10 mA range, 2% in 10-24 mA range |
-| Repeatability                              | 1% in 0-10 mA range, 2% in 10-24 mA range |
+|            **Characteristics**             |                **Details**                |
+|:------------------------------------------:|:-----------------------------------------:|
+|           Analog output current            |                 0...25 mA                 |
+| Maximum output voltage when sourcing 25 mA |               11.9 V ± 20%                |
+|            Open circuit voltage            |               16.9 V ± 20%                |
+|             Output  impedance              |          Min: 1.5 MΩ, Typ: 4 MΩ           |
+|                  Accuracy                  | 1% in 0-10 mA range, 2% in 10-24 mA range |
+|               Repeatability                | 1% in 0-10 mA range, 2% in 10-24 mA range |
 
 To set a current in an analog output terminal use the built-in function `pinCurrent()` as shown below:
 
@@ -3894,11 +3721,11 @@ After the Opta™ controller is programmed with the example sketch, you can meas
 
 The Analog Expansion has four PWM output channels **(P1...P4)**. They are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage.
 
-| V<sub>PWM</sub> Voltage  | Details    |
-|--------------------------|------------|
-| Source voltage supported | 8...40 VDC |
-| Period                   | Programmable          |
-| Duty-cycle               | Programmable (0-100%) |
+| **V<sub>PWM</sub> Voltage** |      **Details**      |
+|:---------------------------:|:---------------------:|
+|  Source voltage supported   |      8...40 VDC       |
+|           Period            |     Programmable      |
+|         Duty-cycle          | Programmable (0-100%) |
 
 ![Wiring to use the PWM outputs](assets/pwm-setup.png)
 
@@ -4045,24 +3872,24 @@ You can use the following auxiliary functions to manage and monitor the PWM outp
 
 #### Expansion Status LEDs
 
-| Characteristics | Details |
-|-----------------|---------|
-| Number of LEDs  | 8x       |
+| **Characteristics** | **Details** |
+|:-------------------:|:-----------:|
+|   Number of LEDs    |     8x      |
 
 ![Analog Expansion LEDs](assets/leds-analog.png)
 
 The Opta™ Analog Expansions have **eight status LEDs** on the front panel. They are mapped as described in the following table:
 
 | **Opta Analog Expansion LED** | **Arduino Pin Mapping** |
-|:----------------------------------:|:-----------------------:|
-|                 LED 1                 |      0 or OA_LED_1       |
-|                 LED 2                 |      1 or OA_LED_2       |
-|                 LED 3                 |      2 or OA_LED_3       |
-|                 LED 4                 |      3 or OA_LED_4       |
-|                 LED 5                 |      4 or OA_LED_5       |
-|                 LED 6                 |      5 or OA_LED_6       |
-|                 LED 7                 |      6 or OA_LED_7       |
-|                 LED 8                 |      7 or OA_LED_8       |
+|:-----------------------------:|:-----------------------:|
+|             LED 1             |      0 or OA_LED_1      |
+|             LED 2             |      1 or OA_LED_2      |
+|             LED 3             |      2 or OA_LED_3      |
+|             LED 4             |      3 or OA_LED_4      |
+|             LED 5             |      4 or OA_LED_5      |
+|             LED 6             |      5 or OA_LED_6      |
+|             LED 7             |      6 or OA_LED_7      |
+|             LED 8             |      7 or OA_LED_8      |
 
 To control a status LED use the built-in function `switchLedOn()` or `switchLedOff()` as shown below:
 
