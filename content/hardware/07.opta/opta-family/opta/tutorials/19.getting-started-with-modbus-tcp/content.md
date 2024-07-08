@@ -11,7 +11,6 @@ difficulty: intermediate
 tags:
   - Getting-started
   - ModbusTCP
-  - RS-485
 software:
   - ide-v1
   - ide-v2
@@ -96,13 +95,15 @@ Install the latest versions of the following libraries required for Modbus TCP c
 
 You can easily install them through the Library Manager in the Arduino IDE. The Library manager can be accessed using the **"ctrl + shift+ i"** shortcut, by going to **Tools > Manage Libraries...**, or by navigating the left panel of the Arduino IDE and selecting the third option from the top.
 
+These two libraries are required for properly working Modbus TCP communication, as the [**ArduinoModbus**](https://github.com/arduino-libraries/ArduinoModbus) library depends on the [**ArduinoRS485**](https://github.com/arduino-libraries/ArduinoRS485) library.
+
 ### Connecting the Opta™ Over Ethernet LAN
 
 Set up the connection by attaching the Ethernet LAN (RJ-45) cable to both devices using the `ETH RJ45` port. The following image provides a connection diagram for both devices:
 
 ![Connecting two Opta™ devices via Ethernet cable with RJ45 connector](assets/opta-modbus-connection.png)
 
-The setup incorporates an Ethernet switch that monitors both Opta™ devices using the PLC IDE. This configuration not only links both Opta™ devices using the PLC IDE but also lets you employ a profile to observe information exchanges in real-time. We recommend using the setup with the Ethernet switch for this tutorial to ensure optimal communication between devices.
+The setup in the diagram includes an optional Ethernet switch that connects and monitors both Opta™ devices using the Arduino IDE. This configuration with the Ethernet switch can be used for this tutorial, and it can be expanded to include other devices that support Modbus TCP.
 
 ### Code Overview
 
@@ -110,9 +111,9 @@ The following example aims to configure and use the Modbus TCP communication pro
 
 Modbus is a well-known client-server protocol for its reliability. The Modbus client is responsible for sending requests, and the Modbus server provides the requested information when available. Multiple Modbus servers can be present, but only one Modbus client can be active.
 
-In this example, an Opta™ client handles writing and reading coil values. At the same time, an Opta™ server polls for Modbus TCP requests and returns the appropriate values, with LED output as a visual indicator.
+In this example, one Opta™ device will be assigned as a client to handle writing coil values. A secondary Opta™ device will perform as a server, polling for Modbus TCP requests and returning the appropriate values. The status LED #1 output will be a visual indicator for the Opta™ server.
 
-You can access the complete example code below.
+You can access the complete example code below. Compile and upload each example to the appointed Opta™ as you follow along with the following sections.
 
 #### Modbus TCP Client
 
@@ -190,11 +191,32 @@ void loop() {
 }
 ```
 
-This example allows the Opta™ client to communicate with the Opta™ server over Modbus TCP. The client attempts to connect to the server and toggles a coil value at address 0x00 every second.  
+This example allows the Opta™ client to communicate with the Opta™ server over Modbus TCP. The client attempts to connect to the server and toggles a coil value at address 0x00 every second.
+
+The IP configurations for the Opta™ client and server are defined in the following block:
+
+```arduino
+// Define the IP address for Opta
+IPAddress ip(10, 0, 0, 157);
+
+// Define the IP Address of the Modbus TCP server (Opta device)
+IPAddress server(10, 0, 0, 227);
+```
+
+The Ethernet connection initialization process occurs within the following method inside the `setup()` function:
+
+```arduino
+// Field arguments - Ethernet.begin(<mac>, <IP>);
+Ethernet.begin(NULL, ip); 
+```
+
+If both field arguments of the `Ethernet.begin(<mac>, <IP>);` are left empty, the **DHCP** configuration will be used. A **Static** IP address is used when the method is defined with a specific IP address, as in the example, which would be user assigned.
+
+Defining `NULL` for the MAC address field will automatically assign a MAC address for the corresponding device.
 
 #### Modbus TCP Server
 
-In the Opta™ server, the main task will be to poll for Modbus TCP requests and return configured values when requested. It requires following the same initial configuration as the Opta™ client. The main difference between the client and the server devices lies in the `setup()` function:
+In the Opta™ server, the main task is to poll for Modbus TCP requests and control status LED #1 based on the readings. It requires the same initial configuration as the Opta™ client. The main difference between the client and server devices lies in the `setup()` function:
 
 ```arduino
 #include <SPI.h>
@@ -282,19 +304,19 @@ void updateLED() {
 }
 ```
 
-This example sets up the Opta™ server to listen for incoming Modbus TCP connections and handle requests. It controls the LED_D0 based on the coil value received from the client.
+This example sets up the Opta™ server to listen for incoming Modbus TCP connections and handle requests. It controls the **status LED #1 (`LED_D0`)** based on the coil value received from the client.
 
 ***You can find more information about Opta™ device's LEDs [here](https://docs.arduino.cc/tutorials/opta/user-manual/#leds).***
 
 ### Testing the Modbus TCP Client and Server
 
-Once the Modbus TCP Client and Server code for each Opta™ device has been uploaded, the user LED will be toggles along with the coil value on the Serial Monitor of the Opta™ Client after each read-and-write task:
+Once the Modbus TCP Client and Server code for each Opta™ device has been uploaded, the status LED #1 will be toggled based on the coil value from the Opta™ Client:
 
 ![Modbus TCP Client and Server communication status](assets/opta-modbus-client.svg)
 
 ## Conclusion
 
-This tutorial demonstrates how to use the Arduino ecosystem's `ArduinoRS485` and `ArduinoModbus` libraries and the Arduino IDE to implement the Modbus TCP protocol between two Opta™ devices. These elements are essential for allowing connections with Modbus TCP-compliant devices.
+This tutorial shows how to use the Arduino ecosystem's `ArduinoRS485` and `ArduinoModbus` libraries and the Arduino IDE to implement the Modbus TCP protocol between two Opta™ devices. These elements are essential for allowing connections with Modbus TCP-compliant devices.
 
 With these examples, you can easily understand how to establish Modbus TCP communication between a Server and a Client using Opta™. This setup provides a scalable architecture for connecting additional Modbus Server devices, such as another Opta™ or a Modbus TCP-compatible module.
 
