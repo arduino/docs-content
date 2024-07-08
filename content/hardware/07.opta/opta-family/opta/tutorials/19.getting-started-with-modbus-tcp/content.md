@@ -24,6 +24,8 @@ hardware:
 
 The Opta™ offers industrial-grade hardware and software capabilities, along with the Arduino ecosystem tools such as the Arduino IDE and its libraries, allowing easy implementation of different Modbus communication protocols, including Modbus TCP.
 
+![Opta™ Server with Modbus TCP Communication](assets/opta-modbus-tcp-server.gif)
+
 In this tutorial, we will learn how to set up and use the Modbus TCP communication protocol over Ethernet between two Opta™ devices.
 
 ## Goals
@@ -312,7 +314,7 @@ This example sets up the Opta™ server to listen for incoming Modbus TCP connec
 
 Once the Modbus TCP Client and Server code for each Opta™ device has been uploaded, the status LED #1 will be toggled based on the coil value from the Opta™ Client:
 
-![Modbus TCP Client and Server communication status](assets/opta-modbus-client.svg)
+![Opta™ Server with Modbus TCP Behavior](assets/opta-modbus-tcp-server.gif)
 
 ## Conclusion
 
