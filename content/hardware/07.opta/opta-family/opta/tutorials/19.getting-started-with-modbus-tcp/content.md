@@ -312,7 +312,7 @@ This example sets up the Opta™ server to listen for incoming Modbus TCP connec
 
 ### Testing the Modbus TCP Client and Server
 
-Once the Modbus TCP Client and Server code for each Opta™ device has been uploaded, the status LED #1 will be toggled based on the coil value from the Opta™ Client:
+Once the Modbus TCP Client and Server code for each Opta™ device has been uploaded, the status LED #1 from Opta™ Server will be toggled based on the coil value from the Opta™ Client:
 
 ![Opta™ Server with Modbus TCP Behavior](assets/opta-modbus-tcp-server.gif)
 
