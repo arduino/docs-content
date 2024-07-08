@@ -1844,7 +1844,7 @@ Analog/digital input terminals are mapped as described in the following table:
 |                 I15                 |           14            |
 |                 I16                 |           15            |
 
-##### Digital 
+#### Digital 
 
 |        **Characteristics**        |           **Details**            |
 |:---------------------------------:|:--------------------------------:|
@@ -2000,7 +2000,7 @@ LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL
 
 ***General note: The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
 
-##### Analog 
+#### Analog 
 
 |   **Characteristics**   | **Details** |
 |:-----------------------:|:-----------:|
@@ -2476,7 +2476,7 @@ Input terminals are mapped as described in the following table:
 |                 I6                 |      6 or OA_CH_6       |
 |                 O2                 |      7 or OA_CH_7       |
 
-##### Digital Input Mode
+#### Digital Input Mode
 
 The Analog Expansion input channels can be configured as digital inputs to read 0-10 V or 0-24 V digital sensors:
 
@@ -2630,7 +2630,7 @@ DI channel 7 value 0
 
 ***The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
 
-##### Analog Voltage Input Mode
+#### Analog Voltage Input Mode
 
 The Analog Expansion input channels can be configured for 0-10 V analog sensors. 
 
@@ -2822,7 +2822,7 @@ You can test other ADC functionalities by studying other examples included in th
 - AdcUpdateAll
 - DiPlusAdc
 
-##### Analog Current Input Mode
+#### Analog Current Input Mode
 
 The Analog Expansion input channels can be configured for current loop instrumentation using the 0/4-20 mA standard. 
 
@@ -3146,7 +3146,7 @@ Setting DAC output to 11 V on expansion n. 0
 - ch0 -> Current 18.20 mA
 ```
 
-##### Analog RTD Input Mode
+#### Analog RTD Input Mode
 
 The Analog Expansion input channels can be used for temperature metering with **PT100** or **PT1000** RTDs.
 
@@ -3362,7 +3362,7 @@ PWM output terminals are mapped as described in the following table:
 
 ![Opta Analog Expansions Outputs](assets/outputs-analog.png)
 
-##### Analog Voltage Output Mode
+#### Analog Voltage Output Mode
 
 This output mode lets you control voltage-driven actuators or communicate with other devices through analog voltages.
 
@@ -3541,7 +3541,7 @@ After the Opta™ controller is programmed with the example sketch, you can meas
 
 ![Analog Voltage Output Demo](assets/analog-voltage.png)
 
-##### Analog Current Output Mode
+#### Analog Current Output Mode
 
 This output mode lets you control current-driven actuators or communicate with other devices through analog current.
 
@@ -3717,7 +3717,7 @@ After the Opta™ controller is programmed with the example sketch, you can meas
 
 ***Make sure to use a resistor value that makes it possible for the output to achieve the desired current. For example, if a 3 kΩ resistor is used and you want a 10 mA output, the channel must source the resistor with 30 V, which is not possible.***
 
-##### PWM Output
+#### PWM Output
 
 The Analog Expansion has four PWM output channels **(P1...P4)**. They are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage.
 
