@@ -2340,15 +2340,15 @@ For more details on how the library works, including a comprehensive guide on se
 
 #### AT Commands Utility
 
-This section explains using AT commands to interact with the Cat.4 modem. These instructions will guide you through setting up your environment, sending AT commands, and managing your modem effectively.
-
 AT commands, also known as Hayes commands, are instructions used to control modems. These commands allow you to perform various functions, such as checking the modem status, signal quality, and network registration. Understanding how to send these commands is essential for managing and troubleshooting your Arduino Pro 4G Module.
+
+This section explains using AT commands to interact with the Cat.4 modem. These instructions will guide you through setting up your environment, sending AT commands, and managing your modem effectively.
 
 #### Using Linux
 
-This section provides instructions on using **ModemManager** and **mmcli** to send AT commands to your Cat.4 modem on the Portenta X8.
+This subsection provides instructions on using **ModemManager** and **mmcli** to send AT commands to your Cat.4 modem on the Portenta X8.
 
-Ensure that the Pro 4G Module is properly mounted on the Portenta Mid Carrier and that the Portenta X8 recognizes it. You can always use the following commands to verify the connection:
+Ensure that the Pro 4G Module is properly mounted on the Portenta Mid Carrier and that the Portenta X8 recognizes it. You can verify the connection using the following command:
 
 ```bash
 lsusb
@@ -2362,7 +2362,7 @@ First identify the modem with:
 mmcli -L
 ```
 
-The output will list the modems detected as the Pro 4G Module. Note the modem's device ID, for example:
+The output will list the detected modems, including the Pro 4G Module. Note the modem's device ID, for example:
 
 ```bash
 /org/freedesktop/ModemManager1/Modem/0
@@ -2370,13 +2370,13 @@ The output will list the modems detected as the Pro 4G Module. Note the modem's 
 
 ![Arduino Pro 4G Module - AT Commands](assets/portentaMIDcarrier_mpcie_4gmodem_at1.png)
 
-To send AT commands, *ModemManager* must be in debug mode.
+To send AT commands, *ModemManager* must be in debug mode:
 
 ```bash
 sudo systemctl stop ModemManager
 ```
 
-The command below starts *ModemManager* in the background and redirects its output to a log file.
+The following command starts *ModemManager* in the background and redirects its output to a log file:
 
 ```bash
 sudo ModemManager --debug > /var/log/modemmanager.log 2>&1 &
@@ -2408,9 +2408,7 @@ You can now start sending AT commands. Here are a few basic AT commands to test 
 
 ***For complete information on AT commands compatible with the Pro 4G Module, please refer to the [AT Commands Manual](assets/Quectel_EC2x&EG9x&EG2x-G&EM05_Series_AT_Commands_Manual_V2.0.pdf).***
 
-Using **`mmcli`**, you can easily send AT commands to your Cat.4 modem to perform various tasks like checking the modem status, signal quality, and network registration. This method provides a straightforward way to interact with your modem from a Linux environment, whether you are performing a simple check or managing more advanced functions.
-
-Following these steps, you can effectively manage and troubleshoot your modem using AT commands in the Linux environment.
+The **`mmcli`** tool allows you to send AT commands to your Cat.4 modem from a Linux environment to check modem status, signal quality, and network registration. You can manage and troubleshoot the Pro 4G Module using AT commands in the Portenta X8's Linux environment by following the above steps.
 
 #### Using Arduino
 
