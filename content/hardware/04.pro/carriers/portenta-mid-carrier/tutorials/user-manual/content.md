@@ -2356,7 +2356,7 @@ lsusb
 
 ***Please set up the Pro 4G Module referring to [this section](#using-linux-4). Otherwise, the __ModemManager__ service may not work as intended or be recognized.***
 
-First, identify the modem with:
+First identify the modem with:
 
 ```bash
 mmcli -L
