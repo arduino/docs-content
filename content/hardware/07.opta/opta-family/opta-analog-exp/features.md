@@ -1,6 +1,6 @@
 <FeatureDescription>
 
-**Arduino Opta® Analog Expansions** are designed to multiply your Opta® micro PLC capabilities with the addition of 6 programmable analog inputs for connecting your digital or analog sensors, allowing you to interface with voltage, current or resistive sensors, 2 analog outputs for voltage or current and 4 PWM outputs.
+**Arduino Opta® Analog Expansions** are designed to multiply your Opta® micro PLC capabilities with the addition of eight programmable analog inputs for connecting your digital or analog sensors, allowing you to interface with voltage, current or resistive sensors, eight analog outputs for voltage or current and four PWM outputs.
 
 Opta Analog Expansion allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
@@ -10,13 +10,13 @@ Opta Analog Expansion allows professionals to scale up industrial and building a
 
 <Feature title="Configurability" image="settings">
 
-  All the eight available channels can be configured by software as analog input or analog output. Two of those channels can get 3 wires RTD readings and the expansions has four additional PWM outputs, with a user defined output voltage configurable from 8 to 40 VDC using the V<sub>PWM</sub> terminal. 
+  All the eight available channels can be configured by software as analog input or analog output. Two of those channels can get 3 wires RTD readings and the expansions have four additional PWM outputs, with a user-defined output voltage configurable from 8 to 40 VDC using the V<sub>PWM</sub> terminal. 
 
 </Feature>
 
 <Feature title="Expandability" image="communication">
 
-  Up to 5 snap-on modules managed to multiply and mix your set of I/Os with seamless detection. 
+  Up to five snap-on modules managed to multiply and mix your set of I/Os with seamless detection. 
 
 </Feature>
 
@@ -40,7 +40,7 @@ Opta Analog Expansion allows professionals to scale up industrial and building a
 
 <Feature title="Suitable to DIN Rail" image="configurability">
 
-  Thanks to its form factor, it can be attached to a Din Rail mount system, providing a quick access to all the I/O's.
+  Thanks to its form factor, it can be attached to a Din Rail mount system, providing quick access to all the I/O's.
 
 </Feature>
 

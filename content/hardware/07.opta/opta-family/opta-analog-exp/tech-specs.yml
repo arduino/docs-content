@@ -5,20 +5,19 @@ Microcontroller:
   ID: Renesas R7FA4M1AB3CFM ARM® Cortex®-M4
   Cortex-M4 core: Up to 48 MHz
 Input:
-  Configurable digital / analog inputs: 6
-  Digital operational range: 0-24 V (supports 0-10 V logic)
-  Digital VIL max: 4 V
-  Digital VIH min: 5.9 V
+  Configurable digital / analog inputs: 8x
+  Digital operational range: 0-24 V 
+  Digital configurable threshold: Yes (supports 0-10 V logic)
   Analog resolution: 16 bit
   Analog input voltage range: 0-10 V
   Analog input current range: 0-25 mA
   Analog input resistance range: 0-1 MΩ
 Output:
-  Configurable analog outputs: 2
+  Configurable analog outputs: 8x, (2x used simultaneously max recommended)
   DAC resolution: 13 bit
   Analog output voltage range: 0-11 V
   Analog output current range: 0-25 mA
-  PWM outputs: 4
+  PWM outputs: 4x
   PWM voltage output: 8-40 V
 Power:
   Input voltage: 12-24 VDC
