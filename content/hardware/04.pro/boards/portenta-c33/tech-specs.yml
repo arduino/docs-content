@@ -11,6 +11,7 @@ High-Density Pins:
   I2C pins: 6
   UART pins: 16
   CAN pins: 4
+  I2S pins: 4
   USB pins: 8
   JTAG/SWD pins: 6
 MKR-styled Pins:
@@ -38,6 +39,7 @@ Communication:
   I2C: 3 ports (I2C0, I2C1, and I2C2)
   UART: 4
   CAN FD: 2
+  I2S: 1 
   SPI: 2
   PWM: 10
   USB: 2 (1x USB 2.0 Full Speed + 1x USB 2.0 High Speed)

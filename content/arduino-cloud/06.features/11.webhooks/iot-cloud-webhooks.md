@@ -77,7 +77,7 @@ Linking a webhook to a Thing is a quite simple process, follow the steps below t
 
 **4.** Add your **Device**, and configure your **Network** from the right side menu.
 
-**5.** Click on "**Set Webhook**", one the bottom left corner.
+**5.** In the same menu to the right, click "**Configure**" under the "**Data Forwarding (Webhook)**" menu.
 
 ![Set Webhook](./assets/webhooks-02.png)
 

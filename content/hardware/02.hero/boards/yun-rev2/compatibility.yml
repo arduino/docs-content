@@ -2,12 +2,10 @@ software:
   - arduino-ide
   - iot-cloud
   - arduino-cli
-  - web-editor
+  - cloud-editor
 hardware:
-
   boards: ~
   carriers: ~
   shields:
     - 4-relays-shield
     - motor-shield-rev3
-

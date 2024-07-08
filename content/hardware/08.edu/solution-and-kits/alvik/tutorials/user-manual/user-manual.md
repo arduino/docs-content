@@ -82,7 +82,7 @@ At the back-right side of Alvik there is the main switch of the robot. When ON t
 
 The battery is a rechargeable Li-ion 18650. It is located in the bottom part of Alvik, to access it you need to remove one Phillip's screw and take out the plastic holder.
 
-![Charging blink](assets/battery_holder.jpg)
+![Accessing battery compartment](assets/battery_holder.jpg)
 
 The Nano ESP32 can report the status of the battery through the terminal of the Arduino Lab for MicroPython and with its RGB status LED. To do that you need to call the `Alvik.begin()` function in any program or directly at the command line area.
 

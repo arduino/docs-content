@@ -104,7 +104,7 @@ The IEC 61131-3 programming languages include:
 
 In the PLC IDE, you can mix PLC programming with standard Arduino sketches within the integrated sketch editor and share variables between the two environments. You can also automate tasks in your software applications; this gives you control over scheduling and repetition, enhancing the reliability and efficiency of your project. Moreover, communication protocols such as Modbus RTU and Modbus TCP can be managed effortlessly using integrated no-code fieldbus configurators.
 
-Check out the following resources that will show you how to start with the Arduino PLC IDE and use use IEC 61131-3 programming languages with Opta™:
+Check out the following resources that will show you how to start with the Arduino PLC IDE and how to use IEC 61131-3 programming languages with Opta™:
 
 - [Arduino PLC IDE download page](https://www.arduino.cc/pro/software-plc-ide)
 - [Arduino PLC IDE and Opta™ tutorials](https://docs.arduino.cc/software/plc-ide)
@@ -229,7 +229,7 @@ The analog input terminals can be used through the built-in functions of the [Ar
 
 - Add the `analogReadResolution()` instruction in your sketch's `setup()` function.
 
-The sketch below shows how to monitor analog voltages on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes real-time changes.
+The sketch below shows how to monitor analog voltages on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor real-time changes.
 
 ```arduino
 /**
@@ -454,15 +454,15 @@ void loop() {
 
 You should see the green LED on top of your device's RESET button turn on for one second, then off for one second, repeatedly. 
 
-![Opta™ blink with the the green RESET LED](assets/user-manual-19_2.gif)
+![Opta™ blink with the green RESET LED](assets/user-manual-19_2.gif)
 
 ## User Button
 
-All Opta™ variants devices have an onboard user-programmable button; this user button is mapped as `BTN_USER` in the Opta™ core. The user button has an internal pull-up resistor, meaning its default value (while not being pressed) is `HIGH`. 
+All Opta™ variants devices have an onboard user-programmable button; this user button is mapped as `BTN_USER` in the Opta™ core. The user button has an internal pull-up resistor, meaning its default value (while not being pressed) is `HIGH`.
 
 ![User-programmable button in Opta™ devices](assets/user-manual-11.png)
 
-The user-programmable button can be used through the built-in functions of the Arduino programming language. 
+The user-programmable button can be used through the built-in functions of the Arduino programming language.
 
 To use the user button, first define it as a digital input:
 
@@ -562,6 +562,7 @@ void changeLights() {
 ```
 
 The sketch initializes the state of the user's LEDs and button, along with variables for button debouncing. This sketch continuously reads the state of the user button, debounces the button input to avoid false triggering due to electrical noise, and increments a counter each time the button is pressed. It then passes the control to the `changeLights()` function. This function first turns off all LEDs and then, depending on the value of the counter, turns on the corresponding LED. With each button press, the counter increments, and a different LED lights up, cycling back to the beginning after the final LED.
+
 
 You should now be able to control the status LED sequence by pressing Opta's programmable user button.
 
@@ -1191,7 +1192,7 @@ You should be able now to connect to your Opta™ using a central device. The Bl
 
 ## Interrupts
 
-**Opta's analog/digital programmable inputs and user-programmable button are interrupt capable**. An interrupt is a signal that prompts Opta's microcontroller to stop its current execution and start executing a special routine known as the Interrupt Service Routine (ISR). Once the ISR finishes, the microcontroller resumes executing its previous routine.
+**Opta's analog/digital programmable inputs and user-programmable **button are **interrupt-capable. An interrupt is a signal that prompts Opta's microcontroller to stop its current execution and start executing a special routine known as the Interrupt Service Routine (ISR). Once the ISR finishes, the microcontroller resumes executing its previous routine.
 
 Interrupts are particularly useful when reacting instantly to an external event, such as a button press or a sensor signal. Without interrupts, you would have to constantly poll the status of a button or a sensor in the main loop of your running sketch. With interrupts, you can let your Opta's microcontroller do other tasks and only react when a desired event occurs.
 
@@ -1305,12 +1306,12 @@ Opta™ device's (all variants) microcontroller (the STM32H747XI) features a low
 
 Some of the key capabilities of Opta's onboard RTC are the following:
 
-- Calendar with subsecond, seconds, minutes, hours (12 or 24 formats), week day, date, month, and years in BCD (binary-coded decimal) format.
+- Calendar with subsecond, seconds, minutes, hours (12 or 24 formats), weekday, date, month, and years in BCD (binary-coded decimal) format.
 - Automatic correction for 28, 29 (leap year), 30, and 31 days of the month.
 - Two programmable alarms. 
 - Timestamp feature, which can be used to save the calendar content.
 
-The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi® network, synchronizes its onboard RTC with a Network Time Protocol (NTP) server using the [`NTPClient` library](https://www.arduino.cc/reference/en/libraries/ntpclient/), and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager. 
+The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi® network, synchronizes its onboard RTC with a Network Time Protocol (NTP) server using the [`NTPClient` library](https://www.arduino.cc/reference/en/libraries/ntpclient/), and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager.
 
 You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking the ellipsis (the three horizontal dots) button on the top right of the Arduino IDE 2.
 
@@ -1691,12 +1692,13 @@ void initProperties(){
 EthernetConnectionHandler ArduinoIoTPreferredConnection(IP, DNS, GATEWAY, NETMASK);
 ```
 
-Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network or via Ethernet interface you configured before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's STATUS LED 1 (`LED_D0`) should light on or off when the position of the switch changes.
+Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network or via the Ethernet interface you configured before (you can follow the connection process with the online editor-integrated Serial Monitor). Your board's STATUS LED 1 (`LED_D0`) should light on or off when the position of the switch changes.
 
-To learn more about Opta™ and the Arduino IoT Cloud, check out the following resources that can help you learning about the Arduino IoT Cloud and Opta™:
+To learn more about Opta™ and the Arduino IoT Cloud, check out the following resources that can help you learn about the Arduino IoT Cloud and Opta™:
 
 - [Opta™ Relay Management template](https://create.arduino.cc/iot/templates/relay-management)
 - [Using PLC IDE With Arduino® IoT Cloud](https://docs.arduino.cc/tutorials/opta/plc-ide-cloud-support)
+
 
 ## Opta Expansions
 
@@ -4213,6 +4215,12 @@ Explore our Help Center, which offers a comprehensive collection of articles and
 
 - [Opta™ help center page](https://support.arduino.cc/hc/en-us/categories/360001637274-Hardware-Support)
 
+### F.A.Q
+
+Inside the Arduino Help Center you will find a Frequently Asked Questions (F.A.Q.) document with answers to the most commonly asked questions about this product. This resource is designed to address immediate questions and common concerns. If your question is not covered or require further personalized assistance, please do not hesitate to contact us.
+
+- [Opta™ F.A.Q ](https://support.arduino.cc/hc/en-us/articles/13870453088924-FAQ-Arduino-Opta)
+
 ### Forum
 
 Join our community forum to connect with other Opta™ devices users, share your experiences, and ask questions. The Forum is an excellent place to learn from others, discuss issues, and discover new ideas and projects related to Opta™.
@@ -4223,4 +4231,4 @@ Join our community forum to connect with other Opta™ devices users, share your
 
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about Opta™ devices.
 
-- [Contact us page](https://www.arduino.cc/en/contact-us/)  
+- [Contact us page](https://www.arduino.cc/en/contact-us/)

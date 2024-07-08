@@ -1,6 +1,6 @@
 ---
 title: Language Reference
-url: https://www.arduino.cc/reference/en/
+url: /language-reference/
 external: true
 icon: IconArduino
 links:

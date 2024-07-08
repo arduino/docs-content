@@ -2,7 +2,7 @@ software:
   - arduino-ide
   - iot-cloud
   - arduino-cli
-  - web-editor
+  - cloud-editor
 hardware:
   boards: ~
   carriers: ~
