@@ -1744,9 +1744,9 @@ Finally, your Opta™ expansion will be updated with the latest firmware version
 
 ### General Library Notes
 
-This section aims to clarify some recommendations for your programming experience to be as smooth as possible. 
+This section aims to clarify some recommendations for your programming experience to be as smooth as possible in your solution-developing process. 
 
-Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
+When you are using the `Arduino_Opta_Blueprint` library, please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
 
 Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
 
