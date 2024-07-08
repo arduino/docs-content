@@ -318,9 +318,9 @@ Once the Modbus TCP Client and Server code for each Opta™ device has been uplo
 
 ## Conclusion
 
-This tutorial shows how to use the Arduino ecosystem's `ArduinoRS485` and `ArduinoModbus` libraries and the Arduino IDE to implement the Modbus TCP protocol between two Opta™ devices. These elements are essential for allowing connections with Modbus TCP-compliant devices.
+This tutorial shows how to use the Arduino ecosystem's `ArduinoRS485` and `ArduinoModbus` libraries and the Arduino IDE to implement the Modbus TCP protocol between two Opta™ devices. These libraries are essential for allowing connections with Modbus TCP compliant devices.
 
-With these examples, you can easily understand how to establish Modbus TCP communication between a Server and a Client using Opta™. This setup provides a scalable architecture for connecting additional Modbus Server devices, such as another Opta™ or a Modbus TCP-compatible module.
+With these examples, you can easily understand how to establish Modbus TCP communication between a Server and a Client using Opta™. This setup is scalable for connecting additional Modbus Server devices, such as another Opta™ or a Modbus TCP compatible module.
 
 ### Next Steps
 
