@@ -48,7 +48,7 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 |---------------------------------|-------------------------------------------------------|
 | Number of channels              | 8x                                                     |
 | Channels programmable as inputs | I1, I2, I3, I4, O1, I5, I6, O2                        |
-| Type of inputs accepted         | Digital voltage and Analog (Voltage, Current and RTD) |
+| Type of inputs accepted         | Digital Voltage and Analog (Voltage, Current and RTD) |
 | Inputs overvoltage protection   | Yes (Up to 40 V)                                      |
 | Antipolarity protection         | No                                                    |
 | Analog Input resolution         | 16 bits                                               |
