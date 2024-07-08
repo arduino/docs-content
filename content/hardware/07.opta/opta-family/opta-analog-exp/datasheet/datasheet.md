@@ -108,7 +108,7 @@ RTD with 3 wires has generally two wires with the same color.
 
 | Characteristics                     | Details                                |
 |-------------------------------------|----------------------------------------|
-| Number of channels                  | 8x, (2x used simultaneusly recommended) |
+| Number of channels                  | 8x, (2x used simultaneously recommended) |
 | Channels programmable as outputs    | I1, I2, I3, I4, O1, I5, I6, O2         |
 | Type of outputs supported           | Analog voltage and current             |
 | DAC resolution                      | 13 bits                                |
@@ -329,4 +329,4 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 | Date       | **Revision** | **Changes**   |
 |------------|--------------|---------------|
-| 14/05/2024 | 1            | First Release |
+| 08/07/2024 | 1            | First Release |
