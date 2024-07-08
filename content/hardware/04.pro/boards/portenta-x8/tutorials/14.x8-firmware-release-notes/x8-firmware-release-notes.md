@@ -32,19 +32,22 @@ The following section highlights the critical updates and enhancements introduce
 
 The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of the integrated key new features, major bug fixes, and critical security patches to ensure the highest level of functionality and performance within the Portenta X8 system.
 
+* **Image Access**
+  - Full image [download](https://downloads.arduino.cc/portentax8image/859.tar.gz)
+
 * **New Features:**
-- Added support for Akida Brainchip PCIe module in NPU.
-- Added support for Hailo 8R PCIe module in NPU.
-- Support for new panel modules and touchscreen controllers **jadard-ek79202d** and **atmel-mxt-ts** in `MIPI-DSI`.
+  - Added support for Akida Brainchip PCIe module in NPU.
+  - Added support for Hailo 8R PCIe module in NPU.
+  - Support for new panel modules and touchscreen controllers **jadard-ek79202d** and **atmel-mxt-ts** in `MIPI-DSI`.
 
 * **Enhancements:**
-- Increased CAN throughput, see details with **x8h7** tags.
-- [x8h7] Changed low level protocol for **X8H7** to use a fixed packet size and hardware-assisted checksum.
-- [x8h7] **X8H7** initialization now happens earlier, linked to `sysinit.target`.
+  - Increased CAN throughput, see details with **x8h7** tags.
+  - [x8h7] Changed low level protocol for **X8H7** to use a fixed packet size and hardware-assisted checksum.
+  - [x8h7] **X8H7** initialization now happens earlier, linked to `sysinit.target`.
 
 * **Bug Fixes:**
-- Fixed RS-485 `ttyX0` not working.
-- Fixed PCIe on kernel 6.1.
+  - Fixed RS-485 `ttyX0` not working.
+  - Fixed PCIe on kernel 6.1.
 
 ***__You can download the latest firmware version [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__ If you need instructions on updating the Portenta X8, you can follow [this guide](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) using the __uuu__ tool.***
 
