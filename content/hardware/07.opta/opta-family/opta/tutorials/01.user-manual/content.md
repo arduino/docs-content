@@ -1774,6 +1774,12 @@ The above method will check if there is an Ext D1608E or Ext D1608S expansion co
 
 In the case of using analog expansions, the same method is used but checking for an Ext A0602 expansion. If any is found in the asked index, the `exp` object turns to true.
 
+The library supports the `OptaController.getExpansionNum()`. This function always returns the number of expansions discovered during the last discovery / assign I2C address process. 
+
+Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). 
+
+The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.
+
 ### Opta Digital Expansions
 
 Arduino Opta™ Digital Expansions are designed to multiply your Opta™ micro PLC capabilities with the addition of 16 programmable inputs for connecting your industrial sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
@@ -1997,8 +2003,6 @@ LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL
 ```
 
 ![Digital Input wiring example](assets/limit-switch.gif)
-
-***General note: The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
 
 #### Analog 
 
