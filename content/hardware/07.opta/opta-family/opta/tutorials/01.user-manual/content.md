@@ -2213,15 +2213,15 @@ The Opta™ Expansions have **8 relay outputs** accessible through terminals pai
 Relay Output terminals are mapped as described in the following table:
 
 | **Opta Digital Expansion Terminal** | **Arduino Pin Mapping** |
-|:-----------------------------------:|:-----------------------:|
-|                 Relay 1                  |            0            |
-|                 Relay 2                  |            1            |
-|                 Relay 3                  |            2            |
-|                 Relay 4                  |            3            |
-|                 Relay 5                  |            4            |
-|                 Relay 6                  |            5            |
-|                 Relay 7                  |            6            |
-|                 Relay 8                  |            7            |
+| :---------------------------------: | :---------------------: |
+|               Relay 1               |            0            |
+|               Relay 2               |            1            |
+|               Relay 3               |            2            |
+|               Relay 4               |            3            |
+|               Relay 5               |            4            |
+|               Relay 6               |            5            |
+|               Relay 7               |            6            |
+|               Relay 8               |            7            |
 
 
 The **Ext D1608E (EMR)** variant features 8 electromechanical relays with the following characteristics:
