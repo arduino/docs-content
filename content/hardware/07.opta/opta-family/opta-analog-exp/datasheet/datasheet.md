@@ -84,7 +84,7 @@ The Analog Expansion input channels can be configured for current loop instrumen
 
 #### RTD Input Mode 
 
-The Analog Expansion input channels can be used for temperature metering with **PT100** or **PT1000** RTDs.
+The Analog Expansion input channels can be used for temperature metering with **PT100** RTDs.
 
 | Characteristics | Details  |
 |-----------------|----------|
