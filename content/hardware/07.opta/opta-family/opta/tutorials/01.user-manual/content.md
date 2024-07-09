@@ -3150,7 +3150,7 @@ Setting DAC output to 11 V on expansion n. 0
 
 #### Analog RTD Input Mode
 
-The Analog Expansion input channels can be used for temperature metering with **PT100** or **PT1000** RTDs.
+The Analog Expansion input channels can be used for temperature metering with **PT100** RTDs.
 
 | **Characteristics** | **Details** |
 |:-------------------:|:-----------:|
@@ -3176,7 +3176,7 @@ To perform measurements of an input terminal configured as RTD use the built-in 
 float value = exp.getRtd(<input>);  // this returns the resistive value measured in the input in ohms
 ```
 
-For the following example a 2 wires **PT1000** will be used connected to **I1**. The sketch below will let you measure the resistance and convert it to a temperature value. This sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > RTD**:
+For the following example a 2 wires **PT100** will be used connected to **I1**. The sketch below will let you measure the resistance and convert it to a temperature value. This sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > RTD**:
 
 ```arduino
 #include "OptaBlue.h"
@@ -3246,7 +3246,7 @@ void setup() {
       AnalogExpansion::beginChannelAsRtd(OptaController, i,  // the device
                                          k,                  // the output channel you are using
                                          false,              // use 3 wire RTD
-                                         0.2);               // current used on RTD in mA
+                                         0.8);               // current used on RTD in mA
     }
   }
 }
@@ -3271,7 +3271,7 @@ void optaAnalogTask() {
             Serial.print(" -> ");
             Serial.print(value);
             Serial.print(" Ω");
-            float temp = ((1.0 / 1000.0) * (-10.0 * sqrt(10.0) * sqrt(-b * value + 250.0 * pow(a, 2.0) + 1000.0 * b) + 500.0 * a)) / b;
+            float temp = (-(1.0 / 100.0) * (50.0 * a - 10*sqrt(b * value + 25.0 * pow(a, 2.0) - 100.0 * b))) / b;
             Serial.print(" -> ");
             Serial.print(temp);
             Serial.print(" C");
@@ -3301,10 +3301,10 @@ The expansion channels are configured as **RTD inputs** using the function `begi
 AnalogExpansion::beginChannelAsRtd(OptaController, i,  // the device
                                          k,                  // the output channel you are using
                                          false,              // use 3 wire RTD
-                                         0.2);               // current used on RTD in mA
+                                         0.8);               // current used on RTD in mA
 ```
 
-The current parameter in the function above will depend on your RTD type, study your sensor datasheet to find the more suitable for it, in this case, the **PT1000** used recommends a **0.2 mA** current. 
+The current parameter in the function above will depend on your RTD type, study your sensor datasheet to find the more suitable for it, in this case, the **PT100** used recommends a **0.8 mA** current. 
 
 The function `optaAnalogTask()` reads all the RTDs connected and converts their resistive value to a temperature.
 
@@ -3312,7 +3312,7 @@ After the Opta™ controller is programmed with the example sketch, open the Ard
 
 ```
 Expansion n. 0
-ch 0 -> 1101.66 Ω -> 25.91 C
+ch 0 -> 109.73 Ω -> 24.99 C
 ```
 
 #### Programmable Outputs
