@@ -35,6 +35,8 @@ The listing herein offers a glimpse into the Portenta X8 firmware's continuous i
 **Image Access:**
 - Full image [download](https://downloads.arduino.cc/portentax8image/859.tar.gz)
 
+***__You can download the latest firmware version [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__ If you need instructions on updating the Portenta X8, you can follow [this guide](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) using the __uuu__ tool.***
+
 **New Features:**
 - Added support for Akida Brainchip PCIe module in NPU.
 - Added support for Hailo 8R PCIe module in NPU.
@@ -48,8 +50,6 @@ The listing herein offers a glimpse into the Portenta X8 firmware's continuous i
 **Bug Fixes:**
 - Fixed RS-485 `ttyX0` not working.
 - Fixed PCIe on kernel 6.1.
-
-***__You can download the latest firmware version [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__ If you need instructions on updating the Portenta X8, you can follow [this guide](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) using the __uuu__ tool.***
 
 ## Available Firmware Versions
 
