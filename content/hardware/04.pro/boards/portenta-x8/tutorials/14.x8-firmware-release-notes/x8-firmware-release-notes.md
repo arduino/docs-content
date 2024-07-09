@@ -28,12 +28,11 @@ Compatible carriers with the supported device:
 # Firmware Versions
 The following section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
 
-## Latest Firmware Version: __859__
+## Latest Firmware Version: __861__
 
 The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of the integrated key new features, major bug fixes, and critical security patches to ensure the highest level of functionality and performance within the Portenta X8 system.
 
 **Image Access:**
-- Full image [download](https://downloads.arduino.cc/portentax8image/859.tar.gz)
 
 ***__You can download the latest firmware version [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__ If you need instructions on updating the Portenta X8, you can follow [this guide](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) using the __uuu__ tool.***
 
@@ -55,13 +54,13 @@ The listing herein offers a glimpse into the Portenta X8 firmware's continuous i
 
 Below is a list of all available firmware versions with their release notes.
 
-### OS Image 859
+### OS Image 861
 
 <details>
-  <summary><strong>OS Image 859: Release arduino-91.2</strong></summary>
+  <summary><strong>OS Image 861: Release arduino-91.2</strong></summary>
 
 #### Image Access
-  - Full image [download](https://downloads.arduino.cc/portentax8image/859.tar.gz)
+  - Full image [download](https://downloads.arduino.cc/portentax8image/861.tar.gz)
 
 #### New Features
   - Added support for Akida Brainchip PCIe module in NPU.
