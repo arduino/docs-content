@@ -56,7 +56,6 @@ In this tutorial, you will find useful information to get started, test, and mai
     - [Update ESP32 MicroPython Firmware](#update-esp32-micropython-firmware)
     - [Update Alvik's Library](#update-alviks-library)
     - [How to Upload Firmware](#how-to-upload-firmware)
-  - [Hello Alvik! Upload Your First Program](#hello-alvik-upload-your-first-program)
   - [Program Alvik!](#program-alvik)
     - [Controlling the Motors](#controlling-the-motors)
       - [High level, fix power x amount of time or distance](#high-level-fix-power-x-amount-of-time-or-distance)
@@ -78,9 +77,24 @@ In this tutorial, you will find useful information to get started, test, and mai
       - [Functions](#functions-1)
       - [Example Usage](#example-usage-3)
     - [LEDs](#leds)
+    - [Example](#example)
   - [Talking with other Machines!](#talking-with-other-machines)
     - [WiFi](#wifi)
+    - [Instructions](#instructions)
+    - [Code Explanation](#code-explanation)
+      - [Connecting to Wi-Fi](#connecting-to-wi-fi)
+      - [Initializing the Robot](#initializing-the-robot)
+      - [Setting Up the Web Server](#setting-up-the-web-server)
+      - [Handling HTTP Requests](#handling-http-requests)
+      - [Main Loop](#main-loop)
     - [ESPNow](#espnow)
+    - [ESP-NOW](#esp-now)
+    - [Instructions](#instructions-1)
+    - [Code Explanation](#code-explanation-1)
+      - [Setting Up ESP-NOW on the Receiver](#setting-up-esp-now-on-the-receiver)
+    - [Sending Commands from Another ESP32 Device](#sending-commands-from-another-esp32-device)
+    - [Receiver](#receiver)
+    - [Sender](#sender)
     - [BLE Tutorial](#ble-tutorial)
   - [Expanding the Robot](#expanding-the-robot)
     - [Additional Connectors](#additional-connectors)
@@ -119,7 +133,7 @@ To get started to play with Alvik you will need the following hardware and softw
 Arduino® Alvik is a robot with two controllers and numerous useful sensors and actuators. It is designed for STEAM education, making it an ideal tool for learning programming, Robotics, IoT, and Artificial Intelligence.
 
 ## The Brain
-
+The brain of the Alvik robot is the Nano ESP32, which is the central component we program to run the logic and make decisions. It is extremely important because it processes all the high-level commands and controls the overall operation of the robot. However, instead of directly moving the motors or reading sensors, it communicates with the STM32 (the body) to execute these actions. The Nano ESP32 gives orders to the STM32 to move, read sensors, or report status, allowing the robot to make informed (or better yet, as informed as we program it) decisions and run tasks and routines using this information.
 ### Nano ESP32
 
 The [Nano ESP32](https://store.arduino.cc/products/nano-esp32) is the board used to control Alvik. It has a fast processor, large flash memory, and a Wi-Fi® enabled chip packed into a tiny circuit board.
@@ -131,6 +145,7 @@ Please note that when using MicroPython the pin number reflects the GPIO on the 
 ![Nano ESP32 pinout](assets/esp-pinout.png)
 
 ## The Body
+Using the same analogy, the body of the Alvik robot includes everything else from the sensors and motors to the connectors supporting external modules and, of course, the STM32, which acts like the nervous system of the robot. Just as the human nervous system transmits signals between the brain and various parts of the body, the STM32 transmits commands and collects data from the robot's components. When the Nano ESP32, acting as the brain, sends commands, the STM32 executes these low-level operations, such as moving the motors, flashing the LEDs, or interacting with external devices. The STM32 is essential for carrying out the detailed actions based on the high-level instructions from the Nano ESP32, ensuring that the robot's movements and functions are performed accurately.
 
 ### STM32
 
@@ -201,6 +216,8 @@ The Arduino Alvik robot is equipped with seven capacitive touch buttons. These b
 - OK (represented by a "tick" Icon)
 - Cancel (represented by a "x")
 
+![Touch Button position](touchButton.png)
+
 Each button can be programmed to perform specific actions, providing more complex interface for user interaction.
 
 ### Distance Sensors
@@ -212,6 +229,7 @@ The Arduino Alvik robot is equipped with a ToF (Time of Flight) 8x8 Array sensor
 - High precision and accuracy
 - Used for obstacle detection and distance measurement
 
+![Distance sensor position](distanceSensor.png)
 
 ### Line Follower Sensor
 
@@ -397,9 +415,7 @@ Windows
 
 Answer `y` to flash firmware.
 
-## Hello Alvik! Upload Your First Program
 
-TODO: Content for this section
 
 ## Program Alvik!
 
@@ -432,7 +448,7 @@ alvik.brake()
 
 Alvik allows you to control the motors based on specific distances or angles. This method provides precise control over the robot's movements, ensuring it travels the exact distance or rotates to the exact angle specified.
 
-**Function: `set_wheels_position`**
+**`set_wheels_position`** method
 
 The `set_wheels_position` function sets the angle position for the left and right motors.
 
@@ -449,7 +465,7 @@ sleep_ms(2000)  # Rotate wheels 360 degrees in 2 seconds
 alvik.brake()
 ```
 
-**Function: `move`**
+**`move`** method
 
 The `move` function moves the robot by a given distance.
 
@@ -468,9 +484,9 @@ alvik.brake()
 
 #### Controlling power and time in degrees/s cm/s
 
-For more advanced control, you can specify the power and time for Alvik's motors in terms of degrees per second or centimeters per second. This method is useful for tasks requiring fine-tuned control of the robot's speed and direction.
+You can also specify the power and time for Alvik's motors in terms of degrees per second or centimeters per second. This method is useful for tasks requiring fine-tuned control of the robot's speed and direction.
 
-**Function: `drive`**
+**`drive`** method
 
 The `drive` function drives the robot by setting the linear and angular velocity.
 
@@ -764,7 +780,7 @@ TODO: Content for this section
 
 #### Functions
 
-1. **color_calibration**
+1. **Calibrates** the sensor for a specific background
 
    The `color_calibration` function is used to calibrate the color sensor for accurate color detection. Calibration can be done against a white or black background.
 
@@ -775,7 +791,7 @@ TODO: Content for this section
    **Inputs:**
    - `background`: A string specifying the background color for calibration. Can be "white" or "black".
 
-2. **get_color_raw**
+2. Gets the **raw** sensor value
 
    The `get_color_raw` function returns the raw readout from the color sensor. This is the direct sensor data before any processing or labeling. It can be useful for advanced applications where precise color data is needed.
 
@@ -786,7 +802,7 @@ TODO: Content for this section
    **Outputs:**
    - `color`: The color sensor's raw readout.
 
-3. **get_color_label**
+3. Gets the **labled** sensor value
 
    The `get_color_label` function returns the label of the color as recognized by the sensor. This function processes the raw sensor data and converts it into a human-readable label, such as "red", "blue", "green", etc. It simplifies the use of color data for most applications however some flexibility is lost as colors are grouped into the nearest labeled color.
 
@@ -1030,17 +1046,310 @@ And let's be honest, there's a certain satisfaction in programming your robot to
 
 ### LEDs
 
-TODO: Content for this section
+The Arduino Alvik robot comes equipped with two RGB LEDs that can be controlled to display various colors. These LEDs can be used for signaling, indicating status, or just for fun. The following functions are available for controlling the LEDs:
+
+1. **set_color**
+
+   The `set_color` function sets the color of the LED by specifying the intensity of red, green, and blue components.
+
+   **Inputs:**
+   - `red`: Intensity of the red component (0 or 1)
+   - `green`: Intensity of the green component (0 or 1)
+   - `blue`: Intensity of the blue component (0 or 1)
+
+### Example
+
+Here's an example sketch that cycles through different colors on both LEDs:
+
+```python
+from arduino_alvik import ArduinoAlvik
+from time import sleep
+import sys
+
+alvik = ArduinoAlvik()
+alvik.begin()
+sleep(5)
+
+while True:
+  alvik.left_led.set_color(0, 0, 0)
+  alvik.right_led.set_color(0, 0, 0)
+  sleep(1)
+  alvik.left_led.set_color(0, 0, 1)
+  alvik.right_led.set_color(0, 0, 1)
+  sleep(1)
+  alvik.left_led.set_color(0, 1, 0)
+  alvik.right_led.set_color(0, 1, 0)
+  sleep(1)
+  alvik.left_led.set_color(1, 0, 0)
+  alvik.right_led.set_color(1, 0, 0)
+  sleep(1)
+```
+
+By following these steps, you can control the LEDs on the Arduino Alvik robot to display different colors and create various lighting effects.
+
 
 ## Talking with other Machines!
 
 ### WiFi
 
-TODO: Content for this section
+The ESP32 on the Arduino Alvik robot includes built-in Wi-Fi capabilities, enabling it to connect to wireless networks and communicate with other devices over the internet. This can be particularly useful for remote control applications. In this example, we'll set up the Alvik robot to connect to a Wi-Fi network, host a web server, and provide a simple web interface with buttons to control the robot's movements.
+
+The provided code will:
+1. Connect the ESP32 to a specified Wi-Fi network.
+2. Set up a web server to listen for incoming HTTP requests.
+3. Serve a simple web page with buttons for directional control.
+4. Move the robot in the specified direction when a button is pressed.
+
+### Instructions
+
+1. Replace `Insert_SSID_Here` and `Password_Here` with your Wi-Fi credentials.
+2. Upload the script to the Arduino Nano ESP32.
+3. Connect to the robot's IP address (printed on the console) using a web browser.
+4. Use the web interface to control the robot's movement.
+
+### Code Explanation
+
+#### Connecting to Wi-Fi
+
+The following code connects the ESP32 to a specified Wi-Fi network using the provided SSID and password.
+
+```python
+import network
+import socket
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+
+# Wi-Fi credentials
+SSID = "InErt_SSID_Here"
+PASSWORD = "Password_Here"
+
+# Connect to Wi-Fi
+sta_if = network.WLAN(network.STA_IF)
+sta_if.active(True)
+sta_if.connect(SSID, PASSWORD)
+
+# Wait for connection
+while not sta_if.isconnected():
+    pass
+
+print("Connected to WiFi. IP address:", sta_if.ifconfig()[0])
+```
+
+Replace `Insert_SSID_Here` and `Password_Here` with your Wi-Fi network's SSID and password to enable the ESP32 to connect to your Wi-Fi.
+
+#### Initializing the Robot
+
+The following code initializes the Alvik robot and gives it time to set up.
+
+```python
+# Initialize the robot
+alvik = ArduinoAlvik()
+alvik.begin()
+sleep_ms(5000)
+```
+
+#### Setting Up the Web Server
+
+The following code sets up a web server and defines the HTML for the web interface. Feel free to customize this to your tast.
+
+```python
+# HTML for the web interface
+html = """
+<!DOCTYPE html>
+<html>
+<head>
+<title>Alvik Robot Control</title>
+</head>
+<body>
+<h1>Control Alvik Robot</h1>
+<form action="/up">
+    <button type="submit">Up</button>
+</form>
+<form action="/down">
+    <button type="submit">Down</button>
+</form>
+<form action="/left">
+    <button type="submit">Left</button>
+</form>
+<form action="/right">
+    <button type="submit">Right</button>
+</form>
+</body>
+</html>
+"""
+
+# Set up the web server, if EADDRINUSE erroris prompted change port
+addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
+s = socket.socket()
+s.bind(addr)
+s.listen(5)
+
+print('Listening on', addr)
+```
+
+#### Handling HTTP Requests
+
+The following code handles incoming HTTP requests and moves the robot in the specified direction. Note that the robot will continue the action until the break is pressed.
+
+```python
+def handle_request(conn):
+    request = conn.recv(1024)
+    request = str(request)
+    print("Request:", request)
+
+    if '/up' in request:
+        alvik.set_wheels_speed(30, 30)
+    elif '/down' in request:
+        alvik.set_wheels_speed(-30, -30)
+    elif '/left' in request:
+        alvik.set_wheels_speed(-30, 30)
+    elif '/right' in request:
+        alvik.set_wheels_speed(30, -30)
+    else:
+        alvik.brake()
+
+    conn.send('HTTP/1.1 200 OK\n')
+    conn.send('Content-Type: text/html\n')
+    conn.send('Connection: close\n\n')
+    conn.sendall(html)
+    conn.close()
+```
+
+#### Main Loop
+
+The following code runs the main loop to handle incoming connections and process HTTP requests.
+
+```python
+# Main loop to handle incoming connections
+try:
+    while True:
+        conn, addr = s.accept()
+        print('Connection from', addr)
+        handle_request(conn)
+except KeyboardInterrupt:
+    print("Server stopped")
+    s.close()
+    alvik.stop()
+```
+
+This section ensures the server keeps running, accepting incoming connections, and handling requests until the script is interrupted. If an `EADDRINUSE` error occurs, change the port number from 80 to an unused port, like 8080, in the `addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]` line. Also, make sure the device you access the web interface on should be on the same network as the Alvik.
 
 ### ESPNow
 
-TODO: Content for this section
+### ESP-NOW
+
+The ESP32 on the Arduino Alvik robot also supports ESP-NOW, a fast and connectionless communication protocol. ESP-NOW is ideal for sending small amounts of data quickly between multiple ESP32 devices without the overhead of Wi-Fi or Bluetooth. In this example, we'll set up the Alvik robot to receive commands via ESP-NOW.
+
+The provided code will:
+1. Initialize ESP-NOW on the ESP32.
+2. Set up a callback function to handle incoming ESP-NOW messages.
+3. Move the robot based on the received commands.
+
+### Instructions
+
+1. Upload the receiver script to the Arduino Nano ESP32 on the Alvik robot.
+2. Use another ESP32 device to send commands to the Alvik robot via ESP-NOW.
+
+### Code Explanation
+
+#### Setting Up ESP-NOW on the Receiver
+
+The following code initializes ESP-NOW on the receiver and sets up a callback function to handle incoming messages.
+
+```python
+import network
+import espnow
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+
+# Initialize Wi-Fi in station mode
+sta_if = network.WLAN(network.STA_IF)
+sta_if.active(True)
+
+# Initialize ESP-NOW
+espAgent = espnow.ESPNow()
+espAgent.init()
+
+# Initialize the robot
+alvik = ArduinoAlvik()
+alvik.begin()
+sleep_ms(5000)
+
+# Define the callback function to handle incoming ESP-NOW messages
+def on_receive_msg(mac_addr, msg):
+    command = msg.decode('utf-8')
+    print("Received:", command)
+
+    if command == 'up':
+        alvik.set_wheels_speed(30, 30)
+    elif command == 'down':
+        alvik.set_wheels_speed(-30, -30)
+    elif command == 'left':
+        alvik.set_wheels_speed(-30, 30)
+    elif command == 'right':
+        alvik.set_wheels_speed(30, -30)
+    else:
+        alvik.brake()
+
+# Register the callback function
+espAgent.on_recv(on_receive_msg)
+
+# Keep the main loop running
+while True:
+    pass
+```
+
+### Sending Commands from Another ESP32 Device
+
+The following code can be used on another ESP32 device to send commands to the Alvik robot.
+
+```python
+import network
+import espnow
+from time import sleep
+
+# Initialize Wi-Fi in station mode
+sta_if = network.WLAN(network.STA_IF)
+sta_if.active(True)
+
+# Initialize ESP-NOW
+espAgent = espnow.ESPNow()
+espAgent.init()
+
+# Add peer (replace with the MAC address of the receiver)
+peer = b'\xff\xff\xff\xff\xff\xff'  # Replace with the receiver's MAC address
+espAgent.add_peer(peer)
+
+# Function to send command
+def send_command(command):
+    espAgent.send(peer, command)
+
+# Example commands
+send_command(b'up')
+sleep(1)
+send_command(b'down')
+sleep(1)
+send_command(b'left')
+sleep(1)
+send_command(b'right')
+sleep(1)
+send_command(b'stop')
+```
+
+### Receiver
+
+1. **Initializing ESP-NOW**: The code sets up the ESP32 as a Wi-Fi station and initializes ESP-NOW.
+2. **Callback Function**: A callback function `on_receive_msg` is defined to handle incoming messages. This function decodes the message and moves the robot based on the received command.
+3. **Registering the Callback**: The callback function is registered with ESP-NOW to ensure it gets called when a message is received.
+
+### Sender
+
+1. **Initializing ESP-NOW**: The code sets up the ESP32 as a Wi-Fi station and initializes ESP-NOW.
+2. **Adding a Peer**: The MAC address of the receiver (Alvik robot) is added as a peer.
+3. **Sending Commands**: The function `send_command` sends commands to the receiver. Example commands are provided to move the robot in different directions.
+
+By following these steps, you'll be able to control your Arduino Alvik robot remotely using ESP-NOW, a fast and efficient communication protocol.
+
 
 ### BLE Tutorial
 
@@ -1057,29 +1366,32 @@ Alvik includes several connectors that expand its capabilities:
 - **Servomotor Connectors**
 - **Lego Technic Compatibility**
 
+![Connector positions](connectorsExpantion.png)
+
 ### Qwiic Connectors
 
-Used for I2C connectivity with compatible sensors and actuators using the Qwiic standard.
-- TODO: Add specific details about Qwiic connectors on Alvik.
+The Qwiic connectors on the Arduino Alvik robot are used for I2C connectivity with compatible sensors and actuators using the Qwiic standard. This standard simplifies the process of connecting multiple I2C devices by using a common connector and pinout. The Qwiic system supports daisy-chaining, allowing multiple devices to be connected in series. There are two Qwiic connectors, one on each side at the back of the robot, allowing for easy expansion and integration of additional components.
 
 ### Grove Connectors
 
-Used for I2C connectivity with compatible sensors and actuators using the Grove standard.
-- TODO: Add specific details about Grove connectors on Alvik.
+The Grove connectors on the Arduino Alvik robot are used for connectivity with compatible sensors and actuators following the Grove standard. The Grove system uses standardized connectors and pinouts to simplify the connection of various I2C devices. The system is modular and user-friendly, ideal for rapid prototyping and educational purposes. There are two Grove connectors, one on each side at the back of the robot, providing additional flexibility for expanding the robot's capabilities.
 
 ### Servomotor Connectors
 
-3-pin connectors for attaching servomotors. These connectors provide PWM control to a wide range of third-party servomotors.
-- TODO: Add specific details about Servomotor connectors on Alvik.
+The Arduino Alvik robot features 3-pin connectors for attaching servomotors while providing PWM control external servomotors. The connectors are disposed on a 6 by 2 header in the center at the back of the robot, supporting multiple servomotor connections. This arrangement enables complex robotic movements and functions, allowing the robot to perform a variety of aditional tasks.
+
+
 
 ### Lego Technic Compatibility
 
 Alvik's body includes compatibility with Lego Technic pieces for physical expansion and customization.
-- TODO: Add specific details about Lego Technic compatibility on Alvik.
+
 
 ### Custom Parts
 
 ***When adding extensions to the robot, never use screws longer than 10 mm or the device could be damaged.***
+
+![Threads for custom extentions](screwThreads.png)
 
 ### Add LEGO® Addons
 
