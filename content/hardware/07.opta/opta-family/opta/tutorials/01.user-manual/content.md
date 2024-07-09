@@ -1776,7 +1776,7 @@ In the case of using analog expansions, the same method is used but checking for
 
 The library supports the `OptaController.getExpansionNum()`. This function always returns the number of expansions discovered during the last discovery / assign I2C address process. 
 
-Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). 
+Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using `setFailedCommCb(callback)` (available on all the Expansion classes). 
 
 The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.
 
