@@ -201,11 +201,13 @@ Opta's maximum power consumption at +12 VDC is 2 W, and at +24 VDC is 2.2 W.
 
 ### Programmable Inputs
 
-The image below shows Opta™ devices have **eight analog/digital programmable inputs** accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. 
+The image below shows Opta™ devices have **eight digital/analog programmable inputs** accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. 
 
 ![Programmable input terminals in Opta™ devices](assets/user-manual-9-2.png)
 
-Analog/digital input terminals are mapped as described in the following table:
+***The Opta™ digital inputs also support 0 to +10 VDC logic level sensors.***
+
+Digital/analog input terminals are mapped as described in the following table:
 
 | **Opta™ Terminal** | **Arduino Pin Mapping** |
 |:------------------:|:-----------------------:|
@@ -217,6 +219,71 @@ Analog/digital input terminals are mapped as described in the following table:
 |        `I6`        |      `A5`/`PIN_A5`      |
 |        `I7`        |      `A6`/`PIN_A6`      |
 |        `I8`        |      `A7`/`PIN_A7`      |
+
+#### Digital Inputs
+<br></br>
+
+The input voltage range for each digital input terminal is the following:
+
+- **Input voltage range**: 0 to +24 VDC
+
+***The Opta™ digital inputs also support 0 to +10 VDC logic level sensors.***
+
+The input terminals can be used through the built-in functions of the [Arduino programming language](https://www.arduino.cc/reference/en/). To use the input terminals as digital inputs:
+
+- Add the `pinMode(pinName, INPUT)` instruction in your sketch's `setup()` function.
+
+The sketch below shows how to monitor digital states on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets them as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor real-time changes.
+
+```arduino
+/**
+  Opta's Digital Input Terminals
+  Name: opta_digital_inputs_example.ino
+  Purpose: This sketch demonstrates the use of I1, I2, and I3 input
+  terminals as digital inputs on Opta.
+
+  @author Arduino PRO Content Team
+  @version 2.0 23/07/23
+*/
+
+// Array of terminals.
+const int TERMINALS[] = {A0, A1, A2};
+
+// Number of terminals.
+const int NUM_PINS = 3;
+
+void setup() {
+  // Initialize serial communication at 9600 bits per second.
+  Serial.begin(9600);
+
+  // Set the mode of the pins as digital inputs.
+  for (int i = 0; i < NUM_PINS; i++) {
+    pinMode(TERMINALS[i], INPUT);
+  }
+}
+
+void loop() {
+  // Loop through each of the terminal, read the terminal digital value, and print the result.
+  for (int i = 0; i < NUM_PINS; i++) {
+    readAndPrint(TERMINALS[i], i + 1);
+  }
+
+  // Delay for a second before reading the terminals again.
+  delay(1000);
+}
+
+// This function reads the digital value from the specified pin and prints the result.
+void readAndPrint(int terminal, int terminalNumber) {
+  // Read the input value from the digital pin.
+  int terminalValue = digitalRead(terminal);
+  
+  // Print the terminal value.
+  Serial.print("I");
+  Serial.print(terminalNumber);
+  Serial.print(" value: ");
+  Serial.println(terminalValue);
+}
+```
 
 #### Analog Inputs
 <br></br>
@@ -288,69 +355,6 @@ void readAndPrint(int terminal, int terminalNumber) {
   Serial.print(" corresponding to ");
   Serial.print(voltage, 5);
   Serial.println(" VDC");
-}
-```
-
-#### Digital Inputs
-<br></br>
-
-The input voltage range for each digital input terminal is the following:
-
-- **Input voltage range**: 0 to +24 VDC
-
-The input terminals can be used through the built-in functions of the [Arduino programming language](https://www.arduino.cc/reference/en/). To use the input terminals as digital inputs:
-
-- Add the `pinMode(pinName, INPUT)` instruction in your sketch's `setup()` function.
-
-The sketch below shows how to monitor digital states on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets them as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor real-time changes.
-
-```arduino
-/**
-  Opta's Digital Input Terminals
-  Name: opta_digital_inputs_example.ino
-  Purpose: This sketch demonstrates the use of I1, I2, and I3 input
-  terminals as digital inputs on Opta.
-
-  @author Arduino PRO Content Team
-  @version 2.0 23/07/23
-*/
-
-// Array of terminals.
-const int TERMINALS[] = {A0, A1, A2};
-
-// Number of terminals.
-const int NUM_PINS = 3;
-
-void setup() {
-  // Initialize serial communication at 9600 bits per second.
-  Serial.begin(9600);
-
-  // Set the mode of the pins as digital inputs.
-  for (int i = 0; i < NUM_PINS; i++) {
-    pinMode(TERMINALS[i], INPUT);
-  }
-}
-
-void loop() {
-  // Loop through each of the terminal, read the terminal digital value, and print the result.
-  for (int i = 0; i < NUM_PINS; i++) {
-    readAndPrint(TERMINALS[i], i + 1);
-  }
-
-  // Delay for a second before reading the terminals again.
-  delay(1000);
-}
-
-// This function reads the digital value from the specified pin and prints the result.
-void readAndPrint(int terminal, int terminalNumber) {
-  // Read the input value from the digital pin.
-  int terminalValue = digitalRead(terminal);
-  
-  // Print the terminal value.
-  Serial.print("I");
-  Serial.print(terminalNumber);
-  Serial.print(" value: ");
-  Serial.println(terminalValue);
 }
 ```
 
@@ -1715,6 +1719,16 @@ The Opta Expansions can be controlled by any Opta controller variant: [Opta™ L
 
 ***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step.***
 
+| Characteristics         | Details                                                                                               |
+| ----------------------- | ----------------------------------------------------------------------------------------------------- |
+| Supply Voltage          | 12...24 V                                                                                             |
+| Antipolarity protection | Yes                                                                                                   |
+| Overvoltage protection  | Yes (+20%)                                                                                            |
+| Inputs                  | 16x Digital (0-24 V) / Analog (0-10 V or 0-24 V) inputs                                                         |
+| Outputs                 | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
+| Degree of Protection    | IP20                                                                                                  |
+| Certifications          | FCC, CE, UKCA                                                                                         |
+
 ### Snapping the Expansion
 
 You can snap up to five expansions to your Opta™ Base module to multiply and mix your set of I/Os with seamless detection.
@@ -1776,38 +1790,18 @@ Finally, your Opta™ expansion will be updated with the latest firmware version
 
 The Opta™ Expansions have **16 analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
 
-Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** with a 0-24 VDC range or as **analog** inputs with a 0-24 VDC range. The inputs are capable of operating with 0-10V analog sensors as well as 0-24V sensors. 
+Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** within the 0-24 VDC range or as **analog** inputs within the 0-10 VDC or 0-24 VDC range. The analog inputs are capable of operating with 0-10 VDC analog sensors as well as 0-24 VDC sensors. 
 
 ***The inputs are marked on plastic as DGT/0-10 V to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V range.***
 
 ![Opta Digital Expansions Inputs](assets/16-inputs-new.png)
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Number of inputs</td>
-            <td>16x Digital/Analog inputs</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Inputs overvoltage protection</td>
-            <td>yes (up to 40 V)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Reverse protection</td>
-            <td>no</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Input impedance</td>
-            <td>5.85 kΩ</td>
-        </tr>
-    </tbody>
-</table>
+| Characteristics               | Details                   |
+| ----------------------------- | ------------------------- |
+| Number of inputs              | 16x Digital/Analog inputs |
+| Inputs overvoltage protection | Yes (Up to 40 V)          |
+| Antipolarity protection       | No                        |
+| Input impedance               | 5.85 kΩ                   |
 
 Analog/digital input terminals are mapped as described in the following table:
 
@@ -1830,34 +1824,18 @@ Analog/digital input terminals are mapped as described in the following table:
 |                 I15                 |           14            |
 |                 I16                 |           15            |
 
+***The inputs are marked on plastic as DGT/0-10 V to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V range.***
+
 #### Digital 
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Digital Input voltage</td>
-            <td>0...24V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input voltage logic level</td>
-            <td>VIL Max: 4 VDC. VHL Min: 5.9 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input current</td>
-            <td>4.12mA at 24V | 2.05mA at 10V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input frequency</td>
-            <td>300 Hz</td>
-        </tr>
-    </tbody>
-</table>
+| Characteristics                   | Details                                |
+|-----------------------------------|----------------------------------------|
+| Digital Input voltage             | 0...24 V                               |
+| Digital Input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC       |
+| Digital Input current             | 4.12 mA at 24 V, 2.05 mA at 10 V       |
+| Digital Input frequency           | 300 Hz                                 |
+
+***The expansion digital inputs are compatible with 0-10 V and 0-24 V digital sensors.***
 
 The state of an input terminal, configured as digital, can be read using the built-in function `digitalRead()` as shown below:
 
@@ -2021,36 +1999,18 @@ LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL
 
 ![Digital Input wiring example](assets/limit-switch.gif)
 
-***General note: The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
+***The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
 
 #### Analog 
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Analog Input voltage</td>
-            <td>0...24V </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Analog Input resolution</td>
-            <td>14 bits</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Analog Input LSB value</td>
-            <td>1.733 mV</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Accuracy</td>
-            <td>+/- 5%, repeatability +/- 2%</td>
-        </tr>
-    </tbody>
-</table>
+| Characteristics           | Details                          |
+|---------------------------|----------------------------------|
+| Analog Input voltage      | 0...10 V or 0...24 V             |
+| Analog Input resolution   | 14 bit                           |
+| Analog Input LSB value    | 1.733 mV                         |
+| Accuracy                  | +/- 5%, repeatability +/- 2%     |
+
+***The analog-to-digital converter resolution of 14 bits is considered in the 0-24 VDC range. If you are using a 0-10 VDC sensor, take into account that you will be leveraging half of the ADC scope.***
 
 The state of an input terminal, configured as analog, can be read using the built-in function `analogRead()` as shown below:
 
@@ -2196,6 +2156,12 @@ for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
 ```
 The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read value belongs to.
 
+The voltage of an analog input can be read using the built-in function `pinVoltage()` as shown below:
+
+```arduino
+float V = exp.pinVoltage(<input>, false); // read the <input> and returns a voltage value
+```
+
 After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input voltage as follows:
 
 ```
@@ -2241,15 +2207,15 @@ The **Ext D1608E (EMR)** variant features 8 electromechanical relays with the fo
         </tr>
         <tr>
             <td style="vertical-align: top;">Max current per relay</td>
-            <td>6A</td>
+            <td>6 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>10A</td>
+            <td>10 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Continuous current per terminal</td>
-            <td>6A</td>
+            <td>6 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Short-circuit protection</td>
@@ -2272,12 +2238,12 @@ The **Ext D1608E (EMR)** variant features 8 electromechanical relays with the fo
             <td>300 VA</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Breaking capacity DC1: 24/110/220V</td>
-            <td>6/0.2/0.12A</td>
+            <td style="vertical-align: top;">Breaking capacity DC1: 24/110/220 V</td>
+            <td>6/0.2/0.12 A</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Minimum switching load</td>
-            <td>500mW (12V/10mA)</td>
+            <td>500 mW (12 V/10 mA)</td>
         </tr>
         <tr>
             <td style="vertical-align: top;">Max output line length (unshielded)</td>
