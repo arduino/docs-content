@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="300"
-   height="168.75"
-   viewBox="0 0 300 168.75"
+   width="270"
+   height="151.875"
+   viewBox="0 0 270 151.875"
    fill="none"
    version="1.1"
    id="svg1378"
@@ -33,7 +33,7 @@
   <g
      clip-path="url(#clip0)"
      id="g1368"
-     transform="scale(0.15625)">
+     transform="scale(0.140625)">
     <rect
        width="1920"
        height="1080"
