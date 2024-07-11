@@ -1850,6 +1850,15 @@ Analog/digital input terminals are mapped as described in the following table:
 |                 I15                 |           14            |
 |                 I16                 |           15            |
 
+The **reading time** of digital and analog inputs is detailed in the table below:
+
+| **Channel type** | **Number of inputs** |          **Function**          | **Time** |                                               **Notes**                                               |
+|:----------------:|:--------------------:|:------------------------------:|:--------:|:-----------------------------------------------------------------------------------------------------:|
+|     Digital      |     All at once      |    `digitalRead(pin, true)`    | ~580 µs  | This function even if used to read a "single pin" actually updates the value of all the digital pins. |
+|     Digital      |     All at once      |    `updateDigitalInputs()`     | ~580 µs  |                 This function is also included in the measure `digitalRead(0, false)`                 |
+|      Analog      |         One          | `getAnalogRead(channel, true)` | ~600 µs  |        Time does not change converting the value to physical unit (i.e. using `pinVoltage()`)         |
+|      Analog      |     All at once      |     `updateAnalogInputs()`     | ~1.28 ms |                This function is also included in the measure `getAnalogRead(0, false)`                |
+
 #### Digital 
 
 |        **Characteristics**        |           **Details**            |
@@ -1858,6 +1867,7 @@ Analog/digital input terminals are mapped as described in the following table:
 | Digital Input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC |
 |       Digital Input current       |  4.12mA at 24V \| 2.05mA at 10V  |
 |      Digital Input frequency      |              300 Hz              |
+|  All inputs at once reading time  |             ~580 µs              |
 
 The state of an input terminal, configured as digital, can be read using the built-in function `digitalRead()` as shown below:
 
@@ -2006,13 +2016,15 @@ LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL
 
 #### Analog 
 
-|   **Characteristics**   | **Details** |
-|:-----------------------:|:-----------:|
-|  Analog Input voltage   |   0...24V   |
-| Analog Input resolution |   14 bits   |
-| Analog Input LSB value  |  1.733 mV   |
-|        Accuracy         |   +/- 5%    |
-|      Repeatability      |   +/- 2%    |
+|       **Characteristics**       | **Details** |
+|:-------------------------------:|:-----------:|
+|      Analog Input voltage       |   0...24V   |
+|     Analog Input resolution     |   14 bits   |
+|     Analog Input LSB value      |  1.733 mV   |
+|            Accuracy             |   +/- 5%    |
+|          Repeatability          |   +/- 2%    |
+|     One input reading time      |  ~600 µs    |
+| All inputs at once reading time |  ~1.28 ms   |
 
 The state of an input terminal, configured as analog, can be read using the built-in function `analogRead()` as shown below:
 
@@ -2158,6 +2170,7 @@ Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
 ```
 
 ![Analog Input wiring example](assets/analog-inputs.png)
+
 
 #### Outputs
 
@@ -2480,16 +2493,28 @@ Input terminals are mapped as described in the following table:
 |                 I6                 |      6 or OA_CH_6       |
 |                 O2                 |      7 or OA_CH_7       |
 
+The **reading time** of digital and analog inputs is detailed in the table below:
+
+| **Channel type** | **Number of inputs** |       **Function**       | **Time** |                                               **Notes**                                               |
+|:----------------:|:--------------------:|:------------------------:|:--------:|:-----------------------------------------------------------------------------------------------------:|
+|       RTD        |         One          |    `getRtd(channel)`     | ~600 µs  |                                                                                                       |
+|      Analog      |         One          |    `getAdc(channel)`     | ~550 µs  |        Time does not change converting the value to physical unit (i.e. using `pinVoltage()`)         |
+|      Analog      |     All at once      |  `updateAnalogInputs()`  | ~890 µs  |                   This function is also included in the measure `getAdc(0, false)`                    |
+|     Digital      |     All at once      | `digitalRead(pin, true)` | ~480 µs  | This function even if used to read a "single pin" actually updates the value of all the digital pins. |
+|     Digital      |     All at once      | `updateDigitalInputs()`  | ~480 µs  |                 This function is also included in the measure `digitalRead(0, false)`                 |
+
+
 #### Digital Input Mode
 
 The Analog Expansion input channels can be configured as digital inputs to read 0-10 V or 0-24 V digital sensors:
 
-|   **Characteristics**   |                **Details**                |
-|:-----------------------:|:-----------------------------------------:|
-|  Digital input voltage  |                 0...24 V                  |
-| Configurable threshold  | Yes (for supporting 0...10 V logic level) |
-|  Digital input current  |      4.12mA at 24V \| 2.05mA at 10V       |
-| Digital input frequency |                  300 Hz                   |
+|       **Characteristics**       |                **Details**                |
+|:-------------------------------:|:-----------------------------------------:|
+|      Digital input voltage      |                 0...24 V                  |
+|     Configurable threshold      | Yes (for supporting 0...10 V logic level) |
+|      Digital input current      |     4.12 mA at 24V \| 2.05 mA at 10V      |
+|     Digital input frequency     |                  300 Hz                   |
+| All inputs at once reading time |                  ~480 µs                  |
 
 The state of an input terminal configured as digital can be read using the built-in function `digitalRead()` as shown below:
 
@@ -2636,14 +2661,16 @@ DI channel 7 value 0
 
 The Analog Expansion input channels can be configured for 0-10 V analog sensors. 
 
-|   **Characteristics**   |                      **Details**                       |
-|:-----------------------:|:------------------------------------------------------:|
-|  Analog input voltage   |                        0...10 V                        |
-| Analog Input resolution |                        16 bits                         |
-| Analog input LSB value  |                       152.59 uV                        |
-|        Accuracy         |                         +/- 1%                         |
-|      Repeatability      |                         +/- 1%                         |
-|     Input impedance     | Min: 175 kΩ (when internal 200 kΩ resistor is enabled) |
+|       **Characteristics**       |                      **Details**                       |
+|:-------------------------------:|:------------------------------------------------------:|
+|      Analog input voltage       |                        0...10 V                        |
+|     Analog Input resolution     |                        16 bits                         |
+|     Analog input LSB value      |                       152.59 uV                        |
+|            Accuracy             |                         +/- 1%                         |
+|          Repeatability          |                         +/- 1%                         |
+|         Input impedance         | Min: 175 kΩ (when internal 200 kΩ resistor is enabled) |
+|     One input reading time      |                        ~550 µs                         |
+| All inputs at once reading time |                        ~890 µs                         |
 
 The raw value of an input terminal configured as analog can be read using the built-in function `analogRead()` as shown below:
 
@@ -2836,6 +2863,8 @@ The Analog Expansion input channels can be configured for current loop instrumen
 | Programmable current limit (per channel)  |      0.5 mA to 24.5 mA (loop powered)       |
 |                 Accuracy                  |                   +/- 1%                    |
 |               Repeatability               |                   +/- 1%                    |
+|          One input reading time           |                   ~550 µs                   |
+|      All inputs at once reading time      |                   ~890 µs                   |
 
 The current of an input terminal configured in current mode can be read using the built-in function `pinCurrent()` as shown below:
 
@@ -3152,10 +3181,12 @@ Setting DAC output to 11 V on expansion n. 0
 
 The Analog Expansion input channels can be used for temperature metering with **PT100** RTDs.
 
-| **Characteristics** | **Details** |
-|:-------------------:|:-----------:|
-|     Input range     |  0...1 MΩ   |
-|    Bias voltage     |    2.5 V    |
+|  **Characteristics**   | **Details** |
+|:----------------------:|:-----------:|
+|      Input range       |  0...1 MΩ   |
+|      Bias voltage      |    2.5 V    |
+| One input reading time |   ~600 µs   |
+
 
 2 wires RTDs can be connected to any of the eight channels as follows:
 
@@ -3364,19 +3395,30 @@ PWM output terminals are mapped as described in the following table:
 
 ![Opta Analog Expansions Outputs](assets/outputs-analog.png)
 
+The **writing time** of analog outputs is detailed in the table below:
+
+| **Channel type** | **Number of outputs** |           **Function**           | **Time** |                                                  **Notes**                                                   |
+|:----------------:|:---------------------:|:--------------------------------:|:--------:|:------------------------------------------------------------------------------------------------------------:|
+|       DAC        |          One          |  `setDac(channel, value, true)`  | ~560 µs  |                                                                                                              |
+|       DAC        |      All at once      |     `updateAnalogOutputs()`      | ~960 µs  |                This function is also included in the function `setDac(channel, value, false)`                |
+|       PWM        |          One          | `setPwm(channel, period, pulse)` | ~700 µs  | In case the new setting is equal to the old one no message is sent and the function execution takes a few µs |
+
+
 #### Analog Voltage Output Mode
 
 This output mode lets you control voltage-driven actuators or communicate with other devices through analog voltages.
 
-|             **Characteristics**              |                                                         **Details**                                                         |
-|:--------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------:|
-|            Analog output voltage             |                                                          0...11 V                                                           |
-|             Resistive load range             |                                                       500 Ω...100 kΩ                                                        |
-|           Maximum capacitive load            |                                                            2 μF                                                             |
-| Short-circuit current per channel (sourcing) | Min: 25 mA, Typ: 29 mA, Max: 32 mA (lower limit bit = 0 (default)), Min: 5.5 mA, Typ: 7 mA, Max: 9 mA (lower limit bit = 1) |
-| Short-circuit current per channel (sinking)  |                                            Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                            |
-|                   Accuracy                   |                                                           +/- 1%                                                            |
-|                Repeatability                 |                                                           +/- 1%                                                            |
+|             **Characteristics**              |                                                          **Details**                                                          |
+|:--------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------:|
+|            Analog output voltage             |                                                           0...11 V                                                            |
+|             Resistive load range             |                                                        500 Ω...100 kΩ                                                         |
+|           Maximum capacitive load            |                                                             2 μF                                                              |
+| Short-circuit current per channel (sourcing) | Min: 25 mA, Typ: 29 mA, Max: 32 mA (lower limit bit = 0 (default)) \| Min: 5.5 mA, Typ: 7 mA, Max: 9 mA (lower limit bit = 1) |
+| Short-circuit current per channel (sinking)  |                                             Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                             |
+|                   Accuracy                   |                                                            +/- 1%                                                             |
+|                Repeatability                 |                                                            +/- 1%                                                             |
+|           One output writing time            |                                                            ~560 µs                                                            |
+|       All outputs at once writing time       |                                                            ~960 µs                                                            |
 
 To set a voltage in an analog output terminal use the built-in function `pinVoltage()` as shown below:
 
@@ -3555,6 +3597,8 @@ This output mode lets you control current-driven actuators or communicate with o
 |             Output  impedance              |          Min: 1.5 MΩ, Typ: 4 MΩ           |
 |                  Accuracy                  | 1% in 0-10 mA range, 2% in 10-24 mA range |
 |               Repeatability                | 1% in 0-10 mA range, 2% in 10-24 mA range |
+|          One output writing time           |                  ~560 µs                  |
+|      All outputs at once writing time      |                  ~960 µs                  |
 
 To set a current in an analog output terminal use the built-in function `pinCurrent()` as shown below:
 
@@ -3728,6 +3772,8 @@ The Analog Expansion has four PWM output channels **(P1...P4)**. They are softwa
 |  Source voltage supported   |      8...40 VDC       |
 |           Period            |     Programmable      |
 |         Duty-cycle          | Programmable (0-100%) |
+|   One output writing time   |        ~700 µs        |
+
 
 ![Wiring to use the PWM outputs](assets/pwm-setup.png)
 
