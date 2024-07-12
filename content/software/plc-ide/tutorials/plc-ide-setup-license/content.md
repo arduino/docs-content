@@ -38,7 +38,8 @@ This tutorial will show you how to connect the Portenta Machine Control and Opta
 ### Hardware Requirements
 
 Board compatible with the Arduino PLC IDE:
-- [Opta™](https://store-usa.arduino.cc/collections/opta-family)
+- [Opta™](https://store.arduino.cc/collections/opta-family)
+- [Opta™ Digital Expansion (D1608E/D1608S)](https://store.arduino.cc/collections/opta-family)
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 
 The following accessories are needed:
@@ -76,7 +77,7 @@ If you have the correct IDE software, its name should include the version format
 
 Run the Arduino PLC IDE installer after verifying that the installer naming scheme follows the above software nomenclature. It helps ensure the software package is legitimate and the latest version available.
 
-***During the installation, you may notice several terminal windows opening automatically. These are necessary for the installation process to load all required resources onto your computer successfully, so there is no need to be concerned.***
+***__To ensure a smooth and reliable installation, it is recommended to temporarily disable any antivirus software and run the installation with administrative privileges.__ During the installation, you may notice several terminal windows opening automatically. These are necessary for the installation process to load all required resources onto your computer successfully, so there is no need to be concerned.***
 
 The installation process starts with a window that prompts you to begin. Click **Install** to proceed:
 
@@ -106,7 +107,7 @@ Once the installation is finished, a message will appear confirming the successf
 
 ![PLC IDE - Overall Installation](assets/plcide-install-7.png)
 
-***If you encounter any issues, restarting your computer can help ensure that all drivers, libraries, and dependencies are properly integrated and updated with the IDE installation.***
+***If you encounter any issues using the software after installation, restarting your computer can help ensure that all drivers, libraries, and dependencies are properly integrated and updated with the IDE installation. Should the issue persist, you may retry the installation process by temporarily disabling any antivirus software and running the installation with administrative privileges if you haven’t had a chance to do that yet.***
 
 Open the Arduino PLC IDE program, and the welcome screen will greet you.
 

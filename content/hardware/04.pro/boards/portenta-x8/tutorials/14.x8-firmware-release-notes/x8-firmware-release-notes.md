@@ -6,7 +6,6 @@ description: 'This article contains release notes of the existing Portenta X8 fi
 author: Taddy Ho Chung
 hardware:
   - hardware/04.pro/board/portenta-x8
-
 ---
 
 # Firmware Release Notes
@@ -29,36 +28,67 @@ Compatible carriers with the supported device:
 # Firmware Versions
 The following section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
 
-## Latest Firmware Version: __844__
+## Latest Firmware Version: __861__
 
 The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of the integrated key new features, major bug fixes, and critical security patches to ensure the highest level of functionality and performance within the Portenta X8 system.
 
-* **New Features:**
-- Implemented a configurable *NCM* gadget from `/etc/default/usbgx` .
-- Created *udev* rules to map devices with Arduino standard names.
+**Image Access:**
 
-* **Enhancements:**
-- Updated Wi-Fi® chipset 1DX firmware.
-- Enabled GPU and VPUs through the `ov_som_gpu_vpus` overlay.
-- Allowed dynamic frequency scaling (*DVFS*) to scale system frequency down to 100 MHz per core.
-- Upgraded CAN and X8H7 in general with the latest source and firmware.
+***__You can download the latest firmware version [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__ If you need instructions on updating the Portenta X8, you can follow [this guide](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) using the __uuu__ tool.***
 
-* **Bug Fixes:**
-- Fixed **EC200A-EU** *udev* rules and *systemd* services.
+**New Features:**
+- Added support for Akida Brainchip PCIe module in NPU.
+- Added support for Hailo 8R PCIe module in NPU.
+- Support for new panel modules and touchscreen controllers **jadard-ek79202d** and **atmel-mxt-ts** in `MIPI-DSI`.
 
-* **Security Updates:**
-- Forced password change at first login.
+**Enhancements:**
+- Increased CAN throughput, see details with **x8h7** tags.
+- [x8h7] Changed low level protocol for **X8H7** to use a fixed packet size and hardware-assisted checksum.
+- [x8h7] **X8H7** initialization now happens earlier, linked to `sysinit.target`.
 
-***__You can access the latest version of the firmware [here](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).__***
+**Bug Fixes:**
+- Fixed RS-485 `ttyX0` not working.
+- Fixed PCIe on kernel 6.1.
 
 ## Available Firmware Versions
 
 Below is a list of all available firmware versions with their release notes.
 
+### OS Image 861
+
+<details>
+  <summary><strong>OS Image 861: Release arduino-91.2</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/861.tar.gz)
+
+#### New Features
+  - Added support for Akida Brainchip PCIe module in NPU.
+  - Added support for Hailo 8R PCIe module in NPU.
+  - Support for new panel modules and touchscreen controllers **jadard-ek79202d** and **atmel-mxt-ts** in `MIPI-DSI`.
+
+#### Enhancements
+  - Increased CAN throughput, see details with **x8h7** tags.
+  - [x8h7] Changed low level protocol for **X8H7** to use a fixed packet size and hardware-assisted checksum.
+  - [x8h7] **X8H7** initialization now happens earlier, linked to `sysinit.target`.
+
+#### Bug Fixes
+  - Fixed RS-485 `ttyX0` not working.
+  - Fixed PCIe on kernel 6.1.
+
+#### Additional Notes
+  - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
+
+</details>
+<br></br>
+
 ### OS Image 844
 
 <details>
   <summary><strong>OS Image 844: Release arduino-91</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/844.tar.gz)
 
 #### New Features
   - Implemented a configurable *NCM* gadget from `/etc/default/usbgx` .
@@ -88,6 +118,9 @@ Below is a list of all available firmware versions with their release notes.
 <details>
   <summary><strong>OS Image 822: Release arduino-88.94</strong></summary>
 
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/822.tar.gz)
+
 #### New Features
   - Added `libgpiod` to enhance functionality across both software images.
   - Introduced support for **EC200A-EU** in *ModemManager*, expanding compatibility.
@@ -115,6 +148,9 @@ Below is a list of all available firmware versions with their release notes.
 <details>
   <summary><strong>OS Image 746: Release arduino-88.91</strong></summary>
 
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/746.tar.gz)
+
 #### New Features
   - Added the Portenta HAT Carrier support
   - Added experimental support for Ditto
@@ -135,10 +171,12 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-
 ### OS Image 719
 <details>
   <summary><strong>OS Image 719: Release arduino-88.7</strong></summary>
+
+#### Image Access
+  - Full image [download](https://downloads.arduino.cc/portentax8image/719.tar.gz)
 
 #### New Features
   - Added PWM fan support
