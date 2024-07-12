@@ -51,9 +51,7 @@ In this tutorial, you will find useful information to get started, test, and mai
     - [Unboxing](#unboxing)
     - [Hardware Requirements](#hardware-requirements-1)
     - [Software Requirements](#software-requirements-1)
-  - [Update Alvik's Body](#update-alviks-body)
-  - [Update Alvik's Brain](#update-alviks-brain)
-    - [Update ESP32 MicroPython Firmware](#update-esp32-micropython-firmware)
+    - [ESP32 MicroPython Firmware](#esp32-micropython-firmware)
     - [Update Alvik's Library](#update-alviks-library)
     - [How to Upload Firmware](#how-to-upload-firmware)
   - [Program Alvik!](#program-alvik)
@@ -63,6 +61,10 @@ In this tutorial, you will find useful information to get started, test, and mai
       - [Controlling power and time in degrees/s cm/s](#controlling-power-and-time-in-degreess-cms)
     - [Units Explained](#units-explained)
     - [Encoder’s Control](#encoders-control)
+      - [get\_wheels\_speed](#get_wheels_speed)
+      - [get\_wheels\_position](#get_wheels_position)
+      - [get\_drive\_speed](#get_drive_speed)
+      - [get\_pose](#get_pose)
     - [Reading Buttons](#reading-buttons)
       - [Example Usage](#example-usage)
     - [Detecting Obstacles](#detecting-obstacles)
@@ -87,15 +89,14 @@ In this tutorial, you will find useful information to get started, test, and mai
       - [Setting Up the Web Server](#setting-up-the-web-server)
       - [Handling HTTP Requests](#handling-http-requests)
       - [Main Loop](#main-loop)
-    - [ESPNow](#espnow)
     - [ESP-NOW](#esp-now)
+      - [Device identification](#device-identification)
     - [Instructions](#instructions-1)
-    - [Code Explanation](#code-explanation-1)
+    - [Code](#code)
       - [Setting Up ESP-NOW on the Receiver](#setting-up-esp-now-on-the-receiver)
     - [Sending Commands from Another ESP32 Device](#sending-commands-from-another-esp32-device)
     - [Receiver](#receiver)
     - [Sender](#sender)
-    - [BLE Tutorial](#ble-tutorial)
   - [Expanding the Robot](#expanding-the-robot)
     - [Additional Connectors](#additional-connectors)
     - [Qwiic Connectors](#qwiic-connectors)
@@ -334,13 +335,7 @@ To get started to play with Alvik you will need the following hardware and softw
 - Operating Systems: All the major Operating Systems are supported
 - [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
 
-## Update Alvik's Body
-
-TODO: Content for this section
-
-## Update Alvik's Brain
-
-### Update ESP32 MicroPython Firmware
+### ESP32 MicroPython Firmware
 
 Download and install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython), if you are able to connect the Arduino Nano ESP32 it means that your board is ready. You have to see the **CONNECTED** yellow label at the bottom.
 
@@ -535,9 +530,85 @@ alvik.brake()
 - `rev/s`: revolutions per second (1 rev/s is 60 rev/min or 60 rpm)
 
 
+Sure, here's the section written with the provided information in markdown format:
+
 ### Encoder’s Control
 
-TODO: Content for this section
+The Alvik robot provides various functions to control and monitor the motors using encoders. These functions allow you to get real-time feedback on the speed, position, and pose of the robot, which is essential for precise movement and navigation.
+
+#### get_wheels_speed
+
+The `get_wheels_speed` function returns the current speed of the wheels.
+
+**Inputs:**
+- `unit`: Unit of rotational speed of the wheels (default is 'rpm').
+
+**Outputs:**
+- `left_wheel_speed`: The speed of the left wheel.
+- `right_wheel_speed`: The speed of the right wheel.
+
+**Example Usage:**
+```python
+left_speed, right_speed = alvik.get_wheels_speed(unit='rpm')
+print(f"Left Wheel Speed: {left_speed} rpm, Right Wheel Speed: {right_speed} rpm")
+```
+
+#### get_wheels_position
+
+The `get_wheels_position` function returns the current angle of the wheels.
+
+**Inputs:**
+- `unit`: Unit of the wheel angle (default is 'deg').
+
+**Outputs:**
+- `left_wheel_angle`: The angle of the left wheel.
+- `right_wheel_angle`: The angle of the right wheel.
+
+**Example Usage:**
+```python
+left_angle, right_angle = alvik.get_wheels_position(unit='deg')
+print(f"Left Wheel Angle: {left_angle} degrees, Right Wheel Angle: {right_angle} degrees")
+```
+
+#### get_drive_speed
+
+The `get_drive_speed` function returns the linear and angular velocity of the robot.
+
+**Inputs:**
+- `linear_unit`: Unit of linear velocity (default is 'cm/s').
+- `angular_unit`: Unit of rotational speed of the wheels (default is 'deg/s').
+
+**Outputs:**
+- `linear_velocity`: The linear speed of the robot.
+- `angular_velocity`: The angular speed of the wheels.
+
+**Example Usage:**
+```python
+linear_velocity, angular_velocity = alvik.get_drive_speed(linear_unit='cm/s', angular_unit='deg/s')
+print(f"Linear Velocity: {linear_velocity} cm/s, Angular Velocity: {angular_velocity} deg/s")
+```
+
+#### get_pose
+
+The `get_pose` function returns the current pose of the robot.
+
+**Inputs:**
+- `distance_unit`: Unit of x and y outputs (default is 'cm').
+- `angle_unit`: Unit of theta output (default is 'deg').
+
+**Outputs:**
+- `x`: The x-coordinate of the robot.
+- `y`: The y-coordinate of the robot.
+- `theta`: The orientation angle of the robot.
+
+**Example Usage:**
+```python
+x, y, theta = alvik.get_pose(distance_unit='cm', angle_unit='deg')
+print(f"Pose - X: {x} cm, Y: {y} cm, Theta: {theta} degrees")
+```
+
+These functions allow for precise control and monitoring of the Alvik robot's movements, enabling advanced navigation and path planning capabilities.
+
 
 ### Reading Buttons
 
@@ -878,23 +949,6 @@ TODO: Content for this section
    - `g` or `s`: The green component in RGB format or the saturation in HSV format.
    - `b` or `v`: The blue component in RGB format or the value in HSV format.
 
-5. **hsv2label**
-
-TODO: CHECK THIS BETTER FUNCTION UNCLEAR
-   The `hsv2label` function returns the color label corresponding to the given normalized HSV color input. It converts HSV values to a human-readable color label.
-
-   ```python
-   hsv2label(h, s, v)
-   ```
-
-   **Inputs:**
-   - `h`: Hue value.
-   - `s`: Saturation value.
-   - `v`: Brightness value.
-
-   **Outputs:**
-   - `color label`: The label of the color like "BLACK" or "GREEN", if possible, otherwise returns "UNDEFINED".
-
 You can use these functions depending on your needs:
 
 - Use `color_calibration` to calibrate the sensor for accurate readings.
@@ -1048,7 +1102,7 @@ And let's be honest, there's a certain satisfaction in programming your robot to
 
 The Arduino Alvik robot comes equipped with two RGB LEDs that can be controlled to display various colors. These LEDs can be used for signaling, indicating status, or just for fun. The following functions are available for controlling the LEDs:
 
-1. **set_color**
+1. **Set color** of the Alvik's RGB LEDs
 
    The `set_color` function sets the color of the LED by specifying the intensity of red, green, and blue components.
 
@@ -1150,9 +1204,9 @@ sleep_ms(5000)
 
 #### Setting Up the Web Server
 
-The following code sets up a web server and defines the HTML for the web interface. Feel free to customize this to your tast.
+The following code defines the HTML for the web interface. Feel free to customize this to your tast.
 
-```python
+```html
 # HTML for the web interface
 html = """
 <!DOCTYPE html>
@@ -1177,8 +1231,12 @@ html = """
 </body>
 </html>
 """
+```
 
-# Set up the web server, if EADDRINUSE erroris prompted change port
+We finally set up the web server, note that the selected port should be valid for your network with no conflics. This can be tuned to the setting that best works for your network configuration.
+
+```python
+#EADDRINUSE erroris prompted change port
 addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
 s = socket.socket()
 s.bind(addr)
@@ -1234,69 +1292,99 @@ except KeyboardInterrupt:
 
 This section ensures the server keeps running, accepting incoming connections, and handling requests until the script is interrupted. If an `EADDRINUSE` error occurs, change the port number from 80 to an unused port, like 8080, in the `addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]` line. Also, make sure the device you access the web interface on should be on the same network as the Alvik.
 
-### ESPNow
-
 ### ESP-NOW
 
-The ESP32 on the Arduino Alvik robot also supports ESP-NOW, a fast and connectionless communication protocol. ESP-NOW is ideal for sending small amounts of data quickly between multiple ESP32 devices without the overhead of Wi-Fi or Bluetooth. In this example, we'll set up the Alvik robot to receive commands via ESP-NOW.
+The ESP32 on the Arduino Alvik robot also supports ESP-NOW, a fast, connectionless communication protocol that enables direct, quick, and low-power control of smart devices without the need for a router. ESP-NOW can work alongside Wi-Fi and Bluetooth LE, making it versatile for various applications. It supports the ESP8266, ESP32, ESP32-S, and ESP32-C series. In this example, we'll set up the Alvik robot to receive commands via ESP-NOW.
+
+#### Device identification
+
+It is important for ESP-NOW to ensure that youknow the MAC adress for your device.
+
+You can do that by running the following code:
+```python
+import network
+
+# Initialize the network interface
+e = network.WLAN(network.STA_IF)
+e.active(True)
+
+# Get and print the MAC address
+mac = e.config('mac')
+print("MAC address:", ':'.join('%02x' % b for b in mac))
+```
+Each device will have a different adress, feel free to identify your devices so that you can easily build your ESP-NOW projects.
+
+Now that you know the adress for your device we can run your first ESP-NOW project.
+
+
+Lets now establish connection between a pair of Alviks. One will act as a controller and the other will follow the controls and move in the acording direction.
 
 The provided code will:
 1. Initialize ESP-NOW on the ESP32.
 2. Set up a callback function to handle incoming ESP-NOW messages.
-3. Move the robot based on the received commands.
+3. Move the robot based on the received commands while buttons are pressed.
 
 ### Instructions
 
 1. Upload the receiver script to the Arduino Nano ESP32 on the Alvik robot.
 2. Use another ESP32 device to send commands to the Alvik robot via ESP-NOW.
 
-### Code Explanation
+### Code
 
 #### Setting Up ESP-NOW on the Receiver
 
 The following code initializes ESP-NOW on the receiver and sets up a callback function to handle incoming messages.
 
 ```python
+from arduino_alvik import ArduinoAlvik
 import network
 import espnow
-from arduino_alvik import ArduinoAlvik
-from time import sleep_ms
-
-# Initialize Wi-Fi in station mode
-sta_if = network.WLAN(network.STA_IF)
-sta_if.active(True)
 
 # Initialize ESP-NOW
-espAgent = espnow.ESPNow()
-espAgent.init()
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+esp = espnow.ESPNow()
+esp.active(True)
 
-# Initialize the robot
+# Print the MAC address
+mac = wlan.config('mac')
+print("MAC address:", ':'.join('%02x' % b for b in mac))
+
+# Initialize Alvik
 alvik = ArduinoAlvik()
 alvik.begin()
-sleep_ms(5000)
 
-# Define the callback function to handle incoming ESP-NOW messages
-def on_receive_msg(mac_addr, msg):
-    command = msg.decode('utf-8')
-    print("Received:", command)
-
-    if command == 'up':
-        alvik.set_wheels_speed(30, 30)
-    elif command == 'down':
-        alvik.set_wheels_speed(-30, -30)
-    elif command == 'left':
-        alvik.set_wheels_speed(-30, 30)
-    elif command == 'right':
-        alvik.set_wheels_speed(30, -30)
-    else:
+def perform_action(command):
+    print(f"Performing action: {command}")
+    if command == "MOVE_FORWARD":
+        alvik.set_wheels_speed(60, 60)
+    elif command == "MOVE_BACKWARD":
+        alvik.set_wheels_speed(-60, -60)
+    elif command == "TURN_LEFT":
+        alvik.set_wheels_speed(-60, 60)
+    elif command == "TURN_RIGHT":
+        alvik.set_wheels_speed(60, -60)
+    elif command == "STOP":
         alvik.brake()
+    elif command == "ACTION":
+        pass
 
-# Register the callback function
-espAgent.on_recv(on_receive_msg)
+print("Waiting for commands...")
 
-# Keep the main loop running
 while True:
-    pass
+    try:
+        host, msg = esp.recv()
+        if msg:
+            print(f"Received message from {host}: {msg}")
+            perform_action(msg.decode())
+        else:
+            print("No message received")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    except KeyboardInterrupt:
+        alvik.stop()
+        print("Script terminated by user")
+        sys.exit()
 ```
 
 ### Sending Commands from Another ESP32 Device
@@ -1304,36 +1392,72 @@ while True:
 The following code can be used on another ESP32 device to send commands to the Alvik robot.
 
 ```python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
 import network
 import espnow
-from time import sleep
-
-# Initialize Wi-Fi in station mode
-sta_if = network.WLAN(network.STA_IF)
-sta_if.active(True)
 
 # Initialize ESP-NOW
-espAgent = espnow.ESPNow()
-espAgent.init()
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+esp = espnow.ESPNow()
+esp.active(True)
 
-# Add peer (replace with the MAC address of the receiver)
-peer = b'\xff\xff\xff\xff\xff\xff'  # Replace with the receiver's MAC address
-espAgent.add_peer(peer)
+# Define the peer's MAC address
+peer_mac = b'\x74\x4d\xbd\x7e\x3e\x74'  # MAC address of the receiver Alvik
 
-# Function to send command
+# Try to add the peer, and handle the error if the peer already exists
+try:
+    esp.add_peer(peer_mac)
+except OSError as e:
+    if e.args[0] == -12395:  # ESP_ERR_ESPNOW_EXIST
+        print("Peer already exists.")
+    else:
+        raise
+
+# Initialize Alvik
+alvik = ArduinoAlvik()
+alvik.begin()
+
+# Define button to command mapping
+button_commands = {
+    "UP": "MOVE_FORWARD",
+    "DOWN": "MOVE_BACKWARD",
+    "LEFT": "TURN_LEFT",
+    "RIGHT": "TURN_RIGHT",
+    "OK": "STOP",
+    "CANCEL": "STOP",
+    "CENTER": "ACTION"
+}
+
 def send_command(command):
-    espAgent.send(peer, command)
+    esp.send(peer_mac, command.encode())
+    print(f"Sent command: {command}")
 
-# Example commands
-send_command(b'up')
-sleep(1)
-send_command(b'down')
-sleep(1)
-send_command(b'left')
-sleep(1)
-send_command(b'right')
-sleep(1)
-send_command(b'stop')
+print("Controller running. Press buttons to send commands.")
+
+while True:
+    try:
+        if alvik.get_touch_any():
+            if alvik.get_touch_up():
+                send_command(button_commands["UP"])
+            if alvik.get_touch_down():
+                send_command(button_commands["DOWN"])
+            if alvik.get_touch_left():
+                send_command(button_commands["LEFT"])
+            if alvik.get_touch_right():
+                send_command(button_commands["RIGHT"])
+            if alvik.get_touch_ok():
+                send_command(button_commands["OK"])
+            if alvik.get_touch_cancel():
+                send_command(button_commands["CANCEL"])
+            if alvik.get_touch_center():
+                send_command(button_commands["CENTER"])
+
+        sleep_ms(100)
+    except KeyboardInterrupt:
+        alvik.stop()
+        sys.exit()
 ```
 
 ### Receiver
@@ -1349,11 +1473,8 @@ send_command(b'stop')
 3. **Sending Commands**: The function `send_command` sends commands to the receiver. Example commands are provided to move the robot in different directions.
 
 By following these steps, you'll be able to control your Arduino Alvik robot remotely using ESP-NOW, a fast and efficient communication protocol.
+Feel free to tinker with this feature to add new and interesting interactions.
 
-
-### BLE Tutorial
-
-TODO: Content for this section
 
 ## Expanding the Robot
 
@@ -1559,7 +1680,9 @@ Open the example called `bender.py`, launch it and see on your display the image
 
 ## Want More?
 
-TODO: Content for this section
+If you're looking to get the most out of your Alvik robot, we have a comprehensive course available for you. Visit [Explore Robotics with MicroPython](https://courses.arduino.cc/explore-robotics-micropython/) for guided projects and lessons designed to help you master your Alvik. This course provides step-by-step instructions and detailed explanations to enhance your robotics and programming skills. Whether you're a beginner or an experienced maker, our course will take your Alvik experience to the next level.
+
+Explore our hands-on, step-by-step solutions that support students in their first steps in programming, electronics, and science. Linked directly into the curriculum, no prior knowledge or experience is required.
 
 ## Need Help
 
