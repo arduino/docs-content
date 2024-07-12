@@ -59,7 +59,6 @@ In this tutorial, you will find useful information to get started, test, and mai
       - [High level, fix power x amount of time or distance](#high-level-fix-power-x-amount-of-time-or-distance)
       - [Distance, angle, etc](#distance-angle-etc)
       - [Controlling power and time in degrees/s cm/s](#controlling-power-and-time-in-degreess-cms)
-    - [Units Explained](#units-explained)
     - [Encoder’s Control](#encoders-control)
       - [get\_wheels\_speed](#get_wheels_speed)
       - [get\_wheels\_position](#get_wheels_position)
@@ -498,39 +497,6 @@ alvik.drive(10, 30, 'cm/s', 'deg/s')
 sleep_ms(2000)  # Drive at 10 cm/s linear velocity and 30 deg/s angular velocity for 2 seconds
 alvik.brake()
 ```
-
-### Units Explained
-
-**Distance Unit:**
-- `cm`: centimeters
-- `mm`: millimeters
-- `m`: meters
-- `inch`: inch, 2.54 cm
-- `in`: inch, 2.54 cm
-
-**Angle Unit:**
-- `deg`: degrees (1 degree is 1/360 of a circle)
-- `rad`: radian (1 radian is 180/pi degrees)
-- `rev`: revolution (1 revolution is 360 degrees)
-- `revolution`: same as `rev`
-- `perc`: percentage (1 percent is 3.6 degrees)
-- `%`: same as `perc`
-
-**Linear Speed Unit:**
-- `cm/s`: centimeters per second
-- `mm/s`: millimeters per second
-- `m/s`: meters per second
-- `inch/s`: inches per second
-- `in/s`: inches per second
-
-**Rotational Speed Unit:**
-- `rpm`: revolutions per minute (1 rpm is the reference unit)
-- `deg/s`: degrees per second (1 deg/s is 60 deg/min or 1/6 rpm)
-- `rad/s`: radians per second (1 rad/s is 60 rad/min or 9.55 rpm)
-- `rev/s`: revolutions per second (1 rev/s is 60 rev/min or 60 rpm)
-
-
-Sure, here's the section written with the provided information in markdown format:
 
 ### Encoder’s Control
 
