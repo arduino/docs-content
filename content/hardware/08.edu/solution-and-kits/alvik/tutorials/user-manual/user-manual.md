@@ -725,7 +725,6 @@ while True:
 
 In this example, the robot uses its distance sensors to measure distances in its environment. The distance readouts from the left, center-left, center, center-right, right, top, and bottom sensors are printed continuously, allowing the robot to detect obstacles and measure distances accurately.
 
-TODO: Content for this section
 
 ### Following a Line
 
