@@ -838,7 +838,7 @@ TODO: Content for this section
    **Outputs:**
    - `color`: The color sensor's raw readout.
 
-3. Gets the **labled** sensor value
+3. Gets the **labelled** sensor value
 
    The `get_color_label` function returns the label of the color as recognized by the sensor. This function processes the raw sensor data and converts it into a human-readable label, such as "red", "blue", "green", etc. It simplifies the use of color data for most applications however some flexibility is lost as colors are grouped into the nearest labeled color.
 
@@ -1169,7 +1169,7 @@ sleep_ms(5000)
 
 #### Setting Up the Web Server
 
-The following code defines the HTML for the web interface. Feel free to customize this to your tast.
+The following code defines the HTML for the web interface. Feel free to customize this to your taste.
 
 ```html
 # HTML for the web interface
@@ -1198,7 +1198,7 @@ html = """
 """
 ```
 
-We finally set up the web server, note that the selected port should be valid for your network with no conflics. This can be tuned to the setting that best works for your network configuration.
+We finally set up the web server, note that the selected port should be valid for your network with no conflicts. This can be tuned to the setting that best works for your network configuration.
 
 ```python
 #EADDRINUSE erroris prompted change port
@@ -1263,7 +1263,7 @@ The ESP32 on the Arduino Alvik robot also supports ESP-NOW, a fast, connectionle
 
 #### Device identification
 
-It is important for ESP-NOW to ensure that youknow the MAC adress for your device.
+It is important for ESP-NOW to ensure that youknow the MAC address for your device.
 
 You can do that by running the following code:
 ```python
@@ -1277,12 +1277,12 @@ e.active(True)
 mac = e.config('mac')
 print("MAC address:", ':'.join('%02x' % b for b in mac))
 ```
-Each device will have a different adress, feel free to identify your devices so that you can easily build your ESP-NOW projects.
+Each device will have a different address, feel free to identify your devices so that you can easily build your ESP-NOW projects.
 
-Now that you know the adress for your device we can run your first ESP-NOW project.
+Now that you know the address for your device we can run your first ESP-NOW project.
 
 
-Lets now establish connection between a pair of Alviks. One will act as a controller and the other will follow the controls and move in the acording direction.
+Lets now establish connection between a pair of Alviks. One will act as a controller and the other will follow the controls and move in the according direction.
 
 The provided code will:
 1. Initialize ESP-NOW on the ESP32.
@@ -1464,7 +1464,7 @@ The Grove connectors on the Arduino Alvik robot are used for connectivity with c
 
 ### Servomotor Connectors
 
-The Arduino Alvik robot features 3-pin connectors for attaching servomotors while providing PWM control external servomotors. The connectors are disposed on a 6 by 2 header in the center at the back of the robot, supporting multiple servomotor connections. This arrangement enables complex robotic movements and functions, allowing the robot to perform a variety of aditional tasks.
+The Arduino Alvik robot features 3-pin connectors for attaching servomotors while providing PWM control external servomotors. The connectors are disposed on a 6 by 2 header in the center at the back of the robot, supporting multiple servomotor connections. This arrangement enables complex robotic movements and functions, allowing the robot to perform a variety of additional tasks.
 
 
 
@@ -1477,7 +1477,7 @@ Alvik's body includes compatibility with Lego Technic pieces for physical expans
 
 ***When adding extensions to the robot, never use screws longer than 10 mm or the device could be damaged.***
 
-![Threads for custom extentions](screwThreads.png)
+![Threads for custom extensions](screwThreads.png)
 
 ### Add LEGO® Addons
 
