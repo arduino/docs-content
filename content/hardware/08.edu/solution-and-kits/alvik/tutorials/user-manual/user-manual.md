@@ -581,56 +581,56 @@ The Arduino Alvik robot is equipped with several touch buttons that can be used 
 
 1. Detect **any** button pressed.
 
-   The `get_touch_any` function returns true if any of the buttons is pressed.
+   The `[get_touch_any](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_any)` function returns true if any of the buttons is pressed.
 
    **Outputs:**
    - `touch_any`: true if any button is pressed, false otherwise.
 
 2. Detect the **OK** button pressed.
 
-   The `get_touch_ok` function returns true if the OK button is pressed.
+   The `[get_touch_ok](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_ok)` function returns true if the OK button is pressed.
 
    **Outputs:**
    - `touch_ok`: true if OK button is pressed, false otherwise.
 
 3. Detect the **Cancel** button pressed.
 
-   The `get_touch_cancel` function returns true if the Cancel button is pressed.
+   The `[get_touch_cancel](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_cancel)` function returns true if the Cancel button is pressed.
 
    **Outputs:**
    - `touch_cancel`: true if Cancel button is pressed, false otherwise.
 
 4. Detect the **Center** button pressed.
 
-   The `get_touch_center` function returns true if the Center button is pressed.
+   The `[get_touch_center](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_center)` function returns true if the Center button is pressed.
 
    **Outputs:**
    - `touch_center`: true if Center button is pressed, false otherwise.
 
 5. Detect the **Up** button pressed.
 
-   The `get_touch_up` function returns true if the Up button is pressed.
+   The `[get_touch_up](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_up)` function returns true if the Up button is pressed.
 
    **Outputs:**
    - `touch_up`: true if Up button is pressed, false otherwise.
 
 6. Detect the **Left** button pressed.
 
-   The `get_touch_left` function returns true if the Left button is pressed.
+   The `[get_touch_left](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_left)` function returns true if the Left button is pressed.
 
    **Outputs:**
    - `touch_left`: true if Left button is pressed, false otherwise.
 
 7. Detect the **Down** button pressed.
 
-   The `get_touch_down` function returns true if the Down button is pressed.
+   The `[get_touch_down](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_down)` function returns true if the Down button is pressed.
 
    **Outputs:**
    - `touch_down`: true if Down button is pressed, false otherwise.
 
 8. Detect the **Right** button pressed.
 
-   The `get_touch_right` function returns true if the Right button is pressed.
+   The `[get_touch_right](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_right)` function returns true if the Right button is pressed.
 
    **Outputs:**
    - `touch_right`: true if Right button is pressed, false otherwise.
