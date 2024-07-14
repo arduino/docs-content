@@ -78,11 +78,10 @@ In this tutorial, you will find useful information to get started, test, and mai
       - [Functions](#functions-1)
       - [Example Usage](#example-usage-3)
     - [LEDs](#leds)
-    - [Example](#example)
+      - [Example](#example)
   - [Talking with other Machines!](#talking-with-other-machines)
     - [WiFi](#wifi)
     - [Instructions](#instructions)
-    - [Code Explanation](#code-explanation)
       - [Connecting to Wi-Fi](#connecting-to-wi-fi)
       - [Initializing the Robot](#initializing-the-robot)
       - [Setting Up the Web Server](#setting-up-the-web-server)
@@ -1076,7 +1075,7 @@ The Arduino Alvik robot comes equipped with two RGB LEDs that can be controlled 
    - `green`: Intensity of the green component (0 or 1)
    - `blue`: Intensity of the blue component (0 or 1)
 
-### Example
+#### Example
 
 Here's an example sketch that cycles through different colors on both LEDs:
 
@@ -1125,8 +1124,6 @@ The provided code will:
 2. Upload the script to the Arduino Nano ESP32.
 3. Connect to the robot's IP address (printed on the console) using a web browser.
 4. Use the web interface to control the robot's movement.
-
-### Code Explanation
 
 #### Connecting to Wi-Fi
 
@@ -1354,7 +1351,7 @@ while True:
 
 ### Sending Commands from Another ESP32 Device
 
-The following code can be used on another ESP32 device to send commands to the Alvik robot.
+The following code can be used on another Alvik to send commands to the Alvik robot.
 
 ```python
 from arduino_alvik import ArduinoAlvik
@@ -1516,10 +1513,12 @@ The servo motors connectors are placed at the back of Alvik, in this tutorial we
 from arduino_alvik import ArduinoAlvik
 import time
 
+# Initialize Alvik
 alvik = ArduinoAlvik()
 alvik.begin()
 
 while True:
+    # Moves servo
     alvik.set_servo_positions(0,0)
     time.sleep(2)
     alvik.set_servo_positions(90,0)
