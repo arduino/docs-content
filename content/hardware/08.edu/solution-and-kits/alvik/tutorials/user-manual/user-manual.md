@@ -25,7 +25,7 @@ In this tutorial, you will find useful information to get started, test, and mai
   - [Move Your Robot!](#move-your-robot)
     - [Hardware Requirements](#hardware-requirements)
     - [Software Requirements](#software-requirements)
-  - [What is Alvik](#what-is-alvik)
+  - [What Is Alvik](#what-is-alvik)
   - [The Brain](#the-brain)
     - [Nano ESP32](#nano-esp32)
   - [The Body](#the-body)
@@ -43,7 +43,7 @@ In this tutorial, you will find useful information to get started, test, and mai
   - [Actuators](#actuators)
     - [Motors and Encoders](#motors-and-encoders)
   - [What the Robot Includes](#what-the-robot-includes)
-  - [Move Alvik! (extended)](#move-alvik-extended)
+  - [Move Alvik!](#move-alvik)
     - [Basic Touch Programming](#basic-touch-programming)
     - [Following Objects](#following-objects)
     - [Line Follower](#line-follower)
@@ -56,14 +56,14 @@ In this tutorial, you will find useful information to get started, test, and mai
     - [How to Upload Firmware](#how-to-upload-firmware)
   - [Program Alvik!](#program-alvik)
     - [Controlling the Motors](#controlling-the-motors)
-      - [High level, fix power x amount of time or distance](#high-level-fix-power-x-amount-of-time-or-distance)
-      - [Distance, angle, etc](#distance-angle-etc)
-      - [Controlling power and time in degrees/s cm/s](#controlling-power-and-time-in-degreess-cms)
+      - [Power x Distance (Or Time)](#power-x-distance-or-time)
+      - [Distance And Angle](#distance-and-angle)
+      - [Drive](#drive)
     - [Encoder’s Control](#encoders-control)
-      - [get\_wheels\_speed](#get_wheels_speed)
-      - [get\_wheels\_position](#get_wheels_position)
-      - [get\_drive\_speed](#get_drive_speed)
-      - [get\_pose](#get_pose)
+      - [Check Wheels Speed](#check-wheels-speed)
+      - [Check Wheels Position](#check-wheels-position)
+      - [Check Velocity](#check-velocity)
+      - [Check Pose](#check-pose)
     - [Reading Buttons](#reading-buttons)
       - [Example Usage](#example-usage)
     - [Detecting Obstacles](#detecting-obstacles)
@@ -79,7 +79,7 @@ In this tutorial, you will find useful information to get started, test, and mai
       - [Example Usage](#example-usage-3)
     - [LEDs](#leds)
       - [Example](#example)
-  - [Talking with other Machines!](#talking-with-other-machines)
+  - [Talking With Other Machines!](#talking-with-other-machines)
     - [WiFi](#wifi)
     - [Instructions](#instructions)
       - [Connecting to Wi-Fi](#connecting-to-wi-fi)
@@ -88,11 +88,11 @@ In this tutorial, you will find useful information to get started, test, and mai
       - [Handling HTTP Requests](#handling-http-requests)
       - [Main Loop](#main-loop)
     - [ESP-NOW](#esp-now)
-      - [Device identification](#device-identification)
+      - [Device Identification](#device-identification)
     - [Instructions](#instructions-1)
     - [Code](#code)
       - [Setting Up ESP-NOW on the Receiver](#setting-up-esp-now-on-the-receiver)
-    - [Sending Commands from Another ESP32 Device](#sending-commands-from-another-esp32-device)
+    - [Sending Commands](#sending-commands)
     - [Receiver](#receiver)
     - [Sender](#sender)
   - [Expanding the Robot](#expanding-the-robot)
@@ -127,7 +127,7 @@ To get started to play with Alvik you will need the following hardware and softw
 - Operating Systems: All the major Operating Systems are supported
 - [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
 
-## What is Alvik
+## What Is Alvik
 
 Arduino® Alvik is a robot with two controllers and numerous useful sensors and actuators. It is designed for STEAM education, making it an ideal tool for learning programming, Robotics, IoT, and Artificial Intelligence.
 
@@ -294,7 +294,7 @@ The Arduino Alvik robot package includes the following items:
 - Phillips screwdriver
 - 18650 Li-Ion battery
 
-## Move Alvik! (extended)
+## Move Alvik!
 
 ### Basic Touch Programming
 
@@ -416,7 +416,7 @@ Answer `y` to flash firmware.
 
 Movement is one of Alvik's main features, making it essential to have a variety of methods to control Alvik's motors. This flexibility allows you to use different control methods depending on your needs, whether it's for precise movement or simple speed control.
 
-#### High level, fix power x amount of time or distance
+#### Power x Distance (Or Time)
 
 You can set the speed of Alvik's motors directly and let it run for a specific amount of time or distance. This method is straightforward and useful for simple tasks where precise control isn't necessary.
 
@@ -437,7 +437,7 @@ sleep_ms(2000)  # Run motors at 30 rpm for 2 seconds
 alvik.brake()
 ```
 
-#### Distance, angle, etc
+#### Distance And Angle
 
 Alvik allows you to control the motors based on specific distances or angles. This method provides precise control over the robot's movements, ensuring it travels the exact distance or rotates to the exact angle specified.
 
@@ -475,7 +475,7 @@ sleep_ms(2000)  # Move forward 50 cm in 2 seconds
 alvik.brake()
 ```
 
-#### Controlling power and time in degrees/s cm/s
+#### Drive
 
 You can also specify the power and time for Alvik's motors in terms of degrees per second or centimeters per second. This method is useful for tasks requiring fine-tuned control of the robot's speed and direction.
 
@@ -501,7 +501,7 @@ alvik.brake()
 
 The Alvik robot provides various functions to control and monitor the motors using encoders. These functions allow you to get real-time feedback on the speed, position, and pose of the robot, which is essential for precise movement and navigation.
 
-#### get_wheels_speed
+#### Check Wheels Speed
 
 The `get_wheels_speed` function returns the current speed of the wheels.
 
@@ -518,7 +518,7 @@ left_speed, right_speed = alvik.get_wheels_speed(unit='rpm')
 print(f"Left Wheel Speed: {left_speed} rpm, Right Wheel Speed: {right_speed} rpm")
 ```
 
-#### get_wheels_position
+#### Check Wheels Position
 
 The `get_wheels_position` function returns the current angle of the wheels.
 
@@ -535,7 +535,7 @@ left_angle, right_angle = alvik.get_wheels_position(unit='deg')
 print(f"Left Wheel Angle: {left_angle} degrees, Right Wheel Angle: {right_angle} degrees")
 ```
 
-#### get_drive_speed
+#### Check Velocity
 
 The `get_drive_speed` function returns the linear and angular velocity of the robot.
 
@@ -553,7 +553,7 @@ linear_velocity, angular_velocity = alvik.get_drive_speed(linear_unit='cm/s', an
 print(f"Linear Velocity: {linear_velocity} cm/s, Angular Velocity: {angular_velocity} deg/s")
 ```
 
-#### get_pose
+#### Check Pose
 
 The `get_pose` function returns the current pose of the robot.
 
@@ -1106,7 +1106,7 @@ while True:
 By following these steps, you can control the LEDs on the Arduino Alvik robot to display different colors and create various lighting effects.
 
 
-## Talking with other Machines!
+## Talking With Other Machines!
 
 ### WiFi
 
@@ -1258,7 +1258,7 @@ This section ensures the server keeps running, accepting incoming connections, a
 
 The ESP32 on the Arduino Alvik robot also supports ESP-NOW, a fast, connectionless communication protocol that enables direct, quick, and low-power control of smart devices without the need for a router. ESP-NOW can work alongside Wi-Fi and Bluetooth LE, making it versatile for various applications. It supports the ESP8266, ESP32, ESP32-S, and ESP32-C series. In this example, we'll set up the Alvik robot to receive commands via ESP-NOW.
 
-#### Device identification
+#### Device Identification
 
 It is important for ESP-NOW to ensure that youknow the MAC address for your device.
 
@@ -1349,7 +1349,7 @@ while True:
         sys.exit()
 ```
 
-### Sending Commands from Another ESP32 Device
+### Sending Commands
 
 The following code can be used on another Alvik to send commands to the Alvik robot.
 
