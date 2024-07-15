@@ -4,9 +4,8 @@ difficulty: beginner
 description: "Discover how to use and program Arduino® Alvik's robot"
 tags:
   - Robot
-author: "Paolo Cavagnolo"
+author: "Paolo Cavagnolo Pedro Miguel"
 ---
-# Arduino® Alvik User Manual
 
 ## Introduction
 Arduino® Alvik is a powerful and versatile robot specifically designed for programming and STEAM education.
@@ -303,7 +302,6 @@ Open **Arduino Lab for MicroPython** and **connect** Alvik. Then:
 Depending on how you configure Python on your machine.
 
 4. Install library
-
 Run the following line to upload all files and download the dependencies needed to run the Arduino Alvik MicroPython library.
 
 Linux
@@ -314,9 +312,9 @@ Windows
 
 
 The `install.*` script will copy all the needed files into your Alvik.
+The `<device port>` is the name of the USB port that your computer assigned to the Nano ESP32. 
 
-The `<device port>` is the name of the USB port that your computer assigned to the Nano ESP32. There are several ways to find it, depending on your OS, for example:
-
+There are several ways to find it, depending on your OS, for example:
 - You can use the Arduino IDE to discover the port, [follow this guide to know more](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE).
 - You can check it by using the Arduino Lab for MicroPython by clicking `Connect` after connecting Alvik with the USB cable.
 - You can check the list of the USB devices attached to your PC.
@@ -365,7 +363,7 @@ Alvik comes with a preinstalled version of libraries and firmware, but in case y
 
 Movement is one of Alvik's main features, making it essential to have a variety of methods to control Alvik's motors. This flexibility allows you to use different control methods depending on your needs, whether it's for precise movement or simple speed control.
 
-** Power Over Distance/Time **
+**Power Over Distance/Time**
 
 You can set the speed of Alvik's motors directly and let it run for a specific amount of time or distance. This method is straightforward and useful for simple tasks where precise control isn't necessary.
 
@@ -407,7 +405,7 @@ sleep_ms(2000)  # Rotate wheels 360 degrees in 2 seconds
 alvik.brake()
 ```
 
-**`move`** method
+**Using Move**
 
 The `move` function moves the robot by a given distance.
 
@@ -424,7 +422,7 @@ sleep_ms(2000)  # Move forward 50 cm in 2 seconds
 alvik.brake()
 ```
 
-**Drive**
+**Using Drive**
 
 You can also specify the power and time for Alvik's motors in terms of degrees per second or centimeters per second. This method is useful for tasks requiring fine-tuned control of the robot's speed and direction.
 
@@ -433,10 +431,10 @@ You can also specify the power and time for Alvik's motors in terms of degrees p
 The `drive` function drives the robot by setting the linear and angular velocity.
 
 **Inputs:**
-- `linear_velocity`: Speed of the robot.
-- `angular_velocity`: Speed of the wheels.
-- `linear_unit`: Unit of linear velocity (default is 'cm/s').
-- `angular_unit`: Unit of rotational speed of the wheels (default is 'deg/s').
+`linear_velocity`: Speed of the robot.
+`angular_velocity`: Speed of the wheels.
+`linear_unit`: Unit of linear velocity (default is 'cm/s').
+`angular_unit`: Unit of rotational speed of the wheels (default is 'deg/s').
 
 **Example Usage:**
 
@@ -532,60 +530,43 @@ The Arduino Alvik robot is equipped with several touch buttons that can be used 
 
    The `[get_touch_any](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_any)` function returns true if any of the buttons is pressed.
 
-   **Outputs:**
-    `touch_any`: true if any button is pressed, false otherwise.
 
 - Detect the **OK** button pressed.
 
    The `[get_touch_ok](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_ok)` function returns true if the OK button is pressed.
 
-   **Outputs:**
-    `touch_ok`: true if OK button is pressed, false otherwise.
 
 - Detect the **Cancel** button pressed.
 
    The `[get_touch_cancel](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_cancel)` function returns true if the Cancel button is pressed.
 
-   **Outputs:**
-    `touch_cancel`: true if Cancel button is pressed, false otherwise.
 
 - Detect the **Center** button pressed.
 
    The `[get_touch_center](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_center)` function returns true if the Center button is pressed.
 
-   **Outputs:**
-    `touch_center`: true if Center button is pressed, false otherwise.
 
 - Detect the **Up** button pressed.
 
    The `[get_touch_up](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_up)` function returns true if the Up button is pressed.
 
-   **Outputs:**
-    `touch_up`: true if Up button is pressed, false otherwise.
 
 - Detect the **Left** button pressed.
 
    The `[get_touch_left](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_left)` function returns true if the Left button is pressed.
 
-   **Outputs:**
-    `touch_left`: true if Left button is pressed, false otherwise.
 
 - Detect the **Down** button pressed.
 
    The `[get_touch_down](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_down)` function returns true if the Down button is pressed.
 
-   **Outputs:**
-    `touch_down`: true if Down button is pressed, false otherwise.
 
 - Detect the **Right** button pressed.
 
    The `[get_touch_right](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_right)` function returns true if the Right button is pressed.
 
-   **Outputs:**
-    `touch_right`: true if Right button is pressed, false otherwise.
 
 **Example**
-
 The following example demonstrates how to read the state of each button and print its name when pressed:
 
 ```python
@@ -638,11 +619,11 @@ The distance sensor array is divided into five distinct zones: left, center-left
 The `get_distance` function returns the distance readouts from the left, center-left, center, center-right, and right sensors.
 
 **Outputs:**
-- `L`: Left sensor readout.
-- `CL`: Center-left sensor readout.
-- `C`: Center sensor readout.
-- `CR`: Center-right sensor readout.
-- `R`: Right sensor readout.
+`L`: Left sensor readout.
+`CL`: Center-left sensor readout.
+`C`: Center sensor readout.
+`CR`: Center-right sensor readout.
+`R`: Right sensor readout.
 
 **Example Usage**
 
@@ -789,8 +770,8 @@ In this example, the robot uses its line follower sensor array to navigate along
    ```
 
    **Outputs:**
-   - `color`: The label of the color as recognized by the sensor. These can be:
-     - `'BLACK'`, `'GREY'`, `'BLACK'`, `'LIGHT GREY'`, `'WHITE'`, `'YELLOW'`, `'LIGHT GREEN'`, `'BLUE'`, `'VIOLET'`, `'BROWN'`, `'ORANGE'`, `'RED'`.
+- `color`: The label of the color as recognized by the sensor. These can be:
+      `'BLACK'`, `'GREY'`, `'BLACK'`, `'LIGHT GREY'`, `'WHITE'`, `'YELLOW'`, `'LIGHT GREEN'`, `'BLUE'`, `'VIOLET'`, `'BROWN'`, `'ORANGE'`, `'RED'`.
 
    **Example Usage**
 
@@ -857,7 +838,6 @@ In this example, the robot uses its line follower sensor array to navigate along
     `b` or `v`: The blue component in RGB format or the value in HSV format.
 
 You can use these functions depending on your needs:
-
 - Use `color_calibration` to calibrate the sensor for accurate readings.
 - Use `get_color_raw` to get the raw sensor data.
 - Use `get_color_label` to get a human-readable label of the detected color.
@@ -1007,7 +987,7 @@ And let's be honest, there's a certain satisfaction in programming your robot to
 
 The Arduino Alvik robot comes equipped with two RGB LEDs that can be controlled to display various colors. These LEDs can be used for signaling, indicating status, or just for fun. The following functions are available for controlling the LEDs:
 
-1. **Set color** of the Alvik's RGB LEDs
+ **Set color** of the Alvik's RGB LEDs
 
    The `set_color` function sets the color of the LED by specifying the intensity of red, green, and blue components.
 
@@ -1488,8 +1468,7 @@ The servo motors connectors are placed at the back of Alvik, in this tutorial we
 ***The port provides 5 Volt to the motor, so be sure to connect a servo that runs with 5V.***
 
 1. Connect the servo motor to the upper port
-
-    ![Servo connected](assets/servo_connection.png)
+![Servo connected](assets/servo_connection.png)
 
 2. Open the Arduino Lab for MicroPython
 
