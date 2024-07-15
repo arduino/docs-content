@@ -124,6 +124,7 @@ The Arduino Due is a versatile microcontroller board designed for a wide range o
 
 
 <div style="page-break-inside: avoid;">
+</div>
 
 ## Functional Overview
 
@@ -522,6 +523,7 @@ These pins offer a range of functionalities, including digital input/output, ser
 
 
 <div style="page-break-inside: avoid;">
+</div>
 
 <div style="text-align:center;">
 
