@@ -344,9 +344,9 @@ Arduino Nano 可以通过 USB 端口或 VIN 供电。VIN 的输入电源由一�
 ### 入门指南 - IDE
 如需在离线状态下对 Arduino® Nano 进行编程，则需要安装 Arduino® Desktop IDE **[1]** 若要将 Arduino Uno 连接到计算机，则需要使用 Micro-B USB 电缆。如 LED 指示灯所示，该电缆还可以为电路板供电。
 
-### 入门指南 - Arduino Web Editor
-包括本电路板在内的所有 Arduino® 电路板都可以在 Arduino Web Editor **[2]**上开箱即用，只需安装一个简单的插件即可。
-Arduino Web Editor 是在线托管的，因此它将始终提供最新功能并支持所有电路板。接下来**[3]**开始在浏览器上编码并将程序上传到您的电路板上。
+### 入门指南 - Arduino Cloud Editor
+包括本电路板在内的所有 Arduino® 电路板都可以在 Arduino Cloud Editor **[2]**上开箱即用，只需安装一个简单的插件即可。
+Arduino Cloud Editor 是在线托管的，因此它将始终提供最新功能并支持所有电路板。接下来**[3]**开始在浏览器上编码并将程序上传到您的电路板上。
 
 ### 示例程序
 Arduino® 的示例程序可以在 Arduino® IDE 的“示例”菜单或 Arduino 网站 **[4]** 的“文档”部分找到
