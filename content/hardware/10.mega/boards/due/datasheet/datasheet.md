@@ -559,11 +559,11 @@ These pins offer a range of functionalities, including digital input/output, ser
 
 If you want to program your Arduino Due while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Arduino Due to your computer, you will need a USB Type-B cable, which can also provide power to the board, as indicated by the LED (DL1).
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -1279,11 +1279,11 @@ Arduino Due 的完整引脚配置如下表所示。
 
 如需在离线状态下对 Arduino Due 进行编程，则需要安装 Arduino® Desktop IDE **[1]**。若要将 Arduino Due 连接到计算机，则需要使用 USB Type-B 电缆，如 LED 指示灯 (DL1) 所示，该电缆还可以为电路板提供电源。
 
-### 入门指南 - Arduino Web Editor
+### 入门指南 - Arduino Cloud Editor
 
-包括本电路板在内的所有 Arduino 电路板，都可以在 Arduino® Web Editor **[2]**上开箱即用，只需安装一个简单的插件即可。
+包括本电路板在内的所有 Arduino 电路板，都可以在 Arduino® Cloud Editor **[2]**上开箱即用，只需安装一个简单的插件即可。
 
-Arduino Web Editor 是在线托管的，因此它将始终提供最新功能并支持所有电路板。接下来**[3]**开始在浏览器上编码并将程序上传到您的电路板上。
+Arduino Cloud Editor 是在线托管的，因此它将始终提供最新功能并支持所有电路板。接下来**[3]**开始在浏览器上编码并将程序上传到您的电路板上。
 
 ### 入门指南 - Arduino Cloud
 
