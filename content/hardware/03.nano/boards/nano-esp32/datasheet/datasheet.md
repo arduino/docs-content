@@ -853,11 +853,11 @@ Nano ESP32 上的 GPIO 可处理的**源电流**最高达**40 mA**，**灌电流
 
 如需在离线状态下对 Nano ESP32 进行编程，则需要安装 Arduino IDE **[1]**。若要将 Nano ESP32 连接到计算机，则需要使用 Type-C® USB 电缆，如 LED 指示灯 (DL1) 所示，该电缆还可以为电路板供电。
 
-### 入门指南 - Arduino Web Editor
+### 入门指南 - Arduino Cloud Editor
 
-包括本电路板在内的所有 Arduino 电路板，都可以在 Arduino Web Editor **[2]**上开箱即用，只需安装一个简单的插件即可。
+包括本电路板在内的所有 Arduino 电路板，都可以在 Arduino Cloud Editor **[2]**上开箱即用，只需安装一个简单的插件即可。
 
-Arduino Web Editor 是在线托管的，因此它将始终提供最新功能并支持所有电路板。接下来**[3]**开始在浏览器上编码并将程序上传到您的电路板上。
+Arduino Cloud Editor 是在线托管的，因此它将始终提供最新功能并支持所有电路板。接下来**[3]**开始在浏览器上编码并将程序上传到您的电路板上。
 
 ### 入门指南 - Arduino Cloud
 
@@ -965,8 +965,8 @@ Arduino S.r.l. 特此声明，本产品符合 201453/EU 指令的基本要求和
 | 参考资料                          | 链接                                                                                            |
 | ---------------------------- | ----------------------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)        | <https://www.arduino.cc/en/Main/Software>                                                       |
-| Arduino Web Editor (Cloud)   | <https://create.arduino.cc/editor>                                                              |
-| Web Editor - 入门指南 | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
+| Arduino Cloud Editor    | <https://create.arduino.cc/editor>                                                              |
+| Cloud Web Editor - 入门指南 | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
 | Arduino Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
 | 库参考            | <https://github.com/arduino-libraries/>                                                         |
 | 在线商店                 | <https://store.arduino.cc/>                                                                     |
