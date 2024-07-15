@@ -18,7 +18,7 @@ Embedded Systems Development, Robotics, 3D Printing, CNC Machines, Prototyping
 # Contents
 ## Application Examples
 
-<div style="text-align:justify;">
+
 The Arduino Due combines the performance of the Atmel SAM3X8E microcontroller with the flexibility of the Arduino platform, offering a versatile solution for developers, hobbyists, and professionals alike. With its 32-bit architecture and clock speed of 84 MHz, the Due delivers robust performance for demanding applications.
 
 - **Embedded Systems Development:** The Arduino Due can be utilized to create a real-time data acquisition system for monitoring and analyzing environmental parameters in industrial settings. By interfacing sensors such as temperature, humidity, and pressure sensors with the Due's abundant I/O pins, developers can capture real-time data and process it using the Due's powerful microcontroller. The system can then transmit this data wirelessly or via USB to a host computer for analysis, allowing for continuous monitoring and remote management of critical processes.
@@ -29,7 +29,6 @@ The Arduino Due combines the performance of the Atmel SAM3X8E microcontroller wi
 
 - **Prototyping:** The Arduino Due serves as an invaluable tool for quickly iterating and testing new ideas for IoT devices. By leveraging the Due's extensive I/O capabilities and compatibility with various sensors, communication modules, and actuators, developers can rapidly assemble and test prototypes of IoT devices. Whether it is a smart home sensor node, a weather station, or a remote monitoring system, the Arduino Due provides a flexible platform for integrating components, writing firmware, and validating functionality. With the Due's support for Arduino libraries and easy-to-use development environment, prototypers can focus on innovation and experimentation, accelerating the process of bringing ideas to fruition.
 
-</div>
 
 ## Features
 
@@ -740,7 +739,6 @@ Arduino Due 是一款开创性的微控制器板，采用 Atmel SAM3X8E ARM Cort
 # 目录
 ## 应用示例
 
-<div style="text-align:justify;">
 Arduino Due 集 Atmel SAM3X8E 微控制器的性能和 Arduino 平台的灵活性于一身，为开发人员、业余爱好者和专业人士提供了一种多功能解决方案。Due 采用 32 位架构，时钟频率为 84 MHz，可为要求苛刻的应用提供强大的性能。
 
 - **嵌入式系统开发：** Arduino Due 可用于创建实时数据采集系统，以监测和分析工业环境参数。通过将温度、湿度和压力传感器等传感器与 Due 丰富的 I/O 引脚连接，开发人员可以捕获实时数据，并使用 Due 功能强大的微控制器进行处理。然后，系统可以通过无线或 USB 将这些数据传输到主机进行分析，从而实现对关键过程的持续监测和远程管理。
@@ -750,7 +748,6 @@ Arduino Due 集 Atmel SAM3X8E 微控制器的性能和 Arduino 平台的灵活�
 - **3D 打印和数控机床：** Arduino Due 可作为 DIY 项目的多功能控制器。通过将步进电机驱动器和限位开关与 Due 的众多 I/O 引脚相连接，爱好者们可以制造自己的 3D 打印机或数控机床。Due 的高速处理能力可精确控制步进电机，实现精确定位和移动。
 
 - **原型设计：** Arduino Due 是快速迭代和测试物联网设备新想法的宝贵工具。利用 Due 广泛的输入/输出功能以及与各种传感器、通信模块和执行器的兼容性，开发人员可以快速组装和测试物联网设备原型。无论是智能家居传感器节点、气象站还是远程监控系统，Arduino Due 都提供了一个灵活的平台，便于集成组件、编写固件和验证功能。凭借 Due 对 Arduino 库的支持和易于使用的开发环境，原型设计人员可以专注于创新和实验，加速将想法转化为现实的过程。
-</div>
 
 
 ## 特点
