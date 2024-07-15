@@ -17,97 +17,19 @@ Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through
 
 In this tutorial, you will find useful information to get started, test, and maintain Alvik.
 
-## On This Page
+## Alvik Overview
 
-- [Arduino® Alvik User Manual](#arduino-alvik-user-manual)
-  - [Introduction](#introduction)
-  - [On This Page](#on-this-page)
-  - [Move Your Robot!](#move-your-robot)
-    - [Hardware Requirements](#hardware-requirements)
-    - [Software Requirements](#software-requirements)
-  - [What Is Alvik](#what-is-alvik)
-  - [The Brain](#the-brain)
-    - [Nano ESP32](#nano-esp32)
-  - [The Body](#the-body)
-    - [STM32](#stm32)
-  - [Controller](#controller)
-    - [ON/OFF Switch](#onoff-switch)
-    - [Battery](#battery)
-  - [Sensors](#sensors)
-    - [Main Components](#main-components)
-    - [Touch Buttons](#touch-buttons)
-    - [Distance Sensors](#distance-sensors)
-    - [Line Follower Sensor](#line-follower-sensor)
-    - [Color Sensor](#color-sensor)
-    - [IMU](#imu)
-  - [Actuators](#actuators)
-    - [Motors and Encoders](#motors-and-encoders)
-  - [What the Robot Includes](#what-the-robot-includes)
-  - [Move Alvik!](#move-alvik)
-    - [Basic Touch Programming](#basic-touch-programming)
-    - [Following Objects](#following-objects)
-    - [Line Follower](#line-follower)
-  - [Alvik First Use](#alvik-first-use)
-    - [Unboxing](#unboxing)
-    - [Hardware Requirements](#hardware-requirements-1)
-    - [Software Requirements](#software-requirements-1)
-    - [ESP32 MicroPython Firmware](#esp32-micropython-firmware)
-    - [Update Alvik's Library](#update-alviks-library)
-    - [How to Upload Firmware](#how-to-upload-firmware)
-  - [Program Alvik!](#program-alvik)
-    - [Controlling the Motors](#controlling-the-motors)
-      - [Power x Distance (Or Time)](#power-x-distance-or-time)
-      - [Distance And Angle](#distance-and-angle)
-      - [Drive](#drive)
-    - [Encoder’s Control](#encoders-control)
-      - [Check Wheels Speed](#check-wheels-speed)
-      - [Check Wheels Position](#check-wheels-position)
-      - [Check Velocity](#check-velocity)
-      - [Check Pose](#check-pose)
-    - [Reading Buttons](#reading-buttons)
-      - [Example Usage](#example-usage)
-    - [Detecting Obstacles](#detecting-obstacles)
-      - [Function](#function)
-      - [Example Usage](#example-usage-1)
-    - [Following a Line](#following-a-line)
-      - [Function](#function-1)
-      - [Example Usage](#example-usage-2)
-    - [Sensing Colors](#sensing-colors)
-      - [Functions](#functions)
-    - [Detecting Falling and Crashes (IMU)](#detecting-falling-and-crashes-imu)
-      - [Functions](#functions-1)
-      - [Example Usage](#example-usage-3)
-    - [LEDs](#leds)
-      - [Example](#example)
-  - [Talking With Other Machines!](#talking-with-other-machines)
-    - [WiFi](#wifi)
-    - [Instructions](#instructions)
-      - [Connecting to Wi-Fi](#connecting-to-wi-fi)
-      - [Initializing the Robot](#initializing-the-robot)
-      - [Setting Up the Web Server](#setting-up-the-web-server)
-      - [Handling HTTP Requests](#handling-http-requests)
-      - [Main Loop](#main-loop)
-    - [ESP-NOW](#esp-now)
-      - [Device Identification](#device-identification)
-    - [Instructions](#instructions-1)
-    - [Code](#code)
-      - [Setting Up ESP-NOW on the Receiver](#setting-up-esp-now-on-the-receiver)
-    - [Sending Commands](#sending-commands)
-    - [Receiver](#receiver)
-    - [Sender](#sender)
-  - [Expanding the Robot](#expanding-the-robot)
-    - [Additional Connectors](#additional-connectors)
-    - [Qwiic Connectors](#qwiic-connectors)
-    - [Grove Connectors](#grove-connectors)
-    - [Servomotor Connectors](#servomotor-connectors)
-    - [Lego Technic Compatibility](#lego-technic-compatibility)
-    - [Custom Parts](#custom-parts)
-    - [Add LEGO® Addons](#add-lego-addons)
-    - [Add Servo Motors](#add-servo-motors)
-    - [Add I2C Grove](#add-i2c-grove)
-    - [Add Qwiic](#add-qwiic)
-  - [Want More?](#want-more)
-  - [Need Help](#need-help)
+![Alvik exploded view](assets/main-components.png)
+
+***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the hardware from the chassis make sure you do it on a __non-conductive surface clean__ of materials or tools that can short-circuit the battery***
+
+### Main Components
+
+Alvik is a robot with two controllers and tons of useful sensors and actuators. The main controller is the Arduino Nano ESP32 attached at the top of the robot while there is an STM32 controller integrated into the robot that takes care of the low-level commands like reading the sensors and moving the motors.
+
+![Alvik top components](assets/up-components.png)
+
+![Alvik bottom components](assets/down-components.png)
 
 ## Move Your Robot!
 
@@ -124,7 +46,7 @@ To get started to play with Alvik you will need the following hardware and softw
 
 ### Software Requirements
 
-- Operating Systems: All the major Operating Systems are supported
+- Operating Systems: Linux, macOS and Windows
 - [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
 
 ## What Is Alvik
@@ -215,7 +137,7 @@ The Arduino Alvik robot is equipped with seven capacitive touch buttons. These b
 - OK (represented by a "tick" Icon)
 - Cancel (represented by a "x")
 
-![Touch Button position](touchButton.png)
+![Touch Button position](assets/touchButton.png)
 
 Each button can be programmed to perform specific actions, providing more complex interface for user interaction.
 
@@ -228,7 +150,7 @@ The Arduino Alvik robot is equipped with a ToF (Time of Flight) 8x8 Array sensor
 - High precision and accuracy
 - Used for obstacle detection and distance measurement
 
-![Distance sensor position](distanceSensor.png)
+![Distance sensor position](assets/distanceSensor.png)
 
 ### Line Follower Sensor
 
@@ -242,10 +164,11 @@ The infrared LEDs emit light towards the ground, and the phototransistors detect
 - Consists of three phototransistors and five infrared LEDs
 
 **How it Works:**
-- **Infrared LEDs**: Emit infrared light towards the ground.
-- **Phototransistors**: Detect the reflected infrared light.
-  - When over a dark line, the reflection is low, indicating the presence of a line.
-  - When over a light surface, the reflection is high, indicating no line.
+
+**Infrared LEDs**: Emit infrared light towards the ground.
+**Phototransistors**: Detect the reflected infrared light.
+- When over a dark line, the reflection is low, indicating the presence of a line.
+- When over a light surface, the reflection is high, indicating no line.
 
 ![Follow the line sensor principles](assets/ch07-blacktape-color.png)
 
@@ -260,7 +183,7 @@ The color sensor on the Arduino Alvik robot is used to detect and identify color
 - Provides raw color readouts and labeled color information
 - Useful for line following, object detection, and other applications
 
-![Color sensor bottom view](imageColor.png)
+![Color sensor bottom view](assets/imageColor.png)
 
 ### IMU
 
@@ -271,7 +194,7 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 - Provides roll, pitch, and yaw values
 - Useful for motion tracking and stabilization
 
-![IMU axis reference](imageIMU.png)
+![IMU axis reference](assets/imageIMU.png)
 
 ## Actuators
 
@@ -285,6 +208,12 @@ Alvik has two high-precision geared motors and two RGB LEDs. The motors are driv
 | RGB LEDs                 | RGB LEDs                | leds_settings.py      |
 
 The RGB LEDs can be used for visual feedback and can be programmed to display various colors and patterns.
+
+### Connectors
+
+The connectors are placed in the back of the robot, the pinout is shown in the following image:
+
+![Connectors Pinout](assets/datasheet_connectors.png)
 
 ## What the Robot Includes
 
@@ -343,7 +272,7 @@ If something goes wrong it means you need to upload the MicroPython firmware on 
 
 Follow [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
 
-### Update Alvik's Library
+### How to Upload Libraries
 
 You will find the latest instructions directly in the [repository](https://github.com/arduino/arduino-alvik-mpy/releases). Here are the main steps:
 
@@ -355,13 +284,13 @@ Download the repository and extract all the files in a specific folder that will
 
 Open **Arduino Lab for MicroPython** and **connect** Alvik. Then:
 
-- Click on the `files` icon
+ Click on the `files` icon
 
-- Click on a `files name` in the bottom left explorer windows.
+ Click on a `files name` in the bottom left explorer windows.
 
-- Click on the `bin` icon to delete it
+ Click on the `bin` icon to delete it
 
-- Repeat for all the files, from all folders
+ Repeat for all the files, from all folders
 
 ![Delete all files](assets/delete_files.png)
 
@@ -409,14 +338,34 @@ Windows
 Answer `y` to flash firmware.
 
 
+There are also several examples to test all the features of your Alvik placed inside the `examples` folder.
+Open **Arduino Lab for MicroPython** and **connect** Alvik. Then:
+
+1. Click on the `files` icon
+2. Click on the `path string` in the bottom right explorer windows.
+3. Click on the `file name` of the example you choose
+4. Click on the `play button`
+
+![Test examples files](assets/test_files.png)
+
 
 ## Program Alvik!
+
+![Alvik USB Connection](assets/connecting-final.gif)
+
+In order for Alvik to work properly three things have to be set correctly:
+
+1. The Nano ESP32 needs the [MicroPython firmware](https://labs.arduino.cc/en/labs/micropython) on it.
+2. The [latest libraries](https://github.com/arduino/arduino-alvik-mpy/releases) have to be placed in the Nano ESP32.
+3. The [latest firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases) has to be uploaded to the STM32 microcontroller.
+
+Alvik comes with a preinstalled version of libraries and firmware, but in case you want to upgrade it or if something happens and you mess things up, here is the guide to reinstall both libraries and firmware.
 
 ### Controlling the Motors
 
 Movement is one of Alvik's main features, making it essential to have a variety of methods to control Alvik's motors. This flexibility allows you to use different control methods depending on your needs, whether it's for precise movement or simple speed control.
 
-#### Power x Distance (Or Time)
+** Power Over Distance/Time **
 
 You can set the speed of Alvik's motors directly and let it run for a specific amount of time or distance. This method is straightforward and useful for simple tasks where precise control isn't necessary.
 
@@ -437,7 +386,7 @@ sleep_ms(2000)  # Run motors at 30 rpm for 2 seconds
 alvik.brake()
 ```
 
-#### Distance And Angle
+**Distance And Angle**
 
 Alvik allows you to control the motors based on specific distances or angles. This method provides precise control over the robot's movements, ensuring it travels the exact distance or rotates to the exact angle specified.
 
@@ -475,7 +424,7 @@ sleep_ms(2000)  # Move forward 50 cm in 2 seconds
 alvik.brake()
 ```
 
-#### Drive
+**Drive**
 
 You can also specify the power and time for Alvik's motors in terms of degrees per second or centimeters per second. This method is useful for tasks requiring fine-tuned control of the robot's speed and direction.
 
@@ -501,7 +450,7 @@ alvik.brake()
 
 The Alvik robot provides various functions to control and monitor the motors using encoders. These functions allow you to get real-time feedback on the speed, position, and pose of the robot, which is essential for precise movement and navigation.
 
-#### Check Wheels Speed
+** Check Wheels Speed **
 
 The `get_wheels_speed` function returns the current speed of the wheels.
 
@@ -518,7 +467,7 @@ left_speed, right_speed = alvik.get_wheels_speed(unit='rpm')
 print(f"Left Wheel Speed: {left_speed} rpm, Right Wheel Speed: {right_speed} rpm")
 ```
 
-#### Check Wheels Position
+**Check Wheels Position**
 
 The `get_wheels_position` function returns the current angle of the wheels.
 
@@ -535,7 +484,7 @@ left_angle, right_angle = alvik.get_wheels_position(unit='deg')
 print(f"Left Wheel Angle: {left_angle} degrees, Right Wheel Angle: {right_angle} degrees")
 ```
 
-#### Check Velocity
+**Check Velocity**
 
 The `get_drive_speed` function returns the linear and angular velocity of the robot.
 
@@ -553,7 +502,7 @@ linear_velocity, angular_velocity = alvik.get_drive_speed(linear_unit='cm/s', an
 print(f"Linear Velocity: {linear_velocity} cm/s, Angular Velocity: {angular_velocity} deg/s")
 ```
 
-#### Check Pose
+**Check Pose**
 
 The `get_pose` function returns the current pose of the robot.
 
@@ -579,63 +528,63 @@ These functions allow for precise control and monitoring of the Alvik robot's mo
 
 The Arduino Alvik robot is equipped with several touch buttons that can be used for various input purposes. The following functions are available to read the state of each button:
 
-1. Detect **any** button pressed.
+- Detect **any** button pressed.
 
    The `[get_touch_any](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_any)` function returns true if any of the buttons is pressed.
 
    **Outputs:**
-   - `touch_any`: true if any button is pressed, false otherwise.
+    `touch_any`: true if any button is pressed, false otherwise.
 
-2. Detect the **OK** button pressed.
+- Detect the **OK** button pressed.
 
    The `[get_touch_ok](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_ok)` function returns true if the OK button is pressed.
 
    **Outputs:**
-   - `touch_ok`: true if OK button is pressed, false otherwise.
+    `touch_ok`: true if OK button is pressed, false otherwise.
 
-3. Detect the **Cancel** button pressed.
+- Detect the **Cancel** button pressed.
 
    The `[get_touch_cancel](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_cancel)` function returns true if the Cancel button is pressed.
 
    **Outputs:**
-   - `touch_cancel`: true if Cancel button is pressed, false otherwise.
+    `touch_cancel`: true if Cancel button is pressed, false otherwise.
 
-4. Detect the **Center** button pressed.
+- Detect the **Center** button pressed.
 
    The `[get_touch_center](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_center)` function returns true if the Center button is pressed.
 
    **Outputs:**
-   - `touch_center`: true if Center button is pressed, false otherwise.
+    `touch_center`: true if Center button is pressed, false otherwise.
 
-5. Detect the **Up** button pressed.
+- Detect the **Up** button pressed.
 
    The `[get_touch_up](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_up)` function returns true if the Up button is pressed.
 
    **Outputs:**
-   - `touch_up`: true if Up button is pressed, false otherwise.
+    `touch_up`: true if Up button is pressed, false otherwise.
 
-6. Detect the **Left** button pressed.
+- Detect the **Left** button pressed.
 
    The `[get_touch_left](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_left)` function returns true if the Left button is pressed.
 
    **Outputs:**
-   - `touch_left`: true if Left button is pressed, false otherwise.
+    `touch_left`: true if Left button is pressed, false otherwise.
 
-7. Detect the **Down** button pressed.
+- Detect the **Down** button pressed.
 
    The `[get_touch_down](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_down)` function returns true if the Down button is pressed.
 
    **Outputs:**
-   - `touch_down`: true if Down button is pressed, false otherwise.
+    `touch_down`: true if Down button is pressed, false otherwise.
 
-8. Detect the **Right** button pressed.
+- Detect the **Right** button pressed.
 
    The `[get_touch_right](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_touch_right)` function returns true if the Right button is pressed.
 
    **Outputs:**
-   - `touch_right`: true if Right button is pressed, false otherwise.
+    `touch_right`: true if Right button is pressed, false otherwise.
 
-#### Example Usage
+**Example**
 
 The following example demonstrates how to read the state of each button and print its name when pressed:
 
@@ -680,13 +629,11 @@ Feel free to expand to it by adding customized responses to each different press
 
 These sensors provide detailed readouts from multiple positions around the robot, including **left**, **center-left**, **center, center-right**, **right**, **top**, and **bottom**. Unlike single-point sensors, these distance sensors offer comprehensive zone-based information.
 
-![ToF Sensor top-view](image.png)
+![ToF Sensor top-view](assets/image.png)
 
 The distance sensor array is divided into five distinct zones: left, center-left, center, center-right, and right. Each zone measures distances and is capable of detecting objects up to three meters away. It's important to note that while the sensors can detect objects at greater distances, the reliability of the readings may decrease.
 
-#### Function
-
-Read **distance**
+**Read distance**
 
 The `get_distance` function returns the distance readouts from the left, center-left, center, center-right, and right sensors.
 
@@ -697,7 +644,7 @@ The `get_distance` function returns the distance readouts from the left, center-
 - `CR`: Center-right sensor readout.
 - `R`: Right sensor readout.
 
-#### Example Usage
+**Example Usage**
 
 Here is an example of how to use the distance sensors to get distance measurements:
 
@@ -727,9 +674,7 @@ In this example, the robot uses its distance sensors to measure distances in its
 
 ### Following a Line
 
-#### Function
-
-**get_line_sensors**
+**Read line sensor**
 
 The `get_line_sensors` function returns the line follower sensors' readouts, providing the status of the left, center, and right sensors.
 
@@ -738,7 +683,7 @@ The `get_line_sensors` function returns the line follower sensors' readouts, pro
 - `center`: Center sensor readout.
 - `right`: Right sensor readout.
 
-#### Example Usage
+**Example Usage**
 
 Here is an example of how to use the line follower sensors to make the robot follow a line:
 
@@ -809,13 +754,11 @@ except KeyboardInterrupt as e:
 
 In this example, the robot uses its line follower sensor array to navigate along a line. The `calcu2late_center` function determines the center of the line's position, and the robot adjusts its wheel speeds to stay on the line based on the calculated error from this center.
 
-TODO: Content for this section
-
 ### Sensing Colors
 
-#### Functions
+**Available features**
 
-1. **Calibrates** the sensor for a specific background
+1. **Calibrate** the sensor for a specific background
 
    The `color_calibration` function is used to calibrate the color sensor for accurate color detection. Calibration can be done against a white or black background.
 
@@ -824,7 +767,7 @@ TODO: Content for this section
    ```
 
    **Inputs:**
-   - `background`: A string specifying the background color for calibration. Can be "white" or "black".
+    `background`: A string specifying the background color for calibration. Can be "white" or "black".
 
 2. Gets the **raw** sensor value
 
@@ -835,7 +778,7 @@ TODO: Content for this section
    ```
 
    **Outputs:**
-   - `color`: The color sensor's raw readout.
+ `color`: The color sensor's raw readout.
 
 3. Gets the **labelled** sensor value
 
@@ -906,12 +849,12 @@ TODO: Content for this section
    ```
 
    **Inputs:**
-   - `color_format`: The format of the color readout. Can be "rgb" or "hsv".
+    `color_format`: The format of the color readout. Can be "rgb" or "hsv".
 
    **Outputs:**
-   - `r` or `h`: The red component in RGB format or the hue in HSV format.
-   - `g` or `s`: The green component in RGB format or the saturation in HSV format.
-   - `b` or `v`: The blue component in RGB format or the value in HSV format.
+    `r` or `h`: The red component in RGB format or the hue in HSV format.
+    `g` or `s`: The green component in RGB format or the saturation in HSV format.
+    `b` or `v`: The blue component in RGB format or the value in HSV format.
 
 You can use these functions depending on your needs:
 
@@ -921,54 +864,52 @@ You can use these functions depending on your needs:
 - Use `get_color` to get normalized color data in RGB or HSV format.
 - Use `hsv2label` to convert HSV values to a color label.
 
-TODO: Content for this section
-
 ### Detecting Falling and Crashes (IMU)
 
 The `get_imu` function from the [Alvik API](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_imu) returns all the IMU's readouts. The readouts include acceleration (ax, ay, az) and angular acceleration (gx, gy, gz) on the x, y, and z axes.
 
-#### Functions
+**Available Functions**
 
 1. Retrieves IMU's orientation values like **roll**, **pitch** and **yaw**
 
    The [`get_orientation()`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_orientation) function returns the orientation of the IMU, including roll, pitch, and yaw values. This can be useful for determining the robot's orientation in 3D space.
 
-   **Outputs:**
-   - **r**: roll value
-   - **p**: pitch value
-   - **y**: yaw value
+    **Outputs:**
+    **r**: roll value
+ **p**: pitch value
+ **y**: yaw value
 
-2. Retrieves 3-axial acceleration values
+1. Retrieves 3-axial acceleration values
 
    The [`get_accelerations()`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_accelerations) function returns the 3-axial acceleration of the IMU. This provides the acceleration values along the x, y, and z axes.
 
    **Outputs:**
-   - **ax**: acceleration on x
-   - **ay**: acceleration on y
-   - **az**: acceleration on z
+    **ax**: acceleration on x
+     **ay**: acceleration on y
+  **az**: acceleration on z
 
-3. Retrieves 3-axial angular acceleration values
+1. Retrieves 3-axial angular acceleration values
 
    The [`get_gyros()`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_gyros) function returns the 3-axial angular acceleration of the IMU. This provides the angular acceleration values along the x, y, and z axes.
 
    **Outputs:**
-   - **gx**: angular acceleration on x
-   - **gy**: angular acceleration on y
-   - **gz**: angular acceleration on z
+    **gx**: angular acceleration on x
+    **gy**: angular acceleration on y
+    **gz**: angular acceleration on z
 
-4. Retrieves all IMU readouts including acceleration and angular acceleration
+2. Retrieves all IMU readouts including acceleration and angular acceleration
 
    The [`get_imu()`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_imu) function returns all the IMU's readouts, including both the acceleration and angular acceleration values.
 
    **Outputs:**
-   - **ax**: acceleration on x
-   - **ay**: acceleration on y
-   - **az**: acceleration on z
-   - **gx**: angular acceleration on x
-   - **gy**: angular acceleration on y
-   - **gz**: angular acceleration on z
+    **ax**: acceleration on x
+    **ay**: acceleration on y
+    **az**: acceleration on z
+    **gx**: angular acceleration on x
+    **gy**: angular acceleration on y
+    **gz**: angular acceleration on z
 
-#### Example Usage
+**Example**
 
 Here is a combined example that utilizes all IMU functions:
 
@@ -1071,11 +1012,11 @@ The Arduino Alvik robot comes equipped with two RGB LEDs that can be controlled 
    The `set_color` function sets the color of the LED by specifying the intensity of red, green, and blue components.
 
    **Inputs:**
-   - `red`: Intensity of the red component (0 or 1)
-   - `green`: Intensity of the green component (0 or 1)
-   - `blue`: Intensity of the blue component (0 or 1)
+    `red`: Intensity of the red component (0 or 1)
+    `green`: Intensity of the green component (0 or 1)
+    `blue`: Intensity of the blue component (0 or 1)
 
-#### Example
+**Example**
 
 Here's an example sketch that cycles through different colors on both LEDs:
 
@@ -1125,7 +1066,7 @@ The provided code will:
 3. Connect to the robot's IP address (printed on the console) using a web browser.
 4. Use the web interface to control the robot's movement.
 
-#### Connecting to Wi-Fi
+**Connecting to Wi-Fi**
 
 The following code connects the ESP32 to a specified Wi-Fi network using the provided SSID and password.
 
@@ -1153,7 +1094,7 @@ print("Connected to WiFi. IP address:", sta_if.ifconfig()[0])
 
 Replace `Insert_SSID_Here` and `Password_Here` with your Wi-Fi network's SSID and password to enable the ESP32 to connect to your Wi-Fi.
 
-#### Initializing the Robot
+**Initializing the Robot**
 
 The following code initializes the Alvik robot and gives it time to set up.
 
@@ -1164,7 +1105,7 @@ alvik.begin()
 sleep_ms(5000)
 ```
 
-#### Setting Up the Web Server
+**Setting Up the Web Server**
 
 The following code defines the HTML for the web interface. Feel free to customize this to your taste.
 
@@ -1207,7 +1148,7 @@ s.listen(5)
 print('Listening on', addr)
 ```
 
-#### Handling HTTP Requests
+**Handling HTTP Requests**
 
 The following code handles incoming HTTP requests and moves the robot in the specified direction. Note that the robot will continue the action until the break is pressed.
 
@@ -1235,7 +1176,7 @@ def handle_request(conn):
     conn.close()
 ```
 
-#### Main Loop
+**Main Loop**
 
 The following code runs the main loop to handle incoming connections and process HTTP requests.
 
@@ -1258,7 +1199,7 @@ This section ensures the server keeps running, accepting incoming connections, a
 
 The ESP32 on the Arduino Alvik robot also supports ESP-NOW, a fast, connectionless communication protocol that enables direct, quick, and low-power control of smart devices without the need for a router. ESP-NOW can work alongside Wi-Fi and Bluetooth LE, making it versatile for various applications. It supports the ESP8266, ESP32, ESP32-S, and ESP32-C series. In this example, we'll set up the Alvik robot to receive commands via ESP-NOW.
 
-#### Device Identification
+**Device Identification**
 
 It is important for ESP-NOW to ensure that youknow the MAC address for your device.
 
@@ -1293,7 +1234,7 @@ The provided code will:
 
 ### Code
 
-#### Setting Up ESP-NOW on the Receiver
+**Setting Up ESP-NOW on the Receiver**
 
 The following code initializes ESP-NOW on the receiver and sets up a callback function to handle incoming messages.
 
@@ -1366,7 +1307,7 @@ esp = espnow.ESPNow()
 esp.active(True)
 
 # Define the peer's MAC address
-peer_mac = b'\x74\x4d\xbd\x7e\x3e\x74'  # MAC address of the receiver Alvik
+peer_mac = b'\x74\x4d\xbd\x00\x00\x00'  # MAC address of the receiver Alvik
 
 # Try to add the peer, and handle the error if the peer already exists
 try:
@@ -1437,6 +1378,53 @@ while True:
 By following these steps, you'll be able to control your Arduino Alvik robot remotely using ESP-NOW, a fast and efficient communication protocol.
 Feel free to tinker with this feature to add new and interesting interactions.
 
+## Maintenance
+
+### Check Wheels Alignment
+
+The motion calculations performed by Alvik are based on the precise position of both wheels. You can check this position and correct it in case you think your robot is not moving as expected:
+
+1. Place your Alvik on a side on a flat surface
+2. Check that the exterior part of the wheel is in contact with the flat surface and aligned with the plastic chassis
+3. Repeat with the other wheel
+
+![Check wheel alignment](assets/wheels_alignment.png)
+
+### Calibrate Color Sensors
+
+To calibrate the color sensor, placed in the bottom PCB under the Nano ESP32, you'll need a white surface and a black surface. Follow these steps:
+
+1. Open the Arduino Lab for MicroPython
+2. Connect Alvik
+3. Open the REPL terminal (just click on the Terminal Icon on top)
+
+Now you're ready to send commands directly to Alvik. Every time you click enter the command will be executed in real time.
+
+```bash
+ from arduino_alvik import ArduinoAl
+
+ alvik = ArduinoAlvi
+
+ alvik.begin()
+```
+
+Now place your robot on the white surface and type:
+
+```bash
+alvik.color_calibration('white')
+```
+
+Now place your robot on the black surface and type:
+
+```bash
+alvik.color_calibration('black')
+```
+
+Press reset on Lab for MicroPython.
+
+You can now test using read_color_sensor.py in the examples folder. Refer to the [test chapter](#test) if you have any problems.
+
+***Colors are tested on paper painted using acrylic marker pens, such as UNIPOSCA, or paper printed with an inkjet printer.***
 
 ## Expanding the Robot
 
@@ -1449,7 +1437,7 @@ Alvik includes several connectors that expand its capabilities:
 - **Servomotor Connectors**
 - **Lego Technic Compatibility**
 
-![Connector positions](connectorsExpantion.png)
+![Connector positions](assets/connectorsExpantion.png)
 
 ### Qwiic Connectors
 
@@ -1474,7 +1462,7 @@ Alvik's body includes compatibility with Lego Technic pieces for physical expans
 
 ***When adding extensions to the robot, never use screws longer than 10 mm or the device could be damaged.***
 
-![Threads for custom extensions](screwThreads.png)
+![Threads for custom extensions](assets/screwThreads.png)
 
 ### Add LEGO® Addons
 
@@ -1585,7 +1573,7 @@ print()
 
 ### Add Qwiic
 
-The Qwiic connectors are placed at the back of Alvik, for this example we'll be using the Qwiic OLED display from SparkFun. You can take a look at the pinout image in the [pinout](#connectors) chapter.
+The Qwiic connectors are placed at the back of Alvik, for this example we'll be using the Qwiic OLED display from SparkFun. You can take a look at the pinout image in the [pinout](#3.2.7-connectors) chapter](#connectors).
 
 ![Qwiic OLED display](assets/qwiic_oled.png)
 
@@ -1617,6 +1605,7 @@ Depending on how you configure Python on your machine.
 
 Run the following line to upload all files and download the dependencies needed to run the Arduino Alvik MicroPython library.
 
+
 Linux
 ```
 $ ./install_oled_lib.sh -p <device port>
@@ -1629,8 +1618,8 @@ Windows
 The `<device port>` is the name of the USB port that your computer assigned to the Nano ESP32. There are several ways to find it, depending on your Operating System, for example:
 
 - You can use the Arduino IDE to know the port by [following this guide](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE).
-- You can look it using the Arduino Lab for MicroPython by clicking `Connect` after connecting the Alvik with the USB cable.
-- You can look at the list of the USB devices attached to the PC.
+- You can look it using the Arduino Lab for MicroPython by clicking `Connect` after have connected the Alvik with the USB cable.
+- You can look at the list of the USB devices attached to the PC
 
 6. Test `Hello World!`
 
