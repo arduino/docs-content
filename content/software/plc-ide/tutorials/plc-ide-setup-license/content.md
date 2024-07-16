@@ -65,6 +65,8 @@ The software requires **Windows 10** or a newer operating system version for the
 
 The Arduino PLC IDE installer contains the IDE and all the required drivers, libraries, and cores. The continuing sections will help you install the Arduino PLC IDE software properly.
 
+***Before installing the Arduino PLC IDE 1.0.6, remove both the PLC IDE 1.0.3 and PLC IDE Tools 1.0.3 from Windows using the "Add or remove programs" tool. Also, remove the folder "T" found on the directory (C:\Users\<your username>\AppData\Local\T).***
+
 ### 1. Arduino PLC IDE Setup
 
 When you download the Arduino PLC IDE installer, the file naming scheme is as follows:
