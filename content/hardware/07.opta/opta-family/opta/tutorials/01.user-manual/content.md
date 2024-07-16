@@ -1726,6 +1726,8 @@ Once installed, you will have access to a variety of sketch examples showcasing 
 
 With the library properly installed, we will update the expansion firmware to ensure proper functioning and seamless detection.
 
+![Powering the Opta Expansions](assets/power-expansion.png)
+
 ***The expansions must be externally powered to be operated and detected by the Opta™ controller for the firmware update and normal operation. The Aux port does not provide power to the expansion.***
 
 In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > updateExpansionFw**.
