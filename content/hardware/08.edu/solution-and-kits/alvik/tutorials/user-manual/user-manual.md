@@ -4,7 +4,7 @@ difficulty: beginner
 description: "Discover how to use and program Arduino® Alvik's robot"
 tags:
   - Robot
-author: "Paolo Cavagnolo Pedro Miguel"
+author: "Paolo Cavagnolo, Pedro Miguel"
 ---
 
 ## Introduction
