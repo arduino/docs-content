@@ -35,7 +35,9 @@ In this tutorial, we will learn how to partition the memory of an Opta™ device
 ### Hardware Requirements
 
 - [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
+- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
 - USB-C® cable (x1)
+- [Micro USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 
 ### Software Requirements
 
@@ -62,7 +64,9 @@ Now we are ready to start compiling and uploading Arduino sketches to an Opta™
 
 ### Partitioning Memory of an Opta™ Device
 
-The sketch below will guide us through partitioning the memory of an Opta™ device. The complete sketch and the certificates file can be downloaded [here](assets/opta_memory_partitioning.zip). **Remember to store both files in the same folder**.
+The sketch below will guide us through partitioning the memory of an Opta™ device.
+
+***The complete sketch and the certificates file can be downloaded [__here__](assets/opta_memory_partitioning.zip). __ Please remember to store both files in the same folder__.***
 
 
 ```arduino
