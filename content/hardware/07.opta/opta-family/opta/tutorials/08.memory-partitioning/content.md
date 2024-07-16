@@ -1,10 +1,11 @@
 ---
-title: 'Opta™ Memory Partitioning for Use with the Arduino IDE'
-description: "Learn how to partition the memory of an Opta™ device to be used with the Arduino® ecosystem tools."
+title: 'Memory Partitioning for Use with the Arduino IDE'
+description: "Learn how to partition the memory of an Opta™ or a Portenta Machine Control to be used with the Arduino® ecosystem tools."
 
 difficulty: beginner 
 tags:
   - Opta
+  - PMC
   - Memory partitioning
   - Arduino IDE
 author: 'José Bagur and Taddy Chung'
@@ -12,6 +13,7 @@ software:
   - ide-v1
   - ide-v2
 hardware:
+  - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
   - hardware/07.opta/opta-family/opta
 ---
 
@@ -42,7 +44,7 @@ In this tutorial, we will learn how to partition the memory of an Opta™ device
 ### Software Requirements
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
-- [The memory partitioning sketch and the certificates file](assets/opta_memory_partitioning.zip)
+- [The memory partitioning sketch and the certificates file](assets/memory_partitioning.zip)
 
 ## Memory Partitioning
 
@@ -60,25 +62,16 @@ This tutorial requires the latest version of the Arduino IDE; we can download it
 
 Now we are ready to start compiling and uploading Arduino sketches to an Opta™ device using the Arduino IDE. 
 
-***Memory partitioning of an Opta™ should be done using the latest core and libraries to ensure the system is up-to-date with the intended default configuration.***
+***Memory partitioning of an Opta™ or a Portenta Machine Control should be done using the latest core and libraries to ensure the system is up-to-date with the intended default configuration.***
 
 ### Partitioning Memory of an Opta™ Device
 
 The sketch below will guide us through partitioning the memory of an Opta™ device.
 
-***The complete sketch and the certificates file can be downloaded [__here__](assets/opta_memory_partitioning.zip). __ Please remember to store both files in the same folder__.***
+***The complete sketch and the certificates file can be downloaded [__here__](assets/memory_partitioning.zip). __ Please remember to store both files in the same folder__.***
 
 
 ```arduino
-/**
-  Opta memory partitioning
-  Name: opta_memory_partitioning.ino
-  Purpose: Partition the memory of an Opta device
-
-  @author Arduino PRO team
-  @version 1.0 04/04/22
-*/
-
 // Include necessary libraries for working
 #include <BlockDevice.h>
 #include <FATFileSystem.h>
@@ -356,6 +349,6 @@ If everything is correct, you should see a success message in the Serial Monitor
 
 ## Conclusion
 
-In this tutorial, we successfully partitioned the memory of an Opta™ device, enabling its full range of functionalities to be programmed using Arduino ecosystem tools such as the Arduino IDE and the Arduino programming language. We walked through initializing and erasing the QSPI Flash memory, partitioning and formatting the memory, and writing the Wi-Fi firmware and certificate data onto the device's memory. 
+In this tutorial, we successfully partitioned the memory of an Opta™ or a Portenta Machine Control, enabling its full range of functionalities to be programmed using Arduino ecosystem tools such as the Arduino IDE and the Arduino programming language. We walked through initializing and erasing the QSPI Flash memory, partitioning and formatting the memory, and writing the Wi-Fi firmware and certificate data onto the device's memory. 
 
 As you move forward, you can explore the extensive Arduino ecosystem, leverage various libraries and hardware add-ons, and create powerful, connected, and secure industrial solutions using the Opta™. Check out our [Opta™ User Manual](/tutorials/opta/user-manual) to learn more about its hardware and software features.
