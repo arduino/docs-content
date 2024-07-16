@@ -16,7 +16,11 @@ Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through
 
 In this tutorial, you will find useful information to get started, test, and maintain Alvik.
 
-## Alvik Overview
+## What Is Alvik
+
+Alvik is a robot with two controllers and a wide range of sensors and actuators. The main controller is the Arduino Nano ESP32 attached to the top of the robot while there is an STM32 controller integrated into the robot that takes care of the low-level commands such as reading the sensors and moving the motors. It has been designed for STEAM education, making it an ideal tool for learning programming, Robotics, IoT, Artificial Intelligence...
+
+### Alvik Overview
 
 ![Alvik exploded view](assets/main-components.png)
 
@@ -24,33 +28,9 @@ In this tutorial, you will find useful information to get started, test, and mai
 
 ### Main Components
 
-Alvik is a robot with two controllers and tons of useful sensors and actuators. The main controller is the Arduino Nano ESP32 attached at the top of the robot while there is an STM32 controller integrated into the robot that takes care of the low-level commands like reading the sensors and moving the motors.
-
 ![Alvik top components](assets/up-components.png)
 
 ![Alvik bottom components](assets/down-components.png)
-
-## Move Your Robot!
-
-To get started to play with Alvik you will need the following hardware and software:
-
-### Hardware Requirements
-
-- Alvik (x1)
-- USB-C® to USB-C® cable (x1)
-- Phillips® Screwdriver (cross head) (x1)
-- Computer (x1)
-
-***Make sure the USB-C® cable you are using works with data lines, not only power lines***
-
-### Software Requirements
-
-- Operating Systems: Linux, macOS and Windows
-- [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
-
-## What Is Alvik
-
-Arduino® Alvik is a robot with two controllers and numerous useful sensors and actuators. It is designed for STEAM education, making it an ideal tool for learning programming, Robotics, IoT, and Artificial Intelligence.
 
 ## The Brain
 The brain of the Alvik robot is the Nano ESP32, which is the central component we program to run the logic and make decisions. It is extremely important because it processes all the high-level commands and controls the overall operation of the robot. However, instead of directly moving the motors or reading sensors, it communicates with the STM32 (the body) to execute these actions. The Nano ESP32 gives orders to the STM32 to move, read sensors, or report status, allowing the robot to make informed (or better yet, as informed as we program it) decisions and run tasks and routines using this information.
@@ -794,7 +774,7 @@ In this example, the robot uses its line follower sensor array to navigate along
    detected_colors = set()
 
    print("Starting to move and detect colors...")
-
+  
    try:
        while len(detected_colors) < 3:
            alvik.set_wheels_speed(20, 20)
@@ -866,7 +846,7 @@ The `get_imu` function from the [Alvik API](https://docs.arduino.cc/tutorials/al
    **Outputs:**
     **ax**: acceleration on x
      **ay**: acceleration on y
-  **az**: acceleration on z
+    **az**: acceleration on z
 
 1. Retrieves 3-axial angular acceleration values
 
