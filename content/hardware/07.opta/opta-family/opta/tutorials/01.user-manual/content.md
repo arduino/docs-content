@@ -1726,6 +1726,8 @@ Once installed, you will have access to a variety of sketch examples showcasing 
 
 With the library properly installed, we will update the expansion firmware to ensure proper functioning and seamless detection.
 
+***The expansions must be externally powered to be operated and detected by the Opta™ controller for the firmware update and normal operation. The Aux port does not provide power to the expansion.***
+
 In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > updateExpansionFw**.
 
 ![Firmware update example](assets/fw-update.png)
@@ -2427,13 +2429,13 @@ You can buy and find more information about the Opta™ Digital Expansions on th
 
 ### Opta Analog Expansions
 
-Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or actuators. In addition, 4 dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
+Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or analog actuators. In addition, it has 4 dedicated PWM outputs. It allows professionals to scale up industrial and building automation projects, diversifying the type of signals managed, while taking advantage of the Arduino ecosystem.
 
 The Opta Expansions can be controlled by any Opta controller variant: [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485) or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi).
 
 ![Opta Analog Expansion](assets/variant-analog.png)
 
-***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step.***
+***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step procedure.***
 
 #### Powering Expansions
 
@@ -2454,7 +2456,7 @@ In the image below there is an example of the power wiring of the expansions:
 
 #### Programmable Inputs
 
-The Opta™ Analog Expansions have **eight digital/analog programmable inputs** accessible through terminals `I1` to `I6` and `O1` to `O2`.
+The Opta™ Analog Expansion has 8 analog channels, identified with a letter, `I` or `O`, between the two connection terminals: `+` for signal and `-` as GND, common to the other `-` terminals on the board. 
 Each input can be used as:
 
 |            **Mode**            | **Specification** |
@@ -2464,11 +2466,10 @@ Each input can be used as:
 |      Analog input current      |     0...25 mA     |
 | Analog temperature input (RTD) |     0...1 MΩ      |
 
-***All available channels of the analog expansion can be used as input, including `O1` and `O2`, so there are 8 accessible inputs.***
+***All the analog channels of the analog expansion can be used as input, including `O1` and `O2`, so a total of 8 analog inputs is available to the users.***
 
 ![Opta Analog Expansions Inputs](assets/inputs-analog.png)
 
-***The inputs are marked on plastic as 0-10V/4-20mA/PT100 to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V or 4-20 mA range.***
 
 |       **Characteristics**       |                      **Details**                      |
 |:-------------------------------:|:-----------------------------------------------------:|
@@ -2510,6 +2511,7 @@ The Analog Expansion input channels can be configured as digital inputs to read 
 
 |       **Characteristics**       |                **Details**                |
 |:-------------------------------:|:-----------------------------------------:|
+|            Channels             |      I1, I2, I3, I4, O1, I5, I6, O2       |
 |      Digital input voltage      |                 0...24 V                  |
 |     Configurable threshold      | Yes (for supporting 0...10 V logic level) |
 |      Digital input current      |     4.12 mA at 24V \| 2.05 mA at 10V      |
@@ -2663,6 +2665,7 @@ The Analog Expansion input channels can be configured for 0-10 V analog sensors.
 
 |       **Characteristics**       |                      **Details**                       |
 |:-------------------------------:|:------------------------------------------------------:|
+|            Channels             |             I1, I2, I3, I4, O1, I5, I6, O2             |
 |      Analog input voltage       |                        0...10 V                        |
 |     Analog Input resolution     |                        16 bits                         |
 |     Analog input LSB value      |                       152.59 uV                        |
@@ -2857,6 +2860,7 @@ The Analog Expansion input channels can be configured for current loop instrumen
 
 |            **Characteristics**            |                 **Details**                 |
 |:-----------------------------------------:|:-------------------------------------------:|
+|                 Channels                  |       I1, I2, I3, I4, O1, I5, I6, O2        |
 |           Analog input current            |                  0...25 mA                  |
 |          Analog input LSB value           |                  381.5 nA                   |
 | Short circuit current limit (per channel) | Min: 25 mA, Max 35 mA (externally powered). |
@@ -3181,11 +3185,13 @@ Setting DAC output to 11 V on expansion n. 0
 
 The Analog Expansion input channels can be used for temperature metering with **PT100** RTDs.
 
-|  **Characteristics**   | **Details** |
-|:----------------------:|:-----------:|
-|      Input range       |  0...1 MΩ   |
-|      Bias voltage      |    2.5 V    |
-| One input reading time |   ~600 µs   |
+|  **Characteristics**   |          **Details**           |
+|:----------------------:|:------------------------------:|
+|    3 wires channels    |             I1, I2             |
+|    2 wires channels    | I1, I2, I3, I4, O1, I5, I6, O2 |
+|      Input range       |            0...1 MΩ            |
+|      Bias voltage      |             2.5 V              |
+| One input reading time |            ~600 µs             |
 
 
 2 wires RTDs can be connected to any of the eight channels as follows:
@@ -3410,6 +3416,7 @@ This output mode lets you control voltage-driven actuators or communicate with o
 
 |             **Characteristics**              |                                                          **Details**                                                          |
 |:--------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------:|
+|                   Channels                   |                                                I1, I2, I3, I4, O1, I5, I6, O2                                                 |
 |            Analog output voltage             |                                                           0...11 V                                                            |
 |             Resistive load range             |                                                        500 Ω...100 kΩ                                                         |
 |           Maximum capacitive load            |                                                             2 μF                                                              |
@@ -3591,6 +3598,7 @@ This output mode lets you control current-driven actuators or communicate with o
 
 |            **Characteristics**             |                **Details**                |
 |:------------------------------------------:|:-----------------------------------------:|
+|                  Channels                  |      I1, I2, I3, I4, O1, I5, I6, O2       |
 |           Analog output current            |                 0...25 mA                 |
 | Maximum output voltage when sourcing 25 mA |               11.9 V ± 20%                |
 |            Open circuit voltage            |               16.9 V ± 20%                |
@@ -3767,12 +3775,15 @@ After the Opta™ controller is programmed with the example sketch, you can meas
 
 The Analog Expansion has four PWM output channels **(P1...P4)**. They are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage.
 
-| **V<sub>PWM</sub> Voltage** |      **Details**      |
-|:---------------------------:|:---------------------:|
-|  Source voltage supported   |      8...40 VDC       |
-|           Period            |     Programmable      |
-|         Duty-cycle          | Programmable (0-100%) |
-|   One output writing time   |        ~700 µs        |
+|  **V<sub>PWM</sub> Voltage**   |      **Details**      |
+|:------------------------------:|:---------------------:|
+|            Channels            |    P1, P2, P3, P4     |
+|    Source voltage supported    |   8...24 VDC + 20%    |
+|             Period             |     Programmable      |
+|           Duty-cycle           | Programmable (0-100%) |
+| Max current draw (per channel) |        100 mA         |
+|         Max frequency          |         10kHz         |
+|    One output writing time     |        ~700 µs        |
 
 
 ![Wiring to use the PWM outputs](assets/pwm-setup.png)
