@@ -2346,7 +2346,7 @@ This section explains using AT commands to interact with the Cat.4 modem. These 
 
 #### Using Linux
 
-This subsection provides instructions on using **ModemManager** and **mmcli** to send AT commands to your Cat.4 modem on the Portenta X8.
+This subsection provides instructions on using **ModemManager** and **mmcli** to send AT commands to your Cat.4 modem with the Portenta X8.
 
 Ensure that the Pro 4G Module is properly mounted on the Portenta Mid Carrier and that the Portenta X8 recognizes it. You can verify the connection using the following command:
 
