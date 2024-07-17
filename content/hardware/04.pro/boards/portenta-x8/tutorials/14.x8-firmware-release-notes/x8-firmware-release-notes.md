@@ -26,6 +26,7 @@ Compatible carriers with the supported device:
 - [Portenta Mid Carrier](https://store.arduino.cc/products/portenta-mid-carrier)
 
 # Firmware Versions
+
 The following section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
 
 ## Latest Firmware Version: __861 (Release arduino-91.2)__
