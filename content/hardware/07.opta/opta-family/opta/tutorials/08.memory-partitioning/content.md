@@ -349,7 +349,7 @@ The sketch shown above performs four main tasks:
 
 4. **Display progress in the Arduino IDE Serial Monitor**: The sketch provides a visual indication of the progress of the flashing process using one of the built-in LEDs of the Opta™ device and displays messages through the Arduino IDE Serial Monitor to inform the user about the current status of the flashing process.
 
-To upload the code, click the **Verify** button to compile the sketch and check for errors, then click the **Upload** button to program the device with the sketch.
+To upload the code, click the **Verify** button to compile the sketch and check for errors. Then, click the **Upload** button to program the device with the sketch. If two COM ports are available, which might happen after using the PLC IDE to program the device, select the COM port with the lower number.
 
 ![Uploading a sketch to the Opta™ the Arduino IDE](assets/arduino-ide-2.png)
 
