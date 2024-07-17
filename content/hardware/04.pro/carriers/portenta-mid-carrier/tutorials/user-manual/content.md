@@ -2354,7 +2354,7 @@ Ensure that the Pro 4G Module is properly mounted on the Portenta Mid Carrier an
 lsusb
 ```
 
-***Please set up the Pro 4G Module referring to [this section](#using-linux-4). Otherwise, the __ModemManager__ service may not work as intended or be recognized.***
+***Please set up the Pro 4G Module referring to [this section](#using-linux-4). Otherwise, the __ModemManager__ service may not be recognized or working as intended.***
 
 First identify the modem with:
 
