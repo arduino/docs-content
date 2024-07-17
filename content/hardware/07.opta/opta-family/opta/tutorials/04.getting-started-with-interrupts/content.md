@@ -70,7 +70,7 @@ Now that you have a better knowledge about interrupts, let's see how to use inte
 
 - Add the `attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)`  instruction in your sketch's `setup()` function. Notice that the `pin` parameter can be `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, or `BTN_USER`; the `ISR` parameter is the ISR function to call when the interrupt occurs, and the `mode` parameter defines when the interrupt should be triggered (`LOW`, `CHANGE`, `RISING`, or `FALLING`). 
 
-***Due to Opta's microcontroller interrupt structure, terminals `I1` (`A0`) and `I4` (`A4`) interrupts cannot be used simultaneously to avoid operational issues. It is important to note that, despite this limitation, any other combination of inputs can be used for interrupt detection. However, this means that, at most, seven of the eight available inputs can be used simultaneously for interrupts, as combinations containing `I1` and `I4` are excluded from viable configurations.***
+***Due to Opta's microcontroller interrupt structure, terminals `I1` (`A0`) and `I4` (`A3`) interrupts cannot be used simultaneously to avoid operational issues. It is important to note that, despite this limitation, any other combination of inputs can be used for interrupt detection. However, this means that, at most, seven of the eight available inputs can be used simultaneously for interrupts, as combinations containing `I1` and `I4` are excluded from viable configurations.***
 
 ## Instructions
 
