@@ -1,7 +1,6 @@
 ---
 title: 'Memory Partitioning for Use with the Arduino IDE'
 description: "Learn how to partition the memory of an Opta™ or a Portenta Machine Control to be used with the Arduino® ecosystem tools."
-
 difficulty: beginner 
 tags:
   - Opta
@@ -19,7 +18,7 @@ hardware:
 
 ## Overview
 
-The Opta™ is a secure, easy-to-use micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IIoT) capabilities. The Portenta Machine Control is a centralized, energy-efficient industrial control unit capable of operating equipment and machinery. Both devices can be programmed with the [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide/), a tool that simplifies programming the device through any of the five programming languages defined by the IEC 61131-3 standard.
+The **Opta™** is a secure, easy-to-use micro Programmable Logic Controller (PLC) with Industrial Internet of Things (IIoT) capabilities. The **Portenta Machine Control** is a centralized, energy-efficient industrial control unit capable of operating equipment and machinery. Both devices can be programmed with the [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide/), a tool that simplifies programming the device through any of the five programming languages defined by the IEC 61131-3 standard.
 
 The Opta™ and the Portenta Machine Control can also be programmed with other tools from the Arduino ecosystem, such as the [Arduino IDE](https://www.arduino.cc/en/software) and the Arduino programming language. Suppose we are using Opta™ with the Arduino PLC IDE and want to start programming the device using the Arduino IDE and the rest of the Arduino ecosystem tools. In that case, we need to partition the device's memory to enable all available features. This applies to the Portenta Machine Control as well.
 
@@ -58,7 +57,7 @@ Now, we will guide the process of partitioning an Opta™'s memory to enable the
 
 ### Setting Up the Arduino IDE 
 
-This tutorial requires the latest version of the Arduino IDE, which can be downloaded [here](https://www.arduino.cc/en/software). In the Arduino IDE, you need to install the core for Opta™ devices. To do this, go to T**Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the **Boards Manager** tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` version.
+This tutorial requires the latest version of the Arduino IDE, which can be downloaded [here](https://www.arduino.cc/en/software). In the Arduino IDE, you need to install the core for Opta™ devices. To do this, go to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the **Boards Manager** tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` version.
 
 ![Installing the Opta™ core in the Arduino IDE bootloader](assets/arduino-ide-1.png)
 
