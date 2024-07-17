@@ -28,7 +28,7 @@ Compatible carriers with the supported device:
 # Firmware Versions
 The following section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
 
-## Latest Firmware Version: __861__
+## Latest Firmware Version: __861: Release arduino-91.2__
 
 The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of the integrated key new features, major bug fixes, and critical security patches to ensure the highest level of functionality and performance within the Portenta X8 system.
 
@@ -50,31 +50,22 @@ The listing herein offers a glimpse into the Portenta X8 firmware's continuous i
 - Fixed RS-485 `ttyX0` not working.
 - Fixed PCIe on kernel 6.1.
 
-## Available Firmware Versions
+***For more information on the Foundries Core related to our release, please refer to the [__LmP V93 Release Notes — FoundriesFactory 93 documentation__](https://docs.foundries.io/latest/release-notes/release-notes.html).***
 
-Below is a list of all available firmware versions with their release notes.
+## Older Firmware Versions
 
-### OS Image 861
+Below is a list of deprecated versions before **861: Release arduino-91.2**, along with their release notes highlighting distinctive updates. Updating to the latest version is recommended.
+
+### OS Image 846 - May 15th, 2024
 
 <details>
-  <summary><strong>OS Image 861: Release arduino-91.2</strong></summary>
+  <summary><strong>OS Image 846: Release arduino-91.1</strong></summary>
 
 #### Image Access
-  - Full image [download](https://downloads.arduino.cc/portentax8image/861.tar.gz)
-
-#### New Features
-  - Added support for Akida Brainchip PCIe module in NPU.
-  - Added support for Hailo 8R PCIe module in NPU.
-  - Support for new panel modules and touchscreen controllers **jadard-ek79202d** and **atmel-mxt-ts** in `MIPI-DSI`.
-
-#### Enhancements
-  - Increased CAN throughput, see details with **x8h7** tags.
-  - [x8h7] Changed low level protocol for **X8H7** to use a fixed packet size and hardware-assisted checksum.
-  - [x8h7] **X8H7** initialization now happens earlier, linked to `sysinit.target`.
+  - Full image [download](https://downloads.arduino.cc/portentax8image/846.tar.gz)
 
 #### Bug Fixes
-  - Fixed RS-485 `ttyX0` not working.
-  - Fixed PCIe on kernel 6.1.
+  - Fixed PU on UART3 (shell) pads in U-Boot.
 
 #### Additional Notes
   - Based on [LmP v91](https://foundries.io/products/releases/91/). It is based on the Yocto manifest. For docker-compose apps, check out [here](https://github.com/arduino/portenta-containers/tree/release).
@@ -82,7 +73,7 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-### OS Image 844
+### OS Image 844 - May 10th, 2024
 
 <details>
   <summary><strong>OS Image 844: Release arduino-91</strong></summary>
@@ -113,7 +104,7 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-### OS Image 822
+### OS Image 822 - April 8th, 2024
 
 <details>
   <summary><strong>OS Image 822: Release arduino-88.94</strong></summary>
@@ -143,7 +134,7 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-### OS Image 746
+### OS Image 746 - October 25th, 2023
 
 <details>
   <summary><strong>OS Image 746: Release arduino-88.91</strong></summary>
@@ -171,7 +162,7 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-### OS Image 719
+### OS Image 719 - September 27th, 2023
 <details>
   <summary><strong>OS Image 719: Release arduino-88.7</strong></summary>
 
