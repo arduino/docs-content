@@ -35,7 +35,7 @@ In this tutorial, you will learn how to securely connect an Opta™ device to AW
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [NTPClient library](https://github.com/arduino-libraries/NTPClient)
 - [Arduino_JSON library](https://github.com/arduino-libraries/Arduino_JSON)
 - [ArduinoECCX08 library](https://github.com/arduino-libraries/ArduinoECCX08)

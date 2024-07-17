@@ -20,7 +20,7 @@ source: "https://create.arduino.cc/projecthub/145678/lorawan-farming-with-mkr-wa
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [The Things Network](https://www.thethingsnetwork.org/)
 - [Node-RED](https://nodered.org/)
 - [OpenWeatherMap](https://openweathermap.org/)

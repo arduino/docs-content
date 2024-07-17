@@ -51,7 +51,7 @@ In this section you will learn how to set up your development environment as wel
   - [Arduino IDE 1.8.x](#arduino-ide-18x)
   - [Arduino IDE 2](#arduino-ide-2)
   - [Arduino Cloud](#arduino-iot-cloud)
-  - [Web Editor](#web-editor)
+  - [Cloud Editor](#web-editor)
   - [Library Manager](#library-manager)
   - [Arduino CLI](#arduino-cli)
 
@@ -377,7 +377,7 @@ Today, there are three Arduino IDEs available:
 
 - Arduino IDE 1.8.x (classic)
 - Arduino IDE 2 (new)
-- Arduino Web Editor (online)
+- Arduino Cloud Editor (online)
 
 ### A Typical Workflow
 
@@ -409,13 +409,13 @@ In 2021, the Arduino IDE 2 was released. The new IDE has the same functionality,
 
 ***Learn more by visiting the [Arduino IDE 2 documentation](/software/ide-v2).***
 
-### Web Editor
+### Cloud Editor
 
-![The Web Editor.](assets/web-editor.png)
+![The Cloud Editor.](assets/web-editor.png)
 
-The [Arduino Web Editor](https://create.arduino.cc/editor) is an online IDE, part of the Arduino Cloud suite. Similar in function, this editor is completely web based, with online storage among other features. To use the Web Editor, you will need to register an Arduino account.
+The [Arduino Cloud Editor](https://create.arduino.cc/editor) is an online IDE, part of the Arduino Cloud suite. Similar in function, this editor is completely web based, with online storage among other features. To use the Cloud Editor, you will need to register an Arduino account.
 
-***Learn more by visiting the [Web Editor documentation](/cloud/web-editor).***
+***Learn more by visiting the [Cloud Editor documentation](/cloud/web-editor).***
 
 ### Arduino Cloud
 

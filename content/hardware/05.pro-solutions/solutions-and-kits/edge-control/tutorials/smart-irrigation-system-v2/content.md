@@ -86,7 +86,7 @@ The goal of this application note is to showcase a LoRaWAN® farming irrigation 
 - Access to the water system, in case you do not have access to the water system and you want to use a water tank instead, please take also a look at the [Smart Farm Irrigation](https://docs.arduino.cc/tutorials/edge-control/smart-irrigation-system) application note to know more.
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor).
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor).
 - If you are going to use an offline Arduino IDE, you must install the following libraries: `Arduino_EdgeControl`, `RunningMedian`, `ArduinoIoTCloud`, `ArduinoJson` and `Arduino_ConnectionsHandler`. You can install them through the Arduino IDE Library Manager.
 - The [Irrigation System Arduino Sketches](assets/Edge-Control_MKR_Codes.zip).
 - [Arduino Create Agent](https://create.arduino.cc/getting-started/plugin/welcome) to provision the MKR WAN 1310 on the Arduino Cloud.

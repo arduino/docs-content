@@ -777,11 +777,11 @@ Upon positioning the _BTSEL_ switch to the _ON_ state, the Portenta X8 is config
 
 <p style="text-align: justify;">If you want to program your Portenta Hat Carrier offline, you'll need to install the Arduino Desktop IDE [1]. To connect your Portenta family board with the Portenta Hat Carrier to your computer, a USB-C® cable is required.</p>
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino devices work out-of-the-box with the Arduino Web Editor [2] after installing a straightforward plugin.
+All Arduino devices work out-of-the-box with the Arduino Cloud Editor [2] after installing a straightforward plugin.
 
-<p style="text-align: justify;">Being hosted online ensures that the Arduino Web Editor remains up-to-date, boasting the latest features and comprehensive support for all boards and devices. To begin coding in the browser and uploading your sketches to your device, follow the instructions here [3].</p>
+<p style="text-align: justify;">Being hosted online ensures that the Arduino Cloud Editor remains up-to-date, boasting the latest features and comprehensive support for all boards and devices. To begin coding in the browser and uploading your sketches to your device, follow the instructions here [3].</p>
 
 ### Getting Started - Arduino Cloud
 

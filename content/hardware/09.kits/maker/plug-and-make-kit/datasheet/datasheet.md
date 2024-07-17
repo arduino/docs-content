@@ -596,11 +596,11 @@ If you want to program your Arduino® Plug and Make Kit while offline you need t
 
 To learn more about how to use this kit and quickly build useful and interesting projects with it, please refer to the dedicated course available at **[2]** as well as the official documentation **[3]**.
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[4]**, by just installing a simple plugin.
+All Arduino® boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[4]**, by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[5]** to start coding on the browser and upload your sketches onto your board.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[5]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 

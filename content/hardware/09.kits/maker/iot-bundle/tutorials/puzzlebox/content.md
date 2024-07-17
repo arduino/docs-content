@@ -667,7 +667,7 @@ We will use the buzzer to play a melody when the box is opened. Connect the buzz
 
 ![Arduino IoT Bundle](assets/piezo_buzzer_part_rp2040_iaPHtGSH0X.png)
 
-Now, navigate into the Arduino Web Editor through **Thing > Sketch tab >  open full editor**. This will open up our automatically generated sketch in the full Arduino Web Editor. Next we need to add an extra tab containing all the necessary notes to play the song. Click the arrow on the right side to add a new tab called `"melody.h"` and add the code below.
+Now, navigate into the Arduino Cloud Editor through **Thing > Sketch tab >  open full editor**. This will open up our automatically generated sketch in the full Arduino Cloud Editor. Next we need to add an extra tab containing all the necessary notes to play the song. Click the arrow on the right side to add a new tab called `"melody.h"` and add the code below.
 
 ```
 #define NOTE_B0 31

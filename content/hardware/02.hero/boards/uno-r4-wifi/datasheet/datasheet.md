@@ -357,11 +357,11 @@ For powering e.g. servo motors, always use an external power supply.
 
 If you want to program your UNO R4 WiFi while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the UNO R4 WiFi to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -852,11 +852,11 @@ R7FA4M1AB3CFM#AA0微控制器上的GPIO可安全处理高达8mA的电流。切�
 
 如果您想在离线状态下对UNO R4 WiFi进行编程，则需要安装Arduino® Desktop IDE **[1]**。要将UNO R4 WiFi连接到计算机，您需要使用Type-C® USB电缆，该电缆还可为开发板供电，LED 指示灯 (DL1) 即可显示。
 
-### 入门 - Arduino Web Editor
+### 入门 - Arduino Cloud Editor
 
-只需安装一个简单的插件，包括本板在内的所有Arduino板都能在Arduino® Web Editor **[2]**上即插即用。
+只需安装一个简单的插件，包括本板在内的所有Arduino板都能在Arduino® Cloud Editor **[2]**上即插即用。
 
-Arduino Web Editor是在线托管的，因此它总是与最新的功能和对所有板的支持保持同步。按照 **[3]** 开始在浏览器上编码，并将草图上传到开发板上。
+Arduino Cloud Editor是在线托管的，因此它总是与最新的功能和对所有板的支持保持同步。按照 **[3]** 开始在浏览器上编码，并将草图上传到开发板上。
 
 ### 入门 - Arduino Cloud
 

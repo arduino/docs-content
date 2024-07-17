@@ -188,10 +188,10 @@ The expansion port can be used to daisy-chain several Opta® Expansions and addi
 ### Getting Started - IDE
 If you want to program your Arduino Opta® Digital Expansions while offline you need to install the Arduino® Desktop IDE **[1]** and the Arduino_Opta_Blueprint using the Library Manager. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
 
-### Getting Started - Arduino Web Editor
-All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor
+All Arduino® devices work out-of-the-box on the Arduino® Cloud Editor **[2]** by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino PLC IDE
 Arduino Opta® Digital Expansions can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software, attach the Opta® Expansion through the Aux Connector and connect your Arduino Opta® to your computer using a simple USB-C® cable to start creating your own PLC industrial solutions. The PLC IDE will recognize the expansion and will expose the new available I/Os in the resources tree.

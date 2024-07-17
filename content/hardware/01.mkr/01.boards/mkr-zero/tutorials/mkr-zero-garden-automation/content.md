@@ -64,7 +64,7 @@ Of course you can reach the same setup using a breadboard, floating wires, spare
 
 ## Programming the Board
 
-To use the MKRZERO board, there are 2 options. Either using the Arduino Web Editor or using the Arduino IDE. You can find more information on the Web Editor and IDE setup for the MKRZERO at [this link](https://docs.arduino.cc/hardware/mkr-zero).
+To use the MKRZERO board, there are 2 options. Either using the Arduino Cloud Editor or using the Arduino IDE. You can find more information on the Cloud Editor and IDE setup for the MKRZERO at [this link](https://docs.arduino.cc/hardware/mkr-zero).
 
 After connecting your Arduino to the usb port, be sure to have selected the right board and the right port.
 

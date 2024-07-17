@@ -33,7 +33,7 @@ The goals of this project are:
 ## Hardware & Software Needed
 
 * This project uses no external sensors or components.
-* In this tutorial we will use the [Arduino Web Editor](https://create.arduino.cc/editor) to program the board.
+* In this tutorial we will use the [Arduino Cloud Editor](https://create.arduino.cc/editor) to program the board.
 
 
 ## Bluetooth® Low Energy and Bluetooth®
@@ -64,15 +64,15 @@ If you want to read more about UUIDs, services, and characteristics, check the l
 **1. Setting up**
 
 
-Let's start by opening the [Arduino Web Editor](https://create.arduino.cc/editor), click on the **Libraries** tab and search for the **ArduinoBLE** library. Then in **> Examples > Peripheral**, open the **LED** sketch and once it opens, you could rename it as desired.
+Let's start by opening the [Arduino Cloud Editor](https://create.arduino.cc/editor), click on the **Libraries** tab and search for the **ArduinoBLE** library. Then in **> Examples > Peripheral**, open the **LED** sketch and once it opens, you could rename it as desired.
 
-![Finding the library in the Web Editor.](./assets/nano33BLE_04_library.png)
+![Finding the library in the Cloud Editor.](./assets/nano33BLE_04_library.png)
 
 
 **2. Connecting the board**
 
 
-Now, connect the Arduino Nano 33 BLE to the computer and make sure that the Web Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
+Now, connect the Arduino Nano 33 BLE to the computer and make sure that the Cloud Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
 
 
 ![Selecting the board.](assets/nano33BLE_04_board_port.png)

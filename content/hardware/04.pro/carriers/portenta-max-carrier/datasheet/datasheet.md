@@ -491,7 +491,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | -------------------------------- | ------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)            | https://www.arduino.cc/en/Main/Software                                         |
 | Arduino IDE (Cloud)              | https://create.arduino.cc/editor                                                |
-| Cloud Web Editor Getting Started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
+| Cloud Cloud Editor Getting Started | https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started |
 | Arduino Pro Website              | https://www.arduino.cc/pro                                                      |
 | Library Reference                | https://www.arduino.cc/reference/en/                                            |
 | Online Store                     | https://store.arduino.cc/                                                       |
