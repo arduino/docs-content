@@ -28,7 +28,7 @@ Inside the Arduino Alvik package you'll find the following items:
 
 - Alvik robot
   - 18650 Li-Ion battery attached to the robot
-- USB-C to USB-C cable
+- USB-C® to USB-C® cable
 
 ### Alvik Overview
 
@@ -208,7 +208,7 @@ The connectors are placed in the back of the robot, the pinout is shown in the f
 
 The Arduino Alvik robot package includes the following items:
 - Alvik robot
-- USB-C to USB-C cable
+- USB-C® to USB-C® cable
 - Phillips screwdriver
 - 18650 Li-Ion battery
 
@@ -311,7 +311,7 @@ With this last step, your Nano ESP32 has been set up with the Alvik out of the b
 
 After executing these commands, there will be updates of the process on the prompt, once the process finishes, the firmware of your alvik will be updated.
 
-### Hello Alvik! Your first program!
+### Hello Alvik! Your First Program!
 
 Alvik is intended to be programmed with MicroPyton. We recommend you to install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) editor.
 
@@ -320,15 +320,15 @@ Now that all the previous steps have been set, let's see how to create custom pr
 
 **1. **Create an Alvik folder in your computer and set it as the path of the Arduino Lab for MicroPython IDE
 
-![Adding Alvik folder path to the IDE](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/getting-started/assets/alvik_folder_path.png)
+![Adding Alvik folder path to the IDE](assets/alvik_folder_path.png)
 
 **2. **Create a new file "obstacle_avoider.py" in your local folder
 
-![Creating obstacle_avoider.py file](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/getting-started/assets/creating_file.png)
+![Creating obstacle_avoider.py file](assets/creating_file.png)
 
 **3. **Double click on the file to open it. Once it is opened, erase the text on it and add the following code.
 
-![Adding custom code](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/getting-started/assets/adding_custom_code.gif)
+![Adding custom code](assets/adding_custom_code.gif)
 
 ``` python
 from arduino_alvik import ArduinoAlvik
@@ -373,13 +373,13 @@ while (True):
 
 **4. **Connect Alvik to your PC using the cable included in the box, under the tray.
 
-![Connecting Alvik to the PC](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/getting-started/assets/connecting_alvik.gif)
+![Connecting Alvik to the PC](assets/connecting_alvik.gif)
 
 ***Make sure that Alvik is OFF before connecting it to your computer.***
 
 **5. **Once Alvik is connected to the PC, connect it to the Arduino Lab for MicroPython and open the _main.py_ file in the Alvik folder. Once the file is opened let's replace the `import demo` statement by `import obstacle_avoider`.
 
-![Connecting Alvik to the IDE](/Users/josegardel/Documents/arduino_GH/docs-content-private/content/hardware/08.edu/solution-and-kits/alvik/tutorials/getting-started/assets/connecting_alvik_ide.gif)
+![Connecting Alvik to the IDE](assets/connecting_alvik_ide.gif)
 
 ***If you want to go back to the out of the box experience where you could select between reg, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`***
 
@@ -389,7 +389,7 @@ while (True):
 
 You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON and see how Alvik detects them and turns to avoid them.
 
-## Deep dive programming Alvik
+## Deep Dive Programming Alvik
 
 ### Controlling the Motors
 
