@@ -227,7 +227,7 @@ Alvik has two high-precision geared motors and two RGB LEDs. The motors are driv
 | Geared motors w/ encoder | GM12-N20VA-08255-150-EN | wheels_positions.py   |
 | RGB LEDs                 | RGB LEDs                | leds_settings.py      |
 
-The RGB LEDs can be used for visual feedback and can be programmed to display various colors and patterns.
+The RGB LEDs can be used for visual feedback and can be programmed to display various colors and patterns. The LEDs take in **bolean** values for each color meaning that combinations are possible by setting each color **on** or **off** istead of controlling intensity.
 
 ### Connectors
 
@@ -245,19 +245,20 @@ The Arduino Alvik robot package includes the following items:
 
 ## Move Alvik!
 
+## Move Alvik!
+
 ### Basic Touch Programming
 
-Alvik’s touch buttons can be programmed to control various actions such as movement, changing modes, and interacting with the environment. This allows for creating intuitive control schemes for different applications.
+Alvik’s touch buttons can be programmed to control various actions such as movement, changing modes, and interacting with the environment. This allows for creating intuitive control schemes for different applications. By default, the touch buttons are pre-programmed to control the Alvik's basic movements, such as moving forward, backward, turning left, and turning right. This setup provides an immediate interactive experience, enabling you to get started with minimal setup.
 
 ### Following Objects
 
-Using the distance sensors, Alvik can follow objects by maintaining a certain distance from them. This is useful for applications like automated guided vehicles and interactive robotics.
+Out of the box, Alvik is equipped with distance sensors that allow it to follow objects by maintaining a certain distance from them. This feature is pre-configured to help the Alvik follow a target object, making it useful for applications like automated guided vehicles and interactive robotics. The default settings ensure that Alvik can smoothly track and follow objects placed in front of it without any additional programming required.
 
 ### Line Follower
 
-With its line follower sensors, Alvik can navigate along predefined paths marked by lines on the ground. This is especially useful in educational settings and for demonstrating basic robotic navigation.
+Alvik comes pre-programmed with a line following algorithm that utilizes its built-in line follower sensors. These sensors enable the Alvik to navigate along predefined paths marked by lines on the ground. This feature is particularly beneficial in educational settings and for demonstrating basic robotic navigation. The default configuration allows Alvik to follow a black line on a white surface right out of the box, providing an engaging and interactive learning experience for you.
 
-The goal is to present the sensors and actuators of the Alvik robot, highlighting their key features and uses without delving into programming specifics.
 
 
 ## Alvik First Use
@@ -1017,6 +1018,8 @@ The Arduino Alvik robot comes equipped with two RGB LEDs that can be controlled 
     `red`: Intensity of the red component (0 or 1)
     `green`: Intensity of the green component (0 or 1)
     `blue`: Intensity of the blue component (0 or 1)
+
+In this case the LEDs take in **bolean** values for each color meaning that combinations are possible by setting each color **on** or **off** istead of controlling intensity.
 
 **Example**
 
