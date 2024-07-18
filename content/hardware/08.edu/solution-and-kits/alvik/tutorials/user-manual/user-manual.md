@@ -294,7 +294,7 @@ With this last step, your Nano ESP32 has been set up with the Alvik out of the b
    This step will download a "firmware_x_x_x.bin" file, save it in your Alvik folder
 
 2. Connect your Alvik to the Computer and to the Arduino Labs for Micropython. Then, go to the files tab and navigate to the folder where you stored the "firmware_x_x_x.bin"
-   ![Setting the FW path on the Labs for micropython](assets/firmware.png)
+   ![Setting the FW path on the Labs for micropython](assets/fw_path.png)
 
 3. Let's move now the "firmware_x_x_x.bin" to the main root.
    ![Setting the FW path on the Labs for micropython](assets/moving_fw_bin.png)
