@@ -44,6 +44,9 @@ Inside the Arduino Alvik package you'll find the following items:
 
 ## The Brain
 The brain of the Alvik robot is the Nano ESP32, which is the central component we program to run the logic and make decisions. It is extremely important because it processes all the high-level commands and controls the overall operation of the robot. However, instead of directly moving the motors or reading sensors, it communicates with the STM32 (the body) to execute these actions. The Nano ESP32 gives orders to the STM32 to move, read sensors, or report status, allowing the robot to make informed (or better yet, as informed as we program it) decisions and run tasks and routines using this information.
+![Alvik Brain](assets/alvik_brain.png)
+
+
 ### Nano ESP32
 
 The [Nano ESP32](https://store.arduino.cc/products/nano-esp32) is the board used to control Alvik. It has a fast processor, large flash memory, and a Wi-Fi® enabled chip packed into a tiny circuit board.
@@ -57,15 +60,22 @@ Please note that when using MicroPython the pin number reflects the GPIO on the 
 ## The Body
 Using the same analogy, the body of the Alvik robot includes everything else from the sensors and motors to the connectors supporting external modules and, of course, the STM32, which acts like the nervous system of the robot. Just as the human nervous system transmits signals between the brain and various parts of the body, the STM32 transmits commands and collects data from the robot's components. When the Nano ESP32, acting as the brain, sends commands, the STM32 executes these low-level operations, such as moving the motors, flashing the LEDs, or interacting with external devices. The STM32 is essential for carrying out the detailed actions based on the high-level instructions from the Nano ESP32, ensuring that the robot's movements and functions are performed accurately.
 
-### STM32
+![Alvik Body](assets/alvik_body.png)
+
+
+### Controller - STM32
+
 
 The main core of the robot is the STM32 ARM Cortex-M4 32 Bit controller. It handles the low-level commands such as reading sensors and moving motors. You can access it through a set of dedicated APIs from the Nano ESP32.
 
 You can learn more about the available functions for Alvik in the following [Alvik's API Documentation](https://docs.arduino.cc/tutorials/alvik/api-overview).
 
-The latest firmware of the STM32 can be found at [this link](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases), and [here](#how-to-upload-firmware) is the guide to flash it.
+***Although Alvik's "out of the box" experience is designed in micropython, there are C++ APIs that allow you to program Avlik in the Arduino IDE, these APIs are 1 to 1 compatible with the micropython APIs, which means that the API overview will be interesting for both micropython and C++ programs.***
 
-## Controller
+The latest firmware of the STM32 can be found at [this link](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases), and [here](#how-to-upload-firmware) is the guide to flash it.
+![Alvik STM32](assets/alvik_STM.png)
+
+
 
 ### ON/OFF Switch
 
@@ -79,9 +89,21 @@ At the back-right side of Alvik there is the main switch of the robot. When ON t
 
 ### Battery
 
-The battery is a rechargeable Li-ion 18650. It is located in the bottom part of Alvik, to access it you need to remove one Phillip's screw and take out the plastic holder.
+The battery is a rechargeable Li-ion 18650, it allows to run Alvik for 8+ hours non stop.
+The battery is located in the bottom part of Alvik, if you need to access it you'll need to remove one Phillip's screw and take out the plastic holder.
+
 
 ![Accessing battery compartment](assets/battery_holder.jpg)
+
+
+**Changing the battery:**
+
+1. **Detach the Existing Battery**: Carefully remove the old battery from its compartment.
+2. **Attach a New Battery**: Place the new battery into the holder, ensuring it is securely connected.
+3. **Plug in the Nano ESP32**: If you are using a different controller or have used the robot in another manner, reconnect the Nano ESP32.
+4. **Connect the Nano ESP32 to the Computer**: Use a USB cable to connect the Nano ESP32 to your computer.
+
+These steps are crucial for resetting the Battery Management System (BMS) after a battery replacement. If these steps are not followed, the BMS will remain "off," and the robot will not turn on.
 
 The Nano ESP32 can report the status of the battery through the terminal of the Arduino Lab for MicroPython and with its RGB status LED. To do that you need to call the `Alvik.begin()` function in any program or directly at the command line area.
 
@@ -99,9 +121,9 @@ When fully charged it will stay GREEN.
 
 ## Sensors
 
-### Main Components
 
-Alvik has five different sensors, all connected to the STM32 and accessible through the [APIs](https://docs.arduino.cc/tutorials/alvik/api-overview). For each sensor there is a test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples).
+Alvik includes a set of  different sensors listed below, all connected to the STM32 and accessible through the [APIs](https://docs.arduino.cc/tutorials/alvik/api-overview). For each sensor there is test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) for micropython and in [this repository](https://github.com/arduino-libraries/Arduino_AlvikCarrier/tree/main/examples) for C++.
+
 
 | **Sensor name**              | **Part name** | **Test program name** |
 |------------------------------|---------------|-----------------------|
@@ -187,22 +209,19 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 
 ## Actuators
 
-### Motors and Encoders
-
-Alvik has two high-precision geared motors and two RGB LEDs. The motors are driven by the MAX22211 motor driver and include magnetic relative encoders for precise control.
-
 | **Actuator name**        | **Part name**           | **Test program name** |
 |--------------------------|-------------------------|-----------------------|
 | Geared motors w/ encoder | GM12-N20VA-08255-150-EN | wheels_positions.py   |
 | RGB LEDs                 | RGB LEDs                | leds_settings.py      |
 
-The RGB LEDs can be used for visual feedback and can be programmed to display various colors and patterns.
+The RGB LEDs can be used for visual feedback and can be programmed to display various colors and patterns. The LEDs take in **boolean** values for each color meaning that combinations are possible by setting each color **on** or **off** insteadof controlling intensity.
 
 ### Connectors
 
 The connectors are placed in the back of the robot, the pinout is shown in the following image:
 
 ![Connectors Pinout](assets/datasheet_connectors.png)
+
 
 ## What the Robot Includes
 
@@ -212,22 +231,20 @@ The Arduino Alvik robot package includes the following items:
 - Phillips screwdriver
 - 18650 Li-Ion battery
 
-## Move Alvik!
+
+Alvik is equipped with three ready-to-go examples. To choose one of the examples, just turn your Alvik ON, move the switch located at the bottom right corner of the robot to the right, wait until the LEDs turn blue and use the Up and Down buttons to pick one color, then hit the "tick" confirmation button. 
 
 ### Basic Touch Programming
 
-Alvik’s touch buttons can be programmed to control various actions such as movement, changing modes, and interacting with the environment. This allows for creating intuitive control schemes for different applications.
+Alvik’s touch buttons can be programmed to control various actions such as movement, changing modes, and interacting with the environment. This allows for creating intuitive control schemes for different applications. By default, the touch buttons are pre-programmed to control the Alvik's basic movements, such as moving forward, backward, turning left, and turning right. This setup provides an immediate interactive experience, enabling you to get started with minimal setup.
 
 ### Following Objects
 
-Using the distance sensors, Alvik can follow objects by maintaining a certain distance from them. This is useful for applications like automated guided vehicles and interactive robotics.
+Out of the box, Alvik is equipped with distance sensors that allow it to follow objects by maintaining a certain distance from them. This feature is pre-configured to help the Alvik follow a target object, making it useful for applications like automated guided vehicles and interactive robotics. The default settings ensure that Alvik can smoothly track and follow objects placed in front of it without any additional programming required.
 
 ### Line Follower
 
-With its line follower sensors, Alvik can navigate along predefined paths marked by lines on the ground. This is especially useful in educational settings and for demonstrating basic robotic navigation.
-
-The goal is to present the sensors and actuators of the Alvik robot, highlighting their key features and uses without delving into programming specifics.
-
+Alvik comes pre-programmed with a line following algorithm that utilizes its built-in line follower sensors. These sensors enable the Alvik to navigate along predefined paths marked by lines on the ground. This feature is particularly beneficial in educational settings and for demonstrating basic robotic navigation. The default configuration allows Alvik to follow a black line on a white surface right out of the box, providing an engaging and interactive learning experience for you.
 
 ## Alvik's Firmware
 
@@ -237,14 +254,15 @@ To get started to play with Alvik you will need the following hardware and softw
 
 - Alvik (x1)
 - USB-C® to USB-C® cable (x1)
-- Phillips Screwdriver (cross head) (x1)
+- Phillips Screwdriver (cross head)(optional) (x1)
 - Computer (x1)
 
 ***Make sure the USB-C® cable you are using works with data lines, not only power lines***
 
 ### Software Requirements
 
-- Operating Systems: All the major Operating Systems are supported
+- Operating Systems: Linux, macOS or Windows
+
 - [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
 
 ### Updating Alvik's Brain (Nano ESP32)
@@ -1028,6 +1046,8 @@ The Arduino Alvik robot comes equipped with two RGB LEDs that can be controlled 
     `green`: Intensity of the green component (0 or 1)
     `blue`: Intensity of the blue component (0 or 1)
 
+In this case the LEDs take in **boolean** values for each color meaning that combinations are possible by setting each color **on** or **off** insteadof controlling intensity.
+
 **Example**
 
 Here's an example sketch that cycles through different colors on both LEDs:
@@ -1637,10 +1657,6 @@ The `<device port>` is the name of the USB port that your computer assigned to t
 Now you can open the Arduino Lab for MicroPython, connect Alvik and open the example called `hello_world.py` in the `examples` folder. If everything works as expected you'll see something like the following image:
 
 ![Hello World OLED](assets/hello.png)
-
-7. Test `bender.py`
-
-Open the example called `bender.py`, launch it and see on your display the image of Bender's robot.
 
 ## Want More?
 
