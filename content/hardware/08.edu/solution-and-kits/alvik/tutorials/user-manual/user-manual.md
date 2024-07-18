@@ -38,7 +38,7 @@ To get started to play with Alvik you will need the following hardware and softw
 
 - Alvik (x1)
 - USB-C® to USB-C® cable (x1)
-- Phillips® Screwdriver (cross head) (x1)
+- Phillips Screwdriver (cross head)(optional) (x1)
 - Computer (x1)
 
 ***Make sure the USB-C® cable you are using works with data lines, not only power lines***
@@ -219,10 +219,6 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 
 ## Actuators
 
-
-
-
-
 | **Actuator name**        | **Part name**           | **Test program name** |
 |--------------------------|-------------------------|-----------------------|
 | Geared motors w/ encoder | GM12-N20VA-08255-150-EN | wheels_positions.py   |
@@ -235,12 +231,6 @@ The RGB LEDs can be used for visual feedback and can be programmed to display va
 The connectors are placed in the back of the robot, the pinout is shown in the following image:
 
 ![Connectors Pinout](assets/datasheet_connectors.png)
-
-
-The Arduino Alvik robot package includes the following items:
-- Alvik robot
-- USB-C® to USB-C® cable
-- 18650 Li-Ion battery
 
 ## Moving Alvik!
 
@@ -262,11 +252,6 @@ Alvik comes pre-programmed with a line following algorithm that utilizes its bui
 
 ## Alvik's Firmware
 
-
-
-
-
-
 To get started to play with Alvik you will need the following hardware and software:
 
 ### Hardware Requirements
@@ -274,7 +259,6 @@ To get started to play with Alvik you will need the following hardware and softw
 - Alvik (x1)
 - USB-C® to USB-C® cable (x1)
 - Phillips Screwdriver (cross head)(optional) (x1)
-
 - Computer (x1)
 
 ***Make sure the USB-C® cable you are using works with data lines, not only power lines***
