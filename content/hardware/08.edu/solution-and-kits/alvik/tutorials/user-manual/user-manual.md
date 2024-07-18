@@ -132,7 +132,8 @@ When fully charged it will stay GREEN.
 ## Sensors
 
 
-Alvik has five different sensors, all connected to the STM32 and accessible through the [APIs](https://docs.arduino.cc/tutorials/alvik/api-overview). For each sensor there is a test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples).
+Alvik includes a set of  different sensors listed below, all connected to the STM32 and accessible through the [APIs](https://docs.arduino.cc/tutorials/alvik/api-overview). For each sensor there is test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) for micropython and in [this repository](https://github.com/arduino-libraries/Arduino_AlvikCarrier/tree/main/examples) for C++.
+
 
 | **Sensor name**              | **Part name** | **Test program name** |
 |------------------------------|---------------|-----------------------|
@@ -218,9 +219,9 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 
 ## Actuators
 
-### Motors and Encoders
 
-Alvik has two high-precision geared motors and two RGB LEDs. The motors are driven by the MAX22211 motor driver and include magnetic relative encoders for precise control.
+
+
 
 | **Actuator name**        | **Part name**           | **Test program name** |
 |--------------------------|-------------------------|-----------------------|
@@ -235,17 +236,15 @@ The connectors are placed in the back of the robot, the pinout is shown in the f
 
 ![Connectors Pinout](assets/datasheet_connectors.png)
 
-## What the Robot Includes
 
 The Arduino Alvik robot package includes the following items:
 - Alvik robot
 - USB-C® to USB-C® cable
-- Phillips screwdriver
 - 18650 Li-Ion battery
 
-## Move Alvik!
+## Moving Alvik!
 
-## Move Alvik!
+Alvik is equipped with three ready-to-go examples. To choose one of the examples, just turn your Alvik ON, move the switch located at the bottom right corner of the robot to the right, wait until the LEDs turn blue and use the Up and Down buttons to pick one color, then hit the "tick" confirmation button. 
 
 ### Basic Touch Programming
 
@@ -261,11 +260,12 @@ Alvik comes pre-programmed with a line following algorithm that utilizes its bui
 
 
 
-## Alvik First Use
+## Alvik's Firmware
 
-### Unboxing
 
-![Unboxing Alvik](assets/unboxing.jpg)
+
+
+
 
 To get started to play with Alvik you will need the following hardware and software:
 
@@ -273,7 +273,8 @@ To get started to play with Alvik you will need the following hardware and softw
 
 - Alvik (x1)
 - USB-C® to USB-C® cable (x1)
-- Phillips Screwdriver (cross head) (x1)
+- Phillips Screwdriver (cross head)(optional) (x1)
+
 - Computer (x1)
 
 ***Make sure the USB-C® cable you are using works with data lines, not only power lines***
