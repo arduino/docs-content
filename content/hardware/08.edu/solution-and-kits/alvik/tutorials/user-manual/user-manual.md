@@ -237,10 +237,10 @@ The connectors are placed in the back of the robot, the pinout is shown in the f
 ![Connectors Pinout](assets/datasheet_connectors.png)
 
 
-- Phillips screwdriver
-- 18650 Li-Ion battery
 
-## Move Alvik!
+## Moving Alvik!
+
+Alvik is equipped with three ready-to-go examples. To choose one of the examples, just turn your Alvik ON, move the switch located at the bottom right corner of the robot to the right, wait until the LEDs turn blue and use the Up and Down buttons to pick one color, then hit the "tick" confirmation button. 
 
 ### Basic Touch Programming
 
@@ -257,11 +257,12 @@ With its line follower sensors, Alvik can navigate along predefined paths marked
 The goal is to present the sensors and actuators of the Alvik robot, highlighting their key features and uses without delving into programming specifics.
 
 
-## Alvik First Use
+## Alvik's Firmware
 
-### Unboxing
 
-![Unboxing Alvik](assets/unboxing.jpg)
+
+
+
 
 To get started to play with Alvik you will need the following hardware and software:
 
@@ -269,7 +270,8 @@ To get started to play with Alvik you will need the following hardware and softw
 
 - Alvik (x1)
 - USB-C® to USB-C® cable (x1)
-- Phillips Screwdriver (cross head) (x1)
+- Phillips Screwdriver (cross head)(optional) (x1)
+
 - Computer (x1)
 
 ***Make sure the USB-C® cable you are using works with data lines, not only power lines***
