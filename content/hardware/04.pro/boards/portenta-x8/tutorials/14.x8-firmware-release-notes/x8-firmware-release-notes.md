@@ -29,7 +29,7 @@ Compatible carriers with the supported device:
 
 The following section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
 
-## Latest Firmware Version: __861 (Release arduino-91.2)__
+## Latest Firmware Version: __861 (Release arduino-91.2) - June 26, 2024__
 
 The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of the integrated key new features, major bug fixes, and critical security patches to ensure the highest level of functionality and performance within the Portenta X8 system.
 
@@ -57,7 +57,7 @@ The listing herein offers a glimpse into the Portenta X8 firmware's continuous i
 
 Below is a list of deprecated versions before **861: Release arduino-91.2**, along with their release notes highlighting distinctive updates. Updating to the latest version is recommended.
 
-### OS Image 846 - May 15th, 2024
+### OS Image 846 - May 15, 2024
 
 <details>
   <summary><strong>OS Image 846: Release arduino-91.1</strong></summary>
@@ -74,7 +74,7 @@ Below is a list of deprecated versions before **861: Release arduino-91.2**, alo
 </details>
 <br></br>
 
-### OS Image 844 - May 10th, 2024
+### OS Image 844 - May 10, 2024
 
 <details>
   <summary><strong>OS Image 844: Release arduino-91</strong></summary>
@@ -105,7 +105,7 @@ Below is a list of deprecated versions before **861: Release arduino-91.2**, alo
 </details>
 <br></br>
 
-### OS Image 822 - April 8th, 2024
+### OS Image 822 - April 8, 2024
 
 <details>
   <summary><strong>OS Image 822: Release arduino-88.94</strong></summary>
@@ -135,7 +135,7 @@ Below is a list of deprecated versions before **861: Release arduino-91.2**, alo
 </details>
 <br></br>
 
-### OS Image 746 - October 25th, 2023
+### OS Image 746 - October 25, 2023
 
 <details>
   <summary><strong>OS Image 746: Release arduino-88.91</strong></summary>
@@ -163,7 +163,7 @@ Below is a list of deprecated versions before **861: Release arduino-91.2**, alo
 </details>
 <br></br>
 
-### OS Image 719 - September 27th, 2023
+### OS Image 719 - September 27, 2023
 <details>
   <summary><strong>OS Image 719: Release arduino-88.7</strong></summary>
 
