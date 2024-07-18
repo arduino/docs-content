@@ -77,7 +77,8 @@ You can learn more about the available functions for Alvik in the following [Alv
 
 The latest firmware of the STM32 can be found at [this link](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases), and [here](#how-to-upload-firmware) is the guide to flash it.
 
-## Controller
+
+
 
 ### ON/OFF Switch
 
