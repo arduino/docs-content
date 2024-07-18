@@ -16,7 +16,21 @@ Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through
 
 In this tutorial, you will find useful information to get started, test, and maintain Alvik.
 
-## Alvik Overview
+## What Is Alvik
+
+Alvik is a robot with two controllers and a wide range of sensors and actuators. The main controller is the Arduino Nano ESP32 attached to the top of the robot while there is an STM32 controller integrated into the robot that takes care of the low-level commands such as reading the sensors and moving the motors. It has been designed for STEAM education, making it an ideal tool for learning programming, Robotics, IoT, Artificial Intelligence...
+
+### Unboxing
+
+![Unboxing Alvik](assets/unboxing.jpg)
+
+Inside the Arduino Alvik package you'll find the following items:
+
+- Alvik robot
+- 18650 Li-Ion battery attached to the robot
+- USB-C® to USB-C® cable
+
+### Alvik Overview
 
 ![Alvik exploded view](assets/main-components.png)
 
@@ -24,33 +38,9 @@ In this tutorial, you will find useful information to get started, test, and mai
 
 ### Main Components
 
-Alvik is a robot with two controllers and tons of useful sensors and actuators. The main controller is the Arduino Nano ESP32 attached at the top of the robot while there is an STM32 controller integrated into the robot that takes care of the low-level commands like reading the sensors and moving the motors.
-
 ![Alvik top components](assets/up-components.png)
 
 ![Alvik bottom components](assets/down-components.png)
-
-## Move Your Robot!
-
-To get started to play with Alvik you will need the following hardware and software:
-
-### Hardware Requirements
-
-- Alvik (x1)
-- USB-C® to USB-C® cable (x1)
-- Phillips Screwdriver (cross head)(optional) (x1)
-- Computer (x1)
-
-***Make sure the USB-C® cable you are using works with data lines, not only power lines***
-
-### Software Requirements
-
-- Operating Systems: Linux, macOS and Windows
-- [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
-
-## What Is Alvik
-
-Arduino® Alvik is a robot with two controllers and numerous useful sensors and actuators. It is designed for STEAM education, making it an ideal tool for learning programming, Robotics, IoT, and Artificial Intelligence.
 
 ## The Brain
 The brain of the Alvik robot is the Nano ESP32, which is the central component we program to run the logic and make decisions. It is extremely important because it processes all the high-level commands and controls the overall operation of the robot. However, instead of directly moving the motors or reading sensors, it communicates with the STM32 (the body) to execute these actions. The Nano ESP32 gives orders to the STM32 to move, read sensors, or report status, allowing the robot to make informed (or better yet, as informed as we program it) decisions and run tasks and routines using this information.
@@ -232,7 +222,15 @@ The connectors are placed in the back of the robot, the pinout is shown in the f
 
 ![Connectors Pinout](assets/datasheet_connectors.png)
 
-## Moving Alvik!
+
+## What the Robot Includes
+
+The Arduino Alvik robot package includes the following items:
+- Alvik robot
+- USB-C® to USB-C® cable
+- Phillips screwdriver
+- 18650 Li-Ion battery
+
 
 Alvik is equipped with three ready-to-go examples. To choose one of the examples, just turn your Alvik ON, move the switch located at the bottom right corner of the robot to the right, wait until the LEDs turn blue and use the Up and Down buttons to pick one color, then hit the "tick" confirmation button. 
 
@@ -247,8 +245,6 @@ Out of the box, Alvik is equipped with distance sensors that allow it to follow 
 ### Line Follower
 
 Alvik comes pre-programmed with a line following algorithm that utilizes its built-in line follower sensors. These sensors enable the Alvik to navigate along predefined paths marked by lines on the ground. This feature is particularly beneficial in educational settings and for demonstrating basic robotic navigation. The default configuration allows Alvik to follow a black line on a white surface right out of the box, providing an engaging and interactive learning experience for you.
-
-
 
 ## Alvik's Firmware
 
@@ -269,103 +265,149 @@ To get started to play with Alvik you will need the following hardware and softw
 
 - [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
 
-### ESP32 MicroPython Firmware
+### Updating Alvik's Brain (Nano ESP32)
 
-Download and install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython), if you are able to connect the Arduino Nano ESP32 it means that your board is ready. You have to see the **CONNECTED** yellow label at the bottom.
+It may happen that you used your Nano ESP32 for other projects than Alvik, or you need to replace it. In order to make your Nano ESP32 work with Alvik, there are few steps needed:
 
-![Connection Succeeded](assets/connection_succeeded.png)
+1. Install the micropython bootloader on it following [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
 
-If something goes wrong it means you need to upload the MicroPython firmware on the Nano ESP32.
+2. Download the Alvik micropyton libraries
 
-Follow [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
+    Alvik micropython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
+    ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
 
-### How to Upload Libraries
+3. Unzip both of the downloaded libraries in a single "Alvik" folder, open the Arduino Lab for MicroPython, go to the "files" tab and set the path to the unzipped folder on the Arduino Lab for Micropython
 
-You will find the latest instructions directly in the [repository](https://github.com/arduino/arduino-alvik-mpy/releases). Here are the main steps:
+   ![Setting the FW path on the Labs for micropython](assets/fw_path.png)
 
-1. Prepare file
+4. Make sure your Alvik is OFF, connect it to your computer and then, turn it ON
 
-Download the repository and extract all the files in a specific folder that will become the main Alvik folder.
+   ![Alvik USB Connection](assets/connecting-final.gif)
 
-2. Remove old files
+5. Connect your Alvik to the Arduino Labs for micropython and open the "lib"
+   ![Setting the FW path on the Labs for micropython](assets/lib_folder.png)
 
-Open **Arduino Lab for MicroPython** and **connect** Alvik. Then:
+6. Select the "Arduino-alvik" and move it inside the "lib" folder in your Alvik.
+   ![Setting the FW path on the Labs for micropython](assets/moving_alvik_folder.png)
 
- Click on the `files` icon
+7. Go back to the main folder and select the "ucPack-mpy-main" folder and move it next to the arduino_alvik inside the "lib" folder in your Nano ESP32.
+   ![Setting the FW path on the Labs for micropython](assets/moving_ucPack.png)
 
- Click on a `files name` in the bottom left explorer windows.
+8. Now go back to the main root of the files system on the Nano ESP32. Then in your local folder navigate to the examples folder once there, select the following files and move them to the main folder of the ESP32.
 
- Click on the `bin` icon to delete it
+   `demo.py`
+   `hand_follower.py`
+   `line_follower.py`
+   `main.py`
+   `touch_move.py`
 
- Repeat for all the files, from all folders
+   ![Setting the FW path on the Labs for micropython](assets/moving_examples.png)
 
-![Delete all files](assets/delete_files.png)
+With this last step, your Nano ESP32 has been set up with the Alvik out of the box experience and is ready to be used.
 
-3. Install mpremote
+### Updating Alvik's Body (STM32)
 
-[mpremote](https://docs.micropython.org/en/latest/reference/mpremote.html) is a Python module needed to upload files on the Nano ESP32. The minimum suggested mpremote release is 1.22.0. Be sure to have Python installed before proceeding!
+1. Download the [pre-compiled firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases/latest) from the [Alvik Carrier GitHub reposiitory](https://github.com/arduino-libraries/Arduino_AlvikCarrier)
 
-`(venv)$ pip install mpremote` or `(venv)$ python3 -m pip install mpremote`
+   This step will download a "firmware_x_x_x.bin" file, save it in your Alvik folder
 
-Depending on how you configure Python on your machine.
+2. Connect your Alvik to the Computer and to the Arduino Labs for Micropython. Then, go to the files tab and navigate to the folder where you stored the "firmware_x_x_x.bin"
+   ![Setting the FW path on the Labs for micropython](assets/fw_path.png)
 
-4. Install library
-Run the following line to upload all files and download the dependencies needed to run the Arduino Alvik MicroPython library.
+3. Let's move now the "firmware_x_x_x.bin" to the main root.
+   ![Setting the FW path on the Labs for micropython](assets/moving_fw_bin.png)
 
-Linux
-`$ ./install.sh -p <device port>`
+4. Turn ON your alvik, go to the Editor tab and tun the following commands by typing them and clicking on the "Play" button
 
-Windows
-`install.bat -p <device port>`
+   ```
+   from arduino_alvik import update_firmware
+   
+   update_firmware('./firmware_1_0_0.bin')
+   ```
 
+   ![Setting the FW path on the Labs for micropython](assets/flashing_fw.png)
 
-The `install.*` script will copy all the needed files into your Alvik.
-The `<device port>` is the name of the USB port that your computer assigned to the Nano ESP32. 
+After executing these commands, there will be updates of the process on the prompt, once the process finishes, the firmware of your alvik will be updated.
 
-There are several ways to find it, depending on your OS, for example:
-- You can use the Arduino IDE to discover the port, [follow this guide to know more](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE).
-- You can check it by using the Arduino Lab for MicroPython by clicking `Connect` after connecting Alvik with the USB cable.
-- You can check the list of the USB devices attached to your PC.
+### Hello Alvik! Your First Program!
 
-### How to Upload Firmware
+Alvik is intended to be programmed with MicroPyton. We recommend you to install the [Arduino Lab for MicroPython](https://labs.arduino.cc/en/labs/micropython) editor.
 
-1. Download the latest [pre-compiled firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases/latest) and place it inside Alvik's project folder.
-
-2. Go into `utilities` folder and run the `flash_firmware` script:
-
-Linux
-`$ ./flash_firmware.sh -p <device port> <path-to-your-firmware>`
-
-
-Windows
-`flash_firmware.bat -p <device port> <path-to-your-firmware>`
-
-
-Answer `y` to flash firmware.
+Now that all the previous steps have been set, let's see how to create custom programs for Alvik to move forward until detecting an object in front of it, Alvik will detect it, dodge it and continue on its way.
 
 
-There are also several examples to test all the features of your Alvik placed inside the `examples` folder.
-Open **Arduino Lab for MicroPython** and **connect** Alvik. Then:
+**1. **Create an Alvik folder in your computer and set it as the path of the Arduino Lab for MicroPython IDE
 
-1. Click on the `files` icon
-2. Click on the `path string` in the bottom right explorer windows.
-3. Click on the `file name` of the example you choose
-4. Click on the `play button`
+![Adding Alvik folder path to the IDE](assets/alvik_folder_path.png)
 
-![Test examples files](assets/test_files.png)
+**2. **Create a new file "obstacle_avoider.py" in your local folder
 
+![Creating obstacle_avoider.py file](assets/creating_file.png)
 
-## Program Alvik!
+**3. **Double click on the file to open it. Once it is opened, erase the text on it and add the following code.
 
-![Alvik USB Connection](assets/connecting-final.gif)
+![Adding custom code](assets/adding_custom_code.gif)
 
-In order for Alvik to work properly three things have to be set correctly:
+``` python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+import sys
 
-1. The Nano ESP32 needs the [MicroPython firmware](https://labs.arduino.cc/en/labs/micropython) on it.
-2. The [latest libraries](https://github.com/arduino/arduino-alvik-mpy/releases) have to be placed in the Nano ESP32.
-3. The [latest firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases) has to be uploaded to the STM32 microcontroller.
+alvik = ArduinoAlvik()
+alvik.begin()
+sleep_ms(5000)  #waiting for the robot to setup
+#robot.set_illuminator(0)
+distance = 10
+speed = 40 #rpm
 
-Alvik comes with a preinstalled version of libraries and firmware, but in case you want to upgrade it or if something happens and you mess things up, here is the guide to reinstall both libraries and firmware.
+def turning():
+    alvik.set_wheels_speed(0,0)
+    sleep_ms(250)
+    alvik.set_wheels_speed(-35,-35)
+    sleep_ms(1500)
+    alvik.set_wheels_speed(35,-35)
+    sleep_ms(1000)
+
+while (True):
+
+    distance_l, distance_cl, distance_c, distance_r, distance_cr  = alvik.get_distance()
+    sleep_ms(50)
+    print(distance_c)
+
+    if distance_c < distance:
+        turning()
+    elif distance_cl < distance:
+        turning()
+    elif distance_cr < distance:
+        turning()
+    elif distance_l < distance:
+        turning()
+    elif distance_r < distance:
+        turning()
+    else:
+        alvik.set_wheels_speed(speed, speed)
+
+```
+
+**4. **Connect Alvik to your PC using the cable included in the box, under the tray.
+
+![Connecting Alvik to the PC](assets/connecting_alvik.gif)
+
+***Make sure that Alvik is OFF before connecting it to your computer.***
+
+**5. **Once Alvik is connected to the PC, connect it to the Arduino Lab for MicroPython and open the _main.py_ file in the Alvik folder. Once the file is opened let's replace the `import demo` statement by `import obstacle_avoider`.
+
+![Connecting Alvik to the IDE](assets/connecting_alvik_ide.gif)
+
+***If you want to go back to the out of the box experience where you could select between reg, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`***
+
+**6. **The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
+
+![Moving file from local to Alvik's memory](assets/local2memory.gif)
+
+You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON and see how Alvik detects them and turns to avoid them.
+
+## Deep Dive Programming Alvik
 
 ### Controlling the Motors
 
@@ -778,7 +820,7 @@ In this example, the robot uses its line follower sensor array to navigate along
    ```
 
    **Outputs:**
-- `color`: The label of the color as recognized by the sensor. These can be:
+ `color`: The label of the color as recognized by the sensor. These can be:
       `'BLACK'`, `'GREY'`, `'BLACK'`, `'LIGHT GREY'`, `'WHITE'`, `'YELLOW'`, `'LIGHT GREEN'`, `'BLUE'`, `'VIOLET'`, `'BROWN'`, `'ORANGE'`, `'RED'`.
 
    **Example Usage**
@@ -789,20 +831,20 @@ In this example, the robot uses its line follower sensor array to navigate along
    from arduino_alvik import ArduinoAlvik
    import time
    from time import sleep
-
+  
    # Initialization
    alvik = ArduinoAlvik()
    alvik.begin()
    sleep(5)  # Waiting for the robot to setup
-
+  
    # Calibrate color sensor for white
    alvik.color_calibration('white')
-
+  
    # Main logic
    detected_colors = set()
-
+  
    print("Starting to move and detect colors...")
-
+  
    try:
        while len(detected_colors) < 3:
            alvik.set_wheels_speed(20, 20)
@@ -874,7 +916,7 @@ The `get_imu` function from the [Alvik API](https://docs.arduino.cc/tutorials/al
    **Outputs:**
     **ax**: acceleration on x
      **ay**: acceleration on y
-  **az**: acceleration on z
+    **az**: acceleration on z
 
 1. Retrieves 3-axial angular acceleration values
 
@@ -1606,9 +1648,9 @@ Windows
 
 The `<device port>` is the name of the USB port that your computer assigned to the Nano ESP32. There are several ways to find it, depending on your Operating System, for example:
 
-- You can use the Arduino IDE to know the port by [following this guide](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE).
-- You can look it using the Arduino Lab for MicroPython by clicking `Connect` after have connected the Alvik with the USB cable.
-- You can look at the list of the USB devices attached to the PC
+ You can use the Arduino IDE to know the port by [following this guide](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE).
+ You can look it using the Arduino Lab for MicroPython by clicking `Connect` after have connected the Alvik with the USB cable.
+ You can look at the list of the USB devices attached to the PC
 
 6. Test `Hello World!`
 
