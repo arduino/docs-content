@@ -236,7 +236,6 @@ The connectors are placed in the back of the robot, the pinout is shown in the f
 
 ![Connectors Pinout](assets/datasheet_connectors.png)
 
-## What the Robot Includes
 
 - Alvik robot
 - USB-C to USB-C cable
