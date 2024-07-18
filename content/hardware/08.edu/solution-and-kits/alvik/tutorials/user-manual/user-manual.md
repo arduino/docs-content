@@ -27,7 +27,7 @@ Alvik is a robot with two controllers and a wide range of sensors and actuators.
 Inside the Arduino Alvik package you'll find the following items:
 
 - Alvik robot
-  - 18650 Li-Ion battery attached to the robot
+- 18650 Li-Ion battery attached to the robot
 - USB-C® to USB-C® cable
 
 ### Alvik Overview
@@ -255,8 +255,8 @@ It may happen that you used your Nano ESP32 for other projects than Alvik, or yo
 
 2. Download the Alvik micropyton libraries
 
-   1. Alvik micropython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
-   2. ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
+    Alvik micropython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
+    ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
 
 3. Unzip both of the downloaded libraries in a single "Alvik" folder, open the Arduino Lab for MicroPython, go to the "files" tab and set the path to the unzipped folder on the Arduino Lab for Micropython
 
@@ -277,11 +277,11 @@ It may happen that you used your Nano ESP32 for other projects than Alvik, or yo
 
 8. Now go back to the main root of the files system on the Nano ESP32. Then in your local folder navigate to the examples folder once there, select the following files and move them to the main folder of the ESP32.
 
-   1. demo.py
-   2. hand_follower.py
-   3. line_follower.py
-   4. main.py
-   5. touch_move.py
+   `demo.py`
+   `hand_follower.py`
+   `line_follower.py`
+   `main.py`
+   `touch_move.py`
 
    ![Setting the FW path on the Labs for micropython](assets/moving_examples.png)
 
@@ -802,7 +802,7 @@ In this example, the robot uses its line follower sensor array to navigate along
    ```
 
    **Outputs:**
-- `color`: The label of the color as recognized by the sensor. These can be:
+ `color`: The label of the color as recognized by the sensor. These can be:
       `'BLACK'`, `'GREY'`, `'BLACK'`, `'LIGHT GREY'`, `'WHITE'`, `'YELLOW'`, `'LIGHT GREEN'`, `'BLUE'`, `'VIOLET'`, `'BROWN'`, `'ORANGE'`, `'RED'`.
 
    **Example Usage**
@@ -1628,9 +1628,9 @@ Windows
 
 The `<device port>` is the name of the USB port that your computer assigned to the Nano ESP32. There are several ways to find it, depending on your Operating System, for example:
 
-- You can use the Arduino IDE to know the port by [following this guide](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE).
-- You can look it using the Arduino Lab for MicroPython by clicking `Connect` after have connected the Alvik with the USB cable.
-- You can look at the list of the USB devices attached to the PC
+ You can use the Arduino IDE to know the port by [following this guide](https://support.arduino.cc/hc/en-us/articles/4406856349970-Select-board-and-port-in-Arduino-IDE).
+ You can look it using the Arduino Lab for MicroPython by clicking `Connect` after have connected the Alvik with the USB cable.
+ You can look at the list of the USB devices attached to the PC
 
 6. Test `Hello World!`
 
