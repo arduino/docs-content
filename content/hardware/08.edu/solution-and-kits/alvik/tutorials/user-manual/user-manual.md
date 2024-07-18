@@ -222,7 +222,6 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 
 
 
-Alvik has two high-precision geared motors and two RGB LEDs. The motors are driven by the MAX22211 motor driver and include magnetic relative encoders for precise control.
 
 | **Actuator name**        | **Part name**           | **Test program name** |
 |--------------------------|-------------------------|-----------------------|
