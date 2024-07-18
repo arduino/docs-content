@@ -54,6 +54,9 @@ Arduino® Alvik is a robot with two controllers and numerous useful sensors and 
 
 ## The Brain
 The brain of the Alvik robot is the Nano ESP32, which is the central component we program to run the logic and make decisions. It is extremely important because it processes all the high-level commands and controls the overall operation of the robot. However, instead of directly moving the motors or reading sensors, it communicates with the STM32 (the body) to execute these actions. The Nano ESP32 gives orders to the STM32 to move, read sensors, or report status, allowing the robot to make informed (or better yet, as informed as we program it) decisions and run tasks and routines using this information.
+![Alvik Brain](assets/alvik_brain.png)
+
+
 ### Nano ESP32
 
 The [Nano ESP32](https://store.arduino.cc/products/nano-esp32) is the board used to control Alvik. It has a fast processor, large flash memory, and a Wi-Fi® enabled chip packed into a tiny circuit board.
@@ -67,6 +70,9 @@ Please note that when using MicroPython the pin number reflects the GPIO on the 
 ## The Body
 Using the same analogy, the body of the Alvik robot includes everything else from the sensors and motors to the connectors supporting external modules and, of course, the STM32, which acts like the nervous system of the robot. Just as the human nervous system transmits signals between the brain and various parts of the body, the STM32 transmits commands and collects data from the robot's components. When the Nano ESP32, acting as the brain, sends commands, the STM32 executes these low-level operations, such as moving the motors, flashing the LEDs, or interacting with external devices. The STM32 is essential for carrying out the detailed actions based on the high-level instructions from the Nano ESP32, ensuring that the robot's movements and functions are performed accurately.
 
+![Alvik Body](assets/alvik_body.png)
+
+
 ### Controller - STM32
 
 
@@ -77,7 +83,7 @@ You can learn more about the available functions for Alvik in the following [Alv
 ***Although Alvik's "out of the box" experience is designed in micropython, there are C++ APIs that allow you to program Avlik in the Arduino IDE, these APIs are 1 to 1 compatible with the micropython APIs, which means that the API overview will be interesting for both micropython and C++ programs.***
 
 The latest firmware of the STM32 can be found at [this link](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases), and [here](#how-to-upload-firmware) is the guide to flash it.
-
+![Alvik STM32](assets/alvik_STM.png)
 
 
 
@@ -96,6 +102,16 @@ At the back-right side of Alvik there is the main switch of the robot. When ON t
 The battery is a rechargeable Li-ion 18650. It is located in the bottom part of Alvik, to access it you need to remove one Phillip's screw and take out the plastic holder.
 
 ![Accessing battery compartment](assets/battery_holder.jpg)
+
+
+**Changing the battery:**
+
+1. **Detach the Existing Battery**: Carefully remove the old battery from its compartment.
+2. **Attach a New Battery**: Place the new battery into the holder, ensuring it is securely connected.
+3. **Plug in the Nano ESP32**: If you are using a different controller or have used the robot in another manner, reconnect the Nano ESP32.
+4. **Connect the Nano ESP32 to the Computer**: Use a USB cable to connect the Nano ESP32 to your computer.
+
+These steps are crucial for resetting the Battery Management System (BMS) after a battery replacement. If these steps are not followed, the BMS will remain "off," and the robot will not turn on.
 
 The Nano ESP32 can report the status of the battery through the terminal of the Arduino Lab for MicroPython and with its RGB status LED. To do that you need to call the `Alvik.begin()` function in any program or directly at the command line area.
 
@@ -1609,10 +1625,6 @@ The `<device port>` is the name of the USB port that your computer assigned to t
 Now you can open the Arduino Lab for MicroPython, connect Alvik and open the example called `hello_world.py` in the `examples` folder. If everything works as expected you'll see something like the following image:
 
 ![Hello World OLED](assets/hello.png)
-
-7. Test `bender.py`
-
-Open the example called `bender.py`, launch it and see on your display the image of Bender's robot.
 
 ## Want More?
 
