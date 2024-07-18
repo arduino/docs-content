@@ -93,7 +93,9 @@ At the back-right side of Alvik there is the main switch of the robot. When ON t
 
 ### Battery
 
-The battery is a rechargeable Li-ion 18650. It is located in the bottom part of Alvik, to access it you need to remove one Phillip's screw and take out the plastic holder.
+The battery is a rechargeable Li-ion 18650, it allows to run Alvik for 8+ hours non stop.
+The battery is located in the bottom part of Alvik, if you need to access it you'll need to remove one Phillip's screw and take out the plastic holder.
+
 
 ![Accessing battery compartment](assets/battery_holder.jpg)
 
