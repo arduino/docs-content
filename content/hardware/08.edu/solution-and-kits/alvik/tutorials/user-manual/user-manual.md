@@ -239,7 +239,7 @@ The connectors are placed in the back of the robot, the pinout is shown in the f
 
 The Arduino Alvik robot package includes the following items:
 - Alvik robot
-- USB-C to USB-C cable
+- USB-C® to USB-C® cable
 - Phillips screwdriver
 - 18650 Li-Ion battery
 
