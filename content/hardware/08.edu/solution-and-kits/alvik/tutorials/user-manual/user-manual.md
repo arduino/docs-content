@@ -99,7 +99,9 @@ At the back-right side of Alvik there is the main switch of the robot. When ON t
 
 ### Battery
 
-The battery is a rechargeable Li-ion 18650. It is located in the bottom part of Alvik, to access it you need to remove one Phillip's screw and take out the plastic holder.
+The battery is a rechargeable Li-ion 18650, it allows to run Alvik for 8+ hours non stop.
+The battery is located in the bottom part of Alvik, if you need to access it you'll need to remove one Phillip's screw and take out the plastic holder.
+
 
 ![Accessing battery compartment](assets/battery_holder.jpg)
 
@@ -129,7 +131,6 @@ When fully charged it will stay GREEN.
 
 ## Sensors
 
-### Main Components
 
 Alvik has five different sensors, all connected to the STM32 and accessible through the [APIs](https://docs.arduino.cc/tutorials/alvik/api-overview). For each sensor there is a test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples).
 
@@ -278,7 +279,8 @@ To get started to play with Alvik you will need the following hardware and softw
 
 ### Software Requirements
 
-- Operating Systems: All the major Operating Systems are supported
+- Operating Systems: Linux, macOS or Windows
+
 - [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
 
 ### ESP32 MicroPython Firmware
