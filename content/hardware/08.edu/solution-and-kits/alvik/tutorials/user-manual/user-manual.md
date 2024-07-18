@@ -237,7 +237,6 @@ The connectors are placed in the back of the robot, the pinout is shown in the f
 ![Connectors Pinout](assets/datasheet_connectors.png)
 
 
-- USB-C to USB-C cable
 - Phillips screwdriver
 - 18650 Li-Ion battery
 
