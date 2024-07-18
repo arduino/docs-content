@@ -264,7 +264,8 @@ To get started to play with Alvik you will need the following hardware and softw
 
 ### Software Requirements
 
-- Operating Systems: All the major Operating Systems are supported
+- Operating Systems: Linux, macOS or Windows
+
 - [Arduino Lab for Micropython](https://labs.arduino.cc/en/labs/micropython)
 
 ### ESP32 MicroPython Firmware
