@@ -224,7 +224,7 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 | Geared motors w/ encoder | GM12-N20VA-08255-150-EN | wheels_positions.py   |
 | RGB LEDs                 | RGB LEDs                | leds_settings.py      |
 
-The RGB LEDs can be used for visual feedback and can be programmed to display various colors and patterns. The LEDs take in **bolean** values for each color meaning that combinations are possible by setting each color **on** or **off** istead of controlling intensity.
+The RGB LEDs can be used for visual feedback and can be programmed to display various colors and patterns. The LEDs take in **boolean** values for each color meaning that combinations are possible by setting each color **on** or **off** insteadof controlling intensity.
 
 ### Connectors
 
@@ -1004,7 +1004,7 @@ The Arduino Alvik robot comes equipped with two RGB LEDs that can be controlled 
     `green`: Intensity of the green component (0 or 1)
     `blue`: Intensity of the blue component (0 or 1)
 
-In this case the LEDs take in **bolean** values for each color meaning that combinations are possible by setting each color **on** or **off** istead of controlling intensity.
+In this case the LEDs take in **boolean** values for each color meaning that combinations are possible by setting each color **on** or **off** insteadof controlling intensity.
 
 **Example**
 
