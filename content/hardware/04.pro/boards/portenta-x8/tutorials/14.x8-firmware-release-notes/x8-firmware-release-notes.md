@@ -55,9 +55,10 @@ The listing herein offers a glimpse into the Portenta X8 firmware's continuous i
 
 ***For more information on the Foundries Core related to our release, please refer to the [__LmP V93 Release Notes — FoundriesFactory 93 documentation__](https://docs.foundries.io/latest/release-notes/release-notes.html).***
 
-## Older Firmware Versions
+## Available Firmware Versions
 
-Below is a list of deprecated versions before **861: Release arduino-91.2**, along with their release notes highlighting distinctive updates. Updating to the latest version is recommended.
+Below is a list of all available firmware versions with their release notes.
+
 
 ### OS Image 846 - May 15, 2024
 
@@ -192,3 +193,8 @@ Below is a list of deprecated versions before **861: Release arduino-91.2**, alo
 <br></br>
 
 For instructions on how to install or upgrade to the latest firmware version, you can use the [Portenta X8 Out-of-the-box](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience) or [flash it manually](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#update-using-uuu-tool) downloading the newest version directly from this [link](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz).
+
+
+## Older Firmware Versions
+
+Older versions than version __OS Image 719 - September 27, 2023__ are deprecated. An update to the latest version is recommended.
