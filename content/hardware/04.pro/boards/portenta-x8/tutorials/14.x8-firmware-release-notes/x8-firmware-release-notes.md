@@ -8,9 +8,9 @@ hardware:
   - hardware/04.pro/board/portenta-x8
 ---
 
-# Firmware Release Notes
+# Firmware Information
 
-The present document provides detailed release notes for each firmware version of the Portenta X8. Explore the changes, improvements, and fixes for the released firmware.
+The present document provides download links and detailed release notes for each firmware version of the Portenta X8; explaining the changes, improvements, and fixes for each released firmware.
 
 ## Hardware and Software Requirements
 
