@@ -4093,6 +4093,12 @@ After the Opta™ controller is programmed with the example sketch, you can see 
 
 ![Status LED Example Animation](assets/led-ani.gif)
 
+You can buy and find more information about the Opta™ Analog Expansions on the links below:
+
+- [Opta™ Analog Expansion Product Page](https://docs.arduino.cc/hardware/opta-analog-ext)
+- [Buy the Opta™ Analog Ext A0602](https://store.arduino.cc/products/opta-ext-a0602)
+
+
 ## Support
 
 If you encounter any issues or have questions while working with Opta™ devices, we provide various support resources to help you find answers and solutions.
