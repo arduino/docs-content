@@ -28,7 +28,7 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 ### General Specifications Overview
 
 | Characteristics             | Details                                                                                                                                                                                                                                        |
-|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Supply Voltage              | 12...24 V                                                                                                                                                                                                                                      |
 | Reverse polarity protection | Yes                                                                                                                                                                                                                                            |
 | ESP protection              | Yes                                                                                                                                                                                                                                            |
@@ -45,14 +45,20 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 ### Inputs
 
 | Characteristics                 | Details                                               |
-|---------------------------------|-------------------------------------------------------|
-| Number of channels              | 8x                                                     |
+| ------------------------------- | ----------------------------------------------------- |
+| Number of channels              | 8x                                                    |
 | Channels programmable as inputs | I1, I2, I3, I4, O1, I5, I6, O2                        |
 | Type of inputs accepted         | Digital Voltage and Analog (Voltage, Current and RTD) |
 | Inputs overvoltage protection   | Yes (Up to 40 V)                                      |
 | Antipolarity protection         | No                                                    |
 | Analog Input resolution         | 16 bits                                               |
 | Noise Rejection                 | Optional noise rejection between 50 Hz and 60 Hz      |
+| test                            | fjskfj                                                |
+|                                 | fjd                                                   |
+|                                 | fjdklsfjd                                             |
+|                                 | fejdsklfakd                                           |
+|                                 |                                                       |
+
 
 
 #### Voltage Input Mode
@@ -82,7 +88,7 @@ The Analog Expansion input channels can be configured for current loop instrumen
 | Accuracy                    | +/- 1%                                      |
 | Repeatability               | +/- 1%                                      |
 
-#### RTD Input Mode 
+#### RTD Input Mode
 
 The Analog Expansion input channels can be used for temperature metering with **PT100** RTDs.
 
@@ -106,13 +112,13 @@ RTD with 3 wires has generally two wires with the same color.
 
 ### Outputs
 
-| Characteristics                     | Details                                |
-|-------------------------------------|----------------------------------------|
+| Characteristics                     | Details                                  |
+| ----------------------------------- | ---------------------------------------- |
 | Number of channels                  | 8x, (2x used simultaneously recommended) |
-| Channels programmable as outputs    | I1, I2, I3, I4, O1, I5, I6, O2         |
-| Type of outputs supported           | Analog voltage and current             |
-| DAC resolution                      | 13 bits                                |
-| Charge pump for zero voltage output | Yes                                    |
+| Channels programmable as outputs    | I1, I2, I3, I4, O1, I5, I6, O2           |
+| Type of outputs supported           | Analog voltage and current               |
+| DAC resolution                      | 13 bits                                  |
+| Charge pump for zero voltage output | Yes                                      |
 
 ***All eight analog channels can be used as outputs but due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time.***
 
@@ -122,22 +128,22 @@ RTD with 3 wires has generally two wires with the same color.
 
 This output mode lets you control voltage-driven actuators.
 
-| Characteristics                  | Details                                                                                                                     |
-|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Analog output voltage            | 0...11 V                                                                                                                    |
-| Resistive load range             | 500 Ω...100 kΩ                                                                                                              |
-| Maximum capacitive load          | 2 μF                                                                                                                        |
+| Characteristics                              | Details                                                                                                                     |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Analog output voltage                        | 0...11 V                                                                                                                    |
+| Resistive load range                         | 500 Ω...100 kΩ                                                                                                              |
+| Maximum capacitive load                      | 2 μF                                                                                                                        |
 | Short-circuit current per channel (sourcing) | Min: 25 mA, Typ: 29 mA, Max: 32 mA (lower limit bit = 0 (default)), Min: 5.5 mA, Typ: 7 mA, Max: 9 mA (lower limit bit = 1) |
 | Short-circuit current per channel (sinking)  | Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                                                                       |
-| Accuracy                         | +/- 1%                                                                                                                      |
-| Repeatability                    | +/- 1%                                                                                                                      |
+| Accuracy                                     | +/- 1%                                                                                                                      |
+| Repeatability                                | +/- 1%                                                                                                                      |
 
 #### Current Output Mode
 
 This output mode lets you control current-driven actuators.
 
 | Characteristics                            | Details                                   |
-|--------------------------------------------|-------------------------------------------|
+| ------------------------------------------ | ----------------------------------------- |
 | Analog output current                      | 0...25 mA                                 |
 | Maximum output voltage when sourcing 25 mA | 11.9 V ± 20%                              |
 | Open circuit voltage                       | 16.9 V ± 20%                              |
@@ -150,10 +156,11 @@ This output mode lets you control current-driven actuators.
 The Analog Expansion has four PWM output channels **(P1...P4)**. They are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage.
 
 | V<sub>PWM</sub> Voltage  | Details               |
-|--------------------------|-----------------------|
+| ------------------------ | --------------------- |
 | Source voltage supported | 8...40 VDC            |
 | Period                   | Programmable          |
 | Duty-cycle               | Programmable (0-100%) |
+|                          |                       |
 
 #### Status LEDs
 
@@ -211,14 +218,14 @@ The following diagram explains the relation between the main components of the O
 
 ### Input/Output Channels
 
-The Arduino Opta® Analog Expansion features 8 channels that can be configured as inputs or outputs. When the channels are configured as inputs they can be used as digital ones with a 0-24/0-10 V range, or analog being able to measure voltage from 0 to 10 V, measure current from 0 to 25 mA or temperature leveraging the RTD mode. 
+The Arduino Opta® Analog Expansion features 8 channels that can be configured as inputs or outputs. When the channels are configured as inputs they can be used as digital ones with a 0-24/0-10 V range, or analog being able to measure voltage from 0 to 10 V, measure current from 0 to 25 mA or temperature leveraging the RTD mode.
 
-The channels **I1** and **I2** can be used for connecting 3-Wires RTDs. Every channel can be used also as an output, be aware that using more than two channels as an output simultaneously may overheat the device. This will depend on the ambient temperature and channel load. 
+The channels **I1** and **I2** can be used for connecting 3-Wires RTDs. Every channel can be used also as an output, be aware that using more than two channels as an output simultaneously may overheat the device. This will depend on the ambient temperature and channel load.
 
-We have tested setting all eight channels as outputs at 25 °C outputting more than 24 mA at 10 V each during a limited timeframe. 
+We have tested setting all eight channels as outputs at 25 °C outputting more than 24 mA at 10 V each during a limited timeframe.
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
-<strong>Warning:</strong> In case the user needs a configuration with a deviation from the suggested one, will need to validate the system performance and stability before a deployment into a production environment. 
+<strong>Warning:</strong> In case the user needs a configuration with a deviation from the suggested one, will need to validate the system performance and stability before a deployment into a production environment.
 </div>
 
 The PWM outputs are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage between 8 and 40 VDC, you can set the period and duty-cycle by software.
@@ -328,5 +335,5 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 ## Revision History
 
 | Date       | **Revision** | **Changes**   |
-|------------|--------------|---------------|
-| 08/07/2024 | 1            | First Release |
+| ---------- | ------------ | ------------- |
+| 25/07/2024 | 1            | First Release |
