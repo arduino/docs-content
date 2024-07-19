@@ -35,8 +35,7 @@ In this tutorial, we will use an Opta™ and learn how to partition the memory t
 
 ### Hardware Requirements
 
-- [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
-- [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
+- Opta™ ([Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi)) (x1) or [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control) (x1)
 - USB-C® cable (x1)
 - [Micro USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 
