@@ -42,4 +42,14 @@ Arduino Opta® Digital Expansion is available in two variants:
 
 </Feature>
 
+
+<Feature title="Product Printing Notice" image="security">
+
+  A small quantity of units could have a small printing typo on its front text where the text "OUTPUT 1...8 (EMR 6A 250 V **DC** )" should claim "OUTPUT 1...8 (EMR 6A 250 V **ADC** )", **being the rated voltage of the Arduino Opta® Ext D1608E (AFX00005) relays 250 VAC**. Check the official datasheet of the product to know more about its technical specifications.
+
+  <FeatureWrapper>
+    <FeatureLink title="Datasheet" url="https://docs.arduino.cc/resources/datasheets/AFX00005-AFX00006-datasheet.pdf" download/>
+  </FeatureWrapper>
+</Feature>
+
 </FeatureList>
