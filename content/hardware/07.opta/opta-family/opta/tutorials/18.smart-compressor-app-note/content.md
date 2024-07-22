@@ -15,6 +15,23 @@ hardware:
 
 ## Introduction
 
+Transform your industrial compressors into smart and connect it to the Arduino Cloud for advanced condition monitoring capabilities using the Opta micro PLC.
+
+![Project Thumbnail]()
+
+This affordable solution provides real-time remote data access, behavioral diagnostics, predictive maintenance, and efficient device management. It helps you maximize uptime, reduce operational costs, and extend the lifespan of your equipment.
+
+### Goals
+
+The goal of this application note is to showcas the Opta PLC capabilities on letting you convert conventional industrial equipment into smart for monitoring and predictive maintenance purposes. The project's objectives are the following:
+
+-
+-
+-
+-
+-
+-
+
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
@@ -26,9 +43,9 @@ hardware:
 ## Compressor Monitoring System Overview
 
 ### Sensors Deployment
-### Anomalies detection
+### Anomalies Detection
 ### Modbus TCP data output
-### Opta code
+### Opta Code
 ### Arduino Cloud Dashboard
 
 ## Full Compressor Monitoring System Example
