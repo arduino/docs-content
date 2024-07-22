@@ -4,7 +4,8 @@ difficulty: beginner
 description: "Discover how to use and program Arduino® Alvik's robot"
 tags:
   - Robot
-author: "Paolo Cavagnolo, Pedro Miguel"
+author: "Paolo Cavagnolo, Pedro Miguel, Jose Garcia"
+
 ---
 
 ## Introduction
@@ -16,7 +17,8 @@ Powered by the Arduino® Nano ESP32, Alvik offers diverse learning paths through
 
 In this tutorial, you will find useful information to get started, test, and maintain Alvik.
 
-## What Is Alvik
+## What Is Alvik
+
 
 Alvik is a robot with two controllers and a wide range of sensors and actuators. The main controller is the Arduino Nano ESP32 attached to the top of the robot while there is an STM32 controller integrated into the robot that takes care of the low-level commands such as reading the sensors and moving the motors. It has been designed for STEAM education, making it an ideal tool for learning programming, Robotics, IoT, Artificial Intelligence...
 
@@ -42,7 +44,8 @@ Inside the Arduino Alvik package you'll find the following items:
 
 ![Alvik bottom components](assets/down-components.png)
 
-## The Brain
+## Alvik's Brain
+
 The brain of the Alvik robot is the Nano ESP32, which is the central component we program to run the logic and make decisions. It is extremely important because it processes all the high-level commands and controls the overall operation of the robot. However, instead of directly moving the motors or reading sensors, it communicates with the STM32 (the body) to execute these actions. The Nano ESP32 gives orders to the STM32 to move, read sensors, or report status, allowing the robot to make informed (or better yet, as informed as we program it) decisions and run tasks and routines using this information.
 ![Alvik Brain](assets/alvik_brain.png)
 
@@ -57,7 +60,8 @@ Please note that when using MicroPython the pin number reflects the GPIO on the 
 
 ![Nano ESP32 pinout](assets/esp-pinout.png)
 
-## The Body
+## Alvik's Body
+
 Using the same analogy, the body of the Alvik robot includes everything else from the sensors and motors to the connectors supporting external modules and, of course, the STM32, which acts like the nervous system of the robot. Just as the human nervous system transmits signals between the brain and various parts of the body, the STM32 transmits commands and collects data from the robot's components. When the Nano ESP32, acting as the brain, sends commands, the STM32 executes these low-level operations, such as moving the motors, flashing the LEDs, or interacting with external devices. The STM32 is essential for carrying out the detailed actions based on the high-level instructions from the Nano ESP32, ensuring that the robot's movements and functions are performed accurately.
 
 ![Alvik Body](assets/alvik_body.png)
@@ -70,7 +74,8 @@ The main core of the robot is the STM32 ARM Cortex-M4 32 Bit controller. It hand
 
 You can learn more about the available functions for Alvik in the following [Alvik's API Documentation](https://docs.arduino.cc/tutorials/alvik/api-overview).
 
-***Although Alvik's "out of the box" experience is designed in micropython, there are C++ APIs that allow you to program Avlik in the Arduino IDE, these APIs are 1 to 1 compatible with the micropython APIs, which means that the API overview will be interesting for both micropython and C++ programs.***
+***Although Alvik's "out of the box" experience is designed in micropython, there are C++ APIs that allow you to program Avlik in the Arduino IDE, these APIs are 1 to 1 compatible with the micropython APIs, which means that the [Alvik's API Documentation](https://docs.arduino.cc/tutorials/alvik/api-overview) will give you information for both micropython and C++ programming experiences.***
+
 
 The latest firmware of the STM32 can be found at [this link](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases), and [here](#how-to-upload-firmware) is the guide to flash it.
 ![Alvik STM32](assets/alvik_STM.png)
@@ -119,7 +124,8 @@ When fully charged it will stay GREEN.
 
 ***Don't confuse the RGB status LED with the power ON LED of the Nano ESP32, which is always green.***
 
-## Sensors
+## Alvik's Sensors
+
 
 
 Alvik includes a set of  different sensors listed below, all connected to the STM32 and accessible through the [APIs](https://docs.arduino.cc/tutorials/alvik/api-overview). For each sensor there is test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) for micropython and in [this repository](https://github.com/arduino-libraries/Arduino_AlvikCarrier/tree/main/examples) for C++.
@@ -152,7 +158,8 @@ The Arduino Alvik robot is equipped with seven capacitive touch buttons. These b
 
 Each button can be programmed to perform specific actions, providing more complex interface for user interaction.
 
-### Distance Sensors
+### Distance Sensor
+
 
 The Arduino Alvik robot is equipped with a ToF (Time of Flight) 8x8 Array sensor, specifically the VL53L7CX, which can measure distances up to 350 cm. These distance sensors help the robot detect obstacles and measure the distance to objects in its environment. The sensor is integrated into the front PCB of the robot.
 
@@ -163,7 +170,8 @@ The Arduino Alvik robot is equipped with a ToF (Time of Flight) 8x8 Array sensor
 
 ![Distance sensor position](assets/distanceSensor.png)
 
-### Line Follower Sensor
+### Line Follower Sensors
+
 
 The Arduino Alvik robot is equipped with line follower sensors that help it detect and follow lines on the ground. This is useful for applications where the robot needs to navigate along predefined paths. The line follower array consists of three phototransistors and five infrared LEDs, mounted on the front PCB.
 
@@ -207,14 +215,16 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 
 ![IMU axis reference](assets/imageIMU.png)
 
-## Actuators
+## Alvik's Actuators
+
 
 | **Actuator name**        | **Part name**           | **Test program name** |
 |--------------------------|-------------------------|-----------------------|
 | Geared motors w/ encoder | GM12-N20VA-08255-150-EN | wheels_positions.py   |
 | RGB LEDs                 | RGB LEDs                | leds_settings.py      |
 
-The RGB LEDs can be used for visual feedback and can be programmed to display various colors and patterns. The LEDs take in **boolean** values for each color meaning that combinations are possible by setting each color **on** or **off** insteadof controlling intensity.
+The RGB LEDs can be used for visual feedback and can be programmed to display various colors and patterns. The LEDs take in **boolean** values for each color meaning that combinations are possible by setting each color **on** or **off** .
+
 
 ### Connectors
 
@@ -273,8 +283,10 @@ It may happen that you used your Nano ESP32 for other projects than Alvik, or yo
 
 2. Download the Alvik micropyton libraries
 
-    Alvik micropython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
-    ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
+    - Alvik micropython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
+
+   -  ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
+
 
 3. Unzip both of the downloaded libraries in a single "Alvik" folder, open the Arduino Lab for MicroPython, go to the "files" tab and set the path to the unzipped folder on the Arduino Lab for Micropython
 
@@ -407,7 +419,8 @@ while (True):
 
 You are now all set, disconnect Alvik from the computer, put some obstacles around Alvik, turn it ON and see how Alvik detects them and turns to avoid them.
 
-## Deep Dive Programming Alvik
+## Deep Dive Programming Alvik
+
 
 ### Controlling the Motors
 
@@ -1079,7 +1092,8 @@ while True:
 By following these steps, you can control the LEDs on the Arduino Alvik robot to display different colors and create various lighting effects.
 
 
-## Talking With Other Machines!
+## Talking With Other Devices!
+
 
 ### WiFi
 
@@ -1091,7 +1105,8 @@ The provided code will:
 3. Serve a simple web page with buttons for directional control.
 4. Move the robot in the specified direction when a button is pressed.
 
-### Instructions
+### Step by Step setup
+
 
 1. Replace `Insert_SSID_Here` and `Password_Here` with your Wi-Fi credentials.
 2. Upload the script to the Arduino Nano ESP32.
@@ -1259,12 +1274,12 @@ The provided code will:
 2. Set up a callback function to handle incoming ESP-NOW messages.
 3. Move the robot based on the received commands while buttons are pressed.
 
-### Instructions
+### Step by Step setup
+
 
 1. Upload the receiver script to the Arduino Nano ESP32 on the Alvik robot.
 2. Use another ESP32 device to send commands to the Alvik robot via ESP-NOW.
 
-### Code
 
 **Setting Up ESP-NOW on the Receiver**
 
@@ -1322,7 +1337,7 @@ while True:
         sys.exit()
 ```
 
-### Sending Commands
+**Setting Up ESP-NOW on the Transmitter**
 
 The following code can be used on another Alvik to send commands to the Alvik robot.
 
@@ -1395,13 +1410,15 @@ while True:
         sys.exit()
 ```
 
-### Receiver
+**Receiver behaviour**
+
 
 1. **Initializing ESP-NOW**: The code sets up the ESP32 as a Wi-Fi station and initializes ESP-NOW.
 2. **Callback Function**: A callback function `on_receive_msg` is defined to handle incoming messages. This function decodes the message and moves the robot based on the received command.
 3. **Registering the Callback**: The callback function is registered with ESP-NOW to ensure it gets called when a message is received.
 
-### Sender
+**Transmitter behaviour**
+
 
 1. **Initializing ESP-NOW**: The code sets up the ESP32 as a Wi-Fi station and initializes ESP-NOW.
 2. **Adding a Peer**: The MAC address of the receiver (Alvik robot) is added as a peer.
