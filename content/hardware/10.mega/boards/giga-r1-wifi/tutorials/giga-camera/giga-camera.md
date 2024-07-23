@@ -29,14 +29,6 @@ You will also need the following software:
 - [Arduino IDE](https://www.arduino.cc/en/software) (any version).
 - [Web Serial Web Application](https://arduino.github.io/labs-pages/web-serial-camera/) (for displaying camera feed).
 
-To run the Webserial locally go to:
-
-```
-C:\Users\<UserName>\AppData\Local\Arduino15\packages\arduino\hardware\mbed_giga\4.1.3\libraries\Camera\extras\WebSerialCamera
-```
-
-and open the `index.html` file. We suggest using the Chrome™ browser to do so.
-
 ## Supported Cameras
 
 The GIGA R1 currently supports the following cameras, via the [Camera](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/Camera) library that is bundled with the [Arduino Mbed Core](https://github.com/arduino/ArduinoCore-mbed):
