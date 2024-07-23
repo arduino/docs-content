@@ -7,7 +7,7 @@ author: Christopher Méndez
 ![](assets/featured.png)
 
 # Description
-Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or actuators. In addition, 4 dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
+Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or actuators in addition to 4x dedicated PWM outputs. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
 
 
 # Target Areas:
