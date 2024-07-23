@@ -80,7 +80,7 @@ jobs:
         run: aws s3 sync --cache-control "public, max-age=0, must-revalidate" --include "*.html" --include="sw.js" --include="*.json" --include "*.css" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.pdf" --delete public/ s3://${{ secrets.STAGING_BUCKET_NAME }}/
 
       - name: Sync PDF
-        run: aws s3 sync --cache-control "public, max-age=86400, must-revalidate" --include "*.pdf" --delete public/ s3://${{ secrets.STAGING_BUCKET_NAME }}/
+        run: aws s3 sync --cache-control "public, max-age=86400, must-revalidate" --include "*.pdf" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.css" --exclude="*.html" --exclude="*.json" --exclude="sw.json" --delete public/ s3://${{ secrets.STAGING_BUCKET_NAME }}/
 
       - name: Invalidate cloudflare cache
         uses: nathanvaughn/actions-cloudflare-purge@master
