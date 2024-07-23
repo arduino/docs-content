@@ -229,6 +229,8 @@ To upload the code, click the **Verify** button to compile the sketch and check 
 
 The code above retrieves information from an Opta™ device, including its MAC address, and prints it to the Arduino IDE's Serial Monitor. The information shown includes the bootloader version and identifier, secure board information, and general board information.
 
+***Please note that there are versions of the Opta™ with bootloader version `<v24`, which do not store the bootloader identifier at `0x80002F0`. Therefore, it will show `v255`, since the memory area is empty.***
+
 ![Opta™ device information shown in the Arduino IDE Serial Monitor.](assets/serial-monitor-1.png)
 
 - The `printOptaSecureInfo()` function checks if the magic number of the `OptaBoardInfo` structure is `0xB5`, indicating that secure information is available. If it is, it prints the secure information to the IDE's Serial Monitor, including the board's functionalities (Ethernet, Wi-Fi®/Bluetooth® capabilities, and RS-485 capabilities), QSPI memory size, board revision, VID, PID, and the MAC address of the Ethernet port. If the board has Wi-Fi®/Bluetooth® capabilities, the function will also print the MAC address of the Wi-Fi®/Bluetooth® module. 
