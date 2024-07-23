@@ -86,4 +86,4 @@ jobs:
         uses: nathanvaughn/actions-cloudflare-purge@master
         with:
           cf_zone: ${{ secrets.CLOUDFLARE_ZONE }}
-          cf_auth: ${{ secrets.CLOUDFLARE_AUTH_KEY }}
+          cf_auth: ${{ secrets.CLOUDFLARE_PURGE_API_TOKEN }}
