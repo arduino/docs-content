@@ -1,7 +1,7 @@
 ---
 title: GIGA R1 Camera Guide
-description: Learn about the GIGA R1 WiFi's camera connector, and how to use existing examples.
-tags: [ArduCAM, Camera, Processing]
+description: Learn about the GIGA R1 WiFi's camera connector, and how to stream data through Web Serial.
+tags: [ArduCAM, Camera, Web Serial]
 author: Karl Söderby
 hardware:
   - hardware/10.mega/boards/giga-r1-wifi
@@ -16,38 +16,38 @@ The GIGA R1 has a dedicated camera connector that allows certain camera modules 
 In this guide, we will explore the following:
 
 - Where the camera connector is located.
-- What cameras are compatible.
-- What library to use.
-- How to setup a camera stream to a processing application.
+- What cameras are compatible?
+- What library to use?
+- How to set up a camera stream to a browser using Web Serial.
 
 ## Hardware & Software Needed
 
 To follow and use the examples provided in this guide, you will need an [Arduino GIGA R1 WiFi](/hardware/giga-r1-wifi)
 
 You will also need the following software:
+
 - [Arduino IDE](https://www.arduino.cc/en/software) (any version).
-- [Processing](https://processing.org/download) (for displaying camera feed).
+- [Web Serial Web Application](https://arduino.github.io/labs-pages/web-serial-camera/) (for displaying camera feed).
 
 ## Supported Cameras
 
-The GIGA R1 currently supports the following cameras, via the [Camera](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/Camera) library that is bundled with the [Arduino Mbed PS GIGA Board Package](https://github.com/arduino/ArduinoCore-mbed):
+The GIGA R1 currently supports the following cameras, via the [Camera](https://github.com/arduino/ArduinoCore-mbed/tree/master/libraries/Camera) library that is bundled with the [Arduino Mbed Core](https://github.com/arduino/ArduinoCore-mbed):
 
 - **OV7670** and **OV7675**
 - **GC2145**
 - **Himax HM01B0**
-- **Himax HM0360**
 
 ## Camera Connector
 
 ![Camera Connector on GIGA R1](assets/camera-connector-pins.png)
 
-The 20 pin camera connector onboard the GIGA R1 is designed to be directly compatible with some breakout boards from ArduCam. 
+The 20 pin camera connector onboard the GIGA R1 is designed to be directly compatible with some breakout boards from ArduCam.
 
 This allows you to simply connect the camera module directly to the board, without making any additional circuit.
 
 ![Camera Module Connected](assets/camera-connector-photo.png)
 
-Some of the 20 pin connector breakout boards from ArduCam can be found [here](https://www.arducam.com/product-category/stm32-camera-modules-dcmi-and-spi/).
+Some of the 20 pin connector breakout boards from ArduCam can be found [here](https://www.arducam.com/product-category/embedded-camera-module/camera-breakout-board/).
 
 The complete pin map can be found below:
 
@@ -70,21 +70,33 @@ You can also view the schematic for this connector in more detail just below. Th
 
 ![Schematic for Camera Connector (J6).](assets/camera-schematic.png)
 
-## Raw Bytes Over Serial (Processing)
+## Raw Bytes Over Serial
 
-![Live view of the camera.](assets/processing-example.png)
-
-This example allows you to stream the sensor data from your camera to a Processing application, using serial over USB. This will allow you to see the image directly in your computer.
-
-***This example requires a version of [Processing](https://processing.org/download) on your machine.***
+This example allows you to stream the sensor data from your camera to a web interface, using serial over USB. This will allow you to see the image directly in your browser.
 
 ### Step 1: Arduino
 
 Upload the following sketch to your board.
 
-This sketch is also available in the Arduino IDE via **Examples > Camera > CameraCaptureRawBytes**.
+This sketch is also available in the Arduino IDE via **Examples > Camera > CameraCaptureWebSerial**.
 
 ```arduino
+/*
+ * This example shows how to capture images from the camera and send them over Web Serial.
+ * 
+ * There is a companion web app that receives the images and displays them in a canvas.
+ * It can be found in the "extras" folder of this library.
+ * The on-board LED lights up while the image is being sent over serial.
+ * 
+ * Instructions:
+ * 1. Make sure the correct camera is selected in the #include section below by uncommenting the correct line.
+ * 2. Upload this sketch to your camera-equipped board.
+ * 3. Open the web app in a browser (Chrome or Edge) by opening the index.html file 
+ * in the "WebSerialCamera" folder which is located in the "extras" folder.
+ * 
+ * Initial author: Sebastian Romero @sebromero
+ */
+
 #include "camera.h"
 
 #ifdef ARDUINO_NICLA_VISION
@@ -93,14 +105,19 @@ This sketch is also available in the Arduino IDE via **Examples > Camera > Camer
   Camera cam(galaxyCore);
   #define IMAGE_MODE CAMERA_RGB565
 #elif defined(ARDUINO_PORTENTA_H7_M7)
+  // uncomment the correct camera in use
   #include "hm0360.h"
   HM0360 himax;
+  // #include "himax.h";
+  // HM01B0 himax;
   Camera cam(himax);
   #define IMAGE_MODE CAMERA_GRAYSCALE
 #elif defined(ARDUINO_GIGA)
-  #include "ov7670.h"
-  OV7670 ov7670;
-  Camera cam(ov7670);
+  #include "ov767x.h"
+  // uncomment the correct camera in use
+  OV7670 ov767x;
+  // OV7675 ov767x;
+  Camera cam(ov767x);
   #define IMAGE_MODE CAMERA_RGB565
 #else
 #error "This board is unsupported."
@@ -110,188 +127,137 @@ This sketch is also available in the Arduino IDE via **Examples > Camera > Camer
 Other buffer instantiation options:
   FrameBuffer fb(0x30000000);
   FrameBuffer fb(320,240,2);
+
+If resolution higher than 320x240 is required, please use external RAM via
+  #include "SDRAM.h"
+  FrameBuffer fb(SDRAM_START_ADDRESS);
+  ...
+  // and adding in setup()
+  SDRAM.begin();
 */
+constexpr uint16_t CHUNK_SIZE = 512;  // Size of chunks in bytes
+constexpr uint8_t RESOLUTION  = CAMERA_R320x240; // CAMERA_R160x120
+constexpr uint8_t CONFIG_SEND_REQUEST = 2;
+constexpr uint8_t IMAGE_SEND_REQUEST = 1;
+
+uint8_t START_SEQUENCE[4] = { 0xfa, 0xce, 0xfe, 0xed };
+uint8_t STOP_SEQUENCE[4] = { 0xda, 0xbb, 0xad, 0x00 };
 FrameBuffer fb;
 
-unsigned long lastUpdate = 0;
-
-
-void blinkLED(uint32_t count = 0xFFFFFFFF)
-{
-  pinMode(LED_BUILTIN, OUTPUT);
+/**
+ * Blinks the LED a specified number of times.
+ * @param ledPin The pin number of the LED.
+ * @param count The number of times to blink the LED. Default is 0xFFFFFFFF.
+ */
+void blinkLED(int ledPin, uint32_t count = 0xFFFFFFFF) { 
   while (count--) {
-    digitalWrite(LED_BUILTIN, LOW);  // turn the LED on (HIGH is the voltage level)
+    digitalWrite(ledPin, LOW);  // turn the LED on (HIGH is the voltage level)
     delay(50);                       // wait for a second
-    digitalWrite(LED_BUILTIN, HIGH); // turn the LED off by making the voltage LOW
+    digitalWrite(ledPin, HIGH); // turn the LED off by making the voltage LOW
     delay(50);                       // wait for a second
   }
 }
 
 void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);  
+  pinMode(LEDR, OUTPUT);
+  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(LEDR, HIGH);
+
   // Init the cam QVGA, 30FPS
-  if (!cam.begin(CAMERA_R320x240, IMAGE_MODE, 30)) {
-    blinkLED();
+  if (!cam.begin(RESOLUTION, IMAGE_MODE, 30)) {
+    blinkLED(LEDR);
   }
 
-  blinkLED(5);
+  blinkLED(LED_BUILTIN, 5);
 }
 
-void loop() {
-  if(!Serial) {    
-    Serial.begin(921600);
-    while(!Serial);
-  }
+/**
+ * Sends a chunk of data over a serial connection.
+ * 
+ * @param buffer The buffer containing the data to be sent.
+ * @param bufferSize The size of the buffer.
+ */
+void sendChunk(uint8_t* buffer, size_t bufferSize){
+  Serial.write(buffer, bufferSize);
+  Serial.flush();
+  delay(1); // Optional: Add a small delay to allow the receiver to process the chunk
+}
 
-  // Time out after 2 seconds and send new data
-  bool timeoutDetected = millis() - lastUpdate > 2000;
-  
-  // Wait for sync byte.
-  if(!timeoutDetected && Serial.read() != 1) return;  
-
-  lastUpdate = millis();
-  
+/**
+ * Sends a frame of camera image data over a serial connection.
+ */
+void sendFrame(){
   // Grab frame and write to serial
-  if (cam.grabFrame(fb, 3000) == 0) {
-    Serial.write(fb.getBuffer(), cam.frameSize());
+  if (cam.grabFrame(fb, 3000) == 0) {    
+    byte* buffer = fb.getBuffer();
+    size_t bufferSize = cam.frameSize();
+    digitalWrite(LED_BUILTIN, LOW);
+    
+    sendChunk(START_SEQUENCE, sizeof(START_SEQUENCE));
+
+    // Split buffer into chunks
+    for(size_t i = 0; i < bufferSize; i += CHUNK_SIZE) {
+      size_t chunkSize = min(bufferSize - i, CHUNK_SIZE);
+      sendChunk(buffer + i, chunkSize);
+    }    
+    
+    sendChunk(STOP_SEQUENCE, sizeof(STOP_SEQUENCE));
+    
+    digitalWrite(LED_BUILTIN, HIGH);
   } else {
     blinkLED(20);
   }
 }
 
+/**
+ * Sends the camera configuration over a serial connection.
+ * This is used to configure the web app to display the image correctly.
+ */
+void sendCameraConfig(){
+  Serial.write(IMAGE_MODE);
+  Serial.write(RESOLUTION);
+  Serial.flush();
+  delay(1);
+}
+
+void loop() {
+  if(!Serial) {    
+    Serial.begin(115200);
+    while(!Serial);    
+  }
+
+  if(!Serial.available()) return;
+
+  byte request = Serial.read();
+
+  switch(request){
+    case IMAGE_SEND_REQUEST:
+      sendFrame();
+      break; 
+    case CONFIG_SEND_REQUEST:
+      sendCameraConfig();
+      break;
+  }
+  
+}
+
 ```
 
-### Step 2: Processing
+### Step 2: Web Serial
 
-The following Processing sketch will launch a Java app that allows you to view the camera feed. As data is streamed via serial, make sure you close the Serial Monitor during this process, else it will not work.
+Open the [Web Serial Interface](https://arduino.github.io/labs-pages/web-serial-camera/) which allows you to view the camera feed. Make sure to close the Serial Monitor in the Arduino IDE beforehand, otherwise it will not work as the serial port would be occupied.
 
-***Important! Make sure to replace the following line in the code below: `/dev/cu.usbmodem14301`, with the name of your port.***
+Press on **Connect** and select the correct port.
 
-Click on the **"PLAY"** button to initialize the app.
+![Select Port](./assets/connect_port.png)
 
-```cpp
-/*
-  Use with the Examples -> CameraCaptureRawBytes Arduino sketch.
-  This example code is in the public domain.
-*/
+You should now be able to see the camera feed.
 
-import processing.serial.*;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
+There is also a variety of video filters that can be applied.
 
-Serial myPort;
-
-// must match resolution used in the Arduino sketch
-final int cameraWidth = 320;
-final int cameraHeight = 240;
-
-// Must match the image mode in the Arduino sketch
-final boolean useGrayScale = true;
-
-// Must match the baud rate in the Arduino sketch
-final int baudRate = 921600;
-
-final int cameraBytesPerPixel = useGrayScale ? 1 : 2;
-final int cameraPixelCount = cameraWidth * cameraHeight;
-final int bytesPerFrame = cameraPixelCount * cameraBytesPerPixel;
-final int timeout =  int((bytesPerFrame / float(baudRate / 10)) * 1000 * 2); // Twice the transfer rate
-
-PImage myImage;
-byte[] frameBuffer = new byte[bytesPerFrame];
-int lastUpdate = 0;
-boolean shouldRedraw = false;
-
-void setup() {
-  size(640, 480);  
-
-  // If you have only ONE serial port active you may use this:
-  //myPort = new Serial(this, Serial.list()[0], baudRate);          // if you have only ONE serial port active
-
-  // If you know the serial port name
-  //myPort = new Serial(this, "COM5", baudRate);                    // Windows
-  //myPort = new Serial(this, "/dev/ttyACM0", baudRate);            // Linux
-  myPort = new Serial(this, "/dev/cu.usbmodem14301", baudRate);     // Mac
-
-  // wait for a full frame of bytes
-  myPort.buffer(bytesPerFrame);  
-
-  myImage = createImage(cameraWidth, cameraHeight, ALPHA);
-  
-  // Let the Arduino sketch know we're ready to receive data
-  myPort.write(1);
-}
-
-void draw() {
-  // Time out after a few seconds and ask for new data
-  if(millis() - lastUpdate > timeout) {
-    println("Connection timed out.");    
-    myPort.clear();
-    myPort.write(1);
-  }
-  
-  if(shouldRedraw){    
-    PImage img = myImage.copy();
-    img.resize(640, 480);
-    image(img, 0, 0);
-    shouldRedraw = false;
-  }
-}
-
-int[] convertRGB565ToRGB888(short pixelValue){  
-  //RGB565
-  int r = (pixelValue >> (6+5)) & 0x01F;
-  int g = (pixelValue >> 5) & 0x03F;
-  int b = (pixelValue) & 0x01F;
-  //RGB888 - amplify
-  r <<= 3;
-  g <<= 2;
-  b <<= 3; 
-  return new int[]{r,g,b};
-}
-
-void serialEvent(Serial myPort) {  
-  lastUpdate = millis();
-  
-  // read the received bytes
-  myPort.readBytes(frameBuffer);
-
-  // Access raw bytes via byte buffer  
-  ByteBuffer bb = ByteBuffer.wrap(frameBuffer);
-  
-  // Ensure proper endianness of the data for > 8 bit values.
-  // The 1 byte bb.get() function will always return the bytes in the correct order.
-  bb.order(ByteOrder.BIG_ENDIAN);
-
-  int i = 0;
-
-  while (bb.hasRemaining()) {
-    if(useGrayScale){
-      // read 8-bit pixel data
-      byte pixelValue = bb.get();
-
-      // set pixel color
-      myImage.pixels[i++] = color(Byte.toUnsignedInt(pixelValue));
-    } else {
-      // read 16-bit pixel data
-      int[] rgbValues = convertRGB565ToRGB888(bb.getShort());
-
-      // set pixel RGB color
-      myImage.pixels[i++] = color(rgbValues[0], rgbValues[1], rgbValues[2]);
-    }       
-  }
-  
-  myImage.updatePixels();
-  
-  // Ensures that the new image data is drawn in the next draw loop
-  shouldRedraw = true;
-  
-  // Let the Arduino sketch know we received all pixels
-  // and are ready for the next frame
-  myPort.write(1);
-}
-```
-
-If all goes well, you should now be able to see the camera feed.
+![Video Filters](./assets/video_filter.png)
 
 ## Summary
 
-In this article, we learned a bit more about the camera connector on board the GIGA R1 board, how it is connected to the STM32H747XI microcontroller, and a simple example on how to connect an inexpensive OV7675 camera module to a Processing application.
+In this article, we learned a bit more about the camera connector on board the GIGA R1 board, how it is connected to the STM32H747XI microcontroller, and a simple example of how to connect ArduCam camera modules through web serial.
