@@ -223,51 +223,41 @@ The Arduino Alvik robot is equipped with an onboard IMU (Inertial Measurement Un
 | Geared motors w/ encoder | GM12-N20VA-08255-150-EN | wheels_positions.py   |
 | RGB LEDs                 | RGB LEDs                | leds_settings.py      |
 
+### Motors
+
+The Alvik is equipped with two geared motors, specifically the GM12-N20VA-08255-150-EN. These motors allow for precise and reliable movement, essential for accurate navigation and control as  each motor includes a magnetic relative encoder to ensure precise control and feedback of the motor's position.
+
+- **Gear Ratio:** 1:150
+- **Operating Voltage:** 6V
+- **No-load Speed:** 55 RPM
+- **No-load Current:** 70mA
+- **Encoder Type:** Magnetic relative encoder
+- **Magnetic relative AB encoder:** 3 ppr
+
+
+### LED Indicators
+
+![LED indicators position](assets/ledIndicator.png)
+
 The RGB LEDs can be used for visual feedback and can be programmed to display various colors and patterns. The LEDs take in **boolean** values for each color meaning that combinations are possible by setting each color **on** or **off** .
 
 
-### Connectors
-
-The connectors are placed in the back of the robot, the pinout is shown in the following image:
-
-![Connectors Pinout](assets/datasheet_connectors.png)
-
-
-## What the Robot Includes
-
-The Arduino Alvik robot package includes the following items:
-- Alvik robot
-- USB-C® to USB-C® cable
-- Phillips screwdriver
-- 18650 Li-Ion battery
-
+## Out Of The Box Modes
 
 Alvik is equipped with three ready-to-go examples. To choose one of the examples, just turn your Alvik ON, move the switch located at the bottom right corner of the robot to the right, wait until the LEDs turn blue and use the Up and Down buttons to pick one color, then hit the "tick" confirmation button. 
 
-### Basic Touch Programming
+- **Basic Touch Programming**: Alvik’s touch buttons can control actions such as movement, changing modes, and interacting with the environment. This allows for intuitive control schemes for different applications.
 
-Alvik’s touch buttons can be programmed to control various actions such as movement, changing modes, and interacting with the environment. This allows for creating intuitive control schemes for different applications. By default, the touch buttons are pre-programmed to control the Alvik's basic movements, such as moving forward, backward, turning left, and turning right. This setup provides an immediate interactive experience, enabling you to get started with minimal setup.
+- **Following Objects**: Using its distance sensors, Alvik can follow objects by maintaining a specific distance. This feature is useful for automated guided vehicles and interactive robotics.
 
-### Following Objects
+- **Line Follower**: Alvik's line follower sensors enable it to navigate along paths marked by lines on the ground, which is great for educational purposes and demonstrating basic robotic navigation.
 
-Out of the box, Alvik is equipped with distance sensors that allow it to follow objects by maintaining a certain distance from them. This feature is pre-configured to help the Alvik follow a target object, making it useful for applications like automated guided vehicles and interactive robotics. The default settings ensure that Alvik can smoothly track and follow objects placed in front of it without any additional programming required.
-
-### Line Follower
-
-Alvik comes pre-programmed with a line following algorithm that utilizes its built-in line follower sensors. These sensors enable the Alvik to navigate along predefined paths marked by lines on the ground. This feature is particularly beneficial in educational settings and for demonstrating basic robotic navigation. The default configuration allows Alvik to follow a black line on a white surface right out of the box, providing an engaging and interactive learning experience for you.
+For more information, visit the [Alvik Getting Started Guide](https://docs.arduino.cc/tutorials/alvik/getting-started/).
 
 ## Alvik's Firmware
 
 To get started to play with Alvik you will need the following hardware and software:
 
-### Hardware Requirements
-
-- Alvik (x1)
-- USB-C® to USB-C® cable (x1)
-- Phillips Screwdriver (cross head)(optional) (x1)
-- Computer (x1)
-
-***Make sure the USB-C® cable you are using works with data lines, not only power lines***
 
 ### Software Requirements
 
@@ -1490,13 +1480,19 @@ Alvik includes several connectors that expand its capabilities:
 
 ### Qwiic Connectors
 
+![QWIIC Connector](assets/QWIIC.png)
+
 The Qwiic connectors on the Arduino Alvik robot are used for I2C connectivity with compatible sensors and actuators using the Qwiic standard. This standard simplifies the process of connecting multiple I2C devices by using a common connector and pinout. The Qwiic system supports daisy-chaining, allowing multiple devices to be connected in series. There are two Qwiic connectors, one on each side at the back of the robot, allowing for easy expansion and integration of additional components.
 
 ### Grove Connectors
 
+![Grove Connector](assets/GROVE.png)
+
 The Grove connectors on the Arduino Alvik robot are used for connectivity with compatible sensors and actuators following the Grove standard. The Grove system uses standardized connectors and pinouts to simplify the connection of various I2C devices. The system is modular and user-friendly, ideal for rapid prototyping and educational purposes. There are two Grove connectors, one on each side at the back of the robot, providing additional flexibility for expanding the robot's capabilities.
 
 ### Servomotor Connectors
+
+![Servo Connector](assets/Servo.png)
 
 The Arduino Alvik robot features 3-pin connectors for attaching servomotors while providing PWM control external servomotors. The connectors are disposed on a 6 by 2 header in the center at the back of the robot, supporting multiple servomotor connections. This arrangement enables complex robotic movements and functions, allowing the robot to perform a variety of additional tasks.
 
