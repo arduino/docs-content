@@ -1,7 +1,7 @@
 ---
 title: GIGA R1 Camera Guide
-description: Learn about the GIGA R1 WiFi's camera connector, and how to stream data through webserial.
-tags: [ArduCAM, Camera, WebSerial]
+description: Learn about the GIGA R1 WiFi's camera connector, and how to stream data through Web Serial.
+tags: [ArduCAM, Camera, Web Serial]
 author: Karl Söderby
 hardware:
   - hardware/10.mega/boards/giga-r1-wifi
@@ -18,7 +18,7 @@ In this guide, we will explore the following:
 - Where the camera connector is located.
 - What cameras are compatible?
 - What library to use?
-- How to set up a camera stream to a browser using webserial.
+- How to set up a camera stream to a browser using Web Serial.
 
 ## Hardware & Software Needed
 
@@ -27,7 +27,7 @@ To follow and use the examples provided in this guide, you will need an [Arduino
 You will also need the following software:
 
 - [Arduino IDE](https://www.arduino.cc/en/software) (any version).
-- [Webserial](https://labs.oniudra.cc/en/labs/web-serial-camera) (for displaying camera feed).
+- [Web Serial Web Application](https://arduino.github.io/labs-pages/web-serial-camera/) (for displaying camera feed).
 
 To run the Webserial locally go to:
 
@@ -35,7 +35,7 @@ To run the Webserial locally go to:
 C:\Users\<UserName>\AppData\Local\Arduino15\packages\arduino\hardware\mbed_giga\4.1.3\libraries\Camera\extras\WebSerialCamera
 ```
 
-and open the `.index`. We suggest using the Chrome™ browser.
+and open the `index.html` file. We suggest using the Chrome™ browser to do so.
 
 ## Supported Cameras
 
@@ -254,7 +254,7 @@ void loop() {
 
 ### Step 2: Web Serial
 
-Open the [Webserial Interface](https://labs.oniudra.cc/en/labs/web-serial-camera) which allows you to view the camera feed. As data is streamed via serial, make sure you close the Serial Monitor during this process, else it will not work.
+Open the [Web Serial Interface](https://arduino.github.io/labs-pages/web-serial-camera/) which allows you to view the camera feed. Make sure to close the Serial Monitor in the Arduino IDE beforehand, otherwise it will not work as the serial port would be occupied.
 
 Press on **Connect** and select the correct port.
 
