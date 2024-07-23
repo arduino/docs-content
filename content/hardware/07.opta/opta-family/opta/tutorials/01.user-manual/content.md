@@ -189,7 +189,7 @@ Opta™ has an **onboard USB®-C port** that can be used for programming the dev
 
 This user manual section covers Opta's electrical terminals, showing their main hardware and software characteristics. Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and eight of them can be used as digital/analog inputs.
 
-### Electrical Terminals Cable Size
+### Wiring Specifications
 
 Following Opta's wiring specifications is important to ensure proper connection and operation of its electrical terminals. The tables shown below provide recommendations for torque application, cable preparation, and accepted wire types of Opta's electrical terminals. 
 
