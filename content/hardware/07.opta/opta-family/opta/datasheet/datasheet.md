@@ -572,9 +572,8 @@ The MTBF figure (in hours/years) for each Arduino Opta® variant can be found in
 
 ## Mechanical Information
 ### Product Dimensions
-![Arduino Opta® Outline. Dimensions are in mm](assets/opta_mechanical.svg)
 
-***Note: Terminals can be used with both solid and stranded core wire (min: 0.5 mm<sup>2</sup> / 20 AWG).***
+![Arduino Opta® Outline. Dimensions are in mm](assets/opta_mechanical.svg)
 
 ## Certifications
 
