@@ -2864,7 +2864,7 @@ The Analog Expansion input channels can be configured for current loop instrumen
 |                 Channels                  |       I1, I2, I3, I4, O1, I5, I6, O2        |
 |           Analog input current            |                  0...25 mA                  |
 |          Analog input LSB value           |                  381.5 nA                   |
-| Short circuit current limit (per channel) | Min: 25 mA, Max 35 mA (externally powered). |
+| Short circuit current limit (per channel) | Min: 25 mA, Max 35 mA (externally powered)  |
 | Programmable current limit (per channel)  |      0.5 mA to 24.5 mA (loop powered)       |
 |                 Accuracy                  |                   +/- 1%                    |
 |               Repeatability               |                   +/- 1%                    |
@@ -3023,7 +3023,7 @@ The expansion channels are configured as **analog current inputs** using the fun
 AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
                 i, // the device (connected expansion index from 0 to 5)
                 k, // the output channel you are using (0 to 7)
-			    OA_CURRENT_ADC, // adc type (voltage input)
+			    OA_CURRENT_ADC, // adc type (current input)
 			    false, // enable pull down
 			    false, // disable rejection
 			    false, // disable diagnostic
@@ -3770,7 +3770,7 @@ The Analog Expansion has 4x PWM output channels **(P1...P4)**. They are software
 |    One output writing time     |        ~700 µs        |
 
 
-![Wiring to use the PWM outputs](assets/pwm-setup.png)
+![Example of wiring to use the PWM outputs using Opta power voltage as **V<sub>PWM</sub>** as voltage reference](assets/pwm-setup.png)
 
 To configure a PWM output terminal use the built-in function `setPWM()` as shown below:
 
