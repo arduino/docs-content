@@ -95,7 +95,23 @@ Once the available expansion appears in the **Detected config** column, enable i
 
 ## Programmable Inputs
 
+### Digital Input Mode
 
+### Analog Voltage Input Mode
+
+### Analog Current Input Mode
+
+### Analog RTD Input Mode
+
+## Programmable Outputs
+
+### Analog Voltage Output Mode
+
+### Analog Current Output Mode
+
+### PWM Output
+
+### Expansion Status LEDs
 
 To set up the sensor input for the potentiometer, navigate to **Programmable Inputs** under your desired expansion in the left resources menu. Define a **variable** name, **sensor** in this case, and set the **IOType** to **Analog**.
 
