@@ -6,49 +6,49 @@ tags:
   - Cloud
   - Education
   - IoT Templates
-author: 'Lenard George'
+author: 'Lenard George, Hannes Siebeneicher'
 software:
  - iot-cloud
 ---
 
 ## Introduction 
 
-This tutorial is designed to help educators introduce students to the world of Internet of Things (IoT) using Arduino IoT Templates. Templates are ready-made projects that can significantly lower the entry barrier for teaching and learning about IoT applications. Whether you’re integrating IoT into your curriculum or organizing a hackathon, these templates offer a medium to get started quickly with the basic components of a IoT project.
+This guide aims to introduce anyone interested in exploring the world of the Internet of Things (IoT) to Arduino IoT Templates. These templates are pre-built projects that make it significantly easier to dive into IoT applications. Whether you're a teacher, a maker, planning your next class or organizing a hackathon, these templates provide a quick and accessible way to get started with the fundamental components of an IoT project.
 
 ## What you will learn
 
 - Templates and their benefits
 - Collection of Arduino IoT Templates
-- Using templates for a subject
-- Importing Templates 
+- Importing Templates
+- Create Custom Templates
 
 ## Arduino IoT Templates
 
 <iframe width="100%" height="480" src="https://www.youtube-nocookie.com/embed/J5_QleCPc64?si=I-3lU1mVam3jtA4_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-Templates are pre-configured projects that allow users to quickly setup Arduino devices for the Arduino Cloud, creating a dashboard based on the project in two minutes. Through a [Dashboard](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets) you can easily monitor and control IoT projects on a web interface. 
+Templates are pre-configured projects that allow users to quickly set up Arduino devices for the Arduino Cloud, creating a dashboard based on the project in two minutes. Through a [Dashboard](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets), you can easily monitor and control IoT projects on a web interface.
 
-For educational purposes, **Dashboards** provide an excellent opportunity for students to learn about IoT concepts, data collection and analyses and interaction with hardware/sensors without having to build an IoT project from scratch. This reduces the time and the learning curve, which gives students a starting point to build their ideas and learning. 
+Dashboards are an excellent way to learn about IoT concepts, data collection and analysis, and interaction with hardware/sensors without having to build an IoT project from scratch. This reduces the time and the learning curve, providing a starting point for building innovative ideas and deepening knowledge.
 
 ![Collection of templates](assets/template-gallery.png)
 
-## Preparing for the Activity 
+## Setup
 
-Once you have decided which template(s) you would like to use, we suggest you to prepare the essentials to conduct this activity in your class. Before you begin using templates, ensure that you have the following items checked: 
+Once you have decided which template(s) you would like to use, it's important to prepare the essentials to conduct this activity effectively. Before you begin using templates, ensure that you have the following items checked: 
 
 - Hardware - Any choice of [Arduino Wi-Fi® boards](https://support.arduino.cc/hc/en-us/articles/4407129094546-Boards-and-shields-with-wireless-connectivity)
 
-- USB Cable - Ensure you have the right one for your board 
+- USB Cable - Ensure you have the right one for your board
 
-- Software - Arduino Account 
+- Software - Arduino Account
 
-- Good Internet Connection 
+- Good Internet Connection
 
-- Shared Space (optional - only when you are about to use the templates with your students)
+- Collaborative Space (optional - useful if you're working in a group)
 
 - Sensors and Actuators (optional)
 
-***Note: if you haven't created a shared space check out this [article](https://docs.arduino.cc/arduino-cloud/education/shared-spaces/). Ensure that you students have their individual accounts created and have been added to the shared space that you have created.***  
+***Note: If you plan to use templates in a teaching environment or during a workshop with multiple participants, you might find [shared spaces](https://docs.arduino.cc/arduino-cloud/education/shared-spaces/) very useful. Make sure all participants have created their individual accounts and have been added to the shared space you have set up.***
 
 For our tutorial, we will use the [Cloud Blink Template](https://app.arduino.cc/templates/cloud-blink) that will illustrate how to control an Arduino Board’s LED through a dashboard in the Arduino Cloud. This is a great template if you want to get started with the Arduino Cloud since it works with all boards. After you have completed the installation, you can modify the sketch and dashboard freely.
 
@@ -72,7 +72,9 @@ The template page will open, where you will find the description of what the pro
 
 ## Importing a Template 
 
-Templates can be imported easily by clicking on the import button from the template description page. The process is similar to that of uploading a sketch to the Arduino board. Once the device is plugged in the USB port, click on **IMPORT TEMPLATE** to import the chosen IoT template.  
+Templates can be imported easily by clicking on the import button from the template description page. The process is similar to that of uploading a sketch to the Arduino board. Once the device is plugged in the USB port, click on **IMPORT TEMPLATE** to import the chosen IoT template.
+
+***Note: If this is your first time using the Arduino Cloud, you will be prompted to install the Create Agent. This software facilitates communication between your browser and Arduino board. Simply install it as you would any other program. For detailed instructions on installing the Create Agent, click [here](https://support.arduino.cc/hc/en-us/articles/360014869820-Install-the-Arduino-Create-Agent).***
 
 ![Import template button](assets/import-button.png)
 
@@ -89,7 +91,7 @@ This process involves creating the necessary components and uploading the sketch
 3. Assign the right network credentials to your devices, 
 4. Build a dashboard with the right widgets.
 
-***Note: The process may take up to 5 minutes. Remind students not to unplug the device during this step or close their laptops during the import process.*** 
+***Note: The process may take up to 5 minutes. Do not unplug the device during this step or close the laptop during the import process.*** 
 
 For troubleshooting, we recommend to read this article from our Help Center:
 
@@ -103,7 +105,7 @@ For troubleshooting, we recommend to read this article from our Help Center:
 
 * ['We were not able to upload the template sketch' in Arduino Cloud](https://support.arduino.cc/hc/en-us/articles/4408887422994--We-were-not-able-to-upload-the-template-sketch-in-Arduino-Cloud)
 
-## Customizing a Template 
+## Editing a Template 
 
 This interface is fully customizable and you can extend this template based on your needs and creativity. If you’d like to make changes to the `Dashboard` by adding additional widgets, you can do so by clicking on the **Edit icon**. 
 
@@ -123,7 +125,7 @@ As mentioned earlier, a template also creates: **variables**, **sketch files**, 
 
 If you have already worked with Arduino IoT projects, you can go ahead and start customizing the templates based on your choice, otherwise you can [get started reading this tutorial]( https://docs.arduino.cc/arduino-cloud/guides/overview/). 
 
-### Using Templates for your course
+### Effective Classroom Learning with Templates
 
 Integrating Arduino IoT templates into a course curriculum offers a tangible way to teach concepts like sensor data collection, cloud computing, and Internet of Things principles across various disciplines such as physics, chemistry, biology and computer science. Here are some innovative ways a teacher can use these templates in their course.
 
