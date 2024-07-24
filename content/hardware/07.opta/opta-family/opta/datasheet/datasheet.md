@@ -779,9 +779,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** |     **Changes**    |
-|------------|:------------:|:------------------:|
-| 07/02/2023 |       4      |  MTBF information  |
-| 16/05/2023 |       3      |    Legal updates   |
-| 13/04/2023 |       2      | Tech Specs Updates |
-| 02/03/2023 |       1      |    First Release   |
+|  **Date**  | **Revision** |      **Changes**      |
+|:----------:|:------------:|:---------------------:|
+| 24/07/2024 |       5      | Wiring specifications |
+| 07/02/2023 |       4      |    MTBF information   |
+| 16/05/2023 |       3      |     Legal updates     |
+| 13/04/2023 |       2      |   Tech Specs Updates  |
+| 02/03/2023 |       1      |     First Release     |
