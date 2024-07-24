@@ -2431,7 +2431,7 @@ You can buy and find more information about the Opta™ Digital Expansions on th
 
 ### Opta Analog Expansions
 
-Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8 channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or analog actuators. In addition, it has 4 dedicated PWM outputs. It allows professionals to scale up industrial and building automation projects, diversifying the type of signals managed, while taking advantage of the Arduino ecosystem.
+Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8x channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or analog actuators in addition to 4x dedicated PWM outputs. It allows professionals to scale up industrial and building automation projects, diversifying the type of signals managed, while taking advantage of the Arduino ecosystem.
 
 The Opta Expansions can be controlled by any Opta controller variant: [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485) or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi).
 
@@ -2458,7 +2458,7 @@ In the image below there is an example of the power wiring of the expansions:
 
 #### Programmable Inputs
 
-The Opta™ Analog Expansion has 8 analog channels, identified with a letter, `I` or `O`, between the two connection terminals: `+` for signal and `-` as GND, common to the other `-` terminals on the board. 
+The Opta™ Analog Expansion has 8x analog channels, identified with a letter, `I` or `O`, between the two connection terminals: `+` for signal and `-` as GND, common to the other `-` terminals on the board. 
 Each input can be used as:
 
 |            **Mode**            | **Specification** |
@@ -2468,7 +2468,7 @@ Each input can be used as:
 |      Analog input current      |     0...25 mA     |
 | Analog temperature input (RTD) |     0...1 MΩ      |
 
-***All the analog channels of the analog expansion can be used as input, including `O1` and `O2`, so a total of 8 analog inputs is available to the users.***
+***All the analog channels of the analog expansion can be used as inputs, including `O1` and `O2`, so a total of 8x analog inputs is available to the users.***
 
 ![Opta Analog Expansions Inputs](assets/inputs-analog.png)
 
@@ -2483,7 +2483,7 @@ Each input can be used as:
 |     Analog Input resolution     |                        16 bits                        |
 |         Noise Rejection         |   Optional noise rejection between 50 Hz and 60 Hz    |
 
-Input terminals are mapped as described in the following table:
+Input terminals are mapped in the [Arduino_Opta_Blueprint](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) library as described in the following table:
 
 | **Opta Analog Expansion Terminal** | **Arduino Pin Mapping** |
 |:----------------------------------:|:-----------------------:|
@@ -2500,7 +2500,7 @@ The **reading time** of digital and analog inputs is detailed in the table below
 
 | **Channel type** | **Number of inputs** |       **Function**       | **Time** |                                               **Notes**                                               |
 |:----------------:|:--------------------:|:------------------------:|:--------:|:-----------------------------------------------------------------------------------------------------:|
-|       RTD        |         One          |    `getRtd(channel)`     | ~600 µs  |                                                                                                       |
+|       RTD        |         One          |    `getRtd(channel)`     | ~600 µs  |                                                     -                                                 |
 |      Analog      |         One          |    `getAdc(channel)`     | ~550 µs  |        Time does not change converting the value to physical unit (i.e. using `pinVoltage()`)         |
 |      Analog      |     All at once      |  `updateAnalogInputs()`  | ~890 µs  |                   This function is also included in the measure `getAdc(0, false)`                    |
 |     Digital      |     All at once      | `digitalRead(pin, true)` | ~480 µs  | This function even if used to read a "single pin" actually updates the value of all the digital pins. |
@@ -2525,6 +2525,10 @@ The state of an input terminal configured as digital can be read using the built
 ```arduino
 state = <ExpObject>.digitalRead(<input>);
 ```
+Use the following wiring diagram as reference to test the example below:
+
+![Digital Input wiring example](assets/digital-animation.gif)
+
 The following example will let you read all the digital inputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_Opta_Blueprint > Analog > DI**:
 
 ```arduino
@@ -2572,7 +2576,6 @@ void printExpansionInfo() {
   }
 }
 
-int8_t oa_index = -1;
 /* -------------------------------------------------------------------------- */
 /*                                 SETUP                                      */
 /* -------------------------------------------------------------------------- */
@@ -2659,7 +2662,6 @@ DI channel 6 value 0
 DI channel 7 value 0
 ```
 
-![Digital Input wiring example](assets/digital-animation.gif)
 
 #### Analog Voltage Input Mode
 
@@ -2687,6 +2689,10 @@ Also, it can be directly converted to a voltage reading using the `pinVoltage()`
 ```arduino
 float value =	exp.pinVoltage(<input>);
 ```
+
+Use the following wiring diagram as reference to test the example below:
+
+![Analog voltage input wiring example](assets/volt-in-a.png)
 
 The following example will let you read all the analog inputs of every expansion connected at once, it can be found in the Opta Analog Expansions library by navigating to **File > Examples > Arduino_Opta_Blueprint > Analog > ADC**:
 
@@ -2743,7 +2749,6 @@ void printExpansionInfo() {
   }  
 }
 
-  int8_t oa_index = -1;
 /* -------------------------------------------------------------------------- */
 /*                                 SETUP                                      */
 /* -------------------------------------------------------------------------- */
@@ -2807,6 +2812,20 @@ void loop() {
 }
 ```
 
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+
+```
+Analog Expansion n. 0
+ - ch 0 -> ADC 0
+ - ch 1 -> ADC 0
+ - ch 2 -> ADC 0
+ - ch 3 -> ADC 0
+ - ch 4 -> ADC 0
+ - ch 5 -> ADC 25112
+ - ch 6 -> ADC 0
+ - ch 7 -> ADC 0
+```
+
 To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The expansion channels are configured as **analog voltage inputs** using the function `beginChannelAsAdc()` alongside the following parameters:
@@ -2836,26 +2855,6 @@ int value =	exp.analogRead((uint8_t)j); // get the raw ADC reading
 float value = exp.pinVoltage((uint8_t)j); // get the ADC reading and returns it as a voltage
 ```
 
-After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
-
-```
-Analog Expansion n. 0
- - ch 0 -> ADC 0
- - ch 1 -> ADC 0
- - ch 2 -> ADC 0
- - ch 3 -> ADC 0
- - ch 4 -> ADC 0
- - ch 5 -> ADC 25112
- - ch 6 -> ADC 0
- - ch 7 -> ADC 0
-```
-![Analog voltage input wiring example](assets/volt-in-a.png)
-
-You can test other ADC functionalities by studying other examples included in the library, for example, the ones listed below:
-
-- AdcUpdateAll
-- DiPlusAdc
-
 #### Analog Current Input Mode
 
 The Analog Expansion input channels can be configured for current loop instrumentation using the 0/4-20 mA standard. 
@@ -2877,8 +2876,15 @@ The current of an input terminal configured in current mode can be read using th
 ```arduino
 float value = exp.pinCurrent(<input>);
 ```
+Use the following wiring diagram as reference to test the example below:
 
-The following example will let you measure the current in all the analog inputs of every expansion connected at once, this sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > ADC**:
+![Analog current input wiring example (externally powered)](assets/analog-4-20-inputs.png)
+
+The following example will let you measure the current in all the analog inputs of every expansion connected at once.
+
+***This sketch is a __simplified version__ created for learning purposes of the one found in __File > Examples > Arduino_Opta_Blueprint > Analog > ADC__. Please check the example available at the library in case you need to know more.***
+
+Copy and paste this code on a new sketch in your Arduino IDE:
 
 ```arduino
 #include "OptaBlue.h"
@@ -2933,7 +2939,6 @@ void printExpansionInfo() {
   }  
 }
 
-  int8_t oa_index = -1;
 /* -------------------------------------------------------------------------- */
 /*                                 SETUP                                      */
 /* -------------------------------------------------------------------------- */
@@ -2996,6 +3001,20 @@ void loop() {
 
 }
 ```
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+
+```
+Analog Expansion n. 0
+ - ch 0 -> Current 18.20 mA
+ - ch 1 -> Current 0.00 mA
+ - ch 2 -> Current 0.00 mA
+ - ch 3 -> Current 0.00 mA
+ - ch 4 -> Current 0.00 mA
+ - ch 5 -> Current 0.00 mA
+ - ch 6 -> Current 0.00 mA
+ - ch 7 -> Current 0.00 mA
+```
+
 To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The expansion channels are configured as **analog current inputs** using the function `beginChannelAsAdc()` alongside the following parameters:
@@ -3019,22 +3038,11 @@ exp.beginChannelAsCurrentAdc(<exp channel>); // pass the desired input as argume
 
 The function `optaAnalogTask()` reads all the analog input current values and prints out them.
 
-After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+There is another approach for interfacing 4-20 mA sensors that consists of defining the channel as a **voltage DAC** and adding a **current ADC** to the same channel, connecting the sensor to the channel and measuring the current of the loop. 
 
-```
-Analog Expansion n. 0
- - ch 0 -> Current 18.20 mA
- - ch 1 -> Current 0.00 mA
- - ch 2 -> Current 0.00 mA
- - ch 3 -> Current 0.00 mA
- - ch 4 -> Current 0.00 mA
- - ch 5 -> Current 0.00 mA
- - ch 6 -> Current 0.00 mA
- - ch 7 -> Current 0.00 mA
-```
-![Analog current input wiring example (externally powered)](assets/analog-4-20-inputs.png)
+![Analog current input wiring example (internally powered)](assets/analog-4-20-in-out.png)
 
-There is another approach for interfacing 4-20 mA sensors that consists of defining the channel as a **voltage DAC** and adding a **current ADC** to the same channel, connecting the sensor to the channel and measuring the current of the loop. Use the following example sketch instead:
+Use the following example sketch instead:
 
 ```arduino
 #include "OptaBlue.h"
@@ -3083,7 +3091,6 @@ void printExpansionInfo() {
   }
 }
 
-int8_t oa_index = -1;
 /* -------------------------------------------------------------------------- */
 /*                                 SETUP                                      */
 /* -------------------------------------------------------------------------- */
@@ -3150,6 +3157,16 @@ void loop() {
 }
 
 ```
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+
+```
+Setting DAC output to 11 V on expansion n. 0
+- ch0 -> Current 18.20 mA
+- ch0 -> Current 18.20 mA
+- ch0 -> Current 18.20 mA
+- ch0 -> Current 18.20 mA
+```
+
 The key section of the example from above is in the `setup()` function, specifically in the way we initialize the channel to be used for the measurement:
 
 ```arduino
@@ -3169,19 +3186,6 @@ The key section of the example from above is in the `setup()` function, specific
 
 First, the channel is initialized as a voltage DAC with the "limit current" parameter disabled, a voltage is set in the output that will power the current loop and then a current ADC is added to the same channel, this way we can use the `pinCurrent()` function to measure the current output of the sensor.
 
-With this last configuration, we can directly connect the 4-20 mA sensor to the desired channel. Look at the following example for reference:
-
-![Analog current input wiring example (internally powered)](assets/analog-4-20-in-out.png)
-
-After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
-
-```
-Setting DAC output to 11 V on expansion n. 0
-- ch0 -> Current 18.20 mA
-- ch0 -> Current 18.20 mA
-- ch0 -> Current 18.20 mA
-- ch0 -> Current 18.20 mA
-```
 
 #### Analog RTD Input Mode
 
@@ -3215,7 +3219,11 @@ To perform measurements of an input terminal configured as RTD use the built-in 
 float value = exp.getRtd(<input>);  // this returns the resistive value measured in the input in ohms
 ```
 
-For the following example a 2 wires **PT100** will be used connected to **I1**. The sketch below will let you measure the resistance and convert it to a temperature value. This sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > RTD**:
+For the following example a 2 wires **PT100** will be used connected to **I1**. The sketch below will let you measure the resistance and convert it to a temperature value.
+
+***This sketch is a __simplified version__ created for learning purposes of the one found in __File > Examples > Arduino_Opta_Blueprint > Analog > RTD__. Please check the example available at the library in case you need to know more.***
+
+Copy and paste this code on a new sketch in your Arduino IDE:
 
 ```arduino
 #include "OptaBlue.h"
@@ -3266,7 +3274,6 @@ void printExpansionInfo() {
   }
 }
 
-int8_t oa_index = -1;
 /* -------------------------------------------------------------------------- */
 /*                                 SETUP                                      */
 /* -------------------------------------------------------------------------- */
@@ -3332,6 +3339,14 @@ void loop() {
   optaAnalogTask();
 }
 ```
+
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+
+```
+Expansion n. 0
+ch 0 -> 109.73 Ω -> 24.99 C
+```
+
 To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The expansion channels are configured as **RTD inputs** using the function `beginChannelAsRtd` alongside the following parameters:
@@ -3346,13 +3361,6 @@ AnalogExpansion::beginChannelAsRtd(OptaController, i,  // the device
 The current parameter in the function above will depend on your RTD type, study your sensor datasheet to find the more suitable for it, in this case, the **PT100** used recommends a **0.8 mA** current. 
 
 The function `optaAnalogTask()` reads all the RTDs connected and converts their resistive value to a temperature.
-
-After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
-
-```
-Expansion n. 0
-ch 0 -> 109.73 Ω -> 24.99 C
-```
 
 #### Programmable Outputs
 
@@ -3392,7 +3400,7 @@ Analog output terminals are mapped as described in the following table:
 
 Also, it features **4 PWM outputs** accessible through terminals `P1` to `P4`. 
 
-PWM output terminals are mapped as described in the following table:
+PWM output terminals are mapped in the [Arduino_Opta_Blueprint](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) library as described in the following table:
 
 | **Opta Analog Expansion Terminal** | **Arduino Pin Mapping** |
 |:----------------------------------:|:-----------------------:|
@@ -3440,7 +3448,11 @@ You can also configure the output voltage using the `setDac()` function as follo
 exp.setDac(ch, <dac_value>); // the first argument is to define the output channel, the second, the DAC output in bits
 ```
 
-The following example will let you set an output voltage on every channel at once, increasing and decreasing it sequentially, this sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > DAC**:
+The following example will let you set an output voltage on every channel at once, increasing it sequentially.
+
+***This sketch is a __simplified version__ created for learning purposes of the one found in __File > Examples > Arduino_Opta_Blueprint > Analog > DAC__. Please check the example available at the library in case you need to know more.***
+
+Copy and paste this code on a new sketch in your Arduino IDE:
 
 ```arduino
 #include "OptaBlue.h"
@@ -3487,7 +3499,6 @@ void printExpansionInfo() {
   }
 }
 
-int8_t oa_index = -1;
 /* -------------------------------------------------------------------------- */
 /*                                 SETUP                                      */
 /* -------------------------------------------------------------------------- */
@@ -3527,31 +3538,14 @@ void optaAnalogTask() {
   if (millis() - start > PERIODIC_UPDATE_TIME) {
     start = millis();
 
-    /* this implement a 2 states state machine 
-       in the rising state the values of all the dac are increased
-       of 1000 "bits"
-       in the falling state the values of all dac channel are decreased
-       of 1000 "bits" 
-       we change state from rising to falling when bit are greater than 6000
-       and we go back to rising state when bit are lower than 1000*/
-
     static uint16_t dac_value = 0;
-    static bool rising = 1;
-    if (rising) {
-      /* RISIGN STATE*/
-      dac_value += 1000;
-      if (dac_value > 6000) {
-        /* go in falling state */
-        rising = 0;
-      }
-    } else {
-      /* FALLING STATE */
-      dac_value -= 1000;
-      if (dac_value <= 1000) {
-        /* go in rising state */
-        rising = 1;
-      }
+
+    dac_value += 1000;
+    if (dac_value > 6000) {
+      /* go in falling state */
+      dac_value = 0;
     }
+    
     for (int i = 0; i < OptaController.getExpansionNum(); i++) {
       AnalogExpansion exp = OptaController.getExpansion(i);
       if (exp) {
@@ -3574,6 +3568,11 @@ void loop() {
   optaAnalogTask();
 }
 ```
+
+After the Opta™ controller is programmed with the example sketch, you can measure the voltage on the expansion outputs and experience the following behavior:
+
+![Analog Voltage Output Demo](assets/analog-voltage.png)
+
 To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The expansion channels are configured as **voltage output** using the function `beginChannelAsDac()` alongside the following parameters:
@@ -3588,11 +3587,7 @@ The expansion channels are configured as **voltage output** using the function `
                                          OA_SLEW_RATE_0); // set slew rate
 ```
 
-The function `optaAnalogTask()` increases sequentially the `dac_value` variable to set the voltage output on the expansion channels and decrease it back generating a swiping output.
-
-After the Opta™ controller is programmed with the example sketch, you can measure the voltage on the expansion outputs and experience the following behavior:
-
-![Analog Voltage Output Demo](assets/analog-voltage.png)
+The function `optaAnalogTask()` increases sequentially the `dac_value` variable to set the voltage output on the expansion channels.
 
 #### Analog Current Output Mode
 
@@ -3616,10 +3611,13 @@ To set a current in an analog output terminal use the built-in function `pinCurr
 exp.pinCurrent(ch, <current>, true); // the first argument is to define the output channel, the second, the current output
 ```
 
-The following example will let you set an output current on every channel at once, increasing and decreasing it sequentially, this sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > DAC**:
+The following example will let you set an output current on every channel at once, increasing it sequentially.
+
+***This sketch is a __simplified version__ created for learning purposes of the one found in __File > Examples > Arduino_Opta_Blueprint > Analog > DAC__. Please check the example available at the library in case you need to know more.***
+
+Copy and paste this code on a new sketch in your Arduino IDE:
 
 ```arduino
-
 #include "OptaBlue.h"
 
 #define PERIODIC_UPDATE_TIME 5000
@@ -3664,7 +3662,6 @@ void printExpansionInfo() {
   }
 }
 
-int8_t oa_index = -1;
 /* -------------------------------------------------------------------------- */
 /*                                 SETUP                                      */
 /* -------------------------------------------------------------------------- */
@@ -3704,31 +3701,14 @@ void optaAnalogTask() {
   if (millis() - start > PERIODIC_UPDATE_TIME) {
     start = millis();
 
-    /* this implement a 2 states state machine 
-       in the rising state the values of all the dac are increased
-       of 1000 "bits"
-       in the falling state the values of all dac channel are decreased
-       of 1000 "bits" 
-       we change state from rising to falling when bit are greater than 6000
-       and we go back to rising state when bit are lower than 1000*/
-
     static uint16_t current = 0;
-    static bool rising = 1;
-    if (rising) {
-      /* RISIGN STATE*/
-      current += 4;
-      if (current > 20) {
-        /* go in falling state */
-        rising = 0;
-      }
-    } else {
-      /* FALLING STATE */
-      current -= 4;
-      if (current <= 4) {
-        /* go in rising state */
-        rising = 1;
-      }
+
+    current += 4;
+    if (current > 20) {
+      /* reset current */
+      current = 0;
     }
+
     for (int i = 0; i < OptaController.getExpansionNum(); i++) {
       AnalogExpansion exp = OptaController.getExpansion(i);
       if (exp) {
@@ -3751,6 +3731,11 @@ void loop() {
   optaAnalogTask();
 }
 ```
+
+After the Opta™ controller is programmed with the example sketch, you can measure the current on the expansion outputs and experience the following behavior:
+
+![Analog Current Output Demo](assets/analog-current.png)
+
 To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The expansion channels are configured as **current output** using the function `beginChannelAsDac()` alongside the following parameters:
@@ -3765,17 +3750,14 @@ The expansion channels are configured as **current output** using the function `
                                          OA_SLEW_RATE_0); // set slew rate
 ```
 
-The function `optaAnalogTask()` increases sequentially the `current` variable to set the current output on the expansion channels and decrease it back generating a swiping output.
+The function `optaAnalogTask()` increases sequentially the `current` variable to set the current output on the expansion channels.
 
-After the Opta™ controller is programmed with the example sketch, you can measure the current on the expansion outputs and experience the following behavior:
-
-![Analog Current Output Demo](assets/analog-current.png)
 
 ***Make sure to use a resistor value that makes it possible for the output to achieve the desired current. For example, if a 3 kΩ resistor is used and you want a 10 mA output, the channel must source the resistor with 30 V, which is not possible.***
 
 #### PWM Output
 
-The Analog Expansion has four PWM output channels **(P1...P4)**. They are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage.
+The Analog Expansion has 4x PWM output channels **(P1...P4)**. They are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage.
 
 |  **V<sub>PWM</sub> Voltage**   |      **Details**      |
 |:------------------------------:|:---------------------:|
@@ -3796,7 +3778,11 @@ To configure a PWM output terminal use the built-in function `setPWM()` as shown
 exp.setPwm(ch, <period_us>, <pulse_us>); // the first argument is to define the output channel, the second, the signal period and the last one, the pulse ON time of the signal. 
 ```
 
-The following example will let you set a **PWM** signal on channel **P1**, increasing and decreasing its duty-cycle sequentially, this sketch is based on the built-in example found in **File > Examples > Arduino_Opta_Blueprint > Analog > PWM**:
+The following example will let you set a **PWM** signal on channel **P1**, increasing and decreasing its duty-cycle sequentially.
+
+***This sketch is a __simplified version__ created for learning purposes of the one found in __File > Examples > Arduino_Opta_Blueprint > Analog > PWM__. Please check the example available at the library in case you need to know more.***
+
+Copy and paste this code on a new sketch in your Arduino IDE:
 
 ```arduino
 #include "OptaBlue.h"
@@ -3916,13 +3902,15 @@ void loop() {
 
 ```
 
-To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
-
-The function `optaAnalogTask()` increases sequentially the `duty-cycle` variable to set the PWM output on the expansion channels and decrease it back generating a swiping output.
-
 After the Opta™ controller is programmed with the example sketch, you can measure the output signal with an oscilloscope on the expansion outputs and experience the following behavior:
 
 ![PWM Output Demo](assets/pwm-out.png)
+
+***The screw terminal marked as __-__ is connected to GND.***
+
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
+
+The function `optaAnalogTask()` increases sequentially the `duty-cycle` variable to set the PWM output on the expansion channels and decrease it back generating a swiping output.
 
 You can use the following auxiliary functions to manage and monitor the PWM outputs:
 
@@ -3939,7 +3927,7 @@ You can use the following auxiliary functions to manage and monitor the PWM outp
 
 ![Analog Expansion LEDs](assets/leds-analog.png)
 
-The Opta™ Analog Expansions have **eight status LEDs** on the front panel. They are mapped as described in the following table:
+The Opta™ Analog Expansions have **eight status LEDs** on the front panel. They are mapped in the [Arduino_Opta_Blueprint](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) library as described in the following table:
 
 | **Opta Analog Expansion LED** | **Arduino Pin Mapping** |
 |:-----------------------------:|:-----------------------:|
@@ -4016,7 +4004,6 @@ void printExpansionInfo() {
   }
 }
 
-int8_t oa_index = -1;
 /* -------------------------------------------------------------------------- */
 /*                                 SETUP                                      */
 /* -------------------------------------------------------------------------- */
@@ -4084,14 +4071,13 @@ void loop() {
   optaAnalogTask();
 }
 ```
+After the Opta™ controller is programmed with the example sketch, you can see the onboard LEDs blinking with a pattern and experience the following behavior:
+
+![Status LED Example Animation](assets/led-ani.gif)
 
 To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The function `optaAnalogTask()` turns on sequentially the **LEDs** and turns them off again.
-
-After the Opta™ controller is programmed with the example sketch, you can see the onboard LEDs blinking with a pattern and experience the following behavior:
-
-![Status LED Example Animation](assets/led-ani.gif)
 
 You can buy and find more information about the Opta™ Analog Expansions on the links below:
 
