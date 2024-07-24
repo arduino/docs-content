@@ -333,6 +333,16 @@ Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. 
 
 ***Are you interested in learning how to perform an OTA update? Check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/ota-getting-started#how-does-it-work). If you prefer to use the Arduino Cloud CLI instead, go to [this link](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#ota-over-the-air).***
 
+## Collaborative Coding
+
+**Collaborative Coding** is a powerful feature that enables multiple users to work together on the same code. This feature allows team members to share and edit code seamlessly, providing better collaboration overall.
+
+In a collaborative coding environment, everyone can create and modify code simultaneously. Changes are updated and visible to all participants after the last user has finished editing. The code editor highlights the area being edited by others with an orange frame, helping team members stay synchronized and aware of each other's contributions.
+
+IMAGE
+
+This functionality ensures that all users remain aligned and can contribute effectively. By making projects more interactive and engaging, collaborative coding improves the overall development experience.
+
 ## Fleet Management
 
 Now it is time for you to start managing your fleet of devices/Things. The Arduino Cloud for Business fleet management features allow you to filter your devices/Things by status, add tags to more efficiently identify your projects, search between boards, and list and order them.

@@ -111,3 +111,13 @@ Most libraries provide examples, which can be accessed be clicking the three dot
 The reference is an embedded version of the [Arduino Language Reference](https://www.arduino.cc/reference/en/), which helps you understand the Arduino programming language & syntax.
 
 ![Reference.](assets/reference.png)
+
+## Collaborative Coding
+
+**Collaborative Coding** allows multiple users to work together on the same code. This feature allows makers to share and edit code across different windows, making collaboration easier.
+
+When working together, changes made by one user are updated and visible to all others. The code editor highlights the area others edit with an orange frame, notifying users if someone else is editing the same code section. Users can edit the code in multiple windows and take turns editing, ensuring everyone stays coordinated.
+
+IMAGE
+
+By making projects more interactive and engaging, collaborative coding enhances the overall maker experience.

@@ -178,6 +178,16 @@ Quickly find all the recent sketch files and IoT Dashboards worked by your stude
 
 ***If you are interested in knowing more about Shared Spaces, read this [tutorial](https://docs.arduino.cc/arduino-cloud/education/shared-spaces/).***
 
+## Collaborative Coding
+
+**Collaborative coding** is a feature that allows multiple users to work together on the same code. Students and teachers can share and edit code, making it easier to collaborate and learn from each other.
+
+Everyone in the shared space can create and modify code simultaneously. Changes are updated and visible to all participants once the last user has edited them. The code editor notifies students or teachers if someone else is editing by highlighting the code area with an orange frame, as shown in the image below:
+
+IMAGE
+
+This helps to ensure that all students and teachers stay synchronized and can contribute effectively. Collaborative coding makes projects more interactive and engaging, improving the learning experience.
+
 ## Cloud Remote App
 
 The Cloud Remote App allows you to monitor your dashboards anywhere, anytime, from a **mobile device** i.e. smartphone or tablet for **free**. Download it from either [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) or the [Apple App Store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) depending on your device.
