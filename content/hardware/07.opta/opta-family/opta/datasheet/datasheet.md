@@ -533,6 +533,8 @@ A pushbutton is accessible on the front panel of the Arduino Opta®. The functio
 ### Functional Earth
 To avoid and reduce electrical noise, Arduino Opta® has a *Functional Earth* connector (Ref: 3G) near the Ethernet connector. *Functional Earth*, not to be confused with *Ground*, helps the device to reduce electrical interferences in industrial environments, being crucial for having stable Fieldbus communications.
 
+<div style="page-break-after:always;"></div>
+
 ## Device Operation
 ### Getting Started - IDE
 If you want to program your Arduino Opta® while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
