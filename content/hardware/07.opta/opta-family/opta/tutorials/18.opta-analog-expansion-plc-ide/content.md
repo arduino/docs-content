@@ -17,7 +17,7 @@ software:
 ---
 
 ## Overview
-In this tutorial, you will learn how to use Opta™ Digital Expansions AFX00005 and AFX00006 alongside an Opta™ controller.
+In this tutorial, you will learn how to use Opta™ Analog Expansion AFX00007 alongside an Opta™ controller.
 
 ![Final application showcase](assets/animation.gif)
 
@@ -25,7 +25,7 @@ We will create a demo application from scratch, in which we will read the voltag
 
 ## Goals
 
-- Learn how to use Opta™ Digital Expansions with the PLC IDE
+- Learn how to use Opta™ Analog Expansion with the PLC IDE
 - Learn how to enhance your Opta™ controller's capabilities using Opta™ expansions
 - Leverage Arduino Pro products for real industrial applications
 
@@ -33,15 +33,14 @@ We will create a demo application from scratch, in which we will read the voltag
 
 ### Hardware
 - [Opta™](https://store-usa.arduino.cc/collections/opta-family) (x1)
-- [AFX00005 - Opta Ext D1608E](https://store.arduino.cc/products/Opta-Ext-D1608E) (x1)
-- [AFX00006 - Opta Ext D1608S](https://store.arduino.cc/products/Opta-Ext-D1608S) (x1)
+- [AFX00007 - Opta Ext A0602](https://store.arduino.cc/products/Opta-Ext-A0602) (x1)
 - 12-24 VDC/0.5 A power supply (x1)
 - [USB-C® cable](https://store-usa.arduino.cc/products/usb-cable2in1-type-c) (x1)
 
 ### Software
 - The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) 
 
-## Instructions 
+## Initial Configuration 
 
 ### Snapping the Expansion
 
@@ -55,18 +54,7 @@ Attach the expansions to the right side of your Opta™ controller. Ensure that 
 
 The expansions must be powered externally in order to be detected and properly work.
 
-![Powering the expansions](assets/power-expansion.png)
-
-### Solution Wiring
-
-The following wiring setup will be used for the solution explained in this tutorial.
-
-![Solution example wiring](assets/wiring-ext.png)
-
-- In the **Opta™**, connect the power supply to the respective inputs on the screw terminals.
-- From the **Opta™** power screw terminals, wire the power to the Opta™ expansion.
-- Connect the sensor output to the **I1** input of the Opta™ expansion, specifically the variable tap of the potentiometer.
-- Power the sensor using its respective power source, which in this case is the power screw terminals of the expansion.
+![Powering the expansions](assets/power-expansion-2.png)
 
 ### Opta™ Micro PLC Setup
 
@@ -95,15 +83,19 @@ Next, click the **Connect** button in the upper left corner and wait for the bas
 
 If the Opta™ status displays **No License**, click the **Activate PLC runtime** button to activate it. For more details, refer to this [guide](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license/#7-license-activation-with-pre-licensed-products-opta).
 
-### Solution Setup
+### Analog Expansion Setup
 
-To enable the Opta™ Digital Expansion features in the PLC IDE, navigate to the **Resources** tab and select **I/O Expansions** in the configuration tree. Then click **Scan** to allow the IDE to search for connected expansions.
+To enable the Opta™ Analog Expansion features in the PLC IDE, navigate to the **Resources** tab and select **I/O Expansions** in the configuration tree. Then click **Scan** to allow the IDE to search for connected expansions.
 
 ![Scanning for expansions](assets/plc-ide-6.png)
 
 Once the available expansion appears in the **Detected config** column, enable it by clicking on **Apply detect config**. Verify that the **Project config** column is updated.
 
 ![Adding the expansion to the environment](assets/plc-ide-7.png)
+
+## Programmable Inputs
+
+
 
 To set up the sensor input for the potentiometer, navigate to **Programmable Inputs** under your desired expansion in the left resources menu. Define a **variable** name, **sensor** in this case, and set the **IOType** to **Analog**.
 
@@ -135,51 +127,42 @@ Copy and paste the following sketch to the **Main code** text editor:
 
 ```
 VSTEP := VCC/8;
-
 VIN := sensor*1.733E-3;
-
 IF  VIN >= VSTEP*1 THEN
     out_1 := TRUE;
 ELSE
     out_1 := FALSE;
 END_IF;
-
 IF VIN >= VSTEP*2 THEN 
     out_2 := TRUE;
 ELSE
     out_2 := FALSE;
 END_IF;
-
 IF VIN >= VSTEP*3 THEN 
     out_3 := TRUE;
 ELSE
     out_3 := FALSE;   
 END_IF;
-
 IF VIN >= VSTEP*4 THEN 
     out_4 := TRUE;
 ELSE
     out_4 := FALSE;   
 END_IF;
-
 IF VIN >= VSTEP*5 THEN
     out_5 := TRUE;
 ELSE
     out_5 := FALSE;
 END_IF;
-
 IF VIN >= VSTEP*6 THEN 
     out_6 := TRUE;
 ELSE
     out_6 := FALSE;
 END_IF;
-
 IF VIN >= VSTEP*7 THEN 
     out_7 := TRUE;
 ELSE
     out_7 := FALSE;   
 END_IF;
-
 IF VIN >= VSTEP*8 THEN 
     out_8 := TRUE;
 ELSE
