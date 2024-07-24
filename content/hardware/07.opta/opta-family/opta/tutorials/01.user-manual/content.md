@@ -2468,7 +2468,7 @@ Each input can be used as:
 |      Analog input current      |     0...25 mA     |
 | Analog temperature input (RTD) |     0...1 MΩ      |
 
-***All the analog channels of the analog expansion can be used as inputs, including `O1` and `O2`, so a total of 8x analog inputs is available to the users.***
+***All the analog channels of the analog expansion can be used as inputs, including `O1` and `O2`, so a total of 8x analog inputs are available to the users.***
 
 ![Opta Analog Expansions Inputs](assets/inputs-analog.png)
 
