@@ -129,11 +129,41 @@ For example in a **Ladder Diagram**:
 
 ![Ladder variables assigning](assets/digital-ld.gif)
 
-- Upload the program to your Opta and enable the **Live Debug Mode** if you want to see the contacts and coils updating in real-time.
+- Upload the program to your Opta and enable the **Live Debug Mode** to see the contacts and coils updating in real-time.
 
 ![Digital Input Demo](assets/digital-in-demo.gif)
 
 ### Analog Voltage Input Mode
+
+To set up an input in voltage mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name, `IN1` in this case and set the **IOType** to `Input - Voltage ADC`.
+
+![Voltage Input Configuration](assets/plc-ide-9.png)
+
+Now you can easily read this input voltage in your program. For example in a **Structured Language** program:
+
+- Open your project main program navigating to the **Project** tab in the left panel, select **Main** in the project tree, and right-click on the **Local variables** window to insert a variable.
+
+![Insert a local variable](assets/local-var.png)
+
+Insert the following variable with it respective _type_ to store the input voltage:
+
+| **Name** | **Type** |
+| :------: | :------: |
+|  V_IN1   |   REAL   |
+
+![Insert a local variable](assets/local-var-2.png)
+
+- In the main code editor add the following formula to convert the ADC raw reading to a voltage and store it in the `V_IN1` variable.
+
+```
+V_IN1 := IN1*10.0/65536.0; 
+```
+
+***The analog channel in voltage mode can measure up to 10 VDC and the ADC resolution is 16 bit, this is why we use the 65536 constant that corresponds to 2<sup>16</sup>.***
+
+- Upload the program to your Opta and enable the **Live Debug Mode** to see the analog readings updating in real-time.
+
+![Analog Voltage Input Demo](assets/voltage-in-ani.gif)
 
 ### Analog Current Input Mode
 
