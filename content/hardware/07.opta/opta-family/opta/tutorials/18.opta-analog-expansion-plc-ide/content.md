@@ -129,6 +129,10 @@ For example in a **Ladder Diagram**:
 
 ![Ladder variables assigning](assets/digital-ld.gif)
 
+- Upload the program to your Opta and enable the **Live Debug Mode** if you want to see the contacts and coils updating in real-time.
+
+![Digital Input Demo](assets/digital-in-demo.gif)
+
 ### Analog Voltage Input Mode
 
 ### Analog Current Input Mode
