@@ -464,9 +464,9 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 
 **Note:** The LED above the *User Programmable button* (Ref: 3D) is only available on Arduino Opta® WiFi (AFX00002).
 
-### Wiring Specifications 
+### Wiring Specifications
 
-Following Opta's wiring specifications is important to ensure proper connection and operation of its electrical terminals. The tables shown below provide recommendations for torque application, cable preparation, and accepted wire types of Opta's electrical terminals. 
+Following Opta's wiring specifications is important to ensure proper connection and operation of its electrical terminals. The tables shown below provide recommendations for torque application, cable preparation, and accepted wire types of Opta's electrical terminals.
 
 #### Recommended Torque and Cable Preparation
 
@@ -555,8 +555,6 @@ Sample sketches for Arduino Opta® can be found either in the “Examples” men
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[6]**, the Arduino® Library Reference **[7]** and the online store **[8]** where you will be able to complement your Arduino Opta® product with additional extensions, sensors and actuators.
-
-<div style="page-break-after: always;"></div>
 
 ## Mean Time Between Failure (MTBF)
 
