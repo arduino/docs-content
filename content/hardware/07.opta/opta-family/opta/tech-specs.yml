@@ -46,3 +46,12 @@ Secure element: ATECC608B
 Programming:
   Arduino programming language: Via Arduino IDEs, Arduino CLI, Arduino Web Editor
   IEC-61131-3: Ladder Diagram (LD), Function Block Diagram (FBD), Sequential Function Chart (SFC), Structured Text (ST), Instruction List (IL)
+Wiring Specifications:
+  Recommended torque: 0.80 Nm
+  Recommended tool: "#1 Phillips-headscrewdriver"
+  Stripping length: 9 mm
+  Wire type:
+    Solid conductor minimum size: 0.5 mm² (20 AWG)
+    Solid conductor maximum size: 6 mm² (10 AWG)/2x4 mm² (2x12 AWG)
+    Stranded conductor minimum size: 0.5 mm² (20 AWG)
+    Stranded conductor maximum size: 4 mm² (12 AWG)/2x2.5 mm² (2x14 AWG)
