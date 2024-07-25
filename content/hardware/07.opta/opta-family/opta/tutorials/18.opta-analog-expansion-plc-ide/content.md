@@ -167,7 +167,46 @@ V_IN1 := IN1*10.0/65536.0;
 
 ### Analog Current Input Mode
 
+To set up an input in current mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name, `IN1` in this case and set the **IOType** to `Input - Current ADC`.
+
+![Current Input Configuration](assets/plc-ide-10.png)
+
+Now you can easily read this input current in your program. For example in a **Structured Language** program:
+
+- Open your project main program navigating to the **Project** tab in the left panel, select **Main** in the project tree, and right-click on the **Local variables** window to insert a variable.
+
+![Insert a local variable](assets/local-var.png)
+
+Insert the following variable with it respective _type_ to store the input voltage:
+
+| **Name** | **Type** |
+| :------: | :------: |
+|  I_IN1   |   REAL   |
+
+![Insert a local variable](assets/local-var-3.png)
+
+- In the main code editor add the following formula to convert the ADC raw reading to a current and store it in the `I_IN1` variable.
+
+```
+I_IN1 := IN1*(5.0/65536.0); 
+I_IN1 := I_IN1 - 2.5;
+I_IN1 := I_IN1 / 100.0;
+I_IN1 := I_IN1 * 1000.0; //convert to mA
+```
+
+***The analog channel in current mode can measure up to 10 VDC and the ADC resolution is 16 bit, this is why we use the 65536 constant that corresponds to 2<sup>16</sup>.***
+
+- Upload the program to your Opta and enable the **Live Debug Mode** to see the analog readings updating in real-time.
+
+![Analog Voltage Input Demo](assets/voltage-in-ani.gif)
+
 ### Analog RTD Input Mode
+
+To set up an input in RTD mode for termperature measurement, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name, `IN1` in this case and set the **IOType** to `Input - RTD 3 Wires` or `Input - RTD 2 Wires` .
+
+![Current Input Configuration](assets/plc-ide-11.png)
+
+***Channels I1 and I2 support 3 Wires RTD and 2 Wires RTD, all other channels only support 2 Wires RTD.***
 
 ## Programmable Outputs
 
