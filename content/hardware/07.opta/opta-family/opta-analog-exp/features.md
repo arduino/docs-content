@@ -8,9 +8,9 @@ Opta Analog Expansion allows professionals to scale up industrial and building a
 
 <FeatureList>
 
-<Feature title="Configurability" image="settings">
+<Feature title="Configurability" image="configurability">
 
-  All the eight available channels can be configured by software as analog input or analog output. Two of those channels can get 3 wires RTD readings and the expansions have four additional PWM outputs, with a user-defined output voltage configurable from 8 to 40 VDC using the V<sub>PWM</sub> terminal. 
+  All the eight available channels can be configured by software as analog input or analog output. Two of those channels can get 3 wires RTD readings and the expansions have four additional PWM outputs, with a user-defined output voltage configurable from 8 to 40 VDC using the V<sub>PWM</sub> terminal.
 
 </Feature>
 
