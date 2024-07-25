@@ -95,22 +95,8 @@ At the back-right side of Alvik there is the main switch of the robot. When ON t
 ### Battery
 
 The battery is a rechargeable Li-ion 18650, it allows to run Alvik for 8+ hours non stop.
-The battery is located in the bottom part of Alvik, if you need to access it you'll need to remove one Phillip's screw and take out the plastic holder.
 
-
-![Accessing battery compartment](assets/battery_holder.jpg)
-
-
-**Changing the battery:**
-
-1. **Detach the Existing Battery**: Carefully remove the old battery from its compartment.
-2. **Attach a New Battery**: Place the new battery into the holder, ensuring it is securely connected.
-3. **Plug in the Nano ESP32**: If you are using a different controller or have used the robot in another manner, reconnect the Nano ESP32.
-4. **Connect the Nano ESP32 to the Computer**: Use a USB cable to connect the Nano ESP32 to your computer.
-
-These steps are crucial for resetting the Battery Management System (BMS) after a battery replacement. If these steps are not followed, the BMS will remain "off," and the robot will not turn on.
-
-The Nano ESP32 can report the status of the battery through the terminal of the Arduino Lab for MicroPython and with its RGB status LED. To do that you need to call the `Alvik.begin()` function in any program or directly at the command line area.
+When you connect your Alvik to the computer, the Nano ESP32 reports the status of the battery through the terminal of the Arduino Lab for MicroPython and with its RGB status LED. In order to see the state of the battery, you need to call the `Alvik.begin()` function in any program or directly at the command line area.
 
 When the battery is charging the status LED will blink RED for one second.
 
@@ -124,9 +110,21 @@ When fully charged it will stay GREEN.
 
 ***Don't confuse the RGB status LED with the power ON LED of the Nano ESP32, which is always green.***
 
+### Replacing the battery
+
+The battery is located in the bottom part of Alvik, if you need to access it you'll need to remove one Phillip's screw and take out the plastic holder.
+
+
+![Accessing battery compartment](assets/battery_holder.jpg)
+
+1. **Detach the Existing Battery**: Carefully remove the old battery from its compartment.
+2. **Attach a New Battery**: Place the new battery into the holder, ensuring it is securely connected.
+3. **Plug in the Nano ESP32**: If you are using a different controller or have used the robot in another manner, reconnect the Nano ESP32.
+4. **Connect the Nano ESP32 to the Computer**: Use a USB cable to connect the Nano ESP32 to your computer.
+
+These steps are crucial for resetting the Battery Management System (BMS) after a battery replacement. If these steps are not followed, the BMS will remain "off," and the robot will not turn on.
+
 ## Alvik's Sensors
-
-
 
 Alvik includes a set of  different sensors listed below, all connected to the STM32 and accessible through the [APIs](https://docs.arduino.cc/tutorials/alvik/api-overview). For each sensor there is test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) for micropython and in [this repository](https://github.com/arduino-libraries/Arduino_AlvikCarrier/tree/main/examples) for C++.
 
@@ -834,20 +832,20 @@ In this example, the robot uses its line follower sensor array to navigate along
    from arduino_alvik import ArduinoAlvik
    import time
    from time import sleep
-  
+    
    # Initialization
    alvik = ArduinoAlvik()
    alvik.begin()
    sleep(5)  # Waiting for the robot to setup
-  
+    
    # Calibrate color sensor for white
    alvik.color_calibration('white')
-  
+    
    # Main logic
    detected_colors = set()
-  
+    
    print("Starting to move and detect colors...")
-  
+    
    try:
        while len(detected_colors) < 3:
            alvik.set_wheels_speed(20, 20)
