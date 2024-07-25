@@ -182,11 +182,17 @@ Quickly find all the recent sketch files and IoT Dashboards worked by your stude
 
 **Collaborative coding** is a feature that allows multiple users to work together on the same code. Students and teachers can share and edit code, making it easier to collaborate and learn from each other.
 
-Everyone in the shared space can create and modify code simultaneously. Changes are updated and visible to all participants once the last user has edited them. The code editor notifies students or teachers if someone else is editing by highlighting the code area with an orange frame, as shown in the image below:
+In the shared space, everyone can create and modify code simultaneously. Changes are updated and visible to all participants once the last user has finished editing. The code editor notifies users if someone else is editing by highlighting the code area with an orange frame.
 
-IMAGE
+The following short clip shows an idea of how the collaborative coding works from a student and teacher perspectives:
 
-This helps to ensure that all students and teachers stay synchronized and can contribute effectively. Collaborative coding makes projects more interactive and engaging, improving the learning experience.
+![Collaborative Coding](assets/collab-code-demo.gif)
+
+While a student or teacher is working on the code, the area they are editing is highlighted with an orange frame, and a warning block appears. This indicates that you should wait to avoid any loss of change. Please wait for them to finish before editing the code to prevent conflicts and ensure all changes are correctly synchronized.
+
+![Collaborative Coding - Code editor orange frame highlight](assets/collab-code-orange-frame.png)
+
+This helps ensure that all students and teachers stay synchronized and can contribute effectively. Collaborative coding makes projects more interactive and engaging, improving the learning experience.
 
 ## Cloud Remote App
 

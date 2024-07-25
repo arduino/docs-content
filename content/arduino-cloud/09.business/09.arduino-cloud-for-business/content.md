@@ -339,9 +339,15 @@ Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. 
 
 In a collaborative coding environment, everyone can create and modify code simultaneously. Changes are updated and visible to all participants after the last user has finished editing. The code editor highlights the area being edited by others with an orange frame, helping team members stay synchronized and aware of each other's contributions.
 
-IMAGE
+The following short clip shows an idea of how the collaborative coding works from two different user perspectives:
 
-This functionality ensures that all users remain aligned and can contribute effectively. By making projects more interactive and engaging, collaborative coding improves the overall development experience.
+![Collaborative Coding](assets/collab-code-demo.gif)
+
+While a user is working on the code, the area they are editing is highlighted with the orange frame, and a warning block appears. This indicates that the user should wait to avoid any loss of change. Please wait for them to finish before editing the code to prevent conflicts and ensure all changes are correctly synchronized.
+
+![Collaborative Coding - Code editor orange frame highlight](assets/collab-code-orange-frame.png)
+
+This functionality ensures that all users remain aligned and can contribute effectively. Collaborative coding improves the overall development experience by making projects more interactive and engaging.
 
 ## Fleet Management
 
