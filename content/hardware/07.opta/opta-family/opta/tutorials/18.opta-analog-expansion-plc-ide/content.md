@@ -95,7 +95,39 @@ Once the available expansion appears in the **Detected config** column, enable i
 
 ## Programmable Inputs
 
+The Opta™ Analog Expansion has 8x analog channels, identified with a letter, `I` or `O`, between the two connection terminals: `+` for signal and `-` as GND, common to the other `-` terminals on the board. 
+Each input can be used as:
+
+|            **Mode**            | **Specification** |
+|:------------------------------:|:-----------------:|
+|     Digital input voltage      |     0...24 V      |
+|      Analog input voltage      |     0...10 V      |
+|      Analog input current      |     0...25 mA     |
+| Analog temperature input (RTD) |     0...1 MΩ      |
+
+***All the analog channels of the analog expansion can be used as inputs, including `O1` and `O2`, so a total of 8x analog inputs are available to the users.***
+
 ### Digital Input Mode
+
+To set up an input in digital mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name, `IN1` in this case and set the **IOType** to `Input - Digital`.
+
+![Digital Input Configuration](assets/plc-ide-8.png)
+
+Now you can easily read this input state in your program no matter the programming language you are using.
+
+For example in a **Ladder Diagram**:
+
+- Create a new program in Ladder (LD), name it as you want, `digital_input` in this case and set the scanning speed to `fast`.
+
+![Ladder Diagram program creation](assets/ladder-1.png)
+
+- Configure the LED "L1" assigning the variable `LED1` in **Resources > LED Outputs**. 
+
+![LED setup](assets/led-setup.png)
+
+- Assign the variable `IN1` to your contact and the `LED1` to your coil as follows:
+
+![Ladder variables assigning](assets/digital-ld.gif)
 
 ### Analog Voltage Input Mode
 
