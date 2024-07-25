@@ -114,7 +114,7 @@ The reference is an embedded version of the [Arduino Language Reference](https:/
 
 ## Collaborative Coding
 
-**Collaborative Coding** allows users to work together on the same code. This feature enables makers to edit code across multiple windows, making collaboration easier.
+**Collaborative Coding** allows users to work together on the same code. This feature enables developers within shared spaces to edit code across multiple windows, making collaboration easier.
 
 When working together, changes made in one window are updated and visible in all other windows. The code editor highlights the area being edited with an orange frame, notifying users if someone else is editing the same code. Users can take turns editing in multiple windows, ensuring everyone stays coordinated.
 
@@ -124,4 +124,4 @@ While a user is working on the code, the area they are editing is highlighted wi
 
 ![Collaborative Coding - Code editor orange frame highlight](assets/collab-code-orange-frame.png)
 
-By making projects more interactive and engaging, collaborative coding enhances the overall maker experience.
+By making projects more interactive and engaging, collaborative coding enhances the overall developer experience.

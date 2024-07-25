@@ -335,7 +335,7 @@ Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. 
 
 ## Collaborative Coding
 
-**Collaborative Coding** is a powerful feature that enables multiple users to work together on the same code. This feature allows team members to share and edit code seamlessly, providing better collaboration overall.
+**Collaborative Coding** is a powerful feature available with the plan that enables multiple users within the same shared space to work together on the same code. This feature allows team members to share and edit code seamlessly, providing better collaboration overall.
 
 In a collaborative coding environment, everyone can create and modify code simultaneously. Changes are updated and visible to all participants after the last user has finished editing. The code editor highlights the area being edited by others with an orange frame, helping team members stay synchronized and aware of each other's contributions.
 

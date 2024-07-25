@@ -180,7 +180,7 @@ Quickly find all the recent sketch files and IoT Dashboards worked by your stude
 
 ## Collaborative Coding
 
-**Collaborative coding** is a feature that allows multiple users to work together on the same code. Students and teachers can share and edit code, making it easier to collaborate and learn from each other.
+**Collaborative coding** is a feature available in the School Plan that allows multiple users within the same shared space to work together on the same code. Students and teachers can share and edit code, making it easier to collaborate and learn from each other.
 
 In the shared space, everyone can create and modify code simultaneously. Changes are updated and visible to all participants once the last user has finished editing. The code editor notifies users if someone else is editing by highlighting the code area with an orange frame.
 
