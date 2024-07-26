@@ -5,7 +5,7 @@ author: Jacob Hylén
 tags: [Arduino Cloud, templates]
 ---
 
-The **Custom Templates** feature is a part of the Arduino Cloud that allows you to create your own custom cloud templates, letting you configure a project complete with a Thing, Dashboard, and Triggers with a step by step wizard guiding you through the process. 
+The **Custom Templates** feature is a part of the [Arduino Cloud](https://app.arduino.cc/) that allows you to create your own custom cloud templates, letting you configure a project complete with a [Thing](https://docs.arduino.cc/arduino-cloud/cloud-interface/things/), [Dashboard](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets/), and [Triggers](https://docs.arduino.cc/arduino-cloud/cloud-interface/triggers/) with a step by step wizard guiding you through the process. 
 
 With the Custom Templates feature, you can choose any of your existing cloud projects and walk through the process of turning it into a template within a few minutes. You can save it for you to use yourself, or export it as a `.tino` file to be shared with other people however you want. 
 
@@ -15,7 +15,7 @@ To follow this guide, you will need:
 - An Arduino Cloud Project to turn into a template
 
 ## Create Your Project
-First - we need our starting point. You may already have used the Arduino Cloud to create a project, if so you can go ahead with what you have already made. 
+First - we need our starting point. You may already have used the [Arduino Cloud](https://app.arduino.cc/) to create a project, if so you can go ahead with what you have already made. 
 
 For the purposes of this guide, we'll use an example project that displays one of a few icons on the LED Matrix of an Arduino UNO R4 WiFi that you can choose from a selector widget. 
 
