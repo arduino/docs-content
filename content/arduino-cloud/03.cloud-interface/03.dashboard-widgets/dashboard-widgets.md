@@ -446,3 +446,9 @@ if(valueDropDown == "string"){
   //if string matches, execute code
 }
 ```
+
+### Image
+
+![Image widget](assets/widget-image.png)
+
+Use the image widget to put a JPG, PNG or WEBP image on your dashboard! The image can be made to fill the widget frame or to fit within the widget frame. A grey background can be added to the widget to help with visibility issues for PNGs with transparent backgrounds.
