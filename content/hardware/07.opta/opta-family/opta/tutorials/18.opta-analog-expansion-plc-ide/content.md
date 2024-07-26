@@ -290,7 +290,7 @@ Now you can easily control the LED state by pressing the button with a simple pr
 
 - Upload the program to your Opta and enable the **Live Debug Mode** to see the contacts and coils updating in real-time.
 
-![LED control demo](assets/digital-in-demo.gif)
+![LED control demo](assets/led-button.gif)
 
 ### Conclusion 
 
