@@ -199,7 +199,7 @@ I_IN1 := IN1*25.0/65535.0;
 
 ### Analog RTD Input Mode
 
-To set up an input in RTD mode for termperature measurement, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **I1**, `IN1` in this case and set the **IOType** to `Input - RTD 2 Wires` or `Input - RTD 3 Wires` .
+To set up an input in RTD mode for termperature measurement, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **I1**, `IN1` in this case and set the **IOType** to `Input - RTD 2 Wires` or `Input - RTD 3 Wires`.
 
 ![Current Input Configuration](assets/plc-ide-13.png)
 
@@ -248,7 +248,7 @@ The Opta™ Analog Expansion has **8x analog programmable outputs** accessible t
 
 ### Analog Voltage Output Mode
 
-To set up an output in voltage mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **O1**, `OUT1` in this case and set the **IOType** to `Input - RTD 2 Wires` or `Input - RTD 3 Wires` .
+To set up an output in voltage mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **O1**, `OUT1` in this case and set the **IOType** to `Input - RTD 2 Wires` or `Input - RTD 3 Wires`.
 
 ### Analog Current Output Mode
 
@@ -268,92 +268,29 @@ The Analog Expansion has 4x PWM output channels **(P1...P4)**. They are software
 
 ### Expansion Status LEDs
 
-To set up the sensor input for the potentiometer, navigate to **Programmable Inputs** under your desired expansion in the left resources menu. Define a **variable** name, **sensor** in this case, and set the **IOType** to **Analog**.
+The Opta™ Analog Expansion has **8x status LEDs** on the front panel.
 
-![Setting up the sensor input](assets/plc-ide-8.png)
+To control an LED, navigate to **LED Outputs** under your desired expansion in the left **Resources** menu and define a variable name to **L3**, `LED3` in this case.
 
-To set up the Opta™ expansion outputs, proceed to **Relay Outputs** under your desired expansion in the left resources menu. In this instance, define **variable** names for each output, **out_1** to **out_8**.
+![LED output configuration](assets/plc-ide-16.png)
 
-![Setting up the relay outputs](assets/plc-ide-9.png)
+Assign a variable to the Opta `USER` Button, `BTN_USR` in this case so we can use it to control the LED.
 
-For the main code of our solution, navigate to the **Project** tab in the left panel, select **Main** in the project tree, and right-click on the **Local variables** window to insert some variables.
+![User button configuration](assets/plc-ide-17.png)
 
-![Configuring the main project](assets/plc-ide-10.png)
+Now you can easily control the LED state by pressing the button with a simple program. For example in a **Ladder Diagram**:
 
-Insert the following three variables with their respective _type_ and _attribute_:
+- Create a new program in Ladder (LD), name it as you want, `ledControl` in this case and set the scanning speed to `fast`.
 
-| Name  | Type | Init value | Attribute |
-|-------|------|------------|-----------|
-| VSTEP | REAL | -          | -         |
-| VCC   | REAL | 12         | CONSTANT  |
-| VIN   | REAL | -          | -         |
+![Ladder Diagram program creation](assets/ladder-led.png)
 
-![Defining the local variables](assets/plc-ide-11.png)
+- Assign the variable `BTN_USR` to your contact and the `LED3` to your coil as follows:
 
-- **VSTEP** will store the voltage step threshold to activate the relay outputs sequentially. 
-- **VCC** is a constant representing the 12 VDC used to power the Opta™ Digital Expansion.
-- **VIN** will store the voltage read at the sensor input.
+![Ladder variables assigning](assets/led-control.gif)
 
-Copy and paste the following sketch to the **Main code** text editor:
+- Upload the program to your Opta and enable the **Live Debug Mode** to see the contacts and coils updating in real-time.
 
-```
-VSTEP := VCC/8;
-VIN := sensor*1.733E-3;
-IF  VIN >= VSTEP*1 THEN
-    out_1 := TRUE;
-ELSE
-    out_1 := FALSE;
-END_IF;
-IF VIN >= VSTEP*2 THEN 
-    out_2 := TRUE;
-ELSE
-    out_2 := FALSE;
-END_IF;
-IF VIN >= VSTEP*3 THEN 
-    out_3 := TRUE;
-ELSE
-    out_3 := FALSE;   
-END_IF;
-IF VIN >= VSTEP*4 THEN 
-    out_4 := TRUE;
-ELSE
-    out_4 := FALSE;   
-END_IF;
-IF VIN >= VSTEP*5 THEN
-    out_5 := TRUE;
-ELSE
-    out_5 := FALSE;
-END_IF;
-IF VIN >= VSTEP*6 THEN 
-    out_6 := TRUE;
-ELSE
-    out_6 := FALSE;
-END_IF;
-IF VIN >= VSTEP*7 THEN 
-    out_7 := TRUE;
-ELSE
-    out_7 := FALSE;   
-END_IF;
-IF VIN >= VSTEP*8 THEN 
-    out_8 := TRUE;
-ELSE
-    out_8 := FALSE;   
-END_IF;
-```
-
-Compile the project by clicking on the compilation button found in the upper left corner of the IDE. If no errors are shown, upload the program to the Opta™ controller by clicking the upload button highlighted next to it.
-
-![Main program in Structured Text](assets/plc-ide-12.png)
-
-You can monitor the project variables in real-time while the project is running by dragging and dropping the desired variables from the left project panel to the **Watch** window:
-
-![Live variable monitoring](assets/demo.gif)
-
-Finally, your solution is ready. The Opta™ expansion relay outputs will activate sequentially as the sensor output increases. 
-
-Turn the potentiometer and observe how the **VIN** variable displays the voltage being read. The outputs activate as their respective thresholds are reached:
-
-![Final application showcase](assets/animation.gif)
+![LED control demo](assets/digital-in-demo.gif)
 
 ### Conclusion 
 
