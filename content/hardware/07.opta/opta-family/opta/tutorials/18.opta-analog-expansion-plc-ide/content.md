@@ -156,14 +156,14 @@ Insert the following variable with it respective _type_ to store the input volta
 - In the main code editor add the following formula to convert the ADC raw reading to a voltage and store it in the `V_IN1` variable.
 
 ```
-V_IN1 := IN1*10.0/65536.0; 
+V_IN1 := IN1*10.0/65535.0; 
 ```
 
-***The analog channel in voltage mode can measure up to 10 VDC and the ADC resolution is 16 bit, this is why we use the 65536 constant that corresponds to 2<sup>16</sup>.***
+***The analog channel in voltage mode can measure up to 10 VDC and the ADC resolution is 16 bit, this is why we use the 65535 constant that corresponds to 2<sup>16</sup>-1.***
 
 - Upload the program to your Opta and enable the **Live Debug Mode** to see the analog readings updating in real-time.
 
-![Analog Voltage Input Demo](assets/voltage-in-ani.gif)
+![Voltage Input Demo](assets/voltage-in-ani.gif)
 
 ### Analog Current Input Mode
 
@@ -188,17 +188,14 @@ Insert the following variable with it respective _type_ to store the input volta
 - In the main code editor add the following formula to convert the ADC raw reading to a current and store it in the `I_IN1` variable.
 
 ```
-I_IN1 := IN1*(5.0/65536.0); 
-I_IN1 := I_IN1 - 2.5;
-I_IN1 := I_IN1 / 100.0;
-I_IN1 := I_IN1 * 1000.0; //convert to mA
+I_IN1 := IN1*25.0/65535.0;
 ```
 
-***The analog channel in current mode can measure up to 10 VDC and the ADC resolution is 16 bit, this is why we use the 65536 constant that corresponds to 2<sup>16</sup>.***
+***The analog channel in current mode can measure up to 25 mA and the ADC resolution is 16 bit, this is why we use the 65535 constant that corresponds to 2<sup>16</sup>-1.***
 
 - Upload the program to your Opta and enable the **Live Debug Mode** to see the analog readings updating in real-time.
 
-![Analog Voltage Input Demo](assets/voltage-in-ani.gif)
+![Current Input Demo](assets/current-in-ani.gif)
 
 ### Analog RTD Input Mode
 
