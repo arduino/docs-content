@@ -33,6 +33,8 @@ Click into this page, and you should see that at the top there are two tabs, lab
 Click Create in the top right, then Choose "New Template". 
 
 ![New Template](./assets/newtemplate.png)
+
+***Exiting the template creation process mid-way without saving by clicking "Generate Template" will cause any progress to be lost.***
  
 ### Selecting a Thing
 Now you should be taken to a new screen, where you add your IoT assets. Let's start with the Thing.
@@ -53,7 +55,7 @@ Now you may want to add a little bit more documentation for your project, such a
 
 ![Additional Documentation](./assets/description.png)
 
-Once you've completed your template, click "Generate Template" and you're fininshed!
+Once you've completed your template, click "Generate Template" and you're fininshed! It will now show up in the tab of "Your Templates" we saw at the beginning of this guide. 
 
 ## Exporting Your Template
 Once you're back on the Templates page, you can export the `.tino` file to be used by others by clicking the three dots on the side, and clicking "download (.tino)". This will start downloading the file that you can share with the community to let others recreate your project.
