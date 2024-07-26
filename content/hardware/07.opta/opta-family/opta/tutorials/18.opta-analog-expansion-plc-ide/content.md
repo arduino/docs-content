@@ -151,7 +151,7 @@ Insert the following variable with it respective _type_ to store the input volta
 | :------: | :------: |
 |  V_IN1   |   REAL   |
 
-![Insert a local variable](assets/local-var-2.png)
+![Set up local variable](assets/local-var-2.png)
 
 - In the main code editor add the following formula to convert the ADC raw reading to a voltage and store it in the `V_IN1` variable.
 
@@ -177,13 +177,13 @@ Now you can easily read this input current in your program. For example in a **S
 
 ![Insert a local variable](assets/local-var.png)
 
-Insert the following variable with it respective _type_ to store the input voltage:
+Insert the following variable with it respective _type_ to store the input current:
 
 | **Name** | **Type** |
 | :------: | :------: |
 |  I_IN1   |   REAL   |
 
-![Insert a local variable](assets/local-var-3.png)
+![Set up local variable](assets/local-var-3.png)
 
 - In the main code editor add the following formula to convert the ADC raw reading to a current and store it in the `I_IN1` variable.
 
@@ -199,19 +199,71 @@ I_IN1 := IN1*25.0/65535.0;
 
 ### Analog RTD Input Mode
 
-To set up an input in RTD mode for termperature measurement, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name, `IN1` in this case and set the **IOType** to `Input - RTD 3 Wires` or `Input - RTD 2 Wires` .
+To set up an input in RTD mode for termperature measurement, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name, `IN1` in this case and set the **IOType** to `Input - RTD 2 Wires` or `Input - RTD 3 Wires` .
 
-![Current Input Configuration](assets/plc-ide-11.png)
+![Current Input Configuration](assets/plc-ide-13.png)
 
-***Channels I1 and I2 support 3 Wires RTD and 2 Wires RTD, all other channels only support 2 Wires RTD.***
+***Channels I1 and I2 support 3 Wires RTD and 2 Wires RTD, all other channels only support 2 Wires RTD. If a 3 Wires RTD is defined, you need to set a current in mA for it, see your RTD datasheet.***
+
+Now you can easily read this input resistance in your program. For example in a **Structured Language** program using a **PT100** sensor:
+
+- Open your project main program navigating to the **Project** tab in the left panel, select **Main** in the project tree, and right-click on the **Local variables** window to insert a variable.
+
+![Insert a local variable](assets/local-var.png)
+
+Insert the following variables with their respective _type_ and _attribute_:
+
+| **Name** | **Type** | **Init value** | **Attribute** |
+| :------: | :------: | :------------: | :-----------: |
+|  T_IN1   |   REAL   |       -        |       -       |
+|    a     |   REAL   |   0.0039083    |   CONSTANT    |
+|    b     |   REAL   | -0.0000005775  |   CONSTANT    |
+
+![Set up local variable](assets/local-var-4.png)
+
+***__a__ and __b__ are PT100 constants.***
+
+- In the main code editor add the following formula to convert the input resistive reading to a temperature and store it in the `T_IN1` variable.
+
+```
+T_IN1 := (-(1.0 / 100.0) * (50.0 * a - 10*sqrt(b * IN1 + 25.0 * pow(a, 2.0) - 100.0 * b))) / b;
+```
+
+***The analog channel in RTD mode can measure up to 1 MΩ and to convert the resistive value of it into temperature, the above quadratic equation is needed.***
+
+- Upload the program to your Opta and enable the **Live Debug Mode** to see the temperature readings updating in real-time.
+
+![RTD Input Demo](assets/rtd-demo.png)
 
 ## Programmable Outputs
 
+The Opta™ Analog Expansion has **8x analog programmable outputs** accessible through terminals `I1` to `I6` and `O1` to `O2` that can be used as:
+
+|            **Mode**            |             **Specification**             |
+|:------------------------------:|:-----------------------------------------:|
+|      Analog output voltage      |                 0...11 V                  |
+|      Analog output current      |                 0...25 mA                 |
+
+***Due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time. At 25°C of ambient temperature, all the 8x channels set as outputs have been tested at the same time while outputting more than 24 mA at 10 V each (>0.24W per channel).***
+
 ### Analog Voltage Output Mode
+
 
 ### Analog Current Output Mode
 
 ### PWM Output
+The Analog Expansion has 4x PWM output channels **(P1...P4)**. They are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage.
+
+|  **V<sub>PWM</sub> Voltage**   |      **Details**      |
+|:------------------------------:|:---------------------:|
+|            Channels            |    P1, P2, P3, P4     |
+|    Source voltage supported    |   8...24 VDC + 20%    |
+|             Period             |     Programmable      |
+|           Duty-cycle           | Programmable (0-100%) |
+| Max current draw (per channel) |        100 mA         |
+|         Max frequency          |         10kHz         |
+
+![Example of wiring to use the PWM outputs using Opta power voltage as **V<sub>PWM</sub>** as voltage reference](assets/pwm-setup.png)
 
 ### Expansion Status LEDs
 
