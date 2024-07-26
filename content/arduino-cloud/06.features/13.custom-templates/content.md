@@ -5,7 +5,7 @@ author: Jacob Hylén
 tags: [Arduino Cloud, templates]
 ---
 
-The **Custom Templates** feature is a part of the Arduino Cloud that allows you to create your own custom cloud templates, letting you configure a project complete with a Thing, Dashboard, and Triggers with a step by setup wizard guiding you through the process. 
+The **Custom Templates** feature is a part of the Arduino Cloud that allows you to create your own custom cloud templates, letting you configure a project complete with a Thing, Dashboard, and Triggers with a step by step wizard guiding you through the process. 
 
 With the Custom Templates feature, you can choose any of your existing cloud projects and walk through the process of turning it into a template within a few minutes. You can save it for you to use yourself, or export it as a `.tino` file to be shared with other people however you want. 
 
