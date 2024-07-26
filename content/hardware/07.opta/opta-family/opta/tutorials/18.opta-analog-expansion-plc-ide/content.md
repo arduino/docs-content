@@ -109,7 +109,7 @@ Each input can be used as:
 
 ### Digital Input Mode
 
-To set up an input in digital mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name, `IN1` in this case and set the **IOType** to `Input - Digital`.
+To set up an input in digital mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **I1**, `IN1` in this case and set the **IOType** to `Input - Digital`.
 
 ![Digital Input Configuration](assets/plc-ide-8.png)
 
@@ -135,11 +135,11 @@ For example in a **Ladder Diagram**:
 
 ### Analog Voltage Input Mode
 
-To set up an input in voltage mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name, `IN1` in this case and set the **IOType** to `Input - Voltage ADC`.
+To set up an input in voltage mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **I1**, `IN1` in this case and set the **IOType** to `Input - Voltage ADC`.
 
 ![Voltage Input Configuration](assets/plc-ide-9.png)
 
-Now you can easily read this input voltage in your program. For example in a **Structured Language** program:
+Now you can easily read this input voltage in your program. For example in a **Structured Text** program:
 
 - Open your project main program navigating to the **Project** tab in the left panel, select **Main** in the project tree, and right-click on the **Local variables** window to insert a variable.
 
@@ -167,11 +167,11 @@ V_IN1 := IN1*10.0/65535.0;
 
 ### Analog Current Input Mode
 
-To set up an input in current mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name, `IN1` in this case and set the **IOType** to `Input - Current ADC`.
+To set up an input in current mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **I1**, `IN1` in this case and set the **IOType** to `Input - Current ADC`.
 
 ![Current Input Configuration](assets/plc-ide-10.png)
 
-Now you can easily read this input current in your program. For example in a **Structured Language** program:
+Now you can easily read this input current in your program. For example in a **Structured Text** program:
 
 - Open your project main program navigating to the **Project** tab in the left panel, select **Main** in the project tree, and right-click on the **Local variables** window to insert a variable.
 
@@ -199,13 +199,13 @@ I_IN1 := IN1*25.0/65535.0;
 
 ### Analog RTD Input Mode
 
-To set up an input in RTD mode for termperature measurement, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name, `IN1` in this case and set the **IOType** to `Input - RTD 2 Wires` or `Input - RTD 3 Wires` .
+To set up an input in RTD mode for termperature measurement, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **I1**, `IN1` in this case and set the **IOType** to `Input - RTD 2 Wires` or `Input - RTD 3 Wires` .
 
 ![Current Input Configuration](assets/plc-ide-13.png)
 
 ***Channels I1 and I2 support 3 Wires RTD and 2 Wires RTD, all other channels only support 2 Wires RTD. If a 3 Wires RTD is defined, you need to set a current in mA for it, see your RTD datasheet.***
 
-Now you can easily read this input resistance in your program. For example in a **Structured Language** program using a **PT100** sensor:
+Now you can easily read this input resistance in your program. For example in a **Structured Text** program using a **PT100** sensor:
 
 - Open your project main program navigating to the **Project** tab in the left panel, select **Main** in the project tree, and right-click on the **Local variables** window to insert a variable.
 
@@ -248,6 +248,7 @@ The Opta™ Analog Expansion has **8x analog programmable outputs** accessible t
 
 ### Analog Voltage Output Mode
 
+To set up an output in voltage mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **O1**, `OUT1` in this case and set the **IOType** to `Input - RTD 2 Wires` or `Input - RTD 3 Wires` .
 
 ### Analog Current Output Mode
 
@@ -342,7 +343,7 @@ END_IF;
 
 Compile the project by clicking on the compilation button found in the upper left corner of the IDE. If no errors are shown, upload the program to the Opta™ controller by clicking the upload button highlighted next to it.
 
-![Main program in structured language](assets/plc-ide-12.png)
+![Main program in Structured Text](assets/plc-ide-12.png)
 
 You can monitor the project variables in real-time while the project is running by dragging and dropping the desired variables from the left project panel to the **Watch** window:
 
