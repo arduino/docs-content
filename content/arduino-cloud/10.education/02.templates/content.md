@@ -1,5 +1,5 @@
 ---
-title: 'Using IoT Templates for Classroom Projects'
+title: 'Templates'
 description: 'Ready-made projects that can significantly lower the entry barrier for teaching and learning about IoT applications'
 difficulty: intermediate
 tags:
@@ -13,12 +13,12 @@ software:
 
 ## Introduction 
 
-This guide aims to introduce anyone interested in exploring the world of the Internet of Things (IoT) to Arduino IoT Templates. These templates are pre-built projects that make it significantly easier to dive into IoT applications. Whether you're a teacher, a maker, planning your next class or organizing a hackathon, these templates provide a quick and accessible way to get started with the fundamental components of an IoT project.
+This guide aims to introduce anyone interested in exploring the world of the Internet of Things (IoT) to Arduino Cloud Templates. These templates are pre-built projects that make it significantly easier to dive into IoT applications. Whether you're a teacher, a maker, planning your next class or organizing a hackathon, these templates provide a quick and accessible way to get started with the fundamental components of an IoT project.
 
 ## What you will learn
 
 - Templates and their benefits
-- Collection of Arduino IoT Templates
+- Collection of Arduino Templates
 - Importing Templates
 - Create Custom Templates
 
@@ -58,7 +58,7 @@ For troubleshooting, we recommend to read this article from our Help Center:
 
 ## Choosing a template 
 
-Once you have logged into your account, Templates can be accessed under the **IoT templates** section from the sidebar. 
+Once you have logged into your account, Templates can be accessed from the sidebar **Templates > Arduino Templates** from the menu on top. 
 
 ![Sidebar IoT Templates](assets/sidebar.png)
 
