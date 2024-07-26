@@ -35,7 +35,7 @@ Click Create in the top right, then Choose "New Template".
 ![New Template](./assets/newtemplate.png)
  
 ### Selecting a Thing
-Now you should be taken to a new screen, where you add your Iot assets. Let's start with the Thing.
+Now you should be taken to a new screen, where you add your IoT assets. Let's start with the Thing.
 
 Click "Thing" on the right side of the screen. 
 ![Choose thing](./assets/selectingThing.png)
