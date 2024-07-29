@@ -42,7 +42,7 @@ Now you should be taken to a new screen, where you add your IoT assets. Let's st
 Click "Thing" on the right side of the screen. 
 ![Choose thing](./assets/selectingThing.png)
 
-Then search for the Thing that you want to add to your template. "Icon Selector" in the case of this guide. Click your Thing, then "Add to Template".
+Then search for a Thing (already created) that you want to add to your template. "Icon Selector" in the case of this guide. Click your Thing, then "Add to Template".
 
 
 ### Selecting a Dashboard
