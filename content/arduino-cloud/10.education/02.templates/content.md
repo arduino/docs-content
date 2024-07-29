@@ -22,7 +22,7 @@ This guide aims to introduce anyone interested in exploring the world of the Int
 - Importing Templates
 - Create Custom Templates
 
-## Arduino IoT Templates
+## Arduino Templates
 
 <iframe width="100%" height="480" src="https://www.youtube-nocookie.com/embed/J5_QleCPc64?si=I-3lU1mVam3jtA4_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
