@@ -254,7 +254,8 @@ For more information, visit the [Alvik Getting Started Guide](https://docs.ardui
 
 ## Alvik's Firmware
 
-To get started to play with Alvik you will need the following hardware and software:
+To get started to play with Alvik you will need the following software:
+
 
 
 ### Software Requirements
