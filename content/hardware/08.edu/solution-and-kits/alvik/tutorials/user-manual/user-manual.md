@@ -270,10 +270,8 @@ It may happen that you used your Nano ESP32 for other projects than Alvik, or yo
 1. Install the micropython bootloader on it following [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
 
 2. Download the Alvik micropyton libraries
-
-    - Alvik micropython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
-
-   -  ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
+Alvik micropython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
+ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
 
 
 3. Unzip both of the downloaded libraries in a single "Alvik" folder, open the Arduino Lab for MicroPython, go to the "files" tab and set the path to the unzipped folder on the Arduino Lab for Micropython
@@ -910,7 +908,7 @@ The `get_imu` function from the [Alvik API](https://docs.arduino.cc/tutorials/al
  **p**: pitch value
  **y**: yaw value
 
-1. Retrieves 3-axial acceleration values
+2. Retrieves 3-axial acceleration values
 
    The [`get_accelerations()`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_accelerations) function returns the 3-axial acceleration of the IMU. This provides the acceleration values along the x, y, and z axes.
 
@@ -919,7 +917,7 @@ The `get_imu` function from the [Alvik API](https://docs.arduino.cc/tutorials/al
      **ay**: acceleration on y
     **az**: acceleration on z
 
-1. Retrieves 3-axial angular acceleration values
+3. Retrieves 3-axial angular acceleration values
 
    The [`get_gyros()`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_gyros) function returns the 3-axial angular acceleration of the IMU. This provides the angular acceleration values along the x, y, and z axes.
 
@@ -928,7 +926,7 @@ The `get_imu` function from the [Alvik API](https://docs.arduino.cc/tutorials/al
     **gy**: angular acceleration on y
     **gz**: angular acceleration on z
 
-2. Retrieves all IMU readouts including acceleration and angular acceleration
+4. Retrieves all IMU readouts including acceleration and angular acceleration
 
    The [`get_imu()`](https://docs.arduino.cc/tutorials/alvik/api-overview/#get_imu) function returns all the IMU's readouts, including both the acceleration and angular acceleration values.
 
