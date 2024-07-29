@@ -110,7 +110,7 @@ When fully charged it will stay GREEN.
 
 ***Don't confuse the RGB status LED with the power ON LED of the Nano ESP32, which is always green.***
 
-### Replacing the battery
+### Replacing The Battery
 
 The battery is located in the bottom part of Alvik, if you need to access it you'll need to remove one Phillip's screw and take out the plastic holder.
 
@@ -254,8 +254,7 @@ For more information, visit the [Alvik Getting Started Guide](https://docs.ardui
 
 ## Alvik's Firmware
 
-To get started to play with Alvik you will need the following software:
-
+To get started to play with Alvik you will need the following hardware and software:
 
 
 ### Software Requirements
@@ -1092,7 +1091,7 @@ The provided code will:
 3. Serve a simple web page with buttons for directional control.
 4. Move the robot in the specified direction when a button is pressed.
 
-### Step by Step setup
+### Step By Step Setup
 
 
 1. Replace `Insert_SSID_Here` and `Password_Here` with your Wi-Fi credentials.
@@ -1261,7 +1260,7 @@ The provided code will:
 2. Set up a callback function to handle incoming ESP-NOW messages.
 3. Move the robot based on the received commands while buttons are pressed.
 
-### Step by Step setup
+### Step By Step Setup
 
 
 1. Upload the receiver script to the Arduino Nano ESP32 on the Alvik robot.
