@@ -50,7 +50,7 @@ In most cases, however, you will be able to select the `Wire1` object when initi
 
 ```arduino
 Wire1.begin();
-libraryName.begin( Wire1 );
+libraryName.begin( Wire1 ); //libraryName in this case is a placeholder. Please remember to replace this with the library you are using.
 ```
 
 For example, when using SparkFuns AHT20 library, a sketch that read the temperature and prints it to the serial monitor could look like this:
