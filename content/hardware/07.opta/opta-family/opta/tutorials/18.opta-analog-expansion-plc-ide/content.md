@@ -19,7 +19,7 @@ software:
 ## Overview
 In this tutorial, you will learn how to use Opta™ Analog Expansion AFX00007 alongside an Opta™ controller.
 
-![Opta Analog Expansion Overview](assets/animation.gif)
+![Opta Analog Expansion Overview](assets/analog-current.png)
 
 We will go through every feature of the Analog Expansion and learn with a simple example how to leverage it for sensors sampling and output control.
 
