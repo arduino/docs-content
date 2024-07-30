@@ -7,7 +7,7 @@ tags:
   - IEC-61131-3
   - PLC-IDE
   - Opta™
-author: 'Christopher Mendez'
+author: 'Christopher Méndez'
 
 hardware:
   - hardware/07.opta/opta-family/opta
@@ -380,7 +380,7 @@ Now you can easily control the LED state by pressing the button with a simple pr
 
 ### Conclusion 
 
-In this tutorial, you have learned how to use an Opta™ Digital Expansion by demonstrating a simple application that reads an analog input and controls the expansion relay outputs.
+In this tutorial, you have learned how to use an Opta™ Analog Expansion by demonstrating the use of each product features.
 
 As you can see, the configuration process is straightforward, and the results are as expected. This serves as an excellent starting point for adapting the techniques covered here to develop your professional solutions.
 
