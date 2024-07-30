@@ -1,5 +1,5 @@
 ---
-title: 'Cloud Editor (New)'
+title: 'Cloud Editor'
 description: 'Get started with the Cloud Editor, an online IDE in the Arduino Cloud.'
 author: 'Karl Söderby'
 ---
