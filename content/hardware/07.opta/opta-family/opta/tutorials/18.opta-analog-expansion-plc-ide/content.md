@@ -19,9 +19,9 @@ software:
 ## Overview
 In this tutorial, you will learn how to use Opta™ Analog Expansion AFX00007 alongside an Opta™ controller.
 
-![Final application showcase](assets/animation.gif)
+![Opta Analog Expansion Overview](assets/animation.gif)
 
-We will create a demo application from scratch, in which we will read the voltage from an analog sensor and control the expansion relay outputs based on the voltage level measured.
+We will go through every feature of the Analog Expansion and learn with a simple example how to leverage it for sensors sampling and output control.
 
 ## Goals
 
