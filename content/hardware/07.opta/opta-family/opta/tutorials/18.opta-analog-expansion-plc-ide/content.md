@@ -146,7 +146,7 @@ Now you can easily read this input voltage in your program. For example in a **S
 
 ![Insert a local variable](assets/local-var.png)
 
-Insert the following variable with it respective _type_ to store the input voltage:
+Insert the following variable with its respective _type_ to store the input voltage:
 
 | **Name** | **Type** |
 | :------: | :------: |
