@@ -245,7 +245,7 @@ The Opta™ Analog Expansion has **8x analog programmable outputs** accessible t
 |      Analog output voltage      |                 0...11 V                  |
 |      Analog output current      |                 0...25 mA                 |
 
-***Due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time. At 25°C of ambient temperature, all the 8x channels set as outputs have been tested at the same time while outputting more than 24 mA at 10 V each (>0.24W per channel).***
+***Due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time. At 25°C of ambient temperature, all the 8x channels set as outputs have been tested at the same time while outputting more than 24 mA at 10 V each (>0.24 W per channel).***
 
 ### Analog Voltage Output Mode
 
@@ -282,7 +282,7 @@ To set up an output in current mode, navigate to **Programmable Channels** under
 
 Now you can easily control this output current in your program. For example in a **Structured Text** program:
 
-- In the main code editor use the following sketch to set the output current, it will increase from 0 to 25 mA and then go back to 0 V.
+- In the main code editor use the following sketch to set the output current, it will increase from 0 to 25 mA and then go back to 0 mA.
 
 ```
 OUT1 := OUT1 + 10;
