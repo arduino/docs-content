@@ -96,6 +96,7 @@ Once the available expansion appears in the **Detected config** column, enable i
 ## Programmable Inputs
 
 The Opta™ Analog Expansion has 8x analog channels, identified with a letter, `I` or `O`, between the two connection terminals: `+` for signal and `-` as GND, common to the other `-` terminals on the board. 
+
 Each input can be used as:
 
 |            **Mode**            | **Specification** |
@@ -199,7 +200,7 @@ I_IN1 := IN1*25.0/65535.0;
 
 ### Analog RTD Input Mode
 
-To set up an input in RTD mode for termperature measurement, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **I1**, `IN1` in this case and set the **IOType** to `Input - RTD 2 Wires` or `Input - RTD 3 Wires`.
+To set up an input in RTD mode for temperature measurement, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **I1**, `IN1` in this case and set the **IOType** to `Input - RTD 2 Wires` or `Input - RTD 3 Wires`.
 
 ![Current Input Configuration](assets/plc-ide-13.png)
 
