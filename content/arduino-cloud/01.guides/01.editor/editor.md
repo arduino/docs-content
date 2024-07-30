@@ -26,6 +26,9 @@ The Cloud Editor features all the necessary tools to develop and test your Ardui
 
 1. First, log in or create an [Arduino account](https://app.arduino.cc/).
 2. Then install the [Cloud Agent](https://create.arduino.cc/getting-started/plugin/welcome).
+
+![Cloud Agent Installation](./assets/agentinstallation.png)
+
 3. After installing the Cloud Agent, navigate to the [Cloud Editor](https://app.arduino.cc/sketches/).
 4. Now connect an Arduino board to your computer. Once you connect it, it should show up in the editor.
 
