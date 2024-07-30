@@ -248,9 +248,57 @@ The Opta™ Analog Expansion has **8x analog programmable outputs** accessible t
 
 ### Analog Voltage Output Mode
 
-To set up an output in voltage mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **O1**, `OUT1` in this case and set the **IOType** to `Input - RTD 2 Wires` or `Input - RTD 3 Wires`.
+To set up an output in voltage mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **O1**, `OUT1` in this case and set the **IOType** to `Output - Voltage DAC`.
+
+![Voltage output configuration](assets/plc-ide-14.png)
+
+Now you can easily control this output voltage in your program. For example in a **Structured Text** program:
+
+- In the main code editor use the following sketch to set the output voltage, it will increase from 0 to 11 V and then go back to 0 V.
+
+```
+OUT1 := OUT1 + 10;
+
+IF OUT1 >= 8191 then
+	OUT1 := 0;
+END_IF;
+
+// To define a specific voltage use the method below:
+// OUT1 := <Voltage> * 8191.0 / 11.0; 
+```
+
+***The analog channel in voltage mode can generate up to 11 V and the DAC resolution is 13 bit, this is why we use the 8191 constant that corresponds to 2<sup>13</sup>-1.***
+
+- Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use a voltmeter to measure the output.
+
+![Voltage Output Demo](assets/analog-voltage.png)
 
 ### Analog Current Output Mode
+
+To set up an output in current mode, navigate to **Programmable Channels** under your desired expansion in the left **Resources** menu. Define a variable name to **O1**, `OUT1` in this case and set the **IOType** to `Output - Current DAC`.
+
+![Voltage output configuration](assets/plc-ide-15.png)
+
+Now you can easily control this output current in your program. For example in a **Structured Text** program:
+
+- In the main code editor use the following sketch to set the output current, it will increase from 0 to 25 mA and then go back to 0 V.
+
+```
+OUT1 := OUT1 + 10;
+
+IF OUT1 >= 8191 then
+	OUT1 := 0;
+END_IF;
+
+// To define a specific current (mA) use the method below:
+// OUT1 := <Current> * 8191.0 / 25.0; 
+```
+
+***The analog channel in current mode can generate up to 25 mA and the DAC resolution is 13 bit, this is why we use the 8191 constant that corresponds to 2<sup>13</sup>-1.***
+
+- Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use an ampmeter to measure the output.
+
+![Current Output Demo](assets/analog-current.png)
 
 ### PWM Output
 The Analog Expansion has 4x PWM output channels **(P1...P4)**. They are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage.
