@@ -21,7 +21,7 @@ In this tutorial, you will learn how to use Opta™ Analog Expansion AFX00007 al
 
 ![Opta Analog Expansion Overview](assets/analog-current.png)
 
-We will go through every feature of the Analog Expansion and learn with a simple example how to leverage it for industrial sensor sampling and output control.
+We will go through every feature of the Analog Expansion and learn with a simple example how to leverage it for industrial sensor sampling and output controlling.
 
 ## Goals
 
