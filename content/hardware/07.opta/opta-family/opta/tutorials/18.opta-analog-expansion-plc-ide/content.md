@@ -296,7 +296,7 @@ END_IF;
 
 ***The analog channel in current mode can generate up to 25 mA and the DAC resolution is 13 bit, this is why we use the 8191 constant that corresponds to 2<sup>13</sup>-1.***
 
-- Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use an ampmeter to measure the output.
+- Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use an ampmeter to measure the output on **O1**.
 
 ![Current Output Demo](assets/analog-current.png)
 
@@ -312,7 +312,45 @@ The Analog Expansion has 4x PWM output channels **(P1...P4)**. They are software
 | Max current draw (per channel) |        100 mA         |
 |         Max frequency          |         10kHz         |
 
-![Example of wiring to use the PWM outputs using Opta power voltage as **V<sub>PWM</sub>** as voltage reference](assets/pwm-setup.png)
+![Example of wiring to use the PWM outputs](assets/pwm-setup.png)
+
+To configure a PWM output, navigate to **PWM Outputs** under your desired expansion in the left **Resources** menu. Define a variable name to **P1 PERIOD** and **P1 PULSE**, `P1_PERIOD` and `P1_PULSE` respectively in this case.
+
+![PWM output configuration](assets/plc-ide-18.png)
+
+Now you can easily control this output PWM period and pulse in your program. For example in a **Structured Text** program:
+
+- Open your project main program navigating to the **Project** tab in the left panel, select **Main** in the project tree, and right-click on the **Local variables** window to insert a variable.
+
+![Insert a local variable](assets/local-var.png)
+
+Insert the following variable with its respective _type_ and _attribute_:
+
+| **Name** | **Type** | **Init value** | **Attribute** |
+| :------: | :------: | :------------: | :-----------: |
+|  PERIOD  |   INT    |      1000      |   CONSTANT    |
+
+![Set up local variable](assets/local-var-5.png)
+
+***PERIOD and PULSE values are in microseconds.***
+
+- In the main code editor use the following sketch to set the PWM signal period and pulse times.
+
+```
+P1_PERIOD := PERIOD;  // 1000 us period = 1 kHz
+
+P1_PULSE := P1_PULSE + 10;
+
+IF P1_PULSE >= 1000 then
+	P1_PULSE := 0;
+END_IF;
+```
+
+***The PWM output voltage is defined by the voltage applied to __V<sub>PWM</sub>__ from 8 to 24 V.***
+
+- Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use an oscilloscope to measure the output on **P1**.
+
+![PWM Output Demo](assets/pwm-out.png)
 
 ### Expansion Status LEDs
 
