@@ -966,7 +966,7 @@ Arduino S.r.l. 特此声明，本产品符合 201453/EU 指令的基本要求和
 | ---------------------------- | ----------------------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)        | <https://www.arduino.cc/en/Main/Software>                                                       |
 | Arduino Cloud Editor    | <https://create.arduino.cc/editor>                                                              |
-| Cloud Cloud Editor - 入门指南 | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
+| Cloud Web Editor - 入门指南 | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
 | Arduino Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
 | 库参考            | <https://github.com/arduino-libraries/>                                                         |
 | 在线商店                 | <https://store.arduino.cc/>                                                                     |
