@@ -1,17 +1,17 @@
 ---
-title: 'Importing files to the Cloud Editor'
-description: 'Learn how to import your local sketchbook and custom libraries to the Cloud Editor.'
+title: 'Importing files to the Web Editor'
+description: 'Learn how to import your local sketchbook and custom libraries to the Web Editor.'
 ---
 
-## Import Your Sketchbook and Libraries to the Cloud Editor
+## Import Your Sketchbook and Libraries to the Web Editor
 
-Are you sticking to the desktop Arduino IDE because all your work is saved locally? That’s no longer a problem! Our brand new import tool enables you to upload your entire sketchbook with just a few clicks on the [Arduino Cloud Editor](https://create.arduino.cc/editor). It is particularly handy because it lets you **move all your sketches and libraries to the Cloud** in a single flow.
+Are you sticking to the desktop Arduino IDE because all your work is saved locally? That’s no longer a problem! Our brand new import tool enables you to upload your entire sketchbook with just a few clicks on the [Arduino Web Editor](https://create.arduino.cc/editor). It is particularly handy because it lets you **move all your sketches and libraries to the Cloud** in a single flow.
 
 Once your sketchbook is online it will be available on any device and backed up.
 
 ![import_sketch_and_library_gif_1](assets/import_sketch_and_library_gif_1.gif)
 
-What can you import to the [Cloud Editor](https://create.arduino.cc/editor)?
+What can you import to the [Web Editor](https://create.arduino.cc/editor)?
 
 * Single sketches in `.ino`, `.pde` and `.zip` format.
   
@@ -19,7 +19,7 @@ What can you import to the [Cloud Editor](https://create.arduino.cc/editor)?
   
 * Zipped folders containing sketches and libraries. Make sure your libraries are in a folder called `‘libraries’`. Be sure not to mix sketches and libraries in the same folder.
 
-But let’s import your whole sketchbook in a few clicks, so you will be all set up to start using the Arduino Cloud Editor.
+But let’s import your whole sketchbook in a few clicks, so you will be all set up to start using the Arduino Web Editor.
 
 
 ### 1. Find your sketchbook
@@ -36,7 +36,7 @@ Make a `.zip` pack of your sketchbook, you should obtain a file called *Arduino.
 
 ### 3. Import your sketchbook to the Cloud
 
-Go to [create.arduino.cc/editor](https://create.arduino.cc/editor). For some general information on how to get started on the Cloud Editor see [this tutorial](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a?ref=platform&ref_id=424_trending___&offset=0). When you are logged in and ready, hit the import button on the sketchbook panel. A popup with some instructions on how to import files into the Cloud Editor will be displayed. Press `“Import”` to continue.
+Go to [create.arduino.cc/editor](https://create.arduino.cc/editor). For some general information on how to get started on the Web Editor see [this tutorial](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a?ref=platform&ref_id=424_trending___&offset=0). When you are logged in and ready, hit the import button on the sketchbook panel. A popup with some instructions on how to import files into the Web Editor will be displayed. Press `“Import”` to continue.
 
 ![import_sketch_and_library_img_3](assets/import_sketch_and_library_img_3.jpg)
 ![import_sketch_and_library_img_4](assets/import_sketch_and_library_img_4.png)
@@ -78,7 +78,7 @@ If you want to import multiple custom libraries at once you can do so by creatin
 
 ![import_sketch_and_library_img_9](assets/import_sketch_and_library_img_9.jpg)
 
-Please note that **all the libraries that you have added via the Library Manager on the desktop IDE will be already available on the Cloud Editor without having to do anything**. If you want to see their related examples or select a specific version, look for them on the online Library Manager.
+Please note that **all the libraries that you have added via the Library Manager on the desktop IDE will be already available on the Web Editor without having to do anything**. If you want to see their related examples or select a specific version, look for them on the online Library Manager.
 
 More info on the online Library Manager [on this tutorial](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a?ref=platform&ref_id=424_trending___&offset=0#toc-libraries-and-the-arduino-web-editor).
 

@@ -150,11 +150,11 @@ The Portenta Vision Shield and Portenta H7 are supported under OpenMV. In order 
 If you want to program your Arduino board while offline you need to install the Arduino Desktop IDE **[3]**. To connect the board to your computer, you will need a USB cable. This also provides power to the board, as indicated by the LED.
 
 
-### Getting Started – Arduino Cloud Editor (Create)
+### Getting Started – Arduino Web Editor (Create)
 
-All Arduino and Genuino boards, including this one, work out-of-the-box on the Arduino Cloud Editor **[4]** by just installing a simple plugin.
+All Arduino and Genuino boards, including this one, work out-of-the-box on the Arduino Web Editor **[4]** by just installing a simple plugin.
 
-The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[5]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[5]** to start coding on the browser and upload your sketches onto your board.
 
 
 ### Getting Started – Arduino Cloud

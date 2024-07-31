@@ -4,13 +4,13 @@ description: 'Learn about different methods when embedding your sketches in a we
 author: 'Karl Söderby'
 ---
 
-The Cloud Editor is a great tool for creating and uploading programs while also collecting all of your sketches in one place. Another great feature is embedding them as iframes, such as articles, blogposts or journals. 
+The Web Editor is a great tool for creating and uploading programs while also collecting all of your sketches in one place. Another great feature is embedding them as iframes, such as articles, blogposts or journals. 
 
-To embed an iframe is very easy, and we just need to copy and paste a link from our sketch in the Cloud Editor. But we can also do a series of modifications to that iframe, and in this tutorial we will take a look at how to do that.
+To embed an iframe is very easy, and we just need to copy and paste a link from our sketch in the Web Editor. But we can also do a series of modifications to that iframe, and in this tutorial we will take a look at how to do that.
 
 ## Let's start
 
-First of all, we need to navigate to the [Cloud Editor](https://create.arduino.cc/editor). If we do not have an account, we can register one with just a few simple steps.
+First of all, we need to navigate to the [Web Editor](https://create.arduino.cc/editor). If we do not have an account, we can register one with just a few simple steps.
 
 Then, we need to have a code. In this tutorial, we are just going to use the good old **blink** example. When we have our sketch ready, click on the **share** button next to the port selection tool. This will open up a new window, that will have two fields: **link** and **iframe**. Copy the iframe field.
 
@@ -104,9 +104,9 @@ And then using the class `arduino-sketch-iframe` in your HTML element.
 
 ## Summary
 
-There are several cool ways of working with iframes from the Cloud Editor, and it is a really easy process that requires very little coding. 
+There are several cool ways of working with iframes from the Web Editor, and it is a really easy process that requires very little coding. 
 
-The Cloud Editor helps you keep track on all of your sketches, and with the iframes, including your projects on other pages has never been easier.
+The Web Editor helps you keep track on all of your sketches, and with the iframes, including your projects on other pages has never been easier.
 
 ### More tutorials
 

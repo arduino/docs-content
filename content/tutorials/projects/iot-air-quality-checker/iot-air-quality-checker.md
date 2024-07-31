@@ -43,9 +43,9 @@ Of course you can reach the same setup using a breadboard, floating wires and sp
 
 In this project we are going to use [Arduino Cloud](https://create.arduino.cc/iot), where you can create IoT applications in a few simple steps.
 
-We can just start connecting the MKR WiFi 1010 to the Cloud Editor.
+We can just start connecting the MKR WiFi 1010 to the Web Editor.
 
-You can then find more information on the Cloud Editor setup for the MKR WiFi 1010 at [this link.](https://www.arduino.cc/en/Guide/MKRWiFi1010)
+You can then find more information on the Web Editor setup for the MKR WiFi 1010 at [this link.](https://www.arduino.cc/en/Guide/MKRWiFi1010)
 
 After connecting your Arduino to the usb port, be sure to have selected the right board and the right port.
 
@@ -55,7 +55,7 @@ At this point, since the MKR WiFi 1010 is a Cloud compatible board, we can start
 
 ### Arduino Cloud Setup
 
-Thanks to this platform, the dashboard creation will be really easy, and the base of the Arduino code will be auto-generated, and usable directly on the Arduino Cloud Editor.
+Thanks to this platform, the dashboard creation will be really easy, and the base of the Arduino code will be auto-generated, and usable directly on the Arduino Web Editor.
 
 This is one of the feature of Arduino Cloud, many interesting others are described in [this official blog post](https://blog.arduino.cc/2021/06/18/14-awesome-arduino-cloud-features-you-never-knew-existed)!
 
@@ -72,7 +72,7 @@ Let's start with the device:
 The configuration is really easy:
 
 * Choose the board vendor (in our case it's Arduino).
-* Choose which board we are going to use (we'll see already our board, If we have previously connected it to the Cloud Editor).
+* Choose which board we are going to use (we'll see already our board, If we have previously connected it to the Web Editor).
 * Wait for the an update for securing the communication.
 * Click the done button.
 
@@ -127,11 +127,11 @@ Next step is to setup the Wifi Credentials that will be used by the board to con
 
 ### The Auto-Generated Sketch
 
-After creating variables, in the *sketch* section we'll find an auto-generated sketch, than we can open directly in the Cloud Editor by pressing the *Open full editor* button!
+After creating variables, in the *sketch* section we'll find an auto-generated sketch, than we can open directly in the Web Editor by pressing the *Open full editor* button!
 
 ![Click Open full editor.](assets/image_SlwQmN3MEj.png)
 
-Now we continue editing the sketch in the Cloud Editor.
+Now we continue editing the sketch in the Web Editor.
 
 We'll find a few more tabs, in particular:
 
@@ -361,7 +361,7 @@ That's it! the complete sketch can be found below.
 
 Last step is to create a custom Dashboard.
 
-Just press the **Go to IoT Cloud** button to switch from the Cloud Editor to the Arduino Cloud.
+Just press the **Go to IoT Cloud** button to switch from the Web Editor to the Arduino Cloud.
 
 Here switch to the Dashboards menu, and then *BUILD DASHBOARD*
 
