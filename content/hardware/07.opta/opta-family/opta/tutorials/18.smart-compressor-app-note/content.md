@@ -58,13 +58,88 @@ The goal of this application note is to showcase the Opta PLC capabilities on le
 
 ## Compressor Monitoring System Setup
 
+The electrical connections of the intended application are shown in the diagram below:
+
+![Electrical connections of the monitoring system]()
+
+The Opta PLC will be powered with an external 24 VDC power supply connected to it's screw terminals `+` and `-` respectively.
+
+![Opta power supply connection]()
+
+The current, temperature and pressure sensors will be connected to inputs `I1`, `I2` and `I3` respectively.
+
+![Sensors connection]()
+
+The power relay will be connected to the Opta relay output 1 as follows:
+
+![Power relay connection]()
+
+The compressor power source will be wired through the power relay and the current sensor.
+
+![Compressor power wiring]()
+
 ## Compressor Monitoring System Overview
+The monitoring system for the compressor integrates the sensor data gathering, power control and cloud communication using the Opta WiFi connection.
+
+The Opta is responsible for reading the sensors and uploading their data to the Cloud, also for controlling the power state of the compressor and sharing through Modbus TCP all the sensor information.
+
+The Nicla Sense ME leverage it's internal IMU for anomalous vibration detection on the compressor motor and connects through BLE with the Opta for vibration status sharing. 
+
+![Compressor Monitoring System]()
 
 ### Sensors Deployment
+
+- The **Current Sensor** alongside the grid voltage will help us measure the compressor power consumption for monitoring and overcurrent detection. It will be placed hooked in the compressor AC power line.
+- The **Temperature Sensor** will measure the compressor electric motor temperature for monitoring and high temperature detection. It will be fixed to the compressor motor.
+- The **Pressure Sensor** will measure the compressor air pressure for monitoring and high pressure detection. It will be screwed in the compressor tank pressure output.
+- The **Nicla Sense ME** will detect anomalous vibrations. It will be fixed to the compressor motor and powered with a battery or external power source.
+
 ### Anomalies Detection
+
+Every sensor will be used for anomalies detection, if any measured variable exceeds its nominal range an anomaly alert will show up in the Arduino Cloud dashboard.
+
+The sensors nominal threshold are difined in the code as follows:
+
+```arduino
+#define CURRENT_LIMIT 12 // in Amps
+#define PRESSURE_LIMIT 8 // in Bar
+#define TEMP_LIMIT 85 // in Celsius
+```
+
 ### Modbus TCP data output
+
+The Opta will detect if an ethernet cable is connected to its included RJ45 terminal and will start sending the measured sensor data through Modbus TCP to a defined server address.
+
+The variables will be sent to the registers in the following order:
+
+| **Address** | **Sensor**  |
+| :---------: | :---------: |
+|    0x00     | Temperature |
+|    0x01     |    Power    |
+|    0x02     |  Pressure   |
+|    0x03     |   Current   |
+
+***As the Modbus Holding Registers are __uint16_t__ the data sent should be a positive integer between 0 and 65535, for this reason the data is sent multiplied by a 100 factor. This way a measured temperature of 42.5 C will be sent as 4250.***
+
 ### Opta Code
+
+You can download the code for the Opta PLC [here]().
+
+Let's go through some important code sections to make this application fully operative; starting with the required libraries:
+
+- ArduinoBLE.h
+- Ethernet.h
+- ArduinoModbus.h and ArduinoRS485.h
+- ArduinoIoTCloud.h
+- Arduino_ConnectionHandler.h
+
+There is a header included in the project code for the Arduino Cloud configuration:
+
+- thingProperties.h
+
 ### Arduino Cloud Dashboard
+
+
 
 ## Full Compressor Monitoring System Example
 
