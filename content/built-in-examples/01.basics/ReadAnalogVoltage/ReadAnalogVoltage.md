@@ -28,7 +28,7 @@ Connect the three wires from the potentiometer to your board. The first goes to 
 
 By turning the shaft of the potentiometer, you change the amount of resistance on either side of the wiper which is connected to the center pin of the potentiometer. This changes the voltage at the center pin. When the resistance between the center and the side connected to 5 volts is close to zero (and the resistance on the other side is close to 10 kilohms), the voltage at the center pin nears 5 volts.  When the resistances are reversed, the voltage at the center pin nears 0 volts, or ground. This voltage is the **analog voltage** that you're reading as an input.
 
-The microcontroller of the board has a circuit inside called an *analog-to-digital converter* or *ADC* that reads this changing voltage and converts it to a number between 0 and 1023.  When the shaft is turned all the way in one direction, there are 0 volts going to the pin, and the input value is 0. When the shaft is turned all the way in the opposite direction, there are 5 volts going to the pin and the input value is 1023. In between, [analogRead](https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/)() returns a number between 0 and 1023 that is proportional to the amount of voltage being applied to the pin.
+The microcontroller of the board has a circuit inside called an *analog-to-digital converter* or *ADC* that reads this changing voltage and converts it to a number between 0 and 1023 (on boards with a 10 bit resolution ADC).  When the shaft is turned all the way in one direction, there are 0 volts going to the pin, and the input value is 0. When the shaft is turned all the way in the opposite direction, there are 5 volts going to the pin and the input value is 1023. In between, [analogRead](https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/)() returns a number between 0 and 1023 that is proportional to the amount of voltage being applied to the pin.
 
 ### Schematic
 
@@ -48,7 +48,7 @@ To change the values from 0-1023 to a range that corresponds to the voltage the 
 
 `float voltage= sensorValue * (5.0 / 1023.0);`
 
-***Please note that this example was initially conceived for 5V boards. If you are using a 3.3V board, you should change '5.0' to '3.3' in the code above to ensure it correctly aligns with your hardware.***
+***Please note that this example was initially conceived for 5V boards. If you are using a 3.3V board, you should change '5.0' to '3.3' in the code above to ensure it correctly aligns with your hardware. Similarly, if you are using a board with a default ADC resolution different from 10 bits, you must change the value '1023' to correspond to the number of discrete levels supported by your hardware.***
 
 Finally, you need to print this information to your serial monitor. You can do this with the command [Serial.println](https://www.arduino.cc/en/Serial/Println)()  in your last line of code:
 
