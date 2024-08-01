@@ -48,6 +48,8 @@ To change the values from 0-1023 to a range that corresponds to the voltage the 
 
 `float voltage= sensorValue * (5.0 / 1023.0);`
 
+***Please note that this example was initially conceived for 5V boards. If you are using a 3.3V board, you should change '5.0' to '3.3' in the code above to ensure it correctly aligns with your hardware.***
+
 Finally, you need to print this information to your serial monitor. You can do this with the command [Serial.println](https://www.arduino.cc/en/Serial/Println)()  in your last line of code:
 
 `Serial.println(voltage)`
