@@ -15,7 +15,7 @@ hardware:
 
 ## Introduction
 
-Transform your industrial compressor into smart and connect it to the Arduino Cloud for advanced condition monitoring capabilities using the Opta micro PLC.
+Transform your industrial compressor into smart and connect it to the Arduino Cloud for advanced condition monitoring capabilities using the Opta™ micro PLC.
 
 ![Project Thumbnail]()
 
@@ -37,7 +37,7 @@ The goal of this application note is to showcase the Opta PLC capabilities on le
 
 ### Hardware Requirements
 
-- [Opta WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
+- [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me) (x1)
 - 24 VDC Power Supply (x1)
 - AC Current Sensor 0-10 V (x1)
@@ -45,11 +45,16 @@ The goal of this application note is to showcase the Opta PLC capabilities on le
 - RTD to 0-10 V converter (x1)
 - Pressure transmitter 0-10 V (x1)
 - Power Relay 24 V (x1)
-- Wiring Cable AWG 18
+- Wiring Cable 18AWG
 - [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - Micro-USB Cable (x1)
 
 ### Software Requirements
+
+- [Arduino IDE 2](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
+- The [Compressor Monitor sketches for Opta and Nicla Sense ME]()
+- The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/) to provision the Opta WiFi on the Arduino Cloud.
+- The [Arduino Cloud](https://cloud.arduino.cc/)
 
 ## Compressor Monitoring System Setup
 
