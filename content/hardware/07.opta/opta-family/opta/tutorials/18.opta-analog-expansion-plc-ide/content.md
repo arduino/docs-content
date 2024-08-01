@@ -273,6 +273,10 @@ END_IF;
 
 ***The analog channel in voltage mode can generate up to 11 V and the DAC resolution is 13 bit, this is why we use the 8191 constant that corresponds to 2<sup>13</sup>-1.***
 
+- Modify the task speed by right clicking in **Task > Fast** then click on **Task configuration** and set the Fast task period to 50 ms.
+
+[Task speed configuration](assets/plc-ide-19.png)
+
 - Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use a voltmeter to measure the output.
 
 ![Voltage Output Demo](assets/analog-voltage.png)
@@ -299,6 +303,10 @@ END_IF;
 ```
 
 ***The analog channel in current mode can generate up to 25 mA and the DAC resolution is 13 bit, this is why we use the 8191 constant that corresponds to 2<sup>13</sup>-1.***
+
+- Modify the task speed by right clicking in **Task > Fast** then click on **Task configuration** and set the Fast task period to 50 ms.
+
+[Task speed configuration](assets/plc-ide-19.png)
 
 - Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use an ampmeter to measure the output on **O1**.
 
@@ -351,6 +359,10 @@ END_IF;
 ```
 
 ***The PWM output voltage is defined by the voltage applied to __V<sub>PWM</sub>__ from 8 to 24 V.***
+
+- Modify the task speed by right clicking in **Task > Fast** then click on **Task configuration** and set the Fast task period to 50 ms.
+
+[Task speed configuration](assets/plc-ide-19.png)
 
 - Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use an oscilloscope to measure the output on **P1**.
 
