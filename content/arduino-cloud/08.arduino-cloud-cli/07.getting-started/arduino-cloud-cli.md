@@ -128,7 +128,7 @@ Here's follows the FQBN's list of the supported devices:
 
 ### LoRaWAN® Devices
 
-To configure LoRaWAN® devices, use the additional `create-lora` and the `--frequency-plan` flag. This 
+To configure LoRaWAN® devices, use the additional `create-lora` and the `--frequency-plan` flag. This  
 
 ```
 arduino-cloud-cli device create-lora --name <deviceName> --frequency-plan <freqID> --port <port> --fqbn <deviceFqbn>
