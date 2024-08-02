@@ -1,6 +1,6 @@
 # docs-content
 
-## What Is this Repository?
+## What Is this Repository? 
 
 This repository hosts the content for Arduino's documentation website. The content needs to be written in Markdown and will be converted to HTML automatically during the build process.
 
