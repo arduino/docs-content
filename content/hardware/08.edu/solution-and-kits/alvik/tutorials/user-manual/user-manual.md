@@ -1667,6 +1667,21 @@ Now you can open the Arduino Lab for MicroPython, connect Alvik and open the exa
 
 ![Hello World OLED](assets/hello.png)
 
+### Mechanical Information
+
+Understanding Alvik's dimensions and mechanical details is key for designing custom components and ensuring it works well with other hardware. This information is here to help you easily create and adapt Alvik for your specific projects and needs.
+
+- **Front**
+![Alvik's front side dimentions](assets/Alvik_Docs_Dimensions_Front.jpg)
+- **Side**
+![Alvik's side side dimentions](assets/Alvik_Docs_Dimensions_Side.jpg)
+- **Back**
+![Alvik's back side dimentions 1/2](assets/Alvik_Docs_Dimensions_Back_02.jpg) ![Alvik's back side dimentions 2/2](assets/Alvik_Docs_Dimensions_Back_01.jpg)
+- **Top**
+![Alvik's top side dimentions 1/2](assets/Alvik_Docs_Dimensions_Top_01.jpg) ![Alvik's top side dimentions 2/2](assets/Alvik_Docs_Dimensions_Top_02.jpg)
+- **Bottom**
+![Alvik's bottom side dimentions](assets/Alvik_Docs_Dimensions_Bottom.jpg)
+
 ## Want More?
 
 If you're looking to get the most out of your Alvik robot, we have a comprehensive course available for you. Visit [Explore Robotics with MicroPython](https://courses.arduino.cc/explore-robotics-micropython/) for guided projects and lessons designed to help you master your Alvik. This course provides step-by-step instructions and detailed explanations to enhance your robotics and programming skills. Whether you're a beginner or an experienced maker, our course will take your Alvik experience to the next level.
