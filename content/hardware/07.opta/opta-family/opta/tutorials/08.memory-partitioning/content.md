@@ -64,7 +64,7 @@ In the Arduino IDE, you need to install the core for *Opta™*. To do this, go t
 
 For the *Portenta Machine Control*, in the __Boards Manager__ tab, search for `portenta` and install the latest `Arduino Mbed OS Portenta Boards` core version.
 
-We are now ready to compile and upload Arduino sketches to an Opta™ using the Arduino IDE. 
+We are now ready to compile and upload Arduino sketches to an Opta™ or a Portenta Machine Control using the Arduino IDE. 
 
 ***Memory partitioning of an Opta™ or a Portenta Machine Control should use the latest core and libraries to ensure the system is up-to-date with the intended default configuration.***
 
@@ -632,7 +632,7 @@ void printProgress(uint32_t offset, uint32_t size, uint32_t threshold, bool rese
 }
 ```
 
-***If you encounter an error during the compilation process, **please ensure both the script and certificate files are in the same folder**. The certificate file is crucial for the memory partitioning process. The complete sketch and the certificate files can be downloaded [here](assets/memory_partitioning.zip).***
+***If you encounter an error during the compilation process, __please ensure both the script and certificate files are in the same folder__. The certificate file is crucial for the memory partitioning process. The complete sketch and the certificate files can be downloaded [here](assets/memory_partitioning.zip).***
 
 Once the memory partition code is uploaded, wait for the process to finish. The upload target for the Portenta Machine Control is `Arduino Portenta H7`, which will be automatically detected by the Arduino IDE.
 
