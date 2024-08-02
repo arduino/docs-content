@@ -26,12 +26,12 @@ The Opta™ and the Portenta Machine Control can also be programmed with other t
 
 ![The Memory Map for Opta™ & Portenta Machine Control](assets/memory-partitioning-introduction.png)
 
-In this tutorial, we will use an Opta™ and learn how to partition the memory to enable all its functionalities to be programmed using the Arduino IDE and the Arduino programming language.
+In this tutorial, we will use an Opta™ and Portenta Machine Control to learn how to partition the memory, enabling all functionalities to be programmed using the Arduino IDE and the Arduino programming language.
 
 ## Goals
 
-- Learn how to partition the memory of an Opta™ device and a Portenta Machine Control to be used with the Arduino IDE and other ecosystem tools
-- Program an Opta™ device and a Portenta Machine Control using the Arduino IDE and the Arduino programming language. 
+- Learn how to partition the memory of an Opta™ and a Portenta Machine Control for use with the Arduino IDE and other ecosystem tools.
+- Program an Opta™ and a Portenta Machine Control using the Arduino IDE and the Arduino programming language.
 
 ## Hardware and Software Requirements
 
@@ -43,7 +43,7 @@ In this tutorial, we will use an Opta™ and learn how to partition the memory t
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [The memory partitioning sketch and the certificate file](assets/memory_partitioning.zip)
 
 ## Memory Partitioning
@@ -52,25 +52,25 @@ Memory partitioning involves dividing a device's available memory into separate 
 
 In the context of the Opta™, partitioning the memory allows the device to accommodate different functionalities, such as its Wi-Fi® module firmware, Over-The-Air (OTA) updates functionality, and certificates storage, while still providing memory space for user programs developed in the Arduino IDE and the Arduino programming language. Similarly, it applies to the Portenta Machine Control as well.
 
-Now, we will guide the process of partitioning an Opta™'s memory to enable the full range of its functionalities to be programmed using the Arduino IDE and the Arduino programming language.
+Now, we will guide you through partitioning the memory of an Opta™ and Portenta Machine Control to enable full programming capabilities using the Arduino IDE and the Arduino programming language.
 
 ## Setting Up the Arduino IDE
 
 This tutorial requires the latest version of the Arduino IDE, which can be downloaded [here](https://www.arduino.cc/en/software).
 
-In the Arduino IDE, you need to install the core for *Opta™* devices. To do this, go to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the **Boards Manager** tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` version.
+In the Arduino IDE, you need to install the core for *Opta™*. To do this, go to **Tools > Board > Boards Manager** or click the **Boards Manager** icon in the left tab of the IDE. In the **Boards Manager** tab, search for `opta` and install the latest `Arduino Mbed OS Opta Boards` version.
 
 ![Installing the Opta™ core in the Arduino IDE bootloader](assets/arduino-ide-1.png)
 
 For the *Portenta Machine Control*, in the __Boards Manager__ tab, search for `portenta` and install the latest `Arduino Mbed OS Portenta Boards` core version.
 
-We are now ready to compile and upload Arduino sketches to an Opta™ device using the Arduino IDE. 
+We are now ready to compile and upload Arduino sketches to an Opta™ using the Arduino IDE. 
 
 ***Memory partitioning of an Opta™ or a Portenta Machine Control should use the latest core and libraries to ensure the system is up-to-date with the intended default configuration.***
 
-## Partitioning Memory of an Opta™ Device
+## Partitioning the Memory of an Opta™
 
-To partition the memory of an Opta™ device, you need an Arduino sketch that includes memory partition operations and a certificate file. These files can be downloaded directly from the [Software Requirements section](#software-requirements) or [here](assets/memory_partitioning.zip). Ensure both files are stored in the same directory, as shown in the following layout:
+To partition the memory of an Opta™, you need an Arduino sketch that includes memory partition operations and a certificate file. These files can be downloaded directly from the [Software Requirements section](#software-requirements) or [here](assets/memory_partitioning.zip). Ensure both files are stored in the same directory, as shown in the following layout:
 
 ```
 memory_partitioning
@@ -342,13 +342,13 @@ void printProgress(uint32_t offset, uint32_t size, uint32_t threshold, bool rese
 
 The sketch shown above performs four main tasks:
 
-1. **Initialize and erase the QSPI Flash memory**: The sketch initializes the QSPI Flash memory of the Opta™ device and erases its content to prepare the memory for new firmware and data. One of the built-in LEDs of the device is used to indicate the progress of the memory-erasing process.
+1. **Initialize and erase the QSPI Flash memory**: The sketch initializes the QSPI Flash memory of the Opta™ and erases its content to prepare the memory for new firmware and data. One of the built-in LEDs of the device is used to indicate the progress of the memory-erasing process.
 
 2. **Create partitions and format them in the QSPI Flash memory**: The sketch creates and formats partitions in the QSPI Flash memory for the Wi-Fi firmware, Over-The-Air (OTA) updates functionality and certificates storage.
 
 3. **Write Wi-Fi firmware and certificate data**: The sketch writes the Wi-Fi firmware and certificate data to the appropriate partitions in the QSPI Flash memory and flashes the memory-mapped Wi-Fi firmware and certificates.
 
-4. **Display progress in the Arduino IDE Serial Monitor**: The sketch provides a visual indication of the progress of the flashing process using one of the built-in LEDs of the Opta™ device and displays messages through the Arduino IDE Serial Monitor to inform the user about the current status of the flashing process.
+4. **Display progress in the Arduino IDE Serial Monitor**: The sketch provides a visual indication of the progress of the flashing process using one of the built-in LEDs of the Opta™ and displays messages through the Arduino IDE Serial Monitor to inform the user about the current status of the flashing process.
 
 To upload the code, click the **Verify** button to compile the sketch and check for errors. Then, click the **Upload** button to program the device with the sketch. If two COM ports are available, which might happen after using the PLC IDE to program the device, select the COM port with the lower number.
 
@@ -356,13 +356,13 @@ To upload the code, click the **Verify** button to compile the sketch and check 
 
 After a while, you should see information on the progress of the flashing process in the Serial Monitor, as shown in the image below.
 
-![Flashing process feedback of the Opta™ shown in the Arduino IDE's Serial Monitor](assets/arduino-ide-3.png)
+![Memory partitioning results of the Opta™ as shown in the Arduino IDE's Serial Monitor](assets/arduino-ide-3.png)
 
 If everything went as intended, you should see a success message in the Serial Monitor. Now, we are ready to start using the full capabilities of the Opta™ with the Arduino IDE.
 
-## Partitioning Memory of a Portenta Machine Control
+## Partitioning the Memory of a Portenta Machine Control
 
-**The memory partitioning process for the Portenta Machine Control follows the same procedure as the Opta™ device.** You will need the latest `Arduino Mbed OS Portenta Boards` core version. If you do not have the latest version, please refer to the [Setting Up the Arduino IDE](#setting-up-the-arduino-ide) section before proceeding.
+**The memory partitioning process for the Portenta Machine Control follows the same procedure as the Opta™.** You will need the latest `Arduino Mbed OS Portenta Boards` core version. If you do not have the latest version, please refer to the [Setting Up the Arduino IDE](#setting-up-the-arduino-ide) section before proceeding.
 
 You will need an Arduino sketch with memory partition operations and a certificate file. These files can be downloaded from the [Software Requirements section](#software-requirements) or directly [here](assets/memory_partitioning.zip). Ensure both files are stored in the same directory, as shown below:
 
@@ -636,13 +636,13 @@ void printProgress(uint32_t offset, uint32_t size, uint32_t threshold, bool rese
 
 Once the memory partition code uploads, wait for it to complete its process. It should display similar results in the Arduino IDE's Serial Monitor as the Opta™.
 
-![Flashing process feedback of the Opta™ shown in the Arduino IDE's Serial Monitor](assets/arduino-ide-3.png)
+![Memory partitioning results of the Portenta Machine Control as shown in the Arduino IDE's Serial Monitor](assets/arduino-ide-4.png)
 
 You will then be ready to use the full functionalities of the Portenta Machine Control with the Arduino IDE.
 
 ## Conclusion
 
-In this tutorial, we showed how to partition the memory of an Opta™ device and a Portenta Machine Control, enabling its full range of functionalities to be programmed using Arduino ecosystem tools such as the Arduino IDE and the Arduino programming language.
+In this tutorial, we showed how to partition the memory of an Opta™ and a Portenta Machine Control, enabling its full range of functionalities to be programmed using Arduino ecosystem tools such as the Arduino IDE and the Arduino programming language.
 
 We walked through initializing and erasing the QSPI Flash memory, partitioning and formatting the memory, and writing the Wi-Fi firmware and certificate data onto the device's memory.
 
