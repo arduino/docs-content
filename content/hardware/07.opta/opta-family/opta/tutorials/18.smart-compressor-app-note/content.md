@@ -33,7 +33,7 @@ The goal of this application note is to showcase the Opta PLC capabilities on le
 
 ## Hardware and Software Requirements
 
-![Hardware Image]()
+![Hardware Image](assets/materials.png)
 
 ### Hardware Requirements
 
@@ -44,7 +44,7 @@ The goal of this application note is to showcase the Opta PLC capabilities on le
 - PT100 2 Wires RTD (x1)
 - RTD to 0-10 V converter (x1)
 - Pressure transmitter 0-10 V (x1)
-- Power Relay 24 V (x1)
+- Power Relay 24 V (Optional x1)
 - Wiring Cable 18AWG
 - [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - Micro-USB Cable (x1)
@@ -60,7 +60,7 @@ The goal of this application note is to showcase the Opta PLC capabilities on le
 
 The electrical connections of the intended application are shown in the diagram below:
 
-![Electrical connections of the monitoring system]()
+![Electrical connections of the monitoring system](assets/connection-diagram.png)
 
 The Opta PLC will be powered with an external 24 VDC power supply connected to it's screw terminals `+` and `-` respectively.
 
@@ -306,6 +306,7 @@ void SensorRead() {
   temp = T_I2;
   power = C_I1 * GRID_V; // Adjust GRID_V with your grid voltage
   press = P_I3;
+  fault = faultCheck();
 
   Serial.print("Temperature: ");
   Serial.print(T_I2, 1);
@@ -372,17 +373,200 @@ There are other functions in the main code listed below:
 - `EthernetInit()`: initialize the Ethernet connection for the Modbus TCP communication.
 - `onPwrChange()`: callback that controls the compressor power relay from the cloud.
 - `NiclaVibrationHAndler()`: manages the BLE connection and gather the vibrations alert from the Nicla Sense ME.
+- `faultCheck()`: compare the current sensor values with the fault defined threshold and report the state.
 
 ***You can download the complete code from [here]().***
 
 ### Nicla Sense ME Code
+You can download the code for the Nicla Sense ME [here]().
+
+Let's go through some important code sections to make this application fully operative; starting with the required libraries:
+
+- `Nicla_System.h` adds the support for the Nicla core and extended functionalities on power management.
+- `ArduinoBLE.h` enables the support for Bluetooth® Low Energy (BLE) communication, install it by searching for it on the Library Manager.
+- `Arduino_BHY2.h` provides the APIs for Nicla Sense ME board sensors.
+
+Initial settings are defined specifying accelerometer samples, sampling frequency, sensor object and time control variables.
+
+```arduino
+#include "Nicla_System.h"
+#include <ArduinoBLE.h>
+#include "Arduino_BHY2.h"
+
+SensorXYZ accel(SENSOR_ID_ACC);  // IMU sensor object
+
+#define VIBRATION_LIMIT 2000  // vibration threshold 
+
+const uint16_t samples = 64;           //This value MUST ALWAYS be a power of 2
+const double samplingFrequency = 512;  //IMU sampling frequency Hz
+unsigned int sampling_period_us;
+
+unsigned long vibration = 1;  // variable to store the vibration status
+
+// Alert Service
+BLEService alertService("1802");  // Immediate alert
+
+// BLE Alert Characteristic
+BLEUnsignedCharCharacteristic alertLevel("2A06",                // standard 16-bit characteristic UUID
+                                         BLERead | BLENotify);  // remote clients will be able to get notifications if this characteristic changes
+
+unsigned long microseconds;
+long previousMillis = 0;  // last time the vibration level was checked, in ms
+```
+
+The Bluetooth® Low Energy services and characteristics are standardized for the specific use of this application. The service is defined as `Immediate alert (1802)` which makes it ideal for notifying on anomalous vibration events and an `alert level characteristic (2A06)`. Notice that they have specific and standardized Bluetooth® Low Energy UUIDs.
+
+In the `setup()` function the different board peripherals are initiated including:
+
+- Serial communication
+- Nicla system for power management and LED control
+- Onboard IMU sensor
+- Bluetooth® Low Energy (BLE) communication
+
+In the Bluetooth® Low Energy initialization we define the device name, `Nicla` in this case for the Opta to easy find it.
+
+```arduino
+void setup() {
+
+  sampling_period_us = round(1000000 * (1.0 / samplingFrequency));
+
+  Serial.begin(115200);  // initialize serial communication
+  while (!Serial)
+    ;
+
+  // run this code once when Nicla Sense ME board turns on
+  nicla::begin();       // initialize library
+  nicla::leds.begin();  // initialize LEDs support
+
+  nicla::setBatteryNTCEnabled(false);  // Set to false if your battery doesn't have an NTC thermistor.
+  nicla::enableCharging(100);          // enable the battery charger and define the charging current in mA
+
+  nicla::leds.setColor(red);
+
+  BHY2.begin();
+
+  accel.begin();
+
+  // begin initialization
+  if (!BLE.begin()) {
+    Serial.println("starting BLE failed!");
+
+    while (1)
+      ;
+  }
+
+  /* Set a local name for the Bluetooth® Low Energy device
+     This name will appear in advertising packets
+     and can be used by remote devices to identify this Bluetooth® Low Energy device
+  */
+  BLE.setLocalName("Nicla");
+  BLE.setAdvertisedService(alertService);      // add the service UUID
+  alertService.addCharacteristic(alertLevel);  // add the battery level characteristic
+  BLE.addService(alertService);                // add the alert service
+  alertLevel.writeValue(0);                    // set initial value for this characteristic
+
+  /* Start advertising Bluetooth® Low Energy.  It will start continuously transmitting Bluetooth® Low Energy
+     advertising packets and will be visible to remote Bluetooth® Low Energy central devices
+     until it receives a new connection */
+
+  // start advertising
+  BLE.advertise();
+
+  Serial.println("Bluetooth® device active, waiting for connections...");
+}
+```
+
+In the `loop()` function we wait for the Bluetooth® connection and if it is connected will indicate it with a blue LED turned on. Every 1000 ms the vibration status will be measured calling the `updateVibrationStatus()` function.
+
+```arduino
+void loop() {
+  // wait for a Bluetooth® Low Energy central
+  BLEDevice central = BLE.central();
+
+  // if a central is connected to the peripheral:
+  if (central) {
+    Serial.print("Connected to central: ");
+    // print the central's BT address:
+    Serial.println(central.address());
+
+    // check the vibration level every 1000ms
+    // while the central is connected:
+    while (central.connected()) {
+      nicla::leds.setColor(blue);
+      long currentMillis = millis();
+      // if 1000ms have passed, check the vibration:
+      if (currentMillis - previousMillis >= 1000) {
+        previousMillis = currentMillis;
+        updateVibrationStatus();
+      }
+    }
+    nicla::leds.setColor(red);
+    Serial.print("Disconnected from central: ");
+    Serial.println(central.address());
+  }
+}
+```
+
+The `updateVibrationStatus()` function averages the samples taken and if the vibration magnitude is above the defined limit it will notify the Opta sending a Bluetooth® message.
+
+```arduino
+void updateVibrationStatus() {
+  /* Read the power management IC registers to retrieve the battery percentage
+  */
+  microseconds = micros();
+  for (int i = 0; i <= samples; i++) {
+
+    vibration += abs(accel.x());
+
+    while (micros() - microseconds < sampling_period_us) {
+      //empty loop
+      BHY2.update();
+    }
+    microseconds += sampling_period_us;
+  }
+
+  vibration = vibration / samples;
+  Serial.println(vibration);
+
+  if (vibration >= VIBRATION_LIMIT) {
+    alertLevel.writeValue(0);
+  } else {
+    alertLevel.writeValue(1);
+  }
+}
+```
+
+***You can download the complete code from [here]().***
 
 ### Arduino Cloud Dashboard
 
+Taking advantage of the Arduino Cloud, we can seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system in real-time:
 
+![Arduino Cloud Dashboard]()
+
+Within the Arduino Cloud's dashboard, the system variables can be monitored with the following widgets:
+
+- ON/OFF compressor power switch widget.
+- System variables gauges showing temperature, pressure and power.
+- Line charts for historical review on variables behaviour.
+- Vibration and fault state alert widgets for easy understand of the compressor state.
+  
+We can easily access this dashboard from a PC, mobile phone or tablet from anywhere, receiving an instantaneous update wherever we are. 
+
+In addition, we can set different integrations to complement our project, for example, forward the dashboard data to an external service using **Webhook**, **IFTTT** automations and **Smart Home** integrations.
 
 ## Full Compressor Monitoring System Example
 
+All the necessary files to replicate this application note can be found below:
+
+- The complete code can be downloaded [here]()
+
 ## Conclusion
 
+In this application note we have learned how to implement an industrial assets monitoring system turning a conventional air compressor into smart. This application could be a simple demonstration of how Arduino's environment simplifies de workflow for developing smart solutions to solve real industrial needs. The Arduino PRO products line is a perfect fit for developing robust and reliable projects for the industry. We covered in-site sensor data sampling, Bluetooth® Low Energy communication, and real-time Cloud monitoring.
+
 ### Next Steps
+
+As you already know how to develop a smart air compressor monitoring system with the Opta PLC and the Nicla Sense ME, it's time for you to continue exploring all the capabilities of the Arduino Pro environment to integrate it with your professional setup and improve it with powerful solutions.
+
+You can take this solution even further with the integration of an **FFT** algorithm for the Nicla Sense ME so it can analyze vibration specific spectrums.
