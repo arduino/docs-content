@@ -127,15 +127,64 @@ You can download the code for the Opta PLC [here]().
 
 Let's go through some important code sections to make this application fully operative; starting with the required libraries:
 
-- ArduinoBLE.h
-- Ethernet.h
-- ArduinoModbus.h and ArduinoRS485.h
-- ArduinoIoTCloud.h
-- Arduino_ConnectionHandler.h
+- `ArduinoBLE.h` enables the support for Bluetooth® Low Energy (BLE) communication, install it by searching for it on the Library Manager.
+- `Ethernet.h` enables the Ethernet support for the Modbus TCP communication.
+- `ArduinoModbus.h` and `ArduinoRS485.h` manage the Modbus TCP protocol, install them by searching for them on the Library Manager.
+- `ArduinoIoTCloud.h` enable the Arduino Cloud integration, install it by searching for it on the Library Manager.
+- `Arduino_ConnectionHandler.h` manages the internet connectivity for the board, install it by searching for it on the Library Manager.
 
 There is a header included in the project code for the Arduino Cloud configuration:
 
-- thingProperties.h
+- `thingProperties.h` includes the WiFi credentials and Arduino Cloud configuration.
+
+```arduino
+#include "thingProperties.h"
+#include <ArduinoBLE.h>
+
+// For Modbus TCP
+#include <Ethernet.h>
+#include <ArduinoRS485.h>  // ArduinoModbus depends on the ArduinoRS485 library
+#include <ArduinoModbus.h>
+
+// Ethernet + Modbus objects
+EthernetClient ethClient;
+ModbusTCPClient modbusTCPClient(ethClient);
+
+IPAddress server(10, 0, 0, 227);  // update with the IP Address of your Modbus server
+
+#define DEBUG false
+
+// Anomalies thresholds
+#define CURRENT_LIMIT 12 // in Amps
+#define PRESSURE_LIMIT 8 // in Bar
+#define TEMP_LIMIT 85 // in Celsius
+
+// Sensor inputs
+#define C_SENSOR A0
+#define T_SENSOR A1
+#define P_SENSOR A2
+
+#define GRID_V 120.0  // replace this value with the Grid AC voltage
+
+float P_I3 = 0;  // variable to store pressure (Bar)
+float T_I2 = 0;  // variable to store temperature (C)
+float C_I1 = 0;  // variable to store current (A)
+
+byte AlertValue = 0;  // last alert value received.
+
+bool control_once = 1;  // flow control variable
+
+unsigned long previousMillis = 0;  // will store last time readings were done
+const long interval = 1000;  // interval at which to repeat readings
+```
+
+In the `setup()` function the different board peripherals are initiated including:
+
+- Serial communication
+- LEDs and relay outputs
+- ADC configuration
+- Arduino Cloud properties
+### Nicla Sense ME Code
 
 ### Arduino Cloud Dashboard
 
