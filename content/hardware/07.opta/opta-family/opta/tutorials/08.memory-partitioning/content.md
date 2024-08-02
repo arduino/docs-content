@@ -634,11 +634,13 @@ void printProgress(uint32_t offset, uint32_t size, uint32_t threshold, bool rese
 
 ***If you encounter an error during the compilation process, **please ensure both the script and certificate files are in the same folder**. The certificate file is crucial for the memory partitioning process. The complete sketch and the certificate files can be downloaded [here](assets/memory_partitioning.zip).***
 
-Once the memory partition code uploads, wait for it to complete its process. It should display similar results in the Arduino IDE's Serial Monitor as the Opta™.
+Once the memory partition code is uploaded, wait for the process to finish. The upload target for the Portenta Machine Control is `Arduino Portenta H7`, which will be automatically detected by the Arduino IDE.
+
+The Arduino IDE's Serial Monitor should display memory partition results similar to those of the Opta™.
 
 ![Memory partitioning results of the Portenta Machine Control as shown in the Arduino IDE's Serial Monitor](assets/arduino-ide-4.png)
 
-You will then be ready to use the full functionalities of the Portenta Machine Control with the Arduino IDE.
+After this, you will be ready to use the full functionalities of the Portenta Machine Control with the Arduino IDE.
 
 ## Conclusion
 
