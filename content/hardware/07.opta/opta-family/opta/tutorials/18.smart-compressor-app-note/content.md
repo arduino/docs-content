@@ -184,6 +184,197 @@ In the `setup()` function the different board peripherals are initiated includin
 - LEDs and relay outputs
 - ADC configuration
 - Arduino Cloud properties
+- Ethernet interface
+
+```arduino
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  // This delay gives the chance to wait for a Serial Monitor without blocking if none is found
+  delay(1500);
+
+  pinMode(RELAY1, OUTPUT);
+  pinMode(LED_RELAY1, OUTPUT);
+  pinMode(LEDB, OUTPUT);
+  pinMode(LEDG, OUTPUT);
+
+  // Set the resolution of the ADC to 12 bits.
+  analogReadResolution(12);
+
+  // Defined in thingProperties.h
+  initProperties();
+
+  // Connect to Arduino IoT Cloud
+  ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+
+  /*
+     The following function allows you to obtain more information
+     related to the state of network and IoT Cloud connection and errors
+     the higher number the more granular information you’ll get.
+     The default is 0 (only errors).
+     Maximum is 4
+ */
+  setDebugMessageLevel(2);
+  ArduinoCloud.printDebugInfo();
+
+  // Init Ethernet connection for Modbus TCP
+  EthernetInit();
+}
+```
+In the `loop()` function, the WiFi and BLE connections are verified continuosly alongside the sensor readings.
+
+```arduino
+void loop() {
+
+  if (WiFi.status() == WL_CONNECTED) {  // If WiFi is successfully connected
+    digitalWrite(LEDG, HIGH);           // Opta green LED ON
+
+    if (control_once) {  // Once WiFi is ready, init Bluetooth LE once
+      Serial.println("BLE Init");
+
+      if (!BLE.begin()) {
+        Serial.println("Starting BLE failed!");
+        while (1) {
+        }
+      }
+
+      BLE.scan();
+      Serial.println("Scanning for peripherals.");
+      control_once = 0;
+    }
+
+    // check if a peripheral has been discovered
+    BLEDevice peripheral = BLE.available();
+
+    if (peripheral) {
+      // Check if the peripheral is called Nicla:
+      if (peripheral.localName() != "Nicla") {
+        return;
+      }
+      Serial.print("Found ");
+      Serial.println(peripheral.localName());
+
+      BLE.stopScan();
+      // Nicla Sense ME node connection handler
+      NiclaVibrationHandler(peripheral);
+
+      BLE.scan();
+    }
+
+    // If there is not BLE connection this will manage the sensors reading
+    unsigned long currentMillis = millis();
+
+    if (currentMillis - previousMillis >= interval) {
+
+      previousMillis = currentMillis;
+
+      Serial.println("Not BLE Loop");
+
+      BLE.scan();    // continue scanning for new BLE connection
+      SensorRead();  // ADC sensor reading and convertions
+    }
+
+    ArduinoCloud.update();  // to maintain Cloud connectivity
+
+  } else {  // If WiFi is not connected
+
+    digitalWrite(LEDG, LOW);  // Opta green LED OFF
+    control_once = 1;
+
+    ArduinoCloud.update();  // to maintain Cloud connectivity
+  }
+}
+```
+
+The function `SensorRead()` reads the sensor data, as they are connected to the Opta analog inputs we can easily read them by sampling their respective ADC inputs. Also, it check for the Ethernet connection to decide on sending the sensor readings through Modbus TCP.
+
+To convert the Opta ADC raw readings into voltage the following method can be used:
+
+```arduino
+Voltage = analogRead(<Input>) * (3.3 / 4095.0) / 0.30337;
+```
+***The formula from above is the result of the Opta analog input frontend circuit.***
+
+```arduino
+void SensorRead() {
+
+  T_I2 = (analogRead(T_SENSOR) * (3.3 / 4095.0) / 0.30337) * 10.0 - 0.31;  // RTD transmitter is limited to 0-100 C in the 0-10 V range.
+  C_I1 = (analogRead(C_SENSOR) * (3.3 / 4095.0) / 0.30337) * 1.4235;       // Current sensor range is configurable, 0-10 A was used plus a calibration factor.
+  P_I3 = (analogRead(P_SENSOR) * (3.3 / 4095.0) / 0.30337);                // Pressure sensor range is 0-10 Bar with a respective 0-10 V output.
+
+  // update Arduino Cloud variables
+  temp = T_I2;
+  power = C_I1 * GRID_V; // Adjust GRID_V with your grid voltage
+  press = P_I3;
+
+  Serial.print("Temperature: ");
+  Serial.print(T_I2, 1);
+  Serial.println(" C");
+  Serial.print("Current: ");
+  Serial.print(C_I1, 2);
+  Serial.println(" A");
+  Serial.print("Power: ");
+  Serial.print(power, 2);
+  Serial.println(" W");
+  Serial.print("Pressure: ");
+  Serial.print(P_I3, 1);
+  Serial.println(" Bar");
+
+  if (Ethernet.linkStatus() == LinkOFF) {
+    Serial.println("Ethernet Cable Disconnected");
+
+  } else if (Ethernet.linkStatus() == LinkON) {
+    Serial.println("Sending Modbus Message");
+    ModbusSend();
+  }
+}
+```
+
+The `ModbusSend()` function attempts the connection with the Modbus TCP server, if it is successful it formats the sensor data to be sent.
+
+```arduino
+void ModbusSend() {
+  if (!modbusTCPClient.connected()) {
+
+    // client not connected, start the Modbus TCP client
+    Serial.println("Attempting to connect to Modbus TCP server");
+
+    if (!modbusTCPClient.begin(server, 502)) {
+      Serial.println("Modbus TCP Client failed to connect!");
+    } else {
+      Serial.println("Modbus TCP Client connected");
+    }
+  } else {
+    // client connected
+    //Parse Float data to integer
+    int Mod_T = T_I2 * 100;
+    int Mod_Power = power * 100;
+    int Mod_P = P_I3 * 100;
+    int Mod_C = C_I1 * 100;
+
+    // send the variables data
+    if (modbusTCPClient.beginTransmission(HOLDING_REGISTERS, 0x00, 4)) {
+      modbusTCPClient.write(Mod_T);
+      modbusTCPClient.write(Mod_Power);
+      modbusTCPClient.write(Mod_P);
+      modbusTCPClient.write(Mod_C);
+    }
+    if (modbusTCPClient.endTransmission()) {
+      Serial.println("Modbus Msg Sent Successfully");
+    } else {
+      Serial.println("Modbus Msg Not Sent");
+    }
+  }
+}
+```
+There are other functions in the main code listed below:
+
+- `EthernetInit()`: initialize the Ethernet connection for the Modbus TCP communication.
+- `onPwrChange()`: callback that controls the compressor power relay from the cloud.
+- `NiclaVibrationHAndler()`: manages the BLE connection and gather the vibrations alert from the Nicla Sense ME.
+
+***You can download the complete code from [here]().***
+
 ### Nicla Sense ME Code
 
 ### Arduino Cloud Dashboard
