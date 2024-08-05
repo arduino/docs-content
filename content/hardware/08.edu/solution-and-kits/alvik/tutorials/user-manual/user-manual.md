@@ -1464,18 +1464,18 @@ You can now test using read_color_sensor.py in the examples folder. Refer to the
 
 ## Expanding the Robot
 
-On the top face of the Alvik, you can find 2 pairs of connectors. They both have 15 holes in length but are not interconnected in any way. The pair on the inner side is meant for coupling the Arduino Nano ESP32, and the pair on the outside is meant to interact with some of the STM32 features if you plan on developing your own hardware extensions.
-![Top face connectors](Connectors_Alvik_Top.png)
+On the top face of the Alvik, you can find 2 pairs of connectors. Both have 15 holes in length but are not interconnected. The pair on the inner side is meant for coupling the Arduino Nano ESP32, while the pair on the outside is the Power Connector, which provides optional power and mechanical support for custom expansions or circuits you might create.
+![Top face connectors](assets/Connectors_Alvik_Top.png)
 
 - **Nano Board Connector**
 
 Because of the need to communicate with the STM board, some of the pins of the Arduino Nano ESP32 might be in use and, as such, are not recommended to be used by any other feature. This way, if you design a shield or attachment that interacts with these connectors, make sure to avoid the pins that are busy.
-![ESP Pinout](ESP_Pinout_Alvik.png)
+![ESP Pinout](assets/ESP_Pinout_Alvik.png)
 
-- **STM Connector**
+- **Power Connector**
 
-These connectors allow you to get power from the Alvik's power system as well as get the power status. These allow you to design shields and extensions without requiring external power sources. Here you can identify the connectors that can be used. Note that the remaining pins are not in use but can serve for mechanical support.
-![alt text](Alvik_Docs_Pinout_Callout.jpg)
+This connector allows you to get power from the Alvik's power system as well as get the power status. It also provides mechanical support for your designs. Here you can identify the connectors that can be used. Note that the remaining pins are not in use but can serve for mechanical support.
+![alt text](assets/Alvik_Docs_Pinout_Callout.jpg)
 
 
 ### Additional Connectors
