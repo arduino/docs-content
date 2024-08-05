@@ -50,6 +50,7 @@ The brain of the Alvik robot is the Nano ESP32, which is the central component w
 ![Alvik Brain](assets/alvik_brain.png)
 
 
+
 ### Nano ESP32
 
 The [Nano ESP32](https://store.arduino.cc/products/nano-esp32) is the board used to control Alvik. It has a fast processor, large flash memory, and a Wi-Fi® enabled chip packed into a tiny circuit board.
@@ -1462,6 +1463,20 @@ You can now test using read_color_sensor.py in the examples folder. Refer to the
 ***Colors are tested on paper painted using acrylic marker pens, such as UNIPOSCA, or paper printed with an inkjet printer.***
 
 ## Expanding the Robot
+
+On the top face of the Alvik, you can find 2 pairs of connectors. They both have 15 holes in length but are not interconnected in any way. The pair on the inner side is meant for coupling the Arduino Nano ESP32, and the pair on the outside is meant to interact with some of the STM32 features if you plan on developing your own hardware extensions.
+![Top face connectors](Connectors_Alvik_Top.png)
+
+#### Nano Board Connector
+
+Because of the need to communicate with the STM board, some of the pins of the Arduino Nano ESP32 might be in use and, as such, are not recommended to be used by any other feature. This way, if you design a shield or attachment that interacts with these connectors, make sure to avoid the pins that are busy.
+![ESP Pinout](ESP_Pinout_Alvik.png)
+
+#### STM Connector
+
+These connectors allow you to get power from the Alvik's power system as well as get the power status. These allow you to design shields and extensions without requiring external power sources. Here you can identify the connectors that can be used. Note that the remaining pins are not in use but can serve for mechanical support.
+![alt text](Alvik_Docs_Pinout_Callout.jpg)
+
 
 ### Additional Connectors
 
