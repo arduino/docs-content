@@ -1467,12 +1467,12 @@ You can now test using read_color_sensor.py in the examples folder. Refer to the
 On the top face of the Alvik, you can find 2 pairs of connectors. They both have 15 holes in length but are not interconnected in any way. The pair on the inner side is meant for coupling the Arduino Nano ESP32, and the pair on the outside is meant to interact with some of the STM32 features if you plan on developing your own hardware extensions.
 ![Top face connectors](Connectors_Alvik_Top.png)
 
-#### Nano Board Connector
+- **Nano Board Connector**
 
 Because of the need to communicate with the STM board, some of the pins of the Arduino Nano ESP32 might be in use and, as such, are not recommended to be used by any other feature. This way, if you design a shield or attachment that interacts with these connectors, make sure to avoid the pins that are busy.
 ![ESP Pinout](ESP_Pinout_Alvik.png)
 
-#### STM Connector
+- **STM Connector**
 
 These connectors allow you to get power from the Alvik's power system as well as get the power status. These allow you to design shields and extensions without requiring external power sources. Here you can identify the connectors that can be used. Note that the remaining pins are not in use but can serve for mechanical support.
 ![alt text](Alvik_Docs_Pinout_Callout.jpg)
@@ -1687,15 +1687,15 @@ Now you can open the Arduino Lab for MicroPython, connect Alvik and open the exa
 Understanding Alvik's dimensions and mechanical details is key for designing custom components and ensuring it works well with other hardware. This information is here to help you easily create and adapt Alvik for your specific projects and needs.
 
 - **Front**
-![Alvik's front side dimentions](assets/Alvik_Docs_Dimensions_Front.jpg)
+![Alvik's front side dimensions](assets/Alvik_Docs_Dimensions_Front.jpg)
 - **Side**
-![Alvik's side side dimentions](assets/Alvik_Docs_Dimensions_Side.jpg)
+![Alvik's side side dimensions](assets/Alvik_Docs_Dimensions_Side.jpg)
 - **Back**
-![Alvik's back side dimentions 1/2](assets/Alvik_Docs_Dimensions_Back_02.jpg) ![Alvik's back side dimentions 2/2](assets/Alvik_Docs_Dimensions_Back_01.jpg)
+![Alvik's back side dimensions 1/2](assets/Alvik_Docs_Dimensions_Back_02.jpg) ![Alvik's back side dimensions 2/2](assets/Alvik_Docs_Dimensions_Back_01.jpg)
 - **Top**
-![Alvik's top side dimentions 1/2](assets/Alvik_Docs_Dimensions_Top_01.jpg) ![Alvik's top side dimentions 2/2](assets/Alvik_Docs_Dimensions_Top_02.jpg)
+![Alvik's top side dimensions 1/2](assets/Alvik_Docs_Dimensions_Top_01.jpg) ![Alvik's top side dimensions 2/2](assets/Alvik_Docs_Dimensions_Top_02.jpg)
 - **Bottom**
-![Alvik's bottom side dimentions](assets/Alvik_Docs_Dimensions_Bottom.jpg)
+![Alvik's bottom side dimensions](assets/Alvik_Docs_Dimensions_Bottom.jpg)
 
 ## Want More?
 
