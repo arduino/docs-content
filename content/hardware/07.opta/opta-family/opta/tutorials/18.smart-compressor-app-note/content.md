@@ -64,19 +64,17 @@ The electrical connections of the intended application are shown in the diagram 
 
 The Opta PLC will be powered with an external 24 VDC power supply connected to it's screw terminals `+` and `-` respectively.
 
-![Opta power supply connection]()
+![Opta power supply connection](assets/opta-power.png)
 
 The current, temperature and pressure sensors will be connected to inputs `I1`, `I2` and `I3` respectively.
 
-![Sensors connection]()
+![Pressure Sensor](assets/pressure-sensor.png)
+![Temperature Sensor](assets/temp-sensor.png)
+![Current Sensor](assets/current-sensor.png)
 
-The power relay will be connected to the Opta relay output 1 as follows:
+The compressor power source will be wired through the Opta relay contact 1 and the current sensor.
 
-![Power relay connection]()
-
-The compressor power source will be wired through the power relay and the current sensor.
-
-![Compressor power wiring]()
+![Compressor power wiring](assets/compressor-power.png)
 
 ## Compressor Monitoring System Overview
 The monitoring system for the compressor integrates the sensor data gathering, power control and cloud communication using the Opta WiFi connection.
