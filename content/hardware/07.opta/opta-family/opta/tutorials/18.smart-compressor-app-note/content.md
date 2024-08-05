@@ -83,14 +83,14 @@ The Opta is responsible for reading the sensors and uploading their data to the 
 
 The Nicla Sense ME leverage it's internal IMU for anomalous vibration detection on the compressor motor and connects through BLE with the Opta for vibration status sharing. 
 
-![Compressor Monitoring System]()
+![Compressor Monitoring System](assets/overview-diagram.png)
 
 ### Sensors Deployment
 
 - The **Current Sensor** alongside the grid voltage will help us measure the compressor power consumption for monitoring and overcurrent detection. It will be placed hooked in the compressor AC power line.
 - The **Temperature Sensor** will measure the compressor electric motor temperature for monitoring and high temperature detection. It will be fixed to the compressor motor.
 - The **Pressure Sensor** will measure the compressor air pressure for monitoring and high pressure detection. It will be screwed in the compressor tank pressure output.
-- The **Nicla Sense ME** will detect anomalous vibrations. It will be fixed to the compressor motor and powered with a battery or external power source.
+- The **Nicla Sense ME** will detect anomalous vibrations. It will be fixed to the compressor motor or pump and powered with a battery or external power source.
 
 ### Anomalies Detection
 
@@ -540,7 +540,7 @@ void updateVibrationStatus() {
 
 Taking advantage of the Arduino Cloud, we can seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system in real-time:
 
-![Arduino Cloud Dashboard]()
+![Arduino Cloud Dashboard](assets/cloud-dash.gif)
 
 Within the Arduino Cloud's dashboard, the system variables can be monitored with the following widgets:
 
