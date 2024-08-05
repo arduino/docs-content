@@ -59,9 +59,9 @@ jobs:
         id: gatsby-public-folder
         with:
           path: public/
-          key: ${{ runner.os }}-cache-gatsby-${{ github.ref }}
+          key: ${{ runner.os }}-public-gatsby-${{ github.ref }}
           restore-keys: |
-            ${{ runner.os }}-cache-gatsby-main
+            ${{ runner.os }}-public-gatsby-main
 
       - run: npm install
       - run: npm run build
