@@ -334,6 +334,8 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 25/07/2024 | 1            | First Release |
+|  **Date**  | **Revision** |      **Changes**      |
+| :--------: | :----------: | :-------------------: |
+| 05/07/2024 |      2       | Block Diagram updated |
+| 25/07/2024 |      1       |     First Release     |
+
