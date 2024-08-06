@@ -49,7 +49,7 @@ jobs:
         id: gatsby-cache-folder
         with:
           path: .cache
-          key: ${{ runner.os }}-cache-gatsby-${{ github.ref }}
+          key: ${{ runner.os }}-cache-gatsby-${{ github.refname }}
           restore-keys: |
             ${{ runner.os }}-cache-gatsby-main
 
@@ -58,7 +58,7 @@ jobs:
         id: gatsby-public-folder
         with:
           path: public/
-          key: ${{ runner.os }}-public-gatsby-${{ github.ref }}
+          key: ${{ runner.os }}-public-gatsby-${{ github.refname }}
           restore-keys: |
             ${{ runner.os }}-public-gatsby-main
 
