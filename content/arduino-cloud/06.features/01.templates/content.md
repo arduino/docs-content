@@ -30,7 +30,7 @@ Templates are pre-configured projects that allow users to quickly set up Arduino
 
 Dashboards are an excellent way to learn about IoT concepts, data collection and analysis, and interaction with hardware/sensors without having to build an IoT project from scratch. This reduces the time and the learning curve, providing a starting point for building innovative ideas and deepening knowledge.
 
-![Collection of templates](assets/template-gallery.png)
+![Collection of templates](assets/sidebar.png)
 
 ## Setup
 
@@ -60,7 +60,7 @@ For troubleshooting, we recommend to read this article from our Help Center:
 
 Once you have logged into your account, Templates can be accessed from the sidebar **Templates > Arduino Templates** from the menu on top. 
 
-![Sidebar IoT Templates](assets/sidebar.png)
+![Sidebar IoT Templates](assets/templatesexamples.jpg)
 
 Here you will find templates across various categories and different boards. Click on the "Cloud Blink" Template. 
 
@@ -70,17 +70,17 @@ The template page will open, where you will find the description of what the pro
 
 ![Template description](assets/template-description.png)
 
-## Importing a Template 
+## Use a Template 
 
-Templates can be imported easily by clicking on the import button from the template description page. The process is similar to that of uploading a sketch to the Arduino board. Once the device is plugged in the USB port, click on **IMPORT TEMPLATE** to import the chosen template.
+Templates can be imported easily by clicking on the import button from the template description page. The process is similar to that of uploading a sketch to the Arduino board. Once the device is plugged in the USB port, click on **USE TEMPLATE** to import the chosen template.
 
 ***Note: If this is your first time using the Arduino Cloud, you will be prompted to install the Create Agent. This software facilitates communication between your browser and Arduino board. Simply install it as you would any other program. For detailed instructions on installing the Create Agent, click [here](https://support.arduino.cc/hc/en-us/articles/360014869820-Install-the-Arduino-Create-Agent).***
 
-![Import template button](assets/import-button.png)
+![Import template button](assets/use-a-template.png)
 
-Below the `Import Button`, you can find information on how many [Things](https://docs.arduino.cc/arduino-cloud/cloud-interface/things), [Variables](https://docs.arduino.cc/arduino-cloud/cloud-interface/variables) and [Dashboards](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets) are associated with this template. The Arduino Cloud platform will handle the creation of these IoT components along with setting up the device and network for the selected template. 
+Above the `Use Template` button, you can find information on how many [Things](https://docs.arduino.cc/arduino-cloud/cloud-interface/things), [Variables](https://docs.arduino.cc/arduino-cloud/cloud-interface/variables) and [Dashboards](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets) are associated with this template. The Arduino Cloud platform will handle the creation of these IoT components along with setting up the device and network for the selected template. 
 
-***Note: with a Free Plan a user can only have two Things at same time. When you already have two Things, you won't be able to click on IMPORT TEMPLATE. To avoid this you could choose to upgrade your Cloud plan or manually delete an existing Thing.***
+***Note: with a Free Plan a user can only have two Things at same time. When you already have two Things, you won't be able to click on USE TEMPLATE. To avoid this you could choose to upgrade your Cloud plan or manually delete an existing Thing.***
 
 ![Template creation](assets/template-creation.png)
 
