@@ -17,7 +17,7 @@ hardware:
 
 Transform your industrial compressor into smart and connect it to the Arduino Cloud for advanced condition monitoring capabilities using the Opta™ micro PLC.
 
-![Project Thumbnail]()
+![Project Thumbnail](assets/thumbnail.png)
 
 This affordable solution provides real-time remote data access, behavioral diagnostics, predictive maintenance, and efficient device management. It helps you maximize uptime, reduce operational costs, and extend the lifespan of your equipment.
 
