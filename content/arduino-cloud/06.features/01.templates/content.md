@@ -48,8 +48,6 @@ Once you have decided which template(s) you would like to use, it's important to
 
 - Sensors and Actuators (optional)
 
-***Note: If you plan to use templates in a teaching environment or during a workshop with multiple participants, you might find [shared spaces](https://docs.arduino.cc/arduino-cloud/education/shared-spaces/) very useful. Make sure all participants have created their individual accounts and have been added to the shared space you have set up.***
-
 For our tutorial, we will use the [Cloud Blink Template](https://app.arduino.cc/templates/cloud-blink) that will illustrate how to control an Arduino Board’s LED through a dashboard in the Arduino Cloud. This is a great template if you want to get started with the Arduino Cloud since it works with all boards. After you have completed the installation, you can modify the sketch and dashboard freely.
 
 For troubleshooting, we recommend to read this article from our Help Center:
@@ -68,17 +66,17 @@ Here you will find templates across various categories and different boards. Cli
 
 The template page will open, where you will find the description of what the project does together with essential information on hardware and electronics components.
 
-![Template description](assets/template-description.png)
-
 ## Use a Template 
 
-Templates can be imported easily by clicking on the import button from the template description page. The process is similar to that of uploading a sketch to the Arduino board. Once the device is plugged in the USB port, click on **USE TEMPLATE** to import the chosen template.
+Arduino Templates can be imported easily by clicking on the import button from the template description page. The process is similar to that of uploading a sketch to the Arduino board. Once the device is plugged in the USB port, click on **USE TEMPLATE** to import the chosen template. If you have not yet connected a device you will be guided to.
 
 ***Note: If this is your first time using the Arduino Cloud, you will be prompted to install the Create Agent. This software facilitates communication between your browser and Arduino board. Simply install it as you would any other program. For detailed instructions on installing the Create Agent, click [here](https://support.arduino.cc/hc/en-us/articles/360014869820-Install-the-Arduino-Create-Agent).***
 
 ![Import template button](assets/use-a-template.png)
 
 Above the `Use Template` button, you can find information on how many [Things](https://docs.arduino.cc/arduino-cloud/cloud-interface/things), [Variables](https://docs.arduino.cc/arduino-cloud/cloud-interface/variables) and [Dashboards](https://docs.arduino.cc/arduino-cloud/cloud-interface/dashboard-widgets) are associated with this template. The Arduino Cloud platform will handle the creation of these IoT components along with setting up the device and network for the selected template. 
+
+![Unable to use Template](assets/not-enough.png)
 
 ***Note: with a Free Plan a user can only have two Things at same time. When you already have two Things, you won't be able to click on USE TEMPLATE. To avoid this you could choose to upgrade your Cloud plan or manually delete an existing Thing.***
 
@@ -136,6 +134,8 @@ Integrating Arduino Templates into a course curriculum offers a tangible way to 
 |                   |                                                              | [Monitoring indoor air quality](https://app.arduino.cc/templates/thermostat-control) | [Studying indoor plant growth](https://app.arduino.cc/templates/natural-and-artificial-light) | [Introducing Sensor technology](https://app.arduino.cc/templates/remote-controlled-lights) | [Ideation and prototyping easy to use home projects](https://app.arduino.cc/templates/plant-watering-kit) |
 |                   | [Pressure, temperature and light](https://app.arduino.cc/templates/humidity-and-temperature) |                                                              | [Weather Stations](https://app.arduino.cc/templates/personal-weather-station) | [Basics of structuring data](https://app.arduino.cc/templates/sparkfun-weather-station) |                                                              |
 |                   |                                                              |                                                              |                                                              | [Loops, Pointers, Arrays and Functions](https://app.arduino.cc/templates/puzzle-box) | [Emotional expressions through technology](https://app.arduino.cc/templates/thinking-about-you) |
+
+If you plan to use templates in a teaching environment or during a workshop with multiple participants, you might find [shared spaces](https://docs.arduino.cc/arduino-cloud/education/shared-spaces/) very useful. Make sure all participants have created their individual accounts and have been added to the shared space you have set up.
 
 ## Conclusion
 
