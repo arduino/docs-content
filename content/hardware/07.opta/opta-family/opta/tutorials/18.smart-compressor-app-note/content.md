@@ -121,7 +121,7 @@ The variables will be sent to the registers in the following order:
 
 ### Opta Code
 
-You can download the code for the Opta PLC [here]().
+You can download the code for the Opta PLC [here](assets/Opta_Nicla_Codes.zip).
 
 Let's go through some important code sections to make this application fully operative; starting with the required libraries:
 
@@ -373,10 +373,10 @@ There are other functions in the main code listed below:
 - `NiclaVibrationHAndler()`: manages the BLE connection and gather the vibrations alert from the Nicla Sense ME.
 - `faultCheck()`: compare the current sensor values with the fault defined threshold and report the state.
 
-***You can download the complete code from [here]().***
+***You can download the complete code from [here](assets/Opta_Nicla_Codes.zip).***
 
 ### Nicla Sense ME Code
-You can download the code for the Nicla Sense ME [here]().
+You can download the code for the Nicla Sense ME [here](assets/Opta_Nicla_Codes.zip).
 
 Let's go through some important code sections to make this application fully operative; starting with the required libraries:
 
@@ -534,7 +534,7 @@ void updateVibrationStatus() {
 }
 ```
 
-***You can download the complete code from [here]().***
+***You can download the complete code from [here](assets/Opta_Nicla_Codes.zip).***
 
 ### Arduino Cloud Dashboard
 
@@ -557,7 +557,7 @@ In addition, we can set different integrations to complement our project, for ex
 
 All the necessary files to replicate this application note can be found below:
 
-- The complete code can be downloaded [here]()
+- The complete code can be downloaded [here](assets/Opta_Nicla_Codes.zip)
 
 ## Conclusion
 
