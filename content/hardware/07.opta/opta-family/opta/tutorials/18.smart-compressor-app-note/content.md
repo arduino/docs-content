@@ -33,7 +33,7 @@ The goal of this application note is to showcase the Opta PLC capabilities on le
 
 ## Hardware and Software Requirements
 
-![Hardware Image](assets/materials.png)
+![Hardware Image](assets/material.png)
 
 ### Hardware Requirements
 
