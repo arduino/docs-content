@@ -98,7 +98,7 @@ The Nicla Sense ME leverage it's internal IMU for anomalous vibration detection 
 
 Every sensor will be used for anomalies detection, if any measured variable exceeds its nominal range an anomaly alert will show up in the Arduino Cloud dashboard.
 
-The sensors nominal threshold are difined in the code as follows:
+The sensors nominal threshold are defined in the code as follows:
 
 ```arduino
 #define CURRENT_LIMIT 12 // in Amps
@@ -221,7 +221,7 @@ void setup() {
   EthernetInit();
 }
 ```
-In the `loop()` function, the WiFi and BLE connections are verified continuosly alongside the sensor readings.
+In the `loop()` function, the WiFi and BLE connections are verified continuously alongside the sensor readings.
 
 ```arduino
 void loop() {
@@ -271,7 +271,7 @@ void loop() {
       Serial.println("Not BLE Loop");
 
       BLE.scan();    // continue scanning for new BLE connection
-      SensorRead();  // ADC sensor reading and convertions
+      SensorRead();  // ADC sensor reading and conversions
     }
 
     ArduinoCloud.update();  // to maintain Cloud connectivity
