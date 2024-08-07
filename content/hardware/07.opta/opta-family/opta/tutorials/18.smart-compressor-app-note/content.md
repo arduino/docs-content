@@ -106,7 +106,7 @@ The sensors nominal threshold are difined in the code as follows:
 #define TEMP_LIMIT 85 // in Celsius
 ```
 
-### Modbus TCP data output
+### Modbus TCP Data Output
 
 The Opta will detect if an ethernet cable is connected to its included RJ45 terminal and will start sending the measured sensor data through Modbus TCP to a defined server address.
 
