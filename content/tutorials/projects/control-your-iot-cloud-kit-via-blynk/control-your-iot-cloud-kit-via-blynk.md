@@ -14,7 +14,7 @@ source: "https://create.arduino.cc/projecthub/officine-innesto/control-your-iot-
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Blynk](https://www.blynk.cc/getting-started)
 
 ## About This Project

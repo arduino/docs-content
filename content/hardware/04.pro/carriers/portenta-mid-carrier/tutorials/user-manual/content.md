@@ -59,11 +59,11 @@ To use the Portenta Mid Carrier with a Portenta X8, please follow these guidelin
 
 ***To enter Flashing Mode with the Portenta X8 and the Portenta Mid Carrier, please consult the [BOOT DIP switch configuration](#boot-dip-switch) instructions within the present user manual.***
 
-- You will need [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or the [Arduino Web Editor](https://create.arduino.cc/editor) if you plan to run Arduino code on the auxiliary microcontroller of the Portenta X8.
+- You will need [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or the [Arduino Cloud Editor](https://create.arduino.cc/editor) if you plan to run Arduino code on the auxiliary microcontroller of the Portenta X8.
 
 For using the Portenta Mid Carrier with a Portenta H7/C33:
 
-- The [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor) is needed to use the Portenta H7/C33 to run the Arduino code.
+- The [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor) is needed to use the Portenta H7/C33 to run the Arduino code.
 
 ## Product Overview
 

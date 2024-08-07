@@ -19,7 +19,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/interacting-with-a
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## About This Project
 
@@ -63,7 +63,7 @@ sudo reboot
 
 Now that the NUC has been configured with the necessary requirements for the `littleb`library, we can load the sketch using Arduino Create.
 
-Inside Arduino Create, open the Arduino Web Editor and select your Intel NUC device from the drop down. Then click the `Examples`menu item, followed by `From Libraries`, and then select the `SensortagButton `example from the `littleb`library.
+Inside Arduino Create, open the Arduino Cloud Editor and select your Intel NUC device from the drop down. Then click the `Examples`menu item, followed by `From Libraries`, and then select the `SensortagButton `example from the `littleb`library.
 
 ![Select the SensortagButton example.](assets/screen_shot_2017-08-08_at_12_49_25_pm_z7G2GZLOSp.png)
 

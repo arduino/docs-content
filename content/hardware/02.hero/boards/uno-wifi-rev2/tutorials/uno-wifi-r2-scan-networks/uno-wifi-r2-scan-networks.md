@@ -51,7 +51,7 @@ This tutorial requires no additional circuit.
 
 ## Programming the Board
 
-1. First we need to make sure we have the dependencies installed. For this tutorial, we will need to install the [WiFiNINA](https://www.arduino.cc/en/Reference/WiFiNINA) library. If we are using the offline editor, we can locate this library in **Tools > Manage Libraries...**. If we are using the [Web Editor](https://create.arduino.cc/), it is already installed.
+1. First we need to make sure we have the dependencies installed. For this tutorial, we will need to install the [WiFiNINA](https://www.arduino.cc/en/Reference/WiFiNINA) library. If we are using the offline editor, we can locate this library in **Tools > Manage Libraries...**. If we are using the [Cloud Editor](https://create.arduino.cc/), it is already installed.
 
 2. If we are using the offline editor, we need to make sure we have the drivers installed for the Arduino UNO WiFi Rev2 board. In the editor, navigate to **Tools > Board > Board Manager...**, and install the **Arduino avrMEGA Boards** core. 
 

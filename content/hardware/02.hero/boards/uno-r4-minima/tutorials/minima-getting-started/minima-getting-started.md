@@ -14,7 +14,7 @@ To install it, you will need a version of the Arduino IDE, which you can downloa
 - [Arduino UNO R4 Minima](https://store.arduino.cc/uno-r4-minima)
 - [Arduino IDE](/software/ide-v2)
 
-***You can also use the [Web Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 
+***You can also use the [Cloud Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 
 
 ## Download & Install IDE
 

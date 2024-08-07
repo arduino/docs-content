@@ -65,7 +65,7 @@ You can read more about the ASCII values in the links below:
 
 ## Programming the Board
 
-In this tutorial, we will be using the **Keyboard** library, which is already included when [downloading the Arduino IDE](https://www.arduino.cc/en/software), or using the [Web Editor](https://create.arduino.cc/editor).
+In this tutorial, we will be using the **Keyboard** library, which is already included when [downloading the Arduino IDE](https://www.arduino.cc/en/software), or using the [Cloud Editor](https://create.arduino.cc/editor).
 
 Before we begin, let's take a look at the functions used in this program:
 

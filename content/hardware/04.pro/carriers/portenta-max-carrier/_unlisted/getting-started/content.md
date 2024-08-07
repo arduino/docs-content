@@ -225,11 +225,11 @@ The Arduino IDE 2 allows the developers to design and upload the code to Portent
 
 ***If you want to know how to set up the Arduino IDE 2 adequately, please look into [Quick Guide to Arduino IDE 2](https://docs.arduino.cc/software/ide-v2/tutorials/getting-started/ide-v2-downloading-and-installing).***
 
-#### 4.2. Using Arduino Web Editor
+#### 4.2. Using Arduino Cloud Editor
 
-All Arduino boards work Out-of-the-Box with the Arduino Web Editor, and the Portenta H7 with Portenta Max Carrier is no exception. The Arduino Web Editor requires an online connection with an Arduino account and a simple plugin for development. The features are always up-to-date and support every Arduino board. By following this [link to Arduino® Web Editor](https://create.arduino.cc/editor), you will be able to access and begin developing the code.
+All Arduino boards work Out-of-the-Box with the Arduino Cloud Editor, and the Portenta H7 with Portenta Max Carrier is no exception. The Arduino Cloud Editor requires an online connection with an Arduino account and a simple plugin for development. The features are always up-to-date and support every Arduino board. By following this [link to Arduino® Cloud Editor](https://create.arduino.cc/editor), you will be able to access and begin developing the code.
 
-***If you want to know how to get started with Arduino Web Editor, please look into [Getting started with the Web Editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).***
+***If you want to know how to get started with Arduino Cloud Editor, please look into [Getting started with the Cloud Editor](https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).***
 
 #### 4.3. Using Arduino Cloud
 

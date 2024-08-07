@@ -11,7 +11,7 @@ The Arduino Gemma is programmed using the [Arduino Software (IDE)](https://ardui
 
 ### Use your Arduino Gemma on the Arduino Desktop IDE
 
-If you want to program your Arduino Gemma you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software). This board does not work on [Arduino Web Editor](https://create.arduino.cc/editor).
+If you want to program your Arduino Gemma you need to install the [Arduino Desktop IDE](https://arduino.cc/en/Main/Software). This board does not work on [Arduino Cloud Editor](https://create.arduino.cc/editor).
 
 #### Open your first sketch
 

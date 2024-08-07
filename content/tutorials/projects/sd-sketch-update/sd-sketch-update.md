@@ -16,7 +16,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/sd-sketch-update-5
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino IDE](https://www.arduino.cc/en/main/software)
 
 ## About This Project

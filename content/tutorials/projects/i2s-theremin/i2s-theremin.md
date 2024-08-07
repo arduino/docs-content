@@ -20,7 +20,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/i2s-theremin-cec47
 ## Apps and Online Services
 
 - [Arduino IDE](https://www.arduino.cc/en/main/software)
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## About This Project
 

@@ -210,7 +210,7 @@ Once we are finished with the coding, we can upload the sketch to the board. Whe
 
 **If you are using the ONLINE editor, it will look like this:**
 
-![Serial Monitor output on Web Editor.](assets/mkr_tutorial_02_img_07.png)
+![Serial Monitor output on Cloud Editor.](assets/mkr_tutorial_02_img_07.png)
 
 Congratulations, you have not only connected your board to your Wi-Fi network, but you have also retrieved information from the network. One particularly good feature is the signal strength (rssi). One experiment you can do, is to try to move your MKR 1000 board close to the router and observe the Serial Monitor.
 

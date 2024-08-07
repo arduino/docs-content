@@ -2,7 +2,7 @@
 title: 'Get to know Arduino Libraries'
 description: 'Libraries provide extra functionality for use in sketches, e.g. working with hardware or manipulating data.'
 author: 'Liam Aljundi'
-tags: [Arduino Libraries, Web Editor]
+tags: [Arduino Libraries, Cloud Editor]
 ---
 
 The Arduino environment can be extended through the use of libraries. Just like most programming platforms, libraries provide extra functionality for use in sketches, e.g. working with hardware or manipulating data. To use a library in a sketch, select it from **Sketch > Import Library**.

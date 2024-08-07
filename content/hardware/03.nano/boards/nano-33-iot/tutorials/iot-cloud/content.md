@@ -133,9 +133,9 @@ Once we have created all of the widgets, we can arrange them however we want pre
 
 All of the configurations we have done so far, have basically been compiled into a special sketch. This sketch now contains information on what device we are using, a unique ID of our thing, the variables we created and the network information we entered. All we have to do now, is to add some code to the sketch!
 
-Let's go back to our thing overview by navigating to the **Things** tab, then select our thing named "Nano Alarm" and click on the **Sketch** tab. Here, we should see an automatically generated sketch. This sketch is practically a "shell" for the code that we will add next, meaning it has no functionality yet. Since the code we are creating is quite long, we can press the **Open full editor** button that will link us to the Arduino Web Editor, and work from there.
+Let's go back to our thing overview by navigating to the **Things** tab, then select our thing named "Nano Alarm" and click on the **Sketch** tab. Here, we should see an automatically generated sketch. This sketch is practically a "shell" for the code that we will add next, meaning it has no functionality yet. Since the code we are creating is quite long, we can press the **Open full editor** button that will link us to the Arduino Cloud Editor, and work from there.
 
-Once we are in the Arduino Web Editor, we can start modifying the code in order to create an alarm controlled through the IoT Cloud.
+Once we are in the Arduino Cloud Editor, we can start modifying the code in order to create an alarm controlled through the IoT Cloud.
 
 After including the `thingProperties` library, we will need to include the `RTCZero` library and create and name an object in this library. In this case, we have called the object `alarm` but you can call it as you want.
 

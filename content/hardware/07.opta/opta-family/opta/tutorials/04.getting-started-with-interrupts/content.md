@@ -36,7 +36,7 @@ The **interrupt**, a basic yet vital feature, is available on Opta™ to handle 
 
 #### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Interrupt example code](assets/Interrupts_Opta.zip)
 
 ## Interrupt Basics

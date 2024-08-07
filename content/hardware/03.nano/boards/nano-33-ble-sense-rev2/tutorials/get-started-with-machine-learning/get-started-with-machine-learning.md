@@ -50,7 +50,7 @@ We’re excited to share some of the first examples and tutorials, and to see wh
 ## Hardware & Software Needed
 - An [Arduino Nano 33 BLE Sense Rev2](/hardware/nano-33-ble-sense-rev2) board
 - A Micro USB cable to connect the Arduino board to your desktop machine
-- To program your board, you can use the [Arduino Web Editor](https://www.arduino.cc/en/main/software) or install the [Arduino IDE](https://www.arduino.cc/en/main/software). We’ll give you more details on how to set these up in the following sections
+- To program your board, you can use the [Arduino Cloud Editor](https://www.arduino.cc/en/main/software) or install the [Arduino IDE](https://www.arduino.cc/en/main/software). We’ll give you more details on how to set these up in the following sections
 
 The Arduino Nano 33 BLE Sense Rev2 has a variety of onboard sensors meaning potential for some cool TinyML applications:
 
@@ -97,8 +97,8 @@ The inference examples for TensorFlow Lite for Microcontrollers are now packaged
 
 For more background on the examples you can take a look at the source in the [TensorFlow repository](https://github.com/tensorflow/tflite-micro-arduino-examples). The models in these examples were previously trained. The tutorials below show you how to deploy and run them on an Arduino. In the next section, we’ll discuss training.
 
-## How to Run the Examples Using Arduino Create Web Editor. 
-Once you connect your Arduino Nano 33 BLE Sense Rev2 to your desktop machine with a USB cable you will be able to compile and run the following TensorFlow examples on the board by using the [Arduino Create](https://create.arduino.cc/editor) web editor:
+## How to Run the Examples Using Arduino Create Cloud Editor. 
+Once you connect your Arduino Nano 33 BLE Sense Rev2 to your desktop machine with a USB cable you will be able to compile and run the following TensorFlow examples on the board by using the [Arduino Create](https://create.arduino.cc/editor) Cloud Editor:
 
 ![Compiling an example from the Arduino_TensorFlowLite library.](assets/create-lib.gif)
 

@@ -54,7 +54,7 @@ Below is a visual representation of the intended application:
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: `ArduinoRS485`, `ArduinoModbus` and `Scheduler`. You can install those libraries via the Library Manager of the Arduino IDE.
 - For the Wi-Fi® connectivity feature of Opta™, we will use [Arduino Cloud](https://create.arduino.cc/iot/things); you will need to create an account if you still need to create one.
 - [Opta™ Energy Manager Example Code](assets/energy_management.zip)
@@ -625,7 +625,7 @@ Once set up, you will have the opportunity to design an interface resembling the
 
 ## Complete Opta™ Energy Management Sketch
 
-Access the complete sketch used in the design of energy management for Opta™ in conjunction with the Arduino Cloud [here](assets/energy_management.zip). The compressed file can be imported directly to Arduino Cloud Web Editor for your convenience.
+Access the complete sketch used in the design of energy management for Opta™ in conjunction with the Arduino Cloud [here](assets/energy_management.zip). The compressed file can be imported directly to Arduino Cloud Cloud Editor for your convenience.
 
 ## Conclusion
 

@@ -73,7 +73,7 @@ To finish, it is very important that we connect the GND pins of both boards to e
 
 **1. Configuring the Receiver board**
 
-First, let's connect the Arduino Nano 33 BLE Sense board to the computer and opening the Arduino Web Editor. This board will act as the receiver, which means that it will only receive data from the other board and turn ON or OFF the built-in LED according the received values.
+First, let's connect the Arduino Nano 33 BLE Sense board to the computer and opening the Arduino Cloud Editor. This board will act as the receiver, which means that it will only receive data from the other board and turn ON or OFF the built-in LED according the received values.
 To start with the programming, start a new sketch and name it **Nano_UART_receiver**.
 
 **1.1. Receiver code walkthrough**

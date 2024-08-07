@@ -1,7 +1,7 @@
 ---
 title: 'UNO WiFi Rev 2 Chromebook Setup'
 difficulty: beginner
-description: 'A quick tutorial on how to setup your UNO WiFi Rev 2 board with a Chromebook, using the Web Editor & the Arduino Chrome App.'
+description: 'A quick tutorial on how to setup your UNO WiFi Rev 2 board with a Chromebook, using the Cloud Editor & the Arduino Chrome App.'
 tags: 
   - Chromebook
   - Installation
@@ -19,7 +19,7 @@ software:
 The [UNO WiFi Rev 2](https://store.arduino.cc/arduino-uno-wifi-rev2) is the connected version of the classic UNO board. If you are using a **Chromebook**, setting up your board is a bit different for this particular board:
 
 - You will need to upgrade the firmware using either a **Windows/Mac/Linux** computer, prior to programming it via a Chromebook. Detailed instructions are provided in this tutorial, and the process only takes a few minutes!
-- It is only possible to use the [Web Editor](https://create.arduino.cc/editor), an online IDE that is part of the [Arduino Cloud](https://cloud.arduino.cc/).
+- It is only possible to use the [Cloud Editor](https://create.arduino.cc/editor), an online IDE that is part of the [Arduino Cloud](https://cloud.arduino.cc/).
 
 ## Goals
 
@@ -27,12 +27,12 @@ The goals of this project are:
 
 - Learn how to upgrade the firmware on your UNO WiFi Rev 2, so it can be used with a Chromebook.
 - Learn how to install the [Arduino Create for Education](https://chrome.google.com/webstore/detail/arduino-create-for-educat/elmgohdonjdampbcgefphnlchgocpaij) app from Chrome Web Store.
-- Learn how to upload a sketch to your board using a Chromebook and the Web Editor.
+- Learn how to upload a sketch to your board using a Chromebook and the Cloud Editor.
 
 ## Hardware & Software Needed
 
 - AVRDUDE (instructions provided in the next section for each OS).
-- [Arduino Web Editor](https://create.arduino.cc/).
+- [Arduino Cloud Editor](https://create.arduino.cc/).
 - [Arduino Create for Education](https://chrome.google.com/webstore/detail/arduino-create-for-educat/elmgohdonjdampbcgefphnlchgocpaij) (Chrome Web Store)
 - [Arduino UNO WiFi Rev 2](https://store.arduino.cc/arduino-uno-wifi-rev2).
 
@@ -130,11 +130,11 @@ To program your Arduino via a Chromebook, you will need the [Arduino Create for 
 
 ***If you have previously installed the app, make sure your version is up to date.***
 
-## Web Editor
+## Cloud Editor
 
-***To use the [Web Editor](https://create.arduino.cc/editor), you will need to be logged into your Arduino account. If you don't have an account, you will need to register one.***
+***To use the [Cloud Editor](https://create.arduino.cc/editor), you will need to be logged into your Arduino account. If you don't have an account, you will need to register one.***
 
-**1.** Head over to the [Web Editor](https://create.arduino.cc/editor).
+**1.** Head over to the [Cloud Editor](https://create.arduino.cc/editor).
 
 **2.** Create a new sketch, and write your program.
 
@@ -148,9 +148,9 @@ To program your Arduino via a Chromebook, you will need the [Arduino Create for 
 
 **5.** Click the upload button. This will start the **compilation process**, and then upload the sketch to your board. 
 
-Congratulations, you have now uploaded a sketch to your UNO WiFi Rev 2 using the Web Editor on a Chromebook.
+Congratulations, you have now uploaded a sketch to your UNO WiFi Rev 2 using the Cloud Editor on a Chromebook.
 
-***For more details on using the Web Editor, visit the [Getting Started with Web Editor guide](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).***
+***For more details on using the Cloud Editor, visit the [Getting Started with Cloud Editor guide](/cloud/web-editor/tutorials/getting-started/getting-started-web-editor).***
 
 ### Troubleshoot
 

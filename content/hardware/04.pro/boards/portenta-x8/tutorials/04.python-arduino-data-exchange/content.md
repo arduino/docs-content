@@ -30,7 +30,7 @@ You will be guided on how to achieve this setup. It is recommendable to familiar
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Portenta breakout](https://docs.arduino.cc/hardware/portenta-breakout)
 - Any sensor (in this example, we will use an [BME680](https://www.bosch-sensortec.com/products/environmental-sensors/gas-sensors/bme680/) I<sup>2</sup>C module)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## Python® on the X8
 

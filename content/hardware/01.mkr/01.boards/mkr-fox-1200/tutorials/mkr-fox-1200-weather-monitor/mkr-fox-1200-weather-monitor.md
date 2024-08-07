@@ -17,7 +17,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/mkr-fox-1200-weath
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [ThingSpeak API](https://github.com/iobridge/ThingSpeak)
 - [Sigfox](http://makers.sigfox.com/)
 

@@ -19,7 +19,7 @@ source: "https://create.arduino.cc/projecthub/318759/cancellinobot-17d223"
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Telegram](https://telegram.org/)
 
 ## About This Project
@@ -85,7 +85,7 @@ At the end of the step, BotFather will give you a *token*, that is a kind of uni
 
 Now we have to setup the Arduino MKR Wifi 1010 in order to interface it to Telegram.
 
-We can do this step both using the Arduino Web Editor (used in this project) and the Arduino IDE: you can find more information on their setup for the Arduino MKR WAN 1010 board at this [link](https://www.arduino.cc/en/Guide/MKRWiFi1010).
+We can do this step both using the Arduino Cloud Editor (used in this project) and the Arduino IDE: you can find more information on their setup for the Arduino MKR WAN 1010 board at this [link](https://www.arduino.cc/en/Guide/MKRWiFi1010).
 
 First thing to do, in order to be able to go on, is to downgrade the *ArduinoJson* library. The current version indeed is too recent to work well with the Telegram libraries.
 
@@ -95,7 +95,7 @@ and choose the branch (release) 5.x, and download it - you should have now a fil
 
 ![Download ArduinoJson.](assets/download_old_ardiunojson_uUX4Pm9L7s.png)
 
-Now you have to upload it back to the Arduino Web Editor: choose from the left Menu "Libraries" and in the Library manager section, click on the Import icon and choose to import the file previously downloaded:
+Now you have to upload it back to the Arduino Cloud Editor: choose from the left Menu "Libraries" and in the Library manager section, click on the Import icon and choose to import the file previously downloaded:
 
 ![Import the library.](assets/upload_library_Nij20OBr2x.png)
 

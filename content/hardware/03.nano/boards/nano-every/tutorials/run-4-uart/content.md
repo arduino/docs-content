@@ -84,7 +84,7 @@ To finish, it is very important that we connect the GND pins of all boards to ea
 
 **1. Configuring the Peripheral boards**
 
-First, let's connect one of the Arduino Nano Every board to the computer and open the Arduino Web Editor. This board will act as a peripheral, which means that it will only receive data from the main board and turn ON or OFF the built-in LED according to the received values.
+First, let's connect one of the Arduino Nano Every board to the computer and open the Arduino Cloud Editor. This board will act as a peripheral, which means that it will only receive data from the main board and turn ON or OFF the built-in LED according to the received values.
 To start with the programming, start a new sketch and name it **Nano_4_UART_receiver**.
 
 **1.1. Receiver code walkthrough**

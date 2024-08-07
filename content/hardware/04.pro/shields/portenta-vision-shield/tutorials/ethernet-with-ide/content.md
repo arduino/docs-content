@@ -34,7 +34,7 @@ The goals of this project are:
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet)
-- Arduino [offline IDE](https://www.arduino.cc/en/main/software) or Arduino [Web Editor](https://create.arduino.cc/)
+- Arduino [offline IDE](https://www.arduino.cc/en/main/software) or Arduino [Cloud Editor](https://create.arduino.cc/)
 - Ethernet cable
 - USB-C® cable
 

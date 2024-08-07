@@ -51,7 +51,7 @@ The following accessories are needed:
 - Arduino PLC IDE [Official Website](https://www.arduino.cc/pro/software-plc-ide)
 - If you have a [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control), you will need a unique PLC IDE License key for your device. Get your license key [here](https://store.arduino.cc/products/plc-key-portenta-machine-control).
 - If you have an [Opta™](https://store-usa.arduino.cc/collections/opta-family), you do not need any license key to activate your product. Go to section [__License Activation With Pre-Licensed Products (Opta™)__](#6-license-activation-with-pre-licensed-products-opta™) to know more.
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), [Arduino Web Editor](https://create.arduino.cc/editor) or any program with a serial monitor in case you need to retrieve the _Hardware-ID_ of your device.
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), [Arduino Cloud Editor](https://create.arduino.cc/editor) or any program with a serial monitor in case you need to retrieve the _Hardware-ID_ of your device.
 
 ***To get the Arduino PLC IDE for your device, please visit the [Arduino software page](https://www.arduino.cc/en/software). In case you are using a Portenta Machine Control, you need to acquire a PLC IDE License at the [store page](https://store.arduino.cc/plc-key-portenta-machine-control).***
 
