@@ -333,6 +333,22 @@ Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. 
 
 ***Are you interested in learning how to perform an OTA update? Check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/ota-getting-started#how-does-it-work). If you prefer to use the Arduino Cloud CLI instead, go to [this link](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#ota-over-the-air).***
 
+## Collaborative Coding
+
+**Collaborative Coding** is a powerful feature available with the plan that enables multiple users within the same shared space to work together on the same code. This feature allows team members to share and edit code seamlessly, providing better collaboration overall.
+
+In a collaborative coding environment, everyone can create and modify code simultaneously. Changes are updated and visible to all participants after the last user has finished editing. The code editor highlights the area being edited by others with an orange frame, helping team members stay synchronized and aware of each other's contributions.
+
+The following short clip shows an idea of how the collaborative coding works from two different user perspectives:
+
+![Collaborative Coding](assets/collab-code-demo.gif)
+
+While a user is working on the code, the area they are editing is highlighted with the orange frame, and a warning block appears. This indicates that the user should wait to avoid any loss of change. Please wait for them to finish before editing the code to prevent conflicts and ensure all changes are correctly synchronized.
+
+![Collaborative Coding - Code editor orange frame highlight](assets/collab-code-orange-frame.png)
+
+This functionality ensures that all users remain aligned and can contribute effectively. Collaborative coding improves the overall development experience by making projects more interactive and engaging.
+
 ## Fleet Management
 
 Now it is time for you to start managing your fleet of devices/Things. The Arduino Cloud for Business fleet management features allow you to filter your devices/Things by status, add tags to more efficiently identify your projects, search between boards, and list and order them.
