@@ -29,9 +29,7 @@ Compatible carriers with the supported device:
 
 The following section highlights the critical updates and enhancements introduced in the latest firmware version. It presents the most significant progress and optimizations implemented to improve performance, enhance user experience, and strengthen security.
 
-## Latest Firmware Version: __861 (Release arduino-91.2)__
-
-**Release Date: June 26, 2024**
+## Latest Firmware Version: __2024.06 (Release arduino-91.2, OS Image 861)__
 
 The listing herein offers a glimpse into the Portenta X8 firmware's continuous improvement and enhancement. You can expect a concise overview of the integrated key new features, major bug fixes, and critical security patches to ensure the highest level of functionality and performance within the Portenta X8 system.
 
@@ -59,11 +57,10 @@ The listing herein offers a glimpse into the Portenta X8 firmware's continuous i
 
 Below is a list of all available firmware versions with their release notes.
 
-
-### OS Image 846 - May 15, 2024
+### OS Image 846
 
 <details>
-  <summary><strong>OS Image 846: Release arduino-91.1</strong></summary>
+  <summary><strong>2024.05 (Release arduino-91.1, OS Image 846)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/846.tar.gz)
@@ -77,10 +74,10 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-### OS Image 844 - May 10, 2024
+### OS Image 844
 
 <details>
-  <summary><strong>OS Image 844: Release arduino-91</strong></summary>
+  <summary><strong>2024.05 (Release arduino-91, OS Image 844)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/844.tar.gz)
@@ -108,10 +105,10 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-### OS Image 822 - April 8, 2024
+### OS Image 822
 
 <details>
-  <summary><strong>OS Image 822: Release arduino-88.94</strong></summary>
+  <summary><strong>2024.04 (Release arduino-88.94, OS Image 822)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/822.tar.gz)
@@ -138,10 +135,10 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-### OS Image 746 - October 25, 2023
+### OS Image 746
 
 <details>
-  <summary><strong>OS Image 746: Release arduino-88.91</strong></summary>
+  <summary><strong>2023.10 (Release arduino-88.91, OS Image 746)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/746.tar.gz)
@@ -166,9 +163,10 @@ Below is a list of all available firmware versions with their release notes.
 </details>
 <br></br>
 
-### OS Image 719 - September 27, 2023
+### OS Image 719
+
 <details>
-  <summary><strong>OS Image 719: Release arduino-88.7</strong></summary>
+  <summary><strong>2023.09 (Release arduino-88.7, OS Image 719)</strong></summary>
 
 #### Image Access
   - Full image [download](https://downloads.arduino.cc/portentax8image/719.tar.gz)
