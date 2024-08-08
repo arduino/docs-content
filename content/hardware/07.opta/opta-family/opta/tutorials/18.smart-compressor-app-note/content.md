@@ -41,7 +41,7 @@ The goal of this application note is to showcase the capabilities of Opta PLC in
 - [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me) (x1)
 - 24 VDC Power Supply (x1)
 - AC Current Sensor 0-10 V (x1)
-- PT100 2 Wires RTD (x1)
+- PT100 2-Wire RTD (x1)
 - RTD to 0-10 V converter (x1)
 - Pressure transmitter 0-10 V (x1)
 - Power Relay 24 V (Optional x1)
