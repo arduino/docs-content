@@ -477,7 +477,7 @@ void setup() {
 }
 ```
 
-In the `loop()` function we wait for the Bluetooth® connection and if it is connected will indicate it with a blue LED turned on. Every 1000 ms the vibration status will be measured calling the `updateVibrationStatus()` function.
+In the `loop()` function, we wait for the Bluetooth® connection. If it is connected, this will be indicated by a blue LED turning on. Every 1000 ms, the vibration status will be measured by calling the `updateVibrationStatus()` function.
 
 ```arduino
 void loop() {
