@@ -294,7 +294,7 @@ To convert the Opta's ADC raw readings into voltage, the following method can be
 ```arduino
 Voltage = analogRead(<Input>) * (3.3 / 4095.0) / 0.30337;
 ```
-***The formula from above is the result of the Opta analog input frontend circuit.***
+***The formula above is derived from Opta's analog input frontend circuit.***
 
 ```arduino
 void SensorRead() {
