@@ -1,7 +1,7 @@
 ---
-title: 'Compressor Remote Condition Monitoring with Opta™'
+title: 'Air Compressor Remote Condition Monitoring with Opta™'
 difficulty: intermediate
-description: "This application note describes how to transform your industrial compressor into a smart compressor using the Opta™ micro PLC for advanced monitoring and predictive maintenance."
+description: "This application note describes how to transform your industrial air compressor into a smart compressor using the Opta™ micro PLC for advanced monitoring and predictive maintenance."
 tags:
   - modbus
   - maintenance
@@ -15,7 +15,7 @@ hardware:
 
 ## Introduction
 
-Upgrade your industrial compressor with smart capabilities and connect it to the Arduino Cloud for advanced condition monitoring using the Opta™ micro PLC.
+Upgrade your industrial air compressor with smart capabilities and connect it to the Arduino Cloud for advanced condition monitoring using the Opta™ micro PLC.
 
 ![ ](assets/thumbnail.png)
 
@@ -33,7 +33,7 @@ The goal of this application note is to showcase the capabilities of Opta PLC in
 
 ## Hardware and Software Requirements
 
-![Hardwares Used](assets/material.png)
+![Hardware Used](assets/material.png)
 
 ### Hardware Requirements
 
@@ -428,7 +428,7 @@ In the `setup()` function, the different board peripherals are initialized, incl
 - Onboard IMU sensor
 - Bluetooth® Low Energy (BLE) communication
 
-During the Bluetooth® Low Energy initialization, we define the device name as `Nicla` to make it easy for the Opta to find it.
+During the Bluetooth® Low Energy initialization, we define the device name as `Nicla` to make it easy for Opta to find it.
 
 ```arduino
 void setup() {
