@@ -55,6 +55,7 @@ The goal of this application note is to showcase the capabilities of Opta PLC in
 - The [Compressor Monitor sketches for Opta and Nicla Sense ME](assets/Opta_Nicla_Codes.zip)
 - The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/) to provision the Opta WiFi on the Arduino Cloud.
 - The [**Arduino Cloud**](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [**cloud.arduino.cc**](https://cloud.arduino.cc/home/?get-started=true).
+- [Application Arduino Sketches](assets/Opta_Nicla_Codes.zip)
 
 ## Compressor Monitoring System Setup
 
