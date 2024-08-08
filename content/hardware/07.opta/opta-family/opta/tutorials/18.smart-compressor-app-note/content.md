@@ -17,7 +17,7 @@ hardware:
 
 Upgrade your industrial compressor with smart capabilities and connect it to the Arduino Cloud for advanced condition monitoring using the Opta™ micro PLC.
 
-![Project Thumbnail](assets/thumbnail.png)
+![](assets/thumbnail.png)
 
 This affordable solution provides real-time remote data access, behavioral diagnostics, predictive maintenance, and efficient device management. It helps you maximize uptime, lower operational costs, and extend the lifespan of your equipment.
 
@@ -33,7 +33,7 @@ The goal of this application note is to showcase the capabilities of Opta PLC in
 
 ## Hardware and Software Requirements
 
-![Hardware Image](assets/material.png)
+![Hardwares Used](assets/material.png)
 
 ### Hardware Requirements
 
@@ -45,14 +45,14 @@ The goal of this application note is to showcase the capabilities of Opta PLC in
 - RTD to 0-10 V converter (x1)
 - Pressure transmitter 0-10 V (x1)
 - Power Relay 24 V (Optional x1)
-- Wiring Cable 18AWG
+- 18 AWG Wiring Cable
 - [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - [Micro-USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 
 ### Software Requirements
 
 - [Arduino IDE 2](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
-- The [Compressor Monitor sketches for Opta and Nicla Sense ME]()
+- The [Compressor Monitor sketches for Opta and Nicla Sense ME](assets/Opta_Nicla_Codes.zip)
 - The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/) to provision the Opta WiFi on the Arduino Cloud.
 - The [**Arduino Cloud**](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [**cloud.arduino.cc**](https://cloud.arduino.cc/home/?get-started=true).
 
@@ -130,9 +130,9 @@ Let's go through some important code sections to make this application fully ope
 
 - `ArduinoBLE.h` enables support for Bluetooth® Low Energy (BLE) communication. Install it by searching for it in the Library Manager.
 - `Ethernet.h` enables Ethernet support for Modbus TCP communication.
-- `ArduinoModbus.h` and `ArduinoRS485.h` manage the Modbus TCP protocol. Search for them in the Library Manager to install them.
-- `ArduinoIoTCloud.h` enables Arduino Cloud integration. Search for it in the Library Manager to install it.
-- `Arduino_ConnectionHandler.h` manages the board's internet connectivity. Search for it in the Library Manager to install it.
+- `ArduinoModbus.h` and `ArduinoRS485.h` manage the Modbus TCP protocol. Search for **ArduinoModbus** and **ArduinoRS485** in the Library Manager to install them.
+- `ArduinoIoTCloud.h` enables Arduino Cloud integration. Search for **ArduinoIoTCloud** in the Library Manager to install it.
+- `Arduino_ConnectionHandler.h` manages the board's internet connectivity. Search for **Arduino_ConnectionHandler** in the Library Manager to install it.
 
 There is a header included in the project code for the Arduino Cloud configuration:
 
@@ -222,6 +222,7 @@ void setup() {
   EthernetInit();
 }
 ```
+
 In the `loop()` function, the Wi-Fi® and BLE connections and sensor readings are continuously verified.
 
 ```arduino
@@ -294,6 +295,7 @@ To convert the Opta's ADC raw readings into voltage, the following method can be
 ```arduino
 Voltage = analogRead(<Input>) * (3.3 / 4095.0) / 0.30337;
 ```
+
 ***The formula above is derived from Opta's analog input frontend circuit.***
 
 ```arduino
@@ -369,6 +371,7 @@ void ModbusSend() {
   }
 }
 ```
+
 There are other functions in the main code listed below:
 
 - `EthernetInit()`: Initializes the Ethernet connection for Modbus TCP communication.
@@ -379,13 +382,14 @@ There are other functions in the main code listed below:
 ***You can download the complete code from [here](assets/Opta_Nicla_Codes.zip).***
 
 ### Nicla Sense ME Code
+
 You can download the code for the Nicla Sense ME [here](assets/Opta_Nicla_Codes.zip).
 
 Let's go through some important code sections to make this application fully operational, starting with the required libraries:
 
 - `Nicla_System.h` adds support for the Nicla core and extended functionalities for power management.
-- `ArduinoBLE.h` enables support for Bluetooth® Low Energy (BLE) communication. Install it by searching for it in the Library Manager.
-- `Arduino_BHY2.h` provides the APIs for Nicla Sense ME board sensors.
+- `ArduinoBLE.h` enables support for Bluetooth® Low Energy (BLE) communication. Install it by searching for **ArduinoBLE** in the Library Manager.
+- `Arduino_BHY2.h` provides the APIs for Nicla Sense ME board sensors. Search for **Arduino_BHY2** in the Library Manager to install it.
 
 Initial settings are defined by specifying accelerometer samples, sampling frequency, sensor object, and time control variables.
 
@@ -415,7 +419,7 @@ unsigned long microseconds;
 long previousMillis = 0;  // last time the vibration level was checked, in ms
 ```
 
-The Bluetooth® Low Energy services and characteristics are standardized for this specific application. The service is defined as `Immediate alert (1802)`, ideal for notifying anomalous vibration events, and an `alert level characteristic (2A06)`. These have specific and standardized Bluetooth® Low Energy UUIDs.
+The Bluetooth® Low Energy services and characteristics are standardized for this specific application. The service is defined as `Immediate Alert (1802)`, ideal for notifying anomalous vibration events, and an `Alert Level Characteristic (2A06)`. These have specific and standardized Bluetooth® Low Energy UUIDs.
 
 In the `setup()` function, the different board peripherals are initialized, including:
 
