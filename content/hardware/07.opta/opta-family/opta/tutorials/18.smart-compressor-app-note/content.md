@@ -179,7 +179,7 @@ unsigned long previousMillis = 0;  // will store last time readings were done
 const long interval = 1000;  // interval at which to repeat readings
 ```
 
-In the `setup()` function the different board peripherals are initiated including:
+In the `setup()` function, the different board peripherals are initialized, including:
 
 - Serial communication
 - LEDs and relay outputs
