@@ -383,8 +383,8 @@ You can download the code for the Nicla Sense ME [here](assets/Opta_Nicla_Codes.
 
 Let's go through some important code sections to make this application fully operational, starting with the required libraries:
 
-- `Nicla_System.h` adds the support for the Nicla core and extended functionalities on power management.
-- `ArduinoBLE.h` enables the support for Bluetooth® Low Energy (BLE) communication, install it by searching for it on the Library Manager.
+- `Nicla_System.h` adds support for the Nicla core and extended functionalities for power management.
+- `ArduinoBLE.h` enables support for Bluetooth® Low Energy (BLE) communication. Install it by searching for it in the Library Manager.
 - `Arduino_BHY2.h` provides the APIs for Nicla Sense ME board sensors.
 
 Initial settings are defined specifying accelerometer samples, sampling frequency, sensor object and time control variables.
