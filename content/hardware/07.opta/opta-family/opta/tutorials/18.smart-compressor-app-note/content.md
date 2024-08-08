@@ -564,7 +564,9 @@ All the necessary files to replicate this application note can be found below:
 
 ## Conclusion
 
-In this application note we have learned how to implement an industrial assets monitoring system turning a conventional air compressor into smart. This application could be a simple demonstration of how Arduino's environment simplifies de workflow for developing smart solutions to solve real industrial needs. The Arduino PRO products line is a perfect fit for developing robust and reliable projects for the industry. We covered in-site sensor data sampling, Bluetooth® Low Energy communication, and real-time Cloud monitoring.
+In this application note, we have learned how to implement an industrial asset monitoring system by turning a conventional air compressor into a smart device.
+
+This application shows how Arduino's environment simplifies the workflow for developing smart solutions to address real industrial needs. The Arduino PRO product line is a perfect fit for developing robust and reliable projects for the industry. We covered on-site sensor data sampling, Bluetooth® Low Energy communication, and real-time Cloud monitoring.
 
 ### Next Steps
 
