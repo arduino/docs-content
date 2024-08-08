@@ -23,11 +23,11 @@ This affordable solution provides real-time remote data access, behavioral diagn
 
 ### Goals
 
-The goal of this application note is to showcase the Opta PLC capabilities on letting you convert conventional industrial equipment into smart for monitoring and predictive maintenance purposes. The project's objectives are the following:
+The goal of this application note is to showcase the capabilities of Opta PLC in transforming conventional industrial equipment into smart systems for monitoring and predictive maintenance purposes. The project's objectives are as follows:
 
-- Monitor key performance indicators like power consumption, temperature and pressure of the compressor.
-- Integrate additional sensing points into your assets like vibration for motor and bearings status control. 
-- Connect the compressor via Modbus TCP industry-standard protocol for optional integration to currently installed systems.
+- Monitor key performance indicators such as power consumption, temperature, and pressure of the compressor.
+- Integrate additional sensing points, like vibration sensors, to monitor the status of motors and bearings.
+- Connect the compressor using the Modbus TCP industry-standard protocol for seamless integration with existing systems.
 - Leverage Arduino Cloud's powerful analytics to gain actionable insights into the compressor performance.
 - Create an Arduino Cloud dashboard that syncs in real time to inform and alert the user.
 
