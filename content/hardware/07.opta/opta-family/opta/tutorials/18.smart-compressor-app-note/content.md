@@ -415,9 +415,9 @@ unsigned long microseconds;
 long previousMillis = 0;  // last time the vibration level was checked, in ms
 ```
 
-The Bluetooth® Low Energy services and characteristics are standardized for the specific use of this application. The service is defined as `Immediate alert (1802)` which makes it ideal for notifying on anomalous vibration events and an `alert level characteristic (2A06)`. Notice that they have specific and standardized Bluetooth® Low Energy UUIDs.
+The Bluetooth® Low Energy services and characteristics are standardized for this specific application. The service is defined as `Immediate alert (1802)`, ideal for notifying anomalous vibration events, and an `alert level characteristic (2A06)`. These have specific and standardized Bluetooth® Low Energy UUIDs.
 
-In the `setup()` function the different board peripherals are initiated including:
+In the `setup()` function, the different board peripherals are initialized, including:
 
 - Serial communication
 - Nicla system for power management and LED control
