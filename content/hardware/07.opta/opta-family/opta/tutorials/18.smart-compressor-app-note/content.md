@@ -332,7 +332,7 @@ void SensorRead() {
 }
 ```
 
-The `ModbusSend()` function attempts the connection with the Modbus TCP server, if it is successful it formats the sensor data to be sent.
+The `ModbusSend()` function attempts to connect with the Modbus TCP server. If the connection is successful, it formats the sensor data to be sent.
 
 ```arduino
 void ModbusSend() {
