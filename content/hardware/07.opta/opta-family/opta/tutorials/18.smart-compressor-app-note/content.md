@@ -128,11 +128,11 @@ You can download the code for the Opta PLC [here](assets/Opta_Nicla_Codes.zip).
 
 Let's go through some important code sections to make this application fully operational, starting with the required libraries:
 
-- `ArduinoBLE.h` enables the support for Bluetooth® Low Energy (BLE) communication, install it by searching for it on the Library Manager.
-- `Ethernet.h` enables the Ethernet support for the Modbus TCP communication.
-- `ArduinoModbus.h` and `ArduinoRS485.h` manage the Modbus TCP protocol, install them by searching for them on the Library Manager.
-- `ArduinoIoTCloud.h` enable the Arduino Cloud integration, install it by searching for it on the Library Manager.
-- `Arduino_ConnectionHandler.h` manages the internet connectivity for the board, install it by searching for it on the Library Manager.
+- `ArduinoBLE.h` enables support for Bluetooth® Low Energy (BLE) communication. Install it by searching for it in the Library Manager.
+- `Ethernet.h` enables Ethernet support for Modbus TCP communication.
+- `ArduinoModbus.h` and `ArduinoRS485.h` manage the Modbus TCP protocol. Search for them in the Library Manager to install them.
+- `ArduinoIoTCloud.h` enables Arduino Cloud integration. Search for it in the Library Manager to install it.
+- `Arduino_ConnectionHandler.h` manages the board's internet connectivity. Search for it in the Library Manager to install it.
 
 There is a header included in the project code for the Arduino Cloud configuration:
 
