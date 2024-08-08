@@ -136,7 +136,7 @@ Let's go through some important code sections to make this application fully ope
 
 There is a header included in the project code for the Arduino Cloud configuration:
 
-- `thingProperties.h` includes the WiFi credentials and Arduino Cloud configuration.
+- `thingProperties.h` includes the Wi-Fi® credentials and Arduino Cloud configuration.
 
 ```arduino
 #include "thingProperties.h"
