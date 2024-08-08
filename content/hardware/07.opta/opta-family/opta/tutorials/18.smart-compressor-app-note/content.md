@@ -381,7 +381,7 @@ There are other functions in the main code listed below:
 ### Nicla Sense ME Code
 You can download the code for the Nicla Sense ME [here](assets/Opta_Nicla_Codes.zip).
 
-Let's go through some important code sections to make this application fully operative; starting with the required libraries:
+Let's go through some important code sections to make this application fully operational, starting with the required libraries:
 
 - `Nicla_System.h` adds the support for the Nicla core and extended functionalities on power management.
 - `ArduinoBLE.h` enables the support for Bluetooth® Low Energy (BLE) communication, install it by searching for it on the Library Manager.
