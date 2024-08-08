@@ -47,7 +47,7 @@ The goal of this application note is to showcase the capabilities of Opta PLC in
 - Power Relay 24 V (Optional x1)
 - Wiring Cable 18AWG
 - [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
-- Micro-USB Cable (x1)
+- [Micro-USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 
 ### Software Requirements
 
