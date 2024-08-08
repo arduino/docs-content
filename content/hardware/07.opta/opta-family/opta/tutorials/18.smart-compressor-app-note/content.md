@@ -508,7 +508,7 @@ void loop() {
 }
 ```
 
-The `updateVibrationStatus()` function averages the samples taken and if the vibration magnitude is above the defined limit it will notify the Opta sending a Bluetooth® message.
+The `updateVibrationStatus()` function averages the samples taken. If the vibration magnitude exceeds the defined limit, it will notify the Opta by sending a Bluetooth® message.
 
 ```arduino
 void updateVibrationStatus() {
