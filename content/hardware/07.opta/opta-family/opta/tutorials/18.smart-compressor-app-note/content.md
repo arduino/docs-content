@@ -424,7 +424,7 @@ In the `setup()` function, the different board peripherals are initialized, incl
 - Onboard IMU sensor
 - Bluetooth® Low Energy (BLE) communication
 
-In the Bluetooth® Low Energy initialization we define the device name, `Nicla` in this case for the Opta to easy find it.
+During the Bluetooth® Low Energy initialization, we define the device name as `Nicla` to make it easy for the Opta to find it.
 
 ```arduino
 void setup() {
