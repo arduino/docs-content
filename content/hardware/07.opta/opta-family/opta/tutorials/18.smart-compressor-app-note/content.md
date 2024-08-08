@@ -79,11 +79,12 @@ The compressor power source will be wired through the Opta relay contact 1 and t
 ![Compressor power wiring](assets/compressor-power.png)
 
 ## Compressor Monitoring System Overview
-The monitoring system for the compressor integrates the sensor data gathering, power control and cloud communication using the Opta WiFi connection.
 
-The Opta is responsible for reading the sensors and uploading their data to the Cloud, also for controlling the power state of the compressor and sharing through Modbus TCP all the sensor information.
+The monitoring system for the compressor integrates sensor data gathering, power control, and cloud communication using Opta's Wi-Fi® connection.
 
-The Nicla Sense ME leverage it's internal IMU for anomalous vibration detection on the compressor motor and connects through BLE with the Opta for vibration status sharing. 
+Opta is responsible for reading the sensors, uploading their data to the Cloud, controlling the compressor's power state, and sharing all sensor information via Modbus TCP.
+
+The Nicla Sense ME uses its internal IMU to detect anomalous vibrations in the compressor motor. It connects with the Opta via BLE to share information on vibration status.
 
 ![Compressor Monitoring System](assets/overview-diagram.png)
 
