@@ -222,7 +222,7 @@ void setup() {
   EthernetInit();
 }
 ```
-In the `loop()` function, the WiFi and BLE connections are verified continuously alongside the sensor readings.
+In the `loop()` function, the Wi-Fi® and BLE connections and sensor readings are continuously verified.
 
 ```arduino
 void loop() {
