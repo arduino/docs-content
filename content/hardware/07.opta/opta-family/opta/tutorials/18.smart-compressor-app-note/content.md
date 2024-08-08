@@ -548,9 +548,9 @@ By leveraging the Arduino Cloud, we can seamlessly integrate a simple yet powerf
 Within the Arduino Cloud's dashboard, the system variables can be monitored with the following widgets:
 
 - ON/OFF compressor power switch widget.
-- System variables gauges showing temperature, pressure and power.
-- Line charts for historical review on variables behaviour.
-- Vibration and fault state alert widgets for easy understand of the compressor state.
+- System variable gauges showing temperature, pressure, and power.
+- Line charts for historical review of variable behavior.
+- Vibration and fault state alert widgets for easy understanding of the compressor state.
   
 We can easily access this dashboard from a PC, mobile phone or tablet from anywhere, receiving an instantaneous update wherever we are. 
 
