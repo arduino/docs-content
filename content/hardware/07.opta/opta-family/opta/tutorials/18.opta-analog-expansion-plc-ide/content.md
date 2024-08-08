@@ -17,16 +17,16 @@ software:
 ---
 
 ## Overview
-In this tutorial, you will learn how to use Opta™ Analog Expansion AFX00007 alongside an Opta™ controller.
+In this tutorial you will learn how to use Opta™ Analog Expansion AFX00007 alongside an Opta™ controller using the Arduino PLC IDE.
 
 ![Opta Analog Expansion Overview](assets/analog-current.png)
 
-We will go through every feature of the Analog Expansion and learn with a simple example how to leverage it for industrial sensor sampling and output controlling.
+We will go through every feature of the Analog Expansion and learn with simple examples how to leverage it for industrial sensor sampling and output controlling.
 
 ## Goals
 
 - Learn how to use Opta™ Analog Expansion with the PLC IDE
-- Learn how to enhance your Opta™ controller's capabilities using Opta™ expansions
+- Learn how to enhance your Opta™ controller's capabilities using Opta™ Analog Expansions
 - Leverage Arduino Pro products for real industrial applications
 
 ## Hardware and Software Requirements
@@ -36,12 +36,13 @@ We will go through every feature of the Analog Expansion and learn with a simple
 - [AFX00007 - Opta Ext A0602](https://store.arduino.cc/products/Opta-Ext-A0602) (x1)
 - 12-24 VDC/0.5 A power supply (x1)
 - [USB-C® cable](https://store-usa.arduino.cc/products/usb-cable2in1-type-c) (x1)
+- Stranded wire 4 mm<sup>2</sup> (12 AWG).
 
 ### Software
-- The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) 
-- [Arduino_Opta_Blueprint](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) library to update Expansion Firmware.
+- The [Arduino PLC IDE v1.0.7 or higher](https://www.arduino.cc/pro/software-plc-ide) 
+- [Arduino_Opta_Blueprint v0.2.3 or higher](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) library to update Expansion Firmware.
 
-***The Analog Expansion firmware must be updated to the 0.1.5 version or higher.***
+***The Analog Expansion firmware must be updated to the 0.1.5 version or higher. To do it open the [Arduino IDE](https://www.arduino.cc/en/software), install the library [Arduino_Opta_Blueprint](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) and open the example: Arduino_Opta_Blueprint -> UpdateExpansionFw.***
 
 ## Initial Configuration 
 
@@ -63,9 +64,9 @@ The expansions must be powered externally in order to be detected and properly w
 
 After downloading the [PLC IDE](https://www.arduino.cc/en/software#arduino-plc-ide), follow the installation process from the following [guide](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license/). 
 
-Open the PLC IDE and create a new project for the Opta™.
+Open the PLC IDE and create a new project for Opta™.
 
-![New project for the Opta™](assets/plc-ide-1.png)
+![Creating a new project for Opta™](assets/plc-ide-1.png)
 
 Connect the Opta controller to your PC using a USB-C® cable. Then, upload the runtime for Opta™ by selecting its Serial Port and clicking on the **Download** button.
 
@@ -84,13 +85,15 @@ Next, click the **Connect** button in the upper left corner and wait for the bas
 
 ***The Opta™ is pre-licensed, meaning no additional license purchase is required for use with the PLC IDE.***
 
-If the Opta™ status displays **No License**, click the **Activate PLC runtime** button to activate it. For more details, refer to this [guide](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license/#7-license-activation-with-pre-licensed-products-opta).
+If the Opta™ status displays **No License**, click the **Activate PLC runtime** button to activate it. The program will ask you to reset Opta but sometimes it could be also necessary to completely disconnect Opta from the computer and the external power and connect it again. For more details, refer to this [guide](https://docs.arduino.cc/tutorials/portenta-machine-control/plc-ide-setup-license/#7-license-activation-with-pre-licensed-products-opta).
 
 ### Analog Expansion Setup
 
 To enable the Opta™ Analog Expansion features in the PLC IDE, navigate to the **Resources** tab and select **I/O Expansions** in the configuration tree. Then click **Scan** to allow the IDE to search for connected expansions.
 
 ![Scanning for expansions](assets/plc-ide-6.png)
+
+***A popup warning may appear telling you that the configuration does not match, you can accept it and continue to the next step.***
 
 Once the available expansion appears in the **Detected config** column, enable it by clicking on **Apply detect config**. Verify that the **Project config** column is updated.
 
@@ -157,7 +160,7 @@ Insert the following variable with its respective _type_ to store the input volt
 
 ![Set up local variable](assets/local-var-2.png)
 
-- In the main code editor add the following formula to convert the ADC raw reading to a voltage and store it in the `V_IN1` variable.
+- In the main code editor clear the default counter example and add the following formula to convert the ADC raw reading to a voltage and store it in the `V_IN1` variable.
 
 ```
 V_IN1 := IN1*10.0/65535.0; 
@@ -189,7 +192,7 @@ Insert the following variable with it respective _type_ to store the input curre
 
 ![Set up local variable](assets/local-var-3.png)
 
-- In the main code editor add the following formula to convert the ADC raw reading to a current and store it in the `I_IN1` variable.
+- In the main code editor clear the default counter example and add the following formula to convert the ADC raw reading to a current and store it in the `I_IN1` variable.
 
 ```
 I_IN1 := IN1*25.0/65535.0;
@@ -227,7 +230,7 @@ Insert the following variables with their respective _type_ and _attribute_:
 
 ***__a__ and __b__ are PT100 constants.***
 
-- In the main code editor add the following formula to convert the input resistive reading to a temperature and store it in the `T_IN1` variable.
+- In the main code editor clear the default counter example and add the following formula to convert the input resistive reading to a temperature and store it in the `T_IN1` variable.
 
 ```
 T_IN1 := (-(1.0 / 100.0) * (50.0 * a - 10*sqrt(b * IN1 + 25.0 * pow(a, 2.0) - 100.0 * b))) / b;
@@ -258,7 +261,7 @@ To set up an output in voltage mode, navigate to **Programmable Channels** under
 
 Now you can easily control this output voltage in your program. For example in a **Structured Text** program:
 
-- In the main code editor use the following sketch to set the output voltage, it will increase from 0 to 11 V and then go back to 0 V.
+- In the main code editor clear the default counter example and use the following sketch to set the output voltage, it will increase from 0 to 11 V and then go back to 0 V.
 
 ```
 OUT1 := OUT1 + 10;
@@ -273,9 +276,9 @@ END_IF;
 
 ***The analog channel in voltage mode can generate up to 11 V and the DAC resolution is 13 bit, this is why we use the 8191 constant that corresponds to 2<sup>13</sup>-1.***
 
-- Modify the task speed by right clicking in **Task > Fast** then click on **Task configuration** and set the Fast task period to 50 ms.
+- To make sure the runtime can comply with the Analog Expansion actions programmed, modify the task speed by right-clicking in **Task > Fast** then clicking on **Task configuration** and setting the Fast task period to 50 ms.
 
-[Task speed configuration](assets/plc-ide-19.png)
+![Task speed configuration](assets/plc-ide-19.png)
 
 - Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use a voltmeter to measure the output.
 
@@ -289,7 +292,7 @@ To set up an output in current mode, navigate to **Programmable Channels** under
 
 Now you can easily control this output current in your program. For example in a **Structured Text** program:
 
-- In the main code editor use the following sketch to set the output current, it will increase from 0 to 25 mA and then go back to 0 mA.
+- In the main code editor clear the default counter example and use the following sketch to set the output current, it will increase from 0 to 25 mA and then go back to 0 mA.
 
 ```
 OUT1 := OUT1 + 10;
@@ -304,11 +307,11 @@ END_IF;
 
 ***The analog channel in current mode can generate up to 25 mA and the DAC resolution is 13 bit, this is why we use the 8191 constant that corresponds to 2<sup>13</sup>-1.***
 
-- Modify the task speed by right clicking in **Task > Fast** then click on **Task configuration** and set the Fast task period to 50 ms.
+- To make sure the runtime can comply with the Analog Expansion actions programmed, modify the task speed by right-clicking in **Task > Fast** then clicking on **Task configuration** and setting the Fast task period to 50 ms.
 
-[Task speed configuration](assets/plc-ide-19.png)
+![Task speed configuration](assets/plc-ide-19.png)
 
-- Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use an ampmeter to measure the output on **O1**.
+- Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use an ammeter to measure the output on **O1**.
 
 ![Current Output Demo](assets/analog-current.png)
 
@@ -332,7 +335,7 @@ To configure a PWM output, navigate to **PWM Outputs** under your desired expans
 
 Now you can easily control this output PWM period and pulse in your program. For example in a **Structured Text** program:
 
-- Open your project main program navigating to the **Project** tab in the left panel, select **Main** in the project tree, and right-click on the **Local variables** window to insert a variable.
+- Open your project main program by navigating to the **Project** tab in the left panel, select **Main** in the project tree, and right-click on the **Local variables** window to insert a variable.
 
 ![Insert a local variable](assets/local-var.png)
 
@@ -342,11 +345,11 @@ Insert the following variable with its respective _type_ and _attribute_:
 | :------: | :------: | :------------: | :-----------: |
 |  PERIOD  |   INT    |      1000      |   CONSTANT    |
 
-![Set up local variable](assets/local-var-5.png)
+![Set up a local variable](assets/local-var-5.png)
 
 ***PERIOD and PULSE values are in microseconds.***
 
-- In the main code editor use the following sketch to set the PWM signal period and pulse times.
+- In the main code editor clear the default counter example and use the following sketch to set the PWM signal period and pulse times.
 
 ```
 P1_PERIOD := PERIOD;  // 1000 us period = 1 kHz
@@ -360,9 +363,9 @@ END_IF;
 
 ***The PWM output voltage is defined by the voltage applied to __V<sub>PWM</sub>__ from 8 to 24 V.***
 
-- Modify the task speed by right clicking in **Task > Fast** then click on **Task configuration** and set the Fast task period to 50 ms.
+- To make sure the runtime can comply with the Analog Expansion actions programmed, modify the task speed by right-clicking in **Task > Fast** then clicking on **Task configuration** and setting the Fast task period to 50 ms.
 
-[Task speed configuration](assets/plc-ide-19.png)
+![Task speed configuration](assets/plc-ide-19.png)
 
 - Upload the program to your Opta and enable the **Live Debug Mode** to see the output updating in real-time and use an oscilloscope to measure the output on **P1**.
 
@@ -396,7 +399,7 @@ Now you can easily control the LED state by pressing the button with a simple pr
 
 ### Conclusion 
 
-In this tutorial, you have learned how to use an Opta™ Analog Expansion by demonstrating the use of each product features.
+In this tutorial, you have learned how to use an Opta™ Analog Expansion with the PLC IDE by demonstrating the use of each product features.
 
 As you can see, the configuration process is straightforward, and the results are as expected. This serves as an excellent starting point for adapting the techniques covered here to develop your professional solutions.
 
