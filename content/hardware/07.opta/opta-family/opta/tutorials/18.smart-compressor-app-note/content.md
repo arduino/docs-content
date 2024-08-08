@@ -1,7 +1,7 @@
 ---
 title: 'Compressor Remote Condition Monitoring with Opta'
 difficulty: intermediate
-description: "This application note describes how to transform your industrial compressor into smart using Opta micro PLC."
+description: "This application note describes how to transform your industrial compressor into a smart compressor using the Opta micro PLC for advanced monitoring and predictive maintenance."
 tags:
   - modbus
   - maintenance
