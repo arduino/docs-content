@@ -552,7 +552,7 @@ Within the Arduino Cloud's dashboard, the system variables can be monitored with
 - Line charts for historical review of variable behavior.
 - Vibration and fault state alert widgets for easy understanding of the compressor state.
   
-We can easily access this dashboard from a PC, mobile phone or tablet from anywhere, receiving an instantaneous update wherever we are. 
+This dashboard can be easily accessed from a PC, mobile phone, or tablet anywhere, providing instantaneous updates wherever we are. 
 
 In addition, we can set different integrations to complement our project, for example, forward the dashboard data to an external service using **Webhook**, **IFTTT** automations and **Smart Home** integrations.
 
