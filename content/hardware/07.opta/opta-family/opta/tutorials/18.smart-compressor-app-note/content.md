@@ -287,9 +287,9 @@ void loop() {
 }
 ```
 
-The function `SensorRead()` reads the sensor data, as they are connected to the Opta analog inputs we can easily read them by sampling their respective ADC inputs. Also, it check for the Ethernet connection to decide on sending the sensor readings through Modbus TCP.
+The `SensorRead()` function reads the sensor data. Since the sensors are connected to the Opta's analog inputs, we can easily read them by sampling their respective ADC inputs. This function also checks the Ethernet connection to decide whether to send the sensor readings via Modbus TCP.
 
-To convert the Opta ADC raw readings into voltage the following method can be used:
+To convert the Opta's ADC raw readings into voltage, the following method can be used:
 
 ```arduino
 Voltage = analogRead(<Input>) * (3.3 / 4095.0) / 0.30337;
