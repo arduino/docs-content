@@ -58,7 +58,7 @@ The goal of this application note is to showcase the capabilities of Opta PLC in
 
 ## Compressor Monitoring System Setup
 
-The electrical connections of the intended application are shown in the diagram below:
+The electrical connections for this application are shown in the diagram below:
 
 ![Electrical connections of the monitoring system](assets/connection-diagram.png)
 
