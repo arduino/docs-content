@@ -90,10 +90,10 @@ The Nicla Sense ME uses its internal IMU to detect anomalous vibrations in the c
 
 ### Sensors Deployment
 
-- The **Current Sensor** alongside the grid voltage will help us measure the compressor power consumption for monitoring and overcurrent detection. It will be placed hooked in the compressor AC power line.
-- The **Temperature Sensor** will measure the compressor electric motor temperature for monitoring and high temperature detection. It will be fixed to the compressor motor.
-- The **Pressure Sensor** will measure the compressor air pressure for monitoring and high pressure detection. It will be screwed in the compressor tank pressure output.
-- The **Nicla Sense ME** will detect anomalous vibrations. It will be fixed to the compressor motor or pump and powered with a battery or external power source.
+- The **Current Sensor**, along with the grid voltage, will help measure the compressor's power consumption for monitoring and overcurrent detection. It will be installed in the compressor's AC power line.
+- The **Temperature Sensor** will measure the compressor's electric motor temperature for monitoring and high temperature detection. It will be attached to the compressor motor.
+- The **Pressure Sensor** will measure the compressor's air pressure for monitoring and high pressure detection. It will be screwed into the compressor tank's pressure output.
+- The **Nicla Sense ME** will detect anomalous vibrations. It will be fixed to the compressor motor or pump and powered by a battery or an external power source.
 
 ### Anomalies Detection
 
