@@ -109,7 +109,7 @@ The sensors' nominal thresholds are defined in the code as follows:
 
 ### Modbus TCP Data Output
 
-The Opta will detect if an ethernet cable is connected to its included RJ45 terminal and will start sending the measured sensor data through Modbus TCP to a defined server address.
+The Opta will detect if an Ethernet cable is connected to its RJ45 terminal and will start sending the measured sensor data via Modbus TCP to a defined server address.
 
 The variables will be sent to the registers in the following order:
 
