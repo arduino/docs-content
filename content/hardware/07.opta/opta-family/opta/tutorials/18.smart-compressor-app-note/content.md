@@ -72,7 +72,7 @@ The current, temperature, and pressure sensors will be connected to inputs `I1`,
 ![Temperature Sensor Connection](assets/temp-sensor.png)
 ![Current Sensor Connection](assets/current-sensor.png)
 
-***The sensor connections shown above are separated for an easier understanding but all of them are simultaneously connected to the Opta.***
+***The sensor connections shown above are displayed separately for easier comprehension, but all of them are simultaneously connected to the Opta.***
 
 The compressor power source will be wired through the Opta relay contact 1 and the current sensor.
 
