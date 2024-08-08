@@ -66,7 +66,7 @@ The Opta PLC will be powered by an external 24 VDC power supply connected to its
 
 ![Opta power supply connection](assets/opta-power.png)
 
-The current, temperature and pressure sensors will be connected to inputs `I1`, `I2` and `I3` respectively.
+The current, temperature, and pressure sensors will be connected to inputs `I1`, `I2`, and `I3`, respectively.
 
 ![Pressure Sensor Connection](assets/pressure-sensor.png)
 ![Temperature Sensor Connection](assets/temp-sensor.png)
