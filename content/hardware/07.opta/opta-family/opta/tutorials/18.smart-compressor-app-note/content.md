@@ -120,7 +120,7 @@ The variables will be sent to the registers in the following order:
 |    0x02     |  Pressure   |
 |    0x03     |   Current   |
 
-***As the Modbus Holding Registers are __uint16_t__ the data sent should be a positive integer between 0 and 65535, for this reason the data is sent multiplied by a 100 factor. This way a measured temperature of 42.5 C will be sent as 4250.***
+***Since Modbus Holding Registers are __uint16_t__, the data sent should be a positive integer between 0 and 65535. Therefore, the data is multiplied by a factor of 100. For example, a measured temperature of 42.5 °C will be sent as 4250.***
 
 ### Opta Code
 
