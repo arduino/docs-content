@@ -570,6 +570,6 @@ This application shows how Arduino's environment simplifies the workflow for dev
 
 ### Next Steps
 
-As you already know how to develop a smart air compressor monitoring system with the Opta PLC and the Nicla Sense ME, it's time for you to continue exploring all the capabilities of the Arduino Pro environment to integrate it with your professional setup and improve it with powerful solutions.
+Now that you know how to develop a smart air compressor monitoring system with the Opta PLC and the Nicla Sense ME, it is time to continue exploring all the capabilities of the Arduino Pro environment. Integrate it with your professional setup and enhance it with powerful solutions.
 
-You can take this solution even further with the integration of an **FFT** algorithm for the Nicla Sense ME so it can analyze vibration specific spectrums.
+You can take this solution even further by integrating an **FFT** algorithm for the Nicla Sense ME, which would allow it to analyze specific vibration spectrums.
