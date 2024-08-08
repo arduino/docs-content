@@ -541,7 +541,7 @@ void updateVibrationStatus() {
 
 ### Arduino Cloud Dashboard
 
-Taking advantage of the Arduino Cloud, we can seamlessly integrate a simple but powerful dashboard to monitor and visualize the status of the system in real-time:
+By leveraging the Arduino Cloud, we can seamlessly integrate a simple yet powerful dashboard to monitor and visualize the system status in real-time:
 
 ![Arduino Cloud Dashboard](assets/cloud-dash.gif)
 
