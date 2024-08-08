@@ -371,10 +371,10 @@ void ModbusSend() {
 ```
 There are other functions in the main code listed below:
 
-- `EthernetInit()`: initialize the Ethernet connection for the Modbus TCP communication.
-- `onPwrChange()`: callback that controls the compressor power relay from the cloud.
-- `NiclaVibrationHAndler()`: manages the BLE connection and gather the vibrations alert from the Nicla Sense ME.
-- `faultCheck()`: compare the current sensor values with the fault defined threshold and report the state.
+- `EthernetInit()`: Initializes the Ethernet connection for Modbus TCP communication.
+- `onPwrChange()`: Callback that controls the compressor power relay from the cloud.
+- `NiclaVibrationHandler()`: Manages the BLE connection and gathers vibration alerts from the Nicla Sense ME.
+- `faultCheck()`: Compares the current sensor values with the defined fault thresholds and reports the state.
 
 ***You can download the complete code from [here](assets/Opta_Nicla_Codes.zip).***
 
