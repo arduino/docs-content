@@ -554,7 +554,7 @@ Within the Arduino Cloud's dashboard, the system variables can be monitored with
   
 This dashboard can be easily accessed from a PC, mobile phone, or tablet anywhere, providing instantaneous updates wherever we are. 
 
-In addition, we can set different integrations to complement our project, for example, forward the dashboard data to an external service using **Webhook**, **IFTTT** automations and **Smart Home** integrations.
+Additionally, we can set up various integrations to complement our project. For example, we can forward the dashboard data to an external service using **Webhook**, **IFTTT** automation, and **Smart Home** integrations.
 
 ## Full Compressor Monitoring System Example
 
