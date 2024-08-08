@@ -387,7 +387,7 @@ Let's go through some important code sections to make this application fully ope
 - `ArduinoBLE.h` enables support for Bluetooth® Low Energy (BLE) communication. Install it by searching for it in the Library Manager.
 - `Arduino_BHY2.h` provides the APIs for Nicla Sense ME board sensors.
 
-Initial settings are defined specifying accelerometer samples, sampling frequency, sensor object and time control variables.
+Initial settings are defined by specifying accelerometer samples, sampling frequency, sensor object, and time control variables.
 
 ```arduino
 #include "Nicla_System.h"
