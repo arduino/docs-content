@@ -126,7 +126,7 @@ The variables will be sent to the registers in the following order:
 
 You can download the code for the Opta PLC [here](assets/Opta_Nicla_Codes.zip).
 
-Let's go through some important code sections to make this application fully operative; starting with the required libraries:
+Let's go through some important code sections to make this application fully operational, starting with the required libraries:
 
 - `ArduinoBLE.h` enables the support for Bluetooth® Low Energy (BLE) communication, install it by searching for it on the Library Manager.
 - `Ethernet.h` enables the Ethernet support for the Modbus TCP communication.
