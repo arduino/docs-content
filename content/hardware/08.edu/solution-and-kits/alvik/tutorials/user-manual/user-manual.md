@@ -111,6 +111,22 @@ When fully charged it will stay GREEN.
 
 ***Don't confuse the RGB status LED with the power ON LED of the Nano ESP32, which is always green.***
 
+### Header Connectors
+
+On the top face of the Alvik, you can find 2 pairs of connectors. Both have 15 holes in length but are not interconnected. The pair on the inner side is meant for coupling the Arduino Nano ESP32, while the pair on the outside is the Power Connector, which provides optional power and mechanical support for custom expansions or circuits you might create.
+![Top face connectors](assets/Connectors_Alvik_Top.png)
+
+- **Nano Board Connector**
+
+Because of the need to communicate with the STM board, some of the pins of the Arduino Nano ESP32 might be in use and, as such, are not recommended to be used by any other feature. This way, if you design a shield or attachment that interacts with these connectors, make sure to avoid the pins that are busy.
+![ESP Pinout](assets/ESP_Pinout_Alvik.png)
+
+- **Power Connector**
+
+This connector allows you to get power from the Alvik's power system as well as get the power status. It also provides mechanical support for your designs. Here you can identify the connectors that can be used. Note that the remaining pins are not in use but can serve for mechanical support.
+![alt text](assets/Alvik_Docs_Pinout_Callout.jpg)
+
+
 ### Replacing The Battery
 
 The battery is located in the bottom part of Alvik, if you need to access it you'll need to remove one Phillip's screw and take out the plastic holder.
@@ -1463,20 +1479,6 @@ You can now test using read_color_sensor.py in the examples folder. Refer to the
 ***Colors are tested on paper painted using acrylic marker pens, such as UNIPOSCA, or paper printed with an inkjet printer.***
 
 ## Expanding the Robot
-
-On the top face of the Alvik, you can find 2 pairs of connectors. Both have 15 holes in length but are not interconnected. The pair on the inner side is meant for coupling the Arduino Nano ESP32, while the pair on the outside is the Power Connector, which provides optional power and mechanical support for custom expansions or circuits you might create.
-![Top face connectors](assets/Connectors_Alvik_Top.png)
-
-- **Nano Board Connector**
-
-Because of the need to communicate with the STM board, some of the pins of the Arduino Nano ESP32 might be in use and, as such, are not recommended to be used by any other feature. This way, if you design a shield or attachment that interacts with these connectors, make sure to avoid the pins that are busy.
-![ESP Pinout](assets/ESP_Pinout_Alvik.png)
-
-- **Power Connector**
-
-This connector allows you to get power from the Alvik's power system as well as get the power status. It also provides mechanical support for your designs. Here you can identify the connectors that can be used. Note that the remaining pins are not in use but can serve for mechanical support.
-![alt text](assets/Alvik_Docs_Pinout_Callout.jpg)
-
 
 ### Additional Connectors
 
