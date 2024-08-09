@@ -635,12 +635,134 @@ _Register callback when touch button RIGHT is pressed_
 
 
 ## Examples
+These examples demonstrate practical implementations on how to use the Arduino Alvik API. Whether you're working with MicroPython or C++, these simple examples will help you understand how to implement various features in your projects, making it easy to get started with the Alvik in the language you're most comfortable with.
+
+### Simple Color Sensing Example
+
+This example demonstrates how to implement basic color sensing. The Alvik's color sensor reads the color of an object placed under it, and the detected color is printed to the console.
+
+- **Reference for MicroPython**
+
+```python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+
+alvik = ArduinoAlvik()
+alvik.begin()
+
+print("Alvik initialized for color sensing")
+
+while True:
+    color = alvik.get_color_label()
+    print(f"Detected color: {color}")
+    sleep_ms(500)
+```
+
+- **Reference for C++**
+
+```c
+#include "Arduino_Alvik.h"
+
+Arduino_Alvik alvik;
+
+void setup() {
+  Serial.begin(9600);
+  alvik.begin();
+  Serial.println("Alvik initialized for color sensing");
+}
+
+void loop() {
+  char* color = alvik.get_color_label();
+  Serial.print("Detected color: ");
+  Serial.println(color);
+  delay(500);
+}
+```
+
+
+
+
+### Simple Directional Control
+
+This example demonstrates very basic control over the robot's movement based on directional arrow buttons. The Alvik will drive in the direction corresponding to the arrow button pressed (up, down, left, right).
+
+- **Reference for MicroPython**
+```python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+
+alvik = ArduinoAlvik()
+alvik.begin()
+
+print("Alvik initialized")
+
+while True:
+    if alvik.get_touch_up():
+        print("Moving Up")
+        alvik.drive(100, 0, linear_unit='cm/s')
+        sleep_ms(1000)
+        alvik.brake()
+    elif alvik.get_touch_down():
+        print("Moving Down")
+        alvik.drive(-100, 0, linear_unit='cm/s')
+        sleep_ms(1000)
+        alvik.brake()
+    elif alvik.get_touch_left():
+        print("Turning Left")
+        alvik.drive(0, 100, angular_unit='deg/s')
+        sleep_ms(1000)
+        alvik.brake()
+    elif alvik.get_touch_right():
+        print("Turning Right")
+        alvik.drive(0, -100, angular_unit='deg/s')
+        sleep_ms(1000)
+        alvik.brake()
+    sleep_ms(100)
+
+```
+- **Reference for C++**
+```C
+#include "Arduino_Alvik.h"
+
+Arduino_Alvik alvik;
+
+void setup() {
+  Serial.begin(9600);
+  alvik.begin();
+  Serial.println("Alvik initialized");
+}
+
+void loop() {
+  if (alvik.get_touch_up()) {
+    Serial.println("Moving Up");
+    alvik.drive(100, 0, "cm/s");
+    delay(1000);
+    alvik.brake();
+  } else if (alvik.get_touch_down()) {
+    Serial.println("Moving Down");
+    alvik.drive(-100, 0, "cm/s");
+    delay(1000);
+    alvik.brake();
+  } else if (alvik.get_touch_left()) {
+    Serial.println("Turning Left");
+    alvik.drive(0, 100, "deg/s");
+    delay(1000);
+    alvik.brake();
+  } else if (alvik.get_touch_right()) {
+    Serial.println("Turning Right");
+    alvik.drive(0, -100, "deg/s");
+    delay(1000);
+    alvik.brake();
+  }
+  delay(100);
+}
+```
 
 ### Line Following
 
-This example demonstrates how to create a simple line-following robot. The code initializes the robot, reads sensor data to detect the line, calculates the error from the center of the line, and adjusts the robot's wheel speeds to follow the line. It also uses LEDs to indicate the direction the robot is turning.
+This example demonstrates how to create a simple line-following robot. The code initializes the Alvik, reads sensor data to detect the line, calculates the error from the center of the line, and adjusts the Alvik's wheel speeds to follow the line. It also uses LEDs to indicate the direction the robot is turning.
 
-The robot starts when the OK button is pressed and stops when the Cancel button is pressed. The robot continuously reads the line sensors, calculates the error, and adjusts the wheel speeds to correct its path.
+The Alvik starts when the OK button is pressed and stops when the Cancel button is pressed. The Alvik continuously reads the line sensors, calculates the error, and adjusts the wheel speeds to correct its path.
 
 - **Reference for MicroPython**
 
@@ -799,35 +921,7 @@ float calculate_center(const int left, const int center, const int right){
 }
 ```
 
-### Drive
 
-```C
-/*
-    This file is part of the Arduino_Alvik library.
-
-    Copyright (c) 2024 Arduino SA
-
-    This Source Code Form is subject to the terms of the Mozilla Public
-    License, v. 2.0. If a copy of the MPL was not distributed with this
-    file, You can obtain one at http://mozilla.org/MPL/2.0/.
-    
-*/
-
-#include "Arduino_Alvik.h"
-
-Arduino_Alvik alvik;
-
-void setup() {
-  alvik.begin();
-}
-
-void loop() {
-  alvik.drive(10, 45);
-  delay(10000);
-  alvik.drive(10, -45);
-  delay(10000);
-}
-```
 
 
 ## Extras
