@@ -12,7 +12,8 @@ hardware:
 
 ## API List
 
-To access any of these functions, you need first to initialize an instance of the class **ArduinoAlvik()**.
+To access to any of these functions you need first to initialize an instance of the class **ArduinoAlvik()**.
+
 
 ```arduino
 alvik = ArduinoAlvik()
@@ -24,9 +25,7 @@ Then you can use the following functions as methods of the instance you've creat
 alvik.begin()
 ```
 
-### MicroPython Reference
-
-#### `is_on`
+### `is_on`
 
 is_on()
 
@@ -36,13 +35,14 @@ _Returns true if robot is on_
 
 - boolean: Returns true if robot is on, false if is off.
 
-#### `begin`
+### `begin`
 
 begin()
 
 _Begins all Alvik operations_
 
-#### `is_target_reached`
+
+### `is_target_reached`
 
 is_target_reached()
 
@@ -52,13 +52,14 @@ _Returns True if robot has sent an M or R acknowledgment. It also responds with 
 
 - boolean: Returns True if robot has arrived to target, False otherwise.
 
-#### `stop`
+### `stop`
 
 stop()
 
 _Stops all Alvik operations_
 
-#### `get_orientation`
+
+### `get_orientation`
 
 get_orientation()
 
@@ -70,7 +71,7 @@ _Returns the orientation of the IMU_
 - **p**: pitch value
 - **y**: yaw value
 
-#### `get_accelerations`
+### `get_accelerations`
 
 get_accelerations()
 
@@ -82,7 +83,7 @@ _Returns the 3-axial acceleration of the IMU_
 - **ay**: acceleration on y 
 - **az**: acceleration on z 
 
-#### `get_gyros`
+### `get_gyros`
 
 get_gyros()
 
@@ -94,7 +95,7 @@ _Returns the 3-axial angular acceleration of the IMU_
 - **gy**: angular acceleration on y 
 - **gz**: angular acceleration on z 
 
-#### `get_imu`
+### `get_imu`
 
 get_imu()
 
@@ -109,7 +110,7 @@ _Returns all the IMUs readouts_
 - **gy**: angular acceleration on y 
 - **gz**: angular acceleration on z 
 
-#### `get_line_sensors`
+### `get_line_sensors`
 
 get_line_sensors()
 
@@ -121,13 +122,13 @@ _Returns the line follower sensors readout_
 - **center**: center sensor readout
 - **right**: right sensor readout
 
-#### `brake`
+### `brake`
 
 brake()
 
 _Brakes the robot_
 
-#### `get_ack`
+### `get_ack`
 
 get_ack()
 
@@ -137,7 +138,7 @@ _Returns last acknowledgement_
 
 - **last_ack**: last acknowledgement value
 
-#### `get_battery_charge`
+### `get_battery_charge`
 
 get_battery_charge()
 
@@ -147,7 +148,7 @@ _Returns the battery SOC_
 
 - **battery_soc**: percentage of charge
 
-#### `get_touch_any`
+### `get_touch_any`
 
 get_touch_any()
 
@@ -157,7 +158,7 @@ _Returns true if any button is pressed_
 
 - **touch_any**: true if any button is pressed, false otherwise.
 
-#### `get_touch_ok`
+### `get_touch_ok`
 
 get_touch_ok()
 
@@ -167,7 +168,7 @@ _Returns true if ok button is pressed_
 
 - **touch_ok**: true if ok button is pressed, false otherwise.
 
-#### `get_touch_cancel`
+### `get_touch_cancel`
 
 get_touch_cancel()
 
@@ -177,7 +178,7 @@ _Returns true if cancel button is pressed_
 
 - **touch_cancel**: true if cancel button is pressed, false otherwise.
 
-#### `get_touch_center`
+### `get_touch_center`
 
 get_touch_center()
 
@@ -187,7 +188,7 @@ _Returns true if center button is pressed_
 
 - **touch_center**: true if center button is pressed, false otherwise.
 
-#### `get_touch_up`
+### `get_touch_up`
 
 get_touch_up()
 
@@ -197,7 +198,7 @@ _Returns true if up button is pressed_
 
 - **touch_up**: true if up button is pressed, false otherwise.
 
-#### `get_touch_left`
+### `get_touch_left`
 
 get_touch_left()
 
@@ -207,7 +208,7 @@ _Returns true if left button is pressed_
 
 - **touch_left**: true if left button is pressed, false otherwise.
 
-#### `get_touch_down`
+### `get_touch_down`
 
 get_touch_down()
 
@@ -217,7 +218,7 @@ _Returns true if down button is pressed_
 
 - **touch_down**: true if down button is pressed, false otherwise.
 
-#### `get_touch_right`
+### `get_touch_right`
 
 get_touch_right()
 
@@ -227,7 +228,7 @@ _Returns true if right button is pressed_
 
 - **touch_right**: true if right button is pressed, false otherwise.
 
-#### `get_color_raw`
+### `get_color_raw`
 
 get_color_raw()
 
@@ -237,7 +238,7 @@ _Returns the color sensor's raw readout_
 
 - **color**: the color sensor's raw readout
 
-#### `get_color_label`
+### `get_color_label`
 
 get_color_label()
 
@@ -247,7 +248,7 @@ _Returns the label of the color as recognized by the sensor_
 
 - **color**: the label of the color as recognized by the sensor
 
-#### `get_version`
+### `get_version`
 
 get_version()
 
@@ -257,7 +258,7 @@ _Returns the firmware version of the Alvik_
 
 - **version**: Returns the firmware version of the Alvik
 
-#### `print_status`
+### `print_status`
 
 print_status()
 
@@ -267,7 +268,7 @@ _Prints the Alvik status_
 
 - **status**: Prints the Alvik status
 
-#### `set_behaviour`
+### `set_behaviour`
 
 set_behaviour(behaviour: int)
 
@@ -277,7 +278,7 @@ _Sets the behaviour of Alvik_
 
 - **behaviour**: behaviour code
 
-#### `rotate`
+### `rotate`
 
 rotate(angle: float, unit: str = 'deg', blocking: bool = True)
 
@@ -287,9 +288,9 @@ _Rotates the robot by given angle_
 
 - **angle**: the angle value
 - **unit**: [angle unit](#the-angle-unit)
-- **blocking**: [_True_ or _False_](#blocking-or-non-blocking)
+- **blocking**:[_True_ or _False_](#blocking-or-non-blocking)
 
-#### `move`
+### `move`
 
 move(distance: float, unit: str = 'cm', blocking: bool = True)
 
@@ -301,7 +302,7 @@ _Moves the robot by given distance_
 - **unit**: the distance unit. [?](#the-distance-unit)
 - **blocking**: _True_ or _False_, [?](#blocking-or-non-blocking)
 
-#### `get_wheels_speed`
+### `get_wheels_speed`
 
 get_wheels_speed(unit: str = 'rpm')
 
@@ -316,7 +317,7 @@ get_wheels_speed(unit: str = 'rpm')
 
 _Returns the speed of the wheels_
 
-#### `set_wheels_speed`
+### `set_wheels_speed`
 
 set_wheels_speed(left_speed: float, right_speed: float, unit: str = 'rpm')
 
@@ -328,7 +329,7 @@ _Sets left/right motor speed_
 - **right_speed**: the speed value
 - **unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
 
-#### `set_wheels_position`
+### `set_wheels_position`
 
 set_wheels_position(left_angle: float, right_angle: float, unit: str = 'deg')
 
@@ -340,7 +341,8 @@ _Sets left/right motor angle_
 - **right_angle**: the angle value
 - **unit**: the angle unit, [?](#the-angle-unit)
 
-#### `get_wheels_position`
+
+### `get_wheels_position`
 
 get_wheels_position(unit: str = 'deg')
 
@@ -352,22 +354,22 @@ _Returns the angle of the wheels_
 
 **Outputs**
 
-- **angular_velocity**: speed of the wheels.
+- **angular_velocity**:	speed of the wheels.
 
-#### `drive`
+### `drive`
 
-drive(linear_velocity: float, angular_velocity: float, linear_unit: str = 'cm/s', angular_unit: str = 'deg/s')
+drive(linear_velocity: float, angular_velocity: float, linear_unit: str = 'cm/s',angular_unit: str = 'deg/s')
 
 _Drives the robot by linear and angular velocity_
 
 **Inputs**
 
 - **linear_velocity**: speed of the robot.
-- **angular_velocity**: speed of the wheels.
+- **angular_velocity**:	speed of the wheels.
 - **linear_unit**: unit of linear velocity. [?](#the-linear-speed-unit)
 - **angular_unit**: unit of rotational speed of the wheels. [?](#the-rotational-speed-unit)
 
-#### `get_drive_speed`
+### `get_drive_speed`
 
 get_drive_speed(linear_unit: str = 'cm/s', angular_unit: str = 'deg/s')
 
@@ -381,11 +383,13 @@ _Returns linear and angular velocity of the robot_
 **Outputs**
 
 - **linear_velocity**: speed of the robot.
-- **angular_velocity**: speed of the wheels.
+- **angular_velocity**:	speed of the wheels.
 
-#### `reset_pose`
 
-reset_pose(x: float, y: float, theta: float, distance_unit: str = 'cm', angle_unit: str = 'deg')
+### `reset_pose`
+
+reset_pose(x: float, y: float, theta: float, distance_unit: str = 'cm', angle_unit:
+str = 'deg')
 
 _Resets the robot pose_
 
@@ -397,7 +401,8 @@ _Resets the robot pose_
 - **distance_unit**: unit of x and y outputs, [?](#the-distance-unit)
 - **angle_unit**: unit of theta output, [?](#the-angle-unit)
 
-#### `get_pose`
+
+### `get_pose`
 
 get_pose(distance_unit: str = 'cm', angle_unit: str = 'deg')           
 
@@ -414,7 +419,7 @@ _Returns the current pose of the robot_
 - **y**
 - **theta**
 
-#### `set_servo_positions`
+### `set_servo_positions`
 
 set_servo_positions(a_position: int, b_position: int)
 
@@ -425,7 +430,7 @@ _Sets A/B servomotor angle_
 - **a_position**: position of A servomotor (0-180)
 - **b_position**: position of B servomotor (0-180)
 
-#### `set_builtin_led`
+### `set_builtin_led`
 
 set_builtin_led(value: bool)
 
@@ -435,7 +440,7 @@ _Turns on/off the builtin led_
 
 - **value**: True = ON, False = OFF
 
-#### `set_illuminator`
+### `set_illuminator`
 
 set_illuminator(value: bool)
 
@@ -445,9 +450,7 @@ _Turns on/off the illuminator led_
 
 - **value**: True = ON, False = OFF
 
-####
-
- `color_calibration`
+### `color_calibration`
 
 color_calibration(background: str = 'white')
 
@@ -457,7 +460,7 @@ _Calibrates the color sensor_
 
 - **background**: string "white" or "black"
 
-#### `rgb2hsv`
+### `rgb2hsv`
 
 rgb2hsv(r: float, g: float, b: float)
 
@@ -475,7 +478,7 @@ _Converts normalized rgb to hsv_
 - **s**: saturation value
 - **v**: brightness value
 
-#### `get_color`
+### `get_color`
 
 get_color(color_format: str = 'rgb')
 
@@ -491,7 +494,7 @@ _Returns the normalized color readout of the color sensor_
 - **g** or **s**
 - **b** or **v**
 
-#### `hsv2label`
+### `hsv2label`
 
 hsv2label(h, s, v)
 
@@ -507,7 +510,7 @@ _Returns the color label corresponding to the given normalized HSV color input_
 
 - **color label**: like "BLACK" or "GREEN", if possible, otherwise return "UNDEFINED"
 
-#### `get_distance`
+### `get_distance`
 
 get_distance(unit: str = 'cm')
 
@@ -525,7 +528,7 @@ _Returns the distance readout of the TOF sensor_
 - **center_right_tof**: 22° to the right object distance
 -  **right_tof**: 45° to the right object distance
 
-#### `get_distance_top`
+### `get_distance_top`
 
 get_distance_top(unit: str = 'cm')
 
@@ -539,7 +542,7 @@ _Returns the obstacle top distance readout_
 
 - **top_tof**: 45° to the top object distance
 
-#### `get_distance_bottom`
+### `get_distance_bottom`
 
 get_distance_bottom(unit: str = 'cm')
 
@@ -553,7 +556,7 @@ _Returns the obstacle bottom distance readout_
 
 - **bottom_tof**: 45° to the bottom object distance
 
-#### `on_touch_ok_pressed`
+### `on_touch_ok_pressed`
 
 on_touch_ok_pressed(callback: callable, args: tuple = ())
 
@@ -564,7 +567,7 @@ _Register callback when touch button OK is pressed_
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
 
-#### `on_touch_cancel_pressed`
+### `on_touch_cancel_pressed`
 
 on_touch_cancel_pressed(callback: callable, args: tuple = ())
 
@@ -575,7 +578,7 @@ _Register callback when touch button CANCEL is pressed_
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
 
-#### `on_touch_center_pressed`
+### `on_touch_center_pressed`
 
 on_touch_center_pressed(callback: callable, args: tuple = ())
 
@@ -586,7 +589,7 @@ _Register callback when touch button CENTER is pressed_
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
 
-#### `on_touch_up_pressed`
+### `on_touch_up_pressed`
 
 on_touch_up_pressed(callback: callable, args: tuple = ())
 
@@ -597,7 +600,7 @@ _Register callback when touch button UP is pressed_
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
 
-#### `on_touch_left_pressed`
+### `on_touch_left_pressed`
 
 on_touch_left_pressed(callback: callable, args: tuple = ())
 
@@ -608,7 +611,7 @@ _Register callback when touch button LEFT is pressed_
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
 
-#### `on_touch_down_pressed`
+### `on_touch_down_pressed`
 
 on_touch_down_pressed(callback: callable, args: tuple = ())
 
@@ -619,7 +622,7 @@ _Register callback when touch button DOWN is pressed_
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
 
-#### `on_touch_right_pressed`
+### `on_touch_right_pressed`
 
 on_touch_right_pressed(callback: callable, args: tuple = ())
 
@@ -630,939 +633,201 @@ _Register callback when touch button RIGHT is pressed_
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
 
-### C Reference
 
-To access any of these functions in C, you need first to initialize an instance of the class **ArduinoAlvik()**.
+## Examples
 
-```c
-ArduinoAlvik alvik;
-alvik.begin();
+### Line Following
+
+This example demonstrates how to create a simple line-following robot. The code initializes the robot, reads sensor data to detect the line, calculates the error from the center of the line, and adjusts the robot's wheel speeds to follow the line. It also uses LEDs to indicate the direction the robot is turning.
+
+The robot starts when the OK button is pressed and stops when the Cancel button is pressed. The robot continuously reads the line sensors, calculates the error, and adjusts the wheel speeds to correct its path.
+
+- **Reference for MicroPython**
+
+```python
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+import sys
+
+
+def calculate_center(left: int, center: int, right: int):
+    centroid = 0
+    sum_weight = left + center + right
+    sum_values = left + 2 * center + 3 * right
+    if sum_weight != 0:
+        centroid = sum_values / sum_weight
+        centroid = 2 - centroid
+    return centroid
+
+
+alvik = ArduinoAlvik()
+alvik.begin()
+
+error = 0
+control = 0
+kp = 50.0
+
+alvik.left_led.set_color(0, 0, 1)
+alvik.right_led.set_color(0, 0, 1)
+
+while alvik.get_touch_ok():
+    sleep_ms(50)
+
+while not alvik.get_touch_ok():
+    sleep_ms(50)
+
+try:
+    while True:
+        while not alvik.get_touch_cancel():
+
+            line_sensors = alvik.get_line_sensors()
+            print(f' {line_sensors}')
+
+            error = calculate_center(*line_sensors)
+            control = error * kp
+
+            if control > 0.2:
+                alvik.left_led.set_color(1, 0, 0)
+                alvik.right_led.set_color(0, 0, 0)
+            elif control < -0.2:
+                alvik.left_led.set_color(1, 0, 0)
+                alvik.right_led.set_color(0, 0, 0)
+            else:
+                alvik.left_led.set_color(0, 1, 0)
+                alvik.right_led.set_color(0, 1, 0)
+
+            alvik.set_wheels_speed(30 - control, 30 + control)
+            sleep_ms(100)
+
+        while not alvik.get_touch_ok():
+            alvik.left_led.set_color(0, 0, 1)
+            alvik.right_led.set_color(0, 0, 1)
+            alvik.brake()
+            sleep_ms(100)
+
+except KeyboardInterrupt as e:
+    print('over')
+    alvik.stop()
+    sys.exit()
 ```
 
-Then you can use the following functions as methods of the instance you've created, for example:
+- **Reference for C++**
 
-```c
-alvik.begin();
-```
+```C
+/*
+    This file is part of the Arduino_Alvik library.
 
-#### `is_on`
+    Copyright (c) 2024 Arduino SA
 
-is_on()
+    This Source Code Form is subject to the terms of the Mozilla Public
+    License, v. 2.0. If a copy of the MPL was not distributed with this
+    file, You can obtain one at http://mozilla.org/MPL/2.0/.
+    
+*/
 
-_Returns true if robot is on_
+#include "Arduino_Alvik.h"
 
-**Outputs**
+Arduino_Alvik alvik;
 
-- bool: Returns true if robot is on, false if is off.
+int line_sensors[3];
+float error = 0;
+float control = 0;
+float kp = 50.0;
 
-```c
-bool is_on() {
-    // Your implementation
+
+
+void setup() {
+  Serial.begin(115200);
+  while((!Serial)&&(millis()>3000));
+  alvik.begin();
+  alvik.left_led.set_color(0,0,1);
+  alvik.right_led.set_color(0,0,1);
+
+  while(!alvik.get_touch_ok()){
+    delay(50);
+  }
+}
+
+void loop() {
+  while (!alvik.get_touch_cancel()){
+
+    alvik.get_line_sensors(line_sensors[0], line_sensors[1], line_sensors[2]);
+    Serial.print(line_sensors[0]);
+    Serial.print("\t");
+    Serial.print(line_sensors[1]);
+    Serial.print("\t");
+    Serial.print(line_sensors[2]);
+    Serial.print("\n");
+    error = calculate_center(line_sensors[0], line_sensors[1], line_sensors[2]);
+    control = error * kp;
+    if (control > 0.2){
+      alvik.left_led.set_color(1,0,0);
+      alvik.right_led.set_color(0,0,0);
+    }
+    else{
+      if (control < -0.2){
+        alvik.left_led.set_color(0,0,0);
+        alvik.right_led.set_color(1,0,0);
+      }
+      else{
+        alvik.left_led.set_color(0,1,0);
+        alvik.right_led.set_color(0,1,0);
+      }
+    }
+
+    alvik.set_wheels_speed(30-control, 30+control);
+    delay(100);
+  }
+  
+  while (!alvik.get_touch_ok()){
+    alvik.left_led.set_color(0,0,1);
+    alvik.right_led.set_color(0,0,1);
+    alvik.brake();
+    delay(100);
+  }
+}
+
+float calculate_center(const int left, const int center, const int right){
+  float centroid = 0.0; 
+  float sum_weight = left + center + right;
+  float sum_values = left + center * 2 + right * 3;
+  if (sum_weight!=0.0){                                                         // divide by zero protection
+    centroid=sum_values/sum_weight;
+    centroid=-centroid+2.0;                                                     // so it is right on robot axis Y
+  }
+  return centroid;
 }
 ```
 
-#### `begin`
+### Drive
 
-begin()
+```C
+/*
+    This file is part of the Arduino_Alvik library.
 
-_Begins all Alvik operations_
+    Copyright (c) 2024 Arduino SA
 
-```c
-void begin() {
-    // Your implementation
+    This Source Code Form is subject to the terms of the Mozilla Public
+    License, v. 2.0. If a copy of the MPL was not distributed with this
+    file, You can obtain one at http://mozilla.org/MPL/2.0/.
+    
+*/
+
+#include "Arduino_Alvik.h"
+
+Arduino_Alvik alvik;
+
+void setup() {
+  alvik.begin();
+}
+
+void loop() {
+  alvik.drive(10, 45);
+  delay(10000);
+  alvik.drive(10, -45);
+  delay(10000);
 }
 ```
-
-#### `is_target_reached`
-
-is_target_reached()
-
-_Returns True if robot has sent an M or R acknowledgment. It also responds with an ack received message_
-
-**Outputs**
-
-- bool: Returns True if robot has arrived to target, False otherwise.
-
-```c
-bool is_target_reached() {
-    // Your implementation
-}
-```
-
-#### `stop`
-
-stop()
-
-_Stops all Alvik operations_
-
-```c
-void stop() {
-    // Your implementation
-}
-```
-
-#### `get_orientation`
-
-get_orientation()
-
-_Returns the orientation of the IMU_
-
-**Outputs**
-
-- float r: roll value
-- float p: pitch value
-- float y: yaw value
-
-```c
-void get_orientation(float *r, float *p, float *y) {
-    // Your implementation
-}
-```
-
-#### `get_accelerations`
-
-get_accelerations()
-
-_Returns the 3-axial acceleration of the IMU_
-
-**Outputs**
-
-- float ax: acceleration on x 
-- float ay: acceleration on y 
-- float az: acceleration on z 
-
-```c
-void get_accelerations(float *ax, float *ay, float *az) {
-    // Your implementation
-}
-```
-
-#### `get_gyros`
-
-get_gyros()
-
-_Returns the 3-axial angular acceleration of the IMU_
-
-**Outputs**
-
-- float gx: angular acceleration on x 
-- float gy: angular acceleration on y 
-- float gz: angular acceleration on z 
-
-```c
-void get_gyros(float *gx, float *gy, float *gz) {
-    // Your implementation
-}
-```
-
-#### `get_imu`
-
-get_imu()
-
-_Returns all the IMUs readouts_
-
-**Outputs**
-
-- float ax: acceleration on x 
-- float ay: acceleration on y 
-- float az: acceleration on z 
-- float gx: angular acceleration on x 
-- float gy: angular acceleration on y 
-- float gz: angular acceleration on z 
-
-```c
-void get_imu(float *ax, float *ay, float *az, float *gx, float *gy, float *gz) {
-    // Your implementation
-}
-```
-
-#### `get_line_sensors`
-
-get_line_sensors()
-
-_Returns the line follower sensors readout_
-
-**Outputs**
-
-- int left: left sensor readout
-- int center: center sensor readout
-- int right: right sensor readout
-
-```c
-void get_line_sensors(int *left, int *center, int *right) {
-    // Your implementation
-}
-```
-
-#### `brake`
-
-brake()
-
-_Brakes the robot_
-
-```c
-void brake() {
-    // Your implementation
-}
-```
-
-#### `get_ack`
-
-get_ack()
-
-_Returns last acknowledgement_
-
-**Outputs**
-
-- int last_ack: last acknowledgement value
-
-```c
-int get_ack() {
-    // Your implementation
-}
-```
-
-#### `get_battery_charge`
-
-get_battery_charge()
-
-_Returns the battery SOC_
-
-**Outputs**
-
-- float battery_soc: percentage of charge
-
-```c
-float get_battery_charge() {
-    // Your implementation
-}
-```
-
-#### `get_touch_any`
-
-get_touch_any()
-
-_Returns true if any button is pressed_
-
-**Outputs**
-
-- bool touch_any: true if any button is pressed, false otherwise.
-
-```c
-bool get_touch_any() {
-    // Your implementation
-}
-```
-
-#### `get_touch_ok`
-
-get_touch_ok()
-
-_Returns true if ok button is pressed_
-
-**Outputs**
-
-- bool touch_ok: true if ok button is pressed, false otherwise.
-
-```c
-bool get_touch_ok() {
-    // Your implementation
-}
-```
-
-#### `get_touch_cancel`
-
-get_touch_cancel()
-
-_Returns true if cancel button is pressed_
-
-**Outputs**
-
-- bool touch_cancel: true if cancel button is pressed, false otherwise.
-
-```c
-bool get_touch_cancel() {
-    // Your implementation
-}
-```
-
-#### `get_touch_center`
-
-get_touch_center()
-
-_Returns true if center button is pressed_
-
-**Outputs**
-
-- bool touch_center: true if center button is pressed, false otherwise.
-
-```c
-bool get_touch_center() {
-    // Your implementation
-}
-```
-
-#### `get_touch_up`
-
-get_touch_up()
-
-_Returns true if up button is pressed_
-
-**Outputs**
-
-- bool touch_up: true if up button is pressed, false otherwise.
-
-```c
-bool get_touch_up() {
-    // Your implementation
-}
-```
-
-#### `get_touch_left`
-
-get_touch_left()
-
-_Returns true if left button is pressed_
-
-**Outputs**
-
-- bool touch_left: true if left button is pressed, false otherwise.
-
-```c
-bool get_touch_left() {
-    // Your implementation
-}
-```
-
-#### `get_touch_down`
-
-get_touch_down()
-
-_Returns true if down button is pressed_
-
-**Outputs**
-
-
-
-- bool touch_down: true if down button is pressed, false otherwise.
-
-```c
-bool get_touch_down() {
-    // Your implementation
-}
-```
-
-#### `get_touch_right`
-
-get_touch_right()
-
-_Returns true if right button is pressed_
-
-**Outputs**
-
-- bool touch_right: true if right button is pressed, false otherwise.
-
-```c
-bool get_touch_right() {
-    // Your implementation
-}
-```
-
-#### `get_color_raw`
-
-get_color_raw()
-
-_Returns the color sensor's raw readout_
-
-**Outputs**
-
-- int color: the color sensor's raw readout
-
-```c
-int get_color_raw() {
-    // Your implementation
-}
-```
-
-#### `get_color_label`
-
-get_color_label()
-
-_Returns the label of the color as recognized by the sensor_
-
-**Outputs**
-
-- char* color: the label of the color as recognized by the sensor
-
-```c
-const char* get_color_label() {
-    // Your implementation
-}
-```
-
-#### `get_version`
-
-get_version()
-
-_Returns the firmware version of the Alvik_
-
-**Outputs**
-
-- char* version: Returns the firmware version of the Alvik
-
-```c
-const char* get_version() {
-    // Your implementation
-}
-```
-
-#### `print_status`
-
-print_status()
-
-_Prints the Alvik status_
-
-**Outputs**
-
-- char* status: Prints the Alvik status
-
-```c
-void print_status() {
-    // Your implementation
-}
-```
-
-#### `set_behaviour`
-
-set_behaviour(int behaviour)
-
-_Sets the behaviour of Alvik_
-
-**Inputs**
-
-- int behaviour: behaviour code
-
-```c
-void set_behaviour(int behaviour) {
-    // Your implementation
-}
-```
-
-#### `rotate`
-
-rotate(float angle, const char* unit = "deg", bool blocking = true)
-
-_Rotates the robot by given angle_
-
-**Inputs**
-
-- float angle: the angle value
-- const char* unit: angle unit
-- bool blocking: true or false
-
-```c
-void rotate(float angle, const char* unit = "deg", bool blocking = true) {
-    // Your implementation
-}
-```
-
-#### `move`
-
-move(float distance, const char* unit = "cm", bool blocking = true)
-
-_Moves the robot by given distance_
-
-**Inputs**
-
-- float distance: the distance value
-- const char* unit: the distance unit
-- bool blocking: true or false
-
-```c
-void move(float distance, const char* unit = "cm", bool blocking = true) {
-    // Your implementation
-}
-```
-
-#### `get_wheels_speed`
-
-get_wheels_speed(const char* unit = "rpm")
-
-**Inputs**
-
-- const char* unit: unit of rotational speed of the wheels
-
-**Outputs**
-
-- float left_wheel_speed: the speed value
-- float right_wheel_speed: the speed value
-
-_Returns the speed of the wheels_
-
-```c
-void get_wheels_speed(float *left_wheel_speed, float *right_wheel_speed, const char* unit = "rpm") {
-    // Your implementation
-}
-```
-
-#### `set_wheels_speed`
-
-set_wheels_speed(float left_speed, float right_speed, const char* unit = "rpm")
-
-_Sets left/right motor speed_
-
-**Inputs**
-
-- float left_speed: the speed value
-- float right_speed: the speed value
-- const char* unit: unit of rotational speed of the wheels
-
-```c
-void set_wheels_speed(float left_speed, float right_speed, const char* unit = "rpm") {
-    // Your implementation
-}
-```
-
-#### `set_wheels_position`
-
-set_wheels_position(float left_angle, float right_angle, const char* unit = "deg")
-
-_Sets left/right motor angle_
-
-**Inputs**
-
-- float left_angle: the angle value
-- float right_angle: the angle value
-- const char* unit: the angle unit
-
-```c
-void set_wheels_position(float left_angle, float right_angle, const char* unit = "deg") {
-    // Your implementation
-}
-```
-
-#### `get_wheels_position`
-
-get_wheels_position(const char* unit = "deg")
-
-_Returns the angle of the wheels_
-
-**Inputs**
-
-- const char* unit: unit of rotational speed of the wheels
-
-**Outputs**
-
-- float angular_velocity: speed of the wheels
-
-```c
-void get_wheels_position(float *angular_velocity, const char* unit = "deg") {
-    // Your implementation
-}
-```
-
-#### `drive`
-
-drive(float linear_velocity, float angular_velocity, const char* linear_unit = "cm/s", const char* angular_unit = "deg/s")
-
-_Drives the robot by linear and angular velocity_
-
-**Inputs**
-
-- float linear_velocity: speed of the robot
-- float angular_velocity: speed of the wheels
-- const char* linear_unit: unit of linear velocity
-- const char* angular_unit: unit of rotational speed of the wheels
-
-```c
-void drive(float linear_velocity, float angular_velocity, const char* linear_unit = "cm/s", const char* angular_unit = "deg/s") {
-    // Your implementation
-}
-```
-
-#### `get_drive_speed`
-
-get_drive_speed(const char* linear_unit = "cm/s", const char* angular_unit = "deg/s")
-
-_Returns linear and angular velocity of the robot_
-
-**Inputs**
-
-- const char* linear_unit: unit of linear velocity
-- const char* angular_unit: unit of rotational speed of the wheels
-
-**Outputs**
-
-- float linear_velocity: speed of the robot
-- float angular_velocity: speed of the wheels
-
-```c
-void get_drive_speed(float *linear_velocity, float *angular_velocity, const char* linear_unit = "cm/s", const char* angular_unit = "deg/s") {
-    // Your implementation
-}
-```
-
-#### `reset_pose`
-
-reset_pose(float x, float y, float theta, const char* distance_unit = "cm", const char* angle_unit = "deg")
-
-_Resets the robot pose_
-
-**Inputs**
-
-- float x
-- float y
-- float theta
-- const char* distance_unit: unit of x and y outputs
-- const char* angle_unit: unit of theta output
-
-```c
-void reset_pose(float x, float y, float theta, const char* distance_unit = "cm", const char* angle_unit = "deg") {
-    // Your implementation
-}
-```
-
-#### `get_pose`
-
-get_pose(const char* distance_unit = "cm", const char* angle_unit = "deg")
-
-_Returns the current pose of the robot_
-
-**Inputs**
-
-- const char* distance_unit: unit of x and y outputs
-- const char* angle_unit: unit of theta output
-
-**Outputs**
-
-- float x
-- float y
-- float theta
-
-```c
-void get_pose(float *x, float *y, float *theta, const char* distance_unit = "cm", const char* angle_unit = "deg") {
-    // Your implementation
-}
-```
-
-#### `set_servo_positions`
-
-set_servo_positions(int a_position, int b_position)
-
-_Sets A/B servomotor angle_
-
-**Inputs**
-
-- int a_position: position of A servomotor (0-180)
-- int b_position: position of B servomotor (0-180)
-
-```c
-void set_servo_positions(int a_position, int b_position) {
-    // Your implementation
-}
-```
-
-#### `set_builtin_led`
-
-set_builtin_led(bool value)
-
-_Turns on/off the builtin led_
-
-**Inputs**
-
-- bool value: True = ON, False = OFF
-
-```c
-void set_builtin_led(bool value) {
-    // Your implementation
-}
-```
-
-#### `set_illuminator`
-
-set_illuminator(bool value)
-
-_Turns on/off the illuminator led_
-
-**Inputs**
-
-- bool value: True = ON, False = OFF
-
-```c
-void set_illuminator(bool value) {
-    // Your implementation
-}
-```
-
-#### `color_calibration`
-
-color_calibration(const char* background = "white")
-
-_Calibrates the color sensor_
-
-**Inputs**
-
-- const char* background: string "white" or "black"
-
-```c
-void color_calibration(const char* background = "white") {
-    // Your implementation
-}
-```
-
-#### `rgb2hsv`
-
-rgb2hsv(float r, float g, float b)
-
-_Converts normalized rgb to hsv_
-
-**Inputs**
-
-- float r: red value
-- float g: green value
-- float b: blue value
-
-**Outputs**
-
-- float h: hue value
-- float s: saturation value
-- float v: brightness value
-
-```c
-void rgb2hsv(float r, float g, float b, float *h, float *s, float *v) {
-    // Your implementation
-}
-```
-
-#### `get_color`
-
-get_color(const char* color_format = "rgb")
-
-_Returns the normalized color readout of the color sensor_
-
-**Inputs**
-
-- const char* color_format: rgb or hsv only
-
-**Outputs**
-
-- float r or h
-- float g or s
-- float b or v
-
-```c
-void get_color(float *r, float *g, float *b, const char* color_format = "rgb") {
-    // Your implementation
-}
-```
-
-#### `hsv2label`
-
-hsv2label(float h, float s, float v)
-
-_Returns the color label corresponding to the given normalized HSV color input_
-
-**Inputs**
-
-- float h: hue value
-- float s: saturation value
-- float v: brightness value
-
-**Outputs**
-
-- char* color label: like "BLACK" or "GREEN", if possible, otherwise return "UNDEFINED"
-
-```c
-const char* hsv2label(float h, float s, float v) {
-    // Your implementation
-}
-```
-
-#### `get_distance`
-
-get_distance(const char* unit = "cm
-
-")
-
-_Returns the distance readout of the TOF sensor_
-
-**Inputs**
-
-- const char* unit: distance output unit
-
-**Outputs**
-
-- float left_tof: 45° to the left object distance
-- float center_left_tof: 22° to the left object distance
-- float center_tof: center object distance
-- float center_right_tof: 22° to the right object distance
-- float right_tof: 45° to the right object distance
-
-```c
-void get_distance(float *left_tof, float *center_left_tof, float *center_tof, float *center_right_tof, float *right_tof, const char* unit = "cm") {
-    // Your implementation
-}
-```
-
-#### `get_distance_top`
-
-get_distance_top(const char* unit = "cm")
-
-_Returns the obstacle top distance readout_
-
-**Inputs**
-
-- const char* unit: distance output unit
-
-**Outputs**
-
-- float top_tof: 45° to the top object distance
-
-```c
-void get_distance_top(float *top_tof, const char* unit = "cm") {
-    // Your implementation
-}
-```
-
-#### `get_distance_bottom`
-
-get_distance_bottom(const char* unit = "cm")
-
-_Returns the obstacle bottom distance readout_
-
-**Inputs**
-
-- const char* unit: distance output unit
-
-**Outputs**
-
-- float bottom_tof: 45° to the bottom object distance
-
-```c
-void get_distance_bottom(float *bottom_tof, const char* unit = "cm") {
-    // Your implementation
-}
-```
-
-#### `on_touch_ok_pressed`
-
-on_touch_ok_pressed(void (*callback)(void), ...)
-
-_Register callback when touch button OK is pressed_
-
-**Inputs**
-
-- void (*callback)(void): the name of the function to recall
-- ...: optional arguments of the function
-
-```c
-void on_touch_ok_pressed(void (*callback)(void), ...) {
-    // Your implementation
-}
-```
-
-#### `on_touch_cancel_pressed`
-
-on_touch_cancel_pressed(void (*callback)(void), ...)
-
-_Register callback when touch button CANCEL is pressed_
-
-**Inputs**
-
-- void (*callback)(void): the name of the function to recall
-- ...: optional arguments of the function
-
-```c
-void on_touch_cancel_pressed(void (*callback)(void), ...) {
-    // Your implementation
-}
-```
-
-#### `on_touch_center_pressed`
-
-on_touch_center_pressed(void (*callback)(void), ...)
-
-_Register callback when touch button CENTER is pressed_
-
-**Inputs**
-
-- void (*callback)(void): the name of the function to recall
-- ...: optional arguments of the function
-
-```c
-void on_touch_center_pressed(void (*callback)(void), ...) {
-    // Your implementation
-}
-```
-
-#### `on_touch_up_pressed`
-
-on_touch_up_pressed(void (*callback)(void), ...)
-
-_Register callback when touch button UP is pressed_
-
-**Inputs**
-
-- void (*callback)(void): the name of the function to recall
-- ...: optional arguments of the function
-
-```c
-void on_touch_up_pressed(void (*callback)(void), ...) {
-    // Your implementation
-}
-```
-
-#### `on_touch_left_pressed`
-
-on_touch_left_pressed(void (*callback)(void), ...)
-
-_Register callback when touch button LEFT is pressed_
-
-**Inputs**
-
-- void (*callback)(void): the name of the function to recall
-- ...: optional arguments of the function
-
-```c
-void on_touch_left_pressed(void (*callback)(void), ...) {
-    // Your implementation
-}
-```
-
-#### `on_touch_down_pressed`
-
-on_touch_down_pressed(void (*callback)(void), ...)
-
-_Register callback when touch button DOWN is pressed_
-
-**Inputs**
-
-- void (*callback)(void): the name of the function to recall
-- ...: optional arguments of the function
-
-```c
-void on_touch_down_pressed(void (*callback)(void), ...) {
-    // Your implementation
-}
-```
-
-#### `on_touch_right_pressed`
-
-on_touch_right_pressed(void (*callback)(void), ...)
-
-_Register callback when touch button RIGHT is pressed_
-
-**Inputs**
-
-- void (*callback)(void): the name of the function to recall
-- ...: optional arguments of the function
-
-```c
-void on_touch_right_pressed(void (*callback)(void), ...) {
-    // Your implementation
-}
-```
-
 
 
 ## Extras
