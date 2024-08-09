@@ -721,7 +721,8 @@ while True:
 
 ```
 - **Reference for C++**
-```C
+  
+```c
 #include "Arduino_Alvik.h"
 
 Arduino_Alvik alvik;
@@ -835,7 +836,7 @@ except KeyboardInterrupt as e:
 
 - **Reference for C++**
 
-```C
+```c
 /*
     This file is part of the Arduino_Alvik library.
 
