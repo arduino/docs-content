@@ -24,5 +24,12 @@ The Modulino® connects to your UNO R4 WiFi with Qwiic cables, letting you focus
 
 </Feature>
 
+<Feature title="Documentation and Projects" image="core">
+The kit also includes 7 example projects for you to learn important programming concepts and get inspired.
+<FeatureWrapper>
+  <FeatureLink title="Documentation" url="https://courses.arduino.cc/plugandmake/"/>
+</FeatureWrapper>
+</Feature>
+
 
 </FeatureList>
