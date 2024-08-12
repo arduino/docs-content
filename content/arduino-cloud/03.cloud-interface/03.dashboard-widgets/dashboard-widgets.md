@@ -451,4 +451,4 @@ if(valueDropDown == "string"){
 
 ![Image widget](assets/widget-image.png)
 
-Use the image widget to put a JPG, PNG or WEBP image on your dashboard! The image can be made to fill the widget frame or to fit within the widget frame. A grey background can be added to the widget to help with visibility issues for PNGs with transparent backgrounds.
+Use the image widget to put a JPG, PNG or WEBP image on your dashboard! If you instead want to use an image URL, then chose the URL option under image source. Keep in mind the URL needs to be a HTTPS URL and not a HTTP URL. It is also possible to use local addresses. If you are using the URL option you can add a refresh frequency to the image widget, enabling the widget to function as a video or moving image. The image will then update  The image can be made to fill the widget frame or to fit within the widget frame. A grey background can be added to the widget to help with visibility issues for PNGs with transparent backgrounds.
