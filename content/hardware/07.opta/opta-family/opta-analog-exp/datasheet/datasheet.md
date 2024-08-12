@@ -214,7 +214,7 @@ The Analog Expansion features eight user-programmable LEDs ideal for status repo
 
 The following diagram explains the relation between the main components of the Opta® Analog Expansion:
 
-![Block diagram](assets/Opta_Digital_EXP_Block_Diagram.svg)
+![Block diagram](assets/Opta_Analog_EXP_Block_Diagram.svg)
 
 ### Input/Output Channels
 
@@ -334,6 +334,8 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 ## Revision History
 
-| Date       | **Revision** | **Changes**   |
-| ---------- | ------------ | ------------- |
-| 25/07/2024 | 1            | First Release |
+|  **Date**  | **Revision** |      **Changes**      |
+| :--------: | :----------: | :-------------------: |
+| 05/07/2024 |      2       | Block Diagram updated |
+| 25/07/2024 |      1       |     First Release     |
+
