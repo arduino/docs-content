@@ -171,7 +171,7 @@ The polarity of the stop bit(s) can vary, with some systems using a high stop bi
 
 ## Serial USB Examples
 
-To send data between an Arduino and a computer, you will need to the board to a computer with a **USB cable**. 
+To send data between an Arduino and a computer, you will need to connect the board to a computer with a **USB cable**. 
 
 ### Basic Print Example
 
