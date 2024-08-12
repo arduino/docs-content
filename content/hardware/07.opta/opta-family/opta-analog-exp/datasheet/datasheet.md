@@ -27,16 +27,16 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 ## Features
 ### General Specifications Overview
 
-| Characteristics             | Details                                                                                                                                                                                                                                        |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Supply Voltage              | 12...24 V                                                                                                                                                                                                                                      |
-| Reverse polarity protection | Yes                                                                                                                                                                                                                                            |
-| ESP protection              | Yes                                                                                                                                                                                                                                            |
-| Overvoltage protection      | Yes (up to 40 V)                                                                                                                                                                                                                               |
-| Channels                    | 8x: I1, I2, I3, I4, O1, I5, I6, O2                                                                                                                                                                                                             |
-| Channels functionalities    | I1 and I2: Programmable inputs (Voltage, Current, RTD2 wires, RTD3 wires), Programmable outputs (Voltage and current) - I3, I4, O1, I5, I6, O2: Programmable inputs (Voltage, Current, RTD2 wires), Programmable outputs (Voltage and current) |
-| Degree of Protection        | IP20                                                                                                                                                                                                                                           |
-| Certifications              | FCC, CE, UKCA, cULus, ENEC                                                                                                                                                                                                                     |
+| Characteristics                  | Details                                                                                                                                                                                                                                        |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Supply Voltage                   | 12...24 V                                                                                                                                                                                                                                      |
+| Reverse polarity protection      | Yes                                                                                                                                                                                                                                            |
+| ESP protection                   | Yes                                                                                                                                                                                                                                            |
+| Transient overvoltage protection | Yes (up to 40 V)                                                                                                                                                                                                                               |
+| Channels                         | 8x: I1, I2, I3, I4, O1, I5, I6, O2                                                                                                                                                                                                             |
+| Channels functionalities         | I1 and I2: Programmable inputs (Voltage, Current, RTD2 wires, RTD3 wires), Programmable outputs (Voltage and current) - I3, I4, O1, I5, I6, O2: Programmable inputs (Voltage, Current, RTD2 wires), Programmable outputs (Voltage and current) |
+| Degree of Protection             | IP20                                                                                                                                                                                                                                           |
+| Certifications                   | FCC, CE, UKCA, cULus, ENEC                                                                                                                                                                                                                     |
 
 <div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
 <strong>Note:</strong> Check the inputs and outputs detailed sections below for more information about the Analog Expansion channels use. 
@@ -49,16 +49,10 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 | Number of channels              | 8x                                                    |
 | Channels programmable as inputs | I1, I2, I3, I4, O1, I5, I6, O2                        |
 | Type of inputs accepted         | Digital Voltage and Analog (Voltage, Current and RTD) |
-| Inputs overvoltage protection   | Yes (Up to 40 V)                                      |
+| Inputs overvoltage protection   | Yes                                                   |
 | Antipolarity protection         | No                                                    |
 | Analog Input resolution         | 16 bits                                               |
 | Noise Rejection                 | Optional noise rejection between 50 Hz and 60 Hz      |
-| test                            | fjskfj                                                |
-|                                 | fjd                                                   |
-|                                 | fjdklsfjd                                             |
-|                                 | fejdsklfakd                                           |
-|                                 |                                                       |
-
 
 
 #### Voltage Input Mode
@@ -157,10 +151,10 @@ The Analog Expansion has four PWM output channels **(P1...P4)**. They are softwa
 
 | V<sub>PWM</sub> Voltage  | Details               |
 | ------------------------ | --------------------- |
-| Source voltage supported | 8...40 VDC            |
+| Source voltage supported | 8...24 VDC            |
 | Period                   | Programmable          |
 | Duty-cycle               | Programmable (0-100%) |
-|                          |                       |
+
 
 #### Status LEDs
 
@@ -228,7 +222,7 @@ We have tested setting all eight channels as outputs at 25 °C outputting more t
 <strong>Warning:</strong> In case the user needs a configuration with a deviation from the suggested one, will need to validate the system performance and stability before a deployment into a production environment.
 </div>
 
-The PWM outputs are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage between 8 and 40 VDC, you can set the period and duty-cycle by software.
+The PWM outputs are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage between 8 and 24 VDC, you can set the period and duty-cycle by software.
 
 ### Expansion Port
 The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To be accessed needs to be freed up from its breakable plastic cover and the connection plug added between each device.
