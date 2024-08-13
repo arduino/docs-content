@@ -29,6 +29,9 @@ The goals of this tutorial are:
 
 - [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485), or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
+- [PLC IDE](https://www.arduino.cc/pro/software-plc-ide)
+
+***To ensure a fully functional experience with the PLC IDE and the Opta or the Portenta Machine Control we recommend first following the [Memory Partitioning tutorial](https://docs.arduino.cc/tutorials/opta/memory-partitioning/).***
 
 ### Arduino PLC IDE User Manual
 
