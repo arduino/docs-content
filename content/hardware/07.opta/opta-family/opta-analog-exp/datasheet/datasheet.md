@@ -51,7 +51,7 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 | Type of inputs accepted         | Digital Voltage and Analog (Voltage, Current and RTD) |
 | Inputs overvoltage protection   | Yes                                                   |
 | Antipolarity protection         | No                                                    |
-| Analog Input resolution         | 16 bits                                               |
+| Analog Input resolution         | 16 bit                                               |
 | Noise Rejection                 | Optional noise rejection between 50 Hz and 60 Hz      |
 
 
@@ -111,7 +111,7 @@ RTD with 3 wires has generally two wires with the same color.
 | Number of channels                  | 8x, (2x used simultaneously recommended) |
 | Channels programmable as outputs    | I1, I2, I3, I4, O1, I5, I6, O2           |
 | Type of outputs supported           | Analog voltage and current               |
-| DAC resolution                      | 13 bits                                  |
+| DAC resolution                      | 13 bit                                  |
 | Charge pump for zero voltage output | Yes                                      |
 
 ***All eight analog channels can be used as outputs but due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time.***
