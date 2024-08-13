@@ -31,7 +31,7 @@ The goals of this tutorial are:
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 - [PLC IDE](https://www.arduino.cc/pro/software-plc-ide)
 
-***To ensure a fluent and functional experience with the PLC IDE we recommend first following the [Memory Partitioning tutorial](https://docs.arduino.cc/tutorials/opta/memory-partitioning/) to set up your Opta or Portenta Machine Control.***
+***If you have previously used your Opta or Portenta Machine Control with the Arduino IDE, or it is your first use, you must follow the [Memory Partitioning tutorial](https://docs.arduino.cc/tutorials/opta/memory-partitioning/) to ensure a fluent and functional experience with the PLC IDE.***
 
 ### Arduino PLC IDE User Manual
 
