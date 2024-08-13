@@ -95,7 +95,7 @@ Install the latest versions of the following libraries required for Modbus TCP c
 - [**ArduinoModbus**](https://github.com/arduino-libraries/ArduinoModbus)
 - [**ArduinoRS485**](https://github.com/arduino-libraries/ArduinoRS485)
 
-You can easily install the libraries through the Library Manager of the Arduino IDE. The IDE's Library manager can be accessed using the **ctrl+shif+i** shortcut, by navigating to **Tools > Manage Libraries...**, or by navigating to the IDE's left panel and selecting the Library Manager icon (third option from the top).
+You can easily install the libraries through the Library Manager of the Arduino IDE. The IDE's Library manager can be accessed using the **ctrl + shift + i** shortcut, by navigating to **Tools > Manage Libraries...**, or by navigating to the IDE's left panel and selecting the Library Manager icon (third option from the top).
 
 ### Connecting the Opta™ Over Ethernet LAN
 
