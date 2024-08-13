@@ -27,7 +27,7 @@ Connectivity:
     ModBus TCP: Yes
   Bluetooth® Low Energy: Arduino Opta® WiFi Only
   Wi-Fi®: Arduino Opta® WiFi Only
-Communication interface:
+Communication interfaces:
   RS-485: Arduino Opta® RS485 & Arduino Opta® WiFi Only
   Programmable Serial ports: RS-485
 Power:
