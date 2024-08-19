@@ -13,7 +13,7 @@ hardware:
 ## API List
 
 To access to any of these functions you need first to initialize an instance of the class **ArduinoAlvik()**.
-
+This reference is usefull for both MicroPython and C++ enviroments as the functions were all created to have the same form across development enviroments meaning your experience should be easy to carry both options.
 
 ```arduino
 alvik = ArduinoAlvik()
