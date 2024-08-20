@@ -68,9 +68,6 @@ jobs:
       - name: Clean up node_modules
         run: rm -rf node_modules
 
-      - name: Clean up workspace
-        run: sudo rm -rf /home/runner/work/* /home/runner/_work/* /tmp/*
-
       - name: Configure AWS credentials from Staging account
         uses: aws-actions/configure-aws-credentials@v4
         with:
