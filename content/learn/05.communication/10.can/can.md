@@ -6,12 +6,7 @@ tags: [CAN Bus, Communication Protocols]
 hardware:
   - hardware/01.mkr/01.boards/mkr-wifi-1010
   - hardware/02.hero/boards/uno-r4-wifi
-  - hardware/03.nano/boards/nano-every
-  - hardware/03.nano/boards/nano-33-iot
-  - hardware/04.pro/boards/portenta-h7
-  - hardware/04.pro/boards/portenta-h7-lite-connected
-  - hardware/05.pro-solutions/solutions-and-kits/portenta-machine-control
-  - hardware/10.mega/boards/giga-r1-wifi
+  - hardware/10.mega/boards/due
 software:
   - ide-v1
   - ide-v2
@@ -43,8 +38,8 @@ If you want to jump straight to the examples click [here](#examples) or go to th
     - [Origin and Purpose](#origin-and-purpose)
     - [Timeline of Standards](#timeline-of-standards)
 - [Examples](#examples)
-  - [Arduino UNO R4 WiFi CAN Bus](https://docs.arduino.cc/tutorials/uno-r4-wifi/can/)
-  - [Sending Data Between Two MKR CAN Shields](https://docs.arduino.cc/tutorials/mkr-can-shield/mkr-can-communication/)
+  - [Arduino UNO R4 WiFi CAN Bus](#arduino-uno-r4-wifi-can-bus)
+  - [Sending Data Between Two MKR CAN Shields](#sending-data-between-two-mkr-can-shields)
 
 ## CAN Class
 
@@ -72,9 +67,8 @@ The default pins on an Arduino board are CAN High and CAN Low. See table below f
 
 | Board / Shield | CAN0_RX   | CAN0_TX   | CAN1_RX | CAN1_TX |
 | -------------- | --------- | --------- | ------- | ------- |
-| UNO R4 WiFi    | D13       | D10       |         |         |
+| UNO R4         | D13       | D10       |         |         |
 | DUE            | D68       | D69       | D66     | D53     |
-| Portenta X8    | 52 (J1)   | 50 (J1)   | 49 (J1) | 51 (J1) |
 | MKR CAN Shield | dedicated | dedicated |         |         |
 
 ## Technical Specifications
@@ -226,10 +220,10 @@ Despite being asynchronous, CAN ensures precise timing synchronization between n
 
 Bit timing is divided into **Time Quanta (TQ)**, which are the smallest units of time in CAN communication. The total number of TQ in a bit period defines the bit timing, adjusted to ensure high reliability in communication.
 
-In your code you set the BitRate like so:
+In your code, you set the bit rate like so:
 
 ```arduino
-CAN.begin(CanBitRate::BR_250k)
+CAN.begin(CanBitRate::BR_250k);
 ```
 
 ### Termination Resistors
