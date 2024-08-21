@@ -9,7 +9,7 @@ Are you sticking to the desktop Arduino IDE because all your work is saved local
 
 Once your sketchbook is online it will be available on any device and backed up.
 
-![import_sketch_and_library_gif_1](assets/import_sketch_and_library_gif_1.gif)
+![Import sketch from file](./assets/sketchImport.gif)
 
 What can you import to the [Web Editor](https://create.arduino.cc/editor)?
 
@@ -31,16 +31,14 @@ On your PC find out where your sketchbook folder is (it is called `‘Arduino’
 
 Make a `.zip` pack of your sketchbook, you should obtain a file called *Arduino.zip*. Make sure it is `.zip` format, any other archive formats will not work.
 
-![import_sketch_and_library_img_1](assets/import_sketch_and_library_img_1.jpg)
-![import_sketch_and_library_img_2](assets/import_sketch_and_library_img_2.jpg)
+![Compress sketchbook](assets/import_sketch_and_library_img_1.jpg)
+![Sketchbook zip](assets/import_sketch_and_library_img_2.jpg)
 
 ### 3. Import your sketchbook to the Cloud
 
 Go to [create.arduino.cc/editor](https://create.arduino.cc/editor). For some general information on how to get started on the Web Editor see [this tutorial](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a?ref=platform&ref_id=424_trending___&offset=0). When you are logged in and ready, hit the import button on the sketchbook panel. A popup with some instructions on how to import files into the Web Editor will be displayed. Press `“Import”` to continue.
 
-![import_sketch_and_library_img_3](assets/import_sketch_and_library_img_3.jpg)
-![import_sketch_and_library_img_4](assets/import_sketch_and_library_img_4.png)
-![import_sketch_and_library_img_5](assets/import_sketch_and_library_img_5.png)
+![Importing complete sketchbook](assets/sketchbookImport.gif)
 
 You will now see a file system window, select your *Arduino.zip* pack. Wait for the import process to finish. If your sketchbook is big (containing lots of files), this may take a while.
 
@@ -53,8 +51,6 @@ If you already have sketches with the same name on the online IDE, these sketche
 
 If you have libraries in your sketchbook, another report will tell you those that got successfully imported. If you have existing custom libraries with the same names, it’ll prompt you to overwrite the existing ones. Be sure to proceed with caution!
 
-![import_sketch_and_library_img_6](assets/import_sketch_and_library_img_6.png)
-![import_sketch_and_library_img_7](assets/import_sketch_and_library_img_7.png)
 
 ### Importing a custom library
 
@@ -62,7 +58,7 @@ The Arduino community has written over 700 libraries that you can include in you
 
 But what if you want to use your own custom library on the Web IDE? Just zip your custom library and click on the 'Import' button on the Library panel.
 
-![import_sketch_and_library_img_8](assets/import_sketch_and_library_img_8.jpg)
+![Custom Library import](./assets/LibraryUpload.gif)
 
 If you want to import multiple custom libraries at once you can do so by creating a single zip file which contains all of them and just import it.
 
@@ -75,8 +71,6 @@ If you want to import multiple custom libraries at once you can do so by creatin
 * Libraries must be in a folder called “`libraries`”.
 
 * Remove backups, unrelated files and things you don’t want to import in general.
-
-![import_sketch_and_library_img_9](assets/import_sketch_and_library_img_9.jpg)
 
 Please note that **all the libraries that you have added via the Library Manager on the desktop IDE will be already available on the Web Editor without having to do anything**. If you want to see their related examples or select a specific version, look for them on the online Library Manager.
 
