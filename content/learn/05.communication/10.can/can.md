@@ -45,7 +45,7 @@ If you want to jump straight to the examples click [here](#examples) or go to th
 
 With the CAN class, you can send and receive data over a Controller Area Network (CAN) bus, enabling communication between an Arduino board and other devices in a networked environment.
 
-- The CAN class provides methods to manage CAN communication typically used with specific Arduino boards that have CAN capability, like the [Arduino UNO R4](https://store.arduino.cc/products/arduino-due) or with add-on shields such as the MKR CAN Shield.
+- The CAN class provides methods to manage CAN communication typically used with specific Arduino boards that have CAN capability, like the [Arduino UNO R4](https://store.arduino.cc/en-se/products/uno-r4-wifi) or with add-on shields such as the MKR CAN Shield.
 
 The CAN class has several essential methods:
 
@@ -75,12 +75,12 @@ The default pins on an Arduino board are CAN High and CAN Low. See table below f
 
 ### History of CAN
 
-The CAN bus, or Controller Area Network, was developed by the German company Bosch in the 1980s. Its primary purpose was to streamline communication within vehicles, enabling various microcontrollers and devices to communicate with each other without the need for a central host computer. This innovation significantly enhanced the efficiency and reliability of automotive systems, allowing for real-time data exchange and coordinated control across different vehicle components. The robustness and noise immunity of CAN made it particularly suitable for the harsh environments such as cars.
+The CAN bus, or Controller Area Network, was developed by the German company Bosch in the 1980s. Its primary purpose was to streamline communication within vehicles, enabling various microcontrollers and devices to communicate with each other without the need for a central host computer. This innovation significantly enhanced the efficiency and reliability of automotive systems, allowing for real-time data exchange and coordinated control across different vehicle components. CAN's robustness and noise immunity made it particularly suitable for harsh environments such as cars.
 
 | Name                        | Year                       | Speed                                                 |
 |-----------------------------|----------------------------|-------------------------------------------------------|
 | CAN 1.0                     | 1986                       | Up to 125 kilobits per second                         |
-| CAN 2.0                     | 1991                       | Up to 1 megabit per second                            |
+| CAN 2.0                     | 1991                       | Up to 1 Megabit per second                            |
 | CAN FD                      | 2011                       | Up to 1 Mbps (arbitration), Up to 8 Mbps (data phase) |
 | CAN XL (Extra Large)        | Ongoing (as of 08.19.24)   | Higher bit rates (in development)                     |
 
