@@ -21,6 +21,8 @@ Upgrade your industrial air compressor with smart capabilities and connect it to
 
 This affordable solution provides real-time remote data access, behavioral diagnostics, predictive maintenance, and efficient device management. It helps you maximize uptime, lower operational costs, and extend the lifespan of your equipment.
 
+**Target audience:** PLC programmers, Automation engineers, Industrial IoT engineers and Electrical engineers.
+
 ### Goals
 
 The goal of this application note is to showcase the capabilities of Opta PLC in transforming conventional industrial equipment into smart systems for monitoring and predictive maintenance purposes. The project's objectives are as follows:
@@ -56,6 +58,13 @@ The goal of this application note is to showcase the capabilities of Opta PLC in
 - The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/) to provision the Opta WiFi on the Arduino Cloud.
 - The [**Arduino Cloud**](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [**cloud.arduino.cc**](https://cloud.arduino.cc/home/?get-started=true).
 - [Application Arduino Sketches](assets/Opta_Nicla_Codes.zip)
+
+### Recommended Skills
+
+- **Electrical knowledge:** wiring and safety protocols.
+- **Programming:** basic logic understanding.
+- **Technical documentation:** reading schematics.
+- **Hands-on experience:** tool handling.
 
 ## Compressor Monitoring System Setup
 
@@ -100,13 +109,15 @@ The Nicla Sense ME uses its internal IMU to detect anomalous vibrations in the c
 
 Every sensor will be used to detect anomalies. If any measured variable exceeds its nominal range, an anomaly alert will appear in the Arduino Cloud dashboard.
 
-The sensors' nominal thresholds are defined in the code as follows:
+The sensors nominal thresholds are defined in the code as follows:
 
 ```arduino
 #define CURRENT_LIMIT 12 // in Amps
 #define PRESSURE_LIMIT 8 // in Bar
 #define TEMP_LIMIT 85 // in Celsius
 ```
+
+![Anomalies detection flowchart](assets/flowchart.png)
 
 ### Modbus TCP Data Output
 
