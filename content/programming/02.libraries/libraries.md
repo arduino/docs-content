@@ -1,27 +1,27 @@
 ---
 title: Libraries
-url: https://www.arduino.cc/reference/en/libraries/
+url: https://docs.arduino.cc/libraries/
 external: true
 icon: IconBooks
 links:
   [
     {
       title: "LiquidCrystal",
-      url: https://www.arduino.cc/reference/en/libraries/liquidcrystal/,
+      url: https://docs.arduino.cc/libraries/LiquidCrystal/
     },
     {
       title: "Servo",
-      url: https://www.arduino.cc/reference/en/libraries/servo/,
+      url: https://docs.arduino.cc/libraries/Servo/,
     },
     {
       title: "LiquidCrystal I2C",
-      url: https://www.arduino.cc/reference/en/libraries/liquidcrystal-i2c/,
+      url: https://docs.arduino.cc/libraries/LiquidCrystal%20I2C/
     },
-    { title: "WiFi", url: https://www.arduino.cc/reference/en/libraries/wifi/ },
-    { title: "SD", url: https://www.arduino.cc/reference/en/libraries/sd/ },
+    { title: "WiFi", url: https://docs.arduino.cc/libraries/WiFi/ },
+    { title: "SD", url: https://docs.arduino.cc/libraries/SD/ },
     {
       title: "Stepper",
-      url: https://www.arduino.cc/reference/en/libraries/stepper/,
+      url: https://docs.arduino.cc/libraries/Stepper/,
     },
   ]
 ---
