@@ -109,7 +109,7 @@ The Nicla Sense ME uses its internal IMU to detect anomalous vibrations in the c
 
 Every sensor will be used to detect anomalies. If any measured variable exceeds its nominal range, an anomaly alert will appear in the Arduino Cloud dashboard.
 
-The sensors nominal thresholds are defined in the code as follows:
+The sensor nominal thresholds are defined in the code as follows:
 
 ```arduino
 #define CURRENT_LIMIT 12 // in Amps
