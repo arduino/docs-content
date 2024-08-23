@@ -114,6 +114,14 @@ cd /dockerVolume
 repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b main
 ```
 
+If no specific branch is mentioned, the command could default to:
+
+```bash
+repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml
+```
+
+This would implicitly use the default branch, which is typically the *main* in repositories these days.
+
 ![Git-repo initialization](assets/repo_init.png)
 
 Proceed to download the necessary files by synchronizing the repositories:
