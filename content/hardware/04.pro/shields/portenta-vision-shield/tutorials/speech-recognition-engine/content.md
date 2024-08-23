@@ -313,7 +313,34 @@ void VRCallback(int nFlag, int nID, int nScore, int nSG, int nEnergy)
 }
 ```
 We added a `switch...case` that evaluates the `nID` variable and compares it with the different IDs.
-Inside each case add your custom code.
+Inside each case add your custom code to be executed with the trigger or commands.
+
+```arduino
+...
+      switch(nID)
+      {
+          case 100:
+            Serial.println("The Trigger was heard");
+            // Add your own code here
+            break;
+          case 10000:
+            Serial.println("The Command -read- was heard");
+            // Add your own code here
+            break;
+          case 10001:
+            Serial.println("The Command -upload- was heard");
+            // Add your own code here
+            break;
+          case 10002:
+            Serial.println("The Command -share- was heard");
+            // Add your own code here
+            break;
+          default:
+            break;
+      }
+...
+
+```
 
 
 #### Unlock Limitations (License)
