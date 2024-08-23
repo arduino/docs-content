@@ -70,6 +70,10 @@ The goal of this application note is to showcase the capabilities of Opta PLC in
 
 The electrical connections for this application are shown in the diagram below:
 
+![Instumentation diagram](assets/schematic-2.png)
+
+We are going to detail every connection below:
+
 ![Electrical connections of the monitoring system](assets/connection-diagram.png)
 
 The Opta PLC will be powered by an external 24 VDC power supply connected to its screw terminals labeled `+` and `-` respectively.
