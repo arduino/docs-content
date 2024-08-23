@@ -70,7 +70,7 @@ The goal of this application note is to showcase the capabilities of Opta PLC in
 
 The electrical connections for this application are shown in the diagram below:
 
-![Instumentation diagram](assets/schematic-2.png)
+![Instrumentation diagram](assets/schematic-2.png)
 
 We are going to detail every connection below:
 
