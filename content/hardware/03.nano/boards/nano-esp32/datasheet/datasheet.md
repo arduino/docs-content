@@ -501,7 +501,8 @@ This equipment contains a radio transmitter module with model approval code: CMI
 | 11/23/2023 | Added label to LP modes                                |
 | 23/02/2024 | Added antenna frequency to block diagram               |
 | 25/04/2024 | Updated link to new Cloud Editor                       |
-| 23/08/2024 | Add SRRC certification                                 |
+| 23/08/2024 | Added SRRC certification                                 |
+
 
 
 # 中文 (ZH)
