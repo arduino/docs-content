@@ -467,6 +467,10 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
+## SRRC
+
+This equipment contains a radio transmitter module with model approval code: CMIIT ID: 24J993CLD252 .
+
 ## Company Information
 
 | Company name    | Arduino S.r.l.                                |
@@ -953,6 +957,10 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 **重要提示:** EUT 的工作温度不能超过 85°C，也不能低于 -40°C。
 
 Arduino S.r.l. 特此声明，本产品符合 201453/EU 指令的基本要求和其他相关规定。本产品允许在所有欧盟成员国使用。
+
+## SRRC
+
+本设备包含型号核准代码为：CMIIT  ID: 24J993CLD252 的无线电发射模块。
 
 ## 公司信息
 
