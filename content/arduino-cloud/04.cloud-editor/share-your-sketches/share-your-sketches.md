@@ -19,25 +19,25 @@ When someone [shares a sketch with you](https://create.arduino.cc/editor/Arduino
   
 * Once you are successfully logged in the Cloud editor, hit the ‘New Sketch’ button and code on
   
-* When done with writing your sketch, click the **‘Share’** button on the toolbar in the editor area. Press **'Copy Link'** and you can now share your Arduino code with the rest of the world!
+* When done with writing your sketch, click the **‘Share’** button on the toolbar in the editor area. Press the **Copy** icon on the link and you can now share your Arduino code with the rest of the world!
 
-![Share button](assets/sharing_sketches_img_1.jpg)
-![Sharable link](assets/sharing_sketches_img_2.jpg)
+![Share button](assets/ShareButton.png)
+![Sharable link](assets/SharableLink.png)
 
 We will now show you three ways to do so.
 
 ### 1. Add Your Sketch to a Project Hub Tutorial
 
-![Add link to Project Hub](assets/sharing_sketches_gif_1.gif)
+![Add link to Project Hub](assets/AddLinkPH.gif)
 
 Embed your sketch and share it on Project Hub is super easy! Simply create a new project.
 
-![Add project](assets/sharing_sketches_img_3.jpg)
+![Create new project](assets/NewProject.png)
 
-Once you are done with the Story and the previous fields go to the Software tab. In the ‘Code’ section, click on **‘Link to the Arduino Cloud editor’** or **‘Link Existing Repository’**.
+Once you are done with the Story and the previous fields go to the Software tab. In the ‘Code’ section, click on **Add a link or embed**.
 
-![Link Arduino Editor](assets/sharing_sketches_img_4.jpg)
-![Adding link](assets/sharing_sketches_img_5.jpg)
+![Add link button](assets/AddLink.png)
+![Embed link menu](assets/CodeUploader.png)
 
 Give your sketch a title, add some comments and finally copy here the sketch public URL you got previously on the Cloud editor. That’s it! Your sketch is now available here and it will always be up-to-date with your latest edits. It will look like this on your tutorial page:
 
@@ -45,7 +45,7 @@ Give your sketch a title, add some comments and finally copy here the sketch pub
 
 ### 2. Share Your Sketch via a Public URL
 
-![Public URL sharing](assets/sharing_sketches_img_7.jpg)
+![Public link](assets/PublicLink.png)
 
 In the [Arduino Cloud editor](https://create.arduino.cc/editor) hit the **‘Share’** button, a popup window will be displayed. Click **‘Copy link’** to copy your sketch’s public URL on your clipboard. When you paste this URL in a new tab of your browser you will see a preview of your sketch. You won't even need to be logged in with an Arduino account, so anybody can access it.
 
@@ -53,13 +53,11 @@ The people you shared you sketch with can now download it or add it to their ske
 
 When you share a sketch with all these supporting contents (layout, schematics, tutorial...) with a friend, a colleague or in your classroom, they will have everything needed to build up from your idea and make it their own!
 
-![Public Sketchbook](assets/sharing_sketches_img_8.jpg)
-
 ### 3. Embed Your Sketch on a Web Page
 
 In the same Share popup window you can also copy your project’s related iFrame and paste it into your HTML page. You will also be able to edit its size and format in order to fit with your page design by editing the iFrame attributes.
-
-![Embed code snippet](assets/sharing_sketches_gif_2.gif)
+![Add link button](assets/AddLink.png)
+![Get embed code](assets/AddEmbed.png)
 
 ## Always Up-To-Date!
 
