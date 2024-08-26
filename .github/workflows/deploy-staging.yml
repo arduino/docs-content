@@ -81,8 +81,14 @@ jobs:
         # Don't cache any HTML or JSON file: they should always be up-to-dates
         run: aws s3 sync --cache-control "public, max-age=0, must-revalidate" --include "*.html" --include="sw.js" --include="*.json" --include "*.css" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.pdf" --delete public/ s3://${{ secrets.STAGING_BUCKET_NAME }}/
 
+      - name: Create temporary directory
+        run: mkdir -p /tmp/aws-sync-temp
+
+      - name: Copy files to temporary directory
+        run: cp -r public/*.pdf /tmp/aws-sync-temp/
+
       - name: Sync PDF
-        run: aws s3 sync --cache-control "public, max-age=86400, must-revalidate" --include "*.pdf" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.css" --exclude="*.html" --exclude="*.json" --exclude="sw.json" --delete public/ s3://${{ secrets.STAGING_BUCKET_NAME }}/ --temp-dir /tmp/aws-sync-temp
+        run: aws s3 sync --cache-control "public, max-age=86400, must-revalidate" /tmp/aws-sync-temp/ s3://${{ secrets.STAGING_BUCKET_NAME }}/ --exclude "*.js" --exclude "*.gif" --exclude "*.png" --exclude "*.svg" --exclude "*.css" --exclude "*.html" --exclude "*.json" --exclude "sw.json" --delete
 
       - name: Cleanup temporary files
         run: rm -rf /tmp/aws-sync-temp
