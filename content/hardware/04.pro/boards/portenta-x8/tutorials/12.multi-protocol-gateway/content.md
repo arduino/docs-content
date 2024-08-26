@@ -130,13 +130,13 @@ sudo su -
 // Head to directory and mount the container
 cd /home/fio/py-serialrpc
 #py-serialrpc sudo docker build . -t py-serialrpc 
-#py-serialrpc sudo docker-compose up -d
+#py-serialrpc sudo docker compose up -d
 ```
 
 To access the logs of `py-serialrpc` service, while maintaining the same directory, execute the following command.
 
 ```bash
-sudo docker-compose logs -f --tail 20
+sudo docker compose logs -f --tail 20
 ```
 
 ***For more details about how data exchange between Arduino and Linux layer works and to understand how to debug, please read [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***
