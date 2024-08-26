@@ -85,6 +85,9 @@ jobs:
       - name: Sync PDF
         run: aws s3 sync --cache-control "public, max-age=86400, must-revalidate" --include "*.pdf" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.css" --exclude="*.html" --exclude="*.json" --exclude="sw.json" --delete public/ s3://${{ secrets.PRODUCTION_BUCKET_NAME }}/ --temp-dir /tmp/aws-sync-temp
 
+      - name: Cleanup temporary files
+        run: rm -rf /tmp/aws-sync-temp
+
       - name: Purge cache on CloudFlare
         run: |
           curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE }}/purge_cache" \
