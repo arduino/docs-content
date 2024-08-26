@@ -7,7 +7,7 @@ tags: [Cloud Editor, Online Coding]
 
 The Arduino Cloud Editor allows you to write code and upload sketches to any official Arduino board directly from your web browser (Chrome, Firefox, Safari and Edge). However, we recommend you use Google Chrome. 
 
-This IDE (Integrated Development Environment) is part of [Arduino Create](https://create.arduino.cc/), an online platform that enables developers to write code, access tutorials, configure boards, and share projects. Designed to provide users with a continuous workflow, Arduino Create connects the dots between each part of a developer's journey from inspiration to implementation. Meaning, you now have the ability to manage every aspect of your project right from a single dashboard.
+This IDE (Integrated Development Environment) is part of [Arduino Cloud](https://app.arduino.cc/), an online platform that enables developers to write code, access tutorials, configure boards, and share projects. Designed to provide users with a continuous workflow, Arduino Cloud connects the dots between each part of a developer's journey from inspiration to implementation. Meaning, you now have the ability to manage every aspect of your project right from a single dashboard.
 
 The Arduino Cloud Editor is hosted online, therefore it is always be up-to-date with the latest features and support for new boards.This IDE lets you write code and save it to the Cloud, always backing it up and making it accessible from any device. It automatically recognizes any Arduino and Genuino board connected to your PC, and configures itself accordingly.
 
