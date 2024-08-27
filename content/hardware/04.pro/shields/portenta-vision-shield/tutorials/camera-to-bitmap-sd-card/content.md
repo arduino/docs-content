@@ -49,8 +49,15 @@ You will be using the **Himax HM-01B0 camera module** which has a resolution of 
 Inside the sketch, you can use these libraries to access the camera APIs, also compatible with the [Arduino Nicla Vision](https://docs.arduino.cc/hardware/nicla-vision)
 ```cpp
 #include "camera.h" // Multi Media Card APIs
-#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
+
+//For the Vision Shield Rev.1
+#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+
+//For the Vision Shield Rev.2
+#include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
 ```
+
+***Left uncommented the library of your Vision Shield version.***
 
 #### Bitmap File Format
 
@@ -80,7 +87,10 @@ First you need to include the needed libraries
 #include "FATFileSystem.h"    // Mbed API for portable  and embedded systems
 
 #include "camera.h" // Arduino Mbed Core Camera APIs
-#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
+
+#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+// OR
+#include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
 ```
 
 Then define the following objects with their respective constructor (`blockDevice` and `fileSystem` objects), needed for getting access to the SD Card and the file system.
@@ -92,8 +102,13 @@ SDMMCBlockDevice blockDevice;
 mbed::FATFileSystem fileSystem("fs");
 
 #include "camera.h" // Arduino Mbed Core Camera APIs
-#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
+
+#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
 HM01B0 himax;
+// OR
+#include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
+HM0360 himax;
+
 Camera cam(himax);
 
 FrameBuffer frameBuffer; // Buffer to save the camera stream
@@ -288,8 +303,15 @@ SDMMCBlockDevice blockDevice;
 mbed::FATFileSystem fileSystem("fs");
 
 #include "camera.h" // Arduino Mbed Core Camera APIs
-#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield
-HM01B0 himax;
+
+/*-----Uncomment the library and class for your specific hardware-----*/
+
+//#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+//HM01B0 himax;
+
+#include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
+HM0360 himax;
+
 Camera cam(himax);
 
 FrameBuffer frameBuffer; // Buffer to save the camera stream
