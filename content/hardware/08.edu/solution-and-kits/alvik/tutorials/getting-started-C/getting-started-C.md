@@ -1,12 +1,24 @@
+---
+title: "Getting Started with Alvik"
+difficulty: beginner
+description: "Take your first steps with Arduino® Alvik on Arduino IDE"
+tags:
+  - Robot, MicroPython, Education
+author: "Pedro Sousa Lima"
+---
+
 # Getting Started with Alvik on Arduino IDE
+
+The Arduino® Alvik robot was designed to be compatible with both C++ and MicroPython. To ensure a smooth experience, functions have the same structure and parameters across all environments. This means the [Alvik's API reference](https://docs.arduino.cc/tutorials/alvik/api-overview/) can be used as a resource regardless of which environment you choose. In this guide, we will prepare the board to be programmed using the Arduino IDE.
 
 ## Requirements
 
 ### Software
 
-- **Arduino IDE**: The primary development environment for writing, compiling, and uploading code to Alvik.
-- **Alvik Library for Arduino**: A library that provides easy access to the Alvik robot's functionalities.
+- **Arduino IDE**: A modern desktop-based [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE).
+- **Alvik Library for Arduino**: A [library](https://github.com/arduino-libraries/Arduino_Alvik) that provides easy access to the Alvik robot's functionalities.
 - **USB Drivers**: Ensure you have the correct drivers installed to communicate with Alvik via USB.
+- **STM32Cube**: You will need this 3rd party programmer tool by ST available [here](https://www.st.com/en/development-tools/stm32cubeprog.html) to program the STM board.
 
 ### Hardware
 
@@ -29,49 +41,58 @@
 
 1. Connect pin **B1** to **GND** on the Alvik board.
 ![B1 and GND pins](assets/nano-esp32-gnd-b1.png)
-2. Connect the Alvik board to your computer using the USB cable.
-3. Open the **Blink** example in the Arduino IDE by going to **File > Examples > 01.Basics > Blink**.
-![alt text](assets/blinkExample.png)
-4. Select **esptool** as the programmer from the **Tools > Programmer** menu.
-![alt text](assets/EsptoolSelection.png)
-5. Select **Upload Using Programmer** from the **Sketch** menu.
-![alt text](assets/UploadWithProgrammer.png)
-6. Your board should now be restored and ready for programming with the Arduino IDE.
+3. While both pins are connected plug the Alvik board to your computer using the USB cable.
+5. Select **esptool** as the programmer from the **Tools > Programmer** menu.
+![Select programming tool esptool](assets/EsptoolSelection.png)
+6. Select **Upload Using Programmer** from the **Sketch** menu.
+![Upload with programmer option](assets/UploadWithProgrammer.png). You can nowpPress the **Reset** button on the board to make sure it is ready for uploading.
+1. Open the **Bridge** example in the Arduino IDE by going to **File > Examples > 01.Basics > Blink**.
+![Bridge Firmware Updater](assets/bridgeFirmware.png)
+1. Open **STM32 Cube Programmer**
+2.  Set the connection to **UART** mode, the **Port** to whatever port the board is connected to and **DTR** to HIGH. You can now press **Connect**.
+![Settings for STMCube](assets/stmCubeSetup.png)
+3.  Go to **Erasing & Programming** mode and edit the **File path** to the firmware (this will be a .bin file) you are trying to program. You can find the latest release [here](https://github.com/arduino-libraries/Arduino_Alvik/releases/tag/1.0.1). You can now press **Start Programming**.
+![Programming STM Cube](assets/ProgrammingstmCube.png)
 
-#### Preparing Alvik for MicroPython
 
-1. Install the micropython bootloader on it following [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
+1.  After the firmware is programmed your board should now be ready!
 
-2. Download the Alvik micropyton libraries
-Alvik micropython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
-ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
-3. Unzip both of the downloaded libraries in a single "Alvik" folder, open the Arduino Lab for MicroPython, go to the "files" tab and set the path to the unzipped folder on the Arduino Lab for Micropython
-   ![Setting the FW path on the Labs for micropython](assets/fw_path.png)
-4. Make sure your Alvik is OFF, connect it to your computer and then, turn it ON
-   ![Alvik USB Connection](assets/connecting-final.gif)
-5. Connect your Alvik to the Arduino Labs for micropython and open the "lib"
-   ![Setting the FW path on the Labs for micropython](assets/lib_folder.png)
-6. Select the "Arduino-alvik" and move it inside the "lib" folder in your Alvik.
-   ![Setting the FW path on the Labs for micropython](assets/moving_alvik_folder.png)
-7. Go back to the main folder and select the "ucPack-mpy-main" folder and move it next to the arduino_alvik inside the "lib" folder in your Nano ESP32.
-   ![Setting the FW path on the Labs for micropython](assets/moving_ucPack.png)
-8. Now go back to the main root of the files system on the Nano ESP32. Then in your local folder navigate to the examples folder once there, select the following files and move them to the main folder of the ESP32.
-   `demo.py`
-   `hand_follower.py`
-   `line_follower.py`
-   `main.py`
-   `touch_move.py`
 
-   ![Setting the FW path on the Labs for micropython](assets/moving_examples.png)
-With this last step, your Nano ESP32 has been set up with the Alvik out of the box experience and is ready to be used.
 
+You can at any point revert back to the MicroPython programming eviroment by following the content available over at the [MicroPython installation guide](https://docs.arduino.cc/micropython/micropython-course/course/installation/).
 
 ## Programming Alvik
 
-1. Start with a simple example, like blinking an LED or reading a sensor.
-2. Use the Alvik library functions to interact with the robot's hardware.
-3. Upload your sketch to see it in action.
-4. Explore the included examples in the Alvik library to learn how to control motors, read sensors, and more.
+Let's confirm our firmware is correctly installed. For this we will create a simple sketch that prints the firmware version using the ```get_version()``` function:
+
+```C
+#include "Arduino_Alvik.h"
+
+Arduino_Alvik alvik;
+
+void setup() {
+  alvik.begin();
+  Serial.begin(115200);
+}
+
+void loop() {
+
+  uint8_t u,m,l;
+
+  alvik.get_version(u,m,l); // Gets the firmware version
+  Serial.printf("%d.%d.%d\n", u, m, l);
+  alvik.drive(10, 45);
+  delay(1000); // Waits a second
+  alvik.drive(10, -45);
+  delay(1000); // Waits a second
+
+}
+```
+
+After upload the Alvik should rotate the wheels and print the version once per second.
+
+You can now explore the other included examples that cover more of the Alvik's components.
+
 
 ## More Resources (C++)
 
