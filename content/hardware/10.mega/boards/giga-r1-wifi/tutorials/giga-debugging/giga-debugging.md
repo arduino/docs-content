@@ -10,7 +10,7 @@ author: 'Hannes Siebeneicher'
 
 Debugging is the process of identifying and fixing errors in your code. It’s a vital skill for anyone writing code especially when dealing with microcontrollers like those on your Arduino. As with everything, debugging can be done at different levels, you can read up on the topic [here](/learn/microcontrollers/debugging). 
 
-The GIGA R1 WiFi is a special candidate because it allows you to use two cores at the same time ([read more](/tutorials/giga-r1-wifi/giga-dual-core/)). For example, one core can continously read sensor data while the other core performs some computation based on that data. By dedicating different cores to different tasks, you can keep operations separate, which leads to more efficient coding, especially in more complex projects. This also means you can debug each sketch independently making it easier to troubleshoot potential issues.
+The GIGA R1 WiFi is a special candidate because it allows you to use two cores at the same time ([read more](/tutorials/giga-r1-wifi/giga-dual-core/)). For example, one core can continuously read sensor data while the other core performs some computation based on that data. By dedicating different cores to different tasks, you can keep operations separate, which leads to more efficient coding, especially in more complex projects. This also means you can debug each sketch independently making it easier to troubleshoot potential issues.
 
 This article covers the basic steps for debugging both cores on the GIGA R1 WiFi using the SWD pins and a J-Link® debugger.
 
@@ -159,13 +159,13 @@ In the little window that appears, type ".ino". You should now be able to see th
 
 Now you are ready to start debugging. It's important to follow the steps below otherwise you won't be able to connect to the M4 core properly.
 
-- Start with the M7 and go to **Debug** > **Start Debug Session** > **Download & Reset Program**. If sucessfull both LEDs should stop blinking.
+- Start with the M7 and go to **Debug** > **Start Debug Session** > **Download & Reset Program**. If successful both LEDs should stop blinking.
 
 ![Start debugging the M4 in Ozone](./assets/ozone_debug_session_m7.png)
 
 - At the top go back to the `.ino`.
 
-- Press the small play button at the top. You should see the LEDs starting to blink again. This means we have connected the J-Link sucessfully to the sketch running on the M7 and can control it through Ozone.
+- Press the small play button at the top. You should see the LEDs starting to blink again. This means we have connected the J-Link successfully to the sketch running on the M7 and can control it through Ozone.
 
 - Now, select the M4 Ozone instance and go to **Debug** > **Start Debug Session** > **Attach to Running Program**. It's important to that you don't reset the program otherwise the connection will be lost. Using the play button at the top you can now control the M4 sketch.
 
