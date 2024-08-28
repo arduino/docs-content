@@ -103,9 +103,13 @@ mbed::FATFileSystem fileSystem("fs");
 
 #include "camera.h" // Arduino Mbed Core Camera APIs
 
-#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
-HM01B0 himax;
+/*-----Uncomment the library and class for your specific hardware-----*/
+
+//#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+//HM01B0 himax;
+
 // OR
+
 #include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
 HM0360 himax;
 

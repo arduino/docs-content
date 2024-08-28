@@ -60,7 +60,7 @@ Next, let's initialize a camera object and a frame buffer of the size 320*240 (7
 
 ```cpp
 
-HM01B0 himax; // for Vision Shield Rev.1
+//HM01B0 himax; // for Vision Shield Rev.1
 
 HM0360 himax; // for Vision Shield Rev.2
 
