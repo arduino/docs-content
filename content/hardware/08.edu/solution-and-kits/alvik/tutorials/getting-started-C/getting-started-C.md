@@ -65,7 +65,7 @@ You can at any point revert back to the MicroPython programming eviroment by fol
 
 Let's confirm our firmware is correctly installed. For this we will create a simple sketch that prints the firmware version using the ```get_version()``` function:
 
-```C
+```c++
 #include "Arduino_Alvik.h"
 
 Arduino_Alvik alvik;
