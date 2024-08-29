@@ -124,7 +124,6 @@ void loop() {
 
   delay(100);
 }
-
 ```
 
 ***Remember to initialize the Serial communication with the `Serial.begin` command in the `setup` function.***
@@ -142,7 +141,6 @@ For example, if you turn on toggle switches 1, 3, 5, and 7 while leaving 2, 4, 6
 The output should look like this:
 
 ![Serial Monitor output](assets/step1_serial-monitor.png)
-
 
 ## Upload Function Trigger Code
 
