@@ -8,88 +8,108 @@ variant: 'Collective Datasheet'
 ![](assets/featured.jpg)
 
 # Description
-The Arduino Portenta Vision Shield is an add-on board providing machine vision capabilities and additional connectivity to the Portenta family of Arduino boards, designed to meet the needs of industrial automation. The Portenta Vision Shield connects via a high-density connector to the Portenta boards with minimal hardware and software setup.
+
+<p style="text-align: justify;">Enhance your industrial automation and surveillance projects with the Arduino Portenta Vision Shield. This add-on board integrates with the Portenta family, offering advanced machine vision capabilities and extended connectivity. The Vision Shield's compact design and high-density connector ensure a quick and efficient setup. It transforms your Portenta family board into a powerful tool for real-time image processing and edge computing, suitable for demanding industrial environments.</p>
 
 # Target Areas
-Industry, Surveillance
+Industrial automation, surveillance, machine vision, edge computing
 
-# Features
-Note: This board needs the Arduino Portenta H7 or Portenta C33 to function.
+# CONTENTS
+## Application Examples
 
--   **Himax HM-01B0 camera module**
-    -   Ultra-Low-Power Image Sensor designed for always-on vision devices and applications
-    -   High-sensitivity 3.6 μ BrightSenseTM pixel technology
-    -   Window, vertical flip and horizontal mirror readout
-    -   Programmable black level calibration target, frame size, frame rate, exposure, analog gain (up to 8x) and digital gain (up to 4x)
-    -   Automatic exposure and gain control loop with support for 50 Hz / 60 Hz flicker avoidance
-    -   Motion Detection circuit with programmable ROI and detection threshold with digital output to serve as an interrupt
+<div style="text-align:justify;">
+The Vision Shield is an add-on and a gateway to innovative solutions in various industries. Explore the possibilities of integrating advanced machine vision and edge computing into your projects with the following application examples:
 
-    -   **Supported resolutions**
-        -   QQVGA (160x120) at 15, 30, 60 and 120 FPS
-        -   QVGA (320x240) at 15, 30 and 60 FPS
+- **Industrial automation**: Elevate your automation systems with the Vision Shield, enabling precise and real-time image processing for:
+  - **Quality control**: Implement the Vision Shield in production lines to automatically detect product defects and ensure that only high-quality items pass through.
+  - **Predictive maintenance**: Use machine vision to monitor equipment and identify early signs of wear or failure, reducing downtime and maintenance costs.
+  - **Automated sorting**: Integrate the Vision Shield into conveyor systems to automatically sort items based on color, shape, or size, improving efficiency and accuracy.
 
-    -   **Power**
-        -   \< 1.1 mW QQVGA resolution at 30 FPS,
-        -   \< 2 mW QVGA resolution at 30 FPS
+- **Surveillance**: Enhance security and monitoring systems with advanced visual capabilities provided by the Vision Shield for:
+  - **Real-time threat detection**: Deploy the Vision Shield in security systems to identify and alert authorities of potential threats, such as unauthorized access or suspicious activities, in real-time.
+  - **Environmental monitoring**: Utilize the Vision Shield's imaging capabilities to monitor environmental conditions in critical areas, such as chemical plants, to ensure safety and compliance with regulations.
+  - **Perimeter surveillanc**e: Implement the Vision Shield in perimeter security to detect intrusions or breaches, triggering immediate responses and minimizing risks.
 
--   **2x MP34DT06JTR MEMS PDM Digital Microphone**
+- **Machine vision and edge computing**: Unlock the potential of edge computing with the Vision Shield, bringing powerful processing capabilities directly to the field for:
+  - **Smart agriculture**: Use the Vision Shield to monitor crops and soil conditions, identifying issues such as pest infestations or nutrient deficiencies, and enabling precise interventions to optimize yield.
+  - **Autonomous vehicles**: Integrate the Vision Shield into autonomous systems to enhance navigation and obstacle detection, ensuring safe and efficient operation in various environments.
+  - **Robotics**: Empower robots with the ability to see and interpret their surroundings using the Vision Shield, enabling complex tasks such as object recognition and manipulation in dynamic settings.
+</div>
 
-    -   AOP = 122.5 dB SPL
-    -   64 dB signal-to-noise ratio
-    -   Omnidirectional sensitivity
-    -   –26 dBFS ± 1 dB sensitivity
+## Features
 
--   **MIPI 20-pin compatible JTAG Connector**
+### General Specifications Overview
 
--   **Memory**
+<p style="text-align: justify;">The Vision Shield expands the capabilities of the Portenta H7 (any variant) or Portenta C33 boards, adding advanced vision and audio processing features to them.  
 
-    -   Micro SD Card Slot
+Below is a summary of the shield's key components and their specifications.</p>
 
-# Contents
-## The Board
-The included HM-01B0 camera module has been pre-configured to work with the OpenMV libraries provided by Arduino. Based on the specific application requirements, the Portenta Vision Shield is available in two configurations with either Ethernet or LoRa® connectivity. Ethernet is designed for integration of the Portenta into wired networks and providing high bandwidth. In situations requiring long-range operation at low bandwidth, LoRa® connectivity is the way to go. The multi-core processor of the Portenta H7 makes embedded vision possible by minimizing the data bandwidth required.
+| **Feature**            | **Description**                                                                      |
+|------------------------|--------------------------------------------------------------------------------------|
+| Onboard Camera         | 1/6″ 640 x 480 VGA 60FPS CMOS image sensor (HM0360)                                  |
+| Onboard Microphone     | Ultra-compact, low-power, omnidirectional, digital MEMS microphone (x2) (MP34DT06J)  |
+| External Memory        | Onboard microSD card slot                                                            |
+| Onboard LoRa® Module   | CMWX1ZZABZ-078 (only in LoRa® variant, SKU: ASX00026)                                |
+| Onboard RJ45 Connector | For Ehthernet capabilities (only in Ethernet variant, SKU: ASX00021)                 |
+| Dimensions             | 67.07 x 25.39 mm                                                                     |
+| Weight                 | 8 g                                                                                  |
+| Pinout Features        | Onboard High-Density connectors easily connect the shield to Portenta family boards  |
 
+<div style="page-break-after: always;"></div>
 
-### Product Variants
-The Portenta Vision Shield is available in two variants:
-* Ethernet variant (ASX00021)
-* LoRa® variant (ASX00026)
+### Included Accessories
 
-
-### Application Examples
-Thanks to the low power consumption of the Portenta Vision Shield, it is well suited for bringing machine learning to a wide range of Industry 4.0 and IoT applications.
-
-- **Industrial production:** The included HM-01B0 camera along with the OpenMV libraries allows for quality control of items within a manufacturing or packaging plant. The small footprint, low power consumption and LoRa®/Ethernet connectivity allow for the module to be deployed essentially anywhere so that defects are identified quickly and removed from the production environment.
-
-- **Predictive maintenance:** The combination of machine vision and machine learning capabilities of the Portenta Vision Shield and the Portenta H7 opens up possibilities for predictive maintenance based on subtle differences in the visual representation of machinery. These capabilities are further enhanced with the two MP34DT05 MEMS microphones included in the Portenta Vision Shield.
-
-- **Surveillance:** The Portenta Vision Shield is able to provide surveillance capabilities in areas with low Wi-Fi® penetration (e.g. warehouses) and large areas
- (e.g. shopping centers). The OpenMV libraries enable the Portenta Vision Shield to identify objects and alert the operator via LoRa® while saving a snapshot on the microSD storage slot.
+- No accessories are included
 
 ### Related Products
-The Portenta Vision Shield is developed as an add-on shield compatible with the following Portenta boards:
-* Portenta H7 (ABX00042)
-* Portenta H7 Lite (ABX00045)
-* Portenta H7 Lite Connected (ABX00046)
-* Portenta C33 (ABX00074). **Only connectivity. Not compatible with the Portenta Vision Shield camera**
 
+- Portenta H7 (SKU: ABX00042)
+- Portenta H7 Lite (SKU: ABX00045)
+- Portenta H7 Lite Connected (SKU: ABX00046)
+- Portenta C33 (SKU: ABX00074)
+- Arduino USB Type-C® Cable 2-in-1 (SKU: TPX00094)
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+The <strong>Portenta C33</strong> board is not compatible with the onboard camera of the Vision Shield, it is only compatible with the shield's connectivity features (Ethernet or LoRa®).
+</div>
+
+<div style="page-break-after: always;"></div>
 
 ## Ratings
 
-### Absolute Maximum
+### Recommended Operating Conditions
 
-| **Symbol** | **Description**                  | **Min** | **Typ** | **Max** | **Unit** |
-| ---------- | -------------------------------- | ------- | ------- | ------- | -------- |
-| VINMax     | Input voltage from HD Connectors | -0.3    | -       | 3.3     | V        |
+<p style="text-align: justify;">
+The table below provides a comprehensive guideline for the optimal use of the Vision Shield, outlining typical operating conditions and design limits. The operating conditions of the Vision Shield are largely a function based on its component's specifications.
+</p>
 
-### Thermal
+<div style="text-align:center;">
 
-| **Symbol** | **Description**       | **Min** | **Typ** | **Max** | **Unit** |
-| ---------- | --------------------- | ------- | ------- | ------- | -------- |
-| TST        | Storage Temperature   | -30     |         | 85      | °C       |
-| TOP        | Operating Temperature | -40     |         | 85      | °C       |
+|          **Parameter**           |   **Symbol**    | **Min** | **Typ** | **Max** | **Unit** |
+|:--------------------------------:|:---------------:|:-------:|:-------:|:-------:|:--------:|
+| Supply Input Voltage<sup>1</sup> | V<sub>IN</sub>  |    -    |   3.3   |   3.3   |    V     |
+|      Operating Temperature       | T<sub>OP</sub>  |   -40   |    -    |   85    |    °C    |
 
-<div style="break-after:page"></div>
+</div>
+
+<sup>1</sup> Vision Shield powered through a Portenta family board.
+
+### Power Consumption
+
+<p style="text-align: justify;">
+The table below summarizes the power consumption of the Vision Shield in different test cases. Notice that the board's operating current will depend greatly on the application.
+</p>
+
+|             Parameter             |     Symbol     | Min | Typ | Max | Unit |
+|:---------------------------------:|:--------------:|:---:|:---:|:---:|:----:|
+| Typical Mode Current Consumption² | I<sub>NM</sub> |  -  | TBD |  -  |  mA  |
+
+
+<sup>2</sup> Vision Shield powered through a Portenta family board.
+
+<div style="background-color: #FFFFE0; border-left: 6px solid #FFD700; margin: 20px 0; padding: 15px;">
+The Vision Shield can be only powered through its High-Density Connectors (VCC pin).
+</div>
 
 ## Functional Overview
 
