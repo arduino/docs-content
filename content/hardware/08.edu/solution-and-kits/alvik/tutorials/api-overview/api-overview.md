@@ -633,6 +633,53 @@ _Register callback when touch button RIGHT is pressed_
 - **callback**: the name of the function to recall
 - **args**: optional arguments of the function
 
+## Function Parameters
+
+### The Distance Unit
+
+Distance unit of measurement used in the APIs:
+
+- _cm_: centimeters
+- _mm_: millimeters
+- _m_: meters
+- _inch_: inch, 2.54 cm
+- _in_: inch, 2.54 cm
+
+### The Angle Unit
+
+Angle unit of measurement used in the APIs:
+
+- _deg_: degrees, example: 1.0 as reference for the other unit. 1 degree is 1/360 of a circle.
+- _rad_: radiant, example: 1 radiant is 180/pi deg.
+- _rev_: revolution, example: 1 rev is 360 deg.
+- _revolution_: same as rev
+- _perc_: percentage, example 1 perc is 3.6 deg.
+- _%_: same as perc
+
+### The Linear Speed Unit
+
+Speed unit of measurement used in the APIs:
+
+- 'cm/s': centimeters per second
+- 'mm/s': millimeters per second
+- 'm/s': meters per second
+- 'inch/s': inch per second
+- 'in/s': inch per second
+
+### The Rotational Speed Unit
+
+Rotational speed unit of measurement used in the APIs:
+
+- 'rpm': revolutions per minute, example: 1.0 as reference for the other unit.
+- 'deg/s': degrees per second, example: 1.0 deg/s is 60.0 deg/min that is 1/6 rpm.
+- 'rad/s': radiant per second, example: 1.0 rad/s is 60.0 rad/min that is 9.55 rpm.
+- 'rev/s': revolution per second, example: 1.0 rev/s is 60.0 rev/min that is 60.0 rpm.
+
+### `"blocking" or "non blocking"`
+
+While programming a microcontroller, the terms "blocking" means that **all the resources are used only in performing a specific action, and no other things can happen at the same time**. Usually this is used when you want to be precise or you don't want anything else that could interact with the action you are performing.
+
+On the other hand, "Non blocking", means that the microcontroller is free to do other thing while the action is been performed.
 
 ## Examples
 These examples demonstrate practical implementations on how to use the Arduino Alvik API. Whether you're working with MicroPython or C++, these simple examples will help you understand how to implement various features in your projects, making it easy to get started with the Alvik in the language you're most comfortable with.
@@ -925,50 +972,3 @@ float calculate_center(const int left, const int center, const int right){
 
 
 
-## Extras
-
-### The Distance Unit
-
-Distance unit of measurement used in the APIs:
-
-- _cm_: centimeters
-- _mm_: millimeters
-- _m_: meters
-- _inch_: inch, 2.54 cm
-- _in_: inch, 2.54 cm
-
-### The Angle Unit
-
-Angle unit of measurement used in the APIs:
-
-- _deg_: degrees, example: 1.0 as reference for the other unit. 1 degree is 1/360 of a circle.
-- _rad_: radiant, example: 1 radiant is 180/pi deg.
-- _rev_: revolution, example: 1 rev is 360 deg.
-- _revolution_: same as rev
-- _perc_: percentage, example 1 perc is 3.6 deg.
-- _%_: same as perc
-
-### The Linear Speed Unit
-
-Speed unit of measurement used in the APIs:
-
-- 'cm/s': centimeters per second
-- 'mm/s': millimeters per second
-- 'm/s': meters per second
-- 'inch/s': inch per second
-- 'in/s': inch per second
-
-### The Rotational Speed Unit
-
-Rotational speed unit of measurement used in the APIs:
-
-- 'rpm': revolutions per minute, example: 1.0 as reference for the other unit.
-- 'deg/s': degrees per second, example: 1.0 deg/s is 60.0 deg/min that is 1/6 rpm.
-- 'rad/s': radiant per second, example: 1.0 rad/s is 60.0 rad/min that is 9.55 rpm.
-- 'rev/s': revolution per second, example: 1.0 rev/s is 60.0 rev/min that is 60.0 rpm.
-
-### `"blocking" or "non blocking"`
-
-While programming a microcontroller, the terms "blocking" means that **all the resources are used only in performing a specific action, and no other things can happen at the same time**. Usually this is used when you want to be precise or you don't want anything else that could interact with the action you are performing.
-
-On the other hand, "Non blocking", means that the microcontroller is free to do other thing while the action is been performed.
