@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
       - uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -50,7 +50,7 @@ jobs:
         id: gatsby-cache-folder
         with:
           path: .cache
-          key: ${{ runner.os }}-cache-gatsby-${{ github.refname }}
+          key: ${{ runner.os }}-cache-gatsby-${{ github.ref_name }}
           restore-keys: |
             ${{ runner.os }}-cache-gatsby-main
 
@@ -59,12 +59,15 @@ jobs:
         id: gatsby-public-folder
         with:
           path: public/
-          key: ${{ runner.os }}-public-gatsby-${{ github.refname }}
+          key: ${{ runner.os }}-public-gatsby-${{ github.ref_name }}
           restore-keys: |
             ${{ runner.os }}-public-gatsby-main
 
       - run: npm install
       - run: npm run build
+
+      - name: Clean up node_modules
+        run: rm -rf node_modules
 
       - name: Configure AWS credentials from Production account
         uses: aws-actions/configure-aws-credentials@v4
@@ -79,12 +82,19 @@ jobs:
         # Don't cache any HTML or JSON file: they should always be up-to-dates
         run: aws s3 sync --cache-control "public, max-age=0, must-revalidate" --include "*.html" --include="sw.js" --include="*.json" --include "*.css" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.pdf" --delete public/ s3://${{ secrets.PRODUCTION_BUCKET_NAME }}/
 
-      - name: Sync PDF
-        run: aws s3 sync --cache-control "public, max-age=86400, must-revalidate" --include "*.pdf" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.css" --exclude="*.html" --exclude="*.json" --exclude="sw.json" --delete public/ s3://${{ secrets.PRODUCTION_BUCKET_NAME }}/
+      # - name: Sync PDF
+      #   run: aws s3 sync --cache-control "public, max-age=86400, must-revalidate" --include "*.pdf" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.css" --exclude="*.html" --exclude="*.json" --exclude="sw.json" --delete public/ s3://${{ secrets.PRODUCTION_BUCKET_NAME }}/
 
-      - name: Purge cache on CloudFlare
-        run: |
-          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE }}/purge_cache" \
-            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_PURGE_API_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            --data '{"prefixes":["${{ vars.DATASHEETS_BASE_URL }}"]}'
+      # - name: Purge cache on CloudFlare
+      #   run: |
+      #     curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE }}/purge_cache" \
+      #       -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_PURGE_API_TOKEN }}" \
+      #       -H "Content-Type: application/json" \
+      #       --data '{"prefixes":["${{ vars.DATASHEETS_BASE_URL }}"]}'
+
+      - name: Sync all cacheable assets
+        run: aws s3 sync --cache-control "public, max-age=31536000, immutable" --include "*.css" --include="*.js" --include="*.gif" --include="*.png" --include="*.svg" --exclude "*.html" --exclude="sw.js" --exclude="*.json" --delete public/ s3://${{ secrets.PRODUCTION_BUCKET_NAME }}/
+
+      - name: Sync all non-cacheable assets
+        # Don't cache any HTML or JSON file: they should always be up-to-dates
+        run: aws s3 sync --cache-control "public, max-age=0, must-revalidate" --include "*.html" --include="sw.js" --include="*.json" --include "*.css" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --delete public/ s3://${{ secrets.PRODUCTION_BUCKET_NAME }}/

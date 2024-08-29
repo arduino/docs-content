@@ -467,6 +467,11 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
+## SRRC
+
+This equipment contains a radio transmitter module with model approval code: CMIIT ID: 24J993CLD252.
+
+
 ## Company Information
 
 | Company name    | Arduino S.r.l.                                |
@@ -497,6 +502,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 11/23/2023 | Added label to LP modes                                |
 | 23/02/2024 | Added antenna frequency to block diagram               |
 | 25/04/2024 | Updated link to new Cloud Editor                       |
+| 23/08/2024 | Added SRRC certification                                 |
+
 
 
 # 中文 (ZH)
@@ -954,6 +961,10 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Arduino S.r.l. 特此声明，本产品符合 201453/EU 指令的基本要求和其他相关规定。本产品允许在所有欧盟成员国使用。
 
+## SRRC
+
+本设备包含型号核准代码为：CMIIT  ID: 24J993CLD252 的无线电发射模块。
+
 ## 公司信息
 
 | 公司名称    | Arduino S.r.l.                                |
@@ -973,13 +984,14 @@ Arduino S.r.l. 特此声明，本产品符合 201453/EU 指令的基本要求和
 
 ## 变更日志
 
-| **日期**   | **变更**                                            |
-| ---------- | ------------------------------------------------------ |
-| 2023/08/06 | 发布                                                |
-| 2023/09/01 | 更新电源树流程图。                           |
+| **日期**   | **变更**                               |
+| ---------- | -------------------------------------- |
+| 2023/08/06 | 发布                                   |
+| 2023/09/01 | 更新电源树流程图。                     |
 | 2023/09/11 | 更新 SPI 部分，更新模拟/数字引脚部分。 |
-| 2023/11/06 | 更正公司名称，更正 VBUS/VUSB                |
-| 2023/11/09 | 方框图更新，天线规格           |
-| 2023/11/15 | 环境温度更新                             |
-| 2023/11/23 | 为 LP 模式添加了标签                                |
+| 2023/11/06 | 更正公司名称，更正 VBUS/VUSB           |
+| 2023/11/09 | 方框图更新，天线规格                   |
+| 2023/11/15 | 环境温度更新                           |
+| 2023/11/23 | 为 LP 模式添加了标签                   |
 | 2024/02/23 | 在方框图中添加了天线频率               |
+| 2024/08/23 | SRRC 认证                              |
