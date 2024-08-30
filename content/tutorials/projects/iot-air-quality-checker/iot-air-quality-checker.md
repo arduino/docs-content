@@ -19,7 +19,7 @@ source: "https://create.arduino.cc/projecthub/407590/iot-air-quality-checker-c8d
 
 ## About This Project
 
-Do you ever worry about the air quality at home, in which we past lot of time recently, due to the pandemic?
+Do you ever think about the air quality in your home, where we spend so much of our time every day?
 
 Or in your DIY lab in the middle of 3d printers / saw / cnc / lasercutter?
 
