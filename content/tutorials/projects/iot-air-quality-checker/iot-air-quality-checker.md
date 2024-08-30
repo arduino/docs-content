@@ -43,9 +43,9 @@ Of course you can reach the same setup using a breadboard, floating wires and sp
 
 In this project we are going to use [Arduino Cloud](https://create.arduino.cc/iot), where you can create IoT applications in a few simple steps.
 
-We can just start connecting the MKR WiFi 1010 to the Web Editor.
+We can just start connecting the MKR WiFi 1010 to the Cloud Editor.
 
-You can then find more information on the Web Editor setup for the MKR WiFi 1010 at [this link.](https://www.arduino.cc/en/Guide/MKRWiFi1010)
+You can then find more information on the Cloud Editor setup for the MKR WiFi 1010 at [this link.](https://www.arduino.cc/en/Guide/MKRWiFi1010)
 
 After connecting your Arduino to the usb port, be sure to have selected the right board and the right port.
 
@@ -55,7 +55,7 @@ At this point, since the MKR WiFi 1010 is a Cloud compatible board, we can start
 
 ### Arduino Cloud Setup
 
-Thanks to this platform, the dashboard creation will be really easy, and the base of the Arduino code will be auto-generated, and usable directly on the Arduino Web Editor.
+Thanks to this platform, the dashboard creation will be really easy, and the base of the Arduino code will be auto-generated, and usable directly on the Arduino Cloud Editor.
 
 This is one of the feature of Arduino Cloud, many interesting others are described in [this official blog post](https://blog.arduino.cc/2021/06/18/14-awesome-arduino-cloud-features-you-never-knew-existed)!
 
@@ -72,11 +72,11 @@ Let's start with the device:
 The configuration is really easy:
 
 * Choose the board vendor (in our case it's Arduino).
-* Choose which board we are going to use (we'll see already our board, If we have previously connected it to the Web Editor).
+* Choose which board we are going to use (we'll see already our board, If we have previously connected it to the Cloud Editor).
 * Wait for the an update for securing the communication.
 * Click the done button.
 
-![Setup your Arduino device.](assets/screenshot_2021-06-28_09-44-48_mOOnTEkuFO.png)
+![Setup your Arduino device](assets/DeviceSetup.png)
 
 Now it's time to create the variables!
 
@@ -127,18 +127,18 @@ Next step is to setup the Wifi Credentials that will be used by the board to con
 
 ### The Auto-Generated Sketch
 
-After creating variables, in the *sketch* section we'll find an auto-generated sketch, than we can open directly in the Web Editor by pressing the *Open full editor* button!
+After creating variables, in the *sketch* section we'll find an auto-generated sketch.
 
-![Click Open full editor.](assets/image_SlwQmN3MEj.png)
+![Sketch editor tab](sketchTab.png)
 
-Now we continue editing the sketch in the Web Editor.
+Now we continue editing the sketch in the Cloud Editor.
 
 We'll find a few more tabs, in particular:
 
 * thingProperties.h tab - that we dn't have to edit! - where we'll find the variables declared prevoiously, and the unique ID of the thing and it's properties.
 * Secret tab where we'll find the WiFi credentials.
 
-![The different tabs.](assets/screenshot_2021-06-25_01-25-58_EIfc27QSfO.png)
+![The different tabs](assets/thingsProperties.png)
 
 Being separated from the main sketch tab, we can share without problem our sketch: those information will not be shown, since strictly related to our own thing and wifi connection!
 
@@ -221,13 +221,13 @@ We'll use it to display measurements, but because of we'll have a shared dashboa
 
 We have to use the *Grove Oled Display 0.96* library, and we can install it from the Library Manager. Just search for "oled" and then star the library, in order to have it available! 
 
-![Search for the oled library.](assets/image_ViO3iy1h3Y.png)
+![Search for the oled library](image.png)
 
 We'll find all the needed code in the **OLED_Hello_World** example.
 
 This display is able to show up to 8 rows, 16 chars each. In order to visualize information in the display, we have to place it using *XY* coordinate, where the top left corner is **X0**, **Y0**, and X is for the columns and Y for the rows
 
-![Coordinates on the oled display.](assets/image_1MoDqZvQwk.png)
+![Coordinates on the oled display](assets/image_1MoDqZvQwk.png)
 
 Let's start including the required libraries in the header:
 
@@ -361,11 +361,11 @@ That's it! the complete sketch can be found below.
 
 Last step is to create a custom Dashboard.
 
-Just press the **Go to IoT Cloud** button to switch from the Web Editor to the Arduino Cloud.
+Just press the **Go to IoT Cloud** button to switch from the Cloud Editor to the Arduino Cloud.
 
 Here switch to the Dashboards menu, and then *BUILD DASHBOARD*
 
-![Switch to the dashboards menu, and then choose build dashboard.](assets/image_rK7E2bPuef.png)
+![Switch to the dashboards menu, and then choose build dashboard](assets/createDashboard.png)
 
 Now we can start building the new dashboard, switching in edit mode.
 
