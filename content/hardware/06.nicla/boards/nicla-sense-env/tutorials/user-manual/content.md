@@ -68,7 +68,7 @@ Here's an overview of the board's main components shown in the images above:
 
 ### Board Libraries 
 
-The [`Arduino_NiclaSenseEnv` library](https://github.com/sebromero/Arduino_NiclaSenseEnv) contains an application programming interface (API) to read data from the board and control its parameters and behavior over I<sup>2</sup>C. This library supports the following: 
+The [`Arduino_NiclaSenseEnv` library](https://github.com/arduino-libraries/Arduino_NiclaSenseEnv) contains an application programming interface (API) to read data from the board and control its parameters and behavior over I<sup>2</sup>C. This library supports the following: 
 
 - Board control (sleep, reset, and factory reset)
 - Board configuration (I<sup>2</sup>C address configuration)
