@@ -18,7 +18,7 @@ software:
   - web-editor
 ---
 
-This user manual provides a comprehensive overview of the Nicla Sense Env board, highlighting its hardware and software elements. With it, you will confidently learn how to set up, configure, and use all the main features of a Nicla Sense Env board.
+This user manual provides a comprehensive Nicla Sense Env board overview, highlighting its hardware and software elements. With it, you will confidently learn how to set up, configure, and use all the main features of a Nicla Sense Env board.
 
 ![ ](assets/hero-banner.png)
 
