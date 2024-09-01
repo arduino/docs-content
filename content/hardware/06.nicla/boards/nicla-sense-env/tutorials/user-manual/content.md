@@ -26,7 +26,7 @@ This user manual provides a comprehensive Nicla Sense Env board overview, highli
 
 ### Hardware Requirements
 
-- [Nicla Sense Env](https://store.arduino.cc/products/nicla-sense-me) (x1)
+- [Nicla Sense Env](https://store.arduino.cc/products/nicla-sense-env) (x1)
 - [Portenta C33](https://store.arduino.cc/products/portenta-c33) (x1)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 
