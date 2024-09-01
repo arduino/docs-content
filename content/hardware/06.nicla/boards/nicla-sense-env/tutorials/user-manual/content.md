@@ -369,7 +369,7 @@ void loop() {
 }
 ```
 
-This example sketch initializes the Nicla Sense Env board disables all onboard sensors and then checks and prints the status of each sensor on the Arduino IDE's Serial Monitor. Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+This example sketch initializes the Nicla Sense Env board, disables all onboard sensors and then checks and prints the status of each sensor on the Arduino IDE's Serial Monitor. Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
 
 - `temperatureHumiditySensor().setEnabled(false)`: Disables the onboard temperature and humidity sensor.
 - `indoorAirQualitySensor().setEnabled(false)`: Turns off the onboard indoor air quality sensor. 
