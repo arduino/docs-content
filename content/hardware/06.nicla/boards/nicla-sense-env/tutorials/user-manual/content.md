@@ -904,7 +904,7 @@ Here is a detailed breakdown of the example sketch shown before and the main fun
 
 - First, the Nicla Sense Env needs to have its UART output enabled. This can be done by connecting to the board over I²C to a host board and running `device.begin()` and `device.setUARTCSVOutputEnabled(true, true)`.
 - `Serial1.begin(38400, SERIAL_8N1)`: Initializes the `Serial1` port for UART communication with the specified baud rate and configuration.
-- `processCSVLine()`: A function that processes a CSV line, maps the fields to their corresponding names, and stores them in a map for easy access.
+- `processCSVLine()`: A function that processes a CSV line, maps the fields to their corresponding names and stores them in a map for easy access.
 - The `loop()` function reads data from the UART port, processes the CSV data, and prints the parsed values to the Serial Monitor.
 
 You can download the example sketch [here](assets/nicla_sense_env_uart_communication_example.zip).
