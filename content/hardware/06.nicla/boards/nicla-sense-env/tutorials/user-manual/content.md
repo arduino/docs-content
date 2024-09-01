@@ -46,7 +46,7 @@ The Nicla Sense Env includes an ultra-low power temperature and humidity sensor,
 
 ### Nicla Sense Env Architecture Overview
 
-The Nicla Sense Env features a secure, certified, and durable design that enables it for several applications, such as industrial automation, building automation, and prototyping. 
+The Nicla Sense Env features a secure, certified, and durable design that suits various applications, such as industrial automation, building automation, and prototyping. 
 
 The Nicla Sense Env board top view is shown in the image below:
 
