@@ -42,7 +42,7 @@ This user manual provides a comprehensive Nicla Sense Env board overview, highli
 
 Enhance your environmental sensing capabilities with the Nicla Sense Env board. This board combines three cutting-edge sensors from Renesas® with the Arduino ecosystem's ease of integration and scalability. This board is well-suited for augmenting your Portenta or MKR-based projects with environmental sensing capabilities.
 
-The Nicla Sense Env includes an ultra-low power temperature and humidity sensor, complemented by two sophisticated, industrial-grade gas sensors capable of assessing air quality in both indoor and outdoor settings. Its compact dimensions (22.86 x 22.86 mm) and sturdy construction make the Nicla Sense Env an excellent choice for projects that demand sensor fusion and the computational capabilities of Arduino boards.
+The Nicla Sense Env includes an ultra-low power temperature and humidity sensor, complemented by two sophisticated industrial-grade gas sensors capable of assessing air quality in indoor and outdoor settings. Its compact dimensions (22.86 x 22.86 mm) and sturdy build make the Nicla Sense Env an excellent choice for projects that demand sensor fusion and the computational capabilities of Arduino boards.
 
 ### Nicla Sense Env Architecture Overview
 
