@@ -49,9 +49,9 @@ Portenta X8 is a powerful, industrial-grade System on a Module that combines a Y
 
 As reported in the image above, Portenta X8 features two powerful computing units:
 
--* **STMicroelectronics STM32H747XI** featureing 1x ARM® Cortex®-M7 core running up to 480 MHz and 1x ARM® Cortex®-M4 core running up to 240 MHz. This microcontroller hosts the ["Arduino Mbed OS Portenta Boards" Core](https://github.com/arduino/ArduinoCore-mbed). M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4, as well as to manage peripherals through RPC. For more details, refer to [this section](#arduino-environment) of the user manual.
+* **NXP® i.MX 8M Mini** Cortex®-A53 quad-core up to 1.8GHz per core + 1x Cortex®-M4 up to 400 MHz. This microprocessor is the one where the Yocto Linux distribution is running together with Docker containers (check [this section](#linux-environment) of this user manual to learn more).
 
-+* **STMicroelectronics STM32H747XI** featureing 1x Arm® Cortex®-M7 core running up to 480 MHz and 1x Arm® Cortex®-M4 core running up to 240 MHz. This microcontroller hosts the ["Arduino Mbed OS Portenta Boards" Core](https://github.com/arduino/ArduinoCore-mbed). M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4, as well as to manage peripherals through RPC. For more details, refer to [this section](#arduino-environment) of the user manual.
+* **STMicroelectronics STM32H747XI** featureing 1x Arm® Cortex®-M7 core running up to 480 MHz and 1x Arm® Cortex®-M4 core running up to 240 MHz. This microcontroller hosts the ["Arduino Mbed OS Portenta Boards" Core](https://github.com/arduino/ArduinoCore-mbed). M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4, as well as to manage peripherals through RPC. For more details, refer to [this section](#arduino-environment) of the user manual.
 
 The two computing units are responsible for different tasks, which are summarized in the table below.
 
@@ -306,7 +306,7 @@ On the other hand, a container represents a process, which runs starting from an
 
 * **Stopped:** A stopped container does not have any running process. When a container is stopped through the command `docker stop`, the file system is not affected, but the RAM gets deleted. This is the main difference between stopped and paused states.
 
-* **Deleted:** A container can be removed through the `docker rm command`. This implies the complete cancellation of all the data associated with the container, including file system, volume, and network mapping.
+* **Deleted:** A container can be removed through the `docker rm` command. This implies the complete cancellation of all the data associated with the container, including file system, volume, and network mapping.
 
 Let's now have a look at the main Docker commands. The complete list can be found [here](https://docs.docker.com/engine/reference/commandline/docker/).
 The command `docker image ls` makes it possible to check all the images installed on your Portenta. These images may have been downloaded from a repository using the command `docker pull XXX` or created from scratch with the command `docker build XXX` starting from a *dockerfile*.
@@ -1123,7 +1123,7 @@ To start using your Portenta X8 with Arduino Cloud, provision your device as des
 
 Once ready, you can customize Portenta X8, for example, Thing and Dashboard. This can be done by writing your own Python script leveraging the [Arduino IoT Cloud Python library](https://github.com/arduino/arduino-iot-cloud-py). Check the documentation and the examples inside the library to learn more about creating your own Python application.
 
-When your Python script is ready, you have to create a dedicated Dockerfile to integrate your new script. The Dockefile needs the Out-of-the-box Python container (i.e., `arduino-ootb-python-devel`) to interact with your Arduino Cloud account correctly.
+When your Python script is ready, you have to create a dedicated Dockerfile to integrate your new script. The Dockerfile needs the Out-of-the-box Python container (i.e., `arduino-ootb-python-devel`) to interact with your Arduino Cloud account correctly.
 
 So, open a terminal window and create a Dockerfile integrating the following code with your Python script:
 
