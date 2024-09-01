@@ -113,7 +113,7 @@ The complete STEP files are available and downloadable from the link below:
 
 ### Unboxing the Product
 
-Let's check out what's inside the box of the Nicla Sense Env board. Besides the board, you will also find an ESLOV cable inside the box, which can connect the Nicla Sense Env with other supported Arduino boards with an onboard ESLOV connector (Portenta, Nano, or MKR family boards). The board's MKR-styled pins can also connect the Nicla Sense Env to other supported Arduino boards, but 2.54 mm header pins (not included) must be soldered to the MKR-styled board pins. 
+Let's check out what is inside the box of the Nicla Sense Env board. Besides the board, you will find an ESLOV cable inside the box, which can connect the Nicla Sense Env with other supported Arduino boards with an onboard ESLOV connector (Portenta, Nano, or MKR family boards). The board's MKR-styled pins can also connect the Nicla Sense Env to other supported Arduino boards, but 2.54 mm header pins (not included) must be soldered to the MKR-styled board pins. 
 
 ![Unboxing the Nicla Sense Env](assets/user-manual-4.png)
 
