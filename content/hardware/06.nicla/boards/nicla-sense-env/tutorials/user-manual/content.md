@@ -775,7 +775,7 @@ You can download the example sketch [here](assets/nicla_sense_env_outdoor_air_qu
 
 The Nicla Sense Env board features a UART interface for data logging purposes. This allows the board to output sensor data in `CSV` format over UART, enabling easy data logging and monitoring in various applications. The UART interface is handy for scenarios where the board needs to communicate with other microcontrollers or systems without relying on USB connections.
 
-The example sketch shown below demonstrates how to read data from the UART port on the Nicla Sense Env board. The sketch assumes the Nicla Sense Env is powered through the board's `VCC` pin or the ESLOV connector of a host board and connected to another board through the UART pins. The example also requires enabling the UART output on the Nicla Sense Env.
+The example sketch below demonstrates how to read data from the UART port on the Nicla Sense Env board. The sketch assumes the Nicla Sense Env is powered through the board's `VCC` pin or the ESLOV connector of a host board and connected to another board through the UART pins. The example also requires enabling the UART output on the Nicla Sense Env.
 
 ```arduino
 /**
