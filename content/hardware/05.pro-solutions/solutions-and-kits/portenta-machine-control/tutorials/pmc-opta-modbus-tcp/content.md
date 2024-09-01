@@ -42,8 +42,9 @@ If you prefer to follow the tutorial in a written format, or need to review the 
 - Ethernet cables (x2)
 - Wired internet access
 - 24 VDC/0.5 A power supply (x2)
+
 ### Software
-- The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide) (including Arduino PLC IDE Tools)
+- The [Arduino PLC IDE](https://www.arduino.cc/pro/software-plc-ide)
 - [Portenta Machine Control - PLC IDE Activation](https://store-usa.arduino.cc/products/plc-key-portenta-machine-control?queryID=undefined&selectedStore=us)
 
 ## Instructions 

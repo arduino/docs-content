@@ -47,6 +47,8 @@ Additionally you may need the following accessories:
 * USB-C® cable (x1)
 * 3.7 V Li-Po battery to externally power the Nicla Vision
 
+***The __AKX00058 Edge AI/ML: Vision and Speech Kit__ can be purchased from __Avnet__. For more details on the purchase, please visit [the store page](https://www.avnet.com/shop/us/products/arduino/akx00058-3074457345653947779).***
+
 ## Getting Started with Your Kit
 
 1. Get to [https://cloud.arduino.cc/](https://cloud.arduino.cc/), sign in or Create an Arduino account. Rescue your Arduino Cloud 3 months voucher code using this [Procedure](https://docs.arduino.cc/tutorials/generic/cloud-business-voucher-redeem) and [Get Started with Arduino Cloud For Business](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-for-business)!
@@ -70,7 +72,6 @@ Additionally you may need the following accessories:
 7. Check the [Nicla Vision docs](https://docs.arduino.cc/hardware/nicla-vision) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00051-datasheet.pdf). On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00051-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00051-schematics.pdf) are also available.
 
 8. Start practicing the first examples included in the products user manuals, the IDE examples and the experiences proposed in the following section.
-
 
 ## Experiences Proposed
 
@@ -104,9 +105,10 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |                       [Accessing IMU Data on Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/nicla-vision-imu)                        | Yes |               |              |
 |                     [Proximity Detection with Arduino Nicla Vision](https://docs.arduino.cc/tutorials/nicla-vision/proximity)                      | Yes |               |              |
 
-
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that to follow the tutorial you must use all the products with the `+` symbol.
 
 ## Support
 
 If you encounter any issues or have questions, we offer various support resources to help you find answers and solutions. In case of any issues with the redemption process, please contact us by filling out the form available [here](https://www.arduino.cc/en/contact-us/).
+
+Want to discuss how you can use Edge AI/ML in your industrial applications? Click [here](https://www.arduino.cc/pro/contact-us/) to consult with our experts.

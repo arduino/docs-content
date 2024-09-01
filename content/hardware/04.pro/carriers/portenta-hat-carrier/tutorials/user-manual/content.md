@@ -709,7 +709,7 @@ void setup() {
   Serial.println("Mass Storage Device connected.");
 
   /*
-   *  MOUNTIN SDCARD AS FATFS filesystem
+   *  MOUNTING SDCARD AS FATFS filesystem
    */
 
   Serial.println("Mounting Mass Storage Device...");

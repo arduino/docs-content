@@ -306,7 +306,7 @@ On the other hand, a container represents a process, which runs starting from an
 
 * **Stopped:** A stopped container does not have any running process. When a container is stopped through the command `docker stop`, the file system is not affected, but the RAM gets deleted. This is the main difference between stopped and paused states.
 
-* **Deleted:** A container can be removed through the `docker rm command. This implies the complete cancellation of all the data associated with the container, including file system, volume, and network mapping.
+* **Deleted:** A container can be removed through the `docker rm command`. This implies the complete cancellation of all the data associated with the container, including file system, volume, and network mapping.
 
 Let's now have a look at the main Docker commands. The complete list can be found [here](https://docs.docker.com/engine/reference/commandline/docker/).
 The command `docker image ls` makes it possible to check all the images installed on your Portenta. These images may have been downloaded from a repository using the command `docker pull XXX` or created from scratch with the command `docker build XXX` starting from a *dockerfile*.

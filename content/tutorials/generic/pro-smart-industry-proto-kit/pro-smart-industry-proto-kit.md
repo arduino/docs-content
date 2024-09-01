@@ -41,12 +41,12 @@ The following items are included in the kit:
 |    1     |                Power Supply for Max Carrier                 |     MP009249     |
 |    1     | Cloud for business + Portenta X8 manager - 3 Months Voucher |        -         |
 
-
 Additionally, you may need the following accessories:
 
 * USB-C® cable (x1)
 * Solar panel with respective system (Controller, battery, and inverter) or similar power system
 
+***The __AKX00060 Smart Industry Prototyping Kit__ can be purchased from __Avnet__. For more details on the purchase, please visit [the store page](https://www.avnet.com/shop/us/products/arduino/akx00060-3074457345653947794).***
 
 ## Getting Started with Your Kit
 
@@ -59,7 +59,6 @@ Additionally, you may need the following accessories:
 4. Check the [Portenta Max Carrier docs](https://docs.arduino.cc/hardware/portenta-max-carrier) to retrieve the product resources. Carefully read the [datasheet](https://docs.arduino.cc/resources/datasheets/ABX00043-datasheet.pdf) and the [Get Started](https://docs.arduino.cc/tutorials/portenta-max-carrier/getting-started) with it. On [docs.arduino.cc](http://docs.arduino.cc) the [Pinout](https://docs.arduino.cc/resources/pinouts/ABX00043-full-pinout.pdf) and [Schematics](https://docs.arduino.cc/resources/schematics/ABX00043-schematics.pdf) are also available.
 
 5. Connect the products together and [get started](https://docs.arduino.cc/tutorials/portenta-max-carrier/x8-getting-started) with them. Practice the first examples included in the user manual, the IDE examples and the experiences proposed below.
-
 
 ## Experiences Proposed
 
@@ -81,9 +80,7 @@ If you want to learn more about the technologies of the kit, we propose the foll
 |     [Multi-Protocol Gateway With Portenta X8 & Max Carrier](https://docs.arduino.cc/tutorials/portenta-x8/multi-protocol-gateway)     | Yes |     Yes     |
 |      [Running WordPress & Database Containers on Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/wordpress-webserver)      | Yes |             |
 
-
 The experiences marked with a `Yes` are the ones related to the product. Experiences marked with a `+` means that to follow the tutorial you must use all the products with the `+` symbol.
-
 
 ## Support
 

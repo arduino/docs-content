@@ -35,7 +35,6 @@ This user manual will provide a comprehensive overview of Opta™, covering its 
 
 - [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
 - [Arduino PLC IDE 1.0.3+](https://www.arduino.cc/en/software) (for IEC 61131-3 PLC programming languages)
-- [Arduino PLC IDE 1.0.3+ Tools](https://www.arduino.cc/en/software#arduino-plc-ide) 
 
 ***To learn more about the PLC IDE, check out our tutorials [here](https://docs.arduino.cc/software/plc-ide).***
 
@@ -105,7 +104,7 @@ The IEC 61131-3 programming languages include:
 
 In the PLC IDE, you can mix PLC programming with standard Arduino sketches within the integrated sketch editor and share variables between the two environments. You can also automate tasks in your software applications; this gives you control over scheduling and repetition, enhancing the reliability and efficiency of your project. Moreover, communication protocols such as Modbus RTU and Modbus TCP can be managed effortlessly using integrated no-code fieldbus configurators.
 
-Check out the following resources that will show you how to start with the Arduino PLC IDE and use use IEC 61131-3 programming languages with Opta™:
+Check out the following resources that will show you how to start with the Arduino PLC IDE and how to use IEC 61131-3 programming languages with Opta™:
 
 - [Arduino PLC IDE download page](https://www.arduino.cc/pro/software-plc-ide)
 - [Arduino PLC IDE and Opta™ tutorials](https://docs.arduino.cc/software/plc-ide)
@@ -190,6 +189,23 @@ Opta™ has an **onboard USB®-C port** that can be used for programming the dev
 
 This user manual section covers Opta's electrical terminals, showing their main hardware and software characteristics. Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and eight of them can be used as digital/analog inputs.
 
+### Wiring Specifications
+
+Following Opta's wiring specifications is important to ensure proper connection and operation of its electrical terminals. The tables shown below provide recommendations for torque application, cable preparation, and accepted wire types of Opta's electrical terminals. 
+
+#### Recommended Torque and Cable Preparation
+
+| **Torque** |     **Recommended Tool**     | **Stripping Length** |
+|:----------:|:----------------------------:|:--------------------:|
+|  0.80 Nm  | #1 Phillips-head screwdriver |         9 mm         |
+
+#### Accepted Wire Types
+
+|    **Wire Type**   | **Minimum Size** |           **Maximum Size**          |
+|:------------------:|:----------------:|:-----------------------------------:|
+|   Solid Conductor  | 0.5 mm² (20 AWG) |  6 mm² (10 AWG)/2x4 mm² (2x12 AWG)  |
+| Stranded Conductor | 0.5 mm² (20 AWG) | 4 mm² (12 AWG)/2x2.5 mm² (2x14 AWG) |
+
 ### Power Supply
 
 As shown in the image below, the first four terminals, from left to right, are Opta's power supply terminals; two are marked with `+` signs and two with `-` signs. An external +12 VDC to +24 VDC power supply can be connected to these terminals. 
@@ -230,7 +246,7 @@ The analog input terminals can be used through the built-in functions of the [Ar
 
 - Add the `analogReadResolution()` instruction in your sketch's `setup()` function.
 
-The sketch below shows how to monitor analog voltages on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor changes real-time changes.
+The sketch below shows how to monitor analog voltages on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, converts those readings into voltage based on a 12-bit resolution, and outputs these voltage values through the Arduino IDE's Serial Monitor. The readings are looped every second, allowing you to monitor real-time changes.
 
 ```arduino
 /**
@@ -455,15 +471,15 @@ void loop() {
 
 You should see the green LED on top of your device's RESET button turn on for one second, then off for one second, repeatedly. 
 
-![Opta™ blink with the the green RESET LED](assets/user-manual-19_2.gif)
+![Opta™ blink with the green RESET LED](assets/user-manual-19_2.gif)
 
 ## User Button
 
-All Opta™ variants devices have an onboard user-programmable button; this user button is mapped as `BTN_USER` in the Opta™ core. The user button has an internal pull-up resistor, meaning its default value (while not being pressed) is `HIGH`. 
+All Opta™ variants devices have an onboard user-programmable button; this user button is mapped as `BTN_USER` in the Opta™ core. The user button has an internal pull-up resistor, meaning its default value (while not being pressed) is `HIGH`.
 
 ![User-programmable button in Opta™ devices](assets/user-manual-11.png)
 
-The user-programmable button can be used through the built-in functions of the Arduino programming language. 
+The user-programmable button can be used through the built-in functions of the Arduino programming language.
 
 To use the user button, first define it as a digital input:
 
@@ -563,6 +579,7 @@ void changeLights() {
 ```
 
 The sketch initializes the state of the user's LEDs and button, along with variables for button debouncing. This sketch continuously reads the state of the user button, debounces the button input to avoid false triggering due to electrical noise, and increments a counter each time the button is pressed. It then passes the control to the `changeLights()` function. This function first turns off all LEDs and then, depending on the value of the counter, turns on the corresponding LED. With each button press, the counter increments, and a different LED lights up, cycling back to the beginning after the final LED.
+
 
 You should now be able to control the status LED sequence by pressing Opta's programmable user button.
 
@@ -1192,11 +1209,11 @@ You should be able now to connect to your Opta™ using a central device. The Bl
 
 ## Interrupts
 
-**Opta's analog/digital programmable inputs and user-programmable button are interrupt capable**. An interrupt is a signal that prompts Opta's microcontroller to stop its current execution and start executing a special routine known as the Interrupt Service Routine (ISR). Once the ISR finishes, the microcontroller resumes executing its previous routine.
+**Opta's analog/digital programmable inputs and user-programmable button are interrupt-capable**. An interrupt is a signal that prompts Opta's microcontroller to stop its execution and start executing a special routine known as the Interrupt Service Routine (ISR). Once the ISR finishes, the microcontroller resumes executing its previous routine.
 
 Interrupts are particularly useful when reacting instantly to an external event, such as a button press or a sensor signal. Without interrupts, you would have to constantly poll the status of a button or a sensor in the main loop of your running sketch. With interrupts, you can let your Opta's microcontroller do other tasks and only react when a desired event occurs.
 
-***Due to Opta's microcontroller interrupt structure, interrupts in terminals `I1` (`A0`) and `I4` (`A4`) cannot be used simultaneously to avoid operational issues. It is important to note that, despite this limitation, any other combination of inputs can be used for interrupt detection. However, this means that, at most, seven of the eight available inputs can be used simultaneously for interrupts, as combinations containing both `I1` and `I4` are excluded from viable configurations.***
+***Due to Opta's microcontroller interrupt structure, interrupts in terminals `I1` (`A0`) and `I4` (`A3`) cannot be used simultaneously to avoid operational issues. It is important to note that, despite this limitation, any other combination of inputs can be used for interrupt detection. However, this means that, at most, seven of the eight available inputs can be used simultaneously for interrupts, as combinations containing both `I1` and `I4` are excluded from viable configurations.***
 
 Interrupts can be used through the built-in functions of the Arduino programming language. To enable interrupts in your Opta's analog/digital programmable inputs and user-programmable button:
 
@@ -1306,12 +1323,12 @@ Opta™ device's (all variants) microcontroller (the STM32H747XI) features a low
 
 Some of the key capabilities of Opta's onboard RTC are the following:
 
-- Calendar with subsecond, seconds, minutes, hours (12 or 24 formats), week day, date, month, and years in BCD (binary-coded decimal) format.
+- Calendar with subsecond, seconds, minutes, hours (12 or 24 formats), weekday, date, month, and years in BCD (binary-coded decimal) format.
 - Automatic correction for 28, 29 (leap year), 30, and 31 days of the month.
 - Two programmable alarms. 
 - Timestamp feature, which can be used to save the calendar content.
 
-The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi® network, synchronizes its onboard RTC with a Network Time Protocol (NTP) server using the [`NTPClient` library](https://www.arduino.cc/reference/en/libraries/ntpclient/), and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager. 
+The `Arduino Mbed OS Opta Boards` core has built-in libraries that let you use the device's onboard RTC, the `WiFi`, and `mbed_mktime` libraries; let's walk through an example code demonstrating some of the module's capabilities. The sketch below connects an Opta™ device to a Wi-Fi® network, synchronizes its onboard RTC with a Network Time Protocol (NTP) server using the [`NTPClient` library](https://www.arduino.cc/reference/en/libraries/ntpclient/), and prints the current RTC time to the Arduino IDE's Serial Monitor every 5 seconds. Install the `NTPClient` library using the Arduino IDE's Library Manager.
 
 You need to create first a header file named `arduino_secrets.h` to store your Wi-Fi® network credentials. To do this, add a new tab by clicking the ellipsis (the three horizontal dots) button on the top right of the Arduino IDE 2.
 
@@ -1692,28 +1709,15 @@ void initProperties(){
 EthernetConnectionHandler ArduinoIoTPreferredConnection(IP, DNS, GATEWAY, NETMASK);
 ```
 
-Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network or via Ethernet interface you configured before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's STATUS LED 1 (`LED_D0`) should light on or off when the position of the switch changes.
+Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network or via the Ethernet interface you configured before (you can follow the connection process with the online editor-integrated Serial Monitor). Your board's STATUS LED 1 (`LED_D0`) should light on or off when the position of the switch changes.
 
-To learn more about Opta™ and the Arduino IoT Cloud, check out the following resources that can help you learning about the Arduino IoT Cloud and Opta™:
+To learn more about Opta™ and the Arduino IoT Cloud, check out the following resources that can help you learn about the Arduino IoT Cloud and Opta™:
 
 - [Opta™ Relay Management template](https://create.arduino.cc/iot/templates/relay-management)
 - [Using PLC IDE With Arduino® IoT Cloud](https://docs.arduino.cc/tutorials/opta/plc-ide-cloud-support)
 
 
-## Opta Digital Expansions
-
-Arduino Opta™ Digital Expansions are designed to multiply your Opta™ micro PLC capabilities with the addition of 16 programmable inputs for connecting your industrial sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
-
-The Opta™ Digital Expansions come in two variants: 
-
-* [The Arduino Opta® Ext D1608E (AFX00005)](https://store.arduino.cc/products/opta-ext-d1608e) with Electromechanical Relays.
-* [The Arduino Opta® Ext D1608S (AFX00006)](https://store.arduino.cc/products/opta-ext-d1608s) with Solid State Relays.
-
-The Opta Expansions can be controlled by any Opta controller variant: [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485) or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi).
-
-![Opta Expansion variants](assets/variants.png)
-
-***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step.***
+## Opta Expansions
 
 ### Snapping the Expansion
 
@@ -1723,26 +1727,9 @@ After removing the expansion port breakable plastic cover marked as AUX, from th
 
 ![Snapping Opta expansions](assets/snapping.gif)
 
-### Powering Expansions
-
-The Opta™ Digital Expansions must be externally powered to work. See the power specifications in the table below:
-
-| Property                 | Min  | Typ | Max  | Unit |
-|--------------------------|------|-----|------|------|
-| Supply voltage           | 12   | -   | 24   | V    |
-| Permissible range        | 10.2 | -   | 27.6 | V    |
-| Power consumption (12 V) | -    | -   | 3    | W    |
-| Power consumption (24 V) | -    | -   | 3    | W    |
-
-In the image below there is an example of the power wiring of the expansions:
-
-![Powering the Opta Digital Expansions](assets/power-expansion.png)
-
-***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
-
 ### Library Installation
 
-To use the Opta™ Digital Expansion with your Opta™ PLC, you need to install the `Arduino_Opta_Blueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
+To use the Opta™ Expansions with your Opta™ PLC, you need to install the `Arduino_Opta_Blueprint` library. To do so in the Arduino IDE, select the **Library Manager** from the left side menu, now search for _Opta Expansions_ and click on the install button.
 
 ![Opta expansions library installation](assets/library-install.png)
 
@@ -1755,6 +1742,10 @@ Once installed, you will have access to a variety of sketch examples showcasing 
 #### Update Expansion Firmware
 
 With the library properly installed, we will update the expansion firmware to ensure proper functioning and seamless detection.
+
+![Powering the Opta Expansions](assets/power-expansion.png)
+
+***The expansions must be externally powered to be operated and detected by the Opta™ controller for the firmware update and normal operation. The Aux port does not provide power to the expansion.***
 
 In the Arduino IDE, navigate to **File > Examples > Arduino_Opta_Blueprint > updateExpansionFw**.
 
@@ -1772,7 +1763,77 @@ Type `Y` in the Serial Monitor to confirm the update and wait for it to be compl
 
 Finally, your Opta™ expansion will be updated with the latest firmware version.
 
-### Programmable Inputs
+### General Library Notes
+
+This section aims to clarify some recommendations for your programming experience to be as smooth as possible in your solution-developing process. 
+
+When you are using the `Arduino_Opta_Blueprint` library, please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
+
+Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
+
+`OptaController.update()` function DOES NOT:
+* Check if an expansion has been removed and remove their objects
+* Update any data from or to the expansion
+
+
+The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
+
+
+```arduino
+//For Digital Expansions
+for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
+  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
+  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
+}
+
+//For Analog Expansions:
+for(int i = 0; i < OptaController.getExpansionNum(); i++) {  // check all the available expansion slots
+  AnalogExpansion exp = OptaController.getExpansion(i);
+}
+```
+The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read state belongs to.
+
+In the case of using analog expansions, the same method is used but checking for an Ext A0602 expansion. If any is found in the asked index, the `exp` object turns to true.
+
+The library supports the `OptaController.getExpansionNum()`. This function always returns the number of expansions discovered during the last discovery / assign I2C address process. 
+
+Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using `setFailedCommCb(callback)` (available on all the Expansion classes). 
+
+The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.
+
+### Opta Digital Expansions
+
+Arduino Opta™ Digital Expansions are designed to multiply your Opta™ micro PLC capabilities with the addition of 16 programmable inputs for connecting your industrial sensors and 8 more relays to operate your machines. Designed in partnership with leading relay manufacturer Finder®, it allows professionals to scale up industrial and building automation projects while taking advantage of the Arduino ecosystem.
+
+The Opta™ Digital Expansions come in two variants: 
+
+* [The Arduino Opta® Ext D1608E (AFX00005)](https://store.arduino.cc/products/opta-ext-d1608e) with Electromechanical Relays.
+* [The Arduino Opta® Ext D1608S (AFX00006)](https://store.arduino.cc/products/opta-ext-d1608s) with Solid State Relays.
+
+The Opta Expansions can be controlled by any Opta controller variant: [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485) or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi).
+
+![Opta Expansion variants](assets/variants.png)
+
+***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step.***
+
+#### Powering Expansions
+
+The Opta™ Digital Expansions must be externally powered to work. See the power specifications in the table below:
+
+|       **Property**       | **Min** | **Typ** | **Max** | **Unit** |
+|:------------------------:|:-------:|:-------:|:-------:|:--------:|
+|      Supply voltage      |   12    |    -    |   24    |    V     |
+|    Permissible range     |  10.2   |    -    |  27.6   |    V     |
+| Power consumption (12 V) |    -    |    -    |    3    |    W     |
+| Power consumption (24 V) |    -    |    -    |    3    |    W     |
+
+In the image below there is an example of the power wiring of the expansions:
+
+![Powering the Opta Digital Expansions](assets/power-expansion.png)
+
+***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
+
+#### Programmable Inputs
 
 The Opta™ Expansions have **16 analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
 
@@ -1782,32 +1843,12 @@ Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** with a 
 
 ![Opta Digital Expansions Inputs](assets/16-inputs-new.png)
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Number of inputs</td>
-            <td>16x Digital/Analog inputs</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Inputs overvoltage protection</td>
-            <td>yes (up to 40 V)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Reverse protection</td>
-            <td>no</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Input impedance</td>
-            <td>5.85 kΩ</td>
-        </tr>
-    </tbody>
-</table>
+|      **Characteristics**      |        **Details**        |
+|:-----------------------------:|:-------------------------:|
+|       Number of inputs        | 16x Digital/Analog inputs |
+| Inputs overvoltage protection |     Yes (up to 40 V)      |
+|      Reverse protection       |            No             |
+|        Input impedance        |          5.85 kΩ          |
 
 Analog/digital input terminals are mapped as described in the following table:
 
@@ -1830,34 +1871,24 @@ Analog/digital input terminals are mapped as described in the following table:
 |                 I15                 |           14            |
 |                 I16                 |           15            |
 
+The **reading time** of digital and analog inputs is detailed in the table below:
+
+| **Channel type** | **Number of inputs** |          **Function**          | **Time** |                                               **Notes**                                               |
+|:----------------:|:--------------------:|:------------------------------:|:--------:|:-----------------------------------------------------------------------------------------------------:|
+|     Digital      |     All at once      |    `digitalRead(pin, true)`    | ~580 µs  | This function even if used to read a "single pin" actually updates the value of all the digital pins. |
+|     Digital      |     All at once      |    `updateDigitalInputs()`     | ~580 µs  |                 This function is also included in the measure `digitalRead(0, false)`                 |
+|      Analog      |         One          | `getAnalogRead(channel, true)` | ~600 µs  |        Time does not change converting the value to physical unit (i.e. using `pinVoltage()`)         |
+|      Analog      |     All at once      |     `updateAnalogInputs()`     | ~1.28 ms |                This function is also included in the measure `getAnalogRead(0, false)`                |
+
 #### Digital 
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Digital Input voltage</td>
-            <td>0...24V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input voltage logic level</td>
-            <td>VIL Max: 4 VDC. VHL Min: 5.9 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input current</td>
-            <td>4.12mA at 24V | 2.05mA at 10V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Digital Input frequency</td>
-            <td>300 Hz</td>
-        </tr>
-    </tbody>
-</table>
+|        **Characteristics**        |           **Details**            |
+|:---------------------------------:|:--------------------------------:|
+|       Digital Input voltage       |             0...24V              |
+| Digital Input voltage logic level | VIL Max: 4 VDC. VHL Min: 5.9 VDC |
+|       Digital Input current       |  4.12mA at 24V \| 2.05mA at 10V  |
+|      Digital Input frequency      |              300 Hz              |
+|  All inputs at once reading time  |             ~580 µs              |
 
 The state of an input terminal, configured as digital, can be read using the built-in function `digitalRead()` as shown below:
 
@@ -1990,25 +2021,8 @@ void loop() {
 
 }
 ```
-Please take into account that `OptaController.update()` must be called cyclically to support the hot plug of new expansions. In other words, by calling the update() function cyclically, the controller will discover new expansions when they are plugged in while the controller is already running.
 
-Thanks to this function, the action of plugging in a new expansion will cause the controller to start a completely new discovery process and a new I2C address assignment.
-
-`OptaController.update()` function DOES NOT:
-* Check if an expansion has been removed and remove their objects
-* Update any data from or to the expansion
-
-
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-
-```arduino
-for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
-  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
-  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read state belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The function `<ExpObject>.updateDigitalInputs();` updates all the inputs with their current states to prepare them to be read.
 
@@ -2021,36 +2035,17 @@ LL LL LL LL LL HH LL LL LL LL LL LL LL LL LL LL
 
 ![Digital Input wiring example](assets/limit-switch.gif)
 
-***General note: The library supports the OptaController.getExpansionNum(). This function always returns the number of expansions discovered during the last discovery / assign I2C address process. Since the discovery process is NOT performed if an expansion is removed or powered down, the value returned by this function DOES NOT change in case of the removal of one Expansion. To know if an expansion is missing, register a callback using setFailedCommCb(cb) (available on all the Expansion classes). The callback will be called any time an I2C expected answer is not received by the controller, allowing the user to know that expansion is missing. No "heartbeat" function is provided to understand if an expansion is missing since having an expansion and not regularly communicating with it is not a behavior meant by design.***
-
 #### Analog 
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Analog Input voltage</td>
-            <td>0...24V </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Analog Input resolution</td>
-            <td>14 bits</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Analog Input LSB value</td>
-            <td>1.733 mV</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Accuracy</td>
-            <td>+/- 5%, repeatability +/- 2%</td>
-        </tr>
-    </tbody>
-</table>
+|       **Characteristics**       | **Details** |
+|:-------------------------------:|:-----------:|
+|      Analog Input voltage       |   0...24V   |
+|     Analog Input resolution     |   14 bits   |
+|     Analog Input LSB value      |  1.733 mV   |
+|            Accuracy             |   +/- 5%    |
+|          Repeatability          |   +/- 2%    |
+|     One input reading time      |  ~600 µs    |
+| All inputs at once reading time |  ~1.28 ms   |
 
 The state of an input terminal, configured as analog, can be read using the built-in function `analogRead()` as shown below:
 
@@ -2186,15 +2181,7 @@ void loop() {
 
 }
 ```
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-```arduino
-for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
-  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
-  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion the read value belongs to.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input voltage as follows:
 
@@ -2205,169 +2192,70 @@ Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
 
 ![Analog Input wiring example](assets/analog-inputs.png)
 
-### Outputs
+
+#### Outputs
 
 The Opta™ Expansions have **8 relay outputs** accessible through terminals pairs `1` to `8`.
 
 ![Opta Digital Expansions outputs](assets/variants-emr-ssr-new.png)
 
+Relay Output terminals are mapped as described in the following table:
+
+| **Opta Digital Expansion Terminal** | **Arduino Pin Mapping** |
+| :---------------------------------: | :---------------------: |
+|               Relay 1               |            0            |
+|               Relay 2               |            1            |
+|               Relay 3               |            2            |
+|               Relay 4               |            3            |
+|               Relay 5               |            4            |
+|               Relay 6               |            5            |
+|               Relay 7               |            6            |
+|               Relay 8               |            7            |
+
+
 The **Ext D1608E (EMR)** variant features 8 electromechanical relays with the following characteristics:
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Number of outputs</td>
-            <td>8x Electromechanical Relays (Normally Open - SPST)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max current per relay</td>
-            <td>6A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>10A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Continuous current per terminal</td>
-            <td>6A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Short-circuit protection</td>
-            <td>No, external fuse required</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay rated voltage</td>
-            <td>250 VAC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay Max voltage</td>
-            <td>400 VAC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Rated load AC1</td>
-            <td>1500 VA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Rated load AC15 (230 VAC)</td>
-            <td>300 VA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Breaking capacity DC1: 24/110/220V</td>
-            <td>6/0.2/0.12A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Minimum switching load</td>
-            <td>500mW (12V/10mA)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max output line length (unshielded)</td>
-            <td>100 m</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 0 to state 1</td>
-            <td>5 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 1 to state 0</td>
-            <td>3 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Bounce time NO</td>
-            <td>1 ms</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Bounce time NC</td>
-            <td>6 ms</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay mechanical durability</td>
-            <td>10 million cycles (DC)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay electrical durability</td>
-            <td>60 thousand cycles with a resistive load (AC1)</td>
-        </tr>
-    </tbody>
-</table>
+|             **Characteristics**             |                    **Details**                     |
+|:-------------------------------------------:|:--------------------------------------------------:|
+|              Number of outputs              | 8x Electromechanical Relays (Normally Open - SPST) |
+|            Max current per relay            |                         6A                         |
+|         Max peak current per relay          |                        10A                         |
+|       Continuous current per terminal       |                         6A                         |
+|          Short-circuit protection           |             No, external fuse required             |
+|             Relay rated voltage             |                      250 VAC                       |
+|              Relay Max voltage              |                      400 VAC                       |
+|               Rated load AC1                |                      1500 VA                       |
+|          Rated load AC15 (230 VAC)          |                       300 VA                       |
+|     Breaking capacity DC1: 24/110/220V      |                    6/0.2/0.12A                     |
+|           Minimum switching load            |                  500mW (12V/10mA)                  |
+|     Max output line length (unshielded)     |                       100 m                        |
+| Relay response time from state 0 to state 1 |               5 ms for relay output                |
+| Relay response time from state 1 to state 0 |               3 ms for relay output                |
+|               Bounce time NO                |                        1 ms                        |
+|               Bounce time NC                |                        6 ms                        |
+|         Relay mechanical durability         |               10 million cycles (DC)               |
+|         Relay electrical durability         |   60 thousand cycles with a resistive load (AC1)   |
 
 The **Ext D1608S (SSR)** variant features 8 solid state relays with the following characteristics:
 
-<table>
-    <thead>
-        <tr style="text-align: middle;">
-            <th width="30%">Characteristics</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td style="vertical-align: top;">Number of outputs</td>
-            <td>8x Solid State Relays (Normally Open - SPST)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max current per relay</td>
-            <td>2A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max peak current per relay</td>
-            <td>50A (10 ms)</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Continuous current per terminal</td>
-            <td>2A</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Short-circuit protection</td>
-            <td>No, external fuse required</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay rated voltage</td>
-            <td>24 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Switching voltage range</td>
-            <td>1.5...30 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Maximum blocking voltage</td>
-            <td>33 VDC</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Rated load DC13</td>
-            <td>36 W</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Minimum switching current</td>
-            <td>1 mA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max "OFF-state" leakage current</td>
-            <td>0.001 mA</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Max "OFF-state" voltage drop</td>
-            <td>0.4 V</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 0 to state 1</td>
-            <td>0.02 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Relay response time from state 1 to state 0</td>
-            <td>0.2 ms for relay output</td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top;">Electrical life at rated load</td>
-            <td>> 10 million cycles</td>
-        </tr>
-    </tbody>
-</table>
+|          **Characteristics**          |                 **Details**                  |
+|:-------------------------------------:|:--------------------------------------------:|
+|           Number of outputs           | 8x Solid State Relays (Normally Open - SPST) |
+|         Max current per relay         |                      2A                      |
+|      Max peak current per relay       |                 50A (10 ms)                  |
+|    Continuous current per terminal    |                      2A                      |
+|       Short-circuit protection        |          No, external fuse required          |
+|          Relay rated voltage          |                    24 VDC                    |
+|        Switching voltage range        |                 1.5...30 VDC                 |
+|       Maximum blocking voltage        |                    33 VDC                    |
+|            Rated load DC13            |                     36 W                     |
+|       Minimum switching current       |                     1 mA                     |
+|    Max "OFF-state" leakage current    |                   0.001 mA                   |
+|     Max "OFF-state" voltage drop      |                    0.4 V                     |
+| Relay response time from state 0 to 1 |           0.02 ms for relay output           |
+| Relay response time from state 1 to 0 |           0.2 ms for relay output            |
+|     Electrical life at rated load     |             > 10 million cycles              |
+
 
 The state of an output terminal, in the Ext D1608S or Ext D1608E variant, can be set using the built-in function `digitalWrite()` as shown below:
 
@@ -2550,15 +2438,7 @@ void loop() {
  }
 }
 ```
-The expansion object in the example above is defined using the `OptaController.getExpansion(i);` function, as follows:
-
-```arduino
-for(int i = 0; i < 5; i++) {  // check all the five available expansion slots
-  DigitalMechExpansion mechExp = OptaController.getExpansion(i); 
-  DigitalStSolidExpansion stsolidExp = OptaController.getExpansion(i);
-}
-```
-The above method will check if there is an Ext D1608E or Ext D1608S expansion connected in the `i` index from the five admitted. If any is found in the asked index, the expansion `mechExp` or `stsolidExp` turns to true. This will ensure which expansion is going to be controlled.
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 First, the desired relay states need to be defined with the `digitalWrite()` function, then with the `<ExpObject>.updateDigitalOutputs()` the states are sent to the expansion to control the relays with the defined states.
 
@@ -2580,6 +2460,1662 @@ You can buy and find more information about the Opta™ Digital Expansions on th
 - [Buy the Opta™ Digital Ext D1608E (EMR)](https://store.arduino.cc/products/Opta-Ext-D1608E)
 - [Buy the Opta™ Digital Ext D1608S (SSR)](https://store.arduino.cc/products/Opta-Ext-D1608S)
 
+### Opta Analog Expansions
+
+Arduino Opta® Analog Expansions are designed to multiply your Opta® micro PLC capabilities with the addition of 8x channels that can be programmed as inputs or outputs for connecting your analog voltage, current, resistive temperature sensors or analog actuators in addition to 4x dedicated PWM outputs. It allows professionals to scale up industrial and building automation projects, diversifying the type of signals managed, while taking advantage of the Arduino ecosystem.
+
+The Opta Expansions can be controlled by any Opta controller variant: [Opta™ Lite](https://store.arduino.cc/products/opta-lite), [Opta™ RS485](https://store.arduino.cc/products/opta-rs485) or [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi).
+
+![Opta Analog Expansion](assets/variant-analog.png)
+
+***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](#update-expansion-firmware) for a guided step-by-step procedure.***
+
+#### Powering Expansions
+
+The Opta™ Analog Expansions must be externally powered to work. See the power specifications in the table below:
+
+|       **Property**       | **Min** | **Typ** | **Max** | **Unit** |
+|:------------------------:|:-------:|:-------:|:-------:|:--------:|
+|      Supply voltage      |   12    |    -    |   24    |    V     |
+|    Permissible range     |  10.2   |    -    |  27.6   |    V     |
+| Power consumption (12 V) |    -    |    -    |    3    |    W     |
+| Power consumption (24 V) |    -    |    -    |    3    |    W     |
+
+In the image below there is an example of the power wiring of the expansions:
+
+![Powering the Opta Analog Expansions](assets/power-expansion-2.png)
+
+***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
+
+#### Programmable Inputs
+
+The Opta™ Analog Expansion has 8x analog channels, identified with a letter, `I` or `O`, between the two connection terminals: `+` for signal and `-` as GND, common to the other `-` terminals on the board. 
+Each input can be used as:
+
+|            **Mode**            | **Specification** |
+|:------------------------------:|:-----------------:|
+|     Digital input voltage      |     0...24 V      |
+|      Analog input voltage      |     0...10 V      |
+|      Analog input current      |     0...25 mA     |
+| Analog temperature input (RTD) |     0...1 MΩ      |
+
+***All the analog channels of the analog expansion can be used as inputs, including `O1` and `O2`, so a total of 8x analog inputs are available to the users.***
+
+![Opta Analog Expansions Inputs](assets/inputs-analog.png)
+
+
+|       **Characteristics**       |                      **Details**                      |
+|:-------------------------------:|:-----------------------------------------------------:|
+|       Number of channels        |                          8x                           |
+| Channels programmable as inputs |            I1, I2, I3, I4, O1, I5, I6, O2             |
+|     Type of inputs accepted     | Digital Voltage and Analog (Voltage, Current and RTD) |
+|  Inputs overvoltage protection  |                   Yes (Up to 40 V)                    |
+|     Antipolarity protection     |                          No                           |
+|     Analog Input resolution     |                        16 bits                        |
+|         Noise Rejection         |   Optional noise rejection between 50 Hz and 60 Hz    |
+
+Input terminals are mapped in the [Arduino_Opta_Blueprint](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) library as described in the following table:
+
+| **Opta Analog Expansion Terminal** | **Arduino Pin Mapping** |
+|:----------------------------------:|:-----------------------:|
+|                 I1                 |      0 or OA_CH_0       |
+|                 I2                 |      1 or OA_CH_1       |
+|                 I3                 |      2 or OA_CH_2       |
+|                 I4                 |      3 or OA_CH_3       |
+|                 O1                 |      4 or OA_CH_4       |
+|                 I5                 |      5 or OA_CH_5       |
+|                 I6                 |      6 or OA_CH_6       |
+|                 O2                 |      7 or OA_CH_7       |
+
+The **reading time** of digital and analog inputs is detailed in the table below:
+
+| **Channel type** | **Number of inputs** |       **Function**       | **Time** |                                               **Notes**                                               |
+|:----------------:|:--------------------:|:------------------------:|:--------:|:-----------------------------------------------------------------------------------------------------:|
+|       RTD        |         One          |    `getRtd(channel)`     | ~600 µs  |                                                     -                                                 |
+|      Analog      |         One          |    `getAdc(channel)`     | ~550 µs  |        Time does not change converting the value to physical unit (i.e. using `pinVoltage()`)         |
+|      Analog      |     All at once      |  `updateAnalogInputs()`  | ~890 µs  |                   This function is also included in the measure `getAdc(0, false)`                    |
+|     Digital      |     All at once      | `digitalRead(pin, true)` | ~480 µs  | This function even if used to read a "single pin" actually updates the value of all the digital pins. |
+|     Digital      |     All at once      | `updateDigitalInputs()`  | ~480 µs  |                 This function is also included in the measure `digitalRead(0, false)`                 |
+
+
+#### Digital Input Mode
+
+The Analog Expansion input channels can be configured as digital inputs to read 0-10 V or 0-24 V digital sensors:
+
+|       **Characteristics**       |                **Details**                |
+|:-------------------------------:|:-----------------------------------------:|
+|            Channels             |      I1, I2, I3, I4, O1, I5, I6, O2       |
+|      Digital input voltage      |                 0...24 V                  |
+|     Configurable threshold      | Yes (for supporting 0...10 V logic level) |
+|      Digital input current      |     4.12 mA at 24V \| 2.05 mA at 10V      |
+|     Digital input frequency     |                  300 Hz                   |
+| All inputs at once reading time |                  ~480 µs                  |
+
+The state of an input terminal configured as digital can be read using the built-in function `digitalRead()` as shown below:
+
+```arduino
+state = <ExpObject>.digitalRead(<input>);
+```
+Use the following wiring diagram as reference to test the example below:
+
+![Digital Input wiring example](assets/digital-animation.gif)
+
+The following example will let you read all the digital inputs of every expansion connected at once, it can be found in the Opta Digital Expansions library by navigating to **File > Examples > Arduino_Opta_Blueprint > Analog > DI**:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 2000
+#define DELAY_AFTER_SETUP 1000
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+  /* -------------------------------------------------------------------------- */
+  if (t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  } else if (t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  } else if (t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  } else if (t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  } else if (t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  } else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+  /* -------------------------------------------------------------------------- */
+  static long int start = millis();
+
+  if (millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+  /* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+  Serial.println("*** Opta Analog Digital Input example ***");
+
+  OptaController.begin();
+
+  for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+
+    for (int k = 0; k < OA_AN_CHANNELS_NUM; k++) {
+      /* all channels are initialized in the same way as VOLTAGE ADC */
+      AnalogExpansion::beginChannelAsDigitalInput(OptaController, i,  // the device
+                                                  k,                  // the output channel you are using
+                                                  true,               // filter comparator
+                                                  false,              // invert comparator
+                                                  true,               // use simple debounce algorithm
+                                                  OA_DI_SINK_1,       // sink 120 uA
+                                                  OA_DI_DEB_TIME_5,   // ~ 42 ms
+                                                  false,              // use fix threshold
+                                                  8.0,                // threshold at 8 V
+                                                  24.0);              // unused in this c    }
+    }
+  }
+}
+
+/* the optaAnalogTask function runs every 2000 ms it set the pwm for all the
+ * channels from with a period equal to 10 ms and a variable duty cycle from 10%
+ * to 70% */
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+  /* -------------------------------------------------------------------------- */
+
+  static long int start = millis();
+  static bool stop_pwm = false;
+  if (millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      AnalogExpansion exp = OptaController.getExpansion(i);
+      if (exp) {
+        for (int j = 0; j < 8; j++) {
+          int value = exp.digitalRead((uint8_t)j, true);
+          Serial.print("DI channel ");
+          Serial.print(j);
+          Serial.print(" value ");
+          Serial.println(value);
+        }
+        Serial.println();
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  /* -------------------------------------------------------------------------- */
+  OptaController.update();
+  optaAnalogTask();
+}
+
+```
+
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
+
+The function `optaAnalogTask()` updates all the inputs with their current states and prints out the values.
+
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input state as follows:
+
+```
+DI channel 0 value 1
+DI channel 1 value 0
+DI channel 2 value 0
+DI channel 3 value 0
+DI channel 4 value 0
+DI channel 5 value 0
+DI channel 6 value 0
+DI channel 7 value 0
+```
+
+
+#### Analog Voltage Input Mode
+
+The Analog Expansion input channels can be configured for 0-10 V analog sensors. 
+
+|       **Characteristics**       |                      **Details**                       |
+|:-------------------------------:|:------------------------------------------------------:|
+|            Channels             |             I1, I2, I3, I4, O1, I5, I6, O2             |
+|      Analog input voltage       |                        0...10 V                        |
+|     Analog Input resolution     |                        16 bits                         |
+|     Analog input LSB value      |                       152.59 uV                        |
+|            Accuracy             |                         +/- 1%                         |
+|          Repeatability          |                         +/- 1%                         |
+|         Input impedance         | Min: 175 kΩ (when internal 200 kΩ resistor is enabled) |
+|     One input reading time      |                        ~550 µs                         |
+| All inputs at once reading time |                        ~890 µs                         |
+
+The raw value of an input terminal configured as analog can be read using the built-in function `analogRead()` as shown below:
+
+```arduino
+uint16_t raw_adc = <ExpObject>.analogRead(<input>);
+```
+Also, it can be directly converted to a voltage reading using the `pinVoltage()` function as:
+
+```arduino
+float value =	exp.pinVoltage(<input>);
+```
+
+Use the following wiring diagram as reference to test the example below:
+
+![Analog voltage input wiring example](assets/volt-in-a.png)
+
+The following example will let you read all the analog inputs of every expansion connected at once, it can be found in the Opta Analog Expansions library by navigating to **File > Examples > Arduino_Opta_Blueprint > Analog > ADC**:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 500
+#define DELAY_AFTER_SETUP 5000
+
+using namespace Opta;
+
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+/* -------------------------------------------------------------------------- */
+  if(t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  }
+  else if(t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  }
+  else if(t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  }
+  else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+/* -------------------------------------------------------------------------- */
+  static long int start = millis();
+  
+  if(millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for(int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }  
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+/* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+  
+
+  for(int i = 0; i < OptaController.getExpansionNum(); i++) {
+
+    for(int k = 0; k < OA_AN_CHANNELS_NUM;k++){
+      /* all channels are initialized in the same way as VOLTAGE ADC */
+      AnalogExpansion::beginChannelAsAdc(OptaController, i, // the device
+                            k, // the output channel you are using
+			    OA_VOLTAGE_ADC, // adc type
+			    true, // enable pull down
+			    false, // disable rejection
+			    false, // disable diagnostic
+			    0); // disable averaging
+    }
+  }
+
+}
+
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+/* -------------------------------------------------------------------------- */
+  static long int start = millis();
+  if(millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+    for(int i = 0; i < OptaController.getExpansionNum(); i++) {
+      AnalogExpansion exp = OptaController.getExpansion(i);
+      
+      if(exp) {  
+	      Serial.println("\nAnalog Expansion n. " +  String(exp.getIndex()));
+        
+  
+        for(int j = 0; j < OA_AN_CHANNELS_NUM; j++) {
+          Serial.print(" - ch " + String(j));
+	        int value =	exp.analogRead((uint8_t)j);
+	        Serial.println(" -> ADC " + String(value));
+	      }
+        Serial.println();
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+/* -------------------------------------------------------------------------- */    
+  OptaController.update();
+  optaAnalogTask();
+
+}
+```
+
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+
+```
+Analog Expansion n. 0
+ - ch 0 -> ADC 0
+ - ch 1 -> ADC 0
+ - ch 2 -> ADC 0
+ - ch 3 -> ADC 0
+ - ch 4 -> ADC 0
+ - ch 5 -> ADC 25112
+ - ch 6 -> ADC 0
+ - ch 7 -> ADC 0
+```
+
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
+
+The expansion channels are configured as **analog voltage inputs** using the function `beginChannelAsAdc()` alongside the following parameters:
+
+```arduino
+AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
+                i, // the device (connected expansion index from 0 to 5)
+                k, // the output channel you are using (0 to 7)
+			    OA_VOLTAGE_ADC, // adc type (voltage input)
+			    true, // enable pull down
+			    false, // disable rejection
+			    false, // disable diagnostic
+			    0); // disable averaging
+```
+
+You can also use the simplified dedicated method using the function `beginChannelAsVoltageAdc()` as follows:
+
+```arduino
+exp.beginChannelAsVoltageAdc(<exp channel>); // pass the desired input as argument
+```
+The function `optaAnalogTask()` reads all the analog input raw ADC values and prints out them. If you want to show the voltage reading instead use the following function:
+
+```arduino
+//Change 
+int value =	exp.analogRead((uint8_t)j); // get the raw ADC reading
+//for
+float value = exp.pinVoltage((uint8_t)j); // get the ADC reading and returns it as a voltage
+```
+
+#### Analog Current Input Mode
+
+The Analog Expansion input channels can be configured for current loop instrumentation using the 0/4-20 mA standard. 
+
+|            **Characteristics**            |                 **Details**                 |
+|:-----------------------------------------:|:-------------------------------------------:|
+|                 Channels                  |       I1, I2, I3, I4, O1, I5, I6, O2        |
+|           Analog input current            |                  0...25 mA                  |
+|          Analog input LSB value           |                  381.5 nA                   |
+| Short circuit current limit (per channel) | Min: 25 mA, Max 35 mA (externally powered)  |
+| Programmable current limit (per channel)  |      0.5 mA to 24.5 mA (loop powered)       |
+|                 Accuracy                  |                   +/- 1%                    |
+|               Repeatability               |                   +/- 1%                    |
+|          One input reading time           |                   ~550 µs                   |
+|      All inputs at once reading time      |                   ~890 µs                   |
+
+The current of an input terminal configured in current mode can be read using the built-in function `pinCurrent()` as shown below:
+
+```arduino
+float value = exp.pinCurrent(<input>);
+```
+Use the following wiring diagram as reference to test the example below:
+
+![Analog current input wiring example (externally powered)](assets/analog-4-20-inputs.png)
+
+The following example will let you measure the current in all the analog inputs of every expansion connected at once.
+
+***This sketch is a __simplified version__ created for learning purposes of the one found in __File > Examples > Arduino_Opta_Blueprint > Analog > ADC__. Please check the example available at the library in case you need to know more.***
+
+Copy and paste this code on a new sketch in your Arduino IDE:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 500
+#define DELAY_AFTER_SETUP 5000
+
+using namespace Opta;
+
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+/* -------------------------------------------------------------------------- */
+  if(t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  }
+  else if(t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  }
+  else if(t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  }
+  else if(t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  }
+  else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+/* -------------------------------------------------------------------------- */
+  static long int start = millis();
+  
+  if(millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for(int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }  
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+/* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+  
+
+  for(int i = 0; i < OptaController.getExpansionNum(); i++) {
+
+    for(int k = 0; k < OA_AN_CHANNELS_NUM;k++){
+      /* all channels are initialized in the same way as VOLTAGE ADC */
+      AnalogExpansion::beginChannelAsAdc(OptaController, i, // the device
+                            k, // the output channel you are using
+			    OA_CURRENT_ADC, // adc type
+			    false, // enable pull down
+			    false, // disable rejection
+			    false, // disable diagnostic
+			    0); // disable averaging
+    }
+  }
+
+}
+
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+/* -------------------------------------------------------------------------- */
+  static long int start = millis();
+  if(millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+    for(int i = 0; i < OptaController.getExpansionNum(); i++) {
+      AnalogExpansion exp = OptaController.getExpansion(i);
+      
+      if(exp) {  
+	      Serial.println("\nAnalog Expansion n. " +  String(exp.getIndex()));
+        
+        
+        for(int j = 0; j < OA_AN_CHANNELS_NUM; j++) {
+          Serial.print(" - ch " + String(j));
+	        float value =	exp.pinCurrent((uint8_t)j);
+	        Serial.println(" -> Current " + String(value) + " mA");
+	      }
+        Serial.println();
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+/* -------------------------------------------------------------------------- */    
+  OptaController.update();
+  optaAnalogTask();
+
+}
+```
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+
+```
+Analog Expansion n. 0
+ - ch 0 -> Current 18.20 mA
+ - ch 1 -> Current 0.00 mA
+ - ch 2 -> Current 0.00 mA
+ - ch 3 -> Current 0.00 mA
+ - ch 4 -> Current 0.00 mA
+ - ch 5 -> Current 0.00 mA
+ - ch 6 -> Current 0.00 mA
+ - ch 7 -> Current 0.00 mA
+```
+
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
+
+The expansion channels are configured as **analog current inputs** using the function `beginChannelAsAdc()` alongside the following parameters:
+
+```arduino
+AnalogExpansion::beginChannelAsAdc(OptaController, // the expansion object
+                i, // the device (connected expansion index from 0 to 5)
+                k, // the output channel you are using (0 to 7)
+			    OA_CURRENT_ADC, // adc type (current input)
+			    false, // enable pull down
+			    false, // disable rejection
+			    false, // disable diagnostic
+			    0); // disable averaging
+```
+
+You can also use the simplified dedicated method using the function `beginChannelAsCurrentAdc()` as follows:
+
+```arduino
+exp.beginChannelAsCurrentAdc(<exp channel>); // pass the desired input as argument
+```
+
+The function `optaAnalogTask()` reads all the analog input current values and prints out them.
+
+There is another approach for interfacing 4-20 mA sensors that consists of defining the channel as a **voltage DAC** and adding a **current ADC** to the same channel, connecting the sensor to the channel and measuring the current of the loop. 
+
+![Analog current input wiring example (internally powered)](assets/analog-4-20-in-out.png)
+
+Use the following example sketch instead:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 2000
+#define DELAY_AFTER_SETUP 200
+
+#define SENSOR_CH 0 // define the sensor channel 
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+  /* -------------------------------------------------------------------------- */
+  if (t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  } else if (t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  } else if (t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  } else if (t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  } else if (t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  } else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+  /* -------------------------------------------------------------------------- */
+  static long int start = millis();
+
+  if (millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+  /* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+
+  for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+    AnalogExpansion exp = OptaController.getExpansion(i);
+
+    if (exp) {
+      // start the channel as a voltage DAC 
+      exp.beginChannelAsDac(SENSOR_CH,        //channel index
+                            OA_VOLTAGE_DAC,   //DAC type
+                            false,            //limit current (set to false so it can power the sensor current loop)
+                            false,            //No slew rate
+                            OA_SLEW_RATE_0);  //Slew rate setting.
+      
+      Serial.println("Setting DAC output to 11 V on expansion n. " + String(exp.getIndex()));
+      exp.pinVoltage(SENSOR_CH, 11.0, true);  // set channel 0 output to 11 V (Max voltage output)
+      delay(200); // give time for the channel to be set up
+      // add a current ADC to the same channel
+      exp.addCurrentAdcOnChannel(SENSOR_CH);
+      
+    }
+  }
+}
+
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+  /* -------------------------------------------------------------------------- */
+
+  static long int start = millis();
+
+  /* using this the code inside the if will run every PERIODIC_UPDATE_TIME ms
+     assuming the function is called repeatedly in the loop() function */
+
+  if (millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      AnalogExpansion exp = OptaController.getExpansion(i);
+      if (exp) {
+        float value = exp.pinCurrent(SENSOR_CH);
+        Serial.println("- ch" + String(SENSOR_CH) + " -> Current " + String(abs(value)) + " mA");
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  /* -------------------------------------------------------------------------- */
+  OptaController.update();
+  //printExpansionInfo();
+  optaAnalogTask();
+}
+
+```
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+
+```
+Setting DAC output to 11 V on expansion n. 0
+- ch0 -> Current 18.20 mA
+- ch0 -> Current 18.20 mA
+- ch0 -> Current 18.20 mA
+- ch0 -> Current 18.20 mA
+```
+
+The key section of the example from above is in the `setup()` function, specifically in the way we initialize the channel to be used for the measurement:
+
+```arduino
+// start the channel as a voltage DAC 
+      exp.beginChannelAsDac(SENSOR_CH,        //channel index
+                            OA_VOLTAGE_DAC,   //DAC type
+                            false,            //limit current (set to false so it can power the sensor current loop)
+                            false,            //No slew rate
+                            OA_SLEW_RATE_0);  //Slew rate setting.
+      
+      Serial.println("Setting DAC output to 11 V on expansion n. " + String(exp.getIndex()));
+      exp.pinVoltage(SENSOR_CH, 11.0, true);  // set channel 0 output to 11 V (Max voltage output)
+      delay(200); // give time for the channel to be set up
+      // add a current ADC to the same channel
+      exp.addCurrentAdcOnChannel(SENSOR_CH);
+```
+
+First, the channel is initialized as a voltage DAC with the "limit current" parameter disabled, a voltage is set in the output that will power the current loop and then a current ADC is added to the same channel, this way we can use the `pinCurrent()` function to measure the current output of the sensor.
+
+
+#### Analog RTD Input Mode
+
+The Analog Expansion input channels can be used for temperature metering with **PT100** RTDs.
+
+|  **Characteristics**   |          **Details**           |
+|:----------------------:|:------------------------------:|
+|    3 wires channels    |             I1, I2             |
+|    2 wires channels    | I1, I2, I3, I4, O1, I5, I6, O2 |
+|      Input range       |            0...1 MΩ            |
+|      Bias voltage      |             2.5 V              |
+| One input reading time |            ~600 µs             |
+
+
+2 wires RTDs can be connected to any of the eight channels as follows:
+
+![2 Wires RTD connection example](assets/rtd-2wires-user.png)
+
+3 wires RTDs has generally two wires with the same color.
+
+- Connect the two wires with the same color to the `-` and the `ICx` screw terminals respectively.
+- Connect the wire with a different color to the `+` screw terminal.
+
+***3 wires RTD can only be measured by channels __I1__ and __I2__.***
+
+![3 Wires RTD connection example](assets/rtd-3wires-user.png)
+
+To perform measurements of an input terminal configured as RTD use the built-in function `getRtd()` as shown below:
+
+```arduino
+float value = exp.getRtd(<input>);  // this returns the resistive value measured in the input in ohms
+```
+
+For the following example a 2 wires **PT100** will be used connected to **I1**. The sketch below will let you measure the resistance and convert it to a temperature value.
+
+***This sketch is a __simplified version__ created for learning purposes of the one found in __File > Examples > Arduino_Opta_Blueprint > Analog > RTD__. Please check the example available at the library in case you need to know more.***
+
+Copy and paste this code on a new sketch in your Arduino IDE:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 2000
+#define DELAY_AFTER_SETUP 1000
+
+// RTD constants
+float a = 0.0039083;
+float b = -0.0000005775;
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+  /* -------------------------------------------------------------------------- */
+  if (t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  } else if (t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  } else if (t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  } else if (t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  } else if (t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  } else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+  /* -------------------------------------------------------------------------- */
+  static long int start = millis();
+
+  if (millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+  /* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+  Serial.println("*** Opta Analog RTD example ***");
+
+  OptaController.begin();
+
+  for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+
+    for (int k = 0; k < OA_AN_CHANNELS_NUM; k++) {
+      /* all channels are initialized in the same way as RTD */
+      AnalogExpansion::beginChannelAsRtd(OptaController, i,  // the device
+                                         k,                  // the output channel you are using
+                                         false,              // use 3 wire RTD
+                                         0.8);               // current used on RTD in mA
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+  /* -------------------------------------------------------------------------- */
+
+  static long int start = millis();
+  if (millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      AnalogExpansion aexp = OptaController.getExpansion(i);
+      if (aexp) {
+        Serial.println("Expansion n. " + String(aexp.getIndex()));
+        for (int j = 0; j < 8; j++) {
+          float value = aexp.getRtd((uint8_t)j);
+          if (value != -1.00 && value < 1000000.0) {   // if the channel reading is valid
+            Serial.print("ch ");
+            Serial.print(j);
+            Serial.print(" -> ");
+            Serial.print(value);
+            Serial.print(" Ω");
+            float temp = (-(1.0 / 100.0) * (50.0 * a - 10*sqrt(b * value + 25.0 * pow(a, 2.0) - 100.0 * b))) / b;
+            Serial.print(" -> ");
+            Serial.print(temp);
+            Serial.print(" C");
+            Serial.println();
+          }
+        }
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  /* -------------------------------------------------------------------------- */
+  OptaController.update();
+  //printExpansionInfo();
+  optaAnalogTask();
+}
+```
+
+After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input reading as follows:
+
+```
+Expansion n. 0
+ch 0 -> 109.73 Ω -> 24.99 C
+```
+
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
+
+The expansion channels are configured as **RTD inputs** using the function `beginChannelAsRtd` alongside the following parameters:
+
+```arduino
+AnalogExpansion::beginChannelAsRtd(OptaController, i,  // the device
+                                         k,                  // the output channel you are using
+                                         false,              // use 3 wire RTD
+                                         0.8);               // current used on RTD in mA
+```
+
+The current parameter in the function above will depend on your RTD type, study your sensor datasheet to find the more suitable for it, in this case, the **PT100** used recommends a **0.8 mA** current. 
+
+The function `optaAnalogTask()` reads all the RTDs connected and converts their resistive value to a temperature.
+
+#### Programmable Outputs
+
+|         **Characteristics**         |               **Details**                |
+|:-----------------------------------:|:----------------------------------------:|
+|         Number of channels          | 8x, (2x used simultaneously recommended) |
+|  Channels programmable as outputs   |      I1, I2, I3, I4, O1, I5, I6, O2      |
+|      Type of outputs supported      |        Analog voltage and current        |
+|           DAC resolution            |                 13 bits                  |
+| Charge pump for zero voltage output |                   Yes                    |
+|        Number of PWM outputs        |                    4x                    |
+
+The Opta™ Analog Expansions have **eight analog programmable outputs** accessible through terminals `I1` to `I6` and `O1` to `O2` that can be used as:
+
+|            **Mode**            |             **Specification**             |
+|:------------------------------:|:-----------------------------------------:|
+|      Analog output voltage      |                 0...11 V                  |
+|      Analog output current      |                 0...25 mA                 |
+
+Analog output terminals are mapped as described in the following table:
+
+| **Opta Analog Expansion Terminal** | **Arduino Pin Mapping** |
+|:----------------------------------:|:-----------------------:|
+|                 I1                 |      0 or OA_CH_0       |
+|                 I2                 |      1 or OA_CH_1       |
+|                 I3                 |      2 or OA_CH_2       |
+|                 I4                 |      3 or OA_CH_3       |
+|                 O1                 |      4 or OA_CH_4       |
+|                 I5                 |      5 or OA_CH_5       |
+|                 I6                 |      6 or OA_CH_6       |
+|                 O2                 |      7 or OA_CH_7       |
+
+
+***All available channels of the analog expansion can be used as outputs, including `I1` to `I6`, so there are 8 accessible analog outputs actually, but due to power dissipation limitations, it is recommended to have up to 2 channels set at output at the same time.***
+
+***At 25°C of ambient temperature, all the 8 channels set as outputs have been tested at the same time while outputting more than 24 mA at 10 V each (>0.24W per channel).***
+
+Also, it features **4 PWM outputs** accessible through terminals `P1` to `P4`. 
+
+PWM output terminals are mapped in the [Arduino_Opta_Blueprint](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) library as described in the following table:
+
+| **Opta Analog Expansion Terminal** | **Arduino Pin Mapping** |
+|:----------------------------------:|:-----------------------:|
+|                 P1                 |    8 or OA_PWM_CH_0     |
+|                 P2                 |    9 or OA_PWM_CH_1     |
+|                 P3                 |    10 or OA_PWM_CH_2    |
+|                 P4                 |    11 or OA_PWM_CH_3    |
+
+![Opta Analog Expansions Outputs](assets/outputs-analog.png)
+
+The **writing time** of analog outputs is detailed in the table below:
+
+| **Channel type** | **Number of outputs** |           **Function**           | **Time** |                                                  **Notes**                                                   |
+|:----------------:|:---------------------:|:--------------------------------:|:--------:|:------------------------------------------------------------------------------------------------------------:|
+|       DAC        |          One          |  `setDac(channel, value, true)`  | ~560 µs  |                                                                                                              |
+|       DAC        |      All at once      |     `updateAnalogOutputs()`      | ~960 µs  |                This function is also included in the function `setDac(channel, value, false)`                |
+|       PWM        |          One          | `setPwm(channel, period, pulse)` | ~700 µs  | In case the new setting is equal to the old one no message is sent and the function execution takes a few µs |
+
+
+#### Analog Voltage Output Mode
+
+This output mode lets you control voltage-driven actuators or communicate with other devices through analog voltages.
+
+|             **Characteristics**              |                                                          **Details**                                                          |
+|:--------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------:|
+|                   Channels                   |                                                I1, I2, I3, I4, O1, I5, I6, O2                                                 |
+|            Analog output voltage             |                                                           0...11 V                                                            |
+|             Resistive load range             |                                                        500 Ω...100 kΩ                                                         |
+|           Maximum capacitive load            |                                                             2 μF                                                              |
+| Short-circuit current per channel (sourcing) | Min: 25 mA, Typ: 29 mA, Max: 32 mA (lower limit bit = 0 (default)) \| Min: 5.5 mA, Typ: 7 mA, Max: 9 mA (lower limit bit = 1) |
+| Short-circuit current per channel (sinking)  |                                             Min: 3.0 mA, Typ: 3.8 mA, Max: 4.5 mA                                             |
+|                   Accuracy                   |                                                            +/- 1%                                                             |
+|                Repeatability                 |                                                            +/- 1%                                                             |
+|           One output writing time            |                                                            ~560 µs                                                            |
+|       All outputs at once writing time       |                                                            ~960 µs                                                            |
+
+To set a voltage in an analog output terminal use the built-in function `pinVoltage()` as shown below:
+
+```arduino
+exp.pinVoltage(ch, <voltage>, true); // the first argument is to define the output channel, the second, the voltage output
+```
+You can also configure the output voltage using the `setDac()` function as follows:
+
+```arduino
+exp.setDac(ch, <dac_value>); // the first argument is to define the output channel, the second, the DAC output in bits
+```
+
+The following example will let you set an output voltage on every channel at once, increasing it sequentially.
+
+***This sketch is a __simplified version__ created for learning purposes of the one found in __File > Examples > Arduino_Opta_Blueprint > Analog > DAC__. Please check the example available at the library in case you need to know more.***
+
+Copy and paste this code on a new sketch in your Arduino IDE:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 5000
+#define DELAY_AFTER_SETUP 200
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+  /* -------------------------------------------------------------------------- */
+  if (t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  } else if (t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  } else if (t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  } else if (t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  } else if (t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  } else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+  /* -------------------------------------------------------------------------- */
+  static long int start = millis();
+
+  if (millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+  /* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+
+  for (int device = 0; device < OptaController.getExpansionNum(); device++) {
+
+    for (int ch = 0; ch < OA_AN_CHANNELS_NUM; ch++) {
+
+      /* odd channel are configured as voltage DAC */
+      AnalogExpansion::beginChannelAsDac(OptaController,
+                                         device,
+                                         ch,
+                                         OA_VOLTAGE_DAC,
+                                         true,
+                                         false,
+                                         OA_SLEW_RATE_0);
+    }
+  }
+}
+
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+  /* -------------------------------------------------------------------------- */
+
+  static long int start = millis();
+
+  /* using this the code inside the if will run every PERIODIC_UPDATE_TIME ms
+     assuming the function is called repeatedly in the loop() function */
+
+  if (millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+
+    static uint16_t dac_value = 0;
+
+    dac_value += 1000;
+    if (dac_value > 6000) {
+      /* go in falling state */
+      dac_value = 0;
+    }
+    
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      AnalogExpansion exp = OptaController.getExpansion(i);
+      if (exp) {
+        Serial.println("Setting dac value " + String(dac_value) + " on expansion n. " + String(exp.getIndex()));
+        for (int ch = 0; ch < OA_AN_CHANNELS_NUM; ch++) {
+          exp.setDac(ch, dac_value);
+        }
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  /* -------------------------------------------------------------------------- */
+  OptaController.update();
+  printExpansionInfo();
+  optaAnalogTask();
+}
+```
+
+After the Opta™ controller is programmed with the example sketch, you can measure the voltage on the expansion outputs and experience the following behavior:
+
+![Analog Voltage Output Demo](assets/analog-voltage.png)
+
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
+
+The expansion channels are configured as **voltage output** using the function `beginChannelAsDac()` alongside the following parameters:
+
+```arduino
+      AnalogExpansion::beginChannelAsDac(OptaController,  // object class
+                                         device,  // the device
+                                         ch,  // the output channel
+                                         OA_VOLTAGE_DAC,  // output mode
+                                         true,  // enable current limit
+                                         false, // enable slew
+                                         OA_SLEW_RATE_0); // set slew rate
+```
+
+The function `optaAnalogTask()` increases sequentially the `dac_value` variable to set the voltage output on the expansion channels.
+
+#### Analog Current Output Mode
+
+This output mode lets you control current-driven actuators or communicate with other devices through analog current.
+
+|            **Characteristics**             |                **Details**                |
+|:------------------------------------------:|:-----------------------------------------:|
+|                  Channels                  |      I1, I2, I3, I4, O1, I5, I6, O2       |
+|           Analog output current            |                 0...25 mA                 |
+| Maximum output voltage when sourcing 25 mA |               11.9 V ± 20%                |
+|            Open circuit voltage            |               16.9 V ± 20%                |
+|             Output  impedance              |          Min: 1.5 MΩ, Typ: 4 MΩ           |
+|                  Accuracy                  | 1% in 0-10 mA range, 2% in 10-24 mA range |
+|               Repeatability                | 1% in 0-10 mA range, 2% in 10-24 mA range |
+|          One output writing time           |                  ~560 µs                  |
+|      All outputs at once writing time      |                  ~960 µs                  |
+
+To set a current in an analog output terminal use the built-in function `pinCurrent()` as shown below:
+
+```arduino
+exp.pinCurrent(ch, <current>, true); // the first argument is to define the output channel, the second, the current output
+```
+
+The following example will let you set an output current on every channel at once, increasing it sequentially.
+
+***This sketch is a __simplified version__ created for learning purposes of the one found in __File > Examples > Arduino_Opta_Blueprint > Analog > DAC__. Please check the example available at the library in case you need to know more.***
+
+Copy and paste this code on a new sketch in your Arduino IDE:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 5000
+#define DELAY_AFTER_SETUP 200
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+  /* -------------------------------------------------------------------------- */
+  if (t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  } else if (t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  } else if (t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  } else if (t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  } else if (t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  } else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+  /* -------------------------------------------------------------------------- */
+  static long int start = millis();
+
+  if (millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+  /* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+
+  for (int device = 0; device < OptaController.getExpansionNum(); device++) {
+
+    for (int ch = 0; ch < OA_AN_CHANNELS_NUM; ch++) {
+
+      /* odd channel are configured as voltage DAC */
+      AnalogExpansion::beginChannelAsDac(OptaController,
+                                         device,
+                                         ch,
+                                         OA_CURRENT_DAC,
+                                         true,
+                                         false,
+                                         OA_SLEW_RATE_0);
+    }
+  }
+}
+
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+  /* -------------------------------------------------------------------------- */
+
+  static long int start = millis();
+
+  /* using this the code inside the if will run every PERIODIC_UPDATE_TIME ms
+     assuming the function is called repeatedly in the loop() function */
+
+  if (millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+
+    static uint16_t current = 0;
+
+    current += 4;
+    if (current > 20) {
+      /* reset current */
+      current = 0;
+    }
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      AnalogExpansion exp = OptaController.getExpansion(i);
+      if (exp) {
+        Serial.println("Setting current value " + String(current) + "mA on expansion n. " + String(exp.getIndex()));
+        for (int ch = 0; ch < OA_AN_CHANNELS_NUM; ch++) {
+          exp.pinCurrent(ch, current, true);
+        }
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  /* -------------------------------------------------------------------------- */
+  OptaController.update();
+  printExpansionInfo();
+  optaAnalogTask();
+}
+```
+
+After the Opta™ controller is programmed with the example sketch, you can measure the current on the expansion outputs and experience the following behavior:
+
+![Analog Current Output Demo](assets/analog-current.png)
+
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
+
+The expansion channels are configured as **current output** using the function `beginChannelAsDac()` alongside the following parameters:
+
+```arduino
+      AnalogExpansion::beginChannelAsDac(OptaController,  // object class
+                                         device,  // the device
+                                         ch,  // the output channel
+                                         OA_CURRENT_DAC,  // output mode
+                                         true,  // enable current limit
+                                         false, // enable slew
+                                         OA_SLEW_RATE_0); // set slew rate
+```
+
+The function `optaAnalogTask()` increases sequentially the `current` variable to set the current output on the expansion channels.
+
+
+***Make sure to use a resistor value that makes it possible for the output to achieve the desired current. For example, if a 3 kΩ resistor is used and you want a 10 mA output, the channel must source the resistor with 30 V, which is not possible.***
+
+#### PWM Output
+
+The Analog Expansion has 4x PWM output channels **(P1...P4)**. They are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage.
+
+|  **V<sub>PWM</sub> Voltage**   |      **Details**      |
+|:------------------------------:|:---------------------:|
+|            Channels            |    P1, P2, P3, P4     |
+|    Source voltage supported    |   8...24 VDC + 20%    |
+|             Period             |     Programmable      |
+|           Duty-cycle           | Programmable (0-100%) |
+| Max current draw (per channel) |        100 mA         |
+|         Max frequency          |         10kHz         |
+|    One output writing time     |        ~700 µs        |
+
+
+![Example of wiring to use the PWM outputs using Opta power voltage as **V<sub>PWM</sub>** as voltage reference](assets/pwm-setup.png)
+
+To configure a PWM output terminal use the built-in function `setPWM()` as shown below:
+
+```arduino
+exp.setPwm(ch, <period_us>, <pulse_us>); // the first argument is to define the output channel, the second, the signal period and the last one, the pulse ON time of the signal. 
+```
+
+The following example will let you set a **PWM** signal on channel **P1**, increasing and decreasing its duty-cycle sequentially.
+
+***This sketch is a __simplified version__ created for learning purposes of the one found in __File > Examples > Arduino_Opta_Blueprint > Analog > PWM__. Please check the example available at the library in case you need to know more.***
+
+Copy and paste this code on a new sketch in your Arduino IDE:
+
+```arduino
+#include "OptaBlue.h"
+
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+  /* -------------------------------------------------------------------------- */
+  if (t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  } else if (t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  } else if (t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  } else if (t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  } else if (t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  } else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+  /* -------------------------------------------------------------------------- */
+  static long int start = millis();
+
+  if (millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+  /* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+
+  OptaController.begin();
+}
+
+/* the optaAnalogTask function runs every 2000 ms it set the pwm for all the
+ * channels from with a period equal to 10 ms and a variable duty cycle from 10%
+ * to 70% */
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+  /* -------------------------------------------------------------------------- */
+
+  static long int start = millis();
+  static bool stop_pwm = false;
+  if (millis() - start > 2000) {
+    if (Serial.available()) {
+      while (Serial.available()) {
+        Serial.read();
+      }
+      stop_pwm = !stop_pwm;
+    }
+    start = millis();
+    static uint16_t period = 10000;
+    static uint16_t pulse = 0;
+    static bool rising = 1;
+    if (rising) {
+      pulse += 1000;
+      if (pulse > 7000) {
+        rising = 0;
+      }
+    } else {
+      pulse -= 1000;
+      if (pulse <= 1000) {
+        rising = 1;
+      }
+    }
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+
+      AnalogExpansion aexp = OptaController.getExpansion(i);
+
+      if (aexp) {
+        if (stop_pwm) {
+          Serial.println("PWM stopped");
+          aexp.setPwm(OA_FIRST_PWM_CH, 0, pulse);
+        } else {
+          Serial.println("PWM started");
+          Serial.print("ON time set to: ");
+          Serial.print(pulse);
+          Serial.println(" us");
+          aexp.setPwm(OA_FIRST_PWM_CH, period, pulse);
+        }
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  /* -------------------------------------------------------------------------- */
+  OptaController.update();
+  //printExpansionInfo();
+  optaAnalogTask();
+}
+
+```
+
+After the Opta™ controller is programmed with the example sketch, you can measure the output signal with an oscilloscope on the expansion outputs and experience the following behavior:
+
+![PWM Output Demo](assets/pwm-out.png)
+
+***The screw terminal marked as __-__ is connected to GND.***
+
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
+
+The function `optaAnalogTask()` increases sequentially the `duty-cycle` variable to set the PWM output on the expansion channels and decrease it back generating a swiping output.
+
+You can use the following auxiliary functions to manage and monitor the PWM outputs:
+
+- `getPwmPeriod(<channel>)`: Get the PWM period of the defined channel in us
+- `getPwmPulse(<channel>)`: Get the PWM pulse duration of the defined channel in us
+- `getPwmFreqHz(<channel>)`: Get the PWM frequency of the defined channel in Hz
+- `getPwmPulsePerc(<channel>)`: Get the PWM pulse duty-cycle of the defined channel in %
+
+#### Expansion Status LEDs
+
+| **Characteristics** | **Details** |
+|:-------------------:|:-----------:|
+|   Number of LEDs    |     8x      |
+
+![Analog Expansion LEDs](assets/leds-analog.png)
+
+The Opta™ Analog Expansions have **eight status LEDs** on the front panel. They are mapped in the [Arduino_Opta_Blueprint](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) library as described in the following table:
+
+| **Opta Analog Expansion LED** | **Arduino Pin Mapping** |
+|:-----------------------------:|:-----------------------:|
+|             LED 1             |      0 or OA_LED_1      |
+|             LED 2             |      1 or OA_LED_2      |
+|             LED 3             |      2 or OA_LED_3      |
+|             LED 4             |      3 or OA_LED_4      |
+|             LED 5             |      4 or OA_LED_5      |
+|             LED 6             |      5 or OA_LED_6      |
+|             LED 7             |      6 or OA_LED_7      |
+|             LED 8             |      7 or OA_LED_8      |
+
+To control a status LED use the built-in function `switchLedOn()` or `switchLedOff()` as shown below:
+
+```arduino
+// Turn ON
+exp.switchLedOn(<LED>, <update>); // define the LED to control and set to true or false the update parameter
+
+// Turn OFF
+exp.switchLedOff(<LED>, <update>); // define the LED to control and set to true or false the update parameter
+```
+If the `update` parameter is set to "false", then you will be setting the desired status of the LED but it won't be applied until you call `updateLeds()` function.
+
+```arduino
+exp.switchLedOn(OA_LED_1, false); // set the desired status to the queue
+exp.updateLeds(); // apply the changes and update the current LED state
+```
+
+The following example will let you control the status LEDs sequentially, this sketch  can be found in **File > Examples > Arduino_Opta_Blueprint > Analog > LED**:
+
+```arduino
+#include "OptaBlue.h"
+
+#define PERIODIC_UPDATE_TIME 2  //actually not used (it's DELAY_LED that leads the timing)
+#define DELAY_AFTER_SETUP 1000
+#define DELAY_LED 250
+
+/* -------------------------------------------------------------------------- */
+void printExpansionType(ExpansionType_t t) {
+  /* -------------------------------------------------------------------------- */
+  if (t == EXPANSION_NOT_VALID) {
+    Serial.print("Unknown!");
+  } else if (t == EXPANSION_OPTA_DIGITAL_MEC) {
+    Serial.print("Opta --- DIGITAL [Mechanical]  ---");
+  } else if (t == EXPANSION_OPTA_DIGITAL_STS) {
+    Serial.print("Opta --- DIGITAL [Solid State] ---");
+  } else if (t == EXPANSION_DIGITAL_INVALID) {
+    Serial.print("Opta --- DIGITAL [!!Invalid!!] ---");
+  } else if (t == EXPANSION_OPTA_ANALOG) {
+    Serial.print("~~~ Opta  ANALOG ~~~");
+  } else {
+    Serial.print("Unknown!");
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+void printExpansionInfo() {
+  /* -------------------------------------------------------------------------- */
+  static long int start = millis();
+
+  if (millis() - start > 5000) {
+    start = millis();
+    Serial.print("Number of expansions: ");
+    Serial.println(OptaController.getExpansionNum());
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+      Serial.print("Expansion n. ");
+      Serial.print(i);
+      Serial.print(" type ");
+      printExpansionType(OptaController.getExpansionType(i));
+      Serial.print(" I2C address ");
+      Serial.println(OptaController.getExpansionI2Caddress(i));
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 SETUP                                      */
+/* -------------------------------------------------------------------------- */
+void setup() {
+  /* -------------------------------------------------------------------------- */
+  Serial.begin(115200);
+  delay(2000);
+  Serial.println("*** Opta Analog LED example ***");
+
+  OptaController.begin();
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+void optaAnalogTask() {
+  /* -------------------------------------------------------------------------- */
+  static bool st = true;
+  static long int start = millis();
+
+  static const char *msg_on = "ON";
+  static const char *msg_off = "OFF";
+  static char *msg_ptr = (char *)msg_on;
+
+  if (millis() - start > PERIODIC_UPDATE_TIME) {
+    start = millis();
+
+    for (int i = 0; i < OptaController.getExpansionNum(); i++) {
+
+      AnalogExpansion exp = OptaController.getExpansion(i);
+      if (exp) {
+
+        /* exp is true only if exp is an actual 
+         * AnalogExpansion and false otherwise */
+
+        for (int j = 0; j < 8; j++) {
+          if (st) {
+            msg_ptr = (char *)msg_on;
+            exp.switchLedOn((uint8_t)j, false);
+          } else {
+            msg_ptr = (char *)msg_off;
+            exp.switchLedOff((uint8_t)j, false);
+          }
+          exp.updateLeds();
+          delay(250);
+          Serial.print("switching LED ");
+          Serial.print(j);
+          Serial.print(" ");
+          Serial.println(msg_ptr);
+        }
+
+        st = !st;
+      }
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  LOOP                                      */
+/* -------------------------------------------------------------------------- */
+void loop() {
+  /* -------------------------------------------------------------------------- */
+  OptaController.update();
+  //printExpansionInfo();
+  optaAnalogTask();
+}
+```
+After the Opta™ controller is programmed with the example sketch, you can see the onboard LEDs blinking with a pattern and experience the following behavior:
+
+![Status LED Example Animation](assets/led-ani.gif)
+
+To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
+
+The function `optaAnalogTask()` turns on sequentially the **LEDs** and turns them off again.
+
+You can buy and find more information about the Opta™ Analog Expansions on the links below:
+
+- [Opta™ Analog Expansion Product Page](https://docs.arduino.cc/hardware/opta-analog-ext)
+- [Buy the Opta™ Analog Ext A0602](https://store.arduino.cc/products/opta-ext-a0602)
+
+
 ## Support
 
 If you encounter any issues or have questions while working with Opta™ devices, we provide various support resources to help you find answers and solutions.
@@ -2589,6 +4125,12 @@ If you encounter any issues or have questions while working with Opta™ devices
 Explore our Help Center, which offers a comprehensive collection of articles and guides for Opta™ devices. The Help Center is designed to provide in-depth technical assistance and help you make the most of your device.
 
 - [Opta™ help center page](https://support.arduino.cc/hc/en-us/categories/360001637274-Hardware-Support)
+
+### F.A.Q
+
+Inside the Arduino Help Center you will find a Frequently Asked Questions (F.A.Q.) document with answers to the most commonly asked questions about this product. This resource is designed to address immediate questions and common concerns. If your question is not covered or require further personalized assistance, please do not hesitate to contact us.
+
+- [Opta™ F.A.Q ](https://support.arduino.cc/hc/en-us/articles/13870453088924-FAQ-Arduino-Opta)
 
 ### Forum
 
@@ -2600,4 +4142,4 @@ Join our community forum to connect with other Opta™ devices users, share your
 
 Please get in touch with our support team if you need personalized assistance or have questions not covered by the help and support resources described before. We're happy to help you with any issues or inquiries about Opta™ devices.
 
-- [Contact us page](https://www.arduino.cc/en/contact-us/)  
+- [Contact us page](https://www.arduino.cc/en/contact-us/)

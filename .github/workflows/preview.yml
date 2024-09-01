@@ -33,7 +33,7 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: "github-actions[bot]"
           body-includes: "Preview Deployment"
-          
+
       - name: Update Comment if exists
         if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id != 0
         uses: peter-evans/create-or-update-comment@v1.4.5
@@ -57,29 +57,30 @@ jobs:
 
       - name: Copy Static Files
         run: |
-          mkdir -p static/resources/datasheets static/resources/schematics static/resources/pinouts
+          mkdir -p static/resources/datasheets static/resources/schematics static/resources/pinouts static/resources/models
           find ./content/hardware -type f -name "*-schematics.pdf" -exec cp {} ./static/resources/schematics/ \;
           find ./content/hardware -type f -name "*-datasheet.pdf" -exec cp {} ./static/resources/datasheets/ \;
           find ./content/hardware -type f -name "*-full-pinout.pdf" -exec cp {} ./static/resources/pinouts/ \;
           find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
+          find ./content/hardware -type f -name "*-step.zip" -exec cp {} ./static/resources/models/ \;
 
       - name: Gatsby main cache
         uses: actions/cache@v4
         id: gatsby-cache-folder
         with:
           path: .cache
-          key: ${{ runner.os }}-cache-gatsby-${{ github.sha }}
+          key: ${{ runner.os }}-cache-gatsby-${{ github.ref_name }}
           restore-keys: |
-            ${{ runner.os }}-cache-gatsby-
+            ${{ runner.os }}-cache-gatsby-main
 
       - name: Gatsby Public Folder
         uses: actions/cache@v4
         id: gatsby-public-folder
         with:
           path: public/
-          key: ${{ runner.os }}-public-gatsby-${{ github.sha }}
+          key: ${{ runner.os }}-public-gatsby-${{ github.ref_name }}
           restore-keys: |
-            ${{ runner.os }}-public-gatsby-
+            ${{ runner.os }}-public-gatsby-main
 
       - run: npm install
       - run: npm run build
@@ -107,7 +108,7 @@ jobs:
             --auth ${{ secrets.NETLIFY_AUTH_TOKEN }} \
             --json \
             > deploy_output.json
-      
+
       - name: Generate URL Preview
         if: github.event_name == 'pull_request'
         id: url_preview
@@ -124,7 +125,7 @@ jobs:
             ## Preview Deployment
             🚀 Preview this PR: ${{ steps.url_preview.outputs.NETLIFY_PREVIEW_URL }}
             📍 Commit SHA: ${{ github.sha }}
-      
+
       - name: Update PR Preview Comment
         if: github.event_name == 'pull_request' && steps.deploy-preview-comment.outputs.comment-id != 0
         uses: peter-evans/create-or-update-comment@v1.4.5

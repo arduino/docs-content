@@ -38,7 +38,8 @@ This tutorial will show you how to connect the Portenta Machine Control and Opta
 ### Hardware Requirements
 
 Board compatible with the Arduino PLC IDE:
-- [Opta™](https://store-usa.arduino.cc/collections/opta-family)
+- [Opta™](https://store.arduino.cc/collections/opta-family)
+- [Opta™ Digital Expansion (D1608E/D1608S)](https://store.arduino.cc/collections/opta-family)
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 
 The following accessories are needed:
@@ -52,7 +53,7 @@ The following accessories are needed:
 - If you have an [Opta™](https://store-usa.arduino.cc/collections/opta-family), you do not need any license key to activate your product. Go to section [__License Activation With Pre-Licensed Products (Opta™)__](#6-license-activation-with-pre-licensed-products-opta™) to know more.
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), [Arduino Web Editor](https://create.arduino.cc/editor) or any program with a serial monitor in case you need to retrieve the _Hardware-ID_ of your device.
 
-***To get the Arduino PLC IDE and the PLC IDE License for your device, please visit the [Arduino software page](https://www.arduino.cc/en/software) and the [store page](https://store.arduino.cc/plc-key-portenta-machine-control).***
+***To get the Arduino PLC IDE for your device, please visit the [Arduino software page](https://www.arduino.cc/en/software). In case you are using a Portenta Machine Control, you need to acquire a PLC IDE License at the [store page](https://store.arduino.cc/plc-key-portenta-machine-control).***
 
 ## Instructions
 
@@ -63,6 +64,8 @@ To get the Arduino PLC IDE software, go to the [official software website of the
 The software requires **Windows 10** or a newer operating system version for the x64 architecture.
 
 The Arduino PLC IDE installer contains the IDE and all the required drivers, libraries, and cores. The continuing sections will help you install the Arduino PLC IDE software properly.
+
+***Before installing the Arduino PLC IDE 1.0.6, remove both the PLC IDE 1.0.3 and PLC IDE Tools 1.0.3 from Windows using the "Add or remove programs" tool. Also, remove the folder "T" found on the directory (C:&#92;Users&#92;<your username\>&#92;AppData&#92;Local&#92;T).***
 
 ### 1. Arduino PLC IDE Setup
 
@@ -76,7 +79,7 @@ If you have the correct IDE software, its name should include the version format
 
 Run the Arduino PLC IDE installer after verifying that the installer naming scheme follows the above software nomenclature. It helps ensure the software package is legitimate and the latest version available.
 
-***During the installation, you may notice several terminal windows opening automatically. These are necessary for the installation process to load all required resources onto your computer successfully, so there is no need to be concerned.***
+***__To ensure a smooth and reliable installation, it is recommended to temporarily disable any antivirus software and run the installation with administrative privileges.__ During the installation, you may notice several terminal windows opening automatically. These are necessary for the installation process to load all required resources onto your computer successfully, so there is no need to be concerned.***
 
 The installation process starts with a window that prompts you to begin. Click **Install** to proceed:
 
@@ -106,7 +109,7 @@ Once the installation is finished, a message will appear confirming the successf
 
 ![PLC IDE - Overall Installation](assets/plcide-install-7.png)
 
-***If you encounter any issues, restarting your computer can help ensure that all drivers, libraries, and dependencies are properly integrated and updated with the IDE installation.***
+***If you encounter any issues using the software after installation, restarting your computer can help ensure that all drivers, libraries, and dependencies are properly integrated and updated with the IDE installation. Should the issue persist, you may retry the installation process by temporarily disabling any antivirus software and running the installation with administrative privileges if you haven’t had a chance to do that yet.***
 
 Open the Arduino PLC IDE program, and the welcome screen will greet you.
 
@@ -134,11 +137,13 @@ Plug your device to the computer, select your board's Serial Port, and click the
 
 ***Download the runtime every time you update the PLC IDE from a previous version.***
 
-***The device will show two Serial Ports: the default (generally with the lowest number) is the usual Serial Port. The secondary one (usually with the highest number) is a virtual port for Modbus communication from the device to your computer. Please take note of the port number assigned to the secondary port (virtual port for Modbus), as it will be needed in a second step.***
+***The device will display two Serial Ports: the default port, typically with the lowest number, and the secondary port, usually with the highest number. The default port is the usual Serial port and a virtual port for Modbus communication between the device and your computer. If the default port with the lowest number cannot establish a connection, please note the port number assigned to the secondary port, as it will be needed in a subsequent step.***
 
 If the following message appears during the download procedure, double-tap the reset button using the tip of a pen or a similar pointed object. The LED above the reset button for Opta™ or the Digital Outputs LEDs for Portenta Machine control will start blinking, indicating that the device is ready to be flashed with new firmware. Click the **Download** button to begin the process again.
 
 ![Download error message](assets/downloadSketchError.png)
+
+***If you persistently experience issues during the download procedure or related processes, try launching the PLC IDE with __administrative privileges__. This can help resolve permission related problems that may prevent download procedures or device interactions.***
 
 ### 4. Connect to the Device
 
@@ -150,7 +155,7 @@ On the new popup window, open the properties of the Modbus protocol.
 
 ![Properties of the communication](assets/onlineSetup.png)
 
-Ensure the Modbus protocol uses the secondary Serial port number, the Modbus Virtual port you noted before. Press OK.
+Ensure the Modbus protocol uses the default Serial port number as the initial option, the Modbus Virtual port you noted before. Use the secondary Serial port number number for additional devices or those with higher Serial number series if applicable. Press OK.
 
 ![Setting up the Modbus protocol](assets/onlineSetupProperties.png)
 
