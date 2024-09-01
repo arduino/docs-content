@@ -2338,17 +2338,21 @@ You may find additional examples within the library to try various functionaliti
 
 For more details on how the library works, including a comprehensive guide on setup and usage of the above examples, please refer to this [library documentation](https://github.com/arduino-libraries/Arduino_Cellular/tree/main/docs).
 
-#### AT Commands Utility
+### AT Commands Utility
 
 AT commands, also known as Hayes commands, are instructions used to control modems. These commands allow you to perform various functions, such as checking the modem status, signal quality, and network registration. Understanding how to send these commands is essential for managing and troubleshooting your Arduino Pro 4G Module.
 
-This section explains using AT commands to interact with the Cat.4 modem. These instructions will guide you through setting up your environment, sending AT commands, and managing your modem effectively.
+This section explains how to use AT commands to interact with the Cat.4 modem, specifically addressing the differences between the **EG25 (Global)** and **EC200A-EU (EU)** modules. These instructions will guide you through setting up your environment, sending AT commands, and managing your modem effectively.
 
-#### Using Linux
+### Using Linux
 
-This subsection provides instructions on using **ModemManager** and **mmcli** to send AT commands to your Cat.4 modem with the Portenta X8.
+This subsection provides instructions on using **ModemManager**, **mmcli**, and **qmicli** to send AT commands to your Cat.4 modem with the Portenta X8.
 
-Ensure that the Pro 4G Module is properly mounted on the Portenta Mid Carrier and that the Portenta X8 recognizes it. You can verify the connection using the following command:
+#### EG25 (Global) Module
+
+For the EG25 module, which is generally supported directly by NetworkManager, ModemManager handles most of the modem's operations. Begin by ensuring that the Pro 4G Module is properly mounted on the Portenta Mid Carrier and recognized by the Portenta X8.
+
+You can verify the connection using the following command:
 
 ```bash
 lsusb
@@ -2356,7 +2360,7 @@ lsusb
 
 ***Please set up the Pro 4G Module referring to [this section](#using-linux-4). Otherwise, the __ModemManager__ service may not be recognized or working as intended.***
 
-First identify the modem with:
+If ModemManager is enabled, you can identify the modem with:
 
 ```bash
 mmcli -L
@@ -2370,19 +2374,19 @@ The output will list the detected modems, including the Pro 4G Module. Note the 
 
 ![Arduino Pro 4G Module - AT Commands](assets/portentaMIDcarrier_mpcie_4gmodem_at1.png)
 
-To send AT commands, *ModemManager* must be in debug mode:
+Before sending AT commands, ModemManager must be in debug mode. First, stop the ModemManager service using:
 
 ```bash
 sudo systemctl stop ModemManager
 ```
 
-The following command starts *ModemManager* in the background and redirects its output to a log file:
+Then start it in the background with debugging enabled by running:
 
 ```bash
 sudo ModemManager --debug > /var/log/modemmanager.log 2>&1 &
 ```
 
-To send an AT command, the following command can be used:
+You can now send AT commands using `mmcli`, for example:
 
 ```bash
 sudo mmcli -m /org/freedesktop/ModemManager1/Modem/0 --command="ATI"
@@ -2410,7 +2414,59 @@ You can now start sending AT commands. Here are a few basic AT commands to test 
 
 The **`mmcli`** tool allows you to send AT commands to your Cat.4 modem from a Linux environment to check modem status, signal quality, and network registration. You can manage and troubleshoot the Pro 4G Module using AT commands in the Portenta X8's Linux environment by following the above steps.
 
-#### Using Arduino
+To configure the EG25 module with NetworkManager, you can use the following command:
+
+```bash
+nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.autoconnect yes
+```
+
+#### EC200A-EU (EU) Module
+
+The EC200A-EU module, unlike the EG25, is not officially supported by ModemManager and thus requires a different approach. After ensuring that the Pro 4G Module is properly mounted and recognized by the Portenta X8, you may find it presents as a USB Ethernet device (`eth0`). For appropriate configuration, you will need to remap it using an udev rule into an `ec200aeu` network device.
+
+The ModemManager requires a small compatibility patch for it to work with the module and to send configuration AT commands to the modem. Once patched, you can connect to the network using the following command for example:
+
+```bash
+mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
+```
+
+If ModemManager is disabled or if you prefer an alternative method, you can use `qmicli` to identify the modem and interact with it. For instance, you can retrieve the manufacturer information by running:
+
+```bash
+sudo qmicli -d /dev/cdc-wdm0 --dms-get-manufacturer
+```
+
+Power management for the EC200A-EU module may require manual intervention, especially if ModemManager is disabled. You can power on the modem using a custom script that leverages the `gpiod` library. The script would include commands to set the GPIO pin high and then wait a few seconds for the modem to become available, for example: 
+
+```bash
+gpiod set-value <gpio-pin> 1
+```
+
+Followed by:
+
+```bash
+sleep 10
+```
+
+#### Docker Container Considerations
+
+Disable ModemManager to prevent conflicts with tools like `qmicli` when managing either modem within a Docker container. This can be done by using the following command:
+
+```bash
+sudo systemctl stop ModemManager
+```
+
+Inside the container, you will need to manage the modem’s power state manually. Use an `entrypoint.sh` script that includes commands to power on the modem with `gpiod`, followed by a short delay to allow the modem to initialize.
+
+To send AT commands, use `qmicli` within the Docker container. For example, you might use following command to interact with the modem:
+
+```bash
+sudo qmicli -d /dev/cdc-wdm0 --dms-get-manufacturer
+```
+
+If you are using the EG25 module, NetworkManager can manage the connection outside the container. For the EC200A-EU module, however, you will need to handle the connection using `qmicli` or similar tools within the container.
+
+### Using Arduino
 
 The AT commands can be sent to the Pro 4G Module using the Portenta H7 or Portenta C33 with the Arduino IDE.
 
@@ -2418,7 +2474,7 @@ You will need the [**Arduino_Cellular**](https://github.com/arduino-libraries/Ar
 
 ![Arduino Cellular Library for Pro 4G Modules](assets/arduino_cellular_library.png)
 
-Make sure the mini PCIe power configuration is set as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta H7 or C33 requires the **SERIAL1 Breakout** pins to be connected to the corresponding **PCIe Breakout** pins:
+Ensure the mini PCIe power configuration is set as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta H7 or C33 requires the **SERIAL1 Breakout** pins to be connected to the corresponding **PCIe Breakout** pins:
 
 | **SERIAL1 Breakout Pins (17)** | **PCIe Breakout Pins (16)** |
 |--------------------------------|-----------------------------|
@@ -2428,13 +2484,13 @@ Make sure the mini PCIe power configuration is set as described in the [Mini PCI
 | SERIAL1 CTS                    | mPCIe_RX_P                  |
 | mPCIE_GPIO_RST (GPIO6)         | mPCIe_RST                   |
 
-***Please use a 5.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This ensures a stable power supply to the Portenta SOM and the carrier, especially during extended use.***
+***Due to their high power consumption, please use a 5.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules. This ensures a stable power supply to the Portenta SOM and the carrier, especially during extended use.***
 
 The image below shows the setup with the Portenta H7 and Pro 4G Module connected to the Portenta Mid Carrier, along with a mini PCIe power configuration:
 
 ![Portenta Mid Carrier Mini PCIe & Portenta H7/C33 Setup](assets/portentaMIDcarrier_h7_c33_mpcie_set.png)
 
-The following example, **ModemTerminal**, is available in the [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) library and compatible with the Portenta H7 and Portenta C33.
+The following example, **ModemTerminal**, is available in the [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) library and is compatible with the Portenta H7 and Portenta C33.
 
 ```arduino
 /**
@@ -2487,7 +2543,7 @@ void loop() {
 
 This example allows you to send raw AT commands to the Pro 4G Module using the Arduino IDE with the Portenta H7 and Portenta C33.
 
-To send AT commands with the Arduino IDE, please use the **Message** space within the **Serial Monitor** and enter commands that follows after **`AT`**. For example:
+To send AT commands with the Arduino IDE, use the **Message** space within the **Serial Monitor** and enter commands that follow after **`AT`**. For example:
 
 | **AT Command** | **AT Command Input Format** |
 |:--------------:|:---------------------------:|
@@ -2501,7 +2557,7 @@ To send AT commands with the Arduino IDE, please use the **Message** space withi
 |    AT+CEER     |            +CEER            |
 |   AT+QNWINFO   |          +QNWINFO           |
 
-***For complete information on AT commands compatible with the Pro 4G Module, please refer to the [AT Commands Manual](assets/Quectel_EC2x&EG9x&EG2x-G&EM05_Series_AT_Commands_Manual_V2.0.pdf).***
+For complete information on AT commands compatible with the Pro 4G Module, please refer to the [AT Commands Manual](assets/Quectel_EC2x&EG9x&EG2x-G&EM05_Series_AT_Commands_Manual_V2.0.pdf).
 
 The script requires the **arduino_secrets.h** file to be defined with the following credentials:
 
