@@ -523,7 +523,7 @@ The Nicla Sense Env board has an onboard temperature and humidity sensor, the HS
 
 ![The HS4001 sensor of the Nicla Sense Env board](assets/user-manual-13.png)
 
-The example sketch shown below demonstrates how to read temperature and humidity data from the HS4001 sensor using the `Arduino_NiclaSenseEnv` library API. The sketch will report the temperature and humidity values to the Arduino IDE's Serial Monitor every 2.5 seconds.
+The example sketch below demonstrates how to read temperature and humidity data from the HS4001 sensor using the `Arduino_NiclaSenseEnv` library API. The sketch will report the temperature and humidity values to the Arduino IDE's Serial Monitor every 2.5 seconds.
 
 ```arduino
 /**
