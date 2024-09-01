@@ -189,7 +189,7 @@ The Portenta Vision Shield has four 2.25 mm drilled mounting holes for mechanica
 
 ![](assets/Vision_Shield_Connectors.png)
 
-<p style="text-align: justify;">The Portenta Vision Shield was designed to be used with a Portenta family board. However, you can also design your own hardware and use the Poretnta Vision Shield via its High-Density connectors by following to the Portenta family standard.</p>
+<p style="text-align: justify;">The Portenta Vision Shield was designed to be used with a Portenta family board. However, you can also design your own hardware and use the Portenta Vision Shield via its High-Density connectors by following to the Portenta family standard.</p>
 
 <div style="page-break-after: always;"></div>
 
