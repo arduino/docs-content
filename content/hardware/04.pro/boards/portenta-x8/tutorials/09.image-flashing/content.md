@@ -77,11 +77,17 @@ For the **Portenta Breakout**, the `BT_SEL` and `BOOT` DIP switches should be se
 
 ![Portenta Breakout DIP switches](assets/breakout-dip-switches.png)
 
-For the **Portenta Hat Carrier**, the `BTSEL` DIP switch must be set to the ON position, as depicted in the figure below:
+For the **Portenta Hat Carrier**, power cycle the Portenta X8, press and hold the `BOOT` button within the first 2-3 seconds after powering on, then press the Reset button, and release both buttons to start the flash process. This is the method to use with `uuu` tool explained later.
+
+You can also turn the `BTSEL` DIP switch to the ON position, as depicted in the figure below:
 
 ![Portenta Hat Carrier DIP switches](assets/hatCarrier-dip-switches.png)
 
 The `ETH CENTER TAP` DIP switch position does not affect the flashing mode state for the Portenta Hat Carrier.
+
+For the **Portenta Mid Carrier**, the `BOOT SEL` DIP switch should be set to the ON position, as shown in the image below:
+
+![Portenta Mid Carrier DIP switches](assets/midCarrier-dip-switches.png)
 
 You must connect one USB-C® end to the Portenta X8 and the other (USB-C® or USB-A) to your computer. With this, the Portenta X8 is ready to begin the flashing process.
 
