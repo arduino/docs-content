@@ -388,7 +388,7 @@ You can download the example sketch [here](assets/nicla_sense_env_sensors_manage
 
 Resetting the Nicla Sense Env is important for troubleshooting and ensuring the device operates cleanly. It is handy after making significant changes to the configuration or when an unexpected behavior occurs.
 
-The example sketch shown below demonstrates how to reset the Nicla Sense Env using the `Arduino_NiclaSenseEnv` library API.  It also shows how to verify that the board has been reset by turning off the temperature sensor before the reset and checking its status after the reset.
+The example sketch below demonstrates how to reset the Nicla Sense Env using the `Arduino_NiclaSenseEnv` library API. It also shows how to verify that the board has been reset by turning off the temperature sensor before the reset and checking its status after the reset.
 
 ```arduino
 /**
