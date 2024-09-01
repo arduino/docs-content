@@ -307,7 +307,7 @@ You can download the example sketch [here](assets/nicla_sense_env_board_info_exa
 
 ### Onboard Sensors Management 
 
-Efficient management of the Nicla Sense Env's onboard sensors is important for optimizing its performance and power usage. The sketch shown below demonstrates how to manage (turn on or off) the onboard sensors (temperature, relative humidity, and air quality) of the Nicla Sense Env and check their statuses using the `Arduino_NiclaSenseEnv` library API: 
+Efficient management of the Nicla Sense Env's onboard sensors is important for optimizing its performance and power usage. The sketch shown below demonstrates how to manage (turn on or off) the onboard sensors (temperature, relative humidity, and air quality) of the Nicla Sense Env and check their status using the `Arduino_NiclaSenseEnv` library API:
 
 ```arduino
 /**
