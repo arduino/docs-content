@@ -124,7 +124,7 @@ As mentioned, **the Nicla Sense Env is not a standalone device but a shield for
 The Nicla Sense Env can be powered by:
 
 - Using the onboard **ESLOV connector**, which has a dedicated  +5 VDC power line regulated onboard to +3.3 VDC.
-- Using an **external +3.3 VDC power supply** connected to `VCC` pin (please refer to the [board pinout section](#pinout) of the user manual).
+- Using an **external +3.3 VDC power supply** connected to the `VCC` pin (please refer to the [board pinout section](#pinout) of the user manual).
 
 ![Different ways to power the Nicla Sense Env](assets/user-manual-5.png)
 
