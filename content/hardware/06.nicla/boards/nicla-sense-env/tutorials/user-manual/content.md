@@ -463,7 +463,7 @@ You can download the example sketch [here](assets/nicla_sense_env_board_reset_ex
 
 Saving energy is vital for many projects, particularly those deployed in remote areas or with a limited power supply. The Nicla Sense Env supports a deep sleep mode that can help to minimize the board's power consumption.
 
-***Deep sleep is essential for extending battery life and reducing energy use when the board is not collecting data or performing tasks. It is necessary for battery-powered or power-constrained applications.***
+***Deep sleep is essential for extending battery life and minimizing energy consumption when the board is not collecting data or performing tasks. It is necessary for battery-powered or power-constrained applications.***
 
 The example sketch shown below demonstrates how to put the Nicla Sense Env board into deep sleep mode using the `Arduino_NiclaSenseEnv` library API: 
 
