@@ -448,7 +448,7 @@ void loop() {
 }
 ```
 
-This example shows that the temperature sensor, which was disabled before the reset, is re-enabled after the reset, confirming that the board has restarted and all settings have been reset to their defaults. Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+This example shows that the temperature sensor, disabled before the reset, is re-enabled after the reset, confirming that the board has restarted and all settings have been reset to their defaults. Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
 
 - `device.temperatureHumiditySensor().setEnabled(false)`: Disables the onboard temperature and humidity sensor.
 - `device.reset()`: This function reboots the Nicla Sense Env, clearing all temporary settings.
