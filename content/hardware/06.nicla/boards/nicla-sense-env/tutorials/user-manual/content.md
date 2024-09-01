@@ -166,10 +166,10 @@ Copy and paste the example sketch below into a new sketch in the Arduino IDE:
 NiclaSenseEnv device; 
 
 /**
-  Toggles the onboard white LED between on and off states.
-  @param led Reference to WhiteLED object controlling the LED.
+  Toggles the onboard orange LED between on and off states.
+  @param led Reference to OrangeLED object controlling the LED.
 */
-void toggleLED(WhiteLED& led) {
+void toggleLED(OrangeLED& led) {
     // Turn on the LED to full brightness for one second
     led.setBrightness(63);
     delay(1000);  
@@ -188,13 +188,13 @@ void setup() {
 
     if (device.begin()) {
         // Initialize the onboard orange LED
-        auto orangeLED = device.whiteLED();
+        auto orangeLED = device.orangeLED();
     } 
 }
 
 void loop() {
     // Retrieve the orange LED object
-    WhiteLED orangeLED = device.whiteLED();
+    OrangeLED orangeLED = device.orangeLED();
 
     // Continuously toggle the orange LED on and off
     toggleLED(orangeLED);
