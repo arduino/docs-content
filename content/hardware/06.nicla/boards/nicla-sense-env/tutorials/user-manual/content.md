@@ -48,11 +48,11 @@ The Nicla Sense Env includes an ultra-low power temperature and humidity sensor,
 
 The Nicla Sense Env features a secure, certified, and durable design that suits various applications, such as industrial automation, building automation, and prototyping. 
 
-The Nicla Sense Env board top view is shown in the image below:
+The top view of the Nicla Sense Env board is shown in the image below:
 
 ![The Nicla Sense Env main components (top view)](assets/user-manual-1.png)
 
-The Nicla Sense Env board bottom view is shown in the image below:
+The bottom view of the Nicla Sense Env board is shown in the image below:
 
 ![The Nicla Sense Env main components (bottom view)](assets/user-manual-2.png)
 
