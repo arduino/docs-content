@@ -117,7 +117,7 @@ Let's check out what is inside the box of the Nicla Sense Env board. Besides the
 
 ![Unboxing the Nicla Sense Env](assets/user-manual-4.png)
 
-As mentioned, **the Nicla Sense Env is not a standalone device but a shield for an Arduino-supported board from the Portenta, MKR, or Nano board families**. This user manual will use a Portenta C33 as the main or host board and the Nicla Sense Env as a shield or client board connected through the included ESLOV cable.
+**The Nicla Sense Env is not a standalone device but a shield for an Arduino-supported board from the Portenta, MKR, or Nano board families**. This user manual will use a Portenta C33 as the main or host board and the Nicla Sense Env as a shield or client board connected through the included ESLOV cable.
 
 ### Powering the Board
 
