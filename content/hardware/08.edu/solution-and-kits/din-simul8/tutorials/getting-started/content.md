@@ -59,7 +59,8 @@ Proper connections are crucial in an industrial project. **Always disconnect the
 
 Before proceeding, it is necessary to test if the components and connections are working as expected. We can do this by printing the input values to the [Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/).
 
-The Opta WiFi has eight input ports, labeled `I1` to `I8` at the top. These are mapped to pins `A0` through `A7`. To make it easier to reference each input, we can assign a variable to each port using the [`#define`](https://www.arduino.cc/reference/en/language/structure/further-syntax/define/) directive, as shown below:
+The Opta WiFi has eight input ports, labeled `I1` to `I8` at the top. These are mapped to pins `A0` through `A7`. To make it easier to reference each input, we can assign a variable to each port using the [`#define`](https://www.arduino.cc/reference/en/language/structure/further-syntax/define/) command, as shown below:
+
 
 ```arduino
 #define pin_I1 A0
