@@ -131,7 +131,8 @@ void loop() {
 
 ***Use `Serial.println` for the last `Serial.print` to ensure the output wraps to a new line, making it easier to read.***
 
-***Add a delay, such as __100ms__, to ensure stable communication over Serial.***
+***Add a `delay`, such as __100ms__, to ensure stable communication over Serial.***
+
 
 Each switch on the DIN Simul8 outputs 0 V when OFF and 10 V when ON. The `digitalRead()` function will read `0` for 0 V and `1` for 10 V. 
 
