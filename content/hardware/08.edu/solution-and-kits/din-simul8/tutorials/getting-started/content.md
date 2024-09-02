@@ -134,7 +134,8 @@ void loop() {
 ***Add a `delay`, such as __100ms__, to ensure stable communication over Serial.***
 
 
-Each switch on the DIN Simul8 outputs 0 V when OFF and 10 V when ON. The `digitalRead()` function will read `0` for 0 V and `1` for 10 V. 
+Each switch on the DIN Simul8 outputs is 0 V when OFF and 10 V when ON. The `digitalRead()` function will read `0` for 0 V and `1` for 10 V. 
+
 
 For example, if you turn on toggle switches 1, 3, 5, and 7 while leaving 2, 4, 6, and 8 off, as shown in the image below:
 
