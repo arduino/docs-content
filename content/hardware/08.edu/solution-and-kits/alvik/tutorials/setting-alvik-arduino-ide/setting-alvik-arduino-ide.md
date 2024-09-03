@@ -43,7 +43,7 @@ The Arduino® Alvik robot was designed to be compatible with both C++ and MicroP
 ![Select programming tool esptool](assets/EsptoolSelection.png)
 6. Select **Upload Using Programmer** from the **Sketch** menu.
 ![Upload with programmer option](assets/UploadWithProgrammer.png). You can nowpPress the **Reset** button on the board to make sure it is ready for uploading.
-1. Now we can finaly test it. Open the **Drive** example in the Arduino IDE by going to **File > Examples > Arduino_Alvik > drive**.
+1. Now we can finally test it. Open the **Drive** example in the Arduino IDE by going to **File > Examples > Arduino_Alvik > drive**.
 ![Upload the drive example](assets/uploadExample.png)
 
 The Alvik should now start their motor. If no movement occurs make sure that:
