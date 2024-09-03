@@ -25,7 +25,7 @@ Arduino Opta® is available in three variants:
 
 <Feature title="Connectivity" image="wifi-bluetooth">
 
-  Multiple choices are available for network connectivity, including USB, Ethernet, and Wi-Fi®/Bluetooth® Low Energy in addition to industry-specific protocols such as RS-485.
+  Multiple choices are available for network connectivity, including USB, Ethernet, and Wi-Fi®/Bluetooth® Low Energy, as well as industry-specific communication interfaces like RS-485.
 
 </Feature>
 

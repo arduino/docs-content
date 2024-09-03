@@ -464,6 +464,23 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 
 **Note:** The LED above the *User Programmable button* (Ref: 3D) is only available on Arduino Opta® WiFi (AFX00002).
 
+### Wiring Specifications
+
+Following Opta's wiring specifications is important to ensure proper connection and operation of its electrical terminals. The tables shown below provide recommendations for torque application, cable preparation, and accepted wire types of Opta's electrical terminals.
+
+#### Recommended Torque and Cable Preparation
+
+| **Torque** |     **Recommended Tool**     | **Stripping Length** |
+|:----------:|:----------------------------:|:--------------------:|
+|  0.80 Nm  | #1 Phillips-head screwdriver |         9 mm         |
+
+#### Accepted Wire Types
+
+|    **Wire Type**   | **Minimum Size** |           **Maximum Size**          |
+|:------------------:|:----------------:|:-----------------------------------:|
+|   Solid Conductor  | 0.5 mm² (20 AWG) |  6 mm² (10 AWG)/2x4 mm² (2x12 AWG)  |
+| Stranded Conductor | 0.5 mm² (20 AWG) | 4 mm² (12 AWG)/2x2.5 mm² (2x14 AWG) |
+
 ### Microcontroller
 The microcontroller is a dual-core *STM32H747XI*. The main processor is a *Cortex®-M7* running at up to 480 MHz and the second one is a Cortex®-M4 running at up to 240 MHz.
 
@@ -516,6 +533,8 @@ A pushbutton is accessible on the front panel of the Arduino Opta®. The functio
 ### Functional Earth
 To avoid and reduce electrical noise, Arduino Opta® has a *Functional Earth* connector (Ref: 3G) near the Ethernet connector. *Functional Earth*, not to be confused with *Ground*, helps the device to reduce electrical interferences in industrial environments, being crucial for having stable Fieldbus communications.
 
+<div style="page-break-after:always;"></div>
+
 ## Device Operation
 ### Getting Started - IDE
 If you want to program your Arduino Opta® while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
@@ -537,8 +556,6 @@ Sample sketches for Arduino Opta® can be found either in the “Examples” men
 ### Online Resources
 Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[6]**, the Arduino® Library Reference **[7]** and the online store **[8]** where you will be able to complement your Arduino Opta® product with additional extensions, sensors and actuators.
 
-<div style="page-break-after: always;"></div>
-
 ## Mean Time Between Failure (MTBF)
 
 MTBF, which stands for Mean Time Between Failure, is calculated according to statistical device failures and indicates the reliability of a device.
@@ -553,9 +570,8 @@ The MTBF figure (in hours/years) for each Arduino Opta® variant can be found in
 
 ## Mechanical Information
 ### Product Dimensions
-![Arduino Opta® Outline. Dimensions are in mm](assets/opta_mechanical.svg)
 
-***Note: Terminals can be used with both solid and stranded core wire (min: 0.5 mm<sup>2</sup> / 20 AWG).***
+![Arduino Opta® Outline. Dimensions are in mm](assets/opta_mechanical.svg)
 
 ## Certifications
 
@@ -762,9 +778,10 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** |     **Changes**    |
-|------------|:------------:|:------------------:|
-| 07/02/2023 |       4      |  MTBF information  |
-| 16/05/2023 |       3      |    Legal updates   |
-| 13/04/2023 |       2      | Tech Specs Updates |
-| 02/03/2023 |       1      |    First Release   |
+|  **Date**  | **Revision** |      **Changes**      |
+|:----------:|:------------:|:---------------------:|
+| 24/07/2024 |       5      | Wiring specifications |
+| 07/02/2023 |       4      |    MTBF information   |
+| 16/05/2023 |       3      |     Legal updates     |
+| 13/04/2023 |       2      |   Tech Specs Updates  |
+| 02/03/2023 |       1      |     First Release     |

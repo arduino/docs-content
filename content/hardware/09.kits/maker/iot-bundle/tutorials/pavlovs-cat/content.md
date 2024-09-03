@@ -46,7 +46,7 @@ A light sensor is used to detect if the cat reacted to the melody and got to the
 
 ### Components
 
-* Servo moto
+* Servo motor
 * Phototransistor
 * 220 ohm resistor
 * Buzzer
@@ -108,7 +108,8 @@ The next section explains how to play a melody using a piezo buzzer and your Ard
 
 ![Arduino IoT Bundle](assets/piezo_buzzer_rp2040_whR92Z3Wgx.png)
 
-Connect the buzzer to **digital pin 7**, as shown in the picture above. Now, navigate into the Arduino Web Editor through **Thing > Sketch tab > open full editor.** This will open up our automatically generated sketch in the full Arduino Web Editor. Next we need to add an extra tab containing all the necessary notes to play the song. Click the arrow on the right side to add a new tab called `"pitches.h"`. See the GIF below for more detailed steps:
+Connect the buzzer to **digital pin 7**, as shown in the picture above. Now, navigate into the Arduino Cloud Editor through **Thing > Sketch tab** This will open up our automatically generated sketch in the Arduino Cloud Editor. Next we need to add an extra tab containing all the necessary notes to play the song. Click the arrow on the right side to add a new tab called `"pitches.h"`. See the GIF below for more detailed steps:
+
 
 ![Arduino IoT Bundle](assets/palvov-cat-02.gif)
 

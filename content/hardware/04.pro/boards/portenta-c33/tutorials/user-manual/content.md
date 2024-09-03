@@ -55,7 +55,7 @@ Here is an overview of the board's main components shown in the images above:
 - **Security**: The board features an onboard ready-to-use secure element, the SE050C2 from NXP®, specifically designed for IoT devices and provides advanced security features.
 - **USB connectivity**: The board features a USB-C port for power and data, which is also accessible through the board's High-Density connectors.
 - **Power management**: The Portenta C33 is designed for low-power operation to meet the demands of always-connected IoT devices. It features a power management integrated circuit (PMIC), the PF1550 from NXP®,  designed specifically for low-power, portable, and battery-powered IoT applications.
-- **Analog and digital peripherals**: The board features analog peripherals such as two 8-channel 12-bit analog-to-digital converters (ADC) and two 12-bit digital-to-analog converters (DAC). It also features the following digital peripherals: GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), SPDIF (x1), and SAI (x1).
+- **Analog and digital peripherals**: The board features analog peripherals such as two 8-channel 12-bit analog-to-digital converters (ADC) and two 12-bit digital-to-analog converters (DAC). It also features the following digital peripherals: GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), and SAI (x1).
 - **Debugging**: The board features a JTAG/SWD debug port accessible through its High-Density connectors.
 - **Surface mount**: The castellated pins of the board allow it to be positioned as a surface-mountable module.
 - **MKR-styled connectors**: The MKR-styled connectors of the board make it compatible with all the MKR family boards. 2.54 mm pitch headers can be easily soldered to the board.
@@ -684,6 +684,102 @@ while (Wire.available()) {
   byte data = Wire.read();
 }
 ```
+
+### I2S
+
+The Portenta C33 supports I2S (Inter-IC Sound), an interface primarily for transmitting high-quality audio data between digital devices. Unlike UART or SPI interfaces, which are more commonly known and used, the I2S interface is specifically designed for audio applications, making it an essential interface in modern audio electronics.
+
+I2S facilitates audio data transfer synchronously, ensuring the audio signals are transmitted without losing quality. It operates using three main signals: `Serial Data` (`SD`), `Word Select` (`WS`), and `Serial Clock` (`SCK`). `Serial Data` can be input (`SDI`) or output (`SDO`). These signals work together to synchronize the transmission of audio samples between devices such as digital-to-analog converters (DACs), analog-to-digital converters (ADCs), and microcontrollers.
+
+The pins used in the Portenta C33 for the I2S interface are the following:
+
+| **Arduino Pin Mapping** | **Microcontroller Pin** | **I2S Interface** |
+|:-----------------------:|:-----------------------:|:-----------------:|
+|           `63`          |          `P112`         |        `CK`       |
+|           `64`          |          `P113`         |        `WS`       |
+|           `65`          |          `P114`         |       `SDI`       |
+|           `66`          |          `P115`         |       `SDO`       |
+
+***The I2S interface pins are accessible only through the Portenta C33's High-Density connectors (J1). You can access the pins using an Arduino Pro carrier board like the [Portenta Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), the [Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat-carrier), or the [Portenta Mid Carrier](https://store.arduino.cc/products/portenta-mid-carrier).***
+
+The `Arduino Renesas Core` has a built-in library that lets you use the I2S interface, the `I2S` library, right out of the box. Let's walk through an example sketch demonstrating some of the library's capabilities.
+
+The example sketch below showcases configuring the I2S interface and playing a generated sine wave with the Portenta C33 board.
+
+```arduino
+/**
+  I2S Sine Wave
+  Name: portenta_c33_i2s_sine_wave.ino
+  Purpose: This sketch demonstrates I2S communication on the Portenta C33 by 
+  generating and playing a sine wave audio signal using the I2S interface.
+  
+  @author Arduino Product Experience Team
+  @version 1.0 25/06/24
+*/
+
+// Include the necessary library for I2S communication
+#include "I2S.h"
+
+// Define the sampling rate in Hz
+#define SAMPLE_RATE 44100  
+
+// Constant used in the sine wave calculations
+#define TAU 6.283185307179586476925286766559 
+
+// Buffer to hold the generated sine wave samples
+uint16_t samplebuf[4096];
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  // Initialize the I2S interface in output mode with the specified sample rate and buffer size
+  // Enter an infinite loop if initialization fails
+  if (!I2S.begin(I2S_MODE_OUT, SAMPLE_RATE, 4096, 4)) {
+    Serial.println("- Failed to initialize I2S interface!");
+    while (1);
+  }
+
+  // Generate the sine wave samples
+  for (int i = 0; i < 4096; i += 2) {
+    // Calculate the time in seconds
+    double t = (double)i / 2 / SAMPLE_RATE;  
+
+    // Generate the sine wave sample
+    uint16_t sample = 32768 * (1 + sin(440.0 * TAU * t)); 
+
+    // Assign the sample to the left channel
+    samplebuf[i] = sample; 
+
+    // Assign the same sample to the right channel
+    samplebuf[i + 1] = sample; 
+  }
+}
+
+void loop() {
+  // Get a buffer to write data
+  SampleBuffer buf = I2S.dequeue();
+  
+  // Copy the samples to the I2S buffer
+  for (int i = 0; i < buf.bytes() / sizeof(uint16_t); i++) {
+    buf.data()[i] = samplebuf[i];
+  }
+
+  // Write the buffer to the I2S interface
+  I2S.write(buf);
+}
+```
+
+Let's analyze the example sketch. First, the necessary configurations are made in the setup function. The `I2S.h` library is included to provide the necessary functions for I2S communication. Constants for the sampling rate (`SAMPLE_RATE`) and the value of `TAU` are defined for use in the sine wave calculations.
+
+The setup function initializes serial communication for debugging purposes and waits up to 2.5 seconds for a connection. It then configures the I2S interface in output mode with a sampling rate of 44100 Hz, a buffer size of 4096 samples, and a queue depth of four. If the initialization fails, it prints an error message and enters an infinite loop. The function also generates a sine wave and stores it in the `samplebuf` buffer. The sine wave is generated for a 440 Hz tone (the standard `A` note), and the same sample is assigned to both the left and right audio channels.
+
+In the loop function, a buffer is continuously retrieved to write data using `I2S.dequeue()` function. The pre-generated sine wave samples from `samplebuf` are copied to the I2S buffer and then written to the I2S interface using `I2S.write()`.
+
+The sine wave generation involves calculating the samples for a 440 Hz tone and storing them for both the left and right audio channels. The samples are continuously written to the I2S interface to be played as audio output. You should hear a continuous 440 Hz tone when this sketch is uploaded and running on the Portenta C33. You can modify the frequency, sampling rate, and buffer size to experiment with different audio signals and configurations.
+
+You can download the example sketch [here](assets/portenta_c33_i2s_sine_wave.zip).
 
 ### UART 
 
