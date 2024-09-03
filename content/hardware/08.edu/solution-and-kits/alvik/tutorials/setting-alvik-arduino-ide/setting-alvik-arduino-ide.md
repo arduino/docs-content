@@ -34,7 +34,7 @@ The Arduino® Alvik robot was designed to be compatible with both C++ and MicroP
 
 ### Firmware Preparation
 
-#### Preparing Alvik for Arduino IDE
+#### Preparing Alvik For Arduino IDE
 
 1. Connect pin **B1** to **GND** on the Alvik board.
 ![B1 and GND pins](assets/nano-esp32-gnd-b1.png)
@@ -43,16 +43,12 @@ The Arduino® Alvik robot was designed to be compatible with both C++ and MicroP
 ![Select programming tool esptool](assets/EsptoolSelection.png)
 6. Select **Upload Using Programmer** from the **Sketch** menu.
 ![Upload with programmer option](assets/UploadWithProgrammer.png). You can nowpPress the **Reset** button on the board to make sure it is ready for uploading.
-1. Open the **Bridge** example in the Arduino IDE by going to **File > Examples > 01.Basics > Blink**.
-![Bridge Firmware Updater](assets/bridgeFirmware.png)
-1. Open **STM32 Cube Programmer**
-2.  Set the connection to **UART** mode, the **Port** to whatever port the board is connected to and **DTR** to HIGH. You can now press **Connect**.
-![Settings for STMCube](assets/stmCubeSetup.png)
-3.  Go to **Erasing & Programming** mode and edit the **File path** to the firmware (this will be a .bin file) you are trying to program. You can find the latest release [here](https://github.com/arduino-libraries/Arduino_Alvik/releases/tag/1.0.1). You can now press **Start Programming**.
-![Programming STM Cube](assets/ProgrammingstmCube.png)
+1. Now we can finaly test it. Open the **Drive** example in the Arduino IDE by going to **File > Examples > Arduino_Alvik > drive**.
+![Upload the drive example](assets/uploadExample.png)
 
-
-1.  After the firmware is programmed your board should now be ready!
+The Alvik should now start their motor. If no movement occurs make sure that:
+- Your board is **ON**
+- Firmware is updated (more information available in the [User Manual](https://docs.arduino.cc/tutorials/alvik/user-manual/)).
 
 
 
@@ -60,7 +56,60 @@ You can at any point revert back to the MicroPython programming eviroment by fol
 
 ## Programming Alvik
 
-Let's confirm our firmware is correctly installed. For this we will create a simple sketch that prints the firmware version using the ```get_version()``` function:
+Now that your Alvik is correctly setup lets go over some simple sketch uploads. If this is your first time with the Arduino IDE there is information available on how to [upload sketches](https://support.arduino.cc/hc/en-us/articles/4733418441116-Upload-a-sketch-in-Arduino-IDE).
+
+### Libraries
+
+There are two libraries available in the library manager for use with Alvik:
+
+- **Arduino_Alvik**: This is the primary library we will use in our sketches, and it contains high-level commands for controlling the "brain" of the Alvik, which is the ESP board. You can find more information and download it from [here](https://www.arduino.cc/reference/en/libraries/arduino_alvik/).
+
+- **Arduino_AlvikCarrier**: This library is designed for the STM board on the device and is useful in situations where more fine control is required over commands. It allows for more complex development, especially when deeper integration with the hardware is needed. More information and the download link can be found [here](https://www.arduino.cc/reference/en/libraries/arduino_alvikcarrier/).
+
+### Print Firmware Version
+
+A simple but useful program if you are new to the Alvik is to understand how to get information from the onboard STM board. In this case, we are creating a simple sketch that prints the firmware version using the `get_version()` function.
+
+```c++
+#include "Arduino_Alvik.h"
+```
+
+Including the `Arduino_Alvik` library is essensial. The library contains all the needed predefined functions and classes that simplify the process of controlling the robot's hardware, such as motors and sensors. Without this include statement, the compiler wouldn't recognize the `Arduino_Alvik` class or its associated methods.
+
+```c++
+Arduino_Alvik alvik;
+```
+
+When using the Alvik livrary we declare an object of the `Arduino_Alvik` class named `alvik` in this case. All interactions with the robot will go through this `alvik` object. As with our ```alvik.drive()``` command.
+
+```c++
+void setup() {
+  alvik.begin();
+  Serial.begin(115200);
+}
+```
+
+In the `setup()` function, the `alvik.begin()` method initializes the Alvik robot. This will be a necessity on all sketches for the Alvik.
+
+```c++
+void loop() {
+
+  uint8_t u,m,l;
+
+  alvik.get_version(u,m,l); // Gets the firmware version
+  Serial.printf("%d.%d.%d\n", u, m, l);
+  alvik.drive(10, 45);
+  delay(1000); // Waits a second
+  alvik.drive(10, -45);
+  delay(1000); // Waits a second
+
+}
+```
+
+This code continuously retrieves and prints the firmware version thanks to the ```get_version()``` every second while making the Alvik robot's wheels rotate back and forth using the ```drive()``` command.
+
+
+**Complete code:**
 
 ```c++
 #include "Arduino_Alvik.h"
@@ -86,9 +135,46 @@ void loop() {
 }
 ```
 
-After upload the Alvik should rotate the wheels and print the version once per second.
+### Obstacle Avoider Example In C++
 
-You can now explore the other included examples that cover more of the Alvik's components.
+A more complex example can be found in the [getting started](https://docs.arduino.cc/tutorials/alvik/getting-started/) guide for the Alvik.
+Due to the functions having same structure and names on both MicroPython and C++ we can easily port the ```obstacle-avoider``` to C++.
+
+Keeping in mind the initialization of the Alvik from the previous example we can build the example on the Arduino IDE:
+
+```c++
+#include "Arduino_Alvik.h"
+#include <Arduino.h>
+
+Arduino_Alvik alvik;
+
+void setup() {
+  alvik.begin();
+  delay(5000);  // Waiting for the robot to setup
+}
+
+void loop() {
+  float distance = 12.0;
+  float degrees = 45.0;
+  float speed = 10.0;
+
+  float distance_l, distance_cl, distance_c, distance_r, distance_cr;
+  
+  alvik.get_distance(distance_l, distance_cl, distance_c, distance_r, distance_cr);
+  delay(50);
+  
+  Serial.println(distance_c);
+
+  if (distance_c < distance || distance_cl < distance || distance_cr < distance || distance_l < distance || distance_r < distance) {
+    alvik.rotate(degrees);
+  } else {
+    alvik.drive(speed, 0.0);
+  }
+}
+
+```
+
+You can now explore the other included examples that cover more of the Alvik's components and more functions listed on our [API reference](https://docs.arduino.cc/tutorials/alvik/api-overview/).
 
 
 ## More Resources (C++)
