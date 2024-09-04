@@ -19,28 +19,6 @@ Controller Area Network (CAN), is a robust and versatile communication protocol 
 
 Communication via CAN is enabled through different CAN libraries and is dependent on the hardware used for the setup. This article will mainly focus on the [Arduino_CAN](https://github.com/arduino/ArduinoCore-renesas/tree/main/libraries/Arduino_CAN) library and its available methods with references to different hardware and respective libraries.
 
-If you want to jump straight to the examples click [here](#examples) or go to the end of this article.
-
-## Overview
-
-- [CAN Class](#can-class)
-- [Arduino CAN Pins](#arduino-can-pins)
-- [How CAN Works](#how-can-works)
-  - [Shared Bus and Absence of a Central Master Node](#shared-bus-and-absence-of-a-central-master-node)
-  - [Differential Signaling](#differential-signaling)
-    - [Practical Example: CAN in Automotive Systems](#practical-example-can-in-automotive-systems)
-  - [CAN Frame Structure](#can-frame-structure)
-    - [Standard and Extended CAN IDs](#standard-and-extended-can-ids)
-  - [Timing and Synchronization](#timing-and-synchronization)
-  - [Termination Resistors](#termination-resistors)
-- [History of CAN](#history-of-can)
-  - [Development and Standards](#development-and-standards)
-    - [Origin and Purpose](#origin-and-purpose)
-    - [Timeline of Standards](#timeline-of-standards)
-- [Examples](#examples)
-  - [Arduino UNO R4 WiFi CAN Bus](#arduino-uno-r4-wifi-can-bus)
-  - [Sending Data Between Two MKR CAN Shields](#sending-data-between-two-mkr-can-shields)
-
 ## CAN Class
 
 With the CAN class, you can send and receive data over a Controller Area Network (CAN) bus, enabling communication between an Arduino board and other devices in a networked environment.
