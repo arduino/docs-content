@@ -178,6 +178,22 @@ Quickly find all the recent sketch files and IoT Dashboards worked by your stude
 
 ***If you are interested in knowing more about Shared Spaces, read this [tutorial](https://docs.arduino.cc/arduino-cloud/education/shared-spaces/).***
 
+## Collaborative Coding
+
+**Collaborative coding** is a feature available in the School Plan that allows multiple users within the same shared space to work together on the same code. Students and teachers can share and edit code, making it easier to collaborate and learn from each other.
+
+In the shared space, everyone can create and modify code simultaneously. Changes are updated and visible to all participants once the last user has finished editing. The code editor notifies users if someone else is editing by highlighting the code area with an orange frame.
+
+The following short clip shows an idea of how the collaborative coding works from a student and teacher perspectives:
+
+![Collaborative Coding](assets/collab-code-demo.gif)
+
+While a student or teacher is working on the code, the area they are editing is highlighted with an orange frame, and a warning block appears. This indicates that you should wait to avoid any loss of change. Please wait for them to finish before editing the code to prevent conflicts and ensure all changes are correctly synchronized.
+
+![Collaborative Coding - Code editor orange frame highlight](assets/collab-code-orange-frame.png)
+
+This helps ensure that all students and teachers stay synchronized and can contribute effectively. Collaborative coding makes projects more interactive and engaging, improving the learning experience.
+
 ## Cloud Remote App
 
 The Cloud Remote App allows you to monitor your dashboards anywhere, anytime, from a **mobile device** i.e. smartphone or tablet for **free**. Download it from either [Google Play Store](https://play.google.com/store/apps/details?id=cc.arduino.cloudiot&hl=en&gl=US) or the [Apple App Store](https://apps.apple.com/us/app/arduino-iot-cloud-remote/id1514358431) depending on your device.
