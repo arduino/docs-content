@@ -39,17 +39,7 @@ These methods provide the core functionality for sending and receiving messages 
 
 ## Arduino CAN Pins
 
-The default pins on an Arduino board are CAN High and CAN Low. See table below for more information:
-
-***Depending on which Arduino board you are using, you will need a transceiver/receiver to read the differential signal properly. Check the product page of the board you are using for more information.***
-
-| Board / Shield | CAN0_RX   | CAN0_TX   | CAN1_RX | CAN1_TX |
-| -------------- | --------- | --------- | ------- | ------- |
-| UNO R4 WiFi    | D13       | D10       |         |         |
-| UNO R4 Minima  | D5        | D4        |         |         |
-| DUE            | D68       | D69       | D66     | D53     |
-| GIGA R1 WiFi   | D93       | D94       |         |         |
-| MKR CAN Shield | dedicated | dedicated |         |         |
+***Depending on which Arduino board you are using, you will need a transceiver/receiver to read the differential signal properly. Check the product page or cheat sheet of the board you are using for more information.***
 
 ## Technical Specifications
 
