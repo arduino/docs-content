@@ -51,19 +51,6 @@ Below is a list of all supported Bluetooth® boards:
 - [Opta WiFi](https://store.arduino.cc/collections/opta-family/products/opta-wifi)
 - [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 
-## Overview
-
-The following section provides an overview of the article. If you want to skip to one particular section simply click the respective link.
-
-- [Frequency](#frequency-bands-and-range) - What frequency does Bluetooth® LE operate on?
-- [Range](#range) - How far does Bluetooth® LE's signal reach?
-- [Central / Peripheral Devices](#central--peripheral-devices) - How do you set up your device?
-- [Advertising / Connection Mode](#advertising--connection-mode) - What different modes are there?
-- [Services and Characteristics](#services-and-characteristics) - How do you advertise information?
-- [Bluetooth® Classic](#bluetooth-classic) - How does Bluetooth® LE compare to Bluetooth® Classic?
-- [ArduinoBLE Library](#arduinoble-library) - Get quick overview of the ArduinoBLE library
-- [Examples](#examples) - Try different examples using the ArduinoBLE library
-
 ***To follow along this article you need a compatible board and the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/)***
 
 ### Harald Blåtand (Bluetooth)
