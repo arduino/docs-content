@@ -27,9 +27,18 @@ OTA is supported on several Arduino devices, as well as many ESP32 devices.
 - [Arduino MKR WiFi 1010](https://store.arduino.cc/mkr-wifi-1010)
 - [Arduino Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect-with-headers)
+- [Arduino Nano ESP32](https://store.arduino.cc/en-se/products/nano-esp32)
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
+- [Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control)
 - [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
+- [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me)
+- [Nicla Voice](https://store.arduino.cc/products/nicla-voice)
+- [Portenta C33](https://store.arduino.cc/products/portenta-c33)
+- [Arduino Opta WiFi](https://store.arduino.cc/products/opta)
+- [Portenta H7 Lite Connected](https://store.arduino.cc/products/portenta-h7-lite-connected)
+- [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
+
 
 ### Verified ESP32 Boards Supporting OTA 
 
