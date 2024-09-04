@@ -45,7 +45,8 @@ The default pins on an Arduino board are CAN High and CAN Low. See table below f
 
 | Board / Shield | CAN0_RX   | CAN0_TX   | CAN1_RX | CAN1_TX |
 | -------------- | --------- | --------- | ------- | ------- |
-| UNO R4         | D13       | D10       |         |         |
+| UNO R4 WiFi    | D13       | D10       |         |         |
+| UNO R4 Minima  | D5        | D4        |         |         |
 | DUE            | D68       | D69       | D66     | D53     |
 | GIGA R1 WiFi   | D93       | D94       |         |         |
 | MKR CAN Shield | dedicated | dedicated |         |         |
