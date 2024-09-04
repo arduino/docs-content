@@ -1,21 +1,14 @@
-name: Deploy to docs-content.arduino.cc
+name: Purge cache on CloudFlare
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-
-concurrency:
-  group: deploy-production
-  cancel-in-progress: true
 
 permissions:
   id-token: write
   contents: read
 
 jobs:
-  build:
+  purge:
     if: "github.repository == 'arduino/docs-content'"
     runs-on: ubuntu-latest
     environment: production
@@ -26,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -66,9 +59,6 @@ jobs:
       - run: npm install
       - run: npm run build
 
-      - name: Clean up node_modules
-        run: rm -rf node_modules
-
       - name: Configure AWS credentials from Production account
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -82,19 +72,12 @@ jobs:
         # Don't cache any HTML or JSON file: they should always be up-to-dates
         run: aws s3 sync --cache-control "public, max-age=0, must-revalidate" --include "*.html" --include="sw.js" --include="*.json" --include "*.css" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.pdf" --delete public/ s3://${{ secrets.PRODUCTION_BUCKET_NAME }}/
 
-      # - name: Sync PDF
-      #   run: aws s3 sync --cache-control "public, max-age=86400, must-revalidate" --include "*.pdf" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.css" --exclude="*.html" --exclude="*.json" --exclude="sw.json" --delete public/ s3://${{ secrets.PRODUCTION_BUCKET_NAME }}/
+      - name: Sync PDF
+        run: aws s3 sync --cache-control "public, max-age=86400, must-revalidate" /tmp/aws-sync-temp/ s3://${{ secrets.PRODUCTION_BUCKET_NAME }}/ --exclude "*.js" --exclude "*.gif" --exclude "*.png" --exclude "*.svg" --exclude "*.css" --exclude "*.html" --exclude "*.json" --exclude "sw.json" --delete
 
-      # - name: Purge cache on CloudFlare
-      #   run: |
-      #     curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE }}/purge_cache" \
-      #       -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_PURGE_API_TOKEN }}" \
-      #       -H "Content-Type: application/json" \
-      #       --data '{"prefixes":["${{ vars.DATASHEETS_BASE_URL }}"]}'
-
-      - name: Sync all cacheable assets
-        run: aws s3 sync --cache-control "public, max-age=31536000, immutable" --include "*.css" --include="*.js" --include="*.gif" --include="*.png" --include="*.svg" --exclude "*.html" --exclude="sw.js" --exclude="*.json" --delete public/ s3://${{ secrets.PRODUCTION_BUCKET_NAME }}/
-
-      - name: Sync all non-cacheable assets
-        # Don't cache any HTML or JSON file: they should always be up-to-dates
-        run: aws s3 sync --cache-control "public, max-age=0, must-revalidate" --include "*.html" --include="sw.js" --include="*.json" --include "*.css" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --delete public/ s3://${{ secrets.PRODUCTION_BUCKET_NAME }}/
+      - name: Purge cache on CloudFlare
+        run: |
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_PURGE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"prefixes":["${{ vars.DATASHEETS_BASE_URL }}"]}'
