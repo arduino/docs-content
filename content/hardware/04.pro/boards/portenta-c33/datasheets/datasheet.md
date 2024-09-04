@@ -477,11 +477,11 @@ Figure 4 shows the power options available on the Portenta C33 and illustrates t
 
 If you want to program your Portenta C33 while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Portenta C33 to your computer, you will need a USB-C® cable.
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by just installing a simple plugin.
+All Arduino® devices work out-of-the-box on the Arduino® Cloud Editor **[2]** by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino Cloud
 
@@ -653,6 +653,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |                       **Changes**                      |
 |:----------:|:------------:|:------------------------------------------------------:|
+| 03/09/2024 |       9      |          Cloud Editor updated from Web Editor          |
 | 16/06/2024 |       8      |     Updated General Specifications Overview section    |
 | 23/01/2024 |       7      |               Updated Interfaces section               |
 | 14/12/2023 |       6      |             Updated Related Product section            |
