@@ -15,6 +15,8 @@ Currently, the following device types are supported:
 - Cellular (GSM / NB-IoT)
 - Manual (Python, MicroPython, JavaScript)
 
+***To see the full list of boards that are compatible with the Arduino Cloud check the GitHub repository [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).*** 
+
 ## Configure a Device
 
 Configuring a device in the Arduino Cloud is done through an installation wizard. There are three main options available:
