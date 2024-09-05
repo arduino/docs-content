@@ -2072,6 +2072,8 @@ The image below shows the anticipated configuration, featuring the Portenta X8 a
 
 ![Portenta Mid Carrier Mini PCIe & Portenta X8 Setup](assets/portentaMIDcarrier_x8_mpcie_set.png)
 
+#### Overlay Configuration
+
 Once the setup is ready, the following sequence of commands is used to set the overlays required for the Portenta X8 and the Portenta Mid Carrier:
 
 ```bash
@@ -2088,6 +2090,12 @@ fw_setenv carrier_name mid
 
 ```bash
 fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_breakout_usbfs ov_carrier_mid_pcie_mini'
+```
+
+For managing the Pro 4G Module (EG25 and EC200A-EU), you **only need the USB overlay**, and **mPCIe overlay is not necessary** for these USB modems. You can configure the necessary USB overlays using the following command:
+
+```bash
+fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_breakout_usbfs'
 ```
 
 Alternatively, it is possible to use the **tenta-config** process implemented in the [GIGA Display Connector's Linux Setup](#using-linux-1) section to apply the overlays to enable mini PCIe for the Portenta Mid Carrier with the Portenta X8.
@@ -2124,6 +2132,8 @@ It will prompt a message showing a new set of overlays that will be applied once
 
 Select **Ok** to confirm, and the device will be configured with the overlays for mini PCIe support.
 
+#### Enabling the Module via GPIO
+
 The module must be enabled, and this can be accomplished either by putting the GPIO 5 (iMX8 Pin 165) manually via the 3.3V line or by command as follows: 
 
 ```bash
@@ -2137,6 +2147,8 @@ echo out > /sys/class/gpio/gpio165/direction
 ```bash
 echo 1 > /sys/class/gpio/gpio165/value
 ```
+
+#### Network Interface Management and Raw IP Mode
 
 Afterward, the setup process involves bringing down the `wwan0` interface, setting it to raw IP mode, and then bringing it back up:
 
@@ -2152,7 +2164,56 @@ echo Y > /sys/class/net/wwan0/qmi/raw_ip
 ip link set dev wwan0 up
 ```
 
-The following steps include using `qmicli` commands to check the card status and start a network connection:
+This step ensures the modem functions properly in QMI mode.
+
+#### ModemManager and Power Management
+
+The **ModemManager** service manages the power for the Pro 4G Module via a script. **Global (EG25)** and **EU (EC200A-EU)** modems are different and require different configurations:
+
+- **Global EG25 Module**: This modem is supported directly by **NetworkManager**, which works alongside **ModemManager**.
+- **EU EC200A-EU Module**: This modem is **not officially supported** by **ModemManager** and creates a USB `eth0` connection. This can be remapped into an `ec200aeu` network device using an `udev` rule.
+
+The modem is powered down when **ModemManager** is stopped using
+
+```bash
+systemctl stop ModemManager
+```
+
+After stopping **ModemManager**, there will be a delay before the modem can be powered back on and detected by **mmcli**.
+
+#### Modem Configuration
+
+For the **Global EG25 Module**, you can configure the modem using **NetworkManager** with the following command:
+
+```bash
+nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.autoconnect yes
+```
+
+For the **EU EC200A-EU Module**, **ModemManager** does not support it out of the box, so a patch is required for compatibility. You can then use the following command to connect:
+
+```bash
+mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
+```
+
+If the modem creates a USB `eth0` interface, remap it into an `ec200aeu` network device using an `udev` rule.
+
+In a Docker environment, it may be beneficial to disable **ModemManager** and control the modem using **qmicli**. To avoid conflicts, disable **ModemManager** with the following command:
+
+```bash
+sudo systemctl stop ModemManager
+```
+
+Next, provide a Docker container with an **entrypoint.sh** script to manage the modem's power using **gpiod**:
+
+```bash
+gpiod set-value <gpio-pin> 1
+```
+
+```bash
+sleep 10
+```
+
+Once the modem is powered on, use **qmicli** to configure and manage the modem. For instance, to check the modem status, use:
 
 ```bash
 qmicli --device=/dev/cdc-wdm0 --device-open-proxy --uim-get-card-status
@@ -2160,13 +2221,15 @@ qmicli --device=/dev/cdc-wdm0 --device-open-proxy --uim-get-card-status
 
 ![Pro 4G Module - Card Status](assets/portentaMIDcarrier_mpcie_card_status.png)
 
+To start a network connection, use:
+
 ```bash
 qmicli --device=/dev/cdc-wdm0 --device-open-proxy --wds-start-network="ip-type=4,apn=iot.1nce.net" --client-no-release-cid
 ```
 
 ![Pro 4G Module - Network Initialization](assets/portentaMIDcarrier_mpcie_network_start.png)
 
-After establishing the network connection, you can use `udhcpc` to manage dynamic IP configuration:
+After establishing the network connection, manage the dynamic IP using:
 
 ```bash
 udhcpc -q -f -n -i wwan0
@@ -2196,7 +2259,7 @@ docker run -it --mount type=bind,source="$(pwd)",target=/app python:3.8-slim-bus
 /app/speedtest-cli
 ```
 
-Once the speed test concludes, you can see similar behavior to the following image.
+Once the speed test concludes, you can see similar behavior to the following image which shows the download and upload speeds
 
 ![Arduino Pro 4G Module - Speed Test](assets/portentaMIDcarrier_mpcie_4gmodem_result.png)
 
