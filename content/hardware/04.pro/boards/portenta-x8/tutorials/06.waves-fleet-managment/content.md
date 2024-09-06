@@ -47,14 +47,16 @@ For security purposes, we recommend that you rotate your FoundriesFactory keys. 
 First, we will rotate the root keys. These are the most important keys, as they are used to create new target keys. Rotate them with the command:
 
 ```bash
-fioctl keys rotate-root --initial /absolute/path/to/root.keys.tgz
+fioctl keys tuf rotate-offline-keys -r root -k /absolute/path/to/root.keys.tgz
 ```
 
 Now we can rotate the target-only keys with following command:
 
 ```bash
-fioctl keys rotate-targets /absolute/path/to/root.keys.tgz
+fioctl keys tuf rotate-offline-keys -r targets -k /absolute/path/to/root.keys.tgz
 ```
+
+***The above commands have been updated from the older __fioctl keys rotate-root__ and __fioctl keys rotate-targets__ commands to reflect the latest security practices recommended by [Foundries.io](https://docs.foundries.io/latest/reference-manual/security/offline-keys.html).***
 
 And finally, for security reasons, we separating the target keys from the root using the following command:
 
