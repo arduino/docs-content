@@ -36,8 +36,8 @@ In this tutorial, you will learn how to implement Modbus RTU-based communication
 - [Opta™](https://store.arduino.cc/collections/pro-family) (x2)
 - [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x2)
 - Cable with either specification for RS-485 connection (x3):
-- STP/UTP 24-18AWG (Unterminated) 100-130Ω rated
-- STP/UTP 22-16AWG (Terminated) 100-130Ω rated
+- STP/UTP 24-18AWG (Unterminated) 100 - 130 Ω rated
+- STP/UTP 22-16AWG (Terminated) 100 - 130 Ω rated
 
 ### Software Requirements
 
@@ -53,7 +53,7 @@ It was released by Modicon (now Schneider Electric) in 1979. Since then, it has 
 
 In Supervisory Control and Data Acquisition (SCADA) systems, a Remote Terminal Unit (RTU) and a supervisory device are frequently connected via the Modbus communication protocol. Modbus messages have a straightforward 16-bit format and a Cyclic-Redundant Checksum (CRC) when communicating with electronic equipment.
 
-***For more information regarding the Modbus RTU protocol implementation on an Opta™, you may want to check out the [the "Getting Started with Modbus RTU on Opta™"](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu) tutorial.***
+***For more information regarding the Modbus RTU protocol implementation on an Opta™, you may want to check out [the "Getting Started with Modbus RTU on Opta™"](https://docs.arduino.cc/tutorials/opta/getting-started-with-modbus-rtu) tutorial.***
 
 ## Modbus RTU & PLC IDE
 
