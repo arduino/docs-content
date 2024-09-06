@@ -15,6 +15,14 @@ Currently, the following device types are supported:
 - Cellular (GSM / NB-IoT)
 - Manual (Python, MicroPython, JavaScript)
 
+| **Type**       | **Arduino Boards** |
+|----------------|---------------------|
+| **WiFi**       | [MKR 1000](https://store.arduino.cc/arduino-mkr1000-wifi), [MKR WiFi 1010](https://store.arduino.cc/arduino-mkr-wifi-1010), [Nano 33 IoT](https://store.arduino.cc/arduino-nano-33-iot), [Portenta H7](https://store.arduino.cc/portenta-h7), [Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect), [Nicla Vision](https://store.arduino.cc/products/nicla-vision), [OPTA WiFi](https://store.arduino.cc/products/opta-wifi), [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi), [Portenta C33](https://store.arduino.cc/products/portenta-c33), [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi), [Nano ESP32](https://store.arduino.cc/products/nano-esp32), [ESP8266](https://github.com/esp8266/Arduino/releases/tag/2.5.0), [ESP32](https://github.com/espressif/arduino-esp32/releases/tag/2.0.5) |
+| **GSM**        | [MKR GSM 1400](https://store.arduino.cc/arduino-mkr-gsm-1400-1415) |
+| **5G**         | [MKR NB 1500](https://store.arduino.cc/arduino-mkr-nb-1500-1413) |
+| **LoRa**       | [MKR WAN 1300/1310](https://store.arduino.cc/mkr-wan-1310) |
+| **Ethernet**   | [Portenta H7](https://store.arduino.cc/products/portenta-h7) + [Vision Shield Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet), [Max Carrier](https://store.arduino.cc/products/portenta-max-carrier), [Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), [Portenta Machine Control](https://store.arduino.cc/products/arduino-portenta-machine-control), [OPTA WiFi](https://store.arduino.cc/products/opta-wifi), [OPTA RS485](https://store.arduino.cc/products/opta-rs485), [OPTA Lite](https://store.arduino.cc/products/opta-lite), [Portenta C33](https://store.arduino.cc/products/portenta-c33) + [Vision Shield Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet) |
+
 ***To see the full list of boards that are compatible with the Arduino Cloud check the GitHub repository [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).*** 
 
 ## Configure a Device
