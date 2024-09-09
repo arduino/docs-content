@@ -22,7 +22,12 @@ jobs:
     name: Render Datasheets
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/generated-datasheets
+
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+
+      - uses: ./.github/actions/generate-datasheets
         with:
           artifact-name: datasheets
           datasheets-path: static/resources/datasheets
