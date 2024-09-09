@@ -22,39 +22,10 @@ jobs:
     name: Render Datasheets
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/cache@v4
-        id: cache
+      - uses: ./.github/actions/generated-datasheets
         with:
-          path: static/resources/datasheets
-          key: ${{ runner.os }}-datasheets-${{ hashFiles('**/*datasheet.md') }}
-
-      - uses: actions/checkout@v4
-        if: steps.cache.outputs.cache-hit != 'true'
-        with:
-          fetch-depth: 1
-
-      - uses: actions/setup-node@v4
-        if: steps.cache.outputs.cache-hit != 'true'
-        with:
-          node-version: 18
-          cache: "npm"
-          cache-dependency-path: "package-lock.json"
-
-      - name: Render Datasheets
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: |
-          cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering
-          ./render-datasheets.sh
-          cd $GITHUB_WORKSPACE
-          mkdir -p static/resources/datasheets
-          find ./content/hardware -type f -name "*-datasheet.pdf" -exec cp {} ./static/resources/datasheets/ \;
-
-      - name: Export artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: datasheets
-          path: static/resources/datasheets
-          retention-days: 1 # Only needed to pass it to the next job
+          artifact-name: datasheets
+          datasheets-path: static/resources/datasheets
 
   build:
     name: Build and Deploy
@@ -79,7 +50,7 @@ jobs:
           cache: "npm"
           cache-dependency-path: "package-lock.json"
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4 # Retrieve the datasheets generated in the previous job
         with:
           name: datasheets
 
