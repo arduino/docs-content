@@ -10,12 +10,50 @@ concurrency:
   group: deploy-staging
   cancel-in-progress: true
 
+# Allow installation of dependencies
 permissions:
   id-token: write
   contents: read
 
 jobs:
+  # This job is used to render datasheets, but only if they have changed.
+  # It's a separate job so we don't have to cleanup the machine afterwards.
+  render-datasheets:
+    name: Render Datasheets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: "npm"
+          cache-dependency-path: "package-lock.json"
+
+      - uses: actions/cache@v4
+        id: cache
+        with:
+          path: static/resources/datasheets
+          key: ${{ runner.os }}-datasheets-${{ hashFiles('**/*datasheet.md') }}
+
+      - name: Render Datasheets
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering;./render-datasheets.sh
+          find ./content/hardware -type f -name "*-schematics.pdf" -exec cp {} ./static/resources/schematics/ \;
+
+      - name: Export artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: datasheets
+          path: static/resources/datasheets
+          retention-days: 1 # Only needed to pass it to the next job
+
   build:
+    name: Build and Deploy
+    needs: render-datasheets
     runs-on: ubuntu-latest
     environment: staging
     env:
@@ -26,20 +64,23 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+
+      - name: Cleanup runner disk
+        uses: ./.github/actions/cleanup-disk # Cleanup machine before starting the build
+
       - uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: "npm"
-          cache-dependency-path: "**/package-lock.json"
+          cache-dependency-path: "package-lock.json"
 
-      - name: Render Datasheets
-        run: cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering;./render-datasheets.sh
+      - uses: actions/download-artifact@v4
+        with:
+          name: datasheets
 
       - name: Copy Static Files
         run: |
-          mkdir -p static/resources/datasheets static/resources/schematics static/resources/pinouts static/resources/models
-          find ./content/hardware -type f -name "*-schematics.pdf" -exec cp {} ./static/resources/schematics/ \;
-          find ./content/hardware -type f -name "*-datasheet.pdf" -exec cp {} ./static/resources/datasheets/ \;
+          mkdir -p static/resources/schematics static/resources/pinouts static/resources/models
           find ./content/hardware -type f -name "*-full-pinout.pdf" -exec cp {} ./static/resources/pinouts/ \;
           find ./content/hardware -type f -name "*-pinout.png" -exec cp {} ./static/resources/pinouts/ \;
           find ./content/hardware -type f -name "*-step.zip" -exec cp {} ./static/resources/models/ \;
@@ -63,38 +104,27 @@ jobs:
             ${{ runner.os }}-public-gatsby-main
 
       - run: npm install
+
       - run: npm run build
 
-      - name: Clean up node_modules
+      - name: Clean up node_modules # Just to save space
         run: rm -rf node_modules
 
-      - name: Configure AWS credentials from Staging account
-        uses: aws-actions/configure-aws-credentials@v4
+      - name: Deploy to S3
+        uses: ./.github/actions/sync-s3
         with:
           role-to-assume: ${{ secrets.STAGING_IAM_ROLE }}
-          aws-region: us-east-1
+          bucket-name: ${{ secrets.STAGING_BUCKET_NAME }}
 
-      # - name: Sync all cacheable assets
-      #   run: aws s3 sync --cache-control "public, max-age=31536000, immutable" --include "*.css" --include="*.js" --include="*.gif" --include="*.png" --include="*.svg" --exclude "*.html" --exclude="sw.js" --exclude="*.json" --exclude="*.pdf" --delete public/ s3://${{ secrets.STAGING_BUCKET_NAME }}/
-
-      # - name: Sync all non-cacheable assets
-      #   # Don't cache any HTML or JSON file: they should always be up-to-dates
-      #   run: aws s3 sync --cache-control "public, max-age=0, must-revalidate" --include "*.html" --include="sw.js" --include="*.json" --include "*.css" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.pdf" --delete public/ s3://${{ secrets.STAGING_BUCKET_NAME }}/
-
-      # - name: Sync PDF
-      #   run: aws s3 sync --cache-control "public, max-age=86400, must-revalidate" --include "*.pdf" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.css" --exclude="*.html" --exclude="*.json" --exclude="sw.json" --delete public/ s3://${{ secrets.STAGING_BUCKET_NAME }}/
-
-      # - name: Purge cache on CloudFlare
-      #   run: |
-      #     curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE }}/purge_cache" \
-      #       -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_PURGE_API_TOKEN }}" \
-      #       -H "Content-Type: application/json" \
-      #       --data '{"prefixes":["${{ vars.DATASHEETS_BASE_URL }}"]}'
-
-      - name: Sync all cacheable assets
-        run: aws s3 sync --cache-control "public, max-age=31536000, immutable" --include "*.css" --include="*.js" --include="*.gif" --include="*.png" --include="*.svg" --exclude "*.html" --exclude="sw.js" --exclude="*.json" --delete public/ s3://${{ secrets.STAGING_BUCKET_NAME }}/
-
-      - name: Sync all non-cacheable assets
-        # Don't cache any HTML or JSON file: they should always be up-to-dates
-        run: aws s3 sync --cache-control "public, max-age=0, must-revalidate" --include "*.html" --include="sw.js" --include="*.json" --include "*.css" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --delete public/ s3://${{ secrets.STAGING_BUCKET_NAME }}/
-
+  purge-datasheets:
+    name: Purge Datasheets cache
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Invalidate datasheets cache
+        uses: ./.github/actions/cloudflare-purge
+        with:
+          api-token: ${{ secrets.CLOUDFLARE_PURGE_API_TOKEN }}
+          zone: ${{ secrets.CLOUDFLARE_ZONE }}
+          prefix: ${{ vars.DATASHEETS_BASE_URL }}
