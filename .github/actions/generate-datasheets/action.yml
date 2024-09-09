@@ -17,9 +17,6 @@ runs:
       with:
         path: ${{ inputs.datasheets-path }}
         key: ${{ runner.os }}-datasheets-${{ hashFiles('**/*datasheet.md') }}
-        # FIXME: remove restore-keys when the cache is stable
-        restore-keys: |
-          ${{ runner.os }}-datasheets-
 
     - uses: actions/setup-node@v4
       if: steps.cache.outputs.cache-hit != 'true'
