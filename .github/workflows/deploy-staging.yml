@@ -43,8 +43,11 @@ jobs:
       - name: Render Datasheets
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering;./render-datasheets.sh
-          find ./content/hardware -type f -name "*-schematics.pdf" -exec cp {} ./static/resources/schematics/ \;
+          cd ${GITHUB_WORKSPACE}/scripts/datasheet-rendering
+          ./render-datasheets.sh
+          cd $GITHUB_WORKSPACE
+          mkdir -p static/resources/datasheets
+          find ./content/hardware -type f -name "*-datasheet.pdf" -exec cp {} ./static/resources/datasheets/ \;
 
       - name: Export artifact
         uses: actions/upload-artifact@v4
