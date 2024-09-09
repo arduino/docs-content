@@ -34,7 +34,7 @@ jobs:
     environment: production
     env:
       REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
-      APP_ENV: production
+      APP_ENV: prod
 
     steps:
       - uses: actions/checkout@v4
