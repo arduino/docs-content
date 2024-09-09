@@ -102,9 +102,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Invalidate datasheets cache
-        uses: ./.github/actions/cloudflare-purge
-        with:
-          api-token: ${{ secrets.CLOUDFLARE_PURGE_API_TOKEN }}
-          zone: ${{ secrets.CLOUDFLARE_ZONE }}
-          prefix: ${{ vars.DATASHEETS_BASE_URL }}
+      - name: Purge Cloudflare Cache
+        shell: bash
+        run: |
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_PURGE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"prefixes":["${{ vars.DATASHEETS_BASE_URL }}"]}'
