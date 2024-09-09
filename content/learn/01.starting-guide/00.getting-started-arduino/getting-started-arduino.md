@@ -11,59 +11,6 @@ But what are the cornerstones of Arduino? What is a "board", how do I write code
 
 ***In this guide, you will gain an overview of the Arduino Ecosystem, and a set of links leading to more detailed articles.***
 
-
-## Overview
-
-This guide is divided into four main sections: **hardware**, **software tools**, **Arduino API**, and **Quick Reference**. You can navigate to each of these sections directly through the links below:
-
-### Arduino Hardware
-
-In this section, we will dedicate some time to learn about some fundamentals in electronics, and about the basic operation of an Arduino board.
-
-  - [Anatomy of an Arduino Board](#anatomy-of-an-arduino-board)
-  - [Basic Operation](#basic-operation)
-  - [Circuit Basics](#circuit-basics)
-  - [Electronic Signals](#electronic-signals)
-  - [Analog Signal](#analog-signal)
-  - [Digital Signal](#digital-signal)
-  - [Sensors & Actuators](#sensors--actuators)
-  - [Serial Communication Protocols](#serial-communication-protocols)
-  - [Memory](#memory)
-  - [Embedded Sensors](#embedded-sensors)
-  - [Internet of Things (IoT)](#internet-of-things-iot)
-
-### Arduino API
-
-In this section you will learn what the Arduino API is, and how to create code that can run on your Arduino board.
-
-  - [Main Parts](#main-parts)
-  - [Program Structure](#program-structure)
-  - [The "Sketch"](#the-sketch)
-  - [Example Sketch](#example-sketch)
-  - [Libraries](#libraries)
-  - [Core Specific API](#core-specific-api)
-
-### Arduino Software Tools
-
-In this section you will learn how to set up your development environment as well as learning about what options there are.
-
-  - [A Typical Workflow](#a-typical-workflow)
-  - [Arduino IDE 1.8.x](#arduino-ide-18x)
-  - [Arduino IDE 2](#arduino-ide-2)
-  - [Arduino Cloud](#arduino-iot-cloud)
-  - [Cloud Editor](#web-editor)
-  - [Library Manager](#library-manager)
-  - [Arduino CLI](#arduino-cli)
-
-### Quick Reference
-
-The quick reference is an extract from the full Arduino API, containing popular functions, structures and methods.
-
-  - [General](#general)
-  - [Serial Communication](#serial-communication)
-  - [GPIO / Pin Management](#gpio--pin-management)
-  - [Structure](#structure)
-
 ## Arduino Hardware
 
 Over the years, Arduino has released hundreds of hardware designs in many shapes and forms. 
