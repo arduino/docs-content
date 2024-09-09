@@ -1094,7 +1094,6 @@ By following these steps, you can control the LEDs on the Arduino Alvik robot to
 
 ## Talking With Other Devices!
 
-
 ### WiFi
 
 The ESP32 on the Arduino Alvik robot includes built-in Wi-Fi capabilities, enabling it to connect to wireless networks and communicate with other devices over the internet. This can be particularly useful for remote control applications. In this example, we'll set up the Alvik robot to connect to a Wi-Fi network, host a web server, and provide a simple web interface with buttons to control the robot's movements.
@@ -1106,7 +1105,6 @@ The provided code will:
 4. Move the robot in the specified direction when a button is pressed.
 
 ### Step By Step Setup
-
 
 1. Replace `Insert_SSID_Here` and `Password_Here` with your Wi-Fi credentials.
 2. Upload the script to the Arduino Nano ESP32.
@@ -1124,7 +1122,7 @@ from arduino_alvik import ArduinoAlvik
 from time import sleep_ms
 
 # Wi-Fi credentials
-SSID = "InErt_SSID_Here"
+SSID = "Insert_SSID_Here"
 PASSWORD = "Password_Here"
 
 # Connect to Wi-Fi
@@ -1186,13 +1184,16 @@ html = """
 We finally set up the web server, note that the selected port should be valid for your network with no conflicts. This can be tuned to the setting that best works for your network configuration.
 
 ```python
-#EADDRINUSE erroris prompted change port
-addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
+# Specify a port
+port = 8080
+addr = socket.getaddrinfo('0.0.0.0', port)[0][-1]
 s = socket.socket()
 s.bind(addr)
 s.listen(5)
 
-print('Listening on', addr)
+s.settimeout(5) 
+
+print(f'Listening on {sta_if.ifconfig()[0]}:{port}')
 ```
 
 **Handling HTTP Requests**
@@ -1201,26 +1202,47 @@ The following code handles incoming HTTP requests and moves the robot in the spe
 
 ```python
 def handle_request(conn):
-    request = conn.recv(1024)
-    request = str(request)
-    print("Request:", request)
+    try:
+        request = conn.recv(1024).decode('utf-8')
+        first_line = request.split('\n')[0]  # Get the first line of the request
+        path = first_line.split(' ')[1]  # Extract the path (e.g., "/up")
 
-    if '/up' in request:
-        alvik.set_wheels_speed(30, 30)
-    elif '/down' in request:
-        alvik.set_wheels_speed(-30, -30)
-    elif '/left' in request:
-        alvik.set_wheels_speed(-30, 30)
-    elif '/right' in request:
-        alvik.set_wheels_speed(30, -30)
-    else:
-        alvik.brake()
+        # Strip query strings (e.g., "/up?")
+        if '?' in path:
+            path = path.split('?')[0]
+        print(f"Request path: {path}")
 
-    conn.send('HTTP/1.1 200 OK\n')
-    conn.send('Content-Type: text/html\n')
-    conn.send('Connection: close\n\n')
-    conn.sendall(html)
-    conn.close()
+        # Ignore favicon requests
+        if path == '/favicon.ico':
+            conn.send('HTTP/1.1 204 No Content\n')
+            conn.send('Connection: close\n\n')
+            return
+
+        # Control the robot based on the request path
+        if path == '/up':
+            alvik.set_wheels_speed(30, 30)
+        elif path == '/down':
+            alvik.set_wheels_speed(-30, -30)
+        elif path == '/left':
+            alvik.set_wheels_speed(-30, 30)
+        elif path == '/right':
+            alvik.set_wheels_speed(30, -30)
+        else:
+            alvik.brake()
+
+        # Send the response for valid paths
+        conn.send('HTTP/1.1 200 OK\n')
+        conn.send('Content-Type: text/html\n')
+        conn.send('Connection: close\n\n')
+        conn.sendall(html)
+
+    except OSError as e:
+        if e.errno == 104:  # ECONNRESET error
+            print("Connection reset by client.")
+        else:
+            print(f"Error: {e}")
+    finally:
+        conn.close()
 ```
 
 **Main Loop**
@@ -1231,9 +1253,17 @@ The following code runs the main loop to handle incoming connections and process
 # Main loop to handle incoming connections
 try:
     while True:
-        conn, addr = s.accept()
-        print('Connection from', addr)
-        handle_request(conn)
+        try:
+            conn, addr = s.accept()
+            print('Connection from', addr)
+            handle_request(conn)
+        except OSError as e:
+            if e.errno == 116:  # ETIMEDOUT error
+                print("Waiting for connection...")
+            elif e.errno == 104:  # ECONNRESET error
+                print("Connection reset by client.")
+            else:
+                print(f"Accept error: {e}")
 except KeyboardInterrupt:
     print("Server stopped")
     s.close()
@@ -1241,6 +1271,135 @@ except KeyboardInterrupt:
 ```
 
 This section ensures the server keeps running, accepting incoming connections, and handling requests until the script is interrupted. If an `EADDRINUSE` error occurs, change the port number from 80 to an unused port, like 8080, in the `addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]` line. Also, make sure the device you access the web interface on should be on the same network as the Alvik.
+
+
+**Full Code**
+```python
+import network
+import socket
+from arduino_alvik import ArduinoAlvik
+from time import sleep_ms
+
+# Wi-Fi credentials
+SSID = "Arduino_IoT"
+PASSWORD = "ArduinoIoT2021"
+
+# Connect to Wi-Fi
+sta_if = network.WLAN(network.STA_IF)
+sta_if.active(True)
+sta_if.connect(SSID, PASSWORD)
+
+# Wait for connection
+while not sta_if.isconnected():
+    pass
+
+print("Connected to WiFi. IP address:", sta_if.ifconfig()[0])
+
+# Initialize the robot
+alvik = ArduinoAlvik()
+alvik.begin()
+sleep_ms(5000)
+
+# HTML for the web interface
+html = """
+<!DOCTYPE html>
+<html>
+<head>
+<title>Alvik Robot Control</title>
+</head>
+<body>
+<h1>Control Alvik Robot</h1>
+<form action="/up">
+    <button type="submit">Up</button>
+</form>
+<form action="/down">
+    <button type="submit">Down</button>
+</form>
+<form action="/left">
+    <button type="submit">Left</button>
+</form>
+<form action="/right">
+    <button type="submit">Right</button>
+</form>
+</body>
+</html>
+"""
+
+# Specify a port
+port = 8080
+addr = socket.getaddrinfo('0.0.0.0', port)[0][-1]
+s = socket.socket()
+s.bind(addr)
+s.listen(5)
+
+s.settimeout(5) 
+
+print(f'Listening on {sta_if.ifconfig()[0]}:{port}')
+
+# Function to handle incoming HTTP requests
+def handle_request(conn):
+    try:
+        request = conn.recv(1024).decode('utf-8')
+        first_line = request.split('\n')[0]  # Get the first line of the request
+        path = first_line.split(' ')[1]  # Extract the path (e.g., "/up")
+
+        # Strip query strings (e.g., "/up?")
+        if '?' in path:
+            path = path.split('?')[0]
+        print(f"Request path: {path}")
+
+        # Ignore favicon requests
+        if path == '/favicon.ico':
+            conn.send('HTTP/1.1 204 No Content\n')
+            conn.send('Connection: close\n\n')
+            return
+
+        # Control the robot based on the request path
+        if path == '/up':
+            alvik.set_wheels_speed(30, 30)
+        elif path == '/down':
+            alvik.set_wheels_speed(-30, -30)
+        elif path == '/left':
+            alvik.set_wheels_speed(-30, 30)
+        elif path == '/right':
+            alvik.set_wheels_speed(30, -30)
+        else:
+            alvik.brake()
+
+        # Send the response for valid paths
+        conn.send('HTTP/1.1 200 OK\n')
+        conn.send('Content-Type: text/html\n')
+        conn.send('Connection: close\n\n')
+        conn.sendall(html)
+
+    except OSError as e:
+        if e.errno == 104:  # ECONNRESET error
+            print("Connection reset by client.")
+        else:
+            print(f"Error: {e}")
+    finally:
+        conn.close()
+
+# Main loop to handle incoming connections
+try:
+    while True:
+        try:
+            conn, addr = s.accept()
+            print('Connection from', addr)
+            handle_request(conn)
+        except OSError as e:
+            if e.errno == 116:  # ETIMEDOUT error
+                print("Waiting for connection...")
+            elif e.errno == 104:  # ECONNRESET error
+                print("Connection reset by client.")
+            else:
+                print(f"Accept error: {e}")
+except KeyboardInterrupt:
+    print("Server stopped")
+    s.close()
+    alvik.stop()
+
+```
 
 ### ESP-NOW
 
