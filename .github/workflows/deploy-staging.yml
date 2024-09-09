@@ -55,6 +55,9 @@ jobs:
         with:
           name: datasheets
 
+      - name: Debug datasheet list
+        run: ls -lah static/resources/datasheets
+
       - name: Copy Static Files
         run: |
           mkdir -p static/resources/schematics static/resources/pinouts static/resources/models
