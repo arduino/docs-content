@@ -1,7 +1,7 @@
 ---
-title: 'Getting Started with DIN Simul8'
+title: 'Getting Started with Arduino® DIN Simul8'
 difficulty: beginner
-description: 'This short guide helps you connecting the board to a PLC of the Opta® family and test some basic functionality.'
+description: 'This tutorial will help you connect the board to a PLC from the Opta® family and test some basic functionality.'
 tags: 
   - Simul8
   - DIN
@@ -13,20 +13,20 @@ software:
   - ide-v2
 ---
 
-![The board.](assets/title.png)
+![ ](assets/title.png)
 
-In this tutorial you'll be guided in connecting the **Arduino® DIN Simul8** to the **Arduino Opta® WiFi**, and trigger some basic functions.
+In this tutorial, you will learn how to connect the **Arduino® DIN Simul8** to the **Arduino Opta® WiFi** and implement basic functions.
 
 ## Hardware & Software Requirements
 
 ### Hardware
 
-- Arduino® DIN Simul8
 - [Arduino Opta® WiFi](https://store.arduino.cc/products/opta-wifi)
+- Arduino® DIN Simul8
 - USB-C® cable
-- 24 V power supply with barrel plug adapter
-- 8x wire for signal
-- 2x wire for power distribution
+- 24 V AC/DC power supply with barrel plug adapter
+- Wiring cable for signal (x8)
+- Wiring cable for power distribution (x2)
 
 ### Software
 
@@ -36,31 +36,31 @@ In this tutorial you'll be guided in connecting the **Arduino® DIN Simul8** to 
 
 ![Render front](assets/Simul-8-Top-with-Adaptor.png)
 
-DIN Simul8 is a digital-input-simulator and power distribution board for the PLC of the Opta family. It provides eight toggle switches (0 - 10 V output) and four screw terminal for bringing the 24 V and the GROUND easily to the PLC or other boards.
+The **DIN Simul8** is a digital input simulator and power distribution board designed for the Opta PLC family. It features eight toggle switches (0 - 10 V output) and four screw terminals, making it easy to supply 24 VDC and GND to the PLC or other boards.
 
-If you have any problems using the Opta WiFi you can read its [manual](https://docs.arduino.cc/tutorials/opta/user-manual/) before proceeding.
+***If you encounter any issues with the Opta WiFi, refer to its [user manual](https://docs.arduino.cc/tutorials/opta/user-manual/) before continuing.***
 
 ### Connections
 
-To connect the DIN Simul8 to the PLC you'll need 8 wires for the signal and two for the power.
+To connect the DIN Simul8 to the PLC, you will need eight wiring cables for the signal connections and two for power.
 
-![connections scheme](assets/connections_scheme.png)
+![Connection diagram](assets/wiring.png)
 
-Connections are super important in an industrial project, first of all **disconnect the power plug** and then connect all the pins using cable with lugs, or be careful that no copper part of the cable touch other pins.
+1. Connect the power pins: +24V and GND.
+2. Connect all the signal pins.
 
-![Overall connections](assets/connections_all.png)
+***It is recommended to use __AWG 17__ cables for all connections to ensure optimal performance and safety.***
 
-1. Connect the power pins: +24V and GND
-2. Connect all the signal pins
+Proper connections are crucial in an industrial project. **Always disconnect the power source before making any connections.** Use cables with lugs, or ensure that no exposed copper parts of the cables come into contact with other pins.
 
-![Detail connections](assets/connections.png) 
-
+![Wiring precaution](assets/wiring_caution.png)
 
 ## Upload Test Code
 
-Firstly we have to test if the components and the connections works as excepted. Let's print on the [Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/) what arrives to the inputs.
+Before proceeding, it is necessary to test if the components and connections are working as expected. We can do this by printing the input values to the [Serial Monitor](https://docs.arduino.cc/software/ide-v2/tutorials/ide-v2-serial-monitor/).
 
-The Opta WiFi has eight inputs ports, at the top, named from `I1` to `I8`. They are mapped to pin `A0` to `A7`. Let's assign to each of them a variable with the name of the port on the Opta WiFi, easier to remember, we can use the [#define](https://www.arduino.cc/reference/en/language/structure/further-syntax/define/) function, like this:
+The Opta WiFi has eight input ports, labeled `I1` to `I8` at the top. These are mapped to pins `A0` through `A7`. To make it easier to reference each input, we can assign a variable to each port using the [`#define`](https://www.arduino.cc/reference/en/language/structure/further-syntax/define/) command, as shown below:
+
 
 ```arduino
 #define pin_I1 A0
@@ -77,17 +77,15 @@ The Opta WiFi has eight inputs ports, at the top, named from `I1` to `I8`. They 
 |        `I7`        |      `A6`/`PIN_A6`      |   `pin_I7`    |
 |        `I8`        |      `A7`/`PIN_A7`      |   `pin_I8`    |
 
-From now on we can refer to the port `I1` of the Opta WiFi using the `pin_I1` variable.
+Now, you can refer to the `I1` port on the Opta WiFi using the `pin_I1` variable.
 
-
-To read what's arriving on each input port, we can use the [digitalRead](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/) function, inside the `Serial.print` command:
+To read the received values at each input port, you can use the [`digitalRead`](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/) function within the `Serial.print` command:
 
 ```arduino
 Serial.print(digitalRead(pin_I1));
 ```
 
-Now let's do this for each input port, dividing each value with a comma `,`.
-Here the full code:
+Next, lets do this for each input port, separating each value with a comma (`,`). Here is the complete code:
 
 ```arduino
 #define pin_I1 A0
@@ -127,28 +125,31 @@ void loop() {
 
   delay(100);
 }
-
 ```
 
->**Don't forget to** initialize the Serial communication with the Serial.begin command in the setup.
+***Remember to initialize the Serial communication with the `Serial.begin` command in the `setup` function.***
 
->**Don't forget to** call the the last `Serial.print` as `Serial.println`, in order to print a new line and wrap the text to make readable.
+***Use `Serial.println` for the last `Serial.print` to ensure the output wraps to a new line, making it easier to read.***
 
->**Don't forget to** put some delay, like 100ms in order to have a stable communication over serial.
+***Add a `delay`, such as __100ms__, to ensure stable communication over Serial.***
 
-Each switch in the DIN Simul8 outputs 0 V when OFF and 10 V when ON. The `digitalRead()` function will read 0 for 0 V and 1 for 10 V.
-If you switch on the toggle switches 1-3-5-7 and leave off the 2-4-6-8, like in the following image:
 
-![Toggle switches 1-3-5-7](assets/step1_switches.png)
+Each switch on the DIN Simul8 outputs is 0 V when OFF and 10 V when ON. The `digitalRead()` function will read `0` for 0 V and `1` for 10 V. 
 
-The output should be like this:
+
+For example, if you turn on toggle switches 1, 3, 5, and 7 while leaving 2, 4, 6, and 8 off, as shown in the image below:
+
+![Toggle switches 1-3-5-7](assets/led_toggles.png)
+
+The output should look like this:
 
 ![Serial Monitor output](assets/step1_serial-monitor.png)
 
-
 ## Upload Function Trigger Code
 
-If everything works we can move on and try to trigger a function when switch change state: a function that print `"Switch 1 ON"` when turned on and the inverse for the OFF state.
+If everything works correctly, we can trigger a function when the switch changes state.
+
+For example, we can create a function that prints `"Switch 1 ON"` when the switch is turned on and `"Switch 1 OFF"` when it is turned off.
 
 ```arduino
 void ON_function() {
@@ -160,13 +161,13 @@ void OFF_function() {
 }
 ```
 
-In order to make every function runs once, only when the state changed, and not continuously, we can save the status of the switch in a variable:
+To ensure that the function only runs once when the state changes (and not continuously), we can store the current state of the switch in a variable:
 
 ```arduino
 bool stateSwitch = false;
 ```
 
-and call the function when it reads the opposite state: if the state is OFF (0) and it reads ON (1) it means that is just changed to ON, so call the `ON_function()` and update the `stateSwitch` variable.
+The function is called when the switch state changes. For instance, if the switch is currently OFF (`0`) and the state changes to ON (`1`), the `ON_function()` is triggered, and the `stateSwitch` variable is updated accordingly:
 
 ```arduino
   if (stateSwitch == 0) {
@@ -177,7 +178,7 @@ and call the function when it reads the opposite state: if the state is OFF (0) 
   }
 ```
 
-The final code should like like this and it will works only for the toggle switch 1.
+Here is the complete code, which works for toggle switch 1:
 
 ```arduino
 #define pin_I1 A0
@@ -222,27 +223,31 @@ void ON_function() {
 void OFF_function() {
   Serial.println("Switch 1 OFF");
 }
-
 ```
+
+This code will monitor the state of toggle switch 1 and trigger the appropriate function when the switch is turned *on* or *off*.
 
 ## Upload Final Code
 
-In order to make it works for all the eight switches, you can repeat the `stateSwitch` variable and the `if-else` conditions eight times... but that would be boring. What about using [arrays](https://www.arduino.cc/reference/en/language/variables/data-types/array/) and a [for-loop](https://www.arduino.cc/reference/en/language/structure/control-structure/for/)?
+To make this work for all eight switches, you could repeat the `stateSwitch` variable and the `if-else` conditions eight times, but that would be a nonoptimal approach.
 
-The idea is to replace all the variables used in the loop with arrays that stores eight values, one for each switch, and put it inside a `for loop` that will cycle through all the eight inputs. Let's see how to do it:
+Instead, let's use [`arrays`](https://www.arduino.cc/reference/en/language/variables/data-types/array/) and a [`for-loop`](https://www.arduino.cc/reference/en/language/structure/control-structure/for/).
 
-First of all we need an array for all the pins definition of the inputs:
+The idea is to replace the variables in the loop with arrays that store values for each switch and then use a `for-loop` to cycle through all eight inputs.
+
+First, define an array for all the input pin definitions:
 
 ```arduino
 int pins[] = { pin_I1, pin_I2, pin_I3, pin_I4, pin_I5, pin_I6, pin_I7, pin_I8 };
 ```
-Then we need one for the `stateSwitch` variable:
+
+Next, create an array for the `stateSwitch` variable:
 
 ```arduino
 bool stateSwitch[] = { false, false, false, false, false, false, false, false };
 ```
 
-And then we can substitute them:
+Then, you can substitute these arrays into your code:
 
 ```arduino
 if (stateSwitch[ ] == 0) {
@@ -258,8 +263,9 @@ if (stateSwitch[ ] == 0) {
 }
 ```
 
-Now we need to tell to each array-variable which values to use, you can do it by putting a number from 0 to 7 inside the `[]`, i.e. `pins[0] = pin_I1 // pins[1] = pin_I2 // etc..`.
-One way of doing it is with the [`for-loop`](https://www.arduino.cc/reference/en/language/structure/control-structure/for/). We can assign a variable, like `int i`, to change from 0 to 7, and then assign it to each array-variable:
+To specify which array values to use, you can use a number from 0 to 7 inside the brackets `[]`. For example, `pins[0] = pin_I1`, `pins[1] = pin_I2`, and so on.
+
+One way to implement this is with a [`for-loop`](https://www.arduino.cc/reference/en/language/structure/control-structure/for/). Assign a variable, like `int i`, to iterate from 0 to 7, and then use it to access each array value:
 
 ```arduino
 for (int i = 0; i <= 7; i++) {
@@ -277,9 +283,9 @@ for (int i = 0; i <= 7; i++) {
 }
 ```
 
-Ok, that would work, but the `ON_function()` and the `OFF_function()` will print only the state of the Switch 1, unless we make the `i` variable as an [argument](https://docs.arduino.cc/learn/programming/functions/), and so we can print the number related to the switch we are switching.
+This approach will work, but the `ON_function()` and `OFF_function()` will only print the state of Switch 1 unless we pass the `i` variable as an [argument](https://docs.arduino.cc/learn/programming/functions/). This way, we can print the switch number that is being toggled.
 
-Here the full code:
+Here is the full code:
 
 ```arduino
 #define pin_I1 A0
@@ -332,14 +338,16 @@ void OFF_function(int n) {
 }
 ```
 
-And here you can see what's goes on the serial monitor when you turn on all the switch from 1 to 8 and then off from 8 to 1:
+And here is what you should see on the Serial Monitor when you turn on all the switches from 1 to 8 and then off from 8 to 1:
 
 ![Serial Monitor with switches](assets/step3_serial-monitor.png)
 
+This code will monitor the state of all eight switches and print the corresponding message whenever a switch is toggled *on* or *off*.
+
 ## Considerations
 
-If something strange happens when you turn a switch on or off, like if the switch was triggered on and off super rapidly, don't panic! That's normal, and it is related to something called "debounce". You can have a look [here](https://docs.arduino.cc/built-in-examples/digital/Debounce/) to understand what's going on.
+If you notice any unexpected behavior when turning a switch on or off, such as the switch appearing to toggle on and off rapidly, don't worry! This is normal and is related to a phenomenon called "debounce." To understand further, you can learn more about it [here](https://docs.arduino.cc/built-in-examples/digital/Debounce/).
 
 ## Conclusions
 
-The Arduino DIN Simul8 is the perfect playground to start experiment your coding skill in the PLC world. Try creating more functions that could be triggered by some combination of switch position, or whatever you like, have fun!
+The Arduino DIN Simul8 provides an excellent platform to start experimenting with your coding skills in the PLC world. Try creating more functions that different combinations of switch positions can trigger, or explore any other ideas you have. Have fun!
