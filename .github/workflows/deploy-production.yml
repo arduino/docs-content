@@ -58,6 +58,7 @@ jobs:
         uses: actions/download-artifact@v4 # Retrieve the datasheets generated in the previous job
         with:
           name: datasheets
+          path: static/resources/datasheets
 
       - name: Debug datasheet list
         run: ls -lah static/resources/datasheets
