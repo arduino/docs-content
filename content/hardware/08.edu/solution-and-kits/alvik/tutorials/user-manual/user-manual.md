@@ -302,7 +302,7 @@ ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-
 6. Select the "Arduino-alvik" and move it inside the "lib" folder in your Alvik.
    ![Setting the FW path on the Labs for micropython](assets/moving_alvik_folder.png)
 
-7. Go back to the main folder and select the "ucPack-mpy-main" folder and move it next to the arduino_alvik inside the "lib" folder in your Nano ESP32.
+7. Go back to the main folder and select the "ucPack" folder found inside "ucPack-mpy-main" and move it next to the arduino_alvik inside the "lib" folder in your Nano ESP32.
    ![Setting the FW path on the Labs for micropython](assets/moving_ucPack.png)
 
 8. Now go back to the main root of the files system on the Nano ESP32. Then in your local folder navigate to the examples folder once there, select the following files and move them to the main folder of the ESP32.
@@ -319,7 +319,7 @@ With this last step, your Nano ESP32 has been set up with the Alvik out of the b
 
 ### Updating Alvik's Body (STM32)
 
-1. Download the [pre-compiled firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases/latest) from the [Alvik Carrier GitHub reposiitory](https://github.com/arduino-libraries/Arduino_AlvikCarrier)
+1. Download the [pre-compiled firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases/latest) from the [Alvik Carrier GitHub repository](https://github.com/arduino-libraries/Arduino_AlvikCarrier)
 
    This step will download a "firmware_x_x_x.bin" file, save it in your Alvik folder
 
@@ -329,7 +329,7 @@ With this last step, your Nano ESP32 has been set up with the Alvik out of the b
 3. Let's move now the "firmware_x_x_x.bin" to the main root.
    ![Setting the FW path on the Labs for micropython](assets/moving_fw_bin.png)
 
-4. Turn ON your alvik, go to the Editor tab and tun the following commands by typing them and clicking on the "Play" button
+4. Turn ON your alvik, go to the Editor tab and run the following commands by typing them and clicking on the "Play" button
 
    ```
    from arduino_alvik import update_firmware
