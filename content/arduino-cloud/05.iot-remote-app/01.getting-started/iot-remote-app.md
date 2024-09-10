@@ -41,11 +41,11 @@ You can change between the default (light) to the dark theme, by navigating to *
 
 You can also edit your dashboards directly from the IoT app. Simply select one of your existing dashboards and press the pen icon at the bottom.
 
-![Edit Mode](./assets/edit-dashbaord-1.png)
+![Edit Mode](./assets/edit-dashboard-1.png)
 
 To move widgets around press and hold them until they appear in a light blue color. To resize them hold and drag on of the corners and resize to the size you want.
 
-![Move and Resize Widgets](./assets/edit-dashbaord-2.png)
+![Move and Resize Widgets](./assets/edit-dashboard-2.png)
 
 ## Access Phone Sensor Data
 
