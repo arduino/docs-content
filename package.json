@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/arduino/docs-content#readme",
   "dependencies": {
-    "@arduino/docs-arduino-cc": "^2.0.18-1",
+    "@arduino/docs-arduino-cc": "^2.0.19-dark-mode",
     "gatsby": "^5.11.0",
     "gatsby-background-image": "^1.6.0",
     "gatsby-image": "^3.11.0",
