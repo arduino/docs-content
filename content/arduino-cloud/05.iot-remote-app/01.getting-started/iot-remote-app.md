@@ -39,7 +39,8 @@ You can change between the default (light) to the dark theme, by navigating to *
 
 ## Edit Dashboards
 
-You can also edit your dashboards directly from the IoT app. Simply select one of your existing dashboards and press the pen icon at the bottom.
+You can also edit your dashboards directly from the IoT Remote app. Simply select one of your existing dashboards and press the pen icon at the bottom.
+
 
 ![Edit Mode](./assets/edit-dashbaord-1.png)
 
