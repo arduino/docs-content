@@ -12,6 +12,8 @@ A number of Arduino boards are able to connect to the Arduino Cloud using a sim 
 
 ## Supported Boards
 
+***Check the GitHub repository [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).*** 
+
 - [MKR GSM 1400](https://store.arduino.cc/arduino-mkr-gsm-1400)
 - [MKR NB 1500](https://store.arduino.cc/arduino-mkr-nb-1500-1413)
 

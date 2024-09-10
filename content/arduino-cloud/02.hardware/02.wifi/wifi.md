@@ -11,7 +11,7 @@ There are currently two ways of configuring a Wi-Fi® board:
 - By configuring an onboard crypto chip (available for a number of official Arduino boards only).
 - Through a Secret Key / API key (ESP32/ESP8266 based boards\*).
 
-***\*Note that the [UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi) and [Nano ESP32](https://store.arduino.cc/products/nano-esp32) boards use this method.***
+***\*Note that the [Nano ESP32](https://store.arduino.cc/products/nano-esp32) board uses this method.***
 
 ## Supported Boards
 
@@ -21,7 +21,7 @@ Connection via Wi-Fi® is an easy alternative, and your credentials can safely b
 
 ### List of Wi-Fi® Boards
 
-***To see the full list of boards that are compatible with the Arduino Cloud check the GitHub repository [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).*** 
+***Check the GitHub repository [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).*** 
 
 ### Setup a Wi-Fi® Board
 
