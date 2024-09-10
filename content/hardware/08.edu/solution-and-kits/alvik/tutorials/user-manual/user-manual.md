@@ -1281,8 +1281,8 @@ from arduino_alvik import ArduinoAlvik
 from time import sleep_ms
 
 # Wi-Fi credentials
-SSID = "Arduino_IoT"
-PASSWORD = "ArduinoIoT2021"
+SSID = "Insert_SSID_Here"
+PASSWORD = "Insert_Password_Here"
 
 # Connect to Wi-Fi
 sta_if = network.WLAN(network.STA_IF)
