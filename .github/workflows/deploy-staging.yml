@@ -110,7 +110,7 @@ jobs:
       - name: Purge Cloudflare Cache
         shell: bash
         run: |
-          echo "Purging Cloudflare cache for prefix: ${{ vars.DATASHEETS_BASE_URL }}, zone: ${{ secrets.CLOUDFLARE_ZONE }}"
+          echo "Purging Cloudflare cache for prefix: ${{ vars.DATASHEETS_BASE_URL }}, zone: ${{ vars.CLOUDFLARE_ZONE }}"
           curl -f -X POST "https://api.cloudflare.com/client/v4/zones/${{ vars.CLOUDFLARE_ZONE }}/purge_cache" \
             -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_PURGE_API_TOKEN }}" \
             -H "Content-Type: application/json" \
