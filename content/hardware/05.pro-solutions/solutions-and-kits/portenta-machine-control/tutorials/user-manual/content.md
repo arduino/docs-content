@@ -36,7 +36,7 @@ This user manual provides a comprehensive overview of the Portenta Machine Contr
 
 ### Software Requirements
 
-- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino_PortentaMachineControl](https://github.com/arduino-libraries/Arduino_PortentaMachineControl) library
 
 ***This User Manual shows how to use the Portenta Machine Control using the Arduino IDE environment. To learn more about how to use it with IEC-61131-3 languages and the PLC IDE, check out our tutorials [here](https://docs.arduino.cc/software/plc-ide).***
@@ -2480,7 +2480,7 @@ The Portenta Machine Control is fully compatible with [Arduino Cloud](https://cl
 In case it is the first time you are using Arduino Cloud:
 
 - To use it, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
-- To use the Arduino Web Editor, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent by downloading it [here](https://create.arduino.cc/getting-started/plugin/welcome).
+- To use the Arduino Cloud Editor, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent by downloading it [here](https://create.arduino.cc/getting-started/plugin/welcome).
 
 Let's walk through a step-by-step demonstration of how to use a Portenta Machine Control device with Arduino Cloud. Log in to your Cloud account; provision your Portenta Machine Control on your Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
 

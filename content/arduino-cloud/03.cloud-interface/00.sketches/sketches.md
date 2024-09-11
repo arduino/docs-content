@@ -223,7 +223,7 @@ A common trick is to add a **`delay(1500);` command after `Serial.begin(9600);`*
 
 ## Create Agent
 
-The [Arduino Create Agent](https://github.com/arduino/arduino-create-agent) is a single binary that will appear on the menu bar and work in the background. It allows you to use the Arduino Cloud and the Arduino Web Editor to seamlessly upload code to any board directly from the browser.
+The [Arduino Create Agent](https://github.com/arduino/arduino-create-agent) is a single binary that will appear on the menu bar and work in the background. It allows you to use the Arduino Cloud and the Arduino Cloud Editor to seamlessly upload code to any board directly from the browser.
 
 Downloading and installing the Arduino Create Agent plugin can be done following [this quick and easy process](https://create.arduino.cc/getting-started/plugin/welcome).
 

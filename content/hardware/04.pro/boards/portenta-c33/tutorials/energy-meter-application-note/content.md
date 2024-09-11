@@ -50,7 +50,7 @@ The main goals of this application note are as follows:
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - For the Wi-Fi® connectivity feature of Portenta C33, we will use [Arduino Cloud](https://create.arduino.cc/iot/things). In case you do not have an account, create one for free [here](https://cloud.arduino.cc/).
 - The [energy meter example sketch](assets/current_transformer.zip)
 

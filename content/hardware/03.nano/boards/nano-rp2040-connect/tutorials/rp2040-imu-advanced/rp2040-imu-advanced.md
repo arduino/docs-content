@@ -59,7 +59,7 @@ Let's take a look at how the IMU's smart features work!
 
 We will now get to the programming part of this tutorial. 
 
-1. First, let's make sure the drivers are installed. If you are using the Web Editor, you don't need to install anything. If you are using an offline editor, you need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here you need to search for **Arduino Mbed OS Nano Boards** and install the package. 
+1. First, let's make sure the drivers are installed. If you are using the Cloud Editor, you don't need to install anything. If you are using an offline editor, you need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here you need to search for **Arduino Mbed OS Nano Boards** and install the package. 
 
 2. Now, you need to install the STM32duino X-NUCLEO-IKS01A3 library. If you are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **STM32duino X-NUCLEO-IKS01A3** and install it. If a dialog appears asking whether the dependent libraries should be installed confirm this.
 

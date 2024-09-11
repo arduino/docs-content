@@ -62,7 +62,7 @@ The frequency is equal to 2^15 cycles per second, which means it is a convenient
 
 ## Programming the Board
 
-**1.** First, let's make sure we have correct the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex-M0+)** and install it. 
+**1.** First, let's make sure we have correct the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex-M0+)** and install it. 
 
 **2.** Now, we need to install the libraries needed. Simply go to **Tools > Manage libraries...** and search for the libraries listed below and install them.
 
