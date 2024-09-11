@@ -1,0 +1,15 @@
+software:
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+
+hardware:
+  boards:
+    - portenta-h7
+    - portenta-h7-lite
+    - portenta-h7-lite-connected
+    - portenta-c33
+    - mkr-wifi-1010
+    - mkr-wan-1310
+    - mkr-zero
+    - mkr-nb-1500
