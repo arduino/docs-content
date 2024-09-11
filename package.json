@@ -18,11 +18,7 @@
   },
   "homepage": "https://github.com/arduino/docs-content#readme",
   "dependencies": {
-<<<<<<< HEAD
-    "@arduino/docs-arduino-cc": "^2.0.18-4",
-=======
     "@arduino/docs-arduino-cc": "^2.0.18-5",
->>>>>>> 76df34483 (Bump version)
     "gatsby": "^5.11.0",
     "gatsby-background-image": "^1.6.0",
     "gatsby-image": "^3.11.0",
