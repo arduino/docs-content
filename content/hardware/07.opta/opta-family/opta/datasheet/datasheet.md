@@ -787,7 +787,8 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 ## Revision History
 
 |  **Date**  | **Revision** |             **Changes**              |
-|:----------:|:------------:|:------------------------------------:|
+| :--------: | :----------: | :----------------------------------: |
+| 11/09/2024 |      7       |      ICES certification updates      |
 | 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
 | 24/07/2024 |      5       |        Wiring specifications         |
 | 07/02/2023 |      4       |           MTBF information           |
