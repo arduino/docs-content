@@ -170,7 +170,7 @@ A detailed figure below illustrates the power options available on the Nano Matt
 
 If you want to program your Nano Matter offline, install the Arduino Desktop IDE **[1]**. To connect the Nano Matter to your computer, you will need a USB-C® cable.
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
 All Arduino devices work out of the box on the Arduino CLoud Editor **[2]** by installing a simple plugin. The Arduino Cloud Editor is hosted online. Therefore, it will always be up-to-date with all the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
@@ -362,5 +362,6 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 |  **Date**  | **Revision** |        **Changes**        |
 |:----------:|:------------:|:-------------------------:|
-| 07/05/2024 |      2       |       Board update        |
+| 05/09/2024 |      3       | Cloud Editor updated from Web Editor |
+| 07/05/2024 |      2       | Board update |
 | 21/03/2024 |      1       | Community Preview Release |

@@ -134,7 +134,7 @@ The `-d` flag runs the containers in the background; omitting it will tie the co
 The installation of the **WordPress** and **MariaDB** containers will begin and may take some time. To monitor the installation process, use:
 
 ```bash
-docker-compose logs -f
+docker compose logs -f
 ```
 
 Upon completion, your WordPress site will be accessible from the Portenta X8.

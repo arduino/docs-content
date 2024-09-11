@@ -38,7 +38,7 @@ In this tutorial, we will go through the steps on how to set up both the Linux a
 - 868-915 MHz antenna with SMA connector
 - ADB: [Check how to connect to your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)
 - [Multi-protocol gateway example code](assets/Multi_Protocol_Gateway_X8.zip)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## Multi-Protocol Gateway Basics
 
@@ -130,13 +130,13 @@ sudo su -
 // Head to directory and mount the container
 cd /home/fio/py-serialrpc
 #py-serialrpc sudo docker build . -t py-serialrpc 
-#py-serialrpc sudo docker-compose up -d
+#py-serialrpc sudo docker compose up -d
 ```
 
 To access the logs of `py-serialrpc` service, while maintaining the same directory, execute the following command.
 
 ```bash
-sudo docker-compose logs -f --tail 20
+sudo docker compose logs -f --tail 20
 ```
 
 ***For more details about how data exchange between Arduino and Linux layer works and to understand how to debug, please read [Data Exchange Between Python® on Linux and an Arduino Sketch](https://docs.arduino.cc/tutorials/portenta-x8/python-arduino-data-exchange)***

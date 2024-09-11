@@ -33,7 +33,7 @@ This user manual will provide a comprehensive overview of Opta™, covering its 
 
 ### Software Requirements
 
-- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino PLC IDE 1.0.3+](https://www.arduino.cc/en/software) (for IEC 61131-3 PLC programming languages)
 
 ***To learn more about the PLC IDE, check out our tutorials [here](https://docs.arduino.cc/software/plc-ide).***
@@ -188,6 +188,23 @@ Opta™ has an **onboard USB®-C port** that can be used for programming the dev
 ## Electrical Terminals
 
 This user manual section covers Opta's electrical terminals, showing their main hardware and software characteristics. Opta™ has 12 electrical terminals, four of which can be used for the power supply of the device, and eight of them can be used as digital/analog inputs.
+
+### Wiring Specifications
+
+Following Opta's wiring specifications is important to ensure proper connection and operation of its electrical terminals. The tables shown below provide recommendations for torque application, cable preparation, and accepted wire types of Opta's electrical terminals. 
+
+#### Recommended Torque and Cable Preparation
+
+| **Torque** |     **Recommended Tool**     | **Stripping Length** |
+|:----------:|:----------------------------:|:--------------------:|
+|  0.80 Nm  | #1 Phillips-head screwdriver |         9 mm         |
+
+#### Accepted Wire Types
+
+|    **Wire Type**   | **Minimum Size** |           **Maximum Size**          |
+|:------------------:|:----------------:|:-----------------------------------:|
+|   Solid Conductor  | 0.5 mm² (20 AWG) |  6 mm² (10 AWG)/2x4 mm² (2x12 AWG)  |
+| Stranded Conductor | 0.5 mm² (20 AWG) | 4 mm² (12 AWG)/2x2.5 mm² (2x14 AWG) |
 
 ### Power Supply
 
@@ -1436,7 +1453,7 @@ All Opta™ variants are fully compatible with the [Arduino Cloud](https://cloud
 In case it is the first time you are using the IoT Cloud:
 
 - To use the IoT Cloud, you need an account. If you do not have an account, create one for free here.
-- To use the Arduino Web Editor or IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent here.
+- To use the Arduino Cloud Editor or IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent here.
 
 Let's walk through a step-by-step demonstration of how to use an Opta™ device with the IoT Cloud.
 

@@ -66,7 +66,7 @@ Set up the hardware. Load the sketch onto the board. Launch Blynk application on
 
 On the smartphone, you will generate an authorization code that you must include in your sketch. This code will pair your smartphone and your board.
 
-Personalize the sketch with your access credentials populating the **Secrets** tab on the Web Editor, or putting the same information in **arduino_secrets.h** if you downloaded it from the Web Editor and you are using the local Arduino Software (IDE).
+Personalize the sketch with your access credentials populating the **Secrets** tab on the Cloud Editor, or putting the same information in **arduino_secrets.h** if you downloaded it from the Cloud Editor and you are using the local Arduino Software (IDE).
 
 After the sketch has been loaded onto the board, the connection sequence will start.
 

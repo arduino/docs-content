@@ -59,11 +59,11 @@ To use the Portenta Mid Carrier with a Portenta X8, please follow these guidelin
 
 ***To enter Flashing Mode with the Portenta X8 and the Portenta Mid Carrier, please consult the [BOOT DIP switch configuration](#boot-dip-switch) instructions within the present user manual.***
 
-- You will need [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or the [Arduino Web Editor](https://create.arduino.cc/editor) if you plan to run Arduino code on the auxiliary microcontroller of the Portenta X8.
+- You will need [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or the [Arduino Cloud Editor](https://create.arduino.cc/editor) if you plan to run Arduino code on the auxiliary microcontroller of the Portenta X8.
 
 For using the Portenta Mid Carrier with a Portenta H7/C33:
 
-- The [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor) is needed to use the Portenta H7/C33 to run the Arduino code.
+- The [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor) is needed to use the Portenta H7/C33 to run the Arduino code.
 
 ## Product Overview
 
@@ -2218,16 +2218,11 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.p
 
 #### Using Arduino IDE
 
-The Portenta H7 and C33 are compatible with the Mini PCIe interface and can leverage the Pro 4G Module's capability. Enable and using the modem with the Portenta H7 or C33 will require a library named **Arduino_4GModem**.
+The Portenta H7 and C33 are compatible with the Mini PCIe interface and can leverage the Pro 4G Module's capabilities. Enabling and using the modem with the Portenta H7 or C33 will require a library named [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular). You can access the library through the Arduino IDE's library manager by navigating to **Sketch -> Include Library -> Manage Libraries** or using the IDE's side panel with books icon.
 
-The *Arduino_4GModem* library packs two sources:
+![Arduino Cellular Library for Pro 4G Modules](assets/arduino_cellular_library.png)
 
-- Arduino_4G_Module
-- ArduinoProModem
-
-Each source is included for the correct compilation and operation of the modem with either Portenta H7 or C33. The library manager within the Arduino IDE can access the library by navigating to **Sketch -> Include Library -> Manage Libraries**.
-
-The library provides functionality for setting up a 4G connection, handling GPS/A-GPS location services, and uninterrupted SMS transactions.
+The [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) provides tools for interacting with Arduino Pro 4G modules. It enables internet connectivity, SMS communication, and location tracking via cellular networks or GPS. Features include fast 4G internet connection, secure SSL connections, GPS or GSM-based location tracking, time synchronization with cell providers, and SMS sending and receiving.
 
 Please ensure the mini PCIe power configuration is set as outlined in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta H7 or C33 requires **SERIAL1 Breakout** pins to be connected to designated **PCIe Breakout** pins :
 
@@ -2245,101 +2240,283 @@ The image below shows the setup, featuring the Portenta H7 and Pro 4G Module con
 
 ![Portenta Mid Carrier Mini PCIe & Portenta H7/C33 Setup](assets/portentaMIDcarrier_h7_c33_mpcie_set.png)
 
-The Portenta H7 can be replaced with the Portenta C33, maintaining the same setup.
-
-Once the setup is ready, we can use the following example from the library called **HTTPClient**:
+The Portenta H7 can be replaced with the Portenta C33, maintaining the same setup. Once ready, you can use the following **HTTPClient** example from the library:
 
 ```arduino
-#define TINY_GSM_DEBUG
-#define LOGGING
-#define DEBUGSERIAL Serial
+/**
+ * This example demonstrates how to make a HTTP GET request using 
+ * the ArduinoHttpClient library and the ArduinoCellular library.
+ * 
+ * Instructions:
+ * 1. Insert a SIM card with or without PIN code in the Arduino Pro 4G Module.
+ * 2. Provide sufficient power to the Arduino Pro 4G Module. Ideally, use a 5V power supply
+ *    with a current rating of at least 2A and connect it to the VIN and GND pins.
+ * 3. Specify the APN, login, and password for your cellular network provider.
+ * 4. Upload the sketch to the connected Arduino board.
+ * 5. Open the serial monitor to view the output.
+ * 
+ * Initial author: Cristian Dragomir
+*/
 
-#include "ArduinoProModem.h"
+#define ARDUINO_CELLULAR_DEBUG
 
-const char apn[]      = "APN";
-const char gprsUser[] = "GPRSUSER";
-const char gprsPass[] = "GPRSPASS";
+#include "ArduinoCellular.h"
+#include "arduino_secrets.h"
 
 const char server[]   = "vsh.pp.ua";
 const char resource[] = "/TinyGSM/logo.txt";
 const int  port       = 80;
 
-ArduinoCellularModem fourgee = ArduinoCellularModem();
-HttpClient http = fourgee.getHTTPClient(server, port);
+ArduinoCellular cellular = ArduinoCellular();
+HttpClient client = cellular.getHTTPClient(server, port);
 
-//HttpClient http = HttpClient(&fourgee.getNetworkClient(), server, port);
+void getResource(){
+
+  Serial.println("Making GET request...");
+
+  client.get(resource);
+
+  int statusCode = client.responseStatusCode();
+  String response = client.responseBody();
+
+  Serial.print("Status code: ");
+  Serial.println(statusCode);
+  Serial.print("Response: ");
+  Serial.println(response);
+
+  client.stop();
+}
 
 void setup(){
     Serial.begin(115200);
     while (!Serial);
-    fourgee.begin();
-    fourgee.connect(apn, gprsUser, gprsPass);
+    // cellular.setDebugStream(Serial); // Uncomment this line to enable debug output
+    cellular.begin();
+
+    if(String(SECRET_PINNUMBER).length() > 0 && !cellular.unlockSIM(SECRET_PINNUMBER)){
+        Serial.println("Failed to unlock SIM card.");
+        while(true); // Stop here
+    }
+
+    Serial.println("Connecting...");
+    if(!cellular.connect(SECRET_GPRS_APN, SECRET_GPRS_LOGIN, SECRET_GPRS_PASSWORD)){
+        Serial.println("Failed to connect to the network.");
+        while(true); // Stop here
+    }
+    Serial.println("Connected!");
+
+    getResource();
 }
 
-void loop(){
+void loop(){}
+```
 
-  Serial.print(F("Performing HTTP GET request... "));
-  int err = http.get(resource);
-  if (err != 0) {
-    Serial.println(F("failed to connect"));
-    delay(10000);
-    return;
-  }
+The example above connects to the web and fetches resources via HTTP using the [*ArduinoHttpClient*](https://github.com/arduino-libraries/ArduinoHttpClient). The script requires **arduino_secrets.h** to be defined with the following credentials:
 
-  int status = http.responseStatusCode();
-  Serial.print(F("Response status code: "));
-  Serial.println(status);
-  if (!status) {
-    delay(10000);
-    return;
-  }
+- GPRS APN
+- GPRS User
+- GPRS Password
+- SIM Card PIN Number
 
-  Serial.println(F("Response Headers:"));
-  while (http.headerAvailable()) {
-    String headerName  = http.readHeaderName();
-    String headerValue = http.readHeaderValue();
-    Serial.println("    " + headerName + " : " + headerValue);
-  }
+These parameters are always required to use the SIM functionalities within the modem. The image below shows an anticipated result of the modem detected and connecting to a network:
 
-  int length = http.contentLength();
-  if (length >= 0) {
-    Serial.print(F("Content length is: "));
-    Serial.println(length);
-  }
-  if (http.isResponseChunked()) {
-    Serial.println(F("The response is chunked"));
-  }
+![Portenta H7 & Pro 4G Module - HTTPClient Example](assets/portentaMIDcarrier_h7_mpcie_4gmodem_result.png)
 
-  String body = http.responseBody();
-  Serial.println(F("Response:"));
-  Serial.println(body);
+It will show a similar result when the Portenta C33 is used as the core device with the Portenta Mid Carrier and the Pro 4G Module:
 
-  Serial.print(F("Body length is: "));
-  Serial.println(body.length());
+![Portenta C33 & Pro 4G Module - HTTPClient Example](assets/portentaMIDcarrier_c33_mpcie_4gmodem_result.png)
 
-  // Shutdown
+You may find additional examples within the library to try various functionalities such as deleting SMS, getting GPS location, and connecting to web servers securely:
 
-  http.stop();
-  Serial.println(F("Server disconnected"));
+- [**HTTPSClient**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/HTTPSClient/HTTPSClient.ino): Establishes a secure connection to a web server with [*BearSSL*](https://bearssl.org/) and [*ArduinoHttpClient*](https://github.com/arduino-libraries/ArduinoHttpClient).
+- [**ModemTerminal**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/ModemTerminal/ModemTerminal.ino): Useful for debugging and testing AT commands.
+- [**GetLocation**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/GetLocation/GetLocation.ino): Shows how to obtain the current GPS location.
+- [**GetTime**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/GetTime/GetTime.ino): Uses GPS to acquire the device's time.
+- [**ReceiveSMS**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/ReceiveSMS/ReceiveSMS.ino): Demonstrates SMS sending and receiving functionality.
+- [**SendSMS**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/SendSMS/SendSMS.ino): Shows how to send an SMS.
+- [**DeleteSMS**](https://github.com/arduino-libraries/Arduino_Cellular/blob/main/examples/DeleteSMS/DeleteSMS.ino): Demonstrates how to delete SMS messages.
 
+For more details on how the library works, including a comprehensive guide on setup and usage of the above examples, please refer to this [library documentation](https://github.com/arduino-libraries/Arduino_Cellular/tree/main/docs).
+
+#### AT Commands Utility
+
+AT commands, also known as Hayes commands, are instructions used to control modems. These commands allow you to perform various functions, such as checking the modem status, signal quality, and network registration. Understanding how to send these commands is essential for managing and troubleshooting your Arduino Pro 4G Module.
+
+This section explains using AT commands to interact with the Cat.4 modem. These instructions will guide you through setting up your environment, sending AT commands, and managing your modem effectively.
+
+#### Using Linux
+
+This subsection provides instructions on using **ModemManager** and **mmcli** to send AT commands to your Cat.4 modem with the Portenta X8.
+
+Ensure that the Pro 4G Module is properly mounted on the Portenta Mid Carrier and that the Portenta X8 recognizes it. You can verify the connection using the following command:
+
+```bash
+lsusb
+```
+
+***Please set up the Pro 4G Module referring to [this section](#using-linux-4). Otherwise, the __ModemManager__ service may not be recognized or working as intended.***
+
+First identify the modem with:
+
+```bash
+mmcli -L
+```
+
+The output will list the detected modems, including the Pro 4G Module. Note the modem's device ID, for example:
+
+```bash
+/org/freedesktop/ModemManager1/Modem/0
+```
+
+![Arduino Pro 4G Module - AT Commands](assets/portentaMIDcarrier_mpcie_4gmodem_at1.png)
+
+To send AT commands, *ModemManager* must be in debug mode:
+
+```bash
+sudo systemctl stop ModemManager
+```
+
+The following command starts *ModemManager* in the background and redirects its output to a log file:
+
+```bash
+sudo ModemManager --debug > /var/log/modemmanager.log 2>&1 &
+```
+
+To send an AT command, the following command can be used:
+
+```bash
+sudo mmcli -m /org/freedesktop/ModemManager1/Modem/0 --command="ATI"
+```
+
+![Arduino Pro 4G Module - AT Commands](assets/portentaMIDcarrier_mpcie_4gmodem_at2.png)
+
+You can now start sending AT commands. Here are a few basic AT commands to test the modem:
+
+| **AT Command** |                                       **Description**                                       |
+|:--------------:|:-------------------------------------------------------------------------------------------:|
+|      ATI       | Retrieves the modem's basic information, such as manufacturer, model, and firmware version. |
+|     AT+CSQ     |                           Checks the signal quality of the modem                            |
+|     AT+GMI     |                          Retrieves the manufacturer identification                          |
+|     AT+GMM     |                       Retrieves the model identification of the modem                       |
+|      ATV       |                          Displays the active configuration profile                          |
+|    AT+CGMR     |                         Retrieves the firmware version of the modem                         |
+|    AT+CPAS     |                           Reports the current status of the modem                           |
+|    AT+CEER     |                    Provides detailed information on the last error cause                    |
+|   AT+QNWINFO   |                          Retrieves the current network information                          |
+
+![Arduino Pro 4G Module - AT Commands Test](assets/portentaMIDcarrier_mpcie_4gmodem_at3.png)
+
+***For complete information on AT commands compatible with the Pro 4G Module, please refer to the [AT Commands Manual](assets/Quectel_EC2x&EG9x&EG2x-G&EM05_Series_AT_Commands_Manual_V2.0.pdf).***
+
+The **`mmcli`** tool allows you to send AT commands to your Cat.4 modem from a Linux environment to check modem status, signal quality, and network registration. You can manage and troubleshoot the Pro 4G Module using AT commands in the Portenta X8's Linux environment by following the above steps.
+
+#### Using Arduino
+
+The AT commands can be sent to the Pro 4G Module using the Portenta H7 or Portenta C33 with the Arduino IDE.
+
+You will need the [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) library, which you can access through the Arduino IDE's library manager by navigating to **Sketch -> Include Library -> Manage Libraries** or using the IDE's side panel with the books icon.
+
+![Arduino Cellular Library for Pro 4G Modules](assets/arduino_cellular_library.png)
+
+Make sure the mini PCIe power configuration is set as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta H7 or C33 requires the **SERIAL1 Breakout** pins to be connected to the corresponding **PCIe Breakout** pins:
+
+| **SERIAL1 Breakout Pins (17)** | **PCIe Breakout Pins (16)** |
+|--------------------------------|-----------------------------|
+| SERIAL1 RX                     | mPCIe_CK_P                  |
+| SERIAL1 TX                     | mPCIe_CK_N                  |
+| SERIAL1 RTS                    | mPCIe_RX_N                  |
+| SERIAL1 CTS                    | mPCIe_RX_P                  |
+| mPCIE_GPIO_RST (GPIO6)         | mPCIe_RST                   |
+
+***Please use a 5.0 V external power source when using an Arduino Pro 4G Module (EMEA / GNSS Global) or any other mPCIe modules due to their high power consumption. This ensures a stable power supply to the Portenta SOM and the carrier, especially during extended use.***
+
+The image below shows the setup with the Portenta H7 and Pro 4G Module connected to the Portenta Mid Carrier, along with a mini PCIe power configuration:
+
+![Portenta Mid Carrier Mini PCIe & Portenta H7/C33 Setup](assets/portentaMIDcarrier_h7_c33_mpcie_set.png)
+
+The following example, **ModemTerminal**, is available in the [**Arduino_Cellular**](https://github.com/arduino-libraries/Arduino_cellular) library and compatible with the Portenta H7 and Portenta C33.
+
+```arduino
+/**
+ * The ModemTerminal example demonstrates how to use the ArduinoCellular library to send raw AT commands to the modem.
+ * 
+ * Instructions:
+ * 1. Insert a SIM card with or without PIN code in the Arduino Pro 4G Module.
+ * 2. Provide sufficient power to the Arduino Pro 4G Module. Ideally, use a 5V power supply
+ *   with a current rating of at least 2A and connect it to the VIN and GND pins.
+ * 3. Specify the APN, login, and password for your cellular network provider.
+ * 4. Upload the sketch to the connected Arduino board.
+ * 5. Open the serial monitor and type AT commands to interact with the modem.
+ * 
+ * Initial author: Cristian Dragomir
+*/
+
+#include "ArduinoCellular.h"
+#include "arduino_secrets.h"
+
+ArduinoCellular cellular = ArduinoCellular();
+
+void setup(){
+    Serial.begin(115200);
+    while (!Serial);
+    cellular.setDebugStream(Serial); // Uncomment this line to enable debug output
+    cellular.begin();
+
+    if(String(SECRET_PINNUMBER).length() > 0 && !cellular.unlockSIM(SECRET_PINNUMBER)){
+        Serial.println("Failed to unlock SIM card.");
+        while(true); // Stop here
+    }
+
+    Serial.println("Connecting...");
+    cellular.connect(SECRET_GPRS_APN, SECRET_GPRS_LOGIN, SECRET_GPRS_PASSWORD);
+    Serial.println("Connected!");
+    Serial.println("You can now send AT commands to the modem.");
+}
+
+void loop() {
+  while(Serial.available() == 0); // Wait for user input
+
+  // Read data from serial until newline
+  String userInput = Serial.readStringUntil('\n');
+
+  // Call the sendATCommand function with the read data
+  String response = cellular.sendATCommand(userInput.c_str());
+  Serial.println(response);
 }
 ```
 
-The example above connects to the web and fetches resources via HTTP. The script will require defining the following parameter fields:
+This example allows you to send raw AT commands to the Pro 4G Module using the Arduino IDE with the Portenta H7 and Portenta C33.
 
-- APN
-- GPRS User
+To send AT commands with the Arduino IDE, please use the **Message** space within the **Serial Monitor** and enter commands that follows after **`AT`**. For example:
+
+| **AT Command** | **AT Command Input Format** |
+|:--------------:|:---------------------------:|
+|      ATI       |              I              |
+|     AT+CSQ     |            +CSQ             |
+|     AT+GMI     |            +GMI             |
+|     AT+GMM     |            +GWM             |
+|      ATV       |              V              |
+|    AT+CGMR     |            +CGMR            |
+|    AT+CPAS     |            +CPAS            |
+|    AT+CEER     |            +CEER            |
+|   AT+QNWINFO   |          +QNWINFO           |
+
+***For complete information on AT commands compatible with the Pro 4G Module, please refer to the [AT Commands Manual](assets/Quectel_EC2x&EG9x&EG2x-G&EM05_Series_AT_Commands_Manual_V2.0.pdf).***
+
+The script requires the **arduino_secrets.h** file to be defined with the following credentials:
+
+- SIM Card PIN Number
+- GPRS APN
+- GPRS Login
 - GPRS Password
 
-These three parameters will always be required to be defined to use the SIM functionalities within the modem. The image below shows an anticipated initial result of the modem detected and connecting to a 4G network:
+These parameters are always required to use the SIM functionalities within the modem. The image below shows an example of the modem being detected and connecting to a network using the Portenta H7 as the core device:
 
-![Portenta H7 & Pro 4G Module - HTTPClient Example Initialized](assets/portentaMIDcarrier_h7_mpcie_4gmodem_result.png)
+![Arduino Pro 4G Module - AT Commands Test with Portenta H7](assets/portentaMIDcarrier_mpcie_4gmodem_at3_h7.png)
 
-You may find additional examples as well within the library, each dedicated to different purposes as follows:
+A similar result will be shown when using the Portenta C33 as the core device with the Portenta Mid Carrier and the Pro 4G Module:
 
-- **MQTTClient:** Stream sensor information via MQTT
-- **SMSReceive:** Send and receive SMS messages
-- **TimeAndLocation:** Get time and location using GPS and GSM as a fallback process for the EU version
+![Arduino Pro 4G Module - AT Commands Test with Portenta C33](assets/portentaMIDcarrier_mpcie_4gmodem_at3_c33.png)
 
 #### Ethernet
 

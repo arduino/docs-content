@@ -40,7 +40,7 @@ In order to get started with Arduino Cloud for Business, you need to [subscribe 
 
 The Arduino Cloud for Business plan consists of two main subscriptions:
 
-* **Enterprise Base Plan.** It includes all the Arduino Cloud for Business features, like data plane, fleet management, Role-Based-Access-Control, Web Editor with Over-the-air updates, IoT Cloud with dashboards, etc. Multiples of 50 devices can be connected under the Enterprise Base Plan – and you can always [contact our team](https://www.arduino.cc/pro/contact-us) for a tailored plan to accelerate your IoT solutions.
+* **Enterprise Base Plan.** It includes all the Arduino Cloud for Business features, like data plane, fleet management, Role-Based-Access-Control, Cloud Editor with Over-the-air updates, IoT Cloud with dashboards, etc. Multiples of 50 devices can be connected under the Enterprise Base Plan – and you can always [contact our team](https://www.arduino.cc/pro/contact-us) for a tailored plan to accelerate your IoT solutions.
 
 * **Optional Add-Ons.** To address additional needs, Arduino Cloud for Business can be customized with optional add-ons. Check the [dedicated section](#optional-add-ons) of this tutorial to learn more.
 
@@ -311,19 +311,19 @@ The Arduino Cloud has a feature capable of creating some pre-built sections of t
 
 The sketch related to the thing is visible from the tab "Sketch" next to the "Setup" view, where the Thing's list of cloud variables is shown.
 
-![Web Editor - Full Editor](assets/sketch-full-editor.png "Get started with the Web Editor")
+![Cloud Editor - Full Editor](assets/sketch-full-editor.png "Get started with the Cloud Editor")
 
-From this sketch view, by clicking the **Open full editor**, it is fast and smooth to access the Arduino Cloud integrated [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally.
+From this sketch view, by clicking the **Open full editor**, it is fast and smooth to access the Arduino Cloud integrated [Cloud Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor), which allows you to program your boards from any browser and use the latest Arduino IDE features and libraries without having to install any software locally.
 
-Otherwise, to open the Web Editor to retrieve your sketches directly, go to Arduino Cloud Home and click on the [New Sketch File](https://create.arduino.cc/editor) button.
+Otherwise, to open the Cloud Editor to retrieve your sketches directly, go to Arduino Cloud Home and click on the [New Sketch File](https://create.arduino.cc/editor) button.
 
-![Get started with the Web Editor](assets/web-editor-button.png "Get started with the Web Editor")
+![Get started with the Cloud Editor](assets/web-editor-button.png "Get started with the Cloud Editor")
 
-It can also be accessed directly by navigating to **Sketches** within the Shared Space sidebar. It will list all the available developed sketches. Clicking on one of the sketches will directly take you to the [Web Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor).
+It can also be accessed directly by navigating to **Sketches** within the Shared Space sidebar. It will list all the available developed sketches. Clicking on one of the sketches will directly take you to the [Cloud Editor](https://docs.arduino.cc/learn/starting-guide/the-arduino-web-editor).
 
-***To get started with the Web Editor, check the dedicated tutorial at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor). However, if you have already developed your sketch and you would like to import it into the Web Editor, see the corresponding documentation [here](https://docs.arduino.cc/arduino-cloud/tutorials/import-your-sketchbook-and-libraries-to-the-web-editor)***
+***To get started with the Cloud Editor, check the dedicated tutorial at [this link](https://docs.arduino.cc/arduino-cloud/getting-started/getting-started-web-editor). However, if you have already developed your sketch and you would like to import it into the Cloud Editor, see the corresponding documentation [here](https://docs.arduino.cc/arduino-cloud/tutorials/import-your-sketchbook-and-libraries-to-the-web-editor)***
 
-All the created sketches are individual and owned by the user that created them. Other members of the Shared Space can access your sketch in their Web Editor only if you share it with them. If you would like to do so, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/share-your-sketches) on how to do it.
+All the created sketches are individual and owned by the user that created them. Other members of the Shared Space can access your sketch in their Cloud Editor only if you share it with them. If you would like to do so, have a look at [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/share-your-sketches) on how to do it.
 
 Keep in mind that your sketch may contain some sensitive data that you do not want to share with other members, like Wi-Fi® credentials or API keys. If this is the case, check [this tutorial](https://docs.arduino.cc/arduino-cloud/tutorials/store-your-sensitive-data-safely-when-sharing) to learn how to share sketches without sharing sensitive data.
 
@@ -332,6 +332,22 @@ Keep in mind that your sketch may contain some sensitive data that you do not wa
 Arduino Cloud for Business integrates an amazing feature: Over-The-Air updates. This feature allows you to upload sketches wirelessly to your Arduino boards. This way, as soon as you have a compatible board connected to a Wi-Fi®/Ethernet network and configured to work with OTA, you will not need to physically connect the board to your computer to upload new sketches to it; instead, everything will work Over-The-Air, even from remote.
 
 ***Are you interested in learning how to perform an OTA update? Check [this tutorial](https://docs.arduino.cc/arduino-cloud/features/ota-getting-started#how-does-it-work). If you prefer to use the Arduino Cloud CLI instead, go to [this link](https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli#ota-over-the-air).***
+
+## Collaborative Coding
+
+**Collaborative Coding** is a powerful feature available with the plan that enables multiple users within the same shared space to work together on the same code. This feature allows team members to share and edit code seamlessly, providing better collaboration overall.
+
+In a collaborative coding environment, everyone can create and modify code simultaneously. Changes are updated and visible to all participants after the last user has finished editing. The code editor highlights the area being edited by others with an orange frame, helping team members stay synchronized and aware of each other's contributions.
+
+The following short clip shows an idea of how the collaborative coding works from two different user perspectives:
+
+![Collaborative Coding](assets/collab-code-demo.gif)
+
+While a user is working on the code, the area they are editing is highlighted with the orange frame, and a warning block appears. This indicates that the user should wait to avoid any loss of change. Please wait for them to finish before editing the code to prevent conflicts and ensure all changes are correctly synchronized.
+
+![Collaborative Coding - Code editor orange frame highlight](assets/collab-code-orange-frame.png)
+
+This functionality ensures that all users remain aligned and can contribute effectively. Collaborative coding improves the overall development experience by making projects more interactive and engaging.
 
 ## Fleet Management
 

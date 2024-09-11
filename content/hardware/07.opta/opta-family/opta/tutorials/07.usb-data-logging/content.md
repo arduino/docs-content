@@ -38,7 +38,7 @@ Through this guide, we will show you how to record readings from four analog inp
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino_UnifiedStorage](https://github.com/arduino-libraries/Arduino_UnifiedStorage) library
 - [Arduino_POSIXStorage](https://github.com/arduino-libraries/Arduino_POSIXStorage) library
 - [Arduino_USBHostMbed5](https://github.com/arduino-libraries/Arduino_USBHostMbed5) library

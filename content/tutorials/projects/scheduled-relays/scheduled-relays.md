@@ -15,7 +15,7 @@ source: "https://create.arduino.cc/projecthub/Arduino_Genuino/scheduled-relays-3
 
 ## Apps and Online Services
 
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino IDE](https://www.arduino.cc/en/main/software)
 
 ## About This Project

@@ -2,7 +2,7 @@
 title: 'Nano RP2040 Connect Chromebook Setup'
 difficulty: beginner
 compatible-products: [nano-rp2040-connect]
-description: 'A quick tutorial on how to setup your Nano RP2040 Connect with a Chromebook, using the Web Editor & the Arduino Chrome App.'
+description: 'A quick tutorial on how to setup your Nano RP2040 Connect with a Chromebook, using the Cloud Editor & the Arduino Chrome App.'
 tags: 
   - Chromebook
   - RP2040
@@ -17,22 +17,22 @@ software:
 
 The [Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect) is a popular development board packed with features. If you are using a **Chromebook**, setting up your board is a bit different:
 
-- It is only possible to use the [Web Editor](https://create.arduino.cc/editor), an online IDE that is part of the [Arduino Cloud](https://cloud.arduino.cc/).
+- It is only possible to use the [Cloud Editor](https://create.arduino.cc/editor), an online IDE that is part of the [Arduino Cloud](https://cloud.arduino.cc/).
 - Compiled sketches are saved (in `.uf2` format) on the RP2040's mass storage device.
 
 In this tutorial, we will take you through the steps needed to set up your board using a Chromebook.
 
-***Note that only the Web Editor is supported in Chromebooks. It is not possible to configure and upload to Nano RP2040 Connect boards via the [IoT Cloud](https://create.arduino.cc/iot/things).***
+***Note that only the Cloud Editor is supported in Chromebooks. It is not possible to configure and upload to Nano RP2040 Connect boards via the [IoT Cloud](https://create.arduino.cc/iot/things).***
 
 ## Goals
 
 The goals of this project are:
 
-- Learn how to upload sketches to your Nano RP2040 board, using the Web Editor.
+- Learn how to upload sketches to your Nano RP2040 board, using the Cloud Editor.
 
 ## Hardware & Software Needed
 
-- [Arduino Web Editor](https://create.arduino.cc/).
+- [Arduino Cloud Editor](https://create.arduino.cc/).
 - [Arduino Create for Education](https://chrome.google.com/webstore/detail/arduino-create-for-educat/elmgohdonjdampbcgefphnlchgocpaij) (Chrome Web Store)
 - [Arduino Nano RP2040 Connect](https://store.arduino.cc/nano-rp2040-connect).
 
@@ -44,11 +44,11 @@ To program your Arduino via a Chromebook, you will need the [Arduino Create for 
 
 ***If you have previously installed the app, make sure your version is up to date.***
 
-## Web Editor
+## Cloud Editor
 
-***To use the [Web Editor](https://create.arduino.cc/editor), you will need to be logged into your Arduino account. If you don't have an account, you will need to register one.***
+***To use the [Cloud Editor](https://create.arduino.cc/editor), you will need to be logged into your Arduino account. If you don't have an account, you will need to register one.***
 
-**1.** Head over to the [Web Editor](https://create.arduino.cc/editor).
+**1.** Head over to the [Cloud Editor](https://create.arduino.cc/editor).
 
 **2.** Create a new sketch, and write your program.
 
@@ -70,7 +70,7 @@ To program your Arduino via a Chromebook, you will need the [Arduino Create for 
 Success: Saved on your online Sketchbook and done uploading <sketchname>
 ```
 
-Congratulations, you have now uploaded a sketch to your Nano RP2040 Connect using the Web Editor on a Chromebook.
+Congratulations, you have now uploaded a sketch to your Nano RP2040 Connect using the Cloud Editor on a Chromebook.
 
 ### Troubleshoot
 
@@ -81,4 +81,4 @@ If things are not working as expected:
 
 ## Conclusion
 
-In this tutorial, we learned how to upload sketches to the Nano RP2040 Connect board, using the Web Editor on a Chromebook. For more tutorials on the Nano RP2040 Connect board, visit the [official documentation](https://docs.arduino.cc/hardware/nano-rp2040-connect).
+In this tutorial, we learned how to upload sketches to the Nano RP2040 Connect board, using the Cloud Editor on a Chromebook. For more tutorials on the Nano RP2040 Connect board, visit the [official documentation](https://docs.arduino.cc/hardware/nano-rp2040-connect).
