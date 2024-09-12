@@ -51,7 +51,7 @@ As reported in the image above, Portenta X8 features two powerful computing unit
 
 * **NXP® i.MX 8M Mini** Cortex®-A53 quad-core up to 1.8GHz per core + 1x Cortex®-M4 up to 400 MHz. This microprocessor is the one where the Yocto Linux distribution is running together with Docker containers (check [this section](#linux-environment) of this user manual to learn more).
 
-* **STMicroelectronics STM32H747XI** featureing 1x Arm® Cortex®-M7 core running up to 480 MHz and 1x Arm® Cortex®-M4 core running up to 240 MHz. This microcontroller hosts the ["Arduino Mbed OS Portenta Boards" Core](https://github.com/arduino/ArduinoCore-mbed). M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4, as well as to manage peripherals through RPC. For more details, refer to [this section](#arduino-environment) of the user manual.
+* **STMicroelectronics STM32H747XI** featuring 1x Arm® Cortex®-M7 core running up to 480 MHz and 1x Arm® Cortex®-M4 core running up to 240 MHz. This microcontroller hosts the ["Arduino Mbed OS Portenta Boards" Core](https://github.com/arduino/ArduinoCore-mbed). M4 core is accessible and programmable by the user, while M7 is dedicated to establishing and guaranteeing the communication between i.MX 8M Mini and M4, as well as to manage peripherals through RPC. For more details, refer to [this section](#arduino-environment) of the user manual.
 
 The two computing units are responsible for different tasks, which are summarized in the table below.
 
@@ -251,15 +251,15 @@ But let's see in detail some of the advantages of this technology:
 
 * **Isolation and security:** In containers, applications and resources are isolated. This means that if an application has to be deleted, it will be sufficient to remove its container and the operation will delete everything that concerns it, such as temporary or configuration files. At the same time, since containers are isolated, each of them "sees" only their own processes, while the others will remain unknown. Security first!
 
-* **Granularity:** It is possible to containerize an entire application and a single component. This way, resources can be reduced into micro-services, guaranteeing greater control and improved performance.
+* **Granularity:** It is possible to containerize an entire application and a single component. This way, resources can be reduced into microservices, guaranteeing greater control and improved performance.
 
 At this point, it is worth mentioning that Portenta X8 containers are based on [Docker](https://www.docker.com/). Docker is an open-source software platform developed by the company with the same name, which allows you to create, test, and distribute containerized applications. The goal of Docker is, therefore, to facilitate the creation and management of containers in order to distribute the resources required for an application in any environment, always keeping the executed code under control. Docker containers can run everywhere, in on-premises data centers or in public and private Clouds. Thanks to the virtualization at the operating system level, which is typical of this technology, Docker allows you to natively create containers in Linux environments.
 
-It is sufficient to focus on the differences between Docker containers and the more generic Linux containers to understand the purpose of a platform like Docker. Docker mainly serves to simplify the construction and management of containers compared to the standard approach. Although it is based on the same technology, i.e. the **LXC (Linux Container)**, Docker guarantees a much more advanced experience than the standard implementation. LXC allows light virtualization, independent from the underlying hardware, but it is bulky and difficult to implement. In other words, basic LXC presents critical issues in terms of user experience.
+It is sufficient to focus on the differences between Docker containers and the more generic Linux containers to understand the purpose of a platform like Docker. Docker mainly serves to simplify the construction and management of containers compared to the standard approach. Although it is based on the same technology, i.e. the **LXC (Linux Container)**, Docker guarantees a much more advanced experience than the standard implementation. LXC allows light virtualization, independent of the underlying hardware, but it is bulky and difficult to implement. In other words, basic LXC presents critical issues in terms of user experience.
 
 Docker specifically simplifies the interface between the container and the end user through a series of automated procedures that guide the user step-by-step during container development, with correct versioning of all the generated images. Docker also simplifies the management of the applications to be run on the different containers, to make the overall orchestration more practical and faster, especially when dealing with applications made of many components.
 
-Therefore, the reasons for using Docker are closely connected to the containers' usefulness, which are now indispensable tools for developing software based on a microservices architecture. In particular, this applies to the DevOps methodologies used for the development of native Cloud applications, which provide for continuous integration / continuous deployment cycles to guarantee the end user always and only the most up-to-date version.
+Therefore, the reasons for using Docker are closely connected to the containers' usefulness, which are now indispensable tools for developing software based on a microservice architecture. In particular, this applies to the DevOps methodologies used for the development of native Cloud applications, which provide for continuous integration / continuous deployment cycles to guarantee the end user always and only the most up-to-date version.
 
 The technology behind containers, and therefore of Docker itself, can be extremely summarized in three key terms:
 
@@ -271,7 +271,9 @@ The technology behind containers, and therefore of Docker itself, can be extreme
 
 The fundamental advantage of a container is that it makes both the application and the execution environment configuration available. This allows you to manage the various images as instances, without having to install the application each time, as in traditional procedures.
 
-As already mentioned, containers running with Docker are isolated and independent from each other. Therefore, it is possible to have complete control over their visibility and management without any constraints. The advantages in terms of IT security are obvious: if a container is corrupted, for example by exploiting a vulnerability of the application it is running, this event does not affect the functioning of the other running containers. Isolation prevents, or at least makes it more difficult, the propagation of the threat within the host system, allowing Docker to terminate the corrupted instance, restart it in completely safe conditions, and have traces of what happened in the system logs.
+As already mentioned, containers running with Docker are isolated and independent of each other. Therefore, it is possible to have complete control over their visibility and management without any constraints. The advantages in terms of IT security are obvious: if a container is corrupted, for example by exploiting a vulnerability of the application it is running, this event does not affect the functioning of the other running containers.
+
+Isolation prevents, or at least makes it more difficult, the propagation of the threat within the host system, allowing Docker to terminate the corrupted instance, restart it in completely safe conditions, and have traces of what happened in the system logs.
 
 Thus, Docker can ensure application security without sacrificing portability, guaranteeing full operation both on-premise and in the Cloud, using open and closed APIs to respond optimally to any business need.
 
@@ -515,7 +517,7 @@ For the **Portenta Breakout**, the `BT_SEL` and `BOOT` DIP switches should be se
 
 After running the `uuu` tool, perform a long press on the `ON` button of the Portenta Breakout to begin the flashing process. This action enables the tool to identify and connect with the device, continuing with the flashing operation.
 
-For the **Portenta Hat Carrier**, power cycle the Portenta X8, press and hold the `BOOT` button within the first 2-3 seconds after powering on, then press the Reset button, and release both buttons to start the flash process.
+For the **Portenta Hat Carrier**, power cycle the Portenta X8, press and hold the `BOOT` button within the first 2 - 3 seconds after powering on, then press the Reset button, and release both buttons to start the flash process.
 
 You can also turn the `BTSEL` DIP switch to the ON position and power cycle the Portenta X8 to start flash process, as depicted in the figure below:
 
@@ -585,13 +587,13 @@ Once connected, you will see the Portenta X8 LEDs start blinking. Portenta X8 fe
 
 The table below describes the meaning and functionalities of LEDs.
 
-| LED Type     | Colour       | Meaning                                         |
-| ------------ | ------------ | ------------------------------------------------|
-| Power LED    | Red          | Power ON                                        |
-| Status LED   | White        | OS booting in progress                          |
-| Status LED   | Blue         | Linux Kernel running                            |
-| Status LED   | Green        | Board connected to the Internet                 |
-| Status LED   | Red          | STM32H7 LED, blinking when triggered in the IDE |
+| **LED Type** | **Colour** | **Meaning**                                     |
+|--------------|------------|-------------------------------------------------|
+| Power LED    | Red        | Power ON                                        |
+| Status LED   | White      | OS booting in progress                          |
+| Status LED   | Blue       | Linux Kernel running                            |
+| Status LED   | Green      | Board connected to the Internet                 |
+| Status LED   | Red        | STM32H7 LED, blinking when triggered in the IDE |
 
 ### Setup with the Arduino Linux Wizard
 
@@ -603,7 +605,7 @@ Open your browser and navigate to [www.arduino.cc/start](www.arduino.cc/start). 
 
 ![First Setup](assets/registration-homepage.png "First Setup")
 
-Click on **Linux boards** and sign into your Arduino Cloud account. If you do not have an account, create a new one from the same webpage.
+Click on **Linux boards** and sign in to your Arduino Cloud account. If you do not have an account, create a new one from the same webpage.
 
 ![Sign into Arduino Cloud](assets/registration-signin.png "Sign into Arduino Cloud")
 
@@ -705,7 +707,7 @@ Sign in to your Arduino Cloud account by adding your credentials, i.e., Username
 
 ![Arduino Cloud Sign in](assets/web_cloud_signin.png "Arduino Cloud Sign in")
 
-You are now logged into your Arduino Cloud space. Go on by clicking on **API keys** within the account banner at the top right corner.
+You are now logged into your Arduino Cloud space. Go on by clicking on **API keys** within the account banner in the top right corner.
 
 ![Arduino Cloud Homepage](assets/web_cloud_homepage.png "Arduino Cloud Homepage")
 
@@ -843,7 +845,7 @@ Android Debug Bridge (ADB) is a tool included in the SDK software (Software Deve
 
 ***If you need to install ADB, you can also download the right tool for your Operating System directly from the [official Android website](https://developer.android.com/studio/releases/platform-tools).***
 
-If you want to start the embedded Arduino Linux Wizard from the command line, you can continue typing in your terminal `adb forward tcp:8080 tcp:80`. With this command, ADB allows you to forward the requests of your computer's `8080 TCP-IP port` to the `80 TCP-IP port` of your device, which, in this case, is the device with the name _Portenta X8_.
+If you want to start the embedded Arduino Linux Wizard from the command line, you can continue typing in your terminal `adb forward tcp:8080 tcp:80`. With this command, ADB allows you to forward the requests of your computer's `8080 TCP-IP port` to the `80 TCP-IP port` of your device, which, in this case, is the device with the name *Portenta X8*.
 
 ![ADB forward command](assets/adb-tcp-port.png "ADB forward command")
 
@@ -869,9 +871,9 @@ You can now freely program your Portenta X8 Linux OS. In the sections below, you
 
 ### Change Default User Password
 
-For image versions earlier than 844, our Portenta X8 comes with the default user fio with password fio.
+For image versions earlier than 844, our Portenta X8 comes with the default user `fio` with password `fio`.
 
-For security reasons, we strongly suggest changing the default password. To do so, when logged in to your Portenta X8, launch this command to change the password of the fio account:
+For security reasons, we strongly suggest changing the default password. To do so, when logged in to your Portenta X8, launch this command to change the password of the `fio` account:
 
 ```bash
 passwd fio
@@ -893,7 +895,7 @@ For Windows users, it is necessary to install a service tool to ease the followi
 
 ***Before proceeding on __Windows__, please install [Bonjour Print Services for Windows](https://support.apple.com/kb/DL999?locale=en_US) before continuing the following steps.***
 
-For macOS and Linux users, _Bonjour_ is pre-installed on macOS, and _Avahi-Browse_ is typically available on Linux by default. Thus, additional installation steps may be unnecessary for these operating systems.
+For macOS and Linux users, *Bonjour* is pre-installed on macOS, and *Avahi-Browse* is typically available on Linux by default. Thus, additional installation steps may be unnecessary for these operating systems.
 
 In the subsequent sections, we will first walk you through the process on Windows, followed by details and instructions for Linux and macOS.
 
@@ -951,23 +953,23 @@ ssh fio@portenta-x8-<UUID>.local
 
 When executing the command, substitute the `<UUID>` placeholder with the actual UUID of the Portenta X8 you are attempting to connect to. You can confirm this UUID by checking the results of a prior SSH services scan with a network query or ADB shell.
 
-If the device is configured correctly to accept SSH connections and the _fio_ account exists with SSH access, this command will prompt for the password associated with the _fio_ user.
+If the device is configured correctly to accept SSH connections and the *`fio`* account exists with SSH access, this command will prompt for the password associated with the *`fio`* user.
 
 Upon successful authentication, it will open a secure shell session to the device, allowing for command-line interface access and the execution of commands remotely on the Portenta X8.
 
 The password and the rest of the configuration for using the Portenta X8 inside the shell remain the same.
 
-The process is similar for _GNU/Linux_ and _macOS_, with minor differences in the initial steps when browsing for SSH services on the local network.
+The process is similar for *GNU/Linux* and *macOS*, with minor differences in the initial steps when browsing for SSH services on the local network.
 
-- __For GNU/Linux__:
+- **For GNU/Linux**:
 
-Use _Avahi-Browse_ to search for SSH services on the local network:
+Use *Avahi-Browse* to search for SSH services on the local network:
 
 ```bash
 avahi-browse -d local _sftp-ssh._tcp --resolve -t
 ```
 
-- __macOS__:
+- **macOS**:
 
 On macOS, you can use the similar command:
 
@@ -975,17 +977,17 @@ On macOS, you can use the similar command:
 dns-sd -B _sftp-ssh._tcp local
 ```
 
-Alternatively, you can use a software called "_Discovery_", which is available [here](https://apps.apple.com/it/app/discovery-dns-sd-browser/id1381004916?l=en&mt=12).
+Alternatively, you can use a software called *Discovery*, which is available [here](https://apps.apple.com/it/app/discovery-dns-sd-browser/id1381004916?l=en&mt=12).
 
 #### Using Software With GUI
 
-The SSH session can be initialized using third-party software with a Graphical User Interface (GUI) for easy access. An example is a software called "_Bonjour Browser_", which can be downloaded [here](https://hobbyistsoftware.com/bonjourbrowser).
+The SSH session can be initialized using third-party software with a Graphical User Interface (GUI) for easy access. An example is a software called *Bonjour Browser*, which can be downloaded [here](https://hobbyistsoftware.com/bonjourbrowser).
 
 ![SSH Services Availability Discovery with GUI](assets/ssh-x8-bonjour.png "SSH Services Availability Discovery with GUI")
 
 This software simplifies browsing SSH services on the local network advertised over mDNS using a GUI. The image above, for example, shows all available services on the network, including those for the Portenta X8. You can retrieve the IP address information by simply clicking on a service item.
 
-Once the information is verified, you can use that data with software such as [_PuTTY_](https://www.putty.org/). _PuTTY_ is a free and open-source terminal emulator, serial console, and network file transfer application. It supports several network protocols, including _SSH (Secure Shell)_ and _SFTP (SSH File Transfer Protocol)_.
+Once the information is verified, you can use that data with software such as [*PuTTY*](https://www.putty.org/). *PuTTY* is a free and open-source terminal emulator, serial console, and network file transfer application. It supports several network protocols, including *SSH (Secure Shell)* and *SFTP (SSH File Transfer Protocol)*.
 
 ![Portenta X8 SSH Session with PuTTY - Setup](assets/ssh-x8-putty.png "Portenta X8 SSH Session with PuTTY - Setup")
 
@@ -1011,16 +1013,16 @@ Run `journalctl -f` to check the status of active services and possibly their er
 
 By calling `journalctl`, it is possible to look at the log of all the running activities by specifying the type of log you are looking for. Some logs may be a warning that can be ignored, while some may be critical errors. Type `journalctl -p 0` to view emergency system messages; otherwise, change the number 0 with the error code you want to investigate according to the following error code numbers:
 
-| Error code | Meaning   |
-|------------|-----------|
-| 0          | Emergency |
-| 1          | Alerts    |
-| 2          | Critical  |
-| 3          | Errors    |
-| 4          | Warning   |
-| 5          | Notice    |
-| 6          | Info      |
-| 7          | Debug     |
+| **Error code** | **Meaning** |
+|----------------|-------------|
+| 0              | Emergency   |
+| 1              | Alerts      |
+| 2              | Critical    |
+| 3              | Errors      |
+| 4              | Warning     |
+| 5              | Notice      |
+| 6              | Info        |
+| 7              | Debug       |
 
 When you specify the error code, it shows all messages from that code and above. For example, if you specify error code 2, it shows all messages with priority 2, 1 and 0.
 
@@ -1053,7 +1055,7 @@ Here you can find a list of validated compatible USB-C® to HDMI hubs:
 
 ### Build A Custom Image For Portenta X8
 
-You may want to build a custom image for the Portenta X8 with the source code provided in the public [GitHub repository of lmp-manifest](https://github.com/arduino/lmp-manifest). Building an image locally can help debug certain aspects of the system, such as the bootloader or kernel support.
+You may want to build a custom image for the Portenta X8 with the source code provided in the public [GitHub repository of lmp-manifest](https://github.com/arduino/lmp-manifest/). Building an image locally can help debug certain aspects of the system, such as the bootloader or kernel support.
 
 ***Have a look at [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-building) to understand how to build your own custom image.***
 
@@ -1065,7 +1067,7 @@ If you want to continue working with your Portenta X8, you can find tons of addi
 
 In this section, you will learn how to upload a sketch to the M4 core on the STM32H747XI MCU.
 
-Open the Arduino IDE and download the latest *Arduino Mbed OS Portenta Boards Core*. Learn how to do it by following [this tutorial](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta).
+Open the Arduino IDE and download the latest **Arduino Mbed OS Portenta Boards Core**. Learn how to do it by following [this tutorial](https://docs.arduino.cc/software/ide-v1/tutorials/getting-started/cores/arduino-mbed_portenta).
 
 Select Portenta X8 in the board selector.
 
@@ -1092,7 +1094,7 @@ Behind the curtains, the sketch gets compiled into a binary. That binary file is
 
 When the sketch has been uploaded successfully, the onboard LED of your Portenta X8 will start blinking at an interval of one second.
 
-You can also upload the firmware manually if you like. To do so, you first need to compile the sketch by selecting **Export compiled binary** from the Sketch menu in the Arduino IDE. It will compile the sketch and save the binary file in the sketch folder. Alternatively, you can create an `elf` file using the [Arduino CLI](https://arduino.github.io/arduino-cli/0.29/).
+You can also upload the firmware manually if you like. To do so, you first need to compile the sketch by selecting **Export compiled binary** from the Sketch menu in the Arduino IDE. It will compile the sketch and save the binary file in the sketch folder. Alternatively, you can create a `elf` file using the [Arduino CLI](https://arduino.github.io/arduino-cli/0.29/).
 
 You can use the ADB tool installed as part of the Portenta X8 core to upload the firmware. It can be found at `Arduino15\packages\arduino\tools\adb\32.0.0`.
 
@@ -1103,7 +1105,6 @@ adb push <sketchBinaryPath> /tmp/arduino/m4-user-sketch.elf
 ```
 
 ![ADB upload with a terminal](assets/x8-terminal-ADB-push.png)
-
 
 You have just learned to use your Portenta X8 with the Arduino IDE. However, you can do much more with the Arduino environment, particularly leveraging the RPC communication between the Arduino and Linux layers.
 
@@ -1266,11 +1267,11 @@ Verify that your Portenta X8 is correctly added to your FoundriesFactory by chec
 
 If you want to check if your Portenta X8 is updated according to the latest available Target (i.e., update), you can check the bulb's color under the status column. There are three main color options:
 
-| Bulb color  | Meaning                        |
-|-------------|--------------------------------|
-| Green       | Device online and updated      |
-| Yellow      | Device online and not updated  |
-| Red         | Device offline and not updated |
+| **Bulb color** | **Meaning**                    |
+|----------------|--------------------------------|
+| Green          | Device online and updated      |
+| Yellow         | Device online and not updated  |
+| Red            | Device offline and not updated |
 
 In this case, the Portenta X8 is connected to the network (and to the FoundriesFactory) but has not been updated.
 
@@ -1294,7 +1295,7 @@ This **Target** page contains the Linux images built each time something is comm
 
 * **ci-scripts.git:** Scripts that define the platform and container build jobs on the FoundriesFactory system.
 * **containers.git:** This is where containers and docker-compose apps are defined. It allows you to define which containers to build/deploy and how to orchestrate them on the platform.
-* **lmp-manifest.git:** The repo manifest for the platform build. It defines which layer versions are included in the platform image. This includes **meta-partner-arduino**, the layer containing Arduino-specific customizations (machine definition, device drivers, etc.).
+* **lmp-manifest.git:** The repo manifest for the platform build. It defines which layer versions are included in the platform image. This includes [**meta-partner-arduino**](https://github.com/arduino/meta-partner-arduino/), the layer containing Arduino-specific customizations (machine definition, device drivers, etc.).
 * **meta-subscriber-overrides.git:** *OE* layer that defines what is included in your FoundriesFactory image. You can add board-specific customizations and overrides or add and remove packages provided in the default Linux microPlatform.
 
 Committing to **lmp-manifest.git** or **meta-subscriber-overrides.git** repositories will create a platform Target, i.e. base Linux platform image. On the other hand, committing to **containers.git** will create a container Target, including all the containers and docker-compose apps you would like to upload on your Portenta X8.
@@ -1409,21 +1410,21 @@ gosu <container user> /usr/bin/python my_spi_service.py
 
 | Linux | Arduino Portenta Breakout |
 |-------|---------------------------|
-| 134   | **`SPI1 CK`** |
-| 135   | **`SPI1 COPI`** |
-| 136   | **`SPI1 CIPO`** |
-| 137   | **`SPI1 CS`** |
+| 134   | **`SPI1 CK`**             |
+| 135   | **`SPI1 COPI`**           |
+| 136   | **`SPI1 CIPO`**           |
+| 137   | **`SPI1 CS`**             |
 
 #### SPI With Arduino
 
 The `SPI` object is [mapped](https://github.com/arduino/ArduinoCore-mbed/blob/23e4a5ff8e9c16bece4f0e810acc9760d3dd4462/variants/PORTENTA_X8/pins_arduino.h#L85) as follows on the Portenta Breakout Board and can be deployed as usual:
 
-| SPI Pin | Arduino Portenta Breakout |
-|---------|---------------------------|
-| CIPO    | Pin 0 (Header GPIO0)      |
-| COPI    | Pin A6 (Header Analog)    |
-| SCK     | Pin A5 (Header Analog)    |
-| CS      | Pin 1 (Header GPIO0)      |
+| **SPI Pin** | **Arduino Portenta Breakout** |
+|-------------|-------------------------------|
+| CIPO        | Pin 0 (Header GPIO0)          |
+| COPI        | Pin A6 (Header Analog)        |
+| SCK         | Pin A5 (Header Analog)        |
+| CS          | Pin 1 (Header GPIO0)          |
 
 ### I2C
 
@@ -1488,11 +1489,11 @@ gosu <container user> /usr/bin/python my_i2c_service.py
 
 #### I2C Port Mappings
 
-| Linux      | Arduino Portenta Breakout | Notes         |
-|------------|---------------------------|---------------|
-|`/dev/i2c-1`| **`I2C1`** |               |
-|`/dev/i2c-2`| **`I2C0`** | Recommended   |
-|`/dev/i2c-3`| **`I2C1`** |               |
+| **Linux**    | **Arduino Portenta Breakout** | **Notes**   |
+|--------------|-------------------------------|-------------|
+| `/dev/i2c-1` | **`I2C1`**                    |             |
+| `/dev/i2c-2` | **`I2C0`**                    | Recommended |
+| `/dev/i2c-3` | **`I2C1`**                    |             |
 
 #### Examples
 
@@ -1531,7 +1532,7 @@ Since one of the `I2C` pins is GPIO-multiplexed, you need to detach it from the 
 
  ```arduino
  void setup() {
- pinMode(PA_12, INPUT);
+  pinMode(PA_12, INPUT);
  }    
  ```
  
