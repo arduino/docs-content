@@ -34,7 +34,7 @@ This user manual will guide you through a practical journey covering the most in
 ### Software Requirements
 
 - [OpenMV IDE](https://openmv.io/pages/download)
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - To create custom Machine Learning models, the Machine Learning Tools add-on integrated into the [Arduino Cloud](https://create.arduino.cc/iot/) is needed. In case you do not have an Arduino Cloud account, you will need to create one first.
 
 ## Product Overview
@@ -2009,7 +2009,7 @@ By using the Arduino Cloud, you can, for example, monitor your Nicla's inputs an
 In case it is the first time you are using the Arduino Cloud:
 
 - You need an __account__. If you do not have an account, create one for free [here](https://create.arduino.cc/iot/things).
-- To use the Arduino Web Editor or Arduino Cloud, the __Arduino Create Agent__ must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome?_gl=1*oeovt6*_ga*Mzg1NjE0MjQ0LjE2OTc4NDQxMjk.*_ga_NEXN8H46L5*MTY5OTY0MzEwMS43NC4xLjE2OTk2NTMyMjEuMC4wLjA.).
+- To use the Arduino Cloud Editor or Arduino Cloud, the __Arduino Create Agent__ must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome?_gl=1*oeovt6*_ga*Mzg1NjE0MjQ0LjE2OTc4NDQxMjk.*_ga_NEXN8H46L5*MTY5OTY0MzEwMS43NC4xLjE2OTk2NTMyMjEuMC4wLjA.).
 
 Let's walk through a step-by-step demonstration of how to use a Nicla Vision with the Arduino Cloud.
 

@@ -54,7 +54,7 @@ In order to configure the feature, we will need to create a project in the Ardui
 
 ![Navigating to the Cloud.](assets/iot_cloud_grid.png)
 
-> **Note:** You will need to have an Arduino account to be able to use both the Web editor and Arduino Cloud features.
+> **Note:** You will need to have an Arduino account to be able to use both the Cloud editor and Arduino Cloud features.
 
 
 **2.** Once you are logged in the Arduino Cloud, you need to create a new thing and name it something, for this example let's call it “smart_led”.

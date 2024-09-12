@@ -15,7 +15,7 @@ source: "https://create.arduino.cc/projecthub/315381/alexa-light-my-mood-885534"
 ## Apps and Online Services
 
 - [Arduino Cloud](https://cloud.arduino.cc)
-- [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino Amazon Alexa Official Arduino Skill](https://www.amazon.com/Arduino-LLC/dp/B07ZT2PK2H)
 
 ## About This Project
@@ -41,11 +41,11 @@ When adding properties make sure you only use types listed under the **Smart Hom
 ![The Smart Home Section](assets/smart_home_rectangle_dLR0YJgofD.png)
 
 
-Now go to the **Web Editor** by clicking the **Edit Sketch** button in your **Thing**'s edit view.
+Now go to the **Cloud Editor** by clicking the **Edit Sketch** button in your **Thing**'s edit view.
 
-### Part 2: Arduino Web Editor
+### Part 2: Arduino Cloud Editor
 
-In the Web Editor we need to add some code to the **Sketch** automatically generated for us.
+In the Cloud Editor we need to add some code to the **Sketch** automatically generated for us.
 
 The first thing to include are the libraries which will help us to control the MKR RGB Shield:
 

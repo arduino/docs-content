@@ -1,0 +1,30 @@
+name: Sync assets on S3
+description: "Sync Docs assets on S3"
+inputs:
+  role-to-assume:
+    description: "The IAM role to assume"
+    required: true
+  bucket-name:
+    description: "The name of the S3 bucket to sync assets to"
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Configure AWS credentials from Staging account
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: ${{ inputs.role-to-assume }}
+        aws-region: us-east-1
+
+    - name: Sync all cacheable assets
+      shell: bash
+      run: aws s3 sync --cache-control "public, max-age=31536000, immutable" --include "*.css" --include="*.js" --include="*.gif" --include="*.png" --include="*.svg" --exclude "*.html" --exclude="sw.js" --exclude="*.json" --exclude="*.pdf" --delete public/ s3://${{ inputs.bucket-name }}/
+
+    - name: Sync all non-cacheable assets
+      shell: bash
+      # Don't cache any HTML or JSON file: they should always be up-to-dates
+      run: aws s3 sync --cache-control "public, max-age=0, must-revalidate" --include "*.html" --include="sw.js" --include="*.json" --include "*.css" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.pdf" --delete public/ s3://${{ inputs.bucket-name }}/
+
+    - name: Sync PDF
+      shell: bash
+      run: aws s3 sync --cache-control "public, max-age=86400, must-revalidate" --include "*.pdf" --exclude="*.js" --exclude="*.gif" --exclude="*.png" --exclude="*.svg" --exclude="*.css" --exclude="*.html" --exclude="*.json" --exclude="sw.json" --delete public/ s3://${{ inputs.bucket-name }}/
