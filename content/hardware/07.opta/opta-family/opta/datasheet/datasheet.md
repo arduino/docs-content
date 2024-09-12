@@ -755,7 +755,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 2402-2480 MHz (BLE)       | 2.41 dBm                    |
 | 2402-2480 MHz (EDR)       | -6.27 dBm                   |
 
-**Industry Canada Statement:**
+## Industry Canada Statement:
 
 Radio apparatus containing digital circuitry which can function separately from the operation of a transmitter or an associated transmitter, shall comply with ICES-003. In such cases, the labelling
 requirements of the applicable RSS apply, rather than the labelling requirements in ICES-003. 
