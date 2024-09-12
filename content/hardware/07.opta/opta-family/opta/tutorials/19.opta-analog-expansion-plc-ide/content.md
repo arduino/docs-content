@@ -42,7 +42,7 @@ We will go through every feature of the Analog Expansion and learn with simple e
 - The [Arduino PLC IDE v1.0.7 or higher](https://www.arduino.cc/pro/software-plc-ide) 
 - [Arduino_Opta_Blueprint v0.2.3 or higher](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) library to update Expansion Firmware.
 
-***The Analog Expansion firmware must be updated to the 0.1.5 version or higher. To do it open the [Arduino IDE](https://www.arduino.cc/en/software), install the library [Arduino_Opta_Blueprint](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) and open the example: Arduino_Opta_Blueprint -> UpdateExpansionFw.***
+***The Analog Expansion firmware must be updated to the 0.1.8 version or higher. To do it open the [Arduino IDE](https://www.arduino.cc/en/software), install the library [Arduino_Opta_Blueprint](https://github.com/arduino-libraries/Arduino_Opta_Blueprint) and open the example: Arduino_Opta_Blueprint -> UpdateExpansionFw.***
 
 ## Initial Configuration 
 
