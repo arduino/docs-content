@@ -663,6 +663,18 @@ The MTBF figure (in hours/years) for each Arduino Opta® variant can be found in
          </td>
       </tr>
       <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>IC (Canada)</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>-</p>
+         </td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>Yes</p>
+         </td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>-</p>
+         </td>
+      </tr>
+      <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>cULus</strong></td>
          <td style="vertical-align: middle;text-align: center;">
             <p>UL 61010-2-201</p>
