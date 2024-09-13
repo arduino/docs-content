@@ -57,6 +57,12 @@ The expansions must be powered externally in order to be detected and properly w
 
 ![Powering the expansions](assets/power-expansion.png)
 
+### Update Expansion Firmware
+
+![Expansion Firmware Update](assets/fw-up-d.png)
+
+***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](https://docs.arduino.cc/tutorials/opta/user-manual/#update-expansion-firmware) for a guided step-by-step procedure.***
+
 ### Solution Wiring
 
 The following wiring setup will be used for the solution explained in this tutorial.

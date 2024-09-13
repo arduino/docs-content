@@ -60,6 +60,12 @@ The expansions must be powered externally in order to be detected and properly w
 
 ![Powering the expansions](assets/power-expansion-2.png)
 
+### Update Expansion Firmware
+
+![Expansion Firmware Update](assets/fw-up-a.png)
+
+***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](https://docs.arduino.cc/tutorials/opta/user-manual/#update-expansion-firmware) for a guided step-by-step procedure.***
+
 ### Opta™ Micro PLC Setup
 
 After downloading the [PLC IDE](https://www.arduino.cc/en/software#arduino-plc-ide), follow the installation process from the following [guide](https://docs.arduino.cc/software/plc-ide/tutorials/plc-ide-setup-license/). 
