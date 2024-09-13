@@ -235,8 +235,8 @@ The SPI controller is by default assigned to the pins above.
 
 ### Universal Asynchronous Receiver/Transmitter (UART)
 
-- D0 / TX
-- D1 / RX
+- D1 / TX
+- D0 / RX
 
 The UART controller is by default assigned to the the pins above.
 
@@ -343,8 +343,8 @@ The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and 
 | 11  | D2           | Digital  | Digital pin 2                           |
 | 12  | GND          | Power    | Ground                                  |
 | 13  | RST          | Internal | Reset                                   |
-| 14  | D1/RX        | Digital  | Digital pin 1 / Serial Receiver (RX)    |
-| 15  | D0/TX        | Digital  | Digital pin 0 / Serial Transmitter (TX) |
+| 14  | D0/RX        | Digital  | Digital pin 1 / Serial Receiver (RX)    |
+| 15  | D1/TX        | Digital  | Digital pin 0 / Serial Transmitter (TX) |
 
 \*CIPO/COPI/CS replaces the MISO/MOSI/SS terminology.
 
@@ -738,8 +738,8 @@ SDA 和 SCL 引脚可分配给大多数 GPIO，但其中一些引脚可能具有
 
 ### 通用异步接收器/发射器 (UART)
 
-- D0 / TX
-- D1 / RX
+- D1 / TX
+- D0 / RX
 
 默认情况下，UART 控制器分配给上述引脚。
 
@@ -846,8 +846,8 @@ Nano ESP32 上的 GPIO 可处理的**源电流**最高达**40 mA**，**灌电流
 | 11  | D2           | 数字  | 数字引脚 2                           |
 | 12  | GND          | 电源    | 接地                                  |
 | 13  | RST          | 内部 | 复位                                   |
-| 14  | D1/RX        | 数字  | 数字引脚 1 /串行接收器 (RX)    |
-| 15  | D0/TX        | 数字  | 数字引脚 0 / 串行发射器 (TX) |
+| 14  | D0/RX        | 数字  | 数字引脚 1 /串行接收器 (RX)    |
+| 15  | D1/TX        | 数字  | 数字引脚 0 / 串行发射器 (TX) |
 
 \*CIPO/COPI/CS 取代 MISO/MOSI/SS 术语。
 

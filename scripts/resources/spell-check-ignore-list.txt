@@ -17,3 +17,4 @@ Manuel
 technic
 shiftin
 forsee
+classe
