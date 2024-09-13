@@ -1739,7 +1739,7 @@ Install all the **library dependencies** suggested by clicking the **Install All
 
 Once installed, you will have access to a variety of sketch examples showcasing the expansions capabilities and how to use them.
 
-#### Update Expansion Firmware
+### Update Expansion Firmware
 
 With the library properly installed, we will update the expansion firmware to ensure proper functioning and seamless detection.
 
