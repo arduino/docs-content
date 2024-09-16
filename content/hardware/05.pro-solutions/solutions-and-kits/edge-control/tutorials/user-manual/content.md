@@ -9,7 +9,7 @@ tags:
   - Agriculture
   - Sensors
   - Smart Farming
-author: 'Christopher Mendez'
+author: 'Christopher Méndez'
 hardware:
   - hardware/05.pro-solutions/solutions-and-kits/edge-control
 software:
