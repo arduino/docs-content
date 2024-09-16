@@ -88,7 +88,7 @@ First you need to include the needed libraries
 
 #include "camera.h" // Arduino Mbed Core Camera APIs
 
-#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+//#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
 // OR
 #include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
 ```

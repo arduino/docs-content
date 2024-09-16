@@ -48,7 +48,7 @@ To capture the frames you will need to use the functions contained in `camera.h`
 ```cpp
 #include "camera.h"
 //For the Vision Shield Rev.1
-#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
+//#include "himax.h"  // API to read from the Himax camera found on the Portenta Vision Shield Rev.1
 
 //For the Vision Shield Rev.2
 #include "hm0360.h" // API to read from the Himax camera found on the Portenta Vision Shield Rev.2
