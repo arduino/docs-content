@@ -93,7 +93,7 @@ Because of the need to communicate with the STM board, some of the pins of the A
 - **Power Connector**
 
 This connector allows you to get power from the Alvik's power system as well as get the power status. It also provides mechanical support for your designs. Here you can identify the connectors that can be used. Note that the remaining pins are not in use but can serve for mechanical support.
-![alt text](assets/Alvik_Docs_Pinout_Callout.jpg)
+![Power Connectors on Nano ESP32](assets/Alvik_Docs_Pinout_Callout.jpg)
 
 ### ON/OFF Switch
 
@@ -166,7 +166,7 @@ The Arduino Alvik robot is equipped with seven capacitive touch buttons. These b
 - OK (represented by a "tick" Icon)
 - Cancel (represented by a "x")
 
-![Touch Button position](assets/touchButton.png)
+![Touch Button position](assets/touchButtons.png)
 
 Each button can be programmed to perform specific actions, providing more complex interface for user interaction.
 
