@@ -1,7 +1,7 @@
 Board:
   Name: Arduino® Nicla Sense Env
   SKU: ABX00089
-Microcontroller: Renesas R7FA2E1 Ultra-low-power 48 MHz Arm® Cortex®-M23 core (not accessible or programmable by the user)
+Microcontroller: Renesas RA2E1 Ultra-low-power 48 MHz Arm® Cortex®-M23 core (not accessible or programmable by the user)
 Memory: 
   Internal: 128 kB Flash, 16 kB SRAM
 Pins:
