@@ -44,7 +44,7 @@ Connect the Portenta Vision Shield to your Portenta H7 as shown in the figure. T
 
 #### The Camera
 
-You will be using the **Himax HM-01B0 camera module** which has a resolution of 320 by 240 and the output data its in grayscale with 8 bits per pixel (bpp). It is important to have this in mind as the `.bmp` (bitmap) format has some needed configuration depending on the data being used.
+The Vision Shield Rev.1 uses the **Himax HM-01B0 (320x240) camera module**, the Vision Shield Rev.2 uses the **Himax HM0360 (640x480) camera module**, both output data it's in grayscale with 8 bits per pixel (bpp). It is important to have this in mind as the `.bmp` (bitmap) format has some needed configuration depending on the data being used.
 
 Inside the sketch, you can use these libraries to access the camera APIs, also compatible with the [Arduino Nicla Vision](https://docs.arduino.cc/hardware/nicla-vision)
 ```cpp
