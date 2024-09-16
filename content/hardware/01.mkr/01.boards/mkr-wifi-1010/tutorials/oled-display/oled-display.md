@@ -59,11 +59,11 @@ The SSD1306 display is of the PMOLED type, and its behavior can be controlled by
 
 ## Step by Step
 
-**1.** First, we need to make sure the drivers for the MKR WiFi 1010 board is installed properly. The Web Editor already comes equipped with these, but if we are using an offline editor, we will need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and click on the install button.
+**1.** First, we need to make sure the drivers for the MKR WiFi 1010 board is installed properly. The Cloud Editor already comes equipped with these, but if we are using an offline editor, we will need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and click on the install button.
 
 ![Installing the correct drivers.](assets/mkr_tutorial_08_img_03.png)
 
-**2.** We will first need to make sure we install the libraries needed to program the OLED screen. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **Adafruit_GFX** and **Adafruit_SSD1306**. We will need to install both of them.
+**2.** We will first need to make sure we install the libraries needed to program the OLED screen. If we are using the Cloud Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **Adafruit_GFX** and **Adafruit_SSD1306**. We will need to install both of them.
 
 **3.** With the dependencies now installed, we can now take a look at some of the main functions we will use in the program.
 

@@ -33,7 +33,7 @@ To change this configuration, simply connect your board, go to **Tools > Pin Num
 
 - [Arduino Nano ESP32](https://store.arduino.cc/nano-esp32)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [Arduino ESP32 Core](https://github.com/arduino/arduino-esp32) (version 2.0.12 and above). Can be installed directly in the Arduino IDE.
+- [Arduino ESP32 Board Package](https://github.com/arduino/arduino-esp32) (version 2.0.12 and above). Can be installed directly in the Arduino IDE.
 
 ## Different Pin Configurations
 
@@ -70,7 +70,7 @@ pinMode(5, OUTPUT);
 
 ### Pin Labels
 
-You can also control pins using labels such as `D0`, `D1`, `D2`. These labels are predefined in the core, and are adjusted based on what configuration you make. 
+You can also control pins using labels such as `D0`, `D1`, `D2`. These labels are predefined in the Board Package, and are adjusted based on what configuration you make. 
 
 For example, the following code will access the same pin, regardless of what configuration you use:
 

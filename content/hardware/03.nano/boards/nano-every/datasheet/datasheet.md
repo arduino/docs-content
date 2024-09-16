@@ -6,7 +6,7 @@ type: maker
 ![](assets/featured.jpg)
 
 # Description 
-Nano Every is a miniature sized module containing an ATMega4809 AVR processor and an ATSAMD11D14A ARM Cortex M0+ processor to act as a bridge between USB and the main AVR processor. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
+Arduino® Nano Every is a miniature sized module containing an ATMega4809 AVR processor and an ATSAMD11D14A Arm® Cortex®-M0+ processor to act as a bridge between USB and the main AVR processor. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
 
 # Target Areas: 
 Maker, robotics
@@ -15,8 +15,8 @@ Maker, robotics
 - **ATMega4809** 
     - **Processor**
         - AVR CPU at up to 20 MHz
-        - 48KB Flash
-        - 6KB SRAM
+        - 48 kB Flash
+        - 6 kB SRAM
         - 256B EEPROM
         - Power On Reset (POR) and Brown Out Detection (BOD) 
 
@@ -35,7 +35,7 @@ Maker, robotics
 
 - **ATSAMD11D14A**
     - **Processor**
-        - ARM Cortex M0+ at up to 48 MHz
+        - Arm® Cortex®-M0+ at up to 48 MHz
         - 16KB Flash
         - 4KB SRAM
         - Power On Reset (POR) and Brown Out Detection (BOD)
@@ -66,7 +66,7 @@ As all Nano form factor boards, Nano Every does not have a battery charger but c
 
 | Symbol | Description                                      | Min             | Max            |
 | ------ | ------------------------------------------------ | --------------- | -------------- |
-|        | Conservative thermal limits for the whole board: | -40 °C ( 40 °F) | 85°C ( 185 °F) |
+|        | Conservative thermal limits for the whole board: | -40 °C ( 40 °F) | 85 °C ( 185 °F) |
 
 ### Power Consumption
 
@@ -124,19 +124,21 @@ The board can be powered via USB connector, V<sub>IN</sub> or V<sub>USB</sub> pi
 
 ## Board Operation
 ### Getting Started - IDE 
-If you want to program your Arduino Nano 33 BLE while offline you need to install the Arduino Desktop IDE [1] To connect the Arduino Nano 33 BLE to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your Nano Every while offline you need to install the Arduino Desktop IDE [1] To connect the Nano Every to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2], by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+### Getting Started - Arduino Cloud Editor
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [2], by just installing a simple plugin.
+
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+
+### Getting Started - Arduino Cloud
+All Arduino IoT enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ## Sample Sketches
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[13]**, the Arduino Library Reference **[14]** and the on line store **[15]** where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[4]**, the Arduino Library Reference **[5]** and the on line store **[6]** where you will be able to complement your board with sensors, actuators and more.
 
 ## Connector Pinouts
 ![Pinout](assets/pinout.png)
@@ -290,27 +292,29 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Reference Documentation
 
-| Reference             | **Link**                                                     |
-| --------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                       |
-| Arduino IDE (Cloud)   | https://create.arduino.cc/editor                             |
-| Forum                 | http://forum.arduino.cc/                                     |
-| SAMD21G18             | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf |
-| NINA W102             | https://content.u-blox.com/sites/default/files/NINA-W10_DataSheet_UBX-17065507.pdf |
-| ECC608                | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
-| MPM3610               | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
-| NINA Firmware         | https://github.com/arduino/nina-fw                           |
-| ECC608 Library        | https://github.com/arduino-libraries/ArduinoECCX08           |
-| LSM6DSL Library       | https://github.com/stm32duino/LSM6DSL                        |
-| ProjectHub            | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| Library Reference     | https://www.arduino.cc/reference/en/                         |
-| Arduino Store         | https://store.arduino.cc/                                    |
-| Arduino IDE (Desktop) | https://www.arduino.cc/en/Main/Software                      |
+| Reference                              | **Link**                                                     |
+| -------------------------------------- | ------------------------------------------------------------ |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/software                           |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                             |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/         |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
+| Library Reference                      | https://www.arduino.cc/reference/en/                         |
+| Arduino Store                          | https://store.arduino.cc/                                    |
+| Forum                                  | http://forum.arduino.cc/                                     |
+| SAMD21G18                              | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf |
+| NINA W102                              | https://content.u-blox.com/sites/default/files/NINA-W10_DataSheet_UBX-17065507.pdf |
+| ECC608                                 | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
+| MPM3610                                | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
+| NINA Firmware                          | https://github.com/arduino/nina-fw                           |
+| ECC608 Library                         | https://github.com/arduino-libraries/ArduinoECCX08           |
+| LSM6DSL Library                        | https://github.com/stm32duino/LSM6DSL                        |
+
 
 ## Revision History
 
 | Date       | **Revision** | **Changes**                           |
 | ---------- | ------------ |-------------------------------------- |
+| 25/04/2024 | 3            | Updated link to new Cloud Editor      |
 | 03/08/2022 | 2            | Reference documentation links updates |
 | 27/04/2021 | 1            | General datasheet updates             |
 

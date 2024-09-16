@@ -22,7 +22,9 @@ For this this tutorial we will be using the Arduino Zero's built-in debugger int
 
 ***Important: You should connect the Arduino Zero through its programming USB port.***
 
-**2.** Select the board from the board/port list. When we select the Arduino Zero, the debugger icon close to the upload button will also become more visible.
+**2.** Select the board from the board/port list.
+
+**3.** Select **Tools > Programmer > Atmel EDBG**. The debugger icon close to the upload button will now become more visible.
 
 ![Debugger icon available if board is supported.](assets/icon-available.png)
 

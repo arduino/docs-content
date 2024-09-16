@@ -8,14 +8,20 @@ if [ -n "$CI" ]; then
 
     mkdir /usr/share/fonts/truetype/open-sans
     mkdir /usr/share/fonts/truetype/roboto-mono
+    mkdir /usr/share/fonts/truetype/noto-sans-sc
+    mkdir /usr/share/fonts/truetype/noto-sans-tc
 
     cp -a ./styles/fonts/OpenSans*.ttf /usr/share/fonts/truetype/open-sans
     cp -a ./styles/fonts/RobotoMono*.ttf /usr/share/fonts/truetype/roboto-mono
+    cp -a ./styles/fonts/NotoSansSC*.ttf /usr/share/fonts/truetype/noto-sans-sc
+    cp -a ./styles/fonts/NotoSansTC*.ttf /usr/share/fonts/truetype/noto-sans-tc
     fc-cache /usr/share/fonts
 
     echo "Font info:"
     fc-list | grep "OpenSans"
     fc-list | grep "RobotoMono"
+    fc-list | grep "NotoSansSC"
+    fc-list | grep "NotoSansTC"
 
     apt-get -qq update -y
     # SEE: https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#chrome-headless-doesnt-launch-on-unix

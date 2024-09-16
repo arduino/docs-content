@@ -26,7 +26,7 @@ In this tutorial, we will go through how to set up the MKR WAN 1300 board to wor
 
 It is a good idea to already look at the limitations of using LoRa®. As with any technology, there advantages and disadvantages, and with LoRa®, there's also some limitations of how much data we can send. You can read more about this through the link below:
 
-- [Limitations of LoRaWAN®](https://www.thethingsnetwork.org/docs/lorawan/limitations.html)
+- [Limitations of LoRaWAN®](https://www.thethingsnetwork.org/docs/lorawan/limitations/)
 
 ## Goals
 
@@ -75,9 +75,9 @@ In this tutorial, we will be covering the basics of setting up a MKRWAN series d
 
 The aim with this tutorial is to achieve a connection between a MKR WAN 1300 board and The Things Network (TTN). First, we will need to retrieve our device's Extended Unique Identifier (EUI). Then, we will create an account at [The Things Network](https://console.cloud.thethings.network/), connect to a gateway in range and send a message through the gateway to the TTN service. 
 
-**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits ARM Cortex M0+)** and install it. 
+**1.** First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
 
-**2.** Now, we need to install the library needed. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **MKRWAN** and install it.
+**2.** Now, we need to install the library needed. If we are using the Cloud Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **MKRWAN** and install it.
 
 **3.** Once we have downloaded the library, we will need to upload an example from the **MKRWAN** library, called **FirstConfiguration**. We will find this in **File > Examples > MKRWAN > FirstConfiguration**. You can also find the code in the snippet below:
 

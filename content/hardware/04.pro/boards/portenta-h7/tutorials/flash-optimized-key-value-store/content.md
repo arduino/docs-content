@@ -30,7 +30,7 @@ In this tutorial you will learn how to use the Mbed OS [TDBStore API](https://os
 
 - [Portenta H7 (ABX00042)](https://store.arduino.cc/products/portenta-h7),  [Portenta H7 Lite (ABX00045)](https://store.arduino.cc/products/portenta-h7-lite) or [Portenta H7 Lite Connected (ABX00046)](https://store.arduino.cc/products/portenta-h7-lite-connected)
 - USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
-- Arduino IDE 1.8.10+ or Arduino Pro IDE 0.0.4+ or Arduino CLI 0.13.0+
+- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino CLI 0.13.0+](https://www.arduino.cc/pro/software-pro-cli/)
 
 ## Instructions
 

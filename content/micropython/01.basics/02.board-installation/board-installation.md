@@ -5,11 +5,24 @@ author: Francesca Sanfilippo, Karl Söderby & Jacob Hylén
 micropython_type: basics
 featured: micropython
 hero_image: "./hero-banner.png"
+hero_position: 1
 ---
 
 So what do you need to start your first project with MicroPython and Arduino? First, you will need a compatible board. In this page, you will find the compatible boards, with instructions on how to install them.
 
 In order to understand which board is more suitable to your project, you can visit the documentation of each board.
+
+## Supported Boards
+
+The following boards support MicroPython:
+- [Nano BLE](https://store.arduino.cc/products/arduino-nano-33-ble) / [Nano BLE Sense](https://store.arduino.cc/products/arduino-nano-33-ble-sense) / [Nano BLE Sense Rev2](https://store.arduino.cc/products/nano-33-ble-sense-rev2)
+- [Nano RP2040 Connect](https://store.arduino.cc/products/arduino-nano-rp2040-connect)
+- [Nano ESP32](https://store.arduino.cc/products/nano-esp32)
+- [Nicla Vision](https://store.arduino.cc/products/nicla-vision)
+- [GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
+- [Portenta H7](https://store.arduino.cc/collections/portenta-family/products/portenta-h7)
+- [Portenta C33](https://store.arduino.cc/collections/portenta-family/products/portenta-c33)
+
 
 ## Arduino MicroPython Installer
 
@@ -60,6 +73,7 @@ Now your board should be prepared to be programmed with MicroPython!
 ## Nano 33 BLE & Nano 33 BLE Sense
 
 - [Nano 33 BLE documentation](/hardware/nano-33-ble).
+- [Nano 33 BLE Rev2 documentation.](/hardware/nano-33-ble-rev2)
 - [Nano 33 BLE Sense documentation.](/hardware/nano-33-ble-sense)
 - [Nano 33 BLE Sense Rev2 documentation.](/hardware/nano-33-ble-sense-rev2)
 
@@ -264,3 +278,28 @@ Do not disconnect your board during this part of the process, watch the progress
 Once complete, you're all set and you're ready to start programming the board in MicroPython.
 
 Go to the Arduino Lab MicroPython IDE and press connect in the top left corner, choose the port and you are ready to load scripts to your board.
+
+## Portenta C33
+
+To install the MicroPython firmware to the Portenta C33 board, you can use the **Arduino MicroPython Installer**. This tool lets you plug in the board, select it from a menu, and automatically flash the latest firmware or a custom one of your choice to the board. You can download the [Arduino MicroPython Installer here](https://labs.arduino.cc/en/labs/micropython-installer). 
+
+***The Arduino MicroPython Installer is part of [Arduino Labs](https://labs.arduino.cc) and is considered experimental software.***
+
+Before installing the MicroPython firmware, **ensure you have installed the latest Portenta Renesas board package**. To install the board package for the Portenta C33 board, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `renesas` and install the latest `Arduino Renesas Portenta Boards` version. 
+
+
+![Installing the Arduino Renesas Portenta Board Package in the Arduino IDE](./assets/portenta-c33-1.png)
+
+    
+With the latest board package installed, open the Arduino MicroPython Installer and plug your board into your computer; your board should appear ready to be selected, as shown in the image below. If your board does not appear in the installer, try putting it in bootloader mode by double-tapping your board's reset button.
+
+
+
+![Portenta C33 board detected on the Arduino MicroPython Installer](./assets/portenta-c33-2.png)
+
+To install the MicroPython firmware, press the **INSTALL MICROPYTHON** button and wait a few seconds while the installer tool takes care of everything else. When finished, you should see a message in the image below.
+
+![Firmware successfully uploaded to the Portenta C33 board](./assets/portenta-c33-3.png)
+
+
+Now you are ready to use MicroPython with your Portenta C33 board.

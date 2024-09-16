@@ -2,14 +2,14 @@
 identifier: ABX00051
 title: Arduino® Nicla Vision
 type: pro
-author: Ali Jahangiri
---- 
+author: Ali Jahangiri, Julián Caro Linares
+---
 
 ![Nicla Vision](assets/featured.png)
 
 # Description
 
-The **Arduino® Nicla Vision** packs machine vision capabilities on the edge into a tiny fingerprint. Record, analyse and upload to the cloud all with the help of one **Arduino® Nicla Vision**. Leverage the onboard camera, STM32 microcontroller, Wi-Fi®/Bluetooth® module and 6-axis IMU to create your own wireless sensor network for machine vision applications.
+The **Arduino® Nicla Vision** packs machine vision capabilities on the edge into a tiny fingerprint. Record, analyse and upload to the Cloud all with the help of one **Arduino® Nicla Vision**. Leverage the onboard camera, STM32 microcontroller, Wi-Fi®/Bluetooth® module and 6-axis IMU to create your own wireless sensor network for machine vision applications.
 
 # Target Areas
 
@@ -32,7 +32,7 @@ Dual-core
   - No Calibration Required
 - **NXP® SE050C2** Crypto
   - Common Criteria EAL 6+ certified up to OS level
-  - RSA & ECC functionalities, high key length and future proof curves, such as brainpool, Edwards, and Montgomery
+  - RSA & ECC functionalities, high key length and future-proof curves, such as brainpool, Edwards, and Montgomery
   - AES & 3DES encryption and decryption
   - HMAC, CMAC, SHA-1, SHA-224/256/384/512 operations
   - HKDF, MIFARE® KDF, PRF (TLS-PSK)
@@ -76,17 +76,17 @@ Dual-core
 The **Arduino® Nicla Vision** houses the computational power, camera and IMU you need to quickly develop machine vision solutions at the edge together with two wireless technologies. The board can act as a field-ready standalone board or can be augmented with external peripherals through the I/O available on the chip. Ultra-low power consumption and integrated battery management allow for deployment in various capabilities. WebBLE allows for easy OTA updates to the firmware as well as remote monitoring.
 
 - **Warehouse & Automated Inventory Management**:
-The **Arduino Nicla Vision** is capable of detecting packages as they come near its vicinity and wake up. These provide the benefits of an always-on camera, but with less power consumption. It can take pictures, predict volume/weight and also analyse for possible defects. Additionally, QR codes on the package can be tracked for automated pursuit of the package and relay of information to the cloud.
+The **Arduino Nicla Vision** is capable of detecting packages as they come near its vicinity and wake up. These provide the benefits of an always-on camera but with less power consumption. It can take pictures, predict volume/weight and also analyze for possible defects. Additionally, QR codes on the package can be tracked for automated pursuit of the package and relay of information to the Cloud.
 
 - **Real-time process management**:
 The **Arduino Nicla Vision** is equipped for Automated Optical Inspection (AOI) even in hard-to-reach and hazardous areas thanks to the small footprint and wireless connectivity options. The fast Time-of-Flight sensor ensures that the image acquisition is performed in a repeatable manner, with minimal modifications to the process. Additionally, the IMU can provide vibration analysis for predictive maintenance.
 
 - **Wireless Sensor Network Reference Design**:
-The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor networks which can be adapted by partners to develop custom-designed industrial solutions. Researchers and educators can use this platform to work on an industrially-recognized standard for wireless sensor research and development that can shorten the time from concept to market.
+The Nicla form factor has been specifically developed at Arduino® as a standard for wireless sensor networks which can be adapted by partners to develop custom-designed industrial solutions. Researchers and educators can use this platform to work on an industrially recognized standard for wireless sensor research and development that can shorten the time from concept to market.
 
-### Accessories
+### Accessories (Not Included)
 
-Single-cell Li-ion/Li-Po battery
+* Single-cell Li-ion/Li-Po battery
 
 ### Related Products
 
@@ -123,7 +123,7 @@ Single-cell Li-ion/Li-Po battery
 | Average current consumption in deep sleep mode              |     | 374 |     | uA   |
 | Average current consumption during image capture            |     | 105 |     | mA   |
 
-**Note:** The measurements have been performed with battery power supply (200mAh Li-ion battery) and OpenMV IDE firmware version 4.3.4.
+**Note:** The measurements have been performed with a battery power supply (200mAh Li-ion battery) and OpenMV IDE firmware version 4.3.4.
 
 <div style="page-break-after:always;"></div>
 
@@ -177,11 +177,11 @@ The Murata® LBEE5KL1DX-883 wireless module (U9) simultaneously provides Wi-Fi®
 
 ### Crypto Capabilities
 
-The Arduino® Nicla Vision enables IC level edge-to-cloud security capability through the NXP SE050C2 Crypto chip (U8). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage.
+The Arduino® Nicla Vision enables IC-level edge-to-cloud security capability through the NXP SE050C2 Crypto chip (U8). This provides Common Criteria EAL 6+ security certification up to OS level, as well as RSA/ECC cryptographic algorithm support and credential storage.
 
 ### Time of Flight Sensor
 
-The VL53L1CBV0FY Time-of-Flight sensor (U4) adds accurate and low power ranging capabilities to the Arduino® Nicla Vision. The invisible near infrared VCSEL laser (including the analog driver) is encapsulated together with receiving optics in an all-in-one small module located below the camera.
+The VL53L1CBV0FY Time-of-Flight sensor (U4) adds accurate and low power ranging capabilities to the Arduino® Nicla Vision. The invisible near-infrared VCSEL laser (including the analog driver) is encapsulated together with receiving optics in an all-in-one small module located below the camera.
 
 ### Digital Microphones
 
@@ -209,11 +209,11 @@ There are three main power lines provided:
 
 If you want to program your Arduino® Nicla Vision while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Vision to your computer, you’ll need a micro USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino® boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -237,12 +237,12 @@ Now that you have gone through the basics of what you can do with the board you 
 
 ### Board Recovery
 
-All Arduino® boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
+All Arduino® boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after a power-up.
 
 ## Connector Pinouts
 
 **Note 1:** All the pins on J1 and J2 (excluding fins) are referenced to the V<sub>DDIO_EXT</sub> voltage which can be generated internally or supplied externally.
-**Note 2:** I2C1 is connected to the level translator U12 which has internal 10k pullups. R9 and R10 pullup resistors are not mounted on the board.
+**Note 2:** I2C1 is connected to the level translator U12 which has internal 10k pullups. R9 and R10 pull-up resistors are not mounted on the board.
 
 ### J1 Pin Connector
 
@@ -319,6 +319,12 @@ All Arduino® boards have a built-in bootloader which allows flashing the board 
 
 ## Certifications
 
+### Product Labeling
+
+The product labeling of the Arduino Nicla Vision is shown in the image below:
+
+![Nicla Vision Product Labeling](assets/niclaVisionLabel.png)
+
 ### Declaration of Conformity CE DoC (EU)
 
 We declare under our sole responsibility that the products above are in conformity with the essential requirements of the following EU Directives and therefore qualify for free movement within markets comprising the European Union (EU) and European Economic Area (EEA).
@@ -328,7 +334,7 @@ We declare under our sole responsibility that the products above are in conformi
 Arduino boards are in compliance with RoHS 2 Directive 2011/65/EU of the European Parliament and RoHS 3 Directive 2015/863/EU of the Council of 4 June 2015 on the restriction of the use of certain hazardous substances in electrical and electronic equipment.
 
 | **Substance**                          | **Maximum Limit (ppm)** |
-|----------------------------------------|-------------------------|
+| -------------------------------------- | ----------------------- |
 | Lead (Pb)                              | 1000                    |
 | Cadmium (Cd)                           | 100                     |
 | Mercury (Hg)                           | 1000                    |
@@ -366,6 +372,21 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 3. This equipment should be installed and operated with a minimum distance of 20cm between the radiator & your body.
 
+**Note:** This equipment has been tested and found to comply with the limits for a Class B digital
+device, pursuant to part 15 of the FCC Rules. These limits are designed to provide
+reasonable protection against harmful interference in a residential installation. This equipment
+generates, uses and can radiate radio frequency energy and, if not installed and used in
+accordance with the instructions, may cause harmful interference to radio communications.
+However, there is no guarantee that interference will not occur in a particular installation. If
+this equipment does cause harmful interference to radio or television reception, which can be
+determined by turning the equipment off and on, the user is encouraged to try to correct the
+interference by one or more of the following measures:
+- Reorient or relocate the receiving antenna.
+- Increase the separation between the equipment and receiver.
+- Connect the equipment into an outlet on a circuit different from that to which the
+receiver is connected.
+- Consult the dealer or an experienced radio/TV technician for help.
+
 English:
 User manuals for license-exempt radio apparatus shall contain the following or equivalent notice in a conspicuous location in the user manual or alternatively on the device or both. This device complies with Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions:
 
@@ -383,7 +404,7 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 **IC SAR Warning:**
 
 English
-This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.  
+This equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body.
 
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
@@ -392,20 +413,23 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 201453/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands      | Typical Output Power |
-|----------------------|----------------------|
-| 2.4 GHz, 40 channels | TBC                  |
+| Frequency bands                 | Maximum Output Power |
+| ------------------------------- | -------------------- |
+| 2402 MHz ~ 2480 MHz (EDR)       | -0.21 dBm            |
+| 2402 MHz ~ 2480 MHz (BLE)       | 4.79 dBm             |
+| 2412 MHz ~ 2462 MHz (2.4GHz WiFi) | 16.21 dBm            |
+
 
 ## Company Information
 
-| Company name    | Arduino SRL                                  |
-|-----------------|----------------------------------------------|
+| Company name    | Arduino S.r.l.                               |
+| --------------- | -------------------------------------------- |
 | Company Address | Via Andrea Appiani, 25 - 20900 MONZA (Italy) |
 
 ## Reference Documentation
 
-| Ref                                | Link                                                                                                |
-|------------------------------------|-----------------------------------------------------------------------------------------------------|
+| Ref                                | Link                                                                                                  |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | Arduino® IDE (Desktop)             | <https://www.arduino.cc/en/Main/Software>                                                             |
 | Arduino® IDE (Cloud)               | <https://create.arduino.cc/editor>                                                                    |
 | Arduino® Cloud IDE Getting Started | <https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a> |
@@ -414,8 +438,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date**   | **Revision** | **Changes**                       |
-|------------|--------------|-----------------------------------|
-| 27-01-2023 | 03           | Add power consumption information |
-| 10-01-2023 | 02           | Updated information and fixes     |
-| 03-09-2021 | 01           | Initial Version                   |
+| **Date**   | **Revision** | **Changes**                                              |
+|------------|--------------|----------------------------------------------------------|
+| 03/09/2024 | 7            | Cloud Editor updated from Web Editor                     |
+| 10/04/2024 | 6            | Product Labeling section added - FCC information updated |
+| 28/03/2024 | 5            | FCC Warning Updated, small fixes                         |
+| 05/12/2023 | 4            | Accessories section updated                              |
+| 27/01/2023 | 3            | Add power consumption information                        |
+| 10/01/2023 | 2            | Updated information and fixes                            |
+| 03/09/2021 | 1            | Initial Version                                          |

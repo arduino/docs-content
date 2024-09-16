@@ -6,11 +6,12 @@ tags: [EEPROM, Memory]
 
 The microcontroller on the Arduino boards have 512 bytes of [EEPROM:](http://en.wikipedia.org/wiki/EEPROM) memory whose values are kept when the board is turned off (like a tiny hard drive).
 
-Functions in the **EEPROM** class is automatically included with the platform for your board, meaning you do not need to install any external libraries. 
+Functions in the **EEPROM** class are automatically included with the platform for your board, meaning you do not need to install any external libraries.
 
 ## Hardware Required
 
 All of the following boards have an EEPROM:
+
 - [Arduino UNO R4 Minima](https://store.arduino.cc/products/uno-r4-minima)
 - [Arduino UNO R4 WiFi](https://store.arduino.cc/products/uno-r4-wifi)
 - [Arduino UNO Rev.3](https://store.arduino.cc/products/arduino-uno-rev3/)
@@ -255,7 +256,7 @@ void loop() {
 
 ## EEPROM Iteration
 
-The purpose of this example is to show how to go through the whole EEPROM memory space with different approaches. The code provided doesn't run on its own but should be used as a surce of code snippets to be used elsewhere.
+The purpose of this example is to show how to go through the whole EEPROM memory space with different approaches. The code provided doesn't run on its own but should be used as a source of code snippets to be used elsewhere.
 
 ```arduino
 /***
@@ -338,7 +339,6 @@ void loop() {}
 ## EEPROM Put
 
 The purpose of this example is to show the `EEPROM.put()` method that writes data on EEPROM using also the EEPROM.update() that writes data only if it is different from the previous content of the locations to be written. The number of bytes written is related to the datatype or custom structure of the variable to be written.
-
 
 ```arduino
 /***
@@ -426,7 +426,6 @@ void loop() {
 ## EEPROM Read
 
 This example illustrates how to read the value of each byte EEPROM using the `EEPROM.read()` function, and how to print those values to the serial window of the Arduino Software (IDE).
-
 
 ```arduino
 /*

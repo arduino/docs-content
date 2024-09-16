@@ -289,6 +289,7 @@ The Arduino® Portenta X8 has been designed for high-performance embedded comput
 
 - Arduino® Portenta Breakout Board (ASX00031)
 - Arduino® Portenta Max Carrier (ABX00043)
+- Arduino® Portenta Hat Carrier (ASX00049)
 
 ## Rating
 
@@ -315,7 +316,7 @@ The Arduino® Portenta X8 has been designed for high-performance embedded comput
 | P<sub>LP</sub>  | Power consumption in low power mode |     | 200  |     |  mW  |
 | P<sub>MAX</sub> | Maximum Power Consumption           |     | 4000 |     |  mW  |
 
-The use of a USB 3.0 compatible port will ensure that the current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during bootup. Average power consumption is provided in the above table for several reference scenarios.
+The use of a USB 3.0 compatible port will ensure that the current requirements for the Portenta X8 are met. Dynamic scaling of the Portenta X8 compute units can change the current consumption, leading to current surges during boot-up. Average power consumption is provided in the above table for several reference scenarios.
 
 ## Functional Overview
 
@@ -413,13 +414,13 @@ Power management is mainly performed by the BD71847AMWV IC (U1).
 
 If you want to program your Arduino® Portenta X8 while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Edge control to your computer, you’ll need a USB Type-C cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino® boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud
+### Getting Started - Arduino Cloud
 
 All Arduino® IoT enabled products are supported on Arduino® IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
@@ -435,17 +436,19 @@ Now that you have gone through the basics of what you can do with the board you 
 
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by configuring DIP switches.
 
-**Note: A compatible carrier board with DIP switches (e.g. Portenta Max Carrier or Portenta Breakout) is required to enable bootloader mode. It cannot be enabled with the Portenta X8 alone.**
+**Note: A compatible carrier board with DIP switches (e.g. Portenta Max Carrier, Portenta Hat Carrier, or Portenta Breakout) is required to enable bootloader mode. It cannot be enabled with the Portenta X8 alone.**
 
 ## Mechanical Information
 
 ### Pinout
 
-![](assets/x8HDCPinout.jpg)
+![](assets/x8HDCPinout.png)
 
 ### Mounting Holes and Board Outline
 
-![](assets/x8Mechanical.svg)
+The Portenta X8 is a double-sided 66.04 mm x 25.40 mm board with a USB-C® port overhanging the top edge and two High-Density connectors on the bottom side of the board. The onboard wireless antenna connector is located on the bottom edge of the board. The board has four 2.25 mm drilled mounting holes to provide for mechanical fixing.
+
+![](assets/x8Dimensions.png)
 
 ## Certifications
 
@@ -521,12 +524,10 @@ Le présent appareil est conforme aux CNR d’Industrie Canada applicables aux a
 
 (2) l’utilisateur de l’appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d’en compromettre le fonctionnement.
 
-<div style="page-break-after: always;"></div>
-
 **IC SAR Warning:**
 
 English
-This equipment should be installed and operated with a minimum distance of 20cm between the radiator and your body.  
+This equipment should be installed and operated with a minimum distance of 20cm between the radiator and your body.
 
 French:
 Lors de l’ installation et de l’ exploitation de ce dispositif, la distance entre le radiateur et le corps est d ’au moins 20 cm.
@@ -561,6 +562,9 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                            |
 |------------|--------------|----------------------------------------|
+| 03/09/2024 | 6            | Cloud Editor updated from Web Editor   |
+| 11/12/2023 | 5            | Add Portenta Hat Carrier compatibility |
+| 07/11/2023 | 4            | Add missing board dimensions           |
 | 26/01/2023 | 3            | Clarify open-source nature of M7 core  |
 | 12/09/2022 | 2            | Make cores clear, minor fixes          |
 | 24/03/2022 | 1            | Release                                |

@@ -1,7 +1,13 @@
 ---
 title: Guide to GIGA R1 Dual Cores
 description: Learn how to access and control the M4 and M7 cores on the GIGA R1, and how to communicate between them using RPC.
-author: Karl Söderby
+author: Karl Söderby, Ibrahim Abdalkader
+hardware:
+  - hardware/10.mega/boards/giga-r1-wifi
+software:
+  - ide-v1
+  - ide-v2
+  - web-editor
 tags: [Dual Core, M4, M7]
 ---
 
@@ -18,7 +24,8 @@ The M4 and M7 cores are programmed with separate sketches, using the same serial
 In this guide you will discover:
 - How to configure and program the M4/M7 cores and conventional approaches to do so.
 - How to boot the M4 core.
-- How to communicate between the cores via Remote Call Procedures (RPC).
+- How to communicate between the cores via Remote Procedure Call (RPC).
+- Using the RPC Library with MicroPython.
 - Useful examples based on the dual core & RPC features.
 - The `RPC` library API.
 
@@ -26,23 +33,79 @@ In this guide you will discover:
 
 - [GIGA R1 WiFi](/hardware/giga-r1-wifi)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- Arduino GIGA Core installed.\*
+- Arduino GIGA Board Package installed.\*
 
-***\*For instructions on how to install the GIGA Core, follow the [Getting Started with GIGA R1 guide](/tutorials/giga-r1-wifi/giga-getting-started).***
+***\*For instructions on how to install the GIGA Board Package, follow the [Getting Started with GIGA R1 guide](/tutorials/giga-r1-wifi/giga-getting-started).***
+
+## M4 Support
+
+The M4 processor can access most of the peripherals that the M7 can access, with some exceptions.
+
+The M4 supports:
+- I2C
+- SPI
+- UART
+- CAN
+- DAC
+- ADC
+- Bluetooth® Low Energy (via [ArduinoBLE Library](https://www.arduino.cc/reference/en/libraries/arduinoble/))
+
+The M4 does **not** support:
+- Wi-Fi®
+- Serial communication\*
+- [Arduino Cloud](https://app.arduino.cc) sketches.
+
+***\*Serial Communication from the M4 can be enabled by setting up an RPC that allows the M4 & M7 cores to communicate. Using `RPC.print()` (M4) and `RPC.read()` (M7) helps achieve this. See [RPC Serial Example](#rpc-serial).***
+
+### Boot / Disable M4
+
+The M4 core is by manufacturing default, disabled when booting the board. The M4 core can however be booted by using the `RPC.begin()` command, which includes the necessary functions to boot the M4 core. See the [RPC.cpp source file](https://github.com/arduino/ArduinoCore-mbed/blob/main/libraries/RPC/src/RPC.cpp#L122-L140) for more details.
+
+### Boot / Disable M7
+
+The M7 is booted by default and there is currently **no option to disable** this core.
+
+### Peripheral Interference
+
+When booting the M4, the M4 will execute the sketch that has been uploaded to its flash memory. It is a good idea to track what type of code you are running on the M4, as you may create interference between different peripherals. If you run simply a blank sketch on the M4, it should **not** create any interference.
+
+An example of this is if you use the `CAN` library. If you are running a CAN application on the **M7**, you will disrupt it if you enable it on the **M4**. The dual core feature is not intended for using the same peripheral, bus etc.
+
+***Tip: name your sketches with a `_M4` and `_M7` suffix/prefix, and create an initialization sequence. E.g. blink the blue LED three times whenever the M4 boots up.***
+
+## Pin Priority
+
+As the M7 and M4 core share their pins, which one gets priority to the pin? It can be assumed that as the M7 is the more powerful core, it gets first access.
+
+This is however **not true** as pin priority is random. If both cores tries to access the same pin (e.g. `D27`), it is simply random who gets access.
+
+***When developing dual core applications, it is a good idea avoiding using the same pins & peripheral for many reasons.*** 
 
 ## Programming M4/M7
 
-Programming the cores is done via the Arduino IDE, in a special interface that appears only when you **select the Arduino GIGA R1 board** from the board menu. 
+When programming the GIGA R1 WiFi's M7 and M4, we **create a sketch for each core**, and program them like we would program two individual Arduino boards. As only a single serial port is available, we need to specify which core we want to target. 
+
+Some essential things to consider when programming the cores are:
+- You need to [partition the memory](#partitioning-the-flash-memory), allocating flash memory to the M4 core.
+- You need to select the [target core](#target-core), which is either **Main Core** or **M4 Co-processor**.
+- The M4 has no serial communication enabled, here we need to use RPC (see [RPC Serial example](#rpc-serial)).
+
+When writing multiple sketches, there are some things to consider to make your development experience easier:
+- Name your sketches with either `_M4` or `_M7` suffix or prefix. This will make it easier if the code is intended to be shared with others.
+- Consider having a starting sequence (e.g. the blue LED blinking 3 times), whenever a core is initialized.
+- Always include `RPC.begin()` on your M7 core sketch.
 
 ### Partitioning The Flash Memory
 
-To allocate memory for the M4, the flash memory can be partitioned. This is done by navigating to **Tools > Flash Split** in the IDE.
+To allocate the flash memory for the M4, the flash memory can be partitioned. This is done by navigating to **Tools > Flash Split** in the IDE. 
+
+***Note that the flash memory is the space where the application code (your sketch) is stored. It is not the RAM memory (which is significantly lower).***
 
 ![Flash partitioning in the IDE.](assets/flash-split.png)
 
-- **2MB M7 + M4 in SDRAM (default)** - this option is the default configuration, which is for programming the M7 only. This allocates no memory to the M4.
-- **1.5MB M7 + 0.5MB M4** - useful when larger amount of memory is required on the M7.
-- **1MB M7 + 1MB M4** - useful when you need to balance the memory equally between the M4 and M7 cores.
+- **2MB M7 + M4 in SDRAM (default)** - this option is the default configuration, which is for programming the M7 only. This allocates no flash memory to the M4.
+- **1.5MB M7 + 0.5MB M4** - useful when larger amount of flash memory is required on the M7.
+- **1MB M7 + 1MB M4** - useful when you need to balance the flash memory equally between the M4 and M7 cores.
 
 ***It is required to use option 2 or 3 if you intend to program the M4 via the IDE, as the default option provides no memory allocation for the M4.***
 
@@ -82,110 +145,53 @@ Once the M4 is booted from the M7, both cores will run in parallel, much like tw
 
 Uploading new sketches works the same as a typical upload procedure. The new sketch will overwrite the current sketch running on the core you upload to.
 
-## Limitations
+## Identifying the Current CPU Core
 
-The M7 and M4 cores are two separate cores, and when initialized, they will continue to execute their corresponding program.
-
-In this section you will find some known limitations of using the two parallel cores. 
-
-### Booting M4
-
-As mentioned in the previous section, the M4 requires to be booted from the M7, by using the `RPC.begin()` method. If this is not included, the M4 will not boot.
-
-### Serial Communication
-
-Serial communication is not available by default on the M4 core. A work around for this is by sending data using the `RPC` library, and printing it from the M7 core. To achieve this, see the following examples:
-
-**M4 Sketch**
+The `RPC.cpu_id()` method can be used to identify current CPU core running the sketch. This can be used to run different code paths based on the CPU core ID. For example, the following sketch blinks the blue LED if the current core is the Cortex-M7, and the Green LED if the current core is the Cortex-M4:
 
 ```arduino
+/*
+GIGA R1 WiFi - Core identify sketch.
+
+This simple sketch blinks an LED on boot.
+You will need to upload it to both the M7 and M4 core.
+
+It checks whether current CPU is M7 or M4, and blinks either 
+the blue LED or the green LED, 10 times. 
+
+As the M4 is booted when invoking RPC.begin() on the M7,
+the M4 sketch will run as soon as the blink() function
+finishes on the M7. 
+*/
+
 #include <RPC.h>
 
 void setup() {
-  RPC.begin();
-}
+  pinMode(LEDB, OUTPUT);
+  pinMode(LEDG, OUTPUT);
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  RPC.println("Hello World!");
-}
-```
-
-**M7 Sketch**
-
-```arduino
-#include <RPC.h>
-
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  RPC.begin();
-}
-
-void loop() {
-  String buffer = "";
-    while (RPC.available()) {
-      buffer += (char)RPC.read();
-    }
-
-    if (buffer.length() > 0) {
-      Serial.print(buffer);
-    }
-}
-```
-
-***Note that both of these sketches needs to be uploaded to their corresponding cores.***
-
-## Methods of Programming
-
-Programming the M4 and M7 cores is straightforward, but can be complicated to track. Having a strategy for how you want to build your dual core applications is key. 
-
-In this section we introduce the "single" and "multiple" sketch approach, and the pros and cons of each method.
-
-### Single Sketch Approach
-
-The single sketch approach means writing a single sketch that is **uploaded to both cores** each time a change is made. In the sketch, we can keep track of what each core does, simply by querying the core used with a simple function:
-
-```arduino
-String currentCPU() {
-  if (HAL_GetCurrentCPUID() == CM7_CPUID) {
-    return "M7";
+  if (RPC.cpu_id() == CM7_CPUID) {
+    blink(LEDB, 100); //blink blue LED (M7 core)
   } else {
-    return "M4";
+    blink(LEDG, 100); //blink green LED (M4 core)
   }
+}
+
+void loop() {
+}
+
+void blink(int led, int delaySeconds) {
+  for (int i; i < 10; i++) {
+    digitalWrite(led, LOW);
+    delay(delaySeconds);
+    digitalWrite(led, HIGH);
+    delay(delaySeconds);
+  }
+  RPC.begin();
 }
 ```
 
-With this function, we check whether the M4 or M7 is running, and we can write code for each of the core like this:
-
-```arduino
-  if (currentCPU() == "M4") {
-    //run M4 code
-  }
-
-  if (currentCPU() == "M7") {
-    //run M7 code
-  }
-```
-
-The pros of using this approach is that you can write all code in a single file, therefore, revisioning code, as well as the provisioning is easier to manage.
-
-The cons of using this approach is that you will run out of program memory faster. You will also upload code to the cores that will never execute (the M7 code will not execute on M4 and vice versa).
-
-### Multiple Sketch Approach
-
-The multiple sketch approach means developing two separate sketches, one for each core. This does not require the use of the `HAL_GetCurrentCPUID()` to retrieve the core you are using, you can instead just write sketches as you would normally do.
-
-The pros of using this approach is that the code you write is optimized only for one core, and this saves a lot of program memory.
-
-The cons is to manage the versions becomes harder, and while flashing the board, you'd need to keep track on which version is uploaded to which core. It is easier to upload to the wrong core by accident using this approach, but you have more optimized code.
-
-When writing multiple sketches, there are some things to consider to make your development experience easier:
-- Name your sketches with either `_M4` or `_M7` suffix or prefix. This will make it easier if the code is intended to be shared with others.
-- Consider having a starting sequence (e.g. the blue LED blinking 3 times), whenever a core is initialized.
-- Always include `RPC.begin()` on your M7 core sketch.
-
-## Remote Call Procedures (RPC)
+## Remote Procedure Call (RPC)
 
 RPC is a method that allows programs to make requests to programs located elsewhere. It is based on the client-server model (also referred to as caller/callee), where the client makes a request to the server. 
 
@@ -217,7 +223,8 @@ RPC.bind("addFunction", addFunction);
 On the client side, it could look like this:
 
 ```arduino
-int x,y = 10;
+int x = 10;
+int y = 10;
 
 RPC.call("addFunction", x, y);
 ```
@@ -225,6 +232,111 @@ RPC.call("addFunction", x, y);
 When `call()` is used, a request is sent, it is processed on the server side, and returned. The `x` and `y` variables are used as arguments, and the result returned should be 20 (10+10).
 
 ![Communication between M7 and M4 core.](assets/rpc-m7-m4.png)
+
+### Using the RPC Library with MicroPython
+
+The `msgpackrpc` library provides the same functionality as the Arduino RPC library for MicroPython, i.e., it allows the binding of local functions or objects, starting the M4 core, and invoking remote calls from Python scripts. This library and its supporting features are enabled by default on all compatible Arduino boards, starting with **MicroPython release v1.23**, and require no external dependencies to use. However, there are a few restrictions to using the RPC library with MicroPython:
+
+- Arduino sketches can only run on the M4 core.
+- SDRAM-based firmware is **not** supported<sup>[1]</sup>.
+- Flash-based firmware must use a **1.5MB M7 + 0.5MB M4** flash partitioning scheme.
+
+The following sections introduce the `msgpackrpc` library API and some use cases in detail.
+
+*1. Although the `msgpackrpc` library does support loading firmware images to SDRAM, the firmware currently generated for the M4 core with an SDRAM target does not work. This issue may be fixed in future releases.*
+
+#### The `msgpackrpc` Library
+
+The `msgpackrpc` library is the RPC library's counterpart for MicroPython, and it provides the same functionality as the Arduino RPC library. The first steps to using the `msgpackrpc` library, are importing the module and creating a `MsgPackRPC` object:
+
+```python
+import msgpackrpc
+
+# Create a MsgPackRPC object.
+rpc = msgpackrpc.MsgPackRPC()
+```
+
+The RPC object created above can then be used to bind Python callables, start the M4 core and invoke remote calls from MicroPython scripts.
+
+#### Binding Python Functions, Callables and Objects
+
+Any Python callable object (such as functions, bound methods, callable instances, etc.) can be invoked by the remote core. To allow the remote core to invoke a callable, it must be first bound to a name. The following example binds a function to the name `sub`:
+
+```python
+def sub(a, b):
+    return a - b
+
+# Register a function to be called by the remote processor.
+rpc.bind("sub", sub)
+```
+
+Note that the name a callable is bound to does not have to match its name.
+
+Similarly, an object's bound method can also be bound to a name. For example:
+
+```python
+foo = Foo()
+rpc.bind("sub", foo.add)
+```
+
+Both of those functions can be called in the same way from the Arduino sketch:
+
+```arduino
+int res = RPC.call("sub", 2, 1).as<int>();
+```
+
+Objects can also be bound to allow their methods to be called by the remote core. When an object is passed to `bind()`, all of its public methods (the ones that don't start with an `_`) are bound to their respective qualified names. For example, the following code binds the methods of an object of class `Foo`:
+
+```python
+class Foo:
+    def __init__(self):
+        pass
+
+    def add(self, a, b):
+        return a + b
+
+    def sub(self, a, b):
+        return a - b
+
+# Register an object of Foo
+rpc.bind("foo1", Foo())
+```
+
+Now the object's methods can be invoked by the Arduino sketch using their fully qualified name, for example:
+
+```arduino
+int res1 = RPC.call("foo1.add", 1, 2).as<int>();
+int res2 = RPC.call("foo1.sub", 2, 1).as<int>();
+```
+
+#### Starting the M4 Core From Micropython
+
+The next step is starting the M4 core by calling `MsgPackRPC.start()` with the firmware entry point as an argument:
+
+```python
+# Start the remote processor and wait for it to be ready to communicate.
+rpc.start(firmware=0x08180000)
+```
+
+This function will start the remote core (the M4), boot it from the specified firmware address, and wait for the core to be ready to communicate before it returns. The default arguments passed to this function are compatible with the Arduino RPC library and do not need to be changed for the purposes of this tutorial. Note that the firmware address used is a flash address, where the M4 firmware starts, and it's the same one used for the flash split of `1.5MB M7 + 0.5MB M4`.
+
+#### Calling Remote Functions From Micropython
+
+Once the M4 core is started, the `MsgPackRPC` object can be used to invoke its remote functions. Remote calls can be invoked synchronously, i.e., the call does not return until a response is received from the other side, or asynchronously. In this case, the call returns a `Future` object that must be joined at some point to read back the call's return value.
+
+```python
+# Perform a synchronous call, which blocks until it returns.
+res = rpc.call("add", 1, 2)
+
+# Perform an asynchronous call, which returns immediately with a Future object.
+f1 = rpc.call_async("add", 1, 2)
+
+# The Future object returned above, must be joined at some point to get the results.
+print(f1.join())
+```
+
+That covered most of the `msgpackrpc` library's API and use cases. For a complete example, see the [MicroPython RPC LED Example](#micropython-rpc-led). For more examples and applications, see the `msgpackrpc` [repository](https://github.com/arduino/arduino-lib-mpy/tree/main/lib/msgpackrpc).
+
 
 ## RPC Examples
 
@@ -242,12 +354,12 @@ The `Serial.print()` command only works on the **M7 core**. In order to print va
 #include <RPC.h>
 
 void setup() {
-RPC.begin();
+  RPC.begin();
 }
 
 void loop() {
-RPC.println("Printed from M4 core");
-delay(1000);
+  RPC.println("Printed from M4 core");
+  delay(1000);
 }
 ```
 
@@ -257,8 +369,8 @@ delay(1000);
 #include <RPC.h>
 
 void setup() {
-Serial.begin(9600);
-RPC.begin();
+  Serial.begin(9600);
+  RPC.begin();
 }
 
 void loop() {
@@ -299,6 +411,7 @@ void setup() {
 }
 
 void loop() {
+
 }
 
 /*
@@ -445,11 +558,59 @@ int servoMove(int angle) {
 }
 ```
 
+### MicroPython RPC LED
+
+This example demonstrates how to use MicroPython (running on the M7 core) to remotely control an LED from the M4 core.
+
+**M4 sketch:**
+
+```arduino
+#include "RPC.h"
+
+void led(bool on) {
+  if (on) {
+    digitalWrite(LEDG, LOW);
+  } else {
+    digitalWrite(LEDG, HIGH);
+  }
+}
+
+void setup() {
+  pinMode(LEDG, OUTPUT);
+  RPC.bind("led", led);
+  RPC.begin();
+}
+
+void loop() {
+
+}
+```
+
+**M7 Python script:**
+
+```python
+import time
+import msgpackrpc
+
+# Create an RPC object
+rpc = msgpackrpc.MsgPackRPC()
+
+# Start the remote processor.
+rpc.start(firmware=0x08180000)
+
+# Toggle the LED every 500ms
+while True:
+    rpc.call("led", True)
+    time.sleep_ms(500)
+    rpc.call("led", False)
+    time.sleep_ms(500)
+```
+
 ## RPC Library API
 
 The `RPC` library is based on the [rpclib](https://github.com/rpclib/rpclib) C++ library which provides a client and server implementation. In addition, it provides a method for communication between the M4 and M7 cores. 
 
-This library is included in the GIGA core, so it is automatically installed with the core. To use this library, you need to include `RPC.h`:
+This library is included in the GIGA Board Package, so it is automatically installed with the Board Package. To use this library, you need to include `RPC.h`:
 
 ```arduino
 #include <RPC.h>
@@ -567,3 +728,22 @@ RPC.read();
 
 - The first available byte from the M4.
 - `-1` if there is none.
+
+### RPC.cpu_id()
+
+Returns the current CPU ID, which can be one of two values: `CM7_CPUID` for the Cortex-M7 core, or `CM4_CPUID` for the Cortex-M4 core.
+
+#### Syntax
+
+```arduino
+RPC.cpu_id();
+```
+
+#### Parameters
+
+- None.
+
+#### Returns
+
+- `CM7_CPUID` for the Cortex-M7 core.
+- `CM4_CPUID` for the Cortex-M4 core.

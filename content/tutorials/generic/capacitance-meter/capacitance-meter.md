@@ -81,7 +81,7 @@ Additionally the pins can be HIGH (+5 volts), to charge the capacitor; or LOW (g
 
  *
 
- * Theory   A capcitor will charge, through a resistor, in one time constant, defined as T seconds where
+ * Theory   A capacitor will charge, through a resistor, in one time constant, defined as T seconds where
 
  *    TC = R * C
 

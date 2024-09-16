@@ -1,0 +1,9 @@
+software:
+  - arduino-lab-micropython
+  - arduino-ide
+  - arduino-cli
+  - cloud-editor
+  - iot-cloud
+hardware:
+  boards:
+    - nano-esp32

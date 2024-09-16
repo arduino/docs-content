@@ -15,7 +15,7 @@ tags:
   - Audio Jack
 author: 'Jacob Hylén'
 hardware:
-  - hardware/08.mega/boards/giga-r1-wifi
+  - hardware/10.mega/boards/giga-r1-wifi
 software:
   - ide-v1
   - ide-v2
@@ -34,11 +34,11 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 - [Download the GIGA R1 datasheet](/resources/datasheets/ABX00063-datasheet.pdf)
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
-The GIGA R1 WiFi is compatible with the [Arduino IoT Cloud](https://create.arduino.cc/iot/things), a cloud service that allows you to create IoT applications in just minutes.
+The GIGA R1 WiFi is compatible with the [Arduino Cloud](https://create.arduino.cc/iot/things), a Cloud service that allows you to create IoT applications in just minutes.
 
-***Visit the [Getting Started with Arduino IoT Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
+***Visit the [Getting Started with Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
 
 ## Power Supply
 
@@ -54,7 +54,7 @@ It should however be noted that the internal operating voltage of the microcontr
 
 ## Installation
 
-***For detailed instructions on how to install the GIGA R1 core, please refer to the [Getting Started with GIGA R1](/tutorials/giga-r1-wifi/giga-getting-started) guide.***
+***For detailed instructions on how to install the GIGA R1 Board Package, please refer to the [Getting Started with GIGA R1](/tutorials/giga-r1-wifi/giga-getting-started) guide.***
 
 The **GIGA R1** can be programmed through:
 
@@ -62,15 +62,15 @@ The **GIGA R1** can be programmed through:
 - the **Arduino IDE 2**, 
 - and the Web-editor. 
 
-## Core
+## Board Package
 
-The GIGA R1 is based on the [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed), which also provides a set of examples that works out of the box.
+The GIGA R1 is based on the [Arduino Mbed OS GIGA Board Package](/tutorials/giga-r1-wifi/giga-getting-started), which also provides a set of examples that works out of the box.
 
 These examples are available in the Arduino IDE via **File > Examples > Examples for GIGA**.
 
 ### Mbed OS
 
-As [Arduino Core for mbed devices](https://github.com/arduino/ArduinoCore-mbed) is based on [MbedOS](https://os.mbed.com/), it is possible for the operating system to crash while running a sketch. 
+As the [Arduino Mbed OS GIGA Board Package](/tutorials/giga-r1-wifi/giga-getting-started) is based on [MbedOS](https://os.mbed.com/), it is possible for the operating system to crash while running a sketch. 
 
 On most Arduino boards, when a sketch fails due to e.g. memory shortage, the board resets.
 
@@ -145,7 +145,7 @@ The external Flash storage on the **GIGA R1** is QSPI and can be accessed and us
 
 The GIGA firmware has full support for FATFS and littleFS.
 
-To access the QSPI flash storage as a USB flash drive, you need to follow a few steps, first you need to update the WiFi modules firmware, then you need to create partitions on the flash storage, before finally exposing the partitions to be detected by a computer. These three steps are broken down into different built in example sketches that conveniently all come with the GIGA core.
+To access the QSPI flash storage as a USB flash drive, you need to follow a few steps, first you need to update the WiFi modules firmware, then you need to create partitions on the flash storage, before finally exposing the partitions to be detected by a computer. These three steps are broken down into different built in example sketches that conveniently all come with the GIGA Board Package.
 
 Firstly, navigate in the IDE menu to `File > Examples > STM32H747_System > WiFiFirmwareUpdater` and upload the sketch to your board. 
 
@@ -171,11 +171,11 @@ The antenna connector (see image above) is located right next to the USB-C conne
 
 ### Wi-Fi®
 
-Wi-Fi® on the GIGA R1 WiFi is supported via the `WiFi` library. This library is included in the core, so it is automatically installed when installing the core.
+Wi-Fi® on the GIGA R1 WiFi is supported via the `WiFi` library. This library is included in the core, so it is automatically installed when installing the Board Package.
 
 To use the Wi-Fi® features on this board, please refer to the [GIGA R1 WiFi Network Examples](/tutorials/giga-r1-wifi/giga-wifi) guide.
 
-***The easiest way to connect your board to the Internet is via the [Arduino IoT Cloud](https://create.arduino.cc/iot/) platform. Here you can configure, program, monitor and synchronize your devices without having to write any networking code.*** 
+***The easiest way to connect your board to the Internet is via the [Arduino Cloud](https://create.arduino.cc/iot/) platform. Here you can configure, program, monitor and synchronize your devices without having to write any networking code.*** 
 
 ### Bluetooth® Low Energy
 
@@ -277,11 +277,43 @@ Finally, read the ADC, and store it in a way that you can use it, do this within
 
 ***The options for audio input on your GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1-wifi/giga-audio).***
 
-## MIPI Display Interface
+## MIPI DSI®
+
+Display Serial Interface (DSI), is a specification from the Mobile Industry Processor Interface (MIPI).
 
 The **STM32H747XI** has an internal 2D graphics accelerator with support for resolutions up to 1024x768, it also has the ability to encode and decode JPEG codec. This is what allows the **GIGA R1** to boast a 2 lane MIPI display interface. 
 
-This means that the **GIGA R1** is capable of driving a touch-display large enough to build a substantial user interface. The [LVGL](https://lvgl.io) library is a powerful tool to quickly build an interactive interface.
+The [GIGA Display Shield]() is designed to be mounted on the GIGA R1 through the MIPI/DSI connector located on the board, with support for popular frameworks such as [LVGL](https://docs.arduino.cc/tutorials/giga-display-shield/lvgl-guide) and [GFX](https://docs.arduino.cc/tutorials/giga-display-shield/gfx-guide).
+
+The pinout for the display connector is shown in the image below:
+
+![MIPI/DSI connector.](assets/mipi-dsi.png)
+
+***When connecting a module or shield to the GIGA R1 WiFi board, be careful to not connect it at an angle or your board may be damaged.***
+
+The following pins are directly connected to the STM32H747XI and cannot be used as GPIOs.
+- D1N
+- D1P
+- CKN
+- CKP
+- D0N
+- D0P
+
+The following pins can also be used as GPIOs:
+- D68
+- D69
+- D70
+- D71
+- D72
+- D73
+- D74
+- D75
+
+The connector also has a series of power connections, including:
+- 3.3 V
+- 5 V
+- GND
+- VIN
 
 ## USB Features
 
@@ -353,7 +385,7 @@ String getLocaltime()
 
 To get accurate time, you'll want to change the values in `void RTCset()` to whatever time it is when you're starting this clock. As long as the VRTC pin is connected to power, the clock will keep ticking and time will be kept accurately.
 
-### RTC Wi-Fi® Example
+### RTC / UDP / NTP Example
 
 With the following sketch, you can automatically set the time by requesting the time from a Network Time Protocol (NTP), using the UDP protocol.
 
@@ -541,9 +573,195 @@ void printWifiStatus()
     Serial.print(rssi);
     Serial.println(" dBm");
 }
-
 ```
+### RTC / UDP / NTP Example (Timezone)
 
+This example provides an option to set the timezone. As the received epoch is based on GMT time, you can input e.g. `-1` or `5` which represents the hours. The `timezone` variable is changed at the top of the example.
+
+```arduino
+/*
+ Udp NTP Client with Timezone Adjustment
+
+ Get the time from a Network Time Protocol (NTP) time server
+ Demonstrates use of UDP sendPacket and ReceivePacket
+ For more on NTP time servers and the messages needed to communicate with them,
+ see http://en.wikipedia.org/wiki/Network_Time_Protocol
+
+ created 4 Sep 2010
+ by Michael Margolis
+ modified 9 Apr 2012
+ by Tom Igoe
+ modified 28 Dec 2022
+ by Giampaolo Mancini
+ modified 29 Jan 2024
+ by Karl Söderby
+
+This code is in the public domain.
+ */
+
+#include <WiFi.h>
+#include <WiFiUdp.h>
+#include <mbed_mktime.h>
+
+int timezone = -1; //this is GMT -1. 
+
+int status = WL_IDLE_STATUS;
+
+char ssid[] = "Flen";        // your network SSID (name)
+char pass[] = "";  // your network password (use for WPA, or use as key for WEP)
+
+int keyIndex = 0;  // your network key index number (needed only for WEP)
+
+unsigned int localPort = 2390;  // local port to listen for UDP packets
+
+// IPAddress timeServer(162, 159, 200, 123); // pool.ntp.org NTP server
+
+constexpr auto timeServer{ "pool.ntp.org" };
+
+const int NTP_PACKET_SIZE = 48;  // NTP timestamp is in the first 48 bytes of the message
+
+byte packetBuffer[NTP_PACKET_SIZE];  // buffer to hold incoming and outgoing packets
+
+// A UDP instance to let us send and receive packets over UDP
+WiFiUDP Udp;
+
+constexpr unsigned long printInterval{ 1000 };
+unsigned long printNow{};
+
+void setup() {
+  // Open serial communications and wait for port to open:
+  Serial.begin(9600);
+  while (!Serial) {
+    ;  // wait for serial port to connect. Needed for native USB port only
+  }
+
+  // check for the WiFi module:
+  if (WiFi.status() == WL_NO_SHIELD) {
+    Serial.println("Communication with WiFi module failed!");
+    // don't continue
+    while (true)
+      ;
+  }
+
+  // attempt to connect to WiFi network:
+  while (status != WL_CONNECTED) {
+    Serial.print("Attempting to connect to SSID: ");
+    Serial.println(ssid);
+    // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
+    status = WiFi.begin(ssid, pass);
+
+    // wait 10 seconds for connection:
+    delay(10000);
+  }
+
+  Serial.println("Connected to WiFi");
+  printWifiStatus();
+
+  setNtpTime();
+}
+
+void loop() {
+  if (millis() > printNow) {
+    Serial.print("System Clock:          ");
+    Serial.println(getLocaltime());
+    printNow = millis() + printInterval;
+  }
+}
+
+void setNtpTime() {
+  Udp.begin(localPort);
+  sendNTPpacket(timeServer);
+  delay(1000);
+  parseNtpPacket();
+}
+
+// send an NTP request to the time server at the given address
+unsigned long sendNTPpacket(const char* address) {
+  memset(packetBuffer, 0, NTP_PACKET_SIZE);
+  packetBuffer[0] = 0b11100011;  // LI, Version, Mode
+  packetBuffer[1] = 0;           // Stratum, or type of clock
+  packetBuffer[2] = 6;           // Polling Interval
+  packetBuffer[3] = 0xEC;        // Peer Clock Precision
+  // 8 bytes of zero for Root Delay & Root Dispersion
+  packetBuffer[12] = 49;
+  packetBuffer[13] = 0x4E;
+  packetBuffer[14] = 49;
+  packetBuffer[15] = 52;
+
+  Udp.beginPacket(address, 123);  // NTP requests are to port 123
+  Udp.write(packetBuffer, NTP_PACKET_SIZE);
+  Udp.endPacket();
+}
+
+unsigned long parseNtpPacket() {
+  if (!Udp.parsePacket())
+    return 0;
+
+  Udp.read(packetBuffer, NTP_PACKET_SIZE);
+  const unsigned long highWord = word(packetBuffer[40], packetBuffer[41]);
+  const unsigned long lowWord = word(packetBuffer[42], packetBuffer[43]);
+  const unsigned long secsSince1900 = highWord << 16 | lowWord;
+  constexpr unsigned long seventyYears = 2208988800UL;
+  const unsigned long epoch = secsSince1900 - seventyYears;
+  
+  const unsigned long new_epoch = epoch + (3600 * timezone); //multiply the timezone with 3600 (1 hour)
+
+  set_time(new_epoch);
+
+#if defined(VERBOSE)
+  Serial.print("Seconds since Jan 1 1900 = ");
+  Serial.println(secsSince1900);
+
+  // now convert NTP time into everyday time:
+  Serial.print("Unix time = ");
+  // print Unix time:
+  Serial.println(epoch);
+
+  // print the hour, minute and second:
+  Serial.print("The UTC time is ");       // UTC is the time at Greenwich Meridian (GMT)
+  Serial.print((epoch % 86400L) / 3600);  // print the hour (86400 equals secs per day)
+  Serial.print(':');
+  if (((epoch % 3600) / 60) < 10) {
+    // In the first 10 minutes of each hour, we'll want a leading '0'
+    Serial.print('0');
+  }
+  Serial.print((epoch % 3600) / 60);  // print the minute (3600 equals secs per minute)
+  Serial.print(':');
+  if ((epoch % 60) < 10) {
+    // In the first 10 seconds of each minute, we'll want a leading '0'
+    Serial.print('0');
+  }
+  Serial.println(epoch % 60);  // print the second
+#endif
+
+  return epoch;
+}
+
+String getLocaltime() {
+  char buffer[32];
+  tm t;
+  _rtc_localtime(time(NULL), &t, RTC_FULL_LEAP_YEAR_SUPPORT);
+  strftime(buffer, 32, "%Y-%m-%d %k:%M:%S", &t);
+  return String(buffer);
+}
+
+void printWifiStatus() {
+  // print the SSID of the network you're attached to:
+  Serial.print("SSID: ");
+  Serial.println(WiFi.SSID());
+
+  // print your board's IP address:
+  IPAddress ip = WiFi.localIP();
+  Serial.print("IP Address: ");
+  Serial.println(ip);
+
+  // print the received signal strength:
+  long rssi = WiFi.RSSI();
+  Serial.print("signal strength (RSSI):");
+  Serial.print(rssi);
+  Serial.println(" dBm");
+}
+```
 
 ### VRTC Pin
 
@@ -639,12 +857,14 @@ void loop() {
 
 The **GIGA R1** features two separate SPI (Serial Peripheral Interface) buses, one is configured on the 6 pin header (ICSP) labelled SPI, and the other is broken out into pin connections on the board.
 
-The first bus (connector), `SPI1` uses the following pins:
+The first bus which has a dedicated SPI header, `SPI1`, uses the following pins:
 
 - (CIPO) - D89
 - (COPI) - D90
 - (SCK) - D91
 - (CS) - unassigned, use any free GPIO for this.
+  
+***Please note that the SPI header provides a 5 V pin. Make sure that the SPI device you are connecting supports an input voltage of 5 V. If you have an SPI device that supports 3.3 V only, use the `SPI5` port (see below).***
 
 The second bus (header), `SPI5`, uses the following pins: 
 
@@ -896,13 +1116,13 @@ Pins A8, A9, A10 and A11 can not be used as GPIOs, but are limited to use as ana
 
 The **STM32H7** has an internal OPAMP and comparator that are exposed on the **GIGA R1** as follows:
 
-| Pin | OPAMP             | Comparator           |
-| --- | ------------------| -------------------- |
-| A0  | OPAMP1_VOUT       | COMP1_INM            |
-| A1  | OPAMP1_VINM &VINM0|                      |
-| A2  | OPAMP1_VINP       | COMP1_INP            |
-| A3  |                   | COMP1_INM            |
-| A6  |                   | COMP1_INM            |
+| Pin | OPAMP              | Comparator |
+| --- | ------------------ | ---------- |
+| A0  | OPAMP1_VOUT        | COMP1_INM  |
+| A1  | OPAMP1_VINM &VINM0 |            |
+| A2  | OPAMP1_VINP        | COMP1_INP  |
+| A3  |                    | COMP1_INM  |
+| A6  |                    | COMP1_INM  |
 
 ***For more advanced analog readings, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced ADC section](/tutorials/giga-r1-wifi/giga-audio#analog-to-digital-converters).***
 
@@ -941,6 +1161,17 @@ The **GIGA R1** features more pins than any other Arduino board for makers, a fu
 The reference voltage of all digital pins is 3.3V.
 
 The logic for `LED_BUILTIN` is reversed if compared to the behavior of, for example, the **Arduino UNO** board. What this means is that if you write HIGH to `LED_BUILTIN`, the LED will turn off, and on respectively if you write LOW.
+
+#### D7 Pin
+
+By default, the digital pin 7 (D7) provides a voltage of ~1.65 V. 
+
+To disable this pin, you need to configure it as an output and set it to a `LOW` state.
+
+```arduino
+pinMode(7, OUTPUT);
+digitalWrite(7, LOW);
+```
 
 ### DAC Pins
 

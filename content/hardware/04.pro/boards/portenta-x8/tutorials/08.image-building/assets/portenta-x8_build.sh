@@ -5,12 +5,12 @@
 echo --------------------------------------------------------------------------
 echo Starting wrapper script to setup and build an Image and the Flashing tools
 echo @arduino Portenta-X8
-echo 1 Oct 2022
+echo 17 Oct 2023
 echo
 
 # Make sure its on the home directory
 echo Changing directory to home
-cd ~
+cd /dockerVolume
 
 # Git config
 echo Git config to example credentials
@@ -45,8 +45,8 @@ cd ..
 # Copy files to the deploy folder
 todaysDate=$(date +%d-%b-%H_%M)
 echo copying files
-mkdir ../../dockerVolume/$todaysDate
-DEPLOY_FOLDER=../../dockerVolume/$todaysDate
+DEPLOY_FOLDER=/dockerVolume/$todaysDate
+mkdir $DEPLOY_FOLDER
 
 cp -L build-lmp-mfgtool/deploy/images/portenta-x8/mfgtool-files-portenta-x8.tar.gz $DEPLOY_FOLDER
 cp -L build-lmp-xwayland/deploy/images/portenta-x8/imx-boot-portenta-x8 $DEPLOY_FOLDER

@@ -8,7 +8,7 @@ tags:
   - Cheat sheet
   - RGB
   - Communication
-author: 'Benjamin Dannegård and José Bagur'
+author: 'José Bagur and Benjamin Dannegård'
 hardware:
   - hardware/06.nicla/boards/nicla-voice
 software:
@@ -20,19 +20,19 @@ software:
 
 ## Overview
 
-This user manual will provide you with a comprehensive overview of the Arduino Nicla Voice board, covering its main hardware and software features. With this user manual, you will also learn how to set up, configure and use these features. 
+This user manual will provide you with a comprehensive overview of the Arduino Nicla Voice board, covering its main hardware and software features. This user manual will also show you how to set up, configure, and use these features. 
 
 ## Hardware and Software Requirements
 
 ### Hardware Requirements
 
 - [Nicla Voice](https://store.arduino.cc/products/nicla-voice) (x1)
-- Micro USB cable (x1)
+- [Micro USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
-- To create custom Machine Learning models, the integrated Machine Learning Tools of the [Arduino Cloud](https://create.arduino.cc/iot/) are needed. In case you do not have an Arduino Cloud account, you will need to create one first.
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
+- To create custom Machine Learning models, the integrated [Machine Learning Tools](https://cloud.arduino.cc/machine-learning-tools/) of the [Arduino Cloud](https://create.arduino.cc/iot/) are needed. In case you do not have an Arduino Cloud account, you will need to create one first.
 
 ## Product Overview
 
@@ -40,7 +40,7 @@ The Nicla Voice is an innovative and versatile development board designed by the
 
 ### Board Architecture Overview
 
-The Nicla Voice features a robust and efficient architecture that integrates various components to enable speech, sound, and motion projects and applications. 
+The Nicla Voice features a robust and efficient architecture integrating various components to enable speech, sound, and motion projects and applications. 
 
 ![The Nicla Voice main components (top view)](assets/user-manual-2.png)
 
@@ -69,7 +69,7 @@ The **Arduino Mbed OS Nicla Boards** core contains the libraries and examples yo
 
 The full pinout is available and downloadable as PDF from the link below:
 
-- [Nicla Voice pinout](https://docs.arduino.cc/static/bf3e42f2adad5dcf220f548f024c388a/ABX00061-full-pinout.pdf)
+- [Nicla Voice pinout](https://docs.arduino.cc/resources/pinouts/ABX00061-full-pinout.pdf)
 
 ### Datasheet
 
@@ -87,7 +87,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Nicla Voice STEP files](https://docs.arduino.cc/static/6329da6a0adf61028fa0c8b63a122f04/ABX00061-step.zip)
+- [Nicla Voice STEP files](../../downloads/ABX00061-step.zip)
 
 ## First Use
 
@@ -96,18 +96,34 @@ The complete STEP files are available and downloadable from the link below:
 The Nicla voice can be powered by:
 
 - Using a Micro USB cable (not included). 
-- Using an external **5V power supply** connected to `VIN_BQ25120` pin (please, refer to the [board pinout section](#pinout) of the user manual).
+- Using an external **5V power supply** connected to `VIN_BQ25120` pin (please refer to the [board pinout section](#pinout) of the user manual).
 - Using a **3.7V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Nicla Voice is 200 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
 - Using the onboard **ESLOV connector**, which has a dedicated 5V power line.
 
 ![Different ways to power the Nicla Voice](assets/user-manual-6.png)
 
-The onboard battery charger of your board is, by default, **disabled**. To enable it, you can use the `enableCharge()` function defined in the Nicla Voice board core:
+***A 3.7V Li-Po battery can be also connected through the board's pins: `1 (NTC)`, `2 (VBAT)`, and `6 (GND)`. Please refer to the board's [pinout](#pinout) to locate those pins on your Nicla Voice board.***
+
+#### Onboard Battery Charger
+<br></br>
+
+The onboard battery charger of your board is, by default, **disabled**. To enable it, you can use the `enableCharging()` function defined in the Nicla Voice board core:
 
 ```arduino
-// Enabling the battery charger 
-// The function parameter defines the charging current in mA
-nicla::enableCharge(100);
+// Enable the onboard battery charger 
+// The function parameter defines the charging current in mA (between 5 mA and 300 mA)
+nicla::enableCharging(100);
+```
+
+The desired charging current can be set to a value between 5 mA and 300 mA; the default value is 20 mA.
+
+***A safe default charging current value that works for most common LiPo batteries is 0.5C, which means charging at a rate equal to half the battery's capacity. For example, a 200 mAh battery could be safely charged at 100 mA (0.1 A).***
+
+ To disable the onboard battery charger, you can use the `disableCharging()` function defined in the Nicla Voice board core:
+
+```arduino
+// Disable the onboard battery charger 
+nicla::disableCharging();
 ```
 
 ### NDP120 Processor Firmware Update
@@ -119,21 +135,21 @@ It is recommended to update the NDP120 processor firmware and the built-in speec
 3. Extract [this .zip file](assets/nicla_voice_uploader_and_firmwares.zip), which contains the compiled uploaders for various operating systems, and the updated NDP120 processor firmware and speech recognition model, in a known location on your computer. 
 4. Open a new terminal in the location where the .zip file was extracted and execute the following command:
 
-    ```
+    ```bash
     syntiant-uploader send -m "Y" -w "Y" -p $portName $filename
     ```
 
     Replace `portName` and `filename` with the relevant information. Three different files must be uploaded to the board by executing the following three commands, for example in Windows the commands are the following:
 
-    ```
+    ```bash
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 mcu_fw_120_v91.synpkg
     ```
 
-    ```
+    ```bash
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 dsp_firmware_v91.synpkg
     ```
 
-    ```
+    ```bash
     ./syntiant-uploader send -m "Y" -w "Y" -p COM6 model_name.synpkg
     ```
 
@@ -144,6 +160,7 @@ It is recommended to update the NDP120 processor firmware and the built-in speec
 After uploading the three files, your board's firmware is updated to the latest release and ready to be used.
 
 #### External Memory Format
+<br></br>
 
 Your board NDP120 processor files (firmware and models) are stored in your board's external Flash memory. It is recommended to **format your Nicla Voice external Flash memory** every time you are going to update the processor firmware or when you are going to update/add models to the external Flash memory.
 
@@ -691,7 +708,7 @@ Next, in the `setup()` function:
 - The serial communication is initialized at a baud rate of 115200.
 - The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the IMU. 
 - Error and event handlers are initialized.
-- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the Machine Learning model (`ei_model.synpkg`). 
 - The BMI270 sensor is initialized; this includes a software reset, loading the sensor configuration, and setting it into normal power mode with the accelerometer and gyroscope operational. 
 
 Finally, in the `loop()` function:
@@ -912,7 +929,7 @@ Next, in the `setup()` function:
 - The serial communication is initialized at a baud rate of 115200.
 - The Nicla Voice board is initialized, and the LDO regulator (used for putting the board into power-saving mode) is disabled to avoid communication problems with the magnetometer. 
 - Error and event handlers are initialized.
-- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the ML model (`ei_model.synpkg`). 
+- NDP processor is initialized; this process includes populating the external Flash memory of the board with the NDP processor's internal microcontroller firmware (`mcu_fw_120_v91.synpkg`), the NDP processor's internal DSP firmware (`dsp_firmware_v91.synpkg`), and the Machine Learning model (`ei_model.synpkg`). 
 - The BMM150 sensor is initialized; this includes setting it into normal operation with an output data rate (ODR) of 10 Hz. 
 
 Finally, in the `loop()` function:
@@ -1026,6 +1043,10 @@ In the example code above, a Machine Learning model is loaded into the Nicla Voi
 - If the model matches the input data with a known motion pattern, the built-in RGB LED is turned blue, and the event label is printed to the IDE's Serial Monitor.
 - If an error occurs, the built-in RGB LED will blink red continuously. 
 - While an event is recognized, the built-in RGB LED is turned on green.
+
+To learn more about your Nicla Voice board Machine Learning capabilities, check out the following tutorial and learn how to create a simple motion detection application: 
+
+- [Motion Detection with Nicla Voice and Machine Learning Tools](https://docs.arduino.cc/tutorials/nicla-voice/motion-detection-ml)
 
 ## Actuators
 
@@ -1304,23 +1325,7 @@ Serial1.println("Hello world!");
 
 ### Bluetooth® Low Energy
 
-To enable Bluetooth® Low Energy communication on the Nicla Voice, you can use the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/). The library works with the Nicla Voice with some minor modifications. 
-
-To get started with the ArduinoBLE library and the Nicla Voice, follow these steps:
-
-Include the `Nicla System` header:
-
-```arduino
-#include "Nicla_System.h" 
-```
-
-In the `setup()` function, call `nicla::begin()` to initialize the Nicla Voice board:
-
-```arduino
-void setup() {
-  nicla::begin();
-}
-```
+To enable Bluetooth® Low Energy communication on the Nicla Voice, you can use the [ArduinoBLE library](https://www.arduino.cc/reference/en/libraries/arduinoble/).
 
 Here is an example of how to use the ArduinoBLE library to create a voltage level monitor application:
 
@@ -1328,97 +1333,121 @@ Here is an example of how to use the ArduinoBLE library to create a voltage leve
 #include "Nicla_System.h"
 #include <ArduinoBLE.h>
 
+
 // Define the voltage service and its characteristic
 BLEService voltageService("1101");
 BLEUnsignedCharCharacteristic voltageLevelChar("2101", BLERead | BLENotify);
 
+
 const int analogPin = A0;
 
-/**
-  Read voltage level from an analog input of the Nicla Voice,
-  then maps the voltage reading to a percentage value ranging from 0 to 100.
 
-  @param none
-  @return the voltage level percentage (int).
+/**
+ Read voltage level from an analog input of the Nicla Voice,
+ then maps the voltage reading to a percentage value ranging from 0 to 100.
+
+
+ @param none
+ @return the voltage level percentage (int).
 */
 int readVoltageLevel() {
-  int voltage = analogRead(analogPin);
-  int voltageLevel = map(voltage, 0, 1023, 0, 100);
-  return voltageLevel;
+ int voltage = analogRead(analogPin);
+ int voltageLevel = map(voltage, 0, 1023, 0, 100);
+ return voltageLevel;
 }
+
 
 void setup() {
-  // Initialize the Nicla system and the built-in RGB LED
-  nicla::begin();
-  nicla::leds.begin();
+ // Initialize the Nicla system and the built-in RGB LED
+ nicla::begin();
+ nicla::leds.begin();
 
-  Serial.begin(9600);
-  // Wait for the serial connection to be established
-  while (!Serial)
-    ;
 
-  // Initialize the BLE module
-  if (!BLE.begin()) {
-    Serial.println("starting BLE failed!");
-    while (1)
-      ;
-  }
+ Serial.begin(9600);
+ // Wait for the serial connection to be established
+ while (!Serial)
+   ;
 
-  // Set the local name and advertised service for the BLE module
-  BLE.setLocalName("VoltageMonitor");
-  BLE.setAdvertisedService(voltageService);
-  voltageService.addCharacteristic(voltageLevelChar);
-  BLE.addService(voltageService);
 
-  // Start advertising the BLE service
-  BLE.advertise();
-  Serial.println("- Bluetooth device active, waiting for connections...");
+ // Initialize the BLE module
+ if (!BLE.begin()) {
+   Serial.println("starting BLE failed!");
+   while (1)
+     ;
+ }
+
+
+ // Set the local name and advertised service for the BLE module
+ BLE.setLocalName("VoltageMonitor");
+ BLE.setAdvertisedService(voltageService);
+ voltageService.addCharacteristic(voltageLevelChar);
+ BLE.addService(voltageService);
+
+
+ // Start advertising the BLE service
+ BLE.advertise();
+ Serial.println("- Bluetooth device active, waiting for connections...");
 }
 
+
 void loop() {
-  // Check for incoming BLE connections
-  BLEDevice central = BLE.central();
+ // Check for incoming BLE connections
+ BLEDevice central = BLE.central();
 
-  // If a central device is connected
-  if (central) {
-    Serial.print("- Connected to central: ");
-    Serial.println(central.address());
 
-    // Set the LED color to red when connected
-    nicla::leds.setColor(red);
+ // If a central device is connected
+ if (central) {
+   Serial.print("- Connected to central: ");
+   Serial.println(central.address());
 
-    // While the central device is connected
-    while (central.connected()) {
-      // Read the voltage level and update the BLE characteristic with the level value
-      int voltageLevel = readVoltageLevel();
 
-      Serial.print("- Voltage level is: ");
-      Serial.println(voltageLevel);
-      voltageLevelChar.writeValue(voltageLevel);
+   // Turn off the LED when disconnected
+   nicla::leds.setColor(blue);
 
-      delay(200);
-    }
-  }
 
-  // Turn off the LED when disconnected
-  nicla::leds.setColor(off);
+   // While the central device is connected
+   while (central.connected()) {
+     // Read the voltage level and update the BLE characteristic with the level value
+     int voltageLevel = readVoltageLevel();
 
-  Serial.print("- Disconnected from central: ");
-  Serial.println(central.address());
+
+     Serial.print("- Voltage level is: ");
+     Serial.println(voltageLevel);
+     voltageLevelChar.writeValue(voltageLevel);
+
+
+     delay(200);
+   }
+ }
+
+
+ // Turn off the LED when disconnected
+ nicla::leds.setColor(red);
+
+
+ Serial.print("- Disconnected from central: ");
+ Serial.println(central.address());
 }
 ```
 
-The example code shown above creates a Bluetooth® Low Energy service and characteristic for transmitting a voltage value read by one of the analog pins of the Nicla Voice to a central device. 
+The example code shown above creates a Bluetooth® Low Energy service and characteristic for transmitting a voltage value read by the analog pin A0 of the Nicla Voice to a central device Bluetooth® device like a smartphone or another microcontroller.
 
-- The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristic.
+- The code begins by importing all the necessary libraries and defining the Bluetooth® Low Energy service and characteristics.
 - In the `setup()` function, the code initializes the Nicla Voice board and sets up the Bluetooth® Low Energy service and characteristic; then, it begins advertising the defined Bluetooth® Low Energy service.
-- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function; when a central device connects to the Nicla Voice, its built-in LED is turned on (red). The code then enters into a loop that constantly reads the voltage level from an analog input and maps it to a percentage value between 0 and 100. The voltage level is printed to the Serial Monitor and transmitted to the central device over the defined Bluetooth® Low Energy characteristic.
+- A Bluetooth® Low Energy connection is constantly verified in the `loop()` function, being the built-in LED in red while looking for a connection. When a central device connects to the Nicla Voice, its built-in LED will change its color to blue. The code then enters into a loop that constantly reads the voltage level from an analog input and maps it to a percentage value between 0 and 100. The voltage level is printed to the Serial Monitor and transmitted to the central device over the defined Bluetooth® Low Energy characteristic.
+
+You can use the [nRF Connect for Mobile](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-mobile) app from Nordic Semiconductor to test the functionality of the example code shown below. nRF Connect is a powerful tool that allows you to scan and explore Bluetooth® Low Energy devices and communicate with them.
+
+
+![Bluetooth® Low Energy service and characteristic information from a Nicla Voice device](assets/user-manual-bt.png)
+
 
 ### ESLOV Connector 
 
 The Nicla Voice board features an onboard ESLOV connector meant as an **extension** of the I2C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Nicla Voice without soldering or wiring.
 
 ![Nicla Voice built-in ESLOV connector](assets/user-manual-8.png)
+
 
  The ESLOV connector is a small 5-pin connector with a 1.00 mm pitch; the mechanical details of the connector can be found in the connector's datasheet.
 

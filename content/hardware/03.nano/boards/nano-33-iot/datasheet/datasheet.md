@@ -6,7 +6,7 @@ type: maker
 ![](assets/featured.jpg)
 
 # Description 
-The Arduino Nano 33 IoT and Arduino Nano 33 IoT with headers are a miniature sized module containing a Cortex M0+ SAMD21 processor, a Wi-Fi®+Bluetooth® module based on ESP32, a crypto chip which can securely store certificates and pre-shared keys and a 6 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
+The Arduino® Nano 33 IoT and Arduino Nano 33 IoT with headers are a miniature sized module containing a Cortex M0+ SAMD21 processor, a Wi-Fi® + Bluetooth® module based on ESP32, a crypto chip which can securely store certificates and pre-shared keys and a 6 axis IMU. The module can either be mounted as a DIP component (when mounting pin headers), or as a SMT component, directly soldering it via the castellated pads.
 
 # Target areas:
 Maker, enhancements, basic IoT application scenarios
@@ -14,8 +14,8 @@ Maker, enhancements, basic IoT application scenarios
 # Features
 - **SAMD21G18A** 
     - **Processor**
-        - 256KB Flash
-        - 32KB Flash
+        - 256 kB Flash
+        - 32 kB Flash
         - Power On Reset (POR) and Brown Out Detection (BOD) 
     - **Peripherals**
         - 12 channel DMA
@@ -34,8 +34,8 @@ Maker, enhancements, basic IoT application scenarios
 - **Nina W102** 
     - **Module**
         - Dual Core Tensilica LX6 CPU at up to 240MHz
-        - 448 KB ROM, 520KB SRAM, 2MB Flash 
-    - **WiFi**
+        - 448 kB ROM, 520 kB SRAM, 2MB Flash 
+    - **Wi-Fi®**
         - IEEE 802.11b up to 11Mbit
         - IEEE 802.11g up to 54MBit
         - IEEE 802.11n up to 72MBit
@@ -76,27 +76,27 @@ Maker, enhancements, basic IoT application scenarios
 ## The Board
 As all Nano form factor boards, Nano 33 IoT and Nano 33 IoT with headers does not have a battery charger but can be powered through USB or headers.
 
-**NOTE:** Arduino Nano 33 IoT and Nano 33 IoT with headers only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
+**NOTE:** Nano 33 IoT and Nano 33 IoT with headers only supports 3.3V I/Os and is **NOT** 5V tolerant so please make sure you are not directly connecting 5V signals to this board or it will be damaged. Also, as opposed to Arduino Nano boards that support 5V operation, the 5V pin does NOT supply voltage but is rather connected, through a jumper, to the USB power input.
 
 ### Application Examples
-**Weather station:** Using the Arduino Nano 33 IoT or Nano 33 IoT with headers together with a sensor and a OLED display, we can create a small weather station communicating temperature, humidity etc. directly  to your phone.
+**Weather station:** Using the Nano 33 IoT or Nano 33 IoT with headers together with a sensor and a OLED display, we can create a small weather station communicating temperature, humidity etc. directly  to your phone.
 
 **Air quality monitor:** Bad air quality may have serious effects on your health. By assembling the board, with a sensor and monitor you can make sure that the air quality is kept in indoor-environments. By connecting the hardware assembly to an IoT application/API, you will receive real time values.
 
-**Air drum:** A quick and fun project is to create a small air drum. Connect your board and upload your sketch from the Create Web Editor and start creating beats with your audio workstation of your choice.
+**Air drum:** A quick and fun project is to create a small air drum. Connect your board and upload your sketch from the Arduino Cloud Editor and start creating beats with your audio workstation of your choice.
 
 ## Ratings
 ### Recommended Operating Conditions
 | Symbol | Description                                      | Min             | Max            |
 | ------ | ------------------------------------------------ | --------------- | -------------- |
-|        | Conservative thermal limits for the whole board: | -40 °C ( 40 °F) | 85°C ( 185 °F) |
+|        | Conservative thermal limits for the whole board: | -40 °C ( 40 °F) | 85 °C ( 185 °F) |
 
 ### Power Consumption
-| Symbol  | Description                              | Min  | Typ  | Max  | Unit |
-| ------- | ---------------------------------------- | ---- | ---- | ---- | ---- |
-| VINMax  | Maximum input voltage from VIN pad       | -0.3 | -    | 21   | V    |
-| VUSBMax | Maximum input voltage from USB connector | -0.3 | -    | 21   | V    |
-| PMax    | Maximum Power Consumption                | -    | -    | TBC  | mW   |
+| Symbol  | Description                              | Min  | Typ | Max | Unit |
+| ------- | ---------------------------------------- | ---- | --- | --- | ---- |
+| VINMax  | Maximum input voltage from VIN pad       | -0.3 | -   | 21  | V    |
+| VUSBMax | Maximum input voltage from USB connector | -0.3 | -   | 21  | V    |
+| PMax    | Maximum Power Consumption                | -    | -   | TBC | mW   |
 
 ## Functional Overview
 ### Board Topology 
@@ -106,7 +106,7 @@ As all Nano form factor boards, Nano 33 IoT and Nano 33 IoT with headers does no
 | **Ref.** | **Description**               | **Ref.** | **Description**               |
 | -------- | ----------------------------- | -------- | ----------------------------- |
 | U1       | ATSAMD21G18A Controller       | U3       | LSM6DSOXTR IMU Sensor         |
-| U2       | NINA-W102-00B WiFi/BLE Module | U4       | ATECC608A-MAHDA-T Crypto Chip |
+| U2       | NINA-W102-00B Wi-Fi®/Bluetooth® LE Module | U4       | ATECC608A-MAHDA-T Crypto Chip |
 | J1       | Micro USB Connector           | PB1      | IT-1185-160G-GTR Push button  |
 
 ![Board topology bottom](assets/boardTopologyBot.png)
@@ -117,7 +117,7 @@ As all Nano form factor boards, Nano 33 IoT and Nano 33 IoT with headers does no
 | TP       | Test points               | xx       | Lorem Ipsum                 |
 
 ### Processor 
-The Main Processor is a Cortex M0+ running at up to 48MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto). 
+The Main Processor is a Arm® Cortex®-M0+ running at up to 48 MHz. Most of its pins are connected to the external headers, however some are reserved for internal communication with the wireless module and the on-board internal I<sup>2</sup>C peripherals (IMU and Crypto). 
 
 **NOTE**: As opposed to other Arduino Nano boards, pins A4 and A5 have an internal pull up and default to be used as an I<sup>2</sup>C Bus so usage as analog inputs is not recommended.
 
@@ -132,13 +132,13 @@ Communication with NINA W102 happens through a serial port and a SPI bus through
 | 21             | GPIO19             | UART RTS     |                  |                        |
 | 24             | PA15               | 29           | GPIO18           | SPI CLK                |
 | 20             | GPIO22             | UART CTS     |                  |                        |
-| 22             | PA13               | 1            | GPIO21           | SPI MISO               |
+| 22             | PA13               | 1            | GPIO23           | SPI MISO               |
 | 21             | PA12               | 36           | GPIO12           | SPI MOSI               |
 | 31             | PA22               | 23           | GPIO3            | Processor TX 🡺 Nina RX |
 | 32             | PA23               | 22           | GPIO1            | Processor RX 🡸 Nina TX |
 
-### WiFi/BT Communication Module
-Nina W102 is based on ESP32 and is delivered with a pre-certified software stack from Arduino. Source code for the firmware is available **[9]**.
+### Wi-Fi®/Bluetooth® Communication Module
+Nina W102 is based on ESP32 and is delivered with a pre-certified software stack from Arduino. Source code for the firmware is available **[13]**.
 
 **NOTE:** Reprogramming the wireless module’s firmware with a custom one will invalidate compliance with radio standards as certified by Arduino, hence this is not recommended unless the application is used in private laboratories far from other electronic equipment and people. Usage of custom firmware on radio modules is the sole responsibility of the user.
 
@@ -154,13 +154,13 @@ Some of the module’s pins are connected to the external headers and can be dir
 ### Crypto
 The crypto chip in Arduino IoT boards is what makes the difference with other less secure boards as it provides a secure way to store secrets (such as certificates) and accelerates secure protocols while never exposing secrets in plain text.
 
-Source code for the Arduino Library that supports the Crypto is available **[10]**
+Source code for the Arduino Library that supports the Crypto is available **[14]**
 
 
 ### IMU
-The board has an embedded 6 axis IMU which can be used to measure board orientation (by checking the gravity acceleration vector orientation) or to measure shocks, vibration, acceleration and rotation speed.
+The board has an embedded 6-axis IMU which can be used to measure board orientation (by checking the gravity acceleration vector orientation) or to measure shocks, vibration, acceleration and rotation speed.
 
-Source code for the Arduino Library that supports the IMU is available **[11]**
+Source code for the Arduino Library that supports the IMU is available **[15]**
 
 ### Power Tree
 
@@ -169,21 +169,21 @@ Source code for the Arduino Library that supports the IMU is available **[11]**
 
 ## Board Operation 
 ### Getting Started - IDE 
-If you want to program your board while offline you need to install the Arduino Desktop IDE [1] To connect the Arduino 33 IoT to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your board while offline you need to install the Arduino Desktop IDE [1] To connect the Nano 33 IoT to your computer, you’ll need a Micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor 
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [2], by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor 
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [2], by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
-### Getting Started - Arduino IoT Cloud 
-All Arduino IoT enabled products are supported on Arduino IoT Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
+### Getting Started - Arduino Cloud 
+All Arduino IoT enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Sample Sketches
-Sample sketches for the Arduino 33 IoT can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Pro website [4]
+Sample sketches for the Nano 33 IoT can be found either in the “Examples” menu in the Arduino IDE or in the “Documentation” section of the Arduino Docs website [4].
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub **[5]**, the Arduino Library Reference **[6]** and the online store **[7]** where you will be able to complement your board with sensors, actuators and more
 
 ### Board Recovery
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
@@ -194,13 +194,13 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 
 ### USB
 
-| Pin  | **Function** | **Type**     | **Description**                                              |
-| ---- | ------------ | ------------ | ------------------------------------------------------------ |
-| 1    | VUSB         | Power        | Power Supply Input. If board is powered via VUSB from header this is an Output **(1)** |
-| 2    | D-           | Differential | USB differential data -                                      |
-| 3    | D+           | Differential | USB differential data +                                      |
-| 4    | ID           | Analog       | Selects Host/Device functionality                            |
-| 5    | GND          | Power        | Power Ground                                                 |
+| Pin | **Function** | **Type**     | **Description**                                                                        |
+| --- | ------------ | ------------ | -------------------------------------------------------------------------------------- |
+| 1   | VUSB         | Power        | Power Supply Input. If board is powered via VUSB from header this is an Output **(1)** |
+| 2   | D-           | Differential | USB differential data -                                                                |
+| 3   | D+           | Differential | USB differential data +                                                                |
+| 4   | ID           | Analog       | Selects Host/Device functionality                                                      |
+| 5   | GND          | Power        | Power Ground                                                                           |
 
 1. The board can support USB host mode only if powered via the V<sub>USB</sub> pin and if the jumper close to the VUSB pin is shorted.
 
@@ -208,38 +208,38 @@ All Arduino boards have a built-in bootloader which allows flashing the board vi
 ### Headers
 The board exposes two 15 pin connectors which can either be assembled with pin headers or soldered through castellated vias.
 
-| Pin  | **Function** | **Type**     | **Description**                                              |
-| ---- | ------------ | ------------ | ------------------------------------------------------------ |
-| 1    | D13          | Digital      | GPIO                                                         |
-| 2    | +3V3         | Power Out    | Internally generated power output to external devices        |
-| 3    | AREF         | Analog       | Analog Reference; can be used as GPIO                        |
-| 4    | A0/DAC0      | Analog       | ADC in/DAC out; can be used as GPIO                          |
-| 5    | A1           | Analog       | ADC in; can be used as GPIO                                  |
-| 6    | A2           | Analog       | ADC in; can be used as GPIO                                  |
-| 7    | A3           | Analog       | ADC in; can be used as GPIO                                  |
-| 8    | A4/SDA       | Analog       | ADC in; I2C SDA; Can be used as GPIO **(1)**                 |
-| 9    | A5/SCL       | Analog       | ADC in; I2C SCL; Can be used as GPIO **(1)**                 |
-| 10   | A6           | Analog       | ADC in; can be used as GPIO                                  |
-| 11   | A7           | Analog       | ADC in; can be used as GPIO                                  |
-| 12   | VUSB         | Power In/Out | Normally NC; can be connected to VUSB pin of the USB connector by shorting a jumper |
-| 13   | RST          | Digital In   | Active low reset input (duplicate of pin 18)                 |
-| 14   | GND          | Power        | Power Ground                                                 |
-| 15   | VIN          | Power In     | Vin Power input                                              |
-| 16   | TX           | Digital      | USART TX; can be used as GPIO                                |
-| 17   | RX           | Digital      | USART RX; can be used as GPIO                                |
-| 18   | RST          | Digital      | Active low reset input (duplicate of pin 13)                 |
-| 19   | GND          | Power        | Power Ground                                                 |
-| 20   | D2           | Digital      | GPIO                                                         |
-| 21   | D3/PWM       | Digital      | GPIO; can be used as PWM                                     |
-| 22   | D4           | Digital      | GPIO                                                         |
-| 23   | D5/PWM       | Digital      | GPIO; can be used as PWM                                     |
-| 24   | D6/PWM       | Digital      | GPIO, can be used as PWM                                     |
-| 25   | D7           | Digital      | GPIO                                                         |
-| 26   | D8           | Digital      | GPIO                                                         |
-| 27   | D9/PWM       | Digital      | GPIO; can be used as PWM                                     |
-| 28   | D10/PWM      | Digital      | GPIO; can be used as PWM                                     |
-| 29   | D11/MOSI     | Digital      | SPI MOSI; can be used as GPIO                                |
-| 30   | D12/MISO     | Digital      | SPI MISO; can be used as GPIO                                |
+| Pin | **Function** | **Type**     | **Description**                                                                     |
+| --- | ------------ | ------------ | ----------------------------------------------------------------------------------- |
+| 1   | D13          | Digital      | GPIO                                                                                |
+| 2   | +3V3         | Power Out    | Internally generated power output to external devices                               |
+| 3   | AREF         | Analog       | Analog Reference; can be used as GPIO                                               |
+| 4   | A0/DAC0      | Analog       | ADC in/DAC out; can be used as GPIO                                                 |
+| 5   | A1           | Analog       | ADC in; can be used as GPIO                                                         |
+| 6   | A2           | Analog       | ADC in; can be used as GPIO                                                         |
+| 7   | A3           | Analog       | ADC in; can be used as GPIO                                                         |
+| 8   | A4/SDA       | Analog       | ADC in; I2C SDA; Can be used as GPIO **(1)**                                        |
+| 9   | A5/SCL       | Analog       | ADC in; I2C SCL; Can be used as GPIO **(1)**                                        |
+| 10  | A6           | Analog       | ADC in; can be used as GPIO                                                         |
+| 11  | A7           | Analog       | ADC in; can be used as GPIO                                                         |
+| 12  | VUSB         | Power In/Out | Normally NC; can be connected to VUSB pin of the USB connector by shorting a jumper |
+| 13  | RST          | Digital In   | Active low reset input (duplicate of pin 18)                                        |
+| 14  | GND          | Power        | Power Ground                                                                        |
+| 15  | VIN          | Power In     | Vin Power input                                                                     |
+| 16  | TX           | Digital      | USART TX; can be used as GPIO                                                       |
+| 17  | RX           | Digital      | USART RX; can be used as GPIO                                                       |
+| 18  | RST          | Digital      | Active low reset input (duplicate of pin 13)                                        |
+| 19  | GND          | Power        | Power Ground                                                                        |
+| 20  | D2           | Digital      | GPIO                                                                                |
+| 21  | D3/PWM       | Digital      | GPIO; can be used as PWM                                                            |
+| 22  | D4           | Digital      | GPIO                                                                                |
+| 23  | D5/PWM       | Digital      | GPIO; can be used as PWM                                                            |
+| 24  | D6/PWM       | Digital      | GPIO, can be used as PWM                                                            |
+| 25  | D7           | Digital      | GPIO                                                                                |
+| 26  | D8           | Digital      | GPIO                                                                                |
+| 27  | D9/PWM       | Digital      | GPIO; can be used as PWM                                                            |
+| 28  | D10/PWM      | Digital      | GPIO; can be used as PWM                                                            |
+| 29  | D11/MOSI     | Digital      | SPI MOSI; can be used as GPIO                                                       |
+| 30  | D12/MISO     | Digital      | SPI MISO; can be used as GPIO                                                       |
 
 
 
@@ -247,14 +247,14 @@ The board exposes two 15 pin connectors which can either be assembled with pin h
 ### Debug
 On the bottom side of the board, under the communication module, debug signals are arranged as 3x2 test pads with 100 mil pitch. Pin 1 is depicted in Figure 3 – Connector Positions
 
-| Pin  | **Function** | **Type**   | **Description**                                              |
-| ---- | ------------ | ---------- | ------------------------------------------------------------ |
-| 1    | +3V3         | Power Out  | Internally generated power output to be used as voltage reference |
-| 2    | SWD          | Digital    | SAMD11 Single Wire Debug Data                                |
-| 3    | SWCLK        | Digital In | SAMD11 Single Wire Debug Clock                               |
-| 4    | UPDI         | Digital    | ATMega4809 update interface                                  |
-| 5    | GND          | Power      | Power Ground                                                 |
-| 6    | RST          | Digital In | Active low reset input                                       |
+| Pin | **Function** | **Type**   | **Description**                                                   |
+| --- | ------------ | ---------- | ----------------------------------------------------------------- |
+| 1   | +3V3         | Power Out  | Internally generated power output to be used as voltage reference |
+| 2   | SWD          | Digital    | SAMD11 Single Wire Debug Data                                     |
+| 3   | SWCLK        | Digital In | SAMD11 Single Wire Debug Clock                                    |
+| 4   | UPDI         | Digital    | ATMega4809 update interface                                       |
+| 5   | GND          | Power      | Power Ground                                                      |
+| 6   | RST          | Digital In | Active low reset input                                            |
 
 
 ## Mechanical Information
@@ -345,41 +345,45 @@ Lors de l’ installation et de l’ exploitation de ce dispositif, la distance 
 
 Hereby, Arduino S.r.l. declares that this product is in compliance with essential requirements and other relevant provisions of Directive 2014/53/EU. This product is allowed to be used in all EU member states.
 
-| Frequency bands           | Maximum output power (EIRP) |
-| :------------------------ | :-------------------------- |
-| 2402-2480MHz(EDR)         | 6.24 dBm                    |
-| 2402-2480MHz(BLE)         | 6.30 dBm                    |
-| 2412-2472MHz(2.4G WiFi)   | 13.61 dBm                   |
+| Frequency bands         | Maximum output power (EIRP) |
+| :---------------------- | :-------------------------- |
+| 2402-2480MHz(EDR)       | 6.24 dBm                    |
+| 2402-2480MHz(BLE)       | 6.30 dBm                    |
+| 2412-2472MHz(2.4G WiFi) | 13.61 dBm                   |
  
 
 ## Company Information
 
-| Company name    | Arduino S.r.l                                    |
-| --------------- | ----------------------------------------------   |
-| Company Address | Via Andrea Appiani,2520900 MONZA                 |
+| Company name    | Arduino S.r.l                    |
+| --------------- | -------------------------------- |
+| Company Address | Via Andrea Appiani,2520900 MONZA |
 
 ## Reference Documentation
 
-| Reference                 | **Link**                                                     |
-| ------------------------- | ------------------------------------------------------------ |
-| Arduino IDE (Desktop)     | https://www.arduino.cc/en/software                      |
-| Arduino IDE (Cloud)       | https://create.arduino.cc/editor                             |
-| Cloud IDE Getting Started | https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a |
-| Forum                     | http://forum.arduino.cc/                                     |
-| SAMD21G18                 | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf |
-| NINA W102                 | https://content.u-blox.com/sites/default/files/NINA-W10_DataSheet_UBX-17065507.pdf |
-| ECC608                    | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
-| MPM3610                   | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf |
-| NINA Firmware             | https://github.com/arduino/nina-fw                           |
-| ECC608 Library            | https://github.com/arduino-libraries/ArduinoECCX08           |
-| LSM6DSL Library           | https://github.com/stm32duino/LSM6DSL                        |
-| ProjectHub                | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending |
-| Library Reference         | https://www.arduino.cc/reference/en/                         |
-| Arduino Store             | https://store.arduino.cc/                                    |
+| Reference                              | **Link**                                                                                                                                                             |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arduino IDE (Desktop)                  | https://www.arduino.cc/en/software                                                                                                                                   |
+| Arduino Cloud Editor                   | https://create.arduino.cc/editor                                                                                                                                     |
+| Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                                                                                                                 |
+| Arduino Documentation                  | https://docs.arduino.cc                                                                                                                                              |
+| Arduino Project Hub                    | https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending                                                                                             |
+| Library Reference                      | https://www.arduino.cc/reference/en/                                                                                                                                 |
+| Arduino Store                          | https://store.arduino.cc/                                                                                                                                            |
+| Forum                                  | http://forum.arduino.cc/                                                                                                                                             |
+| SAMD21G18                              | https://ww1.microchip.com/downloads/aemDocuments/documents/MCU32/ProductDocuments/DataSheets/SAM-D21DA1-Family-Data-Sheet-DS40001882G.pdf                            |
+| NINA W102                              | https://content.u-blox.com/sites/default/files/NINA-W10_DataSheet_UBX-17065507.pdf                                                                                   |
+| ECC608                                 | https://ww1.microchip.com/downloads/aemDocuments/documents/SCBU/ProductDocuments/DataSheets/ATECC608A-CryptoAuthentication-Device-Summary-Data-Sheet-DS40001977B.pdf |
+| MPM3610                                | https://www.monolithicpower.com/pub/media/document/MPM3610_r1.01.pdf                                                                                                 |
+| NINA Firmware                          | https://github.com/arduino/nina-fw                                                                                                                                   |
+| ECC608 Library                         | https://github.com/arduino-libraries/ArduinoECCX08                                                                                                                   |
+| LSM6DSL Library                        | https://github.com/stm32duino/LSM6DSL                                                                                                                                |
+
 
 ## Revision History
 
 | Date       | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
+| 25/04/2024 | 4            | Updated link to new Cloud Editor      |
+| 27/10/2023 | 3            | Correction NINA SPI pins              |
 | 03/08/2022 | 2            | Reference documentation links updates |
 | 15/04/2021 | 1            | General datasheet updates             |

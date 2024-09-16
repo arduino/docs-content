@@ -13,9 +13,9 @@ The Arduino M0 is programmed using the [Arduino Software (IDE)](https://arduino.
 
 
 
-All Arduino boards, including this one, work out-of-the-box on the [Arduino Web Editor](https://create.arduino.cc/editor), you only need to install Arduino Create Agent to get started.
+All Arduino boards, including this one, work out-of-the-box on the [Arduino Cloud Editor](https://create.arduino.cc/editor), you only need to install Arduino Create Agent to get started.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow this [simple guide](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a) to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow this [simple guide](https://create.arduino.cc/projecthub/Arduino_Genuino/getting-started-with-arduino-web-editor-4b3e4a) to start coding on the browser and upload your sketches onto your board.
 
 
 
@@ -110,7 +110,7 @@ Pressing the Reset button on the M0 causes the SAMD21 to reset as well as resett
 
 #### ADC and PWM resolutions
 
-The M0 has the ability to change its analog read and write resolutions (defaults to 10-bits and 8-bits, respectively). It can support up to 12-bit ADC/PWM and 10-bit DAC resolutions. See the [analog write resolution](https://www.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogwriteresolution/) and [analog read resolution](https://www.arduino.cc/reference/en/language/functions/zero-due-mkr-family/analogreadresolution/) pages for information.
+The M0 has the ability to change its analog read and write resolutions (defaults to 10-bits and 8-bits, respectively). It can support up to 12-bit ADC/PWM and 10-bit DAC resolutions. See the [analog write resolution](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwriteresolution/) and [analog read resolution](https://www.arduino.cc/reference/en/language/functions/analog-io/analogreadresolution/) pages for information.
 
 For more details on the Arduino M0, see the [hardware page](https://arduino.cc/en/Main/ArduinoBoardM0).
 

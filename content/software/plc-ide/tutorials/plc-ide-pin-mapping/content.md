@@ -1,5 +1,5 @@
 ---
-title: 'Arduino® PLC IDE Pin Mapping'
+title: 'Arduino PLC IDE Pin Mapping'
 difficulty: beginner
 description: "Assign the pins to variables and interact with them on the Arduino PLC IDE."
 tags:
@@ -67,6 +67,7 @@ To create a variable for a **pin map** you have two options:
 ***By default they are not available as variables, in any case, you can get the values by accessing their memory registers, which is not as easy as having variables with the data.***
 
 #### Single Variable
+<br></br>
 
 Double-click the **Pin Map** that you want to edit, for example, the **Digital Output table**.
 
@@ -78,13 +79,14 @@ We will assign to the **Digital Output pin 2** the name **`digitalOut01`**
 
 To interact with the digital output pin you can use this code:
 
-```
+```cpp
 // Set the Digital Output 01 to HIGH
 
 digitalOut01 := 1;
 ```
 
 #### Array
+<br></br>
 
 Go to your project tile window, and right-click on the **Global Variable** element.
 
@@ -100,7 +102,7 @@ Now on the popup menu, you can set the name of the variable, then select the typ
 
 As it is an array you will be able to access its pin in a **For loop** like the following:
 
-```
+```cpp
 // Set all the Digital Outputs to HIGH
 
 FOR pinNumber := 0 TO 7 DO

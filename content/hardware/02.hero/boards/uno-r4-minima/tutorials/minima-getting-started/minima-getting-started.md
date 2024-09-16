@@ -5,7 +5,7 @@ author: Hannes Siebeneicher
 tags: [UNO R4 Minima, Installation, IDE]
 ---
 
-To use the [Arduino UNO R4 Minima](/hardware/uno-r4-minima) board, you will need to install the UNO R4 Minima board package, which is part of the [Arduino Core for Renesas devices](https://github.com/arduino/ArduinoCore-renesas).
+To use the [Arduino UNO R4 Minima](/hardware/uno-r4-minima) board, you will need to install the UNO R4 Minima Board Package.
 
 To install it, you will need a version of the Arduino IDE, which you can download from the [Arduino Software page](https://www.arduino.cc/en/software). In this guide, we will use the latest version of the IDE 2.
 
@@ -14,7 +14,7 @@ To install it, you will need a version of the Arduino IDE, which you can downloa
 - [Arduino UNO R4 Minima](https://store.arduino.cc/uno-r4-minima)
 - [Arduino IDE](/software/ide-v2)
 
-***You can also use the [Web Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 
+***You can also use the [Cloud Editor](https://create.arduino.cc/editor) which comes with all Arduino boards pre-installed.*** 
 
 ## Download & Install IDE
 

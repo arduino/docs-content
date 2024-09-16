@@ -1,6 +1,6 @@
 <EssentialsColumn title="Guides">
-  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v1/installing-mbed-os-nano-boards">
-    All you need to know to get started with your new Arduino board.
+  <EssentialElement title="Quickstart Guide" type="getting-started" link="/software/ide-v2/tutorials/ide-v2-board-manager#mbed-os-nano">
+    Set up your Arduino board in the Arduino IDE.
   </EssentialElement>
 
   <EssentialElement title="BLE Sense Rev2 Cheat Sheet" type="tutorial" link="/tutorials/nano-33-ble-sense-rev2/cheat-sheet">

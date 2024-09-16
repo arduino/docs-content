@@ -1,0 +1,21 @@
+Carrier:
+  Name: Arduino® DIN Simul8
+  SKU: ABX00097
+Compatible boards:
+  Arduino Opta® Lite: Yes
+  Arduino Opta® RS485: Yes 
+  Arduino Opta® WiFi: Yes
+  Arduino® Portenta Machine Control: Yes
+Power:
+  Input voltage (nominal): 24 V
+  Power Supply Connector: Barrel Plug
+Connectors:
+  Screw terminals: 12 (8 + 4) screw terminal connections (5 mm pitch, 12 ˜ 30 AWG)
+Inputs: 
+  Switches: 8 SPDT Toggle Switches
+Outputs: 
+  0-10V: 8 signal lines
+Dimensions:
+  Width: 66 mm
+  Length: 72 mm
+  Weight: 46 grams

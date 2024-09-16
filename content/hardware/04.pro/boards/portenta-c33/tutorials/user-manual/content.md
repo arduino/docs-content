@@ -31,7 +31,7 @@ This user manual will provide a comprehensive overview of the Portenta C33 board
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## Product Overview
 
@@ -55,10 +55,10 @@ Here is an overview of the board's main components shown in the images above:
 - **Security**: The board features an onboard ready-to-use secure element, the SE050C2 from NXP®, specifically designed for IoT devices and provides advanced security features.
 - **USB connectivity**: The board features a USB-C port for power and data, which is also accessible through the board's High-Density connectors.
 - **Power management**: The Portenta C33 is designed for low-power operation to meet the demands of always-connected IoT devices. It features a power management integrated circuit (PMIC), the PF1550 from NXP®,  designed specifically for low-power, portable, and battery-powered IoT applications.
-- **Analog and digital peripherals**: The board features analog peripherals such as two 8-channel 12-bit analog-to-digital converters (ADC) and two 12-bit digital-to-analog converters (DAC). It also features the following digital peripherals: GPIO (x7), I<sup>2</sup>C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), PDM (x1), and SAI (x1).
+- **Analog and digital peripherals**: The board features analog peripherals such as two 8-channel 12-bit analog-to-digital converters (ADC) and two 12-bit digital-to-analog converters (DAC). It also features the following digital peripherals: GPIO (x7), I2C (x1), UART (x4), SPI (x2), PWM (x10), CAN (x2), I2S (x1), SPDIF (x1), and SAI (x1).
 - **Debugging**: The board features a JTAG/SWD debug port accessible through its High-Density connectors.
-- **Surface mount**: The castellated pins of the board allows it to be positioned as a surface-mountable module.
-- **MKR-styled connectors**: The MKR-styled connectors of the board makes it compatible with all the MKR family boards. 2.54 mm pitch headers can be easily soldered to the board.
+- **Surface mount**: The castellated pins of the board allow it to be positioned as a surface-mountable module.
+- **MKR-styled connectors**: The MKR-styled connectors of the board make it compatible with all the MKR family boards. 2.54 mm pitch headers can be easily soldered to the board.
 
 ### Board Core and Libraries
 
@@ -72,7 +72,7 @@ The **Arduino Renesas Boards** core contains the libraries and examples to work 
 
 The complete pinout is available and downloadable as PDF from the link below:
 
-- [Portenta C33 pinout](https://docs.arduino.cc/static/903c16295f3bf076c2ed23eb1b38791c/ABX00074-full-pinout.pdf)
+- [Portenta C33 pinout](https://docs.arduino.cc/resources/pinouts/ABX00074-full-pinout.pdf)
 
 ### Datasheet
 
@@ -90,7 +90,7 @@ The complete schematics are available and downloadable as PDF from the link belo
 
 The complete STEP files are available and downloadable from the link below:
 
-- [Portenta C33 STEP files](https://docs.arduino.cc/static/0d1ade945a6d5105667ee3a0e50b96c7/ABX00074-step.zip)
+- [Portenta C33 STEP files](../../downloads/ABX00074-step.zip)
 
 ## First Use
 
@@ -99,11 +99,11 @@ The complete STEP files are available and downloadable from the link below:
 The Portenta C33 can be powered by the following:
 
 - Using a USB-C® cable (not included).
-- Using an external **4.1 to 6 V power supply** connected to the `VIN` pin located in the MKR-styled connectors pins of the board (please, refer to the [board pinout section](#pinout) of the user manual).
-- Using an external **5 V power supply** connected to the `5V` pin located in the MKR-styled connectors of the board (please, refer to the [board pinout section](#pinout) of the user manual).
+- Using an external **4.1 to 6 V power supply** connected to the `VIN` pin located in the MKR-styled connectors pins of the board (please refer to the [board pinout section](#pinout) of the user manual).
+- Using an external **5 V power supply** connected to the `5V` pin located in the MKR-styled connectors of the board (please refer to the [board pinout section](#pinout) of the user manual).
 - Using a **3.7 V Lithium Polymer (Li-Po) battery** connected to the board through the onboard battery connector; the manufacturer part number of the battery connector is BM03B-ACHSS-GAN-TF(LF)(SN), and its matching receptacle manufacturer part number is ACHR-03V-S. The **recommended minimum battery capacity for the Portenta C33 is 800 mAh**. A Li-Po battery with an integrated NTC thermistor is also recommended for thermal protection. 
 - Using an Arduino Pro carrier board, such as the [Portenta Max Carrier](https://store.arduino.cc/collections/pro-family/products/portenta-max-carrier) and the [Portenta Breakout](https://store.arduino.cc/collections/pro-family/products/arduino-portenta-breakout). 
-- Using your custom boards to power the board through the board's castellated pins, MKR-styled or High-Density connectors. Check out the [board pinout](#pinout) and its schematic to know more about it.
+- Using your custom boards to power the board through the board's castellated pins, MKR-styled, or High-Density connectors. Check out the [board pinout](#pinout) and its schematic to know more about it.
 
 ![Different ways to power the Portenta C33 board](assets/user-manual-4.png)
 
@@ -148,7 +148,7 @@ You should see now the green LED of the built-in RGB LED turn on for one second,
 
 ## Pins
 
-The Portenta C33 has been designed with two types of connectors, the MKR-styled connectors, intended for prototyping and debugging, and the High-Density connectors, intended to be used across Arduino Pro boards or custom boards. The Portenta C33 MKR-styled connectors pinout is shown in the image below:
+The Portenta C33 has been designed with two types of connectors: the MKR-styled connectors, intended for prototyping and debugging, and the High-Density connectors, intended to be used across Arduino Pro boards or custom boards. The Portenta C33 MKR-styled connectors pinout is shown in the image below:
 
 ![Portenta C33 MKR-styled connectors pinout](assets/ABX00074-pinout-MKR.png)
 
@@ -173,7 +173,7 @@ The Portenta C33 has eight analog input pins mapped as follows:
 
 The eight analog input pins can be used through the built-in functions of the Arduino programming language ([`analogRead()` function](https://reference.arduino.cc/reference/en/language/functions/analog-io/analogread/)).
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find the analog pins on the board:
+Please refer to the [board pinout section](#pinout) of the user manual to find the analog pins on the board:
 
 - MKR-style connectors: pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, and `A6` are accessible thought these connectors. 
 - High-Density connectors: pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, and `A7` are accessible thought these connectors.
@@ -344,7 +344,7 @@ The following 17 digital pins are **generic GPIO pins**; they are available thro
 |           `82`          |          GPIO         |          `P007`         |
 |           `83`          |          GPIO         |          `P008`         |
 
-And the last eight digital pins are **SD-card-capable**; they are available through the High-Density connectors of the board:
+The last eight digital pins are **SD-card-capable**; they are available through the High-Density connectors of the board:
 
 | **Arduino Pin Mapping** | **Pin Functionality** | **Microcontroller Pin** |
 |:-----------------------:|:---------------------:|:-----------------------:|
@@ -448,7 +448,7 @@ The Portenta C33 has 10 digital pins with PWM functionality, mapped as follows:
 
 The 10 PWM pins can be used through the built-in ([`analogWrite()` function](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite)) of the Arduino programming language. 
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+Please refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
 - MKR-styled connectors: pins `0`, `1`, `2`, `3`, `4`, `5`, and `6` are accessible through these connectors.
 - High-Density connectors: pins `0`, `1`, `2`, `3`, `4`, `5`, `7`, `8`, `9`, `23`, `24`, `25`, and `26` are accessible through these connectors.
@@ -481,7 +481,7 @@ void loop() {
   delay(30);
 }
 ```
-You should now see the built-in RGB LED's green LED fade in, then fade out repeatedly.
+You should now see the built-in RGB LED's green LED fade in and then fade out repeatedly.
 
 ![PWM example running in the Portenta C33](assets/user-manual-gif-2.gif)
 
@@ -503,7 +503,7 @@ The built-in RGB LED can be accessed through the following macro definitions:
 |     Blue LED     |          `LEDB`         |
 |     Green LED    | `LEDG` or `LED_BUILTIN` |
 
-***The built-in RGB LED on the Portenta C33 needs to be pulled to ground to make them light up. This means that a voltage level of `LOW` on each of their pins will turn the specific color of the LED on, and a voltage level of `HIGH` will turn them off. Furthermore, invoking the `pinMode(LED_BUILTIN, OUTPUT)` instruction pulls the built-in LED LOW, which means it turns it on.***
+***The built-in RGB LED on the Portenta C33 must be pulled to ground to make it light up. This means that a voltage level of `LOW` on each of their pins will turn the specific color of the LED on, and a voltage level of `HIGH` will turn them off. Furthermore, invoking the `pinMode(LED_BUILTIN, OUTPUT)` instruction pulls the built-in LED LOW, which means it turns it on.***
 
 The following example code blinks each of the LEDs at an interval of 500 ms:
 
@@ -540,7 +540,7 @@ You should now see the built-in RGB LED blinking each of its LEDs repeatedly.
 
 ## Communication
 
-This section of the user manual covers the different communication protocols that are supported by the Portenta C33 board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I<sup>2</sup>C), Universal Asynchronous Receiver-Transmitter (UART), and Wi-Fi®; JTAG interface and communication via the onboard ESLOV connector is also explained in this section. 
+This section of the user manual covers the different communication protocols that are supported by the Portenta C33 board, including the Serial Peripheral Interface (SPI), Inter-Integrated Circuit (I2C), Universal Asynchronous Receiver-Transmitter (UART), and Wi-Fi®; JTAG interface and communication via the onboard ESLOV connector is also explained in this section. 
 
 The Portenta C33 features dedicated pins for each communication protocol, accessible through the MKR-styled connectors and the High-Density connectors, making connecting and communicating with different components, peripherals, and sensors easy.
 
@@ -559,7 +559,7 @@ The Portenta C33 supports SPI communication via two dedicated ports named `SPI0`
 |  `47` or `PIN_SPI1_SCK` |          `P102`         |
 |  `48` or `PIN_SPI1_CS`  |          `P103`         |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
+Please refer to the [board pinout section](#pinout) of the user manual to find them on the board. Include the [`SPI` library](https://reference.arduino.cc/reference/en/language/functions/communication/spi/) at the top of your sketch to use the SPI communication protocol. The SPI library provides functions for SPI communication:
 
 ```arduino
 #include <SPI.h>
@@ -604,7 +604,7 @@ digitalWrite(SS, HIGH);
 
 ### I2C
 
-The Portenta C33 supports I<sup>2</sup>C communication, which allows data transmission between the board and other I<sup>2</sup>C-compatible devices. The pins used in the Portenta C33 for the I<sup>2</sup>C communication protocol are the following:
+The Portenta C33 supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. There are three available I2C ports in the Portenta C33: `I2C0`, `I2C1`, and `I2C2`.  The pins used in those interfaces for the I2C communication protocol are the following:
 
 | **Arduino Pin Mapping** | **Microcontroller Pin** |
 |:-----------------------:|:-----------------------:|
@@ -615,22 +615,33 @@ The Portenta C33 supports I<sup>2</sup>C communication, which allows data transm
 |       `39`/`SDA2`       |          `P302`         |
 |       `40`/`SCL2`       |          `P301`         |
 
-Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board. The I<sup>2</sup>C pins are also available through the onboard ESLOV connector of the Portenta C33.
+To locate these pins on the board, please refer to the [board pinout section](#pinout) of the user manual. The `SDA0` and `SCL0` pins are also available through the onboard ESLOV connector of the Portenta C33.
 
-To use I<sup>2</sup>C communication, include the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) at the top of your sketch. The `Wire` library provides functions for I<sup>2</sup>C communication:
+***System integrators can use the Portenta C33's High-Density connectors to expand the signals of the board to a custom-designed daughter board or carrier. Below is the I2C pins mapping on the board's High-Density connectors and shared resources:***
+
+
+| **HD Connector** | **Interface** | **Pins** | **Status** | **Shared Peripherals** |
+|:----------------:|:-------------:|:--------:|:----------:|:----------------------:|
+|        J1        |     `I2C1`    |   43-45  |    Free    |            -           |
+|        J2        |     `I2C0`    |   44-46  |    Free    |            -           |
+|        J2        |     `I2C2`    |   45-47  |    Free    |            -           |
+
+The status column indicates the current status of the pins. "Free" means the pins are not in use by another resource or peripheral of the board and are available for usage, while "Shared" means the pins are used by one or several resources or peripherals of the board.
+
+To use I2C communication, include the [`Wire` library](https://reference.arduino.cc/reference/en/language/functions/communication/wire/) at the top of your sketch. The `Wire` library provides functions for I2C communication:
 
 ```arduino
 #include <Wire.h>
 ```
 
-In the `setup()` function, initialize the I<sup>2</sup>C library:
+In the `setup()` function, initialize the I2C library:
 
 ```arduino
 // Initialize the I2C communication
 Wire.begin();
 ```
 
-To transmit data to an I<sup>2</sup>C-compatible device, you can use the following commands:
+To transmit data to an I2C-compatible device, you can use the following commands:
 
 
 ```arduino
@@ -656,7 +667,7 @@ Wire.write(value);
 Wire.endTransmission();
 ```
 
-To read data from an I<sup>2</sup>C-compatible device, you can use the `requestFrom()` function to request data from the device and the `read()` function to read the received bytes:
+To read data from an I2C-compatible device, you can use the `requestFrom()` function to request data from the device and the `read()` function to read the received bytes:
 
 ```arduino
 // The target device's I2C address
@@ -673,6 +684,102 @@ while (Wire.available()) {
   byte data = Wire.read();
 }
 ```
+
+### I2S
+
+The Portenta C33 supports I2S (Inter-IC Sound), an interface primarily for transmitting high-quality audio data between digital devices. Unlike UART or SPI interfaces, which are more commonly known and used, the I2S interface is specifically designed for audio applications, making it an essential interface in modern audio electronics.
+
+I2S facilitates audio data transfer synchronously, ensuring the audio signals are transmitted without losing quality. It operates using three main signals: `Serial Data` (`SD`), `Word Select` (`WS`), and `Serial Clock` (`SCK`). `Serial Data` can be input (`SDI`) or output (`SDO`). These signals work together to synchronize the transmission of audio samples between devices such as digital-to-analog converters (DACs), analog-to-digital converters (ADCs), and microcontrollers.
+
+The pins used in the Portenta C33 for the I2S interface are the following:
+
+| **Arduino Pin Mapping** | **Microcontroller Pin** | **I2S Interface** |
+|:-----------------------:|:-----------------------:|:-----------------:|
+|           `63`          |          `P112`         |        `CK`       |
+|           `64`          |          `P113`         |        `WS`       |
+|           `65`          |          `P114`         |       `SDI`       |
+|           `66`          |          `P115`         |       `SDO`       |
+
+***The I2S interface pins are accessible only through the Portenta C33's High-Density connectors (J1). You can access the pins using an Arduino Pro carrier board like the [Portenta Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), the [Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat-carrier), or the [Portenta Mid Carrier](https://store.arduino.cc/products/portenta-mid-carrier).***
+
+The `Arduino Renesas Core` has a built-in library that lets you use the I2S interface, the `I2S` library, right out of the box. Let's walk through an example sketch demonstrating some of the library's capabilities.
+
+The example sketch below showcases configuring the I2S interface and playing a generated sine wave with the Portenta C33 board.
+
+```arduino
+/**
+  I2S Sine Wave
+  Name: portenta_c33_i2s_sine_wave.ino
+  Purpose: This sketch demonstrates I2S communication on the Portenta C33 by 
+  generating and playing a sine wave audio signal using the I2S interface.
+  
+  @author Arduino Product Experience Team
+  @version 1.0 25/06/24
+*/
+
+// Include the necessary library for I2S communication
+#include "I2S.h"
+
+// Define the sampling rate in Hz
+#define SAMPLE_RATE 44100  
+
+// Constant used in the sine wave calculations
+#define TAU 6.283185307179586476925286766559 
+
+// Buffer to hold the generated sine wave samples
+uint16_t samplebuf[4096];
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+  
+  // Initialize the I2S interface in output mode with the specified sample rate and buffer size
+  // Enter an infinite loop if initialization fails
+  if (!I2S.begin(I2S_MODE_OUT, SAMPLE_RATE, 4096, 4)) {
+    Serial.println("- Failed to initialize I2S interface!");
+    while (1);
+  }
+
+  // Generate the sine wave samples
+  for (int i = 0; i < 4096; i += 2) {
+    // Calculate the time in seconds
+    double t = (double)i / 2 / SAMPLE_RATE;  
+
+    // Generate the sine wave sample
+    uint16_t sample = 32768 * (1 + sin(440.0 * TAU * t)); 
+
+    // Assign the sample to the left channel
+    samplebuf[i] = sample; 
+
+    // Assign the same sample to the right channel
+    samplebuf[i + 1] = sample; 
+  }
+}
+
+void loop() {
+  // Get a buffer to write data
+  SampleBuffer buf = I2S.dequeue();
+  
+  // Copy the samples to the I2S buffer
+  for (int i = 0; i < buf.bytes() / sizeof(uint16_t); i++) {
+    buf.data()[i] = samplebuf[i];
+  }
+
+  // Write the buffer to the I2S interface
+  I2S.write(buf);
+}
+```
+
+Let's analyze the example sketch. First, the necessary configurations are made in the setup function. The `I2S.h` library is included to provide the necessary functions for I2S communication. Constants for the sampling rate (`SAMPLE_RATE`) and the value of `TAU` are defined for use in the sine wave calculations.
+
+The setup function initializes serial communication for debugging purposes and waits up to 2.5 seconds for a connection. It then configures the I2S interface in output mode with a sampling rate of 44100 Hz, a buffer size of 4096 samples, and a queue depth of four. If the initialization fails, it prints an error message and enters an infinite loop. The function also generates a sine wave and stores it in the `samplebuf` buffer. The sine wave is generated for a 440 Hz tone (the standard `A` note), and the same sample is assigned to both the left and right audio channels.
+
+In the loop function, a buffer is continuously retrieved to write data using `I2S.dequeue()` function. The pre-generated sine wave samples from `samplebuf` are copied to the I2S buffer and then written to the I2S interface using `I2S.write()`.
+
+The sine wave generation involves calculating the samples for a 440 Hz tone and storing them for both the left and right audio channels. The samples are continuously written to the I2S interface to be played as audio output. You should hear a continuous 440 Hz tone when this sketch is uploaded and running on the Portenta C33. You can modify the frequency, sampling rate, and buffer size to experiment with different audio signals and configurations.
+
+You can download the example sketch [here](assets/portenta_c33_i2s_sine_wave.zip).
 
 ### UART 
 
@@ -691,21 +798,36 @@ The Portenta C33 supports UART communication. The pins used in the Portenta C33 
 |           `92`          |          `P603`         |
 |           `93`          |          `P604`         |
 
-Please, refer to the board pinout section of the user manual to find them on the board. The built-in ([Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/)) library functions can use the UART pins.
+***Please refer to the board pinout section of the user manual to find them on the board. The built-in [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) library functions can use the UART pins.***
 
+The `Arduino Renesas Core` has a built-in library that lets you use the UART communication, the `Serial` library, right out of the box. Let's walk through an example sketch demonstrating some of the module's capabilities.
 
-To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
-
-```arduino
-// Start UART communication at 9600 baud
-Serial.begin(9600);
-```
-
-To read incoming data, you can use a `while()` loop to continuously check for available data with the `Serial.available()` function and read individual characters with the `Serial.read()` function. The code shown above stores the incoming characters in a String variable and process the data when a line-ending character is received:
+The example sketch below showcases how to configure the UART interface, read incoming data, and transmit data with the Portenta C33 board, which are common tasks for serial communication.
 
 ```arduino
+/**
+  UART Communication
+  Name: UARTCommunication.ino
+  Purpose: This sketch demonstrates UART communication on the Portenta C33
+
+  @author Arduino Product Experience Team
+  @version 1.0 03/06/24
+*/
+
+// Include the necessary libraries for UART communication
+#include <Arduino.h>
+
 // Variable for storing incoming data
 String incoming = "";
+
+void setup() {
+  // Initialize serial communication and wait up to 2.5 seconds for a connection
+  Serial.begin(115200);
+  for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+  // Print a message to the Serial Monitor to indicate setup is complete
+  Serial.println("- UART communication setup complete!");
+}
 
 void loop() {
   // Check for available data and read individual characters
@@ -726,25 +848,44 @@ void loop() {
       incoming += c;
     }
   }
+
+  // Example of transmitting data
+  // Transmit the string "Hello world!" every second
+  // Wait for 1 second before sending again
+  Serial.println("- Hello world!");
+  delay(1000); 
+}
+
+/**
+  Processes the received data
+  This function can be modified to perform different actions based on the received data
+
+  @param data The received data as a String
+  @return none
+*/
+void processData(String data) {
+  // Print the received data to the Arduino IDE Serial Monitor
+  Serial.println("- Received: " + data);
 }
 ```
 
-To transmit data to another device via UART, you can use the `Serial.write()` function:
+Let's analyze the example sketch. First, the necessary configurations are made:
 
-```arduino
-// Transmit the string "Hello world!
-Serial.write("Hello world!");
-```
+- The UART communication is initialized at a baud rate of 115200.
+- A loop continuously checks for available data and reads individual characters, storing them in a `String` variable.
+- A newline character indicates the end of a message, triggering the processing function.
 
-You can also use the `Serial.print()` and `Serial.println()` functions to send a String without a newline character or followed by a newline character:
+The `processData()` function is called to process the received data. This example simply prints the data to the Arduino IDE's Serial Monitor. You can modify this function to perform different actions based on the received data. Finally, the example sketch shows how to send data using the `Serial.println()` function, which transmits the string `Hello world!` every second.
 
-```arduino
-// Transmit the string "Hello world!"
-Serial.print("Hello world!");
+You should see the following output in the Arduino IDE's Serial Monitor:
 
-// Transmit the string "Hello world!" followed by a newline character
-Serial.println("Hello world!");
-```
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-23.png)
+
+You can also send information to the Portenta C33 using the Arduino IDE's Serial Monitor. In the `Message` box of the IDE's Serial Monitor, write a message (for example, `Portenta C33`) and press Enter; you should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-24.png)
+
+You can download the example sketch [here](assets/UARTCommunication.zip).
 
 ### Wi-Fi®
 
@@ -754,7 +895,7 @@ The Portenta C33 board features an onboard Wi-Fi® module, the ESP32-C3-MINI-1U 
 
 Some of the key capabilities of the ESP32-C3-MINI-1U module are the following:
 
-- **Wi-Fi® and Bluetooth® connectivity**: The module supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® 5.0 connectivity. `ArduinoBLE` library support is limited to luetooth® 4.0 at this time.
+- **Wi-Fi® and Bluetooth® connectivity**: The module supports 2.4 GHz Wi-Fi® (802.11 b/g/n) and Bluetooth® 5.0 connectivity. `ArduinoBLE` library support is limited to Bluetooth® 4.0 at this time.
 - **CPU and memory**: It contains a 32-bit RISC-V single-core processor with a clock speed of up to 160 MHz. The chip also has 400 KB of SRAM and 384 KB of ROM.
 - **Security features**: It supports various security features, including secure boot, flash encryption, and cryptographic hardware acceleration.
 - **Low-power operation**: It supports multiple power modes for different low-power applications, making it suitable for battery-powered devices.
@@ -910,7 +1051,7 @@ First, the necessary libraries are included:
  - The `WiFiC3.h` and `WiFiClient.h` are included at the start, those libraries contains the functionalities required to communicate via Wi-Fi®. 
  - The SSID and password for the Wi-Fi® network are defined.
 
-Then, the server is defined ( "www.google.com" in this case) and the Wi-Fi® client object is created to manage the connection to the server.
+Then, the server is defined ( `www.google.com` in this case) and the Wi-Fi® client object is created to manage the connection to the server.
 
 Next, in the `setup()` function:
 
@@ -1042,13 +1183,12 @@ void loop() {
 }
 ```
 
-
 First, the necessary libraries are included: 
 
 - The `EthernetC33` library which contains the functionality required to communicate via Ethernet is included in the beginning.
 
 
-Then, the server is defined, which is "www.google.com" in this case:
+Then, the server is defined, which is `www.google.com` in this case:
 
 - The static IP address which will be used if the DHCP fails to assign an IP address is set.
 
@@ -1192,7 +1332,7 @@ You can use a [Portenta Breakout](https://store.arduino.cc/products/arduino-port
 
 ### ESLOV Connector
 
-The Portenta C33 board features an onboard ESLOV connector to extend the I<sup>2</sup>C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Portenta C33 without soldering or wiring; Nicla family boards can also be connected to the Portenta C33 through this connector. 
+The Portenta C33 board features an onboard ESLOV connector to extend the I2C communication bus. This connector simplifies connecting various sensors, actuators, and other modules to the Portenta C33 without soldering or wiring; Nicla family boards can also be connected to the Portenta C33 through this connector. 
 
 ![Portenta C33 built-in ESLOV connector](assets/user-manual-8.png)
 
@@ -1441,60 +1581,60 @@ Here's what each section of the example code does:
 - **Public key import**: The public key derived from the generated private key is imported to the secure element with key ID 899.
 - **Signature verification**: The example code then verifies the signature using the imported public key and prints a success or failure message accordingly.
 
-## Arduino IoT Cloud
+## Arduino Cloud
 
 The Portenta C33 is fully compatible with the Arduino Cloud IoT, which simplifies how professional applications are developed and tracked. By using the IoT Cloud, you can, for example, monitor sensor data, control your board and actuators connected to it remotely, and update your device's firmware over-the-air.
 
 
-In case it is the first time you are using the Arduino IoT Cloud:
+In case it is the first time you are using the Arduino Cloud:
 
-- To use the Arduino IoT Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
-- To use the Arduino Web Editor or Arduino IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome).
+- To use the Arduino Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
+- To use the Arduino Cloud Editor or Arduino Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome).
 
-Let's walk through a step-by-step demonstration of how to use your Portenta C33 board with the Arduino IoT Cloud.
+Let's walk through a step-by-step demonstration of how to use your Portenta C33 board with the Arduino Cloud.
 
-Log in to your Arduino IoT Cloud account; you should see the following:
-
-
-![Arduino IoT Cloud initial page](assets/user-manual-13.png)
-
-First, provision your Portenta C33 board on your Arduino IoT Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
+Log in to your Arduino Cloud account; you should see the following:
 
 
-![Arduino IoT Cloud Devices page](assets/user-manual-14.png)
+![Arduino Cloud initial page](assets/user-manual-13.png)
 
-The **Setup Device** pop-up window will appear, navigate into **AUTOMATIC** and select the **Arduino board** option:
+First, provision your Portenta C33 board on your Arduino Cloud space. To do this, navigate to **Devices** and then click on the **ADD DEVICE** button:
 
-![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-15.png)
 
-After a while, your Portenta C33 board should be discovered by the Arduino IoT Cloud, as shown below:
+![Arduino Cloud Devices page](assets/user-manual-14.png)
 
-![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-16.png)
+The **Setup Device** pop-up window will appear. Navigate into **AUTOMATIC** and select the **Arduino board** option:
 
-Click the **CONFIGURE** button, give your board a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with a [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier), a [Portenta Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), a [Portenta Vision Shield](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet) or a custom-made board with an Ethernet connector. Your Portenta C33 board will be configured to securely communicate with the Arduino IoT Cloud. This process can take a while.
+![Arduino Cloud Setup Device pop-up window](assets/user-manual-15.png)
 
-![Arduino IoT Cloud Setup Device pop-up window](assets/user-manual-17.png)
+After a while, your Portenta C33 board should be discovered by the Arduino Cloud, as shown below:
 
-Once the Portenta C33 has been configured, let's create a "Thing" to test the connection between your board and the Arduino IoT Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name.
+![Arduino Cloud Setup Device pop-up window](assets/user-manual-16.png)
 
-![Arduino IoT Cloud "Thing" setup](assets/user-manual-18.png)
+Click the **CONFIGURE** button, give your board a name, and select the type of network connection. In this example, we will use a Wi-Fi® connection; you can also use an Ethernet connection with a [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier), a [Portenta Breakout](https://store.arduino.cc/products/arduino-portenta-breakout), a [Portenta Vision Shield](https://store.arduino.cc/products/arduino-portenta-vision-shield-ethernet) or a custom-made board with an Ethernet connector. Your Portenta C33 board will be configured to securely communicate with the Arduino Cloud. This process can take a while.
+
+![Arduino Cloud Setup Device pop-up window](assets/user-manual-17.png)
+
+Once the Portenta C33 has been configured, let's create a "Thing" to test the connection between your board and the Arduino Cloud. Navigate into **Things** and select the **CREATE THING** button; give your thing a name.
+
+![Arduino Cloud "Thing" setup](assets/user-manual-18.png)
 
 Navigate into **Associate Device** and click the **Select Device** button. Select your Portenta C33 board and associate it with your "Thing." Then, navigate into **Network** and click the **Configure** button; enter your network credentials.
 
-The project is now ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD VARIABLE** button. 
+The project is now ready to add some variables to your "Thing"; navigate into **Cloud Variables** and click the **ADD** button to add variable. 
 
 ![Add variable button](assets/user-manual-19.png)
 
 Add one variable with the following characteristics:
 
 - **Name**: `led`
-- **Variable type**: `boolean`
+- **Variable type**: `Boolean`
 - **Variable permission** `Read & Write`
 - **Variable update policy**: `On change`
 
-![Arduino IoT Cloud "Thing" variable setup](assets/user-manual-21.png)
+![Arduino Cloud "Thing" variable setup](assets/user-manual-21.png)
 
-You should see the `led` variable in the **Cloud Variables** section. Navigate into **Dashboards** and select the **BUILD DASHBOARD** button; this will create a new dashboard; give your dashboard a name.
+You should see the `led` variable in the **Cloud Variables** section. Navigate into **Dashboards** and select the **CREATE DASHBOARD** button; create a new dashboard and give your dashboard a name.
 
 Add the following widgets to your dashboard:
 
@@ -1503,7 +1643,7 @@ Add the following widgets to your dashboard:
 
 Your dashboard should look like the following:
 
-![Arduino IoT Cloud Dashboard setup](assets/user-manual-20.png)
+![Arduino Cloud Dashboard setup](assets/user-manual-20.png)
 
 Go back to your **Things** and open the "Thing" you created. In the "Thing" setup page, navigate into **Sketch**, where you should see the online editor.
 
@@ -1522,7 +1662,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
   /*
@@ -1537,7 +1677,7 @@ void setup() {
 }
 ```
 
-In the `onLedChange()` function, which was generated automatically by the Arduino IoT Cloud when the variable `led` was created, you must associate the onboard green LED state with the `led` variable:
+In the `onLedChange()` function, which was generated automatically by the Arduino Cloud when the variable `led` was created, you must associate the onboard green LED state with the `led` variable:
 
 ```arduino
 /*
@@ -1553,9 +1693,9 @@ The complete example code can be found below:
 
 ```arduino
 /*
-  Sketch generated by the Arduino IoT Cloud
+  Sketch generated by the Arduino Cloud
 
-  Arduino IoT Cloud Variables description
+  Arduino Cloud Variables description
 
   The following variables are automatically generated and updated when changes are made to the Thing
 
@@ -1577,7 +1717,7 @@ void setup() {
   // Defined in thingProperties.h
   initProperties();
 
-  // Connect to Arduino IoT Cloud
+  // Connect to Arduino Cloud
   ArduinoCloud.begin(ArduinoIoTPreferredConnection);
 
   /*
@@ -1607,7 +1747,7 @@ void onLedChange()  {
 
 To upload the code to the Portenta C33 from the online editor, click the green **Verify** button to compile the sketch and check for errors, then click the green **Upload** button to program the board with the sketch.
 
-![Uploading a sketch to the Portenta C33 in the Arduino IoT Cloud](assets/user-manual-22.png)
+![Uploading a sketch to the Portenta C33 in the Arduino Cloud](assets/user-manual-22.png)
 
 Navigate into **Dashboards** again, your board should connect to the Wi-Fi® network you defined before (you can follow the connection process with the online editor integrated Serial Monitor). Your board's green LED should light on or off when the position of the switch changes.
 

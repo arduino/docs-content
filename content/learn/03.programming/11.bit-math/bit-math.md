@@ -19,7 +19,7 @@ In this article, we first explore the basic bitwise operators available in the C
 
 To better explain the bitwise operators, this tutorial will express most integer values using binary notation, also known as _base two_. In this system, all integer values use only the values 0 and 1 for each digit. This is how virtually all modern computers store data internally. Each 0 or 1 digit is called a _bit_, short for _binary digit_.
 
-In the familiar decimal system (_base ten_), a number like 572 means 5\*102 \+ 7\*101 \+ 2\*100. Likewise, in binary a number like 11010 means 1\*24 \+ 1\*23 \+ 0\*22 \+ 1\*21 \+ 0\*20 \= 16 + 8 + 2 = 26.
+In the familiar decimal system (_base ten_), a number like 572 means 5\*10^2 \+ 7\*10^1 \+ 2\*10^0. Likewise, in binary a number like 11010 means 1\*2^4 \+ 1\*2^3 \+ 0\*2^2 \+ 1\*2^1 \+ 0\*2^0 \= 16 + 8 + 2 = 26.
 
 It is crucial that you understand how the binary system works in order to follow the remainder of this tutorial. If you need help in this area, one good place to start is the [Wikipedia article on the binary system](https://en.wikipedia.org/wiki/Binary%5Fnumeral%5Fsystem).
 
