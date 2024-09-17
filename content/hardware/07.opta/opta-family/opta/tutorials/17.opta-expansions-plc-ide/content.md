@@ -1,5 +1,5 @@
 ---
-title: 'Opta™ Expansions Usage with the PLC IDE'
+title: 'Opta™ Digital Expansions Usage with the PLC IDE'
 difficulty: beginner
 description: "Learn how to use the Opta™ expansions to extend your solution capabilities with the Arduino® PLC IDE."
 tags:
@@ -56,6 +56,12 @@ Attach the expansions to the right side of your Opta™ controller. Ensure that 
 The expansions must be powered externally in order to be detected and properly work.
 
 ![Powering the expansions](assets/power-expansion.png)
+
+### Update Expansion Firmware
+
+![Expansion Firmware Update](assets/fw-up-d.png)
+
+***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](https://docs.arduino.cc/tutorials/opta/user-manual/#update-expansion-firmware) for a guided step-by-step procedure.***
 
 ### Solution Wiring
 
