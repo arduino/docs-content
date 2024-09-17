@@ -812,7 +812,7 @@ To learn more about using these outputs, follow our guide: [Connecting and Contr
 
 These outputs must be connected to external devices through third-party protection/power circuits with high impedance inputs (max +/- 25 mA). They are suitable for custom applications where just the activation signal is needed, such as external relay modules or direct connections with other control devices like PLC inputs.
 
-With the following command you can control the output state:
+With the following command, you can control the output state:
 
 ```arduino
 Latching.channelDirection(LATCHING_CMD_1, NEGATIVE); //this define the output and channel (P or N) that will be controlled
@@ -820,9 +820,9 @@ Latching.strobe(200);  //this define the time the output is activated.
 ```
 ![LED pilots wired to latching command outputs](assets/latching-cmd.png)
 
-The example code shown below activates the first channel `Latching Outputs` and `Latching Commands` for a defined time (strobe) in a sequence:
+The example code below activates the first channel `Latching Outputs` and `Latching Commands` for a defined time (strobe) in a sequence:
 
-This example code could also be found on  **File > Examples > Arduino_EdgeControl > Basic > Latching**
+This example code can also be found on **File > Examples > Arduino_EdgeControl > Basic > Latching**.
 
 ```arduino
 #include <Arduino_EdgeControl.h>
@@ -870,8 +870,7 @@ The Edge Control has **four solid state relay outputs**, mapped as follows:
 |      Solid State Relay 3     |           RELAY_CH03          |
 |      Solid State Relay 4     |           RELAY_CH04          |
 
-This relay outputs are suitable for AC loads with a current draw below 2.5A and a 24V AC power supply.
-
+These relay outputs are suitable for AC loads with a current draw below 2.5 A and a 24 V AC power supply.
 You can control the relay outputs individually using this function:
 
 ```arduino
@@ -881,7 +880,7 @@ Relay.off(RELAY_CH01);  // this command opens the channel 1 relay contacts
 ```
 ![AC load wiring through channel 1 relay contact](assets/relay-outputs.png)
 
-The example code shown below closes and opens the first channel `Relay Contact` repetitively, turning on and off the connected load:
+The example code below closes and opens the first channel `Relay Contact` repetitively, turning on and off the connected load:
 
 ```arduino
 #include "Arduino_EdgeControl.h"
@@ -968,9 +967,9 @@ void loop()
 
 ### Power Rails
 
-The Edge Control let you manage the power state of several internal components, so energy efficient applications could be achieved using this board. 
+The Edge Control lets you manage the power state of several internal components, so energy-efficient applications can be achieved using this board. 
 
-To power on or off a power rail the `Power.on(<rail>)` and `Power.off(<rail>)` function is used.
+To power on or off a power rail, the `Power.on(<rail>)` and `Power.off(<rail>)` functions are used.
 
 The different commands and controllable power rails will be specified in the list below:
 
@@ -990,19 +989,19 @@ Power.on(PWR_MKR2); // turns on the MKR board connected to slot 2
 
 Designed for industrial and smart agriculture applications, the Arduino Edge Control Enclosure Kit is the perfect companion for Arduino Edge Control. It provides the module with a sturdy case that protects it from the elements, dust, and accidental blows. It is IP40-certified and compatible with DIN rails, making it safe and easy to fit in any standard rack or cabinet.
 
-On top of this, the Arduino Edge Control Enclosure Kit features a 2-row/16-character LCD display with white backlight and a programmable push button, so it can be customized by users to instantly visualize sensor data, such as weather conditions and soil parameters. Different data can be displayed at every push of the button, on the spot and in real time, without requiring connectivity. 
+In addition, the Arduino Edge Control Enclosure Kit features a 2-row/16-character LCD display with a white backlight and a programmable push button. Users can customize it to instantly visualize sensor data, such as weather conditions and soil parameters. Different data can be displayed at every push of the button, on the spot and in real time, without requiring connectivity.
 
 ### LCD Control
 
-The functions to control the LCD are mostly the same as the ones we are used to in the Arduino ecosystem. 
+The functions for controlling the LCD are mostly the same as those used in the Arduino ecosystem.
 
-We need to include the `Arduino_EdgeContro.h` library and then, initialize the LCD with the `LCD.begin(16, 2)` function and start printing data on it.
+We need to include the `Arduino_EdgeContro.h` library and initialize the LCD with the `LCD.begin(16, 2)` function and start printing data on it.
 
-With `LCD.backlight()` and `LCD.noBacklight()` we can turn on or off the LCD backlight respectively. 
+With `LCD.backlight()` and `LCD.noBacklight()`, we can turn on or off the LCD backlight respectively. 
 
 To define the cursor position, `LCD.setCursor(x, y)` is used, and to clear the display, `LCD.clear()`.
 
-To display text, we use the `LCD.print(text)` function.
+We use the `LCD.print(text)` function to display text.
 
 The example code below prints "Edge Control" in the first row and starts a seconds counter in the second one:
 
@@ -1031,9 +1030,9 @@ void loop() {
 
 ### Push Button
 
-The Enclosure Kit includes a push button so you can interact with the device in an easy way. 
+The Enclosure Kit includes a push button, so you can easily interact with the device. 
 
-To read the button state we can use the built-in functions of the Arduino programming language. We first need to define it as an input using the `POWER_ON` macro.
+To read the button state, we can use the built-in functions of the Arduino programming language. First, we need to define it as an input using the `POWER_ON` macro.
 
 ```arduino
 pinMode(POWER_ON, INPUT); // the push button is addressed to the MCU input as "POWER_ON"
@@ -1088,9 +1087,9 @@ The built-in Real Time Clock of the Edge Control is ideal for timing irrigation 
 
 ***To maintain the RTC on time the included CR2032 coin cell must be used.***
 
-An example code to test the RTC functionality can be found on **File > Examples > Arduino_EdgeControl > Basic > RealTimeClock**
+An example code to test the RTC functionality can be found on **File > Examples > Arduino_EdgeControl > Basic > RealTimeClock**.
 
-In the example code, there is a .h file called Helpers that includes very useful and easy-to-use functions for parsing the time on different formats. 
+In the example code, a **`.h`** file called Helpers includes useful and easy-to-use functions for parsing the time on different formats. 
 
 Initially, you must set the current time as a reference for the RTC. This is made just once and can be done using the function setEpoch([Current Unix Time](https://www.unixtimestamp.com/)):
 
@@ -1099,7 +1098,7 @@ Initially, you must set the current time as a reference for the RTC. This is mad
 RealTimeClock.setEpoch(Unix Time); // You can use the timestamp generated on https://www.unixtimestamp.com/. Be aware that the time found on the webpage is UTC.
 ```
 
-The `time(NULL)` function returns the Unix time (seconds since Jan 1st 1970), this is perfect for cloud and servers data logging. 
+The `time(NULL)` function returns the Unix time (seconds since Jan 1st, 1970), perfect for logging data in the cloud and servers. 
 
 ```arduino
 getRTDateTime(); // 2023-09-30 16:33:19 
@@ -1107,7 +1106,7 @@ getRTCTime(); // 16:33:19
 getRTCDate(); // 2023-09-30
 ```
 
-Also, you can use these more specific functions to retrieve the time in a custom way:
+Also, you can use these more specific functions to retrieve the time in a custom manner:
 
 ```arduino
 RealTimeClock.getYears(); //return the current year
@@ -1118,24 +1117,25 @@ RealTimeClock.getMinutes(); //return the current minutes
 RealTimeClock.getSeconds(); //return the current seconds
 ```
 
-To test the example code, press the Edge Control Enclosure Kit button to set the time once with the code build date. (The button should be pressed while the code is being upload or while a hard reset).
+To test the example code, press the Edge Control Enclosure Kit button to set the time once with the code build date. (The button should be pressed while the code is uploaded or during a hard reset).
 
 ![RealTimeClock example output](assets/rtc-output.png)
 
 ## Communication
+
 The Edge Control communication peripherals are not accessible to the user as a normal development board because it isn't. For example, the `SPI` communication is reserved for the micro SD card and external memory ICs.
 
 ### I2C
 
-The pins used in the Edge Control for the I2C communication protocol are the ones on the MKR slots. Refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+The pins used in the Edge Control for the I2C communication protocol are on the MKR slots. To find them on the board, refer to the [board pinout section](#pinout) of the user manual.
 
-The Edge Control supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. Internal components like the LCD driver, the Real Time Clock and the I/O expanders use this protocol.
+The Edge Control supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. Internal components like the LCD driver, the Real-Time Clock, and the I/O expanders use this protocol.
 
-The NINA-B306 has two I2C ports, the I2C_1 is the one shared with the internal components and the MKR1 header, and the I2C_2 is exclusively connected to the MKR2 header.
+The NINA-B306 has two I2C ports. The `I2C_1` is shared with the internal components and the MKR1 header, and the `I2C_2` is exclusively connected to the MKR2 header.
 
 ![Edge Control I2C Pins on MKR Connectors](assets/i2c-pins.png)
 
-***Use `Wire` to communicate with MKR1 (I2C_1), and `Wire1` to communicate with MKR2 (I2C_2).***
+***Use `Wire` to communicate with MKR1 (`I2C_1`), and `Wire1` to communicate with MKR2 (`I2C_2`).***
 
 To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
 
@@ -1191,7 +1191,7 @@ while (Wire.available()) {
 }
 ```
 
-In the example code below, we are going to communicate the `Edge Control` with a `MKR WiFi 1010` connected to MKR1 connector. With a potentiometer connected to the Edge Control, the onboard `LED` of the `MKR board` will be controlled, so we will be sending the brightness value through I2C to it.  
+In the example code below, we will establish communication between the `Edge Control` and an `MKR WiFi 1010` connected to the **MKR1** connector. With a potentiometer connected to the Edge Control, the onboard `LED` of the `MKR board` will be controlled, so we will send the brightness value through I2C to it. 
 
 ***Use the same connection from [this section](#analog-inputs) for the potentiometer wiring.***
 
@@ -1358,16 +1358,16 @@ void LEDControl(SensorValues_t *vals) {
 
 ### UART
 
-The pins used in the Edge Control for the UART communication protocol are the ones on the MKR slots. Refer to the [board pinout section](#pinout) of the user manual to find them on the board.
+The pins used in the Edge Control for the UART communication protocol are found on the MKR slots. Refer to the [board pinout section](#pinout) of the user manual to find them on the board.
 
-To begin with UART communication, you'll need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
+To begin with UART communication, you will need to configure it first. In the `setup()` function, set the baud rate (bits per second) for UART communication:
 
 ```arduino
 // Start UART communication at 115200 baud
 Serial1.begin(115200); 
 ```
 
-To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown above stores the incoming characters in a String variable and process the data when a line-ending character is received:
+To read incoming data, you can use a `while()` loop to continuously check for available data and read individual characters. The code shown above stores the incoming characters in a String variable and processes the data when a line-ending character is received:
 
 ```arduino
 // Variable for storing incoming data
@@ -1409,8 +1409,7 @@ Serial1.print("Hello world!");
 Serial1.println("Hello world!");
 ```
 
-To learn more about how to communicate the Edge Control through UART with other devices, we will use the example code below that can be found on **File > Examples > Arduino_EdgeControl > RPC > BlinkOverSerial**
-
+To learn more about how to communicate the Edge Control through UART with other devices, we will use the example code below that can be found on **File > Examples > Arduino_EdgeControl > RPC > BlinkOverSerial**.
 
 This example shows how to export Arduino functions as remote procedure calls (RPC), the Edge Control is capable of controlling a MKR board built-in LED by Serial communication.
 
@@ -1470,13 +1469,13 @@ void loop()
 
 ## Micro SD Card
 
-A Micro SD Card can be integrated to the Edge Control for sensor data logging, storing projects configurations or any application concerned to data storage.
+A Micro SD Card can be integrated into the Edge Control for sensor data logging, storing project configurations, or any application concerned with data storage.
 
-The very known [SD library](https://www.arduino.cc/reference/en/libraries/sd/) is compatible with the Edge Control, we can test the included examples just by adding some lines of code needed by the Edge Control.
+The well-known [SD library](https://www.arduino.cc/reference/en/libraries/sd/) is compatible with Edge Control. We can test the included examples by adding some lines of code that Edge Control needs.
 
-The example code used below is an adaptation of the "Datalogger" example included in the `SD` library. It logs the value sampled from an analog input of the Edge Control.
+The example code below is an adaptation of the `Datalogger` example in the `SD` library. It logs the value sampled from an analog input of the Edge Control.
 
-The same wiring of the [analog input section](#analog-inputs) can be used, with the addition of an micro SD card attached.
+The same wiring of the [analog input section](#analog-inputs) can be used with the attached micro SD card.
 
 ```arduino
 #include <Arduino_EdgeControl.h>
@@ -1551,7 +1550,7 @@ void loop() {
 }
 ```
 
-You will be able to read all the sampled data from the micro SD card on a `.txt` file called `DATALOG`. You can use a USB adaptar or a micro SD card slot on your PC to read the file.
+You can read all the sampled data from the micro SD card on a `.txt` file called `DATALOG` using a USB adapter or a micro SD card slot on your PC.
 
 ![Data logging wiring and output](assets/data-logging.png)
 
