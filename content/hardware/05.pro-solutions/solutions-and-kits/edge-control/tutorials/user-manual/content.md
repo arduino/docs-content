@@ -587,6 +587,8 @@ The example code below reads the resistance value from the 1st Watermark sensor 
 
 More example codes can also be found on **File > Examples > Arduino_EdgeControl > Basic**.
 
+***Install the required libraries from their respective URLs using the Arduino Library Manager.***
+
 ```arduino
 #include <Arduino.h>
 #include <mbed.h>
