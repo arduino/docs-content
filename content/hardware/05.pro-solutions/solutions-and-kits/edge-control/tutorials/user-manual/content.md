@@ -36,29 +36,37 @@ This user manual will guide you through a practical journey covering the most in
 
 ## Product Overview
 
-The Edge Control board is a versatile tool that allows agriculturalists to develop creative and innovative solutions for agriculture by harnessing modern technology. This board is designed to address the needs of precision farming. It provides a low power control system, suitable for irrigation with modular connectivity. Equipped with latching outputs and solid state relays, it becomes an ideal choice for controlling motorized or solenoid valves, among many other devices. As inputs, it manages 0-5V analog sensors, 4-20mA sensors, and Watermark soil moisture sensors, a variety that handles most of the agricultural needs. All this and more makes the Edge Control the perfect option for your 4.0 Agriculture industry. 
+The Edge Control board is a versatile tool that allows agriculturalists to develop creative and innovative solutions for agriculture by harnessing modern technology. 
+
+This board is designed to address the needs of precision farming. It provides a low power control system, suitable for irrigation with modular connectivity. Equipped with latching outputs and solid state relays, it becomes an ideal choice for controlling motorized or solenoid valves, among many other devices.
+
+As inputs, it manages 0-5V analog sensors, 4-20mA sensors, and Watermark soil moisture sensors, a variety that handles most of the agricultural needs. All this and more makes the Edge Control the perfect option for your 4.0 Agriculture industry. 
 
 ### Board Architecture Overview
 
-The Edge Control features a robust and efficient architecture that integrates a wide range of sensors inputs and ready-to-use control outputs for industrial farming field devices.
+The Edge Control features a robust and efficient architecture integrating a wide range of sensor inputs and ready-to-use control outputs for industrial farming field devices.
 
 ![Edge Control main components](assets/top-view.png)
 
 Here is an overview of the board's architecture's main components shown in the image above:
 
 - **Microcontroller**: at the heart of the Edge Control is the nRF52840, a powerful and versatile System-on-Chip (SoC) from Nordic® Semiconductor. The nRF52840 is built around a 32-bit Arm® Cortex®-M4 processor running at 64 MHz.
+  
 - **MKR slots**: the on-board MKR slots 1 & 2 can be used to connect Arduino MKR boards to extend the capabilities such as connectivity through LoRa, Wi-Fi, 2G/3G/CatM1/NBIoT, and Sigfox.
+  
 - **Storage**: the board includes both a microSD card socket and an additional 2MB Flash memory for data storage. Both are directly connected to the main processor via a SPI interface.
+  
 - **Power management**: the Edge Control is designed for ultra-low power operation, with efficient power management features that ensure minimal energy consumption. It can operate for up to 34 months on a 12V/5Ah battery. Equipped with several buck and boost converters supplying a variety of output voltages from 19V DC to 3.3V DC. The LT3652 solar panel battery charger features a Maximum Power Point Tracker (MPPT) taking the best performance out of the solar panels.
+  
 - **Interfaces**: through the different terminal blocks, the board give access to several standardized sensors inputs like 0-5V, 4-20mA and watermark sensors. Also, it is equipped with drivered latching outputs, and relay contacts ready to manage high power external devices.
 
 ### Board Core and Libraries
 
-To install the core for the Edge Control, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. In the Boards Manager tab, search for `Edge Control` and install the latest `Arduino Mbed OS Edge Boards` version.
+To install the core for the Edge Control, navigate to **Tools > Board > Boards Manager** or click the Boards Manager icon in the left tab of the IDE. Search for `Edge Control` in the Boards Manager tab and install the latest `Arduino Mbed OS Edge Boards` version.
 
 ![Installing the Arduino Mbed OS Edge Boards core in the Arduino IDE bootloader](assets/bsp-install.png)
 
-The **Arduino_EdgeControl** library contains the examples you need to work with the board's components, such as the different sensors, outputs and adds on like the LCD included with the [Enclosure Kit](https://store-usa.arduino.cc/products/edge-control-enclosure-kit?selectedStore=us).
+The **Arduino_EdgeControl** library contains examples of how to work with the board's components, such as the different sensors and outputs. It adds as the LCD included with the [Enclosure Kit](https://store-usa.arduino.cc/products/edge-control-enclosure-kit?selectedStore=us).
 
 ![Installing the Arduino Edge Control library](assets/library-install.png)
 
@@ -94,7 +102,7 @@ The complete STEP files are available and downloadable from the link below:
 The Edge Control can be powered by:
 
 - Using a Micro USB cable (not included). 
-- Using an external **12V power supply** connected to `BATT+` pin and `GND`. (Please, refer to the [board pinout section](#pinout) of the user manual).
+- Using an external **12V power supply** connected to `BATT+` pin and `GND`. (Please refer to the [board pinout section](#pinout) of the user manual).
 - Using a **12V lead-acid battery** connected to `BATT+` pin and `GND`. 
 ***It can be powered for up to 34 months on a 12V/5Ah battery***.
 - Using a whole **off grid** power system including an **18V Solar Panel** and a **12V lead-acid battery**.
@@ -104,7 +112,7 @@ The Edge Control can be powered by:
 
 ### Hello World Example
 
-Let's program the Edge Control with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify the board's connection to the Arduino IDE, the Edge control core and the board itself are working as expected. 
+Let's program the Edge Control with the classic `hello world` example used in the Arduino ecosystem: the `Blink` sketch. We will use this example to verify that the board's connection to the Arduino IDE, the Edge Control core and the board itself are working as expected. 
 
 There are two ways to program this example in the board:
 
@@ -153,7 +161,7 @@ void loop() {
 
 For the Edge Control, the `EXP_LED1` macro represents the **Green LED** of the board.
 
-The custom power management of the Edge Control lets you turn on just the board peripherals and power rails you need, as the LED is connected to the IO Expander, is needed to enable the 3.3v and battery source, also the expander using these functions:
+The custom power management system of the Edge Control allows you to activate only the specific peripherals and power rails you need. Since the LED is connected to the IO Expander, it is necessary to enable both the 3.3V and the battery power source alongside the IO Expander using the following functions:
 
 ```arduino
 Power.on(PWR_3V3);
@@ -170,7 +178,7 @@ To upload the code to the Edge Control, click the **Verify** button to compile t
 
 ***The Edge Control should be powered by an external power source or a battery so the blink works.***
 
-You should now see the onboard LED turn on for half a second, then off, repeatedly.
+You should see the onboard LED turn on for half a second, then off, repeatedly.
 
 ![Hello World example running in the Edge Control](assets/Blink.gif)
 
@@ -180,14 +188,14 @@ The Edge Control has **eight analog input pins**, mapped as follows:
 
 |       **Input Name**      |        **Arduino Pin Mapping**      |
 |:-------------------------:|:-----------------------------------:|
-|      0-5V Channel 1     |           INPUT_05V_CH01          |
-|      0-5V Channel 2     |           INPUT_05V_CH02          |
-|      0-5V Channel 3     |           INPUT_05V_CH03          |
-|      0-5V Channel 4     |           INPUT_05V_CH04          |
-|      0-5V Channel 5     |           INPUT_05V_CH05          |
-|      0-5V Channel 6     |           INPUT_05V_CH06          |
-|      0-5V Channel 7     |           INPUT_05V_CH07          |
-|      0-5V Channel 8     |           INPUT_05V_CH08          |
+|      0 - 5 V Channel 1     |           INPUT_05V_CH01          |
+|      0 - 5 V Channel 2     |           INPUT_05V_CH02          |
+|      0 - 5 V Channel 3     |           INPUT_05V_CH03          |
+|      0 - 5 V Channel 4     |           INPUT_05V_CH04          |
+|      0 - 5 V Channel 5     |           INPUT_05V_CH05          |
+|      0 - 5 V Channel 6     |           INPUT_05V_CH06          |
+|      0 - 5 V Channel 7     |           INPUT_05V_CH07          |
+|      0 - 5 V Channel 8     |           INPUT_05V_CH08          |
 
 Every pin can be used through the built-in functions of the Arduino programming language. 
 
@@ -196,11 +204,11 @@ Edge Control ADC can be configured to 8, 10 or 12 bits defining the argument of 
 ```arduino
 analogReadResolution(12);  // ADC resolution set to 12 bits (0-4095)
 ```
-***The Edge Control ADC reference voltage is fixed to 5.0v, this means that it will map the ADC range from 0 to 5.0 volts.***
+***The Edge Control ADC reference voltage is fixed to 5V, which means the ADC range will be mapped from 0 to 5.0 volts.***
 
-The example code shown below reads the analog input value from every Edge Control channel and displays it on the IDE Serial Monitor:
+The example code below reads the analog input value from every Edge Control channel. It displays it on the IDE Serial Monitor:
 
-This example code could also be found on  **File > Examples > Arduino_EdgeControl > Basic > 0-5V_Input**
+This example code can also be found on **File > Examples > Arduino_EdgeControl > Basic > 0-5V_Input**.
 
 ![ADC input example wiring](assets/analog-wiring.svg)
 
@@ -324,12 +332,12 @@ The IRQ inputs of the Edge Control can be used through the built-in functions of
 attachInterrupt(digitalPinToInterrupt(pin), ISR, mode);
 ```
 - The `pin` argument defines the input channel that will fire the interrupt.
-- The `ISR` argument defines the callback function of the interrupt.
+- The `ISR` argument defines the interrupt's callback function.
 - The `mode` argument defines when the interrupt should be triggered.
 
 The example code shown below counts the pulses on every IRQ input and prints the counter value on the IDE Serial Monitor:
 
-This example code could also be found on  **File > Examples > Arduino_EdgeControl > Basic > IRQCounter**
+This example code can also be found on **File > Examples > Arduino_EdgeControl > Basic > IRQCounter**.
 
 ![IRQ input example wiring](assets/IRQ_example.png)
 
@@ -393,22 +401,22 @@ void loop()
 
 ```
 
-### 4-20mA Inputs
+### 4 - 20 mA Inputs
 
 The Edge Control has **four 4-20mA input pins**, mapped as follows: 
 
 |          **Input Name**          |         **Arduino Pin Mapping**       |
 |:--------------------------------:|:-------------------------------------:|
-|      4-20mA Sensor Input 1     |           INPUT_420mA_CH01          |
-|      4-20mA Sensor Input 2     |           INPUT_420mA_CH02          |
-|      4-20mA Sensor Input 3     |           INPUT_420mA_CH03          |
-|      4-20mA Sensor Input 4     |           INPUT_420mA_CH04          |
+|      4 - 20 mA Sensor Input 1     |           INPUT_420mA_CH01          |
+|      4 - 20 mA Sensor Input 2     |           INPUT_420mA_CH02          |
+|      4 - 20 mA Sensor Input 3     |           INPUT_420mA_CH03          |
+|      4 - 20 mA Sensor Input 4     |           INPUT_420mA_CH04          |
 
-Every 4-20mA input can be read through the built-in functions of the Arduino programming language. They are sampled the same way as the 0-5V analog inputs but the input value is read via a 220 ohm resistor and a +19V reference.
+Every 4 - 20 mA input can be read through the built-in functions of the Arduino programming language. They are sampled the same way as the 0 - 5 V analog inputs but the input value is read via a 220 ohm resistor and a +19 V reference.
 
-A current of 4 to 20 mA passing through the 220 ohm resistor would produce a drop of 0.88v to 4.4v respectively, being in the 5V range of the ADC input.
+A current of 4 to 20 mA passing through the 220 ohm resistor would produce a drop of 0.88 V to 4.4 V, respectively, which is in the 5 V range of the ADC input.
 
-In the application example a 4-20 mA water level sensor will be used. To convert the analog read voltage back to a current value, the following equation from a 4-20 mA sensor can be used:
+A 4 - 20 mA water level sensor will be used in the application example. To convert the analog read voltage back to a current value, the following equation from a 4 - 20 mA sensor can be used:
 
 `y = 16x + 4`
 
@@ -421,7 +429,7 @@ This is a brief explanation of the mathematical expression used inside the sketc
 
 `float w_level = ((voltsReference / 220.0 * 1000.0) - 4.0) * 6.25;`
 
-![4-20mA example wiring](assets/4-20mA-wiring-v2.png)
+![4 - 20 mA example wiring](assets/4-20mA-wiring-v2.png)
 
 ```arduino
 #include <Arduino_EdgeControl.h>
@@ -506,7 +514,7 @@ Voltages getAverageAnalogRead(int pin) {
 
 ### Watermark Inputs
 
-The Edge Control has **16 Watermark sensor inputs**, mapped as follows: 
+The Edge Control has **16x Watermark sensor inputs**, mapped as follows: 
 
 |          **Input Name**          |         **Arduino Pin Mapping**       |
 |:--------------------------------:|:-------------------------------------:|
@@ -527,19 +535,19 @@ The Edge Control has **16 Watermark sensor inputs**, mapped as follows:
 |      Watermark Sensor Input 15     |           WATERMARK_CH015          |
 |      Watermark Sensor Input 16     |           WATERMARK_CH016          |
 
-Watermark sensors are capable of measuring the physical force holding the water in the soil. Those measurements are correlated with the effort plants have to make to extract water from the soil, a really interesting data for agricultural applications.
+Watermark sensors can measure the physical force holding water in the soil. Those measurements are correlated with the effort plants have to make to extract water from the soil, which is really interesting data for agricultural applications.
 
 The measurement is done in Centibars, and we can use the following readings as a general guideline:
 
-- 0-10 Centibars: Saturated soil
-- 10-30 Centibars: Soil is adequately wet (except coarse sands, which are drying)
-- 30-60 Centibars: Usual range for irrigation (most soils)
-- 60-100 Centibars: Usual range for irrigation in heavy clay
-- 100-200 Centibars: Soil is becoming dangerously dry - Proceed with caution!
+- 0 - 10 Centibars: Saturated soil
+- 10 - 30 Centibars: Soil is adequately wet (except coarse sands, which are drying)
+- 30 - 60 Centibars: Usual range for irrigation (most soils)
+- 60 - 100 Centibars: Usual range for irrigation in heavy clay
+- 100 - 200 Centibars: Soil is becoming dangerously dry - Proceed with caution!
 
 ![Watermark sensor wiring](assets/watermark-wiring.png)
 
-Watermark sensors are resistive, so the Edge Control actually measures a resistance value that needs to be converted to a pressure unit, in this case, `centibars` or `kPa`. For this, the function below is used:
+Watermark sensors are resistive, so the Edge Control measures a resistance value that needs to be converted to a pressure unit, in this case, `centibars` or `kPa`. For this, the function below is used:
 
 ```arduino
 /**
@@ -575,9 +583,9 @@ int CalcCB(int res) {
 }
 ```
 
-The example code shown below reads the resistance value from the 1st Watermark sensor channel and displays it on the IDE Serial Monitor in terms of `ohms` and `centibars or kPa`:
+The example code below reads the resistance value from the 1st Watermark sensor channel. It displays it on the IDE Serial Monitor in terms of `ohms` and `centibars or kPa`:
 
-More example codes could also be found on  **File > Examples > Arduino_EdgeControl > Basic**
+More example codes can also be found on **File > Examples > Arduino_EdgeControl > Basic**.
 
 ```arduino
 #include <Arduino.h>
@@ -747,22 +755,23 @@ int CalcCB(int res) {
 ```
 You should see the sensor readings as below, in the Arduino IDE serial monitor.
 
-`MEASURES - Median: 1891.00Ω - Average: 1884.95Ω - Lowest: 1815.00Ω - Highest: 1930.00Ω
+`MEASURES - Median: 1891.00Ω - Average: 1884.95Ω - Lowest: 1815.00Ω - Highest: 1930.00Ω 
 14 CENTIBARS/kPa`
 
 ***You can buy the Watermark sensor directly from our [store](https://store-usa.arduino.cc/products/soil-humidity-sensor-watermark-2-m-75-cm-pack-)***
 
 ## Outputs
+
 ### Latching Outputs
 
-The latching outputs are suitable for latching devices like motorized valves and latching solenoid valves. They consists of dual channels (P and N) through which an impulse or strobe can be sent in either of the 2 channels (to open a close valve for example). The duration of the strobes can be configured to adjust to the external device requirement.
+The latching outputs are suitable for latching devices like motorized valves and latching solenoid valves. They consist of dual channels (P and N) through which an impulse or strobe can be sent in either of the 2 channels (to open a closed valve for example). The duration of the strobes can be configured to adjust to the external device's requirement.
 
 ![Latching solenoid valve control strobe](assets/solenoid-valve.png)
 ![Motorized ball valve control strobe](assets/motorized-valve.png)
 
-The board provides a total of 16 latching ports divided in 2 types:
+The board provides a total of 16 latching ports divided into two types:
 
-- **8 Latching Outputs** with mosfet drivers, mapped as follows: 
+- **8x Latching Outputs** with mosfet drivers, mapped as follows: 
 
   |        **Output Name**        |       **Arduino Pin Mapping**       |
   |:----------------------------:|:-----------------------------------:|
@@ -775,9 +784,9 @@ The board provides a total of 16 latching ports divided in 2 types:
   |      Latching Output 7     |           LATCHING_OUT_7          |
   |      Latching Output 8     |           LATCHING_OUT_8          |
 
-These outputs can handle up to 3.3 A, so they can manage loads directly without problem. Motorized valves or solenoid latching valves are perfect examples of devices to control with these outputs.
+These outputs can handle up to 3.3 A, so they can manage loads directly without problem. Motorized or solenoid latching valves are perfect examples of devices to control with these outputs.
 
-With the following command you can control the output state:
+With the following command, you can control the output state:
 
 ```arduino
 Latching.channelDirection(LATCHING_OUT_1, POSITIVE); //this define the output and channel (P or N) that will be controlled
@@ -786,9 +795,9 @@ Latching.strobe(200);  //this define the time the output is activated.
 
 ![3-wire motorized ball valve connection](assets/motorized-connection.png)
 
-If you want to know more about using this outputs, follow our guide: [Connecting and Controlling a Motorized Ball Valve](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve).
+To learn more about using these outputs, follow our guide: [Connecting and Controlling a Motorized Ball Valve](https://docs.arduino.cc/tutorials/edge-control/motorized-ball-valve).
 
-- **8 Latching Commands** without drivers, mapped as follows: 
+- **8x Latching Commands** without drivers, mapped as follows: 
 
   |        **Output Name**        |       **Arduino Pin Mapping**       |
   |:----------------------------:|:-----------------------------------:|
@@ -801,7 +810,7 @@ If you want to know more about using this outputs, follow our guide: [Connecting
   |      Latching Command 7     |           LATCHING_CMD_7          |
   |      Latching Command 8     |           LATCHING_CMD_8          |
 
-These outputs must be connected to external devices through third-party protection/power circuits with high impedance inputs (max +/- 25 mA). They are suitable for custom applications where just the activation signal is needed. For example for using external relay modules or direct connections with other control devices like PLC inputs.
+These outputs must be connected to external devices through third-party protection/power circuits with high impedance inputs (max +/- 25 mA). They are suitable for custom applications where just the activation signal is needed, such as external relay modules or direct connections with other control devices like PLC inputs.
 
 With the following command you can control the output state:
 
