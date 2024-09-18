@@ -181,7 +181,7 @@ void setup() {
   // Digital inputs, digital outputs, built-in LEDs initialization
   pinMode(LED_D0, OUTPUT);
   pinMode(LED_D1, OUTPUT);
-  pinMode(DO, OUTPUT);
+  pinMode(D0, OUTPUT);
   pinMode(D1, OUTPUT);
   pinMode(A2, INPUT);
   pinMode(A3, INPUT);
