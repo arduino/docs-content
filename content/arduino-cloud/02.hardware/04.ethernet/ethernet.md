@@ -14,6 +14,8 @@ The Arduino Cloud supports connection via Ethernet on a number of devices.
 
 ## Supported Boards
 
+***Check the GitHub repository [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).*** 
+
 The options to connect via Ethernet are the following:
 - Connect with the [Portenta H7](https://store.arduino.cc/products/portenta-h7) in combination with an Ethernet-compatible carrier/shield (see below).
 - Connect with the [Opta](https://store.arduino.cc/products/opta-wifi).
