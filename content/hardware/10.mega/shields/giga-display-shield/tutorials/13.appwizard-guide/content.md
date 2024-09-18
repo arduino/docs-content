@@ -53,7 +53,7 @@ Add a button from the object menu. On the right hand properties menu you can set
 
 In the right hand properties menu you can also add text to the button. Press the **set text** option. This will bring up a window that contains all the text elements in the project. Press **add text**, this will create a new text object with a unique id. Now to set the text that will be displayed press **New language** and enter **En**, we will be using English in this tutorial. Under the new **En** tab you can set the text that will be visible, change the **-** to **Button** and this text will be displayed on the button.
 
-[Text objects box]()
+![Text objects box]()
 
 ## Adding Interactions
 
@@ -79,18 +79,72 @@ To add the buttons interaction, set the emitter as the button, the signal should
 
 ### Progress Bar
 
-Now lets try adding a progress bar to the previous interaction. Start by pressing the **progbar** button and set the initial value to "0". 
+Now lets try adding a progress bar to the previous interaction. Start by pressing the **progbar** button and set the initial value to "0". Set the min value to "0" and max value to "100". Now add an interaction with the emitter as the button variable, the signal to "VALUE_CHANGED", job as "SETVALUE" and the receiver as the progress bar. Now try it out in play mode and you will see the progress bar increase whenever the button is pressed.
 
+### Slider And Gauge
 
-### Gauge
+Now let's try adding a slider and gauge to the project. Press the **Gauge** button in the top left menu. Set initial value to "0", the min value to "0" and max value to "100".
 
-### Slider
+Next create a slider by pressing the **Slider** button on the top left menu. You can configure the visual elements of the slider in the right "Properties" menu.
 
+![Project with slider and guage]()
 
+Now there needs to be a variable that will keep track of the value, press the **Open variables window** button in the bottom left.
+
+![Variable window button highlighted]()
+
+Press **Add variable** and then rename the variable to something relevant so it is easier to keep track of later, here we will name it "ID_SLIDER_VAR".
+
+![Variable window]()
+
+Now to add the interaction that will fill the gauge when the slider is moved. First, create a new interaction, set the emitter as the slider variable, the signal should be "VALUE_CHANGED". The job should be "SETVALUE" and the receiver should be the gauge. Now create the interaction that makes the slider change the variable. Create a new interaction and set the emitter as the slider, the signal should be "VALUE_CHANGED". The job should be "SETVALUE" and the receiver should be the slider variable.
+
+![Image of all the interactions]()
 
 ## Exporting the project
 
-## 
+In AppWizard, go to **File -> Export & Save** in the upper left of the window. Now open the folder of the project. Create a new folder which we will put the exported files into, in this new folder create another folder named **src**. Now from the exported project folder, copy the content from the **Resource** and **Source** folders into the newly created **src** folder.
+
+![Folder structure](assets/appwizard-demo-folder-src.png)
+
+Now the folder name needs to be removed from the `#include` directives of the generated files. Inside the **ID_SCREEN_00_Slots.c** file change the `#include "../Generated/Resource.h"`
+and `#include "../Generated/ID_SCREEN_00.h"` to `#include "Resource.h"` and `#include "ID_SCREEN_00.h"`.
+
+![Screenshot of code](assets/appwizard-demo-folder-library-code.png)
+
+When this is done create a **library.properties** file inside the root of the newly created folder. Then put this text into the file:
+
+```arduino
+name=AppWizardDemoLib
+version=1.0.0
+author=SEGGER Microcontroller GmbH
+maintainer=SEGGER Microcontroller GmbH info@segger.com
+sentence=
+paragraph=
+category=Display
+url=
+architectures=
+includes=
+depends=
+```
+
+![Folder with library properties file](assets/appwizard-demo-folder-library.png)
+
+And lastly to create the Arduino sketch. Create an **examples** folder inside the root of the newly created folder, inside this **examples** folder you can create another folder containing the **demo.ino** file. Use the following code for the **demo.ino**:
+
+```arduino
+#include <Resource.h>
+void setup() {
+  MainTask();                 
+}
+void loop() {
+  GUI_Exec();
+}
+```
+
+![Examples folder structure](assets/appwizard-examples-folder.gif)
+
+Now all that is left is to import this whole folder as a library into the Arduino IDE.
 
 ## Conclusion
 
