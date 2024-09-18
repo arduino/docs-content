@@ -8,7 +8,6 @@ hardware:
   - hardware/04.pro/board/portenta-x8
 software:
   - fioctl
-
 ---
 
 ## Overview
@@ -93,38 +92,63 @@ The Yocto distribution is a development environment that comprises various funct
 
 ***If you want to learn more about how to work with Yocto Distribution on your Portenta X8, please check the [Portenta X8's user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#working-with-linux) of this user manual.***
 
-### Benefits of Foundries.io
+### Docker Containers and Foundries.io Factory Integration
 
-Foundries.io™ created their custom distribution based on Yocto with minimal software installed, by default implementing top-level cybersecurity features like OP-TEE and OSTREE that makes their solution ideal for professional applications.
+The Portenta X8 allows device-independent software deployment through its modular container architecture, which leverages Docker containers. Containers are analogous to physical shipping containers. They allow applications to be packaged with all their dependencies, making them easy to move across different environments without modification.
 
-A custom Over-The-Air (OTA) system update mechanism that is based on a client running on target and a robust Cloud server. And they married Docker-compose as a way to deploy a software solution to a target. This is like having an app store for a particular device with the difference that we're not installing an app but a container that may contain a whole distribution or a minimal distribution running only our app or our set of apps.
+#### Docker Containers
 
-Additionally, they developed the Cloud side as well. You can use what's called FoundriesFactory, a Cloud DevSecOps subscription service to build, test, deploy, and maintain secure, updatable IoT and Edge products. It provides a unique id and automatic builds of the base system and containers for this system in one place. Let's now take a look at the Foundries.io Factory page.
+Traditional virtualization virtualizes entire machines, leading to long start-up times and high resource consumption. Containers, however, virtualize only a subset of resources, sharing the operating system with the host. This allows for faster start-up times (seconds) and more efficient resource usage.
 
-### Foundries.io Factory
+Advantages of containers include:
 
-With the help of the Arduino Cloud integration with *Foundries.io*, you can easily create your Factory right from the Arduino Cloud page. You can set your Factory's platform and name. The Portenta X8 will be the platform in this case.
+- **Simplified Development, Testing, and Deployment:** Containers decouple applications from their environments, allowing them to be deployed consistently across platforms.
+- **Version Control:** Containers make it easy to roll back to previous versions if an update fails.
+- **Isolation and Security:** Containers isolate applications and resources, meaning deleting one container does not affect others.
+- **Granularity:** Containers can isolate whole applications or specific components, improving performance and control.
 
-![Factory page](assets/factory-page.png)
+Portenta X8's containers are built using Docker, a platform that simplifies container creation, testing, and management. Docker uses **LXC (Linux Containers)** to enable lightweight virtualization, automating the management of containers through user-friendly interfaces and tools like **Dockerfile** for building images, **Docker Daemon** for running them, and orchestration tools like **Docker Swarm** and **Kubernetes** for managing their deployment.
 
-Your Factory page allows you to add members so that you can easily keep track of the members of your team that should have access to the Portenta X8's that are linked to your Factory. You can also set up teams for better management. On the page, you can also find a list of all devices linked to the Factory, along with their name and version of the container currently uploaded to the board. On the containers page, you can find all the different versions of containers uploaded to the Factory.
+Docker containers ensure portability by packaging applications with their runtime environments, making them easily transferable between machines or cloud environments. The isolation offered by Docker enhances security, preventing threats from propagating across containers or affecting the host system.
 
-On the "source" page of your Factory, you can find the four repositories that are used to customize the images. These are:
+### Foundries.io Factory and Benefits
 
-- **ci-scripts.git**: Scripts that define the platform and container build jobs to the FoundriesFactory continuous integration system.
-- **lmp-manifest.git**: The repo manifest for the platform build. It defines which layer versions are included in the platform image. This includes **meta-partner-arduino**, the layer containing Arduino specific customizations (machine definition, device drivers, etc).
-- **meta-subscriber-overrides.git**: OE layer that defines what is included in your Factory image. You can add board-specific customizations and overrides. Also, add and remove packages provided in the default Linux microPlatform base.
-- **containers.git**: This is where containers and docker-compose apps are defined. It allows us to define what containers to build, and how to orchestrate them on the platform.
+With Arduino Cloud's integration with Foundries.io, you can create a *Foundries.io Factory* to manage Portenta X8 devices and containers. A Factory is a platform that helps you manage, organize, and update the devices linked to it while easing container deployment and team management.
 
-While the "targets" page contains the images built by the Continuous integration system each time something commits in the repositories. Committing to **lmp-manifest.git** or **meta-subscriber-overrides.git** repositories will create a platform target while committing to **containers.git** will create a container target. These targets will generate the artifacts for the platforms as specified in the **ci-scripts.git**, including all the required files to program the target in case of platform builds. You can inspect your FoundriesFactory targets on the "targets" page.
+#### Benefits of Foundries.io
 
-## Containers
+Foundries.io has developed a custom Linux distribution based on Yocto. It is designed with minimal software installed by default, making it ideal for professional applications. Foundries.io emphasizes cybersecurity, integrating top-level features such as **OP-TEE** and **OSTREE**, which ensure system integrity and security.
 
-Containers allow for easy deployment of Linux-based processes, uploaded through git, which can then be tracked on your Factory page. A Linux container is a process isolated from the rest of the system. A container is an image file conformed of the necessary files to run it. This makes the Linux containers portable and consistent throughout development, testing, and production. Making them much quicker to use than development pipelines that rely on replicating traditional testing environments.
+One key advantage of Foundries.io is its **Over-The-Air (OTA)** system update mechanism. This OTA system is based on a client running on the target device and a robust cloud server, allowing seamless updates. Foundries.io also integrates **Docker Compose** to deploy software solutions. Instead of installing individual apps, entire containers are deployed, which may run a full distribution or just the minimal environment needed to run a particular set of applications—similar to an app store but container-based.
 
-*Foundries.io* provides a service that builds images using the Yocto Project and is specifically built around the Linux microPlatform (LmP) distribution they maintain. LmP contains an extensive set of software components needed for IoT applications.
+Foundries.io also offers **FoundriesFactory**, a Cloud-based *DevSecOps* subscription service. It allows you to build, test, deploy, and maintain secure IoT and edge devices. Each Factory has a unique ID and automatic builds of both the base system and containers are handled in one place, streamlining the development process and ensuring a secure, up-to-date environment for your IoT and Edge devices.
 
-Using [fioctl](https://docs.foundries.io/latest/getting-started/install-fioctl/index.html) allows you to manage your boards through CLI. It makes it easy to upload containers to a board linked to your Factory. When the board is online and connected to the Factory, you can easily push new apps to the board. Using the fioctl command lines, you only need to state the Factory, board, and app.
+#### Factory Repositories
+
+The Factory uses four main repositories to customize images:
+
+- **ci-scripts.git**: Defines build jobs for the continuous integration system.
+- **lmp-manifest.git**: Specifies the platform’s image layers, including the **meta-partner-arduino** layer for customizations.
+- **meta-subscriber-overrides.git**: Customizes the Factory image by adding or removing packages and implementing board-specific features.
+- **containers.git**: Defines containers and how they should be orchestrated using Docker or docker-compose.
+
+#### Managing Containers in the Factory
+
+Through the Factory, you can monitor connected devices, track the containers running on them, and manage different versions of these containers. Each time a repository is updated, the continuous integration system generates a new target that can be deployed on your Portenta X8 devices.
+
+Foundries.io simplifies container management, building images using the Yocto Project and their **Linux microPlatform (LmP)** distribution, which is optimized for IoT and embedded systems. LmP contains an extensive set of components designed for IoT applications, allowing for fast, consistent deployments across different environments.
+
+#### Managing Devices with **fioctl**
+
+The Foundries.io tool *fioctl* enables command-line management of your devices, allowing you to upload containers, push updates, and deploy new applications seamlessly. It simplifies the deployment process across multiple devices, ensuring smooth integration and management of containers within your Factory.
+
+#### Docker Containers in Action
+
+Docker images contain multiple read-only layers that package all necessary files to configure a container. These layers are built using a **dockerfile ** containing the commands required to build the image. Containers can then be launched from the image, with any changes being written to a thin, writable layer, ensuring the original image remains unchanged. 
+
+Containers go through various states during their lifecycle, including **Created**, **Running**, **Paused**, **Stopped**, and **Deleted**, depending on their activity and status. Docker's command-line tools, such as `docker run`, `docker ps`, and `docker stop`, allow you to manage containers efficiently.
+
+Docker's isolation model means that containers run independently of each other, providing additional security and minimizing the risk of cross-container issues. This portability ensures that once a container is created, it can be moved and run on any environment without reconfiguring the application, streamlining the deployment process.
 
 ### Benefits of Containers
 
@@ -136,6 +160,56 @@ The container image contents can be compared to an installation of a Linux distr
 
 A Linux container is a good solution that requires portability, configurability, and isolation. The idea behind Linux containers is to help develop solutions faster to meet business needs as they arise. In certain scenarios, when real-time data streaming is implemented, containers are a dominant solution to provide the scalability that the application needs. Regardless of the infrastructure on-site, in the Cloud, or a mix of both.
 
+## Arduino Environment
+
+The user can upload sketches on the **M4 core** of **STM32H7** through the **Arduino IDE 1.8.10 or above**.
+
+To do that, it is sufficient to open the Arduino IDE, make sure you have selected the Portenta X8 in the board selector, and start writing your sketch.
+
+***Have a look at [this section](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#portenta-x8-with-arduino-ide) from the Portenta X8 user manual if you would like to start uploading your sketch on Portenta X8.***
+
+From a user perspective, the process may appear the same as for other Arduino boards, but there are significant differences in what happens behind the scenes: the Portenta X8 includes a service that waits for a sketch to be uploaded to a folder. This service is called `monitor-m4-elf-file.service`.
+
+It monitors the directory `/tmp/arduino/` looking for an updated version of the `m4-user-sketch.elf`. Each time it detects a new file, it proceeds to flash the M4 with the new sketch using `openOCD` (check [openOCD website](https://openocd.org/doc/html/About.html) if you want to learn more).
+
+## Communication Between Linux and Arduino
+
+The Portenta X8 has two processors that need to exchange data. This is accomplished using **RPC (Remote Procedure Call)**.
+
+RPC is a method where a program on one computer triggers a procedure or function on another computer. Simply put, RPC allows a program to run functions on a different system accessible through a network.
+
+A key feature of RPC is transparency. The remote procedure call should appear like a local one, meaning the network communication details are "hidden" from the user.
+
+RPC works well in distributed computing environments, particularly with the client-server model. The *procedure call* acts as a *request* from the client, and the returned result is the *response* from the server. Distributed computing connects multiple computers over a network (often the Internet) to handle large computational tasks.
+
+While RPC aims to make remote procedure calls feel as seamless as local ones, there are always potential network communication issues that can fail. As a result, different RPC implementations may handle these challenges in various ways. For example, some use *at most once* semantics, ensuring that it won’t be executed multiple times if a remote procedure call fails. Others use *at least once* semantics, ensuring the procedure is executed at least once, though it might run more than once.
+
+There are several types of RPC implementations. For the Portenta X8, **MessagePack-RPC** is used (you can check out more details in the [library repository](https://github.com/msgpack-rpc/msgpack-rpc)). This implementation uses MessagePack, a data serialization format, to encode the exchange data.
+
+This data is transported over different protocols:
+
+- OpenAMP via Shared Memory
+- SPI
+- Linux Char Device
+- TCP/IP
+
+![Linux Arduino RPC](assets/linux_arduino_RPC.png "Linux Arduino RPC")
+
+As shown in the image, the **M7 core** of the **STM32H7** facilitates communication between the Linux environment and the Arduino side. If an Arduino sketch runs on the **M4 core**, the **M7 core** transfers data and requests between the M4 core and the Linux system. Due to this hardware setup, the Portenta X8 does not support traditional dual-core processing.
+
+On the Linux side, a service called `m4-proxy` sends data between the two systems.
+
+The communication process between Arduino and Linux works like this (refer to the image below):
+
+- A program registers as the RPC server on a specific port for a list of procedures the M4 core might call.
+- `m4-proxy` forwards the calls from the M4 core to the appropriate program and port.
+
+![RPC M4 proxy](assets/m4-proxy.png "RPC M4 proxy")
+
 ## Conclusion
 
-In this tutorial, we have expanded on how the Portenta X8 works with factories and containers. This article also gives a better picture of how to utilize the Portenta X8 to its full potential. Please check out our other tutorials with the Portenta X8 to see how factories and containers are applied in a real-world example.
+In this tutorial, we explored the Portenta X8's powerful features, including its integration with factories and containers through Foundries.io and its dual-core architecture that allows seamless communication between Linux and Arduino environments.
+
+By combining Docker containers for Linux-based processes with the familiar Arduino IDE for real-time tasks on the M4 core, the Portenta X8 offers versatility for professional IoT and edge applications. This hybrid approach, built-in cybersecurity, and over-the-air updates ensure a secure, scalable, and efficient development environment.
+
+To see these concepts in action, explore our other [tutorials](https://docs.arduino.cc/hardware/portenta-x8/#tutorials), which demonstrate practical applications of factories and containers with the Portenta X8.
