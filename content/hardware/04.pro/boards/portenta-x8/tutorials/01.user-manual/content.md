@@ -478,100 +478,13 @@ More information about Waves can be found in the official Foundries documentatio
 
 ### Update Using `uuu` Tool
 
-An alternative method to updating the Portenta X8 with the latest OS image is to use the `uuu` command (`uuu_mac` command in case you use MAC OS).
+An alternative method to update the Portenta X8 with the latest OS image is to use the `uuu` tool (or `uuu_mac` for macOS). This approach is particularly useful for users who have built a custom image or prefer a manual update process. The image files can be downloaded from the [Arduino repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) and extracted into a specific directory.
 
-This flash method is helpful if you have built a custom image or desire a more manual approach. Nonetheless, you will need to prepare the OS image files, and the board must be set to programming mode for this flashing process.
+Depending on the carrier being used (e.g., Max Carrier, Breakout, Hat, or Mid Carrier), DIP switch settings must be adjusted to enter programming mode or specific commands can be executed via ADB for a barebone setup. Once the board is in programming mode, you can navigate to the extracted image files and run the `uuu full_image.uuu` command to begin the flashing process.
 
-***To learn more about creating a custom image for Portenta X8, please check out [How To Build a Custom Image for Your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/image-building) tutorial.***
+If not using a carrier, ensure the tool is running before cycling the power on the Portenta X8. Upon successful completion, reset the DIP switches or recycle the power to confirm the update.
 
-You will need to download the latest OS image file via [Arduino Download repository](https://downloads.arduino.cc/portentax8image/image-latest.tar.gz) and extract the files in a desired directory.
-
-The structure should be similar as follows after also extracting `mfgtool-files-portenta-x8.tar.gz` and `lmp-partner-arduino-image-portenta-x8.wic.gz` that came within the original compressed file:
-
-```
-Unzipped folder
-├── mfgtool-files-portenta-x8/
-├── imx-boot-portenta-x8
-├── lmp-partner-arduino-image-portenta-x8.wic
-├── lmp-partner-arduino-image-portenta-x8.wic.gz **(Compressed)**
-├── mfgtool-files-portenta-x8.tar.gz **(Compressed)**
-├── sit-portenta-x8.bin
-└── u-boot-portenta-x8.itb
-```
-
-#### Set Flashing Mode with Carrier
-
-The Portenta X8 can be set into programming mode using a carrier platform, such as Max Carrier, Breakout, or Hat Carrier, which provides DIP switches for convenient access, or a few more lines of command with barebone Portenta X8 via ADB.
-
-If you plan to use a carrier, please check the carrier's configuration to be paired with Portenta X8.
-
-For the **Portenta Max Carrier**, set the `BOOT SEL` and `BOOT` DIP switches to the ON position as depicted in the figure:
-
-![Portenta Max Carrier DIP switches](assets/max-carrier-dip-switches.png)
-
-Upon executing the `uuu` tool and ensuring the DIP switches are correctly configured, the Portenta Max Carrier will automatically start the flashing operation for the Portenta X8.
-
-For the **Portenta Breakout**, the `BT_SEL` and `BOOT` DIP switches should be set to the ON position, as illustrated in the figure:
-
-![Portenta Breakout DIP switches](assets/breakout-dip-switches.png)
-
-After running the `uuu` tool, perform a long press on the `ON` button of the Portenta Breakout to begin the flashing process. This action enables the tool to identify and connect with the device, continuing with the flashing operation.
-
-For the **Portenta Hat Carrier**, power cycle the Portenta X8, press and hold the `BOOT` button within the first 2 - 3 seconds after powering on, then press the Reset button, and release both buttons to start the flash process.
-
-You can also turn the `BTSEL` DIP switch to the ON position and power cycle the Portenta X8 to start flash process, as depicted in the figure below:
-
-![Portenta Hat Carrier DIP switches](assets/hatCarrier-dip-switches.png)
-
-The `ETH CENTER TAP` DIP switch position does not affect the flashing mode state for the Portenta Hat Carrier.
-
-For the **Portenta Mid Carrier**, the `BOOT SEL` DIP switch should be set to the ON position, as shown in the image below:
-
-![Portenta Mid Carrier DIP switches](assets/midCarrier-dip-switches.png)
-
-Like with the Portenta Max Carrier, the flashing process will commence once the `uuu` tool is run and starts searching for the device.
-
-#### Set Flashing Mode without Carrier
-
-If you decide to flash Portenta X8 without using the carrier, use the following command sequence inside the Portenta X8's terminal via ADB while you are in the root environment with root permission to reset Portenta X8's bootloader sector:
-
-```bash
-echo 0 > /sys/block/mmcblk2boot0/force_ro
-```
-
-```bash
-dd if=/dev/zero of=/dev/mmcblk2boot0 bs=1024 count=4096 && sync
-```
-
-```bash
-echo 0 > /sys/block/mmcblk2boot1/force_ro
-```
-
-```bash
-dd if=/dev/zero of=/dev/mmcblk2boot1 bs=1024 count=4096 && sync
-```
-
-#### Flashing the Portenta X8 Using `uuu` Command
-
-Now that we have the Portenta X8 in programming mode, we need to flash the OS image. Within the previously described OS image file structure, you need to navigate to the `mfgtool-files-portenta-x8` directory. You will find the `uuu` executable and its components inside the directory. Here, you will open a terminal and run the following command:
-
-```bash
-uuu full_image.uuu
-```
-
-If Portenta X8 is to be flashed without a carrier, you will want to execute the command **first** to let it search for the board. Subsequently, you will recycle the power source for Portenta X8 by unplugging and reconnecting the USB-C® cable.
-
-It will let the board begin its boot sequence, allowing it to enter programming mode as set with the defaulted internal bootloader. When the active `uuu` instance detects board has entered programming mode, it will continue with its flashing process.
-
-Once the flashing operation finishes, you will be greeted with a similar message in the terminal as the following figure:
-
-![Successful uuu flashing operation](assets/uuu-flashing-success.png)
-
-This applies to both flashing scenarios. If you have the carrier attached and decide to continue using docked with the platform, you must reset the DIP switch positions for either `BOOT SEL`, `BTSEL`, or `BT_SEL` and `BOOT` to OFF state. Reconnect the board and wait approximately 10 seconds until the Blue LED blinks, confirming the boot was successful.
-
-In case the Portenta X8 was flashed barebone, you will need to recycle the power and should be ready with the latest OS image.
-
-***For more in-depth tutorial for flashing Portenta X8, please check out [How To Flash Your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing) tutorial.***
+***For a detailed guide, refer to the [Flashing Portenta X8 tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-flashing).***
 
 ## First Use Of Your Portenta X8
 

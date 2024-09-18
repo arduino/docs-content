@@ -31,11 +31,67 @@ If you need help setting up your board, please have a look at the [Portenta X8 U
 
 ## Embedded Linux
 
+The term **Embedded Linux** refers to embedded systems that use the Linux kernel and other open-source components. Linux has become a leading choice for operating systems on embedded devices due to its open-source nature and the fact that it is freely available.
+
+An **Embedded Linux** system is composed of the following items:
+
+* **Bootloader:** The first program executed right after powering the board. It has the task of initializing the hardware and the operating system, loading the **device tree** and its configuration file into the RAM.
+
+  The **device tree** is a database containing information on the hardware components of the board, which is used to forward information from the bootloader to the Kernel at the hardware level.
+
+* **Linux Kernel:** The core of the operating system. It deals with resource management, scheduling, hardware access and all the low-level operations the user does not want to worry about.
+
+  In particular, the Linux Kernel manages all the hardware resources, like CPU, memory, and I/Os, and it provides a set of APIs that abstracts those resources, allowing the user applications and libraries to be easily deployed.
+
+* **Root Filesystem:** It contains all system programs and utilities, configurations and user data (roughly speaking, the equivalent of the `C:\` drive on Windows). The Root Filesystem can be mounted from a USB stick, SD card or flash memory, being the case of the Portenta X8.
+
+![Embedded Linux Start-Up](assets/Embedded_Linux_Start.png "Embedded Linux Start-Up")
+
 There are a few things to consider to work in an embedded Linux environment. When approaching Linux-based embedded devices software solutions, you need to provide a base distribution, a mechanism to update it, and some applications that can run on the board. The X8 uses a Linux distribution built with the Yocto Project® as the base platform, with applications that are installed and packaged as confined containers.
 
 A readily-available Linux distribution that packages everything seems most attractive for end users but you need to find a distribution that implements the function that you need. If you need to tweak them, you may end up in a mess of patches on the top of someone else's build system. On the other hand, a generic distribution has some problems since installing software over it may pollute the original system and cause issues when updating the base platform. For example, if you install a new application, the older one no longer works.
 
 In addition, you have to implement lots of things like cybersecurity functions and system updates. Finally, your solution may rely on a too "generic" distribution, with tons of software you don't need. So you may end up removing a lot of software on the target and turning features on and off. Until you break the configuration or need to update the system and begin restarting with a new fresh image, consequently beginning everything from zero again.
+
+### Linux Yocto Distribution
+
+To install a Linux operating system on a board, you need to decide which packages, applications, and libraries you want to use, so basically, you need to decide which Linux distribution better suits your needs.
+
+As a matter of fact, a Linux distribution is an operating system consisting of the Linux Kernel, GNU tools, additional software, and a package manager. It may also include a display server and a desktop environment for using it as a regular desktop operating system. More than 300 Linux distributions are available on the market, including Ubuntu, Debian, Fedora, Red Hat, etc.
+
+Portenta X8 is running a [Yocto Linux distribution](https://www.yoctoproject.org/). Yocto is built based on [OpenEmbedded (OE)](http://www.openembedded.org/wiki/Main_Page), which uses [BitBake](https://docs.yoctoproject.org/bitbake/) build to generate a full Linux image. BitBake and OE are combined to form the Yocto reference project, historically called [Poky](https://www.yoctoproject.org/software-item/poky/).
+
+In addition, a full metadata selection is defined to select which tasks to perform. The following metadata is used in a Yocto project:
+
+* **Recipes:** They deliver information regarding each package (i.e. author, homepage, license, etc.), recipe version, existing dependencies, source code location and how to retrieve it, configuration settings, and target path where the created package will be saved. Files with the `.bb` extension are recipe files.
+
+* **Configuration file:** They contain metadata that define how to perform the build process. These files (with the `.conf` file extension) determine the configuration options for the machine, the compiler, the distribution, and general and user configurations. They allow you to set the target where you want to create the image and where you want to save the downloaded sources and other particular configurations.
+
+* **Classes:** Class files with the extension `.bbclass` contain common functionalities that can be shared between various recipes within the distribution. When a recipe inherits a class, it also inherits its settings and functions.
+
+* **File append:** With the extension `.bbappend`, File append extends or overwrites information for an existing recipe.
+
+OpenEmbedded Core contains a recipe layer, classes, and associated files common to all OE-based systems, including Yocto. This metadata set is maintained by both the Yocto project and the OpenEmbedded project.
+
+The Yocto distribution is a development environment that comprises various functional areas, as shown in the figure below.
+
+![Yocto Distribution Architecture](assets/Yocto_Architecture.png "Yocto Distribution Architecture")
+
+* **Layer:** The layers allow you to separate metadata by differentiating them according to software, hardware information, metadata concerning distribution, and adopted policies. Within each layer are the `conf` (with layer-specific configuration files) and `recipes-` directories. To illustrate how to use layers to maintain modularity, consider the example of recipes to support a specific target, which usually resides in a BSP layer.
+
+  In this scenario, those recipes should be isolated from other recipes and supporting metadata, like a new Graphical User Interface (GUI). You would then have a couple of layers: one for the machine's configurations and one for the GUI environment. This would allow a specific machine to present special GUI features within the BSP layer without affecting the recipes inside the GUI layer itself. All of this is possible via an append file.
+
+* **Source file:** To cross-compile any software module, be it a distribution or an application, we must have access to various source files. The latter can be sourced from three different upstream areas: Upstream Project Releases (archived at a specific location), Local Projects (available at a certain local path), and Source Control Managers (like GitHub).
+
+* **Package feeds:** This area contains packages generated by the build system, which will be used later to generate operating system images or Software Development Kits (SDKs).
+
+* **Build System:** The Build System macroblock is the heart of the Yocto distribution. It contains various processes controlled by BitBake, a tool written in Python language. The Build System parses the metadata, extracting the list of tasks to be performed. BitBake checks the software build process by using the recipes. It writes a *stamp* file in the Build Directory for each successfully completed task.
+
+* **Images:** They are compressed forms of the Root Filesystem, ready to be installed on the target. BitBake releases multiple lists of images saved into the Build Directory, including *kernel-image*, *root-filesystem-image*, and *bootloaders*.
+
+* **SDK:** From the SDK generation process you can get a standard SDK or an extensible SDK. In both cases, the output is an installation script of the SDK, which installs a cross-development toolchain, a set of libraries, and headers files, generating an environment setup script. The toolchain can be considered as part of the build system. In contrast, libraries and headers are target parts since they are generated for the target hardware.
+
+***If you want to learn more about how to work with Yocto Distribution on your Portenta X8, please check the [Portenta X8's user manual](https://docs.arduino.cc/tutorials/portenta-x8/user-manual/#working-with-linux) of this user manual.***
 
 ### Benefits of Foundries.io
 
