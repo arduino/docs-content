@@ -38,17 +38,19 @@ Debugging your Arduino project allows you to dive deep into your code and troubl
 
 ## Connection
 
-Connecting the J-link to your GIGA R1 WiFi is super easy because there are special pins for debugging labeled as **SWD** pins.
+Connecting the J-link to your GIGA R1 WiFi is super easy because there are special pins for debugging labeled as **JTAG** pins.
 
-![SWD Pins](./assets/jtag_pins.png)
+![JTAG Pins](./assets/jtag_pins.png)
 
-Your J-link should come with a cable included and if you look closer you will see that one side is marked with red, indicating the orientation of the cable. The red side of the cable should be on the same side as the VCC pin on the SWD pad. To know the exact orientation of your cable be sure to check the respective documentation or datasheet of your debugger but you can start with the orientation as shown below and if it doesn't work you can try placing it differently until you get a working connection. Once we start using the debugger software in the following steps you will know if the cable is placed correctly.
+Your J-link should come with a cable included and if you look closer you will see that one side is marked with red, indicating the orientation of the cable. The red side of the cable should be on the same side as the VCC pin on the JTAG pad. To know the exact orientation of your cable be sure to check the respective documentation or datasheet of your debugger. If it doesn't work you can try placing it differently until you get a working connection. Once we start using the debugger software in the following steps you will know if the cable is placed correctly.
+
+***You can refer to the [Segger's documentation](https://wiki.segger.com/Arduino_Giga_R1_WiFi) to for the correct orientation of the cable.***
 
 ## Software 
 
 ### Setting up with the Arduino IDE
 
-First, if you haven't done it yet, install the [Arduino IDE](https://www.arduino.cc/en/software) and connect your GIGA R1 WiFi. When uploading a sketch to your Arduino board with the Arduino IDE, it will build an `.ELF` file of the sketch. We will need this file to debug in Ozone in the next steps. To easily find the file path of the `.ELF` file, we can enable the show verbose output option in the Arduino IDE. To do this, open up the preferences under **File > Preferences** in the Arduino IDE.
+First, if you haven't done it yet, install the [Arduino IDE](https://www.arduino.cc/en/software) and connect your GIGA R1 WiFi. Make sure to download the GIGA R1 [board package](tutorials/giga-r1-wifi/giga-getting-started/#install-board-package). Restart the IDE to make sure all options are visible to you When uploading a sketch to your Arduino board with the Arduino IDE, it will build an `.ELF` file of the sketch. We will need this file to debug in Ozone in the next steps. To easily find the file path of the `.ELF` file, we can enable the show verbose output option in the Arduino IDE. To do this, open up the preferences under **File > Preferences** in the Arduino IDE.
 
 ![Preferences in Arduino IDE](./assets/ide_preferences.png)
 
@@ -78,7 +80,7 @@ Inside the first instance:
 
 - Upload **"Sketch M7"** (see below).
 
-Inside the seconds instance:
+Inside the second instance:
 
 - Select **Flash split** > **1MB M7 + 1MB M4**.
 
