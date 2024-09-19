@@ -122,6 +122,8 @@ Docker containers ensure portability by packaging applications with their runtim
 
 With Arduino Cloud's integration with Foundries.io, you can create a *Foundries.io Factory* to manage Portenta X8 devices and containers. A Factory is a platform that helps you manage, organize, and update the devices linked to it while easing container deployment and team management.
 
+![Factory page](assets/factory-page.png "Factory page")
+
 #### Benefits of Foundries.io
 
 Foundries.io has developed a custom Linux distribution based on Yocto. It is designed with minimal software installed by default, making it ideal for professional applications. Foundries.io emphasizes cybersecurity, integrating top-level features such as **OP-TEE** and **OSTREE**, which ensure system integrity and security.
