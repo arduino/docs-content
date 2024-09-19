@@ -23,6 +23,8 @@ software:
 
 This user manual will guide you through a practical journey covering the most interesting features of the Arduino Edge Control. With this user manual, you will learn how to set up, configure and use this Arduino board.
 
+![Agriculture Application Example Setup](assets/EDGE_CONTROL_DIAGRAM1.png)
+
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
