@@ -100,6 +100,8 @@ The Portenta X8 allows device-independent software deployment through its modula
 
 Traditional virtualization virtualizes entire machines, leading to long start-up times and high resource consumption. Containers, however, virtualize only a subset of resources, sharing the operating system with the host. This allows for faster start-up times (seconds) and more efficient resource usage.
 
+![Virtual Machine vs Containers](assets/Virtual_Machine_Containers.png "Virtual Machine vs Containers")
+
 Advantages of containers include:
 
 - **Simplified Development, Testing, and Deployment:** Containers decouple applications from their environments, allowing them to be deployed consistently across platforms.
@@ -109,7 +111,12 @@ Advantages of containers include:
 
 Portenta X8's containers are built using Docker, a platform that simplifies container creation, testing, and management. Docker uses **LXC (Linux Containers)** to enable lightweight virtualization, automating the management of containers through user-friendly interfaces and tools like **Dockerfile** for building images, **Docker Daemon** for running them, and orchestration tools like **Docker Swarm** and **Kubernetes** for managing their deployment.
 
+![Docker host](assets/Docker_host.png "Docker host vs client")
+
 Docker containers ensure portability by packaging applications with their runtime environments, making them easily transferable between machines or cloud environments. The isolation offered by Docker enhances security, preventing threats from propagating across containers or affecting the host system.
+
+
+![Images and containers](assets/images_containers.png "Images vs containers")
 
 ### Foundries.io Factory and Benefits
 
