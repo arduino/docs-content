@@ -134,3 +134,31 @@ pwm.freq(1000)
 while True:
     pwm.duty_u16(duty)
 ```
+
+### PWM on GIGA (STM32)
+
+On STM32 boards like the GIGA R1, the PWM setup is slightly different. You need to use the `Timer` module along with the `Pin` module to configure PWM.
+
+Here's how you can set up PWM on STM32 boards:
+
+```python
+from machine import Pin, Timer
+
+pin1 = Pin("PC6", Pin.OUT_PP, Pin.PULL_NONE)
+timer1 = Timer(3, freq=1000)
+channel1 = timer1.channel(1, Timer.PWM, pin=pin1, pulse_width=0)
+
+duty = 50  # Duty cycle percentage (0-100)
+
+while True:
+    channel1.pulse_width_percent(duty)
+```
+
+In this example:
+
+- `pin1` is configured as an output pin with no pull-up or pull-down resistors.
+- `timer1` is initialized with a frequency of 1000 Hz.
+- `channel1` is created on timer 3, channel 1, and is set to PWM mode.
+- `channel1.pulse_width_percent(duty)` sets the duty cycle of the PWM
+
+***Note: Always refer to your board's documentation for the correct pin names and timer configurations specific to the GIGA. For more information, check out the [GIGA R1 MicroPython Guide](https://docs.arduino.cc/tutorials/giga-r1-wifi/giga-micropython/).***
