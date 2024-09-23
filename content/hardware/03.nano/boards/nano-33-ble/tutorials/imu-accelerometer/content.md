@@ -87,13 +87,13 @@ Now, connect the Arduino Nano 33 BLE to the computer and make sure that the Clou
 
 Now we will write the code to read the accelerometer data, calculate the tilt angles, and print the relative position of the board as we move it at different angles.
 
-- **Include the BMI270 library at the top of your sketch:**
+ **Include the BMI270 library at the top of your sketch:**
 
   ```arduino
   #include "Arduino_BMI270_BMM150.h"
   ```
 
-- **Initialize variables before the `setup()` function:**
+  **Initialize variables before the `setup()` function:**
 
   ```arduino
   #define MINIMUM_TILT 5    // Threshold for tilt detection in degrees
@@ -105,7 +105,7 @@ Now we will write the code to read the accelerometer data, calculate the tilt an
   unsigned long previousMillis = 0;
   ```
 
-- **In the `setup()`, initialize the IMU and start serial communication:**
+ **In the `setup()`, initialize the IMU and start serial communication:**
 
   ```arduino
   void setup() {
@@ -123,7 +123,7 @@ Now we will write the code to read the accelerometer data, calculate the tilt an
   }
   ```
 
-- **Write the `loop()` function to read accelerometer data and calculate tilt angles:**
+  **Write the `loop()` function to read accelerometer data and calculate tilt angles:**
 
   ```arduino
   void loop() {
@@ -166,7 +166,7 @@ In this code, we use trigonometric functions to calculate the tilt angles from t
 
 > **Note:** For the following code to work properly, the board's facing direction and inclination during the initialization of the code need to be specific. More information will be shared in the "Testing It Out" section.
 
-**4. Complete Code**
+**Complete Code**
 
 If you choose to skip the code-building section, the complete code can be found below:
 
@@ -249,23 +249,23 @@ void loop() {
 
 In order to get correct readings from the board:
 
-1. **Initial Position:**
+ **Initial Position:**
 
    Before uploading the sketch, place the board on a flat surface with the components facing upwards and the USB port pointing away from you. The image below illustrates the board's position and how it interacts with the X and Y axes:
 
    ![Interacting with the X and Y axes.](./assets/nano33BLE_01_illustration.png)
 
-2. **Uploading the Sketch:**
+ **Uploading the Sketch:**
 
    - Verify and upload the sketch to the board.
    - Open the Serial Monitor from the menu on the left.
 
-3. **Interacting with the Board:**
+ **Interacting with the Board:**
 
    - **Tilting Up/Down:** Tilt the board upwards or downwards to see the "Tilting up" or "Tilting down" messages.
    - **Tilting Left/Right:** Tilt the board to the left or right to see the "Tilting left" or "Tilting right" messages.
 
-4. **Observing the Output:**
+ **Observing the Output:**
 
    The Serial Monitor will display the tilt direction and angle every half-second based on your movements.
 
