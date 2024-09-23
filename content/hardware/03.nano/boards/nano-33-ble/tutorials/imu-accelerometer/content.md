@@ -275,14 +275,15 @@ Here is a screenshot of the sketch returning these values:
 
 ### Troubleshoot
 
-Sometimes errors occur. If the code is not working, here are some common issues you can troubleshoot:
-
+Sometimes errors occur, if the code is not working there are some common issues we can troubleshoot:
 - Missing a bracket or a semicolon.
+
 - Arduino board connected to the wrong port.
 - Accidental interruption of cable connection.
-- The initial position of the board is not as instructed. In this case, you can reset the board and try again.
-- Ensure the **Arduino_BMI270_BMM150** library is properly installed.
+- The initial position of the board is not as instructed. In this case you can refresh the page and try again.
+
+
 
 ## Conclusion
 
-In this simple tutorial, we learned what an IMU sensor module is, how to use the **Arduino_BMI270_BMM150** library, and how to use an Arduino Nano 33 BLE to get data. Furthermore, we utilized the 3-axis accelerometer sensor to measure and print out the degrees and relative position of the board.
+In this simple tutorial we learned what an IMU sensor module is, how to use the **LSM9DS1** library, and how to use an Arduino Nano 33 BLE to get data. Furthermore, we utilized the 3-axis accelerometer sensor, in order to measure and print out the degrees and relative position of the board.
