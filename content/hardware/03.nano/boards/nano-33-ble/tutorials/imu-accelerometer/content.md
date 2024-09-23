@@ -286,5 +286,3 @@ Sometimes errors occur. If the code is not working, here are some common issues 
 ## Conclusion
 
 In this simple tutorial, we learned what an IMU sensor module is, how to use the **Arduino_BMI270_BMM150** library, and how to use an Arduino Nano 33 BLE to get data. Furthermore, we utilized the 3-axis accelerometer sensor to measure and print out the degrees and relative position of the board.
-
----
