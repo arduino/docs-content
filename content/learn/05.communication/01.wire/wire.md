@@ -50,7 +50,7 @@ Below is a table that lists the different board form factors and what pins are f
 Below you'll find a couple ways to wire I2C breakout modules. Which way is best depends on each module, and your needs.
 
 ### Breakout Boards
-Some brekout board modules let you wire them directly, with bare wires on a breadboard. To connect a module like this to your Arduino board, connect it as follows:
+Some breakout board modules let you wire them directly, with bare wires on a breadboard. To connect a module like this to your Arduino board, connect it as follows:
 
 - VCC* - 5V/3V3 pin (depending on breakout module)
 - GND* - GND
