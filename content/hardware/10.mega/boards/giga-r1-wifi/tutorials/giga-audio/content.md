@@ -1,6 +1,6 @@
 ---
 title: Guide to GIGA R1 Advanced ADC/DAC and Audio Features
-description: 'Learn how to use the ADC/DAC features, along with useful examples on how to generate waveforms and play audio from a file.'
+description: "Learn how to use the ADC/DAC features, along with useful examples on how to generate waveforms and play audio from a file."
 author: José Bagur, Taddy Chung & Karl Söderby
 hardware:
   - hardware/10.mega/boards/giga-r1-wifi
@@ -11,15 +11,16 @@ software:
 tags: [ADC, DAC, Audio, USB]
 ---
 
-In the GIGA R1, you can find the powerful STM32H747XI, a dual-core 32-bit Arm® Cortex® microcontroller from STMicroelectronics; this is the same microcontroller found in the [Portenta H7](/hardware/portenta-h7) board. 
+In the GIGA R1, you can find the powerful STM32H747XI, a dual-core 32-bit Arm® Cortex® microcontroller from STMicroelectronics; this is the same microcontroller found in the [Portenta H7](/hardware/portenta-h7) board.
 
 In this guide, we will focus on the advanced ADC/DAC features, utilizing the [Arduino_AdvancedAnalog](https://github.com/arduino-libraries/Arduino_AdvancedAnalog) library. The examples found in this guide can be used to:
-- Set up and read ADCs with specific parameters (resolution, sample rate, number of samples per channel, queue depth). 
-- Set up and write to a DAC channel with specific parameters (resolution, frequency, number of samples per channel, queue depth). 
+
+- Set up and read ADCs with specific parameters (resolution, sample rate, number of samples per channel, queue depth).
+- Set up and write to a DAC channel with specific parameters (resolution, frequency, number of samples per channel, queue depth).
 - Generate specific waveforms through input via serial commands (triangle, square, sine, sawtooth waves) as well as adjusting the frequency.
 - Read and play audio files (`.wav`) from a USB stick (connected to USB-A) to a speaker, using the audio jack.
 
-***Important note: the GIGA R1 does NOT have an amplifying circuit onboard. Connecting speakers that does not have an amplifier can damage the DAC and the board itself.***
+**_Important note: the GIGA R1 does NOT have an amplifying circuit onboard. Connecting speakers that does not have an amplifier can damage the DAC and the board itself._**
 
 ## Hardware & Software Needed
 
@@ -45,26 +46,24 @@ The image below shows the position of the audio pins and connectors of the GIGA 
 
 ![ADC/DAC pins and connectors of the GIGA R1](assets/audio-pins.png)
 
-The table below explains the full functionality of the listed on it; notice that some pins have more than one functionality, such as `DAC0`, `DAC1`, `CANRX`, and `CANTX`:
+The table below explains the full functionality of the listed on it; notice that `A12` and `A13` can be used as DACs (`DAC0`, `DAC1`).
 
-|  Pin  |  Functionality |
-|:-----:|:--------------:|
-|   A0  |       ADC      |
-|   A1  |       ADC      |
-|   A2  |       ADC      |
-|   A3  |       ADC      |
-|   A4  |       ADC      |
-|   A5  |       ADC      |
-|   A6  |       ADC      |
-|   A7  |       ADC      |
-|   A8  |       ADC      |
-|   A9  |       ADC      |
-|  A10  |       ADC      |
-|  A11  |       ADC      |
-|  DAC0 |   ADC and DAC  |
-|  DAC1 |   ADC and DAC  |
-| CANRX | ADC and CAN RX |
-| CANTX | ADC and CAN TX |
+|    Pin     | Functionality  |
+| :--------: | :------------: |
+|     A0     |      ADC       |
+|     A1     |      ADC       |
+|     A2     |      ADC       |
+|     A3     |      ADC       |
+|     A4     |      ADC       |
+|     A5     |      ADC       |
+|     A6     |      ADC       |
+|     A7     |      ADC       |
+|     A8     |      ADC       |
+|     A9     |      ADC       |
+|    A10     |      ADC       |
+|    A11     |      ADC       |
+| A12 / DAC0 |  ADC and DAC   |
+| A13 / DAC1 |  ADC and DAC   |
 
 Pins `A7`, `DAC0`, and `DAC1` can also be accessed via the built-in TRRS 3.5mm jack. `DAC0` is connected to ring 1 (right channel), `DAC1` is connected to the tip (left channel), and `A7` is connected to ring 2 (microphone) of the jack, as shown in the schematic below:
 
@@ -72,7 +71,7 @@ Pins `A7`, `DAC0`, and `DAC1` can also be accessed via the built-in TRRS 3.5mm j
 
 ## Analog-to-Digital Converter (ADC)
 
-An analog-to-digital converter (ADC) is a device that converts an analog voltage, or signal, into digital data. The GIGA R1 microcontroller, the STM32H747XI, embeds three ADCs whose resolution can be configured to 8, 10, 12, 14, or 16 bits. Each ADC shares up to 20 external channels that can be accessed in the GIGA R1 board through pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, and `A11`; pins `DAC0`, `DAC1`, `CANRX`, and `CANTX` can also be used as ADCs.
+An analog-to-digital converter (ADC) is a device that converts an analog voltage, or signal, into digital data. The GIGA R1 microcontroller, the STM32H747XI, embeds three ADCs whose resolution can be configured to 8, 10, 12, 14, or 16 bits. Each ADC shares up to 20 external channels that can be accessed in the GIGA R1 board through pins `A0`, `A1`, `A2`, `A3`, `A4`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, and `A11`; pins `DAC0`, `DAC1` can also be used as ADCs.
 
 ![ADC pins of the GIGA R1](assets/adcs.png)
 
@@ -171,7 +170,7 @@ A digital-to-analog converter (DAC) is a device that has a function opposite to 
 
 - 8-bit or 12-bit monotonic output
 - Left or right data alignment in 12-bit mode
-- Dual DAC channel independent or simultaneous conversions 
+- Dual DAC channel independent or simultaneous conversions
 - DMA capability for each channel
 - External triggers for conversion
 - Input voltage reference or internal voltage reference
@@ -262,15 +261,15 @@ void setup() {
 
 void dac_output_sq(AdvancedDAC &dac_out) {
     if (dac_out.available()) {
-      
+
         // Get a free buffer for writing.
         SampleBuffer buf = dac_out.dequeue();
-        
+
         // Write data to buffer.
         for (int i=0; i<buf.size(); i++) {
           buf.data()[i] =  (i % 2 == 0) ? 0: 0xfff;
         }
-        
+
         // Write the buffer to DAC.
         dac_out.write(buf);
     }
@@ -350,8 +349,8 @@ AdvancedDAC dac0(A12);
 uint8_t SAMPLES_BUFFER[N_SAMPLES];
 size_t dac_frequency = DEFAULT_FREQUENCY;
 
-void generate_waveform(int cmd) 
-{   
+void generate_waveform(int cmd)
+{
     switch (cmd) {
         case 't':
             // Triangle wave
@@ -388,7 +387,7 @@ void generate_waveform(int cmd)
         case '+':
         case '-':
             Serial.print("Current frequency: ");
-            
+
             if (cmd == '+' && dac_frequency < 64000) {
               dac_frequency *= 2;
             } else if (cmd == '-' && dac_frequency > 1000) {
@@ -396,7 +395,7 @@ void generate_waveform(int cmd)
             } else {
               break;
             }
-            
+
             dac0.stop();
             delay(500);
             if (!dac0.begin(AN_RESOLUTION_8, dac_frequency * N_SAMPLES, N_SAMPLES, 32)) {
@@ -404,13 +403,13 @@ void generate_waveform(int cmd)
             }
             delay(500);
             break;
-            
+
         default:
             Serial.print("Unknown command ");
             Serial.println((char) cmd);
             return;
     }
-    
+
     Serial.print(dac_frequency/1000);
     Serial.println("KHz");
 }
@@ -422,7 +421,7 @@ void setup() {
 
     }
 
-    
+
     Serial.println("Enter a command:");
     Serial.println("t: Triangle wave");
     Serial.println("q: Square wave");
@@ -430,9 +429,9 @@ void setup() {
     Serial.println("r: Sawtooth wave");
     Serial.println("+: Increase frequency");
     Serial.println("-: Decrease frequency");
-    
+
     generate_waveform('s');
-    
+
     // DAC initialization
     if (!dac0.begin(AN_RESOLUTION_8, DEFAULT_FREQUENCY * N_SAMPLES, N_SAMPLES, 32)) {
         Serial.println("Failed to start DAC1 !");
@@ -446,8 +445,8 @@ void loop() {
         if (cmd != '\n') {
           generate_waveform(cmd);
         }
-    } 
-    
+    }
+
     if (dac0.available()) {
         // Get a free buffer for writing.
         SampleBuffer buf = dac0.dequeue();
@@ -464,22 +463,23 @@ void loop() {
 
 ## Audio Playback
 
-The GIGA R1 12-bit DAC channels can also be used to read `.wav` files from a USB stick and stream them directly to a speaker. 
+The GIGA R1 12-bit DAC channels can also be used to read `.wav` files from a USB stick and stream them directly to a speaker.
 
 For this example, you will need:
+
 - A speaker, that has a built in amplifier.
 - A USB mass storage device (USB stick).\*
 - [Arduino_USBHostMbed5](https://github.com/arduino-libraries/Arduino_USBHostMbed5) library installed.
 
-***\*USB mass storage devices connected needs to be formatted with the FAT32 as a file system, using the MBR partitioning scheme. Read more in the [USB Mass Storage](/tutorials/giga-r1-wifi/giga-usb/#usb-mass-storage) section.***
+**_\*USB mass storage devices connected needs to be formatted with the FAT32 as a file system, using the MBR partitioning scheme. Read more in the [USB Mass Storage](/tutorials/giga-r1-wifi/giga-usb/#usb-mass-storage) section._**
 
 ### USB Stick Configuration
 
-The **Arduino_AdvancedAnalog** library contains the necessary functions that enable us to use the advanced capabilities of the GIGA R1 DACs. 
+The **Arduino_AdvancedAnalog** library contains the necessary functions that enable us to use the advanced capabilities of the GIGA R1 DACs.
 
-To read `.wav` files from the USB stick we are using the **Arduino_USBHostMbed5** library. It is important that the USB stick is formatted properly, and that we define its name in the sketch. In this case, we name it `USB_DRIVE`, and is defined like this: 
+To read `.wav` files from the USB stick we are using the **Arduino_USBHostMbed5** library. It is important that the USB stick is formatted properly, and that we define its name in the sketch. In this case, we name it `USB_DRIVE`, and is defined like this:
 
-```arduino 
+```arduino
 mbed::FATFileSystem usb("USB_DRIVE");
 ```
 
@@ -663,7 +663,7 @@ This example is similar to the **Play Single Audio File** example, but with some
 
 - This example uses multiple audio files.
 - The file read is moved to a separate function, `configFile()`, as it will be continuously called from the sketch.
-- Instead of playing a file once, it keeps looping it. 
+- Instead of playing a file once, it keeps looping it.
 - The **BOOT0** (`PC_13`) button (right next to the audio jack) is used as a regular pushbutton to loop through the audio files.
 - Pressing the button changes the file played.
 
