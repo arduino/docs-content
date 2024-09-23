@@ -27,7 +27,7 @@ A ball valve is a form of quarter-turn [valve](https://en.wikipedia.org/wiki/Val
 - 1x Micro USB cable
 - Arduino IDE 1.8.10+
 - 2x Phoenix Connectors
-- 2x Jumper cables
+- 2x Jumper wires
 
 ## Instructions
 
@@ -40,7 +40,7 @@ The motorized valve comes with three wires primarily marked as blue, yellow and 
 Before you attach the wires to the board you need to ensure that the Phoenix connectors are in place.
 
 **The Latching Circuitry**
-A Latching Circuit has 2 inputs for Positive(P) and Negative(N) signals and 1 output. Latches allows you to store the previous state of the signal that passes through either of the pins and maintains the state until you pass a new signal. Signal passed through the positive and the negative pins will also determine the direction of the signal to the valve. The Edge Control board comes with 8 pairs of Latches each labeled from 1N:1P up to 8N:8P.
+A Latching Circuit has 2 inputs for Positive(P) and Negative(N) signals and 1 output. Latches allow you to store the previous state of the signal that passes through either of the pins and maintains the state until you pass a new signal. Signal passed through the positive and the negative pins will also determine the direction of the signal to the valve. The Edge Control board comes with 8 pairs of Latches each labeled from 1N:1P up to 8N:8P.
 
 Connect the red and the blue wire to `1N` and `1P` of your Edge Control board. As the valve doesn't come with internal drivers to store the state of the motor, we will use the `Latching_out` pins, instead of `Latching_out_cmd`, these are the ones that include drivers on the Edge Control.
 
@@ -106,7 +106,7 @@ void loop(){
 
 ### 3. Connecting To A Power Source
 
-The valves require a power supply of 9 - 12 V and you can either use a regular power supply or a 3 cell LiPo battery to provide the required voltage. Power sources can be connected to the relay ports on the edge control board, ensure that you have a source that can provide 9 - 12 V of power for both the valve and the board. Connect two jumper wires to the **GND** and **B** pins of the **Relay ports**.
+The valves require a power supply of 9 - 12 V and you can either use a regular power supply or a 3 cell LiPo battery to provide the required voltage. Power sources can be connected to the relay ports on the Edge Control board, ensure that you have a source that can provide 9 - 12 V of power for both the valve and the board. Connect two jumper wires to the **GND** and **B** pins of the **Relay ports**.
 
 ![The power pins of the Edge Control](assets/ec_ard_connect_power_source.svg)
 
