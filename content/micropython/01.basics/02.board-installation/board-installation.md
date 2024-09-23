@@ -47,7 +47,7 @@ If you don't want to use the Arduino MicroPython Installer tool, these are the p
 
 Software required:
 - MicroPython Firmware
-- [esptool.py](https://github.com/espressif/esptool) installed
+- [esptool.py](https://docs.espressif.com/projects/esptool/en/latest/esp32/) installed
 - [Python](https://www.python.org) installed on your computer
 ​
 First prepare the board for a new firmware upload by shorting the B1 pin to GND and pressing the reset button.
