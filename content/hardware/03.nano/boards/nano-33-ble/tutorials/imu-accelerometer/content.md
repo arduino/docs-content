@@ -73,117 +73,131 @@ In this example, we will use the accelerometer as a "level" that will provide in
 
 **1. Setting up**
 
-Let's start by opening the Arduino Cloud Editor, click on the **Libraries** tab and search for the **LSM9DS1** library. Then in **> Examples**, open the **SimpleAccelerometer** sketch and once it opens, rename it as **Accelerometer**.
+Let's start by opening the Arduino Cloud Editor, click on the **Libraries** tab and search for the **Arduino_BMI270_BMM150** library. Then, click on **Examples**, and open a new sketch.
 
 ![Finding the library in the Cloud Editor.](./assets/nano33BLE_01_include_library.png)
 
 **2. Connecting the board**
 
-Now, connect the Arduino Nano 33 BLE to the computer and make sure that the Cloud Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
-
+Now, connect the Arduino Nano 33 BLE to the computer and make sure that the Cloud Editor recognizes it. If so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
 
 ![Selecting the board.](assets/nano33BLE_01_board_port.png)
 
-**3. Printing the relative position**
+**3. Writing the Code**
 
-Now we will need to modify the code on the example, in order to print the relative position of the board as we move it in different angles.
+Now we will write the code to read the accelerometer data, calculate the tilt angles, and print the relative position of the board as we move it at different angles.
 
-Let's start by initializing the the x, y, z axes as `float` data types, and the `int degreesX = 0;` and `int degreesY = 0;` variables before the  `setup()`.
+- **Include the BMI270 library at the top of your sketch:**
 
-In the `setup()` we should **remove** the following lines of code:
+  ```arduino
+  #include "Arduino_BMI270_BMM150.h"
+  ```
 
+- **Initialize variables before the `setup()` function:**
 
-```arduino
-Serial.println();
-Serial.println("Acceleration in G's");
-Serial.println("X\tY\tZ");
-```
+  ```arduino
+  #define MINIMUM_TILT 5    // Threshold for tilt detection in degrees
+  #define WAIT_TIME 500     // How often to run the code (in milliseconds)
 
-Since the raw values of the three axes will not be required, we can remove the lines which will print these. Similarly, we should **remove** the following lines from the `loop()`:
+  float x, y, z;
+  int angleX = 0;
+  int angleY = 0;
+  unsigned long previousMillis = 0;
+  ```
 
+- **In the `setup()`, initialize the IMU and start serial communication:**
 
-```arduino
-Serial.print(x);
-Serial.print('\t');
-Serial.print(y);
-Serial.print('\t');
-Serial.println(z);
-```
+  ```arduino
+  void setup() {
+    Serial.begin(9600);
+    while (!Serial);
 
-Instead, in the `loop()`  we tell the sensor to begin reading the values for the three axes. In this example we will not be using the readings from the Z axis as it is not required for this application to function, therefore you could remove it.
-
-After the `IMU.readAcceleration` initialization, we add four `if` statements for the board's different positions. The statements will calculate the direction in which the board will be tilting towards, as well as provide the axe's degree values.
-
-```arduino
-if(x > 0.1){
-    x = 100*x;
-    degreesX = map(x, 0, 97, 0, 90);
-    Serial.print("Tilting up ");
-    Serial.print(degreesX);
-    Serial.println("  degrees");
-    }
-  if(x < -0.1){
-    x = 100*x;
-    degreesX = map(x, 0, -100, 0, 90);
-    Serial.print("Tilting down ");
-    Serial.print(degreesX);
-    Serial.println("  degrees");
-    }
-  if(y > 0.1){
-    y = 100*y;
-    degreesY = map(y, 0, 97, 0, 90);
-    Serial.print("Tilting left ");
-    Serial.print(degreesY);
-    Serial.println("  degrees");
-    }
-  if(y < -0.1){
-    y = 100*y;
-    degreesY = map(y, 0, -100, 0, 90);
-    Serial.print("Tilting right ");
-    Serial.print(degreesY);
-    Serial.println("  degrees");
+    if (!IMU.begin()) {
+      Serial.println("Failed to initialize IMU!");
+      while (1);
     }
 
-```
+    Serial.print("Accelerometer sample rate = ");
+    Serial.print(IMU.accelerationSampleRate());
+    Serial.println("Hz");
+  }
+  ```
 
-Lastly, we `Serial.print` the results value and add a `delay(1000);`.
+- **Write the `loop()` function to read accelerometer data and calculate tilt angles:**
 
->**Note:** For the following code to properly work, the board's facing direction and inclination during the initialization of the code, need to be specific. More information will be shared on the "testing it out" section.
+  ```arduino
+  void loop() {
+    unsigned long currentMillis = millis();
 
+    if (IMU.accelerationAvailable() && (currentMillis - previousMillis >= WAIT_TIME)) {
+      previousMillis = currentMillis;
 
+      IMU.readAcceleration(x, y, z);
 
+      // Calculate tilt angles in degrees
+      angleX = atan2(x, sqrt(y * y + z * z)) * 180 / PI;
+      angleY = atan2(y, sqrt(x * x + z * z)) * 180 / PI;
 
-**4. Complete code**
+      // Determine the tilting direction based on angleX and angleY
+      if (angleX > MINIMUM_TILT) {  // Tilting up
+        Serial.print("Tilting up ");
+        Serial.print(angleX);
+        Serial.println(" degrees");
+      } else if (angleX < -MINIMUM_TILT) {  // Tilting down
+        Serial.print("Tilting down ");
+        Serial.print(-angleX);
+        Serial.println(" degrees");
+      }
 
-If you choose to skip the code building section, the complete code can be found below:
+      if (angleY > MINIMUM_TILT) {  // Tilting left
+        Serial.print("Tilting left ");
+        Serial.print(angleY);
+        Serial.println(" degrees");
+      } else if (angleY < -MINIMUM_TILT) {  // Tilting right
+        Serial.print("Tilting right ");
+        Serial.print(-angleY);
+        Serial.println(" degrees");
+      }
+    }
+  }
+  ```
+
+In this code, we use trigonometric functions to calculate the tilt angles from the accelerometer data. The `MINIMUM_TILT` variable is used to ignore small movements below a certain threshold.
+
+> **Note:** For the following code to work properly, the board's facing direction and inclination during the initialization of the code need to be specific. More information will be shared in the "Testing It Out" section.
+
+**4. Complete Code**
+
+If you choose to skip the code-building section, the complete code can be found below:
+
 ```arduino
 /*
-  Arduino LSM9DS1 - Accelerometer Application
+  Arduino BMI270 - Accelerometer Application
 
   This example reads the acceleration values as relative direction and degrees,
-  from the LSM9DS1 sensor and prints them to the Serial Monitor or Serial Plotter.
+  from the BMI270 sensor and prints them to the Serial Monitor.
 
   The circuit:
   - Arduino Nano 33 BLE
 
-  Created by Riccardo Rizzo
-
-  Modified by Jose García
-  27 Nov 2020
+  Created by Pedro Lima
 
   This example code is in the public domain.
 */
 
-#include <Arduino_LSM9DS1.h>
+#include "Arduino_BMI270_BMM150.h"
+
+#define MINIMUM_TILT 5    // Threshold for tilt detection in degrees
+#define WAIT_TIME 500     // How often to run the code (in milliseconds)
 
 float x, y, z;
-int degreesX = 0;
-int degreesY = 0;
+int angleX = 0;
+int angleY = 0;
+unsigned long previousMillis = 0;
 
 void setup() {
   Serial.begin(9600);
   while (!Serial);
-  Serial.println("Started");
 
   if (!IMU.begin()) {
     Serial.println("Failed to initialize IMU!");
@@ -196,73 +210,81 @@ void setup() {
 }
 
 void loop() {
+  unsigned long currentMillis = millis();
 
-  if (IMU.accelerationAvailable()) {
+  if (IMU.accelerationAvailable() && (currentMillis - previousMillis >= WAIT_TIME)) {
+    previousMillis = currentMillis;
+
     IMU.readAcceleration(x, y, z);
 
-  }
+    // Calculate tilt angles in degrees
+    angleX = atan2(x, sqrt(y * y + z * z)) * 180 / PI;
+    angleY = atan2(y, sqrt(x * x + z * z)) * 180 / PI;
 
-  if (x > 0.1) {
-    x = 100 * x;
-    degreesX = map(x, 0, 97, 0, 90);
-    Serial.print("Tilting up ");
-    Serial.print(degreesX);
-    Serial.println("  degrees");
+    // Determine the tilting direction based on angleX and angleY
+    if (angleX > MINIMUM_TILT) {  // Tilting up
+      Serial.print("Tilting up ");
+      Serial.print(angleX);
+      Serial.println(" degrees");
+    } else if (angleX < -MINIMUM_TILT) {  // Tilting down
+      Serial.print("Tilting down ");
+      Serial.print(-angleX);
+      Serial.println(" degrees");
+    }
+
+    if (angleY > MINIMUM_TILT) {  // Tilting left
+      Serial.print("Tilting left ");
+      Serial.print(angleY);
+      Serial.println(" degrees");
+    } else if (angleY < -MINIMUM_TILT) {  // Tilting right
+      Serial.print("Tilting right ");
+      Serial.print(-angleY);
+      Serial.println(" degrees");
+    }
   }
-  if (x < -0.1) {
-    x = 100 * x;
-    degreesX = map(x, 0, -100, 0, 90);
-    Serial.print("Tilting down ");
-    Serial.print(degreesX);
-    Serial.println("  degrees");
-  }
-  if (y > 0.1) {
-    y = 100 * y;
-    degreesY = map(y, 0, 97, 0, 90);
-    Serial.print("Tilting left ");
-    Serial.print(degreesY);
-    Serial.println("  degrees");
-  }
-  if (y < -0.1) {
-    y = 100 * y;
-    degreesY = map(y, 0, -100, 0, 90);
-    Serial.print("Tilting right ");
-    Serial.print(degreesY);
-    Serial.println("  degrees");
-  }
-  delay(1000);
 }
-
 ```
 
-
 ## Testing It Out
-In order to get a correct reading of the board data, before uploading the sketch to the board hold the board in your hand, from the side of the USB port. The board should be facing up and "pointing" away from you. The image below illustrates the board's position and how it works:
 
-![Interacting with the X and Y axes.](./assets/nano33BLE_01_illustration.png)
+In order to get correct readings from the board:
 
-Now, you can verify and upload the sketch to the board and open the Monitor from the menu on the left.  
+1. **Initial Position:**
 
-If you tilt the board upwards, downwards, right or left, you will see the results printing every second according to the direction of your movement!
+   Before uploading the sketch, place the board on a flat surface with the components facing upwards and the USB port pointing away from you. The image below illustrates the board's position and how it interacts with the X and Y axes:
 
+   ![Interacting with the X and Y axes.](./assets/nano33BLE_01_illustration.png)
+
+2. **Uploading the Sketch:**
+
+   - Verify and upload the sketch to the board.
+   - Open the Serial Monitor from the menu on the left.
+
+3. **Interacting with the Board:**
+
+   - **Tilting Up/Down:** Tilt the board upwards or downwards to see the "Tilting up" or "Tilting down" messages.
+   - **Tilting Left/Right:** Tilt the board to the left or right to see the "Tilting left" or "Tilting right" messages.
+
+4. **Observing the Output:**
+
+   The Serial Monitor will display the tilt direction and angle every half-second based on your movements.
 
 Here is a screenshot of the sketch returning these values:
 
 ![Printing out the "tilt condition" of the board.](./assets/nano33BLE_01_printing_values.png)
 
-
-
 ### Troubleshoot
 
-Sometimes errors occur, if the code is not working there are some common issues we can troubleshoot:
-- Missing a bracket or a semicolon.
+Sometimes errors occur. If the code is not working, here are some common issues you can troubleshoot:
 
+- Missing a bracket or a semicolon.
 - Arduino board connected to the wrong port.
 - Accidental interruption of cable connection.
-- The initial position of the board is not as instructed. In this case you can refresh the page and try again.
-
-
+- The initial position of the board is not as instructed. In this case, you can reset the board and try again.
+- Ensure the **Arduino_BMI270_BMM150** library is properly installed.
 
 ## Conclusion
 
-In this simple tutorial we learned what an IMU sensor module is, how to use the **LSM9DS1** library, and how to use an Arduino Nano 33 BLE to get data. Furthermore, we utilized the 3-axis accelerometer sensor, in order to measure and print out the degrees and relative position of the board.
+In this simple tutorial, we learned what an IMU sensor module is, how to use the **Arduino_BMI270_BMM150** library, and how to use an Arduino Nano 33 BLE to get data. Furthermore, we utilized the 3-axis accelerometer sensor to measure and print out the degrees and relative position of the board.
+
+---
