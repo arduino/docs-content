@@ -7,6 +7,8 @@ tags: [Display, appwizard, segger, GUI]
 
 ## Introduction
 
+>Please note that the [Segger App Wizard](https://www.segger.com/products/user-interface/emwin/tools/appwizard/) tool is only available on Windows. To follow this tutorial, you will need to use a machine with Windows installed.
+
 Segger's app wizard is a graphical framework for building powerful UIs, and is fully compatible with the GIGA Display Shield. It allows you to build UIs, using pre-made widgets like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. In this guide, we will go through some of the different components and interactions, so you can learn how to best use AppWizard for your own projects.
 
 ## Hardware & Software Needed
@@ -14,7 +16,7 @@ Segger's app wizard is a graphical framework for building powerful UIs, and is f
 - [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi)
 - [Arduino GIGA Display Shield](https://store.arduino.cc/products/giga-display-shield)
 - [Arduino IDE](https://www.arduino.cc/en/software)
-- [App Wizard](https://www.segger.com/products/user-interface/emwin/tools/appwizard/)
+- [Segger App Wizard](https://www.segger.com/products/user-interface/emwin/tools/appwizard/)
 - [emWin Arduino Library](https://github.com/SEGGERMicro/emWin-Arduino-Library/)
 
 ## Downloading the Library and Core
