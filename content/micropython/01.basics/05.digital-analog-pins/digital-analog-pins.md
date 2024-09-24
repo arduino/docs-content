@@ -123,6 +123,8 @@ As a result, you can simulate a specific voltage written to a pin. In the exampl
 
 For this, we need to import `PWM` and `Pin` from the `machine` module.
 
+### Coding with PWM
+
 ```python
 from machine import Pin, PWM, ADC
 
@@ -134,3 +136,35 @@ pwm.freq(1000)
 while True:
     pwm.duty_u16(duty)
 ```
+In this example:
+
+- `pin1` is configured as an output pin with no pull-up or pull-down resistors.
+- `timer1` is initialized with a frequency of 1000 Hz.
+- `channel1` is created on timer 3, channel 1, and is set to PWM mode.
+- `channel1.pulse_width_percent(duty)` sets the duty cycle of the PWM signal as a percentage between 0 and 100.
+
+### PWM on the GIGA R1
+
+On STM32 boards like the Arduino GIGA R1, PWM is handled differently. You need to use the `Timer` class along with the `Pin` class from the `pyb` module.
+Here's the correct code that works on these boards:
+
+```python
+from pyb import Pin, Timer
+
+p = Pin('A13')  # Replace 'A13' with your desired PWM-capable pin
+tim = Timer(2, freq=1000)
+ch = tim.channel(1, Timer.PWM, pin=p)
+ch.pulse_width_percent(25)
+```
+
+In this example:
+
+- `p` is a `Pin` object initialized on pin `'A13'`. This pin is set up for PWM output.
+- `tim` is a `Timer` object initialized with timer number 2 and a frequency of 1000 Hz.
+- `ch` is a PWM channel created on timer 2, channel 1, and is associated with pin `p`.
+- `ch.pulse_width_percent(25)` sets the duty cycle of the PWM signal to 25%.
+- `'A13'` is the pin markedas **DAC1**
+
+
+- Pin names and timer configurations, may vary between different STM32 boards. For more information, check out the [GIGA R1 MicroPython Guide](https://docs.arduino.cc/tutorials/giga-r1-wifi/giga-micropython/).
+
