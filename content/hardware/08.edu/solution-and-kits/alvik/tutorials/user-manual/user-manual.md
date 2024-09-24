@@ -36,7 +36,7 @@ Inside the Arduino Alvik package you'll find the following items:
 
 ![Alvik exploded view](assets/main-components.png)
 
-***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the hardware from the chassis make sure you do it on a __non-conductive surface clean__ of materials or tools that can short-circuit the battery***
+***When the PCB is out of the chassis and the battery is in place there is the risk of short-circuiting the 18650 Li-Ion battery. If you remove the hardware from the chassis make sure you do it on a __non-conductive surface clean__ of materials or tools that can short-circuit the battery.***
 
 ### Main Components
 
@@ -46,7 +46,7 @@ Inside the Arduino Alvik package you'll find the following items:
 
 ## Alvik's Brain
 
-The brain of the Alvik robot is the Nano ESP32, which is the central component we program to run the logic and make decisions. It is extremely important because it processes all the high-level commands and controls the overall operation of the robot. However, instead of directly moving the motors or reading sensors, it communicates with the STM32 (the body) to execute these actions. The Nano ESP32 gives orders to the STM32 to move, read sensors, or report status, allowing the robot to make informed (or better yet, as informed as we program it) decisions and run tasks and routines using this information.
+The **Nano ESP32** is the brain of the Alvik robot, acting as the central hub that runs the logic and makes key decisions. While it plays a critical role in processing high-level commands and overseeing the robot's operations, it doesn't directly control the motors or sensors. Instead, the Nano ESP32 communicates with the **STM32** (the body), sending instructions for actions like movement, sensor readings, or status updates. This collaboration allows the robot to perform tasks and routines based on the data it receives, enabling it to make informed decisions as we've programmed it to be.
 ![Alvik Brain](assets/alvik_brain.png)
 
 
@@ -74,7 +74,7 @@ The main core of the robot is the STM32 ARM Cortex-M4 32 Bit controller. It hand
 
 You can learn more about the available functions for Alvik in the following [Alvik's API Documentation](https://docs.arduino.cc/tutorials/alvik/api-overview).
 
-***Although Alvik's "out of the box" experience is designed in micropython, there are C++ APIs that allow you to program Avlik in the Arduino IDE, these APIs are 1 to 1 compatible with the micropython APIs, which means that the [Alvik's API Documentation](https://docs.arduino.cc/tutorials/alvik/api-overview) will give you information for both micropython and C++ programming experiences.***
+***Although Alvik's "out of the box" experience is designed in MicroPython, there are C++ APIs that allow you to program Avlik in the Arduino IDE, these APIs are 1 to 1 compatible with the MicroPython APIs, which means that the [Alvik's API Documentation](https://docs.arduino.cc/tutorials/alvik/api-overview) will give you information for both MicroPython and C++ programming experiences.***
 
 
 The latest firmware of the STM32 can be found at [this link](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases), and [here](#how-to-upload-firmware) is the guide to flash it.
@@ -131,16 +131,26 @@ The battery is located in the bottom part of Alvik, if you need to access it you
 
 ![Accessing battery compartment](assets/battery_holder.jpg)
 
-1. **Detach the Existing Battery**: Carefully remove the old battery from its compartment.
-2. **Attach a New Battery**: Place the new battery into the holder, ensuring it is securely connected.
-3. **Plug in the Nano ESP32**: If you are using a different controller or have used the robot in another manner, reconnect the Nano ESP32.
-4. **Connect the Nano ESP32 to the Computer**: Use a USB cable to connect the Nano ESP32 to your computer.
+Follow the steps below to replace Alvik's battery and reset the battery management system (BMS):
 
-These steps are crucial for resetting the Battery Management System (BMS) after a battery replacement. If these steps are not followed, the BMS will remain "off," and the robot will not turn on.
+1. **Turn Alvik OFF**.
+2. **Unplug Arduino Nano ESP32** board from the Alvik's body.
+3. **Re-install Arduino Nano ESP32’s MicroPython bootloader** by following [**this guide**](https://docs.arduino.cc/micropython/basics/board-installation/).
+4. **Remove the existing battery**: carefully take the old battery out of its compartment.
+5. **Tighten the battery holder terminals** pull the + and – terminals slightly toward the center to ensure they make good contact with the battery terminals.
+6. **Insert the new battery**: place the new battery into the holder, ensuring it is securely connected. To confirm proper contact, use a multimeter (set to 20V) to measure the battery holder terminals (+ & -); it should show the battery's voltage.
+7. **Reconnect the Nano ESP32**: If you are using a different controller or have used the robot in another manner, reconnect the Nano ESP32.
+8. **Connect the Nano ESP32 to your computer** using the USB cable, while the Alvik switch is in OFF position.
+9. **Once the battery begins charging**, switch ON Alvik, like the image below.
+
+![Charging blink](assets/charging.gif)
+
+
+***Note: When Alvik is switched back ON, the charging LED indicator goes OFF.***
 
 ## Alvik's Sensors
 
-Alvik includes a set of  different sensors listed below, all connected to the STM32 and accessible through the [APIs](https://docs.arduino.cc/tutorials/alvik/api-overview). For each sensor there is test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) for micropython and in [this repository](https://github.com/arduino-libraries/Arduino_AlvikCarrier/tree/main/examples) for C++.
+Alvik includes a set of  different sensors listed below, all connected to the STM32 and accessible through the [APIs](https://docs.arduino.cc/tutorials/alvik/api-overview). For each sensor there is test example program that you can find in the _examples_ folder in [this repository](https://github.com/arduino/arduino-alvik-mpy/tree/main/examples) for MicroPython and in [this repository](https://github.com/arduino-libraries/Arduino_AlvikCarrier/tree/main/examples) for C++.
 
 
 | **Sensor name**              | **Part name** | **Test program name** |
@@ -163,8 +173,8 @@ The Arduino Alvik robot is equipped with seven capacitive touch buttons. These b
 - Left
 - Right
 - Center
-- OK (represented by a "tick" Icon)
-- Cancel (represented by a "x")
+- OK (represented by a "`✔`" icon)
+- Cancel (represented by a "`x`")
 
 ![Touch Button position](assets/touchButtons.png)
 
@@ -281,14 +291,13 @@ To get started to play with Alvik you will need the following hardware and softw
 
 It may happen that you used your Nano ESP32 for other projects than Alvik, or you need to replace it. In order to make your Nano ESP32 work with Alvik, there are few steps needed:
 
-1. Install the micropython bootloader on it following [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
+1. Install the MicroPython bootloader on it following [this guide](https://docs.arduino.cc/micropython/basics/board-installation/).
 
-2. Download the Alvik micropyton libraries
-Alvik micropython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
+2. Download the Alvik Micropython libraries Alvik MicroPython libraries from the [Alvik repository](https://github.com/arduino/arduino-alvik-mpy/tree/main)
 ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
 
 
-3. Unzip both of the downloaded libraries in a single "Alvik" folder, open the Arduino Lab for MicroPython, go to the "files" tab and set the path to the unzipped folder on the Arduino Lab for Micropython
+3. Unzip both the downloaded libraries in a single "Alvik" folder, open the Arduino Lab for MicroPython, go to the "files" tab and set the path to the unzipped folder on the Arduino Lab for MicroPython
 
    ![Setting the FW path on the Labs for micropython](assets/fw_path.png)
 
@@ -296,13 +305,13 @@ ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-
 
    ![Alvik USB Connection](assets/connecting-final.gif)
 
-5. Connect your Alvik to the Arduino Labs for micropython and open the "lib"
+5. Connect your Alvik to the Arduino Labs for MicroPython and open the "lib".
    ![Setting the FW path on the Labs for micropython](assets/lib_folder.png)
 
 6. Select the "Arduino-alvik" and move it inside the "lib" folder in your Alvik.
    ![Setting the FW path on the Labs for micropython](assets/moving_alvik_folder.png)
 
-7. Go back to the main folder and select the "ucPack" folder found inside "ucPack-mpy-main" and move it next to the arduino_alvik inside the "lib" folder in your Nano ESP32.
+7. Go back to the main folder and select the "ucPack" folder found inside "ucPack-mpy-main" and move it next to the *arduino_alvik* inside the "lib" folder in your Nano ESP32.
    ![Setting the FW path on the Labs for micropython](assets/moving_ucPack.png)
 
 8. Now go back to the main root of the files system on the Nano ESP32. Then in your local folder navigate to the examples folder once there, select the following files and move them to the main folder of the ESP32.
@@ -321,15 +330,15 @@ With this last step, your Nano ESP32 has been set up with the Alvik out of the b
 
 1. Download the [pre-compiled firmware](https://github.com/arduino-libraries/Arduino_AlvikCarrier/releases/latest) from the [Alvik Carrier GitHub repository](https://github.com/arduino-libraries/Arduino_AlvikCarrier)
 
-   This step will download a "firmware_x_x_x.bin" file, save it in your Alvik folder
+   This step will download a "firmware_x_x_x.bin" file, save it in your Alvik folder.
 
-2. Connect your Alvik to the Computer and to the Arduino Labs for Micropython. Then, go to the files tab and navigate to the folder where you stored the "firmware_x_x_x.bin"
+2. Connect your Alvik to the Computer and to the Arduino Labs for MicroPython. Then, go to the files tab and navigate to the folder where you stored the "firmware_x_x_x.bin".
    ![Setting the FW path on the Labs for micropython](assets/fw_path.png)
 
-3. Let's move now the "firmware_x_x_x.bin" to the main root.
+3. Let's move now the `firmware_x_x_x.bin` to the main root.
    ![Setting the FW path on the Labs for micropython](assets/moving_fw_bin.png)
 
-4. Turn ON your alvik, go to the Editor tab and run the following commands by typing them and clicking on the "Play" button
+4. Turn ON your alvik, go to the Editor tab and run the following commands by typing them and clicking on the "Play" button:
 
    ```
    from arduino_alvik import update_firmware
@@ -347,12 +356,11 @@ Alvik is intended to be programmed with MicroPyton. We recommend you to install 
 
 Now that all the previous steps have been set, let's see how to create custom programs for Alvik to move forward until detecting an object in front of it, Alvik will detect it, dodge it and continue on its way.
 
-
-**1. **Create an Alvik folder in your computer and set it as the path of the Arduino Lab for MicroPython IDE
+**1. **Create an Alvik folder in your computer and set it as the path of the Arduino Lab for MicroPython IDE.
 
 ![Adding Alvik folder path to the IDE](assets/alvik_folder_path.png)
 
-**2. **Create a new file "obstacle_avoider.py" in your local folder
+**2. **Create a new file `obstacle_avoider.py` in your local folder.
 
 ![Creating obstacle_avoider.py file](assets/creating_file.png)
 
@@ -411,7 +419,7 @@ while (True):
 
 ![Connecting Alvik to the IDE](assets/connecting_alvik_ide.gif)
 
-***If you want to go back to the out of the box experience where you could select between reg, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`***
+***If you want to go back to the out of the box experience where you could select between reg, green and blue programs, you only need to modify the _main.py_ again replacing the `import obstacle_avoider` statement by `import demo`***.
 
 **6. **The last step is to move the _obstacle_avoider.py_ file from the local repository to Alvik's memory.
 
