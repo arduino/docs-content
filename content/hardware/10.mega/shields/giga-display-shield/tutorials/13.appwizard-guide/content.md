@@ -7,9 +7,7 @@ tags: [Display, appwizard, segger, GUI]
 
 ## Introduction
 
-Segger's app wizard is a graphical framework for building powerful UIs, and is fully compatible with the GIGA Display Shield. It allows you to build UIs, using pre-made widgets like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. In this guide, we will go through some of the different components and interactions, so you can learn how to best implement it in your projects.
-
-![Appwizard full demo running on the GIGA Display Shield](assets/)
+Segger's app wizard is a graphical framework for building powerful UIs, and is fully compatible with the GIGA Display Shield. It allows you to build UIs, using pre-made widgets like buttons, images, loading bars, sliders, checkboxes, etc. It also allows you to fully customize the screenspace on the display. In this guide, we will go through some of the different components and interactions, so you can learn how to best use AppWizard for your own projects.
 
 ## Hardware & Software Needed
 
@@ -61,41 +59,45 @@ First add a textbox by clicking the **Text** box in the "Add objects" section. T
 
 ![Textbox added](assets/appwizard-text-box.png)
 
-Next a variable is needed to keep track of the value. In the bottom left "Rescoureces" section press the **Open variables window** button. This will open a window where variables can be managed. Press **Add variable** and then rename the variable to something relevant so it is easier to keep track of later, here we will name it "ID_BUTTON_VAR".
+Next a variable is needed to keep track of the value. In the bottom left "Resources" section press the **Open variables window** button. This will open a window where variables can be managed. Press **Add variable** and then rename the variable to something relevant so it is easier to keep track of later, here we will name it "ID_BUTTON_VAR".
 
-![Variables window highlighted in App Wizard](assets/appwizard-variable%20window.png)
+![Variables window highlighted in App Wizard](assets/appwizard-variable-window.png)
 
 Now we need to add interactions for the button and text. Press the **+** button in the interactions box to add an interaction. Set the variable as the "Emitter", the signal should be "VALUE_CHANGED", job should be "SETVALUE" and the receiver should be the text box which here is "ID_TEXT_00". Now the text will be set to the same value as the variable.
 
-To add the buttons interaction, set the emitter as the button, the signal should be "RELEASED", so that the value increses when the button is released. The job should be "ADDVALUE" and the receiver should be the variable, so the value gets added to the variable. In the window that pops up the increment of the value added to the variable, here we set it to "1". You can try out the interaction by pressing the **Start play mode** in the upper right corner of the "Editor" window.
+To add the buttons interaction, set the emitter as the button, the signal should be "RELEASED", so that the value increases when the button is released. The job should be "ADDVALUE" and the receiver should be the variable, so the value gets added to the variable. In the window that pops up the increment of the value added to the variable, here we set it to "1". You can try out the interaction by pressing the **Start play mode** in the upper right corner of the "Editor" window.
+
+![Button interactions added](assets/appwizard-button-text-interactions.png)
 
 ### Progress Bar
 
 Now lets try adding a progress bar to the previous interaction. Start by pressing the **progbar** button and set the initial value to "0". Set the min value to "0" and max value to "100". Now add an interaction with the emitter as the button variable, the signal to "VALUE_CHANGED", job as "SETVALUE" and the receiver as the progress bar. Now try it out in play mode and you will see the progress bar increase whenever the button is pressed.
 
+![Progress bar and interactions](assets/appwizard-progbar-interactions.png)
+
 ### Slider And Gauge
 
 Now let's try adding a slider and gauge to the project. Press the **Gauge** button in the top left menu. Set initial value to "0", the min value to "0" and max value to "100".
 
+![Project with the gauge added](assets/appwizard-create-gauge.png)
+
 Next create a slider by pressing the **Slider** button on the top left menu. You can configure the visual elements of the slider in the right "Properties" menu.
 
-![Project with slider and guage]()
+![Project with slider and gauge](assets/appwizard-create-slider.png)
 
 Now there needs to be a variable that will keep track of the value, press the **Open variables window** button in the bottom left.
 
-![Variable window button highlighted]()
-
 Press **Add variable** and then rename the variable to something relevant so it is easier to keep track of later, here we will name it "ID_SLIDER_VAR".
 
-![Variable window]()
+![Variable window](assets/appwizard-variable-window-final.png)
 
 Now to add the interaction that will fill the gauge when the slider is moved. First, create a new interaction, set the emitter as the slider variable, the signal should be "VALUE_CHANGED". The job should be "SETVALUE" and the receiver should be the gauge. Now create the interaction that makes the slider change the variable. Create a new interaction and set the emitter as the slider, the signal should be "VALUE_CHANGED". The job should be "SETVALUE" and the receiver should be the slider variable.
 
-![Image of all the interactions]()
+![Image of all the interactions](assets/appwizard-final-project.png)
 
 ## Exporting the project
 
-In AppWizard, go to **File -> Export & Save** in the upper left of the window. Now open the folder of the project. Create a new folder which we will put the exported files into, in this new folder create another folder named **src**. Now from the exported project folder, copy the content from the **Resource** and **Source** folders into the newly created **src** folder.
+In AppWizard, go to **File -> Export & Save** in the upper left of the window. Now open the folder of the project. Create a new folder which we will put the exported files into, in this new folder create another folder named **src**. Now from the exported project folder, copy the content from the **Resource** and **Source** folders into the newly created **src** folder. Take all the files out of the folders before putting them in the **src** folder, if you have any folders inside of the **src** folder it will not import into the Arduino IDE later.
 
 ![Folder structure](assets/appwizard-demo-folder-src.png)
 
@@ -136,15 +138,16 @@ void loop() {
 
 ![Examples folder structure](assets/appwizard-examples-folder.gif)
 
-Now all that is left is to import this whole folder as a library into the Arduino IDE.
+Now all that is left is to import this whole folder as a library into the Arduino IDE. First compress the folder into a .zip format. And then in the Arduino IDE go to **Sketch -> Include library -> Add .ZIP Library**. Then select the created .zip file and add it.
 
-## Conclusion
+![Importing library in Arduino IDE](assets/appwizard-library-include.png)
 
-This guide went through the building blocks of the different components that can be implemented with emWin. To see these examples in a full running example sketch go to **File > Examples > Arduino_H7_Video > emWinDemo**.
+Now the demo sketch should be accessible under the examples tab inside the library. The library will have the name given inside the **library.properties** file.
 
-![Example in the IDE](assets/example-in-ide.png)
+![Showing example sketch](assets/appwizard-library-example.png)
 
-This demo sketch will show the different components using a screen manager in a 2x2 grid.
+Now select your board and upload the sketch. The GUI created in AppWizard should now display on the GIGA Display Shield!
 
-## Next Step
-emWin is a comprehensive library and GUI framework that has a lot of customizability, if you are interested in playing around more with it, you can find many different examples and widgets on the official website for [Segger® emWin](https://wiki.segger.com/Main_Page). The code on the website can easily be adapted into a sketch for the GIGA Display Shield.
+### Conclusion
+
+Now you have an idea of how to use the basic features of AppWizard! With interactions and visual elements the possibilities of design solutions are endless. This tutorial also showed how easy it is to import your design to your Arduino board using the Arduino IDE. You are now ready to create your own design and play around with AppWizard! 
