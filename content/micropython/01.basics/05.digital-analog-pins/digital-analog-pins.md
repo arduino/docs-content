@@ -138,10 +138,9 @@ while True:
 ```
 In this example:
 
-- `pin1` is configured as an output pin with no pull-up or pull-down resistors.
-- `timer1` is initialized with a frequency of 1000 Hz.
-- `channel1` is created on timer 3, channel 1, and is set to PWM mode.
-- `channel1.pulse_width_percent(duty)` sets the duty cycle of the PWM signal as a percentage between 0 and 100.
+- `Pin(15)` is attached to PWM
+- `duty` is set at 3000
+- `freq` is set at 1 Hz
 
 ### PWM on the GIGA R1
 
