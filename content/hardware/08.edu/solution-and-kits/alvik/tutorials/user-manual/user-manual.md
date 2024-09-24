@@ -297,11 +297,11 @@ It may happen that you used your Nano ESP32 for other projects than Alvik, or yo
 ucPack libraries from the [ucPack repository](https://github.com/arduino/ucPack-mpy/tree/main)
 
 
-3. Unzip both the downloaded libraries in a single "Alvik" folder, open the Arduino Lab for MicroPython, go to the "files" tab and set the path to the unzipped folder on the Arduino Lab for MicroPython
+3. Unzip both the downloaded libraries in a single "Alvik" folder, open the Arduino Lab for MicroPython, go to the "files" tab and set the path to the unzipped folder on the Arduino Lab for MicroPython.
 
    ![Setting the FW path on the Labs for micropython](assets/fw_path.png)
 
-4. Make sure your Alvik is OFF, connect it to your computer and then, turn it ON
+4. Make sure your Alvik is OFF, connect it to your computer and then, turn it ON:
 
    ![Alvik USB Connection](assets/connecting-final.gif)
 
