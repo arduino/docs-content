@@ -31,6 +31,7 @@ This tutorial targets customers that are not FoundriesFactory subscribers, but s
 ### Required Hardware and Software
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - [Docker Engine](https://docs.docker.com/engine/install/)
 - ~60GB of available storage space on your machine
 

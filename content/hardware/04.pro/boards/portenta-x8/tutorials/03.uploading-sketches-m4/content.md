@@ -26,7 +26,7 @@ In this tutorial, we will go through the process of uploading sketches to the M4
 ### Required Hardware and Software
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8)
-- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino CLI](https://github.com/arduino/arduino-cli)
 - Latest "Arduino Mbed OS Portenta Boards" Core
 
