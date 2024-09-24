@@ -43,7 +43,7 @@ To use the [Portenta Hat Carrier](https://store.arduino.cc/products/portenta-hat
 
 Additionally, the following accessories are needed:
 
-- USB-C® cable (USB-C® to USB-A cable) (x1)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 - Wi-Fi® Access Point or Ethernet with Internet access (x1)
 
 ### Software Requirements

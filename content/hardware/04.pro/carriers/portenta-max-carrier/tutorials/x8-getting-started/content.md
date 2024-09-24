@@ -30,6 +30,7 @@ The goals of this project are:
 
 - [Arduino® Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Arduino® Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 
 ## The Portenta Max Carrier
 
