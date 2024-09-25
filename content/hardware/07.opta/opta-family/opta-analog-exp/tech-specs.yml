@@ -4,6 +4,7 @@ Board:
 Microcontroller:
   ID: Renesas R7FA4M1AB3CFM ARM® Cortex®-M4
   Cortex-M4 core: Up to 48 MHz
+Maximum Simultaneous Expansions: 5
 Input:
   Configurable digital / analog inputs: 8x
   Digital operational range: 0-24 V 

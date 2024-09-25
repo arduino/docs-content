@@ -21,6 +21,7 @@ Relays:
   Maximum current per relay: 10 A
   Maximum peak current per relay: 15 A
 Connectivity and communication:
+  Maximum Supported Expansions: Up to 5
   USB-C®: 
     For programming and data logging: All variants
   Ethernet: 
