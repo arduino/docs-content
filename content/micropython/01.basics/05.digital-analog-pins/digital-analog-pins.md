@@ -134,4 +134,3 @@ pwm.freq(1000)
 while True:
     pwm.duty_u16(duty)
 ```
-```
