@@ -28,11 +28,12 @@ The Arduino Opta® Analog Expansion is designed for industrial standard machiner
 ### General Specifications Overview
 
 | Characteristics                  | Details                                                                                                                                                                                                                                        |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Supply Voltage                   | 12...24 V                                                                                                                                                                                                                                      |
 | Reverse polarity protection      | Yes                                                                                                                                                                                                                                            |
 | ESP protection                   | Yes                                                                                                                                                                                                                                            |
 | Transient overvoltage protection | Yes (up to 40 V)                                                                                                                                                                                                                               |
+| Maximum Supported Expansions     | Up to 5                                                                                                                                                                                                                                              |
 | Channels                         | 8x: I1, I2, I3, I4, O1, I5, I6, O2                                                                                                                                                                                                             |
 | Channels functionalities         | I1 and I2: Programmable inputs (Voltage, Current, RTD2 wires, RTD3 wires), Programmable outputs (Voltage and current) - I3, I4, O1, I5, I6, O2: Programmable inputs (Voltage, Current, RTD2 wires), Programmable outputs (Voltage and current) |
 | Degree of Protection             | IP20                                                                                                                                                                                                                                           |
@@ -225,7 +226,11 @@ We have tested setting all eight channels as outputs at 25 °C outputting more t
 The PWM outputs are software configurable and for them to work you must provide the **V<sub>PWM</sub>** pin with the desired voltage between 8 and 24 VDC, you can set the period and duty-cycle by software.
 
 ### Expansion Port
-The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To be accessed needs to be freed up from its breakable plastic cover and the connection plug added between each device.
+The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To access it, it needs to be freed from its breakable plastic cover, and the connection plug needs to be added between each device.
+
+It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
+
+If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
 
 ## Device Operation
 ### Getting Started - IDE
@@ -330,6 +335,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 |  **Date**  | **Revision** |             **Changes**              |
 |:----------:|:------------:|:------------------------------------:|
+| 24/09/2024 |      8       |        Expansion port updates        |
 | 03/09/2024 |      3       | Cloud Editor updated from Web Editor |
 | 05/07/2024 |      2       |        Block Diagram updated         |
 | 25/07/2024 |      1       |            First Release             |
