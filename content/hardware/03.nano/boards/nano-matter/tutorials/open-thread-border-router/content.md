@@ -61,16 +61,63 @@ This tutorial main objective is to guide you through the build and configuration
 
 This section outlines the steps to build the RCP firmware for the Arduino Nano Matter.
 
-- Download Simplicity Studio: this is an IDE provided by Silicon Labs. It is designed to simplify the development process for Silicon Labs hardware platforms. Download latest version [here](https://www.silabs.com/developers/simplicity-studio).
+#### Create a New Project
+
+- Download Simplicity Studio, this is an IDE provided by Silicon Labs. It is designed to simplify the development process for Silicon Labs hardware platforms. Download latest version [here](https://www.silabs.com/developers/simplicity-studio).
+
 - Open Simplicity Studio and create a new project by clicking on **File > New > Silicon Labs Project Wizard**.
   
 ![New project creation](assets/new-project.png)
 
-- Set the following project configurations:
-- 
-|   **Field**   | **Setting** |
-| :-----------: | :---------: |
-| Target Boards |  BRD4318A   |
+- Set the following project configurations and click on *Next*.
+
+|   **Field**   |                     **Setting**                      |
+| :-----------: | :--------------------------------------------------: |
+| Target Boards | xGM240S 10 dBm Module Radio Board (BRD4318A Rev A04) |
+| Target Device |                    MGM240SD22VNA                     |
+
+![Project configuration](assets/project-config.png)
+
+- In the *Examples* tab search for the **OpenThread - RCP** example, select it and click on *Next*.
+
+![Example project selection](assets/example-select.png)
+
+- In the *Configuration* tab give the project a name and click on *Finish*.
+
+![Final project configuration](assets/project-name.png)
+
+#### Change the Serial Port Pinout
+
+The default pinout is **PA8 > TX** and **PA9 > RX**, but we need to change it to **PA4 > TX** and **PA5 > RX**, so they correspond to the **D0** and **D1** of the standard Nano layout.
+
+- Delete the default `USART0` setting:
+
+![Delete the default USART setting](assets/quit-usart.gif)
+
+- Add the new setting:
+
+![Add the new USART setting](assets/add-usart.gif)
+
+- Save your project with the new configurations.
+
+#### Disable USART Flow Control
+
+- Open the `<project-folder>/config/sl_uartdrv_usart_vcom_config.h` file.
+  
+- Modify the `SL_UARTDRV_USART_VCOM_FLOW_CONTROL_TYPE` variable as follows:
+```
+#define SL_UARTDRV_USART_VCOM_FLOW_CONTROL_TYPE uartdrvFlowControlNone
+```
+
+![Flow Control Disabled](assets/flow-ctrl.png)
+
+#### Build and Flash the Project
+
+- In the upper menu navigate to **Project > Build Project** to compile and build the RCP firmware.
+
+![Project Build](assets/build-prj.png)
+
+
 
 ### The Matter Controller: Arduino Nano ESP32
 
