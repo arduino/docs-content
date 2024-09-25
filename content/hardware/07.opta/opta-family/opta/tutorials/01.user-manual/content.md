@@ -2456,7 +2456,7 @@ Here is an example of how to connect a DC load to the Opta Digital Ext D1608S (S
 
 ![SSR expansion wiring example](assets/ssr-output.png)
 
-***The Opta™ controller module can support up to 5 expansion modules. Connecting more than this may result in unexpected behavior. __Ensure the module limit is not exceeded and the Aux connector and clips are properly secured.__***
+***The Opta™ controller module can support up to __5 expansion modules__. Connecting more than this may result in unexpected behavior. __Ensure the module limit is not exceeded and the Aux connector and clips are properly secured.__***
 
 You can buy and find more information about the Opta™ Digital Expansions on the links below:
 
@@ -4116,7 +4116,7 @@ To fully understand the example above, we recommend you to check the [General Li
 
 The function `optaAnalogTask()` turns on sequentially the **LEDs** and turns them off again.
 
-***The Opta™ controller module can support up to 5 expansion modules. Connecting more than this may result in unexpected behavior. __Ensure the module limit is not exceeded and the Aux connector and clips are properly secured.__***
+***The Opta™ controller module can support up to __5 expansion modules__. Connecting more than this may result in unexpected behavior. __Ensure the module limit is not exceeded and the Aux connector and clips are properly secured.__***
 
 You can buy and find more information about the Opta™ Analog Expansions on the links below:
 

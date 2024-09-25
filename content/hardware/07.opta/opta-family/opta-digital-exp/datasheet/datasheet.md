@@ -38,16 +38,16 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 ## Features
 ### General Specifications Overview
 
-| Characteristics              | Details                                                                                               |
-|------------------------------|-------------------------------------------------------------------------------------------------------|
-| Supply Voltage               | 12...24 V                                                                                             |
-| Antipolarity protection      | Yes                                                                                                   |
-| Overvoltage protection       | Yes (+20%)                                                                                            |
-| Maximum Supported Expansions | Up to 5                                                                                               |
-| Inputs                       | 16x Digital (0-24 V) / Analog (0-24 V) inputs                                                         |
-| Outputs                      | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
-| Degree of Protection         | IP20                                                                                                  |
-| Certifications               | FCC, CE, UKCA                                                                                         |
+| Characteristics                     | Details                                                                                               |
+|-------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Supply Voltage                      | 12...24 V                                                                                             |
+| Antipolarity protection             | Yes                                                                                                   |
+| Overvoltage protection              | Yes (+20%)                                                                                            |
+| Maximum Supported Expansion Modules | Up to 5                                                                                               |
+| Inputs                              | 16x Digital (0-24 V) / Analog (0-24 V) inputs                                                         |
+| Outputs                             | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
+| Degree of Protection                | IP20                                                                                                  |
+| Certifications                      | FCC, CE, UKCA                                                                                         |
 
 ### Inputs
 
