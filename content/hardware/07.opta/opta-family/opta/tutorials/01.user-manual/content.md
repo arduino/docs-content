@@ -1833,6 +1833,8 @@ In the image below there is an example of the power wiring of the expansions:
 
 ***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
 
+***The Opta™ controller module supports a maximum of __5 expansion modules__. Exceeding this limit may cause unexpected behavior. __Ensure no more than five modules are connected, and verify that the Aux connector and clips are securely installed__.***
+
 #### Programmable Inputs
 
 The Opta™ Expansions have **16 analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
@@ -2454,6 +2456,8 @@ Here is an example of how to connect a DC load to the Opta Digital Ext D1608S (S
 
 ![SSR expansion wiring example](assets/ssr-output.png)
 
+***The Opta™ controller module can support up to 5 expansion modules. Connecting more than this may result in unexpected behavior. __Ensure the module limit is not exceeded and the Aux connector and clips are properly secured.__***
+
 You can buy and find more information about the Opta™ Digital Expansions on the links below:
 
 - [Opta™ Digital Expansion Product Page](https://docs.arduino.cc/hardware/opta-digital-ext)
@@ -2486,6 +2490,8 @@ In the image below there is an example of the power wiring of the expansions:
 ![Powering the Opta Analog Expansions](assets/power-expansion-2.png)
 
 ***The expansions must be externally powered to be operated and detected by the Opta™ controller.***
+
+***The Opta™ controller module supports a maximum of __5 expansion modules__. Exceeding this limit may cause unexpected behavior. __Ensure no more than five modules are connected, and verify that the Aux connector and clips are securely installed__.***
 
 #### Programmable Inputs
 
@@ -4109,6 +4115,8 @@ After the Opta™ controller is programmed with the example sketch, you can see 
 To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
 
 The function `optaAnalogTask()` turns on sequentially the **LEDs** and turns them off again.
+
+***The Opta™ controller module can support up to 5 expansion modules. Connecting more than this may result in unexpected behavior. __Ensure the module limit is not exceeded and the Aux connector and clips are properly secured.__***
 
 You can buy and find more information about the Opta™ Analog Expansions on the links below:
 
