@@ -68,16 +68,18 @@ An accelerometer is an electromechanical device used to measure acceleration for
 In this example, we will use the accelerometer as a "level" that will provide information about the position of the board. With this application we will be able to read what the relative position of the board is as well as the degrees, by tilting the board up, down, left or right.
 
 
-
 ## Creating the Program
 
 **1. Setting up**
 
-Let's start by opening the Arduino Cloud Editor, click on the **Libraries** tab and search for the **Arduino_LSM9DS1** library. Then, click on **Examples**, and open a new sketch.
+
+Let's start by opening the Arduino Cloud Editor, click on the **Libraries** tab and search for the **LSM9DS1** library. Then in **> Examples**, open the **SimpleAccelerometer** sketch and once it opens, rename it as **Accelerometer**.
 
 ![Finding the library in the Cloud Editor.](./assets/nano33BLE_01_include_library.png)
 
-### 2. Connecting the Board
+**2. Connecting the board**
+
+Now, connect the Arduino Nano 33 BLE to the computer and make sure that the Cloud Editor recognizes it, if so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
 
 Now, connect the Arduino Nano 33 BLE to the computer and make sure that the Cloud Editor recognizes it. If so, the board and port should appear as shown in the image below. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
 

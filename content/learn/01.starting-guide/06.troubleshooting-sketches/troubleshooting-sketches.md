@@ -18,7 +18,7 @@ You can check the following suggestions to help you solve any potential problem:
 Below you will find further guidance on the steps mentioned.
 ## Board & Port
 
-The online Arduino Web Editor detects your board and port automatically, but if you are using the offline Arduino Software IDE, you need to select both your board and port manually using the following tips:
+The online Arduino Cloud Editor detects your board and port automatically, but if you are using the offline Arduino Software IDE, you need to select both your board and port manually using the following tips:
 
 - Make sure you have the right item selected in the **Tools > Board** menu. If you have an Arduino UNO, you'll need to choose it.
 

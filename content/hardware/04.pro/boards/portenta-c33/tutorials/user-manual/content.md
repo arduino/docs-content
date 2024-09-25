@@ -31,7 +31,7 @@ This user manual will provide a comprehensive overview of the Portenta C33 board
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## Product Overview
 
@@ -1589,7 +1589,7 @@ The Portenta C33 is fully compatible with the Arduino Cloud IoT, which simplifie
 In case it is the first time you are using the Arduino Cloud:
 
 - To use the Arduino Cloud, you need an account. If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
-- To use the Arduino Web Editor or Arduino Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome).
+- To use the Arduino Cloud Editor or Arduino Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent [here](https://create.arduino.cc/getting-started/plugin/welcome).
 
 Let's walk through a step-by-step demonstration of how to use your Portenta C33 board with the Arduino Cloud.
 

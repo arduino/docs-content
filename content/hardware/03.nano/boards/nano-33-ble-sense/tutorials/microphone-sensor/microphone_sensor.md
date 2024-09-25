@@ -39,7 +39,7 @@ The goals of this project are:
 ## Hardware & Software Needed
 * Arduino Nano 33 BLE Sense.
 * This project uses no external sensors or components.
-* In this tutorial we will use the [Arduino Web Editor](https://create.arduino.cc/editor) to program the board.
+* In this tutorial we will use the [Arduino Cloud Editor](https://create.arduino.cc/editor) to program the board.
 
 
 
@@ -63,13 +63,13 @@ If you want to read more about the MP34DT05 sensor you can take a look at the <a
 
 **1. Setting up**
 
-Let's start by opening the [Arduino Web Editor](https://create.arduino.cc/editor), click on the **Libraries** tab, search for the **PDM FOR MBED** library, then in **Examples**, open the **PDMSerialPlotter** example. Once the sketch is open, rename it as **Sound_Meter**.
+Let's start by opening the [Arduino Cloud Editor](https://create.arduino.cc/editor), click on the **Libraries** tab, search for the **PDM FOR MBED** library, then in **Examples**, open the **PDMSerialPlotter** example. Once the sketch is open, rename it as **Sound_Meter**.
 
-![Finding the library in the Web Editor.](assets/nano33BS_08_library.png)
+![Finding the library in the Cloud Editor.](assets/nano33BS_08_library.png)
 
 **2. Connecting the board**
 
-Now, connect the Arduino Nano 33 BLE Sense to the computer to check that the Web Editor recognizes it, if so, the  board and port should appear as shown in the image. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
+Now, connect the Arduino Nano 33 BLE Sense to the computer to check that the Cloud Editor recognizes it, if so, the  board and port should appear as shown in the image. If they don't appear, follow the [instructions](https://create.arduino.cc/getting-started/plugin/welcome) to install the plugin that will allow the Editor to recognize your board.
 
 ![Selecting the board.](assets/nano33BS_08_board_port.png)
 

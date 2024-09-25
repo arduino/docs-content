@@ -33,7 +33,7 @@ This user manual will provide a comprehensive overview of Opta™, covering its 
 
 ### Software Requirements
 
-- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - [Arduino PLC IDE 1.0.3+](https://www.arduino.cc/en/software) (for IEC 61131-3 PLC programming languages)
 
 ***To learn more about the PLC IDE, check out our tutorials [here](https://docs.arduino.cc/software/plc-ide).***
@@ -1453,7 +1453,7 @@ All Opta™ variants are fully compatible with the [Arduino Cloud](https://cloud
 In case it is the first time you are using the IoT Cloud:
 
 - To use the IoT Cloud, you need an account. If you do not have an account, create one for free here.
-- To use the Arduino Web Editor or IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent here.
+- To use the Arduino Cloud Editor or IoT Cloud, the Arduino Create Agent must be running on your computer. You can install the Arduino Create Agent here.
 
 Let's walk through a step-by-step demonstration of how to use an Opta™ device with the IoT Cloud.
 
@@ -1739,7 +1739,7 @@ Install all the **library dependencies** suggested by clicking the **Install All
 
 Once installed, you will have access to a variety of sketch examples showcasing the expansions capabilities and how to use them.
 
-#### Update Expansion Firmware
+### Update Expansion Firmware
 
 With the library properly installed, we will update the expansion firmware to ensure proper functioning and seamless detection.
 

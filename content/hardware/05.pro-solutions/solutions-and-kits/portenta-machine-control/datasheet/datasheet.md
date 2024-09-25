@@ -285,10 +285,10 @@ The on-board real-time clock/calendar is the **PCF8563T/F4** which clock is prov
 ### Getting Started - IDE
 If you want to program your *Arduino Machine Control* while being offline you need to install the Arduino Desktop IDE [[1]](#11-reference-documentation) To connect the *Arduino Machine Control* to your computer, you’ll need a micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor [[2]](#11-reference-documentation), by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [[2]](#11-reference-documentation), by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [[3]](#11-reference-documentation) to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [[3]](#11-reference-documentation) to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 All Arduino IoT-enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
@@ -559,12 +559,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| **Date** | **Revision** | **Changes** |
-|---|:---:|---|
-| 06/02/2024 | 7 | MTBF information |
-| 08/05/2023 | 6 | RTD and thermocouples new information |
-| 11/04//2023 | 5 | Updates and table improvements |
-| 13/10/2022 | 4 | Big improvements and fixes |
-| 26/09/2022 | 3 | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
-| 09/05/2022 | 2 | Remove PT1000, not compatible |
-| 13/04/2021 | 1 | First release |
+| **Date**    | **Revision** | **Changes**                                                                                                                                                           |
+|-------------|:------------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 03/09/2024  |      8       | Cloud Editor updated from Web Editor                                                                                                                                  |
+| 06/02/2024  |      7       | MTBF information                                                                                                                                                      |
+| 08/05/2023  |      6       | RTD and thermocouples new information                                                                                                                                 |
+| 11/04//2023 |      5       | Updates and table improvements                                                                                                                                        |
+| 13/10/2022  |      4       | Big improvements and fixes                                                                                                                                            |
+| 26/09/2022  |      3       | Fix features indentation, update analog output diagram, fix format issues and update images reflecting the location change of the MAX31855KASA+T converter (top side) |
+| 09/05/2022  |      2       | Remove PT1000, not compatible                                                                                                                                         |
+| 13/04/2021  |      1       | First release                                                                                                                                                         |
