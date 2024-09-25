@@ -13,22 +13,6 @@ Communication via UART is enabled by the [Serial](https://www.arduino.cc/referen
 
 ***If you want to jump straight to the examples click [here](#examples) or go to the end of this article.***
 
-## Overview
-
-- [Overview](#overview)
-- [Serial Class](#serial-class)
-- [Arduino UART Pins](#arduino-uart-pins)
-- [Technical Specifications](#technical-specifications)
-  - [How UART Works](#how-uart-works)
-  - [Timing and Synchronization](#timing-and-synchronization)
-  - [UART Messages](#uart-messages)
-- [Serial USB Examples](#serial-usb-examples)
-  - [Basic Print Example](#basic-print-example)
-  - [Read](#read)
-- [RX/TX Pin Examples](#rxtx-pin-examples)
-  - [Transmit / Receive Messages](#transmit--receive-messages)
-  - [Control Built-in LED](#control-built-in-led)
-
 ## Serial Class
 
 With the [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/) class, you can send / receive data to and from your computer over USB, or to a device connected via the Arduino's RX/TX pins. 

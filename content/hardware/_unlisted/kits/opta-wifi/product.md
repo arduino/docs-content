@@ -1,5 +1,5 @@
 ---
 title: Opta WiFi
-certifications: [CE, UL, UKCA, FCC]
+certifications: [CE, UL, UKCA, FCC, ENEC]
 sku: [AFX00002]
 ---

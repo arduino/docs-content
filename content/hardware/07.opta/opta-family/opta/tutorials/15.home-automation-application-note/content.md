@@ -52,7 +52,7 @@ This application note shows a home automation system based on an Opta™️, cap
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 - If you choose an offline Arduino IDE, you must install the following libraries: [`WiFi`](https://www.arduino.cc/reference/en/libraries/wifi/) and [`NTPClient`](https://github.com/arduino-libraries/NTPClient)
 - For the IoT capabilities and features of the Opta™️, we will use [Arduino Cloud](https://create.arduino.cc/iot/things) (you will need to create an account if you don't have one yet)
 

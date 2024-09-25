@@ -539,10 +539,10 @@ To avoid and reduce electrical noise, Arduino Opta® has a *Functional Earth* co
 ### Getting Started - IDE
 If you want to program your Arduino Opta® while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
 
-### Getting Started - Arduino Web Editor
-All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor
+All Arduino® devices work out-of-the-box on the Arduino® Cloud Editor **[2]** by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino PLC IDE
 Arduino Opta® can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software and connect your Arduino Opta® to your computer, using a simple USB-C® cable, to start creating your own PLC industrial solutions.
@@ -663,6 +663,18 @@ The MTBF figure (in hours/years) for each Arduino Opta® variant can be found in
          </td>
       </tr>
       <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>IC (Canada)</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>-</p>
+         </td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>Yes</p>
+         </td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>-</p>
+         </td>
+      </tr>
+      <tr>
          <td style="vertical-align: middle;text-align: center;"><strong>cULus</strong></td>
          <td style="vertical-align: middle;text-align: center;">
             <p>UL 61010-2-201</p>
@@ -755,7 +767,15 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 2402-2480 MHz (BLE)       | 2.41 dBm                    |
 | 2402-2480 MHz (EDR)       | -6.27 dBm                   |
 
+## Industry Canada Statement:
 
+Radio apparatus containing digital circuitry which can function separately from the operation of a transmitter or an associated transmitter, shall comply with ICES-003. In such cases, the labelling
+requirements of the applicable RSS apply, rather than the labelling requirements in ICES-003. 
+
+This Class A digital apparatus complies with Canadian ICES-003.
+
+French:
+Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canada.
 
 ## Company Information
 
@@ -778,10 +798,12 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-|  **Date**  | **Revision** |      **Changes**      |
-|:----------:|:------------:|:---------------------:|
-| 24/07/2024 |       5      | Wiring specifications |
-| 07/02/2023 |       4      |    MTBF information   |
-| 16/05/2023 |       3      |     Legal updates     |
-| 13/04/2023 |       2      |   Tech Specs Updates  |
-| 02/03/2023 |       1      |     First Release     |
+|  **Date**  | **Revision** |             **Changes**              |
+| :--------: | :----------: | :----------------------------------: |
+| 11/09/2024 |      7       |      ICES certification updates      |
+| 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
+| 24/07/2024 |      5       |        Wiring specifications         |
+| 07/02/2023 |      4       |           MTBF information           |
+| 16/05/2023 |      3       |            Legal updates             |
+| 13/04/2023 |      2       |          Tech Specs Updates          |
+| 02/03/2023 |      1       |            First Release             |

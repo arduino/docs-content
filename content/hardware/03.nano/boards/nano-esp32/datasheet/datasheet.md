@@ -235,8 +235,8 @@ The SPI controller is by default assigned to the pins above.
 
 ### Universal Asynchronous Receiver/Transmitter (UART)
 
-- D0 / TX
-- D1 / RX
+- D1 / TX
+- D0 / RX
 
 The UART controller is by default assigned to the the pins above.
 
@@ -343,8 +343,8 @@ The GPIOs on the Nano ESP32 can handle **source currents** up to **40 mA**, and 
 | 11  | D2           | Digital  | Digital pin 2                           |
 | 12  | GND          | Power    | Ground                                  |
 | 13  | RST          | Internal | Reset                                   |
-| 14  | D1/RX        | Digital  | Digital pin 1 / Serial Receiver (RX)    |
-| 15  | D0/TX        | Digital  | Digital pin 0 / Serial Transmitter (TX) |
+| 14  | D0/RX        | Digital  | Digital pin 1 / Serial Receiver (RX)    |
+| 15  | D1/TX        | Digital  | Digital pin 0 / Serial Transmitter (TX) |
 
 \*CIPO/COPI/CS replaces the MISO/MOSI/SS terminology.
 
@@ -503,6 +503,7 @@ This equipment contains a radio transmitter module with model approval code: CMI
 | 23/02/2024 | Added antenna frequency to block diagram               |
 | 25/04/2024 | Updated link to new Cloud Editor                       |
 | 23/08/2024 | Added SRRC certification                                 |
+| 23/08/2024 | Cloud Editor updated from Web Editor                  |
 
 
 
@@ -737,8 +738,8 @@ SDA 和 SCL 引脚可分配给大多数 GPIO，但其中一些引脚可能具有
 
 ### 通用异步接收器/发射器 (UART)
 
-- D0 / TX
-- D1 / RX
+- D1 / TX
+- D0 / RX
 
 默认情况下，UART 控制器分配给上述引脚。
 
@@ -845,8 +846,8 @@ Nano ESP32 上的 GPIO 可处理的**源电流**最高达**40 mA**，**灌电流
 | 11  | D2           | 数字  | 数字引脚 2                           |
 | 12  | GND          | 电源    | 接地                                  |
 | 13  | RST          | 内部 | 复位                                   |
-| 14  | D1/RX        | 数字  | 数字引脚 1 /串行接收器 (RX)    |
-| 15  | D0/TX        | 数字  | 数字引脚 0 / 串行发射器 (TX) |
+| 14  | D0/RX        | 数字  | 数字引脚 1 /串行接收器 (RX)    |
+| 15  | D1/TX        | 数字  | 数字引脚 0 / 串行发射器 (TX) |
 
 \*CIPO/COPI/CS 取代 MISO/MOSI/SS 术语。
 
@@ -977,7 +978,7 @@ Arduino S.r.l. 特此声明，本产品符合 201453/EU 指令的基本要求和
 | ---------------------------- | ----------------------------------------------------------------------------------------------- |
 | Arduino IDE (Desktop)        | <https://www.arduino.cc/en/Main/Software>                                                       |
 | Arduino Cloud Editor    | <https://create.arduino.cc/editor>                                                              |
-| Cloud Web Editor - 入门指南 | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
+| Cloud Cloud Editor - 入门指南 | <https://docs.arduino.cc/cloud/web-editor/tutorials/getting-started/getting-started-web-editor> |
 | Arduino Project Hub                  | <https://create.arduino.cc/projecthub?by=part&part_id=11332&sort=trending>                      |
 | 库参考            | <https://github.com/arduino-libraries/>                                                         |
 | 在线商店                 | <https://store.arduino.cc/>                                                                     |
@@ -995,3 +996,4 @@ Arduino S.r.l. 特此声明，本产品符合 201453/EU 指令的基本要求和
 | 2023/11/23 | 为 LP 模式添加了标签                   |
 | 2024/02/23 | 在方框图中添加了天线频率               |
 | 2024/08/23 | SRRC 认证                              |
+| 2024/09/05 | 从web编辑器更新为云编辑器               |

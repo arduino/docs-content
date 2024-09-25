@@ -43,14 +43,14 @@ In this tutorial, we will focus on the Arduino® Nicla Sense ME.
 
 - [Nicla Sense ME](https://store.arduino.cc/products/nicla-sense-me)
 - Micro USB-A cable (USB-A to Micro USB-AB)
-- Arduino IDE 1.8.10+, Arduino IDE 2 or Arduino Web Editor
+- Arduino IDE 1.8.10+, Arduino IDE 2 or Arduino Cloud Editor
 - If you choose the Arduino IDE, you will need to install 2 libraries: [**Arduino_BHY2**](https://github.com/arduino-libraries/Arduino_BHY2) and [**ArduinoBLE**](https://github.com/arduino-libraries/ArduinoBLE)
 
 ## Instructions
 
 ### Set up the Board
 
-If you use the Web Editor to upload the [sketch](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI, you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
+If you use the Cloud Editor to upload the [sketch](https://create.arduino.cc/editor/FT-CONTENT/333e2e07-ecc4-414c-bf08-005b611ddd75/preview) you don't need to install any library. They are all included automatically. If you use the Arduino IDE or the CLI, you need to download the **Arduino_BHY2** and the **ArduinoBLE** libraries.
 
 These libraries can be found within the Library Manager in the Arduino IDE, or it can be downloaded separately following the links attached within required hardware and software section.
 

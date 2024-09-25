@@ -209,11 +209,11 @@ There are three main power lines provided:
 
 If you want to program your Arduino® Nicla Vision while offline you need to install the Arduino® Desktop IDE **[1]** To connect the Arduino® Vision to your computer, you’ll need a micro USB cable. This also provides power to the board, as indicated by the LED.
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino® boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino® boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -439,7 +439,8 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 ## Revision History
 
 | **Date**   | **Revision** | **Changes**                                              |
-| ---------- | ------------ | -------------------------------------------------------- |
+|------------|--------------|----------------------------------------------------------|
+| 03/09/2024 | 7            | Cloud Editor updated from Web Editor                     |
 | 10/04/2024 | 6            | Product Labeling section added - FCC information updated |
 | 28/03/2024 | 5            | FCC Warning Updated, small fixes                         |
 | 05/12/2023 | 4            | Accessories section updated                              |
