@@ -38,15 +38,16 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 ## Features
 ### General Specifications Overview
 
-| Characteristics         | Details                                                                                               |
-| ----------------------- | ----------------------------------------------------------------------------------------------------- |
-| Supply Voltage          | 12...24 V                                                                                             |
-| Antipolarity protection | Yes                                                                                                   |
-| Overvoltage protection  | Yes (+20%)                                                                                            |
-| Inputs                  | 16x Digital (0-24 V) / Analog (0-24 V) inputs                                                         |
-| Outputs                 | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
-| Degree of Protection    | IP20                                                                                                  |
-| Certifications          | FCC, CE, UKCA                                                                                         |
+| Characteristics              | Details                                                                                               |
+|------------------------------|-------------------------------------------------------------------------------------------------------|
+| Supply Voltage               | 12...24 V                                                                                             |
+| Antipolarity protection      | Yes                                                                                                   |
+| Overvoltage protection       | Yes (+20%)                                                                                            |
+| Maximum Supported Expansions | Up to 5                                                                                               |
+| Inputs                       | 16x Digital (0-24 V) / Analog (0-24 V) inputs                                                         |
+| Outputs                      | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 2 A) |
+| Degree of Protection         | IP20                                                                                                  |
+| Certifications               | FCC, CE, UKCA                                                                                         |
 
 ### Inputs
 
@@ -184,6 +185,10 @@ The **EMR variant** relays on Arduino Opta® Digital Expansions provide a very f
 ### Expansion Port
 The expansion port can be used to daisy-chain several Opta® Expansions and additional modules. To be accessed needs to be freed up from its breakable plastic cover and the connection plug added between each device.
 
+It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
+
+If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
+
 ## Device Operation
 ### Getting Started - IDE
 If you want to program your Arduino Opta® Digital Expansions while offline you need to install the Arduino® Desktop IDE **[1]** and the Arduino_Opta_Blueprint using the Library Manager. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
@@ -287,5 +292,6 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 | Date       | **Revision** | **Changes**                          |
 |------------|--------------|--------------------------------------|
+| 24/09/2024 | 3            | Expansion port updates               |
 | 03/09/2024 | 2            | Cloud Editor updated from Web Editor |
 | 06/05/2024 | 1            | First Release                        |

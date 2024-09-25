@@ -335,7 +335,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 |  **Date**  | **Revision** |             **Changes**              |
 |:----------:|:------------:|:------------------------------------:|
-| 24/09/2024 |      8       |        Expansion port updates        |
+| 24/09/2024 |      4       |        Expansion port updates        |
 | 03/09/2024 |      3       | Cloud Editor updated from Web Editor |
 | 05/07/2024 |      2       |        Block Diagram updated         |
 | 25/07/2024 |      1       |            First Release             |
