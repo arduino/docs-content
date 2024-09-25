@@ -48,7 +48,7 @@ We will go through every feature of the Analog Expansion and learn with simple e
 
 ### Snapping the Expansion
 
-You can connect up to five expansions to your Opta™ controller module to multiply and diversify your I/O set with seamless detection.
+You can connect up to **five expansions to your Opta™** controller module to multiply and diversify your I/O set with seamless detection.
 
 Remove the breakable plastic cover marked as AUX from the expansion port on the Opta™ controller and the expansion module to expose the ports.
 
@@ -59,6 +59,8 @@ Attach the expansions to the right side of your Opta™ controller. Ensure that 
 The expansions must be powered externally in order to be detected and properly work.
 
 ![Powering the expansions](assets/power-expansion-2.png)
+
+***The Opta™ controller module supports a maximum of __5 expansion modules__. Exceeding this limit may cause unexpected behavior. __Ensure no more than five modules are connected, and verify that the Aux connector and clips are securely installed__.***
 
 ### Update Expansion Firmware
 
