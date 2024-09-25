@@ -34,7 +34,7 @@ The hands-on part of this tutorial will walk you through performing a speed test
 
 * [Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier) (x1)
 * [Portenta X8](https://store.arduino.cc/products/portenta-x8) (x1)
-* Pro 4G Module (GNSS Module Global / EMEA) (x1)
+* Pro 4G Module ([GNSS Module Global](https://store.arduino.cc/products/4g-module-global?queryID=undefined) / [EMEA](https://store.arduino.cc/products/4g-module-emea?queryID=undefined)) (x1)
 * Compatible antennas like the [Arduino Pro 4G Module Antennas Kit](https://store.arduino.cc/products/4g-module-antenna) (x1)
 
 The following accessories are needed:
