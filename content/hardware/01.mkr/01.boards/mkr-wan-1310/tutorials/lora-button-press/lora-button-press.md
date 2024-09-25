@@ -199,12 +199,12 @@ void loop() {
     while (LoRa.available()) {  
       contents += (char)LoRa.read();
     }
-    
+
+    Serial.println(contents);
     // print RSSI of packet
     Serial.print("' with RSSI ");
     Serial.println(LoRa.packetRssi());
-    Serial.println(contents);
-
+  
     if(contents.equals(buttonPress)){
       x = !x;
     }
@@ -306,10 +306,10 @@ void loop() {
       contents += (char)LoRa.read();
     }
     
+    Serial.println(contents);
     // print RSSI of packet
     Serial.print("' with RSSI ");
     Serial.println(LoRa.packetRssi());
-    Serial.println(contents);
 
     if(contents.equals(buttonPress)){
       x = !x;
