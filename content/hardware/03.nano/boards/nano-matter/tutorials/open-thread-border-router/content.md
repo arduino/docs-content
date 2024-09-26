@@ -127,7 +127,7 @@ Use the following command to flash the firmware to the Arduino Nano Matter, make
 
 ![Firmware flashing using Command Line](assets/fw-flash.gif)
 
-***The __Openocd__ tool directory may vary acording to your OS, modify the command above respectively.***
+***The __Openocd__ tool directory may vary according to your OS, modify the command above respectively.***
 
 ### The Matter Controller: Arduino Nano ESP32
 
