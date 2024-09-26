@@ -95,7 +95,7 @@ Include the LSM9DS1 library at the top of your sketch:
 #include <Arduino_LSM9DS1.h>
 ```
 
-**Initialize variables before the `setup()` function:**
+Initialize variables before the `setup()` function:
 
 ```arduino
 #define MINIMUM_TILT 5    // Threshold for tilt detection in degrees
@@ -107,7 +107,7 @@ int angleY = 0;
 unsigned long previousMillis = 0;
 ```
 
-**In the `setup()`, initialize the IMU and start serial communication:**
+In the `setup()`, initialize the IMU and start serial communication:
 
 ```arduino
 void setup() {
