@@ -72,7 +72,7 @@ In this example, we will use the accelerometer as a "level" that will provide in
 
 **1. Setting up**
 
-Let's start by opening the Arduino Cloud Editor, clicking on the **Libraries** tab, and searching for the **Arduino_BMI270_BMM150** library. Then, in **> Examples**, open the **SimpleAccelerometer** sketch and once it opens, rename it as **Accelerometer**.
+Let's start by opening the Arduino Cloud Editor, clicking on the **Libraries** tab, and searching for the **Arduino_BMI270_BMM150** library. Then, in **Examples**, open the **SimpleAccelerometer** sketch and once it opens, rename it as **Accelerometer**.
 
 ![Finding the library in the Cloud Editor.](./assets/nano33B_02_include_library.png)
 
