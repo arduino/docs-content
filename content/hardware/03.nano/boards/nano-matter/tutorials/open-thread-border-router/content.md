@@ -1,5 +1,5 @@
 ---
-title: 'Open Thread Border Router with the Nano ESP32 and the Nano Matter'
+title: 'Open Thread Router with Nano Matter & ESP32'
 difficulty: advanced
 compatible-products: [nano-matter]
 description: 'Learn how to create your own Thread Border Router using OpenThread and Arduino products.'
