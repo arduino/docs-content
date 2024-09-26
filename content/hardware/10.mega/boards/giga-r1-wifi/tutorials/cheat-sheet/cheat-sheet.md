@@ -1,6 +1,6 @@
 ---
-title: "Arduino GIGA R1 Cheat Sheet"
-description: "Learn how to set up the GIGA R1, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART), and much, much more."
+title: 'Arduino GIGA R1 Cheat Sheet'
+description: 'Learn how to set up the GIGA R1, get a quick overview of the components, information regarding pins and how to use different Serial (SPI, I2C, UART), and much, much more.'
 tags:
   - Installation
   - I2C
@@ -13,7 +13,7 @@ tags:
   - USBHost
   - Arducam
   - Audio Jack
-author: "Jacob Hylén"
+author: 'Jacob Hylén'
 hardware:
   - hardware/10.mega/boards/giga-r1-wifi
 software:
@@ -22,7 +22,7 @@ software:
   - web-editor
 ---
 
-The **Arduino GIGA R1** is one of our most feature-packed Arduino boards to date, supported by the same powerful, ML-capable, dual-core microcontroller found in the Pro family's Portenta H7. It features support for display connectors, USB-host, an Audio Jack, an Arducam connector, a CAN bus, 4 UART Serial Ports, 2 I2C buses, dedicated DAC Pins, and much, much more.
+The **Arduino GIGA R1** is one of our most feature-packed Arduino boards to date, supported by the same powerful, ML-capable, dual-core microcontroller found in the Pro family's Portenta H7. It features support for display connectors, USB-host, an Audio Jack, an Arducam connector, a CAN bus, 4 UART Serial Ports, 2 I2C buses, dedicated DAC Pins, and much, much more. 
 
 This article is a collection of resources and guides to make use of every great feature of this powerful hardware.
 
@@ -38,11 +38,11 @@ The full datasheet is available as a downloadable PDF from the link below:
 
 The GIGA R1 WiFi is compatible with the [Arduino Cloud](https://create.arduino.cc/iot/things), a Cloud service that allows you to create IoT applications in just minutes.
 
-**_Visit the [Getting Started with Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information._**
+***Visit the [Getting Started with Arduino Cloud](/arduino-cloud/getting-started/iot-cloud-getting-started) guide for more information.***
 
 ## Power Supply
 
-To power the **GIGA R1** you may either use a USB-C cable, or the VIN pin.
+To power the **GIGA R1** you may either use a USB-C cable, or the VIN pin. 
 
 If you're using the USB-C connector you must power it with 5V.
 
@@ -54,13 +54,13 @@ It should however be noted that the internal operating voltage of the microcontr
 
 ## Installation
 
-**_For detailed instructions on how to install the GIGA R1 Board Package, please refer to the [Getting Started with GIGA R1](/tutorials/giga-r1-wifi/giga-getting-started) guide._**
+***For detailed instructions on how to install the GIGA R1 Board Package, please refer to the [Getting Started with GIGA R1](/tutorials/giga-r1-wifi/giga-getting-started) guide.***
 
 The **GIGA R1** can be programmed through:
 
-- The **Classic Arduino IDE 1.8.X**,
-- the **Arduino IDE 2**,
-- and the Web-editor.
+- The **Classic Arduino IDE 1.8.X**, 
+- the **Arduino IDE 2**, 
+- and the Web-editor. 
 
 ## Board Package
 
@@ -70,24 +70,23 @@ These examples are available in the Arduino IDE via **File > Examples > Examples
 
 ### Mbed OS
 
-As the [Arduino Mbed OS GIGA Board Package](/tutorials/giga-r1-wifi/giga-getting-started) is based on [MbedOS](https://os.mbed.com/), it is possible for the operating system to crash while running a sketch.
+As the [Arduino Mbed OS GIGA Board Package](/tutorials/giga-r1-wifi/giga-getting-started) is based on [MbedOS](https://os.mbed.com/), it is possible for the operating system to crash while running a sketch. 
 
 On most Arduino boards, when a sketch fails due to e.g. memory shortage, the board resets.
 
 On the GIGA R1, whenever the MbedOS fails, the board does **not reset automatically**. Instead, if it fails, the onboard red LED will start to blink in a looping pattern of 4 fast blinks and 4 slow blinks.
 
-**_Please note, the red LED does NOT mean your board is broken or bricked._**
+***Please note, the red LED does NOT mean your board is broken or bricked.***
 
 ![Red LED blinking due to MbedOS crashing.](assets/red_led_blink.gif)
 
 In case you encounter the red LED, you can either:
-
 - Press the reset button **once** (this resets the sketch).
 - **Double-tap** the reset button to enter bootloader mode (allowing you to re-program the board).
 
 ## Boot0
 
-Pressing and holding the button labelled `BOOT0` on the board while powering the board will boot it into DFU-mode (Device Firmware Update), letting you reflash the bootloader without the use of external hardware, if you were to ever need to.
+Pressing and holding the button labelled `BOOT0` on the board while powering the board will boot it into DFU-mode (Device Firmware Update), letting you reflash the bootloader without the use of external hardware, if you were to ever need to. 
 
 ![BOOT0 button](assets/BOOT0.png)
 
@@ -101,7 +100,7 @@ digitalRead(PC_13);
 
 ## STM32H747XI Microcontroller
 
-The GIGA R1 features the powerful dual core **STM32H747XI** microcontroller found on the Arduino PRO family's Portenta H7 board, but in a form factor accessible to any maker who has tinkered with an Arduino board before.
+The GIGA R1 features the powerful dual core **STM32H747XI** microcontroller found on the Arduino PRO family's Portenta H7 board, but in a form factor accessible to any maker who has tinkered with an Arduino board before. 
 
 The **STM32H747XI** is a powerful dual core chip, capable of being programmed with a high-level language such as MicroPython on one core, while simultaneously running Arduino compiled code on the other, and having the two programs communicate with each other seamlessly.
 
@@ -113,7 +112,7 @@ The microcontroller operates on a voltage of 3.3V, applying a higher voltage tha
 
 ### RAM
 
-The **GIGA R1** has 1 MB of SRAM that is internal to the processor, and 8MB of SDRAM which you can access and write to.
+The **GIGA R1** has 1 MB of SRAM that is internal to the processor, and 8MB of SDRAM which you can access and write to. 
 
 To access the SDRAM you need to use the SDRAM library, include it in your sketch with:
 
@@ -122,13 +121,10 @@ To access the SDRAM you need to use the SDRAM library, include it in your sketch
 ```
 
 Before writing to the SDRAM, you need to allocate it, the following code will create an array that reserves 7MB of the SDRAM for you to write to.
-
 ```arduino
  uint8_t* myVeryBigArray = (uint8_t*)SDRAM.malloc(7 * 1024 * 1024);
 ```
-
 If you now store any data in this array, it will be written to SDRAM.
-
 ```arduino
 for (int i = 0; i<128; i++) {
         myVeryBigArray[i] = i;
@@ -141,6 +137,7 @@ When you no longer need to use the SDRAM, you can free it, so it can be used for
 SDRAM.free(myVeryBigArray);
 ```
 
+
 ### Flash
 
 The **GIGA R1** has 2MB of internal, and 16MB of external Flash storage.
@@ -150,19 +147,19 @@ The GIGA firmware has full support for FATFS and littleFS.
 
 To access the QSPI flash storage as a USB flash drive, you need to follow a few steps, first you need to update the WiFi modules firmware, then you need to create partitions on the flash storage, before finally exposing the partitions to be detected by a computer. These three steps are broken down into different built in example sketches that conveniently all come with the GIGA Board Package.
 
-Firstly, navigate in the IDE menu to `File > Examples > STM32H747_System > WiFiFirmwareUpdater` and upload the sketch to your board.
+Firstly, navigate in the IDE menu to `File > Examples > STM32H747_System > WiFiFirmwareUpdater` and upload the sketch to your board. 
 
 In the Serial monitor you will now be able to interface with the board. Follow the instructions by sending a "**y**" in the monitor. You will now see the progress of the firmware update, don't power off the board until you see a message telling you that it is safe.
 
-After completing this, the next step is to partition the flash storage. Navigate to `File > Examples > STM32H747_System > QSPIFormat` and upload the sketch. From here, your interaction with the board will be very similar to when you updated the WiFi firmware. In the serial monitor, you will get the option to choose from two partition schemes. For this purpose, partition scheme 1 is good. Again, send "**y**" in the serial monitor and wait for confirmation before powering the board off.
+After completing this, the next step is to partition the flash storage. Navigate to `File > Examples > STM32H747_System > QSPIFormat` and upload the sketch. From here, your interaction with the board will be very similar to when you updated the WiFi firmware. In the serial monitor, you will get the option to choose from two partition schemes. For this purpose, partition scheme 1 is good. Again, send "**y**" in the serial monitor and wait for confirmation before powering the board off. 
 
-Lastly, navigate to `File > Examples > USB Mass Storage > AccessFlashAsUSBDisk` and upload the sketch.
+Lastly, navigate to `File > Examples > USB Mass Storage > AccessFlashAsUSBDisk` and upload the sketch. 
 
 Once this is completed, you should now see a new storage device connected as a portable storage device in your computer.
 
 This can be very useful, as this flash storage **does not get deleted when you upload a new sketch to the board.** Meaning that you can store files on the board, and then upload a new sketch that can access and use those files without the need for an SD card and card reader.
 
-**\*Note: In this configuration, the USB serial port used for serial communication with the computer is occupied, so you won't be able to send or read information in the serial monitor. **This includes uploading new sketches. To upload a new sketch you need to put the GIGA R1 in DFU mode by double pressing the RST button.\*\*\*
+***Note: In this configuration, the USB serial port used for serial communication with the computer is occupied, so you won't be able to send or read information in the serial monitor. **This includes uploading new sketches. To upload a new sketch you need to put the GIGA R1 in DFU mode by double pressing the RST button.***
 
 ## Radio Module
 
@@ -178,7 +175,7 @@ Wi-Fi® on the GIGA R1 WiFi is supported via the `WiFi` library. This library is
 
 To use the Wi-Fi® features on this board, please refer to the [GIGA R1 WiFi Network Examples](/tutorials/giga-r1-wifi/giga-wifi) guide.
 
-**_The easiest way to connect your board to the Internet is via the [Arduino Cloud](https://create.arduino.cc/iot/) platform. Here you can configure, program, monitor and synchronize your devices without having to write any networking code._**
+***The easiest way to connect your board to the Internet is via the [Arduino Cloud](https://create.arduino.cc/iot/) platform. Here you can configure, program, monitor and synchronize your devices without having to write any networking code.*** 
 
 ### Bluetooth® Low Energy
 
@@ -190,19 +187,18 @@ If you want to add Ethernet connectivity to your project, the [Arduino Ethernet 
 
 ## Audio Jack
 
-The **GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, and is capable of reading input from a microphone, as well as outputting sound through a speaker.
+The **GIGA R1** features an audio jack, with 2x DAC channels, and 1x ADC channel, and is capable of reading input from a microphone, as well as outputting sound through a speaker. 
 
 ![Audio jack.](assets/audio-jack.png)
 
 The audio jack is connected to the following pins:
-
 - **A12 / DAC0**
 - **A13 / DAC1**
 - **A7**
 
 Both of these come with caveats, though. As there is no amplifier circuit on the board itself, driving a high impedance speaker directly without an amplifier circuit could cause damage to the board, and microphone input without an amplifier circuit between the microphone and the board may sound dim.
 
-In the coming sections we will provide resources and basic information on how to use the audio jack as both an input and an output.
+In the coming sections we will provide resources and basic information on how to use the audio jack as both an input and an output. 
 
 ### DAC Output
 
@@ -226,7 +222,6 @@ To initialize the library, and check that everything went as expected with the f
 ```
 
 Then lastly, add the following code to `void loop()` to start:
-
 ```arduino
 if (dac1.available()) {
 
@@ -243,11 +238,11 @@ if (dac1.available()) {
     }
 ```
 
-**\*The options for audio playback and generation on your GIGA R1 are **much** more vast than this, however. To learn about audio playback in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1-wifi/giga-audio).\***
+***The options for audio playback and generation on your GIGA R1 are **much** more vast than this, however. To learn about audio playback in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1-wifi/giga-audio).***
 
 ### ADC Input
 
-The audio jack on the GIGA R1 is also connected to pin A7, for microphone capabilities.
+The audio jack on the GIGA R1 is also connected to pin A7, for microphone capabilities. 
 
 To take advantage of this, you can use the `AdvancedAnalogRedux` library from Arduino, start off by including the library and setting up the pin as an `AdvancedADC` pin in the beginning of your sketch, outside of `void setup()`.
 
@@ -258,7 +253,6 @@ AdvancedADC adc1(A7);
 ```
 
 Now, initialize the library and run a check to make sure everything went as expected with the following code within `void setup()`:
-
 ```arduino
 
   Serial.begin(9600);
@@ -269,9 +263,7 @@ Now, initialize the library and run a check to make sure everything went as expe
        while (1);
    }
 ```
-
 Finally, read the ADC, and store it in a way that you can use it, do this within `void loop()`:
-
 ```arduino
   if (adc1.available()) {
         SampleBuffer buf = adc1.read();
@@ -283,13 +275,13 @@ Finally, read the ADC, and store it in a way that you can use it, do this within
         buf.release();
 ```
 
-**\*The options for audio input on your GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1-wifi/giga-audio).\***
+***The options for audio input on your GIGA R1 are **much** more vast than this, however. To learn about audio recording in depth, check out the [GIGA R1 Audio Guide](/tutorials/giga-r1-wifi/giga-audio).***
 
 ## MIPI DSI®
 
 Display Serial Interface (DSI), is a specification from the Mobile Industry Processor Interface (MIPI).
 
-The **STM32H747XI** has an internal 2D graphics accelerator with support for resolutions up to 1024x768, it also has the ability to encode and decode JPEG codec. This is what allows the **GIGA R1** to boast a 2 lane MIPI display interface.
+The **STM32H747XI** has an internal 2D graphics accelerator with support for resolutions up to 1024x768, it also has the ability to encode and decode JPEG codec. This is what allows the **GIGA R1** to boast a 2 lane MIPI display interface. 
 
 The [GIGA Display Shield]() is designed to be mounted on the GIGA R1 through the MIPI/DSI connector located on the board, with support for popular frameworks such as [LVGL](https://docs.arduino.cc/tutorials/giga-display-shield/lvgl-guide) and [GFX](https://docs.arduino.cc/tutorials/giga-display-shield/gfx-guide).
 
@@ -297,10 +289,9 @@ The pinout for the display connector is shown in the image below:
 
 ![MIPI/DSI connector.](assets/mipi-dsi.png)
 
-**_When connecting a module or shield to the GIGA R1 WiFi board, be careful to not connect it at an angle or your board may be damaged._**
+***When connecting a module or shield to the GIGA R1 WiFi board, be careful to not connect it at an angle or your board may be damaged.***
 
 The following pins are directly connected to the STM32H747XI and cannot be used as GPIOs.
-
 - D1N
 - D1P
 - CKN
@@ -309,7 +300,6 @@ The following pins are directly connected to the STM32H747XI and cannot be used 
 - D0P
 
 The following pins can also be used as GPIOs:
-
 - D68
 - D69
 - D70
@@ -320,7 +310,6 @@ The following pins can also be used as GPIOs:
 - D75
 
 The connector also has a series of power connections, including:
-
 - 3.3 V
 - 5 V
 - GND
@@ -328,7 +317,7 @@ The connector also has a series of power connections, including:
 
 ## USB Features
 
-**_To learn about all the USB features in more detail, visit the [Guide to GIGA R1 USB Features](/tutorials/giga-r1-wifi/giga-usb)._**
+***To learn about all the USB features in more detail, visit the [Guide to GIGA R1 USB Features](/tutorials/giga-r1-wifi/giga-usb).***
 
 ### USB HID
 
@@ -338,12 +327,11 @@ The GIGA R1 comes with support for HID, and can be used as either a keyboard or 
 
 ![USB-A connector.](assets/usb.png)
 
-The USB-A port you find on the **GIGA R1** is configured as a host-only port, meaning that it cannot be used to program the board, instead it is used to connect peripherals to the board.
+The USB-A port you find on the **GIGA R1** is configured as a host-only port, meaning that it cannot be used to program the board, instead it is used to connect peripherals to the board. 
 
 The board can receive keyboard input, effectively enabling a few hundred more inputs without any wiring, or be used to read & write files on a USB flash drive, which makes it possible to for example, build a [datalogger](/tutorials/giga-r1-wifi/giga-usb#datalogger-example).
 
 For more information, go to the following sections:
-
 - [USBHost Keyboard](/tutorials/giga-r1-wifi/giga-usb#usb-host-keyboard).
 - [USB mass storage](/tutorials/giga-r1-wifi/giga-usb#usb-mass-storage).
 
@@ -374,15 +362,15 @@ void loop() {
 }
 
 void RTCset()  // Set cpu RTC
-{
+{    
   tm t;
             t.tm_sec = (0);       // 0-59
             t.tm_min = (52);        // 0-59
             t.tm_hour = (14);         // 0-23
             t.tm_mday = (18);   // 1-31
-            t.tm_mon = (11);       // 0-11  "0" = Jan, -1
+            t.tm_mon = (11);       // 0-11  "0" = Jan, -1 
             t.tm_year = ((22)+100);   // year since 1900,  current year + 100 + 1900 = correct year
-            set_time(mktime(&t));       // set RTC clock
+            set_time(mktime(&t));       // set RTC clock                                 
 }
 
 String getLocaltime()
@@ -586,7 +574,6 @@ void printWifiStatus()
     Serial.println(" dBm");
 }
 ```
-
 ### RTC / UDP / NTP Example (Timezone)
 
 This example provides an option to set the timezone. As the received epoch is based on GMT time, you can input e.g. `-1` or `5` which represents the hours. The `timezone` variable is changed at the top of the example.
@@ -616,7 +603,7 @@ This code is in the public domain.
 #include <WiFiUdp.h>
 #include <mbed_mktime.h>
 
-int timezone = -1; //this is GMT -1.
+int timezone = -1; //this is GMT -1. 
 
 int status = WL_IDLE_STATUS;
 
@@ -716,7 +703,7 @@ unsigned long parseNtpPacket() {
   const unsigned long secsSince1900 = highWord << 16 | lowWord;
   constexpr unsigned long seventyYears = 2208988800UL;
   const unsigned long epoch = secsSince1900 - seventyYears;
-
+  
   const unsigned long new_epoch = epoch + (3600 * timezone); //multiply the timezone with 3600 (1 hour)
 
   set_time(new_epoch);
@@ -778,7 +765,7 @@ void printWifiStatus() {
 
 ### VRTC Pin
 
-The GIGA R1 also features a `VRTC` pin, giving you the ability to power the RTC with a coin cell battery to keep the time even when your board is turned off, for low power timekeeping.
+The GIGA R1 also features a `VRTC` pin, giving you the ability to power the RTC with a coin cell battery to keep the time even when your board is turned off, for low power timekeeping. 
 
 ![VRTC pin on the GIGA R1](./assets/rtc.png)
 
@@ -790,21 +777,21 @@ To learn more about the camera capabilities of the GIGA R1, check out the [GIGA 
 
 ## JTAG
 
-The **GIGA R1** features a 2x5 pin JTAG (Joint Test Action Group) connector, giving advanced debug functionalities for more advanced users.
+The **GIGA R1** features a 2x5 pin JTAG (Joint Test Action Group) connector, giving advanced debug functionalities for more advanced users. 
 
 ![JTAG Connector](assets/jtag.png)
 
 ## CAN Bus
 
-The **GIGA R1** features a dedicated CAN bus.
+The **GIGA R1** features a dedicated CAN bus. 
 
 ![CAN Bus](assets/canpins.png)
 
-**_The CAN bus does not include a built in transceiver. If you need to use the CAN bus, you can add a transceiver as a breakout board._**
+***The CAN bus does not include a built in transceiver. If you need to use the CAN bus, you can add a transceiver as a breakout board.***
 
-CAN, or **Controller Area Network**, is a communication standard that allows microcontroller-based devices to communicate with each other without the need for a host computer. This means that building a complex system with many different subsystems within becomes much easier.
+CAN, or **Controller Area Network**, is a communication standard that allows microcontroller-based devices to communicate with each other without the need for a host computer. This means that building a complex system with many different subsystems within becomes much easier. 
 
-This makes the **GIGA R1** a powerful option for complex multilayered systems, as it can be integrated into existing systems or be used to build a new one from scratch.
+This makes the **GIGA R1** a powerful option for complex multilayered systems, as it can be integrated into existing systems or be used to build a new one from scratch. 
 
 The CAN pins on the **GIGA R1** are labelled `CANRX` and `CANTX`. Typically, transceiver breakouts are labelled with a similar syntax, and to connect them to the board, use the following wiring scheme:
 
@@ -815,7 +802,7 @@ The CAN pins on the **GIGA R1** are labelled `CANRX` and `CANTX`. Typically, tra
 | CANTX   | CANTX\*     |
 | CANRX   | CANRX\*     |
 
-**_\*The name of CANTX/CANRX differs from product to product._**
+***\*The name of CANTX/CANRX differs from product to product.***
 
 Below is an example of how to send & receive data using a CAN bus.
 
@@ -864,7 +851,7 @@ void loop() {
 }
 ```
 
-## SPI
+## SPI 
 
 ![SPI Pins](assets/spipins.png)
 
@@ -876,10 +863,10 @@ The first bus which has a dedicated SPI header, `SPI1`, uses the following pins:
 - (COPI) - D90
 - (SCK) - D91
 - (CS) - unassigned, use any free GPIO for this.
+  
+***Please note that the SPI header provides a 5 V pin. Make sure that the SPI device you are connecting supports an input voltage of 5 V. If you have an SPI device that supports 3.3 V only, use the `SPI5` port (see below).***
 
-**_Please note that the SPI header provides a 5 V pin. Make sure that the SPI device you are connecting supports an input voltage of 5 V. If you have an SPI device that supports 3.3 V only, use the `SPI5` port (see below)._**
-
-The second bus (header), `SPI5`, uses the following pins:
+The second bus (header), `SPI5`, uses the following pins: 
 
 - (CIPO) - D12
 - (COPI) - D11
@@ -906,7 +893,7 @@ void setup() {
 
   SPI.transfer(0x00);
   SPI1.transfer(0x00);
-
+  
   digitalWrite(CS_1, HIGH);
   digitalWrite(CS_2, HIGH);
 }
@@ -919,6 +906,7 @@ Please note that the in the GIGA R1 schematics and the code does not match exact
 
 ![SPI ports in the schematics.](assets/schematics-spi.png)
 
+
 ## I2C Pins
 
 I2C lets you connect multiple I2C compatible devices in series using only two pins. The controller will send out information through the I2C bus to a 7 bit address, meaning that the technical limit of I2C devices on a single line is 128. Practically, you're never gonna reach 128 devices before other limitations kick in.
@@ -926,7 +914,6 @@ I2C lets you connect multiple I2C compatible devices in series using only two pi
 The **GIGA R1** has three separate I2C buses of which two are usable without external components, letting you control more devices.
 
 The pins used for I2C on the **GIGA R1** are the following:
-
 - SDA - D20
 - SCL - D21
 - SDA1 - also available on the camera connector.
@@ -954,20 +941,20 @@ And to write something to a device connected via I2C, we can use the following c
 
 ```arduino
 Wire.beginTransmission(1); //begin transmit to device 1
-Wire.write(byte(0x00)); //send instruction byte
+Wire.write(byte(0x00)); //send instruction byte 
 Wire.write(val); //send a value
 Wire.endTransmission(); //stop transmit
 ```
 
-If you pay close attention you may notice that there are three sets of I2C pins. The two first sets (SDA, SCL, SDA1, SCL1) have internal pullup resistors connected to them which are required to make them function as I2C pins.
+If you pay close attention you may notice that there are three sets of I2C pins. The two first sets (SDA, SCL, SDA1, SCL1) have internal pullup resistors connected to them which are required to make them function as I2C pins. 
 
 If you want to use the third set (SDA2, SCL2) as I2C pins you will need to use external pull-up resistors.
 
 ## Serial/UART Pins
 
-The **GIGA R1** supports, like every other Arduino board, serial communication with UART (Universal Asynchronous, Receiver-Transmitter). However, the **GIGA R1** board features 5 separate serial ports, including the standard serial over USB port that is initialized using `Serial.begin()`.
+The **GIGA R1** supports, like every other Arduino board, serial communication with UART (Universal Asynchronous, Receiver-Transmitter). However, the **GIGA R1** board features 5 separate serial ports, including the standard serial over USB port that is initialized using `Serial.begin()`. 
 
-This not only means that you may print different values to different ports and monitor them separately, which is useful enough in and of itself, but that you may also communicate with **4 different serial enabled devices** simultaneously.
+This not only means that you may print different values to different ports and monitor them separately, which is useful enough in and of itself, but that you may also communicate with **4 different serial enabled devices** simultaneously. 
 
 The pins used for UART on the **GIGA R1** are the following:
 
@@ -1128,7 +1115,7 @@ The **GIGA R1** has 12 analog input pins that can be read with a resolution of 1
 value = analogRead(pin, value);
 ```
 
-The reference voltage of these pins is 3.3V.
+The reference voltage of these pins is 3.3V. 
 
 Pins A8, A9, A10 and A11 can not be used as GPIOs, but are limited to use as analog input pins.
 
@@ -1142,13 +1129,14 @@ The **STM32H7** has an internal OPAMP and comparator that are exposed on the **G
 | A3  |                    | COMP1_INM  |
 | A6  |                    | COMP1_INM  |
 
-**_For more advanced analog readings, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced ADC section](/tutorials/giga-r1-wifi/giga-audio#analog-to-digital-converters)._**
+***For more advanced analog readings, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced ADC section](/tutorials/giga-r1-wifi/giga-audio#analog-to-digital-converters).***
+
 
 ### PWM Pins
 
-PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins.
+PWM (Pulse Width Modulation) capability allows a digital pin to emulate analog output by flickering on and off very fast letting you, among other things, dim LEDs connected to digital pins. 
 
-The **GIGA R1** has 12 PWM capable pins, the PWM capable pins are 2-13. You may use them as analog output pins with the function:
+The **GIGA R1** has 12 PWM capable pins, the PWM capable pins are 2-13. You may use them as analog output pins with the function: 
 
 ```arduino
 analogWrite(pin, value);
@@ -1165,7 +1153,7 @@ The **GIGA R1** features more pins than any other Arduino board for makers, a fu
 - 10 - CS
 - 11 - COPI
 - 12 - CIPO
-- 13 - SCK
+- 13 - SCK 
 - 14 - TX3
 - 15 - RX3
 - 16 - TX2
@@ -1181,7 +1169,7 @@ The logic for `LED_BUILTIN` is reversed if compared to the behavior of, for exam
 
 #### D7 Pin
 
-By default, the digital pin 7 (D7) provides a voltage of ~1.65 V.
+By default, the digital pin 7 (D7) provides a voltage of ~1.65 V. 
 
 To disable this pin, you need to configure it as an output and set it to a `LOW` state.
 
@@ -1193,7 +1181,6 @@ digitalWrite(7, LOW);
 ### DAC Pins
 
 The **GIGA R1** also has two DAC pins, A12 & A13, that can act as genuine analog output pins which means they are even more capable than PWM pins.
-
 ```arduino
 analogWrite(pin, value);
 ```
@@ -1208,37 +1195,35 @@ However you may change this write resolution if you need to, to up to 12-bits:
 analogWriteResolution(12);
 ```
 
-**_For advanced usage of the DAC, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced DAC section](/tutorials/giga-r1-wifi/giga-audio#digital-to-analog-converters)._**
+***For advanced usage of the DAC, you can use the `AdvancedAnalogRedux` library. Read more about this in the [Advanced DAC section](/tutorials/giga-r1-wifi/giga-audio#digital-to-analog-converters).***
 
 ### OFF Pin
 
 On the **GIGA R1** you will find a pin labelled **"OFF"**. If you connect this pin to ground, the board will power down even if power is supplied to the board.
 
-You can install a flip-switch to the board to let you turn your device on and off easily, which can be a handy option for a more permanent fixture.
+You can install a flip-switch to the board to let you turn your device on and off easily, which can be a handy option for a more permanent fixture. 
 
-## Interrupts
+## Interrupts 
 
-If you're creating a project that relies heavily on accurate sensor data, and therefore need to ensure that you read the record any change in value, it can be difficult to write a program that does anything else well. This is because the microcontroller is busy trying to read the values constantly. To get around this you can use interrupts that can let you can be useful for reading input from for example a rotary encoder or a push button without putting any code in your loop function.
+If you're creating a project that relies heavily on accurate sensor data, and therefore need to ensure that you read the record any change in value, it can be difficult to write a program that does anything else well. This is because the microcontroller is busy trying to read the values constantly. To get around this you can use interrupts that can let you can be useful for reading input from for example a rotary encoder or a push button without putting any code in your loop function. 
 
 This feature might be extra valuable to the maker with an **GIGA R1**, as their circuit gets more and more complex.
 
-All GPIO pins on the **GIGA R1** can be used for interrupts.
+All GPIO pins on the **GIGA R1** can be used for interrupts. 
 
 The syntax for creating an interrupt function should be included in `void setup()` and is as follows:
-
 ```arduino
 attachInterrupt(digitalPinToInterrupt(pin), ISR, mode)
 ```
 
-- `pin` represents the pin number of the pin your input sensor is connected to,
+- `pin` represents the pin number of the pin your input sensor is connected to, 
 - `ISR` is the function that is called whenever the interrupt is triggered, and should be defined bt you somewhere in your sketch.
 - `mode` defines when the interrupt should be triggered, and can be one of four pre-defined modes.
 
-The different modes that can be used are:
-
+The different modes that can be used are: 
 - `LOW` triggers the interrupt when the pin is low.
 - `CHANGE` triggers whenever the pin changes values.
-- `RISING` triggers when the pin goes from low to high.
+- `RISING` triggers when the pin goes from low to high. 
 - `FALLING` triggers when the pin goes from high to low.
 
 This example sketch will turn on or off an LED connected to pin 13 whenever a pushbutton connected to pin 2 is pressed or released:
