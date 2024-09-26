@@ -89,7 +89,7 @@ Now, connect the Arduino Nano 33 BLE to the computer and make sure that the Clou
 
 Now we will write the code to read the accelerometer data, calculate the tilt angles, and print the relative position of the board as we move it at different angles.
 
-**Include the LSM9DS1 library at the top of your sketch:**
+Include the LSM9DS1 library at the top of your sketch:
 
 ```arduino
 #include <Arduino_LSM9DS1.h>
