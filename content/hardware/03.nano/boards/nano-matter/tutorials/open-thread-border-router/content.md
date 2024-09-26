@@ -117,7 +117,17 @@ The default pinout is **PA8 > TX** and **PA9 > RX**, but we need to change it to
 
 ![Project Build](assets/build-prj.png)
 
+- In your project directory navigate to the `/GNU ARM v12.2.1 - Default/` folder, right click on it and open a **Command Line**.
 
+Use the following command to flash the firmware to the Arduino Nano Matter, make sure to modify the `<username>` and `<project name>` with yours:
+
+```bash
+/Users/<your-username>/AppData/Local/Arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd -d2 -s /Users/<your-username>/AppData/Local/Arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd/scripts/ -f interface/cmsis-dap.cfg -f target/efm32s2_g23.cfg -c "init; reset_config srst_nogate; reset halt; program {<project-name>.hex}; reset; exit"
+```
+
+![Firmware flashing using Command Line](assets/fw-flash.gif)
+
+***The __Openocd__ tool directory may vary acording to your OS, modify the command above respectively.***
 
 ### The Matter Controller: Arduino Nano ESP32
 
