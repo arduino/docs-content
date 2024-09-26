@@ -144,7 +144,8 @@ In this example:
 
 ### PWM on the GIGA R1
 
-On STM32 boards like the Arduino GIGA R1, PWM is handled differently. You need to use the `Timer` class along with the `Pin` class from the `pyb` module.
+On STM32 boards like the [Arduino GIGA R1 WiFi](https://store.arduino.cc/products/giga-r1-wifi), PWM is handled differently. You need to use the `Timer` class along with the `Pin` class from the `pyb` module.
+
 Here's the correct code that works on these boards:
 
 ```python
@@ -162,7 +163,8 @@ In this example:
 - `tim` is a `Timer` object initialized with timer number 2 and a frequency of 1000 Hz.
 - `ch` is a PWM channel created on timer 2, channel 1, and is associated with pin `p`.
 - `ch.pulse_width_percent(25)` sets the duty cycle of the PWM signal to 25%.
-- `'A13'` is the pin markedas **DAC1**
+- `'A13'` is marked as **DAC1** on the GIGA R1 WiFi
+
 
 
 - Pin names and timer configurations, may vary between different STM32 boards. For more information, check out the [GIGA R1 MicroPython Guide](https://docs.arduino.cc/tutorials/giga-r1-wifi/giga-micropython/).
