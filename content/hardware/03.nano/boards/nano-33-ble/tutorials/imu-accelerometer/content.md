@@ -73,7 +73,7 @@ In this example, we will use the accelerometer as a "level" that will provide in
 **1. Setting up**
 
 
-Let's start by opening the Arduino Cloud Editor, click on the **Libraries** tab and search for the **LSM9DS1** library. Then in **> Examples**, open the **SimpleAccelerometer** sketch and once it opens, rename it as **Accelerometer**.
+Let's start by opening the Arduino Cloud Editor, click on the **Libraries** tab and search for the **LSM9DS1** library. Then in **Examples**, open the **SimpleAccelerometer** sketch and once it opens, rename it as **Accelerometer**.
 
 ![Finding the library in the Cloud Editor.](./assets/nano33BLE_01_include_library.png)
 
