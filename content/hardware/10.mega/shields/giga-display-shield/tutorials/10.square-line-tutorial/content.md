@@ -20,14 +20,7 @@ Make sure the latest GIGA Board Package is installed in the Arduino IDE. **Tools
 
 ## Using SquareLine Studio
 
-First download SquareLine Studio from the link above. Now in SquareLine Studio go to the "create" section and select the Arduino tab. On the right you can set the "project settings". These needs to be set like so:
-
-- **Project name**: Set the name of your project
-- **Resolution**: 800x480 (to fully use the 800x480 screen in landscape mode, select 480x800 for portrait)
-- **Color depth**: 16 bit
-- **LVGL version**: 8.3.x
-
-As show on this image:
+First download SquareLine Studio from the link above. Now in SquareLine Studio go to the "create" section and select the Arduino tab. Here you can select the GIGA Display Shield as a preset option so the project will be set up for the board and shield. Keep note of the LVGL version selected here on the right side.
 
 ![Project settings in SquareLine Studio](assets/project_settings.png)
 
