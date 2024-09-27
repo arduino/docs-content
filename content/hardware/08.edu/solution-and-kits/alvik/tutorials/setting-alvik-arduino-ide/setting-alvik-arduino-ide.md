@@ -47,24 +47,24 @@ The Arduino® Alvik robot was designed to be compatible with both C++ and MicroP
 ![Upload the drive example](assets/uploadExample.png)
 
 The Alvik should now start their motor. If no movement occurs make sure that:
-- Your board is **ON**
+- Alvik is **ON**
 - Firmware is updated (more information available in the [User Manual](https://docs.arduino.cc/tutorials/alvik/user-manual/)).
 
 
 
-You can at any point revert back to the MicroPython programming eviroment by following the content available over at the [MicroPython installation guide](https://docs.arduino.cc/micropython/micropython-course/course/installation/).
+You can at any point revert back to the MicroPython programming environment by following the content available over at the [MicroPython installation guide](https://docs.arduino.cc/micropython/micropython-course/course/installation/).
 
 ## Programming Alvik
 
-Now that your Alvik is correctly setup lets go over some simple sketch uploads. If this is your first time with the Arduino IDE there is information available on how to [upload sketches](https://support.arduino.cc/hc/en-us/articles/4733418441116-Upload-a-sketch-in-Arduino-IDE).
+Now that your Alvik is correctly setup, lets go over some simple sketch uploads. If this is your first time with the Arduino IDE read how to [upload sketches here](https://support.arduino.cc/hc/en-us/articles/4733418441116-Upload-a-sketch-in-Arduino-IDE).
 
 ### Libraries
 
 There are two libraries available in the library manager for use with Alvik:
 
-- **Arduino_Alvik**: This is the primary library we will use in our sketches, and it contains high-level commands for controlling the "brain" of the Alvik, which is the ESP board. You can find more information and download it from [here](https://www.arduino.cc/reference/en/libraries/arduino_alvik/).
+- **Arduino_Alvik**: This is the primary library we will use in our sketches, and it contains high-level commands for controlling the "brain" of the Alvik, which is the Nano ESP32 board. You can find more information and download it from [here](https://www.arduino.cc/reference/en/libraries/arduino_alvik/).
 
-- **Arduino_AlvikCarrier**: This library is designed for the STM board on the device and is useful in situations where more fine control is required over commands. It allows for more complex development, especially when deeper integration with the hardware is needed. More information and the download link can be found [here](https://www.arduino.cc/reference/en/libraries/arduino_alvikcarrier/).
+- **Arduino_AlvikCarrier**: This library is designed for the STM board on the device and it is useful in situations where more fine control is required over commands. It allows more complex developments, especially when deeper integration with the hardware is needed. More information and the download link can be found [here](https://www.arduino.cc/reference/en/libraries/arduino_alvikcarrier/).
 
 ### Print Firmware Version
 
@@ -80,7 +80,7 @@ Including the `Arduino_Alvik` library is essensial. The library contains all the
 Arduino_Alvik alvik;
 ```
 
-When using the Alvik livrary we declare an object of the `Arduino_Alvik` class named `alvik` in this case. All interactions with the robot will go through this `alvik` object. As with our ```alvik.drive()``` command.
+When using the Alvik livrary we declare an object of the `Arduino_Alvik` class named `alvik` in this case. All interactions with the robot will go through this `alvik` object. As with our `alvik.drive()` command.
 
 ```c++
 void setup() {
@@ -140,7 +140,7 @@ void loop() {
 A more complex example can be found in the [getting started](https://docs.arduino.cc/tutorials/alvik/getting-started/) guide for the Alvik.
 Due to the functions having same structure and names on both MicroPython and C++ we can easily port the ```obstacle-avoider``` to C++.
 
-Keeping in mind the initialization of the Alvik from the previous example we can build the example on the Arduino IDE:
+Keeping in mind the initialization of the Alvik from the previous example, we can build the example on the Arduino IDE:
 
 ```c++
 #include "Arduino_Alvik.h"
@@ -179,6 +179,6 @@ You can now explore the other included examples that cover more of the Alvik's c
 
 ## More Resources (C++)
 
-- **Alvik Documentation**: Dive deeper into the capabilities of Alvik by exploring the official documentation.
-- **Community Forums**: Join the Arduino community forums to ask questions and share your projects.
-- **Tutorials and Projects**: Look for tutorials and project ideas that can inspire your next steps with Alvik.
+- **[Alvik Documentation](https://docs.arduino.cc/hardware/alvik/)**: Dive deeper into the capabilities of Alvik by exploring the official documentation.
+- **[Community Forums](https://forum.arduino.cc/search?q=alvik)**: Join the Arduino community forums to ask questions and share your projects.
+- **[Tutorials and Projects](https://courses.arduino.cc/explore-robotics-micropython/)**: Look for tutorials and project ideas that can inspire your next steps with Alvik.
