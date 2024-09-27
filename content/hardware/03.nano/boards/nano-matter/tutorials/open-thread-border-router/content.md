@@ -22,7 +22,7 @@ Thread is a low-power, wireless mesh networking protocol designed for smart home
 
 Matter devices can use Thread as their primary communication method, especially for low-power devices such as sensors, light bulbs, and door locks. These devices communicate using the Thread protocol and leverage Matter's application layer for interoperability.
 
-### What is an OpenThread Border Router?
+### OpenThread Border Router
 
 An OpenThread Border Router (OTBR) consists of a **Matter Controller** and a **Radio Co-Processor** (RCP):
 
