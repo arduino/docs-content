@@ -131,6 +131,99 @@ Use the following command to flash the firmware to the Arduino Nano Matter, make
 
 ### The Matter Controller: Arduino Nano ESP32
 
+To set up the environment for the ESP32 firmware development use the following commands on a **Linux computer**.
+
+- Install dependencies (Ubuntu and Debian):
+  
+```bash
+sudo apt-get install git wget flex bison gperf python3 python3-pip python3-venv cmake ninja-build ccache libffi-dev libssl-dev dfu-util libusb-1.0-0
+```
+
+***If you are using a different Linux distribution, search for the right commands [here](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/get-started/linux-macos-setup.html#for-linux-users).***
+
+- Install the **ESP-IDF**:
+  
+```bash
+git clone -b v5.1.2 --recursive https://github.com/espressif/esp-idf.git
+cd esp-idf
+./install.sh
+. ./export.sh
+```
+
+- Clone the ESP Thread Border Router example repository:
+  
+```bash
+git clone -b v1.0 --recursive https://github.com/espressif/esp-thread-br.git
+cd /esp-thread-br/examples/basic_thread_border_router/
+```
+- For the `sdkconfig` file to be generated, and we can later modify it with our Nano ESP32 custom settings, set the device target from the command line:
+
+```dash
+idf.py set-target esp32s3
+```
+
+Using a **code editor**, open the `sdkconfig` file located in `esp-thread-br/examples/basic_thread_border_router/sdkconfig` and do the following modifications:
+
+- Update the Wi-Fi credentials with your network `SSID` and `Password`:
+
+```bash
+CONFIG_EXAMPLE_WIFI_SSID="<your-wifi-ssid>"
+CONFIG_EXAMPLE_WIFI_PASSWORD="<your-wifi-password>"
+```
+
+- Modify the Serial pinout so it matches with the Arduino Nano layout:
+
+```bash
+CONFIG_PIN_TO_RCP_TX=43
+CONFIG_PIN_TO_RCP_RX=44
+```
+
+- Disable the RCP firmware auto-update verifying this parameter is not set:
+
+```bash
+# CONFIG_OPENTHREAD_BR_AUTO_UPDATE_RCP=y
+```
+
+- Enable the OpenThread webserver:
+
+```bash
+CONFIG_OPENTHREAD_BR_START_WEB=y
+```
+
+- Enable OpenThread commissioner and joiner:
+
+```bash
+CONFIG_OPENTHREAD_COMMISSIONER=y
+CONFIG_OPENTHREAD_JOINER=y
+```
+
+- Navigate to `esp-thread-br/examples/basic_thread_border_router/main/esp_ot_config.h`.
+
+- Modify the Serial port baud rate to `115200`, the result should look like this:
+
+![Baud rate configuration update](assets/baud-rate.png)
+
+- Navigate to `esp-thread-br/examples/common/thread_border_router/src/border_router_launch.c`.
+
+- Disable the ESP RCP update process by commenting the following line of the `border_router_launch.c` file, the result should look like this:
+
+![RCP auto update disabling](assets/auto-update.png)
+
+- Go back to the `basic_thread_border_router` example folder and build the firmware:
+
+```bash
+cd esp-thread-br/examples/basic_thread_border_router
+idf.py build
+```
+
+- When the build is completed, flash the Nano ESP32:
+
+```bash
+idf.py -p /dev/ttyACM0 flash monitor
+```
+
+![Flashing process](assets/esp-flash-2.gif)
+
 ### The CHIP Tool: Linux Computer
 
 ## Testing the OTBR
