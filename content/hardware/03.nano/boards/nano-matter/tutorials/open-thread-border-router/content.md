@@ -294,6 +294,8 @@ As the *end-device* we are going to use an Arduino Nano Matter configured as **S
 
 ![Smart outlet example](assets/outlet-ex.png)
 
+***By default the example will use the built-in LED as an output, you can easily update the code so it controls a GPIO to activate an external relay.***
+
 - Once flashed, open the serial terminal and reset the board. Take note of the **manual pairing code**:
 
 ![End-device Matter credentials](assets/pair-code.png)
@@ -357,9 +359,11 @@ To control the Smart Outlet use the following command format:
 ```
 
 - `onoff`: This specifies that the command pertains to the On/Off cluster, which controls the power state (on/off) of the device.
-
 - `toggle`: This command switches the current state of the device.
-
 - `1`: This is the Node ID of the device receiving the command.
-
 - `0x03`: This is the endpoint ID of the device (fixed to 0x03 for Silicon Labs device).
+
+Every time you run the command the Smart Outlet will toggle, turning on or off the load connected.
+
+![Smart outlet demo](assets/final-demo.gif)
+
