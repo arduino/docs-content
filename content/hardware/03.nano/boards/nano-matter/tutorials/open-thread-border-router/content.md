@@ -158,7 +158,7 @@ cd /esp-thread-br/examples/basic_thread_border_router/
 ```
 - For the `sdkconfig` file to be generated, and we can later modify it with our Nano ESP32 custom settings, set the device target from the command line:
 
-```dash
+```bash
 idf.py set-target esp32s3
 ```
 
