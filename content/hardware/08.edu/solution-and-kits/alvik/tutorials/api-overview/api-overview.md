@@ -677,7 +677,7 @@ Rotational speed unit of measurement used in the APIs:
 
 ### `"blocking" or "non blocking"`
 
-While programming a microcontroller, the terms "blocking" means that **all the resources are used only in performing a specific action, and no other things can happen at the same time**. Usually this is used when you want to be precise or you don't want anything else that could interact with the action you are performing.
+While programming a microcontroller, the term "blocking" means that **all the resources are used only in performing a specific action, and no other things can happen at the same time**. Usually this is used when you want to be precise or you don't want anything else that could interact with the action you are performing.
 
 On the other hand, "Non blocking", means that the microcontroller is free to do other thing while the action is been performed.
 
