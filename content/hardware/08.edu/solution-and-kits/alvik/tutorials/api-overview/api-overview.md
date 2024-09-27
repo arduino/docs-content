@@ -679,7 +679,7 @@ Rotational speed unit of measurement used in the APIs:
 
 While programming a microcontroller, the term "blocking" means that **all the resources are used only in performing a specific action, and no other things can happen at the same time**. Usually this is used when you want to be precise or you don't want anything else that could interact with the action you are performing.
 
-On the other hand, "Non blocking", means that the microcontroller is free to do other thing while the action is been performed.
+On the other hand, "Non blocking", means that the microcontroller is free to do other things while the action is been performed.
 
 ## Examples
 These examples demonstrate practical implementations on how to use the Arduino Alvik API. Whether you're working with MicroPython or C++, these simple examples will help you understand how to implement various features in your projects, making it easy to get started with the Alvik in the language you're most comfortable with.
