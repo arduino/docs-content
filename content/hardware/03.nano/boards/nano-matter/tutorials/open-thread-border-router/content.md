@@ -224,10 +224,69 @@ idf.py -p /dev/ttyACM0 flash monitor
 
 ![Flashing process](assets/esp-flash-2.gif)
 
-### The CHIP Tool: Linux Computer
+***Do not run the `idf.py set-target esp32s3` command again to avoid overriding the customized configurations.***
 
-## Testing the OTBR
+### CHIP Tool
 
-## Setup
+**CHIP Tool** is a command-line tool used for *commissioning*, *controlling*, and *managing* **Matter** devices within a Matter network.
+
+Due to its high demand for storage space and computational power it must be executed on a separate, more powerful device, such as a Unix laptop (macOS or Linux), that is connected to the same Wi-Fi network. 
+
+This third device will handle the complex tasks required by CHIP Tool, while the Nano ESP32 acts as the Matter Controller in the network.
+
+#### Configure the CHIP Tool
+
+- On a Linux system, clone the CHIP Tool repository:
+
+```bash
+git clone --recurse-submodules https://github.com/project-chip/connectedhomeip.git
+```
+
+- Install prerequisites:
+
+Before building, you must install a few OS specific dependencies.
+
+```bash
+sudo apt-get install git gcc g++ pkg-config libssl-dev libdbus-1-dev \
+     libglib2.0-dev libavahi-client-dev ninja-build python3-venv python3-dev \
+     python3-pip unzip libgirepository1.0-dev libcairo2-dev libreadline-dev \
+     default-jre
+```
+
+- Open a command prompt in the `connectedhomeip` directory and run the following command:
+
+```bash
+cd connectedhomeip
+scripts/examples/gn_build_example.sh examples/chip-tool out/debug
+```
+
+![CHIP Tool environment set](assets/out-debug.png)
+- To check if the CHIP Tool runs correctly, execute the following command:
+
+```bash
+./out/debug/chip-tool
+```
+As a result, the CHIP Tool starts and prints all available commands.
+
+![Environment test](assets/run-test.png)
 
 ## The Use Case: Smart Outlet
+
+This section provides an example of commissioning and communication over Matter between an end-device node and the OTBR.
+
+### Setup
+
+- **OTBR**: Arduino Nano ESP32 + Arduino Nano Matter
+- **CHIP Tool**: running on a Linux PC (with Bluetooth capabilities)
+- **End-device**: Arduino Nano Matter or other boards compatible with the Silabs Arduino core
+
+![image]()
+
+### End-device Configuration
+
+As the *end-device* we are going to use an Arduino Nano Matter configured as **Smart Outlet**.
+
+- Make sure you have the Silicon Labs boards package installed in the Arduino IDE 2.
+
+![Silicon Labs board package](assets/silabs-pckg.png)
+
