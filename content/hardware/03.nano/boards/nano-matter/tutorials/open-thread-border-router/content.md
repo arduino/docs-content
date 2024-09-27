@@ -290,3 +290,76 @@ As the *end-device* we are going to use an Arduino Nano Matter configured as **S
 
 ![Silicon Labs board package](assets/silabs-pckg.png)
 
+- Go to **File > Examples > Matter > matter_on_off_outlet** and flash the example to the Nano Matter.
+
+![Smart outlet example](assets/outlet-ex.png)
+
+- Once flashed, open the serial terminal and reset the board. Take note of the **manual pairing code**:
+
+![End-device Matter credentials](assets/pair-code.png)
+
+For example:
+
+```bash
+34970112332
+```
+
+### Getting Thread Network Credentials
+
+Connect through USB to the Nano ESP32 and run the following command from the Arduino IDE Serial Monitor:
+
+`dataset active -x`: this command will display the active Thread network dataset as a hexadecimal string.
+
+![Thread network dataset string](assets/esp32-code.png)
+
+For example:
+
+```bash
+0e080000000000010000000300000f35060004001fffe00208dead00beef00cafe0708fd000db800a00000051000112233445566778899aabbccddeeff030e4f70656e5468726561642d455350010212340410104810e2315100afd6bc9215a6bfac530c0402a0f7f8
+```
+
+### Matter Commissioning
+
+Commissioning refers to the process of setting up and integrating a new device into the Matter network. 
+
+In this case, commissioning will occur via **Bluetooth**, where the laptop or PC with CHIP Tool installed will communicate with the end device using a Bluetooth connection.
+
+- Open the terminal on the system where **CHIP Tool** is running, and execute the following command:
+
+```bash
+./out/debug/chip-tool pairing code-thread <node-id> hex:<thread-network-dataset> <end-device-pairing-code>
+```
+
+1. Replace <node-id> with the unique identifier for the device you are pairing (you can choose it freely according to your preference).
+2. Replace <thread-network-dataset> with the hexadecimal string representing the Thread network dataset.
+3. Replace <end-device-pairing-code> with the manual pairing code for the end device.
+
+Here is an example using the previously gathered parameters:
+
+```bash
+./out/debug/chip-tool pairing code-thread 1 hex:0e080000000000010000000300000f35060004001fffe00208dead00beef00cafe0708fd000db800a00000051000112233445566778899aabbccddeeff030e4f70656e5468726561642d455350010212340410104810e2315100afd6bc9215a6bfac530c0402a0f7f8 34970112332
+```
+
+If commissioning phase works fine, on the end-device serial monitor you will get the following:
+
+![Nano Matter commissioned](assets/nano-matter-term.png)
+
+Now we are ready to control the Smart Outlet from the CHIP Tool system.
+
+### Final Result (Testing)
+
+To control the Smart Outlet use the following command format:
+
+```bash
+./out/debug/chip-tool <cluster-name> <command> <node-id> <endpoint-id>
+# formatted command
+./out/debug/chip-tool onoff toggle 1 0x03
+```
+
+- `onoff`: This specifies that the command pertains to the On/Off cluster, which controls the power state (on/off) of the device.
+
+- `toggle`: This command switches the current state of the device.
+
+- `1`: This is the Node ID of the device receiving the command.
+
+- `0x03`: This is the endpoint ID of the device (fixed to 0x03 for Silicon Labs device).
