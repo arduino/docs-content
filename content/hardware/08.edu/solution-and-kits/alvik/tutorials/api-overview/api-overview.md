@@ -33,7 +33,7 @@ _Returns true if robot is on_
 
 **Outputs**
 
-- boolean: Returns true if robot is on, false if is off.
+- boolean: Returns true if robot is on, false if it is off.
 
 ### `begin`
 
@@ -75,7 +75,7 @@ _Returns the orientation of the IMU_
 
 get_accelerations()
 
-_Returns the 3-axial acceleration of the IMU_
+_Returns the 3-axial acceleration values of the IMU_
 
 **Outputs**
 
@@ -136,7 +136,7 @@ _Returns last acknowledgement_
 
 **Outputs**
 
-- **last_ack**: last acknowledgement value
+- **last_ack**: last acknowledgement value.
 
 ### `get_battery_charge`
 
@@ -146,7 +146,7 @@ _Returns the battery SOC_
 
 **Outputs**
 
-- **battery_soc**: percentage of charge
+- **battery_soc**: percentage of charge.
 
 ### `get_touch_any`
 
