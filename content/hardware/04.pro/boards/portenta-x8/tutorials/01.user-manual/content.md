@@ -161,6 +161,8 @@ Portenta X8 integrates two main programming experiences: the **Yocto Linux** and
                                                                 +-------------------------------------------+
 
 
+![Portenta X8 Features Overview](assets/portenta-x8-functionality-overview.png "Portenta X8 Features Overview")
+
 To explore specific sections in more detail, please click on the links below that interest you:
 
 * [Linux Environment](#linux-environment)
@@ -217,10 +219,6 @@ chmod +x 399-install-update
 ```bash
 sudo ./399-install-update
 ```
-
-Remember to set a new admin password at your first access.
-
-***For image versions earlier than 844, the default password for admin access is `fio`.*** 
 
 Now, you need to reboot the board by pressing its pushbutton for around 10 seconds. After that, connect again to your Portenta X8 through the Command Line and type the following commands:
 
@@ -564,7 +562,13 @@ Android Debug Bridge (ADB) is a tool included in the SDK software (Software Deve
 
 ***If you need to install ADB, you can also download the right tool for your Operating System directly from the [official Android website](https://developer.android.com/studio/releases/platform-tools).***
 
-If you want to start the embedded Arduino Linux Wizard from the command line, you can continue typing in your terminal `adb forward tcp:8080 tcp:80`. With this command, ADB allows you to forward the requests of your computer's `8080 TCP-IP port` to the `80 TCP-IP port` of your device, which, in this case, is the device with the name *Portenta X8*.
+If you want to start the embedded Arduino Linux Wizard from the command line, you can continue typing in your terminal:
+
+```bash
+adb forward tcp:8080 tcp:80
+```
+
+With this command, ADB allows you to forward the requests of your computer's `8080 TCP-IP port` to the `80 TCP-IP port` of your device, which, in this case, is the device with the name *Portenta X8*.
 
 ![ADB forward command](assets/adb-tcp-port.png "ADB forward command")
 
@@ -578,25 +582,11 @@ Now, you can type `adb shell` to start communicating with your Portenta X8.
 
 As it is a Linux device, you can create files, change directories, etc.
 
-To gain admin (root) access, type `sudo su -` and set your own password. 
-
-***For image versions earlier than 844, the default password for admin access is `fio`.*** 
-
-After that, the terminal prefix should turn red.
+To gain admin (root) access, type `sudo su -`. The terminal prefix should turn red.
 
 ![ADB shell with admin access](assets/adb-sudo-su.png "ADB shell with admin access")
 
 You can now freely program your Portenta X8 Linux OS. In the sections below, you can check out some basic commands to get started.
-
-### Change Default User Password
-
-For image versions earlier than 844, our Portenta X8 comes with the default user `fio` with password `fio`.
-
-For security reasons, we strongly suggest changing the default password. To do so, when logged in to your Portenta X8, launch this command to change the password of the `fio` account:
-
-```bash
-passwd fio
-```
 
 ### Manage Your Network Via CLI
 
@@ -1080,8 +1070,6 @@ Open Portenta X8 Shell as explained [here](#working-with-linux).
 sudo modprobe spi-dev
 ```
 
-Insert the user password.
-
 An upcoming image release for the X8 will load the `spi-dev` modules automatically at boot. In the current version, please create a `/etc/modules-load.d/spi-dev.conf` file with the following content:
 
 ```bash
@@ -1160,8 +1148,6 @@ Thus, execute the following command:
 ```bash
 sudo modprobe i2c-dev
 ```
-
-Insert the user password `fio`.
 
 An upcoming image release for the X8 will load the `i2c-dev` modules automatically at boot. In the current version, please create a `/etc/modules-load.d/i2c-dev.conf` file with the following content:
 
