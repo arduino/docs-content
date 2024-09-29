@@ -2195,7 +2195,7 @@ For the **EU EC200A-EU Module**, **ModemManager** does not support it out of the
 mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
 ```
 
-If the modem creates a USB `eth0` interface, remap it into an `ec200aeu` network device using an `udev` rule.
+The modems will create a USB 'eth0' interface that will be remapped into ec200aeu  by an udev rule```
 
 In a Docker environment, it may be beneficial to disable **ModemManager** and control the modem using **qmicli**. To avoid conflicts, disable **ModemManager** with the following command:
 
