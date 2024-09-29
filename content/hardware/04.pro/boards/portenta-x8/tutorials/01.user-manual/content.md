@@ -27,13 +27,13 @@ In this user manual, we will go through the foundations of the Portenta X8 to he
 ## Required Hardware
 
 * [Portenta X8](https://store.arduino.cc/products/portenta-x8) (x1)
-* USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
+* [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 * Wi-Fi® Access Point or Ethernet with Internet access (x1)
 
 ## Required Software
 
 * For Linux programming, leverage the latest Linux image available, and check [this section](#portenta-x8-os-image-update) to verify if your Portenta X8 has already been updated.
-* For Arduino programming, leverage [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor), and the latest "Arduino Mbed OS Portenta Boards" Core > 3.0.1.
+* For Arduino programming, leverage [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor), and the latest **Arduino Mbed OS Portenta Boards** Core > 3.0.1.
 
 ## Product Overview
 
@@ -102,64 +102,6 @@ The full _STEP_ files are available and downloadable from the link below:
 ### Features Overview
 
 Portenta X8 integrates two main programming experiences: the **Yocto Linux** and popular **Arduino** environments.
-
-**DIAGRAM SHOWING MPU + LINUX, MCU (M4) + ARDUINO, COMPUTER, CLOUD + PORTENTA X8 MANAGER**
-
-+-------------------------------------------+         +-------------------------------------------+
-|               Yocto Linux (MPU)           |         |      MCU (M4) + Arduino Environment       |
-|-------------------------------------------|         |-------------------------------------------|
-|  - Embedded Linux OS (Yocto)              |         |  - STM32H7 M4 Core                        |
-|  - Components:                            |         |  - Runs Arduino sketches                  |
-|     * Bootloader                          |         |  - Real-time control and I/O operations   |
-|     * Linux Kernel                        |         |  - Communicates with Linux via RPC        |
-|     * Root Filesystem                     |         |                                           |
-|  - Manages system resources (CPU, RAM)    |         |                                           |
-|  - Handles networking and security        |         +-------------------------------------------+
-|  - Executes Docker containers             |                             |
-|     * Dockerfile setup                    |                             |
-|     * Manages services (RPC, networking)  |                             |
-|  - Provides APIs and system services      |                             |
-+-------------------------------------------+                             |
-           |                                                              |
-           +--------------------------------------------------------------+
-                                     |                                                       
-                               +---------------------------------------+                   
-                               |          Portenta X8 Board            |                   
-                               |---------------------------------------|
-                               |  - Integrates MPU (Linux) & MCU       |
-                               |    (Arduino)                          |
-                               |  - Dual-core integration (M4 & M7)    |
-                               |  - M7 Core facilitates communication  |
-                               |    between MPU and MCU                |
-                               |  - Manages synchronization            |
-                               |  - Hosts both Linux and Arduino       |
-                               +---------------------------------------+
-                                     |
-                                     |
-                                     +-----------------------------------+
-                                     |                                   |
-                        +---------------------------------+   +-------------------------------------------+
-                        | Communication & Synchronization |   |          Computer Interface               |
-                        |---------------------------------|   |-------------------------------------------|
-                        |  - RPC (Remote Procedure Call)  |   |  - ADB/SSH connection to Linux            |
-                        |  - Managed by M7 core           |   |  - Arduino IDE for M4 core                |
-                        |  - Data exchange between MPU &  |   |  - CLI access to OS & Docker              |
-                        |    MCU                          |   |  - Supports local DevOps                  |
-                        |  - Involves network protocols   |   |  - Image flashing via `uuu` tool          |
-                        |    (TCP/IP, SPI, Shared Memory) |   +-------------------------------------------+
-                        +---------------------------------+                  |
-                                     |                                       |
-                                     +---------------------------------------+
-                                                                             |
-                                                                +-------------------------------------------+
-                                                                |              Cloud Interface              |
-                                                                |-------------------------------------------|
-                                                                |  - Remote management via Arduino Cloud    |
-                                                                |  - Firmware & OS updates                  |
-                                                                |  - Secure container management            |
-                                                                |  - IoT data and device control            |
-                                                                +-------------------------------------------+
-
 
 ![Portenta X8 Features Overview](assets/portenta-x8-functionality-overview.png "Portenta X8 Features Overview")
 
@@ -767,6 +709,54 @@ Here you can find a list of validated compatible USB-C® to HDMI hubs:
 You may want to build a custom image for the Portenta X8 with the source code provided in the public [GitHub repository of lmp-manifest](https://github.com/arduino/lmp-manifest/). Building an image locally can help debug certain aspects of the system, such as the bootloader or kernel support.
 
 ***Have a look at [this dedicated tutorial](https://docs.arduino.cc/tutorials/portenta-x8/image-building) to understand how to build your own custom image.***
+
+### Interacting with Tenta-Config
+
+**tenta-config** is a configuration tool for managing hardware settings and device tree overlays on compatible carriers. It provides a graphical interface for customizing system configurations with compatible carriers, such as peripheral management, adjusting video output settings, and managing pin mappings.
+
+![Portenta X8 tenta-config Main Screen](assets/tenta-config-main.png)
+
+The image above shows the main window when accessing the `tenta-config`. It lists all compatible carriers, the option to automatically probe the attached carriers, and additional operations for debugging and configuring purposes for the Portneta X8.
+
+This tool simplifies hardware customization, allowing users to modify their setup without modifying the core device tree, which is essential for tasks like configuring display settings or activating specific hardware features.
+
+To access the `tenta-config` window, please follow these instructions.
+
+First, access the Docker container named **x8-devel** with the following command:
+
+```bash
+docker exec -it x8-devel sh
+```
+
+This command uses **docker exec** to start a new shell session inside the running **x8-devel** container. The `-it` flags provide an interactive terminal session for executing commands within the container. This is useful for development, enabling direct code editing, monitoring processes, or debugging in an isolated environment.
+
+Next, search for the **tenta_runner** Python script by running:
+
+```bash
+find / -name *.py
+```
+
+This command recursively searches from the root directory for any Python script, helping locate utilities or applications spread across the system.
+
+Once you find **tenta_runner.py**, navigate to its directory using:
+
+```bash
+cd /root/examples/tenta-config
+```
+
+Then run the script:
+
+```bash
+python tenta_runner.py
+```
+
+This command launches a GUI within the `tent` framework, opening the `tenta-config` window as seen in the image below:
+
+![Portenta X8 tenta-config Main Screen](assets/tenta-config-main.png)
+
+If you have a Pro 4G Module or a GIGA Display Shield with the Portenta Mid Carrier, you can choose the `Portenta Mid Carrier` option and set the necessary overlays to prepare essential environment configuration with a few steps.
+
+You can find more information on how to use the `tanta-config` to set up the Pro 4G Module [here](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#using-linux-4) and the GIGA Displaye Shield [here](https://docs.arduino.cc/tutorials/portenta-mid-carrier/user-manual/#giga-display-shield-connector-j19).
 
 ### Additional Tutorials
 
