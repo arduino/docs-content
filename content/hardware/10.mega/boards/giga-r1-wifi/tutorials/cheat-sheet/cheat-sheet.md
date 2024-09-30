@@ -1104,7 +1104,7 @@ If you just need a quick overview of the pins functionality, this is a full tabl
 | D90       | SPI1 (COPI)     | SPI connector                           |
 | D91       | SPI1 (SCK)      | SPI connector                           |
 | D92       | USB Host Enable | USB-A connector, not accessible as GPIO |
-| D93       | CANRX           | Analog In, CAN                          |
+| D93       | CANRX           | Digital IO pin, CAN                     |
 | D94       | CANTX           | Analog In, CAN                          |
 
 ### Analog Pins
