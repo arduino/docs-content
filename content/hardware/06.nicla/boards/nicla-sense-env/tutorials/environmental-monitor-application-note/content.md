@@ -69,13 +69,16 @@ This application note uses modern sensors to provide accurate, real-time measure
 - **Particulate Matter (PM2.5 and PM10)**: Measures fine particles suspended in the air, which can penetrate the lungs and cause health problems.
 - **NO2 Sensor**: Detects nitrogen dioxide, a harmful gas released by vehicles and industrial activities.
 - **O3 Sensor**: Measures ozone, a gas that forms in the atmosphere through reactions between pollutants and sunlight, contributing to respiratory problems.
-- **Outdoor Air Quality Index (AQI)**: The AQI simplifies the interpretation of air quality by combining data from multiple pollutants (PM, NO2, O3) into a single value. This index is based on a scale that ranges from 0 to 500, where:
-  - 0-50 indicates good air quality.
-  - 51-100 is moderate.
-  - 101-150 is unhealthy for sensitive groups.
-  - 151-200 is unhealthy for everyone.
-  - 201-300 is very unhealthy.
-  - 301-500 signals hazardous conditions.
+- **Outdoor Air Quality Index (AQI)**: The AQI simplifies the interpretation of air quality by combining data from multiple pollutants (PM, NO2, O3) into a single value. 
+  
+The AQI index is based on a scale that ranges from 0 to 500, where:
+
+- 0-50 indicates good air quality.
+- 51-100 is moderate.
+- 101-150 is unhealthy for sensitive groups.
+- 151-200 is unhealthy for everyone.
+- 201-300 is very unhealthy.
+- 301-500 signals hazardous conditions.
 
 The AQI makes it easy to understand how outdoor air quality might affect public health, particularly when pollutant levels rise to unhealthy levels.
 
