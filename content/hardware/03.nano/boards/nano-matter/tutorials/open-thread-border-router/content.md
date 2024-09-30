@@ -330,7 +330,9 @@ For example:
 
 Connect through USB to the Nano ESP32 and run the following command from the Arduino IDE Serial Monitor:
 
-`dataset active -x`: this command will display the active Thread network dataset as a hexadecimal string.
+`dataset active -x`
+
+***This command will display the active Thread network dataset as a hexadecimal string.***
 
 ![Thread network dataset string](assets/esp32-code.png)
 
