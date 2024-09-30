@@ -1,8 +1,9 @@
 ---
-title: 'Open Thread Router with Nano Matter & ESP32'
+beta: true
+title: 'Open Thread Border Router with Nano Matter & ESP32'
+description: 'Learn how to create your own Thread Border Router using OpenThread and Arduino products.'
 difficulty: advanced
 compatible-products: [nano-matter]
-description: 'Learn how to create your own Thread Border Router using OpenThread and Arduino products.'
 tags:
   - OTBR
   - Thread
@@ -357,7 +358,7 @@ Here is an example using the previously gathered parameters:
 
 If commissioning phase works fine, on the end-device serial monitor you will get the following:
 
-![Nano Matter commissioning](assets/nano-matter-term.png)
+![Nano Matter commissioning](assets/commission.png)
 
 Now we are ready to control the Smart Outlet from the CHIP Tool system.
 
@@ -378,7 +379,7 @@ To control the Smart Outlet use the following command format:
 
 Every time you run the command the Smart Outlet will toggle, turning on or off the load connected.
 
-![Smart outlet working demo](assets/final-demo.gif)
+![Smart outlet working demo](assets/demo.gif)
 
 ## Conclusion
 
