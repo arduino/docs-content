@@ -358,7 +358,7 @@ Here is an example using the previously gathered parameters:
 
 If commissioning phase works fine, on the end-device serial monitor you will get the following:
 
-![Commissioning process](assets/nano-matter-term.png)
+![Commissioning process](assets/commission.png)
 
 Now we are ready to control the Smart Outlet from the CHIP Tool system.
 
