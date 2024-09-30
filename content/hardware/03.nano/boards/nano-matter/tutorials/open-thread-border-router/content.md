@@ -18,7 +18,7 @@ hardware:
 
 Thread is a low-power, wireless mesh networking protocol designed for smart homes and IoT devices. A Thread Border Router serves as a bridge between the Thread network and the wider internet or local networks, allowing devices within the Thread network to communicate with external systems.
 
-![Thumbnail Image]()
+![Project overview](assets/thumbnail.png)
 
 Matter devices can use Thread as their primary communication method, especially for low-power devices such as sensors, light bulbs, and door locks. These devices communicate using the Thread protocol and leverage Matter's application layer for interoperability.
 
@@ -379,4 +379,12 @@ To control the Smart Outlet use the following command format:
 Every time you run the command the Smart Outlet will toggle, turning on or off the load connected.
 
 ![Smart outlet working demo](assets/final-demo.gif)
+
+## Conclusion
+
+This tutorial showed how to create an OpenThread Border Router using the Arduino Nano Matter and the Nano ESP32 alongside a Linux computer. With this solution you can easily integrate and control Matter Accessory Devices for Smart Homes or Industries.
+
+### Next Steps
+
+Now that you know how to create your own Thread Border Router you can continue developing a custom platform or application that uses the CHIP Tool API to control the Matter end-devices from a mobile app or web platform with user-friendly dashboards and interfaces.
 
