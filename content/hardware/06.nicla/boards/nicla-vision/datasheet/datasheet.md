@@ -91,6 +91,8 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 ### Related Products
 
 - Arduino® Portenta H7 (SKU: ABX00042)
+- Arduino® Portenta H7 Lite (SKU: ABX00045)
+- Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
 
 ### Assembly Overview
 
@@ -139,17 +141,18 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 ![Nicla Vision Top View](assets/niclaVisionTopTopology.svg)
 
-| **Ref.** | **Description**                                   | **Ref.** | **Description**                           |
-|----------|---------------------------------------------------|----------|-------------------------------------------|
-| U1       | STM32H747AII6 Dual Arm® Cortex® M7/M4 IC          | U4       | VL53L1CBV0FY/1 Time-of-flight sensor IC   |
-| U5       | USB3320C-EZK-TR  USB 2.0 Transceiver              | U6       | MP34DT06JTR Omnidirectional Mic           |
-| U14      | DSC6151HI2B 25 MHz MEMS Oscillator                | U15      | DSC6151HI2B 27 MHz MEMS Oscillator        |
-| U8       | IS31FL3194-CLS2-TR 3-channel LED IC               | U9       | BQ25120AYFPR Battery Charger IC           |
-| U10      | SN74LVC1T45 1-channel voltage level translator IC | U11      | TXB0108YZPR Bidirectional IC              |
-| U12      | NTS0304EUKZ 4-bit translating transceiver         | J1       | ADC, SPI and LPIO Pin headers             |
-| J2       | I2C, JTAG, Power and LPIO pin headers             | J3       | Battery headers                           |
-| DL1      | SMLP34RGB2W3 RGB SMD LED                          | DL2      | KPHHS-1005SURCK Red LED                   |
-| PB1      | Reset button                                      | J6       | U.FL-R-SMT-1(60) Male micro UFL connector |
+| **Ref.** | **Description**                                                         | **Ref.** | **Description**                                                         |
+|----------|-------------------------------------------------------------------------|----------|-------------------------------------------------------------------------|
+| U1       | STM32H747AII6 Dual Arm® Cortex® M7/M4 IC                                | U4       | VL53L1CBV0FY/1 Time-of-Flight long distance ranging sensor              |
+| U5       | USB3320C-EZK-TR Hi-Speed USB 2.0 ULPI Transceiver                       | U6       | MP34DT06J MEMS omnidirectional digital microphone                       |
+| U9       | LBEE5KL1DX-883 Type 1DX Wi-Fi® + Bluetooth® module w/ Infineon CYW4343W | U10      | MC34PF1550A0EP Power Management Integrated Circuit (PMIC)               |
+| U13      | AT25QL128A-UUE-T 128 Mbit Quad SPI flash memory                         | U14      | DSC6151HI2B-025.0000 25 MHz Ultra-Low Power MEMS Oscillator             |
+| U15      | DSC6151HI2B-027.0000T 27 MHz Ultra-Low Power MEMS Oscillator            | L6       | LQM18PN2R2MGHD 2.2 µH fixed surface-mount inductor                      |
+| L9       | DFE201610P-1R0M=P2 1 µH fixed surface-mount inductor                    | L10      | DFE201610P-1R0M=P2 1 µH fixed surface-mount inductor                    |
+| L11      | DFE201610P-1R0M=P2 1 µH fixed surface-mount inductor                    | PB1      | PTS830GM140-SMTR-LFS Tactile switch, surface-mount, 3.5mm, Reset button |
+| J6       | U.FL-R-SMT-1(60) Male micro UFL surface-mount coaxial connector         | DL1      | SMLP34RGB2W3 RGB SMD LED                                                |
+| DL2      | KPHHS-1005SURCK 0402 SMD red LED                                        | J1       | ADC, SPI and LPIO Pin headers                                           |
+| J2       | I2C, JTAG, Power and LPIO pin headers                                   | J3       | Battery connection pin headers                                          |
 
 **Back View**
 ![Nicla Vision Back View](assets/niclaVisionBackTopology.svg)
@@ -440,6 +443,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                                              |
 |------------|--------------|----------------------------------------------------------|
+| 30/09/2024 | 8            | Board Topology updated                                   |
 | 03/09/2024 | 7            | Cloud Editor updated from Web Editor                     |
 | 10/04/2024 | 6            | Product Labeling section added - FCC information updated |
 | 28/03/2024 | 5            | FCC Warning Updated, small fixes                         |
