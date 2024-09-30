@@ -199,7 +199,7 @@ CONFIG_OPENTHREAD_COMMISSIONER=y
 CONFIG_OPENTHREAD_JOINER=y
 ```
 
-- Navigate to `esp-thread-br/examples/basic_thread_border_router/main/esp_ot_config.h`.
+- Navigate to `esp-thread-br/examples/basic_thread_border_router/main/esp_ot_config.h`
 
 - Modify the Serial port baud rate to `115200`, the result should look like this:
 
@@ -227,6 +227,15 @@ idf.py -p /dev/ttyACM0 flash monitor
 ![Flashing process](assets/esp-flash-2.gif)
 
 ***Do not run the `idf.py set-target esp32s3` command again to avoid overriding the customized configurations.***
+
+### OTBR Assembly
+
+After configuring and flashing the Nano Matter and Nano ESP32 separately, it is time to connect them together. As their communicate through a serial connection you can stack them using breakout headers or using jumper wires as follows:
+
+![Nano ESP32 + Nano Matter wiring](assets/connection.png)
+![Nano ESP32 + Nano Matter stacking](assets/connection-2.png)
+
+***It doesn't matter which board is on top.***
 
 ### CHIP Tool
 
