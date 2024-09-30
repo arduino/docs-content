@@ -27,7 +27,7 @@ Air pollution is a growing concern in urban and industrial areas due to the harm
 
 The main goals of this application note are as follows:
 
-- Develop a simple outdoor air quality monitor that provides real-time data on temperature, humidity, and pollutants such as nitrogen dioxide (NO2), ozone (O3) and airborne particulate matter (PM 2.5 and PM 10).
+- Develop a simple outdoor air quality monitor that provides real-time data on temperature, humidity, and pollutants such as nitrogen dioxide (NO2), ozone (O3) and airborne particulate matter (PM2.5 and PM10).
 - Interface the Portenta C33 board with the Nicla Sense Env and the PMS7003 sensor to measure environmental parameters, including airborne particulate matter and gas pollutants.
 - Collect accurate readings of NO2, O3 and the outdoor air quality index (AQI) to assess overall outdoor air quality.
 - Display real-time Arduino IDE Serial Monitor data for immediate observation and analysis.
@@ -47,13 +47,10 @@ The main goals of this application note are as follows:
 
 - [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor).
 - For the Wi-Fi® connectivity feature of Portenta C33, we will use the [Arduino Cloud](https://create.arduino.cc/iot/things). If you do not have an account, create one for free [here](https://cloud.arduino.cc/).
-- The [environmental monitor example sketch](assets/environmental_monitor.zip).
 
 ## Hardware Setup Overview
 
 The electrical connections of the proposed environmental monitor are shown in the diagram below:
-
-![Environmental monitor electrical connections overview](assets/C33_application_4.png)
 
 The diagram illustrates the connection of all the environmental monitor's components. The Portenta C33 is the monitor's main controller; the Nicla Sense Env board provides temperature, humidity, and outdoor air quality data, while the PMS7003 sensor provides airborne particulate matter data. 
 
@@ -364,7 +361,7 @@ In the code snippet shown before:
   
 ### Complete Example Sketch
 
-The complete example sketch can be downloaded [here](assets/environmental_monitor.zip).
+The complete example sketch can be downloaded here.
 
 ## Conclusions
 
