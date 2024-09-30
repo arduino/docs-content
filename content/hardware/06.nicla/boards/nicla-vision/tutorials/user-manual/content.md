@@ -1370,62 +1370,58 @@ The example code above should output this:
 The Nicla Vision supports I2C communication, which allows data transmission between the board and other I2C-compatible devices. The pins used in the Nicla Vision for the I2C communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|          PB_8           |       I2C_SCL or 12     |
-|          PB_9           |       I2C_SDA or 11     |
+| :---------------------: | :---------------------: |
+|       PB_8 / SCL        |           PB8           |
+|       PB_9 / SDA        |           PB9           |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Vision.
 
 
 #### With OpenMV
 
-To use I2C communication with OpenMV, import `I2C` from the `pyb` module as follows.
+To use I2C communication with OpenMV, import `I2C` from the `machine` module as follows.
 
 ```python
-from pyb import I2C
+from machine import I2C
 ```
-Create the I2C objects and initialize them attached to a specific bus, below are some of the available commands to do it.
+Create the I2C object and initialize it attached to defined pins, below is the available command to do it.
 
 ```python
-i2c = I2C(1)                         # create on bus 1
-i2c = I2C(1, I2C.MASTER)             # create and init as a master
-i2c.init(I2C.MASTER, baudrate=20000) # init as a master
-i2c.init(I2C.SLAVE, addr=0x42)       # init as a slave with given address
-i2c.deinit()                         # turn off the peripheral
+i2c = I2C(scl="PB8",sda="PB9",freq=400000)          # create I2C peripheral at frequency of 400kHz on defined pins
 ```
 
-The basic methods are `send` and `recv` implemented as follows:
+The basic methods are `writeto` and `readfrom` implemented as follows:
 
 ```python
-# For Masters / Controllers (must include addr in send)
-i2c.send('abc', 0x42)      # send 3 bytes to device on address 0x42
+i2c.writeto(42, b'123')         # write 3 bytes to peripheral with 7-bit address 42
 
-# For Slaves / Peripherals
-i2c.send('abc')      # send 3 bytes
-i2c.send(0x42)       # send a single byte, given by the number
+i2c.readfrom(42, 4)             # read 4 bytes from peripheral with 7-bit address 42
+```
 
-data = i2c.recv(3)   # receive 3 bytes
+You can scan for peripherals with the following function:
+
+```python
+i2c.scan()                      # scan for peripherals, returning a list of 7-bit addresses
 ```
 
 This is a simple example showing how to send data over I2C from a master to a slave.
 
 ```python
-from pyb import I2C
+from machine import I2C
 
-i2c = I2C(1, I2C.MASTER)
+i2c = I2C(scl="PB8",sda="PB9",freq=400000)          # create I2C peripheral at frequency of 400kHz
 
 buf = bytearray(2)
-
 buf[0] = 0x00
 buf[1] = 0xFA
 
-i2c.send(buf, 0x35)
+i2c.writeto(0x35, buf) 
 ```
 The output data should look like the image below, where we can see the device address data frame:
 
 ![I2C output data](assets/i2c.png)
 
-To learn more about the I2C class on MicroPython, continue [here](https://docs.openmv.io/library/pyb.I2C.html). 
+To learn more about the I2C class on MicroPython, continue [here](https://docs.micropython.org/en/latest/library/machine.I2C.html). 
 
 #### With Arduino IDE
 To use I2C communication, include the `Wire` library at the top of your sketch. The `Wire` library provides functions for I2C communication:
