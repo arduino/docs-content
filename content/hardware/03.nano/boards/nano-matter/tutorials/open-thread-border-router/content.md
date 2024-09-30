@@ -64,6 +64,8 @@ This tutorial main objective is to guide you through the build and configuration
 
 This section outlines the steps to build the RCP firmware for the Arduino Nano Matter.
 
+![Nano Matter Configuration](assets/matter-banner.png)
+
 #### Create a New Project
 
 - Download Simplicity Studio, this is an IDE provided by Silicon Labs. It is designed to simplify the development process for Silicon Labs hardware platforms. Download latest version [here](https://www.silabs.com/developers/simplicity-studio).
@@ -133,6 +135,10 @@ Use the following command to flash the firmware to the Arduino Nano Matter, make
 ***The __Openocd__ tool directory may vary according to your OS, modify the command above respectively.***
 
 ### The Matter Controller: Arduino Nano ESP32
+
+This section outlines the steps to build the Matter Controller firmware for the Arduino Nano ESP32.
+
+![Nano ESP32 Configuration](assets/esp-banner.png)
 
 To set up the environment for the ESP32 firmware development use the following commands on a **Linux computer**.
 
