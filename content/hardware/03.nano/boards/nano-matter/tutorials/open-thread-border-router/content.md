@@ -31,6 +31,8 @@ An OpenThread Border Router (OTBR) consists of a **Matter Controller** and a **R
 
 The **Arduino Nano Matter** serves as the **RCP**, connected to the **Arduino Nano ESP32** (the Matter Controller) via serial port.
 
+![OpenThread border router architecture](assets/otbr.png)
+
 ## Goals
 
 This tutorial main objective is to guide you through the build and configuration of an OpenThread Border Router that will allow you to deploy a Matter network over Thread to integrate Matter devices to your Smart Home system. 
@@ -234,6 +236,8 @@ Due to its high demand for storage space and computational power it must be exec
 
 This third device will handle the complex tasks required by CHIP Tool, while the Nano ESP32 acts as the Matter Controller in the network.
 
+![Network layout](assets/chip-tool.png)
+
 #### Configure the CHIP Tool
 
 - On a Linux system, clone the CHIP Tool repository:
@@ -280,7 +284,7 @@ This section provides an example of commissioning and communication over Matter 
 - **CHIP Tool**: running on a Linux PC (with Bluetooth capabilities)
 - **End-device**: Arduino Nano Matter or other boards compatible with the Silabs Arduino core
 
-![image]()
+![Solution architecture](assets/final-arch.png)
 
 ### End-Device Configuration
 
