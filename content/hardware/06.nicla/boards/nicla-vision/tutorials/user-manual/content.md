@@ -1233,7 +1233,7 @@ The Nicla Vision supports SPI communication, which allows data transmission betw
 |         SCLK / PE_12       |      SCK or 9        |
 |         CIPO / PE_13       |      MISO or 10      |
 |         COPI / PE_14       |      MOSI or 8       |
-|         CS / PE_11         |      SS or 7         |
+|         CS / PE_11         |      CS or 7         |
 
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
@@ -1267,7 +1267,7 @@ Here is a simple example showing how to send data over SPI.
 import time
 from pyb import Pin, SPI
 
-cs = Pin("SS", Pin.OUT_OD) # CS pin = PE11
+cs = Pin("CS", Pin.OUT_OD) # CS pin = PE11
 
 spi = SPI(4, SPI.MASTER, baudrate=int(480000000 / 256), polarity=0, phase=0)
 
