@@ -202,6 +202,93 @@ In the table below, you will find the matching between the **STM32H7** and **Ard
 | PA4     | A12     |
 | PA5     | A13     |
 
+## Arduino Cloud
+
+You can connect the GIGA R1 to the Arduino Cloud with MicroPython. There are two main methods to create this connection `async` and `sync`.
+
+### Async (Default)
+This is the method currently implemented by default with the Cloud. Asynchronous operations allow tasks to run independently of the main program flow. Functions can start and continue without waiting for other tasks to finish. This non-blocking behavior is achieved using techniques like callbacks, coroutines, or the async and await keywords in MicroPython. Asynchronous functions are particularly useful for handling network communication, as they enable the GIGA R1 to perform other operations (like reading sensors or updating outputs) while waiting for data from the Arduino Cloud.
+
+**Code example:**
+```python
+from secrets import DEVICE_ID
+from secrets import SECRET_KEY
+
+# Switch callback, toggles the LED.
+def on_switch_changed(client, value):
+    # Note the client object passed to this function can be used to access
+    # and modify any registered cloud object. The following line updates
+    # the LED value.
+    client["led"] = value
+
+# 1. Create a client object, which is used to connect to the IoT cloud and link local
+# objects to cloud objects. Note a username and password can be used for basic authentication
+# on both CPython and MicroPython. For more advanced authentication methods, please see the examples.
+client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY)
+
+# 2. Register cloud objects.
+# Note: The following objects must be created first in the dashboard and linked to the device.
+# When the switch is toggled from the dashboard, the on_switch_changed function is called with
+# the client object and new value args.
+client.register("sw1", value=None, on_write=on_switch_changed)
+
+# The LED object is updated in the switch's on_write callback.
+client.register("led", value=None)
+
+# 3. Start the Arduino cloud client.
+client.start()
+```
+
+Remember that our `secrets.py` file should look like:
+```python
+WIFI_SSID  = ""  # WiFi network SSID (for MicroPython)
+WIFI_PASS  = ""  # WiFi network key  (for MicroPython)
+DEVICE_ID  = "" # Provided by Arduino cloud when creating a device.
+SECRET_KEY = "" # Provided by Arduino cloud when creating a device.
+```
+
+### Sync
+In synchronous operations, tasks are executed one after another in a sequential manner. Each function call waits for the previous one to complete before starting. This approach is straightforward and easier to implement but can cause delays if a task takes a long time to finish, as it blocks the execution of subsequent code. In the context of network communication with the Arduino Cloud, synchronous functions may lead to unresponsiveness during data transmission or reception.
+
+Alternatively, you can select the synchronous method by passing sync_mode=True when creating the client object and calling client.update() periodically after connecting.
+
+Code example:
+```python
+from secrets import DEVICE_ID
+from secrets import SECRET_KEY
+
+# Switch callback, toggles the LED.
+def on_switch_changed(client, value):
+    # Note the client object passed to this function can be used to access
+    # and modify any registered cloud object. The following line updates
+    # the LED value.
+    client["led"] = value
+
+# 1. Create a client object, which is used to connect to the IoT cloud and link local
+# objects to cloud objects. Note a username and password can be used for basic authentication
+# on both CPython and MicroPython. For more advanced authentication methods, please see the examples.
+client = ArduinoCloudClient(device_id=DEVICE_ID, username=DEVICE_ID, password=SECRET_KEY, sync_mode=True)
+
+# 2. Register cloud objects.
+# Note: The following objects must be created first in the dashboard and linked to the device.
+# When the switch is toggled from the dashboard, the on_switch_changed function is called with
+# the client object and new value args.
+client.register("sw1", value=None, on_write=on_switch_changed)
+
+# The LED object is updated in the switch's on_write callback.
+client.register("led", value=None)
+
+# In synchronous mode, this function returns immediately after connecting to the cloud.
+client.start()
+
+# Update the client periodically.
+while True:
+    client.update()
+    time.sleep(0.100)
+```
+
+`secrets.py` file should look the same on both implementations.
+
 ## Conclusion
 
 In this article, we have learned how to install MicroPython on the GIGA R1, using the `dfu-util` tool. We have also gone through some useful tips and tricks that can help you develop and run MicroPython code on your board.
