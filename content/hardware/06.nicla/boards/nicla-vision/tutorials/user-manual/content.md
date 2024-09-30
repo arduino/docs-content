@@ -11,7 +11,7 @@ tags:
   - RGB
   - Sensors
   - Machine Learning
-author: 'Christopher Mendez'
+author: 'Christopher Méndez'
 hardware:
   - hardware/06.nicla/boards/nicla-vision
 software:
@@ -499,7 +499,7 @@ Get or set the pulse width value on a channel. To get, pass no arguments. To set
 ```python
 channel1.pulse_width_percentage(Width) # Width (0-100)
 ```
-As a complete example here is a code to generate a __50% duty cycle__ PWM signal at __1 Mhz__.
+As a complete example here is a code to generate a __50% duty cycle__ PWM signal at __10 Khz__.
 
 ```python
 import time
@@ -509,7 +509,7 @@ from pyb import Pin, Timer
 
 OUT = Pin("D1")
 
-timer1 = Timer(1, freq=1000000)
+timer1 = Timer(1, freq=10000)
 channel1 = timer1.channel(2, Timer.PWM, pin=OUT, pulse_width_percent=0)
 
 channel1.pulse_width_percent(50)
@@ -730,44 +730,47 @@ The onboard high-performance microphone of the Nicla Vision is the MP34DT06JTR f
 
 The OpenMV IDE includes some examples to get started using the Nicla Vision onboard microphone that can be found on **File > Examples > Audio**. We are going to use the one called `micro_speech.py` to test the machine-learning speech recognition capabilities of the board.
 
-First, download the pre-trained model file from the [example repository](https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite) and copy it to the Nicla Vision storage drive.
+First, download the pre-trained model file from the [example repository](https://raw.githubusercontent.com/iabdalkader/microspeech-yesno-model/main/model.tflite) and **copy** it to the Nicla Vision **storage drive**.
 
 ![Tflite Machine Learning model in the drive](assets/tflite-model.png)
 
 Reset the board and run the following code on the OpenMV IDE.
 
 ```python
-import audio
 import time
-import tf
-import micro_speech
+from ml.apps import MicroSpeech
 import pyb
 
-labels = ["Silence", "Unknown", "Yes", "No"]
 
 led_red = pyb.LED(1)
 led_green = pyb.LED(2)
 
-model = tf.load("/model.tflite")
-speech = micro_speech.MicroSpeech()
-audio.init(channels=1, frequency=16000, gain=24, highpass=0.9883)
 
-# Start audio streaming
-audio.start_streaming(speech.audio_callback)
+def callback(label, scores):
+    print(f'\nHeard: "{label}" @{time.ticks_ms()}ms Scores: {scores}')
+    
+    led = led_green if label == "Yes" else led_red
 
-while True:
-    # Run micro-speech without a timeout and filter detections by label index.
-    idx = speech.listen(model, timeout=0, threshold=0.70, filter=[2, 3])
-    led = led_green if idx == 2 else led_red
-    print(labels[idx])
     for i in range(0, 4):
         led.on()
         time.sleep_ms(25)
         led.off()
         time.sleep_ms(25)
 
-# Stop streaming
-audio.stop_streaming()
+        
+
+
+# By default, the MicroSpeech object uses the built-in audio preprocessor (float) and the
+# micro speech module for audio preprocessing and speech recognition, respectively. The
+# user can override both by passing two models:
+# MicroSpeech(preprocessor=ml.Model(...), micro_speech=ml.Model(...), labels=["label",...])
+speech = MicroSpeech()
+
+# Starts the audio streaming and processes incoming audio to recognize speech commands.
+# If a callback is passed, listen() will loop forever and call the callback when a keyword
+# is detected. Alternatively, `listen()` can be called with a timeout (in ms), and it
+# returns if the timeout expires before detecting a keyword.
+speech.listen(callback=callback, threshold=0.8)
 ```
 After running the code, the matches will be printed on the Serial Monitor if the board hears a `No` or a `Yes`, turning on the red and green LED respectively.
 
