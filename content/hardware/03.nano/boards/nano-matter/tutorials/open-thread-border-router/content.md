@@ -358,6 +358,7 @@ Here is an example using the previously gathered parameters:
 
 If commissioning phase works fine, on the end-device serial monitor you will get the following:
 
+![Nano Matter commissioning](assets/nano-matter-term.png)
 
 Now we are ready to control the Smart Outlet from the CHIP Tool system.
 
@@ -378,7 +379,7 @@ To control the Smart Outlet use the following command format:
 
 Every time you run the command the Smart Outlet will toggle, turning on or off the load connected.
 
-
+![Smart outlet working demo](assets/final-demo.gif)
 
 ## Conclusion
 
