@@ -346,9 +346,9 @@ In this case, commissioning will occur via **Bluetooth**, where the laptop or PC
 ./out/debug/chip-tool pairing code-thread <node-id> hex:<thread-network-dataset> <end-device-pairing-code>
 ```
 
-1. Replace <node-id> with the unique identifier for the device you are pairing (you can choose it freely according to your preference).
-2. Replace <thread-network-dataset> with the hexadecimal string representing the Thread network dataset.
-3. Replace <end-device-pairing-code> with the manual pairing code for the end device.
+1. Replace `node-id` with the unique identifier for the device you are pairing (you can choose it freely according to your preference).
+2. Replace `thread-network-dataset` with the hexadecimal string representing the Thread network dataset.
+3. Replace `end-device-pairing-code` with the manual pairing code for the end device.
 
 Here is an example using the previously gathered parameters:
 
