@@ -141,30 +141,30 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 
 ![Nicla Vision Top View](assets/niclaVisionTopTopology.svg)
 
-| **Ref.** | **Description**                                                         | **Ref.** | **Description**                                                         |
-|----------|-------------------------------------------------------------------------|----------|-------------------------------------------------------------------------|
-| U1       | STM32H747AII6 Dual Arm® Cortex® M7/M4 IC                                | U4       | VL53L1CBV0FY/1 Time-of-Flight long distance ranging sensor              |
-| U5       | USB3320C-EZK-TR Hi-Speed USB 2.0 ULPI Transceiver                       | U6       | MP34DT06J MEMS omnidirectional digital microphone                       |
-| U9       | LBEE5KL1DX-883 Type 1DX Wi-Fi® + Bluetooth® module w/ Infineon CYW4343W | U10      | MC34PF1550A0EP Power Management Integrated Circuit (PMIC)               |
-| U13      | AT25QL128A-UUE-T 128 Mbit Quad SPI flash memory                         | U14      | DSC6151HI2B-025.0000 25 MHz Ultra-Low Power MEMS Oscillator             |
-| U15      | DSC6151HI2B-027.0000T 27 MHz Ultra-Low Power MEMS Oscillator            | L6       | LQM18PN2R2MGHD 2.2 µH fixed surface-mount inductor                      |
-| L9       | DFE201610P-1R0M=P2 1 µH fixed surface-mount inductor                    | L10      | DFE201610P-1R0M=P2 1 µH fixed surface-mount inductor                    |
-| L11      | DFE201610P-1R0M=P2 1 µH fixed surface-mount inductor                    | PB1      | PTS830GM140-SMTR-LFS Tactile switch, surface-mount, 3.5mm, Reset button |
-| J6       | U.FL-R-SMT-1(60) Male micro UFL surface-mount coaxial connector         | DL1      | SMLP34RGB2W3 RGB SMD LED                                                |
-| DL2      | KPHHS-1005SURCK 0402 SMD red LED                                        | J1       | ADC, SPI and LPIO Pin headers                                           |
-| J2       | I2C, JTAG, Power and LPIO pin headers                                   | J3       | Battery connection pin headers                                          |
+| **Ref.**   | **Description**                                                         | **Ref.** | **Description**                                                         |
+|------------|-------------------------------------------------------------------------|----------|-------------------------------------------------------------------------|
+| U1         | STM32H747AII6 Dual-core Arm® Cortex®-M7/M4 microcontroller              | U4       | VL53L1CBV0FY/1 Time-of-Flight long distance ranging sensor              |
+| U5         | USB3320C-EZK-TR Hi-Speed USB 2.0 ULPI Transceiver                       | U6       | MP34DT06J MEMS omnidirectional digital microphone                       |
+| U9         | LBEE5KL1DX-883 Type 1DX Wi-Fi® + Bluetooth® module w/ Infineon CYW4343W | U10      | MC34PF1550A0EP Power Management Integrated Circuit (PMIC)               |
+| U13        | AT25QL128A-UUE-T 128 Mbit Quad SPI flash memory                         | U14      | DSC6151HI2B-025.0000 25 MHz Ultra-Low Power MEMS Oscillator             |
+| U15        | DSC6151HI2B-027.0000T 27 MHz Ultra-Low Power MEMS Oscillator            | L6       | LQM18PN2R2MGHD 2.2 µH fixed surface-mount inductor                      |
+| L9,L10,L11 | DFE201610P-1R0M=P2 1 µH fixed surface-mount inductor                    | PB1      | PTS830GM140-SMTR-LFS Tactile switch, surface-mount, 3.5mm, Reset button |
+| J6         | U.FL-R-SMT-1(60) Male micro UFL surface-mount coaxial connector         | DL1      | SMLP34RGB2W3 RGB SMD LED                                                |
+| DL2        | KPHHS-1005SURCK 0402 SMD red LED                                        | J1       | ADC, SPI and LPIO pin headers                                           |
+| J2         | I2C, JTAG, Power and LPIO pin headers                                   | J3       | Battery connection pin headers                                          |
 
 **Back View**
 ![Nicla Vision Back View](assets/niclaVisionBackTopology.svg)
 
-| **Ref.** | **Description**                             | **Ref.** | **Description**                                    |
-|----------|---------------------------------------------|----------|----------------------------------------------------|
-| U2,U7    | LM66100DCKR Ideal Diode                     | U3       | LSM6DSOXTR 6-axis IMU with ML Core                 |
-| U8       | SE050C2HQ1/Z01SDZ Crypto IC                 | U9       | LBEE5KL1DX-883 Wi-Fi®/Bluetooth® Module              |
-| U10      | MC34PF1550A0EP PMIC                         | U11      | TXB0108YZPR Bidirectional Voltage Shifter          |
-| U12      | NTS0304EUKZ Bidirectional Voltage Shifter   | U13      | AT25QL128A-UUE-T 16 MB FLASH Memory IC             |
-| U19      | MAX17262REWL+T Fuel Gauge IC                | J4       | BM03B-ACHSS-GAN-TF(LF)(SN) 3-pin battery connector |
-| J5       | SM05B-SRSS-TB(LF)(SN) 5-pin ESLOV connector | J7       | microUSB connector                                 |
+| **Ref.** | **Description**                                                                            | **Ref.** | **Description**                                                                                  |
+|----------|--------------------------------------------------------------------------------------------|----------|--------------------------------------------------------------------------------------------------|
+| U2,U7    | LM66100DCKR Low-IQ Ideal Diode 5.5 V, 1.5 A, 79 mΩ                                         | U3       | LSM6DSOXTR 6-axis IMU with Embedded ML Core                                                      |
+| U8       | SE050C2HQ1/Z01SDZ IoT Secure Element IC                                                    | U11      | TXB0108YZPR 8-bit bidirectional voltage-level translator                                         |
+| U12      | NTS0304EUKZ 4-bit dual-supply translating transceiver with open-drain                      | U19      | MAX17262REWL+T 5.2 µA 1-Cell fuel gauge with internal current sensing                            |
+| L3       | MLF1608C330KTD00 33 µH shielded multilayer inductor, 2 mA, 2.2 Ohm max, 0603 surface-mount | D1       | PRTR5V0U2F,115 bidirectional TVS diode array, 2-channel ESD protection for high-speed data lines |
+| Y1       | SiT1532AI-J4-DCC-32.768E 32.768 kHz XO (Standard) LVCMOS MEMS oscillator                   | J4       | BM03B-ACHSS-GAN-TF(LF)(SN) 3-pin battery connector, 1.2mm pitch, wire-to-board, surface-mount    |
+| J5       | SM05B-SRSS-TB(LF)(SN) 5-pin ESLOV connector, 1.0mm pitch, wire-to-board, surface-mount     | J7       | ZX62-AB-5PA(31) 5-position micro USB connector, surface-mount, right-angle, with shielded shell  |
+| J8       | 505550-2420 24-position SlimStack board-to-board receptacle, 0.40mm pitch, surface-mount   |
 
 ### Processor
 
