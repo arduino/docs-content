@@ -143,7 +143,6 @@ Keeping in mind the initialization of the Alvik from the previous example, we ca
 
 ```c++
 #include "Arduino_Alvik.h"
-#include <Arduino.h>
 
 Arduino_Alvik alvik;
 
