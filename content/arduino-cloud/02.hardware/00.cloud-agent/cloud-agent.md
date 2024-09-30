@@ -30,4 +30,4 @@ The source code for the Cloud Agent lives [in this GitHub repository](https://gi
 ## Troubleshooting
 
 If you are having issues with the Cloud Agent, you can visit the link below:
-- [Arduino Help Center - Create Agent](https://support.arduino.cc/hc/en-us/articles/360014869820-Install-the-Arduino-Create-Agent)
+- [Arduino Help Center - Create Agent](https://support.arduino.cc/hc/en-us/articles/360014869820-Install-the-Arduino-Cloud-Agent)
