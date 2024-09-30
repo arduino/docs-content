@@ -15,7 +15,6 @@ The Arduino® Alvik robot was designed to be compatible with both C++ and MicroP
 - **Arduino IDE**: A modern desktop-based [Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE).
 - **Alvik Library for Arduino**: A [library](https://github.com/arduino-libraries/Arduino_Alvik) that provides easy access to the Alvik robot's functionalities.
 - **USB Drivers**: Ensure you have the correct drivers installed to communicate with Alvik via USB.
-- **STM32Cube**: You will need this 3rd party programmer tool by ST available [here](https://www.st.com/en/development-tools/stm32cubeprog.html) to program the STM board.
 
 ### Hardware
 
@@ -42,7 +41,7 @@ The Arduino® Alvik robot was designed to be compatible with both C++ and MicroP
 5. Select **esptool** as the programmer from the **Tools > Programmer** menu.
 ![Select programming tool esptool](assets/EsptoolSelection.png)
 6. Select **Upload Using Programmer** from the **Sketch** menu.
-![Upload with programmer option](assets/UploadWithProgrammer.png). You can nowpPress the **Reset** button on the board to make sure it is ready for uploading.
+![Upload with programmer option](assets/UploadWithProgrammer.png). You can now Press the **Reset** button on the board to make sure it is ready for uploading.
 1. Now we can finally test it. Open the **Drive** example in the Arduino IDE by going to **File > Examples > Arduino_Alvik > drive**.
 ![Upload the drive example](assets/uploadExample.png)
 
@@ -177,7 +176,7 @@ void loop() {
 You can now explore the other included examples that cover more of the Alvik's components and more functions listed on our [API reference](https://docs.arduino.cc/tutorials/alvik/api-overview/).
 
 
-## More Resources (C++)
+## More Resources
 
 - **[Alvik Documentation](https://docs.arduino.cc/hardware/alvik/)**: Dive deeper into the capabilities of Alvik by exploring the official documentation.
 - **[Community Forums](https://forum.arduino.cc/search?q=alvik)**: Join the Arduino community forums to ask questions and share your projects.
