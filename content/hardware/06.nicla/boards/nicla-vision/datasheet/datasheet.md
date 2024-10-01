@@ -198,7 +198,7 @@ An NTC (negative thermal coefficient) sensor provides overtemperature shutoff to
 
 There are three main power lines provided:
 
-- **+3V1** provides power to the microprocessor (U1), 25 MHz oscillator (U14), 32.768 MHz oscillator (Y1), USB transceiver (U5) and Wi-Fi®/Bluetooth® module.
+- **+3V1** provides power to the microprocessor (U1), 25 MHz oscillator (U14), 32.768 kHz oscillator (Y1), USB transceiver (U5) and Wi-Fi®/Bluetooth® module.
 - **+2V8A** provides power to the camera (M1) and time-of-flight sensor (U4)
 - **+1V8** provides power to the microprocessor (U1), camera (M1), USB transceiver (U5), Wi-Fi®/Bluetooth® module (U9), accelerometer (U3), microphone (U6), crypto (U8), FLASH (U13), 27 MHz oscillator (U15) as well as the two level translators (U11, U12).
 
