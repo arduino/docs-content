@@ -91,8 +91,6 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 ### Related Products
 
 - Arduino® Portenta H7 (SKU: ABX00042)
-- Arduino® Portenta H7 Lite (SKU: ABX00045)
-- Arduino® Portenta H7 Lite Connected (SKU: ABX00046)
 
 ### Assembly Overview
 
