@@ -150,6 +150,7 @@ The Nicla form factor has been specifically developed at Arduino® as a standard
 | J6         | U.FL-R-SMT-1(60) Male micro UFL surface-mount coaxial connector         | DL1      | SMLP34RGB2W3 RGB SMD LED                                                |
 | DL2        | KPHHS-1005SURCK 0402 SMD red LED                                        | J1       | ADC, SPI and LPIO pin headers                                           |
 | J2         | I2C, JTAG, Power and LPIO pin headers                                   | J3       | Battery connection pin headers                                          |
+| M1         | GC2145 2 Megapixel CMOS Camera                                          |
 
 **Back View**
 ![Nicla Vision Back View](assets/niclaVisionBackTopology.svg)
