@@ -33,11 +33,12 @@ The goals of this project are:
 
 ## Hardware & Software Needed
 
-- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
 - [Portenta H7](https://store.arduino.cc/products/portenta-h7)
 - Antenna with GSM 850 / 900 / 1800 / 1900 MHz range and the ability to connect via SMA
 - DC 4.5-20V power supply with barrel jack.
 - [Portenta Max carrier](https://store.arduino.cc/products/portenta-max-carrier)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software) or [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 
 ## Instructions
 

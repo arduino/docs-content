@@ -33,7 +33,7 @@ In this tutorial, we will go through the steps on how to set up both the Linux a
 
 - [Arduino Portenta X8](https://store.arduino.cc/products/portenta-x8)
 - [Arduino Portenta Max Carrier](https://store.arduino.cc/products/portenta-max-carrier)
-- USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - Wi-Fi® Access Point with Internet Access
 - 868-915 MHz antenna with SMA connector
 - ADB: [Check how to connect to your Portenta X8](https://docs.arduino.cc/tutorials/portenta-x8/user-manual#out-of-the-box-experience)

@@ -28,13 +28,13 @@ This tutorial explains how to connect your [Arduino® Max Carrier](http://store.
 
 ### Required Hardware and Software
 
-- [Portenta H7](https://store.arduino.cc/products/portenta-h7).
-- [Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier).
-- 868-915 MHz antenna with SMA connector.
-- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®).
-- Arduino IDE ([online](https://create.arduino.cc/) or [offline](https://www.arduino.cc/en/main/software)).
-- [Arduino MKRWAN library](https://github.com/arduino-libraries/MKRWAN).  
-- An active account in [TTN](https://www.thethingsnetwork.org/).
+- [Portenta H7](https://store.arduino.cc/products/portenta-h7)
+- [Portenta Max Carrier](http://store.arduino.cc/portenta-max-carrier)
+- 868-915 MHz antenna with SMA connector
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
+- [Arduino MKRWAN library](https://github.com/arduino-libraries/MKRWAN)
+- An active account in [TTN](https://www.thethingsnetwork.org/)
 
 ## The Arduino® Portenta Max Carrier LoRaWAN® Module
 

@@ -21,12 +21,12 @@ The Arduino Portenta Breakout is a versatile tool designed for developing, testi
 
 - [Arduino Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Arduino Portenta Breakout](https://store.arduino.cc/portenta-breakout)
-- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - Breadboard & Cables
 - Pin headers for the Portenta Breakout
 - LED & Resistor
 - Potentiometer
-- Arduino IDE 1.8.10+
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software) or [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 
 ## Instructions
 

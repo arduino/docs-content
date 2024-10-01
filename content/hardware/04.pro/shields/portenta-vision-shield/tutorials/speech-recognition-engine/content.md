@@ -65,8 +65,8 @@ To use the Arduino Speech Recognition Engine, you will need one of the following
 In the case of the Portenta H7, remember that is always possible to add an external microphone as additional hardware, instead of using the Portenta Vision Shield.
 
 Additionally, you will need the following hardware and software:
-- 1x USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
-- [Arduino IDE 2](https://www.arduino.cc/en/software), [Arduino Cloud](https://cloud.arduino.cc), or [Arduino-cli](https://arduino.github.io/arduino-cli)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), [Arduino Cloud Editor](https://create.arduino.cc/editor), or [Arduino-cli](https://arduino.github.io/arduino-cli)
 
 ## Instructions
 
