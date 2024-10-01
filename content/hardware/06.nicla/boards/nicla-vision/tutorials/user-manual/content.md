@@ -314,12 +314,12 @@ The Nicla Vision has **ten digital pins**, mapped as follows:
 |         PA_9          |           D1           |
 |         PA_10         |           D2           |
 |         PG_1          |           D3           |
-|         PE_12         |           SCK          |
-|         PE_13         |           MISO         |
-|         PE_14         |           MOSI         |
-|         PE_11         |           SS           |
-|         PB_8          |           I2C_SCL      |
-|         PB_9          |           I2C_SDA      |
+|         PE_12         |           SCKL          |
+|         PE_13         |           CIPO         |
+|         PE_14         |           COPI         |
+|         PE_11         |           CS           |
+|         PB_8          |           SCL      |
+|         PB_9          |           SDA      |
 
 
 Notice that I2C and SPI pins can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
@@ -457,16 +457,16 @@ First, we need to identify the `Timer` and `Channel` used by the `PWM` output to
 
 Here is a table with the details of the exposed pins on the Nicla Vision:
 
-| **Microcontroller Pin** | **Arduino Pin Mapping**  | **Timer**  |**Channel** |
-|:-----------------------:|:------------------------:|:----------:|:----------:|
-|         PA_9            |           D1             |   TIMER1   |    CH2     |
-|         PA_10           |           D2             |   TIMER1   |    CH3     |
-|         PB_8            |           I2C_SCL        |   TIMER4   |    CH3     |
-|         PB_9            |           I2C_SDA        |   TIMER4   |    CH4     |
-|         PE_11           |           SS             |   TIMER1   |    CH2     |
-|         PE_12           |           SCK            |   TIMER1   |    CH3     |
-|         PE_13           |           MISO           |   TIMER1   |    CH3     |
-|         PE_14           |           MOSI           |   TIMER1   |    CH4     |
+| **Microcontroller Pin** | **Arduino Pin Mapping** | **Timer** | **Channel** |
+| :---------------------: | :---------------------: | :-------: | :---------: |
+|          PA_9           |           D1            |  TIMER1   |     CH2     |
+|          PA_10          |           D2            |  TIMER1   |     CH3     |
+|          PB_8           |           SCL           |  TIMER4   |     CH3     |
+|          PB_9           |           SDA           |  TIMER4   |     CH4     |
+|          PE_11          |           CS            |  TIMER1   |     CH2     |
+|          PE_12          |          SCKL           |  TIMER1   |     CH3     |
+|          PE_13          |          CIPO           |  TIMER1   |     CH3     |
+|          PE_14          |          COPI           |  TIMER1   |     CH4     |
 
 
 To use the PWM functions, you need to import the `time`, `Pin`, and `Timer` modules.
@@ -1229,11 +1229,11 @@ This section of the user manual covers the different communication protocols tha
 The Nicla Vision supports SPI communication, which allows data transmission between the board and other SPI-compatible devices. The pins used in the Nicla Vision for the SPI communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|         SCLK / PE_12       |      SCK or 9        |
-|         CIPO / PE_13       |      MISO or 10      |
-|         COPI / PE_14       |      MOSI or 8       |
-|         CS / PE_11         |      CS or 7         |
+| :---------------------: | :---------------------: |
+|      SCLK / PE_12       |      SCKL or PE12       |
+|      CIPO / PE_13       |      CIPO or PE13       |
+|      COPI / PE_14       |      COPI or PE14       |
+|       CS / PE_11        |       CS or PE11        |
 
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
@@ -1371,8 +1371,8 @@ The Nicla Vision supports I2C communication, which allows data transmission betw
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
 | :---------------------: | :---------------------: |
-|       PB_8 / SCL        |           PB8           |
-|       PB_9 / SDA        |           PB9           |
+|       PB_8 / SCL        |  SCL / I2C1_SCL / PB8   |
+|       PB_9 / SDA        |  SDA / I2C1_SDA / PB9   |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board. The I2C pins are also available through the onboard ESLOV connector of the Nicla Vision.
 
@@ -1509,9 +1509,9 @@ while (Wire.available()) {
 The pins used in the Nicla Vision for the UART (external) communication protocol are the following:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|         PA_10           |        SERIAL1_RX       |
-|         PA_9            |        SERIAL1_TX       |
+| :---------------------: | :---------------------: |
+|          PA_10          |     UART_RX or PA10     |
+|          PA_9           |     UART_TX or PA9      |
 
 Please, refer to the [board pinout section](#pinout) of the user manual to localize them on the board.
 
@@ -1528,6 +1528,13 @@ Then, initialize the UART object defining the __bus number__ and __baudrate__.
 ```python
 uart = UART(9, 115200)  # bus 9 uses PA9 and PA10 as (TX and RX) respectively
 ```
+
+You can define UART settings with the following function:
+
+```python
+uart.init(9600, bits=8, parity=None, stop=1) # init with given parameters
+```
+
 To read incoming data, you can use different functions as the following.
 
 ```python
