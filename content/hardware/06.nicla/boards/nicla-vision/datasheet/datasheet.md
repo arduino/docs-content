@@ -442,7 +442,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                                              |
 |------------|--------------|----------------------------------------------------------|
-| 30/09/2024 | 8            | Board Topology & general documentation update            |
+| 01/10/2024 | 8            | Board Topology & general documentation update            |
 | 03/09/2024 | 7            | Cloud Editor updated from Web Editor                     |
 | 10/04/2024 | 6            | Product Labeling section added - FCC information updated |
 | 28/03/2024 | 5            | FCC Warning Updated, small fixes                         |
