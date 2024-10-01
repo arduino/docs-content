@@ -246,10 +246,10 @@ You should now repeatedly see the onboard LED turning red, green, and blue.
 The Nicla Vision has **three analog input pins**, mapped as follows:
 
 | **Microcontroller Pin** | **Arduino Pin Mapping** |
-|:-----------------------:|:-----------------------:|
-|      ADC1/PC_4         |           A0            |
-|      ADC2/PF_13        |           A1            |
-|      ADC3/PF_3        |           A2            |
+| :---------------------: | :---------------------: |
+|        ADC1/PC_4        |           A0            |
+|       ADC2/PF_13        |           A1            |
+|        ADC3/PF_3        |           A2            |
 
 All of them can be used through the built-in functions of the Arduino programming language. 
 
@@ -308,18 +308,18 @@ void loop() {
 
 The Nicla Vision has **ten digital pins**, mapped as follows:
 
-| **Microcontroller Pin** | **Arduino Pin Mapping**  |
-|:-----------------------:|:------------------------:|
-|         PG_12         |           D0           |
-|         PA_9          |           D1           |
-|         PA_10         |           D2           |
-|         PG_1          |           D3           |
-|         PE_12         |           SCKL          |
-|         PE_13         |           CIPO         |
-|         PE_14         |           COPI         |
-|         PE_11         |           CS           |
-|         PB_8          |           SCL      |
-|         PB_9          |           SDA      |
+| **Microcontroller Pin** | **Arduino Pin Mapping** |
+| :---------------------: | :---------------------: |
+|          PG_12          |           D0            |
+|          PA_9           |           D1            |
+|          PA_10          |           D2            |
+|          PG_1           |           D3            |
+|          PE_12          |          SCKL           |
+|          PE_13          |          CIPO           |
+|          PE_14          |          COPI           |
+|          PE_11          |           CS            |
+|          PB_8           |           SCL           |
+|          PB_9           |           SDA           |
 
 
 Notice that I2C and SPI pins can also be used as digital pins. Please, refer to the [board pinout section](#pinout) of the user manual to find them on the board.
