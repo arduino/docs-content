@@ -1,16 +1,16 @@
 ---
-title: 'Remote Control and Monitoring of Conveyor and Sorting Systems with Opta™'
+title: 'Color Sorting and Remote Monitoring with Opta™'
 difficulty: intermediate
-description: "This application note describes how to remotely control and monitor a conveyor and sorting system in real time using the Opta™ micro PLC and its built-in cloud connectivity."
+description: "This application note describes how to remotely control and monitor a conveyor and sorting system in real time using the Opta™ and its built-in cloud connectivity."
 
-# ToDo: Review if the tags are rights
 tags:
   - cloud
   - conveyor
   - sorting
   - industrial
   - opta
-author: 'Davidson Dantas'
+  - color
+author: 'Davidson Dantas and Thiago Alves'
 
 hardware:
   - hardware/07.opta/opta-family/opta
@@ -18,25 +18,27 @@ hardware:
 
 ## Introduction
 
-Industrial conveyor and sorting systems are essential for automating logistics and production processes across various industries. These systems are engineered to optimize the transport and classification of products along the production line, thereby enhancing operational efficiency and reducing handling time. By leveraging conveyor belts and advanced sorting mechanisms, it becomes possible to automate repetitive and complex tasks, ensuring a more streamlined and accurate workflow. Such systems are critical in environments that demand high productivity and precision, including distribution centers, manufacturing plants, and processing facilities. For instance, they are commonly used in warehouses and distribution centers to move and sort packages and products to different areas based on criteria such as destination, size or type.
+Industrial conveyor and sorting systems are essential for automating logistics and production processes across various industries. These systems are engineered to optimize the transport and classification of products along the production line, thereby enhancing operational efficiency and reducing handling time. By leveraging conveyor belts and advanced sorting mechanisms, it becomes possible to automate repetitive and complex tasks, ensuring a more streamlined and accurate workflow. 
 
-Considering this type of industrial system, we will use the Opta™ micro PLC and its capability to connect with Arduino Cloud to control a conveyor and sorting system that can separate items based on their color. The entire system will be integrated into the cloud, providing real-time control and monitoring.
+Such systems are critical in environments that demand high productivity and precision, including distribution centers, manufacturing plants, and processing facilities. For instance, they are commonly used in warehouses and distribution centers to move and sort packages and products to different areas based on criteria such as destination, size or type.
+
+Considering this type of industrial system, we will use the Opta™ and its capability to connect with Arduino Cloud to control a conveyor and sorting system that can separate items based on their color. The entire system will be integrated into the cloud, providing real-time control and monitoring.
 
 ![ ](assets/arduino-cloud-overview.png)
 
-Due to the use of the Opta™ micro PLC, this solution will be cost-effective and offer remote access, allowing for monitoring and control of the status of the key elements of the application.
+Due to the use of the Opta™, this solution will be cost-effective and offer remote access, allowing for monitoring and control of the status of the application's key elements.
 
 **Target audience:** PLC programmers, Automation engineers, Industrial IoT engineers and Electrical engineers.
 
 ### Goals
 
-The main objective of this application is to demonstrate the capability of the Opta™ micro PLC in controlling simple conveyor and item separation systems, while providing remote real-time control and monitoring. The goals are as follows:
+The main objective of this application is to demonstrate the capability of the Opta™ in controlling simple conveyor and item separation systems, while providing remote real-time control and monitoring. The goals are as follows:
 
 - Monitor the states of the systems involved.
 - Monitor important information such as the quantity of items separated by each element.
 - Control the entire system, allowing it to be started and stopped remotely.
 - Integrate the two systems, conveyor and sorting, to ensure they work perfectly together.
-- Create an Arduino Cloud dashboard that syncs in real time to inform and alert the user.
+- Create an Arduino Cloud dashboard that syncs in real time to inform the user.
 
 ## Hardware and Software Requirements
 
@@ -45,21 +47,22 @@ The main objective of this application is to demonstrate the capability of the O
 ### Hardware Requirements
 
 - [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
-- 24 VDC Power Supply (x1) <!-- # ToDo: See if we have a link for this -->
+- 24 VDC Power Supply (x1)
 - Photoeletric Sensor (3x)
 - RGB Color Sensor (1x)
 - Power Relay 24 V (Optional x4)
 - 18 AWG Wiring Cable
+- Green normally open push button (Start Button)
+- Red normally closed push button (Stop Button)
 - [USB Type-C® Cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
-- [Micro-USB cable](https://store.arduino.cc/products/usb-2-0-cable-type-a-micro) (x1)
 
 ### Software Requirements
 
 - [Arduino PLC IDE](https://docs.arduino.cc/software/plc-ide/)
 - [Arduino Cloud Editor](https://create.arduino.cc/editor)
-- The [Conveyor and Sorting Systems Ladder Program](assets/ConveyorSortingSystem.zip)
+- The [Conveyor and Sorting Systems PLC Program](assets/ConveyorSortingSystem.zip)
 - The [Arduino Create Agent](https://cloud.arduino.cc/download-agent/) to provision the Opta WiFi on the Arduino Cloud.
-- The [**Arduino Cloud**](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [**cloud.arduino.cc**](https://cloud.arduino.cc/home/?get-started=true).
+- The [Arduino Cloud](https://cloud.arduino.cc/). If you do not have an account, you can create one for free inside [cloud.arduino.cc](https://cloud.arduino.cc/home/?get-started=true).
 - [Application Arduino Sketches](assets/ConveyorSortingSystem.zip)
 
 ### Recommended Skills
@@ -71,37 +74,49 @@ The main objective of this application is to demonstrate the capability of the O
 
 ## Conveyor and Sorting System Setup
 
-An overview of the electrical connections of the conveyor and sorting system is shown in the diagram below:
+To improve clarity, an overview of the electrical connections for the conveyor and sorting system will be presented in separate diagrams for better understanding.
+
+The diagram below provides a summary of the connections for the conveyor and sorting system:
 
 ![Electrical connections of the conveyor and sorting system](assets/wiring-overview.png)
 
-The Opta PLC will be powered by an external 24 VDC power supply connected to its screw terminals labeled `+` and `-` respectively.
+The diagram above illustrates all the equipment connected to the Opta. We have the Opta powered by a 24 Volt DC source. In the PLC input section, we have the connections for the RGB color sensor, the photoelectric sensors, and the start and stop push buttons. As for the outputs, we have the connections of four relays responsible for activating the motors that will move the conveyors and the electric actuators that will operate to perform the sorting of the items. It is important to note that the motors are not connected directly to the Opta outputs, as these outputs cannot supply the required current to drive the motors directly. Instead, the Opta controls the relays, which in turn safely handle the current and voltage necessary to operate the motors and actuators, ensuring the proper protection of the PLC from overloads and potential damage.
+
+To ensure proper operation, the Opta requires a stable power source. The Opta will be powered by an external 24 VDC power supply, which should be connected to its screw terminals labeled `+` and `-` respectively. This setup ensures the device receives the necessary voltage for consistent and reliable performance.
 
 ![Opta power supply connection](assets/opta-power.png)
 
-The RGB color sensor and the three photoletric sensors will be connected to inputs `I1`, `I2`, `I3`, `I4`, `I5` and `I6` respectively.
+The RGB Color Sensor is connected to inputs `I1`, `I2`, and `I3`, which detect red, green, and blue colors, respectively. Each input is linked to a corresponding output of the RGB color sensor, which operates in a binary (on/off) manner. This means that each output will either be active (on) or inactive (off), depending on whether the sensor detects its specific color.
 
-![RGB Color Sensor Connection](assets/rgb-sensor-wiring.svg)
+![RGB Color Sensor Connection](assets/rgb-sensor-wiring.png)
 
-![Photoeletric Sensor Connection](assets/photoeletric-sensor-wiring.svg)
+The three photoelectric sensors are connected to inputs `I4`, `I5`, and `I6`, respectively. Each input is linked to a corresponding output of the photoelectric sensor, which operates in a binary (on/off) manner. The sensor connected to `I4` is responsible for detecting red objects, the sensor connected to `I5` is responsible for detecting green objects, and the sensor connected to `I6` is responsible for detecting blue objects. Each output will either be active (on) or inactive (off), depending on whether the sensor detects an object in its detection range.
 
-![Actuators wiring](assets/relay-wiring.svg)
+![Photoeletric Sensor Connection](assets/photoeletric-sensor-wiring.png)
+
+The button connected to `I7` is the start button, configured as normally open (NO), meaning it activates the circuit when pressed. The button connected to `I8` is the stop button, configured as normally closed (NC), meaning it interrupts the circuit when pressed.
+
+![Start and Stop Buttons](assets/button-wiring.png)
+
+The Opta's outputs are connected to relays that safely manage the current and voltage required to operate the motors and actuators, thus preventing any potential damage to the Opta’s outputs. Output `O1` is linked to the relay that controls the motor of the input conveyor, while output `O2` is connected to the relay responsible for driving the motor of the sorting conveyor. Output `O3` controls the relay for the actuator that sorts green-colored items, and the final output, `O4`, manages the relay for the actuator sorting blue-colored items. Red items will pass directly along the conveyor without being segregated.
+
+![Actuators wiring](assets/relay-wiring.png)
 
 ***The wiring connections shown above are displayed separately for easier comprehension, but all of them are simultaneously connected to the Opta.***
 
 ## Conveyor and Sorting System Overview
 
-The Opta Micro PLC is responsible for controlling the entire system by reading color and presence sensors, executing control logic to manage the outputs, including operating the conveyor motor to move it and controlling electrical actuators to perform item separation based on detected colors. Additionally, the Opta Micro PLC will provide the states of the variables, inputs, and outputs of the system for updating data in the Arduino Cloud via Wi-Fi® connection.
+The Opta is responsible for controlling the entire system by reading color and presence sensors, executing control logic to manage the outputs, including operating the conveyor motor to move it and controlling electrical actuators to perform item separation based on detected colors. Additionally, the Opta will provide the states of the variables, inputs, and outputs of the system for updating data in the Arduino Cloud via Wi-Fi® connection.
 
 ![Conveyor and Sorting System](assets/conveyor-and-sorting-overview.png)
 
 The system is activated when the 'Start' button is pressed, initiating the operation of both the feeder conveyor and the sorting conveyor. The feeder conveyor is responsible for transporting objects from the initial loading point toward the sorting area and the sorting conveyor is responsible to receive the object from the feeder conveyor and transport it to the designated area for sorting. The object move along the feeder conveyor until the RGB color sensor detects a specific color.
 
-Once a color is detected, the feeder conveyor continues to run briefly to ensure the object successfully transfers to the sorting conveyor before stopping. Simultaneously, the specific actuator corresponding to the detected color is activated, creating a physical barrier that pushes the object off the sorting conveyor and into the designated area. A photoelectric sensor positioned in each designated area, one for each color being sorted, confirms that the object has been successfully sorted. After confirmation, the feeder conveyor restarts and the system continues this loop until the 'Stop' button is pressed, stopping the entire operation. At any time, you can monitor the operating status and control the system through the Arduino Cloud.
+Once a color is detected, the feeder conveyor continues to run briefly to ensure the object successfully transfers to the sorting conveyor before stopping. Simultaneously, the specific actuator corresponding to the detected color is activated, creating a physical barrier that pushes the object off the sorting conveyor and into the designated area. 
+
+A photoelectric sensor positioned in each designated area, one for each color being sorted, confirms that the object has been successfully sorted. After confirmation, the feeder conveyor restarts and the system continues this loop until the 'Stop' button is pressed, stopping the entire operation. At any time, you can monitor the operating status and control the system through the Arduino Cloud.
 
 In this way, the Opta will serve as both a programmable logic controller and a gateway to the Dashboard in the Arduino Cloud, in the web application.
-
-![Conveyor and Sorting System](assets/overview-diagram.png)
 
 ### Sensors Deployment
 
@@ -115,44 +130,84 @@ In this way, the Opta will serve as both a programmable logic controller and a g
 ## Step-by-Step Guide for System Operation
 
 1. **System Start**
-   - **Action:** Press the Start button.
-   - **Description:** The system is activated, initiating the operation of both the feeder conveyor and the sorting conveyor.
+- **Action:** Press the Start button.
+- **Description:** The system is activated, initiating the operation of both the feeder conveyor and the sorting conveyor.
 
 2. **Activation of Conveyors**
-   - **Action:** The feeder and sorting conveyors start operating simultaneously.
-   - **Description:** The feeder conveyor moves objects from the initial loading point toward the RGB color sensor area.
+- **Action:** The feeder and sorting conveyors start operating simultaneously.
+- **Description:** The feeder conveyor moves objects from the initial loading point toward the RGB color sensor area.
 
 3. **Color Detection**
-   - **Action:** Objects move along the feeder conveyor until the RGB color sensor detects a specific color.
-   - **Description:** The RGB color sensor detects the color of the object on the feeder conveyor.
+- **Action:** Objects move along the feeder conveyor until the RGB color sensor detects a specific color.
+- **Description:** The RGB color sensor detects the color of the object on the feeder conveyor.
 
 4. **Action After Detection**
-   - **Action:** The feeder conveyor continues to run briefly after color detection.
-   - **Description:** The feeder conveyor remains active for a short period to ensure the object successfully transfers to the sorting conveyor.
+- **Action:** The feeder conveyor continues to run briefly after color detection.
+- **Description:** The feeder conveyor remains active for a short period to ensure the object successfully transfers to the sorting conveyor.
 
 5. **Actuator Activation**
-   - **Action:** Activate the specific actuator corresponding to the detected color.
-   - **Description:** The actuator is triggered, creating a physical barrier that pushes the object off the sorting conveyor and into the designated area.
+- **Action:** Activate the specific actuator corresponding to the detected color.
+- **Description:** The actuator is triggered, creating a physical barrier that pushes the object off the sorting conveyor and into the designated area.
 
 6. **Sorting Confirmation**
-   - **Action:** Confirm the object has been sorted.
-   - **Description:** A photoelectric sensor, positioned in the designated area for each color, confirms that the object has been successfully sorted.
+- **Action:** Confirm the object has been sorted.
+- **Description:** A photoelectric sensor, positioned in the designated area for each color, confirms that the object has been successfully sorted.
 
 7. **System Stop**
-   - **Action:** Press the stop button.
-   - **Description:** The system is stoped, stopping all operations and deactivating the conveyors and actuator.
+- **Action:** Press the stop button.
+- **Description:** The system is stopped, stopping all operations and deactivating the conveyors and actuator.
 
 8. **Remote Monitoring and Control**
-   - **Action:** Monitor and control the system via the Arduino Cloud.
-   - **Description:**  At any time, you can check the operating status and control the system remotely using the Arduino Cloud interface
+- **Action:** Monitor and control the system via the Arduino Cloud.
+- **Description:**  At any time, you can check the operating status and control the system remotely using the Arduino Cloud interface.
 
-## Opta Ladder Code
+## Opta Ladder Diagram
 
-After understanding the step-by-step operation of the system, the ladder code below was created to represent the entire logic of the conveyor and sorting system.
+After understanding the step-by-step operation of the system, the ladder diagram below was created to represent the entire logic of the conveyor and sorting system.
 
-To facilitate understanding of the code, it has been divided and explained separately. You can download the complete code [here](assets/ConveyorSortingSystem.zip).
+To make the diagram easier to understand, it has been divided and explained separately. You can download the complete Arduino PLC IDE project [here](assets/ConveyorSortingSystem.zip).
 
-Step-by-Step Breakdown:
+In the `Project` tab of the Arduino PLC IDE, you will find the section where the ladder diagram is written and managed. This is the workspace where you can create and edit the logic for your project using ladder diagrams. By clicking on `Cycle` within this tab, you'll access the area dedicated to building the ladder logic. However, you will only see the `Cycle` option if you have previously downloaded the Arduino PLC IDE project and opened it using the Arduino PLC IDE. The screenshot below will help you visually locate this section, making it easier to understand where the ladder diagram will be developed within the software.
+
+![Arduino PLC IDE: Ladder Diagram](assets/arduino-ladder.png)
+
+However, if you haven't previously downloaded the Arduino PLC IDE project and opened it, but instead this is a new project, you will need to create a new program for the ladder diagram. To do this, go to the `Project` tab at the top of the software, select `New object`, and then click on `New program`. A pop-up window will appear where you can choose the `LD` option for Ladder Diagram. After selecting `LD`, give your program a name and assign a `Task` to it. This will create a new ladder diagram in your project. The screenshot below will help you visually locate these options, making it easier to navigate within the software.
+
+![Arduino PLC IDE: Creating a New Ladder Diagram](assets/arduino-plc-ide-new-program.png)
+
+**Mapping the Inputs and Outputs**
+
+In the Arduino PLC IDE, it is important to associate the physical inputs and outputs of the PLC with variables that will be used throughout your program. This way, the associated variables will represent the states of the inputs and control the outputs.
+
+To do this, go to the `Resources` tab, then to `Local I/O Mapping`, and select `Programmable Inputs` or `Relay Outputs` to associate inputs and outputs, respectively.
+
+In the previous section, `Conveyor and Sorting System Setup`, the physical connections of the input elements were shown. With this in mind, we have the following:
+- `I1`: Associated with the variable `colorRedSensor`, which will indicate when the RGB color sensor detects the color red.
+- `I2`: Associated with the variable `colorGreenSensor`, which will indicate when the RGB color sensor detects the color green.
+- `I3`: Associated with the variable `colorBlueSensor`, which will indicate when the RGB color sensor detects the color blue.
+- `I4`: Associated with the variable `photoeletricRedSensor`, which will indicate when the photoelectric sensor detects the presence of the red-colored object.
+- `I5`: Associated with the variable `photoeletricGreenSensor`, which will indicate when the photoelectric sensor detects the presence of the green-colored object.
+- `I6`: Associated with the variable `photoeletricBlueSensor`, which will indicate when the photoelectric sensor detects the presence of the blue-colored object.
+- `I7`: Associated with the variable `startButton`, which will detect the state of the start push button.
+- `I8`: Associated with the variable `stopButton`, which will detect the state of the stop push button.
+
+All input variables are of the boolean type, capable of taking the values 'True' or 'False'.
+
+The image below illustrates the association between the physical input elements and the respective variables that will be used in the program.
+
+![Programmable Inputs](assets/programmable-inputs.png)
+
+Now, for the outputs, we have the following configuration:
+- `O1`: Associated with the variable `entryConveyor`, which is responsible for activating the relay that will operate the entry conveyor motor.
+- `O2`: Associated with the variable `sortingConveyor`, which is responsible for activating the relay that will operate the sorting conveyor motor.
+- `O3`: Associated with the variable `greenSortingActuator`, which is responsible for activating the relay that will trigger the sorting actuator for green-colored objects.
+- `O4`: Associated with the variable `blueSortingActuator`, which is responsible for activating the relay that will trigger the sorting actuator for blue-colored objects.
+
+The image below illustrates the association between the physical outputs and the variables.
+
+![Programmable Inputs](assets/relay-outputs.png)
+
+**Step-by-Step Ladder Logic Breakdown:**
 
 The **Rung 01**
 
@@ -163,7 +218,7 @@ The **Rung 01**
 - `startSystem`: This is a coil (output) that gets activated when the system should start. When this output is active (high), it indicates that the system is in the starting state.
 - `out_cloudStartButtonStatus`: This output signal communicates the status of the Start button to the Arduino Cloud. When the Start button is physically pressed, this variable updates to reflect the button’s status in the Arduino Cloud.
 
-**Resume**: This rung enables the system to start based on either a cloud command (in_cloudStartButton) or a physical start button (startButton). If either input is active, the system starts (startSystem is energized) and a feedback signal (out_cloudStartButtonStatus) is sent to the Arduino Cloud.
+**Resume**: This rung enables the system to start based on either a cloud command (`in_cloudStartButton`) or a physical start button (`startButton`). If either input is active, the system starts (`startSystem` is energized) and a feedback signal (`out_cloudStartButtonStatus`) is sent to the Arduino Cloud.
 
 The **Rung 02**
 
@@ -174,7 +229,7 @@ The **Rung 02**
 - `stopSystem`: This is a coil (output) that gets activated when the system should stop. When this output is active (high), it indicates that the system is in a stopped state.
 - `out_cloudStopButtonStatus`: This output signal communicates the status of the Stop button to the Arduino Cloud. When the Stop button is physically pressed, this variable updates to reflect the button’s status in the Arduino Cloud.
 
-**Resume**: This rung stops the system based on either a cloud command (in_cloudStopButton) or a physical stop button (stopButton). When either input is active, the system stops (stopSystem is energized), and a feedback signal (out_cloudStopButtonStatus) is sent to the Arduino Cloud.
+**Resume**: This rung stops the system based on either a cloud command (`in_cloudStopButton`) or a physical stop button (`stopButton`). When either input is active, the system stops (`stopSystem` is energized), and a feedback signal (`out_cloudStopButtonStatus`) is sent to the Arduino Cloud.
 
 The **Rung 03**
 
@@ -184,13 +239,13 @@ The **Rung 03**
 - `stopSystem`: This input is activated when the system is in stopping mode. It is energized based on the logic from previous steps that command the system to stop.
 - `runSystem`: This is a coil (output) that gets energized when the system is in the running state. When this output is active, it indicates that the system is currently operational.
 
-**Resume**: This rung controls the system's transition to the running state. The system will enter the running state (runSystem is energized) if a start command is given (startSystem is active) and no stop command is present (stopSystem is inactive). Once the system is running, it will remain in this state until a stop command is issued.
+**Resume**: This rung controls the system's transition to the running state. The system will enter the running state (`runSystem` is energized) if a start command is given (`startSystem` is active) and no stop command is present (`stopSystem` is inactive). Once the system is running, it will remain in this state until a stop command is issued.
 
 The **Rung 04**
 
 ![Conveyor and Sorting System](assets/Rung04.png)
 
-- `runSystem`: This input is energized when the system is in the running state. It indicates that the overall system is opera+tional.
+- `runSystem`: This input is energized when the system is in the running state. It indicates that the overall system is operational.
 - `sortedTime`: This input represents a timing condition related to the brief stop of the entry conveyor when a color is detected.
 - `sortingConveyor`: This is a coil (output) that is energized to activate the sorting conveyor, which is responsible for moving objects to the sorting area.
 - `entryConveyor`: This is a coil (output) that is energized to activate the entry conveyor, responsible for moving objects into the sorting conveyor.
@@ -213,7 +268,7 @@ The **Rung 06**
 - `colorBlueSensor`: This input represents the color sensor that detects whether an object is blue. When this sensor is active (high), it indicates that a blue object has been detected.
 - `blueSortingActuator`: This is a coil (output) that, when energized, activates the mechanism responsible for sorting blue objects. The (S) symbol indicates that this output is a "Set" coil, meaning it will remain energized once triggered. This keeps the actuator activated until a "Reset" signal is given, confirming that the item has been sorted.
 
-**Resume**: This rung triggers the blue sorting mechanism (`blueSortingActuator`) when a blue object is detected by the sensor (`colorGreenSensor`). The actuator will stay activated until reset, ensuring that the blue object is sorted correctly.
+**Resume**: This rung triggers the blue sorting mechanism (`blueSortingActuator`) when a blue object is detected by the sensor (`colorBlueSensor`). The actuator will stay activated until reset, ensuring that the blue object is sorted correctly.
 
 The **Rung 07**
 
@@ -273,7 +328,6 @@ The **Rung 11**
 
 **Resume**: This rung counts the number of green objects detected while the system is running. The `out_counterGreen` increments each time a green object passes the `photoelectricGreenSensor`, and the count continues until the system is stopped. The `out_counterGreen` variable also allows the number of sorted green objects to be displayed on the Arduino Cloud Dashboard in real-time.
 
-
 The **Rung 12**
 
 ![Conveyor and Sorting System](assets/Rung12.png)
@@ -288,9 +342,9 @@ The **Rung 12**
 
 ## Opta Sketch Code
 
-You can download the code for the Opta PLC [here](assets/ConveyorSortingSystem.zip).
+You can download the code for the Opta [here](assets/ConveyorSortingSystem.zip).
 
-To integrate Arduino Cloud with Opta, it is essential to write Arduino Sketch code (based on C++) within the Opta PLC IDE. This code is crucial for establishing reliable communication, enabling the control and monitoring of Opta's variables, inputs, and outputs.
+To integrate Arduino Cloud with Opta, it is essential to write Arduino Sketch code (based on C++) within the Arduino PLC IDE. This code is crucial for establishing reliable communication, enabling the control and monitoring of Opta's variables, inputs, and outputs.
 
 The first step to ensure proper functionality is to add the necessary libraries. These libraries are collections of pre-written code that developers can integrate into their projects to perform specific functions or tasks. They offer ready-made solutions to common challenges, saving time and effort, and are essential for establishing effective communication between the Opta and the Arduino Cloud.
 
@@ -298,7 +352,7 @@ The first step to ensure proper functionality is to add the necessary libraries.
 
 To ensure proper functionality and establish effective communication between the Opta and the Arduino Cloud, the following libraries and their respective minimum versions are required:
 
-| Library                        | Version | Description                                                                 |
+| **Library**                        | **Version** | **Description**                                                                 |
 |--------------------------------|---------|-----------------------------------------------------------------------------|
 | **ArduinoIoTCloud**            | 1.15.1  | This library allows connecting to the Arduino IoT Cloud service. It provides a ConnectionManager to handle connection/disconnection, property-change updates and events callbacks. |
 | **Arduino_ConnectionHandler**   | 0.8.1   | Arduino Library for network connection management (WiFi, GSM, NB, [Ethernet]). |
@@ -310,9 +364,19 @@ To ensure proper functionality and establish effective communication between the
 
 These libraries are indexed. They are certified to ensure optimal performance and reliability. Using them will accelerate your development process and strengthen the durability of your applications, especially in industrial environments. By incorporating these libraries with the specified versions, developers can efficiently establish and maintain secure and reliable communication between Opta and the Arduino Cloud, enabling robust control, monitoring, and remote updates.
 
+In the Arduino PLC IDE, you can find the section to add libraries under the `Resources` tab, and then by clicking on `Libraries`. The image below illustrates the addition of these libraries.
+
+![Arduino PLC IDE Libraries](assets/arduino-plc-libraries.png)
+
 ### Arduino Sketch Code
 
 With the necessary libraries in place, we can now create code that seamlessly integrates the Opta device with the Arduino Cloud. The provided code is designed to establish a stable and secure connection between the Opta device and the Arduino Cloud, allowing you to monitor and control the conveyor and sorting system remotely. This enables real-time interaction with your system, ensuring that any changes in the system's status are immediately reflected in the cloud and vice versa.
+
+To find the section that contains the code in Arduino Sketch, go to the `Resources` tab and then select the `Sketch` option, as shown in the figure below. This is the section where we will place the code responsible for communicating with the Arduino Cloud.
+
+![Arduino PLC IDE Sketch](assets/arduino-plc-sketch.png)
+
+And below is the code contained in the screenshot above:
 
 ```arduino
 #include <ArduinoIoTCloud.h> // Library for Arduino IoT Cloud functionalities
@@ -401,9 +465,13 @@ void onStopButtonChange()  {
   PLCIn.in_cloudStopButton = cloudStopButton;
 }
 ```
-To explain the code, we will divide it into four sections: Global Declarations and Initialization, setup Function, loop Function, and initProperties and Callbacks.
+To explain the code, we will divide it into four sections: 
+- Global Declarations and Initialization
+- Setup Function
+- Loop Function
+- initProperties and Callbacks.
 
-### **First Section: Global Declarations and Initialization**
+### First Section: Global Declarations and Initialization
 
 ```arduino
 #include <ArduinoIoTCloud.h> // Library for Arduino IoT Cloud functionalities
@@ -429,26 +497,34 @@ int  cloudBlueSorted;
 WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);
 
 ```
+
 **Explanation:**
 
 1. **Library Inclusions**:
-   - `#include <ArduinoIoTCloud.h>`: This library provides the necessary functions to connect and interact with the Arduino Cloud.
-   - `#include <Arduino_ConnectionHandler.h>`: This library manages the connection between the device and the Arduino Cloud.
+
+   `#include <ArduinoIoTCloud.h>`: This library provides the necessary functions to connect and interact with the Arduino Cloud.
+   
+   `#include <Arduino_ConnectionHandler.h>`: This library manages the connection between the device and the Arduino Cloud.
 
 2. **Network Credentials**:
-   - `const char SSID[] = "NETWORK_SSID";` and `const char PASS[] = "NETWORK_PASS";`: These constants store the WiFi network's SSID and password, necessary for connecting the device to the network. You need to replace `NETWORK_SSID` with your Wi-Fi network's SSID and `NETWORK_PASS` with your Wi-Fi password.
+
+   `const char SSID[] = "NETWORK_SSID";` and `const char PASS[] = "NETWORK_PASS";`: These constants store the WiFi network's SSID and password, necessary for connecting the device to the network. You need to replace `NETWORK_SSID` with your Wi-Fi network's SSID and `NETWORK_PASS` with your Wi-Fi password.
 
 3. **Function Prototypes**:
-   - `void onStartButtonChange();` and `void onStopButtonChange();`: These are function declarations for handling changes in the start and stop buttons state when received from the cloud.
+
+   `void onStartButtonChange();` and `void onStopButtonChange();`: These are function declarations for handling changes in the start and stop buttons state when received from the cloud.
 
 4. **Cloud-Linked Variables**:
-   - `bool cloudStartButton;`, `bool cloudStopButton;`, `bool cloudRunningSystem;`: These boolean variables represent the state of the start/stop buttons and the running system status in the cloud.
-   - `int cloudRedSorted;`, `int cloudGreenSorted;`, `int cloudBlueSorted;`: These integer variables track the number of red, green, and blue items sorted and are synchronized with the cloud.
+
+   `bool cloudStartButton;`, `bool cloudStopButton;`, `bool cloudRunningSystem;`: These boolean variables represent the state of the start/stop buttons and the running system status in the cloud.
+
+   `int cloudRedSorted;`, `int cloudGreenSorted;`, `int cloudBlueSorted;`: These integer variables track the number of red, green, and blue items sorted and are synchronized with the cloud.
 
 5. **WiFi Connection Handler**:
-   - `WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);`: This object manages the WiFi connection to the Arduino Cloud using the provided SSID and password.
 
-### **Second Section: Setup Function**
+   `WiFiConnectionHandler ArduinoIoTPreferredConnection(SSID, PASS);`: This object manages the WiFi connection to the Arduino Cloud using the provided SSID and password.
+
+### Second Section: Setup Function
 
 ```arduino
 void setup() {
@@ -474,27 +550,28 @@ void setup() {
   ArduinoCloud.printDebugInfo();
 }
 ```
+
 **Explanation:**
 
 The `setup` function in Arduino programming is a crucial function that executes once when the Arduino board is powered on or reset. It’s responsible for initializing settings and configuring the system before the main program starts running. In the `setup` function, you typically establish communication (such as starting the serial monitor), configure pin modes, connect to networks, and initialize variables and libraries. This function ensures the Arduino is fully prepared for the `loop` function that follows, allowing for continuous and smooth operation. In this sketch, we are setting up:
 
 1. **Serial Communication Initialization**:
-   - `Serial.begin(9600);`: Initializes the serial communication at a baud rate of 9600, allowing you to monitor the device's output through the Serial Monitor.
+- `Serial.begin(9600);`: Initializes the serial communication at a baud rate of 9600 bps, allowing you to monitor the device's output through the Serial Monitor.
 
 2. **Delay**:
-   - `delay(1500);`: A delay of 1.5 seconds is introduced to ensure that the Serial Monitor has time to open before continuing.
+- `delay(1500);`: A delay of 1.5 seconds is introduced to ensure that the Serial Monitor has time to open before continuing.
 
 3. **Properties Initialization**:
-   - `initProperties();`: This function is defined later in the code and is responsible for linking the local variables with the Arduino Cloud properties.
+- `initProperties();`: This function is defined later in the code and is responsible for linking the local variables with the Arduino Cloud properties.
 
 4. **Arduino Cloud Connection**:
-   - `ArduinoCloud.begin(ArduinoIoTPreferredConnection);`: This command connects the device to the Arduino Cloud using the specified WiFi credentials.
+- `ArduinoCloud.begin(ArduinoIoTPreferredConnection);`: This command connects the device to the Arduino Cloud using the specified WiFi credentials.
 
 5. **Debugging Information**:
-   - `setDebugMessageLevel(2);`: Sets the level of debug information. A higher number provides more detailed information about network and cloud connection states. The default is 0 (only errors), and the maximum is 4 (most detailed).
-   - `ArduinoCloud.printDebugInfo();`: Prints debug information about the cloud connection to the Serial Monitor.
+- `setDebugMessageLevel(2);`: Sets the level of debug information. A higher number provides more detailed information about network and cloud connection states. The default is 0 (only errors), and the maximum is 4 (most detailed).
+- `ArduinoCloud.printDebugInfo();`: Prints debug information about the cloud connection to the Serial Monitor.
 
-**Third Section: Loop Function**
+### Third Section: Loop Function
 
 ```arduino
 void loop() {
@@ -516,27 +593,27 @@ void loop() {
 The `loop` function in Arduino programming is a core function that runs continuously after the setup function has finished executing. This is where the main logic of your program resides. The `loop` function repeats over and over, allowing the Arduino to check inputs, control outputs, and perform tasks repeatedly as long as the board is powered on. It’s in this function that you’ll handle real-time operations, such as reading sensor data, controlling motors, or updating displays. By continuously executing the code within loop, the Arduino can respond dynamically to changes in its environment, ensuring ongoing and responsive operation. The loop function in this sketch is responsible for:
 
 1. **Cloud Connection Maintenance**:
-   - `ArduinoCloud.update();`: This function keeps the connection to the Arduino Cloud alive and synchronizes the cloud-linked variables with their current values.
+- `ArduinoCloud.update();`: This function keeps the connection to the Arduino Cloud alive and synchronizes the cloud-linked variables with their current values.
 
 2. **Start Button Status**:
-   - `cloudStartButton = PLCOut.out_cloudStartButtonStatus;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
+- `cloudStartButton = PLCOut.out_cloudStartButtonStatus;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
 3. **Stop Button Status**:
-   - `cloudStopButton = PLCOut.out_cloudStopButtonStatus;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
+- `cloudStopButton = PLCOut.out_cloudStopButtonStatus;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
 4. **System Running Status**:
-   - `cloudRunningSystem = PLCOut.out_cloudRunningSystem;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
+- `cloudRunningSystem = PLCOut.out_cloudRunningSystem;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
 5. **Red Items Sorted Count**:
-   - `cloudRedSorted = PLCOut.out_counterRed;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
+- `cloudRedSorted = PLCOut.out_counterRed;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
 6. **Green Items Sorted Count**:
-   - `cloudGreenSorted = PLCOut.out_counterGreen;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
+- `cloudGreenSorted = PLCOut.out_counterGreen;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
 7. **Blue Items Sorted Count**:
-   - `cloudBlueSorted = PLCOut.out_counterBlue;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
+- `cloudBlueSorted = PLCOut.out_counterBlue;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
-**Fourth Section:  InitProperties and Callbacks**
+### Fourth Section:  InitProperties and Callbacks
 
 ```arduino
 void initProperties(){
@@ -571,15 +648,16 @@ void onStopButtonChange()  {
 **Explanation:**
 
 1. **`initProperties` Function**:
-   - `ArduinoCloud.update();`:This function links the cloud variables with their respective properties in the Arduino Cloud. Each property is set with specific attributes:
-     - **`READWRITE`**: The property can be read from and written to by the cloud.
-     - **`READ`**: The property can only be read by the cloud.
-     - **`ON_CHANGE`**: The associated function (callback) is called whenever the value of the property changes.
-   - `onStartButtonChange` and `onStopButtonChange` are callback functions that execute whenever the `cloudStartButton` or `cloudStopButton` values change.
+
+   `ArduinoCloud.update();`: This function links the cloud variables with their respective properties in the Arduino Cloud. Each property is set with specific attributes:
+- **`READWRITE`**: The property can be read from and written to by the cloud.
+- **`READ`**: The property can only be read by the cloud.
+- **`ON_CHANGE`**: The associated function (callback) is called whenever the value of the property changes.
+- `onStartButtonChange` and `onStopButtonChange` are callback functions that execute whenever the `cloudStartButton` or `cloudStopButton` values change.
 
 2. **Callback Functions**:
-   - **`onStartButtonChange()`**: Updates the local start button state (`PLCIn.in_cloudStartButton`) whenever the `cloudStartButton` value changes in the cloud.
-   - **`onStopButtonChange()`**: Updates the local stop button state (`PLCIn.in_cloudStopButton`) whenever the `cloudStopButton` value changes in the cloud.
+- **`onStartButtonChange()`**: Updates the local start button state (`PLCIn.in_cloudStartButton`) whenever the `cloudStartButton` value changes in the cloud.
+- **`onStopButtonChange()`**: Updates the local stop button state (`PLCIn.in_cloudStopButton`) whenever the `cloudStopButton` value changes in the cloud.
 
 ***You can download the complete code from [here](assets/ConveyorSortingSystem.zip).***
 
@@ -616,6 +694,6 @@ This application demonstrates how Arduino's environment simplifies the workflow 
 
 ### Next Steps
 
-Now that you know how to develop a smart conveyor and sorting system with the Opta PLC and the Arduino Cloud, it’s time to continue exploring all the capabilities of the Arduino Pro environment. Integrate it into your professional setup and enhance it with powerful solutions.
+Now that you know how to develop a smart conveyor and sorting system with the Opta and the Arduino Cloud, it’s time to continue exploring all the capabilities of the Arduino Pro environment. Integrate it into your professional setup and enhance it with powerful solutions.
 
 You can take this solution even further by incorporating advanced algorithms for real-time data analysis, such as tracking efficiency metrics or optimizing sorting accuracy based on specific sensor data.
