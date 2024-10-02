@@ -613,7 +613,7 @@ The `loop` function in Arduino programming is a core function that runs continuo
 7. **Blue Items Sorted Count**:
 - `cloudBlueSorted = PLCOut.out_counterBlue;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
-### Fourth Section:  InitProperties and Callbacks
+### Fourth Section: InitProperties and Callbacks
 
 ```arduino
 void initProperties(){
