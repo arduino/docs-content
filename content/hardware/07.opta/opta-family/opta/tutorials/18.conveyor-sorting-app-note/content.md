@@ -24,7 +24,7 @@ Such systems are critical in environments that demand high productivity and prec
 
 Considering this type of industrial system, we will use the Opta™ and its capability to connect with Arduino Cloud to control a conveyor and sorting system that can separate items based on their color. The entire system will be integrated into the cloud, providing real-time control and monitoring.
 
-![ ](assets/arduino-cloud-overview.png)
+![ ](assets/thumbnail.png)
 
 Due to the use of the Opta™, this solution will be cost-effective and offer remote access, allowing for monitoring and control of the status of the application's key elements.
 
@@ -42,7 +42,7 @@ The main objective of this application is to demonstrate the capability of the O
 
 ## Hardware and Software Requirements
 
-![Hardware Used](assets/hardware-setting.png)
+![Hardware Used](assets/hardware-setting-2.png)
 
 ### Hardware Requirements
 
@@ -78,29 +78,29 @@ To improve clarity, an overview of the electrical connections for the conveyor a
 
 The diagram below provides a summary of the connections for the conveyor and sorting system:
 
-![Electrical connections of the conveyor and sorting system](assets/wiring-overview.png)
+![Electrical connections of the conveyor and sorting system](assets/wiring-overview-1.png)
 
 The diagram above illustrates all the equipment connected to the Opta. We have the Opta powered by a 24 Volt DC source. In the PLC input section, we have the connections for the RGB color sensor, the photoelectric sensors, and the start and stop push buttons. As for the outputs, we have the connections of four relays responsible for activating the motors that will move the conveyors and the electric actuators that will operate to perform the sorting of the items. It is important to note that the motors are not connected directly to the Opta outputs, as these outputs cannot supply the required current to drive the motors directly. Instead, the Opta controls the relays, which in turn safely handle the current and voltage necessary to operate the motors and actuators, ensuring the proper protection of the PLC from overloads and potential damage.
 
 To ensure proper operation, the Opta requires a stable power source. The Opta will be powered by an external 24 VDC power supply, which should be connected to its screw terminals labeled `+` and `-` respectively. This setup ensures the device receives the necessary voltage for consistent and reliable performance.
 
-![Opta power supply connection](assets/opta-power.png)
+![Opta power supply connection](assets/opta-power-1.png)
 
 The RGB Color Sensor is connected to inputs `I1`, `I2`, and `I3`, which detect red, green, and blue colors, respectively. Each input is linked to a corresponding output of the RGB color sensor, which operates in a binary (on/off) manner. This means that each output will either be active (on) or inactive (off), depending on whether the sensor detects its specific color.
 
-![RGB Color Sensor Connection](assets/rgb-sensor-wiring.png)
+![RGB Color Sensor Connection](assets/rgb-sensor-wiring-1.png)
 
 The three photoelectric sensors are connected to inputs `I4`, `I5`, and `I6`, respectively. Each input is linked to a corresponding output of the photoelectric sensor, which operates in a binary (on/off) manner. The sensor connected to `I4` is responsible for detecting red objects, the sensor connected to `I5` is responsible for detecting green objects, and the sensor connected to `I6` is responsible for detecting blue objects. Each output will either be active (on) or inactive (off), depending on whether the sensor detects an object in its detection range.
 
-![Photoeletric Sensor Connection](assets/photoeletric-sensor-wiring.png)
+![Photoeletric Sensor Connection](assets/photo-sensor-wiring.png)
 
 The button connected to `I7` is the start button, configured as normally open (NO), meaning it activates the circuit when pressed. The button connected to `I8` is the stop button, configured as normally closed (NC), meaning it interrupts the circuit when pressed.
 
-![Start and Stop Buttons](assets/button-wiring.png)
+![Start and Stop Buttons](assets/button-wiring-1.png)
 
 The Opta's outputs are connected to relays that safely manage the current and voltage required to operate the motors and actuators, thus preventing any potential damage to the Opta’s outputs. Output `O1` is linked to the relay that controls the motor of the input conveyor, while output `O2` is connected to the relay responsible for driving the motor of the sorting conveyor. Output `O3` controls the relay for the actuator that sorts green-colored items, and the final output, `O4`, manages the relay for the actuator sorting blue-colored items. Red items will pass directly along the conveyor without being segregated.
 
-![Actuators wiring](assets/relay-wiring.png)
+![Actuators wiring](assets/relay-wiring-1.png)
 
 ***The wiring connections shown above are displayed separately for easier comprehension, but all of them are simultaneously connected to the Opta.***
 
@@ -108,7 +108,7 @@ The Opta's outputs are connected to relays that safely manage the current and vo
 
 The Opta is responsible for controlling the entire system by reading color and presence sensors, executing control logic to manage the outputs, including operating the conveyor motor to move it and controlling electrical actuators to perform item separation based on detected colors. Additionally, the Opta will provide the states of the variables, inputs, and outputs of the system for updating data in the Arduino Cloud via Wi-Fi® connection.
 
-![Conveyor and Sorting System](assets/conveyor-and-sorting-overview.png)
+![Conveyor and Sorting System](assets/overview-1.png)
 
 The system is activated when the 'Start' button is pressed, initiating the operation of both the feeder conveyor and the sorting conveyor. The feeder conveyor is responsible for transporting objects from the initial loading point toward the sorting area and the sorting conveyor is responsible to receive the object from the feeder conveyor and transport it to the designated area for sorting. The object move along the feeder conveyor until the RGB color sensor detects a specific color.
 
