@@ -2193,6 +2193,12 @@ systemctl stop ModemManager
 
 After stopping **ModemManager**, there will be a delay before the modem can be powered back on and detected by **mmcli**. The delay is around 20 seconds for appropriate initialization.
 
+Make sure the mini PCIe power configuration is configured as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta X8 requires the **PCIE Enable (GPIO5)** pin to be connected to a **VCC (3V3)** pin. This is a mandatory power setup for proper system operation.
+
+The modems may get stuck during operation, so managing power through software is recommended to allow modem rebooting when necessary. This method also helps to handle modem failures in case it happens.
+
+To adjust for modem initialization, an extended delay of **20 seconds** is required for the modem to power up properly.
+
 #### Modem Configuration
 
 #### Global EG25 Module
@@ -2235,13 +2241,15 @@ Inside the container, an **entrypoint.sh** script can control the modem's power 
 gpioset gpiochip5 5=1
 ```
 
+***It is mandatory to have **PCIE Enable (GPIO5)** pin connected to the **VCC (3V3)** pin to enable the 3.3V Buck Converter.***
+
 This will enable the power to the modem, and add a delay for modem initialization:
 
 ```bash
 sleep 20
 ``` 
 
-This configuration ensures proper modem control and avoids power issues during startup.
+This configuration ensures proper modem control and avoids power issues during startup. For the following example, we will use the **Pro 4G Module GNSS Global (EG25)**.
 
 Once the modem is powered on, use **qmicli** to configure and manage the modem. For instance, to check the modem status, use:
 
