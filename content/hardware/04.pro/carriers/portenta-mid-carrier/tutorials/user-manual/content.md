@@ -2092,7 +2092,7 @@ fw_setenv carrier_name mid
 fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_breakout_usbfs ov_carrier_mid_pcie_mini'
 ```
 
-For managing the Pro 4G Module (EG25 and EC200A-EU), you **only need the USB overlay**, and **mPCIe overlay is not necessary** for these USB modems. You can configure the necessary USB overlays using the following command:
+For managing the Pro 4G Module (**EG25** and **EC200A-EU**), you **only need the USB overlay (`ov_carrier_breakout_usbfs`)**, and **mPCIe overlay (`ov_carrier_mid_pcie_mini`) is not necessary** for these USB modems. You can configure the necessary USB overlays using the following command:
 
 ```bash
 fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_breakout_usbfs'
@@ -2134,7 +2134,7 @@ Select **Ok** to confirm, and the device will be configured with the overlays fo
 
 #### Enabling the Module via GPIO
 
-The module must be enabled, and this can be accomplished either by putting the GPIO 5 (iMX8 Pin 165) manually via the 3.3V line or by command as follows: 
+The module must be enabled, and this can be accomplished by putting the GPIO 5 (iMX8 Pin 165) manually via the 3.3V line and additionally securing with a command as follows: 
 
 ```bash
 echo 165 > /sys/class/gpio/export
@@ -2173,7 +2173,19 @@ The **ModemManager** service manages the power for the Pro 4G Module via a scrip
 - **Global EG25 Module**: This modem is supported directly by **NetworkManager**, which works alongside **ModemManager**.
 - **EU EC200A-EU Module**: This modem is **not officially supported** by **ModemManager** and creates a USB `eth0` connection. This can be remapped into an `ec200aeu` network device using an `udev` rule.
 
-The modem is powered down when **ModemManager** is stopped using
+Power management is handled by **ModemManager** using the following script setup. Before starting **ModemManager**, the system runs a script to power on the modem, and another script is run after the service stops to power off the modem:
+
+```bash
+systemctl cat ModemManager.service
+```
+
+The relevant parts of the service configuration include:
+
+- `ExecStartPre=/usr/sbin/modem_on.sh`: Powers on the modem before starting ModemManager.
+- `ExecStart=/usr/sbin/ModemManager`: Starts the ModemManager service.
+- `ExecStopPost=/usr/sbin/modem_off.sh`: Powers of the modem after stopping ModemManager.
+
+To manually stop the **ModemManager** service, use the following command:
 
 ```bash
 systemctl stop ModemManager
@@ -2499,7 +2511,7 @@ If ModemManager is disabled or if you prefer an alternative method, you can use 
 sudo qmicli -d /dev/cdc-wdm0 --dms-get-manufacturer
 ```
 
-Power management for the EC200A-EU module may require manual intervention, especially if ModemManager is disabled. You can power on the modem using a custom script that leverages the `gpiod` library. The script would include commands to set the GPIO pin high and then wait a few seconds for the modem to become available, for example: 
+Power management for the EC200A-EU module may require manual intervention, especially if ModemManager is disabled. You can power on the modem using a custom script that leverages the `gpiod` library. The script would include commands to set the GPIO pin high and then wait around 20 seconds for the modem to become available, for example: 
 
 ```bash
 gpiod set-value <gpio-pin> 1
@@ -2508,7 +2520,7 @@ gpiod set-value <gpio-pin> 1
 Followed by:
 
 ```bash
-sleep 10
+sleep 20
 ```
 
 #### Docker Container Considerations
