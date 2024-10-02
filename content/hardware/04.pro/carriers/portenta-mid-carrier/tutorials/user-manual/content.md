@@ -2092,7 +2092,7 @@ fw_setenv carrier_name mid
 fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_breakout_usbfs ov_carrier_mid_pcie_mini'
 ```
 
-For managing the Pro 4G Module (**EG25** and **EC200A-EU**), you **only need the USB overlay (`ov_carrier_breakout_usbfs`)**, and **mPCIe overlay (`ov_carrier_mid_pcie_mini`) is not necessary** for these USB modems. You can configure the necessary USB overlays using the following command:
+For managing the Pro 4G Module (**EG25** and **EC200A-EU**), you **only need the USB overlay (`ov_carrier_breakout_usbfs`)**, and **mPCIe overlay (`ov_carrier_mid_pcie_mini`) is not necessary** for these USB modems. You can configure the necessary overlays with USB overlay using the following command:
 
 ```bash
 fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_breakout_usbfs'
@@ -2166,7 +2166,7 @@ ip link set dev wwan0 up
 
 This step ensures the modem functions properly in QMI mode.
 
-#### ModemManager and Power Management
+#### ModemManager and Power Management Service
 
 The **ModemManager** service manages the power for the Pro 4G Module via a script. **Global (EG25)** and **EU (EC200A-EU)** modems are different and require different configurations:
 
@@ -2191,39 +2191,57 @@ To manually stop the **ModemManager** service, use the following command:
 systemctl stop ModemManager
 ```
 
-After stopping **ModemManager**, there will be a delay before the modem can be powered back on and detected by **mmcli**.
+After stopping **ModemManager**, there will be a delay before the modem can be powered back on and detected by **mmcli**. The delay is around 20 seconds for appropriate initialization.
 
 #### Modem Configuration
 
-For the **Global EG25 Module**, you can configure the modem using **NetworkManager** with the following command:
+#### Global EG25 Module
+
+The **Global EG25 Module** is supported by **NetworkManager**, allowing you to configure it easily. To set up a connection, use the following command:
 
 ```bash
 nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.autoconnect yes
 ```
 
-For the **EU EC200A-EU Module**, **ModemManager** does not support it out of the box, so a patch is required for compatibility. You can then use the following command to connect:
+This command establishes a GSM connection on the `cdc-wdm0` interface and automatically connects to the `hologram` APN.
+
+#### EU EC200A-EU Module
+
+The **EU EC200A-EU Module** is not directly supported by **ModemManager** out of the box and requires a compatibility patch. Once the patch is applied, you can connect to the network using:
 
 ```bash
 mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
 ```
 
-The modems will create a USB 'eth0' interface that will be remapped into ec200aeu  by an udev rule```
+The modem will create a USB `eth0` interface that will be remapped into `ec200aeu` by an udev rule.
 
-In a Docker environment, it may be beneficial to disable **ModemManager** and control the modem using **qmicli**. To avoid conflicts, disable **ModemManager** with the following command:
+#### Docker Environment and Power Management
 
-```bash
-sudo systemctl stop ModemManager
-```
-
-Next, provide a Docker container with an **entrypoint.sh** script to manage the modem's power using **gpiod**:
+In a Docker environment, it may be helpful to disable **ModemManager** to avoid conflicts and instead control the modem using **qmicli**. You can disable **ModemManager** with the following command:
 
 ```bash
-gpiod set-value <gpio-pin> 1
+systemctl stop ModemManager
 ```
 
+For modem power management, ensure that the Docker container has access to the GPIO device files by passing them into the container:
+
 ```bash
-sleep 10
+docker run --device /dev/gpiochip5 <docker-image>
 ```
+
+Inside the container, an **entrypoint.sh** script can control the modem's power via GPIO. To enable the 3.3V Buck Converter, the following command can be added to the script:
+
+```bash
+gpioset gpiochip5 5=1
+```
+
+This will enable the power to the modem, and add a delay for modem initialization:
+
+```bash
+sleep 20
+``` 
+
+This configuration ensures proper modem control and avoids power issues during startup.
 
 Once the modem is powered on, use **qmicli** to configure and manage the modem. For instance, to check the modem status, use:
 
@@ -2511,7 +2529,7 @@ If ModemManager is disabled or if you prefer an alternative method, you can use 
 sudo qmicli -d /dev/cdc-wdm0 --dms-get-manufacturer
 ```
 
-Power management for the EC200A-EU module may require manual intervention, especially if ModemManager is disabled. You can power on the modem using a custom script that leverages the `gpiod` library. The script would include commands to set the GPIO pin high and then wait around 20 seconds for the modem to become available, for example: 
+Power management for the *EC200A-EU module* may require manual intervention, especially if **ModemManager** is disabled. You can power on the modem using a custom script that leverages the `gpiod` library. The script would include commands to set the GPIO pin high and then wait around 20 seconds for the modem to become available, for example: 
 
 ```bash
 gpiod set-value <gpio-pin> 1
