@@ -129,35 +129,35 @@ In this way, the Opta will serve as both a programmable logic controller and a g
 
 ## Step-by-Step Guide for System Operation
 
-1. **System Start**
+**System Start**
 - **Action:** Press the Start button.
 - **Description:** The system is activated, initiating the operation of both the feeder conveyor and the sorting conveyor.
 
-2. **Activation of Conveyors**
+**Activation of Conveyors**
 - **Action:** The feeder and sorting conveyors start operating simultaneously.
 - **Description:** The feeder conveyor moves objects from the initial loading point toward the RGB color sensor area.
 
-3. **Color Detection**
+**Color Detection**
 - **Action:** Objects move along the feeder conveyor until the RGB color sensor detects a specific color.
 - **Description:** The RGB color sensor detects the color of the object on the feeder conveyor.
 
-4. **Action After Detection**
+**Action After Detection**
 - **Action:** The feeder conveyor continues to run briefly after color detection.
 - **Description:** The feeder conveyor remains active for a short period to ensure the object successfully transfers to the sorting conveyor.
 
-5. **Actuator Activation**
+**Actuator Activation**
 - **Action:** Activate the specific actuator corresponding to the detected color.
 - **Description:** The actuator is triggered, creating a physical barrier that pushes the object off the sorting conveyor and into the designated area.
 
-6. **Sorting Confirmation**
+**Sorting Confirmation**
 - **Action:** Confirm the object has been sorted.
 - **Description:** A photoelectric sensor, positioned in the designated area for each color, confirms that the object has been successfully sorted.
 
-7. **System Stop**
+**System Stop**
 - **Action:** Press the stop button.
 - **Description:** The system is stopped, stopping all operations and deactivating the conveyors and actuator.
 
-8. **Remote Monitoring and Control**
+**Remote Monitoring and Control**
 - **Action:** Monitor and control the system via the Arduino Cloud.
 - **Description:**  At any time, you can check the operating status and control the system remotely using the Arduino Cloud interface.
 
