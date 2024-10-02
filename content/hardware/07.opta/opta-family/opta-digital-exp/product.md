@@ -1,5 +1,5 @@
 ---
-title: Opta Digital Expansion D1608E and D1608S
+title: Opta Digital Expansion D1608E - D1608S
 url_shop: https://store.arduino.cc/collections/pro-family
 url_guide: /tutorials/opta-digital-exp/user-manual
 primary_button_url: /tutorials/opta/user-manual#opta-digital-expansions
