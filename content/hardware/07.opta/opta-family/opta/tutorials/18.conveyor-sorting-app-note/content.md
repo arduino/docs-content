@@ -1,5 +1,5 @@
 ---
-title: 'Conveyor belt sorting with remote monitoring using Opta™'
+title: 'Conveyor Belt Sorting with Remote Monitoring using Opta™'
 difficulty: intermediate
 description: "This application note describes how to remotely control and monitor a conveyor and sorting system in real time using the Opta™ and its built-in cloud connectivity."
 tags:
