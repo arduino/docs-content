@@ -48,8 +48,8 @@ The main objective of this application is to demonstrate the capability of the O
 
 - [Opta™ WiFi](https://store.arduino.cc/products/opta-wifi) (x1)
 - 24 VDC Power Supply (x1)
-- Photoeletric Sensor (3x)
-- RGB Color Sensor (1x)
+- Photoeletric Sensor (x3)
+- RGB Color Sensor (x1)
 - Power Relay 24 V (Optional x4)
 - 18 AWG Wiring Cable
 - Green normally open push button (Start Button)
