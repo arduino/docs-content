@@ -2,18 +2,15 @@ Board:
   SKUs:
     Blues Wireless for Arduino Opta - Cellular Edition EMEA: TPX00220
     Blues Wireless for Arduino Opta - Cellular Edition NA: TPX00221
-    Blues Wireless for Arduino Opta - LoRa Edition EMEA: TPX00222
-    Blues Wireless for Arduino Opta - LoRa Edition NA: TPX00223
 Microcontroller:
   ID: STM32U575OIY6QTR ARM® Cortex®-M4
   Cortex-M4 core: Up to 160 MHz
 Power:
   Input voltage: 12-24 VDC
-Backup Power Supply: Vinatech VEL13353R8257G Lithium-Ion Capacitor with 250F @ 3.8V
-
+  Backup Power Supply: Vinatech VEL13353R8257G Lithium-Ion Capacitor with 250F @ 3.8V
 Connectivity:
   Cellular: LTE Cat 1 (North America or EMEA)
-  WiFi:
+  WiFi: 2.4 GHz
 Communication:
   I2C: AUX port to Opta controller
 Antennas: 2 x SMA connectors with 2 LTE antennas included
