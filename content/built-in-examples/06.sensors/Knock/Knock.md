@@ -21,7 +21,7 @@ Open the serial monitor to see this text.
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - Piezo electric disc
 

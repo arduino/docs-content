@@ -35,7 +35,7 @@ In this case, `lastOpeningBracket` equals 12, the position of the `<` for the BO
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 ### Circuit
 

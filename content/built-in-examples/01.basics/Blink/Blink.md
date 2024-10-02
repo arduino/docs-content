@@ -14,7 +14,7 @@ This example shows the simplest thing you can do with an Arduino to see physical
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 optional
 

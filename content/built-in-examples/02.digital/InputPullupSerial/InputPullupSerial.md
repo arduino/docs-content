@@ -16,7 +16,7 @@ Additionally, when the input is HIGH, the onboard LED attached to pin 13 will tu
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - A momentary switch, button, or toggle switch
 

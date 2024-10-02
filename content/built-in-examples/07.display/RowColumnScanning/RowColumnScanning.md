@@ -47,7 +47,7 @@ Here's a matrix of the pin connections, based on the diagram above:
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 - 8 x 8 LED Matrix
 - 2x 10k ohm potentiometers
 - hook-up wires

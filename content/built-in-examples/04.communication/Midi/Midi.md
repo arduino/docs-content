@@ -24,7 +24,7 @@ For more see this [introduction to MIDI](https://web.archive.org/web/20220331023
 
 ### Hardware Required
 
-- Arduino UNO
+- [Arduino UNO](https://store.arduino.cc/en-se/collections/boards-modules?filter.p.m.hardware_func.form_factor=Uno)
 
 - Female MIDI jack
 

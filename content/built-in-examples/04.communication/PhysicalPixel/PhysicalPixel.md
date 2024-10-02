@@ -16,7 +16,7 @@ The data can be sent from the Arduino Software (IDE) serial monitor, or another 
 
 ### Hardware Required
 
-- Arduino Board
+- [Arduino Board](https://store.arduino.cc/collections/boards-modules)
 
 - LED (optional)
 
