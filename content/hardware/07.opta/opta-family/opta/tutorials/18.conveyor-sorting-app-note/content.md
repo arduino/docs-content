@@ -1,8 +1,7 @@
 ---
-title: 'Color Sorting and Remote Monitoring with Opta™'
+title: 'Conveyor belt sorting with remote monitoring using Opta™'
 difficulty: intermediate
 description: "This application note describes how to remotely control and monitor a conveyor and sorting system in real time using the Opta™ and its built-in cloud connectivity."
-
 tags:
   - cloud
   - conveyor
@@ -11,7 +10,6 @@ tags:
   - opta
   - color
 author: 'Davidson Dantas and Thiago Alves'
-
 hardware:
   - hardware/07.opta/opta-family/opta
 ---
@@ -555,19 +553,19 @@ void setup() {
 
 The `setup` function in Arduino programming is a crucial function that executes once when the Arduino board is powered on or reset. It’s responsible for initializing settings and configuring the system before the main program starts running. In the `setup` function, you typically establish communication (such as starting the serial monitor), configure pin modes, connect to networks, and initialize variables and libraries. This function ensures the Arduino is fully prepared for the `loop` function that follows, allowing for continuous and smooth operation. In this sketch, we are setting up:
 
-1. **Serial Communication Initialization**:
+**Serial Communication Initialization**:
 - `Serial.begin(9600);`: Initializes the serial communication at a baud rate of 9600 bps, allowing you to monitor the device's output through the Serial Monitor.
 
-2. **Delay**:
+**Delay**:
 - `delay(1500);`: A delay of 1.5 seconds is introduced to ensure that the Serial Monitor has time to open before continuing.
 
-3. **Properties Initialization**:
+**Properties Initialization**:
 - `initProperties();`: This function is defined later in the code and is responsible for linking the local variables with the Arduino Cloud properties.
 
-4. **Arduino Cloud Connection**:
+**Arduino Cloud Connection**:
 - `ArduinoCloud.begin(ArduinoIoTPreferredConnection);`: This command connects the device to the Arduino Cloud using the specified WiFi credentials.
 
-5. **Debugging Information**:
+**Debugging Information**:
 - `setDebugMessageLevel(2);`: Sets the level of debug information. A higher number provides more detailed information about network and cloud connection states. The default is 0 (only errors), and the maximum is 4 (most detailed).
 - `ArduinoCloud.printDebugInfo();`: Prints debug information about the cloud connection to the Serial Monitor.
 
@@ -592,25 +590,25 @@ void loop() {
 
 The `loop` function in Arduino programming is a core function that runs continuously after the setup function has finished executing. This is where the main logic of your program resides. The `loop` function repeats over and over, allowing the Arduino to check inputs, control outputs, and perform tasks repeatedly as long as the board is powered on. It’s in this function that you’ll handle real-time operations, such as reading sensor data, controlling motors, or updating displays. By continuously executing the code within loop, the Arduino can respond dynamically to changes in its environment, ensuring ongoing and responsive operation. The loop function in this sketch is responsible for:
 
-1. **Cloud Connection Maintenance**:
+**Cloud Connection Maintenance**:
 - `ArduinoCloud.update();`: This function keeps the connection to the Arduino Cloud alive and synchronizes the cloud-linked variables with their current values.
 
-2. **Start Button Status**:
+**Start Button Status**:
 - `cloudStartButton = PLCOut.out_cloudStartButtonStatus;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
-3. **Stop Button Status**:
+**Stop Button Status**:
 - `cloudStopButton = PLCOut.out_cloudStopButtonStatus;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
-4. **System Running Status**:
+**System Running Status**:
 - `cloudRunningSystem = PLCOut.out_cloudRunningSystem;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
-5. **Red Items Sorted Count**:
+**Red Items Sorted Count**:
 - `cloudRedSorted = PLCOut.out_counterRed;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
-6. **Green Items Sorted Count**:
+**Green Items Sorted Count**:
 - `cloudGreenSorted = PLCOut.out_counterGreen;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
-7. **Blue Items Sorted Count**:
+**Blue Items Sorted Count**:
 - `cloudBlueSorted = PLCOut.out_counterBlue;`: Synchronizes the variable in the PLC with the variable in the Arduino Cloud.
 
 ### Fourth Section: InitProperties and Callbacks
@@ -647,7 +645,7 @@ void onStopButtonChange()  {
 
 **Explanation:**
 
-1. **`initProperties` Function**:
+**initProperties Function**:
 
    `ArduinoCloud.update();`: This function links the cloud variables with their respective properties in the Arduino Cloud. Each property is set with specific attributes:
 - **`READWRITE`**: The property can be read from and written to by the cloud.
@@ -655,7 +653,7 @@ void onStopButtonChange()  {
 - **`ON_CHANGE`**: The associated function (callback) is called whenever the value of the property changes.
 - `onStartButtonChange` and `onStopButtonChange` are callback functions that execute whenever the `cloudStartButton` or `cloudStopButton` values change.
 
-2. **Callback Functions**:
+**Callback Functions**:
 - **`onStartButtonChange()`**: Updates the local start button state (`PLCIn.in_cloudStartButton`) whenever the `cloudStartButton` value changes in the cloud.
 - **`onStopButtonChange()`**: Updates the local stop button state (`PLCIn.in_cloudStopButton`) whenever the `cloudStopButton` value changes in the cloud.
 
