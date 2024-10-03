@@ -312,15 +312,67 @@ fw_setenv is_on_carrier yes
 fw_setenv carrier_name max
 ```
 
-The previous commands are used to set environment variables, which we will use to set and use the needed overlays to link the mini PCIe interface under its profile. The overlays are as follows and set using the following command:
+The previous commands are used to set environment variables, which we will use to set and apply the needed overlays to link the USB modem interface under its profile. The overlays are as follows and set using the following command:
 
 ```bash
-fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_enuc_bq24195 ov_carrier_max_usbfs ov_carrier_max_sdc ov_carrier_max_cs42l52 ov_carrier_max_pcie_mini'
+fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_enuc_bq24195 ov_carrier_max_usbfs ov_carrier_max_sdc ov_carrier_max_cs42l52'
 ```
+
+***The `ov_carrier_max_pcie_mini` overlay is not required for USB modems such as the GNSS Global (EG25) and EMEA (EC200A-EU) variants of the Pro 4G Module.***
 
 Once the overlays are set, please reboot the Portenta X8 to ensure the configuration has been applied correctly.
 
 ### Connecting & Testing Network Connectivity
+
+#### GNSS Global EG25 Module
+
+For the **GNSS Global (EG25) Module**, you can configure the modem using **nmcli**:
+
+```bash
+nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.autoconnect yes
+```
+
+If your SIM card requires a PIN, update the command as follows:
+
+```bash
+nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn mobile.vodafone.it gsm.pin <PIN>
+```
+
+#### EMEA EC200A-EU Module
+
+For the **EMEA (EC200A-EU) Module**, which requires **mmcli**, use the following command to connect to the network after patching **ModemManager**:
+
+```bash
+mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
+```
+
+Ensure the `udev` rule remaps the USB `eth0` interface to `ec200aeu`. The rule can be applied as follows:
+
+```bash
+sudo nano /etc/udev/rules.d/99-remap-ec200aeu.rules
+```
+
+Add the following line:
+
+```bash
+SUBSYSTEM=="net", ACTION=="add", KERNEL=="eth0", NAME="ec200aeu"
+```
+
+Then reload the rules:
+
+```bash
+sudo udevadm control --reload-rules
+```
+
+```bash
+sudo udevadm trigger
+```
+
+#### For QMI-based Modems
+
+For **QMI-based modems**, modems that use *Qualcomm MSM Interface*, following steps can help configure the modem, which involves managing the **Raw IP mode** and using **qmicli** for network control.
+
+#### Setting up Raw IP Mode for QMI-based Modems
 
 With the overlays configured, the setup process involves bringing down the `wwan0` interface, setting it to raw IP mode, and then bringing it back up:
 
@@ -335,6 +387,8 @@ echo Y > /sys/class/net/wwan0/qmi/raw_ip
 ```bash
 ip link set dev wwan0 up
 ```
+
+#### Inspecting and Configuring the QMI-based Modem
 
 Following that, use `qmicli` commands to inspect the card's status and begin a network connection:
 
@@ -357,6 +411,54 @@ udhcpc -q -f -n -i wwan0
 ```
 
 ![PRO 4G GNSS Module - Dynamic IP Configuration](assets/portentaMAXcarrier_mpcie_dynamic.png)
+
+### Modem Power Management
+
+The modems might become unresponsive, so it is recommended that power can be controlled through software to allow modem rebooting when necessary. The **gpioset** command should include a jumper and a 20 second delay for proper initialization.
+
+```bash
+gpioset gpiochip5 5=1 #PCIE 3V3 BUCK EN (stm32h7 PE10)
+```
+
+This is applicable to both USB based and QMI based modems. After powering on the modem, allow **20 seconds** for the modem to initialize properly:
+
+```bash
+sleep 20
+```
+
+This ensures the modem powers up correctly and becomes available for network operations.
+
+### Docker Container Considerations
+
+In a Docker environment, it is often useful to disable **ModemManager** to avoid conflicts and instead control the modem using **qmicli** for QMI-based modems or use **nmcli/mmcli** for USB-based modems:
+
+```bash
+sudo systemctl stop ModemManager
+```
+
+For modem power management, the connection between the **PCIE Enable (GPIO5)** pin and **VCC (3V3)** pin is required for a proper power setup. This bridge ensures proper hardware functionality when controlling the modem power. Moreover, you should manage power through software to allow the modem to be rebooted in case it becomes unresponsive.
+
+Ensure that the Docker container has access to the GPIO device files by passing them into the container:
+
+```bash
+docker run --device /dev/gpiochip5 <docker-image>
+```
+
+Inside the container, an **entrypoint.sh** script can control the modem's power via GPIO, with the 3.3V Buck Converter line connected to the **PCIE Enable (GPIO5)** pin. The following command can be added to the script:
+
+```bash
+gpioset gpiochip5 5=1
+```
+
+***It is required to have **PCIE Enable (GPIO5)** pin connected to the **VCC (3V3)** pin to secure the power supply line.***
+
+This will enable the power to the modem and add a delay for proper modem initialization:
+
+```bash
+sleep 20
+``` 
+
+### Testing Network Connectivity and Speed
 
 We now have the Pro 4G Module with the Portenta X8 on the Porteta Max Carrier ready for use. To test the connection speed, perform a speed test by downloading the `speedtest-cli` script, making it executable, and running it within a Docker container:
 
