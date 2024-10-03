@@ -2089,14 +2089,10 @@ fw_setenv carrier_name mid
 ```
 
 ```bash
-fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_breakout_usbfs ov_carrier_mid_pcie_mini'
-```
-
-For managing the Pro 4G Module (**EG25** and **EC200A-EU**), you **only need the USB overlay (`ov_carrier_breakout_usbfs`)**, and **mPCIe overlay (`ov_carrier_mid_pcie_mini`) is not necessary** for these USB modems. You can configure the necessary overlays with USB overlay using the following command:
-
-```bash
 fw_setenv overlays 'ov_som_lbee5kl1dx ov_som_x8h7 ov_carrier_breakout_usbfs'
 ```
+
+For managing the Pro 4G Module (**GNSS Global (EG25)** and **EMEA (EC200A-EU)**), you **only need the USB overlay (`ov_carrier_breakout_usbfs`)**, and **mPCIe overlay (`ov_carrier_mid_pcie_mini`) is not necessary** for these USB modems. You can configure the necessary overlays with USB overlay using the following command:
 
 Alternatively, it is possible to use the **tenta-config** process implemented in the [GIGA Display Connector's Linux Setup](#using-linux-1) section to apply the overlays to enable mini PCIe for the Portenta Mid Carrier with the Portenta X8.
 
@@ -2191,13 +2187,11 @@ To manually stop the **ModemManager** service, use the following command:
 systemctl stop ModemManager
 ```
 
-After stopping **ModemManager**, there will be a delay before the modem can be powered back on and detected by **mmcli**. The delay is around 20 seconds for appropriate initialization.
+After stopping **ModemManager**, there will be a delay before the modem can be powered back on and detected by **mmcli**. The delay is around **20 seconds** for appropriate initialization.
 
-Make sure the mini PCIe power configuration is configured as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta X8 requires the **PCIE Enable (GPIO5)** pin to be connected to a **VCC (3V3)** pin. This is a required power setup for proper system operation.
+Make sure the mini PCIe power configuration is configured as described in the [Mini PCIe Power Breakout Header](#mini-pcie-power-breakout-header-j9) section. The Portenta X8 requires the **PCIE Enable (GPIO5)** pin to be connected to a **VCC (3V3)** pin.
 
-Modems may get stuck on certain occasions, so managing power through software is recommended to allow modem rebooting when necessary. This method also helps handle modem failures in case they happen.
-
-To adjust for modem initialization, an extended delay of **20 seconds** is required for the modem to power up properly.
+Modems may get stuck on certain occasions, so it is recommended that power be managed through software to allow modem rebooting when necessary.
 
 #### Modem Configuration
 
@@ -2213,7 +2207,7 @@ This command establishes a GSM connection on the `cdc-wdm0` interface and automa
 
 #### Zero Interface Ban Implementation for Global EG25 Module
 
-For the **Global EG25 Module**, it is important to consider a zero interface ban to prevent network conflicts. The zero interface (`cdc-wdm0` or similar) is often created automatically and can lead to connectivity issues. To avoid this, we can tell the system to ignore this interface when managing the modem.
+For the **Global EG25 Module**, it is important to consider a **zero interface ban** to prevent network conflicts. The zero interface (`cdc-wdm0` or similar) is often created automatically and can lead to connectivity issues. We can tell the system to ignore this interface when managing the modem to avoid this.
 
 To implement a zero interface ban, you can create a custom `udev` rule that prevents the system from using this interface. The following steps show how to create this rule.
 
@@ -2229,7 +2223,7 @@ In the rule file, write the following line to ignore the `cdc-wdm0` interface (C
 SUBSYSTEM=="net", ACTION=="add", KERNEL=="cdc-wdm0", ATTR{authorized}="0"
 ```
 
-This tells the system to disable the interface automatically. Then, reload the `udev` rules with the following commands:
+Then, reload the `udev` rules with the following commands:
 
 ```bash
 sudo udevadm control --reload-rules
@@ -2249,7 +2243,7 @@ The **EMEA (EC200A-EU) Module** is not directly supported by **ModemManager** ou
 mmcli -m 0 --simple-connect='apn=iot.1nce.net,ip-type=ipv4v6'
 ```
 
-The modem will create a USB `eth0` interface that will be remapped into `ec200aeu` by an **udev** rule.
+The modem will create a USB `eth0` interface that will be remapped into `ec200aeu` by an `udev` rule.
 
 #### Docker Environment and Power Management
 
@@ -2267,15 +2261,15 @@ Ensure that the Docker container has access to the GPIO device files by passing 
 docker run --device /dev/gpiochip5 <docker-image>
 ```
 
-Inside the container, an **entrypoint.sh** script can control the modem's power via GPIO, having the 3.3V Buck Converter line connected to **PCIE Enable (GPIO5)** pin, the following command can be added to the script:
+Inside the container, an **entrypoint.sh** script can control the modem's power via GPIO, with the 3.3V Buck Converter line connected to the **PCIE Enable (GPIO5)** pin. The following command can be added to the script:
 
 ```bash
 gpioset gpiochip5 5=1
 ```
 
-***It is required to have **PCIE Enable (GPIO5)** pin connected to the **VCC (3V3)** pin to secure power supply line.***
+***It is required to have __PCIE Enable (GPIO5)__ pin connected to the __VCC (3V3)__ pin to secure the power supply line.***
 
-This will enable the power to the modem and add a delay for modem initialization:
+This will enable the power to the modem and add a delay for proper modem initialization:
 
 ```bash
 sleep 20
