@@ -138,7 +138,10 @@ For more options on how to install libraries on your board, check out our [Insta
 You can connect the GIGA R1 to the Arduino Cloud with MicroPython. There are two main methods to create this connection `async` and `sync`.
 
 #### Async (Default)
-This is the method currently implemented by default with the Cloud. Asynchronous operations allow tasks to run independently of the main program flow. Functions can start and continue without waiting for other tasks to finish. This non-blocking behavior is achieved using techniques like callbacks, coroutines, or the async and await keywords in MicroPython. Asynchronous functions are particularly useful for handling network communication, as they enable the GIGA R1 to perform other operations (like reading sensors or updating outputs) while waiting for data from the Arduino Cloud.
+This is the method currently implemented by default with the Cloud. Asynchronous operations allow tasks to run independently of the main program flow. Functions can start and continue without waiting for other tasks to finish. This non-blocking behavior is achieved using techniques like callbacks, coroutines, or the async and await keywords in MicroPython. 
+
+Asynchronous functions are particularly useful for handling network communication, as they enable the boards to perform other operations (like reading sensors or updating outputs) while waiting for data from the Arduino Cloud.
+
 
 **Code example:**
 ```python
