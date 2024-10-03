@@ -82,23 +82,23 @@ The diagram above illustrates all the equipment connected to the Opta. We have t
 
 To ensure proper operation, the Opta requires a stable power source. The Opta will be powered by an external 24 VDC power supply, which should be connected to its screw terminals labeled `+` and `-` respectively. This setup ensures the device receives the necessary voltage for consistent and reliable performance.
 
-![Opta power supply connection](assets/opta-power-1.png)
+![Opta power supply connection](assets/opta-power.png)
 
 The RGB Color Sensor is connected to inputs `I1`, `I2`, and `I3`, which detect red, green, and blue colors, respectively. Each input is linked to a corresponding output of the RGB color sensor, which operates in a binary (on/off) manner. This means that each output will either be active (on) or inactive (off), depending on whether the sensor detects its specific color.
 
-![RGB Color Sensor Connection](assets/rgb-sensor-wiring-1.png)
+![RGB Color Sensor Connection](assets/rgb-sensor-wiring.png)
 
 The three photoelectric sensors are connected to inputs `I4`, `I5`, and `I6`, respectively. Each input is linked to a corresponding output of the photoelectric sensor, which operates in a binary (on/off) manner. The sensor connected to `I4` is responsible for detecting red objects, the sensor connected to `I5` is responsible for detecting green objects, and the sensor connected to `I6` is responsible for detecting blue objects. Each output will either be active (on) or inactive (off), depending on whether the sensor detects an object in its detection range.
 
-![Photoeletric Sensor Connection](assets/photo-sensor-wiring.png)
+![Photoelectric Sensor Connection](assets/photo-sensor-wiring-1.png)
 
 The button connected to `I7` is the start button, configured as normally open (NO), meaning it activates the circuit when pressed. The button connected to `I8` is the stop button, configured as normally closed (NC), meaning it interrupts the circuit when pressed.
 
-![Start and Stop Buttons](assets/button-wiring-1.png)
+![Start and Stop Buttons](assets/button-wiring.png)
 
 The Opta's outputs are connected to relays that safely manage the current and voltage required to operate the motors and actuators, thus preventing any potential damage to the Opta’s outputs. Output `O1` is linked to the relay that controls the motor of the input conveyor, while output `O2` is connected to the relay responsible for driving the motor of the sorting conveyor. Output `O3` controls the relay for the actuator that sorts green-colored items, and the final output, `O4`, manages the relay for the actuator sorting blue-colored items. Red items will pass directly along the conveyor without being segregated.
 
-![Actuators wiring](assets/relay-wiring-1.png)
+![Actuators wiring](assets/relay-wiring.png)
 
 ***The wiring connections shown above are displayed separately for easier comprehension, but all of them are simultaneously connected to the Opta.***
 
