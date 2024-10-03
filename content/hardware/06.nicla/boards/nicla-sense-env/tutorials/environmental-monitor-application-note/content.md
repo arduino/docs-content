@@ -91,23 +91,18 @@ The complete example sketch is shown below.
 
 ```arduino
 /**
-  Outdoor Air Quality Monitoring with Arduin
+  Outdoor Air Quality Monitoring with Arduino
   Name: outdoor_air_quality_monitor.ino
-  Purpose: This sketch reads temperature, humidity, outdoor air quality,
-  and particulate matter (PM 2.5 and PM 10) from the Nicla Sense Env
-  and a PMS7003 sensor from Plantower connected to the Portenta C33 board. 
-  The data is reported Arduino IDE's Serial Monitor every 10 seconds.
+  Purpose: This sketch reads temperature, humidity, and outdoor air quality
+  from the Nicla Sense Env connected to the Portenta C33 board.
+  The data is reported to the Arduino IDE's Serial Monitor every 10 seconds.
   
   @version 1.0 01/09/24
   @author Arduino Product Experience Team
 */
 
-// Include the necessary libraries for Nicla Sense Env and PMS7003 sensors
+// Include the necessary libraries for Nicla Sense Env sensors
 #include "Arduino_NiclaSenseEnv.h"
-#include "PMS.h"
-
-// PMS sensor object for particle matter measurements
-PMS pms(Serial);
 
 // Time interval (in milliseconds) for sensor readings of 10 seconds
 static const uint32_t READ_INTERVAL = 10000; 
@@ -145,10 +140,6 @@ void setup() {
         // Error message if the Nicla Sense Env is not found
         Serial.println("- ERROR: Nicla Sense Env device not found!");
     }
-
-    // Initialize PMS7003 sensor in passive mode
-    pms.passiveMode();
-    pms.wakeUp();
 }
 
 /**
@@ -170,8 +161,8 @@ void loop() {
 }
 
 /**
-  Displays temperature, humidity, air quality, and particulate matter data.
-  Reads data from the Nicla Sense Env and PMS7003 sensors and prints it in a single line format.
+  Displays temperature, humidity, and air quality data.
+  Reads data from the Nicla Sense Env and prints it in a single line format.
 */
 void displayAllData() {
     // Check if both temperature/humidity and air quality sensors are enabled
@@ -179,33 +170,21 @@ void displayAllData() {
         // Read data from the Nicla Sense Env sensors
         float temperature = tempHumSensor->temperature();
         float humidity = tempHumSensor->humidity();
-        int airQualityIndex = airQualitySensor->airQualityIndex();
         float NO2 = airQualitySensor->NO2();
         float O3 = airQualitySensor->O3();
+        int airQualityIndex = airQualitySensor->airQualityIndex();
 
-        // Read data from the PMS7003 sensor
-        PMS::DATA data;
-        pms.requestRead();
-        if (pms.readUntil(data)) {
-            // Print all sensor data in a single line, separated by commas
-            Serial.print("- Temperature: ");
-            Serial.print(temperature, 2);
-            Serial.print(" °C, Humidity: ");
-            Serial.print(humidity, 2);
-            Serial.print(" %, Air Quality Index: ");
-            Serial.print(airQualityIndex);
-            Serial.print(", NO2: ");
-            Serial.print(NO2, 2);
-            Serial.print(" ppb, O3: ");
-            Serial.print(O3, 2);
-            Serial.print(" ppb, PM 2.5: ");
-            Serial.print(data.PM_AE_UG_2_5);
-            Serial.print(" µg/m³, PM 10: ");
-            Serial.println(data.PM_AE_UG_10_0);
-        } else {
-            // Error message if PMS7003 data is not available
-            Serial.println("- ERROR: No data from PMS sensor!");
-        }
+        // Print all sensor data in a single line, with AQI at the end
+        Serial.print("- Temperature: ");
+        Serial.print(temperature, 2);
+        Serial.print(" °C, Humidity: ");
+        Serial.print(humidity, 2);
+        Serial.print(" %, NO2: ");
+        Serial.print(NO2, 2);
+        Serial.print(" ppb, O3: ");
+        Serial.print(O3, 2);
+        Serial.print(" ppb, Air Quality Index: ");
+        Serial.println(airQualityIndex);
     } else {
         // Error message if one or more sensors are disabled
         Serial.println("- ERROR: One or more sensors are disabled!");
@@ -222,15 +201,11 @@ The following sections will help you to understand the main parts of the example
 
 ### Library Imports
 
-The first step is to ensure that all necessary libraries are included to control the Nicla Sense Env board and the PMS7003 sensor. These libraries provide all the functionality to communicate with and extract sensor data.
+The first step is to ensure that all necessary libraries are included to control the Nicla Sense Env board. These libraries provide all the functionality to communicate with and extract sensor data.
 
 ```arduino
-// Include the necessary libraries for Nicla Sense Env and PMS7003 sensors
+// Include the necessary libraries for Nicla Sense Env sensors
 #include "Arduino_NiclaSenseEnv.h"
-#include "PMS.h"
-
-// PMS sensor object for particle matter measurements
-PMS pms(Serial);
 
 // Time interval (in milliseconds) for sensor readings of 10 seconds
 static const uint32_t READ_INTERVAL = 10000; 
@@ -242,7 +217,7 @@ TemperatureHumiditySensor* tempHumSensor;
 OutdoorAirQualitySensor* airQualitySensor;
 ```
 
-The Nicla Sense Env library handles data such as temperature, humidity, and outdoor air quality, while the PMS7003 library enables the measurement of airborne particulate matter.
+The Nicla Sense Env library handles data such as temperature, humidity, and outdoor air quality, including also the NO2 and O3 gas concentrations.
 
 ### Sensors Initialization
 
@@ -270,18 +245,13 @@ void setup() {
         // Error message if the Nicla Sense Env is not found
         Serial.println("- ERROR: Nicla Sense Env device not found!");
     }
-
-    // Initialize PMS7003 sensor in passive mode
-    pms.passiveMode();
-    pms.wakeUp();
 }
 ```
 
 In the code snippet shown before:
 
 - Serial communication is initialized to allow data transmission.
-- The Nicla Sense Env board is initialized to read temperature, humidity, and outdoor air quality.
-- The PMS7003 sensor is configured in passive mode, which means it will only take readings when specifically requested.
+- The Nicla Sense Env board is initialized to read temperature, humidity and the outdoor air quality index (AQI).
 
 ### Data Collection
 
@@ -318,33 +288,21 @@ void displayAllData() {
         // Read data from the Nicla Sense Env sensors
         float temperature = tempHumSensor->temperature();
         float humidity = tempHumSensor->humidity();
-        int airQualityIndex = airQualitySensor->airQualityIndex();
         float NO2 = airQualitySensor->NO2();
         float O3 = airQualitySensor->O3();
+        int airQualityIndex = airQualitySensor->airQualityIndex();
 
-        // Read data from the PMS7003 sensor
-        PMS::DATA data;
-        pms.requestRead();
-        if (pms.readUntil(data)) {
-            // Print all sensor data in a single line, separated by commas
-            Serial.print("- Temperature: ");
-            Serial.print(temperature, 2);
-            Serial.print(" °C, Humidity: ");
-            Serial.print(humidity, 2);
-            Serial.print(" %, Air Quality Index: ");
-            Serial.print(airQualityIndex);
-            Serial.print(", NO2: ");
-            Serial.print(NO2, 2);
-            Serial.print(" ppb, O3: ");
-            Serial.print(O3, 2);
-            Serial.print(" ppb, PM 2.5: ");
-            Serial.print(data.PM_AE_UG_2_5);
-            Serial.print(" µg/m³, PM 10: ");
-            Serial.println(data.PM_AE_UG_10_0);
-        } else {
-            // Error message if PMS7003 data is not available
-            Serial.println("- ERROR: No data from PMS sensor!");
-        }
+        // Print all sensor data in a single line, with AQI at the end
+        Serial.print("- Temperature: ");
+        Serial.print(temperature, 2);
+        Serial.print(" °C, Humidity: ");
+        Serial.print(humidity, 2);
+        Serial.print(" %, NO2: ");
+        Serial.print(NO2, 2);
+        Serial.print(" ppb, O3: ");
+        Serial.print(O3, 2);
+        Serial.print(" ppb, Air Quality Index: ");
+        Serial.println(airQualityIndex);
     } else {
         // Error message if one or more sensors are disabled
         Serial.println("- ERROR: One or more sensors are disabled!");
@@ -355,9 +313,8 @@ void displayAllData() {
 In the code snippet shown before:
 
 - The function first checks that the temperature/humidity sensor and the air quality sensor are enabled.
-- The function retrieves temperature, humidity, air quality index, and gas concentrations (NO2 and O3) from the Nicla Sense Env board.
-- The function also fetches PM2.5 and PM10 particulate readings from the PMS7003 sensor.
-- Finally, the data is printed in a single line on the IDE's Serial Monitor.
+- The function retrieves temperature, humidity, gas concentrations (NO2 and O3), and the air quality index (AQI) from the Nicla Sense Env board.
+- Finally, the data is printed in a single line on the IDE's Serial Monitor, with the AQI displayed at the end.
   
 ### Complete Example Sketch
 
@@ -365,13 +322,13 @@ The complete example sketch can be downloaded here.
 
 ## Conclusions
 
-The development of this outdoor air quality monitor demonstrates the effectiveness of using affordable and accessible sensors to measure key environmental parameters in real-time. Integrating the Nicla Sense Env and the PMS7003 sensor with the Portenta C33 allows the system to track temperature, humidity, airborne particulate matter (PM2.5 and PM10), NO2, and O3 levels. The ability to monitor these pollutants, combined with the outdoor AQI, provides valuable insights for understanding air quality in urban and rural areas. Furthermore, the system's connection to the Arduino Cloud allows for remote monitoring and analysis, making it versatile for various applications, from personal use to environmental research.
+The development of this outdoor air quality monitor demonstrates the effectiveness of using affordable and accessible sensors to measure key environmental parameters in real-time. Integrating the Nicla Sense Env with the Portenta C33 allows the system to track temperature, humidity, NO2, and O3 levels. The ability to monitor these pollutants, combined with the outdoor AQI, provides valuable insights for understanding air quality in urban and rural areas. Furthermore, the system's connection to the Arduino Cloud allows for remote monitoring and analysis, making it versatile for various applications, from personal use to environmental research.
 
 ## Next Steps
 
-Several improvements can be considered to extend the functionality of the environmental monitor:
+Several improvements can be considered to extend the functionality of the outdoor air quality monitor:
 
-- Add sensors to measure pollutants such as carbon monoxide (CO) or sulfur dioxide (SO2).
+- Add more sensors to the monitor to measure pollutants such as carbon monoxide (CO) or sulfur dioxide (SO2).
 - Improve the monitor's energy efficiency for long-term deployment in remote or outdoor environments.
 - Build a custom dashboard on Arduino Cloud to visualize trends over time and allow for more detailed analysis of air quality data.
 - Implement an alert system that notifies users when pollutant levels exceed safe thresholds.
