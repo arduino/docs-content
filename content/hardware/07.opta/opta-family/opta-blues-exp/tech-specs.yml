@@ -11,6 +11,9 @@ Power:
 Connectivity:
   Cellular: LTE Cat 1 (North America or EMEA)
   WiFi: 2.4 GHz
+Ports:
+  USB-C®: For direct Notecard programming and debugging
+  SIM slot: For bringing your own Cellular connectivity (Optional)
 Communication:
   I2C: AUX port to Opta controller
 Antennas: 2 x SMA connectors with 2 LTE antennas included
