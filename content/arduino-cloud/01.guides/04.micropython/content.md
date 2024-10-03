@@ -135,7 +135,7 @@ For more options on how to install libraries on your board, check out our [Insta
 ## Programming the Board
 
 ### Cloud Connection
-You can connect the GIGA R1 to the Arduino Cloud with MicroPython. There are two main methods to create this connection `async` and `sync`.
+There are two main methods to create this connection `async` and `sync`.
 
 #### Async (Default)
 This is the method currently implemented by default with the Cloud. Asynchronous operations allow tasks to run independently of the main program flow. Functions can start and continue without waiting for other tasks to finish. This non-blocking behavior is achieved using techniques like callbacks, coroutines, or the async and await keywords in MicroPython. 
