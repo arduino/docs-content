@@ -26,8 +26,8 @@ In this tutorial you will build a MicroPython application with OpenMV, to use th
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta Vision Shield](https://store.arduino.cc/portenta-vision-shield)
-- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
-- Arduino IDE 1.8.10+  or Arduino Pro IDE 0.0.4+ 
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software) or [Arduino IDE 2.0+](https://www.arduino.cc/en/software)
 - Portenta Bootloader Version 20+
 - OpenMV IDE 2.6.4+
 

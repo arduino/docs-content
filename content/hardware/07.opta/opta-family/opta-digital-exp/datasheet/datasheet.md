@@ -23,7 +23,7 @@ There are two variants of the Arduino Opta® Digital Expansion created to fit th
 | ------- | -------------------------------------------------- | -------------------------------------------------- |
 | SKU     | AFX00005                                           | AFX00006                                           |
 | Inputs  | 16 x programmable (0-24 V digital / 0-24 V analog) | 16 x programmable (0-24 V digital / 0-24 V analog) |
-| Outputs | 8 x Electromechanical Relays (250 VAC - 6 A)       | 8 x Solid State Relays (24 VDC - 2 A)              |
+| Outputs | 8 x Electromechanical Relays (250 VAC - 6 A)       | 8 x Solid State Relays (24 VDC - 3 A)              |
 
 
 ## Application Examples
@@ -106,9 +106,9 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | Characteristics                             | Details                           |
 | ------------------------------------------- | --------------------------------- |
 | Number of outputs                           | 8x Solid State Relays (NO - SPST) |
-| Max current per relay                       | 2 A                               |
+| Max current per relay                       | 3 A                               |
 | Max peak current per relay                  | 50 A (10 ms)                      |
-| Continuous current per terminal             | 2 A                               |
+| Continuous current per terminal             | 3 A                               |
 | Short-circuit protection                    | No, external fuse required        |
 | Relay rated voltage                         | 24 VDC                            |
 | Switching voltage range                     | 1.5...30 VDC                      |
@@ -150,7 +150,7 @@ Arduino Opta® Expansion is designed for industrial standard machinery control a
 | 3a   | Power Supply Terminals 12...24 VDC                                                |
 | 3b   | I1...I16 digital/analog input terminals (0-24 V) configurable via IDE             |
 | 3c   | Power Status LED                                                                  |
-| 3d   | Relay Output Terminals 1...8, NO contact (SPST), EMR 6 A 250 VAC - SSR 2 A 24 VDC |
+| 3d   | Relay Output Terminals 1...8, NO contact (SPST), EMR 6 A 250 VAC - SSR 3 A 24 VDC |
 | 3e   | Status LEDs 1...8                                                                 |
 | 3f   | Port for communication and connection of auxiliary modules                        |
 
@@ -162,7 +162,7 @@ The following diagram explains the relation between the main components of the O
 ![Block diagram](assets/Opta_Digital_EXP_Block_Diagram.svg)
 
 ### Relay Outputs
-Arduino Opta® Digital Expansions has eight *Normally Open* (NO) relays. For the **EMR** variant, eight powerful 6 A electromechanical relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC, and for the **SSR** variant, eight fast 2 A solid state relays which are capable of actuating on DC loads at a rated voltage of 24 VDC. 
+Arduino Opta® Digital Expansions has eight *Normally Open* (NO) relays. For the **EMR** variant, eight powerful 6 A electromechanical relays capable of actuating on loads at a rated voltage of 250 VAC and up to a maximum switching voltage of 400 VAC, and for the **SSR** variant, eight fast 3 A solid state relays which are capable of actuating on DC loads at a rated voltage of 24 VDC. 
 
 The relay *Maximum Peak Current* is defined as the highest value of inrush current that the relay can endure without undergoing any permanent degradation of its characteristics due to the generated heat. The relay has to be able to hold up that maximum using a duty cycle of less or equal to 10% and for a time equal to or less than 0.5 s.
 
@@ -292,6 +292,7 @@ This device complies with part 15 of the FCC Rules. Operation is subject to the 
 
 | Date       | **Revision** | **Changes**                          |
 |------------|--------------|--------------------------------------|
-| 24/09/2024 | 3            | Expansion port updates               |
+| 24/09/2024 | 4            | Expansion port updates               |
+| 24/09/2024 | 3            | SSR operating current update         |
 | 03/09/2024 | 2            | Cloud Editor updated from Web Editor |
 | 06/05/2024 | 1            | First Release                        |

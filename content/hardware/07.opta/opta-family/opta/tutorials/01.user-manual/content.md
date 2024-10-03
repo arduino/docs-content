@@ -1837,7 +1837,7 @@ In the image below there is an example of the power wiring of the expansions:
 
 #### Programmable Inputs
 
-The Opta™ Expansions have **16 analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
+The Opta™ Expansions have **16x analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
 
 Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** with a 0-24 VDC range or as **analog** inputs with a 0-24 VDC range. The inputs are capable of operating with 0-10V analog sensors as well as 0-24V sensors. 
 
@@ -2197,7 +2197,7 @@ Expansion[0]: type DIGITAL [Mechanical], I2C address: 11
 
 #### Outputs
 
-The Opta™ Expansions have **8 relay outputs** accessible through terminals pairs `1` to `8`.
+The Opta™ Expansions have **8x relay outputs** accessible through terminals pairs `1` to `8`.
 
 ![Opta Digital Expansions outputs](assets/variants-emr-ssr-new.png)
 
@@ -2215,21 +2215,21 @@ Relay Output terminals are mapped as described in the following table:
 |               Relay 8               |            7            |
 
 
-The **Ext D1608E (EMR)** variant features 8 electromechanical relays with the following characteristics:
+The **Ext D1608E (EMR)** variant features 8x electromechanical relays with the following characteristics:
 
 |             **Characteristics**             |                    **Details**                     |
 |:-------------------------------------------:|:--------------------------------------------------:|
 |              Number of outputs              | 8x Electromechanical Relays (Normally Open - SPST) |
-|            Max current per relay            |                         6A                         |
-|         Max peak current per relay          |                        10A                         |
-|       Continuous current per terminal       |                         6A                         |
+|            Max current per relay            |                         6 A                         |
+|         Max peak current per relay          |                        10 A                         |
+|       Continuous current per terminal       |                         6 A                         |
 |          Short-circuit protection           |             No, external fuse required             |
 |             Relay rated voltage             |                      250 VAC                       |
 |              Relay Max voltage              |                      400 VAC                       |
 |               Rated load AC1                |                      1500 VA                       |
 |          Rated load AC15 (230 VAC)          |                       300 VA                       |
-|     Breaking capacity DC1: 24/110/220V      |                    6/0.2/0.12A                     |
-|           Minimum switching load            |                  500mW (12V/10mA)                  |
+|     Breaking capacity DC1: 24/110/220V      |                    6/0.2/0.12 A                     |
+|           Minimum switching load            |                  500 mW (12 V/10 mA)                  |
 |     Max output line length (unshielded)     |                       100 m                        |
 | Relay response time from state 0 to state 1 |               5 ms for relay output                |
 | Relay response time from state 1 to state 0 |               3 ms for relay output                |
@@ -2238,14 +2238,14 @@ The **Ext D1608E (EMR)** variant features 8 electromechanical relays with the fo
 |         Relay mechanical durability         |               10 million cycles (DC)               |
 |         Relay electrical durability         |   60 thousand cycles with a resistive load (AC1)   |
 
-The **Ext D1608S (SSR)** variant features 8 solid state relays with the following characteristics:
+The **Ext D1608S (SSR)** variant features 8x solid state relays with the following characteristics:
 
 |          **Characteristics**          |                 **Details**                  |
 |:-------------------------------------:|:--------------------------------------------:|
 |           Number of outputs           | 8x Solid State Relays (Normally Open - SPST) |
-|         Max current per relay         |                      2A                      |
-|      Max peak current per relay       |                 50A (10 ms)                  |
-|    Continuous current per terminal    |                      2A                      |
+|         Max current per relay         |                      3 A                      |
+|      Max peak current per relay       |                 50 A (10 ms)                  |
+|    Continuous current per terminal    |                      3 A                      |
 |       Short-circuit protection        |          No, external fuse required          |
 |          Relay rated voltage          |                    24 VDC                    |
 |        Switching voltage range        |                 1.5...30 VDC                 |

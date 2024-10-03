@@ -30,9 +30,9 @@ With the Ethernet version of the Arduino Portenta Vision Shield it is possible t
 
 - [Portenta H7 board](https://store.arduino.cc/portenta-h7)
 - [Portenta Vision Shield - Ethernet](https://store.arduino.cc/products/arduino-portenta-vision-shield-lora®)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - [OpenMV](https://openmv.io/pages/download)
 - Ethernet cable
-- USB-C® cable
 
 ***If you want to know more about the ethernet connection please go to the [Arduino IDE ethernet tutorial](https://docs.arduino.cc/tutorials/portenta-vision-shield/ethernet-with-ide#ethernet-connection)***
 
