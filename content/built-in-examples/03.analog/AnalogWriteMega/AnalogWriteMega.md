@@ -14,7 +14,7 @@ This example fades 12  LEDs up and the down, one by one, on an Arduino Mega boar
 
 ### Hardware Required
 
-- [Arduino Mega Board](https://store.arduino.cc/en-se/collections/boards-modules?filter.p.m.hardware_func.form_factor=Mega)
+- [Arduino Mega Board](https://store.arduino.cc/products/arduino-mega-2560-rev3)
 
 - 12 Red LEDs
 - 12 220 ohm resistors
