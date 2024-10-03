@@ -1,6 +1,6 @@
 ---
 title: 'Environmental Monitoring with the Nicla Sense Env'
-description: "This application note describes how to implement a simple environmental monitor with the Nicla Sense."
+description: "This application note describes how to implement an outdoor air quality monitor with the Nicla Sense Env."
 difficulty: intermediate
 compatible-products: [nicla-sense-env]
 tags:
@@ -21,17 +21,16 @@ software:
 
 ## Introduction
 
-Air pollution is a growing concern in urban and industrial areas due to the harmful effects of airborne pollutants such as airborne particulate matter (PM), nitrogen dioxide (NO2), and ozone (O3) on human health and the environment. This application note presents the development of an outdoor air quality monitor using the Portenta C33, the Nicla Sense Env and the PMS7003 sensor, which measures PM2.5 and PM10 levels. The environmental monitor provides real-time data on temperature, humidity, concentrations of NO2 and O3, and the outdoor air quality index (AQI), making it suitable for use in urban areas, industrial zones, or environmental research.
+Air pollution is a growing concern in urban and industrial areas due to the harmful effects of airborne pollutants such as nitrogen dioxide (NO2), ozone (O3) and airborne particulate matter (PM) on human health and the environment. This application note presents the development of an outdoor air quality monitor using the Portenta C33 and the Nicla Sense Env. The outdoor air quality monitor provides real-time data on temperature, humidity, concentrations of NO2 and O3, and the outdoor air quality index (AQI), making it suitable for use in urban areas, industrial zones, or environmental research.
 
 ## Goals
 
 The main goals of this application note are as follows:
 
-- Develop a simple outdoor air quality monitor that provides real-time data on temperature, humidity, and pollutants such as nitrogen dioxide (NO2), ozone (O3) and airborne particulate matter (PM2.5 and PM10).
-- Interface the Portenta C33 board with the Nicla Sense Env and the PMS7003 sensor to measure environmental parameters, including airborne particulate matter and gas pollutants.
+- Develop a simple outdoor air quality monitor that provides real-time data on temperature, humidity, and pollutants such as nitrogen dioxide (NO2) and ozone (O3).
 - Collect accurate readings of NO2, O3 and the outdoor air quality index (AQI) to assess overall outdoor air quality.
-- Display real-time Arduino IDE Serial Monitor data for immediate observation and analysis.
-- Establish a connection to the Arduino Cloud to enable remote monitoring and data analysis of the collected air quality data.
+- Display real-time data from the Nicla Sense Env on the Arduino IDE Serial Monitor for immediate data observation and analysis.
+- Establish a connection to the Arduino Cloud to enable remote monitoring and data analysis of the collected outdoor air quality data.
 
 ## Hardware and Software Requirements
 
@@ -39,7 +38,6 @@ The main goals of this application note are as follows:
 
 - [Portenta C33](https://store.arduino.cc/products/portenta-c33) (x1)
 - [Nicla Sense Env](https://store.arduino.cc/products/nicla-sense-env) (x1)
-- PMS7003 airborne particulate matter sensor (x1)
 - USB-C® cable (x1)
 - Wi-Fi® W.FL antenna (x1)
 
@@ -50,23 +48,22 @@ The main goals of this application note are as follows:
 
 ## Hardware Setup Overview
 
-The electrical connections of the proposed environmental monitor are shown in the diagram below:
+The electrical connections of the proposed outdoor air quality monitor are shown in the diagram below:
 
-The diagram illustrates the connection of all the environmental monitor's components. The Portenta C33 is the monitor's main controller; the Nicla Sense Env board provides temperature, humidity, and outdoor air quality data, while the PMS7003 sensor provides airborne particulate matter data. 
+The diagram illustrates the connection of all the monitor's components. The Portenta C33 is the monitor's main controller; the Nicla Sense Env board provides temperature, humidity, and outdoor air quality data. 
 
-The Nicla Sense Env is connected to the Portenta C33 via ESLOV and the PMS7003 via Serial. The monitor has one main voltage bus (+5 VDC from the Portenta C33) that powers both the Nicla Sense Env and the PMS7003 sensor. The Portenta C33 is powered through its onboard USB-C port for testing purposes.
+The Nicla Sense Env is connected to the Portenta C33 via ESLOV. The monitor has one main voltage bus (+5 VDC from the Portenta C33) that powers  the Nicla Sense Env, the Portenta C33 is powered through its onboard USB-C port for testing purposes.
 
 ## Understanding Outdoor Air Quality
 
-Air pollution is not just a problem in urban areas; rural environments also face significant risks from pollutants like nitrogen dioxide (NO2) and ozone (O3). These gases and particulate matter (PM) pose serious health risks, especially for vulnerable populations. NO2, produced by combustion engines and industrial processes, can travel far beyond urban centers. O3, formed by atmospheric chemical reactions, affects urban and rural regions, especially during warmer seasons.
+Air pollution is not just a problem in urban areas; rural environments also face significant risks from pollutants like nitrogen dioxide (NO2) and ozone (O3). These gases pose serious health risks, especially for vulnerable populations. NO2, produced by combustion engines and industrial processes, can travel far beyond urban centers. O3, formed by atmospheric chemical reactions, affects urban and rural regions, especially during warmer seasons of the year.
 
-Real-time monitoring is critical in urban and rural settings to manage exposure to these pollutants properly. Air quality tracking helps individuals and communities proactively reduce health risks.
+Real-time monitoring is critical in urban and rural settings to manage exposure to these pollutants properly. Air quality tracking and monitoring helps individuals and communities to proactively reduce health risks.
 
 ### The Role of Sensors in Air Quality Monitoring
 
-This application note uses modern sensors to provide accurate, real-time measurements of various pollutants. The Nicla Sense Env, with the PMS7003 sensor, offers an interesting solution for monitoring outdoor air quality:
+This application note uses modern and state of the art sensors to provide accurate, real-time measurements of various pollutants. The Nicla Sense Env board offers an interesting solution for monitoring outdoor air quality. 
 
-- **Particulate Matter (PM2.5 and PM10)**: Measures fine particles suspended in the air, which can penetrate the lungs and cause health problems.
 - **NO2 Sensor**: Detects nitrogen dioxide, a harmful gas released by vehicles and industrial activities.
 - **O3 Sensor**: Measures ozone, a gas that forms in the atmosphere through reactions between pollutants and sunlight, contributing to respiratory problems.
 - **Outdoor Air Quality Index (AQI)**: The AQI simplifies the interpretation of air quality by combining data from multiple pollutants (PM, NO2, O3) into a single value. 
@@ -82,7 +79,7 @@ The AQI index is based on a scale that ranges from 0 to 500, where:
 
 The AQI makes it easy to understand how outdoor air quality might affect public health, particularly when pollutant levels rise to unhealthy levels.
 
-Monitoring PM, NO2, O3, and AQI in real-time allows for immediate responses when air quality worsens. This is especially important in rural areas with less visible air quality issues. The data collected can be sent to platforms like Arduino Cloud, enabling remote monitoring and long-term trend analysis, improving public awareness and policy decisions.
+Monitoring NO2, O3, and AQI in real-time allows for immediate responses when air quality worsens. This is especially important in rural areas with less visible air quality issues. The data collected can be sent to platforms like Arduino Cloud, enabling remote monitoring and long-term trend analysis, improving public awareness and policy decisions.
 
 ## Environmental Monitor Example Sketch
 
