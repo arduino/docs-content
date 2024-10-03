@@ -34,13 +34,13 @@ Wireless for Arduino Opta allows professionals to scale up industrial and buildi
 
 <Feature title="Power Backup" image="power">
 
-  * Power outage detection and notification via an integrated Lithium-Ion Capacitor.
+  Power outage detection and notification via an integrated Lithium-Ion Capacitor.
 
 </Feature>
 
 <Feature title="Programming Languages Supported" image="file-icon">
 
-  * Arduino sketch
+  Arduino sketch
 
 </Feature>
 
