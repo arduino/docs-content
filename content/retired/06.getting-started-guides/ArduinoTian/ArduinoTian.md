@@ -188,7 +188,7 @@ Programming the SAMD21 over WiFi
 If you Tian is in your computer's same network, you can upload a sketch using the Wireless Connection.
 After configuring your board, connect it to the network that you have specified in the configuration settings. Open the Arduino IDE.
 Under the Tools > Port menu, you should see an entry that lists your Tian's name and its IP address. Under the Board menu, select Arduino Tian.
-Open the Blink example (File > Examples > 01Basics > Blink) and upload the sketch to the board. You will be prompted for the administrator password. Use the one you entered in the configuration screen.
+Open the Blink example (File > Examples > 01.Basics > Blink) and upload the sketch to the board. You will be prompted for the administrator password. Use the one you entered in the configuration screen.
 Once the program is uploaded, the SAMD21 processor will restart. You should see the LED connected to pin 13 blinking.
 Using the onboard Ethernet (via dogEthernet)
 When you connect the Tian to a wired network with an ethernet cable, it will try to connect automatically via DHCP. The board will show up on the ports menu just as it would over WiFi.
