@@ -225,7 +225,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         <tr style="text-align: middle;">
             <th width="30%">Interfaces</th>
             <th>Type</th>
-            <th>Protocols/Technologies supported</th>
+            <th>Protocols/Technologies Supported</th>
         </tr>
     </thead>
     <tbody>
@@ -240,12 +240,17 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
             <td>MODBUS RTU, Custom serial communication</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Wireless connectivity</td>
+            <td style="vertical-align: top;">Expansion Port</td>
+            <td>Proprietary Port</td>
+            <td>Expansion module communication</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Wireless Connectivity</td>
             <td>Wi-Fi®</td>
             <td>2.4 GHz</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Wireless connectivity</td>
+            <td style="vertical-align: top;">Wireless Connectivity</td>
             <td>Bluetooth® Low Energy</td>
             <td>4.2 supported by firmware, 5.1 supported by hardware</td>
         </tr>
@@ -525,7 +530,9 @@ In the case of the minimum switching load parameters, the minimum values of powe
 The relays on Arduino Opta® provide a very fast response time of 6/4 ms to change state for closing/reopening, and a bounce time NO/NC of 3/6 ms.
 
 ### Expansion Port
-The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. Reserved for future functionality.
+The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
+
+If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
 
 ### Programmable User Button
 A pushbutton is accessible on the front panel of the Arduino Opta®. The functionality of this button can be configured via software. Note that the LED above the *User button* is only available on Arduino Opta® WiFi (AFX00002).
@@ -799,7 +806,8 @@ Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canad
 ## Revision History
 
 |  **Date**  | **Revision** |             **Changes**              |
-| :--------: | :----------: | :----------------------------------: |
+|:----------:|:------------:|:------------------------------------:|
+| 24/09/2024 |      8       |        Expansion port updates        |
 | 11/09/2024 |      7       |      ICES certification updates      |
 | 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
 | 24/07/2024 |      5       |        Wiring specifications         |
