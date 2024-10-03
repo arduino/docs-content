@@ -368,11 +368,11 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
-#### For QMI-based Modems
+#### For QMI Based Modems
 
-For **QMI-based modems**, modems that use *Qualcomm MSM Interface*, following steps can help configure the modem, which involves managing the **Raw IP mode** and using **qmicli** for network control.
+For **QMI based modems**, modems that use *Qualcomm MSM Interface*, following steps can help configure the modem, which involves managing the **Raw IP mode** and using **qmicli** for network control.
 
-#### Setting up Raw IP Mode for QMI-based Modems
+#### Raw IP Mode Setup for QMI Based Modems
 
 With the overlays configured, the setup process involves bringing down the `wwan0` interface, setting it to raw IP mode, and then bringing it back up:
 
@@ -388,7 +388,7 @@ echo Y > /sys/class/net/wwan0/qmi/raw_ip
 ip link set dev wwan0 up
 ```
 
-#### Inspecting and Configuring the QMI-based Modem
+#### Inspecting and Configuring the QMI Based Modem
 
 Following that, use `qmicli` commands to inspect the card's status and begin a network connection:
 
