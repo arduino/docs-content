@@ -1,5 +1,5 @@
 ---
-title: GIGA Display Shield app wizard Guide
+title: GIGA Display Shield App Wizard Guide
 description: 'Learn how to use Seggers App Wizard with the GIGA Display Shield.'
 author: Benjamin Dannegård
 tags: [Display, appwizard, segger, GUI]
@@ -28,7 +28,7 @@ In this guide, we will be using three different libraries:
 
 To install this, open the library manager and install the latest version by searching for **"Arduino_GigaDisplayTouch"**.
 
-## Creating an App Wizard project
+## Creating an App Wizard Project
 
 First go to  **File -> New Project** to start your new project. Here we need to configure certain settings so it will work on the GIGA Display Shield. Set the  display size x to **480** and display size y to **800**. Then we need to disable the **Enable simulation** and **Generate loop in MainTask()** options. It should look like the image below.
 
@@ -95,7 +95,7 @@ Now to add the interaction that will fill the gauge when the slider is moved. Fi
 
 ![Image of all the interactions](assets/appwizard-final-project.png)
 
-## Exporting the project
+## Exporting the Project
 
 In AppWizard, go to **File -> Export & Save** in the upper left of the window. Now open the folder of the project. Create a new folder which we will put the exported files into, in this new folder create another folder named **src**. Now from the exported project folder, copy the content from the **Resource** and **Source** folders into the newly created **src** folder. Take all the files out of the folders before putting them in the **src** folder, if you have any folders inside of the **src** folder it will not import into the Arduino IDE later.
 
