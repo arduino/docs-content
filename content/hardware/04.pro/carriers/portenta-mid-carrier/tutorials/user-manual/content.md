@@ -2205,16 +2205,18 @@ nmcli c add type gsm ifname cdc-wdm0 con-name wwan0 apn hologram connection.auto
 
 This command establishes a GSM connection on the `cdc-wdm0` interface and automatically connects to the `hologram` APN.
 
-#### Zero Interface Ban Implementation for Global EG25 Module
+#### Configuring Interface Ignore Rules for GNSS Global EG25
 
-For the **Global EG25 Module**, it is important to consider a **zero interface ban** to prevent network conflicts. The zero interface (`cdc-wdm0` or similar) is often created automatically and can lead to connectivity issues. We can tell the system to ignore this interface when managing the modem to avoid this.
+For the **GNSS Global (EG25) Module**, it is important to consider the system to **ignore unnecessary interfaces** to prevent network conflicts during application development. One such interface, `cdc-wdm0`, is automatically created as a **control interface** used for modem management and is not intended for direct network connections.
 
-To implement a zero interface ban, you can create a custom `udev` rule that prevents the system from using this interface. The following steps show how to create this rule.
+If the system attempts to use `cdc-wdm0` for networking, it can lead to conflicts, misconfigurations, or performance issues because this interface is designed for control commands and is not optimized for handling data traffic. For example, for checking the modem status or sending AT commands. The appropriate data interfaces, such as `wwan0` or `eth0`, should be used for actual network connections.
 
-Create a new `udev` rule in `/etc/udev/rules.d/` to ignore the zero interface.
+To avoid these issues, you can configure the system to ignore the `cdc-wdm0` interface using a `udev` rule. This ensures that the modem's correct network interface is used without interference from unnecessary control interfaces. To implement this, the following example instructions can help you do so.
+
+Create a new `udev` rule in `/etc/udev/rules.d/` to ignore the `cdc-wdm0` interface:
 
 ```bash
-sudo nano /etc/udev/rules.d/99-ban-zero-interface.rules
+sudo nano /etc/udev/rules.d/99-ignore-cdc-wdm0.rules
 ```
 
 In the rule file, write the following line to ignore the `cdc-wdm0` interface (Change `cdc-wdm0` to the corresponding interface if the name differs in your case):
@@ -2229,11 +2231,13 @@ Then, reload the `udev` rules with the following commands:
 sudo udevadm control --reload-rules
 ```
 
+The rule can be immediately applied by triggering with following command:
+
 ```bash
 sudo udevadm trigger
 ```
 
-This will prevent the **Global EG25 Module** from using the zero interface (`cdc-wdm0`) and ensure the system uses the correct network interface for establishing connections.
+This configuration will prevent the **GNSS Global (EG25) Module** from using the control interface `cdc-wdm0` for networking, ensuring the proper network interface is used for establishing connections. This improves overall system reliability, reduces the risk of network conflicts and optimizes performance.
 
 #### EMEA EC200A-EU Module
 
