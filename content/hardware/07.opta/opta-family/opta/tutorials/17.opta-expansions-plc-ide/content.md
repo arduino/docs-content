@@ -1,5 +1,5 @@
 ---
-title: 'Opta™ Expansions Usage with the PLC IDE'
+title: 'Opta™ Digital Expansions Usage with the PLC IDE'
 difficulty: beginner
 description: "Learn how to use the Opta™ expansions to extend your solution capabilities with the Arduino® PLC IDE."
 tags:
@@ -45,7 +45,7 @@ We will create a demo application from scratch, in which we will read the voltag
 
 ### Snapping the Expansion
 
-You can connect up to five expansions to your Opta™ controller module to multiply and diversify your I/O set with seamless detection.
+You can connect up to **five expansions to your Opta™** controller module to multiply and diversify your I/O set with seamless detection.
 
 Remove the breakable plastic cover marked as AUX from the expansion port on the Opta™ controller and the expansion module to expose the ports.
 
@@ -56,6 +56,14 @@ Attach the expansions to the right side of your Opta™ controller. Ensure that 
 The expansions must be powered externally in order to be detected and properly work.
 
 ![Powering the expansions](assets/power-expansion.png)
+
+***The Opta™ controller module supports a maximum of __5 expansion modules__. Exceeding this limit may cause unexpected behavior. __Ensure no more than five modules are connected, and verify that the Aux connector and clips are securely installed__.***
+
+### Update Expansion Firmware
+
+![Expansion Firmware Update](assets/fw-up-d.png)
+
+***The Opta™ expansions firmware must be updated to the latest version to ensure proper functioning. See this [section](https://docs.arduino.cc/tutorials/opta/user-manual/#update-expansion-firmware) for a guided step-by-step procedure.***
 
 ### Solution Wiring
 

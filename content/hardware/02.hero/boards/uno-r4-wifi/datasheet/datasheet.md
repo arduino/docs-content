@@ -110,7 +110,7 @@ In addition, it features an ESP32-S3 module for Wi-Fi® & Bluetooth® connectivi
 
 ### Front View
 
-![Top View of Arduino UNO R4 WiFi](assets/topViewWiFi.svg)
+![Top View of Arduino UNO R4 WiFi](assets/topViewWiFi.png)
 
 | **Ref.**    | **Description**                                  |
 | ----------- | ------------------------------------------------ |
@@ -349,7 +349,7 @@ For powering e.g. servo motors, always use an external power supply.
 
 ## Mounting Holes And Board Outline
 
-![Top side Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingwWiFi.svg)
+![Top side Mechanical View of Arduino UNO R4 WiFi](assets/mechanicalDrawingWiFi.png)
 
 ## Board Operation
 
@@ -357,11 +357,11 @@ For powering e.g. servo motors, always use an external power supply.
 
 If you want to program your UNO R4 WiFi while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the UNO R4 WiFi to your computer, you will need a Type-C® USB cable, which can also provide power to the board, as indicated by the LED (DL1).
 
-### Getting Started - Arduino Web Editor
+### Getting Started - Arduino Cloud Editor
 
-All Arduino boards, including this one, work out-of-the-box on the Arduino® Web Editor **[2]**, by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino® Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 
@@ -491,6 +491,8 @@ This equipment contains a radio transmitter module with model approval code: CMI
 
 | Date       | **Revision** | **Changes**        |
 | ---------- | ------------ | ------------------ |
+| 05/09/2024 | 6            | Cloud Editor updated from Web Editor |
+| 03/07/2024 | 5            | Update Assets      |
 | 19/09/2023 | 4            | Update FCC section |
 | 25/07/2023 | 3            | Update Pin Table   |
 | 30/06/2023 | 2            | Update Pinout File |
@@ -603,7 +605,7 @@ UNO R4 WiFi是第一代32位开发板的一部分, 之前基于8位AVR微控制�
 
 ### 正视图
 
-![Arduino UNO R4 WiFi 的正视图](assets/topViewWiFi.svg)
+![Arduino UNO R4 WiFi 的正视图](assets/topViewWiFi.png)
 
 | **参考**      | **描述**                                  |
 | ------------ | ----------------------------------------- |
@@ -843,7 +845,7 @@ R7FA4M1AB3CFM#AA0微控制器上的GPIO可安全处理高达8mA的电流。切�
 
 ## 安装孔和开发板轮廓
 
-![Arduino UNO R4 WiFi 的顶部机械视图](assets/mechanicalDrawingwWiFi.svg)
+![Arduino UNO R4 WiFi 的顶部机械视图](assets/mechanicalDrawingWiFi.png)
 
 ## 开发板操作
 
@@ -851,11 +853,11 @@ R7FA4M1AB3CFM#AA0微控制器上的GPIO可安全处理高达8mA的电流。切�
 
 如果您想在离线状态下对UNO R4 WiFi进行编程，则需要安装Arduino® Desktop IDE **[1]**。要将UNO R4 WiFi连接到计算机，您需要使用Type-C® USB电缆，该电缆还可为开发板供电，LED 指示灯 (DL1) 即可显示。
 
-### 入门 - Arduino Web Editor
+### 入门 - Arduino Cloud Editor
 
-只需安装一个简单的插件，包括本板在内的所有Arduino板都能在Arduino® Web Editor **[2]**上即插即用。
+只需安装一个简单的插件，包括本板在内的所有Arduino板都能在Arduino® Cloud Editor **[2]**上即插即用。
 
-Arduino Web Editor是在线托管的，因此它总是与最新的功能和对所有板的支持保持同步。按照 **[3]** 开始在浏览器上编码，并将草图上传到开发板上。
+Arduino Cloud Editor是在线托管的，因此它总是与最新的功能和对所有板的支持保持同步。按照 **[3]** 开始在浏览器上编码，并将草图上传到开发板上。
 
 ### 入门 - Arduino Cloud
 
@@ -976,6 +978,8 @@ Arduino S.r.l.特此声明，本产品符合欧盟指令 2014/53/EU 的基本要
 
 | 日期       | ** **修订版** ** | **变更内容**  |
 | ---------- | ---------------- | ------------- |
+| 05/09/2024 | 6                | 从web编辑器更新为云编辑器      |
+| 03/07/2024 | 5                | 一般更新      |
 | 19/09/2023 | 4                | 更新 FCC 部分 |
 | 25/07/2023 | 3                | 更新引脚表    |
 | 30/06/2023 | 2                | 更新引脚文件  |

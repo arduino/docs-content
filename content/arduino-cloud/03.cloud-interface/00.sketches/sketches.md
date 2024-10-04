@@ -8,22 +8,34 @@ author: Karl Söderby
 A sketch is a file where we write programs to run on our Arduino boards. Sketches have a `.ino` extension, which supports the Arduino programming language (a variant of C++).
 
 The Arduino Cloud has two categories of sketches:
-- **Regular sketch** - a single `.ino` file where you write a program. These sketches can be used for **any** Arduino board. 
-- **IoT Sketch** - a set of files that are automatically generated when creating a [Thing](/arduino-cloud/cloud-interface/things). This includes an `.ino` file and two header (`.h`) files that contain your Thing configuration + credentials. Only available for boards with IoT support.
+- **Sketch** - a single `.ino` file where you write a program. These sketches can be used for **any** Arduino board. 
+- **Sketch with attached Thing** - a set of files that are automatically generated when creating a [Thing](/arduino-cloud/cloud-interface/things). This includes an `.ino` file and two header (`.h`) files that contain your Thing configuration + credentials. Only available for boards with Arduino Cloud support.
 
-In this document we will take a look at how to use sketches in the Arduino Cloud environment.
+In this document, we will take a look at how to use sketches in the Arduino Cloud environment.
 
 ***If you need help getting started with programming your Arduino in the online environment, check out the [Cloud Editor](/arduino-cloud/guides/cloud-editor) tutorial.***
 
 ## Access Your Sketches
 
-You can access all your sketches at [app.arduino.cc/sketches](https://app.arduino.cc/sketches), where you can easily select between your regular sketches and IoT sketches.
+You can access all your sketches at [app.arduino.cc/sketches](https://app.arduino.cc/sketches). Here you can easily see if your sketch has a Thing connected to it by checking if it has a light blue text box next to it.
 
-![Sketches in the Arduino Cloud.](assets/sketch.png)
+![Sketches in the Arduino Cloud](./assets/sketch.png)
 
 Clicking on each sketch will direct you to the [Cloud Editor](https://create.arduino.cc/editor/), which is an online version of the Arduino IDE. Here you can write a program, compile it and upload it to your board. 
 
 ***To get started with the Cloud Editor, check out the [Cloud Editor](/arduino-cloud/guides/cloud-editor) tutorial.***
+
+### How to Create and Organize Folders
+
+You can easily organize your sketches by creating folders. Here’s how you can do it:
+
+**Create a New Folder**: Click on **Create**, then select **New Folder**.
+
+**Move Sketches into a Folder**:
+
+- **Drag and Drop**: Simply drag the sketch you want to move and drop it into the desired folder.
+
+- **Right-Click and Move**: Alternatively, click the three dots on the right, choose the option "Move to folder", and then select the folder you want to move it to.
 
 ## Regular Sketches
 
@@ -45,11 +57,11 @@ If you are new to the Arduino environment, you can check out the [Language Refer
 
 For specific features of a board, make sure to check out the [hardware documentation](/).
 
-## IoT Sketches
+## Sketches with an attached Thing
 
-IoT sketches are more complex and are generated automatically when you create a Thing and variables.
+Sketches with an attached Thing are more complex and are generated automatically when you create a Thing and variables.
 
-***Read more about this in the [Automatic Sketch Generation](/arduino-cloud/cloud-interface/sketches) documentation.***
+***Read more about [Things](/arduino-cloud/cloud-interface/things/).***
 
 ### Sketch File
 
@@ -122,13 +134,13 @@ The Remote Sketchbook feature is great as you can push/pull your sketches from t
 ***A very important note on Remote Sketchbook: when you push/pull a sketch, you will overwrite the existing sketch, similarly to how GitHub works, but without the option of retrieving your previous sketch.***
 
 
-## Recommended Code Practices (IoT Sketches)
+## Recommended Code Practices (Sketches with an attached Thing)
 
 This section highlights some important aspects of writing code with regard to the implementations in the [ArduinoIoTCloud](https://github.com/arduino-libraries/ArduinoIoTCloud).
 
 ### Watchdog Timer (WDT)
 
-All Arduino Cloud sketches use a **Watchdog Timer (WDT)** by default. The WDT can be used to automatically recover from hardware faults or unrecoverable software errors.
+Arduino Cloud sketches use a **Watchdog Timer (WDT)** by default, however, not all boards support this function. The WDT can be used to automatically recover from hardware faults or unrecoverable software errors.
 
 A WDT is essentially a countdown timer, whereas it starts counting from a set value, and upon reaching zero, it resets the board. To prevent it from reaching zero, we continuously call it from the `loop()`, using the `ArduinoCloud.update()` function.
 
@@ -140,7 +152,7 @@ The WDT can however be disabled inside of the `setup()` function, by adding the 
 ArduinoCloud.begin(ArduinoIoTPreferredConnection, false).
 ```
 
-***You can view the source code of this implementation [here](https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/src/utility/watchdog).***
+***You can view the source code of this implementation [here](https://github.com/arduino-libraries/ArduinoIoTCloud/tree/master/src/utility/watchdog) and you can check if your board supports this feature [here](https://github.com/arduino-libraries/ArduinoIoTCloud?tab=readme-ov-file#what).***
 
 ### Alternatives to Delays
 
@@ -211,7 +223,7 @@ A common trick is to add a **`delay(1500);` command after `Serial.begin(9600);`*
 
 ## Create Agent
 
-The [Arduino Create Agent](https://github.com/arduino/arduino-create-agent) is a single binary that will appear on the menu bar and work in the background. It allows you to use the Arduino Cloud and the Arduino Web Editor to seamlessly upload code to any board directly from the browser.
+The [Arduino Create Agent](https://github.com/arduino/arduino-create-agent) is a single binary that will appear on the menu bar and work in the background. It allows you to use the Arduino Cloud and the Arduino Cloud Editor to seamlessly upload code to any board directly from the browser.
 
 Downloading and installing the Arduino Create Agent plugin can be done following [this quick and easy process](https://create.arduino.cc/getting-started/plugin/welcome).
 

@@ -72,13 +72,20 @@ Prints the accelerometer and gyroscope values in the Serial Monitor.
 ```python
 import time
 from lsm6dsox import LSM6DSOX
-
 from machine import Pin, I2C
+
+# Initialize the LSM6DSOX sensor with I2C interface
 lsm = LSM6DSOX(I2C(0, scl=Pin(13), sda=Pin(12)))
 
-while (True):
-    print('Accelerometer: x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*lsm.read_accel()))
-    print('Gyroscope:     x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*lsm.read_gyro()))
+while True:
+    # Read accelerometer values
+    accel_values = lsm.accel()
+    print('Accelerometer: x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*accel_values))
+    
+    # Read gyroscope values
+    gyro_values = lsm.gyro()
+    print('Gyroscope:     x:{:>8.3f} y:{:>8.3f} z:{:>8.3f}'.format(*gyro_values))
+    
     print("")
     time.sleep_ms(100)
 ```
@@ -791,7 +798,7 @@ while (True):
 
 #### Temperature & Humidity (HTS221)
 
-Access the `temperature` & `humidity` values from the HTS221 sensor.
+Access the `temperature` & `humidity` values from the HTS221 sensor (Nano 33 BLE Sense).
 
 ```python
 import time
@@ -802,6 +809,25 @@ bus = I2C(1, scl=Pin(15), sda=Pin(14))
 hts = hts221.HTS221(bus)
 
 while (True):
+    rH   = hts.humidity()
+    temp = hts.temperature()
+    print ("rH: %.2f%% T: %.2fC" %(rH, temp))
+    time.sleep_ms(100)
+```
+
+#### Temperature & Humidity (HS3003)
+
+Access the `temperature` & `humidity` values from the HTS221 sensor (Nano 33 BLE Sense Rev2).
+
+```python
+import time
+from hs3003 import HS3003
+from machine import Pin, I2C
+
+bus = I2C(1, scl=Pin(15), sda=Pin(14))
+hts = HS3003(bus)
+
+while True:
     rH   = hts.humidity()
     temp = hts.temperature()
     print ("rH: %.2f%% T: %.2fC" %(rH, temp))

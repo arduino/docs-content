@@ -225,7 +225,7 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
         <tr style="text-align: middle;">
             <th width="30%">Interfaces</th>
             <th>Type</th>
-            <th>Protocols/Technologies supported</th>
+            <th>Protocols/Technologies Supported</th>
         </tr>
     </thead>
     <tbody>
@@ -240,12 +240,17 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
             <td>MODBUS RTU, Custom serial communication</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Wireless connectivity</td>
+            <td style="vertical-align: top;">Expansion Port</td>
+            <td>Proprietary Port</td>
+            <td>Expansion module communication</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">Wireless Connectivity</td>
             <td>Wi-Fi®</td>
             <td>2.4 GHz</td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">Wireless connectivity</td>
+            <td style="vertical-align: top;">Wireless Connectivity</td>
             <td>Bluetooth® Low Energy</td>
             <td>4.2 supported by firmware, 5.1 supported by hardware</td>
         </tr>
@@ -464,6 +469,23 @@ Arduino Opta® is designed for industrial standard machinery control as a PLC wi
 
 **Note:** The LED above the *User Programmable button* (Ref: 3D) is only available on Arduino Opta® WiFi (AFX00002).
 
+### Wiring Specifications
+
+Following Opta's wiring specifications is important to ensure proper connection and operation of its electrical terminals. The tables shown below provide recommendations for torque application, cable preparation, and accepted wire types of Opta's electrical terminals.
+
+#### Recommended Torque and Cable Preparation
+
+| **Torque** |     **Recommended Tool**     | **Stripping Length** |
+|:----------:|:----------------------------:|:--------------------:|
+|  0.80 Nm  | #1 Phillips-head screwdriver |         9 mm         |
+
+#### Accepted Wire Types
+
+|    **Wire Type**   | **Minimum Size** |           **Maximum Size**          |
+|:------------------:|:----------------:|:-----------------------------------:|
+|   Solid Conductor  | 0.5 mm² (20 AWG) |  6 mm² (10 AWG)/2x4 mm² (2x12 AWG)  |
+| Stranded Conductor | 0.5 mm² (20 AWG) | 4 mm² (12 AWG)/2x2.5 mm² (2x14 AWG) |
+
 ### Microcontroller
 The microcontroller is a dual-core *STM32H747XI*. The main processor is a *Cortex®-M7* running at up to 480 MHz and the second one is a Cortex®-M4 running at up to 240 MHz.
 
@@ -508,7 +530,9 @@ In the case of the minimum switching load parameters, the minimum values of powe
 The relays on Arduino Opta® provide a very fast response time of 6/4 ms to change state for closing/reopening, and a bounce time NO/NC of 3/6 ms.
 
 ### Expansion Port
-The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. Reserved for future functionality.
+The expansion port can be used to expand the Arduino Opta® capabilities with the help of additional modules. It supports up to 5 expansion modules. To avoid potential communication issues, ensure the total number of connected modules does not exceed 5.
+
+If any issues occur with module detection or data exchange, double-check the connections and ensure the **Aux connector and clips are securely installed** within the expansion port. If problems persist, inspect for any loose or improperly connected cables.
 
 ### Programmable User Button
 A pushbutton is accessible on the front panel of the Arduino Opta®. The functionality of this button can be configured via software. Note that the LED above the *User button* is only available on Arduino Opta® WiFi (AFX00002).
@@ -516,14 +540,16 @@ A pushbutton is accessible on the front panel of the Arduino Opta®. The functio
 ### Functional Earth
 To avoid and reduce electrical noise, Arduino Opta® has a *Functional Earth* connector (Ref: 3G) near the Ethernet connector. *Functional Earth*, not to be confused with *Ground*, helps the device to reduce electrical interferences in industrial environments, being crucial for having stable Fieldbus communications.
 
+<div style="page-break-after:always;"></div>
+
 ## Device Operation
 ### Getting Started - IDE
 If you want to program your Arduino Opta® while offline you need to install the Arduino® Desktop IDE **[1]**. To connect the Arduino Opta® to your computer, you will need a USB-C® cable.
 
-### Getting Started - Arduino Web Editor
-All Arduino® devices work out-of-the-box on the Arduino® Web Editor **[2]** by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor
+All Arduino® devices work out-of-the-box on the Arduino® Cloud Editor **[2]** by just installing a simple plugin.
 
-The Arduino® Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
+The Arduino® Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards and devices. Follow **[3]** to start coding on the browser and upload your sketches onto your device.
 
 ### Getting Started - Arduino PLC IDE
 Arduino Opta® can be also programmed using the industrial-standard **_IEC 61131-3_** programming languages. Download the Arduino® PLC IDE **[4]** software and connect your Arduino Opta® to your computer, using a simple USB-C® cable, to start creating your own PLC industrial solutions.
@@ -536,8 +562,6 @@ Sample sketches for Arduino Opta® can be found either in the “Examples” men
 
 ### Online Resources
 Now that you have gone through the basics of what you can do with the device, you can explore the endless possibilities it provides by checking exciting projects on ProjectHub **[6]**, the Arduino® Library Reference **[7]** and the online store **[8]** where you will be able to complement your Arduino Opta® product with additional extensions, sensors and actuators.
-
-<div style="page-break-after: always;"></div>
 
 ## Mean Time Between Failure (MTBF)
 
@@ -553,9 +577,8 @@ The MTBF figure (in hours/years) for each Arduino Opta® variant can be found in
 
 ## Mechanical Information
 ### Product Dimensions
-![Arduino Opta® Outline. Dimensions are in mm](assets/opta_mechanical.svg)
 
-***Note: Terminals can be used with both solid and stranded core wire (min: 0.5 mm<sup>2</sup> / 20 AWG).***
+![Arduino Opta® Outline. Dimensions are in mm](assets/opta_mechanical.svg)
 
 ## Certifications
 
@@ -644,6 +667,18 @@ The MTBF figure (in hours/years) for each Arduino Opta® variant can be found in
          </td>
          <td style="vertical-align: middle;text-align: center;">
             <p>Yes</p>
+         </td>
+      </tr>
+      <tr>
+         <td style="vertical-align: middle;text-align: center;"><strong>IC (Canada)</strong></td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>-</p>
+         </td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>Yes</p>
+         </td>
+         <td style="vertical-align: middle;text-align: center;">
+            <p>-</p>
          </td>
       </tr>
       <tr>
@@ -739,7 +774,15 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 | 2402-2480 MHz (BLE)       | 2.41 dBm                    |
 | 2402-2480 MHz (EDR)       | -6.27 dBm                   |
 
+## Industry Canada Statement:
 
+Radio apparatus containing digital circuitry which can function separately from the operation of a transmitter or an associated transmitter, shall comply with ICES-003. In such cases, the labelling
+requirements of the applicable RSS apply, rather than the labelling requirements in ICES-003. 
+
+This Class A digital apparatus complies with Canadian ICES-003.
+
+French:
+Cet appareil numérique de la classe A est conforme à la norme NMB-003 du Canada.
 
 ## Company Information
 
@@ -762,9 +805,13 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 ## Revision History
 
-| Date       | **Revision** |     **Changes**    |
-|------------|:------------:|:------------------:|
-| 07/02/2023 |       4      |  MTBF information  |
-| 16/05/2023 |       3      |    Legal updates   |
-| 13/04/2023 |       2      | Tech Specs Updates |
-| 02/03/2023 |       1      |    First Release   |
+|  **Date**  | **Revision** |             **Changes**              |
+|:----------:|:------------:|:------------------------------------:|
+| 24/09/2024 |      8       |        Expansion port updates        |
+| 11/09/2024 |      7       |      ICES certification updates      |
+| 03/09/2024 |      6       | Cloud Editor updated from Web Editor |
+| 24/07/2024 |      5       |        Wiring specifications         |
+| 07/02/2023 |      4       |           MTBF information           |
+| 16/05/2023 |      3       |            Legal updates             |
+| 13/04/2023 |      2       |          Tech Specs Updates          |
+| 02/03/2023 |      1       |            First Release             |

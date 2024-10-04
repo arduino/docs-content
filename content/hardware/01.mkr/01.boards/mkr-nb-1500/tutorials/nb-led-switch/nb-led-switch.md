@@ -63,9 +63,9 @@ The circuit for this tutorial is easy: simply attach the dipole antenna to the b
 
 We will now get to the programming part of this tutorial. 
 
-**1.** First, let's make sure we have the drivers installed. If we are using the Web Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
+**1.** First, let's make sure we have the drivers installed. If we are using the Cloud Editor, we do not need to install anything. If we are using an offline editor, we need to install it manually. This can be done by navigating to **Tools > Board > Board Manager...**. Here we need to look for the **Arduino SAMD boards (32-bits Arm® Cortex®-M0+)** and install it. 
 
-**2.** Now, we need to install the libraries needed. If we are using the Web Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **MKRNB** and install it.
+**2.** Now, we need to install the libraries needed. If we are using the Cloud Editor, there is no need to install anything. If we are using an offline editor, simply go to **Tools > Manage libraries..**, and search for **MKRNB** and install it.
 
 **3.** We will now write the program for the board. Let's start by opening an empty sketch, and create a header file called `arduino_secrets.h` that we can store our credentials in. To create a tab in the offline editor, click the arrow symbol underneath the Serial Monitor symbol, and click on the "New tab" option.
 
@@ -81,7 +81,7 @@ Inside this file, we need to enter our pin number between the "".
 #define SECRET_PINNUMBER     "" //enter pin code between ""
 ```
 
-Note that if you are using the Web Editor, the `arduino_secrets.h` tab will look a bit different.
+Note that if you are using the Cloud Editor, the `arduino_secrets.h` tab will look a bit different.
 
 **4.** We can now take a look at some of the core functions of this sketch:
 

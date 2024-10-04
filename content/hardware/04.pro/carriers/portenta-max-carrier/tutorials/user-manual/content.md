@@ -41,13 +41,13 @@ This user manual offers a detailed guide on the Portenta Max Carrier, consolidat
 * [Portenta X8](https://store.arduino.cc/products/portenta-x8) (x1)
 * [Portenta C33](https://store.arduino.cc/products/portenta-c33) (x1)
 * [Portenta H7](https://store.arduino.cc/products/portenta-h7) (x1)
-* USB-C® cable (either USB-C® to USB-A or USB-C® to USB-C®) (x1)
+* [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c) (x1)
 * Wi-Fi® Access Point or Ethernet with Internet access (x1)
 * Compatible antennas like the [Arduino Pro 4G Module Antennas Kit](https://store.arduino.cc/products/4g-module-antenna) (x1)
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Web Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ## Product Overview
 
@@ -216,9 +216,9 @@ The Portenta Max Carrier incorporates two DIP switches, giving users the ability
 
 For configurations when the Portenta Max Carrier is combined with the Portenta boards, the DIP switch governs these settings:
 
-| **Ethernet DIP Switch Designation** | **Position: ON**  | **Position: OFF** |
-|:-----------------------------------:|:-----------------:|:-----------------:|
-|                1 - 2                | Ethernet Disabled for X8 / Enabled for H7/C33 | Ethernet Enabled for X8 / Disabled for H7/C33  |
+| **Ethernet DIP Switch Designation** |               **Position: ON**                |               **Position: OFF**               |
+|:-----------------------------------:|:---------------------------------------------:|:---------------------------------------------:|
+|                1 - 2                | Ethernet Disabled for X8 / Enabled for H7/C33 | Ethernet Enabled for X8 / Disabled for H7/C33 |
 
 For an in-depth understanding of the DIP switch, kindly refer to [this section](#dip-switch-configuration).
 

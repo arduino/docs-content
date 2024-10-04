@@ -142,10 +142,10 @@ To **allow** compatibility with the **Arduino Portenta X8** it is needed to cut 
 ### Getting Started - IDE
 If you want to program your Portenta H7 with the Breakout Board while offline you need to install the Arduino Desktop IDE **[1]**. To connect your Portenta H7 with the Portenta Breakout Board to your computer, you will need a Type-C USB cable. This also provides power to both the Portenta H7 as well as the Portenta Breakout Board. Alternatively, in order to provide power to the USB connectors and the 5V pins, a 5V source must be applied to J8. This will also provide power to the Portenta H7.
 
-### Getting Started - Arduino Web Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Web Editor **[2]**, by just installing a simple plugin.
+### Getting Started - Arduino Cloud Editor
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor **[2]**, by just installing a simple plugin.
 
-The Arduino Web Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow **[3]** to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 All Arduino IoT-enabled products are supported on Arduino Cloud which allows you to log, graph and analyze sensor data, trigger events, and automate your home or business.
@@ -397,7 +397,8 @@ As a global supplier of electronic and electrical components, Arduino is aware o
 
 ## Change Log
 | **Date**   | **Revision** | **Changes**                                 |
-| ---------- | ------------ | ------------------------------------------- |
+|------------|--------------|---------------------------------------------|
+| 03/09/2024 | 5            | Cloud Editor updated from Web Editor        |
 | 05/12/2023 | 4            | Accessories section updated and small fixes |
 | 23/08/2022 | 3            | Add RJ-45 jumpers information               |
 | 14/12/2021 | 2            | Clarified Camera compatibility              |

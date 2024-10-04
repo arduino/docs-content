@@ -135,9 +135,10 @@ Communication with  NINA Module W102 happens through UART and SPI through the fo
 
 ### Wi-Fi® Module
 
-Wi-Fi® connectivity is provided by a Nina W102 Module. This module contains a STM32L0 processor along with a Semtech SX1276 Radio. The processor is running on Arduino open source firmware based on Semtech code.
+### Wi-Fi®/Bluetooth® Communication Module
+Nina W102 is based on ESP32 and is delivered with a pre-certified software stack from Arduino. Source code for the firmware is available [1].
 
-**NOTE:** Although Firmware is open source, modifying it will require recertification of the radio stack.
+**NOTE:** Reprogramming the wireless module’s firmware with a custom one will invalidate compliance with radio standards as certified by Arduino, hence this is not recommended unless the application is used in private laboratories far from other electronic equipment and people. Usage of custom firmware on radio modules is the sole responsibility of the user.
 
 ### Crypto Chips
 The crypto chip in Arduino IoT boards is what makes the difference with other less secure boards as it provides a secure way to store secrets such as certificates and it also allows accelerating secure protocols while never exposing secrets in plain text.
@@ -149,21 +150,21 @@ The crypto chip in Arduino IoT boards is what makes the difference with other le
 
 ## Board Operation
 ### Getting Started - IDE
-If you want to program your MKR WiFi 1010 while offline you need to install the Arduino Desktop IDE [1] To connect the MKR WiFi 1010 to your computer, you’ll need a micro-B USB cable. This also provides power to the board, as indicated by the LED.
+If you want to program your MKR WiFi 1010 while offline you need to install the Arduino Desktop IDE [2] To connect the MKR WiFi 1010 to your computer, you’ll need a micro-B USB cable. This also provides power to the board, as indicated by the LED.
 
 ### Getting Started - Arduino Cloud Editor
-All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [2], by just installing a simple plugin.
+All Arduino boards, including this one, work out-of-the-box on the Arduino Cloud Editor [3], by just installing a simple plugin.
 
-The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [3] to start coding on the browser and upload your sketches onto your board.
+The Arduino Cloud Editor is hosted online, therefore it will always be up-to-date with the latest features and support for all boards. Follow [4] to start coding on the browser and upload your sketches onto your board.
 
 ### Getting Started - Arduino Cloud
 All Arduino IoT enabled products are supported on Arduino Cloud which allows you to Log, graph and analyze sensor data, trigger events, and automate your home or business.
 
 ### Arduino Forum
-Discussions and ideas for the MKR WiFi 1010 can be found in the Arduino Forum [4].
+Discussions and ideas for the MKR WiFi 1010 can be found in the Arduino Forum [5].
 
 ### Online Resources
-Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub [5], the Arduino Library Reference [6] and the online store [7] where you will be able to complement your board with sensors, actuators and more.
+Now that you have gone through the basics of what you can do with the board you can explore the endless possibilities it provides by checking exciting projects on Arduino Project Hub [6], the Arduino Library Reference [7] and the online store [8] where you will be able to complement your board with sensors, actuators and more.
 
 ### Board Recovery
 All Arduino boards have a built-in bootloader which allows flashing the board via USB. In case a sketch locks up the processor and the board is not reachable anymore via USB it is possible to enter bootloader mode by double-tapping the reset button right after power up.
@@ -336,6 +337,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | Ref                                    | Link                                                                     |
 | -------------------------------------- | ------------------------------------------------------------------------ |
+| NINA Firmware                          | https://github.com/arduino/nina-fw                                       |
 | Arduino IDE (Desktop)                  | https://www.arduino.cc/en/software                                       |
 | Arduino Cloud Editor                   | https://create.arduino.cc/editor                                         |
 | Arduino Cloud Editor - Getting Started | https://docs.arduino.cc/arduino-cloud/guides/editor/                     |
@@ -349,6 +351,7 @@ Hereby, Arduino S.r.l. declares that this product is in compliance with essentia
 
 | **Date**   | **Revision** | **Changes**                           |
 | ---------- | ------------ | ------------------------------------- |
+| 25/04/2024 | 5            | Updated Wi-Fi module information      |
 | 25/04/2024 | 4            | Updated link to new Cloud Editor      |
 | 27/09/2022 | 3            | Rendering problems fixed              |
 | 20/09/2022 | 2            | Migration to Markdown, links updated, small typos fixed|

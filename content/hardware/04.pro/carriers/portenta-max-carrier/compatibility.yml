@@ -3,7 +3,7 @@ software:
   - arduino-ide-v2
   - arduino-cli
   - iot-cloud
-  - web-editor
+  - cloud-editor
   - linux
 hardware:
   boards:

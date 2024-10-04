@@ -24,6 +24,10 @@ This user manual will guide you through a practical journey covering the most in
 
 ![RGB Lightbulb with Nano Matter](assets/matter-google.gif)
 
+## The Community Preview
+
+The actual Arduino Nano Matter board available in the market is a community preview. **The Matter Color Light will be the only officially Matter-certified profile for the Nano Matter Community Preview. Currently under certification.**
+
 ## Hardware and Software Requirements
 ### Hardware Requirements
 
@@ -32,7 +36,7 @@ This user manual will guide you through a practical journey covering the most in
 
 ### Software Requirements
 
-- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or [Arduino Cloud Editor](https://create.arduino.cc/editor)
+- [Arduino IDE 2.0+](https://www.arduino.cc/en/software) or [Arduino Cloud Editor](https://create.arduino.cc/editor)
 
 ### Board Core and Libraries
 

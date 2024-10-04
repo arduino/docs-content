@@ -14,7 +14,7 @@ hardware:
 
 ## Overview
 
-In this tutorial, you will learn how to build an image for the Portenta X8 with the source code provided at our [GitHub repository for lmp-manifest](https://github.com/arduino/lmp-manifest). It is an ideal approach for debugging system elements like the bootloader or kernel support by building images locally.
+In this tutorial, you will learn how to build an image for the Portenta X8 with the source code provided at our [GitHub repository for lmp-manifest](https://github.com/arduino/lmp-manifest/). It is an ideal approach for debugging system elements like the bootloader or kernel support by building images locally.
 
 ***Images built locally cannot register with FoundriesFactory and will not be OTA compatible, but this is a good alternative for those who do not have a FoundriesFactory subscription.***
 
@@ -31,6 +31,7 @@ This tutorial targets customers that are not FoundriesFactory subscribers, but s
 ### Required Hardware and Software
 
 - [Portenta X8](https://store.arduino.cc/products/portenta-x8)
+- [USB-C® cable (USB-C® to USB-A cable)](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - [Docker Engine](https://docs.docker.com/engine/install/)
 - ~60GB of available storage space on your machine
 
@@ -40,9 +41,9 @@ This tutorial targets customers that are not FoundriesFactory subscribers, but s
 
 #### Build the Docker Image
 
-You will start by creating a Docker image with the necessary dependencies to build your device image. This involves cloning the [lmp-manifest repository](https://github.com/arduino/lmp-manifest) from Arduino's GitHub. Follow these steps:
+You will start by creating a Docker image with the necessary dependencies to build your device image. This involves cloning the [lmp-manifest repository](https://github.com/arduino/lmp-manifest/) from Arduino's GitHub. Follow these steps:
 
-Clone the [lmp-manifest repository](https://github.com/arduino/lmp-manifest) using the command below:
+Clone the [lmp-manifest repository](https://github.com/arduino/lmp-manifest/) using the command below:
 
 ```bash
 git clone https://github.com/arduino/lmp-manifest.git
@@ -111,8 +112,16 @@ cd /dockerVolume
 ```
 
 ```bash
-repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b release
+repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml -b main
 ```
+
+If no specific branch is mentioned, the command could default to:
+
+```bash
+repo init -u https://github.com/arduino/lmp-manifest.git -m arduino.xml
+```
+
+This would implicitly use the default branch, which is typically the *main* in repositories these days.
 
 ![Git-repo initialization](assets/repo_init.png)
 

@@ -26,9 +26,9 @@ This tutorial explains how to connect your Portenta H7 to The Things Network (TT
 
 - [Portenta H7](https://store.arduino.cc/portenta-h7)
 - [Portenta Vision Shield - LoRa](https://store.arduino.cc/portenta-vision-shield-lora)
-- [1x Dipole Pentaband antenna](https://store.arduino.cc/antenna) or a UFL Antenna of the H7 
-- Arduino [offline](https://www.arduino.cc/en/main/software) IDE or Arduino [Web Editor](https://create.arduino.cc/)
-- USB-C® cable (either USB-A to USB-C® or USB-C® to USB-C®)
+- [Dipole Pentaband antenna](https://store.arduino.cc/antenna) or a UFL Antenna of the H7 (x1)
+- [Arduino IDE 1.8.10+](https://www.arduino.cc/en/software), [Arduino IDE 2.0+](https://www.arduino.cc/en/software), or the [Arduino Cloud Editor](https://create.arduino.cc/editor)
+- [USB-C® cable](https://store.arduino.cc/products/usb-cable2in1-type-c)
 - An [account](https://console.cloud.thethings.network/) with The Things Network
 
 ### Updating the LoRa® Module Firmware
@@ -87,7 +87,7 @@ Let's take a closer look at these sections:
 
 It iss now time to connect your Portenta H7 and  Portenta Vision Shield - LoRa to TTN. You will need to upload code to the board, so, as you probably already know, there are two options:
 
-- Use the [Arduino Web Editor](https://create.arduino.cc/editor) 
+- Use the [Arduino Cloud Editor](https://create.arduino.cc/editor) 
 - Use the [Arduino IDE](https://www.arduino.cc/en/software), (this is the option this guide will follow)
 
 Plug the Portenta Vision Shield - LoRa to the Portenta H7 and them to your PC through the USB port. Be sure to have selected the right board "Arduino Portenta H7 (M7 core)" and the right port.
