@@ -218,11 +218,13 @@ Opta's maximum power consumption at +12 VDC is 2 W, and at +24 VDC is 2.2 W.
 
 ### Programmable Inputs
 
-The image below shows Opta™ devices have **eight analog/digital programmable inputs** accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. 
+The image below shows Opta™ devices have **eight digital/analog programmable inputs** accessible through terminals `I1`, `I2`, `I3`, `I4`, `I5`, `I6`, `I7`, and `I8`. 
 
 ![Programmable input terminals in Opta™ devices](assets/user-manual-9-2.png)
 
-Analog/digital input terminals are mapped as described in the following table:
+***The Opta™ digital inputs also support 0 to +10 VDC logic level sensors.***
+
+Digital/analog input terminals are mapped as described in the following table:
 
 | **Opta™ Terminal** | **Arduino Pin Mapping** |
 |:------------------:|:-----------------------:|
@@ -234,6 +236,71 @@ Analog/digital input terminals are mapped as described in the following table:
 |        `I6`        |      `A5`/`PIN_A5`      |
 |        `I7`        |      `A6`/`PIN_A6`      |
 |        `I8`        |      `A7`/`PIN_A7`      |
+
+#### Digital Inputs
+<br></br>
+
+The input voltage range for each digital input terminal is the following:
+
+- **Input voltage range**: 0 to +24 VDC
+
+***The Opta™ digital inputs also support 0 to +10 VDC logic level sensors.***
+
+The input terminals can be used through the built-in functions of the [Arduino programming language](https://www.arduino.cc/reference/en/). To use the input terminals as digital inputs:
+
+- Add the `pinMode(pinName, INPUT)` instruction in your sketch's `setup()` function.
+
+The sketch below shows how to monitor digital states on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets them as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor real-time changes.
+
+```arduino
+/**
+  Opta's Digital Input Terminals
+  Name: opta_digital_inputs_example.ino
+  Purpose: This sketch demonstrates the use of I1, I2, and I3 input
+  terminals as digital inputs on Opta.
+
+  @author Arduino PRO Content Team
+  @version 2.0 23/07/23
+*/
+
+// Array of terminals.
+const int TERMINALS[] = {A0, A1, A2};
+
+// Number of terminals.
+const int NUM_PINS = 3;
+
+void setup() {
+  // Initialize serial communication at 9600 bits per second.
+  Serial.begin(9600);
+
+  // Set the mode of the pins as digital inputs.
+  for (int i = 0; i < NUM_PINS; i++) {
+    pinMode(TERMINALS[i], INPUT);
+  }
+}
+
+void loop() {
+  // Loop through each of the terminal, read the terminal digital value, and print the result.
+  for (int i = 0; i < NUM_PINS; i++) {
+    readAndPrint(TERMINALS[i], i + 1);
+  }
+
+  // Delay for a second before reading the terminals again.
+  delay(1000);
+}
+
+// This function reads the digital value from the specified pin and prints the result.
+void readAndPrint(int terminal, int terminalNumber) {
+  // Read the input value from the digital pin.
+  int terminalValue = digitalRead(terminal);
+  
+  // Print the terminal value.
+  Serial.print("I");
+  Serial.print(terminalNumber);
+  Serial.print(" value: ");
+  Serial.println(terminalValue);
+}
+```
 
 #### Analog Inputs
 <br></br>
@@ -305,69 +372,6 @@ void readAndPrint(int terminal, int terminalNumber) {
   Serial.print(" corresponding to ");
   Serial.print(voltage, 5);
   Serial.println(" VDC");
-}
-```
-
-#### Digital Inputs
-<br></br>
-
-The input voltage range for each digital input terminal is the following:
-
-- **Input voltage range**: 0 to +24 VDC
-
-The input terminals can be used through the built-in functions of the [Arduino programming language](https://www.arduino.cc/reference/en/). To use the input terminals as digital inputs:
-
-- Add the `pinMode(pinName, INPUT)` instruction in your sketch's `setup()` function.
-
-The sketch below shows how to monitor digital states on Opta's input terminals `I1`, `I2`, and `I3`. It initializes a serial connection, takes readings from each defined terminal, and interprets them as either `HIGH` or `LOW` digital states. These states are then output through the Arduino IDE's Serial Monitor. The state readings are looped every second, allowing you to monitor real-time changes.
-
-```arduino
-/**
-  Opta's Digital Input Terminals
-  Name: opta_digital_inputs_example.ino
-  Purpose: This sketch demonstrates the use of I1, I2, and I3 input
-  terminals as digital inputs on Opta.
-
-  @author Arduino PRO Content Team
-  @version 2.0 23/07/23
-*/
-
-// Array of terminals.
-const int TERMINALS[] = {A0, A1, A2};
-
-// Number of terminals.
-const int NUM_PINS = 3;
-
-void setup() {
-  // Initialize serial communication at 9600 bits per second.
-  Serial.begin(9600);
-
-  // Set the mode of the pins as digital inputs.
-  for (int i = 0; i < NUM_PINS; i++) {
-    pinMode(TERMINALS[i], INPUT);
-  }
-}
-
-void loop() {
-  // Loop through each of the terminal, read the terminal digital value, and print the result.
-  for (int i = 0; i < NUM_PINS; i++) {
-    readAndPrint(TERMINALS[i], i + 1);
-  }
-
-  // Delay for a second before reading the terminals again.
-  delay(1000);
-}
-
-// This function reads the digital value from the specified pin and prints the result.
-void readAndPrint(int terminal, int terminalNumber) {
-  // Read the input value from the digital pin.
-  int terminalValue = digitalRead(terminal);
-  
-  // Print the terminal value.
-  Serial.print("I");
-  Serial.print(terminalNumber);
-  Serial.print(" value: ");
-  Serial.println(terminalValue);
 }
 ```
 
@@ -1719,6 +1723,17 @@ To learn more about Opta™ and the Arduino IoT Cloud, check out the following r
 
 ## Opta Expansions
 
+| Characteristics                     | Details                                                                                               |
+|-------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Supply Voltage                      | 12...24 V                                                                                             |
+| Antipolarity protection             | Yes                                                                                                   |
+| Overvoltage protection              | Yes (+20%)                                                                                            |
+| Maximum Supported Expansion Modules | Up to 5                                                                                               |
+| Inputs                              | 16x Digital (0-24 V) / Analog (0-10 V or 0-24 V) inputs                                               |
+| Outputs                             | AFX00005: 8x Electromechanical Relays (250 VAC - 6 A), AFX00006: 8x Solid State Relays (24 VDC - 3 A) |
+| Degree of Protection                | IP20                                                                                                  |
+| Certifications                      | FCC, CE, UKCA                                                                                         |
+
 ### Snapping the Expansion
 
 You can snap up to five expansions to your Opta™ Base module to multiply and mix your set of I/Os with seamless detection.
@@ -1839,7 +1854,7 @@ In the image below there is an example of the power wiring of the expansions:
 
 The Opta™ Expansions have **16x analog/digital programmable inputs** accessible through terminals `I1` to `I16`.
 
-Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** with a 0-24 VDC range or as **analog** inputs with a 0-24 VDC range. The inputs are capable of operating with 0-10V analog sensors as well as 0-24V sensors. 
+Both Ext D1608E and Ext D1608S variant inputs can be used as **digital** within the 0-24 VDC range or as **analog** inputs within the 0-10 VDC or 0-24 VDC range. The analog inputs are capable of operating with 0-10 VDC analog sensors as well as 0-24 VDC sensors. 
 
 ***The inputs are marked on plastic as DGT/0-10 V to maintain uniformity with the main Opta module and as conventionally the majority of industrial analog sensors work in the 0-10 V range.***
 
@@ -2184,6 +2199,12 @@ void loop() {
 }
 ```
 To fully understand the example above, we recommend you to check the [General Library Notes](#general-library-notes) section.
+
+The voltage of an analog input can be read using the built-in function `pinVoltage()` as shown below:
+
+```arduino
+float V = exp.pinVoltage(<input>, false); // read the <input> and returns a voltage value
+```
 
 After the Opta™ controller is programmed with the example sketch, open the Arduino IDE Serial Monitor and you will see each input voltage as follows:
 
