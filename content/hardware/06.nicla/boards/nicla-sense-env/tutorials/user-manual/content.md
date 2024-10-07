@@ -521,6 +521,8 @@ You can download the example sketch [here](assets/nicla_sense_env_low_power_mode
 
 This section of the user manual explains how to control both the onboard orange and RGB and LEDs on the Nicla Sense Env board using the `Arduino_NiclaSenseEnv` library API. The LEDs can be used to provide visual feedback for various operations, such as indicating status, warnings, or sensor errors. This section covers the basic usage of both LEDs, including turning them on, changing colors, and adjusting brightness.
 
+![The onboard LEDs of the Nicla Sense Env board](assets/user-manual-20.png)
+
 ### Orange LED
 
 The onboard orange LED on the Nicla Sense Env board can be controlled using the `Arduino_NiclaSenseEnv` library. The example sketch shown below shows how to smoothly increase and decrease the brightness of the onboard orange LED. The LED pulses continuously in the `loop()` function.
