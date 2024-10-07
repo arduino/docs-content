@@ -42,6 +42,8 @@ This user manual provides a comprehensive Nicla Sense Env board overview, highli
 
 Enhance your environmental sensing capabilities with the Nicla Sense Env board. This board combines three cutting-edge sensors from Renesas® with the Arduino ecosystem's ease of integration and scalability. This board is well-suited for augmenting your Portenta or MKR-based projects with environmental sensing capabilities.
 
+![ ](assets/front_page.png)
+
 The Nicla Sense Env includes an ultra-low power temperature and humidity sensor, complemented by two sophisticated industrial-grade gas sensors capable of assessing air quality in indoor and outdoor settings. Its compact dimensions (22.86 x 22.86 mm) and sturdy build make the Nicla Sense Env an excellent choice for projects that demand sensor fusion and the computational capabilities of Arduino boards.
 
 ### Nicla Sense Env Architecture Overview
@@ -62,8 +64,8 @@ Here's an overview of the board's main components shown in the images above:
 - **Onboard humidity and temperature sensor**: The Nicla Sense Env features an onboard humidity and temperature sensor, the [HS4001 from Renesas](https://www.renesas.com/us/en/products/sensor-products/environmental-sensors/humidity-temperature-sensors/hs4001-relative-humidity-and-temperature-sensor-digital-output-15-rh). This highly accurate, ultra-low power, fully calibrated relative humidity and temperature sensor features proprietary sensor-level protection, ensuring high reliability and long-term stability.
 - **Onboard indoor air quality sensor**: The Nicla Sense Env features an onboard gas sensor, the [ZMOD4410 from Renesas](https://www.renesas.com/us/en/document/dst/zmod4410-datasheet). This sophisticated sensor was designed to detect total volatile organic compounds (TVOC), estimate CO<sub>2</sub>, and monitor and report indoor air quality (IAQ). 
 - **Onboard outdoor air quality sensor**: The Nicla Sense Env features an onboard gas sensor, the [ZMOD4510 from Renesas](https://www.renesas.com/us/en/document/dst/zmod4410-datasheet). This sophisticated sensor was designed to monitor and report outdoor air quality (OAQ) based on nitrogen dioxide (NO<sub>2</sub>) and ozone (O<sub>3</sub>) measurements. 
-- **Onboard user LEDs**: The Nicla Sense Env has two onboard user-programmable LEDs; one is a white LED, and the other one is an RGB LED.
-- **ESLOV connector**: The Niclas Sense Env has an onboard ESLOV connector to extend the board communication capabilities via I<sup>2</sup>C. 
+- **Onboard user LEDs**: The Nicla Sense Env has two onboard user-programmable LEDs; one is a orange LED, and the other one is an RGB LED.
+- **ESLOV connector**: The Nicla Sense Env has an onboard ESLOV connector to extend the board communication capabilities via I<sup>2</sup>C. 
 - **Surface mount**: The castellated pins of the board allow it to be positioned as a surface-mountable module.
 
 ### Board Libraries 
@@ -73,7 +75,7 @@ The [`Arduino_NiclaSenseEnv` library](https://github.com/arduino-libraries/Ardui
 - Board control (sleep, reset, and factory reset)
 - Board configuration (I<sup>2</sup>C address configuration)
 - Onboard RGB LED control
-- Onboard white LED control
+- Onboard orange LED control
 - Onboard indoor air quality sensor control (sulfur detection, odor intensity, ethanol level, TVOC, CO<sub>2</sub>, IAQ measurements)
 - Onboard outdoor air quality sensor control (NO<sub>2</sub>, O<sub>3</sub>, OAQ measurements)
 - Temperature and humidity sensor control
@@ -83,7 +85,7 @@ The [`Arduino_NiclaSenseEnv` library](https://github.com/arduino-libraries/Ardui
 
 To install the `Arduino_NiclaSenseEnv` library, navigate to `Tools > Manage libraries...` or click the **Library Manager** icon in the left tab of the Arduino IDE. In the Library Manager tab, search for `Arduino_NiclaSenseEnv` and install the latest version of the library.
 
-![Installing the Arduino_NiclaSenseEnv library](assets/user-manual-3.png)
+![Installing the board's library in the Arduino IDE](assets/user-manual-3.png)
 
 ### Pinout
 
@@ -516,6 +518,157 @@ After uploading the example sketch to the host board, you should see the followi
 You can download the example sketch [here](assets/nicla_sense_env_low_power_mode_example.zip).
 
 ## LEDs
+
+This section of the user manual explains how to control both the onboard orange and RGB and LEDs on the Nicla Sense Env board using the `Arduino_NiclaSenseEnv` library API. The LEDs can be used to provide visual feedback for various operations, such as indicating status, warnings, or sensor errors. This section covers the basic usage of both LEDs, including turning them on, changing colors, and adjusting brightness.
+
+### Orange LED
+
+The onboard orange LED on the Nicla Sense Env board can be controlled using the `Arduino_NiclaSenseEnv` library. The example sketch shown below shows how to smoothly increase and decrease the brightness of the onboard orange LED. The LED pulses continuously in the `loop()` function.
+
+```arduino
+/**
+  Orange LED Control Example for Nicla Sense Env
+  Name: nicla_sense_env_orange_led_control_example_smooth_brightness.ino
+  Purpose: This sketch demonstrates how to smoothly control the orange LED 
+  by increasing and decreasing its brightness using the Arduino_NiclaSenseEnv library.
+  
+  @author Arduino Product Experience Team
+  @version 1.0 31/05/24
+*/
+
+// Include the NiclaSenseEnv library
+#include "Arduino_NiclaSenseEnv.h"
+
+// Global device object for Nicla Sense Env
+NiclaSenseEnv device;
+
+// Initial brightness level
+int brightness = 0;  
+
+// Amount to increase/decrease the brightness by each loop
+int fadeAmount = 5;  
+
+void setup() {  
+    // Initialize serial communication and wait up to 2.5 seconds for a connection
+    Serial.begin(115200);
+    for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+    if (device.begin()) {
+        Serial.println("- Device successfully initialized!");
+    } else {
+        Serial.println("- Failed to initialize the device. Please check the connection!");
+    }
+}
+
+void loop() {
+    // Get the orange LED object
+    auto orangeLED = device.orangeLED();
+
+    // Set the brightness level
+    orangeLED.setBrightness(brightness);
+
+    // Change the brightness for next time through the loop
+    brightness += fadeAmount;
+
+    // Reverse the direction of the fading at the ends of the fade (0 and 255)
+    if (brightness <= 0 || brightness >= 255) {
+        // Change the direction of the fade
+        fadeAmount = -fadeAmount;  
+    }
+
+    // Wait for a short time before updating the brightness again
+    delay(30);
+}
+```
+
+Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+
+- `device.begin()`: Initializes the Nicla Sense Env board, setting up communication with all onboard sensors and components, including the orange LED.
+- `orangeLED.setBrightness(uint8_t brightness)`: Adjusts the brightness of the orange LED. The brightness ranges from `0` (off) to `255` (full brightness). In this sketch, the brightness gradually increases from `0` to `255` and then decreases back to 0, creating a smooth pulsing effect.
+- `fadeAmount`: Controls the rate of change of brightness. When the brightness reaches either 0 or 255, the direction of change is reversed, making the LED brightness smoothly cycle up and down.
+
+After uploading the example sketch to the Nicla Sense Env board, you should see the orange LED smoothly increase and decrease in brightness, creating a continuous pulsing effect.
+
+You can download the example sketch [here](assets/nicla_sense_env_orange_led_control_example.zip).
+
+### RGB LED
+
+The onboard RGB LED on the Nicla Sense Env board can be controlled using the `Arduino_NiclaSenseEnv` library. The example sketch shown below shows how to turn on the LED with different colors and then turn it off using the `setColor()` and `setBrightness()` functions. The LED colors cycle continuously in the `loop()` function.
+
+```arduino
+/**
+  RGB LED Control Example for Nicla Sense Env (with brightness control)
+  Name: nicla_sense_env_rgb_led_control_example_brightness.ino
+  Purpose: This sketch demonstrates how to control the RGB LED by setting 
+  different colors and ensuring brightness control using the Arduino_NiclaSenseEnv library.
+  
+  @author Arduino Product Experience Team
+  @version 1.0 31/05/24
+*/
+
+// Include the NiclaSenseEnv library
+#include "Arduino_NiclaSenseEnv.h"
+
+// Global device object for Nicla Sense Env
+NiclaSenseEnv device;
+
+void setup() {  
+    // Initialize serial communication and wait up to 2.5 seconds for a connection
+    Serial.begin(115200);
+    for (auto startNow = millis() + 2500; !Serial && millis() < startNow; delay(500));
+
+    if (device.begin()) {
+        Serial.println("- Device successfully initialized!");
+    } else {
+        Serial.println("- Failed to initialize the device. Please check the connection!");
+    }
+}
+
+void loop() {
+    // Get the RGB LED object
+    auto rgbLED = device.rgbLED();
+
+    // Turn on the LED with red color
+    rgbLED.setColor(255, 0, 0);  
+    // Ensure maximum brightness, wait for one second
+    rgbLED.setBrightness(255);   
+    Serial.println("- RGB LED is now red!");
+    delay(1000);
+
+    // Turn on the LED with green color
+    rgbLED.setColor(0, 255, 0);  
+    // Ensure maximum brightness, wait for one second
+    rgbLED.setBrightness(255);   
+    Serial.println("- RGB LED is now green!");
+    delay(1000); 
+
+    // Turn on the LED with blue color
+    rgbLED.setColor(0, 0, 255); 
+    // Ensure maximum brightness, wait for one second
+    rgbLED.setBrightness(255);  
+    Serial.println("- RGB LED is now blue!");
+    delay(1000);
+
+    // Set the LED color to black and brightness to 0 to turn it off
+    rgbLED.setColor(0, 0, 0);    
+    // Ensure minimum brightness, wait for one second
+    rgbLED.setBrightness(0);
+    Serial.println("- RGB LED is now off!");
+    delay(1000); 
+}
+```
+
+Here is a detailed breakdown of the example sketch shown before and the `Arduino_NiclaSenseEnv` library API functions used in the sketch:
+
+- `device.begin()`: Initializes the Nicla Sense Env board, setting up communication with all onboard sensors and components, including the RGB LED.
+- `rgbLED.setColor(uint8_t red, uint8_t green, uint8_t blue)`: This function sets the RGB LED to a specific color by specifying the intensity of the red, green, and blue components. Each value can range from `0` (off) to `255` (full brightness). In the example, the RGB LED cycles through red (255, 0, 0), green (0, 255, 0), and blue (0, 0, 255).
+- `rgbLED.setBrightness(uint8_t brightness)`: Adjusts the brightness of the RGB LED. The value ranges from `0` (off) to `255` (full brightness). In the sketch, the brightness is set to 255 (maximum) when the LED is on, and to 0 (off) when the LED is turned off.
+
+After uploading the example sketch to the Nicla Sense Env board, you should see the following output in the Arduino IDE's Serial Monitor:
+
+![Example sketch output in the Arduino IDE's Serial Monitor](assets/user-manual-19.png)
+
+You can download the example sketch [here](assets/nicla_sense_env_rgb_led_control_example_brightness.zip).
 
 ## Temperature and Humidity Sensor
 
